@@ -10,7 +10,7 @@
 
 ## MoCap Resources
 
-For information about MoCap see:
+有关MoCap的信息，请参阅：
 - [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md) (PX4 Developer Guide) <!-- bring across info into user guide? -->
 - [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture-vicon-optitrack.md) (PX4 Developer Guide)  <!-- bring across info into user guide? -->
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)

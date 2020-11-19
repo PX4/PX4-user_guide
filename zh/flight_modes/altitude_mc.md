@@ -8,7 +8,7 @@
 
 > **注意***高度模式*是对于新手而言最安全的非GPS手动模式。 它就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式，但额外地在操纵杆回中时锁定飞机高度。
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![高度控制MC - Mode2 RC控制器](../../assets/flight_modes/altitude_control_mode_copter.png)
 
@@ -23,7 +23,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
   * 翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
   * 油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
   * 偏航摇杆控制水平面上方的角度旋转速率。
-* Takeoff: 
+* 起飞 Takeoff: 
   * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
 
 > **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。

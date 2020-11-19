@@ -6,20 +6,20 @@
 
 本节包含的 *重要* 配置如下：
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Gyroscope](../config/gyroscope.md)
-* [Accelerometer](../config/accelerometer.md)
+* [固件](../config/firmware.md)
+* [机架](../config/airframe.md)
+* [传感器方向](../config/flight_controller_orientation.md)
+* [罗盘](../config/compass.md)
+* [陀螺仪](../config/gyroscope.md)
+* [加速度计 Accelerometer](../config/accelerometer.md)
 * [Airspeed](../config/airspeed.md) (fixed-wing/VTOL)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Joystick Setup](../config/joystick.md)
+* [水平平面校准](../config/level_horizon_calibration.md)
+* [无线电系统设置](../config/radio.md)
+* [操纵杆设置](../config/joystick.md)
 * [Flight Modes](../config/flight_mode.md) (Optional)
 * [Battery](../config/battery.md) (optional)
 * [Safety](../config/safety.md) (optional)
-* [Motors/Servos](../config/motors.md)
+* [电机/舵机](../config/motors.md)
 
 > **Note** 对于 [支持的机架](../config/airframe.md) 只需要这种基本配置。 如果要创建新的机架，还需要执行调整 (请参阅 [高级配置](../advanced_config/README.md) )。
 

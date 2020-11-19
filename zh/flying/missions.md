@@ -26,6 +26,6 @@ Vehicle types that cannot independently control yaw and direction of travel will
 
 ## 执行飞行任务
 
-Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
+一旦任务上传, 切换到飞行视图。 该任务以便于跟踪进度的方式显示 (在此视图中无法修改航点)。
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)

@@ -18,7 +18,7 @@ In [Mission mode](../flight_modes/mission.md) the weather vane feature will alwa
 
 <span id="configuration"></span>
 
-## Configuration
+## 配置
 
 This functionality is configured using the [WV_* parameters](../advanced_config/parameter_reference.md#WV_EN).
 

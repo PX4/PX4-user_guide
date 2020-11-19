@@ -18,7 +18,7 @@ The following firmware options need to be selected when buying the device:
 - RTK
 - BASE
 
-## Purchase
+## 采购
 
 Contact [Femtones](http://www.femtomes.com) directly for sales quote:
 - **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
@@ -28,14 +28,14 @@ Contact [Femtones](http://www.femtomes.com) directly for sales quote:
 
 ![MINI II 1](../../assets/hardware/gps/rtk_fem_miniII_1.jpg)
 
-## Wiring and Connections
+## 接线和连接
 
 The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flight controller (GPS port) for data. To power the module you will need a separate 12V power supply. The pins on the 12-pin connector are numbered as shown below.
 
 ![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
 
 
-## Configuration
+## 配置
 
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 
@@ -44,7 +44,7 @@ Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)
 Once configured the receiver is used in the same way as any other [RTK GPS](../gps_compass/rtk_gps.md) (i.e. with respect to the Survey-in process).
 
 
-## Additional Information
+## 附加信息
 
 The MINI2 incorporates the following components:
 

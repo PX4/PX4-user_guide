@@ -9,7 +9,7 @@ Key information:
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Parts List
+## 配件列表
 
 ### Z-84 Plug n' Fly (PNF/PNP) or Kit
 
@@ -49,8 +49,8 @@ The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not th
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                |
 | MAIN 2 | Right Aileron               |
-| MAIN 3 | Empty                       |
-| MAIN 4 | Throttle                    |
+| MAIN 3 | 空白                          |
+| MAIN 4 | 油门                          |
 
 ## Build Log
 

@@ -1,6 +1,6 @@
 # PWM_limit 状态机
 
-[PWM_limit 状态机] 以锁定（pre-armed）和解锁（armed）模式作为功能函数的输入量对飞控的 PWM 输出进行控制， 并且会在解锁指令发出后、飞机油门增加之前引入一个延时。 Provides a delay between assertion of "armed" and a ramp-up of throttle on assertion of the armed signal.
+[PWM_limit 状态机] 以锁定（pre-armed）和解锁（armed）模式作为功能函数的输入量对飞控的 PWM 输出进行控制， 并且会在解锁指令发出后、飞机油门增加之前引入一个延时。 并且会在解锁指令发出后、飞机油门增加之前引入一个延时。
 
 ## 总览
 **输入**

@@ -1,4 +1,4 @@
-# PX4 System Console
+# PX4 系统控制台
 
 The system console allows low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a [Dronecode probe](https://shop.titaneliteinc.com/index.php?route=product/product&product_id=1294), but a plain FTDI cable can be used as well.
 
@@ -35,31 +35,31 @@ Connect the 6-pos JST SH 1:1 cable to the Dronecode probe or connect the individ
 
 The system console can be accessed through the Dronecode probe or an FTDI cable. Both options are explained in the section below.
 
-| Pixracer / Pixhawk v3 | -         | FTDI | -                |
-| --------------------- | --------- | ---- | ---------------- |
-| 2                     | + 5v (红色) |      | N/C              |
-| 2                     | UART7 Tx  | 5    | FTDI RX (yellow) |
-| 3                     | UART7 Rx  | 4    | FTDI TX (orange) |
-| 4 (blk)               | SWDIO     |      | N/C              |
-| 6                     | SWCLK     |      | N/C              |
-| 6                     | GND       | 1    | FTDI GND (黑色)    |
+| Pixracer / Pixhawk v3 | -         | FTDI | -             |
+| --------------------- | --------- | ---- | ------------- |
+| 2                     | + 5v (红色) |      | N/C           |
+| 2                     | UART7 Tx  | 5    | FTDI RX （黄色）  |
+| 3                     | UART7 Rx  | 4    | FTDI TX （橙色）  |
+| 4（黑）                  | SWDIO     |      | N/C           |
+| 6                     | SWCLK     |      | N/C           |
+| 6                     | GND       | 1    | FTDI GND (黑色) |
 
-## Opening the Console
+## 打开控制台
 
-After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
+连接控制台连接后，请使用您选择的默认串口工具或下面描述的默认工具：
 
 ### Linux / Mac OS: Screen
 
-Install screen on Ubuntu (Mac OS already has it installed):
+在 Ubuntu 上安装 screen （mac os 已经安装了它）：
 
 ```bash
 sudo apt-get install screen
 ```
 
-* Serial: Pixhawk v1 / Pixracer use 57600 baud
-* Serial: Snapdragon Flight uses 115200 baud
+* 串口：pixhawk v1/pixracer 使用 57600 波特率
+* 串口：骁龙飞控使用115200波特率
 
-Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
+将 Screen 的波特率、8个数据位、1个停止位设置好，连接到正确的串行端口（使用 `ls/dev/tty*`，并观察拔下/复制 usb 设备时发生的变化）。 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 
 ```bash
 screen /dev/ttyXXX BAUDRATE 8N1
@@ -67,10 +67,10 @@ screen /dev/ttyXXX BAUDRATE 8N1
 
 ### Windows: PuTTY
 
-Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and start it.
+下载 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 并启动它。
 
-Then select 'serial connection' and set the port parameters to:
+然后选择 "串行连接", 并将端口参数设置为:
 
-* 57600 baud
-* 8 data bits
-* 1 stop bit
+* 57600 波特率
+* 8 数据位
+* 1 个停止位

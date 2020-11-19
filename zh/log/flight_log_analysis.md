@@ -13,7 +13,7 @@
 * 如果分析是在故障发生之后进行的，那么日志是捕捉到了这次故障还是在半空中停止了记录呢？
 * 所有的控制器都跟踪到了它的设定值吗？ 最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
 * 传感器数据看起来有效吗？ 是否有非常强的震动（一个合理的判断强烈震动的阈值是所有的峰峰值是否超过 2-3m/s/s）。
-* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
+* 如果根本原因不针对于特定车辆，请确保在 [PX4问题跟踪器](https://github.com/PX4/PX4-Autopilot/issues/new) 的报告中有日志文件的链接（以及视频如果有的话）。
 
 ## 排除电力故障
 
@@ -25,7 +25,7 @@
 
 ### Flight Review（在线工具）
 
-[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
+[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 他能与新的 [ULog](../dev_log/ulog_file_format.md) 日志格式结合使用。
 
 主要特性：
 
@@ -113,9 +113,9 @@
 
 ### FlightPlot
 
-[FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
+[FlightPlot](https://github.com/PX4/FlightPlot) 是一个基于桌面的日志分析工具。 可以从 [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows) 下载。
 
-Key features:
+主要特性：
 
 * 基于 Java 的，跨平台的
 * 直观的图形用户界面，不需要编程知识
@@ -126,9 +126,9 @@ Key features:
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools) 是一个用 Python 编写的 PX4 autopilot 的日志分析工具箱。 推荐的安装过程是使用 [anaconda3](https://conda.io/docs/index.html)。 详见 [px4tools github 页面](https://github.com/dronecrew/px4tools)。
 
-Key features:
+主要特性：
 
 * 易于分享，用户可以查看笔记本电脑上的 Github (比如：[https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb))
 * 基于Python的，跨平台的，与 anaconda2 和 anaconda3 一起使用。
@@ -139,9 +139,9 @@ Key features:
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[ MAVGCL ](https://github.com/ecmnet/MAVGCL)是 PX4 在飞行中的日志分析器。 它还可以与下载的 uLog 文件一起在离线模式下使用。
 
-Key features:
+主要特性：
 
 * 基于 MAVLink 消息或 MAVLink 上 ULOG 数据的实时数据采集( 50 ms 采样，100 ms 滚动显示)
 * 由消息( MAVLink 和 ULog) 和参数更改(仅 MAVLink) 注释的时间图
@@ -156,20 +156,20 @@ Key features:
 
 ### PlotJugler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
+[PlotJugler](https://github.com/facontidavide/PlotJuggler) 是一个 Qt5 桌面应用程序 ，允许用户很容易地显示和分析以时间序列形式表示的数据。
 
-It supports **ULog files** (.ulg) since version 2.1.4.
+它支持 2.1.4 版本以后的 **Ulog 文件** (.ulg)。
 
-Key features:
+主要特性：
 
 * 直观的拖放界面。
 * 可以将数据安排在多个图表、选项卡或窗口中。
 * 整理好数据后，将其保存到“布局”文件中，这样支持多次重新加载。
 * 可以在 PlotJuggler 里处理你的数据，使用定制的“数据转换”。
 
-Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
+源代码和下载在 [Github](https://github.com/facontidavide/PlotJuggler)上。
 
-![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
+![PlotJugler](../../assets/flight_log_analysis/plotjuggler.png)
 
 ### Data Comets
 

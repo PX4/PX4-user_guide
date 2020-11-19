@@ -1,47 +1,47 @@
 # 单元测试
 
-Developers are encouraged to write unit tests during all parts of development, including adding new features, fixing bugs, and refactoring.
+我们鼓励开发人员在开发的每个模块时编写单元测试，包括添加新功能，修复错误和重构。
 
 或者，也可以直接从 bash 运行完整的单元测试：
 
 1. 在 [tests](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tests) 中创建名为 **test_ [description] .cpp** 的新 .cpp 文件。
 1. 在 **test_[description].cpp** 中包括基本 unittest-class`&lt;unit_test.h&gt;` 以及为新功能编写测试所需的所有文件。
-1. SITL unit tests. This is for tests that need to run in full SITL. These tests are much slower to run and harder to debug, so it is recommended to use GTest instead when possible.
+1. 软件在环(SITL)单元测试。 这些测试需要运行在完整的SITL环境中， 运行起来更慢，更难调试，所以建议尽可能使用GTest代替。
 
 ## 编写测试
 
 要查看 px4 shell 中可用测试的完整列表，请执行以下操作：
 
-The steps to create new unit tests are as follows:
+创建新的单元测试步骤如下：
 
-1. Unit tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
+1. 单元测试分成三个部分：设置、运行、检查结果。 每个单元测试都应该测试一个特定行为或设置案例，如果测试失败，则很明显你的测试代码有错误。 请尽可能遵循这些标准。
 1. 在 [tests_main.c](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/tests_main.c) 中添加描述名称，测试功能和选项：
-1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_unit_gtest(SRC MyNewUnitTest.cpp LINKLIBS <library_to_be_tested>)`
-1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the setup, running the code to be tested and verifying that it behaves as expected.
-1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
+1. 将新文件到该目录的`CMakeLists.txt`文件中。 文件看起来像`px4_add_unit_gtest(SRC MyNewUnitTest.cpp LINKLIBS <library_to_be_tested>)`
+1. 添加你想要的测试功能。 这包括了添加所需的头文件、新测试(每个测试都应该有单独的名称)，并加入相关逻辑，运行测试代码并验证其行为是否符合预期。
+1. 如果需要添加新的依赖库，只要在如上所说的CMakeLists文件中`LINKLIBS`后面加入库的名字。
 
-Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/unit-MyNewUnit`. It can be run directly in a debugger.
+可以通用 `make tests`命令来运行所有测试，然后在 `build/px4_sitl_test/unit-MyNewUnit`目录中找到二进行制文件。 也可以直接通过调试器中运行。
 
-## Writing a GTest Functional Test
+## 写一个GTest功能测试
 
-GTest functional tests should be used when the test or the components being tested depend on parameters, uORB messages and/or advanced GTest functionality. Additionally, functional tests can contain local usage of STL data structures (although be careful of platform differences between e.g. macOS and Linux).
+当测试或测试的组件依赖参数、uORB 消息、或更高级的GTest功能的时候，应当使用GTest功能测试。 Additionally, functional tests can contain local usage of STL data structures (although be careful of platform differences between e.g. macOS and Linux).
 
-The steps to creating new functional tests are as follows:
+创建一个新的功能测试步骤如下：
 
-1. In general (and similar to unit tests), functional tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
+1. 一般来说（与单元测试类似）功能测试应分为三个部分：设置，运行，检查结果。 每个测试都应该包括一个特定行为或是设置案例，如果测试失败，则很明显有错误。 请尽可能遵循这些标准。
 1. 注意，`ut_[name of one of the unit test functions]` 对应于 [unit_test.h ](https://github.com/PX4/Firmware/blob/master/src/include/unit_test.h) 中定义的单元测试函数之一。
-1. Rename the class from ParameterTest to something better representing the code being testing
-1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
-1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the test setup, running the code to be tested and verifying that it behaves as expected.
-1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
+1. 将ParameterTest 重命名为更符合你正在测试的代码功能。
+1. 将新文件到该目录的`CMakeLists.txt`文件中。 文件内容看起来像 `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
+1. 添加你想要的测试功能。 这包括了，添加特定的头文件、新测试（每个测试都应该使用不同的命名），并设置相关逻辑，运行测试代码并验证是否符合预期。
+1. 如果需要添加新的依赖库，只要在如上所说的CMakeLists文件中LINKLIBS后面加入库的名字。
 
-Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/functional-MyNewFunctional`. It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
+可以通用`make tests`命令来运行所有测试，然后在 `build/px4_sitl_test/functional-MyNewFunctional`目录中找到二进行制文件。 也可以直接通过调试器中运行。 It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
 
-## Writing a SITL Unit Test
+## 写一个软件在环（SITL）单元测试
 
-SITL unit tests should be used when you specifically need all of the flight controller components - drivers, time, and more. These tests are slower to run (1s+ for each new module), and harder to debug, so in general they should only be used when necessary.
+当需要所有的飞行控制组件：驱动、时间或者更多时，应该SITL单元测试。 这些测试运行较慢(每个模块至少1秒+)，同时难以测试，所以仅在必要时使用它们。
 
-The steps to create new SITL unit tests are as follows:
+创建一个新的SITL单元测试步骤如下：
 
 1. 在 [tests_main.h](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/tests_main.h) 中定义新测试：
 1. 在 **test_[description].cpp** 中创建一个继承自 `UnitTest` 的类 `[Description]Test`。
@@ -50,8 +50,8 @@ The steps to create new SITL unit tests are as follows:
 1. 在 `[Description]Test` 类中，声明公共方法 `virtual bool run_tests（）`。
 1. 在 `[Description]Test` 类中，声明测试相关特征所需的所有私有方法（`test1（）`，`test2（）`，...）。
 1. 在 **test_ [description].cpp** 的底部声明测试。
-1. Within **test_[description].cpp**, implement the various tests.
-1. At the bottom within **test_[description].cpp** declare the test.
+1. 在 **test_ [description].cpp** 中，实现各种测试。
+1. 在 **test_ [description].cpp** 的底部声明测试。
    ```cpp
    ut_declare_test_c(test_[description], [Description]Test)
    ```
@@ -144,7 +144,7 @@ The steps to create new SITL unit tests are as follows:
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
-1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. 在 [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.c) 中添加描述名称，测试功能和选项：
 
    ```cpp
    ...
@@ -159,7 +159,7 @@ The steps to create new SITL unit tests are as follows:
    ```bash
    pxh> tests all
    ```
-   or
+   或
 
    ```bash
    pxh> tests jig
@@ -177,15 +177,15 @@ Run the complete list of GTest Unit Tests, GTest Functional Tests and SITL Unit 
 make tests
 ```
 
-The individual GTest test binaries are in the `build/px4_sitl_test/` directory, and can be run directly in most IDEs' debugger.
+单独的 GTest 测试二进制文件处于`build/px4_sitl_test/` 目录中，可以直接在大多数IDE的调试器中运行。
 
-Filter to run only a subset of tests using a regular expression for the ctest name with this command:
+使用以下命令对ctest名称使用正则表达式对要运行的测试子集进行筛选：
 
 ```bash
 pxh> tests help
 ```
 
-For example:
+例如：
 - `make tests TESTFILTER=unit` only run GTest unit tests
 - `make tests TESTFILTER=sitl` only run simulation tests
 - `make tests TESTFILTER=Attitude` only run the `AttitudeControl` test

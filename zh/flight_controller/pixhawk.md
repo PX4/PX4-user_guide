@@ -1,10 +1,10 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 Contact the manufacturer for support or compliance issues.
 > 
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
-The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](http://nuttx.org) OS.
+The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 它在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
 ![Pixhawk  图像](../../assets/hardware/hardware-pixhawk.png)
 
@@ -12,7 +12,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 ## 主要特性
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
   * RAM: 256 KB SRAM (L1)
 * Failsafe System-on-Chip: STM32F100 
@@ -64,7 +64,7 @@ Order mRo Pixhawk from:
 * ST Micro L3GD20H 16 bit gyroscope
 * ST Micro LSM303D 14 bit accelerometer / magnetometer
 * Invensense MPU 6000 3-axis accelerometer/gyroscope
-* MEAS MS5611 barometer
+* MEAS MS5611 气压计
 
 ### 接口
 
@@ -101,7 +101,7 @@ Under these conditions all power sources will be used in this order to power the
 
 ### 绝对最大额定值
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
 * Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 * Servo rail input (4.1V to 5.7V, 0V to 20V)
@@ -109,19 +109,19 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## 原理图
 
-[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+[FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 原理图和布局
 
-> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+> **Note**作为 CC-BY-SA 3.0 许可的开放硬件设计，所有原理图和设计文件都是 [available](https://github.com/PX4/Hardware)。
 
 ## 连接器
 
 > **Tip** The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
 
-![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+![Pixhawk 连接器](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 ## 针脚定义
 
-#### TELEM1, TELEM2 ports
+#### TELEM1，TELEM2 接口
 
 | 针脚   | 信号        | 电压    |
 | ---- | --------- | ----- |
@@ -132,100 +132,100 @@ Under these conditions the system will not draw any power (will not be operation
 | 5（黑） | RTS (OUT) | +3.3V |
 | 6（黑） | GND       | GND   |
 
-#### GPS port
+#### GPS 接口
 
-| 针脚      | 信号       | 电压    |
-| ------- | -------- | ----- |
-| 1（红）    | VCC      | +5V   |
-| 2（黑）    | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | CAN2 TX  | +3.3V |
-| 5 (blk) | CAN2 RX  | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 针脚   | 信号       | 电压    |
+| ---- | -------- | ----- |
+| 1（红） | VCC      | +5V   |
+| 2（黑） | TX (OUT) | +3.3V |
+| 3    | RX (IN)  | +3.3V |
+| 4（黑） | CAN2 TX  | +3.3V |
+| 6    | CAN2 RX  | +3.3V |
+| 6    | GND      | GND   |
 
 #### SERIAL 4/5 port
 
 Due to space constraints two ports are on one connector.
 
-| 针脚      | 信号      | 电压    |
-| ------- | ------- | ----- |
-| 1 (red) | VCC     | +5V   |
-| 2 (blk) | TX (#4) | +3.3V |
-| 3 (blk) | RX (#4) | +3.3V |
-| 4 (blk) | TX (#5) | +3.3V |
-| 5 (blk) | RX (#5) | +3.3V |
-| 6 (blk) | GND     | GND   |
+| 针脚   | 信号      | 电压    |
+| ---- | ------- | ----- |
+| 2    | VCC     | +5V   |
+| 2    | TX (#4) | +3.3V |
+| 3    | RX (#4) | +3.3V |
+| 4（黑） | TX (#5) | +3.3V |
+| 6    | RX (#5) | +3.3V |
+| 6    | GND     | GND   |
 
 #### ADC 6.6V
 
-| 针脚      | 信号     | 电压          |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +6.6V |
-| 3 (blk) | GND    | GND         |
+| 针脚 | 信号     | 电压          |
+| -- | ------ | ----------- |
+| 2  | VCC    | +5V         |
+| 2  | ADC IN | up to +6.6V |
+| 3  | GND    | GND         |
 
 #### ADC 3.3V
 
-| 针脚      | 信号     | 电压          |
-| ------- | ------ | ----------- |
-| 1 (red) | VCC    | +5V         |
-| 2 (blk) | ADC IN | up to +3.3V |
-| 3 (blk) | GND    | GND         |
-| 4 (blk) | ADC IN | up to +3.3V |
-| 5 (blk) | GND    | GND         |
+| 针脚   | 信号     | 电压          |
+| ---- | ------ | ----------- |
+| 2    | VCC    | +5V         |
+| 2    | ADC IN | up to +3.3V |
+| 3    | GND    | GND         |
+| 4（黑） | ADC IN | up to +3.3V |
+| 6    | GND    | GND         |
 
 #### I2C
 
-| 针脚      | 信号  | 电压             |
-| ------- | --- | -------------- |
-| 1 (red) | VCC | +5V            |
-| 2 (blk) | SCL | +3.3 (pullups) |
-| 3 (blk) | SDA | +3.3 (pullups) |
-| 4 (blk) | GND | GND            |
+| 针脚   | 信号  | 电压             |
+| ---- | --- | -------------- |
+| 2    | VCC | +5V            |
+| 2    | SCL | +3.3 (pullups) |
+| 3    | SDA | +3.3 (pullups) |
+| 4（黑） | GND | GND            |
 
 #### CAN
 
-| 针脚      | 信号    | 电压   |
-| ------- | ----- | ---- |
-| 1 (red) | VCC   | +5V  |
-| 2 (blk) | CAN_H | +12V |
-| 3 (blk) | CAN_L | +12V |
-| 4 (blk) | GND   | GND  |
+| 针脚   | 信号    | 电压   |
+| ---- | ----- | ---- |
+| 2    | VCC   | +5V  |
+| 2    | CAN_H | +12V |
+| 3    | CAN_L | +12V |
+| 4（黑） | GND   | GND  |
 
 #### SPI
 
-| 针脚      | 信号             | 电压   |
-| ------- | -------------- | ---- |
-| 1 (red) | VCC            | +5V  |
-| 2 (blk) | SPI_EXT_SCK  | +3.3 |
-| 3 (blk) | SPI_EXT_MISO | +3.3 |
-| 4 (blk) | SPI_EXT_MOSI | +3.3 |
-| 5 (blk) | !SPI_EXT_NSS | +3.3 |
-| 6 (blk) | !GPIO_EXT      | +3.3 |
-| 7 (blk) | GND            | GND  |
+| 针脚   | 信号             | 电压   |
+| ---- | -------------- | ---- |
+| 2    | VCC            | +5V  |
+| 2    | SPI_EXT_SCK  | +3.3 |
+| 3    | SPI_EXT_MISO | +3.3 |
+| 4（黑） | SPI_EXT_MOSI | +3.3 |
+| 6    | !SPI_EXT_NSS | +3.3 |
+| 6    | !GPIO_EXT      | +3.3 |
+| 7    | GND            | GND  |
 
 #### POWER
 
-| 针脚      | 信号      | 电压    |
-| ------- | ------- | ----- |
-| 1 (red) | VCC     | +5V   |
-| 2 (blk) | VCC     | +5V   |
-| 3 (blk) | CURRENT | +3.3V |
-| 4 (blk) | VOLTAGE | +3.3V |
-| 5 (blk) | GND     | GND   |
-| 6 (blk) | GND     | GND   |
+| 针脚   | 信号  | 电压    |
+| ---- | --- | ----- |
+| 2    | VCC | +5V   |
+| 2    | VCC | +5V   |
+| 3    | 电流  | +3.3V |
+| 4（黑） | 电压  | +3.3V |
+| 6    | GND | GND   |
+| 6    | GND | GND   |
 
 #### SWITCH
 
-| 针脚      | 信号               | 电压    |
-| ------- | ---------------- | ----- |
-| 1 (red) | VCC              | +3.3V |
-| 2 (blk) | !IO_LED_SAFETY | GND   |
-| 3 (blk) | SAFETY           | GND   |
+| 针脚 | 信号               | 电压    |
+| -- | ---------------- | ----- |
+| 2  | VCC              | +3.3V |
+| 2  | !IO_LED_SAFETY | GND   |
+| 3  | SAFETY           | GND   |
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -248,7 +248,7 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 
 | 3DR Pixhawk 1 |           | FTDI                 |
 | ------------- | --------- | -------------------- |
-| 1             | +5V (red) | | N/C                |
+| 1             | + 5v (红色) | | N/C                |
 | 2             | S4 Tx     | | N/C                |
 | 3             | S4 Rx     | | N/C                |
 | 4             | S5 Tx     | 5 | FTDI RX (yellow) |
@@ -257,11 +257,11 @@ The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https
 
 The wiring for an FTDI cable to a 6-pos DF13 1:1 connector is shown in the figure below.
 
-![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
+![控制台连接器](../../assets/flight_controller/pixhawk1/console_connector.jpg)
 
-The complete wiring is shown below.
+完整的布线如下所示。
 
-![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
+![控制台调试](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
 > > **Note** For information on how to *use* the console see: [System Console](../debug/system_console.md) (PX4 Developer Guide)
 
@@ -279,11 +279,11 @@ The ports are ARM 10-pin JTAG connectors, which you will probably have to solder
 
 > **Note** All Pixhawk FMUv2 boards have a similar SWD port.
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v2_default
     
@@ -298,6 +298,6 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
   * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
 * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3369-ND))
 
-## Supported Platforms / Airframes
+## 支持的平台 / 机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。

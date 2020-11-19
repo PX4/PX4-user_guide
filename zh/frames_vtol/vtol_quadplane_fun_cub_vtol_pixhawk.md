@@ -17,7 +17,7 @@ The actual plane looks roughly like as shown in the image above (other similar m
 
 - Multiplex FunCub (or similar)
 - Pixhawk or compatible
-- Digital airspeed sensor
+- 数字空速传感器
 - 900 kV motors (e.g. Iris propulsion set - motors and ESC)
 - 10" props for quad motors (10x45 or 10x47)
 - 10" prop for fixed-wing motor (10×7)
@@ -48,7 +48,7 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | AUX 2  | Right aileron           |
 | AUX 3  | Elevator                |
 | AUX 4  | Rudder                  |
-| AUX 5  | Throttle                |
+| AUX 5  | 油门                      |
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
@@ -58,7 +58,7 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 ![QCG - Select Fun Cub Quad firmware](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Video
+## 视频
 
 {% youtube %} http://www.youtube.com/watch?v=4K8yaa6A0ks {% endyoutube %}
 

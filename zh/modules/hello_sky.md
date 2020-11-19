@@ -1,8 +1,8 @@
 # 搭建你的第一个应用（Hello Shy）
 
-This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
+本文主要说明如何创建并运行你的第一个板载应用程序。 它涵盖了 PX4 应用程序开发所需的所有基本概念和 API。
 
-> **Note** For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+> **Note** 简单起见，这里略过了功能的开启/关闭、命令行参数等更高级的特性。 这些内容将会在 [Application/Module Template](../modules/module_template.md) 中进行介绍。
 
 
 ## 系统必备组件
@@ -17,12 +17,12 @@ This topic explains how to create and run your first onboard application. It cov
 
 ## 最小的应用程序
 
-In this section we create a *minimal application* that just prints out `Hello Sky!`. This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
+在本节中, 我们将创建一个仅打印出 `Hello Sky!` 的 *最小应用程序* 。 该程序由一个 *C* 和一个 *cmake* 定义文件（该定义文件负责告诉工具链应该如何编译应用程序）组成。
 
 1. 新建如下文件夹： **Firmware/src/examples/px4_simple_app**。
 1. 在该目录中新建一个名为 **px4_simple_app.c** 的 C 文件：
 
-   * Copy in the default header to the top of the page. This should be present in all contributed files!
+   * 将下面的默认头部注释复制到文件页面的顶部， 该注释应出现在所有贡献的文件中！
 
      ```c
      /****************************************************************************
@@ -59,7 +59,7 @@ In this section we create a *minimal application* that just prints out `Hello Sk
       ****************************************************************************/
      ```
 
-   * Copy the following code below the default header. This should be present in all contributed files!
+   * 将下面的代码复制到头部注释的下方， 该注释应出现在所有贡献的文件中！
 
      ```c
      /**
@@ -84,9 +84,9 @@ In this section we create a *minimal application* that just prints out `Hello Sk
 
 <span></span>
 
-     > **Tip** `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+     > **Tip** `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). 有以下不同的日志级别： `PX4_INFO`、`PX4_WARN`、`PX4_ERR`、`PX4_DEBUG`。 其中警告和错误会被额外添加到 [ULog](../log/ulog_file_format.md) 中，且还会在 [Flight Review](https://logs.px4.io/) 中显示。
 
-1. Create and open a new *cmake* definition file named **CMakeLists.txt**. Copy in the text below:
+1. Create and open a new *cmake* definition file named **CMakeLists.txt**. 复制下面的文本：
    ```cmake
    ############################################################################
    #
@@ -129,7 +129,7 @@ In this section we create a *minimal application* that just prints out `Hello Sk
     DEPENDS
     )
    ```
-   The `px4_add_module()` method builds a static library from a module description.
+   `px4_add_module()` 方法从模块描述生成静态库。
    - PX4 SITL (模拟器): [Firmware/boards/px4/sitl/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake)
    - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
@@ -141,7 +141,7 @@ In this section we create a *minimal application* that just prints out `Hello Sk
 
 ## 编译应用程序/固件
 
-The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
+应用程序的编写至此完成。 为了保证改程序可以被运行，你首先需要确保编译器会将它作为 PX4 固件的一部分进行编译。 Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
 
 * jMAVSim 仿真器：`make px4_sitl_default jmavsim`
 * Pixhawk v1/2：`make px4_fmu-v2_default`（或只用 `make px4_fmu-v2`）
@@ -160,7 +160,7 @@ examples/px4_simple_app
 
 * Pixhawk v1/2：`make px4_fmu-v2_default upload`
 * Pixhawk v3：`make px4_fmu-v4_default upload`
-* Pixhawk v3: `make px4_fmu-v4_default`
+* Pixhawk v3：`make px4_fmu-v4_default`
 * Other boards: [Building the Code](../dev_setup/building_px4.md#building_nuttx)
 
 
@@ -170,8 +170,8 @@ examples/px4_simple_app
 
 启用固件上传程序, 然后重置飞控板：
 
-* Pixhawk v1/2: `make px4_fmu-v2_default upload`
-* Pixhawk v3: `make px4_fmu-v4_default upload`
+* Pixhawk v1/2：`make px4_fmu-v2_default upload`
+* Pixhawk v3：`make px4_fmu-v4_default upload`
 
 在你完成飞控板的重置之前应该会输出一些编译消息，并最终出现：
 
@@ -192,7 +192,7 @@ Rebooting.
 
 ### 连接至控制台
 
-Now connect to the [system console](../debug/system_console.md) either via serial or USB. Hitting **ENTER** will bring up the shell prompt:
+现在，通过串口或者 USB 连接至 [PX4 系统控制台](../debug/system_console.md) 。 Hitting **ENTER** will bring up the shell prompt:
 
 ```sh
 nsh>
@@ -222,7 +222,7 @@ Builtin Apps:
   serdis
 ```
 
-Note that `px4_simple_app` is now part of the available commands. Start it by typing `px4_simple_app` and ENTER:
+请注意，此时 `px4_simple_app` 已经是一个可用的命令了。 键入 `px4_simple_app` 并回车以运行该程序：
 
 ```sh
 nsh> px4_simple_app
@@ -249,9 +249,9 @@ INFO  [px4_simple_app] Hello Sky!
 
 为了做一些更有用的事情，应用程序需要订阅一些输入量并发布输出指令（比如电机或者舵机指令）。
 
-> **Tip** The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+> **Tip** The benefits of the PX4 hardware abstraction comes into play here! 我们在构建应用程序时无需直接与传感器驱动进行任何的交互，且即便对飞控板或者传感器硬件进行更新后也不需要对你的应用程序进行任何更新。
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+各应用之间的消息通道被称为 [topics](../middleware/uorb.md) 。 For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 订阅一个 topic 非常简单直接：
 
@@ -261,7 +261,7 @@ Individual message channels between applications are called [topics](../middlewa
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
+`sensor_sub_fd` 是一个 topic 句柄（handle），它可以高效地执行阻断以等待新数据。 待新数据抵达后调度程序会自动将当前进程从休眠中唤醒，线程在等待期间不会占用任何 CPU 周期。 为了实现这一功能，我们使用了 POSIX 系统调用函数 [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) 。
 
 将 `poll()` 加入消息订阅的实现过程如下 (*伪代码实现，完整的代码实现见下文*) ：
 
@@ -322,7 +322,7 @@ px4_simple_app &
 
 ## 发布数据
 
-To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
+To use the calculated outputs, the next step is to *publish* the results. 接下来我们展示一下如何发布 attitude （姿态） topic 中的数据。
 
 > **Note** We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
 
@@ -491,7 +491,7 @@ px4_simple_app
 
 ## 总结
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
+本教程介绍了开发一个基本的 PX4 自动驾驶仪应用程序需要涉及的一切内容。 Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
 
 更多信息和故障排除 /常见的陷阱等可以在这里找到： [uORB](../middleware/uorb.md)。
 

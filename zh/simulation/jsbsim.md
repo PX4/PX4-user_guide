@@ -8,7 +8,7 @@
 {% youtube %}https://youtu.be/y5azVNmIVyw{% endyoutube %}
 
 
-> **Note** See [Simulation](/simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+> **Note**有关模拟器，模拟环境和可用模拟配置（例如支持的机型）的一般信息，请参见[Simulation](/simulation/README.md)。
 
 <a id="installation"></a>
 
@@ -25,7 +25,7 @@
 
 <a id="running"></a>
 
-## Running the Simulation
+## 运行仿真
 
 JSBSim SITL simulation can be conveniently run through a `make` command as shown below:
 ```sh
@@ -36,15 +36,15 @@ This will run both the PX4 SITL instance and the FlightGear UI (for visualizatio
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle        | Command                            |
-| -------------- | ---------------------------------- |
-| Standard Plane | `make px4_sitl jsbsim_rascal`      |
-| Quadrotor      | `make px4_sitl jsbsim_quadrotor_x` |
-| Hexarotor      | `make px4_sitl jsbsim_hexarotor_x` |
+| 载具类型       | 指令                                 |
+| ---------- | ---------------------------------- |
+| 标准构型的固定翼飞机 | `make px4_sitl jsbsim_rascal`      |
+| 四旋翼        | `make px4_sitl jsbsim_quadrotor_x` |
+| 六旋翼        | `make px4_sitl jsbsim_hexarotor_x` |
 
-The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
+以上指令启动了一个具有完整 UI 的载具。 *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
 
-## Further Information
+## 更多信息
 
 * [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)

@@ -1,74 +1,74 @@
-# Integration Testing using MAVSDK
+# 使用 MAVSDK 进行集成测试
 
-PX4 can be tested end to end to using integration tests based on [MAVSDK](https://mavsdk.mavlink.io).
+可以使用基于 [MAVSDK](https://mavsdk.mavlink.io) 的集成测试对 PX4 进行端到端测试。
 
-The tests are primarily developed against SITL for now and run in continuous integration (CI). However, they are meant to generalize to real tests eventually.
+目前主要针对 SITL 开发测试，并在持续集成（CI）中运行。 但是，它们最终旨在推广到实际测试。
 
-## Install the MAVSDK C++ Library
+## 安装 MAVSDK C++ 库
 
-The tests need the MAVSDK C++ library installed system-wide (e.g. in `/usr/lib` or `/usr/local/lib`).
+测试需要将MAVSAK C++库安装到系统目录（如： `/usr/lib` or `/usr/local/lib`）
 
-Install either from binaries or source:
-- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
-- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+二进行安装或源码安装：
+- [MAVSDK > 安装 > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp)：以支持的系统上安装预构建库（推荐）
+- [MAVSDK > 贡献 > 从源码构建](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp)：从源码编译构建 C++ 库。
 
-## Prepare PX4 Code
+## 准备 PX4 源码
 
-To build the PX4 code, use:
+使用以下命令构建 PX4 源码：
 
 ```sh
 DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 ```
 
-### Run All PX4 Tests
+### 运行所有PX4测试
 
-To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json), do:
+运行 [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json) 中定义的所有SITL测试，执行：
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py test/mavsdk_tests/configs/sitl.json --speed-factor 10
 ```
 
-To see all possible command line arguments, check out:
+要看所有可用的命令行参数，运行：
 
 ```sh
 test/mavsdk_tests/mavsdk_test_runner.py -h
 
-usage: mavsdk_test_runner.py [-h] [--log-dir LOG_DIR] [--speed-factor SPEED_FACTOR] [--iterations ITERATIONS] [--abort-early] [--gui] [--model MODEL]
-                             [--case CASE] [--debugger DEBUGGER] [--verbose]
+用法：mavsdk_test_runner。 y [-h] [--log-dir LOG_DIR] [--speed-factor SPEED_FACTOR] [--trerations ITERATION] [--abort-early] [--gui] [--model MODEL]
+                             [--case CASE] [--debugger DEBUGER] [--verbose]
                              config_file
 
-positional arguments:
-  config_file           JSON config file to use
+posital 参数：
+  config_file JSON 使用的JSON配置文件
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --log-dir LOG_DIR     Directory for log files
+optional 参数：
+  -h, --help 显示此帮助信息并退出
+  --log-dir LOG_DIR 日志文件目录
   --speed-factor SPEED_FACTOR
-                        how fast to run the simulation
-  --iterations ITERATIONS
-                        how often to run all tests
-  --abort-early         abort on first unsuccessful test
-  --gui                 display the visualization for a simulation
-  --model MODEL         only run tests for one model
-  --case CASE           only run tests for one case
-  --debugger DEBUGGER   choice from valgrind, callgrind, gdb, lldb
-  --verbose             enable more verbose output
+                        模拟运行的速度因子
+  --迭代ITERATION
+                        在首次失败的测试中运行所有测试的频率
+  --abort-early 中止
+  --guide 显示模拟的可视化化
+  MODEL 只为一个模型运行测试
+  --case CASE 只运行测试一个案例
+  --debugger DEBUGER 调试器：callgrind, gdb, lldb
+  --verbose 启用更详细的输出
 ```
 
-## Notes on implementation
+## 关于实现的说明
 
 
-- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python. This runner also starts `px4` as well as Gazebo for SITL tests, and collects the logs of these processes.
-- The test runner is a C++ binary It contains:
+- The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python. 该运行程序还启动 `px4` 以及用于 SITL 测试的 Gazebo，并收集这些进程的日志。
+- 这个测试运行器是一个 C++ 库 它包含了：
   - The [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
   - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h).
   - The actual tests using the abstraction around MAVSDK as e.g. [test_multicopter_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp).
-  - The tests use the [catch2](https://github.com/catchorg/Catch2) unit testing framework. The reasons for using this framework are:
-      - Asserts (`REQUIRE`) which are needed to abort a test can be inside of functions (and not just in the top level test as is [the case with gtest](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement)).
-      - Dependency management is easier because *catch2* can just be included as a header-only library.
-      - *Catch2* supports [tags](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags), which allows for flexible composition of tests.
+  - 测试使用 [catch2](https://github.com/catchorg/Catch2) 单元测试框架。 使用这个框架的原因如下：
+      - 终止测试所需的断言（`REQUIRE`）可以位于函数内部（而不仅仅是顶层，如 [gtest 测试所示](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement)）。
+      - 依赖关系管理比较容易，因为* catch2 *可以只作为头文件库包含在内。
+      - * Catch2 *支持[ tags ](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags)，从而可以灵活地组成测试。
 
 
-Terms used:
-- "model": This is the selected Gazebo model, e.g. `iris`.
-- "test case": This is a [catch2 test case](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md).
+使用的术语：
+- "model"：这是选定的Gazebo模型，例如 `iris`。
+- "test case": 这是 [catch2 测试用例](https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md)。

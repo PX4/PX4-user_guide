@@ -45,7 +45,7 @@ PX4 系统通过一个名为 [uORB](../middleware/uorb.md) 的 发布-订阅 消
 
 飞行控制栈是针对自主无人机设计的导航、制导和控制算法的集合。 它包括了为固定翼、旋翼和 VTOL 无人机设计的控制器，以及相应的姿态、位置估计器。
 
-The following diagram shows an overview of the building blocks of the flight stack. 下图展示了飞行控制栈的整体架构， 它包含了从传感器数据、 RC 控制量输入 到自主飞行控制（制导控制器，Navigator ），再到电机、舵机控制（执行器，Actuators）的全套通路。
+下图展示了飞行控制栈的整体架构， 下图展示了飞行控制栈的整体架构， 它包含了从传感器数据、 RC 控制量输入 到自主飞行控制（制导控制器，Navigator ），再到电机、舵机控制（执行器，Actuators）的全套通路。
 
 ![PX4 顶层飞行控制栈](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg) <!-- This diagram can be updated from 
 [here](https://drive.google.com/a/px4.io/file/d/15J0eCL77fHbItA249epT3i2iOx4VwJGI/view?usp=sharing) 
@@ -57,7 +57,7 @@ again. -->
 
 **估计器 （estimator）** 取一个或者多个传感器数据作为输入量，并进行数据融合进而计算出无人机的状态（例如：从 IMU 传感器数据计算得到无人机的姿态角）。
 
-**控制器 （controller）** 组件以一个期望设定值和一个测量值或状态估计量（过程变量）作为输入， 它的目标是将过程变量的实际值调整到与期望设定值相一致， 得到的输出量实现对状态变量的矫正以使其最终抵达期望的设定值。 Its goal is to adjust the value of the process variable such that it matches the setpoint. The output is a correction to eventually reach that setpoint. 以位置控制器为例，该控制器以期望位置作为输入，过程变量是当前位置的估计值，控制器最终输出的是将引导无人机前往期望位置的姿态、油门指令。
+**控制器 （controller）** 组件以一个期望设定值和一个测量值或状态估计量（过程变量）作为输入， 它的目标是将过程变量的实际值调整到与期望设定值相一致， 得到的输出量实现对状态变量的矫正以使其最终抵达期望的设定值。 它的目标是将过程变量的实际值调整到与期望设定值相一致， 得到的输出量实现对状态变量的矫正以使其最终抵达期望的设定值。 以位置控制器为例，该控制器以期望位置作为输入，过程变量是当前位置的估计值，控制器最终输出的是将引导无人机前往期望位置的姿态、油门指令。
 
 **混合器 （mixer）** 响应力的指令（例如右转），并将其转换为单独的电机指令并保证产生的指令不超限。 每一类飞机都有特定的指令转换方式且受许多因素的影响，例如：电机关于重心的安装位置，飞机的惯性矩参数等。
 

@@ -11,7 +11,7 @@
 
 ## 下载 PX4 源代码
 
-PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库中的 GitHub 上。 To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4 源代码存储在 [PX4/Firmware](https://github.com/PX4/Firmware) 存储库中的 GitHub 上。 若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
 
 ```sh
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
@@ -41,9 +41,9 @@ make px4_sitl jmavsim
 pxh> commander takeoff
 ```
 
-![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
+![jMAVSim 界面](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-The drone can be landed by typing `commander land` and the whole simulation can be stopped by doing **CTRL+C** (or by entering `shutdown`).
+无人机可以通过输入 `commander land` 着陆, 整个模拟可以通过 **CTRL+C**（或输入 `shutdown`）来停止。
 
 与地面控制站一起飞行模拟更接近飞机的实际运行。 在飞机飞行时，单击地图上的某个位置（起飞飞行模式）并启用滑块。 这将重新定位飞机。
 
@@ -79,7 +79,7 @@ The drone can be landed by typing `commander land` and the whole simulation can 
 make px4_fmu-v4_default
 ```
 
-A successful run will end with similar output to:
+运行成功后将输出类似结束：
 ```sh
 /data/ftp/internal_000/px4 -s /home/root/px4.config
 ```
@@ -112,7 +112,7 @@ A successful run will end with similar output to:
 > **Tip** 如果您只是在尝试（并且不想进行任何永久性更改），则只需克隆主固件存储库，如下所示： `git clone https://github.com/PX4/Firmware.git`
 
 
-### Uploading Firmware (Flashing the board)
+### 将固件烧录到飞控板
 
 附加 `upload` 到 make 命令，通过 USB 将编译的二进制文件烧录到自动驾驶仪硬件。 例如
 
@@ -139,7 +139,7 @@ Rebooting.
 
 ### 将固件烧录到飞控板
 
-The command below builds the target for [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
+以下是 [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) 构建目标的命令。
 
 #### 跨编译器生成
 
@@ -254,7 +254,7 @@ telnet 192.168.42.1
 adb shell
 ```
 
-Go back to previous terminal and upload:
+到上一个终端并上传：
 
 ```sh
 make atlflight_eagle_default upload
@@ -270,13 +270,13 @@ adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 
 #### 运行
 
-Run the DSP debug monitor:
+运行 DSP 调试监控器：
 
 ```sh
 ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
-Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+注意：在 Mac 上可以使用 [nano-dm](https://github.com/kevinmehall/nano-dm)。
 
 替换为：
 
@@ -354,7 +354,7 @@ PX4 支持 Qt Creator，Eclipse 和 Sublime Text。 Qt Creator 是最用户友�
 
 ### 基于 QuRT / Snapdragon 的飞控板
 
-> **Note** Windows has not been tested for PX4 development with Qt Creator.
+> **Note** Windows 平台下尚未测试。
 
 
 ### 在 Linux 上使用 Qt creator
@@ -425,7 +425,7 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
 
 `bloaty_compare_master` 构建目标使您能够更好地了解更改对代码大小的影响。 当使用时，工具链会下载特定固件的最新的 master 版本并将其与本地生成进行比较（使用二进制文件的 [bloaty](https://github.com/google/bloaty) 大小探查器）。
 
-> **Tip** This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
+> **Tip** 这有助于分析（可能）导致 `px4_fmu-v2_default` 达到1MB 闪存限制的更改。
 
 *Bloaty* 必须在您的路径中，并且在 *cmake* 配置时找到。 PX4 [docker 文件 ](https://github.com/PX4/containers/blob/master/docker/px4-dev/Dockerfile_nuttx) 安装 *bloaty* 如下所示：
 ```
@@ -494,7 +494,7 @@ These are extracted at build time from the active *git tag* for your repo tree. 
 
 <a id="troubleshooting"></a>
 
-## Troubleshooting
+## 常见问题处理
 
 ### 在 Mac OS 上使用 Qt creator
 

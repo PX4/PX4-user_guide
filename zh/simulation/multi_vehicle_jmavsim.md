@@ -28,11 +28,11 @@
    ```
    ./Tools/jmavsim_run.sh -p 4561 -l
    ```
-   The port should be set to `4560+i` for `i` in `[0, N-1]`.
+   端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
 *QGroundControl* 和开发者 APIs (比如 Dronecode SDK) 可以通过代码默认端口连接到所有实例（分别为14550 和 14540）。
 
-Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on.
+像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
 
 ## 额外资源
 

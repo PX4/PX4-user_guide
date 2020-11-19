@@ -42,7 +42,7 @@ RTPS 桥接在 PX4 和 RTPS 应用程序之间交换消息, 在每个系统使�
 
 ### ROS2/ROS 应用处理流程
 
-The application pipeline for ROS2 is very straightforward! ROS2 的应用程序流程非常简单直接! 由于 ROS2 原生支持 DDS/RTPS 作为其原生通信中间件, 因此您可以直接创建 ROS2 监听或广播节点, 通过 *PX4 Fast RTPS 桥接* 订阅或发布PX4上的 uORB 数据。 正如下图所示。
+ROS2 的应用程序流程非常简单直接! ROS2 的应用程序流程非常简单直接! 由于 ROS2 原生支持 DDS/RTPS 作为其原生通信中间件, 因此您可以直接创建 ROS2 监听或广播节点, 通过 *PX4 Fast RTPS 桥接* 订阅或发布PX4上的 uORB 数据。 正如下图所示。
 
 > **Note** 您需要确保客户端和代理端（以及 ROS 节点上）的消息类型、头文件和源文件是从相同的接口描述语言（IDL）文件生成的。 `px4_ros_com` 包提供了生成 ROS2 所需的消息和头文件所需的必要工具。
 
@@ -154,11 +154,11 @@ make px4_sitl_rtps
   -d &lt;device&gt;             UART 设备. 缺省为 /dev/ttyACM0
   -u &lt;update_time_ms&gt;     订阅的 uORB 消息的刷新时间，单位ms。 缺省为 0
   -l &lt;loops&gt;              该程序将循环执行多少次。 Default /dev/ttyACM0
-  -l <loops>              How many iterations will this program have. -1 表示无限循环， 缺省为 -1。 Default -1.
-  -w &lt;sleep_time_us&gt;      每次循环的休眠时间，单位us。 Default 1ms
-  -b <baudrate>           UART device baudrate. Default 460800
-  -p <poll_ms>            Time in ms to poll over UART. Default 1ms
-  -r <reception port>     UDP port for receiving. -r &lt;reception port&gt;     UDP 接收端口， 缺省为 2019。 -s &lt;sending port&gt;       UDP发送端口， 缺省为 2020。 Default 2020
+  -l <loops>              How many iterations will this program have. -1 表示无限循环， 缺省为 -1。 缺省为 -1。
+  -w &lt;sleep_time_us&gt;      每次循环的休眠时间，单位us。 缺省为 1ms
+  -b &lt;baudrate&gt;           UART 设备波特率 缺省为 460800
+  -p &lt;poll_ms&gt;            UART设备轮询时间，单位ms， 缺省为 1ms
+  -r &lt;reception port&gt;     UDP接收端口号， -r &lt;reception port&gt;     UDP 接收端口， 缺省为 2019。 -s &lt;sending port&gt;       UDP发送端口， 缺省为 2020。 Default 2020
   -i <ip_address>         Select IP address (remote) values: <x.x.x.x>. Default: 127.0.0.1
 ```
 
@@ -193,12 +193,12 @@ make
 $ ./micrortps_agent [options]
   -t &lt;transport&gt;          [UART|UDP] 缺省为UART.
   -d &lt;device&gt;             UART设备， 缺省为 /dev/ttyACM0。
-  -d <device>             UART device. Default /dev/ttyACM0.
-  -w <sleep_time_us>      Time in us for which each iteration sleep. 默认 1ms。
+  -d &lt;device&gt;             UART设备， 缺省为 /dev/ttyACM0。
+  -w &lt;sleep_time_us&gt;      每次循环的休眠时间，单位us。 默认 1ms。
   -b &lt;baudrate&gt;           UART设备波特率。 默认 460800。
-  -p &lt;poll_ms&gt;            UART设备轮询时间，单位ms， 缺省为 1ms。 Default 1ms.
-  -r <reception port>     UDP port for receiving. Default 2019.
-  -s <sending port>       UDP port for sending. Default 2020.
+  -p &lt;poll_ms&gt;            UART设备轮询时间，单位ms， 缺省为 1ms。 缺省为 1ms。
+  -r &lt;reception port&gt;     UDP 接收端口， 缺省为 2019。
+  -s &lt;sending port&gt;       UDP发送端口， 缺省为 2020。
 ```
 
 如果要选择UDP连接，如下启动 *micrortps_agent*:
@@ -291,7 +291,7 @@ $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 - `build_ros2_workspace.bash` (只构建 `px4_ros_com` 的 `ros1` 分支) 可以构建 `px4_ros_com` `ros1` 分支所在的 ROS1 工作空间;
 - `build_ros2_workspace.bash` 可以构建 `px4_ros_com` `master` 分支所在的工作空间;
 
-The steps below show how to *manually* build the packages (provided for your information/better understanding only):
+以下步骤将详述怎样 *手动* 构建这些程序包 (只是为了加深您的理解):
 
 1. `cd` 到 `px4_ros_com_ros2` 目录并 source 一下 ROS2 的环境变量。 不用管是否提示您该工作空间已经设置过：
 

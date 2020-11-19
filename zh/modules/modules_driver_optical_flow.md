@@ -3,28 +3,28 @@
 Source: [drivers/optical_flow/thoneflow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/thoneflow)
 
 
-### Description
+### 说明
 
 Serial bus driver for the ThoneFlow-3901U optical flow sensor.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_TFLOW_CFG parameter.
 
-Setup/usage information: https://docs.px4.io/en/sensor/thoneflow.html
+设置/使用 信息： https://docs.px4.io/en/sensor/thoneflow.html
 
-### Examples
+### 示例
 
 Attempt to start driver on a specified serial device.
 ```
 thoneflow start -d /dev/ttyS1
 ```
-Stop driver
+停止驱动程序的运行
 ```
 thoneflow stop
 ```
 
 <a id="thoneflow_usage"></a>
 
-### Usage
+### 用法
 ```
 thoneflow <command> [arguments...]
  Commands:

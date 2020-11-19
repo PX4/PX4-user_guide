@@ -40,7 +40,7 @@ catkin init
 wstool init src
 ```
 
-你需要利用ROS的Python工具，如*wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. 按照以下命令来安装： While they may have been installed during your installation of ROS you can also install them with:
+你需要利用ROS的Python工具，如*wstool* (for retrieving sources), *rosinstall*, and *catkin_tools* (building) for this installation. 按照以下命令来安装： 按照以下命令来安装：
 ```sh
 sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
@@ -53,20 +53,20 @@ $ wstool init ~/catkin_ws/src
 ```
 
 现在你已经准备好去编译。
-1. Install MAVLink:
+1. 安装Mavlink
    ```
    安装Mavlink 
      # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
      rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
 1. 安装MAVROS最新的版本：
-   * Released/stable
+   * 发行版 / 稳定版
      ```
      最新源码 
       sh
       rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
-   * Latest source
+   * 最新源码
      ```sh
      发行版 / 稳定版 <code>rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall</code>
      ```
@@ -103,4 +103,4 @@ $ wstool init ~/catkin_ws/src
    source devel/setup.bash
    ```
 
-In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+如果有任何问题，这还有另外一种方式和解决问题的途径在mavros功能包的主页。 （译者注：1、最好使用kinetic版本的电脑 2、不要用虚拟机 3、不需要看这里，直接去mavros github主页安装步骤一步一步装，装的时候确认每一步没有报错，网络好一点的话会顺利一点）

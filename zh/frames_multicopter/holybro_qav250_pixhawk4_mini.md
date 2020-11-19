@@ -35,13 +35,13 @@ Additionally you will need a battery and receiver (+compatible transmitter). Thi
 * Receiver: [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
 * Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## 硬件
 
 This section lists all hardware for the frame and the autopilot installation.
 
 ### Frame QAV250
 
-| Description                   | Quantity |
+| 参数描述                          | Quantity |
 | ----------------------------- | -------- |
 | Unibody frame plate           | 1        |
 | Flight controller cover plate | 1        |
@@ -60,7 +60,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Description                                                                                                    | Quantity |
+| 参数描述                                                                                                           | Quantity |
 | -------------------------------------------------------------------------------------------------------------- | -------- |
 | Motors - DR2205 KV2300                                                                                         | 4        |
 | Fully assembled Power Management Board with ESCs                                                               | 4        |
@@ -77,7 +77,7 @@ The image below shows both frame and electronic components.
 
 ![QAV250 Frame/Pixhawk 4 Mini Electronics before assembly](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
 
-## Assembly
+## 组装
 
 Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
 
@@ -162,7 +162,7 @@ The "Complete" version of the kit additionally comes with an FPV system, which i
 
 The steps to install the kit are:
 
-1. Install the camera bracket on the frame ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
+1. Install the camera bracket on the frame ![相机连接](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
 2. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
 3. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg) 
     * Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
@@ -181,8 +181,8 @@ The steps to install the kit are:
 
 First update the firmware and airframe:
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [固件](../config/firmware.md)
+* [机架](../config/airframe.md)
     
     > **Note** You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
     
@@ -190,20 +190,20 @@ First update the firmware and airframe:
 
 Then perform the mandatory setup/calibration:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [传感器方向](../config/flight_controller_orientation.md)
+* [罗盘](../config/compass.md)
+* [加速度计 Accelerometer](../config/accelerometer.md)
+* [水平平面校准](../config/level_horizon_calibration.md)
+* [无线电系统设置](../config/radio.md)
+* [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
 
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+* [电调（ESC）校准](../advanced_config/esc_calibration.md)
+* [电池](../config/battery.md)
+* [安全](../config/safety.md)
 
-## Tuning
+## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 

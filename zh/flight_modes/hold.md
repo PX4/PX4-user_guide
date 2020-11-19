@@ -18,7 +18,7 @@
 
 RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
-The behaviour can be configured using the parameters below.
+可以使用以下参数配置此行为。
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,11 +29,11 @@ The behaviour can be configured using the parameters below.
 
 ## 固定翼飞行器（FW）
 
-The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
+飞机在当前高度的GPS保持位置周围旋转。 如果模式低于该高度，则飞机将首先上升到`MIS_LTRMIN_ALT`。
 
 RC stick movement is ignored.
 
-The behaviour can be configured using the parameters below.
+可以使用以下参数配置此行为。
 
 | 参数                                                                           | 描述                                  |
 | ---------------------------------------------------------------------------- | ----------------------------------- |
@@ -42,6 +42,4 @@ The behaviour can be configured using the parameters below.
 
 ## 垂直起降（VTOL）
 
-A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
-
-<!-- this maps to AUTO_LOITER in flight mode state machine -->
+当处于FW模式时，VTOL遵循HOLD行为和固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循多旋翼</ 1>的参数。</p> <!-- this maps to AUTO_LOITER in flight mode state machine -->

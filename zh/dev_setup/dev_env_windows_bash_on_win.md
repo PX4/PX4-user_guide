@@ -6,7 +6,7 @@ Windows 用户还可以选择在 [Bash on Windows](https://github.com/Microsoft/
 * 编译针对 NuttX/Pixhawk 平台的固件。
 * 使用 JMAVSim 进行PX4仿真 (需要搭配一个基于Windows的 X-Windows 应用来显示仿真UI界面)。
 
-> **注意：** 本特性仅可在Windows 10上实现， 它本质上仍是在虚拟机中运行工具链, 与其他解决方案相比运行相对缓慢。 It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
+> **注意：** 本特性仅可在Windows 10上实现， 它本质上仍是在虚拟机中运行工具链, 与其他解决方案相比运行相对缓慢。 它本质上仍是在虚拟机中运行工具链, 与其他解决方案相比运行相对缓慢。
 
 
 ### 设置开发环境
@@ -78,13 +78,13 @@ Bash on Windows开发环境的 [windows_bash_nuttx.sh](https://raw.githubusercon
 
 手动将此编译器添加到您的环境中请执行以下操作:
 
-1. Download the compiler:
+1. 下载编译器:
    ```sh
    下载编译器: 
      sh
      wget https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-/raw/master/gcc-arm-none-eabi-5_4-2017q2-20170512-linux.tar.bz2
    ```
-1. Unpack it using this command line in the Bash On Windows console:
+1. Bash On Windows 控制台中使用命令行进行解压：
    ```sh
    Bash On Windows 控制台中使用命令行进行解压： 
      sh
@@ -92,7 +92,7 @@ Bash on Windows开发环境的 [windows_bash_nuttx.sh](https://raw.githubusercon
    ```
 
    </code>
-   This will unpack the arm gcc cross-compiler to:
+   该命令会将 arm gcc cross-compiler 解压至：
    ```
    gcc-arm-none-eabi-5_4-2017q2/bin
    ```

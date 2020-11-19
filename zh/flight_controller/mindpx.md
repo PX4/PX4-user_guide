@@ -1,6 +1,6 @@
 # MindPX Hardware
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](http://mindpx.net)。
 
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
 
@@ -24,7 +24,7 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
   * RAM: 256 KB SRAM
   * 2MB Flash
   * ST Micro LSM303D 14 bit accelerometer/magnetometer
-  * MEAS MS5611 barometer
+  * MEAS MS5611 气压计
   * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
 * Highlighted features:
@@ -71,9 +71,9 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 多数用户不需要自己构建固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make airmind_mindpx-v2_default
     
@@ -88,13 +88,13 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-## Where to Buy
+## 在哪里买
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | RC            |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -104,6 +104,6 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
 
-## Support
+## 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.

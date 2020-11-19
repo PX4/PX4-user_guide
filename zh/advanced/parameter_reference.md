@@ -1,15 +1,15 @@
-# Parameter Reference
-> **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).
+# 参数对照表
+> **注意****该文档是该版本PX4根据源码自动生成的**（通过执行`make parameters_metadata`）。
 
 <span></span>
-> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#missing).
+> **注意** 如果列表中的某个参数编译后在固件中丢失，查看: [Finding/Updating Parameters](../advanced_config/parameters.md#missing)来解决。
 
 ## UAVCAN Motor Parameters
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -152,14 +152,14 @@
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="gnss.dyn_model">gnss.dyn_model</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>GNSS dynamic model</p><p><strong>Comment:</strong> Dynamic model used in the GNSS positioning engine. 0 –
         Automotive, 1 – Sea, 2 – Airborne.
-      </p> <strong>Values:</strong><ul>
+      </p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Automotive</li> 
 
 <li><strong>1:</strong> Sea</li> 
@@ -177,7 +177,7 @@
         uavcan.equipment.gnss.Fix alongside the new alternative
         uavcan.equipment.gnss.Fix2. It is recommended to
         disable this feature to reduce the CAN bus traffic.
-      </p> <strong>Values:</strong><ul>
+      </p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Fix2</li> 
 
 <li><strong>1:</strong> Fix and Fix2</li> 
@@ -193,7 +193,7 @@
               the GNSS solution is less than this value. 3 for the full (3D)
               solution, 2 for planar (2D) solution, 1 for time-only solution,
               0 disables the feature.
-      </p> <strong>Values:</strong><ul>
+      </p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> disables the feature</li> 
 
 <li><strong>1:</strong> time-only solution</li> 
@@ -229,12 +229,12 @@
 </tr>
 </tbody></table>
 
-## Airspeed Validator
+## 空速器相关参数
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -253,7 +253,7 @@
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable checks on airspeed sensors</p><p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Enable checks on airspeed sensors</p><p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -261,12 +261,12 @@
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_FALLBACK">ASPD_FALLBACK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable fallback to secondary airspeed measurement</p><p><strong>Comment:</strong> If ASPD_DO_CHECKS is set to true, then airspeed estimation can fallback from what specified in ASPD_PRIMARY to secondary source (other airspeed sensors, groundspeed minus windspeed).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Enable fallback to secondary airspeed measurement</p><p><strong>Comment:</strong> If ASPD_DO_CHECKS is set to true, then airspeed estimation can fallback from what specified in ASPD_PRIMARY to secondary source (other airspeed sensors, groundspeed minus windspeed).</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> To other airspeed sensor (if one valid), else disable airspeed</li> 
 
 <li><strong>1:</strong> To other airspeed sensor (if one valid), else to ground-windspeed</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -284,25 +284,25 @@
  <td style="vertical-align: top;"><p>Airspeed failsafe consistency delay (Experimental)</p><p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
  <td style="vertical-align: top;">? > 30.0 </td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_FS_T1">ASPD_FS_T1</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Airspeed failsafe stop delay (Experimental)</p><p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
  <td style="vertical-align: top;">1 > 10 </td>
  <td style="vertical-align: top;">3</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_FS_T2">ASPD_FS_T2</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Airspeed failsafe start delay (Experimental)</p><p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good.</p>   </td>
  <td style="vertical-align: top;">10 > 1000 </td>
  <td style="vertical-align: top;">100</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Index or primary airspeed measurement source</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Index or primary airspeed measurement source</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
 
 <li><strong>0:</strong> Groundspeed minus windspeed</li> 
@@ -313,7 +313,7 @@
 
 <li><strong>3:</strong> Third airspeed sensor</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1</td>
@@ -345,7 +345,7 @@
  <td style="vertical-align: top;"><p>Airspeed fault detection stall airspeed. (Experimental)</p><p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
@@ -359,7 +359,7 @@
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed measurement noise</p><p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">1.4</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_W_P_NOISE">ASPD_W_P_NOISE</strong> (FLOAT)</td>
@@ -370,39 +370,37 @@
 </tr>
 </tbody></table>
 
-## Attitude Q estimator
+## 姿态 Q 估计器
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Acceleration compensation based on GPS
-velocity</p>   </td>
+ <td style="vertical-align: top;"><p>基于 GPS速度的加速度补偿</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_BIAS_MAX">ATT_BIAS_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro bias limit</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪偏置范围</p>   </td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0.05</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>External heading usage mode (from Motion capture/Vision)
-Set to 1 to use heading estimate from vision.
-Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> None</li> 
+ <td style="vertical-align: top;"><p>外部模块航向使用模式（运动捕捉/视觉）。设置为1则使用视觉模块相关航向数据;
+设置为 2则使用从运动捕捉的相关航向数据.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>无</li> 
 
-<li><strong>1:</strong> Vision</li> 
+<li><strong>1:</strong>使用视觉模块数据</li> 
 
-<li><strong>2:</strong> Motion Capture</li> 
+<li><strong>2:</strong>使用运动捕捉模块数据</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 2 </td>
@@ -411,59 +409,59 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_MAG_DECL">ATT_MAG_DECL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetic declination, in degrees</p><p><strong>Comment:</strong> This parameter is not used in normal operation, as the declination is looked up based on the GPS coordinates of the vehicle.</p>   </td>
+ <td style="vertical-align: top;"><p>磁偏角, 以角度为单位</p><p><strong>说明:</strong> 在常规操作中不使用此参数, 因为磁偏角是基于无人机所在GPS坐标位置进行检索得到的.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_MAG_DECL_A">ATT_MAG_DECL_A</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Automatic GPS based declination compensation</p>   </td>
+ <td style="vertical-align: top;"><p>基于GPS的自动磁偏角补偿</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_W_ACC">ATT_W_ACC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Complimentary filter accelerometer weight</p>   </td>
+ <td style="vertical-align: top;"><p>互补滤波器加速度计权重值</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.2</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_W_EXT_HDG">ATT_W_EXT_HDG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Complimentary filter external heading weight</p>   </td>
+ <td style="vertical-align: top;"><p>互补滤波器外部航向权重值</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_W_GYRO_BIAS">ATT_W_GYRO_BIAS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Complimentary filter gyroscope bias weight</p>   </td>
+ <td style="vertical-align: top;"><p>互补滤波器陀螺仪偏置权重值</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_W_MAG">ATT_W_MAG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Complimentary filter magnetometer weight</p><p><strong>Comment:</strong> Set to 0 to avoid using the magnetometer.</p>   </td>
+ <td style="vertical-align: top;"><p>互补滤波器磁罗盘权重值</p><p><strong>注意: </strong>设为0时，不使用磁罗盘数据</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
-## Battery Calibration
+## 电池校准
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_A_PER_V">BAT1_A_PER_V</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Battery 1 current per volt (A/V)</p><p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 1 current per volt (A/V)</p><p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1.0</td>
@@ -479,7 +477,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_I_CHANNEL">BAT1_I_CHANNEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 1 Current ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 1 Current ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1</td>
@@ -487,36 +485,36 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Number of cells for battery 1</p><p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>2:</strong> 2S Battery</li> 
+ <td style="vertical-align: top;"><p>Number of cells for battery 1</p><p><strong>说明:</strong>定义所安装的电池内部包含的串联电芯数量.</p> <strong>参数对照:</strong><ul>
+<li><strong>2:</strong>2S电池</li> 
 
-<li><strong>3:</strong> 3S Battery</li> 
+<li><strong>3:</strong>3S电池</li> 
 
-<li><strong>4:</strong> 4S Battery</li> 
+<li><strong>4:</strong>4S电池</li> 
 
-<li><strong>5:</strong> 5S Battery</li> 
+<li><strong>5:</strong>5S电池</li> 
 
-<li><strong>6:</strong> 6S Battery</li> 
+<li><strong>6:</strong>6S电池</li> 
 
-<li><strong>7:</strong> 7S Battery</li> 
+<li><strong>7:</strong>7S电池</li> 
 
-<li><strong>8:</strong> 8S Battery</li> 
+<li><strong>8:</strong>8S电池</li> 
 
-<li><strong>9:</strong> 9S Battery</li> 
+<li><strong>9:</strong>9S电池</li> 
 
-<li><strong>10:</strong> 10S Battery</li> 
+<li><strong>10:</strong>10S电池</li> 
 
-<li><strong>11:</strong> 11S Battery</li> 
+<li><strong>11:</strong>11S电池</li> 
 
-<li><strong>12:</strong> 12S Battery</li> 
+<li><strong>12:</strong>12S电池</li> 
 
-<li><strong>13:</strong> 13S Battery</li> 
+<li><strong>13:</strong>13S电池</li> 
 
-<li><strong>14:</strong> 14S Battery</li> 
+<li><strong>14:</strong>14S电池</li> 
 
-<li><strong>15:</strong> 15S Battery</li> 
+<li><strong>15:</strong>15S电池</li> 
 
-<li><strong>16:</strong> 16S Battery</li> 
+<li><strong>16:</strong>16S电池</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -534,12 +532,12 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_SOURCE">BAT1_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 1 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery 1 monitoring source</p><p><strong>说明:</strong>此参数决定了电池监测数据的来源. 参数''0'' 表示测量信号来源于一个电源模块. 参数"1"表示系统从外部接收到的Mavlink消息中获取电池状态信息. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
 
-<li><strong>0:</strong> Power Module</li> 
+<li><strong>0:</strong>电源模块</li> 
 
-<li><strong>1:</strong> External</li> 
+<li><strong>1:</strong>外部信息</li> 
 
 <li><strong>2:</strong> ESCs</li> 
 </ul>
@@ -551,7 +549,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_CHANNEL">BAT1_V_CHANNEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 1 Voltage ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 1 Voltage ADC Channel</p><p><strong>注意:</strong>此参数指定用于监视主电源电池电压的 ADC 通道, 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1</td>
@@ -559,7 +557,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_CHARGED">BAT1_V_CHARGED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Full cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>满电电压(5C 负载)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. 这永远不会是标称电压4.2V.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">4.05</td>
@@ -567,7 +565,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_DIV">BAT1_V_DIV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Battery 1 voltage divider (V divider)</p><p><strong>Comment:</strong> This is the divider from battery 1 voltage to ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 1 voltage divider (V divider)</p><p><strong>Comment:</strong> This is the divider from battery 1 voltage to ADC voltage. 如果使用Mauch 电源模块，数据表中的值可以在这里直接应用。 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1.0</td>
@@ -575,7 +573,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_EMPTY">BAT1_V_EMPTY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Empty cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>空电电压(5C负载)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. 该电压应该选择设置在陡降至2.8V之前， 一个典型的锂电池只能放电到10%，在它陡降至会损坏电芯的电压之前。</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">3.5</td>
@@ -583,7 +581,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Voltage drop per cell on full throttle</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>在全油门工作时每节电芯的压降</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. 比较好的值是测量并计算在5C负载时的压降和20~25C负载时的压降的差值. Not used if BAT1_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">0.07 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.3</td>
@@ -591,7 +589,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_A_PER_V">BAT2_A_PER_V</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Battery 2 current per volt (A/V)</p><p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 2 current per volt (A/V)</p><p><strong>Comment:</strong> The voltage seen by the ADC multiplied by this factor will determine the battery current. 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1.0</td>
@@ -607,7 +605,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_I_CHANNEL">BAT2_I_CHANNEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 2 Current ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 2 Current ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor current of main power battery. 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1</td>
@@ -615,36 +613,36 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Number of cells for battery 2</p><p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>2:</strong> 2S Battery</li> 
+ <td style="vertical-align: top;"><p>Number of cells for battery 2</p><p><strong>说明:</strong>定义所安装的电池内部包含的串联电芯数量.</p> <strong>参数对照:</strong><ul>
+<li><strong>2:</strong>2S电池</li> 
 
-<li><strong>3:</strong> 3S Battery</li> 
+<li><strong>3:</strong>3S电池</li> 
 
-<li><strong>4:</strong> 4S Battery</li> 
+<li><strong>4:</strong>4S电池</li> 
 
-<li><strong>5:</strong> 5S Battery</li> 
+<li><strong>5:</strong>5S电池</li> 
 
-<li><strong>6:</strong> 6S Battery</li> 
+<li><strong>6:</strong>6S电池</li> 
 
-<li><strong>7:</strong> 7S Battery</li> 
+<li><strong>7:</strong>7S电池</li> 
 
-<li><strong>8:</strong> 8S Battery</li> 
+<li><strong>8:</strong>8S电池</li> 
 
-<li><strong>9:</strong> 9S Battery</li> 
+<li><strong>9:</strong>9S电池</li> 
 
-<li><strong>10:</strong> 10S Battery</li> 
+<li><strong>10:</strong>10S电池</li> 
 
-<li><strong>11:</strong> 11S Battery</li> 
+<li><strong>11:</strong>11S电池</li> 
 
-<li><strong>12:</strong> 12S Battery</li> 
+<li><strong>12:</strong>12S电池</li> 
 
-<li><strong>13:</strong> 13S Battery</li> 
+<li><strong>13:</strong>13S电池</li> 
 
-<li><strong>14:</strong> 14S Battery</li> 
+<li><strong>14:</strong>14S电池</li> 
 
-<li><strong>15:</strong> 15S Battery</li> 
+<li><strong>15:</strong>15S电池</li> 
 
-<li><strong>16:</strong> 16S Battery</li> 
+<li><strong>16:</strong>16S电池</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -662,12 +660,12 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_SOURCE">BAT2_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 2 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery 2 monitoring source</p><p><strong>说明:</strong>此参数决定了电池监测数据的来源. 参数''0'' 表示测量信号来源于一个电源模块. 参数"1"表示系统从外部接收到的Mavlink消息中获取电池状态信息. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
 
-<li><strong>0:</strong> Power Module</li> 
+<li><strong>0:</strong>电源模块</li> 
 
-<li><strong>1:</strong> External</li> 
+<li><strong>1:</strong>外部信息</li> 
 
 <li><strong>2:</strong> ESCs</li> 
 </ul>
@@ -679,7 +677,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_CHANNEL">BAT2_V_CHANNEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 2 Voltage ADC Channel</p><p><strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 2 Voltage ADC Channel</p><p><strong>注意:</strong>此参数指定用于监视主电源电池电压的 ADC 通道, 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1</td>
@@ -687,7 +685,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_CHARGED">BAT2_V_CHARGED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Full cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>满电电压(5C 负载)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. 这永远不会是标称电压4.2V.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">4.05</td>
@@ -695,7 +693,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_DIV">BAT2_V_DIV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Battery 2 voltage divider (V divider)</p><p><strong>Comment:</strong> This is the divider from battery 2 voltage to ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Battery 2 voltage divider (V divider)</p><p><strong>Comment:</strong> This is the divider from battery 2 voltage to ADC voltage. 如果使用Mauch 电源模块，数据表中的值可以在这里直接应用。 当此值为-1时，使用板载默认设定值</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1.0</td>
@@ -703,7 +701,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_EMPTY">BAT2_V_EMPTY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Empty cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>空电电压(5C负载)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. 该电压应该选择设置在陡降至2.8V之前， 一个典型的锂电池只能放电到10%，在它陡降至会损坏电芯的电压之前。</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">3.5</td>
@@ -711,7 +709,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Voltage drop per cell on full throttle</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>在全油门工作时每节电芯的压降</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. 比较好的值是测量并计算在5C负载时的压降和20~25C负载时的压降的差值. Not used if BAT2_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">0.07 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.3</td>
@@ -733,7 +731,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_CAPACITY">BAT_CAPACITY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_CAPACITY instead</p><p><strong>Comment:</strong> Defines the capacity of battery 1.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_CAPACITY instead</p><p><strong>Comment:</strong> Defines the capacity of battery 1.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 100000 (50)</td>
  <td style="vertical-align: top;">-1.0</td>
@@ -741,7 +739,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Critical threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>临界阈值</p><p><strong>说明:</strong>设置提示严重低电压报警的阈值. 这个值设置必须低于低电压报警阈值. 此阈值通常会触发 RTL。</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.05 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.07</td>
@@ -749,7 +747,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Emergency threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>危险紧急阈值</p><p><strong>说明:</strong>设置低电压危险报警阈值. 这个值必须低于严重低电压报警阈值. 此阈值一般会触发LAND.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.03 > 0.1 (0.01)</td>
  <td style="vertical-align: top;">0.05</td>
@@ -757,7 +755,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_LOW_THR">BAT_LOW_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>低电压阈值</p><p><strong>说明:</strong>此为触发低电压报警的阈值. 这个值必须高于严重低电压报警阈值.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.12 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.15</td>
@@ -765,40 +763,40 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_N_CELLS instead</p><p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unconfigured</li> 
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_N_CELLS instead</p><p><strong>说明:</strong>定义所安装的电池内部包含的串联电芯数量.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>未配置</li> 
 
-<li><strong>2:</strong> 2S Battery</li> 
+<li><strong>2:</strong>2S电池</li> 
 
-<li><strong>3:</strong> 3S Battery</li> 
+<li><strong>3:</strong>3S电池</li> 
 
-<li><strong>4:</strong> 4S Battery</li> 
+<li><strong>4:</strong>4S电池</li> 
 
-<li><strong>5:</strong> 5S Battery</li> 
+<li><strong>5:</strong>5S电池</li> 
 
-<li><strong>6:</strong> 6S Battery</li> 
+<li><strong>6:</strong>6S电池</li> 
 
-<li><strong>7:</strong> 7S Battery</li> 
+<li><strong>7:</strong>7S电池</li> 
 
-<li><strong>8:</strong> 8S Battery</li> 
+<li><strong>8:</strong>8S电池</li> 
 
-<li><strong>9:</strong> 9S Battery</li> 
+<li><strong>9:</strong>9S电池</li> 
 
-<li><strong>10:</strong> 10S Battery</li> 
+<li><strong>10:</strong>10S电池</li> 
 
-<li><strong>11:</strong> 11S Battery</li> 
+<li><strong>11:</strong>11S电池</li> 
 
-<li><strong>12:</strong> 12S Battery</li> 
+<li><strong>12:</strong>12S电池</li> 
 
-<li><strong>13:</strong> 13S Battery</li> 
+<li><strong>13:</strong>13S电池</li> 
 
-<li><strong>14:</strong> 14S Battery</li> 
+<li><strong>14:</strong>14S电池</li> 
 
-<li><strong>15:</strong> 15S Battery</li> 
+<li><strong>15:</strong>15S电池</li> 
 
-<li><strong>16:</strong> 16S Battery</li> 
+<li><strong>16:</strong>16S电池</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -806,7 +804,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_R_INTERNAL">BAT_R_INTERNAL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_R_INTERNAL instead</p><p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_R_INTERNAL instead</p><p><strong>说明:</strong>如果是非负值, 则会用于在所有计算中替换BAT_V_LOAD_DROP.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 0.2 </td>
  <td style="vertical-align: top;">-1.0</td>
@@ -814,10 +812,10 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_SOURCE">BAT_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_SOURCE instead</p><p><strong>Comment:</strong> Battery monitoring source. This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Power Module</li> 
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_SOURCE instead</p><p><strong>Comment:</strong> Battery monitoring source. This parameter controls the source of battery data. 参数''0'' 表示测量信号来源于一个电源模块. 参数"1"表示系统从外部接收到的Mavlink消息中获取电池状态信息.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>电源模块</li> 
 
-<li><strong>1:</strong> External</li> 
+<li><strong>1:</strong>外部信息</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 1 </td>
@@ -826,7 +824,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_CHARGED instead</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_CHARGED instead</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. 这永远不会是标称电压4.2V.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">4.05</td>
@@ -841,7 +839,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_EMPTY instead</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_EMPTY instead</p><p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. 该电压应该选择设置在陡降至2.8V之前， 一个典型的锂电池只能放电到10%，在它陡降至会损坏电芯的电压之前。</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">3.5</td>
@@ -849,7 +847,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. 比较好的值是测量并计算在5C负载时的压降和20~25C负载时的压降的差值. 当参数BAT_R_INTERNAL被设置的时候会不使用此参数.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.07 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.3</td>
@@ -857,7 +855,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Offset in volt as seen by the ADC input of the current sensor</p><p><strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.</p>   </td>
+ <td style="vertical-align: top;"><p>电流传感器ADC通道输入电压偏移</p><p><strong>说明:</strong>在根据电压计算电池电流之前，这个偏移量将被减去。</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
@@ -869,7 +867,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -881,22 +879,22 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 </tbody></table>
 
-## Camera Control
+## 相机控制
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="CAM_CAP_EDGE">CAM_CAP_EDGE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera capture edge</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Falling edge</li> 
+ <td style="vertical-align: top;"><p>相机拍照捕获边沿类型</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>下降沿</li> 
 
-<li><strong>1:</strong> Rising edge</li> 
+<li><strong>1:</strong> 上升沿</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -904,7 +902,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAM_CAP_FBACK">CAM_CAP_FBACK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera capture feedback</p><p><strong>Comment:</strong> Enables camera capture feedback</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>相机捕获反馈</p><p><strong>说明:</strong>使能相机捕获反馈</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -912,14 +910,14 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAM_CAP_MODE">CAM_CAP_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera capture timestamping mode</p><p><strong>Comment:</strong> Change time measurement</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Camera capture timestamping mode</p><p><strong>Comment:</strong> Change time measurement</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Get absolute timestamp</li> 
 
 <li><strong>1:</strong> Get timestamp of mid exposure (active high)</li> 
 
 <li><strong>2:</strong> Get timestamp of mid exposure (active low)</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -927,17 +925,17 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 </tbody></table>
 
-## Camera trigger
+## 相机触发
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_ACT_TIME">TRIG_ACT_TIME</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger activation time</p><p><strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>相机触发激活时间</p><p><strong>说明:</strong>此参数设置了快门触发信号需要被拉高或置低的持续时间.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.1 > 3000 </td>
  <td style="vertical-align: top;">40.0</td>
@@ -945,24 +943,24 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_DISTANCE">TRIG_DISTANCE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger distance</p><p><strong>Comment:</strong> Sets the distance at which to trigger the camera.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>相机定距触发的间距</p><p><strong>说明:</strong>设置相隔多远触发一次相机快门.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > ? (1)</td>
  <td style="vertical-align: top;">25.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_INTERFACE">TRIG_INTERFACE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera trigger Interface</p><p><strong>Comment:</strong> Selects the trigger interface</p> <strong>Values:</strong><ul>
-<li><strong>1:</strong> GPIO</li> 
+ <td style="vertical-align: top;"><p>相机触发接口</p><p><strong>说明:</strong>选择相机触发接口</p> <strong>参数对照:</strong><ul>
+<li><strong>1:</strong>使用GPIO触发</li> 
 
 <li><strong>2:</strong> Seagull MAP2 (over PWM)</li> 
 
-<li><strong>3:</strong> MAVLink (forward via MAV_CMD_IMAGE_START_CAPTURE)</li> 
+<li><strong>3:</strong>使用Mavlink消息触发(通过MAV_CMD_IMAGE_START_CAPTURE指令)</li> 
 
-<li><strong>4:</strong> Generic PWM (IR trigger, servo)</li> 
+<li><strong>4:</strong>使用通用PWM信号触发(红外快门控制器，舵机)</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">4</td>
@@ -970,7 +968,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_INTERVAL">TRIG_INTERVAL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the time between two consecutive trigger events</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>相机触发间隔</p><p><strong>说明:</strong>此参数设置两个连续触发事件之间的时间间隔.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">4.0 > 10000.0 </td>
  <td style="vertical-align: top;">40.0</td>
@@ -978,7 +976,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_MIN_INTERVA">TRIG_MIN_INTERVA</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the minimum time between two consecutive trigger events the specific camera setup is supporting.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Minimum camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the minimum time between two consecutive trigger events the specific camera setup is supporting.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1.0 > 10000.0 </td>
  <td style="vertical-align: top;">1.0</td>
@@ -986,18 +984,18 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_MODE">TRIG_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera trigger mode</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>相机触发模式</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
-<li><strong>1:</strong> Time based, on command</li> 
+<li><strong>1:</strong>基于时间, 使用指令控制</li> 
 
-<li><strong>2:</strong> Time based, always on</li> 
+<li><strong>2:</strong>基于时间, 持续触发</li> 
 
-<li><strong>3:</strong> Distance based, always on</li> 
+<li><strong>3:</strong>基于距离, 持续触发</li> 
 
-<li><strong>4:</strong> Distance based, on command (Survey mode)</li> 
+<li><strong>4:</strong>基于距离, 使用指令控制(航测模式)</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">0</td>
@@ -1005,7 +1003,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_PINS">TRIG_PINS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera trigger pin</p><p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX8 on Pixhawk controllers with an I/O board, MAIN1-MAIN8 on controllers without an I/O board. The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS. Note: only with a value of 56 or 78 it is possible to use the lower pins for actuator outputs (e.g. ESC's).</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>相机触发引脚</p><p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX8 on Pixhawk controllers with an I/O board, MAIN1-MAIN8 on controllers without an I/O board. PWM接口在每个摄像机上使用两个引脚，而在每个引脚上分别使用继电器触发器. 例如: 设置参数值56会在pin5和pin6上产生触发信号. 在GPIO模式时, Pin6会在Pin5之后产生触发信号. 设置参数65则表示Pin5会在Pin6之后产生触发信号. 引脚可能是非连续的。 I.E. 16 or 61. 在GPIO模式下,两个引脚之间的触发信号时间差＜0.2us. Note: only with a value of 56 or 78 it is possible to use the lower pins for actuator outputs (e.g. ESC's).</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 12345678 </td>
  <td style="vertical-align: top;">56</td>
@@ -1013,12 +1011,12 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_POLARITY">TRIG_POLARITY</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera trigger polarity</p><p><strong>Comment:</strong> This parameter sets the polarity of the trigger (0 = active low, 1 = active high )</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Active low</li> 
+ <td style="vertical-align: top;"><p>相机触发极性</p><p><strong>说明:</strong>此参数设置相机触发的极性(0表示低电平触发, 1表示高电平触发)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>低电平有效</li> 
 
-<li><strong>1:</strong> Active high</li> 
+<li><strong>1:</strong>高电平有效</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
@@ -1026,7 +1024,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_PWM_NEUTRAL">TRIG_PWM_NEUTRAL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PWM neutral output on trigger pin</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PWM neutral output on trigger pin</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1000 > 2000 </td>
  <td style="vertical-align: top;">1500</td>
@@ -1034,7 +1032,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_PWM_SHOOT">TRIG_PWM_SHOOT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PWM output to trigger shot</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PWM output to trigger shot</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1000 > 2000 </td>
  <td style="vertical-align: top;">1900</td>
@@ -1042,17 +1040,17 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 </tbody></table>
 
-## Circuit Breaker
+## 外部模块配置
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_AIRSPD_CHK">CBRK_AIRSPD_CHK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for airspeed sensor</p><p><strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>空速计检查开关</p><p><strong>说明:</strong>将此参数设置为162128将禁用空速计检查. The sensor driver will not be started and it cannot be calibrated. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 162128 </td>
  <td style="vertical-align: top;">0</td>
@@ -1060,7 +1058,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for disabling buzzer</p><p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>蜂鸣器使能开关</p><p><strong>说明: </strong>将此参数设置为782097将禁用蜂鸣器音频通知. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 782097 </td>
  <td style="vertical-align: top;">0</td>
@@ -1068,7 +1066,8 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_ENGINEFAIL">CBRK_ENGINEFAIL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for engine failure detection</p><p><strong>Comment:</strong> Setting this parameter to 284953 will disable the engine failure detection. If the aircraft is in engine failure mode the engine failure flag will be set to healthy WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>用于发动机故障检测的断路器</p><p><strong>说明: </strong>将此参数设置为284953将禁用发送机故障检测. 如果飞机处于引擎故障模式，引擎故障标志将设置为健康状态.
+警告: 启用此开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 284953 </td>
  <td style="vertical-align: top;">284953</td>
@@ -1076,7 +1075,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_FLIGHTTERM">CBRK_FLIGHTTERM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for flight termination</p><p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>飞行终止断路器</p><p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 121212 </td>
  <td style="vertical-align: top;">121212</td>
@@ -1084,7 +1083,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_IO_SAFETY">CBRK_IO_SAFETY</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for IO safety</p><p><strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for IO safety</p><p><strong>说明:</strong>将这个参数设置为22027会关闭IO安全开关。 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 22027 </td>
  <td style="vertical-align: top;">0</td>
@@ -1092,7 +1091,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_RATE_CTRL">CBRK_RATE_CTRL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for rate controller output</p><p><strong>Comment:</strong> Setting this parameter to 140253 will disable the rate controller uORB publication. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for rate controller output</p><p><strong>Comment:</strong> Setting this parameter to 140253 will disable the rate controller uORB publication. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 140253 </td>
  <td style="vertical-align: top;">0</td>
@@ -1100,7 +1099,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_SUPPLY_CHK">CBRK_SUPPLY_CHK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for power supply check</p><p><strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>用于电源检查的断路器</p><p><strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 894281 </td>
  <td style="vertical-align: top;">0</td>
@@ -1108,7 +1107,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_USB_CHK">CBRK_USB_CHK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for USB link check</p><p><strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for USB link check</p><p><strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 197848 </td>
  <td style="vertical-align: top;">0</td>
@@ -1116,7 +1115,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_VELPOSERR">CBRK_VELPOSERR</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for position error check</p><p><strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>用于位置错误检查的断路器</p><p><strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 201607 </td>
  <td style="vertical-align: top;">0</td>
@@ -1124,7 +1123,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_VTOLARMING">CBRK_VTOLARMING</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for arming in fixed-wing mode check</p><p><strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for arming in fixed-wing mode check</p><p><strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. 警告: 启用这个开关是有风险的.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 159753 </td>
  <td style="vertical-align: top;">0</td>
@@ -1137,7 +1136,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -1149,7 +1148,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_MET">COM_ARM_AUTH_MET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm authorization method</p><p><strong>Comment:</strong> Methods: - one arm: request authorization and arm when authorization is received - two step arm: 1st arm command request an authorization and 2nd arm command arm the drone if authorized Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Arm authorization method</p><p><strong>Comment:</strong> Methods: - one arm: request authorization and arm when authorization is received - two step arm: 1st arm command request an authorization and 2nd arm command arm the drone if authorized Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> one arm</li> 
 
 <li><strong>1:</strong> two step arm</li> 
@@ -1171,7 +1170,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><p>Arm authorization timeout</p><p><strong>Comment:</strong> Timeout for authorizer answer. Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p>   </td>
  <td style="vertical-align: top;">(0.1)</td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
@@ -1186,7 +1185,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than EKF2_ABL_LIM * FILTER_UPDATE_PERIOD_MS * 0.001 so this parameter must be less than that to be useful</p>   </td>
  <td style="vertical-align: top;">0.001 > 0.01 (0.0001)</td>
  <td style="vertical-align: top;">0.0022</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_GB">COM_ARM_EKF_GB</strong> (FLOAT)</td>
@@ -1225,17 +1224,17 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_IMU_ACC">COM_ARM_IMU_ACC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum accelerometer inconsistency between IMU units that will allow arming</p>   </td>
+ <td style="vertical-align: top;"><p>解锁允许的各个IMU单元之间最大的加速度不一致性.</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.7</td>
  <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_IMU_GYR">COM_ARM_IMU_GYR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum rate gyro inconsistency between IMU units that will allow arming</p>   </td>
+ <td style="vertical-align: top;"><p>解锁允许的各个IMU单元之间最大的陀螺仪不一致性.</p>   </td>
  <td style="vertical-align: top;">0.02 > 0.3 (0.01)</td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
@@ -1243,7 +1242,7 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
 Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;">3 > 180 </td>
  <td style="vertical-align: top;">45</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_MAG_STR">COM_ARM_MAG_STR</strong> (INT32)</td>
@@ -1254,7 +1253,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Require valid mission to arm</p><p><strong>Comment:</strong> The default allows to arm the vehicle without a valid mission.</p>   </td>
+ <td style="vertical-align: top;"><p>需要有效的任务才能解锁</p><p><strong>说明:</strong>默认允许不需要一个有效任务也可以解锁.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
@@ -1268,7 +1267,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Allow arming without GPS</p><p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p>   </td>
+ <td style="vertical-align: top;"><p>允许在无GPS的状态下解锁</p><p><strong>说明: </strong>默认允许在无GPS信号的状态下解锁自驾仪.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
  <td style="vertical-align: top;"></td>
@@ -1282,24 +1281,24 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
+ <td style="vertical-align: top;"><p>降落后自动锁定超时时间</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out for auto disarm if too slow to takeoff</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_DL_LOSS_T">COM_DL_LOSS_T</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Datalink loss time threshold</p><p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
+ <td style="vertical-align: top;"><p>数据链路失效时间阈值</p><p><strong>说明: </strong>超过此设定参数对应的时间没有数据传输时会启动数据链路失效模式.</p>   </td>
  <td style="vertical-align: top;">5 > 300 (1)</td>
  <td style="vertical-align: top;">10</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_EF_C2T">COM_EF_C2T</strong> (FLOAT)</td>
@@ -1320,7 +1319,7 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"><p>Engine Failure Time Threshold</p><p><strong>Comment:</strong> Engine failure triggers only if the throttle threshold and the current to throttle threshold are violated for this time</p>   </td>
  <td style="vertical-align: top;">0.0 > 60.0 (1)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLIGHT_UUID">COM_FLIGHT_UUID</strong> (INT32)</td>
@@ -1331,34 +1330,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE1">COM_FLTMODE1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>First flightmode slot (1000-1160)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式1(1000-1160)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1367,34 +1366,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE2">COM_FLTMODE2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Second flightmode slot (1160-1320)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式2 (1160-1320)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1403,34 +1402,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE3">COM_FLTMODE3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Third flightmode slot (1320-1480)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式3(1320-1480)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1439,34 +1438,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE4">COM_FLTMODE4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Fourth flightmode slot (1480-1640)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式4(1480-1640)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1475,34 +1474,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE5">COM_FLTMODE5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Fifth flightmode slot (1640-1800)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式5(1640-1800)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1511,34 +1510,34 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLTMODE6">COM_FLTMODE6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Sixth flightmode slot (1800-2000)</p><p><strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Unassigned</li> 
+ <td style="vertical-align: top;"><p>飞行模式6(1800-2000)</p><p><strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.</p> <strong>参数对照:</strong><ul>
+<li><strong>-1: </strong>未定义</li> 
 
-<li><strong>0:</strong> Manual</li> 
+<li><strong>0: </strong>手动</li> 
 
-<li><strong>1:</strong> Altitude</li> 
+<li><strong>1: </strong>定高</li> 
 
-<li><strong>2:</strong> Position</li> 
+<li><strong>2: </strong>定点</li> 
 
-<li><strong>3:</strong> Mission</li> 
+<li><strong>3: </strong>自动任务</li> 
 
 <li><strong>4:</strong> Hold</li> 
 
-<li><strong>5:</strong> Return</li> 
+<li><strong>5: </strong>返航</li> 
 
 <li><strong>6:</strong> Acro</li> 
 
 <li><strong>7:</strong> Offboard</li> 
 
-<li><strong>8:</strong> Stabilized</li> 
+<li><strong>8: </strong>自稳</li> 
 
 <li><strong>9:</strong> Rattitude</li> 
 
-<li><strong>10:</strong> Takeoff</li> 
+<li><strong>10: </strong>起飞</li> 
 
-<li><strong>11:</strong> Land</li> 
+<li><strong>11: </strong>降落</li> 
 
-<li><strong>12:</strong> Follow Me</li> 
+<li><strong>12: </strong>跟随</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1547,7 +1546,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_FLT_PROFILE">COM_FLT_PROFILE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>User Flight Profile</p><p><strong>Comment:</strong> Describes the intended use of the vehicle. Can be used by ground control software or log post processing. This param does not influence the behavior within the firmware. This means for example the control logic is independent of the setting of this param (but depends on other params).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>User Flight Profile</p><p><strong>Comment:</strong> Describes the intended use of the vehicle. Can be used by ground control software or log post processing. This param does not influence the behavior within the firmware. This means for example the control logic is independent of the setting of this param (but depends on other params).</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Default</li> 
 
 <li><strong>100:</strong> Pro User</li> 
@@ -1563,52 +1562,52 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_HLDL_LOSS_T">COM_HLDL_LOSS_T</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>High Latency Datalink loss time threshold</p><p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
+ <td style="vertical-align: top;"><p>高延迟数据链路丢失时间阈值</p><p><strong>说明: </strong>超过此设定参数对应的时间没有数据传输时会启动数据链路失效模式.</p>   </td>
  <td style="vertical-align: top;">60 > 3600 </td>
  <td style="vertical-align: top;">120</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_HLDL_REG_T">COM_HLDL_REG_T</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>High Latency Datalink regain time threshold</p><p><strong>Comment:</strong> After a data link loss: after this this amount of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>   </td>
+ <td style="vertical-align: top;"><p>高延迟数据链恢复时间阈值</p><p><strong>Comment:</strong> After a data link loss: after this this amount of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>   </td>
  <td style="vertical-align: top;">0 > 60 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Home set horizontal threshold</p><p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
+ <td style="vertical-align: top;"><p>Home点水平阈值</p><p><strong>说明:</strong>如果估计的定位精度低于阈值，则设置home位置。</p>   </td>
  <td style="vertical-align: top;">2 > 15 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_HOME_V_T">COM_HOME_V_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Home set vertical threshold</p><p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
+ <td style="vertical-align: top;"><p>Home点垂直阈值</p><p><strong>说明:</strong>如果估计的定位精度低于阈值，则设置home位置。</p>   </td>
  <td style="vertical-align: top;">5 > 25 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Timeout value for disarming when kill switch is engaged</p>   </td>
  <td style="vertical-align: top;">0.0 > 30.0 (0.1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Timeout for detecting a failure after takeoff</p><p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW), Rattitude and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
  <td style="vertical-align: top;">-1.0 > 5.0 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery failsafe mode</p><p><strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Warning</li> 
+ <td style="vertical-align: top;"><p>低电安全保护模式</p><p><strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.</p> <strong>参数对照:</strong><ul>
+<li><strong>0: </strong>报警</li> 
 
-<li><strong>2:</strong> Land mode</li> 
+<li><strong>2: </strong>降落模式</li> 
 
 <li><strong>3:</strong> Return at critical level, land at emergency level</li> 
 </ul>
@@ -1626,14 +1625,14 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
 
-<li><strong>0:</strong> Land mode</li> 
+<li><strong>0: </strong>降落模式</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return mode</li> 
+<li><strong>2: </strong>返航模式</li> 
 
 <li><strong>3:</strong> Terminate</li> 
 
@@ -1646,18 +1645,18 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
 
 <li><strong>0:</strong> Position mode</li> 
 
 <li><strong>1:</strong> Altitude mode</li> 
 
-<li><strong>2:</strong> Manual</li> 
+<li><strong>2: </strong>手动</li> 
 
-<li><strong>3:</strong> Return mode</li> 
+<li><strong>3: </strong>返航模式</li> 
 
-<li><strong>4:</strong> Land mode</li> 
+<li><strong>4: </strong>降落模式</li> 
 
 <li><strong>5:</strong> Hold mode</li> 
 
@@ -1676,11 +1675,11 @@ Set -1 to disable the check</p>   </td>
 See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">0 > 60 (0.01)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.</li> 
 
 <li><strong>1:</strong> Land/Terminate. Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</li> 
@@ -1692,29 +1691,29 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_DELAY">COM_POS_FS_DELAY</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Loss of position failsafe activation delay</p><p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>失去定位故障安全激活延迟</p><p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Horizontal position error threshold</p><p><strong>Comment:</strong> This is the horizontal position error (EPH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_EPV">COM_POS_FS_EPV</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vertical position error threshold</p><p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_GAIN">COM_POS_FS_GAIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Loss of position probation gain factor</p><p><strong>Comment:</strong> This sets the rate that the loss of position probation time grows when position checks are failing. The default value has been optimised for rotary wing applications. For fixed wing applications a value of 0 should be used.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Loss of position probation gain factor</p><p><strong>Comment:</strong> This sets the rate that the loss of position probation time grows when position checks are failing. The default value has been optimised for rotary wing applications. For fixed wing applications a value of 0 should be used.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10</td>
@@ -1722,11 +1721,11 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_PROB">COM_POS_FS_PROB</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Loss of position probation delay at takeoff</p><p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Loss of position probation delay at takeoff</p><p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">30</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
@@ -1737,8 +1736,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Condition to enter prearmed mode</p><p><strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Condition to enter prearmed mode</p><p><strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Safety button</li> 
 
@@ -1751,19 +1750,19 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC input arm/disarm command duration</p><p><strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.</p>   </td>
+ <td style="vertical-align: top;"><p>遥控器输入 解锁/锁定 指令的持续时间</p><p><strong>说明: </strong>默认值1000表示摇杆需要保持解锁或锁定动作状态持续1秒钟.</p>   </td>
  <td style="vertical-align: top;">100 > 1500 </td>
  <td style="vertical-align: top;">1000</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_IN_MODE">COM_RC_IN_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC control input mode</p><p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> RC Transmitter</li> 
+ <td style="vertical-align: top;"><p>遥控器信号输入模式</p><p><strong>说明: </strong>默认值0表示需要安装一个可用的遥控器. 设置为1允许操纵杆控制(连接到地面站软件的游戏摇杆) 和禁用RC输入处理和相关检查。 A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong> RC 遥控器</li> 
 
-<li><strong>1:</strong> Joystick/No RC Checks</li> 
+<li><strong>1:</strong> 游戏手柄/不进行RC遥控器检查</li> 
 
-<li><strong>2:</strong> Virtual RC by Joystick</li> 
+<li><strong>2:</strong> 通过游戏手柄输入RC遥控器输入值</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 2 </td>
@@ -1772,10 +1771,10 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_LOSS_T">COM_RC_LOSS_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC loss time threshold</p><p><strong>Comment:</strong> After this amount of seconds without RC connection the rc lost flag is set to true</p>   </td>
+ <td style="vertical-align: top;"><p>遥控器失效时间阈值</p><p><strong>说明: </strong>超过这个参数对应的时间没有接收到遥控信号, 那么遥控器失联标志会被置位.</p>   </td>
  <td style="vertical-align: top;">0 > 35 (0.1)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
@@ -1806,7 +1805,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;"><p>Horizontal velocity error threshold</p><p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 </tbody></table>
 
@@ -1815,12 +1814,12 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Configure DShot</p><p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Configure DShot</p><p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disable (use PWM/Oneshot)</li> 
 
 <li><strong>150:</strong> DShot150</li> 
@@ -1846,8 +1845,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for DShot Driver</p><p><strong>Comment:</strong> Configure on which serial port to run DShot Driver.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for DShot Driver</p><p><strong>Comment:</strong> Configure on which serial port to run DShot Driver.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -1867,7 +1866,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -1882,12 +1881,12 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 </tbody></table>
 
-## Data Link Loss
+## 数据链路丢失
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -1895,7 +1894,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;"><p>Airfield home alt</p><p><strong>Comment:</strong> Altitude of airfield home waypoint</p>   </td>
  <td style="vertical-align: top;">-50 > ? (0.5)</td>
  <td style="vertical-align: top;">600.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
@@ -1918,12 +1917,12 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ABIAS_INIT">EKF2_ABIAS_INIT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>1-sigma IMU accelerometer switch-on bias</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>1-sigma IMU accelerometer switch-on bias</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.0 > 0.5 </td>
  <td style="vertical-align: top;">0.2</td>
@@ -1945,7 +1944,7 @@ If the magnitude of the IMU angular rate vector exceeds this value, the EKF delt
 This reduces the adverse effect of rapid rotation rates and associated errors on the delta velocity bias estimates</p>   </td>
  <td style="vertical-align: top;">2.0 > 20.0 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ABL_LIM">EKF2_ABL_LIM</strong> (FLOAT)</td>
@@ -1961,7 +1960,7 @@ The vector magnitude of angular rate and acceleration used to check if learning 
 This parameter controls the time constant of the decay</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ACC_B_NOISE">EKF2_ACC_B_NOISE</strong> (FLOAT)</td>
@@ -1989,7 +1988,7 @@ This parameter controls the time constant of the decay</p>   </td>
   <li><strong>7:</strong> GPS yaw fusion</li> 
   <li><strong>8:</strong> vision velocity fusion</li> 
 </ul>
- <p><b>Reboot required:</b> true</p>
+ <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 511 </td>
  <td style="vertical-align: top;">1</td>
@@ -1997,7 +1996,7 @@ This parameter controls the time constant of the decay</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ANGERR_INIT">EKF2_ANGERR_INIT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>1-sigma tilt angle uncertainty after gravity vector alignment</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>1-sigma tilt angle uncertainty after gravity vector alignment</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.0 > 0.5 </td>
  <td style="vertical-align: top;">0.1</td>
@@ -2011,18 +2010,18 @@ Both airspeed fusion and sideslip fusion must be active for the EKF to continue 
 Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ASPD_MAX">EKF2_ASPD_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Upper limit on airspeed along individual axes used to correct baro for position error effects</p>   </td>
  <td style="vertical-align: top;">5.0 > 50.0 </td>
  <td style="vertical-align: top;">20.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ASP_DELAY">EKF2_ASP_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Airspeed measurement delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">100</td>
@@ -2030,7 +2029,7 @@ Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Auxillary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Auxillary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">5</td>
@@ -2038,7 +2037,7 @@ Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_BARO_DELAY">EKF2_BARO_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Barometer measurement delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">0</td>
@@ -2056,7 +2055,7 @@ Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
  <td style="vertical-align: top;"><p>Measurement noise for barometric altitude</p>   </td>
  <td style="vertical-align: top;">0.01 > 15.0 </td>
  <td style="vertical-align: top;">3.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
@@ -2086,7 +2085,7 @@ This should be adjusted to minimise variance of the Y-axis drag specific force i
  <td style="vertical-align: top;"><p>Noise for synthetic sideslip fusion</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_DECL_TYPE">EKF2_DECL_TYPE</strong> (INT32)</td>
@@ -2094,7 +2093,7 @@ This should be adjusted to minimise variance of the Y-axis drag specific force i
   <li><strong>1:</strong> save EKF2_MAG_DECL on disarm</li> 
   <li><strong>2:</strong> use declination as an observation</li> 
 </ul>
- <p><b>Reboot required:</b> true</p>
+ <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">7</td>
@@ -2113,7 +2112,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
  <td style="vertical-align: top;"><p>Measurement noise for airspeed fusion</p>   </td>
  <td style="vertical-align: top;">0.5 > 5.0 </td>
  <td style="vertical-align: top;">1.4</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
@@ -2135,7 +2134,7 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVV_GATE">EKF2_EVV_GATE</strong> (FLOAT)</td>
@@ -2149,11 +2148,11 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Vision Position Estimator delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Vision Position Estimator delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">175</td>
@@ -2171,21 +2170,21 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_Y">EKF2_EV_POS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_Z">EKF2_EV_POS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
@@ -2196,25 +2195,25 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GBIAS_INIT">EKF2_GBIAS_INIT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>1-sigma IMU gyro switch-on bias</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>1-sigma IMU gyro switch-on bias</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.0 > 0.2 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GND_EFF_DZ">EKF2_GND_EFF_DZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Baro deadzone range for height fusion</p><p><strong>Comment:</strong> Sets the value of deadzone applied to negative baro innovations. Deadzone is enabled when EKF2_GND_EFF_DZ > 0.</p>   </td>
  <td style="vertical-align: top;">0.0 > 10.0 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GND_MAX_HGT">EKF2_GND_MAX_HGT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Height above ground level for ground effect zone</p><p><strong>Comment:</strong> Sets the maximum distance to the ground level where negative baro innovations are expected.</p>   </td>
  <td style="vertical-align: top;">0.0 > 5.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
@@ -2235,7 +2234,7 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_DELAY">EKF2_GPS_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>GPS measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>GPS measurement delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">110</td>
@@ -2246,21 +2245,21 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_Y">EKF2_GPS_POS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_Z">EKF2_GPS_POS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_P_GATE">EKF2_GPS_P_GATE</strong> (FLOAT)</td>
@@ -2274,7 +2273,7 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>Measurement noise for gps position</p>   </td>
  <td style="vertical-align: top;">0.01 > 10.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_V_GATE">EKF2_GPS_V_GATE</strong> (FLOAT)</td>
@@ -2288,7 +2287,7 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><p>Measurement noise for gps horizontal velocity</p>   </td>
  <td style="vertical-align: top;">0.01 > 5.0 </td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
@@ -2296,7 +2295,7 @@ Sets the number of standard deviations used by the innovation consistency test</
 If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes</p>   </td>
  <td style="vertical-align: top;">0.0 > 100.0 </td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
@@ -2310,7 +2309,7 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
  <td style="vertical-align: top;"><p>Rate gyro noise for covariance prediction</p>   </td>
  <td style="vertical-align: top;">0.0001 > 0.1 </td>
  <td style="vertical-align: top;">1.5e-2</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_HDG_GATE">EKF2_HDG_GATE</strong> (FLOAT)</td>
@@ -2328,16 +2327,16 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_HGT_MODE">EKF2_HGT_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Determines the primary source of height data used by the EKF</p><p><strong>Comment:</strong> The range sensor option should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Determines the primary source of height data used by the EKF</p><p><strong>Comment:</strong> The range sensor option should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Barometric pressure</li> 
 
 <li><strong>1:</strong> GPS</li> 
 
 <li><strong>2:</strong> Range sensor</li> 
 
-<li><strong>3:</strong> Vision</li> 
+<li><strong>3:</strong>使用视觉模块数据</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -2348,25 +2347,25 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
  <td style="vertical-align: top;"><p>X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_Y">EKF2_IMU_POS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_Z">EKF2_IMU_POS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_ID">EKF2_MAGBIAS_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Magnetometer the learned bias is for</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>ID of Magnetometer the learned bias is for</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -2375,7 +2374,7 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_X">EKF2_MAGBIAS_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Learned value of magnetometer X axis bias.
-This is the amount of X-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
+This is the amount of X-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
@@ -2384,7 +2383,7 @@ This is the amount of X-axis magnetometer bias learned by the EKF and saved from
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Y">EKF2_MAGBIAS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Learned value of magnetometer Y axis bias.
-This is the amount of Y-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
+This is the amount of Y-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
@@ -2393,7 +2392,7 @@ This is the amount of Y-axis magnetometer bias learned by the EKF and saved from
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Z">EKF2_MAGBIAS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Learned value of magnetometer Z axis bias.
-This is the amount of Z-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
+This is the amount of Z-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
@@ -2410,7 +2409,7 @@ Smaller values make the saved mag bias learn slower from flight to flight. Large
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGB_VREF">EKF2_MAGB_VREF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>State variance assumed for magnetometer bias storage.
-This is a reference variance used to calculate the fraction of learned magnetometer bias that will be used to update the stored value. Smaller values will make the stored bias data adjust more slowly from flight to flight. Larger values will make it adjust faster</p>   <p><b>Reboot required:</b> true</p>
+This is a reference variance used to calculate the fraction of learned magnetometer bias that will be used to update the stored value. Smaller values will make the stored bias data adjust more slowly from flight to flight. Larger values will make it adjust faster</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2.5E-7</td>
@@ -2443,11 +2442,11 @@ This parameter is used when the magnetometer fusion method is set automatically 
  <td style="vertical-align: top;"><p>Magnetic declination</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_DELAY">EKF2_MAG_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Magnetometer measurement delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">0</td>
@@ -2476,7 +2475,7 @@ This parameter is used when the magnetometer fusion method is set automatically 
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Type of magnetometer fusion</p><p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Type of magnetometer fusion</p><p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. If no external source of yaw is available, it is possible to use post-takeoff horizontal movement combined with GPS velocity measurements to align the yaw angle with the timer required (depending on the amount of movement and GPS data quality). Other external sources of yaw may be used if selected via the EKF2_AID_MASK parameter.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Automatic</li> 
 
 <li><strong>1:</strong> Magnetic heading</li> 
@@ -2487,9 +2486,9 @@ This parameter is used when the magnetometer fusion method is set automatically 
 
 <li><strong>4:</strong> MC custom</li> 
 
-<li><strong>5:</strong> None</li> 
+<li><strong>5:</strong>无</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -2501,12 +2500,12 @@ This parameter is used when the magnetometer fusion method is set automatically 
 This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MIN_OBS_DT">EKF2_MIN_OBS_DT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Minimum time of arrival delta between non-IMU observations before data is downsampled.
-Baro and Magnetometer data will be averaged before downsampling, other data will be point sampled resulting in loss of information</p>   <p><b>Reboot required:</b> true</p>
+Baro and Magnetometer data will be averaged before downsampling, other data will be point sampled resulting in loss of information</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">10 > 50 </td>
  <td style="vertical-align: top;">20</td>
@@ -2517,7 +2516,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;"><p>Expected range finder reading when on ground</p><p><strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test controlled by EKF2_MOVE_TEST and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MOVE_TEST">EKF2_MOVE_TEST</strong> (FLOAT)</td>
@@ -2528,7 +2527,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multi-EKF IMUs</p><p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Multi-EKF IMUs</p><p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">0</td>
@@ -2536,7 +2535,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MULTI_MAG">EKF2_MULTI_MAG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multi-EKF Magnetometers</p><p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Multi-EKF Magnetometers</p><p><strong>Comment:</strong> Maximum number of magnetometers to use for Multi-EKF. Set 0 to disable. Requires SENS_MAG_MODE 0.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">0</td>
@@ -2547,7 +2546,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;"><p>Measurement noise for non-aiding position hold</p>   </td>
  <td style="vertical-align: top;">0.5 > 50.0 </td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_NOAID_TOUT">EKF2_NOAID_TOUT</strong> (INT32)</td>
@@ -2559,7 +2558,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Optical flow measurement delay relative to IMU measurements
-Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> true</p>
+Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">20</td>
@@ -2577,35 +2576,35 @@ Assumes measurement is timestamped at trailing edge of integration period</p>   
  <td style="vertical-align: top;"><p>Measurement noise for the optical flow sensor</p><p><strong>Comment:</strong> (when it's reported quality metric is at the minimum set by EKF2_OF_QMIN). The following condition must be met: EKF2_OF_N_MAXN >= EKF2_OF_N_MIN</p>   </td>
  <td style="vertical-align: top;">0.05 > ? </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_N_MIN">EKF2_OF_N_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for the optical flow sensor when it's reported quality metric is at the maximum</p>   </td>
  <td style="vertical-align: top;">0.05 > ? </td>
  <td style="vertical-align: top;">0.15</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_X">EKF2_OF_POS_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_Y">EKF2_OF_POS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_Z">EKF2_OF_POS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_QMIN">EKF2_OF_QMIN</strong> (INT32)</td>
@@ -2663,29 +2662,29 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Required EPH to use GPS</p>   </td>
  <td style="vertical-align: top;">2 > 100 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_EPV">EKF2_REQ_EPV</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Required EPV to use GPS</p>   </td>
  <td style="vertical-align: top;">2 > 100 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_GPS_H">EKF2_REQ_GPS_H</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Required GPS health time on startup</p><p><strong>Comment:</strong> Minimum continuous period without GPS failure required to mark a healthy GPS status. It can be reduced to speed up initialization, but it's recommended to keep this unchanged for a vehicle.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Required GPS health time on startup</p><p><strong>Comment:</strong> Minimum continuous period without GPS failure required to mark a healthy GPS status. It can be reduced to speed up initialization, but it's recommended to keep this unchanged for a vehicle.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.1 > ? </td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_HDRIFT">EKF2_REQ_HDRIFT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal drift speed to use GPS</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_NSATS">EKF2_REQ_NSATS</strong> (INT32)</td>
@@ -2706,18 +2705,18 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Required speed accuracy to use GPS</p>   </td>
  <td style="vertical-align: top;">0.5 > 5.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_VDRIFT">EKF2_REQ_VDRIFT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical drift speed to use GPS</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.5 </td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_AID">EKF2_RNG_AID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Range sensor aid</p><p><strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height even if range sensor is not the primary height source. It will only do so if conditions for range measurement fusion are met. This enables the range finder to be used during low speed and low altitude operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX. If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. Also range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Range sensor aid</p><p><strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height even if range sensor is not the primary height source. It will only do so if conditions for range measurement fusion are met. This enables the range finder to be used during low speed and low altitude operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX. If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. Also range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Range aid disabled</li> 
 
 <li><strong>1:</strong> Range aid enabled</li> 
@@ -2732,7 +2731,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Maximum absolute altitude (height above ground level) allowed for range aid mode</p><p><strong>Comment:</strong> If the vehicle absolute altitude exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when range aid mode is activated (EKF2_RNG_AID = enabled).</p>   </td>
  <td style="vertical-align: top;">1.0 > 10.0 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_A_IGATE">EKF2_RNG_A_IGATE</strong> (FLOAT)</td>
@@ -2746,11 +2745,11 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Maximum horizontal velocity allowed for range aid mode</p><p><strong>Comment:</strong> If the vehicle horizontal speed exceeds this value then the estimator will not fuse range measurements to estimate it's height. This only applies when range aid mode is activated (EKF2_RNG_AID = enabled).</p>   </td>
  <td style="vertical-align: top;">0.1 > 2 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_DELAY">EKF2_RNG_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Range finder measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Range finder measurement delay relative to IMU measurements</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">5</td>
@@ -2768,7 +2767,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Measurement noise for range finder fusion</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_PITCH">EKF2_RNG_PITCH</strong> (FLOAT)</td>
@@ -2782,21 +2781,21 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_POS_Y">EKF2_RNG_POS_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_POS_Z">EKF2_RNG_POS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_SFE">EKF2_RNG_SFE</strong> (FLOAT)</td>
@@ -2824,7 +2823,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Selector angular threshold</p><p><strong>Comment:</strong> EKF2 selector maximum accumulated angular error threshold for comparing gyros. Accumulated angular error larger than this will result in the sensor being declared faulty.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_SEL_IMU_RAT">EKF2_SEL_IMU_RAT</strong> (FLOAT)</td>
@@ -2838,7 +2837,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Selector angular threshold</p><p><strong>Comment:</strong> EKF2 selector maximum accumulated velocity threshold for comparing accelerometers. Accumulated velocity error larger than this will result in the sensor being declared faulty.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_TAS_GATE">EKF2_TAS_GATE</strong> (FLOAT)</td>
@@ -2852,14 +2851,14 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Time constant of the position output prediction and smoothing filter. Controls how tightly the output track the EKF states</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_TAU_VEL">EKF2_TAU_VEL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time constant of the velocity output prediction and smoothing filter</p>   </td>
  <td style="vertical-align: top;">? > 1.0 </td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_TERR_GRAD">EKF2_TERR_GRAD</strong> (FLOAT)</td>
@@ -2883,7 +2882,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Terrain altitude process noise - accounts for instability in vehicle height estimate</p>   </td>
  <td style="vertical-align: top;">0.5 > ? </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_WIND_NOISE">EKF2_WIND_NOISE</strong> (FLOAT)</td>
@@ -2899,12 +2898,12 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="EV_TSK_RC_LOSS">EV_TSK_RC_LOSS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC Loss Alarm</p><p><strong>Comment:</strong> Enable/disable event task for RC Loss. When enabled, an alarm tune will be played via buzzer or ESCs, if supported. The alarm will sound after a disarm, if the vehicle was previously armed and only if the vehicle had RC signal at some point. Particularly useful for locating crashed drones without a GPS sensor.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>RC Loss Alarm</p><p><strong>Comment:</strong> Enable/disable event task for RC Loss. When enabled, an alarm tune will be played via buzzer or ESCs, if supported. The alarm will sound after a disarm, if the vehicle was previously armed and only if the vehicle had RC signal at some point. Particularly useful for locating crashed drones without a GPS sensor.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -2912,7 +2911,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EV_TSK_STAT_DIS">EV_TSK_STAT_DIS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Status Display</p><p><strong>Comment:</strong> Enable/disable event task for displaying the vehicle status using arm-mounted LEDs. When enabled and if the vehicle supports it, LEDs will flash indicating various vehicle status changes. Currently PX4 has not implemented any specific status events. -</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Status Display</p><p><strong>Comment:</strong> Enable/disable event task for displaying the vehicle status using arm-mounted LEDs. When enabled and if the vehicle supports it, LEDs will flash indicating various vehicle status changes. Currently PX4 has not implemented any specific status events. -</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -2925,7 +2924,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -2933,25 +2932,25 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Acro body x max rate</p><p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">45 > 720 </td>
  <td style="vertical-align: top;">90</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro body y max rate</p><p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">45 > 720 </td>
  <td style="vertical-align: top;">90</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro body z max rate</p><p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">10 > 180 </td>
  <td style="vertical-align: top;">45</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed mode</p><p><strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Airspeed mode</p><p><strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal (use airspeed if available)</li> 
 
 <li><strong>1:</strong> Airspeed disabled</li> 
@@ -3064,11 +3063,11 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Max manual pitch</p><p><strong>Comment:</strong> Max pitch for manual control in attitude stabilized mode</p>   </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">45.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_MAN_P_SC">FW_MAN_P_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual pitch scale</p><p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td style="vertical-align: top;"><p>Manual pitch scale</p><p><strong>Comment:</strong> Scale factor applied to the desired pitch actuator command in full manual mode. 此参数允许调整控制舵偏的偏转。</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">norm</td>
@@ -3078,18 +3077,18 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Max manual roll</p><p><strong>Comment:</strong> Max roll for manual control in attitude stabilized mode</p>   </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">45.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_MAN_R_SC">FW_MAN_R_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual roll scale</p><p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td style="vertical-align: top;"><p>Manual roll scale</p><p><strong>Comment:</strong> Scale factor applied to the desired roll actuator command in full manual mode. 此参数允许调整控制舵偏的偏转。</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_MAN_Y_SC">FW_MAN_Y_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual yaw scale</p><p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.</p>   </td>
+ <td style="vertical-align: top;"><p>Manual yaw scale</p><p><strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. 此参数允许调整控制舵偏的偏转。</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">norm</td>
@@ -3127,7 +3126,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Pitch setpoint offset</p><p><strong>Comment:</strong> An airframe specific offset of the pitch setpoint in degrees, the value is added to the pitch setpoint and should correspond to the typical cruise speed of the airframe.</p>   </td>
  <td style="vertical-align: top;">-90.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
@@ -3148,7 +3147,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Attitude pitch time constant</p><p><strong>Comment:</strong> This defines the latency between a pitch step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
  <td style="vertical-align: top;">0.2 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_RATT_TH">FW_RATT_TH</strong> (FLOAT)</td>
@@ -3197,7 +3196,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Roll setpoint offset</p><p><strong>Comment:</strong> An airframe specific offset of the roll setpoint in degrees, the value is added to the roll setpoint and should correspond to the typical cruise speed of the airframe.</p>   </td>
  <td style="vertical-align: top;">-90.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
@@ -3211,7 +3210,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Attitude Roll Time Constant</p><p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>   </td>
  <td style="vertical-align: top;">0.4 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_WR_FF">FW_WR_FF</strong> (FLOAT)</td>
@@ -3297,7 +3296,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -3305,7 +3304,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Climbout Altitude difference</p><p><strong>Comment:</strong> If the altitude error exceeds this parameter, the system will climb out with maximum throttle and minimum airspeed until it is closer than this distance to the desired altitude. Mostly used for takeoff waypoints / modes. Set to 0 to disable climbout mode (not recommended).</p>   </td>
  <td style="vertical-align: top;">0.0 > 150.0 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_L1_DAMPING">FW_L1_DAMPING</strong> (FLOAT)</td>
@@ -3319,7 +3318,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>L1 period</p><p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the aircraft its following. A value of 18-25 meters works for most aircraft. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
  <td style="vertical-align: top;">12.0 > 50.0 (0.5)</td>
  <td style="vertical-align: top;">20.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
@@ -3330,7 +3329,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_AIRSPD_SC">FW_LND_AIRSPD_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Min. airspeed scaling factor for landing</p><p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>   </td>
+ <td style="vertical-align: top;"><p>起飞时最小 airspeed scaling factor for landing</p><p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>   </td>
  <td style="vertical-align: top;">1.0 > 1.5 (0.01)</td>
  <td style="vertical-align: top;">1.3</td>
  <td style="vertical-align: top;">norm</td>
@@ -3340,7 +3339,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Landing slope angle</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_EARLYCFG">FW_LND_EARLYCFG</strong> (INT32)</td>
@@ -3351,39 +3350,39 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FLALT">FW_LND_FLALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing flare altitude (relative to landing altitude)</p>   </td>
+ <td style="vertical-align: top;"><p>着陆 flare 高度 (相对于着陆高度)</p>   </td>
  <td style="vertical-align: top;">0.0 > 25.0 (0.5)</td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FL_PMAX">FW_LND_FL_PMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Flare, maximum pitch</p><p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>   </td>
  <td style="vertical-align: top;">0 > 45.0 (0.5)</td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Flare, minimum pitch</p><p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>   </td>
  <td style="vertical-align: top;">0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">2.5</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_HHDIST">FW_LND_HHDIST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing heading hold horizontal distance.
+ <td style="vertical-align: top;"><p>着陆航向保持水平距离.
 Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;">0 > 30.0 (0.5)</td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_HVIRT">FW_LND_HVIRT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
@@ -3397,7 +3396,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Landing throttle limit altitude (relative landing altitude)</p><p><strong>Comment:</strong> Default of -1.0 lets the system default to applying throttle limiting at 2/3 of the flare altitude.</p>   </td>
  <td style="vertical-align: top;">-1.0 > 30.0 (0.5)</td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_USETER">FW_LND_USETER</strong> (INT32)</td>
@@ -3408,7 +3407,7 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_POSCTL_INV_ST">FW_POSCTL_INV_ST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC stick mapping fixed-wing</p><p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing position and altitude controlled flight.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC stick mapping fixed-wing</p><p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing position and altitude controlled flight.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal stick configuration (airspeed on throttle stick, altitude on pitch stick)</li> 
 
 <li><strong>1:</strong> Alternative stick configuration (altitude on throttle stick, airspeed on pitch stick)</li> 
@@ -3423,21 +3422,21 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Positive pitch limit</p><p><strong>Comment:</strong> The maximum positive pitch the controller will output.</p>   </td>
  <td style="vertical-align: top;">0.0 > 60.0 (0.5)</td>
  <td style="vertical-align: top;">45.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_P_LIM_MIN">FW_P_LIM_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Negative pitch limit</p><p><strong>Comment:</strong> The minimum negative pitch the controller will output.</p>   </td>
  <td style="vertical-align: top;">-60.0 > 0.0 (0.5)</td>
  <td style="vertical-align: top;">-45.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_R_LIM">FW_R_LIM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Controller roll limit</p><p><strong>Comment:</strong> The maximum roll the controller will output.</p>   </td>
  <td style="vertical-align: top;">35.0 > 65.0 (0.5)</td>
  <td style="vertical-align: top;">50.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_ALT_SCL">FW_THR_ALT_SCL</strong> (FLOAT)</td>
@@ -3455,7 +3454,7 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_IDLE">FW_THR_IDLE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Idle throttle</p><p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engine this parameter should be set above desired idle rpm.</p>   </td>
+ <td style="vertical-align: top;"><p>怠速油门</p><p><strong>Comment:</strong> This is the minimum throttle while on the ground For aircraft with internal combustion engine this parameter should be set above desired idle rpm.</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.4 (0.01)</td>
  <td style="vertical-align: top;">0.15</td>
  <td style="vertical-align: top;">norm</td>
@@ -3469,14 +3468,14 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_MAX">FW_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle limit max</p><p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For overpowered aircraft, this should be reduced to a value that provides sufficient thrust to climb at the maximum pitch angle PTCH_MAX.</p>   </td>
+ <td style="vertical-align: top;"><p>油门最大值</p><p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For overpowered aircraft, this should be reduced to a value that provides sufficient thrust to climb at the maximum pitch angle PTCH_MAX.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_MIN">FW_THR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle limit min</p><p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. For electric aircraft this will normally be set to zero, but can be set to a small non-zero value if a folding prop is fitted to prevent the prop from folding and unfolding repeatedly in-flight or to provide some aerodynamic drag from a turning prop to improve the descent rate. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
+ <td style="vertical-align: top;"><p>油门最小值</p><p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. For electric aircraft this will normally be set to zero, but can be set to a small non-zero value if a folding prop is fitted to prevent the prop from folding and unfolding repeatedly in-flight or to provide some aerodynamic drag from a turning prop to improve the descent rate. For aircraft with internal combustion engine this parameter should be set for desired idle rpm.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">norm</td>
@@ -3495,7 +3494,7 @@ Set to 0 to disable heading hold</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -3517,21 +3516,21 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Motor delay</p><p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>   </td>
  <td style="vertical-align: top;">0.0 > 10.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum pitch before the throttle is powered up (during motor delay phase)</p><p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>   </td>
  <td style="vertical-align: top;">0.0 > 45.0 (0.5)</td>
  <td style="vertical-align: top;">30.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Catapult time threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
  <td style="vertical-align: top;">0.0 > 5.0 (0.05)</td>
  <td style="vertical-align: top;">0.05</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 </tbody></table>
 
@@ -3540,7 +3539,7 @@ Set to 0 to disable heading hold</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -3548,35 +3547,35 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Maximum Airspeed</p><p><strong>Comment:</strong> If the airspeed is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">20.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum Airspeed</p><p><strong>Comment:</strong> If the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cruise Airspeed</p><p><strong>Comment:</strong> The fixed wing controller tries to fly at this airspeed.</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum groundspeed</p><p><strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum climb rate</p><p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
@@ -3618,14 +3617,14 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Maximum descent rate</p><p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use. If this value is too large, the aircraft can over-speed on descent. This should be set to a value that can be achieved without exceeding the lower pitch angle limit and without over-speeding the aircraft.</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_SINK_MIN">FW_T_SINK_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum descent rate</p><p><strong>Comment:</strong> This is the sink rate of the aircraft with the throttle set to THR_MIN and flown at the same airspeed as used to measure FW_T_CLMB_MAX.</p>   </td>
  <td style="vertical-align: top;">1.0 > 5.0 (0.5)</td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_SPDWEIGHT">FW_T_SPDWEIGHT</strong> (FLOAT)</td>
@@ -3639,7 +3638,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Complementary filter "omega" parameter for speed</p><p><strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse longitudinal acceleration and airspeed to obtain an improved airspeed estimate. Increasing this frequency weights the solution more towards use of the airspeed sensor, whilst reducing it weights the solution more towards use of the accelerometer data.</p>   </td>
  <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_SRATE_P">FW_T_SRATE_P</strong> (FLOAT)</td>
@@ -3653,7 +3652,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>TECS Throttle time constant</p><p><strong>Comment:</strong> This is the time constant of the TECS throttle control algorithm (in seconds). Smaller values make it faster to respond, larger values make it slower to respond.</p>   </td>
  <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_THR_DAMP">FW_T_THR_DAMP</strong> (FLOAT)</td>
@@ -3667,7 +3666,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>TECS time constant</p><p><strong>Comment:</strong> This is the time constant of the TECS control algorithm (in seconds). Smaller values make it faster to respond, larger values make it slower to respond.</p>   </td>
  <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_VERT_ACC">FW_T_VERT_ACC</strong> (FLOAT)</td>
@@ -3678,19 +3677,19 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 </tbody></table>
 
-## Failure Detector
+## 故障检测器
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable checks on ESCs that report their arming state.
 If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state.
-Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle</p>   <p><b>Reboot required:</b> true</p>
+Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
@@ -3699,7 +3698,7 @@ Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback i
 <tr>
  <td style="vertical-align: top;"><strong id="FD_EXT_ATS_EN">FD_EXT_ATS_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external
-automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is required by ASTM F3322-18.</p>   <p><b>Reboot required:</b> true</p>
+automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is required by ASTM F3322-18.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -3717,28 +3716,28 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
  <td style="vertical-align: top;"><p>FailureDetector Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_P_TTRI">FD_FAIL_P_TTRI</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch failure trigger time</p><p><strong>Comment:</strong> Seconds (decimal) that pitch has to exceed FD_FAIL_P before being considered as a failure.</p>   </td>
  <td style="vertical-align: top;">0.02 > 5 </td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>FailureDetector Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_R_TTRI">FD_FAIL_R_TTRI</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll failure trigger time</p><p><strong>Comment:</strong> Seconds (decimal) that roll has to exceed FD_FAIL_R before being considered as a failure.</p>   </td>
  <td style="vertical-align: top;">0.02 > 5 </td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 </tbody></table>
 
@@ -3747,7 +3746,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -3755,7 +3754,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
  <td style="vertical-align: top;"><p>Distance to follow target from</p><p><strong>Comment:</strong> The distance in meters to follow the target at</p>   </td>
  <td style="vertical-align: top;">1.0 > ? </td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_FT_FS">NAV_FT_FS</strong> (INT32)</td>
@@ -3778,7 +3777,7 @@ but also ignore less noise</p>   </td>
  <td style="vertical-align: top;"><p>Minimum follow target altitude</p><p><strong>Comment:</strong> The minimum height in meters relative to home for following a target</p>   </td>
  <td style="vertical-align: top;">8.0 > ? </td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
@@ -3787,13 +3786,13 @@ but also ignore less noise</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_1_CONFIG">GPS_1_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Main GPS</p><p><strong>Comment:</strong> Configure on which serial port to run Main GPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Main GPS</p><p><strong>Comment:</strong> Configure on which serial port to run Main GPS.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -3813,7 +3812,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">201</td>
@@ -3821,7 +3820,7 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Protocol for Main GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Protocol for Main GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto detect</li> 
 
 <li><strong>1:</strong> u-blox</li> 
@@ -3832,7 +3831,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>4:</strong> Emlid Reach</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">1</td>
@@ -3840,8 +3839,8 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_2_CONFIG">GPS_2_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Secondary GPS</p><p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Secondary GPS</p><p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -3861,7 +3860,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -3869,7 +3868,7 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_2_PROTOCOL">GPS_2_PROTOCOL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Protocol for Secondary GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Protocol for Secondary GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto detect</li> 
 
 <li><strong>1:</strong> u-blox</li> 
@@ -3880,7 +3879,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>4:</strong> Emlid Reach</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">1</td>
@@ -3888,8 +3887,8 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_DUMP_COMM">GPS_DUMP_COMM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Dump GPS communication to a file</p><p><strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>Dump GPS communication to a file</p><p><strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
 <li><strong>1:</strong> Enable</li> 
 </ul>
@@ -3900,7 +3899,7 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_UBX_DYNMODEL">GPS_UBX_DYNMODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>u-blox GPS dynamic platform model</p><p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>u-blox GPS dynamic platform model</p><p><strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.</p> <strong>参数对照:</strong><ul>
 <li><strong>2:</strong> stationary</li> 
 
 <li><strong>4:</strong> automotive</li> 
@@ -3911,7 +3910,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>8:</strong> airborne with <4g acceleration</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 9 </td>
  <td style="vertical-align: top;">7</td>
@@ -3919,12 +3918,12 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_UBX_MODE">GPS_UBX_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>u-blox GPS Mode</p><p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base, sending RTCM on UART2 to the rover GPS. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>u-blox GPS Mode</p><p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base, sending RTCM on UART2 to the rover GPS. RTK is still possible with this setup.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Default</li> 
 
 <li><strong>1:</strong> Heading</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
@@ -3932,11 +3931,11 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Heading/Yaw offset for dual antenna GPS</p><p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. (currently only for the Trimble MB-Two). Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the first antenna is in front. The offset angle increases counterclockwise. Set this to 90 if the first antenna is placed on the right side and the second on the left side of the vehicle.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Heading/Yaw offset for dual antenna GPS</p><p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. (currently only for the Trimble MB-Two). Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the first antenna is in front. The offset angle increases counterclockwise. Set this to 90 if the first antenna is placed on the right side and the second on the left side of the vehicle.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 360 </td>
  <td style="vertical-align: top;">0.</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 </tbody></table>
 
@@ -3945,29 +3944,29 @@ but also ignore less noise</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_GPSF_LT">NAV_GPSF_LT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Loiter time</p><p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it goes into flight termination. Set to 0 to disable.</p>   </td>
+ <td style="vertical-align: top;"><p>Loiter time</p><p><strong>Comment:</strong> The time in seconds the system should do open loop loiter and wait for GPS recovery before it goes into flight termination. 设置为 0 以禁用。</p>   </td>
  <td style="vertical-align: top;">0.0 > 3600.0 (1)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_GPSF_P">NAV_GPSF_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixed pitch angle</p><p><strong>Comment:</strong> Pitch in degrees during the open loop loiter</p>   </td>
  <td style="vertical-align: top;">-30.0 > 30.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_GPSF_R">NAV_GPSF_R</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixed bank angle</p><p><strong>Comment:</strong> Roll in degrees during the loiter</p>   </td>
  <td style="vertical-align: top;">0.0 > 30.0 (0.5)</td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_GPSF_TR">NAV_GPSF_TR</strong> (FLOAT)</td>
@@ -3983,23 +3982,23 @@ but also ignore less noise</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_ACTION">GF_ACTION</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Geofence violation action</p><p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> None</li> 
+ <td style="vertical-align: top;"><p>Geofence violation action</p><p><strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>无</li> 
 
-<li><strong>1:</strong> Warning</li> 
+<li><strong>1: </strong>报警</li> 
 
 <li><strong>2:</strong> Hold mode</li> 
 
-<li><strong>3:</strong> Return mode</li> 
+<li><strong>3: </strong>返航模式</li> 
 
 <li><strong>4:</strong> Terminate</li> 
 
-<li><strong>5:</strong> Land mode</li> 
+<li><strong>5: </strong>降落模式</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 5 </td>
@@ -4008,7 +4007,7 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Geofence altitude mode</p><p><strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>地理围栏定高模式</p><p><strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> WGS84</li> 
 
 <li><strong>1:</strong> AMSL</li> 
@@ -4020,7 +4019,7 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_COUNT">GF_COUNT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Geofence counter limit</p><p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
+ <td style="vertical-align: top;"><p>地理围栏计数限制</p><p><strong>Comment:</strong> Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered</p>   </td>
  <td style="vertical-align: top;">-1 > 10 (1)</td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
@@ -4030,18 +4029,18 @@ but also ignore less noise</p>   </td>
  <td style="vertical-align: top;"><p>Max horizontal distance in meters</p><p><strong>Comment:</strong> Maximum horizontal distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td style="vertical-align: top;">0 > 10000 (1)</td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_MAX_VER_DIST">GF_MAX_VER_DIST</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max vertical distance in meters</p><p><strong>Comment:</strong> Maximum vertical distance in meters the vehicle can be from home before triggering a geofence action. Disabled if 0.</p>   </td>
  <td style="vertical-align: top;">0 > 10000 (1)</td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_SOURCE">GF_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Geofence source</p><p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>地理围栏来源</p><p><strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> GPOS</li> 
 
 <li><strong>1:</strong> GPS</li> 
@@ -4058,7 +4057,7 @@ but also ignore less noise</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -4089,13 +4088,13 @@ but also ignore less noise</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="ISBD_CONFIG">ISBD_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Iridium (with MAVLink)</p><p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Iridium (with MAVLink)</p><p><strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -4115,7 +4114,7 @@ but also ignore less noise</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -4126,14 +4125,14 @@ but also ignore less noise</p>   </td>
  <td style="vertical-align: top;"><p>Satellite radio read interval. Only required to be nonzero if data is not sent using a ring call</p>   </td>
  <td style="vertical-align: top;">0 > 5000 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ISBD_SBD_TIMEOUT">ISBD_SBD_TIMEOUT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Iridium SBD session timeout</p>   </td>
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ISBD_STACK_TIME">ISBD_STACK_TIME</strong> (INT32)</td>
@@ -4150,7 +4149,7 @@ Value 0 turns the functionality off</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -4158,21 +4157,21 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><p>Airspeed max</p><p><strong>Comment:</strong> Maximum airspeed allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;">4 > 20 </td>
  <td style="vertical-align: top;">8.00</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixedwing max horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;">0.5 > 10 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixedwing max climb rate</p><p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
  <td style="vertical-align: top;">0.1 > 20 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
@@ -4186,7 +4185,7 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><p>Maximum altitude for multicopters</p><p><strong>Comment:</strong> The system will obey this limit as a hard altitude limit. This setting will be consolidated with the GF_MAX_VER_DIST parameter. A negative value indicates no altitude limitation.</p>   </td>
  <td style="vertical-align: top;">-1 > 10000 </td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDMC_ROT_MAX">LNDMC_ROT_MAX</strong> (FLOAT)</td>
@@ -4200,14 +4199,14 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><p>Multicopter max horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.5</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Multicopter max climb rate</p><p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.50</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LND_FLIGHT_T_HI">LND_FLIGHT_T_HI</strong> (INT32)</td>
@@ -4230,7 +4229,7 @@ Value 0 turns the functionality off</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -4249,7 +4248,7 @@ Value 0 turns the functionality off</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Landing target mode</p><p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Landing target mode</p><p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Moving</li> 
 
 <li><strong>1:</strong> Stationary</li> 
@@ -4294,7 +4293,7 @@ Value 0 turns the functionality off</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -4316,21 +4315,21 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><p>Barometric presssure altitude z standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 100 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_EPH_MAX">LPE_EPH_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max EPH allowed for GPS initialization</p>   </td>
  <td style="vertical-align: top;">1.0 > 5.0 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_EPV_MAX">LPE_EPV_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max EPV allowed for GPS initialization</p>   </td>
  <td style="vertical-align: top;">1.0 > 5.0 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FAKE_ORIGIN">LPE_FAKE_ORIGIN</strong> (INT32)</td>
@@ -4352,7 +4351,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
  <td style="vertical-align: top;"><p>Optical flow z offset from center</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FLW_QMIN">LPE_FLW_QMIN</strong> (INT32)</td>
@@ -4380,7 +4379,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
  <td style="vertical-align: top;"><p>Optical flow scale</p>   </td>
  <td style="vertical-align: top;">0.1 > 10.0 </td>
  <td style="vertical-align: top;">1.3</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FUSION">LPE_FUSION</strong> (INT32)</td>
@@ -4403,7 +4402,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
  <td style="vertical-align: top;"><p>GPS delay compensaton</p>   </td>
  <td style="vertical-align: top;">0 > 0.4 </td>
  <td style="vertical-align: top;">0.29</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_GPS_VXY">LPE_GPS_VXY</strong> (FLOAT)</td>
@@ -4411,70 +4410,70 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
 EPV used if greater than this value</p>   </td>
  <td style="vertical-align: top;">0.01 > 2 </td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">2\] Velocity NED \(m/s\)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_GPS_VZ">LPE_GPS_VZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>GPS z velocity standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 2 </td>
  <td style="vertical-align: top;">0.25</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">2\] Velocity NED \(m/s\)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_GPS_XY">LPE_GPS_XY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum GPS xy standard deviation, uses reported EPH if greater</p>   </td>
  <td style="vertical-align: top;">0.01 > 5 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_GPS_Z">LPE_GPS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum GPS z standard deviation, uses reported EPV if greater</p>   </td>
  <td style="vertical-align: top;">0.01 > 200 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LAND_VXY">LPE_LAND_VXY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Land detector xy velocity standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 10.0 </td>
  <td style="vertical-align: top;">0.05</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LAND_Z">LPE_LAND_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Land detector z standard deviation</p>   </td>
  <td style="vertical-align: top;">0.001 > 10.0 </td>
  <td style="vertical-align: top;">0.03</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LAT">LPE_LAT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Local origin latitude for nav w/o GPS</p>   </td>
  <td style="vertical-align: top;">-90 > 90 </td>
  <td style="vertical-align: top;">47.397742</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LDR_OFF_Z">LPE_LDR_OFF_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Lidar z offset from center of vehicle +down</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
  <td style="vertical-align: top;">0.00</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LDR_Z">LPE_LDR_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Lidar z standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 1 </td>
  <td style="vertical-align: top;">0.03</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LON">LPE_LON</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Local origin longitude for nav w/o GPS</p>   </td>
  <td style="vertical-align: top;">-180 > 180 </td>
  <td style="vertical-align: top;">8.545594</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_LT_COV">LPE_LT_COV</strong> (FLOAT)</td>
@@ -4516,14 +4515,14 @@ EPV used if greater than this value</p>   </td>
  <td style="vertical-align: top;"><p>Sonar z offset from center of vehicle +down</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
  <td style="vertical-align: top;">0.00</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_SNR_Z">LPE_SNR_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Sonar z standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 1 </td>
  <td style="vertical-align: top;">0.05</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_T_MAX_GRADE">LPE_T_MAX_GRADE</strong> (FLOAT)</td>
@@ -4538,35 +4537,35 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Vicon position standard deviation</p>   </td>
  <td style="vertical-align: top;">0.0001 > 1 </td>
  <td style="vertical-align: top;">0.001</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_VIS_DELAY">LPE_VIS_DELAY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vision delay compensaton</p><p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
  <td style="vertical-align: top;">0 > 0.1 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_VIS_XY">LPE_VIS_XY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vision xy standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_VIS_Z">LPE_VIS_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vision z standard deviation</p>   </td>
  <td style="vertical-align: top;">0.01 > 100 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_VXY_PUB">LPE_VXY_PUB</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Required velocity xy standard deviation to publish position</p>   </td>
  <td style="vertical-align: top;">0.01 > 1.0 </td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_X_LP">LPE_X_LP</strong> (FLOAT)</td>
@@ -4580,7 +4579,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Required z standard deviation to publish altitude/ terrain</p>   </td>
  <td style="vertical-align: top;">0.3 > 5.0 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
@@ -4589,13 +4588,13 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_0_CONFIG">MAV_0_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 0)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 0)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -4615,7 +4614,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">101</td>
@@ -4631,7 +4630,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_0_MODE">MAV_0_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink Mode for instance 0</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MAVLink Mode for instance 0</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal</li> 
 
 <li><strong>1:</strong> Custom</li> 
@@ -4672,8 +4671,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_1_CONFIG">MAV_1_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 1)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 1)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -4693,7 +4692,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -4709,7 +4708,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_1_MODE">MAV_1_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink Mode for instance 1</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MAVLink Mode for instance 1</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal</li> 
 
 <li><strong>1:</strong> Custom</li> 
@@ -4750,8 +4749,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_2_CONFIG">MAV_2_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 2)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for MAVLink (instance 2)</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -4771,7 +4770,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -4787,7 +4786,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_2_MODE">MAV_2_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink Mode for instance 2</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MAVLink Mode for instance 2</p><p><strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Normal</li> 
 
 <li><strong>1:</strong> Custom</li> 
@@ -4828,7 +4827,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_BROADCAST">MAV_BROADCAST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Broadcast heartbeats on local network</p><p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Broadcast heartbeats on local network</p><p><strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Never broadcast</li> 
 
 <li><strong>1:</strong> Always broadcast</li> 
@@ -4842,7 +4841,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_COMP_ID">MAV_COMP_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink component ID</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>MAVLink component ID</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 250 </td>
  <td style="vertical-align: top;">1</td>
@@ -4878,7 +4877,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_PROTO_VER">MAV_PROTO_VER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink protocol version</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MAVLink protocol version</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Default to 1, switch to 2 if GCS sends version 2</li> 
 
 <li><strong>1:</strong> Always use version 1</li> 
@@ -4895,7 +4894,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Timeout in seconds for the RADIO_STATUS reports coming in</p><p><strong>Comment:</strong> If the connected radio stops reporting RADIO_STATUS for a certain time, a warning is triggered and, if MAV_X_RADIO_CTL is enabled, the software-flow control is reset.</p>   </td>
  <td style="vertical-align: top;">1 > 250 </td>
  <td style="vertical-align: top;">5</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)</td>
@@ -4906,7 +4905,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_SYS_ID">MAV_SYS_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink system ID</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>MAVLink system ID</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 250 </td>
  <td style="vertical-align: top;">1</td>
@@ -4914,7 +4913,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_TYPE">MAV_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink airframe type</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MAVLink airframe type</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Generic micro air vehicle</li> 
 
 <li><strong>1:</strong> Fixed wing aircraft</li> 
@@ -4953,9 +4952,9 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>18:</strong> Onboard companion controller</li> 
 
-<li><strong>19:</strong> Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter.</li> 
+<li><strong>19:</strong> Two-rotor VTOL using control surfaces in vertical operation in addition.  </li> 
 
-<li><strong>20:</strong> Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter.</li> 
+<li><strong>20:</strong> Quad-rotor VTOL using a V-shaped quad config in vertical operation.  </li> 
 
 <li><strong>21:</strong> Tiltrotor VTOL</li> 
 
@@ -4990,7 +4989,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -5002,12 +5001,12 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 </tbody></table>
 
-## Mission
+## 任务
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -5019,7 +5018,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Action after TAKEOFF has been accepted</p><p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Action after TAKEOFF has been accepted</p><p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Hold</li> 
 
 <li><strong>1:</strong> Mission (if valid)</li> 
@@ -5034,26 +5033,26 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Maximal horizontal distance from home to first waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>   </td>
  <td style="vertical-align: top;">0 > 10000 (100)</td>
  <td style="vertical-align: top;">900</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximal horizontal distance between waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>   </td>
  <td style="vertical-align: top;">0 > 10000 (100)</td>
  <td style="vertical-align: top;">900</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum Loiter altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>   </td>
  <td style="vertical-align: top;">-1 > 80 (0.5)</td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_MNT_YAW_CTL">MIS_MNT_YAW_CTL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable yaw control of the mount. (Only affects multicopters and ROI mission items)</p><p><strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading towards the flight direction. If disabled, the vehicle will yaw towards the ROI.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>Enable yaw control of the mount. (Only affects multicopters and ROI mission items)</p><p><strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading towards the flight direction. If disabled, the vehicle will yaw towards the ROI.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
 <li><strong>1:</strong> Enable</li> 
 </ul>
@@ -5067,7 +5066,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>   </td>
  <td style="vertical-align: top;">0 > 80 (0.5)</td>
  <td style="vertical-align: top;">2.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_REQ">MIS_TAKEOFF_REQ</strong> (INT32)</td>
@@ -5081,18 +5080,18 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Max yaw error in degrees needed for waypoint heading acceptance</p>   </td>
  <td style="vertical-align: top;">0 > 90 (1)</td>
  <td style="vertical-align: top;">12.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_YAW_TMT">MIS_YAW_TMT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time in seconds we wait on reaching target heading at a waypoint if it is forced</p><p><strong>Comment:</strong> If set > 0 it will ignore the target heading for normal waypoint acceptance. If the waypoint forces the heading the timeout will matter. For example on VTOL forwards transition. Mainly useful for VTOLs that have less yaw authority and might not reach target yaw in wind. Disabled by default.</p>   </td>
  <td style="vertical-align: top;">-1 > 20 (1)</td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_YAW_MODE">MPC_YAW_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Yaw mode</p><p><strong>Comment:</strong> Specifies the heading in Auto.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Yaw mode</p><p><strong>Comment:</strong> Specifies the heading in Auto.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> towards waypoint</li> 
 
 <li><strong>1:</strong> towards home</li> 
@@ -5113,18 +5112,18 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Acceptance Radius</p><p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>   </td>
  <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return mode</li> 
+<li><strong>2: </strong>返航模式</li> 
 
-<li><strong>3:</strong> Land mode</li> 
+<li><strong>3: </strong>降落模式</li> 
 
 <li><strong>5:</strong> Terminate</li> 
 
@@ -5147,39 +5146,39 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius before a landing</p><p><strong>Comment:</strong> Altitude acceptance used for the last waypoint before a fixed-wing landing. This is usually smaller than the standard vertical acceptance because close to the ground higher accuracy is required.</p>   </td>
  <td style="vertical-align: top;">0.05 > 200.0 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>   </td>
  <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>   </td>
  <td style="vertical-align: top;">25 > 1000 (0.5)</td>
  <td style="vertical-align: top;">50.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>MC Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>   </td>
  <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
  <td style="vertical-align: top;">0.8</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return mode</li> 
+<li><strong>2: </strong>返航模式</li> 
 
-<li><strong>3:</strong> Land mode</li> 
+<li><strong>3: </strong>降落模式</li> 
 
 <li><strong>5:</strong> Terminate</li> 
 
@@ -5192,14 +5191,14 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set traffic avoidance mode</p><p><strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Set traffic avoidance mode</p><p><strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
-<li><strong>1:</strong> Warn only</li> 
+<li><strong>1:</strong> 只是警告</li> 
 
-<li><strong>2:</strong> Return mode</li> 
+<li><strong>2: </strong>返航模式</li> 
 
-<li><strong>3:</strong> Land mode</li> 
+<li><strong>3: </strong>降落模式</li> 
 
 <li><strong>4:</strong> Position Hold mode</li> 
 </ul>
@@ -5213,14 +5212,14 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Set NAV TRAFFIC AVOID RADIUS MANNED</p><p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation</p>   </td>
  <td style="vertical-align: top;">500 > ? </td>
  <td style="vertical-align: top;">500</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Set NAV TRAFFIC AVOID RADIUS</p><p><strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation</p>   </td>
  <td style="vertical-align: top;">10 > 500 </td>
  <td style="vertical-align: top;">10</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
@@ -5229,13 +5228,13 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multicopter air-mode</p><p><strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Multicopter air-mode</p><p><strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Roll/Pitch</li> 
 
@@ -5248,7 +5247,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> PX4</li> 
 
 <li><strong>1:</strong> Betaflight / Cleanflight</li> 
@@ -5265,7 +5264,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -5278,8 +5277,8 @@ Does not affect MAVLINK_ROI input</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MNT_MAN_PITCH">MNT_MAN_PITCH</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Auxiliary channel to control pitch (in AUX input or manual mode)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>Auxiliary channel to control pitch (in AUX input or manual mode)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
 <li><strong>1:</strong> AUX1</li> 
 
@@ -5300,8 +5299,8 @@ Does not affect MAVLINK_ROI input</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MNT_MAN_ROLL">MNT_MAN_ROLL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Auxiliary channel to control roll (in AUX input or manual mode)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>Auxiliary channel to control roll (in AUX input or manual mode)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
 <li><strong>1:</strong> AUX1</li> 
 
@@ -5322,8 +5321,8 @@ Does not affect MAVLINK_ROI input</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MNT_MAN_YAW">MNT_MAN_YAW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Auxiliary channel to control yaw (in AUX input or manual mode)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
+ <td style="vertical-align: top;"><p>Auxiliary channel to control yaw (in AUX input or manual mode)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机触发功能</li> 
 
 <li><strong>1:</strong> AUX1</li> 
 
@@ -5358,7 +5357,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MNT_MODE_IN">MNT_MODE_IN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mount input mode</p><p><strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mount input mode</p><p><strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> DISABLED</li> 
 
 <li><strong>0:</strong> AUTO</li> 
@@ -5369,7 +5368,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 
 <li><strong>3:</strong> MAVLINK_DO_MOUNT</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 3 </td>
  <td style="vertical-align: top;">-1</td>
@@ -5377,7 +5376,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MNT_MODE_OUT">MNT_MODE_OUT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mount output mode</p><p><strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mount output mode</p><p><strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> AUX</li> 
 
 <li><strong>1:</strong> MAVLINK</li> 
@@ -5452,7 +5451,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -5525,7 +5524,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -5533,14 +5532,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Average delay of the range sensor message plus the tracking delay of the position controller in seconds</p><p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CP_DIST">CP_DIST</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum distance the vehicle should keep to all obstacles</p><p><strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value</p>   </td>
  <td style="vertical-align: top;">-1 > 15 </td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)</td>
@@ -5554,7 +5553,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction</p><p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
  <td style="vertical-align: top;">0 > 90 </td>
  <td style="vertical-align: top;">30.</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
@@ -5562,7 +5561,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
@@ -5594,7 +5593,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ALT_MODE">MPC_ALT_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Altitude control mode</p><p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Altitude control mode</p><p><strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Altitude following</li> 
 
 <li><strong>1:</strong> Terrain following</li> 
@@ -5625,14 +5624,14 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)</p>   </td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.8</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)</p>   </td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.6</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
@@ -5660,21 +5659,21 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" - horizontal velocity gets limited to a value between "MPC_VEL_MANUAL" and "MPC_LAND_VEL_XY" for a smooth descent and landing experience. Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to "MPC_LAND_SPEED" and "MPC_LAND_VEL_XY", respectively. Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing descend rate</p>   </td>
+ <td style="vertical-align: top;"><p>着陆下降速率：</p>   </td>
  <td style="vertical-align: top;">0.6 > ? </td>
  <td style="vertical-align: top;">0.7</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)</td>
@@ -5682,7 +5681,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
 Set the value higher than the otherwise expected maximum to disable any slowdown</p>   </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
@@ -5696,7 +5695,7 @@ Set the value higher than the otherwise expected maximum to disable any slowdown
  <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>   </td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">35.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
@@ -5711,11 +5710,11 @@ Set the value higher than the otherwise expected maximum to disable any slowdown
 Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;">0.0 > 5.0 </td>
  <td style="vertical-align: top;">0.08</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. 对速度控制调整非常有用。 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Simple position control</li> 
 
 <li><strong>1:</strong> Smooth position control</li> 
@@ -5734,11 +5733,11 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Enforced delay between arming and takeoff</p><p><strong>Comment:</strong> For altitude controlled modes the time from arming the motors until a takeoff is possible gets forced to be at least MPC_SPOOLUP_TIME seconds to ensure the motors and propellers can sppol up and reach idle speed before getting commanded to spin faster. This delay is particularly useful for vehicles with slow motor spin-up e.g. because of large propellers.</p>   </td>
  <td style="vertical-align: top;">0 > 10 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thrust curve in Manual Mode</p><p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Thrust curve in Manual Mode</p><p><strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Rescale to hover thrust</li> 
 
 <li><strong>1:</strong> No Rescale</li> 
@@ -5774,14 +5773,14 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>   </td>
  <td style="vertical-align: top;">20.0 > 89.0 </td>
  <td style="vertical-align: top;">45.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
  <td style="vertical-align: top;">10.0 > 89.0 </td>
  <td style="vertical-align: top;">12.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
@@ -5795,7 +5794,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Takeoff climb rate</p>   </td>
  <td style="vertical-align: top;">1 > 5 </td>
  <td style="vertical-align: top;">1.5</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_USE_HTE">MPC_USE_HTE</strong> (INT32)</td>
@@ -5818,14 +5817,14 @@ If velocity setpoint larger than MPC_XY_VEL_MAX is set, then
 the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>   </td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
@@ -5867,7 +5866,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>   </td>
  <td style="vertical-align: top;">0.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">12.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_P_ACC">MPC_XY_VEL_P_ACC</strong> (FLOAT)</td>
@@ -5916,14 +5915,14 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;"><p>Maximum vertical descent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
  <td style="vertical-align: top;">0.5 > 4.0 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical ascent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>   </td>
  <td style="vertical-align: top;">0.5 > 8.0 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_P_ACC">MPC_Z_VEL_P_ACC</strong> (FLOAT)</td>
@@ -5944,7 +5943,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;"><p>Minimum roll angle setpoint for weathervane controller to demand a yaw-rate</p>   </td>
  <td style="vertical-align: top;">0 > 5 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="WV_YRATE_MAX">WV_YRATE_MAX</strong> (FLOAT)</td>
@@ -5960,7 +5959,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -6066,7 +6065,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate D gain</p><p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td style="vertical-align: top;"><p>横滚速率微分感度</p><p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.01 (0.0005)</td>
  <td style="vertical-align: top;">0.003</td>
  <td style="vertical-align: top;"></td>
@@ -6080,7 +6079,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
+ <td style="vertical-align: top;"><p>横滚速率积分感度</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.2</td>
  <td style="vertical-align: top;"></td>
@@ -6155,19 +6154,19 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable/Disable the ATXXX OSD Chip</p><p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Enable/Disable the ATXXX OSD Chip</p><p><strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> NTSC</li> 
 
 <li><strong>2:</strong> PAL</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -6180,7 +6179,7 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -6192,7 +6191,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6200,7 +6199,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6208,7 +6207,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6216,7 +6215,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6224,7 +6223,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6232,7 +6231,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6240,7 +6239,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6248,7 +6247,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6256,7 +6255,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DISARMED">PWM_AUX_DISARMED</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for auxiliary outputs</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for auxiliary outputs</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2200 </td>
  <td style="vertical-align: top;">1500</td>
@@ -6264,7 +6263,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL1">PWM_AUX_FAIL1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6272,7 +6271,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL2">PWM_AUX_FAIL2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6280,7 +6279,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL3">PWM_AUX_FAIL3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6288,7 +6287,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL4">PWM_AUX_FAIL4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6296,7 +6295,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL5">PWM_AUX_FAIL5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6304,7 +6303,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL6">PWM_AUX_FAIL6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6312,7 +6311,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL7">PWM_AUX_FAIL7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6320,7 +6319,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_FAIL8">PWM_AUX_FAIL8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6328,7 +6327,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1600 > 2200 </td>
  <td style="vertical-align: top;">2000</td>
@@ -6336,7 +6335,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX1">PWM_AUX_MAX1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6344,7 +6343,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX2">PWM_AUX_MAX2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6352,7 +6351,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX3">PWM_AUX_MAX3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6360,7 +6359,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX4">PWM_AUX_MAX4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6368,7 +6367,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX5">PWM_AUX_MAX5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6376,7 +6375,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX6">PWM_AUX_MAX6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6384,7 +6383,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX7">PWM_AUX_MAX7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6392,7 +6391,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX8">PWM_AUX_MAX8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6400,7 +6399,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">800 > 1400 </td>
  <td style="vertical-align: top;">1000</td>
@@ -6408,7 +6407,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN1">PWM_AUX_MIN1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6416,7 +6415,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN2">PWM_AUX_MIN2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6424,7 +6423,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN3">PWM_AUX_MIN3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6432,7 +6431,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN4">PWM_AUX_MIN4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6440,7 +6439,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN5">PWM_AUX_MIN5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6448,7 +6447,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN6">PWM_AUX_MIN6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6456,7 +6455,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN7">PWM_AUX_MIN7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6464,7 +6463,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN8">PWM_AUX_MIN8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6472,7 +6471,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_RATE">PWM_AUX_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the PWM output frequency for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the PWM output frequency for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2000 </td>
  <td style="vertical-align: top;">50</td>
@@ -6592,7 +6591,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_DISARMED">PWM_DISARMED</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main outputs</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main outputs</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2200 </td>
  <td style="vertical-align: top;">900</td>
@@ -6600,7 +6599,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6608,7 +6607,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS2">PWM_MAIN_DIS2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6616,7 +6615,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS3">PWM_MAIN_DIS3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6624,7 +6623,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS4">PWM_MAIN_DIS4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6632,7 +6631,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS5">PWM_MAIN_DIS5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6640,7 +6639,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS6">PWM_MAIN_DIS6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6648,7 +6647,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS7">PWM_MAIN_DIS7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6656,7 +6655,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS8">PWM_MAIN_DIS8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6664,7 +6663,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6672,7 +6671,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL2">PWM_MAIN_FAIL2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6680,7 +6679,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL3">PWM_MAIN_FAIL3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6688,7 +6687,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL4">PWM_MAIN_FAIL4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6696,7 +6695,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL5">PWM_MAIN_FAIL5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6704,7 +6703,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL6">PWM_MAIN_FAIL6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6712,7 +6711,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL7">PWM_MAIN_FAIL7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6720,7 +6719,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_FAIL8">PWM_MAIN_FAIL8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the main 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6728,7 +6727,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 1 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 1 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6736,7 +6735,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 2 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 2 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6744,7 +6743,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 3 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 3 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6752,7 +6751,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 4 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 4 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6760,7 +6759,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 5 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 5 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6768,7 +6767,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 6 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 6 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6776,7 +6775,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 7 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 7 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6784,7 +6783,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the max PWM value for the main 8 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the main 8 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6792,7 +6791,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 1 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 1 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6800,7 +6799,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 2 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 2 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6808,7 +6807,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 3 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 3 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6816,7 +6815,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 4 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 4 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6824,7 +6823,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 5 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 5 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6832,7 +6831,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 6 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 6 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6840,7 +6839,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 7 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 7 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6848,7 +6847,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the min PWM value for the main 8 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the main 8 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
  <td style="vertical-align: top;">-1</td>
@@ -6968,7 +6967,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAX">PWM_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the maximum PWM for the main outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the main outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1600 > 2200 </td>
  <td style="vertical-align: top;">2000</td>
@@ -6976,7 +6975,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MIN">PWM_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the minimum PWM for the main outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the main outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">800 > 1400 </td>
  <td style="vertical-align: top;">1000</td>
@@ -6984,7 +6983,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_RATE">PWM_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the PWM output frequency for the main outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the PWM output frequency for the main outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 2000 </td>
  <td style="vertical-align: top;">400</td>
@@ -7011,12 +7010,12 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>BlinkM LED</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>BlinkM LED</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -7029,7 +7028,7 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -7037,21 +7036,21 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><p>Landing Target Timeout</p><p><strong>Comment:</strong> Time after which the landing target is considered lost without any new measurements.</p>   </td>
  <td style="vertical-align: top;">0.0 > 50 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PLD_FAPPR_ALT">PLD_FAPPR_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Final approach altitude</p><p><strong>Comment:</strong> Allow final approach (without horizontal positioning) if losing landing target closer than this to the ground.</p>   </td>
  <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PLD_HACC_RAD">PLD_HACC_RAD</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Horizontal acceptance radius</p><p><strong>Comment:</strong> Start descending if closer above landing target than this.</p>   </td>
  <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
@@ -7065,14 +7064,14 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><p>Search altitude</p><p><strong>Comment:</strong> Altitude above home to which to climb when searching for the landing target.</p>   </td>
  <td style="vertical-align: top;">0.0 > 100 (0.1)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PLD_SRCH_TOUT">PLD_SRCH_TOUT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Search timeout</p><p><strong>Comment:</strong> Time allowed to search for the landing target before falling back to normal landing.</p>   </td>
  <td style="vertical-align: top;">0.0 > 100 (0.1)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 </tbody></table>
 
@@ -7081,13 +7080,13 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTPS_CONFIG">RTPS_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for FastRTPS</p><p><strong>Comment:</strong> Configure on which serial port to run FastRTPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for FastRTPS</p><p><strong>Comment:</strong> Configure on which serial port to run FastRTPS.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -7107,7 +7106,7 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -7115,8 +7114,8 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTPS_MAV_CONFIG">RTPS_MAV_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for MAVLink + FastRTPS</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for MAVLink + FastRTPS</p><p><strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -7136,7 +7135,7 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -7149,7 +7148,7 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -7175,7 +7174,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC10_REV">RC10_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 10 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 10 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7215,7 +7214,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC11_REV">RC11_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 11 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 11 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7255,7 +7254,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC12_REV">RC12_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 12 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 12 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7295,7 +7294,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC13_REV">RC13_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 13 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 13 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7335,7 +7334,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC14_REV">RC14_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 14 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 14 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7375,7 +7374,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC15_REV">RC15_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 15 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 15 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7415,7 +7414,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC16_REV">RC16_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 16 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 16 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7455,7 +7454,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC17_REV">RC17_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 17 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 17 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7495,7 +7494,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC18_REV">RC18_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 18 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 18 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7535,7 +7534,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC1_REV">RC1_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 1 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 1 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7575,7 +7574,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC2_REV">RC2_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 2 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 2 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7615,7 +7614,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC3_REV">RC3_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 3 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 3 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7655,7 +7654,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC4_REV">RC4_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 4 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 4 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7695,7 +7694,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC5_REV">RC5_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 5 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 5 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7735,7 +7734,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC6_REV">RC6_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 6 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 6 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7775,7 +7774,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC7_REV">RC7_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 7 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 7 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7815,7 +7814,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC8_REV">RC8_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 8 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 8 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7855,7 +7854,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC9_REV">RC9_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 9 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RC channel 9 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1.0:</strong> Reverse</li> 
 
 <li><strong>1.0:</strong> Normal</li> 
@@ -7888,7 +7887,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX1">RC_MAP_AUX1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX1 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera pitch</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX1 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera pitch</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -7934,7 +7933,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX2">RC_MAP_AUX2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX2 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera roll</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX2 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera roll</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -7980,7 +7979,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX3">RC_MAP_AUX3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX3 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX3 Passthrough RC channel</p><p><strong>Comment:</strong> Default function: Camera azimuth / yaw</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8026,7 +8025,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX4">RC_MAP_AUX4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX4 Passthrough RC channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX4 Passthrough RC channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8072,7 +8071,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX5">RC_MAP_AUX5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX5 Passthrough RC channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX5 Passthrough RC channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8118,7 +8117,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX6">RC_MAP_AUX6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>AUX6 Passthrough RC channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>AUX6 Passthrough RC channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8164,7 +8163,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_FAILSAFE">RC_MAP_FAILSAFE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Failsafe channel mapping</p><p><strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Failsafe channel mapping</p><p><strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8210,7 +8209,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_PARAM1">RC_MAP_PARAM1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PARAM1 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PARAM1 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8256,7 +8255,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_PARAM2">RC_MAP_PARAM2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PARAM2 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PARAM2 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8302,7 +8301,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_PARAM3">RC_MAP_PARAM3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PARAM3 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PARAM3 tuning channel</p><p><strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8348,7 +8347,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_PITCH">RC_MAP_PITCH</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Pitch control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading pitch inputs from. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Pitch control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading pitch inputs from. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8394,7 +8393,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_ROLL">RC_MAP_ROLL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Roll control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading roll inputs from. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Roll control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading roll inputs from. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8440,7 +8439,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_THROTTLE">RC_MAP_THROTTLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Throttle control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading throttle inputs from. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Throttle control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading throttle inputs from. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8486,7 +8485,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_YAW">RC_MAP_YAW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Yaw control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Yaw control channel mapping</p><p><strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8532,7 +8531,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8618,7 +8617,7 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -8679,7 +8678,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_ACRO_SW">RC_MAP_ACRO_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Acro switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Acro switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8725,7 +8724,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_ARM_SW">RC_MAP_ARM_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm switch channel</p><p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Arm switch channel</p><p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8771,7 +8770,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_FLAPS">RC_MAP_FLAPS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Flaps channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Flaps channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8817,7 +8816,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_FLTMODE">RC_MAP_FLTMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Single channel flight mode selection</p><p><strong>Comment:</strong> If this parameter is non-zero, flight modes are only selected by this channel and are assigned to six slots.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Single channel flight mode selection</p><p><strong>Comment:</strong> If this parameter is non-zero, flight modes are only selected by this channel and are assigned to six slots.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8863,7 +8862,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_GEAR_SW">RC_MAP_GEAR_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Landing gear switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Landing gear switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8909,7 +8908,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_KILL_SW">RC_MAP_KILL_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Emergency Kill switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Emergency Kill switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -8955,7 +8954,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_LOITER_SW">RC_MAP_LOITER_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Loiter switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Loiter switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9001,7 +9000,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_MAN_SW">RC_MAP_MAN_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Manual switch channel mapping</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Manual switch channel mapping</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9047,7 +9046,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_MODE_SW">RC_MAP_MODE_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mode switch channel mapping</p><p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mode switch channel mapping</p><p><strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9093,7 +9092,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_OFFB_SW">RC_MAP_OFFB_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Offboard switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Offboard switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9139,7 +9138,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_POSCTL_SW">RC_MAP_POSCTL_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position Control switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Position Control switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9185,7 +9184,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_RATT_SW">RC_MAP_RATT_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rattitude switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rattitude switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9231,7 +9230,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_RETURN_SW">RC_MAP_RETURN_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Return switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Return switch channel</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9277,7 +9276,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_STAB_SW">RC_MAP_STAB_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Stabilize switch channel mapping</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Stabilize switch channel mapping</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9323,7 +9322,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_TRANS_SW">RC_MAP_TRANS_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>VTOL transition switch channel mapping</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>VTOL transition switch channel mapping</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
@@ -9411,17 +9410,17 @@ default 1.5 turns per second</p>   </td>
 </tr>
 </tbody></table>
 
-## Return Mode
+## 返航模式
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Half-angle of the return mode altitude cone</p><p><strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Half-angle of the return mode altitude cone</p><p><strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.</li> 
 
 <li><strong>25:</strong> 25 degrees half cone angle.</li> 
@@ -9437,39 +9436,39 @@ default 1.5 turns per second</p>   </td>
   </td>
  <td style="vertical-align: top;">0 > 90 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Return mode loiter altitude</p><p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
  <td style="vertical-align: top;">2 > 100 (0.5)</td>
  <td style="vertical-align: top;">30</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Return mode delay</p><p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td style="vertical-align: top;">-1 > 300 (0.5)</td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
  <td style="vertical-align: top;">0.5 > 100 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Return mode return altitude</p><p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
  <td style="vertical-align: top;">0 > 150 (0.5)</td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_TYPE">RTL_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Return type</p><p><strong>Comment:</strong> Return mode destination and flight path (home location, rally point, mission landing pattern, reverse mission)</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Return type</p><p><strong>Comment:</strong> Return mode destination and flight path (home location, rally point, mission landing pattern, reverse mission)</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Return to closest safe point (home or rally point) via direct path.</li> 
 
 <li><strong>1:</strong> Return to closest safe point other than home (mission landing pattern or rally point), via direct path. If no mission landing or rally points are defined return home via direct path.</li> 
@@ -9490,12 +9489,12 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RTL precision land mode</p><p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>RTL precision land mode</p><p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No precision landing</li> 
 
 <li><strong>1:</strong> Opportunistic precision landing</li> 
@@ -9514,13 +9513,13 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Roboclaw Driver</p><p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Roboclaw Driver</p><p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -9540,7 +9539,7 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -9553,12 +9552,12 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Address of the Roboclaw</p><p><strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Address of the Roboclaw</p><p><strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.</p> <strong>参数对照:</strong><ul>
 <li><strong>128:</strong> 0x80</li> 
 
 <li><strong>129:</strong> 0x81</li> 
@@ -9582,7 +9581,7 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Roboclaw serial baud rate</p><p><strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Roboclaw serial baud rate</p><p><strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.</p> <strong>参数对照:</strong><ul>
 <li><strong>2400:</strong> 2400 baud</li> 
 
 <li><strong>9600:</strong> 9600 baud</li> 
@@ -9599,7 +9598,7 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>460800:</strong> 460800 baud</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">2400 > 460800 </td>
  <td style="vertical-align: top;">2400</td>
@@ -9633,7 +9632,7 @@ default 1.5 turns per second</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9648,14 +9647,14 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><p>L1 distance</p><p><strong>Comment:</strong> This is the waypoint radius</p>   </td>
  <td style="vertical-align: top;">0.0 > 100.0 (0.1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_L1_PERIOD">GND_L1_PERIOD</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>L1 period</p><p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Using values around 2-5 for a traxxas stampede. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
  <td style="vertical-align: top;">0.0 > 50.0 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_MAX_ANG">GND_MAX_ANG</strong> (FLOAT)</td>
@@ -9692,7 +9691,7 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
  <td style="vertical-align: top;"><p>Maximum ground speed</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)</td>
@@ -9713,11 +9712,11 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
  <td style="vertical-align: top;"><p>Trim ground speed</p>   </td>
  <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Control mode for speed</p><p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Control mode for speed</p><p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> open loop control</li> 
 
 <li><strong>1:</strong> close the loop with gps speed</li> 
@@ -9736,21 +9735,21 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_THR_IDLE">GND_THR_IDLE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Idle throttle</p><p><strong>Comment:</strong> This is the minimum throttle while on the ground, it should be 0 for a rover</p>   </td>
+ <td style="vertical-align: top;"><p>怠速油门</p><p><strong>Comment:</strong> This is the minimum throttle while on the ground, it should be 0 for a rover</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.4 (0.01)</td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_THR_MAX">GND_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle limit max</p><p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough</p>   </td>
+ <td style="vertical-align: top;"><p>油门最大值</p><p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.3</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_THR_MIN">GND_THR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle limit min</p><p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. Set to 0 for rover</p>   </td>
+ <td style="vertical-align: top;"><p>油门最小值</p><p><strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. Set to 0 for rover</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">norm</td>
@@ -9760,7 +9759,7 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
  <td style="vertical-align: top;"><p>Distance from front axle to rear axle</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
@@ -9769,12 +9768,12 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Min. airspeed scaling factor for takeoff.
+ <td style="vertical-align: top;"><p>起飞时最小 空速比例因子
 Pitch up will be commanded when the following airspeed is reached:
 FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 (0.01)</td>
@@ -9783,7 +9782,7 @@ FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_HDG">RWTO_HDG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Specifies which heading should be held during runnway takeoff</p><p><strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Specifies which heading should be held during runnway takeoff</p><p><strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Airframe</li> 
 
 <li><strong>1:</strong> Waypoint</li> 
@@ -9800,7 +9799,7 @@ Fixed-wing settings are used if set to 0. Note that there is also a minimum
 pitch of 10 degrees during takeoff, so this must be larger if set</p>   </td>
  <td style="vertical-align: top;">0.0 > 60.0 (0.5)</td>
  <td style="vertical-align: top;">20.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_MAX_ROLL">RWTO_MAX_ROLL</strong> (FLOAT)</td>
@@ -9809,11 +9808,11 @@ Roll is limited during climbout to ensure enough lift and prevents aggressive
 navigation before we're on a safe height</p>   </td>
  <td style="vertical-align: top;">0.0 > 60.0 (0.5)</td>
  <td style="vertical-align: top;">25.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max throttle during runway takeoff.
+ <td style="vertical-align: top;"><p>跑道起飞时的最大油门。
 (Can be used to test taxi on runway)</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
@@ -9827,7 +9826,7 @@ rudder is used to keep the heading (see RWTO_HDG). This should be below
 FW_CLMBOUT_DIFF if FW_CLMBOUT_DIFF > 0</p>   </td>
  <td style="vertical-align: top;">0.0 > 100.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_PSP">RWTO_PSP</strong> (FLOAT)</td>
@@ -9837,14 +9836,14 @@ a little to keep it's wheel on the ground before airspeed
 to takeoff is reached</p>   </td>
  <td style="vertical-align: top;">-10.0 > 20.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_RAMP_TIME">RWTO_RAMP_TIME</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Throttle ramp up time for runway takeoff</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.1)</td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RWTO_TKOFF">RWTO_TKOFF</strong> (INT32)</td>
@@ -9860,7 +9859,7 @@ to takeoff is reached</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9872,7 +9871,7 @@ to takeoff is reached</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_DIRS_MAX">SDLOG_DIRS_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maximum number of log directories to keep</p><p><strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum. Note: this does not apply to mission log files.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Maximum number of log directories to keep</p><p><strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum. Note: this does not apply to mission log files.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">0</td>
@@ -9880,14 +9879,14 @@ to takeoff is reached</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_MISSION">SDLOG_MISSION</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mission Log</p><p><strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Mission Log</p><p><strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> All mission messages</li> 
 
 <li><strong>2:</strong> Geotagging messages</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -9895,7 +9894,7 @@ to takeoff is reached</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging Mode</p><p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Logging Mode</p><p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> disabled</li> 
 
 <li><strong>0:</strong> when armed until disarm (default)</li> 
@@ -9906,7 +9905,7 @@ to takeoff is reached</p>   </td>
 
 <li><strong>3:</strong> depending on AUX1 RC channel</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -9925,7 +9924,7 @@ to takeoff is reached</p>   </td>
   <li><strong>8:</strong> Raw FIFO high-rate IMU (Gyro)</li> 
   <li><strong>9:</strong> Raw FIFO high-rate IMU (Accel)</li> 
 </ul>
- <p><b>Reboot required:</b> true</p>
+ <p><b>重启要求:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1023 </td>
  <td style="vertical-align: top;">1</td>
@@ -9947,12 +9946,12 @@ to takeoff is reached</p>   </td>
 </tr>
 </tbody></table>
 
-## SITL
+## 软件在环仿真（ SITL ）
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9960,7 +9959,7 @@ to takeoff is reached</p>   </td>
  <td style="vertical-align: top;"><p>Simulator Battery drain interval</p>   </td>
  <td style="vertical-align: top;">1 > 86400 (1)</td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)</td>
@@ -9978,7 +9977,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -9990,7 +9989,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC0_PRIO">CAL_ACC0_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 0 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Accelerometer 0 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10012,7 +10011,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC0_ROT">CAL_ACC0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of accelerometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10099,7 +10098,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10156,7 +10155,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC1_PRIO">CAL_ACC1_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 1 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Accelerometer 1 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10178,7 +10177,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC1_ROT">CAL_ACC1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of accelerometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10265,7 +10264,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10322,7 +10321,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC2_PRIO">CAL_ACC2_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 2 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Accelerometer 2 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10344,7 +10343,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC2_ROT">CAL_ACC2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of accelerometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10431,7 +10430,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10488,7 +10487,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC3_PRIO">CAL_ACC3_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 3 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Accelerometer 3 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10510,7 +10509,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC3_ROT">CAL_ACC3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of accelerometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10597,7 +10596,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10654,7 +10653,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_PRIO">CAL_GYRO0_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 0 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro 0 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10676,7 +10675,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_ROT">CAL_GYRO0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of gyro 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of gyro 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10763,7 +10762,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10799,7 +10798,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_PRIO">CAL_GYRO1_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 1 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro 1 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10821,7 +10820,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_ROT">CAL_GYRO1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of gyro 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of gyro 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10908,7 +10907,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -10944,7 +10943,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_PRIO">CAL_GYRO2_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 2 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro 2 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -10966,7 +10965,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_ROT">CAL_GYRO2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of gyro 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of gyro 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -11053,7 +11052,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -11089,7 +11088,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO3_PRIO">CAL_GYRO3_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 3 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro 3 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -11111,7 +11110,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO3_ROT">CAL_GYRO3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of gyro 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of gyro 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -11198,7 +11197,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -11234,7 +11233,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 0 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mag 0 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -11256,7 +11255,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -11343,7 +11342,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -11454,7 +11453,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 1 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mag 1 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -11476,7 +11475,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -11563,7 +11562,7 @@ for current-based compensation [G/kA]</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -11674,7 +11673,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 2 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mag 2 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -11696,7 +11695,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -11783,7 +11782,7 @@ for current-based compensation [G/kA]</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -11894,7 +11893,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 3 priority</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Mag 3 priority</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong>  Uninitialized</li> 
 
 <li><strong>0:</strong>   Disabled</li> 
@@ -11916,7 +11915,7 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -12003,7 +12002,7 @@ for current-based compensation [G/kA]</p>   </td>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
@@ -12107,8 +12106,8 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_COMP_TYP">CAL_MAG_COMP_TYP</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Type of magnetometer compensation</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Type of magnetometer compensation</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Throttle-based compensation</li> 
 
@@ -12140,7 +12139,7 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"><p>Maximum height above ground when reliant on optical flow</p><p><strong>Comment:</strong> This parameter defines the maximum distance from ground at which the optical flow sensor operates reliably. The height setpoint will be limited to be no greater than this value when the navigation system is completely reliant on optical flow data and the height above ground estimate is valid. The sensor may be usable above this height, but accuracy will progressively degrade.</p>   </td>
  <td style="vertical-align: top;">1.0 > 25.0 (0.1)</td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_FLOW_MAXR">SENS_FLOW_MAXR</strong> (FLOAT)</td>
@@ -12150,28 +12149,28 @@ control loops will be instructed to limit ground speed such that the flow rate p
 is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">1.0 > ? </td>
  <td style="vertical-align: top;">2.5</td>
- <td style="vertical-align: top;">rad/s</td>
+ <td style="vertical-align: top;">度/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_FLOW_MINHGT">SENS_FLOW_MINHGT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum height above ground when reliant on optical flow</p><p><strong>Comment:</strong> This parameter defines the minimum distance from ground at which the optical flow sensor operates reliably. The sensor may be usable below this height, but accuracy will progressively reduce to loss of focus.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">0.7</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
-## Sensors
+## 传感器
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_C_MULT">BAT_C_MULT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Capacity/current multiplier for high-current capable SMBUS battery</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Capacity/current multiplier for high-current capable SMBUS battery</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
@@ -12179,14 +12178,14 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_SMBUS_MODEL">BAT_SMBUS_MODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery device model</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery device model</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> AutoDetect</li> 
 
 <li><strong>1:</strong> BQ40Z50 based</li> 
 
 <li><strong>2:</strong> BQ40Z80 based</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0</td>
@@ -12194,7 +12193,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li> 
 
 <li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li> 
@@ -12211,14 +12210,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation</p>   </td>
  <td style="vertical-align: top;">0.1 > 100 </td>
  <td style="vertical-align: top;">1.5</td>
- <td style="vertical-align: top;">mm</td>
+ <td style="vertical-align: top;">毫米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed sensor tube length</p><p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>   </td>
  <td style="vertical-align: top;">0.01 > 2.00 </td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_ROT_AUTO">CAL_MAG_ROT_AUTO</strong> (INT32)</td>
@@ -12229,7 +12228,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>参数对照:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li> 
 
 <li><strong>38:</strong> Three side calibration</li> 
@@ -12243,7 +12242,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_ACCEL_CUTOFF">IMU_ACCEL_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for accel</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary accelerometer. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for accel</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary accelerometer. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">30.0</td>
@@ -12251,7 +12250,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_DGYRO_CUTOFF">IMU_DGYRO_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for angular acceleration (D-Term filter)</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to increase IMU_GYRO_CUTOFF, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Cutoff frequency for angular acceleration (D-Term filter)</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to increase IMU_GYRO_CUTOFF, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">0.0</td>
@@ -12259,7 +12258,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. It applies also to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. It applies also to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. A value of 0 disables the filter.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">30.0</td>
@@ -12267,7 +12266,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>IMU gyro FFT enable</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>IMU gyro FFT enable</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12275,7 +12274,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_MAX">IMU_GYRO_FFT_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>IMU gyro FFT maximum frequency</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>IMU gyro FFT maximum frequency</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 1000 </td>
  <td style="vertical-align: top;">200.0</td>
@@ -12283,7 +12282,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_MIN">IMU_GYRO_FFT_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>IMU gyro FFT minimum frequency</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>IMU gyro FFT minimum frequency</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 1000 </td>
  <td style="vertical-align: top;">50.0</td>
@@ -12291,7 +12290,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Notch filter bandwidth for gyro</p><p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Notch filter bandwidth for gyro</p><p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 100 </td>
  <td style="vertical-align: top;">20.0</td>
@@ -12299,7 +12298,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Notch filter frequency for gyro</p><p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Notch filter frequency for gyro</p><p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">0.0</td>
@@ -12307,7 +12306,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro control data maximum publication rate</p><p><strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro control data maximum publication rate</p><p><strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> 0 (no limit)</li> 
 
 <li><strong>50:</strong> 50 Hz</li> 
@@ -12320,7 +12319,7 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>2000:</strong> 2000 Hz</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2000 </td>
  <td style="vertical-align: top;">0</td>
@@ -12328,14 +12327,14 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>参数对照:</strong><ul>
 <li><strong>100:</strong> 100 Hz</li> 
 
 <li><strong>200:</strong> 200 Hz</li> 
 
 <li><strong>400:</strong> 400 Hz</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">100 > 1000 </td>
  <td style="vertical-align: top;">200</td>
@@ -12364,12 +12363,12 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) i2c address</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) i2c address</p> <strong>参数对照:</strong><ul>
 <li><strong>80:</strong> Address 0x50 (80)</li> 
 
 <li><strong>81:</strong> Address 0x51 (81)</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">80</td>
@@ -12377,7 +12376,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse count</p><p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse count</p><p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > ? </td>
  <td style="vertical-align: top;">2</td>
@@ -12386,7 +12385,7 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_POOL">PCF8583_POOL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pool interval
-How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
+How often the sensor is readout</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1000000</td>
@@ -12394,7 +12393,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_RESET">PCF8583_RESET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse reset value</p><p><strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy. 0 means reset counter after every measurement.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse reset value</p><p><strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy. 0 means reset counter after every measurement.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">500000</td>
@@ -12402,7 +12401,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>QNH for barometer</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>QNH for barometer</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">500 > 1500 </td>
  <td style="vertical-align: top;">1013.25</td>
@@ -12410,7 +12409,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Baro max rate</p><p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Baro max rate</p><p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 200 </td>
  <td style="vertical-align: top;">20.0</td>
@@ -12418,7 +12417,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Board rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Board rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12503,7 +12502,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">0</td>
@@ -12514,26 +12513,26 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Board rotation X (Roll) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_Y_OFF">SENS_BOARD_Y_OFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Board rotation Y (Pitch) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_Z_OFF">SENS_BOARD_Z_OFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Board rotation Z (YAW) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;">度</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_CM8JL65_CFG">SENS_CM8JL65_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Lanbao PSK-CM8JL65-CC5</p><p><strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Lanbao PSK-CM8JL65-CC5</p><p><strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -12553,7 +12552,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -12561,7 +12560,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Distance Sensor Rotation</p><p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Distance Sensor Rotation</p><p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> ROTATION_FORWARD_FACING</li> 
 
 <li><strong>2:</strong> ROTATION_RIGHT_FACING</li> 
@@ -12582,7 +12581,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>SMBUS Smart battery driver BQ40Z50 and BQ40Z80</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>SMBUS Smart battery driver BQ40Z50 and BQ40Z80</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12590,14 +12589,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_LL40LS">SENS_EN_LL40LS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lidar-Lite (LL40LS)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Lidar-Lite (LL40LS)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> PWM</li> 
 
 <li><strong>2:</strong> I2C</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0</td>
@@ -12605,7 +12604,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_MB12XX">SENS_EN_MB12XX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maxbotix Sonar (mb12xx)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Maxbotix Sonar (mb12xx)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12613,12 +12612,12 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_MPDT">SENS_EN_MPDT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable Mappydot rangefinder (i2c)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Enable Mappydot rangefinder (i2c)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Autodetect</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
@@ -12626,7 +12625,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PAW3902 & PAW3903 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PAW3902 & PAW3903 Optical Flow</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12634,7 +12633,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PGA460">SENS_EN_PGA460</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PGA460 Ultrasonic driver (PGA460)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PGA460 Ultrasonic driver (PGA460)</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12642,7 +12641,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PMW3901">SENS_EN_PMW3901</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PMW3901 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PMW3901 Optical Flow</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12650,7 +12649,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PX4FLOW">SENS_EN_PX4FLOW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PX4 Flow Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PX4 Flow Optical Flow</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12658,7 +12657,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_SF0X">SENS_EN_SF0X</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lightware Laser Rangefinder hardware model (serial)</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Lightware Laser Rangefinder hardware model (serial)</p> <strong>参数对照:</strong><ul>
 <li><strong>1:</strong> SF02</li> 
 
 <li><strong>2:</strong> SF10/a</li> 
@@ -12669,7 +12668,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>5:</strong> SF11/c</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1</td>
@@ -12677,8 +12676,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_SF1XX">SENS_EN_SF1XX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lightware SF1xx/SF20/LW20 laser rangefinder (i2c)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Lightware SF1xx/SF20/LW20 laser rangefinder (i2c)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> SF10/a</li> 
 
@@ -12692,7 +12691,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>6:</strong> SF/LW20/c</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
@@ -12700,7 +12699,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_SR05">SENS_EN_SR05</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>HY-SRF05 / HC-SR05</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>HY-SRF05 / HC-SR05</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -12708,7 +12707,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_THERMAL">SENS_EN_THERMAL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal control of sensor temperature</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Thermal control of sensor temperature</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> Thermal control unavailable</li> 
 
 <li><strong>0:</strong> Thermal control off</li> 
@@ -12722,8 +12721,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_TRANGER">SENS_EN_TRANGER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>TeraRanger Rangefinder (i2c)</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>TeraRanger Rangefinder (i2c)</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Autodetect</li> 
 
@@ -12735,7 +12734,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>5:</strong> TREvo3m</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">0</td>
@@ -12750,7 +12749,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_FLOW_ROT">SENS_FLOW_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PX4Flow board rotation</p><p><strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>PX4Flow board rotation</p><p><strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12767,7 +12766,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">6</td>
@@ -12789,16 +12788,16 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Multi GPS Blending Time Constant</p><p><strong>Comment:</strong> Sets the longest time constant that will be applied to the calculation of GPS position and height offsets used to correct data from multiple GPS data for steady state position differences.</p>   </td>
  <td style="vertical-align: top;">1.0 > 100.0 </td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Sensors hub IMU mode</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Sensors hub IMU mode</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Publish primary IMU selection</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1</td>
@@ -12827,8 +12826,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_LEDDAR1_CFG">SENS_LEDDAR1_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for LeddarOne Rangefinder</p><p><strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for LeddarOne Rangefinder</p><p><strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -12848,7 +12847,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -12856,12 +12855,12 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MAG_MODE">SENS_MAG_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Sensors hub mag mode</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Sensors hub mag mode</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Publish all magnetometers</li> 
 
 <li><strong>1:</strong> Publish primary magnetometer</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1</td>
@@ -12869,7 +12868,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MAG_RATE">SENS_MAG_RATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer max rate</p><p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Magnetometer max rate</p><p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 200 </td>
  <td style="vertical-align: top;">50.0</td>
@@ -12877,7 +12876,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 0 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 0 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12894,7 +12893,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -12902,7 +12901,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_10_ROT">SENS_MB12_10_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 10 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 10 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12919,7 +12918,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -12927,7 +12926,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_11_ROT">SENS_MB12_11_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 12 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 12 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12944,7 +12943,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -12952,7 +12951,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_1_ROT">SENS_MB12_1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 1 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 1 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12969,7 +12968,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -12977,7 +12976,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_2_ROT">SENS_MB12_2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 2 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 2 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -12994,7 +12993,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13002,7 +13001,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_3_ROT">SENS_MB12_3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 3 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 3 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13019,7 +13018,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13027,7 +13026,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_4_ROT">SENS_MB12_4_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 4 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 4 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13044,7 +13043,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13052,7 +13051,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_5_ROT">SENS_MB12_5_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 5 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 5 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13069,7 +13068,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13077,7 +13076,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_6_ROT">SENS_MB12_6_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 6 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 6 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13094,7 +13093,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13102,7 +13101,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_7_ROT">SENS_MB12_7_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 7 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 7 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13119,7 +13118,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13127,7 +13126,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_8_ROT">SENS_MB12_8_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 8 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 8 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13144,7 +13143,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13152,7 +13151,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_9_ROT">SENS_MB12_9_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 9 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MaxBotix MB12XX Sensor 9 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13169,7 +13168,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13177,7 +13176,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT0_ROT">SENS_MPDT0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 0 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 0 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13194,7 +13193,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13202,7 +13201,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT10_ROT">SENS_MPDT10_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 10 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 10 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13219,7 +13218,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13227,7 +13226,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT11_ROT">SENS_MPDT11_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 12 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 12 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13244,7 +13243,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13252,7 +13251,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT1_ROT">SENS_MPDT1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 1 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 1 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13269,7 +13268,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13277,7 +13276,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT2_ROT">SENS_MPDT2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 2 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 2 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13294,7 +13293,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13302,7 +13301,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT3_ROT">SENS_MPDT3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 3 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 3 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13319,7 +13318,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13327,7 +13326,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT4_ROT">SENS_MPDT4_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 4 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 4 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13344,7 +13343,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13352,7 +13351,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT5_ROT">SENS_MPDT5_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 5 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 5 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13369,7 +13368,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13377,7 +13376,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT6_ROT">SENS_MPDT6_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 6 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 6 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13394,7 +13393,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13402,7 +13401,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT7_ROT">SENS_MPDT7_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 7 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 7 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13419,7 +13418,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13427,7 +13426,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT8_ROT">SENS_MPDT8_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 8 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 8 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13444,7 +13443,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13452,7 +13451,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MPDT9_ROT">SENS_MPDT9_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MappyDot Sensor 9 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>MappyDot Sensor 9 Rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the Mappydot sensor relative to the platform.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
 
 <li><strong>1:</strong> Yaw 45°</li> 
@@ -13469,7 +13468,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 7 </td>
  <td style="vertical-align: top;">0</td>
@@ -13477,8 +13476,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_SF0X_CFG">SENS_SF0X_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Lightware Laser Rangefinder (serial)</p><p><strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder (serial).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Lightware Laser Rangefinder (serial)</p><p><strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder (serial).</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -13498,7 +13497,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13513,8 +13512,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_TFLOW_CFG">SENS_TFLOW_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for ThoneFlow-3901U optical flow sensor</p><p><strong>Comment:</strong> Configure on which serial port to run ThoneFlow-3901U optical flow sensor.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for ThoneFlow-3901U optical flow sensor</p><p><strong>Comment:</strong> Configure on which serial port to run ThoneFlow-3901U optical flow sensor.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -13534,7 +13533,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13542,8 +13541,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_TFMINI_CFG">SENS_TFMINI_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Benewake TFmini Rangefinder</p><p><strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for Benewake TFmini Rangefinder</p><p><strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -13563,7 +13562,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13571,8 +13570,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for uLanding Radar</p><p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for uLanding Radar</p><p><strong>Comment:</strong> Configure on which serial port to run uLanding Radar.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -13592,7 +13591,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13600,7 +13599,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Battery</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Battery</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.000000001 > 0.1 (.000000001)</td>
  <td style="vertical-align: top;">0.00063</td>
@@ -13608,7 +13607,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VOXLPM_SHUNT_REG">VOXLPM_SHUNT_REG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Regulator</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Regulator</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0.000000001 > 0.1 (.000000001)</td>
  <td style="vertical-align: top;">0.0056</td>
@@ -13621,13 +13620,13 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for RC Input Driver</p><p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to 'Disabled' will use a board-specific default port for RC input.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for RC Input Driver</p><p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to 'Disabled' will use a board-specific default port for RC input.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -13647,7 +13646,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">300</td>
@@ -13655,7 +13654,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS1_BAUD">SER_GPS1_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the GPS 1 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>GPS1串口波特率</p><p><strong>说明:</strong>配置GPS1串口的波特率. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -13708,7 +13707,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13716,7 +13715,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the GPS 2 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>GPS2串口波特率</p><p><strong>说明:</strong>配置GPS2串口的波特率. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -13769,7 +13768,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13777,7 +13776,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the GPS 3 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>GPS3串口波特率</p><p><strong>说明:</strong>配置GPS3串口的波特率. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -13830,7 +13829,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13838,7 +13837,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_RC_BAUD">SER_RC_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the Radio Controller Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Baudrate for the Radio Controller Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -13891,7 +13890,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -13899,7 +13898,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_TEL1_BAUD">SER_TEL1_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the TELEM 1 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>TELE1串口波特率参数</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -13952,7 +13951,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">57600</td>
@@ -13960,7 +13959,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_TEL2_BAUD">SER_TEL2_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the TELEM 2 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>TELE2串口波特率参数</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14013,7 +14012,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">921600</td>
@@ -14021,7 +14020,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_TEL3_BAUD">SER_TEL3_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the TELEM 3 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>TELE3串口波特率参数</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14074,7 +14073,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">57600</td>
@@ -14082,7 +14081,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_TEL4_BAUD">SER_TEL4_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the TELEM/SERIAL 4 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>TELE4串口波特率参数</p><p><strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14135,7 +14134,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">57600</td>
@@ -14143,7 +14142,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_URT6_BAUD">SER_URT6_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Baudrate for the UART 6 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UART6串口波特率参数</p><p><strong>说明:</strong>配置UART6串行口的波特率 注意: 某些驱动程序，如GPS，可以自动确定波特率</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14196,7 +14195,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3000000:</strong> 3000000 8N1</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">57600</td>
@@ -14209,7 +14208,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -14273,7 +14272,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Initial AMSL ground altitude</p><p><strong>Comment:</strong> This value represents the Above Mean Sea Level (AMSL) altitude where the simulation begins. If using FlightGear as a visual animation, this value can be tweaked such that the vehicle lies on the ground at takeoff. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-420.0 > 8848.0 (0.01)</td>
  <td style="vertical-align: top;">32.34</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_LOC_LAT0">SIH_LOC_LAT0</strong> (INT32)</td>
@@ -14315,14 +14314,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Pitch arm length</p><p><strong>Comment:</strong> This is the arm length generating the pitching moment This value can be measured with a ruler. This corresponds to half the distance between the front and rear motors.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.05)</td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_L_ROLL">SIH_L_ROLL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll arm length</p><p><strong>Comment:</strong> This is the arm length generating the rolling moment This value can be measured with a ruler. This corresponds to half the distance between the left and right motors.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.05)</td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
@@ -14347,12 +14346,12 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 </tbody></table>
 
-## System
+## 系统
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -14371,7 +14370,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_AUTOCONFIG">SYS_AUTOCONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Automatically configure default values</p><p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Automatically configure default values</p><p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li> 
 
 <li><strong>1:</strong> Reset parameters</li> 
@@ -14385,7 +14384,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_AUTOSTART">SYS_AUTOSTART</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Auto-start script index</p><p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Auto-start script index</p><p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 9999999 </td>
  <td style="vertical-align: top;">0</td>
@@ -14393,7 +14392,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_BL_UPDATE">SYS_BL_UPDATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Bootloader update</p><p><strong>Comment:</strong> If enabled, update the bootloader on the next boot. WARNING: do not cut the power during an update process, otherwise you will have to recover using some alternative method (e.g. JTAG). Instructions: - Insert an SD card - Enable this parameter - Reboot the board (plug the power or send a reboot command) - Wait until the board comes back up (or at least 2 minutes) - If it does not come back, check the file bootlog.txt on the SD card</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Bootloader update</p><p><strong>Comment:</strong> If enabled, update the bootloader on the next boot. WARNING: do not cut the power during an update process, otherwise you will have to recover using some alternative method (e.g. JTAG). Instructions: - Insert an SD card - Enable this parameter - Reboot the board (plug the power or send a reboot command) - Wait until the board comes back up (or at least 2 minutes) - If it does not come back, check the file bootlog.txt on the SD card</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -14457,7 +14456,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
@@ -14465,7 +14464,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Control if the vehicle has a magnetometer</p><p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a magnetometer</p><p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
@@ -14473,7 +14472,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable HITL/SIH mode on next boot</p><p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to 'external HITL', if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Enable HITL/SIH mode on next boot</p><p><strong>Comment:</strong> While enabled the system will boot in Hardware-In-The-Loop (HITL) or Simulation-In-Hardware (SIH) mode and not enable all sensors and checks. When disabled the same vehicle can be flown normally. Set to 'external HITL', if the system should perform as if it were a real vehicle (the only difference to a real system is then only the parameter value, which can be used for log analysis).</p> <strong>参数对照:</strong><ul>
 <li><strong>-1:</strong> external HITL</li> 
 
 <li><strong>0:</strong> HITL and SIH disabled</li> 
@@ -14482,7 +14481,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>2:</strong> SIH enabled</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -14490,14 +14489,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set multicopter estimator group</p><p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set multicopter estimator group</p><p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>参数对照:</strong><ul>
 <li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li> 
 
 <li><strong>2:</strong> ekf2 (recommended)</li> 
 
 <li><strong>3:</strong> Q attitude estimator (no position)</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2</td>
@@ -14512,7 +14511,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_RESTART_TYPE">SYS_RESTART_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set restart type</p><p><strong>Comment:</strong> Set by px4io to indicate type of restart</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set restart type</p><p><strong>Comment:</strong> Set by px4io to indicate type of restart</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Data survives resets</li> 
 
 <li><strong>1:</strong> Data survives in-flight resets only</li> 
@@ -14533,7 +14532,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set usage of IO board</p><p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set usage of IO board</p><p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">Enabled (1)</td>
@@ -14546,12 +14545,12 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="TEL_BST_EN">TEL_BST_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Blacksheep telemetry Enable</p><p><strong>Comment:</strong> If true, the FMU will try to connect to Blacksheep telemetry on start up</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Blacksheep telemetry Enable</p><p><strong>Comment:</strong> If true, the FMU will try to connect to Blacksheep telemetry on start up</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -14559,8 +14558,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TEL_FRSKY_CONFIG">TEL_FRSKY_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for FrSky Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for FrSky Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -14580,7 +14579,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -14588,8 +14587,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TEL_HOTT_CONFIG">TEL_HOTT_CONFIG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for HoTT Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>Serial Configuration for HoTT Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>6:</strong> UART 6</li> 
 
@@ -14609,7 +14608,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
@@ -14617,12 +14616,12 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 </tbody></table>
 
-## Testing
+## 测试
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -14758,7 +14757,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -15211,7 +15210,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -15226,21 +15225,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B0_TMAX">TC_B0_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">75.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B0_TMIN">TC_B0_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B0_TREF">TC_B0_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">40.0</td>
  <td style="vertical-align: top;"></td>
@@ -15296,21 +15295,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B1_TMAX">TC_B1_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">75.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B1_TMIN">TC_B1_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B1_TREF">TC_B1_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">40.0</td>
  <td style="vertical-align: top;"></td>
@@ -15366,21 +15365,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B2_TMAX">TC_B2_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">75.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B2_TMIN">TC_B2_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B2_TREF">TC_B2_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">40.0</td>
  <td style="vertical-align: top;"></td>
@@ -15436,21 +15435,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B3_TMAX">TC_B3_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">75.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B3_TMIN">TC_B3_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B3_TREF">TC_B3_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>气压计校准参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">40.0</td>
  <td style="vertical-align: top;"></td>
@@ -15499,7 +15498,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B_ENABLE">TC_B_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -15514,21 +15513,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G0_TMAX">TC_G0_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">100.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G0_TMIN">TC_G0_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G0_TREF">TC_G0_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准的参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">25.0</td>
  <td style="vertical-align: top;"></td>
@@ -15626,21 +15625,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G1_TMAX">TC_G1_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">100.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G1_TMIN">TC_G1_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G1_TREF">TC_G1_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准的参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">25.0</td>
  <td style="vertical-align: top;"></td>
@@ -15738,21 +15737,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G2_TMAX">TC_G2_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">100.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G2_TMIN">TC_G2_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G2_TREF">TC_G2_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准的参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">25.0</td>
  <td style="vertical-align: top;"></td>
@@ -15850,21 +15849,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G3_TMAX">TC_G3_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最高温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">100.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G3_TMIN">TC_G3_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准最低温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G3_TREF">TC_G3_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"><p>陀螺仪校准的参考温度</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">25.0</td>
  <td style="vertical-align: top;"></td>
@@ -15955,7 +15954,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G_ENABLE">TC_G_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -15968,7 +15967,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -15987,7 +15986,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_BITRATE">UAVCAN_BITRATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">20000 > 1000000 </td>
  <td style="vertical-align: top;">1000000</td>
@@ -15995,8 +15994,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>参数对照:</strong><ul>
+<li><strong>0:</strong>禁用相机反馈</li> 
 
 <li><strong>1:</strong> Sensors Manual Config</li> 
 
@@ -16004,7 +16003,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3:</strong> Sensors and Actuators (ESCs) Automatic Config</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">0</td>
@@ -16012,7 +16011,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_ESC_IDLT">UAVCAN_ESC_IDLT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN ESC will spin at idle throttle when armed, even if the mixer outputs zero setpoints</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>UAVCAN ESC will spin at idle throttle when armed, even if the mixer outputs zero setpoints</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
@@ -16020,7 +16019,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN ANTI_COLLISION light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UAVCAN ANTI_COLLISION light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li> 
 
 <li><strong>1:</strong> When autopilot is armed</li> 
@@ -16029,7 +16028,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3:</strong> Always on</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">2</td>
@@ -16037,7 +16036,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_LGT_LAND">UAVCAN_LGT_LAND</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN LIGHT_ID_LANDING light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UAVCAN LIGHT_ID_LANDING light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li> 
 
 <li><strong>1:</strong> When autopilot is armed</li> 
@@ -16046,7 +16045,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3:</strong> Always on</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">0</td>
@@ -16054,7 +16053,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_LGT_NAV">UAVCAN_LGT_NAV</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN RIGHT_OF_WAY light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the RIGHT_OF_WAY lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UAVCAN RIGHT_OF_WAY light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the RIGHT_OF_WAY lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li> 
 
 <li><strong>1:</strong> When autopilot is armed</li> 
@@ -16063,7 +16062,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3:</strong> Always on</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">3</td>
@@ -16071,7 +16070,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_LGT_STROB">UAVCAN_LGT_STROB</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN STROBE light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UAVCAN STROBE light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Always off</li> 
 
 <li><strong>1:</strong> When autopilot is armed</li> 
@@ -16080,7 +16079,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>3:</strong> Always on</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">1</td>
@@ -16088,7 +16087,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_NODE_ID">UAVCAN_NODE_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">1 > 125 </td>
  <td style="vertical-align: top;">1</td>
@@ -16099,14 +16098,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>UAVCAN rangefinder maximum range</p><p><strong>Comment:</strong> This parameter defines the maximum valid range for a rangefinder connected via UAVCAN.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">200.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_RNG_MIN">UAVCAN_RNG_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>UAVCAN rangefinder minimum range</p><p><strong>Comment:</strong> This parameter defines the minimum valid range for a rangefinder connected via UAVCAN.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;">米</td>
 </tr>
 </tbody></table>
 
@@ -16115,7 +16114,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16148,7 +16147,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UUV_INPUT_MODE">UUV_INPUT_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Select Input Mode</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Select Input Mode</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> use Attitude Setpoints</li> 
 
 <li><strong>1:</strong> Direct Feedthrough</li> 
@@ -16207,22 +16206,22 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_BLEND">VT_ARSP_BLEND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Transition blending airspeed</p><p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. Set to 0 to disable.</p>   </td>
+ <td style="vertical-align: top;"><p>Transition blending airspeed</p><p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. 设置为 0 以禁用。</p>   </td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_TRANS">VT_ARSP_TRANS</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Transition airspeed</p><p><strong>Comment:</strong> Airspeed at which we can switch to fw mode</p>   </td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;">米/秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
@@ -16267,14 +16266,14 @@ Airbrakes need to be enables for your selected model/mixer</p>   </td>
  <td style="vertical-align: top;"><p>Duration of a back transition</p><p><strong>Comment:</strong> Time in seconds used for a back transition</p>   </td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">4.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
  <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
@@ -16308,7 +16307,7 @@ This technique can be used to avoid the plane having to pitch down in order to m
 This prevents large, negative lift values being created when facing strong winds.
 Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL).
 Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from
-demanded down pitch to fixed-wing actuation</p> <strong>Values:</strong><ul>
+demanded down pitch to fixed-wing actuation</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
 
 <li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
@@ -16392,7 +16391,7 @@ demanded down pitch to fixed-wing actuation</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><p>Duration of a front transition</p><p><strong>Comment:</strong> Time in seconds used for a transition</p>   </td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
@@ -16408,7 +16407,7 @@ tailsitter, tiltrotor: main throttle</p>   </td>
  <td style="vertical-align: top;"><p>Airspeed less front transition time (open loop)</p><p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
  <td style="vertical-align: top;">1.0 > 30.0 </td>
  <td style="vertical-align: top;">6.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_IDLE_PWM_MC">VT_IDLE_PWM_MC</strong> (INT32)</td>
@@ -16472,32 +16471,32 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;"><p>Front transition minimum time</p><p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>   </td>
  <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>   </td>
  <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Front transition timeout</p><p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>   </td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">15.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;">秒</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TYPE">VT_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Tailsitter</li> 
 
 <li><strong>1:</strong> Tiltrotor</li> 
 
 <li><strong>2:</strong> Standard</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
+  <p><b>要求重启:</b>是</p>
 </td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0</td>
@@ -16512,12 +16511,12 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 </tr>
 </tbody></table>
 
-## Miscellaneous
+## 其它选项
 
 <table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+   <tr><th>参数名</th><th>参数描述</th><th>最小最大值 (增量)</th><th>默认值</th><th>单位</th></tr>
  </thead>
 <tbody>
 <tr>
@@ -16543,7 +16542,7 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine</p><p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine</p><p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>参数对照:</strong><ul>
 <li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li> 
 
 <li><strong>1:</strong> User assisted descent speed</li> 

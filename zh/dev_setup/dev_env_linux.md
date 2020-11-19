@@ -9,7 +9,7 @@ The following instructions explain how to set up a development environment on va
 * **Tip** 我们已经使用Debian/[Ubuntu](https://wiki.ubuntu.com/LTS) (16.04) 作为标准linux开发系统， 也为[CentOS](../setup/dev_env_linux_centos.md)和[Arch Linux](../setup/dev_env_linux_arch.md)提供了说明。
 * [软件安装](../dev_setup/dev_env_linux_centos.md)
 * [配置](../dev_setup/dev_env_linux_arch.md)
-* [Advanced Linux](../dev_setup/dev_env_advanced_linux.md)
+* [高级 Linux](../dev_setup/dev_env_advanced_linux.md)
 
 
 安装开发工具链:

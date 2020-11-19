@@ -1,4 +1,4 @@
-# Manufacturer-Supported Autopilots
+# 由制造商支持的自动驾驶仪
 
 Manufacturer-supported autopilots are maintained and supported by a board manufacturer (manufacturers commit to delivering compatibility with the current stable PX4 release within 4 months of the official release announcement).
 

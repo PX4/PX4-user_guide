@@ -48,33 +48,33 @@ PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavl
 
 The fields set by PX4 as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 3
 - Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: 当前航向角
   - `vel_yaw[0]`: NaN
   - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
 - Point 1 - Current waypoint (Unmodified/not type adapted)): 
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
+  - `pos_yaw[1]`: 航向设定值
+  - `vel_yaw[1]`: 偏航速率设定值
   - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
 - Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
+  - `pos_yaw[2]`: 航向设定值
+  - `vel_yaw[2]`: 偏航速率设定值
   - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
-- All other indices/fields are set as NaN.
+- 所有其它字段都是NaN(未定义)。
 
 <span id="type_adapted"></span>
-Notes:
+备注：
 
 - Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
 - Point 1 and 2 are not used by the safe landing planner.
@@ -105,16 +105,16 @@ The path planning software (running on the companion computer) *may* send the pl
 
 The fields for the messages from the companion computer are set as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
-- Current vehicle information: 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+- 当前飞机信息： 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置设定值
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: 航向角设定值
+  - `vel_yaw[0]`: 偏航速率设定值
   - `command[0]`: NaN.
-- All other indices/fields are set as NaN.
+- 所有其它字段都是NaN(未定义)。
 
 A planner that implements this interface must:
 

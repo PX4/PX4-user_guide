@@ -51,7 +51,7 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
-## Gazebo Simulation
+## Gazebo 仿真
 
 To install SITL simulation with Gazebo:
 
@@ -60,7 +60,7 @@ brew cask install xquartz
 brew install px4-sim-gazebo
 ```
 
-## jMAVSim Simulation
+## jMAVSim 仿真模拟
 
 To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 14). You can either download [Java 14 from Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or use the AdoptOpenJDK tap:
 
@@ -75,11 +75,11 @@ brew install px4-sim-jmavsim
 
 > **Note** jMAVSim for PX4 v1.11 and earlier required Java 8.
 
-## Additional Tools
+## 额外工具
 
 See [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful development tools that are not part of the build toolchain (for example IDEs and GCSs).
 
-## Next Steps
+## 后续步骤
 
-Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
+sudo rosdep init rosdep update
 

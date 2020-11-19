@@ -6,7 +6,7 @@ This vehicle was chosen to understand how a Pixhawk could be used for wheeled pl
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
-## Parts List
+## 配件列表
 
 - [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
 - [Pixhawk Mini （停产）](../flight_controller/pixhawk_mini.md) 
@@ -16,7 +16,7 @@ This vehicle was chosen to understand how a Pixhawk could be used for wheeled pl
 - [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 - [PX4Flow](../sensor/px4flow.md)
 
-## Assembly
+## 组装
 
 The assembly consists of a wooden frame on which all the autopilot parts were attached. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
 
@@ -38,7 +38,7 @@ For this particular mounting we chose to use the clip supplied with the rover to
 
 ## Output Connections
 
-| PWM Output | Actuator       |
+| PWM Output | 执行器            |
 | ---------- | -------------- |
 | MAIN2      | Steering servo |
 | MAIN4      | ESC input      |

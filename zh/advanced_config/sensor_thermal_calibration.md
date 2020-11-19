@@ -12,38 +12,38 @@ px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功�
 
 <span id="test_setup"></span>
 
-## Test Setup/Best Practice
+## 测试设置/最佳实践
 
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
+以下部分中描述的 [校准程序](#calibration_procedures) 是在理想的 *环境室*（温度和湿度受控的环境）中进行的，因为电路板被从最低温度加热到最高运行/校准温度。 在开始校准之前，首先将电路板 *冷却*（冷却至最低温度并使其达到平衡）。
 
-For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. After the cold soak the bag can be moved to the test environment and the test continued in the same bag.
+对于冷却，您可以使用普通的家用冰箱达到 -20C，商用冰箱可以达到 -40C 的量级。 电路板应放在带有硅胶干燥剂包的拉链/防静电袋中，电源线通过密封孔引出。 冷却后，可将袋子移至测试环境，并在同一袋中继续测试。
 
-> **Note** The bag/silica is to prevent condensation from forming on the board.
+> **Note**硅胶干燥剂包是为了防止水蒸气在电路板上冷凝。
 
-It possible to perform the calibration without a commercial-grade environment chamber. A simple environment container can be created using a styrofoam box with a very small internal volume of air. This allows the autopilot to self-heat the air relatively quickly (be sure that the box has a small hole to equalize to ambient room pressure, but still be able to heat up inside).
+可以在没有商业级环境室的情况下执行校准。 可以使用具有非常小的内部空气体积的泡沫塑料盒来创造一个简单的环境容器。 这允许自驾仪将空气相对快速地自加热（确保盒子有一个小孔以平衡容器内外压力，但仍然能够在容器内加热）。
 
-Using this sort of setup it is possible to heat a board to ~70C. Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. If in doubt, check the safe operating range with your manufacturer.
+使用这种设置可以将电路板加热到约 70C 。 轶事证据表明，许多普通板可以加热到这个温度而没有不良副作用。 如有疑问，请与制造商核实安全操作的温度范围。
 
-> **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor.
+> **Tip**要检查板载热校准的状态，请使用 MAVlink console（或 NuttX console）检查传感器报告的内部温度。
 
 <span id="calibration_procedures"></span>
 
-## Calibration Procedures
+## 校准过程
 
-PX4 supports two calibration procedures:
+PX4 支持两种校准过程：
 
 * [板载校准](#onboard_calibration) - 校准在电路板上运行。 该方法需要知道测试设置中可实现的温升量。
 * [板外校准](#offboard_calibration) - 基于在校准过程期间收集的日志信息在计算机上计算补偿参数。 该方法允许用户可视地检查数据和曲线拟合的质量。
 
-The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
+板外校准更复杂，速度更慢，但需要更少的测试设置知识，更容易验证。
 
 <span id="onboard_calibration"></span>
 
-### Onboard Calibration Procedure
+### 板载校准过程
 
-Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup.
+板载校准完全在设备上运行。 它需要知道测试设置中可达到的温升量。
 
-To perform and onboard calibration:
+执行板载校准：
 
 1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
 2. 为电路板供电并将 ` SYS_CAL _ * `参数设置为 1，以便在下次启动时启用所需传感器的校准。 [^1]
@@ -58,51 +58,51 @@ To perform and onboard calibration:
 
 <span id="offboard_calibration"></span>
 
-### Offboard Calibration Procedure
+### 板外校准过程
 
-Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
+使用在校准测试期间收集的数据在开发计算机上运行板外校准。 该方法提供了一种可视化检查数据和曲线拟合质量的方法。
 
-To perform an offboard calibration:
+执行板外校准：
 
 1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
 2. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
 3. 将所有 [ CAL_GYRO * ](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) 和 [ CAL_ACC * ](../advanced_config/parameter_reference.md#CAL_ACC0_EN)参数设置为默认值。
-4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
-5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
-6. Cold soak the board to the minimum temperature it will be required to operate in.
-7. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+4. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。 
+5. 为 *thermal calibration*（位2）设置 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 复选框，以记录校准所需的原始传感器数据。
+6. 将电路板冷却到操作所需的最低温度。
+7. 接通电源并保持电路板静止<sup id="fnref2:2"><a href="#fn:2" class="footnote-ref"> 2 </a></sup>，将其缓慢加热至所需的最高工作温度。 <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+8. 断开电源并取出 .ulog 文件。
+9. 在** Firmware / Tools **目录中打开一个终端窗口并运行 python 校准脚本文件： 
         sh
-        python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
+        python process_sensor_caldata.py &lt;full path name to .ulog file&gt; 这将生成 
     
-    **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+    **.pdf ** 文件，其显示每个传感器的测量数据和拟合曲线，以及包含校准参数的 **.params ** 文件。
+10. 给电路板上电，连接 * QGroundControl * 并使用 * QGroundControl * 将生成的**.params **文件中的参数加载到电路板上。 由于参数的数量，加载它们可能需要一些时间。
+11. 参数完成加载后，将` SDLOG_MODE `设置为 1 以重新启用常规日志并断开电源。
+12. 为电路板供电并使用 * QGroundControl * 执行常规加速计传感器校准。 重要的是，此步骤在飞控板处于校准温度范围内进行。 此步骤后的首次飞行之前，应重新启动电路板，因为突然的偏置变化会扰乱导航估计器，并且某些参数直到下次启动时才会被使用它们的算法加载。
 
 <span id="implementation"></span>
 
-## Implementation Detail
+## 实施细节
 
-Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
+校准是指在一系列内部温度范围内测量传感器值的变化，并对数据进行多项式拟合以计算可用于校正传感器数据的一组系数（存储为参数）的过程。 补偿是指使用内部温度来计算偏移量，传感器读数将减去这个偏移量，以校正随温度变化的偏移量的过程。
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+使用三阶多项式计算惯性速率陀螺仪和加速度计传感器偏移，而使用五阶多项式计算气压传感器偏移。 示例拟合如下所示：
 
-![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
+![热校准陀螺](../../assets/calibration/thermal_calibration_gyro.png)
 
-![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
+![热校准加速度计](../../assets/calibration/thermal_calibration_accel.png)
 
-![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
+![热校准气压计](../../assets/calibration/thermal_calibration_baro.png)
 
 ### 校准参数存储
 
-With the existing parameter system implementation we are limited to storing each value in the struct as a separate entry. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
+对于现有的参数系统实现，我们仅限于将结构中的每个值作为单独的条目存储。 为了解决这一限制，对 [热补偿参数](../advanced_config/parameter_reference.md#thermal-compensation) 使用了以下逻辑命名约定：
 
     TC_[type][instance]_[cal_name]_[axis]
     
 
-Where:
+其中：
 
 * `type`：表示 `G`=速率陀螺仪、`A`=加速度计和 `B`=气压计的传感器类型。
 * `instance`：是一个整数 0、1或2 ，允许至多校准三个相同 `type` 的传感器。
@@ -116,45 +116,45 @@ Where:
 
 * `axis`：是一个整数0，1或2，指示校准数据为飞控板参照系的 X，Y 或 Z 轴。 对于气压传感器，省略 `axis` 后缀。
 
-Examples:
+示例:
 
 * [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) 是第一个陀螺 x 轴的 `^3` 系数。
 * [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) 是第二个加速度计的参考温度。
 
 ### 校准参数使用
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](../modules/modules_system.md#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+热偏差校正(使用校准参数) 在 [sensors module](../modules/modules_system.md#sensors) 中执行。 测量温度中减去参考温度，得到一个 delta 温度，其中：
 
     delta = measured_temperature - reference_temperature
     
 
-The delta temperature is then used to calculate a offset, where:
+然后使用 delta 温度来计算偏移量，其中：
 
     offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
     
 
-The offset and temperature scale factor are then used to correct the sensor measurement where:
+然后使用偏移量和温度比例（缩放）系数来校正传感器的测量，其中：
 
     corrected_measurement = (raw_measurement - offset) * scale_factor
     
 
-If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
+如果温度超过 `*_TMIN` 和 `*_TMAX` 参数设置的测试范围，则所测温度将被裁剪以保持在限制范围内。
 
-Correction of the accelerometer, barometers or rate gyroscope data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) or [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to 1 respectively.
+通过分别将 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE)、[TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 或 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 参数设置为 1，可以对加速度计、气压计或速率陀螺仪数据进行校正。
 
 ### 与遗留 `CAL*` 参数和 commander 控制校准的兼容性
 
-The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibration is performed by the commander module and involves adjusting offset, and in the case of accelerometer calibration, scale factor calibration parameters. The offset and scale factor parameters are applied within the driver for each sensor. These parameters are found in the [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration).
+传统的不知道温度的 PX4 速率陀螺和加速度计传感器的校准是由 commander 模块进行的，包括调整偏移量，在加速度计校准的情况下，比例（缩放）系数校准参数。 偏移量和比例系数参数被应用在每个传感器的驱动程序中。 这些参数出现在 [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration) 中。
 
-Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
+板载温度校准由 events 模块控制，在 sensor combined 的 uORB 主题发布之前，在传感器模块内进行校正。 这意味着，如果使用热补偿，在执行热校准之前所有相应的遗留偏移量和比例系数参数必须设置为默认值（零或单位 1）。 如果执行板载温度校准，这将自动完成，但是，如果正在执行板外校准，则重要的是在记录校准数据之前重新设置遗留的 `CAL*OFF` 和 `CAL*Scale` 参数。
 
-If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
+陀螺热补偿是通过将 `TC_G_Enable` 参数设置为 1 来实现的，此时仍可进行 commander 控制的陀螺标定，但它将用于将补偿曲线上下偏移，使角速度偏移为零。 它通过调整 X0 系数来实现这一点。
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+如果已通过将 `TC_A_ENABLE` 参数设置为 1 启用加速度热补偿，则仍可以执行 commander 控制的 6 点加速度校准，但是，并非调整 `CAL` 参数组中的 `*OFF` 和 `*Scale` 参数，这些参数被设置为默认值，而热补偿 `X0` 和 `SCL` 参数将被调整。
 
 ### 局限
 
-Scale factors are assumed to be temperature invariant due to the difficulty associated with measuring these at different temperatures. This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
+由于在不同温度下测量比例系数存在困难，因此假定比例系数是不随温度变化的。 这就限制了加速度计校准对于具有不稳定比例系数的传感器模型的适用性。 理论上，在热室或 IMU 加热器中能够将 IMU 内部温度控制在一定程度内的情况下，可以进行一系列 6 面加速度计的校准，并对加速度计进行偏移和比例修正。 由于集成所需的电路板硬件变动与校准算法的复杂性，这一功能还没有包括在内。
 
 * * *
 

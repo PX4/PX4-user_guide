@@ -11,7 +11,7 @@ Key information:
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
-## Parts List
+## 配件列表
 
 ### Vehicle (needed for flying)
 
@@ -152,14 +152,14 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| 针脚      | Assignment | Connect to Pixracer Pin |
-| ------- | ---------- | ----------------------- |
-| 1 (red) | SCL        | 3                       |
-| 2       | SDA        | 2                       |
-| 3       | VCC 5V     | 6                       |
-| 4       | RX         | 5                       |
-| 5       | TX         | 4                       |
-| 6       | GND        | 1                       |
+| 针脚   | Assignment | Connect to Pixracer Pin |
+| ---- | ---------- | ----------------------- |
+| 1（红） | SCL        | 3                       |
+| 2    | SDA        | 2                       |
+| 3    | VCC 5V     | 6                       |
+| 4    | RX         | 5                       |
+| 5    | TX         | 4                       |
+| 6    | GND        | 1                       |
 
 I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
 
@@ -177,9 +177,9 @@ Like you can see I mounted the transmitter from the inside to the "roof" of the 
 
 The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
 
-![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
+![相机](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## Software Configuration
+## 软件配置
 
 > **Warning** Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
 
@@ -194,7 +194,7 @@ For this build I pulled the latest PX4 master because it supports the "FMU as ta
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
 - You can also set up an arming switch.
 
-### Tuning
+### 调试
 
 Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
 

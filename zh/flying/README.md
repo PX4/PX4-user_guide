@@ -4,15 +4,15 @@
 
 [首航指南](../flying/first_flight_guidelines.md) - 确保您的第一次飞行愉快、有教育意义和安全的指南。
 
-[Flying 101](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
+[Flying 101](../flying/basic_flying.md) - 如何使用远程遥控器手动驾驶飞机。
 
-[Missions](../flying/missions.md) — How to fly an autonomous mission.
+[任务](../flying/missions.md) - 如何执行自主任务。
 
 [GeoFence](../flying/geofence.md) — How to set a geofence.
 
 [Rally Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
 
-[Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
+[飞行模式](../flight_modes/README.md) - 摘要表 + 有关飞行模式的详细信息。
 
 [Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
 

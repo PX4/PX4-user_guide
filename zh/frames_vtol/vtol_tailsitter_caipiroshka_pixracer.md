@@ -12,12 +12,12 @@ The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 * 3D 打印的左右电机安装架（<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">设计文件 </a>）
 * CW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * CCW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
-* 2x 1800 kV 120-180W motors
+* 2 x 1800kv 120-180W电机
   
   * [ePower 2208](https://www.galaxus.ch/en/s5/product/epower-22081400-fuer-2-3-lipo-imax-rc-electric-motors-8355913)
   * [Armattan 2208 1800kV Multirotor Motor](https://www.amazon.com/Armattan-2208-1800kV-Multirotor-Motor/dp/B00UWLW0C8) <!-- equivalent replacement must match: kV (1800), motor size (2208) and number of LiPo cells (3S). -->
 
-* 2x 20-30S ESC
+* 2 x 20-30S 电调
   
   * [GetFPV](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html)
 * BEC（3A，5-5.3V）（如果你的电调不能提供5V的输出，可以用这个）
