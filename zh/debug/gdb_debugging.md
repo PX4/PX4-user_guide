@@ -73,7 +73,7 @@ google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > 
 
 A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. 这是一个内存关键区域被损坏而导致错误的典型案例。
 
-### Video
+### 视频
 
 The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
 
@@ -81,7 +81,7 @@ The following video demonstrates hardfault debugging on PX4 using Eclipse and a 
 https://www.youtube.com/watch?v=KZkAM_PVOi0
 {% endyoutube %}
 
-### Debugging Hard Faults in NuttX
+### 调试 Nuttx 的硬件故障
 
 A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack. This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
 
