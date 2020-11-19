@@ -35,13 +35,13 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 <span id="single_channel"></span>
 
-## Single-Channel Flight Mode Selection
+## 单通道飞行模式选择
 
-The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
+单通道选择模式允许您指定一个 "飞行模式" 通道，最多选择 6 种飞行模式，依赖于该通道的 PWM 值来被激活。 您也可以单独的指定特定的通道来映射 Kill Switch，自动返航和机外控制（offboard）模式。
 
 > **Note** 为了使用单通道飞行模式选择的方式，你首先需要配置你的 *遥控器* 来映射遥控器上开关的物理位置到一个单个通道中去。 [这里](#taranis_setup) 我们提供了一个视频演示 *Taranis* 遥控器通常是如何进行该操作的（如果您使用的是不同品牌的遥控器的话请查阅相应文档）。
 
-To configure single-channel flight mode selection:
+配置单通道飞行模式选择：
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 打开您的 RC 遥控器发射机。
@@ -61,38 +61,38 @@ To configure single-channel flight mode selection:
     * 检查 *Channel Monitor* 以确认改变每个开关可以改变预期的通道。
     * 拨动你遥控器上刚刚映射的飞行模式有关的开关，并检查对应的飞行模式已被激活（ *QGroundeControl* 上对应的通道的字体在被激活的情况下变为黄色 ）
 
-All values are automatically saved as they are changed.
+所有被更改的值都会自动保存。
 
 <span id="taranis_setup"></span>
 
-### Single-Channel Setup Video Example (including Transmitter Setup)
+### 单通道模式配置的视频演示（包括遥控器相关设置）
 
-It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel.
+通常使用遥控器上的 2 级和 3 位开关的位置来表示 6 个飞行模式，并将每一个开关组合作为一个特定的 PWM 值，使用单一通道发送。
 
-The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
+下面视频演示了如何使用 *FrSky Tarais* 遥控器（一款非常受欢迎、高推荐度的 RC 发射器）。 这个过程涉及到为两个真正的开关的每个位置组合分配一个 "逻辑开关"。 然后，每个逻辑开关都被分配给同一频道的不同 PWM 值。
 
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots". {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
+然后视频显示如何使用 *QGrounderControl* 指定模式通道并且映射到 6 个 “信号槽” 中的每一个。 {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
 
 ### 单通道模式设置示例
 
-This example shows how you can configure a transmitter and PX4 with:
+此示例显示您将如何配置发射器和 PX4 ：
 
 * 一个在单通道模式下用于选择飞行模式（手动，高度，特技）的三段开关。
 * A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
 
 > **Note** 本示例演示如何设置常用的 *FrSky taranis* 遥控器。 对于其他遥控器，配置可能会稍有不同。
 
-First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
+首先设置您的遥控器发射机。 下面我们将演示如何将 Taranis 的 "SD" 开关映射到通道 5 。 这是在 Taranis 的 'mixer' 的界面中，如下所示：
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*:
+然后, 您可以在 *QGroundControl* 选择单通道模式选项中选择通道和飞行模式：
 
 ![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
 
-The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+[Radio switch](../advanced_config/parameter_reference.md#radio-switches) 参数将特定功能映射到该通道。 假设你已经在您的发射器中映射了一个通道，您可以通过 [setting the parameter](../advanced_config/parameters.md) 来分配通道。
 
 For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*.
 
@@ -100,17 +100,17 @@ For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/pa
 
 <span id="multi_channel"></span>
 
-## Multi-Channel Flight Mode Selection
+## 多通道飞行模式选择
 
 > **Tip** 我们建议您使用 [单通道飞行模式](#single_channel) 选择，因为多通道飞行模式选择下很可能会造成用户您比较混乱和疑惑。 如果您选择使用此方法，那么最好的办法是开始分配频道时注意到您选择后显示的 *QGroundeControl* 报出的信息。
 
-The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
+多通道飞行模式选择下，允许用户您将一个或多个飞行模式映射到一个或多个通道。 有一些飞行模式（同对应开关）必须被定义，对应的通道也同样被分配。
 
-To configure flight modes using the multi-channel UI:
+使用多通道分配飞行模式界面来配置飞行模式：
 
 1. 打开您的 RC 遥控器发射机。
 2. 打开 *QGroundControl* 并连接上飞机。
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
+3. 点击上方工具栏的 **Gear** 图标（飞行器设置），然后在左侧边栏选择 **Flight Modes** 。
     
     ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
