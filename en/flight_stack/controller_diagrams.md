@@ -109,7 +109,8 @@ From this, the specific energy rate can be formed as:
 
 $$\dot{E} = \frac{\dot{E_T}}{mgV_T}  = \frac{\dot{V_T}}{g} + \frac{\dot{h}}{V_T} = \frac{\dot{V_T}}{g} + sin(\gamma)$$
 
-where $$\gamma$$ is the flight plan angle. For small $$\gamma$$ we can approximate this as
+where $\gamma{}$ is the flight plan angle.
+For small $\gamma{}$ we can approximate this as:
 
 $$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
@@ -117,13 +118,14 @@ From the dynamic equations of an aircraft we get the following relation:
 
 $$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-where T and D are the thrust and drag forces. In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
+where T and D are the thrust and drag forces.
+In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
 
 $$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-As can be seen, $$\Delta T$$  is proportional to $$\dot{E}$$, and thus the thrust setpoint should be used for total energy control.
+As can be seen, $\Delta T{}$ is proportional to $\dot{E}{}$, and thus the thrust setpoint should be used for total energy control.
 
-Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as 
+Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as:
 
 $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
@@ -190,21 +192,21 @@ The definition of the dynamic pressure is
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2$$
 
-where $$\rho$$ is the air density and $$V_T$$ the true airspeed (TAS).
+where $\rho{}$ is the air density and $V_T{}$ the true airspeed (TAS).
 
 Taking the roll axis for the rest of this section as an example, the dimensional roll moment can be written
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b C_\ell = \bar{q} S b C_\ell$$
 
-where $$\ell$$ is the roll moment, $$b$$ the wing span and $$S$$ the reference surface.
+where $\ell{}$ is the roll moment, $b{}$ the wing span and $S{}$ the reference surface.
 
-The nondimensional roll moment derivative $$C_\ell$$ can be modeled using the aileron effectiveness derivative $$C_{\ell_{\delta_a}}$$, the roll damping derivative $$C_{\ell_p}$$ and the dihedral derivative $$C_{\ell_\beta}$$
+The nondimensional roll moment derivative $C_\ell{}$ can be modeled using the aileron effectiveness derivative $C_{\ell_{\delta_a}}{}$, the roll damping derivative $C_{\ell_p}{}$ and the dihedral derivative $C_{\ell_\beta}{}$
 
 $$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$
 
-where $$\beta$$ is the sideslip angle, $$p$$ the body roll rate and $$\delta_a$$ the aileron deflection.
+where $\beta{}$ is the sideslip angle, $p{}$ the body roll rate and $\delta_a{}$ the aileron deflection.
 
-Assuming a symmetric ($$C_{\ell_0} = 0$$) and coordinated ($$\beta = 0$$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
+Assuming a symmetric ($C_{\ell_0} = 0{}$) and coordinated ($\beta = 0{}$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$
 
@@ -212,29 +214,29 @@ This final equation is then taken as a baseline for the two next subsections to 
 
 #### Static torque (PI) scaling
 
-At a zero rates condition ($$p = 0$$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
+At a zero rates condition ($p = 0{}$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$
 
-Extracting $$\delta_a$$ gives
+Extracting $\delta_a{}$ gives
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}} \frac{1}{\rho V_T^2} \ell = \frac{bS}{C_{\ell_{\delta_a}}} \frac{1}{\bar{q}} \ell$$
 
 where the first fraction is constant and the second one depends on the air density and the true airspeed squared.
 
-Furthermore, instead of scaling with the air density and the TAS, it can be shown that the indicated airspeed (IAS, $$V_I$$) is inherently adjusted by the air density since at low altitude and speed, IAS can be converted to TAS using a simple density error factor
+Furthermore, instead of scaling with the air density and the TAS, it can be shown that the indicated airspeed (IAS, $V_I{}$) is inherently adjusted by the air density since at low altitude and speed, IAS can be converted to TAS using a simple density error factor
 
-$$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$,
+$$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$
 
-where $$\rho_o$$ is the air density as sea level, 15°C.
+, where $\rho_o{}$ is the air density as sea level, 15°C.
 
-Squaring, rearranging and adding a 1/2 factor to both sides makes the dynamic pressure $$\bar{q}$$ expression appear
+Squaring, rearranging and adding a 1/2 factor to both sides makes the dynamic pressure $\bar{q}{}$ expression appear
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2 = \frac{1}{2} V_I^2 \rho_0$$
 
-We can now easily see that the dynamic pressure is proportional to the IAS squared 
+We can now easily see that the dynamic pressure is proportional to the IAS squared:
 
-$$\bar{q} \propto V_I^2$$.
+$$\bar{q} \propto V_I^2$$
 
 The scaler previously containing TAS and the air density can finally be written using IAS only
 
@@ -260,9 +262,9 @@ The output of the rate PI controller has to be scaled with the indicated airspee
 
 $$\delta_{a} = \frac{V_{I_0}^2}{V_I^2} \delta_{a_{PI}} + \frac{V_{T_0}}{V_T} \delta_{a_{FF}}$$
 
-where $$V_{I_0}$$ and $$V_{T_0}$$ are the IAS and TAS at trim conditions.
+where $V_{I_0}{}$ and $V_{T_0}{}$ are the IAS and TAS at trim conditions.
 
-Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows
+Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows:
 
 $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
 
