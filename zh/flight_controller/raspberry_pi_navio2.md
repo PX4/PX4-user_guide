@@ -8,9 +8,9 @@
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## Developer Quick Start
+## 开发者快速指南
 
-### OS Image
+### 操作系统镜像
 
 Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/). The default image will have most of the setup procedures shown below already done.
 
@@ -161,7 +161,7 @@ rm hello.txt
 
 This should copy over a "hello.txt" file into the home folder of your RPi. Validate that the file was indeed copied, and you can proceed to the next step.
 
-### Native Builds (optional)
+### 本机构建（可选）
 
 You can run PX4 builds directly on the Pi if you desire. This is the *native* build. The other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi. This is the *cross-compiler* build, and the recommended one for developers due to speed of deployment and ease of use.
 
@@ -176,6 +176,6 @@ sudo apt-get install cmake python-empy
 
 Then clone the Firmware directly onto the Pi.
 
-### Building the Code
+### 构建代码
 
 Continue with our [standard build system installation](../dev_setup/dev_env_linux.md).
