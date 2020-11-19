@@ -6,7 +6,7 @@
 
 ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward (x), right (y), down (z) axes.
 
-![Frame Heading](../../assets/concepts/frame_heading.png)
+![机架航向](../../assets/concepts/frame_heading.png)
 
 The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
@@ -14,7 +14,7 @@ The axes to rotate around stay the same from one rotation step to the next one. 
 
 For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
+![Yaw 旋转](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
 > **Note** For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
 > 
@@ -22,7 +22,7 @@ For example, the vehicles shown below have rotations around the z-axis (i.e. yaw
 
 ## 设置朝向
 
-To set the orientations:
+设置朝向步骤如下：
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
@@ -37,7 +37,7 @@ To set the orientations:
 
 ## 优化调整
 
-You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
+您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞控方向的少量误差，并校平飞行视图中的地平线。
 
 ## 更多信息
 
