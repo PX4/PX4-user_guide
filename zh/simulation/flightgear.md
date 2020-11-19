@@ -1,4 +1,4 @@
-# FlightGear Simulation
+# AirSim 仿真
 
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
@@ -19,7 +19,7 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-> **Note** See [Simulation](/simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+> **Note**有关模拟器，模拟环境和可用模拟配置（例如支持的机型）的一般信息，请参见[Simulation](/simulation/README.md)。
 
 <a id="installation"></a>
 
@@ -52,11 +52,11 @@ Additional installation instructions can be found on [FlightGear wiki](http://wi
 
 <a id="running"></a>
 
-## Running the Simulation
+## 运行仿真
 
 Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a plane simulation :
+最简单的方法是在 PX4 * Firmware *存储库的根目录中打开一个终端，并为目标调用`make`，如以下部分所示。 For example, to start a plane simulation :
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
@@ -64,13 +64,13 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| Vehicle                                                                  | Command                                      |
-| ------------------------------------------------------------------------ | -------------------------------------------- |
-| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| 载具类型                                                               | 指令                                           |
+| ------------------------------------------------------------------ | -------------------------------------------- |
+| [标准构型的固定翼飞机](../simulation/flightgear_vehicles.md#standard_plane)  | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman 车 （UGV/Rover）](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [旋翼机](../simulation/flightgear_vehicles.md#autogyro)               | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
-The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
+以上指令启动了一个具有完整 UI 的载具。 *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
 > **Note** For the full list of FlightGear build targets (highlighted) run: 
 > 
@@ -80,10 +80,10 @@ The commands above launch a single vehicle with the full UI. *QGroundControl* sh
   For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
 
 <span></span>
-> **Note** The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+> **Tip** 使用命令 `make px4_sitl list_vmd_make_targets` 获取所有支持的平台（你还可以过滤掉以 `gazebo_` 开头的平台）。
 
 
-## Taking it to the Sky
+## 让飞行器起飞
 
 The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
 
@@ -131,20 +131,20 @@ PX4 Communicator: PX4 Connected.
 pxh>
 ```
 
-The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm. At this point, you should see a FlightGear window with some view of aircraft.
+The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. 一旦 INFO 打印出的 [ecl/EKF] 状态为 `commencing GPS fusion` ，则表明该载具已准备就绪可以解锁。 At this point, you should see a FlightGear window with some view of aircraft.
 
 
 > **Note** You can change the view by pressing **Ctrl+V**.
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
 
-You can bring it into the air by typing:
+你可以通过输入以下指令让飞机起飞：
 
 ```sh
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## 使用/配置选项
 
 You can tune your FG installation/settings by the following environment variables:
 
@@ -160,13 +160,13 @@ In FlightGear you can display the frame rate by enabling it in: **View > View Op
 
 <a id="custom_takeoff_location"></a>
 
-### Set Custom Takeoff Location
+### 带光流的四旋翼
 
 Takeoff location in SITL FlightGear can be set using additional variables. Setting the variable will override the default takeoff location.
 
 The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`. Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
 
-For example:
+例如：
 ```
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
@@ -175,18 +175,18 @@ The example above starts the simulation on the [Honolulu international airport](
 
 <a id="joystick"></a>
 
-### Using a Joystick
+### 模拟一个 Wifi 无人机
 
 Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
 
 
-## Extending and Customizing
+## 扩展与定制
 
 To extend or customize the simulation interface, edit the files in the **Tools/flightgear_bridge* folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
 
-## Further Information
+## 更多信息
 
 * [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
