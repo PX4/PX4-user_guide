@@ -1,6 +1,6 @@
 # CUAV V5+ 快速接线指南
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 
 本快速入门指南介绍了如何为 [CUAV V5+](../flight_controller/cuav_v5_plus.md) 飞行控制器供电以及如何连接其最主要的外部设备。
 
@@ -81,19 +81,19 @@ V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_P
 
 ## Telemetry System (Optional)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+数传系统允许您通过地面站对飞行器进行通信、监控和控制 (例如，您可以指定无人机飞行到指定位置或上传新的任务)。
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过USB连接）。
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
 
-## SD Card (Optional)
+## SD 卡
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
-## Motors
+## 电机
 
 Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
@@ -101,11 +101,11 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 <span id="pinouts"></span>
 
-## Pinouts
+## 针脚定义
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
-## Further Information
+## 更多信息
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
