@@ -42,9 +42,9 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 ### 控制组 #1 (Flight Control VTOL/Alternate)
 
-* 0: roll ALT (-1..1)
-* 1: pitch ALT (-1..1)
-* 2: yaw ALT (-1..1)
+* 0：roll ALT (-1..1)
+* 1：pitch ALT (-1..1)
+* 2：yaw ALT (-1..1)
 * 3：throttle ALT （正常范围为 0..1，变距螺旋桨和反推动力情况下范围为 -1..1）
 * 4：保留 / aux0
 * 5：reserved / aux1
@@ -73,7 +73,7 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 * 6: RC aux2
 * 7: RC aux3
 
-> **Note** This group is only used to define mapping of RC inputs to specific outputs during *normal operation* (see [quad_x.main.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7) for an example of AUX2 being scaled in a mixer). In the event of manual IO failsafe override (if the PX4FMU stops communicating with the PX4IO board) only the mapping/mixing defined by control group 0 inputs for roll, pitch, yaw and throttle are used (other mappings are ignored).
+> **备注** 此组仅用于定义在 *普通操作* 期间的 RC输入的映射到具体输出(见 [quad_x.main.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7) 关于AUX2在混合器中缩放的示例) 在手动 IO 故障安全覆盖事件中(如果 PX4FMU 停止与 PX4IO 板通信)， 只有 pitch、yaw和 throttle 这些控制组0定义的映射/混合被使用 (忽略其他映射)。
 
 <a id="control_group_6"></a>
 
@@ -96,9 +96,9 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 ### 控制组 #4 (Flight Control MC VIRTUAL)
 
-* 0: roll ALT (-1..1)
-* 1: pitch ALT (-1..1)
-* 2: yaw ALT (-1..1)
+* 0：roll ALT (-1..1)
+* 1：pitch ALT (-1..1)
+* 2：yaw ALT (-1..1)
 * 3: throttle ALT （正常范围为 0..1，变距螺旋桨和反推动力情况下范围为 -1..1）
 * 4：保留 / aux0
 * 5：保留 / aux1
@@ -120,11 +120,11 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 由于同时存在多个控制组（比如说飞行控制、载荷等）和多个输出组（最开始 8 个 PWM 端口， UAVCAN 等），一个控制组可以向多个输出组发送指令。
 
-The mixer file does not explicitly define the actual *output group* (physical bus) where the outputs are applied. Instead, the purpose of the mixer (e.g. to control MAIN or AUX outputs) is inferred from the mixer [filename](#mixer_file_names), and mapped to the appropriate physical bus in the system [startup scripts](../concept/system_startup.md) (and in particular in [rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface)).
+混音器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混合物的目的 (例如控制MAIN或 AUX 输出) 从混音器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
 
-> **Note** This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) or uses UAVCAN for motor control. The startup scripts load the mixer files into the appropriate device driver for the board, using the abstraction of a "device". The main mixer is loaded into device `/dev/uavcan/esc` (uavcan) if UAVCAN is enabled, and otherwise `/dev/pwm_output0` (this device is mapped to the IO driver on controllers with an I/O board, and the FMU driver on boards that don't). The aux mixer file is loaded into device `/dev/pwm_output1`, which maps to the FMU driver on Pixhawk controllers that have an I/O board.
+> **Note** This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) or uses UAVCAN for motor control. 启动脚本使用"设备"抽象将混音器文件加载到板子适当的设备驱动器。 如果 UAVCAN 已启用，主混音器将被加载到设备`/dev/uavcan/esc` (uavcan) 否则`/dev/pwm_output0` (此设备已映射给具有I/O 板的控制器的 IO 驱动，且 FMU 驱动程序已映射到未映射的板上)。 Aux 混控器 文件被加载到设备 `/dev/pwm_output1`, 它将映射到 Pixhawk 控制器上拥有 I/O 板子的 FMU 驱动程序。
 
-Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (busses), one control group can send commands to multiple output groups.
+因为有多个控制组(例如飞行控制、有效载荷等)。 和多个输出组(总线) ，一个控制组可以向多个输出组发送命令。
 
 ![Mixer Input/Output Mapping](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version:
@@ -135,7 +135,7 @@ graph TD;
   actuator_group_1dashdash>output_group_0
 --->
 
-> **Note** In practice, the startup scripts only load mixers into a single device (output group). This is a configuration rather than technical limitation; you could load the main mixer into multiple drivers and have, for example, the same signal on both UAVCAN and the main pins.
+> **Note** 在实践中，启动脚本只会加载混控器到单个设备 (输出组)。 这是一个配置而不是技术限制； 您可以将主混音器加载到多个驱动器中，例如在UAVCAN 和主引脚上都有相同的信号。
 
 
 ## PX4 混控器定义
@@ -185,7 +185,7 @@ Most commonly you will override/replace the **AUX** mixer file for your current 
 
 <a id="mixer_syntax"></a>
 
-### Syntax
+### 语法
 
 Mixer files are text files that define one or more mixer definitions: mappings between one or more inputs and one or more outputs.
 
@@ -222,7 +222,7 @@ You can specify more than one mixer in each file. The output order (allocation o
 
 该混控器使用如下形式的行进行定义：
 
-一个空的混控器不需要任何控制输入，并始终生成一个值为零的执行器输出。 Inputs are scaled, and the mixing function sums the result before applying an output scaler.
+一个空的混控器不需要任何控制输入，并始终生成一个值为零的执行器输出。 控制输入首先会被缩放，然后混合函数在进行输出缩放时会对结果进行求和。
 
 混控器的定义的开头如下：
 
@@ -241,7 +241,7 @@ O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 ```
 
-> **Note** The `S:` lines must be below the `O:` line.
+> **Note** `S:` l行必须处于 `O:` 的下面。
 
 `&lt;group&gt;` 参数指定了缩放器从哪个控制组中读取数据，而 `&lt;index&gt;` 参数则是定义了该控制组的偏移值。   
 这些参数的设定值会随着读取混控器定义文件的设备的不同而发生改变。
@@ -250,7 +250,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 剩下的字段则是使用上文提及的缩放参数对控制量的缩放器进行了设定。 同时，结果的计算是以浮点计算的形式进行的，在混控器定义文件中的值都将缩小 10000 倍，比如：实际中 -0.5 的偏移量（offset）在定义文件中保存为 -5000 。
 
-An example of a typical mixer file is explained [here](../airframes/adding_a_new_frame.md#mixer-file).
+[这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
 
 <a id="null_mixer"></a>
 
@@ -258,9 +258,9 @@ An example of a typical mixer file is explained [here](../airframes/adding_a_new
 
 后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
 
-Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs. It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
+通常情况下在一个混控器集合中使用空的混控器作为占位符号，以实现某种特定的执行器输出模式。 It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
 
-The null mixer definition has the form:
+空的混控器使用如下形式定义：
 ```
 Z:
 ```
@@ -271,19 +271,19 @@ Z:
 
 尾桨的控制可以通过额外添加一个 [简单的混控器](#simple-mixer) 来实现：
 
-The mixer definition is a single line of the form:
+该混控器使用如下形式的行进行定义：
 ```
 R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 ```
 
-The supported geometries include:
+支持的多旋翼类型为：
 
 * 6x - X 构型的六旋翼
 * 4+ - + 构型的四旋翼
 * 8x - X 构型的八旋翼
 * 8+ - + 构型的八旋翼
-* 8x - octocopter in X configuration
-* 8+ - octocopter in + configuration
+* 8x - X 构型的八旋翼
+* 8+ - + 构型的八旋翼
 
 滚转、俯仰和偏航的缩放因子大小都分别表示滚转、俯仰和边行控制相对于推力控制的比例。 同时，结果的计算是以浮点计算的形式进行的，在混控器定义文件中的值都将缩小 10000 倍，比如：实际中 0.5 的偏移量（offset）在定义文件中保存为 5000 。
 
@@ -291,7 +291,7 @@ The supported geometries include:
 
 怠速（Idlespeed）的设定值应在 0.0 到 1.0 之间。 在这里怠速的值表示的是相对电机最大转速的百分比，当所有控制输入均为 0 的时候电机应在该转速下运行。
 
-In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.
+当有一个执行器出现饱和后，所有执行器的值都将被重新缩放以使得饱和执行器的输出被限制在 1.0 。
 
 <a id="helicopter_mixer"></a>
 
@@ -303,7 +303,7 @@ In the case where an actuator saturates, all actuator values are rescaled so tha
 
 > **Note** 油门曲线及总距曲线将 “推力” 摇杆输入位置映射到一个油门值和总距值（单独地）。 这就使得我们可以针对不同类型的飞行对飞机的飞行特性进行调整。 如何调整这些映射曲线可以参考 [这篇指南](https://www.rchelicopterfun.com/rc-helicopter-radios.html) （搜索 *Programmable Throttle Curves* 和 *Programmable Pitch Curves*）。
 
-The mixer definition begins with:
+混控器的定义的开头如下：
 
 ```
 H: <number of swash-plate servos, either 3 or 4>
@@ -312,7 +312,7 @@ P: <collective pitch at thrust: 0%> <25%> <50%> <75%> <100%>
 ```
 `T：` 定义了油门曲线的控制点。 `P：` 定义了总距曲线的控制点。 两条去年都包含了 5 个控制点，每个点的取值都在 0 - 10000 这个范围内。 对于简单的线性特性而言，这五个点的取值应该为 `0 2500 5000 7500 10000` 。
 
-This is followed by lines for each of the swash-plate servos (either 3 or 4) in the following form:
+后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
 ```
 S: &lt;angle&gt; &lt;arm length&gt; &lt;scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;upper limit&gt;
 ```
@@ -342,16 +342,16 @@ S:    220  13054  10000      0  -8000   8000
 M: 1
 S: 0 2  10000  10000      0 -10000  10000
 ```
-- The throttle-curve starts with a slightly steeper slope to reach 6000 (0.6) at 50% thrust.
-- It continues with a less steep slope to reach 10000 (1.0) at 100% thrust.
-- The pitch-curve is linear, but does not use the entire range.
-- At 0% throttle, the collective pitch setting is already at 500 (0.05).
-- At maximum throttle, the collective pitch is only 4500 (0.45).
-- Using higher values for this type of helicopter would stall the blades.
-- The swash-plate servos for this helicopter are located at angles of 0, 140 and 220 degrees.
-- The servo arm-lenghts are not equal.
-- The second and third servo have a longer arm, by a ratio of 1.3054 compared to the first servo.
-- The servos are limited at -8000 and 8000 because they are mechanically constrained.
+- 它的油门曲线刚开始时斜率很陡，在 50% 油门位置便达到了 6000（0.6）。
+- 随后油门曲线会以一个稍平缓的斜率实现在 100% 油门位置时到达 10000（1.0）。
+- 总距曲线是线性的，但没有用到全部的控制指令区间。
+- 0% 油门位置时总距设置就已经是 500（0.05）了。
+- 油门处于最大位置时总距仅仅为 4500（0.45）。
+- 对于该型直升机而言使用更高的值会导致主桨叶失速。
+- 该直升机的倾斜盘舵机分别位于 0°、140°、和 220° 的相位位置上。
+- 舵机摇臂的长度并不相等。
+- 第二个和第三个舵机的摇臂更长，其长度大约为第一个舵机的摇臂长度的 1.3054 倍。
+- 由于机械结构限制，所有舵机均被限制在 -8000 和 8000 之间。
 
 <a id="vtol_mixer"></a>
 
