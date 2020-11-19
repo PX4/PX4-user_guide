@@ -15,7 +15,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ 节气门响应 1：1
 
-❏ Altitude
+❏ 高度
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
 
