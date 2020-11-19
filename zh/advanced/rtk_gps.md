@@ -79,4 +79,3 @@ instance #0:
         MAVLink version: 2
         transport protocol: serial (/dev/ttyS1 @57600)
 ```
-

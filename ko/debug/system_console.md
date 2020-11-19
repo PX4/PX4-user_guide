@@ -19,7 +19,7 @@ The sections below outline/link to the wiring and system console information for
 ### Connecting via Dronecode Probe
 
 There is just one *System Console*, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached via FTDI cable.
-- [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [HobbyKing HKPilot32](../flight_controller/HKPilot32.md#debug-port))
+- [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [Holybro pix32](../flight_controller/holybro_pix32.md#debug-port))
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 

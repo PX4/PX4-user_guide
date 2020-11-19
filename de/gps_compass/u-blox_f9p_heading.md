@@ -1,4 +1,4 @@
-# GPS Heading with u-blox F9P
+# RTK GPS Heading with u-blox F9P
 
 Two u-blox F9P devices mounted on a vehicle can be used to accurately compute a heading angle (i.e. an alternative to compass-based heading estimation). The two GPS devices in this scenario are referred to as the *Moving Base* and *Rover*.
 
