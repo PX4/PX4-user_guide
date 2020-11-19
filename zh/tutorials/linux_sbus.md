@@ -23,7 +23,7 @@ For other driver usage information see: [rc_input](../middleware/modules_driver.
 
 ## 源代码
 
-S.Bus is an *inverted* UART communication signal.
+S.Bus 是 *inverted* UART 通信信号。
 
 While some serial ports/flight controllers can read an inverted UART signal, most require a signal inverter circuit between the receiver and serial port to un-invert the signal.
 
@@ -33,25 +33,25 @@ The command syntax is:
 
 ### Required components
 
-* 1x NPN transistor (e.g. NPN S9014 TO92)
-* 1x 10K resistor
-* 1x 1K resistor
+* 1x NPN 晶体管（例如 NPN S9014 TO92）
+* 1x 10K 电阻
+* 1x 1K 电阻
 
-> **Note** Any type/model of transistor can be used because the current drain is very low.
+> **Note** 可以使用任何类型/型号的晶体管，因为电流消耗非常低。
 
 
 ### Circuit diagram/Connections
 
-Connect the components as described below (and shown in the circuit diagram):
+按如下所述连接组件（并在电路图中显示）：
 
-* S.Bus signal &rarr; 1K resistor &rarr; NPN transistor base
-* NPN transistor emit &rarr; GND
-* 3.3VCC &rarr; 10K resistor &rarr; NPN transistor collection &rarr; USB-to-TTY rxd
-* 5.0VCC &rarr; S.Bus VCC
+* S.Bus 信号&rarr;1K 电阻&rarr;NPN 晶体管
+* NPN晶体管发射&rarr;GND
+* 3.3VCC＆&rarr; 10K电阻&rarr; NPN晶体管集合&rarr; USB-to-TTY rxd
+* 5.0VCC&rarr;S.Bus VCC
 * GND &rarr; S.Bus GND
 
-![Signal inverter circuit diagram](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
+![信号逆变器电路](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
 
-The image below shows the connections on a breadboard.
+下图显示了电路板上的连接。
 
-![Signal inverter breadboard](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)
+![信号逆变器电路板](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)
