@@ -48,7 +48,7 @@ Therefore the reference frame of the external pose estimate is named differently
 Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message.
 This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
 
-> **Tip** ROS users can find more detailed instructions below in [Reference Frames and ROS](#ros_reference_frames).
+> **Tip** ROS users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
 
 For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up.
 A simple trick is swapping axis in order to obtained NED convention.
@@ -170,13 +170,12 @@ To use MoCap data with EKF2 you will have to [remap](http://wiki.ros.org/roslaun
 - Note that if you are sending odometry data to px4 using `child_frame_id = base_link`, then then you need to make sure that the `twist` portion of the `nav_msgs/Odometry` message is **expressed in body frame**, **not in inertial frame!!!!!**.
 
 
-<a id="ros_reference_frames"></a>
 ### Reference Frames and ROS
 
 The local/world and world frames used by ROS and PX4 are different.
 
 Frame | ROS | PX4
---- | ---
+--- | --- | ---
 Body | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link` | FRD (X **F**orward, Y **R**ight and Z **D**own)
 World | FLU or ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | FRD or NED (X **N**orth, Y **E**ast, Z **D**own)
 
