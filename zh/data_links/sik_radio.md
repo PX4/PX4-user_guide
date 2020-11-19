@@ -51,7 +51,7 @@ Upload it to the radio \(**change the serial port name**\):
 tools/uploader.py --port /dev/tty.usbserial-CHANGETHIS dst/radio~hm_trp.ihx
 ```
 
-## Configuration Instructions
+## 配置说明
 
 The radio supports AT commands for configuration.
 
