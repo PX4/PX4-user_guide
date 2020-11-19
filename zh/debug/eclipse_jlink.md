@@ -10,7 +10,7 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 - USB micro cable
 - Suitable cables to connect your target.
 
-## Installation
+## 安装
 
 ### PX4
 
@@ -67,7 +67,7 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
    ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
 
-## Troubleshooting
+## 故障处理
 
 ### Target CPU not in Package Manager
 
