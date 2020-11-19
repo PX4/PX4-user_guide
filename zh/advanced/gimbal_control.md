@@ -3,14 +3,14 @@
 如果你想要去控制一个装在飞机上带相机的云台（或者是其他的挂载设备），你需要配置使用什么去控制它和 PX4 怎样才能命令它。 本页内容就是讲解这些设置。
 
 PX4 包含了一个通用的挂载设备/云台的控制驱动，它含有多种输入输出方式。
-- The input defines how you control the gimbal: via RC or via MAVLink commands (for example in missions or surveys).
+- 输入就是你使用什么去控制云台：通过遥控器或者 MAVLink 命令（例如处在任务模式或者搜索模式时）。
 - The output defines how the gimbal is connected: either via MAVLink commands or using the Flight Controller AUX PWM port. 可以选择任何的输入方式去驱动任何的输出。 两种方式都需要通过参数配置。
 
 ## 参数
 
 [这些参数](../advanced/parameter_reference.md#mount) 被用于配置挂载设备的驱动。
 
-The most important ones are the input ([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) and the output ([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) mode. 默认情况下，输入是没有被使能的，所以这个驱动没有运行。 After selecting the input mode, reboot the vehicle so that the mount driver starts.
+其中最重要的是输入模式 ([ MNT_MODE_IN ](../advanced_config/parameter_reference.md#MNT_MODE_IN)) 和输出模式 ([ MNT_MODE_OUT ](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 。 默认情况下，输入是没有被使能的，所以这个驱动没有运行。 选择了输入模式之后，重启飞机便可以使设备驱动开始工作。
 
 如果输入模式设置为 `AUTO`，则模式将根据最新输入进行自动切换。 如果需要从 MAVLink 切换为 RC 输入，则需要一个较大的杆量。
 
@@ -70,7 +70,7 @@ S: 2 2  10000  10000      0 -10000  10000
 
 台风 H480 的模型带有一个预先配置的仿真云台。
 
-To run it, use:
+若要运行它，请使用：
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
@@ -78,10 +78,10 @@ make px4_sitl gazebo_typhoon_h480
 为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
 
 
-## Testing
+## 测试
 驱动程序提供了一个简单的测试指令。 首先它需要使用 </code>vmount stop</0> 指令来停止。 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
 
-Start the simulation with (no parameter needs to be changed for that):
+使用下面这条指令开始仿真（不需要修改任何参数）：
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
