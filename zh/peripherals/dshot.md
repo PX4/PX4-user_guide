@@ -32,7 +32,7 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 > **Tip** You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
 
 <span id="configuration"></span>
-## Configuration
+## 配置
 
 > **Warning** Remove propellers before changing ESC configuration parameters!
 
@@ -78,7 +78,7 @@ The most important ones are:
 ## Telemetry
 
 Some ESCs are capable of sending telemetry back to the flight controller, including:
-- temperature
+- 温度
 - voltage
 - current
 - accumulated current consumption
