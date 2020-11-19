@@ -16,7 +16,7 @@ jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_
 
 ## 运行 SITL
 
-软件在环仿真在主机上运行仿真系统的全部组件，使用软件来模拟真实飞控， 并通过当地网络实现与仿真软件的连接。 It connects via local network to the simulator. The setup looks like this:
+软件在环仿真在主机上运行仿真系统的全部组件，使用软件来模拟真实飞控， 并通过当地网络实现与仿真软件的连接。 并通过当地网络实现与仿真软件的连接。 整套仿真方案设置如下：
 
 [![{% mermaid %} graph LR; Simulator-->MAVLink; MAVLink-->SITL; {% endmermaid %}](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -57,7 +57,7 @@ pxh>
 
 jMAVSim 3d 视图
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d 视图](../../assets/simulation/jmavsim.jpg)
 
 
 ## 使用/配置选项
@@ -86,7 +86,7 @@ export PX4_HOME_ALT=28.5
 make px4_sitl_default jmavsim
 ```
 
-### Change Simulation Speed
+### 更改仿真的时间流速
 
 模拟器会跟真实的该类无人机一样在当地网络中广播自己的位置信息等。
 
@@ -114,7 +114,7 @@ make broadcast jmavsim
 
 如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
 
-### Start JMAVSim and PX4 Separately
+### 分别启动 JMAVSim 和 PX4
 
 在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
 
@@ -135,35 +135,35 @@ Ready to fly.
 pxh>
 ```
 
-This allows a faster testing cycle (restarting jMAVSim takes significantly more time).
+此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 
-### Headless Mode
+### 无航向模式
 
-To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
+要使用没有jMAVSim图形界面的仿真，请设置如下环境变量 `HEADLESS=1`
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
 
 ## 扩展和定制
 
-JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
 ## 与 ROS 对接交互
 
-To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
+如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
 
 > **Info** 编译系统会强制检查所有依赖项的子模块正确无误，其中就包括了模拟器。 但是，它不会直接覆盖你对目录中文件所做的更改， 当提交这些更改时你需要在固件 repo 中重新为子模块注册新的哈希值。 为此,，使用 `git add Tools/jMAVSim` 灵敏提交你的更改。 这将更新模拟器的 GIT 哈希值。
 
 ## 重要的文件
 
-The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the same way as onboard a real vehicle.
+在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
 
-## Important Files
+## 值得一看的脚本文件
 
 * 启动脚本位于 [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) 文件夹下，以 `rcS_SIM_AIRFRAME` 的方式进行命名，默认值是 `rcS_jmavsim_iris` 。
 * 根文件系统 (相当于 `/`) 位于生成目录内: `build/px4_sitl_default/src/firmware/posix/rootfs/` 。
 
-## Troubleshooting
+## 故障处理
 
 ### java.long.NoClassDefFoundError
 
@@ -226,16 +226,16 @@ at me.drton.jmavsim.Simulator.(Simulator.java:157)
 at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 ```
 
-If you see this error, try this workaround:
+如果遇到类似错误，可以尝试如下解决方法：
 
 Edit the **accessibility.properties** file:
 ```
 sudo gedit /etc/java-8-openjdk/accessibility.properties
 ```
 
-and comment out the line indicated below:
+并注释下面所指示的一行：
 ```
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). 该解决方案引自于 [askubuntu.com](https://askubuntu.com/questions/695560) 。
