@@ -6,7 +6,7 @@
 
 <span></span>
 
-> **Note** * This mode requires 3d position information (e.g. GPS). * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+> **Note** * This mode requires 3d position information (e.g. GPS). * 使用此模式前飞机必须先被激活。 * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
 ## 参数描述
 
@@ -49,7 +49,7 @@
   
   Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission). A very small subset are listed below.
   
-  | Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                               |
+  | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
   | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                                                                                                           |
   | <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | Fixed-wing loiter radius.                                                                                                                                                                                                                                                                                                                 |
@@ -60,9 +60,9 @@
 <span id="mission_commands"></span>
 
   
-  ## Supported Mission Commands
+  ## 支持的任务命令
   
-  PX4 "accepts" the following MAVLink mission commands in Mission mode (note: caveats below list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+  PX4在任务模式下“接受”以下MAVLink任务命令（注意：下面列出的警告）。 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
     * *参数3*（飞越）被忽略。 如果*参数1*（time_inside）> 0，则始终启用飞越。
@@ -110,13 +110,13 @@
   * [MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET)
   * [MAV_CMD_DO_SET_ROI_NONE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_NONE)
   
-  Note:
+  注：
   
   * PX4解析上述消息，但它们不是必须*操作</ 0>。 例如，某些消息是特定于飞机类型的。</li> 
     
     * PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)&nbsp;).
     * 并非所有消息/命令都通过*QGroundControl*公开。
-    * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
+    * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。
       
       > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul> 
     
