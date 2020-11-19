@@ -1,8 +1,8 @@
-# SiK Radio
+# SiK Radio Integration
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-Information about *using* SiK Radio can be found it the *PX4 User Guide*: [Telemetry > SiK Radio](../telemetry/sik_radio.md)
+Information about *using* SiK Radio can be found in [Peripheral Hardware > Telemetry > SiK Radio](../telemetry/sik_radio.md)
 
 The ("developer") information below explains how to build SiK firmware from source and configure it using AT commands.
 
@@ -83,4 +83,3 @@ ATZ
 ```
 
 > **Note** You might have to power-cycle the radio to connect it to the 2nd radio.
-

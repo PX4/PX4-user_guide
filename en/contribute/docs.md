@@ -63,7 +63,6 @@ The instructions below explain how to get git and use it on your local computer.
 1. Create a copy (Fork) of the desired library on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
    The library repo URLs are:
    - PX4 User Guide: https://github.com/PX4/px4_user_guide
-   - PX4 Developer Guide: https://github.com/PX4/Devguide
    - QGroundControl User Guide: https://github.com/mavlink/qgc-user-guide
    - QGroundControl Developer Guide: https://github.com/mavlink/qgc-dev-guide
    - MAVLink Developer Guide: https://github.com/mavlink/mavlink-devguide

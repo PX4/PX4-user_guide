@@ -268,7 +268,7 @@ You can configure the image quality and output (the image output is only intende
 * Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 * Check that the image is sharp at the operating distance (the typical flight altitude)
 
-  > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below):
+  > **Tip** [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below):
     ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
 
   
