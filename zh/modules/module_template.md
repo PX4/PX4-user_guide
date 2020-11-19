@@ -5,7 +5,7 @@ An application can be written to run as either a *task* (a module with its own s
 > **Note** 所有在 [First Application Tutorial](../apps/hello_sky.md) 一节学到的内容都可用于编写完整的应用程序。
 
 <span></span>
-> **Note** All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
+> **Note** 所有在 [First Application Tutorial](../modules/hello_sky.md) 一节学到的内容都可用于编写完整的应用程序。
 
 
 ## Work Queue Task
@@ -43,7 +43,7 @@ The example shows how. In summary:
 
 PX4 固件中包含了一个模版文件： [src/templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module) ，基于该模版编写的应用（模块）可以在应用自己的栈上执行 [任务](../concept/architecture.md#runtime-environment) 。
 
-The template demonstrates the following additional features/aspects that are required or are useful for a full application:
+该模板主要展示了开发完整应用程序所需要的或者非常有用的如下附加功能：
 
 - 访问参数并对参数更新做出反应。
 - 订阅、等待 topic 更新。
