@@ -2,7 +2,11 @@
 
 This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
 
-::: tip <span></span>This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle. <span></span> :::
+::: tip
+
+This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle.
+
+:::
 
 It explains how to:
 
