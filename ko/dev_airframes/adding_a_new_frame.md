@@ -212,9 +212,7 @@ The airframe metadata files used by *QGroundControl* and the documentation sourc
 For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d).
 
 If the airframe is for a **new group** you additionally need to:
-1. Add the svg image for the group into documentation repos (if no image is provided a placeholder image is displayed):
-   * PX4 Development Guide: [assets/airframes/types](https://github.com/PX4/Devguide/tree/master/assets/airframes/types)
-   * PX4 User Guide: [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
+1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
 1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/Firmware/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): def GetImageName(self): """ Get parameter group image base name (w/o extension) """ if (self.name == "Standard Plane"): return "Plane" elif (self.name == "Flying Wing"): return "FlyingWing" ... ...
    ```
    def GetImageName(self):
@@ -231,7 +229,7 @@ If the airframe is for a **new group** you additionally need to:
    ```
 1. Update *QGroundControl*:
    * Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   * Add reference to the svg image into [qgcresources.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcresources.qrc), following the pattern below:
+   * Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
      ```
      <qresource prefix="/qmlimages">
         ...
@@ -247,7 +245,7 @@ If the airframe is for a **new group** you additionally need to:
 
 ## Tuning Gains
 
-The following *PX4 User Guide* topics explain how to tune the parameters that will be specified in the config file:
+The following topics explain how to tune the parameters that will be specified in the config file:
 
 * [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
 * [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
