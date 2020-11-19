@@ -1,6 +1,6 @@
 # Hex Cube Black Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://cubepilot.org/#/home)。
 
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv3** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
@@ -33,17 +33,17 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 <span id="stores"></span>
 
-## Where to Buy
+## 在哪里买
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 组装
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[Cube 快速接线指南](../assembly/quick_start_cube.md)
 
-## Specifications
+## 产品规格
 
-### Processor
+### 处理器
 
 - 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
 - 168 MHz / 252 MIPS 
@@ -51,11 +51,11 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - 2 MB Flash (fully accessible)
 - 32 bit STM32F103 failsafe co-processor
 
-### Sensors
+### 传感器
 
 - TBA
 
-### Interfaces
+### 接口
 
 - 5x UART (serial ports), one high-power capable, 2x with HW flow control
 - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -88,13 +88,13 @@ Under these conditions all power sources will be used in this order to power the
 
 #### 绝对最大额定值
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
 - Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
 - USB power input (4.1V to 5.7V, 0V to 6V)
 
-## Pinouts and Schematics
+## 引脚和原理图
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
@@ -110,7 +110,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -132,11 +132,11 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v3_default
     
@@ -147,7 +147,7 @@ CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice v
 
 ## Further Information/Documentation
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+- [Cube 快速接线指南](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer): 
   - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
