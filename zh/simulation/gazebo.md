@@ -36,38 +36,38 @@ Gazebo 8 设置包含在我们的标准构建说明中：
 
 您可以通过启动 PX4 SITL和 Gazebo 来运行模拟，并加载机身配置（支持多旋翼飞机，飞机，VTOL，光流和多机仿真）。
 
-最简单的方法是在 PX4 * Firmware *存储库的根目录中打开一个终端，并为目标调用`make`，如以下部分所示。 For example, to start a quadrotor simulation (the default):
+最简单的方法是在 PX4 * Firmware *存储库的根目录中打开一个终端，并为目标调用`make`，如以下部分所示。 例如，要开始一个四旋翼飞行器的仿真（默认）：
 ```sh
 cd ~/src/Firmware
 make px4_sitl gazebo
 ```
 
-The supported vehicles and `make` commands are listed below (click links to see vehicle images).
+下文列出了支持的载具类型及对应的 `make` 指令（点击链接查看载具图像）。
 
-> **Note** For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+> **Note** 使用指令 `make px4_sitl list_vmd_make_targets` 获取构建目标的完整列表（并过滤掉以 `gazebo_` 开头的目标）。
 
-| 探测车                                                                                                                                     | Command                                         |
+| 探测车                                                                                                                                     | 指令                                              |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | [飞行器](../simulation/gazebo_vehicles.md#quadrotor)                                                                                       | `make clean
  make px4_sitl gazebo_typhoon_h480` |
-| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                                  | `make px4_sitl gazebo_iris_opt_flow`            |
+| [具有光流的四旋翼](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                                                     | `make px4_sitl gazebo_iris_opt_flow`            |
 | [3DR Solo in Gazebo](../simulation/gazebo_vehicles.md#3dr_solo)                                                                         | `make px4_sitl gazebo_solo`                     |
 | !!crwdBlockTags_82_sgaTkcolBdwrc!![Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`             |
-| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                       | `make px4_sitl gazebo_plane`                    |
+| [标准构型的固定翼](../simulation/gazebo_vehicles.md#standard_plane)                                                                             | `make px4_sitl gazebo_plane`                    |
 | [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                       | `make px4_sitl gazebo_plane_catapult`           |
 | [标准构型的 VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                            | `make px4_sitl gazebo_standard_vtol`            |
 | [尾座式 VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                            | `make px4_sitl gazebo_tailsitter`               |
 | [阿克曼车 （UGV/Rover）](../simulation/gazebo_vehicles.md#ugv)                                                                                | `make px4_sitl gazebo_rover`                    |
 | [海马体 TUHH (UUV: 无人水下航行器)](../simulation/gazebo_vehicles.md#uuv)                                                                         | `make px4_sitl gazebo_uuv_hippocampus`          |
-| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                            | `make px4_sitl gazebo_boat`                     |
+| [船（USV：无人驾驶水面艇）](../simulation/gazebo_vehicles.md#usv)                                                                                  | `make px4_sitl gazebo_boat`                     |
 | [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                         | `make px4_sitl gazebo_cloudship`                |
 
 
 > **Tip** 使用命令 `make px4_sitl list_vmd_make_targets` 获取所有支持的平台（你还可以过滤掉以 `gazebo_` 开头的平台）。
 
-The commands above launch a single vehicle with the full UI. Other options include:
+以上指令启动了一个具有完整 UI 的载具。 其他选项包括：
 - 单独启动 Gazebo 和 PX4
-- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo UI (this uses fewer resources and is much faster).
+- 在 [无头模式](#headless) 运行仿真将不会启动 Gazebo UI（使用的资源更少，速度更快）。
 
 
 ## 改变仿真环境中的世界
@@ -98,7 +98,7 @@ http://gazebosim.org
 ...
 INFO  [ecl/EKF] 5188000: commencing GPS fusion
 ```
-The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
+控制台将打印出“PX4”的形状，加载指定机型的初始化和参数文件，等待（并连接到）仿真器。 一旦 INFO 打印出的 [ecl/EKF] 状态为 `commencing GPS fusion` ，则表明该载具已准备就绪可以解锁。
 
 
 > **Note** 如遇到任何错误请参考： [Installing Files and Code](../setup/dev_env.md) 。
@@ -119,7 +119,7 @@ pxh> commander takeoff
 
 Gazebo 可以在* headless *模式下运行，其中 Gazebo UI 未启动。 这样可以更快地启动并使用更少的系统资源（即，它是运行模拟的更“轻量级”方式）。
 
-Simply prefix the normal `make` command with `HEADLESS=1` as shown:
+只需在 `make` 指令前添加 `HEADLESS=1`，如下所示：
 ```bash
 HEADLESS=1 make px4_sitl gazebo_plane
 ```
@@ -130,7 +130,7 @@ HEADLESS=1 make px4_sitl gazebo_plane
 
 The takeoff location in SITL Gazebo can be set using environment variables. This will override both the default takeoff location, and any value [set for the world](#set_world_location).
 
-The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+要设置的变量有：`PX4_HOME_LAT`、`PX4_HOME_LON` 和 `PX4_HOME_ALT`。
 
 只需在正常的* make *命令前加上`HEADLESS=1`，如下所示：
 ```
@@ -174,14 +174,14 @@ make px4_sitl_default gazebo
 
 ### 标准构型的 VTOL
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 
 
 ### 尾座式 VTOL
 
 当前的默认世界是位于目录 [worlds](https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds) 中的 **iris.world**。 **iris.world** 中默认使用高程图生成地面景物。
 
-This can cause difficulty when using a distance sensor. 这样生成的地面可能会导致使用距离传感器时较为困难， 如果使用高程图会导致任何出乎意料的结果，我们建议你将 **iris.model** 中的模型设定从 `uneven_ground` 改为 `asphalt_plane`.
+这可能会在使用距离传感器时造成困难。 这样生成的地面可能会导致使用距离传感器时较为困难， 如果使用高程图会导致任何出乎意料的结果，我们建议你将 **iris.model** 中的模型设定从 `uneven_ground` 改为 `asphalt_plane`.
 
 <a id="gps_noise"></a>
 
@@ -192,7 +192,7 @@ Gazebo 可以模拟类似于实际系统中常见的 GPS 噪声（否则报告�
 果目标设备的 SDF 文件包含`gpsNoise`元素的值（即，它具有行：`<gpsNoise>true</gpsNoise>`），则启用GPS噪声。 默认情况下, 它在许多设备 SDF 文件中启用：**solo.sdf**、**iris.sdf**、**standard_vtol.sdf**、**delta_wing.sdf**、**plane.sdf**、**typhoon_h480** **tailsitter.sdf**。
 
 启用/禁用GPS噪音：
-1. 构建任何 gazebo 目标以生成 SDF 文件（适用于所有机型）。 For example:
+1. 构建任何 gazebo 目标以生成 SDF 文件（适用于所有机型）。 例如：
    ```
    make px4_sitl gazebo_iris
    ```
@@ -216,7 +216,7 @@ Gazebo 可以模拟类似于实际系统中常见的 GPS 噪声（否则报告�
 
 这种方法显着缩短了调试周期时间，因为模拟器（例如 gazebo）总是在后台运行，而你只重新运行 px4 进程是非常轻松的。
 
-You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
+您可以在PX4配置目标中将它们指定为最终选项，进而加载任意世界。
 
 安装* Gstreamer 1.0 *及其依赖项：
 ```
@@ -225,7 +225,7 @@ make px4_sitl gazebo_hippocampus
 
 > **Note** There are *two underscores* after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
 
-You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable. This is useful if testing a new world that is not yet included with PX4.
+您也可以使用环境变量 `PX4_SITL_WORLD` 来指定要加载的世界的完整路径。 如果您想测试一个暂未包含在PX4中的新世界，这种方式非常有用。
 
 > **Tip** If the loaded world does not align with the map, you may need to [set the world location](#set_world_location).
 
@@ -281,27 +281,27 @@ make px4_sitl gazebo_rover__sonoma_raceway
 
 对于扩展开发会话，单独启动 Gazebo 和 PX4 可能更方便，甚至可以在 IDE 中启动。
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
+* 通过在终端中指定环境变量 `_ide` 来运行 gazebo（或任何其他 sim 卡）服务器和客户端查看器：
   ```sh
   make px4_sitl gazebo___ide
   ```
-  or
+  或者
   ```sh
   make px4_sitl gazebo_iris_ide
   ```
 * 在 IDE 中选择要调试的`px4_ <mode>`目标（例如`px4_iris`）
 * 直接从 IDE 启动调试会话
 
-This approach significantly reduces the debug cycle time because simulator (e.g. Gazebo) is always running in background and you only re-run the px4 process which is very light.
+这种方法可显著缩短调试周期，因为仿真器（例如 Gazebo ）总是在后台运行，而您只需重新运行 px4 这个非常轻量的进程。
 
 
 ## 扩展和定制
 
-The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station. The camera also supports video streaming. It can be used to test camera capture, in particular within survey missions.
+The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station. 该摄像机同时支持视频流。 它可用于测试摄像机的拍摄性能，特别是在航测任务中。
 
-The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+每当捕获到图像时，相机都会发送出 [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) 消息。 The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
 
-To simulate a plane with this camera:
+模拟一个带有该相机的飞机：
 ```
 make px4_sitl_default gazebo_plane_cam
 ```
@@ -317,17 +317,17 @@ make px4_sitl_default gazebo_plane_cam
 
 *Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
 
-The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
+`IF750A` 机身上装有降落伞。 仿真该型飞行器，请运行以下指令：
 ```
 make px4_sitl gazebo_if750a
 ```
 
 To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
 
-For more information see:
-- [Flight Termination](../advanced_config/flight_termination.md)
-- [Parachute](../peripherals/parachute.md)
-- [Safety Configuration (Failsafes)](../config/safety.md)
+有关详细信息，请参阅︰
+- [飞行终止](../advanced_config/flight_termination.md)
+- [降落伞](../peripherals/parachute.md)
+- [ 安全配置（故障保护） ](../config/safety.md)
 
 <a id="video"></a>
 
@@ -335,20 +335,20 @@ For more information see:
 
 用于 Gazebo 的 PX4 SITL 支持来自连接到设备型号的 Gazebo 相机传感器的 UDP 视频流。 您可以从* QGroundControl *（在 UDP 端口 5600 上）连接到此流，并从模拟设备查看 Gazebo 环境的视频 - 就像您从真实摄像机那样。 使用* gstreamer *流水线流式传输视频。
 
-The Gazebo camera sensor is supported/enabled on the following frames:
+Gazebo 摄像机传感器可在以下机型上被支持/启用：
 * [Typhoon H480](#typhoon_h480)
 
 
-### Prerequisites
+### 系统必备组件
 
-*Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
+*Gstreamer 1.0* is required for video streaming. [当您设置 Gazebo 时](#installation)，所需的依赖项应该已经安装完毕（它们包含在 macOS 和 UbuntuLinux 系统下的标准 PX4 安装脚本/说明中）。
 
 > **Note**默认情况下，来自 Gazebo 和 Gazebo 小部件中的视频流以打开/关闭流式传输是未启用的。
 
 
 ### Headless 模式
 
-Video streaming is automatically started when supported by the target vehicle. For example, to start streaming video on the Typhoon H480:
+对支持的目标载具，视频流将自动启动。 例如，要在台风 Typhoon H480 上启动视频流：
 ```
 sudo apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | grep -v gstreamer1.0-hybris) -y
 ```
@@ -366,7 +366,7 @@ sudo apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk '{ pr
 
 The video from Gazebo should then display in *QGroundControl* just as it would from a real camera.
 
-![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
+![QGC 视频流 Gazebo 示例](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
 
 > **Note** The Typhoon world is not very interesting.
 
@@ -385,7 +385,7 @@ make clean
 make px4_sitl gazebo_typhoon_h480
 ```
 
-or
+或
 
 ```
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
@@ -393,13 +393,13 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 ```
 
 
-## Extending and Customizing
+## 扩展和自定义
 
 要扩展或自定义仿真界面，请编辑`Tools/sitl_gazebo`文件夹中的文件。 该代码可在 Github 上的[ sitl_gazebo repository ](https://github.com/px4/sitl_gazebo)上获得。
 
 > **Note** 建系统强制执行正确的 GIT 子模块，包括模拟器。 它不会覆盖目录中文件的更改。
 
-## Further Information
+## 更多信息
 
 * [另见 Gazebo 模拟。](../simulation/ros_interface.md)
 * [Gazebo Octomap](../simulation/gazebo_octomap.md)
