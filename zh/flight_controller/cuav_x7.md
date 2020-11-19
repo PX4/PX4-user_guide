@@ -1,6 +1,6 @@
 # CUAV X7 Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
 
 The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
@@ -8,7 +8,7 @@ The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> fl
 
 The flight controller adopts a modular design and can be matched with different base plates. You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board). CUAV has also provided a variety of carrier boards for you to choose from.
 
-## Features
+## 特性
 
 * Internal shock absorption
 * Modular design, can be DIY carrier board
@@ -28,14 +28,14 @@ The flight controller adopts a modular design and can be matched with different 
 ## Quick Summary{#quick-Summary}
 
 * Main FMU Processor: STM32H743
-* On-board sensors:
-  * Accelerometer/Gyroscope: ICM-20689
-  * Accelerometer/Gyroscope: ICM-20649
+* 内置传感器：
+  * 加速度计/陀螺仪：ICM-20689
+  * 加速度计/陀螺仪：ICM-20649
   * Accelerometer/Gyroscope: BMI088
   * Magnetometer: RM3100
   * Barometer: MS5611*2
 
-* Interfaces:
+* 接口：
    * 14 PWM outputs （12 supports Dshot）
    * Support multiple RC inputs (SBUs / CPPM / DSM)
    * Analogue / PWM RSSI input
@@ -45,13 +45,13 @@ The flight controller adopts a modular design and can be matched with different 
    * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
    * 2  ADC intput
    * 1 USB ports
-* Power System:
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
-* Weight and Dimensions:
+* 电源系统
+  * 输入电压：4.3~5.4V
+  * USB输入电压: 4.75~5.25V
+  * 伺服导轨输入电压：0~36V
+* 重量和尺寸:
   * Weight: 101 g
-* Other Characteristics:
+* 其它特性:
   * Operating temperature: -20 ~ 80°c（Measured value）
   * Three imus
   * Supports temperature compensation
@@ -59,7 +59,7 @@ The flight controller adopts a modular design and can be matched with different 
 
 > ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 
-## Purchase
+## 采购
 
 [CUAV Store](https://store.cuav.net)<\br> [CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
 
@@ -75,19 +75,19 @@ The flight controller adopts a modular design and can be matched with different 
 
 > **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
-## Voltage Ratings
+## 额定电压
 
 The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
 
 > **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 
-**Normal Operation Maximum Ratings**
+**正常运行最大额定值**
 
-Under these conditions all power sources will be used in this order to power the system:
+在以下条件下，所有电源将按此顺序用于为系统供电：
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
-## Building Firmware
+## 编译固件
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -102,7 +102,7 @@ The *X7* has over-current protection on the 5 Volt Peripheral and 5 Volt high po
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
-## Debug Port
+## 调试接口
 
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
@@ -113,14 +113,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
-| ------- | -------------- | ----- |
-| 1 (red) | 5V+            | +5V   |
-| 2 (blk) | DEBUG TX (OUT) | +3.3V |
-| 3 (blk) | DEBUG RX (IN)  | +3.3V |
-| 4 (blk) | FMU_SWDIO      | +3.3V |
-| 5 (blk) | FMU_SWCLK      | +3.3V |
-| 6 (blk) | GND            | GND   |
+| 针脚   | 信号             | 电压    |
+| ---- | -------------- | ----- |
+| 2    | 5V+            | +5V   |
+| 2    | DEBUG TX (OUT) | +3.3V |
+| 3    | DEBUG RX (IN)  | +3.3V |
+| 4（黑） | FMU_SWDIO      | +3.3V |
+| 6    | FMU_SWCLK      | +3.3V |
+| 6    | GND            | GND   |
 
 CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
@@ -132,11 +132,11 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 > 
 > For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
-## Further info
+## 更多信息
 
 * [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 * [CUAV docs](http://doc.cuav.net)
