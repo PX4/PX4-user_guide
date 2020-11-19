@@ -1,57 +1,57 @@
 # Long-distance Video Streaming in QGroundControl
 
-This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*. This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki). The mechanism also provide a bidirectional telemetry link (i.e. like SiK radio). This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki).
+This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*. This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki). The mechanism also provide a bidirectional telemetry link (i.e. like SiK radio). 此设置使用未连接 (广播) 模式下的 wifi 和 [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki) 中的软件。
 
-> **Note** Before using *Wifibroadcast* check regulators allow this kind of WiFi use in your country.
+> **Note** 在使用 *Wifibroadcast* 检查规章是否允许在您的国家使用这种 wifi。
 
 
-## Wifibroadcast Overview
+## 无线广播概述
 
 The *Wifibroadcast project* aims to mimic the advantageous properties of using an analog link to transmit HD video (and other) data when using WiFi radios. For example, it attempts to provide a video feed that degrades gracefully with signal degradation/distance.
 
-The high level benefits of *Wifibroadcast* include:
+*Wifibroadcast* 的高级别优势包括:
 
 - Minimal latency by encoding every incoming RTP packet to a single WiFi (IEEE80211) packet and immediately sending (doesn't serialize to byte stream).
-- Smart FEC support (immediately yield packet to video decoder if FEC pipeline without gaps).
+- 智能 FEC 支持（如果 FEC 管道没有间隔，立即将数据包提供给视频解码器）。
 - [Bidirectional MAVLink telemetry](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO). You can use it for MAVLink up/down and video down link.
 - Automatic TX diversity (select TX card based on RX RSSI).
 - Aggregation of MAVLink packets. It doesn't send WiFi packet for every MAVLink packet.
-- Distributed operation. It can gather data from cards on different hosts. Distributed operation. It can gather data from cards on different hosts, so that bandwidth is not limited to that of a single USB bus.
+- 分布式操作。 It can gather data from cards on different hosts. Distributed operation. It can gather data from cards on different hosts, so that bandwidth is not limited to that of a single USB bus.
 - Inject packets with radio link RSSI to MAVLink stream Doesn't send WiFi packet for every MAVLink packet.
 - [Enhanced OSD for Raspberry Pi](https://github.com/svpcom/wifibroadcast_osd) (consumes 10% CPU on Pi Zero).
 - Compatible with any screen resolution. Supports aspect correction for PAL to HD scaling.
 
-Additional information is provided in the [FAQ](#faq) below.
+有关详细信息，请参阅 [FAQ](#faq)。
 
 
 ## 硬件安装
 
-The hardware setup consists of the following parts:
+硬件由如下部分组成：
 
-On TX (UAV) side:
+在发送端（无人机）：
 * [NanoPI NEO2](http://www.friendlyarm.com/index.php?route=product/product&product_id=180) (and/or Raspberry Pi if use Pi camera).
-* [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) or [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/).
+* [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) 或者 [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/).
 * WiFi module [ALPHA AWUS051NH v2](https://www.alfa.com.tw/products_show.php?pc=67&ps=241).
 
-On RX (ground station side):
-* Any computer with Linux (tested on Fedora 25 x86-64).
-* WiFi module  [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm). See [wifibroadcast wiki > WiFi hardware](https://github.com/svpcom/wifibroadcast/wiki/WiFi-hardware) for more information on supported modules.
+在接收端（地面站）：
+* 任何使用 linux 的计算机 (在 fedora 25 x86-64 上测试)。
+* WiFi module [ALPHA AWUS051NH v2](https://www.alfa.com.tw/products_show.php?pc=67&ps=241). See [wifibroadcast wiki > WiFi hardware](https://github.com/svpcom/wifibroadcast/wiki/WiFi-hardware) for more information on supported modules.
 
 Alpha WUS051NH is a high power card that uses too much current while transmitting. If you power it from USB it will reset the port on most ARM boards. So you need to connect it to 5V BEC directly. You can do this two ways:
 
-## Hardware Modification
+## 硬件设置
 
-Alpha AWUS036ACH is a high power card that uses too much current while transmitting. If you power it from USB it will reset the port on most ARM boards. So it must be directly connected to 5V BEC in one of two ways:
+Alpha AWUS036ACH is a high power card that uses too much current while transmitting. 如果您从 USB 供电, 它将导致大多数的 ARM 板子的端口被重置。 So it must be directly connected to 5V BEC in one of two ways:
 
 1. Make a custom USB cable. [You need to cut `+5V` wire from USB plug and connect it to BEC](https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
-2. Cut a `+5V` wire on PCB near USB port and wire it to BEC. Don't do this if doubt. Use custom cable instead! Also I suggest to add 470uF low ESR capacitor (like ESC has) between power and ground to filter voltage spikes. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires. Also I suggest to add 470uF low ESR capacitor (like ESC has) between power and ground to filter voltage spikes. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires.
+2. Cut a `+5V` wire on PCB near USB port and wire it to BEC. Don't do this if doubt. Use custom cable instead! Also I suggest to add 470uF low ESR capacitor (like ESC has) between power and ground to filter voltage spikes. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires. 还建议在电源和接地之间添加 470uf 低 ESR 电容器 (如电调电容器) 来过滤电压峰值。 使用多根地线时，请注意 [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29)。
 
 
-## Software Setup
+## 软件设置
 
 See [wiki](https://github.com/svpcom/wifibroadcast/wiki/enhanced-setup) article. Using RX setup above (and ALPHA AWUS051NH v2 as TX) I was able to receive stable 1080p video on 1-2km in any copter pitch/roll angles.
 1. Install **libpcap** and **libsodium** development libs.
-1. Download [wifibroadcast sources](https://github.com/svpcom/wifibroadcast).
+1. 下载 [wifibroadcast sources](https://github.com/svpcom/wifibroadcast)。
 1. [Patch](https://github.com/svpcom/wifibroadcast/wiki/Kernel-patches) your kernel. You only need to patch the kernel on TX (except if you want to use a WiFi channel which is disabled in your region by CRDA).
 
 ### Generate Encryption Keys
@@ -81,7 +81,7 @@ See [wiki](https://github.com/svpcom/wifibroadcast/wiki/enhanced-setup) article.
 1. Run *QGroundControl* or use the following command to decode video:
    ```
    gst-launch-1.0 udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
-          ! rtph264depay ! avdec_h264 clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 ! clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false
+          ! rtph264depay ! avdec_h264 clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false rtph264depay ! avdec_h264 clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false
    ```
 1. Run qgroundcontrol or
 
@@ -93,7 +93,7 @@ With default settings WFB use radio channel 165 (5825 MHz), width 20MHz, MCS #1 
 
 For simple cases you can use omnidirectional antennas with linear (that bundled with wifi cards) or circular leaf ([circularly polarized Coverleaf Antenna](http://www.antenna-theory.com/antennas/cloverleaf.php)) polarization. If you want to setup long distance link you can use multiple wifi adapters with directional and omnidirectional antennas. TX/RX diversity for multiple adapters supported out of box (just add multiple NICs to `/etc/default/wifibroadcast`). If your WiFi adapter has two antennas (like Alfa AWU036ACH) TX diversity is implemented via [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code). Cards with 4 ports (like Alfa AWUS1900) are currently not supported for TX diversity (only RX is supported).
 
-## FAQ
+## 常见问题
 
 The [original version of wifibroadcast](https://befinitiv.wordpress.com/wifibroadcast-analog-like-transmission-of-live-video-data/) shares the same name as the [current project](https://github.com/svpcom/wifibroadcast/wiki), but does not derive any code from it.
 
@@ -131,7 +131,7 @@ Wifibroadcast puts the WiFi cards into monitor mode. This mode allows to send an
 This article chose to use Pi Zero as camera board (encode video) and NEO2 as main UAV board (wifibroadcast, MAVLink telemetry, etc.)
 
 
-## TODO
+## 待完成
 
 1. Make prebuilt images. Pull requests are welcome.
-2. Do a flight test with different cards/antennas.
+2. 使用不同的卡天线进行飞行测试。
