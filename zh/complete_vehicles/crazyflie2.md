@@ -1,16 +1,16 @@
 # Crazyflie 2.0
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.bitcraze.io/)。
 
 <span></span>
 
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+> **Warning** PX4 [实验性地](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
 
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 概览
 
 > **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 
@@ -21,7 +21,7 @@ The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the 
 * MPU9250 Accel / Gyro / Mag
 * LPS25H barometer
 
-## Where to Buy
+## 在哪里买
 
 * [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 * [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
@@ -110,7 +110,7 @@ To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## 硬件连接
 
 Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md).
 
@@ -187,6 +187,6 @@ To connect to Crazyflie 2.0 via MAVROS:
 * Start MAVROS with command: ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
 * Restart QGroundControl if it doesn't connect.
 
-## Flying
+## 飞行
 
 {% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
