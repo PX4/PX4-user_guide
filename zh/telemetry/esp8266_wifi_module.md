@@ -90,7 +90,7 @@ On your wifi-enabled *QGroundControl* ground station computer/tablet, find and c
     
     ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
-QGC automatically starts its UDP link on boot. Once your computer/tablet is connected to the **PixRacer** WiFi Access Point, it will automatically make the connection.
+QGC 在启动时自动启动其 UDP 连接。 一旦您的计算机/平板连接到 **Pixracer** WiFi ，它将自动进行连接。
 
 You should now see HUD movement on your QGC computer via wireless link and be able to view the summary panel for the ESP8266 WiFi Bridge (as shown below).
 
