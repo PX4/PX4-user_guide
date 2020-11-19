@@ -6,7 +6,8 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 
 The sections below explain the main methods.
 
-## Position Flight Mode {#position}
+<span id="position"></span>
+## Position Flight Mode
 
 The vehicle will takeoff in [Position mode](../flight_modes/position_fw.md) if it detects sufficient launch acceleration when launched at an altitude below [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF).
 
@@ -18,7 +19,8 @@ To launch in this mode:
 The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff).
 It will then continue in *Postion mode*.
 
-## Takeoff Flight Mode {#takeoff}
+<span id="takeoff"></span>
+## Takeoff Flight Mode
 
 [Takeoff Mode](../flight_modes/takeoff.md#fixed_wing) enables takeoff using either *catapult/hand-launch* (default) or *runway takeoff*.
 
@@ -49,8 +51,8 @@ Runway takeoff mode is enabled using [RWTO_TKOFF](../advanced_config/parameter_r
 
 The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight_modes/takeoff.md#runway_launch).
 
-
-## Mission Takeoff {#mission}
+<span id="mission"></span>
+## Mission Takeoff
 
 You can also hand/catapult launch a fixed wing vehicle in a mission.
 
