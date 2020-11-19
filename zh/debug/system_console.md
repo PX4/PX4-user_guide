@@ -19,7 +19,7 @@ There can be several shells, either running on a dedicated UART, or via MAVLink.
 ### Connecting via Dronecode Probe
 
 The developer kit comes with a breakout board with three pins to access the console. Connect the bundled FTDI cable to the header and the breakout board to the expansion connector.
-- [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [HobbyKing HKPilot32](../flight_controller/HKPilot32.md#debug-port))
+- [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [Holybro pix32](../flight_controller/holybro_pix32.md#debug-port))
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
