@@ -33,37 +33,37 @@ To get a shell, do:
     adb shell
     
 
-### DSP Debug Monitor/Console
+### Console Debug
 
-When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX). The interaction with the DSP side (QuRT) is enabled with the `qshell` posix app and its QuRT companion.
+When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX). DSP 一侧 (QuRT) 的相互作用可以通过 `qshell` 开启POSIX 应用和自身模块。
 
-With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:
+使用 USB 连接骁龙， 打开 mini-dm 查看 DSP 输出：
 
     ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
     
 
 > **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
 
-Run the main app on the linaro side:
+在 Linaro 运行主程序：
 
 ```sh
 cd /home/linaro
 ./px4 -s px4.config
 ```
 
-You can now use all apps loaded on the DSP from the linaro shell with the following syntax:
+用以下语法，可以通过 Linaro shell 使用已经加载到 DSP 上的所有 Apps：
 
 ```sh
 pxh> qshell command [args ...]
 ```
 
-For example, to see the available QuRT apps:
+比如，查看可用的 QuRT Apps：
 
 ```sh
 pxh> qshell list_tasks
 ```
 
-The output of the executed command is displayed on the minidm.
+执行命令输出的结果显示在 minidm。
 
 ## Serial ports
 
