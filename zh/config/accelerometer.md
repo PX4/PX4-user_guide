@@ -32,7 +32,7 @@ You will need to calibrate your accelerometer on first use or if the flight cont
 
 6. 在机体的所有方向上重复校准步骤。
 
-Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+所有位置都标定完成后，*QGroundControl*将显示*标定完成* (所有标定位置都变成绿色，进度条也显示完成)。 然后可以开始标定下一个传感器。
 
 ## 更多信息：
 
