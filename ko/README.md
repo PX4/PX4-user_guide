@@ -48,13 +48,13 @@ PX4를 지원하는 Ready To Fly (RTF) 기체가 있는 경우:
 
 **새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하고 싶은 경우:**
 
-* [Development](../development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [개발](../development/development.md)에서는 새 기체, 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부와 PX4간의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
 
-## Getting Help
+## 도움 받기
 
-The[Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[지원](contribute/support.md)페이지는 코어 개발 팀과 더 넓은 커뮤니티로부터 도움을 받는법에 대해 설명합니다.
 
-Among other things it covers:
+특히 다음을 다룹니다:
 
 * [Forums where you can get help](contribute/support.md#forums-and-chat)
 * [Diagnosing issues](contribute/support.md#diagnosing-problems)
