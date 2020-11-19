@@ -1,6 +1,6 @@
 # Pixhawk系列的配套计算机
 
-Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只有一种：通过串口2 `TELEM 2`。 The message format on this link is [MAVLink](https://mavlink.io/en/).
+Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只有一种：通过串口2 `TELEM 2`。 消息格式是MAVLINK。
 
 ## Pixhawk设置
 
@@ -32,14 +32,14 @@ Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只�
 
 安全的选择是使用 ftdi 芯片 usb 到串行适配器板和下面的接线方式。 这种方式有效且容易设置。
 
-|  | TELEM2 |           | FTDI |                        |
-|  | ------ | --------- | ---- | ---------------------- |
-|  | 1      | +5V (red) |      | DO NOT CONNECT!        |
-|  | 2      | Tx  (out) | 5    | FTDI RX (yellow) (in)  |
-|  | 3      | Rx  (in)  | 4    | FTDI TX (orange) (out) |
-|  | 4      | CTS (in)  | 6    | FTDI RTS (green) (out) |
-|  | 5      | RTS (out) | 2    | FTDI CTS (brown) (in)  |
-|  | 6      | GND       | 1    | FTDI GND (black)       |
+|  | TELEM2 |           | FTDI |                    |
+|  | ------ | --------- | ---- | ------------------ |
+|  | 1      | + 5v (红色) |      | 请勿连接！              |
+|  | 2      | Tx (输出)   | 5    | FTDI RX (黄色) (输入)  |
+|  | 3      | Rx（输入）    | 4    | FTDI TX (橙色) (输出)  |
+|  | 4      | CTS（输入）   | 6    | FTDI RTS (绿色) (输出) |
+|  | 5      | RTS（输出）   | 2    | FTDI RTS (棕色) (输出) |
+|  | 6      | GND       | 1    | FTDI GND (黑色)      |
 
 ## Linux系统上的软件设置
 
@@ -65,7 +65,7 @@ $lsusb
 
 Arduino 是 `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)`
 
-The Pixhawk is `Bus 003 Device 005: ID 26ac:0011`
+Pixhawk 是 `Bus 003 Device 005: ID 26ac:0011`
 
 > **Note** 如果你没找到你是设备，拔掉，执行 `lsusb`，再插上， 再次执行`lsusb`，查看增加的设备。
 
