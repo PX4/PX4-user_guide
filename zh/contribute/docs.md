@@ -55,12 +55,11 @@ To get the library(s) sources onto your local computer you will need to use the 
    - cd ~/wherever/px4_user_guide git remote add upstream https://github.com/PX4/px4_user_guide.git
    - Fork the PX4 user guide from [here](https://github.com/PX4/px4_user_guide) or Dev guide from [here](https://github.com/PX4/Devguide). For instructions to fork a git repository, see [here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository).
    - Clone your forked repository to your local computer
-   - QGroundControl Developer Guide: https://github.com/mavlink/qgc-dev-guide
    - MAVLink Developer Guide: https://github.com/mavlink/mavlink-devguide
-1. Navigate to your local repository and add original upstream:
+1. Clone (copy) your forked repository to your local computer:
    ```sh
    cd ~/wherever/
-git clone https://github.com/<your git name>/px4_user_guide.git
+   git clone https://github.com/<your git name>/<repository_name>.git
    ```
    For example, to clone the PX4 userguide fork for a user with github account "john_citizen_smith":
    ```sh

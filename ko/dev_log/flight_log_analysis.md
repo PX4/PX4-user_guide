@@ -1,6 +1,6 @@
 # Flight Log Analysis
 
-Information about Flight Log Analysis is covered in the PX4 User Guide:
+Information about collecting and analysing flight logs is covered in:
 
 - [Flight Reporting](https://docs.px4.io/en/getting_started/flight_reporting.html) - How to download a log and report/discuss issues about a flight.
 - [Log Analysis using Flight Review](https://docs.px4.io/en/log/flight_review.html) - How to analyse many common vehicle problems using the [Flight Review](https://logs.px4.io/) online tool.

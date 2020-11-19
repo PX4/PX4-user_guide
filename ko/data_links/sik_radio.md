@@ -1,4 +1,4 @@
-# SiK Radio
+# SiK Radio Integration
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
@@ -82,4 +82,3 @@ ATZ
 ```
 
 > **Note** You might have to power-cycle the radio to connect it to the 2nd radio.
-

@@ -24,7 +24,7 @@ Upload the log file to the online *Flight Review* tool (http://logs.px4.io). Aft
 
 ## 给 PX4 开发人员共享日志文件
 
-The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
+The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs--issues).
 
 ## Log Configuration
 

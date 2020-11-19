@@ -1,12 +1,12 @@
 # Flight Modes
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. They are loosely grouped into *manual*, *assisted* and *auto* modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a [ground control station](../qgc/README.md).
+*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. They are loosely grouped into *manual*, *assisted* and *auto* modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a ground control station.
 
 Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below). Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). The system will not allow transitions to those modes until the right conditions are met.
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
 
-> **Note** More detailed user-facing flight mode documentation can be found in the [PX4 User Guide](../flight_modes/README.md).
+> **Note** User-facing flight mode documentation can be found in: - [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes. - [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
 
 
 ## Flight Mode Summary

@@ -218,8 +218,8 @@ cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ### OcPoC-Zynq Mini
 
 To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
-* Pixhawk 4: `make px4_fmu-v5_default`
-* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)
+* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq)
+* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)  (aerotenna.readme.io)
 
 
 ### QuRT / Snapdragon Based Boards

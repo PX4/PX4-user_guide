@@ -19,10 +19,9 @@ The steps to join our translation tream are:
 1. 打开要加入的翻译项目：
    - [QGroundControl](https://crowdin.com/project/qgroundcontrol)
    - [PX4 用户手册](https://crowdin.com/project/px4-user-guide)
-   - [PX4 开发人员指南](https://crowdin.com/project/px4-developer-guide)
-   - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-developer-guide)
-   - [QGroundControl 用户指南](https://crowdin.com/project/qgroundcontrol-user-guide)
-   - [MAVLink 指南](https://crowdin.com/project/mavlink)
+   - [PX4 开发人员指南](https://crowdin.com/project/qgroundcontrol-developer-guide)
+   - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-user-guide)
+   - [QGroundControl 用户指南](https://crowdin.com/project/mavlink)
 1. Select the language you want to translate
 1. Click the **Join** button (next to the text *You must join the translators team to be able to participate in this project*) > **Note** You will be notified once your application to join is accepted.
 
@@ -51,4 +50,4 @@ You can do this by contacting the project owner (there is a contact link on each
 
 The *Crowdin* interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/) and [feedback tool](https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool).
 
-You can also ask for help from translators and developers in the Dronecode community using [our support channels](../README.md#support).
+You can also ask for help from translators and developers in the Dronecode community using [our support channels](../contribute/support.md).

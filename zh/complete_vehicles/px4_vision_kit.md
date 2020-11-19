@@ -324,7 +324,7 @@ ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工�
 
 软件问题，请使用以下 [社区支持频道](README.md#support)：
 
-For software issues, use the following [community support channels](README.md#support):
+For software issues, use the following community support channels:
 - [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
 - [PX4 slack](https://slack.px4.io/) channel: #avoidance
 - [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)

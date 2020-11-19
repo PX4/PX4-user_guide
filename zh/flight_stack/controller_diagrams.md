@@ -97,7 +97,7 @@ $$\beta$$ 代表侧滑角，$$p$$ 代表滚转角速率，$$\delta_a$$ 代表副
 
 假设一架飞机对称 ($$C_{\ell_0} = 0$$) 且无侧滑 ($$\beta = 0$$) ，上面的方程就可以简化到只有滚转率阻尼和副翼产生的滚转力矩。
 
-where $$\gamma$$ is the flight plan angle. For small $$\gamma$$ we can approximate this as
+where $\gamma{}$ is the flight plan angle. For small $\gamma{}$ we can approximate this as:
 
 刚才推导出的这个最终方程，将会作为后面两个小节的基线。
 
@@ -111,7 +111,7 @@ $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}} \frac{1}{\rho V_T^2} \ell = \frac{b
 
 观察上面的公式可以知道，第一项是个常值，第二项则取决于空气密度和真实空速的平方。
 
-Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as
+Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as:
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2$$,
 
@@ -169,15 +169,15 @@ $$\rho$$ 代表空气密度，$$V_T$$ 代表真实空速 (TAS)。
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$.
 
-where $$\ell$$ is the roll moment, $$b$$ the wing span and $$S$$ the reference surface.
+where $\ell{}$ is the roll moment, $b{}$ the wing span and $S{}$ the reference surface.
 
-The nondimensional roll moment derivative $$C_\ell$$ can be modeled using the aileron effectiveness derivative $$C_{\ell_{\delta_a}}$$, the roll damping derivative $$C_{\ell_p}$$ and the dihedral derivative $$C_{\ell_\beta}$$
+The nondimensional roll moment derivative $C_\ell{}$ can be modeled using the aileron effectiveness derivative $C_{\ell_{\delta_a}}{}$, the roll damping derivative $C_{\ell_p}{}$ and the dihedral derivative $C_{\ell_\beta}{}$
 
 $$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: p$$.
 
-where $$\beta$$ is the sideslip angle, $$p$$ the body roll rate and $$\delta_a$$ the aileron deflection.
+where $\beta{}$ is the sideslip angle, $p{}$ the body roll rate and $\delta_a{}$ the aileron deflection.
 
-Assuming a symmetric ($$C_{\ell_0} = 0$$) and coordinated ($$\beta = 0$$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
+Assuming a symmetric ($C_{\ell_0} = 0{}$) and coordinated ($\beta = 0{}$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
 
 $$- C_{\ell_{\delta_a}} \:\delta_a = C_{\ell_p} \frac{b}{2 V_T} \: p$$.
 
@@ -185,7 +185,7 @@ This final equation is then taken as a baseline for the two next subsections to 
 
 #### Static torque (PI) scaling
 
-At a zero rates condition ($$p = 0$$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
+At a zero rates condition ($p = 0{}$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}\rho_0} \frac{1}{V_I^2} \ell$$.
 
@@ -197,7 +197,7 @@ where the first fraction is constant and the second one depends on the air densi
 
 更进一步，先不用空气密度和TAS做刻度化，可以发现指示空速 (IAS, $$V_I$$) 在本质上是受空气密度影响的，在低空低速情况下，IAS可以乘以一个简单的密度误差因子转换成TAS
 
-$$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$,
+$$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$
 
 $$\rho_o$$ 代表海平面15°C下的空气密度。
 
@@ -207,7 +207,7 @@ $$\bar{q} = \frac{1}{2} \rho V_T^2 = \frac{1}{2} V_I^2 \rho_0$$
 
 现在我们能清楚地看到气动压力与IAS的平方成正比
 
-$$\bar{q} \propto V_I^2$$.
+$$\bar{q} \propto V_I^2$$
 
 之前用TAS和空气密度表示的刻度因数，最终可以用IAS重写成以下形式
 
@@ -231,9 +231,9 @@ $$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: 
 
 $$\delta_{a} = \frac{V_{I_0}^2}{V_I^2} \delta_{a_{PI}} + \frac{V_{T_0}}{V_T} \delta_{a_{FF}}$$
 
-where $$V_{I_0}$$ and $$V_{T_0}$$ are the IAS and TAS at trim conditions.
+where $V_{I_0}{}$ and $V_{T_0}{}$ are the IAS and TAS at trim conditions.
 
-Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows
+Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows:
 
 $$\dot{\mathbf{\omega}}*{sp}^b = \frac{V*{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}*{sp*{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}*{sp*{FF}}^b$$,
 

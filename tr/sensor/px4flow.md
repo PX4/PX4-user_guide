@@ -228,7 +228,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 - Check that the image is sharp at the operating distance (the typical flight altitude)
   
-  > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+  > **Tip** [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
 
 <span id="developer_guide"></span>
 

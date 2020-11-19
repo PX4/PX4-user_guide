@@ -82,4 +82,3 @@ ATZ
 ```
 
 > **Note** You might have to power-cycle the radio to connect it to the 2nd radio.
-
