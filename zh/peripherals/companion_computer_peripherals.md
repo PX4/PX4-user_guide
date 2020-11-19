@@ -8,7 +8,7 @@ Typical companion computer work with Pixhawk requires a companion link to transm
 
 有一些构建这种通信桥的设备，如 FTDI USB 接口和电平移位器(见下文)。
 
-> **Note** PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Relevant topics/sections in the developer guide include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+> **Note** [MAVLink\(OSD/Telemetry\)](../peripherals/mavlink_peripherals.md#example) 介绍了用于通过 MAVLink 配置与机载计算机通信的 PX4 配置。 Relevant topics/sections in the developer guide include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
 
 ### FTDI 设备
 
@@ -24,7 +24,7 @@ Options are listed below:
 
 ### 逻辑电平移位器
 
-On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
+有时，机载计算机可能通常会引出运行在 1.8V 或 5V 的硬件级 IO，而 Pixhawk 硬件则以 3.3V IO 运行。 为了解决这一问题，可以实现电平移位器来安全地转换发送/接收信号电压。
 
 Options include:
 
@@ -37,7 +37,7 @@ Cameras are used image and video capture, and more generally to provide data for
 
 ### 立体摄像机
 
-Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
+立体摄像机通常用于深度感知、路径规划和 SLAM 。 他们在任何方面都不能保证与你的机载计算机即插即用。
 
 Popular stereo cameras include:
 
