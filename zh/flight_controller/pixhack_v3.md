@@ -1,6 +1,6 @@
 # Pixhack v3
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 
 CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主要面向于商用无人系统制造商。
 
@@ -52,9 +52,9 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v3_default
     
@@ -65,7 +65,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
