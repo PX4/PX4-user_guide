@@ -25,7 +25,7 @@ The conversion is designed to minimize impact on the aerodynamics and provide ad
 
 - The basic parts required are;
 - Pixhawk or compatible
-- Digital airspeed sensor
+- 数字空速传感器
 - 3DR Power module or compatible
 - GPS
 
@@ -84,7 +84,7 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | AUX 2  | Right aileron          |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
-| AUX 5  | Throttle               |
+| AUX 5  | 油门                     |
 
 > **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
 
