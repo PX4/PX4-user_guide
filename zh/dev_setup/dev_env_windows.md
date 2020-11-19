@@ -16,7 +16,7 @@
 
 ## 其他 windows 工具链
 
-There are a number of other legacy/alternative solutions that may be of interest to some developers. A comparison of the options is provided below.
+除 Cygwin 外开发者们还可以使用一些替代解决方案完成开发环境的构建， 下表对这些替代解决方案进行了详细的对比。
 
 > **注意** Windows平台下仅 [Cygwin 工具链](../setup/dev_env_windows_cygwin.md) 获得了PX4开发团队的官方支持。 它作为我们持续集成系统的一部分会被定期测试，在性能方面要比其它替代方案更出色。
 
