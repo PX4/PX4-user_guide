@@ -1,12 +1,12 @@
 # CUAV v5 (Discontinued)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 
 <span></span>
 
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
-*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
+*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv5** 开源硬件设计。 它在[NuttX](http://nuttx.org) OS操作系统上运行PX4，并与PX4固件完全兼容。 它主要面向学术和商业开发者。
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
 
@@ -49,43 +49,43 @@
 
 ## 采购
 
-Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
+从 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz) 官方淘宝店采购。
 
 <span id="connection"></span>
 
-## Connection
+## 接口定义
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
-> **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+> **Warning** RCIN接口仅限于为遥控接收机供电，不能连接任何电源/负载。
 
 ## 额定电压
 
-*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. 三个电源口：**POWER1**, **POWER2** and **USB**。 
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **Note** 输出电源轨 **FMU PWM OUT** 和 **IO PWM OUT**（0V至36V）不为飞控板供电（并且不由其供电）。 您必须在 **POWER1**、**POWER2** 或 **USB** 任一接口中接入电源，否则飞控板将会断电。
 
-**Normal Operation Maximum Ratings**
+**正常运行最大额定值**
 
-Under these conditions all power sources will be used in this order to power the system:
+在这些条件下，所有电源将按此顺序用于为系统供电：
 
 1. **POWER1** 和 **POWER2** 输入电压 (4.3 v 至 5.4 v)
 2. **USB** 输入电压 (4.75 v 至 5.25 v)
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v5_default
     
 
 ## Debug调试端口
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port. 只需将FTDI电缆连接到Debug & F7 SWD连接器。 To access the I/O Debug port, the user must remove the CUAV v5 shell. 这两个端口都有标准串行引脚, 可以连接到标准的FTDI电缆(3.3 v,但耐压5v )。
 
-The pinout is as shown.
+引脚排列如图所示
 
 ![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
@@ -100,7 +100,7 @@ The pinout is as shown.
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                  |
+| UART   | 设备         | Port                                  |
 | ------ | ---------- | ------------------------------------- |
 | UART1  | /dev/ttyS0 | GPS                                   |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
@@ -110,17 +110,17 @@ The pinout is as shown.
 | UART7  | /dev/ttyS5 | Debug Console                         |
 | UART8  | /dev/ttyS6 | PX4IO                                 |
 
-## Peripherals
+## 外部设备
 
 * [数字空速传感器](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [遥测无线电模块](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 * [距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
-## Further info
+## 更多信息
 
 * FMUv5参考设计</0 >。 </li> 
   
