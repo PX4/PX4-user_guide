@@ -1,11 +1,11 @@
-# Hardware
+# Hardware Integration
 
-This section contains topics about:
+This section contains topics about integrating PX4 with *new* hardware, including:
 
-* Modifying PX4 to work with _new_ [flight controller hardware](../hardware/porting_guide.md) and [vehicles/airframes](../airframes/README.md)
-* Integrating new [sensors and actuators](../sensor_bus/README.md), [telemetry radio](../data_links/telemetry.md), and other peripherals. 
+* [Flight controller hardware](../hardware/porting_guide.md)
+* [Vehicles and airframes](../airframes/README.md)
+* [Sensors and actuators](../sensor_bus/README.md)
+* [Telemetry Radios/Modems](../data_links/telemetry.md) and other communications links
+* Other peripherals
 
-> **Tip** The rest of the PX4 User Guide contains topics about using and configuring _existing/supported_ hardware.
-
-
-
+> **Tip** Other sections show how to *use* and *configure* supported [autopilot](../flight_controller/README.md) and [peripheral](../peripherals/README.md) hardware.

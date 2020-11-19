@@ -85,7 +85,7 @@ If you want to have your board officially supported in PX4:
 
 **The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.**
 
-You can reach out to the core developer team and community on the official [Forums and Chat](../README.md#support).
+You can reach out to the core developer team and community on the [official support channels](../contribute/support.md).
 
 
 ## Related Information
@@ -93,6 +93,6 @@ You can reach out to the core developer team and community on the official [Foru
 * [Device Drivers](../middleware/drivers.md) - How to support new peripheral hardware (device drivers)
 * [Building the Code](../dev_setup/building_px4.md) - How to build source and upload firmware 
 * Supported Flight Controllers:
-  * [Autopilot Hardware](../flight_controller/README.md) (PX4 User Guide)
-  * [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github)
-* [Supported Peripherals](../peripherals/README.md) (PX4 User Guide)
+  * [Autopilot Hardware](../flight_controller/README.md)
+  * [Supported boards list](https://github.com/PX4/PX4-Autopilot/#supported-hardware) (Github) - Boards for which PX4-Autopilot has specific code
+* [Supported Peripherals](../peripherals/README.md)

@@ -186,7 +186,7 @@ th {
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.md">Hold</td>
+ <td><a href="../flight_modes/hold.md">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle circles around the GPS hold position at the current altitude.</td>
@@ -317,7 +317,7 @@ th {
       </ul>
     </li>
     </ul>
-  <p>
+  </p>
 </td>
 </tr>
 
@@ -391,7 +391,7 @@ th {
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.md">Hold</td>
+ <td><a href="../flight_modes/hold.md">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle hovers at the current GPS position and altitude.</td>
@@ -449,7 +449,7 @@ S<sup>+</sup> | Assistance from autopilot to hold position or altitude against w
 Auto | This mode is automatic (RC control is disabled by default except to change modes).
 <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /> | Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry.
 <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="Altitude fix required (e.g. barometer, rangefinder)" width="20px" /> | Sensor(s) that measures height/altitude needed e.g. barometer, rangefinder.
-<span id="key_difficulty">[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" />](#key_difficulty) | Flight mode difficulty (easy/medium/hard).
+<span id="key_difficulty"></span>[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" />](#key_difficulty) | Flight mode difficulty (easy/medium/hard).
 
 
 Abbreviations:
