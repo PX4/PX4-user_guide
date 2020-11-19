@@ -20,7 +20,7 @@ curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-默认安装要求您以 root 用户身份调用 * Docker*（即使用`sudo`）。 如果您希望 [use Docker as a non-root user](https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user)，您可以选择将用户添加到“docker”组，然后注销或者登陆： That way, your build folder won't be owned by root after using docker.
+默认安装要求您以 root 用户身份调用 * Docker*（即使用`sudo`）。 如果您希望 [use Docker as a non-root user](https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user)，您可以选择将用户添加到“docker”组，然后注销或者登陆： 这样一来，在使用docker之后，你构建的文件夹将不会是归root所有。
 
 ```sh
 ＃创建 docker 组（可能不是必需的）
@@ -32,7 +32,7 @@ sudo usermod -aG docker $ USER
 
 <a id="px4_containers"></a>
 
-## Container Hierarchy
+## 本地编辑层次结构
 
 下面列出了可用的本地编辑（来自 [Github](https://github.com/PX4/containers/blob/master/docker/px4-dev/README.md#container-hierarchy)）：
 
@@ -104,7 +104,7 @@ docker run -it --privileged \
 * `&lt;container_src&gt;`：容器内的共享（源）目录的位置。
 * `docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作：
 * `&lt;container&gt;：&lt;tag&gt;`：具有版本标签的容器 - 例如：`px4io/px4-dev-ros：2017-10-23`。
-* `&lt;build_command&gt;`：要在新容器上调用的命令。 E.g. 例如. `bash` 用于打开容器中的 bash shell。
+* `&lt;build_command&gt;`：要在新容器上调用的命令。 例如 例如. `bash` 用于打开容器中的 bash shell。
 
 下面的具体示例显示了如何打开 bash shell 并在主机上共享目录 **〜/src/Firmware**。
 ```sh
@@ -131,7 +131,7 @@ make px4_sitl_default gazebo
 
 ### 重新进入容器
 
-The `docker run` command can only be used to create a new container. To get back into this container (which will retain your changes) simply do:
+`docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作：
 
 ```sh
 # start the container
@@ -159,14 +159,10 @@ $ sudo docker rm 45eeb98f1dd9
 
 运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
 
-在 *QGroundControl* 中，导航至 [Settings](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html) 并选择“通信链接”。 创建使用 UDP 协议的新链接。 端口取决于使用的 [configuration](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL)，例如 端口 14557 用于 SITL iris 配置。 IP 地址是您的 docker 容器之一，使用默认网络时通常为 172.17.0.1/16。 The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+在 *QGroundControl* 中，导航至 [Settings](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html) 并选择“通信链接”。 创建使用 UDP 协议的新链接。 端口取决于使用的 [configuration](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL)，例如 端口 14557 用于 SITL iris 配置。 IP 地址是您的 docker 容器之一，使用默认网络时通常为 172.17.0.1/16。 可以使用以下命令找到Docker容器的IP地址（假设容器名称为` mycontainer </ 0>）：</p>
 
-```sh
-<code>&lt;local_container_name&gt;</code>：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
-```
-：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
-</code>
-> **Note** Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+<pre><code class="sh"><code>&lt;local_container_name&gt;`：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。 </code></pre>
+> **Note** 上面的两个大括号之间不应存在空格（需要使用它们以避免gitbook中的UI渲染问题）。
 
 
 ### 故障处理
@@ -213,7 +209,7 @@ libGL error: failed to load driver: swrast
 如果编译失败，则出现以下错误：
 
 ```sh
-The bug is not reproducible, so it is likely a hardware or OS problem.
+这个错误是不可复现的，可能是硬件或操作系统问题。
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
