@@ -1,8 +1,8 @@
-# RTK GPS (Background)
+# RTK GPS (PX4 Integration)
 
 [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy. This page explains how RTK is integrated into PX4.
 
-> **Note** Instructions for *using* RTK GPS are provided in the [PX4 User Guide](../advanced_features/rtk-gps.md).
+> **Note** Instructions for *using* RTK GPS are provided in [Peripheral Hardware > RTK GPS](../gps_compass/rtk_gps.md).
 
 ## Overview
 
@@ -79,4 +79,3 @@ instance #0:
         MAVLink version: 2
         transport protocol: serial (/dev/ttyS1 @57600)
 ```
-
