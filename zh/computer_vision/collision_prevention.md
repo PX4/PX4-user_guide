@@ -24,7 +24,7 @@
 
 当*避障*功能正在主动控制速度设定值，用户就会通过*QGroundControl*地面站收到通知。
 
-PX4软件的安装配置在下一章节中。 如果您准备使用距离传感器连接到飞控上来避障，可能需要按照[PX4 距离传感器](#rangefinder)中的说明描述来安装配置。 If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+PX4软件的安装配置在下一章节中。 如果您准备使用距离传感器连接到飞控上来避障，可能需要按照[PX4 距离传感器](#rangefinder)中的说明描述来安装配置。 如果使用机载计算机提供障碍物信息，请参阅[机载计算机安装配置](#companion)。
 
 ## PX4 (软件) 设置
 
@@ -33,8 +33,8 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 | 参数                                                                                                  | 描述                                                                                                                                                                                              |
 | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 设置为负值将禁用 *防撞* 功能。   
-> **警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨的外部距离。 Be sure to leave a safe margin!                                                                     |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | Set the sensor and velocity setpoint tracking delay. See [Delay Tuning](#delay_tuning) below.                                                                                                   |
+> **警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨的外部距离。 确保一个安全距离。                                                                                           |
+| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                                                                                                                   |
 | <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds fewer obstacles in that direction. See [Guidance Tuning](#angle_change_tuning) below. |
 | <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | Set to 1 to allow the vehicle to move in directions where there is no sensor coverage (default is 0/`False`).                                                                                   |
 
@@ -64,7 +64,7 @@ If you have multiple sensors connected and you lose connection to one of them, y
 
 <span id="delay_tuning"></span>
 
-### CP_DELAY Delay Tuning
+### CP_DELAY 延迟调整
 
 There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*. Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
 
