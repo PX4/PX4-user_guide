@@ -19,12 +19,12 @@
 - 确保所有的东西都可靠的固定在机身上（起落架，GPS天线等）。
 - 使用平衡螺旋桨。
 - 确保使用高质量的螺旋桨、发动机、ESC 和机身。 这些组成部分中的每一个都有很大的不同。
-- 使用隔振方法安装自动驾驶仪。 Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
+- 使用隔振方法安装自动驾驶仪。 你可以使用许多飞控都使用的 *安装泡沫*来减振， 其他的一些飞控会有内部振动隔离机制。
 - *最后* 一个措施，调整软件过滤器 (见[ 这里](../config_mc/racer_setup.md#filters))。 最好是减少振动源，而不是在软件中过滤。
 
-## References
+## 参考
 
-Some references that you may find useful are:
+一些可能对您有用的参考资料：
 
-- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (free paper)
-- [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
+- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (免费文档)
+- [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (预览).
