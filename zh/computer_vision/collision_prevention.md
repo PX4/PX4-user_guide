@@ -6,7 +6,7 @@
 
 如果传感器的测量范围不够大，避障功能可能会限制无人机的最大飞行速度。 它也会阻止在没有传感器数据的方向上运动。（例如：如果后方没有传感器数据，将无法向后方飞行 ）。
 
-> **Tip** If high flight speeds are critical, consider disabling collision prevention when not needed.
+> **提示** 如果高速飞行至关重要，请在不需要时考虑关闭避障功能。
 
 <span></span>
 
