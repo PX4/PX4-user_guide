@@ -2,11 +2,11 @@
 
 ## 简介
 
-uORB 是用于进程间通信的异步 `publish()`/`subscribe()` 消息传递 API。
+uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进程或者线程间通信(IPC)。
 
 查看 [教程](../apps/hello_sky.md) 以了解如何在 C++ 中使用它。
 
-uORB 会在启动时自动启动，因为许多应用程序都依赖于它。 它以 `uorb start</0 > 开头。 单元测试可以从 <code>uorb_tests` 开始。
+作为很多应用程序依赖的uORB，会在启动时自动启动。 它以 `uorb start</0 > 开头。 单元测试可以从 <code>uorb_tests` 开始。
 
 ## 添加新 Topic（主题）
 
@@ -114,7 +114,7 @@ sensor_combined                      0    6  242   636 1
 
 ## 多实例
 
-uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将实例索引返回到发布者。 然后, 订阅者必须选择订阅以使用 `orb_subscribe_multi`（`orb_subscribe` 订阅第一个 实例）。 例如，如果系统具有多个相同类型的传感器, 则具有多个实例非常有用。
+uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将实例索引返回到发布者。 然后, 订阅者必须选择订阅以使用 `orb_subscribe_multi`（`orb_subscribe` 订阅第一个实例）。 例如，如果系统具有多个相同类型的传感器, 则具有多个实例非常有用。
 
 请确保不要为同一主题混合 `orb_advertise_multi` 和 `orb_advertise`。
 
