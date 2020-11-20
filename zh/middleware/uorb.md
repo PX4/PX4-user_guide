@@ -10,7 +10,7 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 ## 添加新 Topic（主题）
 
-可以在主 PX4/Firmware 存储库中添加新的 uORB 主题，也可以在树外消息定义中添加。 有关添加树外 uORB 消息定义的信息，请参阅 [本节](../advanced/out_of_tree_modules.md#uorb_message_definitions)。
+新的uORB</0>主题通过在主要的PX4/Firmware 存储库中添加，也能通过在out-of-tree</0>消息定义中添加。 有关添加树外 uORB 消息定义的信息，请参阅 [本节](../advanced/out_of_tree_modules.md#uorb_message_definitions)。
 
 若要添加新主题，需要在 `msg/` 目录中创建一个新的 **.msg** 文件，并将文件名添加到 `msg/CMakeLists.txt` 列表中。 由此，将自动生成所需的 C/C++ 代码。
 
