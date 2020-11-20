@@ -18,9 +18,9 @@
 
 该功能需要外部系统提供的障碍物信息（发送的MAVLink[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息）和/或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)（distance sensor）。
 
-> **注意**多个传感器可用于获取机身周围物体的信息并避障。 If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
+> **注意**多个传感器可用于获取机身周围物体的信息并避障。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
 
-The vehicle restricts the maximum velocity in order to slow down as it gets closer to obstacles, and will stop movement when it reaches the minimum allowed separation. In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
+为了在靠近障碍物时减速，无人机/无人车限制了最大速度，并且在达到最小允许间距时停止移动。 In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
 Users are notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
