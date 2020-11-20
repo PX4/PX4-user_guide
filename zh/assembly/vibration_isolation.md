@@ -4,7 +4,7 @@
 
 ## 综述
 
-飞控板载的加速度计和陀螺仪对振动很敏感。 高振动会引发一系列问题，包含飞行效率或性能降低，缩短飞行时间，增加机体磨损。 In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
+飞控板载的加速度计和陀螺仪对振动很敏感。 高振动会引发一系列问题，包含飞行效率或性能降低，缩短飞行时间，增加机体磨损。 在极端情况下，振动可能会引发传感器削波失真/故障，可能导致姿态估算失败，失控。
 
 Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
 
