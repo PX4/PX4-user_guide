@@ -24,7 +24,7 @@
 
 当*避障*功能正在主动控制速度设定值，用户就会通过*QGroundControl*地面站收到通知。
 
-PX4 software setup is covered in the next section. If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder). If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+PX4软件的安装配置在下一章节中。 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be attached and configured as described in [PX4 Distance Sensor](#rangefinder). If you are using a companion computer to provide obstacle information see [companion setup](#companion).
 
 ## PX4 (软件) 设置
 
