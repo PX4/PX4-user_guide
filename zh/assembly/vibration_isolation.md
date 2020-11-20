@@ -1,4 +1,4 @@
-# 震动隔绝
+# 震动隔离
 
 本主题展示了如何确定振动水平是否过高，并列出了一些改善振动特征的简单步骤。
 
@@ -10,7 +10,7 @@
 
 ## 振动分析
 
-[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) 解释了如何使用日志来定位震动是否是引发飞行问题的原因。
+[使用 Flight Review 进行日志分析 > 震动](../log/flight_review.md#vibration) 解释了如何使用日志来定位震动是否是引发飞行问题的原因。
 
 ## 基本振动修复
 
@@ -18,13 +18,13 @@
 
 - 确保所有的东西都可靠的固定在机身上（起落架，GPS天线等）。
 - 使用平衡螺旋桨。
-- 确保使用高质量的螺旋桨、发动机、ESC 和机身。 这些组成部分中的每一个都有很大的不同。
+- 确保使用高质量的螺旋桨、发动机、电调和机架。 这些组成部分中的每一个都有很大的不同。
 - 使用隔振方法安装自动驾驶仪。 你可以使用许多飞控都使用的 *安装泡沫*来减振， 其他的一些飞控会有内部振动隔离机制。
-- *最后* 一个措施，调整软件过滤器 (见[ 这里](../config_mc/racer_setup.md#filters))。 最好是减少振动源，而不是在软件中过滤。
+- *最后*一个措施，调整软件过滤器（见[这里](../config_mc/racer_setup.md#filters)）。 最好是减少振动源，而不是在软件中过滤。
 
 ## 参考
 
 一些可能对您有用的参考资料：
 
 - [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (免费文档)
-- [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (预览).
+- [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover)（预览）
