@@ -10,11 +10,11 @@
 
 <span></span>
 
-> **Tip** Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+> **提示** 确保您想要飞行的所有方向上都有传感器或传感器数据(当使能避障功能时)。
 
 ## 综述
 
-*Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
+通过设置参数[CP_DIST](#CP_DIST) 最小安全距离来使能PX4上的*避障*功能。
 
 The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
