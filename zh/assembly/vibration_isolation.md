@@ -1,4 +1,4 @@
-# 震动隔离
+# 震动隔绝
 
 This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
 
