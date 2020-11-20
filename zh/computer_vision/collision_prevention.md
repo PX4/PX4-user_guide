@@ -20,7 +20,7 @@
 
 > **注意**多个传感器可用于获取机身周围物体的信息并避障。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
 
-为了在靠近障碍物时减速，无人机/无人车限制了最大速度，并且在达到最小允许间距时停止移动。 In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
+为了在靠近障碍物时减速，无人机/无人车限制了最大速度，并且在达到最小允许间距时停止移动。 为了远离（或与之平行的）障碍物，用户必须使无人机/无人车朝向不靠近障碍物的设定点移动。 The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
 Users are notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
