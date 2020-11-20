@@ -1,6 +1,6 @@
 # 震动隔绝
 
-This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
+本主题展示了如何确定振动水平是否过高，并列出了一些改善振动特征的简单步骤。
 
 ## 综述
 
