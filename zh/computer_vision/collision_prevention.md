@@ -16,7 +16,7 @@
 
 通过设置参数[CP_DIST](#CP_DIST) 最小安全距离来使能PX4上的*避障*功能。
 
-The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
+该功能需要外部系统提供的障碍物信息（发送的MAVLink[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息）和/或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)（distance sensor）。
 
 > **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
 
