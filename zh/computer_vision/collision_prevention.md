@@ -2,9 +2,9 @@
 
 *防撞*功能用于自动减速或制动，以免飞机撞上障碍物。
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
+避障功能可以在多旋翼的[位置模式](../flight_modes/position_mc.md)中使能，并且可以使用来自外接配套计算机，外接支持MAVLink协议的测距仪，连接到飞控的测距仪或者以上任意组合的传感器数据。
 
-Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough! It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+如果传感器的测量范围不够大，避障功能可能会限制无人机的最大飞行速度。 它也会阻止在没有传感器数据的方向上运动。（例如：如果后方没有传感器数据，将无法向后方飞行 ）。
 
 > **Tip** If high flight speeds are critical, consider disabling collision prevention when not needed.
 
