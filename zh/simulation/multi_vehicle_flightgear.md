@@ -28,11 +28,11 @@
 
 每个实例都应该有自己的启动脚本，可以代表完全不同的载具类型。 对于准备好的脚本，你应该看到以下视图。
 
-![Multi-vehicle simulation using PX4 SITL and FlightGear](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
+![使用 PX4 SITL 和 FlightGear 的多载具仿真](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
 
 *QGroundControl* 和开发者 APIs (比如 Dronecode SDK) 可以通过代码默认端口连接到所有实例（分别为14550 和 14540）。
 
-The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) is probably required to run *many* vehicle instances.
+同时运行的实例数量主要受到计算机资源的限制。 FlightGear是一个单线程应用程序，但空气动力特性解算会消耗大量内存。 因此，可能需要（将任务）拆分到多台计算机并使用 [多台用户服务器](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) 来运行 *多个* 载具实例。
 
 ## 额外资源
 
