@@ -1,8 +1,8 @@
 # JMAVSim 进行多机仿真
 
-本节介绍如何在SITL中使用 FlightGear 进行多机仿真 All vehicle instances have parameters defined by their startup scripts.
+本节介绍如何在SITL中使用 FlightGear 进行多机仿真 所有车辆实例都有其启动脚本定义的参数。
 
-> **Note** This is the most environmentally realistic way to simulate multiple vehicles running PX, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo.
+> **注意** 这是运行PX代码进行多机仿真最真实的方式， 并且能够方便地测试多种不同类型的无人机。 It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo.
 
 
 ## 如何启动多机实例
