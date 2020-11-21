@@ -21,12 +21,12 @@
    cd ./Tools/flightgear_bridge/scripts
    ./vehicle1.sh
    ```
-1. Start subsequent instances using another script:
+1. 使用另一个脚本开始后续实例：
    ```bash
    ./vehicle2.sh
    ```
 
-Each instance should have its own startup script, which can represent a completely different vehicle type. For prepared scripts you should get the following view.
+每个实例都应该有自己的启动脚本，可以代表完全不同的载具类型。 对于准备好的脚本，你应该看到以下视图。
 
 ![Multi-vehicle simulation using PX4 SITL and FlightGear](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
 
