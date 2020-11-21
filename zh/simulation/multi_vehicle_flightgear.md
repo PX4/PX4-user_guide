@@ -2,21 +2,21 @@
 
 本节介绍如何在SITL中使用 FlightGear 进行多机仿真 所有车辆实例都有其启动脚本定义的参数。
 
-> **注意** 这是运行PX代码进行多机仿真最真实的方式， 并且能够方便地测试多种不同类型的无人机。 It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo.
+> **注意** 这是运行PX代码进行多机仿真最真实的方式， 并且能够方便地测试多种不同类型的无人机。 它适合使用 *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/)等工具进行多机测试。 [Gazebo进行多机仿真](../simulation/multi-vehicle-simulation.md) 应改为用于使用许多车辆的种群模拟，并测试只有Gazebo支持的计算机视图等功能。
 
 
 ## 如何启动多机实例
 
-To start multiple instances (on separate ports and IDs):
+启动多个实例 (使用单独的端口和 ID)：
 
-1. Checkout the [PX4 branch that supports multiple vehicles](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (at ThunderFly-aerospace):
+1. 确定 [支持多机的PX4 分支](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (查阅ThunderFly-aerospace)：
    ```bash
    git clone https://github.com/ThunderFly-aerospace/PX4Firmware.git
    cd PX4Firmware
    git checkout flightgear-multi  
    ```
-1. Build the PX4 Firmware using the standard toolchain (with FlightGear installed).
-1. Start the first instance using the [predefined scripts](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts):
+1. 使用标准工具链构建PX4固件(已安装 FlightGear )。
+1. 使用 [预定义脚本](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts) 启动第一个实例：
    ```bash
    cd ./Tools/flightgear_bridge/scripts
    ./vehicle1.sh
