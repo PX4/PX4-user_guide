@@ -1,4 +1,4 @@
-# Racer Setup
+# 穿越机设置
 
 This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
 
