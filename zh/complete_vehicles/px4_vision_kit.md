@@ -1,6 +1,6 @@
-# PX4 Vision Autonomy Development Kit
+# PX4 Vision 视觉自主开发套件
 
-*PX4视觉自主开发套件*是一个稳定且高性价比的套件，让你能够在自动化无人机上开发计算机视觉。
+[*PX4 Vision 视觉自主开发套件*](http://www.holybro.com/product/px4-vision/) 是一个稳定且高性价比的套件，让你能够在自动化载具上开发计算机视觉。
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
