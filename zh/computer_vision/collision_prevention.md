@@ -97,7 +97,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 - 在特定端口上连接并配置距离传感器（请参阅特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
     
-    - 修改驱动程序以设置方向。 This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+    - 修改驱动程序以设置方向。 这个可以通过类似于`SENS_CM8JL65_R_0`参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样: `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
     - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).</ul> 
     
     > **提示** 您可以从 [功能PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
