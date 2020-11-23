@@ -10,7 +10,7 @@
 
 <span></span>
 
-> **Tip** Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+> **提示** 确保您想要飞行的所有方向上都有传感器或传感器数据(当使能防撞功能时)。
 
 ## 综述
 
@@ -18,7 +18,7 @@
 
 该功能需要外部系统提供的障碍物信息（发送的MAVLink[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息）和/或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)（distance sensor）。
 
-> **注意**多个传感器可用于获取机身周围物体的信息并避障。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
+> **注意**多个传感器可用于获取机身周围物体的信息并防撞。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
 
 为了在靠近障碍物时减速，无人机/无人车限制了最大速度，并且在达到最小允许间距时停止移动。 为了远离（或与之平行的）障碍物，用户必须使无人机/无人车朝向不靠近障碍物的设定点移动。 如果存在一个“更好”的设定点，这个设定点在请求设定点的任何一侧，并且在固定的间隙内，算法将对设定点方向做最小的调整。
 
