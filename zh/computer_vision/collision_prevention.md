@@ -46,7 +46,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 该速度限制同时考虑了内速度环和最佳加速度控制器，内速度环由[MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P)参数来调整，最佳加速度控制器由<0>MPC_JERK_MAX</0>和<0>MPC_ACC_HOR</0>两个参数来调整。 限制速度，以便无人机/无人车及时停止以保持在[CP_DIST](#CP_DIST)这个参数指定的距离。 还考虑到每个扇区的传感器范围，通过相同的机制限制了速度。
 
-> **Note** If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects). If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
+> **注意**如果在特定的方向上没有传感器数据，则该方向的速度会被限制为0（防止机身撞到看不见的物体）。 如果想要在没有传感器覆盖范围的方向自由移动，这可以将[CP_GO_NO_DATA](#CP_GO_NO_DATA) 设置为 1来使能。
 
 Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter. This should be [tuned](#delay_tuning) to the specific vehicle.
 
