@@ -58,15 +58,15 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将xy的速度设置为0。 5秒没有收到任何数据，无人机/无人车会切换到[保持模式](../flight_modes/hold.md) 如果想要机身再次移动，则需要禁止避障功能，禁止避障功能可以通过设置[CP_DIST](#CP_DIST)为负值或者切换到[位置模式](../flight_modes/position_mc.md)以外的模式（例如：切换到*高度模式*或者*自稳模式*）。
 
-如果连接了多个传感器，但是其中有一个传感器失去连接，仍然能够在有传感器数据上报的视觉范围内飞行。 The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
+如果连接了多个传感器，但是其中有一个传感器失去连接，仍然能够在有传感器数据上报的视觉范围内飞行。 故障传感器的数据会失效，并且该传感器覆盖的区域会被视为未覆盖区域，意味着无法移动到该区域。
 
-> **Warning** Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage. If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
+> **警告** 使能参数 [CP_GO_NO_DATA=1](#CP_GO_NO_DATA)时要小心，这会使无人机飞出传感器覆盖的区域。 如果多个传感器中有一个失去连接，故障传感器所覆盖的区域将被视为未覆盖，可以在该区域移动不受限制。
 
 <span id="delay_tuning"></span>
 
 ### CP_DELAY 延迟调整
 
-There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*. Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
+延迟的主要来源有两个：*传感器延迟*和机身*速度设定点跟踪延迟*。 这两个延迟来源都可以通过[CP_DELAY](#CP_DELAY)这个参数来调整。
 
 The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0. For external vision-based systems the sensor delay may be as high as 0.2s.
 
