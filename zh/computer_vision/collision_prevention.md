@@ -44,7 +44,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 所有传感器的数据融合到机身周围的36个扇区中，每个扇区包含传感器数据和上次观测时间信息，或者指示该扇区没有可用数据。 当控制无人机/无人车向特定的方向移动时，就会检查该方向半球内的所有扇区，以查看此次移动是否会使机身靠近任何障碍物。 如果是这样，无人机/无人车的速度就会受到限制。
 
-该速度限制同时考虑了内速度环和最佳加速度控制器，内速度环由[MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P)参数来调整，最佳加速度控制器由<0>MPC_JERK_MAX</0>和<0>MPC_ACC_HOR</0>两个参数来调整。 The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in [CP_DIST](#CP_DIST). The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism.
+该速度限制同时考虑了内速度环和最佳加速度控制器，内速度环由[MPC_XY_P](../advanced_config/parameter_reference.md#MPC_XY_P)参数来调整，最佳加速度控制器由<0>MPC_JERK_MAX</0>和<0>MPC_ACC_HOR</0>两个参数来调整。 限制速度，以便无人机/无人车及时停止以保持在[CP_DIST](#CP_DIST)这个参数指定的距离。 还考虑到每个扇区的传感器范围，通过相同的机制限制了速度。
 
 > **Note** If there is no sensor data in a particular direction, velocity in that direction is restricted to 0 (preventing the vehicle from crashing into unseen objects). If you wish to move freely into directions without sensor coverage, this can be enabled by setting [CP_GO_NO_DATA](#CP_GO_NO_DATA) to 1.
 
