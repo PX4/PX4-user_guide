@@ -99,13 +99,13 @@ Other sensors may be enabled, but this requires modification of driver code to s
 - Modify the driver to set the orientation. This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
 - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
-> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Please contribute back your changes!
+> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). 请回馈你的更改！
 
 <span id="companion"></span>
 
 ## 机载计算机设置
 
-If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
+如果使用机载计算机或者外部传感器，需要提供[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息流，该消息流反映检测到障碍物的时间和位置。
 
 消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
 
