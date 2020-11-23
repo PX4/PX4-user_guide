@@ -88,37 +88,41 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 ## PX4距离传感器
 
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
+使用[Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md)红外距离传感器对PX4的防撞功能来说“开箱即用”，最少的额外配置就可以使用。
 
-- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
-- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+- 首先，[连接和配置传感器](../sensor/cm8jl65_ir_distance_sensor.md), 使能防撞功能（如上所述，使用[CP_DIST](#CP_DIST)参数）。
+- 使用参数[SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) 设置传感器方向。
 
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+其他传感器的使能需要修改驱动代码来设置传感器方向和视觉范围。
 
-- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
-- Modify the driver to set the orientation. This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-- Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
-
-> **提示** 您可以从 [功能PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
+- 在特定端口上连接并配置距离传感器（请参阅特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
+    
+    - 修改驱动程序以设置方向。 This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
+    - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).</ul> 
+    
+    > **提示** 您可以从 [功能PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
+    
+    
 
 <span id="companion"></span>
 
-## 机载计算机设置
-
-如果使用机载计算机或者外部传感器，需要提供[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息流，该消息流反映检测到障碍物的时间和位置。
-
-消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
-
-> **信息**系统在初始测试时，机身以4m/s的速度移动，并且以10Hz(视觉系统支持的最大速率)的频率发送`OBSTACLE_DISTANCE`消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
-
-配套的测试软件是[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)仓库中的*local_planner*。 关于硬件和软件安装调试的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
-
-软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
-
-## Gazebo设置
-
-*防撞*功能支持Gazebo仿真测试。 设置方法请遵照[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)的说明。
-
-<!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
-
-<!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
+    
+    ## 机载计算机设置
+    
+    如果使用机载计算机或者外部传感器，需要提供[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)消息流，该消息流反映检测到障碍物的时间和位置。
+    
+    消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
+    
+    > **信息**系统在初始测试时，机身以4m/s的速度移动，并且以10Hz(视觉系统支持的最大速率)的频率发送`OBSTACLE_DISTANCE`消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
+    
+    配套的测试软件是[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)仓库中的*local_planner*。 关于硬件和软件安装调试的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
+    
+    软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
+    
+    ## Gazebo设置
+    
+    *防撞*功能支持Gazebo仿真测试。 设置方法请遵照[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)的说明。
+    
+    <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
+    
+    <!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
