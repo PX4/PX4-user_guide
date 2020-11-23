@@ -56,7 +56,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 ### 航程数据丢失
 
-If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning *No range data received, no movement allowed*. This will force the velocity setpoints in xy to zero. After 5 seconds of not receiving any data, the vehicle will switch into [HOLD mode](../flight_modes/hold.md). If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes/position_mc.md) (e.g. to *Altitude mode* or *Stabilized mode*).
+如果自驾仪超过0.5秒没有收到传感器的航程数据，自驾仪将会发出警告*没有航程数据，不允许移动*。 这会导致强制将xy的速度设置为0。 5秒没有收到任何数据，无人机/无人车会切换到[保持模式](../flight_modes/hold.md) 如果想要机身再次移动，则需要禁止避障功能，禁止避障功能可以通过设置[CP_DIST](#CP_DIST)为负值或者切换到[位置模式](../flight_modes/position_mc.md)以外的模式（例如：切换到*高度模式*或者*自稳模式*）。
 
 If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors. The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
 
