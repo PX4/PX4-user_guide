@@ -48,7 +48,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 > **注意**如果在特定的方向上没有传感器数据，则该方向的速度会被限制为0（防止机身撞到看不见的物体）。 如果想要在没有传感器覆盖范围的方向自由移动，这可以将[CP_GO_NO_DATA](#CP_GO_NO_DATA) 设置为 1来使能。
 
-Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [CP_DELAY](#CP_DELAY) parameter. This should be [tuned](#delay_tuning) to the specific vehicle.
+通过 CP_DELAY </ 0>参数保守地估计机身跟踪速度设定点和从外部来源接收传感器数据中的延迟。 应该将 [调整到](#delay_tuning) 个特定的机型。</p> 
 
 If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in [CP_GUIDE_ANG](#CP_GUIDE_ANG). This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
