@@ -1,8 +1,8 @@
 # 安全着陆
 
-The *Safe Landing* feature ensures that vehicles only land on flat terrain.
+*安全着陆* 功能确保车辆只能降落在平坦的地形上。
 
-The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mission mode](../flight_modes/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. It can also be used for VTOL vehicles in MC mode.
+这个功能可以在多旋翼的[降落模式](../flight_modes/land.md)和[任务模式](../flight_modes/mission.md)中使能，多旋翼可以连接运行计算机视觉软件的机载计算机。 也可以在VTOL(垂起无人机)的MC模式下使用。
 
 If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter). If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
 
