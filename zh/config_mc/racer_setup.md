@@ -1,6 +1,6 @@
-# Racer Setup
+# 穿越机设置
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
+本页面描述了：如何设置和配置一台穿越机来获取良好的性能（尤其对于特技模式）
 
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
 

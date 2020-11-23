@@ -1,6 +1,6 @@
-# PX4 Vision Autonomy Development Kit
+# PX4 Vision 视觉自主开发套件
 
-*PX4视觉自主开发套件*是一个稳定且高性价比的套件，让你能够在自动化无人机上开发计算机视觉。
+[*PX4 Vision 视觉自主开发套件*](http://www.holybro.com/product/px4-vision/) 是一个稳定且高性价比的套件，让你能够在自动化载具上开发计算机视觉。
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
@@ -12,7 +12,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## PX4 Vision 自主无人机开发套件（先行者版）
 
-- [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
+- [购买链接（中国大陆地区及港澳地区由淘宝店“地面售货站”提供销售）](https://item.taobao.com/item.htm?id=609418685176)
 
 ## 警告&通知
 - [警告&通知](#warnings-and-notifications)
@@ -35,7 +35,7 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
    ![警告 - 不连接电源端口](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
 ## 开始了解你的开发套件
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![包装内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
@@ -267,7 +267,7 @@ PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/e
 
 Ubuntu 登录屏幕应显示在显示器上。
 
-1. 使用凭据登录到 *UP Core* 
+1. 使用凭据登录到 *UP Core*： 
       - **用户名：**px4vision
    - **密码：**px4vision
 

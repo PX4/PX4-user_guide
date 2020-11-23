@@ -47,7 +47,7 @@
 
 ## 采购
 
-中国大陆用户请从官方代理商 [思动智能](https://thone.io) 的淘宝店 [地面售货站](https://item.taobao.com/item.htm?id=569286312095) 购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html) 购买。
+中国大陆用户请从官方代理商 [思动智能](https://thone.io/) 的淘宝店 [地面售货站](https://dimianzhan.taobao.com/) 购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html) 购买。
 
 ## 连接器
 
@@ -138,6 +138,6 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 * [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 * FMUv5参考设计</0 >。</li> 
   
-  * [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
+  * [Pixhawk 4 快速接线指南](../assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
   * [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)</ul>

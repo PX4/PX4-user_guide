@@ -1,20 +1,20 @@
 # 安全着陆
 
-The *Safe Landing* feature ensures that vehicles only land on flat terrain.
+*安全着陆* 功能确保车辆只能降落在平坦的地形上。
 
-The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mission mode](../flight_modes/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. It can also be used for VTOL vehicles in MC mode.
+这个功能可以在多旋翼的[降落模式](../flight_modes/land.md)和[任务模式](../flight_modes/mission.md)中使能，多旋翼可以连接运行计算机视觉软件的机载计算机。 也可以在VTOL(垂起无人机)的MC模式下使用。
 
 If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter). If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
 
 {% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
 
-## Limitations/Capabilities
+## 局限/能力
 
-Safe landing is designed for finding flat areas in rough terrain.
+安全着陆是为了在崎岖的地势中找到平坦区域。
 
-- Landing on a road is not prevented; if a car is detected it will be "forgotten" once it moves past.
-- Landing on water may occur if using radar or ultrasound sensors, but should not occur if using stereo cameras or LIDAR. 
-  - The system will only land if it is able to detect ground. For stereo cameras, water that is rough enough to have sufficient distinguishing features for analysis will not be flat enough to land on.
+- 允许在公路上降落；如果检测到汽车，它将在驶过是被"遗忘"。
+- 如果使用雷达或超声波传感器，就可以降落在水上，但是使用立体相机或LIDAR则不可以。 
+  - 系统只有在能够探测到地面的情况下才会降落。 对于立体相机，不能对水进行足够的特征分析，导致找不到平坦的区域进行降落。
 
 ## PX4配置
 
