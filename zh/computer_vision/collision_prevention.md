@@ -78,7 +78,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 ### CP_GUIDE_ANG 制导调整
 
-取决于机体，环境类型和飞行员技能，可能需要不同数量的制导。 将 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 参数设置为 0 将禁用制导，从而使得无人机/无人车只能在正确的方向上移动。 Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+取决于机体，环境类型和飞行员技能，可能需要不同数量的制导。 将 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 参数设置为 0 将禁用制导，从而使得无人机/无人车只能在正确的方向上移动。 增大此参数将使无人机选择最佳方向来避开障碍物，从而更容易飞过狭窄的间隙，并与物体周围保持最小间距。
 
 If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
@@ -99,7 +99,7 @@ Other sensors may be enabled, but this requires modification of driver code to s
 - Modify the driver to set the orientation. This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
 - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
-> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). 请回馈你的更改！
+> **提示** 您可以从 [功能PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
 
 <span id="companion"></span>
 
@@ -109,9 +109,9 @@ Other sensors may be enabled, but this requires modification of driver code to s
 
 消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
 
-> **Info** Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
+> **信息**系统在初始测试时，机身以4m/s的速度移动，并且以10Hz(视觉系统支持的最大速率)的频率发送`OBSTACLE_DISTANCE`消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 
-The tested companion software is the *local_planner* from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. For more information on hardware and software setup see: [PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
+配套的测试软件是[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)仓库中的*local_planner*。 关于硬件和软件安装调试的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
 
 软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
 
