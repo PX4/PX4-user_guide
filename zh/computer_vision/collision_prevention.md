@@ -82,7 +82,7 @@ PX4软件的安装配置在下一章节中。 如果您准备使用距离传感�
 
 如果该参数设置太小，机身在靠近障碍物时可能会感觉“卡住”， 因为只允许以最小距离远离障碍物移动。 如果该参数设置太大，机身可能会感觉它朝着飞手未指示的方向"滑动"远离障碍物。 从测试来看，尽管不同的车辆可能有不同的要求，但是30度是一个很好的平衡点。
 
-> **注意** 制导功能绝不会把无人机/无人车引导到没有传感器数据的方向。 If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+> **注意** 制导功能绝不会把无人机/无人车引导到没有传感器数据的方向。 如果只有一个距离传感器指向前方时无人机/无人车感到“卡住”，这可能是因为由于缺乏信息，制导无法安全地调整方向。
 
 <span id="rangefinder"></span>
 
