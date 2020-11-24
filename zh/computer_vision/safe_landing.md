@@ -20,16 +20,16 @@
 
 PX4通过[设置](../advanced_config/parameter_reference.md#COM_OBS_AVOID)参数<1>COM_OBS_AVOID</1> 为1来启动安全着陆功能。
 
-> **Note** `COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+> **注意** `COM_OBS_AVOID` 还使能了 [任务避障](../computer_vision/obstacle_avoidance.md#mission_mode)功能， 以及使用 [路径规划外部接口](../computer_vision/path_planning_interface.md) (轨迹接口) 的任何其他功能，将外部路径规划服务于PX4集成在一起。
 
 ## 机载计算机设置
 
-Companion-side setup and configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+机载计算机的安装和配置说明在Github仓库[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)。
 
-This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
+这涵盖了用于避障和防撞的通用设置，包括使用*安全着陆规划*的特定部分（此功能提供了机载计算机侧的支持）：
 
-* [Simulation setup](https://github.com/PX4/avoidance#safe-landing-planner)
-* [Harware setup](https://github.com/PX4/avoidance#safe-landing-planner-1)
+* [仿真模拟安装配置](https://github.com/PX4/avoidance#safe-landing-planner)
+* [硬件安装配置](https://github.com/PX4/avoidance#safe-landing-planner-1)
 
 The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
 
