@@ -1,4 +1,4 @@
-# Visual Intertial Odometry (VIO)
+# 视觉惯性里程计(VIO)
 
 *Visual Inertial Odometry* (VIO) is a [computer vision](../computer_vision/README.md) technique used for estimating the 3D *pose* (local position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent or unreliable (e.g. indoors, or when flying under a bridge).
 
@@ -16,13 +16,13 @@ https://youtu.be/gWtrka2mK7U
 > **Note** This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 
 <span id="supported_setup"></span>
-## Supported Setup
+## 安装支持
 
 The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
 
 
 
-### Camera Mounting
+### 相机挂载
 
 Attach the camera to the companion computer and mount it to the frame:
 
@@ -31,7 +31,7 @@ Attach the camera to the companion computer and mount it to the frame:
 - The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
 
-### ROS/VIO Setup
+### ROS/VIO 安装配置
 
 To setup the Bridge, ROS and PX4:
 - On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
@@ -73,7 +73,7 @@ To setup the Bridge, ROS and PX4:
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
 <span id="ekf2_tuning"></span>
-### PX4 Tuning
+### PX4 调试
 
 The following parameters must be set to use external position information with EKF2.
 
@@ -104,7 +104,7 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 该值可以通过不同的参数一起调整，在动态变化中来保证最低 EKF 。
 
 <span id="verify_estimate"></span>
-## Check/Verify VIO Estimate
+## 检查/验证 VIO 预估
 
 Perform the following checks to verify that VIO is working properly *before* your first flight:
 
