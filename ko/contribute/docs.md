@@ -7,9 +7,9 @@ Contributions to the guides for all parts of the Dronecode project are very welc
 ## Quick Changes
 
 Fixing typos or editing an *existing page* is easy:
-1. Click the **Edit** toolbar icon at the top of the relevant page in the guide.
+1. Click the **Edit this page on GitHub** toolbar icon at the bottom of the relevant page in the guide.
 
-   ![Gitbook: Edit Page button](../../assets/gitbook/gitbook_toolbar_icon_edit.png)
+   ![Vuepress: Edit Page button](../../assets/vuepress/vuepress_toolbar_icon_edit.png)
 
    This will open the page for editing (in Github).
 1. Make the desired change.
@@ -17,7 +17,7 @@ Fixing typos or editing an *existing page* is easy:
 
 The documentation team reviews submitted pull requests and will either merge it or work with you to update it.
 
-> **Note** If you want to add new pages or images, then you will need to work through the git tool rather than github. Often you will want to build the library using the gitbook toolchain to test your changes.
+> **Note** If you want to add new pages or images, then you will need to work through the git tool rather than github. Often you will want to build the library using the vuepress toolchain to test your changes.
 
 ## Adding New Content - Big Changes
 
