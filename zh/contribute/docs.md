@@ -9,7 +9,7 @@
 Fixing typos or editing an *existing page* is easy:
 1. 点击指南相关页面顶部的工具栏图标**Edit**。
 
-   ![Gitbook: 编辑页面按钮](../../assets/gitbook/gitbook_toolbar_icon_edit.png)
+   ![Gitbook: 编辑页面按钮](../../assets/vuepress/vuepress_toolbar_icon_edit.png)
 
    打开编辑页面(Github)。
 1. 进行修改。
@@ -17,7 +17,7 @@ Fixing typos or editing an *existing page* is easy:
 
 The documentation team reviews submitted pull requests and will either merge it or work with you to update it.
 
-> **Note** If you want to add new pages or images, then you will need to work through the git tool rather than github. Often you will want to build the library using the gitbook toolchain to test your changes.
+> **Note** If you want to add new pages or images, then you will need to work through the git tool rather than github. Often you will want to build the library using the vuepress toolchain to test your changes.
 
 ## Adding New Content - Big Changes
 
