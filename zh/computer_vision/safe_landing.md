@@ -49,5 +49,5 @@ PX4和机载设备之间的（消息发送）接口与任何其他路径规划�
 
 * [视觉和外部控制接口](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 开发者峰会2019: Martina Rivizzigno, Auterion Computer Vision Engineerer)
 * [PX4/avoidance](https://github.com/PX4/avoidance) 
-  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+  * [仿真模拟安装配置 > 安全着陆规划](https://github.com/PX4/avoidance#safe-landing-planner)
+  * [硬件安装配置 > 安全着陆规划](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
