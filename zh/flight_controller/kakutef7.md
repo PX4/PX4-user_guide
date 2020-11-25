@@ -1,12 +1,16 @@
 # Kakute F7
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 主要特性
 
@@ -68,7 +72,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## 编译固件
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make holybro_kakutef7_default
     
