@@ -10,10 +10,13 @@ This topic shows how to set up PX4 and a companion computer to use the *supporte
 https://youtu.be/gWtrka2mK7U
 {% endyoutube %}
 
-> **Tip** The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+:::tip
+The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+:::
 
-<span></span>
-> **Note** This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+:::tip
+Note This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+:::
 
 <span id="supported_setup"></span>
 ## 安装支持
@@ -69,7 +72,8 @@ To setup the Bridge, ROS and PX4:
   - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):Use for simulation (starts bridge, MAVROS, SITL)
 - Verify the connection to the flight controller.
 
-  > **Tip** You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+  :::tip You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+:::
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
 <span id="ekf2_tuning"></span>
@@ -91,17 +95,19 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 <span id="tuning-EKF2_EV_DELAY"></span>
 #### 调参 EKF2_EV_DELAY
 
-换句话说，它是视觉系统时间戳和 "实际" 捕获时间之间的差异，将记录的 IMU 时钟（"基本时钟" 为 ekf2）。 In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
-从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP），则可以将其设置为0。 In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. 系统设置完全同步链的情况很少见!
-
-通过检查 IMU 速率和 EV 速率之间的偏移量，可以从日志中获得延迟的粗略估计：
-
-![ekf2_ev_delay 日志](../../assets/ekf2/ekf2_ev_delay_tuning.png)
-
-> **Note** A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
 
 该值可以通过不同的参数一起调整，在动态变化中来保证最低 EKF 。
+
+![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
+
+:::tip
+Note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::
+
+The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
 <span id="verify_estimate"></span>
 ## 检查/验证 VIO 预估
@@ -144,7 +150,7 @@ If it is connecting properly common problems/solutions are:
 
 ## 开发人员信息
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md) (PX4 Developer Guide).
+Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
 
 This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
 
