@@ -206,7 +206,7 @@ You can specify more than one mixer in each file. The output order (allocation o
 <tag>: <mixer arguments>
 ```
 
-[这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
+[这里](../dev_airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
 - `R`: [Multirotor mixer](#multirotor_mixer)
 - `H`: [Helicopter mixer](#helicopter_mixer)
 - `M`: [Summing mixer](#summing_mixer)
@@ -243,14 +243,14 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 > **Note** `S:` l行必须处于 `O:` 的下面。
 
-`&lt;group&gt;` 参数指定了缩放器从哪个控制组中读取数据，而 `&lt;index&gt;` 参数则是定义了该控制组的偏移值。   
+`&lt;group&gt;` 参数指定了缩放器从哪个控制组中读取数据，而 `&lt;index&gt;` 参数则是定义了该控制组的偏移值。
 这些参数的设定值会随着读取混控器定义文件的设备的不同而发生改变。
 
 当将混控器用于混合飞机的控制量时，编号为 0 的混控器组为飞机的姿态控制组，该控制组内编号 0 - 3 的选项通常分别便是滚转、俯仰、偏航和推力。
 
 剩下的字段则是使用上文提及的缩放参数对控制量的缩放器进行了设定。 同时，结果的计算是以浮点计算的形式进行的，在混控器定义文件中的值都将缩小 10000 倍，比如：实际中 -0.5 的偏移量（offset）在定义文件中保存为 -5000 。
 
-[这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
+[这里](../dev_airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
 
 <a id="null_mixer"></a>
 

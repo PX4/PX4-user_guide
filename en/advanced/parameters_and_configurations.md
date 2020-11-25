@@ -5,7 +5,7 @@ PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) an
 This section discusses the *param* subsystem in detail.
 It covers how to list, save and load parameters, and how to define them.
 
-> **Note** [System startup](../concept/system_startup.md) and the way that [airframe configurations](../airframes/adding_a_new_frame.md) work are detailed on other pages. 
+> **Note** [System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages.
 
 
 ## Command Line Usage
@@ -53,11 +53,11 @@ If provided with an argument, it will store the parameters instead to this new l
 param save /fs/microsd/vtol_param_backup
 ```
 
-There are two different commands to *load* parameters: 
+There are two different commands to *load* parameters:
 - `param load` first does a full reset of all parameters to their defaults, and then overwrites parameter values with any values stored in the file.
 - `param import` just overwrites parameter values with the values from the file and then saves the result (i.e. effectively calls `param save`).
 
-The `load` effectively resets the parameters to the state when the parameters were saved (we say "effectively" because any parameters saved in the file will be updated, but other parameters may have different firmware-defined default values than when the parameters file was created). 
+The `load` effectively resets the parameters to the state when the parameters were saved (we say "effectively" because any parameters saved in the file will be updated, but other parameters may have different firmware-defined default values than when the parameters file was created).
 
 By contrast, `import` merges the parameters in the file with the current state of the vehicle.
 This can be used, for example, to just import a parameter file containing calibration data, without overwriting the rest of the system configuration.
@@ -72,7 +72,7 @@ param save
 ```
 ```sh
 # Merge the saved parameters with current parameters
-param import /fs/microsd/vtol_param_backup  
+param import /fs/microsd/vtol_param_backup
 ```
 
 
@@ -95,15 +95,15 @@ Synchronization is important because a parameter can be changed to another value
 Your code should *always* use the current value from the parameter store.
 If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
 
-In addition, the C++ version has also better type-safety and less overhead in terms of RAM. 
+In addition, the C++ version has also better type-safety and less overhead in terms of RAM.
 The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
 
 
 ### C++ API
 
-The C++ API provides macros to declare parameters as *class attributes*. 
+The C++ API provides macros to declare parameters as *class attributes*.
 You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update.
-Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. 
+Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync.
 In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
 First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
@@ -140,7 +140,7 @@ First include the header to access the uORB parameter_update message:
 ```cpp
 #include <uORB/topics/parameter_update.h>
 ```
-Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. 
+Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped.
 `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
 ```cpp
 # Subscribe to parameter_update message
@@ -167,7 +167,7 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 
 	if (force || updated) {
 		// If any parameter updated, call updateParams() to check if
-		// this class attributes need updating (and do so). 
+		// this class attributes need updating (and do so).
 		updateParams();
 	}
 }
@@ -201,9 +201,9 @@ int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-> **Note** If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed. 
+> **Note** If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
 
-`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. 
+`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`.
 If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
 ```cpp
 # Get the handle to the parameter
@@ -224,7 +224,7 @@ PX4 uses an extensive parameter metadata system to drive the user-facing present
 > **Tip** Correct meta data is critical for good user experience in a ground station.
 
 Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible).
-Typically it is stored alongside its associated module. 
+Typically it is stored alongside its associated module.
 
 The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
 
@@ -292,7 +292,7 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
 
 > **Note** At time of writing YAML parameter definitions cannot be used in *libraries*.
 
-YAML meta data is intended as a full replacement for the **.c** definitions. 
+YAML meta data is intended as a full replacement for the **.c** definitions.
 It supports all the same metadata, along with new features like multi-instance definitions.
 
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
@@ -311,7 +311,7 @@ MY_PARAM_${i}_RATE:
                 short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes. 
+The following YAML definitions provide the start and end indexes.
 - `num_instances` (default 1): Number of instances to generate (>=1)
 - `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
 

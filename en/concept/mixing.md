@@ -207,7 +207,7 @@ See above for more information on [mixer loading](#loading_mixer).
 <a id="mixer_syntax"></a>
 ### Syntax
 
-Mixer files are text files that define one or more mixer definitions: mappings between one or more inputs and one or more outputs. 
+Mixer files are text files that define one or more mixer definitions: mappings between one or more inputs and one or more outputs.
 
 There are four types of mixers definitions: [multirotor mixer](#multirotor_mixer), [helicopter mixer](#helicopter_mixer), [summing mixer](#summing_mixer), and [null mixer](#null_mixer).
 - [Multirotor mixer](#multirotor_mixer) - Defines outputs for 4, 6, or 8 rotor vehicles with + or X geometry.
@@ -280,7 +280,7 @@ When used to mix vehicle controls, mixer group zero is the vehicle attitude cont
 The remaining fields on the line configure the control scaler with parameters as discussed above.
 Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
 
-An example of a typical mixer file is explained [here](../airframes/adding_a_new_frame.md#mixer-file).
+An example of a typical mixer file is explained [here](../dev_airframes/adding_a_new_frame.md#mixer-file).
 
 
 <a id="null_mixer"></a>
@@ -315,7 +315,7 @@ The supported geometries include:
 * 6+ - hexacopter in + configuration
 * 8x - octocopter in X configuration
 * 8+ - octocopter in + configuration
-  
+
 Each of the roll, pitch and yaw scale values determine scaling of the roll, pitch and yaw controls relative to the thrust control.
 Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an factor of 0.5 is encoded as 5000.
 

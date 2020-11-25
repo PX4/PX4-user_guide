@@ -4,13 +4,13 @@ PX4 使用 *param subsystem *（`float` 和 `int32_t` 值的平面表）和文�
 
 本节详细讨论 *param* 子系统。 This section discusses the *param* subsystem in detail. It covers how to list, save and load parameters, and how to define them.
 
-> **Note** 在其他页面上详细介绍了 [System 启动 ](../concept/system_startup.md) 和 [airframe 配置 ](../airframes/adding_a_new_frame.md) 工作方式。
+> **Note** 在其他页面上详细介绍了 [System 启动 ](../concept/system_startup.md) 和 [airframe 配置 ](../dev_airframes/adding_a_new_frame.md) 工作方式。
 
 
 ## 命令行使用方法
 
 PX4
-system 控制台/0 > 提供了 [param](../middleware/modules_command.md#param) 工具，可用于设置参数、读取其值、保存参数以及从文件中导出和还原参数。</p> 
+system 控制台/0 > 提供了 [param](../middleware/modules_command.md#param) 工具，可用于设置参数、读取其值、保存参数以及从文件中导出和还原参数。</p>
 
 
 
@@ -72,18 +72,18 @@ param save /fs/microsd/vtol_param_backup
 ```
 
 
-有两个不同的命令可用于 *load* 参数: 
+有两个不同的命令可用于 *load* 参数:
 
 - `param load ` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
 - `param import ` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save</0 >）。</li>
 </ul>
 
-<p spaces-before="0"><code>load` 有效地将参数重置为保存参数时的状态（我们说 "有效"，因为保存在文件中的任何参数都将被更新，但其他参数可能具有与参数文件）。 </p> 
+<p spaces-before="0"><code>load` 有效地将参数重置为保存参数时的状态（我们说 "有效"，因为保存在文件中的任何参数都将被更新，但其他参数可能具有与参数文件）。 </p>
   相比之下，`import` 将文件中的参数与车辆的当前状态合并。 By contrast, `import` merges the parameters in the file with the current state of the vehicle. This can be used, for example, to just import a parameter file containing calibration data, without overwriting the rest of the system configuration.
-  
+
   这两种情况的示例如下所示:
-  
-  
+
+
 
 ```sh
 # 将参数重置为保存文件时,
@@ -96,7 +96,7 @@ param save
 
 ```sh
 # 将保存的参数与当前参数合并
-param import /fs/microsd/vtol_param_backup  
+param import /fs/microsd/vtol_param_backup
 ```
 
 
@@ -216,10 +216,10 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 
     if (force || updated) {
         // If any parameter updated, call updateParams() to check if
-        // this class attributes need updating (and do so). 
+        // this class attributes need updating (and do so).
         updateParams();
     }
-} 
+}
         updateParams();
     }
 }
@@ -266,7 +266,7 @@ param_get(param_find("PARAM_NAME"), &my_param);
 
 
 
-> **Note** 如果在参数元数据中声明了 `PARAM_NAME`，则将设置其默认值，上述查找参数的调用应始终成功。 
+> **Note** 如果在参数元数据中声明了 `PARAM_NAME`，则将设置其默认值，上述查找参数的调用应始终成功。
 
 `param_find()` 是一个 "昂贵" 的操作，它返回可供 `param_get()` 使用的句柄。 `param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
 
@@ -291,7 +291,7 @@ PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，�
 
 > **Tip** 正确的元数据对于在地面站获得良好的用户体验至关重要。
 
-Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). 通常，它与关联的模块一起存储。 
+Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). 通常，它与关联的模块一起存储。
 
 The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced/parameter_reference.md) and the parameter information used by ground stations.
 
@@ -415,7 +415,7 @@ MY_PARAM_${i}_RATE:
 ```
 
 
-The following YAML definitions provide the start and end indexes. 
+The following YAML definitions provide the start and end indexes.
 
 - `num_instances` (default 1): Number of instances to generate (>=1)
 - `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
