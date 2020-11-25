@@ -34,20 +34,20 @@ https://youtu.be/gWtrka2mK7U
 将相机连接到机载计算机并将其安装到框架：
 
 - 使用提供的线缆连接 [T265 Intel Realse追踪摄像头](../peripherals/camera_t265_vio.md)。
-- Mount the camera with lenses pointing down if at all possible (default).
-- The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+- 尽可能使镜头朝下安装相机（默认）。
+- 相机对振动非常敏感，建议软安装(例如使用振动隔离泡沫)。
 
 
 
 
 ### ROS/VIO 安装配置
 
-To setup the Bridge, ROS and PX4:
+设置桥接，ROS和 PX4：
 
-- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
-- Get the Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge):
+- 在机载计算机上安装和配置 [MAVROS](../ros/mavros_installation.md)。
+- 获取 Auterion [VIO 桥接ROS节点](https://github.com/Auterion/VIO_bridge):
   
-    - Clone this repository in your catkin workspace. 
+    - 从仓库中克隆代码到你的catkin工作空间。 
     
     
     ```
@@ -61,14 +61,14 @@ To setup the Bridge, ROS and PX4:
     
     ```
     cd ~/catkin_ws/src
-    catkin build px4_realsense_bridge
+    catkin building px4_realsense_bridge
     ```
 
 
-- Configure the camera orientation if needed:
+- 如果需要，配置摄像头方向：
   
-    - The VIO bridge doesn't require any configuration if the camera is mounted with the lenses facing down (the default).
-  - For any other orientation modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below: 
+    - 如果摄像机的镜头朝下安装（默认设置），则VIO桥接器不需要任何配置。
+  - 对于任何其他方向，请在以下部分中修改[ bridge_mavros.launch ](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)： 
     
     
     ```xml
