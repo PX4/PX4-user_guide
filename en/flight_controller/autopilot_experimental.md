@@ -2,7 +2,9 @@
 
 This category is for experimental and discontinued autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::
 
 Boards in this category must work with at least one PX4 release for a defined vehicle type.
 They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.

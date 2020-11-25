@@ -47,8 +47,10 @@ Order this module from:
 
 In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
-> **Warning** PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**.
-  All other PX4/PX4-Autopilot versions should work.
+:::warning
+PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**.
+All other PX4/PX4-Autopilot versions should work.
+:::
 
 The steps are:
 - In *QGroundControl*:
@@ -73,8 +75,9 @@ The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the d
 
 Make sure the the PX4Flow board is well dampened.
 
-> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
-  
+:::warning
+PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::
 
 <span id="px4_configuration"></span>
 ## PX4 Configuration
@@ -118,9 +121,10 @@ Address | Bit 2 | Bit 1 | Bit 0
  :  |  :  |  :  |  :
 7 Bit Address 0x49 |  1  |  1  |  1
 
-> **Tip** There are different I2C readouts available. 
-  Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
-
+:::tip
+There are different I2C readouts available. 
+Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+:::
 
 If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver with the correct address:
 ```
@@ -137,7 +141,9 @@ To focus the camera, put an object with text on (e. g. a book) and plug in the P
 Under the settings menu, select the PX4Flow and you should see a camera image.
 Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
-> **Note** If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+:::tip Note
+If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+:::
 
 ![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
 
@@ -268,10 +274,11 @@ You can configure the image quality and output (the image output is only intende
 * Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 * Check that the image is sharp at the operating distance (the typical flight altitude)
 
-  > **Tip** [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below):
-    ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+  :::tip
+  [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below):
+  ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+  :::
 
-  
 
 <span id="developer_guide"></span>
 # PX4FLOW Developer Guide
@@ -292,11 +299,13 @@ You can configure the image quality and output (the image output is only intende
 * PC with *QGroundControl* installed
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-> **Note** PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::tip Note
+PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::
 
 ## Build
 
-Install the [PX4 toolchain](../dev_setup/dev_env.md) (PX4 Developer Guide). 
+Install the [PX4 toolchain](../dev_setup/dev_env.md). 
 Then and clone the sources from https://github.com/PX4/Flow using *git*.
 
 ```bash

@@ -12,8 +12,10 @@ A drone is an unmanned "robotic" vehicle that can be remotely or autonomously co
 Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 
 These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
-> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. 
-  These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+:::tip
+Different types of drones exist for use in air, ground, sea, and underwater. 
+These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+:::
 
 The "brain" of the drone is called an autopilot.
 It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
@@ -72,12 +74,15 @@ For example, the images below show the PWM output ports for [Pixhawk 4](/flight_
 
 The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
 
-> **Tip** The specific purpose for each output is hard coded on a per-airframe basis.
-  The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+:::tip
+The specific purpose for each output is hard coded on a per-airframe basis.
+The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+:::
 
-<span></span>
-> **Warning** A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`.
-  Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+:::warning
+A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`.
+Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+:::
 
 Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL).
 For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
@@ -130,7 +135,9 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. 
 Some RC systems can additionally receive telemetry information back from the autopilot.
 
-> **Note** PX4 does not require a remote control system for autonomous flight modes.
+:::tip Note
+PX4 does not require a remote control system for autonomous flight modes.
+:::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -155,8 +162,10 @@ Joysticks are also commonly used to fly the vehicle in simulation.
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn).
 Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
-> **Note** A vehicle that is armed is potentially dangerous.
-  The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::warning
+A vehicle that is armed is potentially dangerous.
+The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::
 
 ## Data/Telemetry Radios
 
@@ -169,11 +178,9 @@ This makes it possible to tune parameters while a vehicle is in flight, inspect 
 PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi.
 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
-
+Relevent topics include:
 * [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-* [Robotics APIs](../robotics/README.md) (PX4 Developer Guide)
-
+* [Robotics APIs](../robotics/README.md)
 
 <span id="sd_cards"></span>
 ## SD Cards (Removable Memory)
@@ -182,8 +189,10 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 
 By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
-  The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards) (Developer Guide).
+:::tip
+The maximum supported SD card size on Pixhawk boards is 32GB.
+The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards).
+:::
 
 SD cards are never-the-less optional.
 Flight controllers that do not include an SD Card slot may:
@@ -223,7 +232,9 @@ Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or 
 Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, 
 while others are impossible to flip and will hold position/course against wind.
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+:::tip
+Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+:::
 
 An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). 
 Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
@@ -235,8 +246,10 @@ Instructions for how to set up your remote control switches to turn on different
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! 
 These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-> **Note** You can only specify the action for the *first* failsafe event. 
-  Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+:::tip Note
+You can only specify the action for the *first* failsafe event. 
+Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+:::
 
 The main failsafe areas are listed below:
 - Low Battery
@@ -256,7 +269,9 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-> **Note** For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+:::tip Note
+For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+:::
 
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. 
 Multicopters have a heading even when they are symmetrical from all sides!

@@ -1,7 +1,9 @@
 # MindPX Hardware
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::
 
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
 
@@ -75,8 +77,10 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

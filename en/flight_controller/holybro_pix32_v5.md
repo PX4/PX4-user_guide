@@ -1,7 +1,9 @@
 # Holybro Pix32 v5
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 [Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>.
 It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers.
@@ -14,7 +16,9 @@ This design allows users to either select a base board made by Holybro, or custo
 
 ![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip Note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
@@ -111,8 +115,10 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
@@ -129,7 +135,7 @@ The system's [serial console](../debug/system_console.md) and SWD interface runs
 
 The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 For wiring information see:
-- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port) (PX4 Developer Guide)
+- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port).
 
 
 ## Peripherals

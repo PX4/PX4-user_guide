@@ -45,7 +45,7 @@ Vuepress uses `:::` to mark the beginning of notes, tips and warning:
 The text for the tip.
 :::
 ```
-The `:::` should not be deleted!
+The text for `:::tip` or `:::warning` etc. should not be modified as it defines the colour of the notebox.
 
 ## Adding a New Language
 
