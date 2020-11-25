@@ -23,7 +23,7 @@ https://youtu.be/gWtrka2mK7U
 
 ## 安装支持
 
-The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
+支持的安装程序使用 [T265 Intel Realsetring Camera](../peripherals/camera_t265_vio.md) 和 ROS(运行在机载计算机上) 为 PX4 提供测距信息。 Auterion的[VIO bridge ROS node](https://github.com/Auterion/VIO_bridge)产品提供了(特殊)相机和ROS之间的桥接。
 
 
 
@@ -31,9 +31,9 @@ The supported setup uses the [T265 Intel Realsense Tracking Camera](../periphera
 
 ### 相机挂载
 
-Attach the camera to the companion computer and mount it to the frame:
+将相机连接到机载计算机并将其安装到框架：
 
-- Connect the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) using the supplied cable.
+- 使用提供的线缆连接 [T265 Intel Realse追踪摄像头](../peripherals/camera_t265_vio.md)。
 - Mount the camera with lenses pointing down if at all possible (default).
 - The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
 
