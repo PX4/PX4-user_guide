@@ -28,12 +28,13 @@ The vehicle-based radio is connected to the flight-controller's `TELEM1` port, a
 
 ## Firmware Update
 
-Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
+Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware.
+You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
 
 You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
 
 
 ## Advanced Setup/Configuration
 
-The PX4 Developer Guide has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration.
+The Development section has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration.
 This should not be required by non-developers.

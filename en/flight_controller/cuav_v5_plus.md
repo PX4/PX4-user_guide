@@ -1,7 +1,9 @@
 # CUAV V5+ Autopilot
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
 *V5+*<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>.
 It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
@@ -18,7 +20,9 @@ Some of its main features include:
 - Built-in vibration dampening system with high performance shock absorption system.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip Note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Quick Summary
@@ -100,8 +104,10 @@ The *V5+* has short circuit protection.
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

@@ -1,7 +1,9 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::
 
 The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md).  It runs PX4 on the [NuttX](http://nuttx.org) OS. 
 
@@ -12,7 +14,9 @@ The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the origin
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## Key Features
 
@@ -58,8 +62,10 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

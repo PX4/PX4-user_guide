@@ -1,7 +1,9 @@
 # Pixhack V3
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
 The CUAV *Pixhack V3* flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
@@ -12,8 +14,9 @@ It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with bo
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip Note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Quick Summary
@@ -55,8 +58,10 @@ The board can be purchased from:
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

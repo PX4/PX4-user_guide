@@ -1,14 +1,18 @@
 # MindRacer Hardware
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::
 
 The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs.
 The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip Note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
@@ -53,8 +57,10 @@ Before SEP and WEP, soldering and wiring are always the major pain and efficienc
 
 ### How to Build
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

@@ -1,13 +1,17 @@
 # mRo-X2.1 Autopilot
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::
 
 The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip Note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
@@ -79,8 +83,10 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

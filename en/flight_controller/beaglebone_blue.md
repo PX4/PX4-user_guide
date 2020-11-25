@@ -1,10 +1,13 @@
 # BeagleBone Blue
 
-> **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
+:::
 
-<span></span>
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
 [BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based computer.
 Although it is optimized for robotics, this compact and inexpensive board has all necessary sensors and peripherals needed by a flight controller.
@@ -23,7 +26,9 @@ Information about flashing OS images can be found on [this page](https://github.
 Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
 
-> **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
+:::tip
+Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
+:::
 
 The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
 
@@ -32,11 +37,13 @@ The latest OS images at time of updating this document is [bone-debian-9.9-iot-a
 
 The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue. 
 
-> **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+:::tip
+This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+:::
 
-<span></span>
-> **Note** The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
-
+:::tip Note
+The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+:::
 
 ### Beaglebone Blue WIFI Setup
 
@@ -92,16 +99,19 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          chmod -R 777 /opt/bbblue_toolchain
          ```
          ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). 
-  
-   
-         > **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
-            General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*. 
+
+         :::tip
+         GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*.
+         General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+		 :::
    
          Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
          
          Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).         
          
-         > **Tip** The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+         :::tip
+		 The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+		 :::
          
          General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*. 
 
@@ -109,7 +119,9 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          ```sh
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
          ```
-         > **Note** Logout and Login to apply the change, or execute the same line on your current shell.
+         :::tip Note
+         Logout and Login to apply the change, or execute the same line on your current shell.
+		 :::
          
          Follow the [Development Environment Setup](../dev)setup/dev_env_linux_ubuntu.md) instructions.
          
@@ -127,7 +139,9 @@ Compile and Upload
 make beaglebone_blue_default upload
 ```
 
-> **Note** Without upload, files stored local in build folder.
+:::tip Note
+Without upload, files stored local in build folder.
+:::
 
 To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
 ```sh
@@ -135,8 +149,9 @@ cd /home/debian/px4
 sudo ./bin/px4 -s px4.config 
 ```
 
-> **Note** Currently *librobotcontrol* requires root access.
-
+:::tip Note
+Currently *librobotcontrol* requires root access.
+:::
 
 <span id="native_builds"></span>
 ## Native Builds (optional)
@@ -163,7 +178,9 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 All changes can be made in de px4.config file directly on beaglebone.
 For example, you can change the WIFI to wlan.
 
-> **Note** If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+:::tip Note
+If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+:::
 
 ## Autostart During Boot
 
