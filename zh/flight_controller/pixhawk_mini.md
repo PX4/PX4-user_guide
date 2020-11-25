@@ -1,6 +1,8 @@
 # Holybro Pixhawk Mini
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -10,27 +12,27 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 
 Wiring information is available [below](#wiring).
 
-> **Note** This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
 
-<span></span>
-
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## 产品规格
 
-**Processors:**
+**传感器：**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
 
-**传感器：**
+**Sensors:**
 
 - **Accel/Gyro/Mag:** MPU9250 
   - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
-**Voltage ratings:**
+**接口：**
 
 - **Power module output:** 4.1\~5.5V
 - **Max input voltage:** 45V (10S LiPo)
@@ -38,7 +40,7 @@ Wiring information is available [below](#wiring).
 - **USB Power Input:** 4.1\`5.5V
 - **Servo Rail Input:** 0\~10V
 
-**接口：**
+**Interfaces:**
 
 - 1 x UART Serial Port (for GPS)
 - Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
@@ -181,7 +183,7 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 ### Standard Wiring Chart
 
-The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). 我们将在下面各节中介绍每个主要部分。
+The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). We'll go through each main part in the following sections.
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)  
 
@@ -189,13 +191,13 @@ The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* 
 
 ### 飞控的安装和方向
 
-The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam pads (included in the kit). 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
+The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
 ![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-> **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 ### GPS + Compass
 
@@ -225,7 +227,7 @@ The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does 
 
 ### 无线电遥控
 
-Pixhawk Mini supports many different radio receiver models:
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
 
 - Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。
   
@@ -237,27 +239,27 @@ Pixhawk Mini supports many different radio receiver models:
 
 - PPM 接收机通过一个 *PPM 编码器*将*每一个通道通过一根线*连接到** RCIN** 通道上[如这个所示](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)（PPM-Sum 接收机所有通道可以只需要一根信号线）。
 
-更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 ### Safety switch (optional)
 
 The controller has an integrated safety switch that you can use for motor activation once the autopilot is ready to take off. If this switch is hard to access on a particular vehicle you can attach the (optional) external safety button, as shown below.
 
-![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
+![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
 
 ### Telemetry Radios
 
 ### 电机
 
-在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
+The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
-> **Caution** 该参考列表并不是与机架类型完全匹配的（例如，您不能将油门应用在其他所有机型的输出端口上）。 请确保为您的飞行器使用正确的映射。
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 <span></span>
 
-> **Tip** 如果您的机型没有列入参考机型中那么使用正确类型中的"generic"一般机型.
+> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 
-备注：
+Notes:
 
 * The output rail must be separately powered, as discussed in the [Power](#power) section above.
 * Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
@@ -266,19 +268,21 @@ The controller has an integrated safety switch that you can use for motor activa
 
 ### 其它外设
 
-针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 主题中有详细的内容介绍。
+一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
 
 ### 配置
 
-一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
-
 QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
+
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v2_default
     
