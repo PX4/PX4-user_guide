@@ -1,6 +1,8 @@
 # Holybro Durandal
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
 
@@ -15,7 +17,9 @@ At high level, some of the key features are:
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## 概览
@@ -78,7 +82,7 @@ For more information see: [Durandal Technical Data Sheet](http://www.holybro.com
 <span id="purchase"></span>
 ## 采购
 
-中国大陆用户请从官方代理商 [思动智能](https://thone.io) 的淘宝店 [地面售货站](https://item.taobao.com/item.htm?id=569286312095) 购买。境外用户从 [Holybro](https://shop.holybro.com/durandalbeta_p1189.html) 购买。
+Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
 <span id="connections"></span>
 ## Connections
@@ -141,9 +145,9 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
 ```
 make holybro_durandal-v1_default
 ```
@@ -164,9 +168,9 @@ make holybro_durandal-v1_default
 <span id="debug_port"></span>
 ## Debug调试端口
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
+全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
-端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
+The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
 > **Note** No Debug port is exposed for the I/O board.
 
@@ -180,9 +184,9 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 ## 支持的平台/机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 
-全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
 ## 针脚定义
