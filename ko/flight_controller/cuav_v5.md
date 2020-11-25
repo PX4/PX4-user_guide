@@ -1,8 +1,8 @@
 # CUAV v5 (Discontinued)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
-
-<span></span>
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
@@ -74,7 +74,9 @@ Under these conditions all power sources will be used in this order to power the
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
