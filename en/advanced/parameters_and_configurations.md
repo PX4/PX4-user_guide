@@ -5,7 +5,7 @@ PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) an
 This section discusses the *param* subsystem in detail.
 It covers how to list, save and load parameters, and how to define them.
 
-> **Note** [System startup](../concept/system_startup.md) and the way that [airframe configurations](../airframes/adding_a_new_frame.md) work are detailed on other pages. 
+> **Note** [System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages. 
 
 
 ## Command Line Usage
