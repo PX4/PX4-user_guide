@@ -6,7 +6,7 @@ The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init
 
 All files starting with a number and underscore (e.g. `10000_airplane`) are predefined airframe configurations.
 They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI.
-Adding a new configuration is covered [here](../airframes/adding_a_new_frame.md).
+Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
 
 The remaining files are part of the general startup logic.
 The first executed file is the [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
@@ -73,7 +73,7 @@ In most cases customizing the default boot is the better approach, which is docu
 
 ### Customizing the System Startup
 
-The best way to customize the system startup is to introduce a [new airframe configuration](../airframes/adding_a_new_frame.md).
+The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md).
 If only tweaks are wanted (like starting one more application or just using a different mixer) special hooks in the startup can be used.
 
 > **Caution** The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
