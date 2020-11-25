@@ -1,13 +1,14 @@
 # 树莓派 PilotPi 拓展板
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
+*PilotPi* 是一套支持树莓派直接运行 PX4 各项功能的拓展板方案。 它是一个低成本但高度可扩展的平台，从 Linux 和 PX4 两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。
 
-<span></span>
-> **Warning** PX4 [实验性地](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
-*PilotPi* 是一套支持树莓派直接运行 PX4 各项功能的拓展板方案。 它是一个低成本但高度可扩展的平台，从 Linux 和 PX4 两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。 PCB 和原理图开源。
+The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
 
-![安装在树莓派4B的PilotPi拓展板](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
+![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
 ## 概览
 
@@ -33,7 +34,7 @@
 
 ## 连接性
 
-扩展板提供：
+Shield provides:
 
 * 16 x PWM 输出通道
 * GPS 连接器
@@ -43,7 +44,7 @@
 * 3 x 0~5V ADC 通道
 * 2\*8 2.54mm 排插，引出未使用的 GPIO
 
-连接到树莓派：
+Direct accessible from RPi:
 
 * 4x USB 连接器
 * CSI 连接器(**Note:** 与外部 I2C 总线冲突
@@ -51,19 +52,19 @@
 
 ## 推荐接线
 
-![电源部分接线](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
-![传感器部分接线](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
+![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
 ## 针脚定义
 
-> **Warning** 它仍然使用旧的 1.25 连接器。 接线兼容Pixhawk 2.4.8
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
 
 ### 连接器
 
 #### GPS 连接器
 
-映射到 `/dev/ttySC0`
+映射到 `/dev/i2c-0`
 
 | 针脚 | 信号  | 电压   |
 | -- | --- | ---- |
@@ -76,7 +77,7 @@
 
 #### 数传连接器
 
-映射到 `/dev/ttySC0`
+遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
 
 | 针脚 | 信号   | 电压   |
 | -- | ---- | ---- |
@@ -89,7 +90,7 @@
 
 #### 外部 I2C 总线连接器
 
-映射到 `/dev/i2c-0`
+此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
 
 | 针脚 | 信号  | 电压       |
 | -- | --- | -------- |
@@ -100,7 +101,7 @@
 
 #### 遥控 & ADC 2/3/4
 
-遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
+ADC3 和 ADC4 的 VCC 被以下设备驱动：
 
 | 针脚 | 信号  | 电压       |
 | -- | --- | -------- |
@@ -119,7 +120,7 @@
 | 2  | VCC  | +5V    |
 | 3  | GND  | GND    |
 
-> **Note** ADC3 和 ADC4 有一个替代的 VCC 源。 当开启“Vref” 开关时，'VCC' 将由REF5050 驱动.
+> **Warning** PX4 [实验性地](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
 
 #### 拓展板顶部引出的未使用的GPIO
 
@@ -146,26 +147,26 @@
 
 #### 遥控信号反相器
 
-此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
+This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
 * 开启：适合SBUS(反转信号)
 * 关闭：保留
 
 #### 参考压
 
-ADC3 和 ADC4 的 VCC 被以下设备驱动：
+根据具体操作系统选择以下指南：
 * 开启开关时：由REF5050驱动
 * 关闭开关时：从树莓派5V取电
 
 #### 启动模式
 
-此开关连接到树莓派 Pin22(BCM25)。 系统 rc 脚本将检查其电平并决定是否在与系统开机时自动启动PX4。
+This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
 * 开启：开机自启 PX4
 * 关闭：不启动 PX4
 
 ## 开发者快速指南
 
-根据具体操作系统选择以下指南：
+Refer to specific instructions for the OS running on your RPi:
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
 - [Ubuntu 服务器(arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
