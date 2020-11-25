@@ -8,11 +8,13 @@ Typical companion computer work with Pixhawk requires a companion link to transm
 
 有一些构建这种通信桥的设备，如 FTDI USB 接口和电平移位器(见下文)。
 
-> **Note** [MAVLink\(OSD/Telemetry\)](../peripherals/mavlink_peripherals.md#example) 介绍了用于通过 MAVLink 配置与机载计算机通信的 PX4 配置。 Relevant topics/sections in the developer guide include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+:::tip
+Note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+:::
 
 ### FTDI 设备
 
-FTDI USB 适配器是机载计算机和 Pixhawk 之间最常用的通信方式。 只要适配器的 IO 设置为 3.3V，它们通常是即插即用的。 为了充分利用 Pixhawk 硬件上提供的串行链路的全部性能/可靠性，建议采取流量控制。
+The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3v. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
 
 Options are listed below:
 
@@ -24,7 +26,7 @@ Options are listed below:
 
 ### 逻辑电平移位器
 
-有时，机载计算机可能通常会引出运行在 1.8V 或 5V 的硬件级 IO，而 Pixhawk 硬件则以 3.3V IO 运行。 为了解决这一问题，可以实现电平移位器来安全地转换发送/接收信号电压。
+On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
 Options include:
 
@@ -37,7 +39,7 @@ Cameras are used image and video capture, and more generally to provide data for
 
 ### 立体摄像机
 
-立体摄像机通常用于深度感知、路径规划和 SLAM 。 他们在任何方面都不能保证与你的机载计算机即插即用。
+Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
 
 Popular stereo cameras include:
 
@@ -60,13 +62,17 @@ An LTE USB module can be attached to a companion computer and used to route MAVL
 
 There is no "standard method" for a ground station and companion to connect over the Internet. Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
 
-> **Note** Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network. The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
+:::tip
+Note Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network. The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
+:::
 
 A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system like [zerotier](https://www.zerotier.com/) on both computers). The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
 
 This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time. In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
-> **Note** You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
+:::tip
+Note You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
+:::
 
 Some USB modules that are known to work include:
 
