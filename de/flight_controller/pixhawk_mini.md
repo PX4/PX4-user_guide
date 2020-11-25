@@ -1,6 +1,8 @@
 # Holybro Pixhawk Mini
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -12,9 +14,9 @@ Wiring information is available [below](#wiring).
 
 > **Note** This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
 
-<span></span>
-
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## Specifications
 
@@ -276,7 +278,9 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
