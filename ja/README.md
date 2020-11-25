@@ -6,11 +6,9 @@
 
 PX4 は *本格的なオートパイロットシステムです*. 世界中の産業界・アカデミアの開発者によって開発され，世界中のコミュニティによってサポートされており，レーシング用ドローンや運送用ドローンのみならず地上から潜水艇まで，様々なビークルに用いることができます．
 
-> **Tip** 本ガイドはPX4を搭載した機体の組み立て・設定から安全な運用までに必要なすべての情報を含んでいます.
-
-<span></span>
-
-> **Note** 本ガイドはまだ作成途中です! そのため，PX4のすべてをまだカバーしていません．
+:::tip
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note This guide is still a work in progress! It does not yet cover all of PX4.
+:::
 
 ## なにから始めればいいの？
 
@@ -27,32 +25,34 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 **PX4準拠のドローンを手作りしたい方:**
 
-> **Tip** "サポートされている" 機体のリストは [機体構造一覧](airframes/airframe_reference.md)にあります. これらの機体はテストされており，調整された設定値を*QGroundControl*を通して書き込むことができます.
+:::tip
+The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+:::
 
-機体を手作りしたい方:
+If you want to build a vehicle from scratch:
 
 * フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
 * フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
 * [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
 * [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
 
-飛行させる準備が完了したら， [フライト](flying/README.md) 章を参照してください．
+Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
-**標準機を改造する場合:**
+**I am modifying a supported vehicle:**
 
-フライトコントローラや，基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に影響を与える改造をした場合，以下を参照してください:
+Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
 
 * [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
 * [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
 * [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
-**PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
+**I want to run PX4 on new hardware and extend the platform:**
 
-* [Development](../development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## Getting Help
 
-The[Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
 Among other things it covers:
 
@@ -63,7 +63,7 @@ Among other things it covers:
 
 ## バグ & 問題提起
 
-If you have any problems using PX4 first post them on the [support channels above](#forums-and-chat) (as they may be caused by vehicle configuration).
+If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
@@ -71,19 +71,19 @@ If directed by the development team, code issues may be raised on [Github here](
 
 Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
 
-* [コード](../contribute/README.md)
-* [ドキュメント](../contribute/docs.md)
-* [翻訳](../contribute/translation.md)
+* [コード](contribute/README.md)
+* [ドキュメント](contribute/docs.md)
+* [翻訳](contribute/translation.md)
 
 ## Translations
 
-There are Chinese and Korean [translations](contribute/docs.md#translation) of this guide. You can access these by clicking the language-switcher icon:
+There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
 
-![Gitbook Language Selector](../assets/gitbook/gitbook_language_selector.png)
+![Language Selector](../assets/vuepress/language_selector.png)
 
 ## License
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](../contribute/licenses.md).
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
 
 ## Calendar & Events
 
@@ -93,7 +93,8 @@ The *Dronecode Calendar* shows important community events for platform users and
 * [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 * [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
-> **Note:** calendar defaults to CET. <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
+:::tip
+Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
 ### アイコン
 
