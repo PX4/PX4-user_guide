@@ -96,7 +96,7 @@ PX4 可以在提供 POSIX-API 接口的各种操作系统上运行 （比如说 
 
   The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
-> **工作队列 （Work queues）**：模块在共享任务上运行, 这意味着它没有自己的堆栈。 Use [`work_queue status`](../middleware/modules_system.md#workqueue) to display all active work queue items.
+> **工作队列 （Work queues）**：模块在共享任务上运行, 这意味着它没有自己的堆栈。 Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
 
 
 ### 后台任务
