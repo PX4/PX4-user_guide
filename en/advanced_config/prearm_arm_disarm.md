@@ -7,12 +7,19 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-> **Note** Ground stations may display *disarmed* for both disarmed and pre-armed states.
-  While not technically correct for pre-armed vehicles, it is "safe".
+:::tip Note
+Ground stations may display *disarmed* for pre-armed vehicles.
+While not technically correct for pre-armed vehicles, it is "safe".
+:::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures),  or *MAVLink command* on the ground controller:
-- A *safety switch* is an optional button or switch *on the vehicle* that completely prevents arming (i.e. motors turning) and which may also prevent prearming (depending on the configuration).
-  It is often part of the GPS reciever, but may be  separate switch.
+- A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration).
+  Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+  
+  :::warning
+  A vehicle that is armed is potentially dangerous.
+  The safety switch is an additional mechanism that prevents arming from happening by accident.
+  :::  
 - An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
 - An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
 - MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
@@ -22,7 +29,9 @@ This reduces the amount of time where an armed (and therefore dangerous) vehicle
 
 PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
-> **Note** Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_` and `COM_DISARM_*`).
+:::tip
+Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_` and `COM_DISARM_*`).
+:::
 
 <span id="arm_disarm_gestures"></span>
 ## Arming Gesture
