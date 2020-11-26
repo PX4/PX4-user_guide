@@ -87,7 +87,7 @@
 
 ## 其他注意事项
 
-该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
+该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
 - 电池：
   - 带 XT60 母头的 4S 锂电池
   - 长度小于115毫米（以适合电源插座和 GPS 支架之间的空间）
@@ -101,14 +101,14 @@
 
 ## 首次使用
 
-1. 将接收机（套件中不包含）固定在无人机上，
+1. 将一个 [兼容的遥控接收器](../getting_started/rc_transmitter_receiver.md#connecting-receivers) 连接到无人机上（未随套件提供）：
    - 使用 H2.0 头的内六角螺丝刀移除/取消顶部板块(在电池进入的地方)。
    - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
    - 重新安装上面的外壳。
    - 在无人机背部安装RC 接收器(使用双面胶或其他)。
    - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
 
-1. 遥控和接收机配对(如果尚未完成的话)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
+1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) 遥控和接收机配对(如果尚未完成)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
 1. GPS需要高于无人机，并固定到底板。
 
    ![提升GPS映射](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
@@ -144,11 +144,11 @@
    - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
 
 
-1. 连接电池来给无人机供电
+1. 按如下所示旋转连接螺旋桨：
 
    ![电机顺序示意图](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
+   - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和 _6045_ **R** (逆时针)。
 
      ![螺旋桨识别](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
@@ -233,13 +233,13 @@ PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/e
 <span id="boot_mission_computer"></span> 
 
 
-### 开启上位机 {#boot_mission_computer}
+### 开启机载计算机 {#boot_mission_computer}
 
 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
 
 
-> **Tip** [Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+> **Tip** [ 飞行无人机(带避障)](#Fly-the-Drone-with-Avoidance) 另外解释了如何验证避障系统是否有效。
 
 如果您已经在机载计算机上安装了 [镜像](#install_image_mission_computer) 您只需为该无人机供电(即不需要U盘)。 避障系统应在30秒内启动并运行。
 
@@ -355,21 +355,21 @@ ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工�
 
 ## 如何获得技术支持？
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 机载计算机技术信息
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 - [Pixhawk 4 概述](../flight_controller/pixhawk4.md)
 - [PX4 避障软件/文档](https://github.com/PX4/avoidance)
 - [路径规划接口](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+- [Px4 Vision 载板引脚排列](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 
 
-## How to get Technical Support
+## 如何获得技术支持
 
 软件问题，请使用以下 [社区支持频道](README.md#support)：
 
-For software issues, use the following community support channels:
+软件问题，请使用以下社区支持频道：
 
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
-- [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+- [PX4讨论：计算机视觉分类。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 slack](https://slack.px4.io/) 频道: #避障
+- [Holybro PX4 Vision Wikifrate](https://wikifactory.com/+holybro/px4-vision)
