@@ -118,7 +118,7 @@ module.exports = {
             ariaLabel: 'PX4 Menu',
             items: [
               { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
-              { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
+              { text: 'Support', link: 'https://docs.px4.io/master/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
@@ -139,7 +139,7 @@ module.exports = {
             ]
           },
       
-          { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
+          { text: 'Support', link: 'https://docs.px4.io/master/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
           {
             text: 'Version',
             ariaLabel: 'Versions Menu',
