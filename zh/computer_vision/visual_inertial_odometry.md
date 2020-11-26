@@ -6,24 +6,23 @@ VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/
 
 本节说明如何通过设置 PX4 和机载计算机来使用*已支持的* VIO 配置。
 
-{% youtube %}
-https://youtu.be/gWtrka2mK7U
-{% endyoutube %}
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<!-- https://youtu.be/gWtrka2mK7U -->
+
+:::tip
+The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+:::
+
+:::tip
+Note This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+:::
+
+<span id="supported_setup"></span>
+## 支持的配置
 
 :::tip
 上面的[ Auterion 产品视频](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) 展示了一个无人机飞行使用了
 支持的设置</0>。 :::</p> 
-
-:::tip
-注意 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4。 PX4本身并不关心消息源，通过 [MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration) 提供消息就行。
-:::
-
-<span id="supported_setup"></span> 
-
-
-## 支持的配置
-
-已支持的配置使用 [T265 Intel Realsense追踪相机](../peripherals/camera_t265_vio.md) 和 ROS（运行在机载计算机上）为 PX4 提供测距信息。 Auterion 的 [VIO bridge ROS 节点](https://github.com/Auterion/VIO_bridge) 提供了（指定）相机与 ROS 之间的桥接。
 
 
 
@@ -31,7 +30,7 @@ https://youtu.be/gWtrka2mK7U
 
 ### 相机安装
 
-将相机连接到机载计算机并将其安装到框架：
+Attach the camera to the companion computer and mount it to the frame:
 
 - 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
@@ -42,7 +41,7 @@ https://youtu.be/gWtrka2mK7U
 
 ### ROS/VIO 安装
 
-设置桥接，ROS和 PX4：
+To setup the Bridge, ROS and PX4:
 
 - 在机载计算机上安装和配置 [MAVROS](../ros/mavros_installation.md)。
 - 获取 Auterion [VIO Bridge ROS 节点](https://github.com/Auterion/VIO_bridge)：
@@ -111,7 +110,7 @@ https://youtu.be/gWtrka2mK7U
 
 ### PX4 调试
 
-必须将以下参数设置为将外部位置信息与EKF2一起使用。
+将相机连接到机载计算机并将其安装到框架：
 
 | 参数                                                                                                                                                                                                            | 外部位置估计的设置                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -121,35 +120,35 @@ https://youtu.be/gWtrka2mK7U
 | [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                    |
 
 
-这些参数可以在*QGroundControl*>**Vehicle Setup > Parameters > EKF2**中设置（切记要使参数更改生效需要重启飞控）。
+设置桥接，ROS和 PX4：
 
-更多详情/附加信息，见： [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)。
+必须将以下参数设置为将外部位置信息与EKF2一起使用。
 
 <span id="tuning-EKF2_EV_DELAY"></span> 
 
 
-#### 调参 EKF2_EV_DELAY
+#### EKF2_EV_DELAY 调参
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于IMU测量值的视觉位置估算器的延迟*。 换而言之, 这是视觉系统时间戳和IMU时钟（EKF2“时基”）记录的“实际”捕获时间之间的差异。
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
-从技术上讲，如果有正确的时间戳（不仅仅是到达时间），在MoCap和（例如）ROS计算机之间有时间同步，这个参数可以设置为0。 实际上，由于通信链路的延迟非常特殊，这可能需要一些经验来调整。 很少有完全同步的链路的系统设置。
+Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
 
-通过检查IMU速率和EV速率之间的偏移，可以从日志中获取对延迟的粗略估计：
+A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::tip
-注意 可以使用 [FlightPlot](../log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计(如上)。
+Note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 
-可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
+The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
 <span id="verify_estimate"></span> 
 
 
-## 检查/验证 VIO 预估
+## 检查/校验 VIO 估计
 
-执行以下检查，以确保在首次飞行*之前*VIO正常运行：
+Perform the following checks to verify that VIO is working properly *before* your first flight:
 
 * 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息
 
@@ -163,7 +162,7 @@ https://youtu.be/gWtrka2mK7U
 
 * Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming the `ODOMETRY` message back.
 
-If those steps are consistent, you can try your first flight:
+可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
 
 1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above). Lower your throttle stick and arm the motors.
    
@@ -180,7 +179,7 @@ If those steps are consistent, you can try your first flight:
 
 ## 故障处理
 
-First make sure MAVROS is able to connect successfully to the flight controller.
+执行以下检查，以确保在首次飞行*之前*VIO正常运行：
 
 If it is connecting properly common problems/solutions are:
 

@@ -6,9 +6,8 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 
 This topic shows how to set up PX4 and a companion computer to use the *supported* VIO setup.
 
-{% youtube %}
-https://youtu.be/gWtrka2mK7U
-{% endyoutube %}
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip
 The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
