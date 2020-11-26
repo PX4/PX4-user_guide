@@ -57,25 +57,25 @@
     - FTDI UART 连接到飞控
     - `USB1`：USB3-A 接口被用来从 USB2.0 储存器启动 PX4 避障环境（连接到 USB3.0 外设可能会导致GPS无法使用）。
     - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
+    - `USB3`：USB 2.0 JST-GH 端口连接到深度摄像头
     - `HDMI`：HDMI 输出
     - SD 卡插槽
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). 允许计算机进行 WiFi 家庭网络访问/更新。
+    - WiFi 802.11 b/g/n @ 2.4 GHz (连接到外部1号天线)。 允许计算机进行 WiFi 家庭网络访问/更新。
 
 
-- Mechanical Specification:
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
-  - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). 实现与地面站的无线连接。
+- 机械规格：
+  - 框架：全 5mm 3k 碳纤纹
+  - 电机：T-MOTOR F60 PROⅢ KV1750
+  - 电调: BEHEli-S 20A ESC
+  - 桨：T6045
+  - GPS: Pixhawk4 GPS 模块
+  - 电源模块： Holybro PM07
+  - 轴距：286毫米
+  - 重量：854克（无电池和桨）
+  - 数传：连接飞行控制器的ESP8266（连接外部2号天线）。 实现与地面站的无线连接。
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- 带有 Auterion 提供的预刷新软件的 USB2.0 盘，其附带：
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
@@ -83,7 +83,7 @@
   - [PX4 Avoidance 避障库](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
 
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- 各种导线、8个螺旋桨、2个电池带（已安装）和其他附件（可用于连接其他外围设备）。
 
 ## 其他注意事项
 
