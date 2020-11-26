@@ -90,7 +90,7 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
      <span></span>
      > **Tip** `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**).
        There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`.
-       Warnings and errors are additionally added to the [ULog](../log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+       Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
 
 1. Create and open a new *cmake* definition file named **CMakeLists.txt**.
    Copy in the text below:

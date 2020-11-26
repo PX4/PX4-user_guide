@@ -197,7 +197,7 @@ To load a custom mixer, you should give it the same name as a "normal" mixer fil
 Most commonly you will override/replace the **AUX** mixer file for your current airframe (which may be the RC passthrough mixer - [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix)).
 See above for more information on [mixer loading](#loading_mixer).
 
-> **Tip** You can also *manually* load a mixer at runtime using the [mixer load](../middleware/modules_command.md#mixer) command  (thereby avoiding the need for a reboot).
+> **Tip** You can also *manually* load a mixer at runtime using the [mixer load](../modules/modules_command.md#mixer) command  (thereby avoiding the need for a reboot).
 >  For example, to load a mixer **/etc/mixers/test_mixer.mix** onto the MAIN PWM outputs, you could enter the following command in a [console](../debug/consoles.md):
 >  ```
 >   mixer load /dev/pwm_output0 /fs/microsd/etc/mixers/test_mixer.mix

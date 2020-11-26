@@ -33,7 +33,7 @@ diagram). Usually a building block corresponds to exactly one module.
 > **Tip** At runtime, you can inspect which modules are executed with the `top` command in shell, 
 > and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well.
 > For more information about each of these modules see the
-> [Modules & Commands Reference](../middleware/modules_main.md).
+> [Modules & Commands Reference](../modules/modules_main.md).
 
 The arrows show the information flow for the *most important* connections between
 the modules. In reality, there are many more connections than shown, and some data 
@@ -136,8 +136,8 @@ There are 2 different ways that a module can be executed:
   The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file).
   Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
-> **Note** Tasks running on a work queue do not show up in [`uorb top`](../middleware/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
-  Use [`work_queue status`](../middleware/modules_system.md#workqueue) to display all active work queue items.
+> **Note** Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
+  Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
 
 
 ### Background Tasks
