@@ -81,7 +81,7 @@ https://youtu.be/gWtrka2mK7U
 
    - 前三个` 参数 `指定*解释*为从飞控中心到摄像机的 x，y，z方向，以米为单位。 例如，如果摄像头在飞控前方10cm，上方4cm,  则前三个数字将是：[0.1, 0, 0.04 ...]
 
-   - 接下来的三个 `参数` 是旋转弧度(偏航, 俯仰, 横滚)。 So `[... 0, 1.5708, 0]` means pitch down by 90deg (facing the ground). Facing straight forward would be [... 0 0 0].
+   - 接下来的三个 `参数` 是旋转弧度(偏航, 俯仰, 横滚)。 所以 `[... 0, 1.5708, 0]` 是向下俯仰90度(朝向地面)。 直面是 [... 0 0 0]。
 
 - Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
 
