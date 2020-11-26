@@ -2,18 +2,16 @@
 
 *视觉惯性测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*(当地位置和方向)，相对于*当地*起始位置的移动无人机/无人车的*速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给无人机/无人车导航。
 
-VIO使用
-视觉测距法</ 0>从相机图像中估计机身*姿态</ 1>，并结合机身IMU的惯性测量（以校正因机身快速移动相关的错误，导致不良的图像捕获）。</p> 
+VIO使用[视觉测距法](https://en.wikipedia.org/wiki/Visual_odometry)从相机图像中估计机身*姿态*，并结合机身IMU的惯性测量（以校正因机身快速移动相关的错误，导致不良的图像捕获）。
 
-本节说明如何通过设置PX4和机载计算机来使用*支持的</ 0> VIO设置。</p> 
+本节说明如何通过设置PX4和机载计算机来使用*支持的</ 0> VIO设置。</p>
 
 {% youtube %}
-
-https://youtu.be/gWtrka2mK7U 
-
+https://youtu.be/gWtrka2mK7U
 {% endyoutube %}
 
-:::提示 上面的 Auterion产品视频</ 0>展示了一个无人机飞行使用了[支持的设置](#supported_setup)。 :::</p> 
+:::提示 上面的
+ Auterion产品视频</ 0>展示了一个无人机飞行使用了[支持的设置](#supported_setup)。 :::</p> 
 
 :::提示 注意 这个(支持的)解决方案使用 ROS来路由VIO 信息到 PX4。 PX4本身并不关心消息源,  通过[MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration)提供消息就行。
 :::
