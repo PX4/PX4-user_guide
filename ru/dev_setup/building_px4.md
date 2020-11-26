@@ -99,7 +99,7 @@ The following list shows the build commands for common boards:
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
 * [MindPX](../flight_controller/mindpx.md)/[MindRacer](../flight_controller/mindracer.md): `make airmind_mindpx-v2_default`
 * [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default`
-* [Crazyflie 2.0](../flight_controller/crazyflie2.md): `make bitcraze_crazyflie_default`
+* [Crazyflie 2.0](../complete_vehicles/crazyflie2.md): `make bitcraze_crazyflie_default`
 * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md): `make intel_aerofc-v1_default`
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
 
