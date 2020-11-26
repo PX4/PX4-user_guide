@@ -30,7 +30,7 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 > **Note** 源代码文件标准没有得到执行，目前该代码的文件记录不一致。 我们想做得更好！
 
 目前，我们有两种基于来源的文件：
-- `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../middleware/modules_main.md) in this guide.
+- `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
   - API 记录在 [源代码](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)。
   - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
 * 我们鼓励其它源文档 *添加必要的值*。
