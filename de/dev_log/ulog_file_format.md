@@ -2,7 +2,7 @@
 
 ULog is the file format used for logging system data.
 
-The format is self-describing, i.e. it contains the format and message types that are logged (note that the [system logger](../log/logging.md) allows the *default set* of logged topics to be replaced from an SD card).
+The format is self-describing, i.e. it contains the format and message types that are logged (note that the [system logger](../dev_log/logging.md) allows the *default set* of logged topics to be replaced from an SD card).
 
 It can be used for logging device inputs (sensors, etc.), internal states (cpu load, attitude, etc.) and `printf` log messages.
 
