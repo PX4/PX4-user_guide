@@ -83,23 +83,23 @@ https://youtu.be/gWtrka2mK7U
 
    - 接下来的三个 `参数` 是旋转弧度(偏航, 俯仰, 横滚)。 所以 `[... 0, 1.5708, 0]` 是向下俯仰90度(朝向地面)。 直面是 [... 0 0 0]。
 
-- Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
+- 按照[下方](#ekf2_tuning)的说明调整PX4 EKF2估算器。
 
-- Run VIO by calling `roslaunch` with an appropriate launch file: 
+- 通过使用适当的启动文件调用` roslaunch `来运行VIO： 
   
   
   ```
   cd ~/catkin_ws/src
-  roslaunch px4_realsense_bridge bridge_mavros.launch
+  roslaunched px4_realsense_bridge_mavros.launch
   ```
 
 
-The launch file options are:
+启动文件选项是：
 
-  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch): Use on vehicle in most cases (starts bridge and MAVROS).
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): Use if some other component is responsible for starting MAVROS (only starts bridge)
-  - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):Use for simulation (starts bridge, MAVROS, SITL)
-- Verify the connection to the flight controller.
+  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch): 在大多数情况下在无人机/无人车上使用(启动桥桥接和MAVROS)。
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): 如果其他组件负责启动MAVROS（仅启动桥接），则使用
+  - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):用于模拟仿真(启动桥接, MAVROS, SITL)
+- 验证与飞控的连接。
   
   :::tip You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 :::
