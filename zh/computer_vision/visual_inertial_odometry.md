@@ -130,9 +130,9 @@ https://youtu.be/gWtrka2mK7U
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于IMU测量值的视觉位置估算器的延迟*。 换而言之, 这是视觉系统时间戳和IMU时钟（EKF2“时基”）记录的“实际”捕获时间之间的差异。
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+从技术上讲，如果有正确的时间戳（不仅仅是到达时间），在MoCap和（例如）ROS计算机之间有时间同步，这个参数可以设置为0。 实际上，由于通信链路的延迟非常特殊，这可能需要一些经验来调整。 很少有完全同步的链路的系统设置。
 
-该值可以通过不同的参数一起调整，在动态变化中来保证最低 EKF 。
+通过检查IMU速率和EV速率之间的偏移，可以从日志中获取对延迟的粗略估计：
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
