@@ -69,7 +69,7 @@ If directed by the development team, code issues may be raised on [Github here](
 
 ## 貢献
 
-Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
+Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
 * [コード](contribute/README.md)
 * [ドキュメント](contribute/docs.md)
