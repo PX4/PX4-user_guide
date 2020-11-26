@@ -2,7 +2,7 @@
 
 The logger is able to log any ORB topic with all included fields. Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. All existing instances of a topic are logged.
 
-The output log format is [ULog](../log/ulog_file_format.md).
+The output log format is [ULog](../dev_log/ulog_file_format.md).
 
 ## Usage
 By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.

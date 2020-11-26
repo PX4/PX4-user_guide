@@ -18,4 +18,4 @@ Flight Control boards with in-built accelerometers or gyros are sensitive to vib
 
 You should use the mounting strategy recommended in your flight controller documentation.
 
-> **Tip** [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.
+> **Tip** [Log Analysis using Flight Review > Vibration](../dev_log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.

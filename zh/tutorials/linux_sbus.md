@@ -17,7 +17,7 @@ To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
 linux_sbus start|stop|status -d <device> -c <channel>
 ```
 
-For other driver usage information see: [rc_input](../middleware/modules_driver.md#rcinput).
+For other driver usage information see: [rc_input](../modules/modules_driver.md#rcinput).
 
 <a id="signal_inverter_circuit"></a>
 
