@@ -136,20 +136,19 @@ https://youtu.be/gWtrka2mK7U
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::tip
-Note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::提示 注意 可以使用 [FlightPlot](../log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计(如上)。
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
 
 <span id="verify_estimate"></span> 
 
 
 ## 检查/验证 VIO 预估
 
-Perform the following checks to verify that VIO is working properly *before* your first flight:
+执行以下检查，以确保在首次飞行*之前*VIO正常运行：
 
-* Set the PX4 parameter `MAV_ODOM_LP` to 1. PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
+* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
 
 * Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
   
