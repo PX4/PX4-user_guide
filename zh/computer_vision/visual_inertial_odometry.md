@@ -2,7 +2,7 @@
 
 *视觉惯性测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*(当地位置和方向)，相对于*当地*起始位置的移动无人机/无人车的*速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给无人机/无人车导航。
 
-VIO使用[视觉测距法](https://en.wikipedia.org/wiki/Visual_odometry)从相机图像中估计机身*姿态*，并结合机身IMU的惯性测量（以校正因机身快速移动相关的错误，导致不良的图像捕获）。
+VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/Visual_odometry) 从相机图像中估计机身*姿态*，并结合机身IMU的惯性测量（以校正因不良的图像捕获导致的机身快速移动的错误）。
 
 本节说明如何通过设置PX4和机载计算机来使用*支持的</ 0> VIO设置。</p>
 
@@ -10,10 +10,12 @@ VIO使用[视觉测距法](https://en.wikipedia.org/wiki/Visual_odometry)从相�
 https://youtu.be/gWtrka2mK7U
 {% endyoutube %}
 
-:::提示 上面的
- Auterion产品视频</ 0>展示了一个无人机飞行使用了[支持的设置](#supported_setup)。 :::</p> 
+:::tip
+上面的[ Auterion 产品视频](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) 展示了一个无人机飞行使用了
+支持的设置</0>。 :::</p> 
 
-:::提示 注意 这个(支持的)解决方案使用 ROS来路由VIO 信息到 PX4。 PX4本身并不关心消息源,  通过[MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration)提供消息就行。
+:::tip
+注意 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4。 PX4本身并不关心消息源，通过 [MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration) 提供消息就行。
 :::
 
 <span id="supported_setup"></span> 
@@ -153,9 +155,9 @@ https://youtu.be/gWtrka2mK7U
 
 * 偏航机身，直到` ODOMETRY `消息的四元数非常接近单位四元数（w = 1，x = y = z = 0）。
   
-    * 在这一点上，机身框架与外部姿态系统的参考框架一致。
-  * If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-* Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
+    * 在这一点上，机架与外部姿态系统的参考机架一致。
+  * 如果在不使横滚或俯仰的情况下无法使四元数接近单位四元数，则机架可能仍存在俯仰或滚动偏移。 这种情况下不要再检查机架坐标系。
+* 对齐后，将机架抬离地面，应该看到位置的z坐标减小。 Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
 
 * Check that linear velocities in the message are in expressed in the *FRD* body frame reference frame.
 
