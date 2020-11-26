@@ -84,7 +84,7 @@ Where possible provide [flight logs](getting_started/flight_reporting.md) and ot
 
 ## Contributing
 
-Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
+Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 - [Code](contribute/README.md)
 - [Documentation](contribute/docs.md)
 - [Translation](contribute/translation.md)
