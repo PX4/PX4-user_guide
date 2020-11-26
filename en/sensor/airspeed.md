@@ -12,7 +12,7 @@ For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 Recommended digital airspeed sensors include:
 * MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html))
   * [mRo I2C Airspeed Sensor JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/mro-classy-arspd-mr.htm) (mRo store)
-  * [Digital Differential Airspeed Sensor Kit](https://drotek.com/shop/en/airspeed/793-digital-differential-airspeed-sensor-kit-.html?search_query=airspeed&results=6) (Drotek).
+  * [Digital Differential Airspeed Sensor Kit](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html) (Drotek).
   
 * [EagleTree Airspeed MicroSensor V3](http://www.eagletreesystems.com/index.php?route=product/product&product_id=63) (eagletreesystems)
 * [mRo Next-Gen MS5525 Airspeed Sensor](https://store.mrobotics.io/mRo-Next-Gen-MS5525-Airspeed-Sensor-NEW-p/mro-ms5525v2-mr.htm)
@@ -21,8 +21,9 @@ Recommended digital airspeed sensors include:
 
 All the above sensors are connected via the I2C bus/port.
 
-> **Note** Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
-
+:::tip Note
+Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
+:::
 
 ## Configuration
 
@@ -32,4 +33,3 @@ PX4 setup information can be found in: [Basic Configuration > Airspeed](../confi
 ## Developer Information
 
 - [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
-

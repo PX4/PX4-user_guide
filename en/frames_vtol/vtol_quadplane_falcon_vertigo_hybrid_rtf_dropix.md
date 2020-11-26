@@ -1,10 +1,13 @@
 # Discontinued: Falcon Vertigo Hybrid VTOL RTF (Dropix)
 
-> **Note** **Discontinued:** The Falcon Venturi FPV Wing frame on which this vehicle is based is no longer available. 
+:::warning Discontinued
+The Falcon Venturi FPV Wing frame on which this vehicle is based is no longer available.
+:::
 
 The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. It can carry a small GoPro camera. 
 
-The RTF kit contains everything needed for a full system except an RC receiver and telemetry module. The components can also be purchased separately.
+The RTF kit contains everything needed for a full system except an RC receiver and telemetry module.
+The components can also be purchased separately.
 
 Key information:
 
@@ -21,10 +24,10 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 
 * Pre laminated EPP wings
 * Wingtips and full hardware
-* [Dropix](https://drotek.com/shop/en/drotek-parts/494-dropix-flight-controller.html) flight controller with
-  * [GPS Ublox M8N](https://drotek.com/shop/en/drotek-parts/512-ublox-neo-m8-gps-hmc5983-compass.html)
+* [Dropix](https://store-drotek.com/888-dropix.html) flight controller with
+  * [GPS Ublox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor  
-  * [Airspeed Sensor](https://drotek.com/shop/en/drotek-parts/793-digital-differential-airspeed-sensor-kit-.html)
+  * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
 * 4 x propeller 10”x 5” (quad motors)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
@@ -34,7 +37,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * Carbon fiber tubes and mounts
 * G10 motor mounts
 * 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* [Power distribution board and cable](https://drotek.com/shop/en/home/453-power-module-for-apm-pixhawk-and-dropix.html)
+* [Power distribution board and cable](https://store-drotek.com/453-apm-power-source-xt60.html)
 
 The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
 
@@ -69,7 +72,9 @@ The RTF kit requires the following assembly.
    
 1. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
 
-   > **Note** This is very important because the white mark indicates the center of gravity.
+   :::tip Note
+   This is very important because the white mark indicates the center of gravity.
+   :::
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="Carbon tube in brackets" width="300px" />
 
@@ -194,7 +199,9 @@ The inputs for the USB port, power module and external USB are located on the ri
 
 The pitot tube is installed on the front of the plane and connected to the airspeed sensor via a tube. 
 
-> **Caution** It is important that nothing obstructs airflow to the Pitot tube. This is critical for fixed-wing flight and for transitioning from quad to plane.
+:::caution
+It is important that nothing obstructs airflow to the Pitot tube. This is critical for fixed-wing flight and for transitioning from quad to plane.
+:::
 
 1. Install the Pitot tube in the front of the plane
 

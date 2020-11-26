@@ -2,8 +2,10 @@
 
 This section contains information about complete vehicles that run PX4.
 
-> **Note** This is a small subset of vehicles that can run PX4.
-  You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::tip Note
+This is a small subset of vehicles that can run PX4.
+You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::
 
 - Consumer drones run PX4 natively/"out of the box":
   * Multicopter
@@ -18,7 +20,7 @@ This section contains information about complete vehicles that run PX4.
 <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 - Consumer drones run a custom version of PX4 (supported by their vendors):
   * Multicopter
-    * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus)
+    * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus.html)
     * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     * [Airlango Mystic](http://airlango.com/products/)

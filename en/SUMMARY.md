@@ -373,7 +373,6 @@
     * [Connecting an RC Receiver on Linux](tutorials/linux_sbus.md)
   * [Advanced Topics](advanced/README.md)
     * [Parameters & Configs](advanced/parameters_and_configurations.md)
-    * [Parameter Reference](advanced/parameter_reference.md)
     * [Computer Vision](advanced/computer_vision.md)
       * [Motion Capture (VICON, Optitrack)](tutorials/motion-capture-vicon-optitrack.md)
     * [Installing driver for Intel RealSense R200](advanced/realsense_intel_driver.md)

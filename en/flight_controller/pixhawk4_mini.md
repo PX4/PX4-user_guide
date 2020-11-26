@@ -60,7 +60,9 @@ Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
 
 ![Pixhawk 4 Mini interfaces](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
-> **Warning** The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+:::warning
+The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+:::
 
 
 ## Pinouts
@@ -74,8 +76,10 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 ## Voltage Ratings
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
-> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it).
-  You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+:::tip Note
+The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it).
+You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -131,7 +135,7 @@ UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
@@ -140,9 +144,11 @@ UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). 
 This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
-> **Warning** *Pixhawk 4 Mini* does not have AUX ports. 
-  The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. 
-  It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+:::warning
+*Pixhawk 4 Mini* does not have AUX ports. 
+The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. 
+It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+:::
 
 ## Further info
 
