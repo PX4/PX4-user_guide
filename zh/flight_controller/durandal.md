@@ -118,7 +118,11 @@ All dimensions are in millimeters.
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::tip
+Note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -172,12 +176,14 @@ make holybro_durandal-v1_default
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
-> **Note** No Debug port is exposed for the I/O board.
+:::tip
+Note No Debug port is exposed for the I/O board.
+:::
 
 
 ## 外部设备
 
-* [数字空速传感器](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [数传电台模块](../telemetry/README.md)
 * [测距仪/距离传感器](../sensor/rangefinders.md)
 
@@ -361,7 +367,10 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 
 <span id="warn_sensor"></span>
-> **Warning** \++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+
+:::warning
+\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+:::
 
 ### Left-side Pinouts
 
