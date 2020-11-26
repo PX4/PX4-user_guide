@@ -54,7 +54,9 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ![Pixhawk 4 Mini 尺寸](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。 NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+:::warning
+The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+:::
 
 ## 针脚定义
 
@@ -68,18 +70,20 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
-> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+:::tip
+Note The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+:::
 
-**绝对最大额定值**
+**Normal Operation Maximum Ratings**
 
-在这些情况下，系统将保持完整。
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 1. **POWER**（4.75V 至 5.5V）
 2. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **Absolute Maximum Ratings**
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+Under these conditions the system will remain intact.
 
 1. **POWER** 输入（0V 至 6V 不会损坏）
 2. **USB** 输入（0V 至 6V 不会损坏）
@@ -91,8 +95,7 @@ The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.
 
 ## 编译固件
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 本参考列出了所有支持的空中和地面机架的接口和电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用（generic）”机架）。
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
@@ -102,7 +105,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ## 调试接口
 
-电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 本参考列出了所有支持的空中和地面机架的接口和电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用（generic）”机架）。
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
 
 ![Pixhawk 4 Mini FMU Debug](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
@@ -123,7 +126,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 ## 外部设备
 
-* [数字空速传感器](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [数传电台模块](../telemetry/README.md)
 * [测距仪/距离传感器](../sensor/rangefinders.md)
 
@@ -131,7 +134,9 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
-> **Warning** **RC IN** 与 **PPM** 接口仅可用于遥控接收机。 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
+:::warning
+*Pixhawk 4 Mini* does not have AUX ports. The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+:::
 
 ## 更多信息
 
