@@ -10,7 +10,7 @@ It covers how to list, save and load parameters, and how to define them.
 
 ## Command Line Usage
 
-The PX4 [system console](../debug/system_console.md) offers the [param](../middleware/modules_command.md#param) tool, which can be used to set parameters, read their value, save them, and export and restore to/from files.
+The PX4 [system console](../debug/system_console.md) offers the [param](../modules/modules_command.md#param) tool, which can be used to set parameters, read their value, save them, and export and restore to/from files.
 
 ### Getting and Setting Parameters
 

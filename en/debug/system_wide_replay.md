@@ -10,7 +10,7 @@ The first thing that needs to be done is to identify the module or modules that 
 Then, identify all the inputs to these modules, i.e. subscribed ORB topics.
 For system-wide replay, this consists of all hardware input: sensors, RC input, MAVLink commands and file system.
 
-All identified topics need to be logged at full rate (see [logging](../log/logging.md)).
+All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)).
 For `ekf2` this is already the case with the default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`.
