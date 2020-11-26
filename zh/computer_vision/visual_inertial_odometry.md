@@ -128,7 +128,7 @@ https://youtu.be/gWtrka2mK7U
 
 #### 调参 EKF2_EV_DELAY
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于IMU测量值的视觉位置估算器的延迟*。 In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于IMU测量值的视觉位置估算器的延迟*。 换而言之, 这是视觉系统时间戳和IMU时钟（EKF2“时基”）记录的“实际”捕获时间之间的差异。
 
 Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
 
