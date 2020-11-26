@@ -1,10 +1,9 @@
-# CUAV X7 Flight Controller
+# CUAV X7 飞行控制器
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::警告 PX4 没有制造这个(或任何)自动解压。 Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
-The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+[X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> 飞行控制器是一个高性能的自动飞行器。 这是工业无人机和大规模重型无人机的理想选择。 It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
