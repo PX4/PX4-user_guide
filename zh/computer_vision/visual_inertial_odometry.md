@@ -4,7 +4,7 @@
 
 VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/Visual_odometry) 从相机图像中估计机身*姿态*，并结合机身IMU的惯性测量（以校正因不良的图像捕获导致的机身快速移动的错误）。
 
-本节说明如何通过设置PX4和机载计算机来使用*支持的</ 0> VIO设置。</p>
+本节说明如何通过设置 PX4 和机载计算机来使用*已支持的* VIO 配置。
 
 {% youtube %}
 https://youtu.be/gWtrka2mK7U
@@ -21,33 +21,33 @@ https://youtu.be/gWtrka2mK7U
 <span id="supported_setup"></span> 
 
 
-## 安装支持
+## 支持的配置
 
-支持的安装程序使用 [T265 Intel Realsetring Camera](../peripherals/camera_t265_vio.md) 和 ROS(运行在机载计算机上) 为 PX4 提供测距信息。 Auterion的[VIO bridge ROS node](https://github.com/Auterion/VIO_bridge)产品提供了(特殊)相机和ROS之间的桥接。
-
-
+已支持的配置使用 [T265 Intel Realsense追踪相机](../peripherals/camera_t265_vio.md) 和 ROS（运行在机载计算机上）为 PX4 提供测距信息。 Auterion 的 [VIO bridge ROS 节点](https://github.com/Auterion/VIO_bridge) 提供了（指定）相机与 ROS 之间的桥接。
 
 
 
-### 相机挂载
+
+
+### 相机安装
 
 将相机连接到机载计算机并将其安装到框架：
 
-- 使用提供的线缆连接 [T265 Intel Realse追踪摄像头](../peripherals/camera_t265_vio.md)。
+- 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
 - 相机对振动非常敏感，建议软安装(例如使用振动隔离泡沫)。
 
 
 
 
-### ROS/VIO 安装配置
+### ROS/VIO 安装
 
 设置桥接，ROS和 PX4：
 
 - 在机载计算机上安装和配置 [MAVROS](../ros/mavros_installation.md)。
-- 获取 Auterion [VIO 桥接ROS节点](https://github.com/Auterion/VIO_bridge):
+- 获取 Auterion [VIO Bridge ROS 节点](https://github.com/Auterion/VIO_bridge)：
   
-    - 从仓库中克隆代码到你的catkin工作空间。 
+    - 从仓库中克隆代码到你的 catkin 工作空间。 
     
     
     ```
@@ -83,9 +83,9 @@ https://youtu.be/gWtrka2mK7U
 
    - 接下来的三个 `参数` 是旋转弧度(偏航, 俯仰, 横滚)。 所以 `[... 0, 1.5708, 0]` 是向下俯仰90度(朝向地面)。 直面是 [... 0 0 0]。
 
-- 按照[下方](#ekf2_tuning)的说明调整PX4 EKF2估算器。
+- 按照[下方](#ekf2_tuning)的说明调整 PX4 EKF2 估计器。
 
-- 通过使用适当的启动文件调用` roslaunch `来运行VIO： 
+- 通过使用适当的启动文件调用 `roslaunch` 来运行VIO： 
   
   
   ```
