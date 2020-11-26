@@ -1,8 +1,10 @@
 # Hex Cube Black Flight Controller
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://cubepilot.org/#/home)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::
 
-The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv3** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
+The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
 
@@ -10,9 +12,13 @@ The controller is designed to be used with a domain-specific carrier board in or
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-> **Note** The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
-> 
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::tip
+Note The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
+:::
+
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## 主要特性
 
@@ -39,7 +45,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## 组装
 
-[Cube 快速接线指南](../assembly/quick_start_cube.md)
+[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
 ## 产品规格
 
@@ -88,7 +94,7 @@ Under these conditions all power sources will be used in this order to power the
 
 #### 绝对最大额定值
 
-在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
+Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 - Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
@@ -134,9 +140,11 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v3_default
     

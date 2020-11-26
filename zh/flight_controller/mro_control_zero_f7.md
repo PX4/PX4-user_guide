@@ -1,6 +1,8 @@
 # mRo Control Zero F7 Flight Controller
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.mrobotics.io/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::
 
 The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 
@@ -9,7 +11,9 @@ The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
 
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## 主要特性
@@ -58,9 +62,11 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make mro_ctrl-zero-f7
 ```

@@ -1,26 +1,30 @@
 # 큐브 배선 퀵 스타트
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::
 
 This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
-> **Tip** The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
+:::tip
+The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
+:::
 
 ## 액세서리
 
-큐브는 [구매 시](../flight_controller/pixhawk-2.md#stores)필요한 부속품의 대부분 (또는 전체)이 함께 제공됩니다.
+Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
 
-![큐브 액세서리](../../assets/flight_controller/cube/cube_accessories.jpg)
+![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
 
-예외적으로 GPS를 따로 구매해야 하는 GPS를 포함하지 않는 키트가 있습니다 ([아래를 참고하십시오](#gps)).
+The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
 
 ## 배선 개요
 
-아래 그림은 중요한 센서와 주변기기를 연결하는 방법에 대해 설명합니다. 다음 섹션에서 각각의 장치에 대해 자세히 설명합니다.
+The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
 
-![큐브 - 배선 개요](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
+![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
 1. [텔레메트리 시스템](#telemetry) — 실시간으로 기체를 제어/모니터링하고, 미션을 계획/실행할 수 있도록 합니다. 일반적으로, 텔레메트리 라디오, 태블릿/PC와 지상국 소프트웨어(예: QgroundControl)가 포함됩니다.
 2. [버저](#buzzer) — 기체의 동작을 나타내는 오디오 신호를 제공합니다.

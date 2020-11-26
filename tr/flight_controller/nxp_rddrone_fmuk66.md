@@ -1,6 +1,8 @@
 # NXP RDDRONE-FMUK66 FMU
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::
 
 RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD). NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
 
@@ -73,7 +75,9 @@ https://nxp.gitbook.io/hovergames
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

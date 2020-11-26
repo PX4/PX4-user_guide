@@ -1,6 +1,8 @@
 # Holybro pix32 Flight Controller
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
 
@@ -8,11 +10,13 @@ The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk
 
 As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
 
-> **Tip** The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+:::tip
+The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+:::
 
-<span></span>
-
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 主要特性
 
@@ -59,9 +63,11 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 
 ## 编译固件
 
-> **Tip** 多数用户不需要自己构建固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v2_default
     
@@ -72,11 +78,11 @@ See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
 
 ## 引脚和原理图
 
-该板基于 [Pixhawk project](https://pixhawk.org/) **FMUv2** 开放式硬件设计。
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
 * [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 原理图和布局
 
-> **Note**作为 CC-BY-SA 3.0 许可的开放硬件设计，所有原理图和设计文件都是 [available](https://github.com/PX4/Hardware)。
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
 ## Serial Port Mapping
 

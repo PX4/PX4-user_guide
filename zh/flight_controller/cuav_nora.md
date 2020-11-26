@@ -1,6 +1,8 @@
 # CUAV Nora Flight Controller
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::
 
 The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
@@ -8,8 +10,9 @@ The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup
 
 Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
 
-<span></span>
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 特性
 
@@ -23,7 +26,7 @@ Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and 
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
 
 
 
@@ -85,17 +88,19 @@ Nora AutoPilot* can be triple-redundant on the power supply if three power sourc
 
 > **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 
-**正常运行最大额定值**
+**Normal Operation Maximum Ratings**
 
-在这些条件下，所有电源将按此顺序用于为系统供电：
+Under these conditions all power sources will be used in this order to power the system:
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** 输入电压（4.75 v 至 5.25 v）
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make cuav_nora_default
 ```
@@ -135,7 +140,7 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 
 ## 支持的平台/机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 更多信息
 

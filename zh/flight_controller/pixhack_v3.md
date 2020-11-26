@@ -1,16 +1,20 @@
 # Pixhack v3
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
-CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主要面向于商用无人系统制造商。
+The CUAV *Pixhack V3* flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-该控制器是SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) 飞行控制器的变形体，后者又基于[Pixhawk](https://pixhawk.org/)项目的**FMUv3**开放式硬件设计。 它在[NuttX](http://nuttx.org) OS上运行PX4，并且与PX4和ArduPilot<sup>&reg;</sup>（APM）固件完全兼容。
+The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
 
-*Pixhack V3*相较于原始设计有着显著的改进，包括更好的接口布局以及增加内置减震和恒温系统。
+*Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 快速预览
 
@@ -45,16 +49,18 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 ## 访问链接
 
-该控制器可以从以下链接购买：
+The board can be purchased from:
 
 * [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 * [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v3_default
     

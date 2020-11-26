@@ -250,7 +250,7 @@ When used to mix vehicle controls, mixer group zero is the vehicle attitude cont
 
 The remaining fields on the line configure the control scaler with parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
 
-An example of a typical mixer file is explained [here](../airframes/adding_a_new_frame.md#mixer-file).
+An example of a typical mixer file is explained [here](../dev_airframes/adding_a_new_frame.md#mixer-file).
 
 <a id="null_mixer"></a>
 

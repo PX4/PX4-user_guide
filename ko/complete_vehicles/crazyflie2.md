@@ -1,10 +1,12 @@
 # Crazyflie 2.0
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+:::
 
-<span></span>
-
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
@@ -12,7 +14,9 @@ The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the 
 
 ## Quick Summary
 
-> **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::tip
+Note The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::
 
 * Main System-on-Chip: STM32F405RG 
   * CPU: 168 MHz ARM Cortex M4 with single-precision FPU

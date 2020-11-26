@@ -1,6 +1,8 @@
 # Omnibus F4 SD
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 Contact the manufacturer for support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
+:::
 
 The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
@@ -15,11 +17,13 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 * Same board dimensions as a *Pixracer*, but slightly smaller form factor (because it has less connectors)
 * Integrated OSD (not yet implemented in software)
 
-> **Tip** All the usual PX4 features can still be used for your racer!
+:::tip
+All the usual PX4 features can still be used for your racer!
+:::
 
-<span></span>
-
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 主要特性
 
@@ -195,7 +199,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## 编译固件
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make omnibus_f4sd_default
     

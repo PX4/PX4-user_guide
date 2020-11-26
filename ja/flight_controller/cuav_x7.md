@@ -1,12 +1,18 @@
 # CUAV X7 Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::
 
 The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
 The flight controller adopts a modular design and can be matched with different base plates. You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board). CUAV has also provided a variety of carrier boards for you to choose from.
+
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Features
 
@@ -20,10 +26,10 @@ The flight controller adopts a modular design and can be matched with different 
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+:::tip
+The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+:::
 
-<span></span>
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Quick Summary{#quick-Summary}
 
@@ -89,7 +95,9 @@ Under these conditions all power sources will be used in this order to power the
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```

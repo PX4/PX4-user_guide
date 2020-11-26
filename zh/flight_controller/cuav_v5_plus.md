@@ -1,6 +1,8 @@
 # CUAV V5+ Autopilot
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
 *V5+*<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>. It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
 
@@ -17,7 +19,9 @@ Some of its main features include:
 - Built-in vibration dampening system with high performance shock absorption system.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 概览
 
@@ -67,7 +71,7 @@ Some of its main features include:
 
 ## Connections (Wiring)
 
-[雷迅 V5+飞控快速接线指南](../assembly/quick_start_cuav_v5_plus.md)
+[CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 
 ## 针脚定义
 
@@ -79,9 +83,9 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 > **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
-**正常运行最大额定值**
+**Normal Operation Maximum Ratings**
 
-在这些条件下，所有电源将按此顺序用于为系统供电：
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 1. `Power1` and `Power2` inputs (4.3V to 5.4V)
 2. `USB` 输入电压（4.75 v 至 5.25 v）
@@ -94,9 +98,11 @@ The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high p
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v5_default
     
@@ -119,7 +125,7 @@ The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-de
 | 6    | GND            | GND   |
 
 
-The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。 The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
@@ -151,7 +157,7 @@ The product package includes a convenient debug cable that can be connected to t
 
 ## 支持的平台 / 机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 备注
 

@@ -1,16 +1,18 @@
 # CUAV V5+ 快速接线指南
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::
 
-本快速入门指南介绍了如何为 [CUAV V5+](../flight_controller/cuav_v5_plus.md) 飞行控制器供电以及如何连接其最主要的外部设备。
+This quick start guide shows how to power the [CUAV V5+](../flight_controller/cuav_v5_plus.md) flight controller and connect its most important peripherals.
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
 ## 接线图概述
 
-下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
+The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
-![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
+![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
 | 主要接口          | 功能                                                                                  |
 |:------------- |:----------------------------------------------------------------------------------- |
@@ -29,49 +31,49 @@
 | DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
 
-> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
+> **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
+> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
 
 ## GPS + 罗盘 + 安全开关 + LED
 
-推荐的 GPS 模块是 *Neo v2 GPS *，其中包含GPS、指南针、安全开关、蜂窝、LED 状态灯。
+The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
+
+> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
+
+The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
 > **Note** 如果您使用 CAN GPS，请使用电缆连接到飞行控制CAN 接口。
-
-GPS/罗盘在安装时应尽可能远离其它电子元器件，方向标记朝向飞行器前方(将罗盘和其它电子元器件分开可以减少干扰)。 使用电缆连接到飞行控制器GPS接口。
-
-> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
 ## 安全开关
 
-只有在不使用推荐的*Neo V2 GPS（带有内置安全开关）时，才需要V5+附带的专用安全开关。 </p> 
-
 如果您在没有GPS的情况下飞行，则必须将安全开关直接连接到`GPS1`端口，以便能够启动无人机并飞行（如果您使用旧的6针GPS，请阅读底部接口的定义以更改线路）。
-
-## 蜂鸣器
 
 如果您使用第三方GPS ，蜂鸣器可能无法工作。
 
+## 蜂鸣器
+
+If you do not use the recommended GPS, the buzzer may not work.
+
 ## 遥控器
 
-如果您想要手动控制您的飞行器，需要使用遥控器 （PX4在自动飞行模式下可以不需要遥控器）。 您需要 选择一个兼容的发射/接收机并对频使它们能够通信 (对频方法参考发射/接收机的说明书)。
+A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-下图显示您如何连接遥控器接收机 (请在工具包中找到SBUS电缆)。
+The figure below shows how you can access your remote receiver (please find the SBUS cable in the kit).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_04.png)
 
 ## Spektrum 卫星接收器
 
-V5+有专用DSM电缆。 如果使用Spektrum卫星接收器，这应连接到飞行控制器DSM/SBUS/SSI接口。
+V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_PM*模块的6引脚连接到飞行控制器的`Power1`接口。
 
 ## 电源
 
-V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_PM*模块的6引脚连接到飞行控制器的`Power1`接口。
+The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
 > **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 
@@ -81,9 +83,9 @@ V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_P
 
 ## Telemetry System (Optional)
 
-数传系统允许您通过地面站对飞行器进行通信、监控和控制 (例如，您可以指定无人机飞行到指定位置或上传新的任务)。
+A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过USB连接）。
+The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 

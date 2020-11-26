@@ -1,12 +1,18 @@
 # CUAV X7 Flight Controller
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::
 
 The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
 The flight controller adopts a modular design and can be matched with different base plates. You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board). CUAV has also provided a variety of carrier boards for you to choose from.
+
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 特性
 
@@ -20,10 +26,10 @@ The flight controller adopts a modular design and can be matched with different 
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+:::tip
+The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+:::
 
-<span></span>
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Quick Summary{#quick-Summary}
 
@@ -81,15 +87,17 @@ The *X7 AutoPilot* can be triple-redundant on the power supply if three power so
 
 > **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
 
-**正常运行最大额定值**
+**Normal Operation Maximum Ratings**
 
-在以下条件下，所有电源将按此顺序用于为系统供电：
+Under these conditions all power sources will be used in this order to power the system:
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
@@ -134,7 +142,7 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 
 ## 支持的平台/机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 更多信息
 

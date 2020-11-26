@@ -1,6 +1,8 @@
 # mRo Control Zero F7 Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::
 
 The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 
@@ -9,7 +11,9 @@ The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
 
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::tip
+Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Key Features
@@ -58,7 +62,9 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
