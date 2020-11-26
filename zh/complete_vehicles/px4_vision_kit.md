@@ -4,9 +4,9 @@
 
 ![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
+这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
-> **Note** This vehicle comes with no pre-installed software. A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+> **Note** 无人机上没有预先安装的软件。 预成像U盘包含[PX4/避障](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由*Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 开发者可以使用套件来尝试 [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 项目提供的其他功能。 修改现有代码，或尝试全新的计算机视觉功能。
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
@@ -16,14 +16,14 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## 警告&通知
 - [警告&通知](#warnings-and-notifications)
-- [What is Inside](#what-is-inside)
-- [What Else Do You Need](#what-else-do-you-need)
+- [包装内容](#what-is-inside)
+- [其他注意事项](#what-else-do-you-need)
 - [首次使用](#first-time-setup)
-- [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
+- [试飞无人机（带避障）](#fly-the-drone-with-avoidance)
 - [使用套件开发](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
+- [Px4 Vision 载板引脚排列](#px4-vision-carrier-board-pinouts)
 - [其他拓展资源](#other-development-resources)
-- [How to get Technical Support](#how-to-get-technical-support)
+- [如何获得技术支持](#how-to-get-technical-support)
 
 ## 开始了解你的开发套件
 
@@ -34,48 +34,48 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
    ![警告 - 不连接电源端口](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
-## 开始了解你的开发套件
+## 包装内容
 ![包装内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
 <img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 正侧面图" />
 
-该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
-- Core Components:
+该套件中包含了必要的无人机硬件：
+- 核心组件：
   - 一个Pixhawk 4飞控（包含定制化的PX4固件）
-  - 1x PMW3901 optical flow sensor
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
+  - 一个 PMW3901 光流传感器
+  - 一个 TOF 红外距离传感器(PSK‐CM8JL65‐CC5)
   - 一个 Structure Core 深度相机
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
+    - 160 深度视图摄像机
+    - 立体红外摄像头
+    - 板载传感器
+    - 强大的 NU3000 多核深度处理器
+  - 一个 *UP Core* 计算机 (4GB 内存；64GB eMMC 带 Ubuntu 系统和 PX4 避障)
+    - Intel® AtomTM x5-z8350 (up to 1.92 GHz)
+    - 兼容的操作系统: Microsoft Windows 10 完整版本, Linux (ubilinux, Ubuntu, Yocto), Android
     - FTDI UART 连接到飞控
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
+    - `USB1`：USB3-A 接口被用来从 USB2.0 储存器启动 PX4 避障环境（连接到 USB3.0 外设可能会导致GPS无法使用）。
+    - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
+    - `USB3`：USB 2.0 JST-GH 端口连接到深度摄像头
     - `HDMI`：HDMI 输出
     - SD 卡插槽
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). 允许计算机进行 WiFi 家庭网络访问/更新。
+    - WiFi 802.11 b/g/n @ 2.4 GHz (连接到外部1号天线)。 允许计算机进行 WiFi 家庭网络访问/更新。
 
 
-- Mechanical Specification:
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
-  - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). 实现与地面站的无线连接。
+- 机械规格：
+  - 框架：全 5mm 3k 碳纤纹
+  - 电机：T-MOTOR F60 PROⅢ KV1750
+  - 电调: BEHEli-S 20A ESC
+  - 桨：T6045
+  - GPS: Pixhawk4 GPS 模块
+  - 电源模块： Holybro PM07
+  - 轴距：286毫米
+  - 重量：854克（无电池和桨）
+  - 数传：连接飞行控制器的ESP8266（连接外部2号天线）。 实现与地面站的无线连接。
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- 带有 Auterion 提供的预刷新软件的 USB2.0 盘，其附带：
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
@@ -83,11 +83,11 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
   - [PX4 Avoidance 避障库](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
 
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- 各种导线、8个螺旋桨、2个电池带（已安装）和其他附件（可用于连接其他外围设备）。
 
 ## 其他注意事项
 
-该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
+该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
 - 电池：
   - 带 XT60 母头的 4S 锂电池
   - 长度小于115毫米（以适合电源插座和 GPS 支架之间的空间）
@@ -101,14 +101,14 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 ## 首次使用
 
-1. 将接收机（套件中不包含）固定在无人机上，
+1. 将一个 [兼容的遥控接收器](../getting_started/rc_transmitter_receiver.md#connecting-receivers) 连接到无人机上（未随套件提供）：
    - 使用 H2.0 头的内六角螺丝刀移除/取消顶部板块(在电池进入的地方)。
    - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
    - 重新安装上面的外壳。
    - 在无人机背部安装RC 接收器(使用双面胶或其他)。
    - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
 
-1. 遥控和接收机配对(如果尚未完成的话)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
+1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) 遥控和接收机配对(如果尚未完成)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
 1. GPS需要高于无人机，并固定到底板。
 
    ![提升GPS映射](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
@@ -144,11 +144,11 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
    - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
 
 
-1. 连接电池来给无人机供电
+1. 按如下所示旋转连接螺旋桨：
 
    ![电机顺序示意图](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
+   - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和 _6045_ **R** (逆时针)。
 
      ![螺旋桨识别](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
@@ -233,13 +233,13 @@ PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/e
 <span id="boot_mission_computer"></span> 
 
 
-### 开启上位机 {#boot_mission_computer}
+### 开启机载计算机 {#boot_mission_computer}
 
 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
 
 
-> **Tip** [Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+> **Tip** [ 飞行无人机(带避障)](#Fly-the-Drone-with-Avoidance) 另外解释了如何验证避障系统是否有效。
 
 如果您已经在机载计算机上安装了 [镜像](#install_image_mission_computer) 您只需为该无人机供电(即不需要U盘)。 避障系统应在30秒内启动并运行。
 
@@ -355,21 +355,21 @@ ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工�
 
 ## 如何获得技术支持？
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 机载计算机技术信息
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 - [Pixhawk 4 概述](../flight_controller/pixhawk4.md)
 - [PX4 避障软件/文档](https://github.com/PX4/avoidance)
 - [路径规划接口](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+- [Px4 Vision 载板引脚排列](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
 
 
-## How to get Technical Support
+## 如何获得技术支持
 
 软件问题，请使用以下 [社区支持频道](README.md#support)：
 
-For software issues, use the following community support channels:
+软件问题，请使用以下社区支持频道：
 
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
-- [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+- [PX4讨论：计算机视觉分类。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 slack](https://slack.px4.io/) 频道: #避障
+- [Holybro PX4 Vision Wikifrate](https://wikifactory.com/+holybro/px4-vision)

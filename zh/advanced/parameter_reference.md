@@ -1,8 +1,8 @@
 # 参数对照表
-> **注意****该文档是该版本PX4根据源码自动生成的**（通过执行`make parameters_metadata`）。
+> **Note** **该文档是该版本PX4根据源码自动生成的**（通过执行`make parameters_metadata`）。
 
 <span></span>
-> **注意** 如果列表中的某个参数编译后在固件中丢失，查看: [Finding/Updating Parameters](../advanced_config/parameters.md#missing)来解决。
+> **Note**  如果列表中的某个参数编译后在固件中丢失，查看: [Finding/Updating Parameters](../advanced_config/parameters.md#missing)来解决。
 
 ## UAVCAN Motor Parameters
 
