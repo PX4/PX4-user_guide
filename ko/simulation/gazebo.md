@@ -4,11 +4,13 @@
 
 **Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine (coming soon!)
 
-> **Tip** Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you should instead [follow the instructions here](../simulation/ros_interface.md) to install Gazebo as part of ROS!
+:::warning
+Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
+:::
 
 {% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
 
-[![{% mermaid %} graph LR; Gazebo-->Plugin; Plugin-->MAVLink; MAVLink-->SITL; {% endmermaid %}](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+[![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
 
 <!-- original graph info
@@ -18,13 +20,15 @@ graph LR;
   MAVLink-- >SITL;
 -->
 
-> **Note** See [Simulation](/simulation/README.md) for general information about simulators, the simulation environment and available simulation configuration (e.g. supported vehicles).
+:::tip
+Note See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::
 
 <a id="installation"></a>
 
 ## Installation
 
-Gazebo 8 setup is included in our standard build instructions:
+You can run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
 - **macOS:** [Development Environment on Mac](../setup/dev_env_mac.md)
 - **Linux:** [Development Environment on Linux (Ubuntu 16.04) > jMAVSim/Gazebo Simulation](../setup/dev_env_linux.md#jmavsimgazebo-simulation)
 - **Windows:** Not supported.
@@ -34,9 +38,9 @@ Additional installation instructions can be found on [gazebosim.org](http://gaze
 
 ## Running the Simulation
 
-You can run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
+Run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *Firmware* repository and call `make` for the targets as shown in the following sections. For example, to start a quadrotor simulation (the default):
+The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
 ```sh
 cd ~/src/Firmware
 make px4_sitl gazebo
@@ -44,7 +48,9 @@ make px4_sitl gazebo
 
 The supported vehicles and `make` commands are listed below (click links to see vehicle images).
 
-> **Note** Please refer to the [Installing Files and Code](../setup/dev_env.md) guide if you run into any errors.
+:::tip
+Note For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+:::
 
 | Vehicle                                                                                                                                 | Command                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -63,7 +69,9 @@ The supported vehicles and `make` commands are listed below (click links to see 
 | [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                         | `make px4_sitl gazebo_cloudship`                |
 
 
-> **Tip** For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+:::tip
+Note The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+:::
 
 The commands above launch a single vehicle with the full UI. Other options include:
 - **Tip** You can use the [instructions below](#start_px4_sim_separately) to keep Gazebo running and only re-launch PX4. This is quicker than restarting both.
@@ -74,7 +82,7 @@ The commands above launch a single vehicle with the full UI. Other options inclu
 
 The `make` commands above first build PX4, and then run it along with the Gazebo simulator.
 
-This will bring up the PX4 shell:
+Once PX4 has started it will launch the PX4 shell as shown below.
 
 ```
 ______  __   __    ___ 
@@ -101,11 +109,13 @@ INFO  [ecl/EKF] 5188000: commencing GPS fusion
 The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
 
 
-> **Note** Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
+:::tip
+Note Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
+:::
 
 ![Gazebo UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
 
-You can bring it into the air by typing:
+Simply prefix the normal *make* command with `HEADLESS=1` as shown:
 
 ```sh
 pxh> commander takeoff
@@ -130,9 +140,9 @@ HEADLESS=1 make px4_sitl gazebo_plane
 
 The takeoff location in SITL Gazebo can be set using environment variables. This will override both the default takeoff location, and any value [set for the world](#set_world_location).
 
-The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+[&lt;Firmware>/Tools/sitl_gazebo/worlds/typhoon_h480.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/typhoon_h480.world)).
 
-Simply prefix the normal *make* command with `HEADLESS=1` as shown:
+For example:
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -143,7 +153,7 @@ make px4_sitl gazebo
 
 ### 3DR Solo
 
-The default takeoff location in SITL Gazebo can be overridden using environment variables.
+The current default world is the **iris.world** located in the directory [worlds](https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds). The default surrounding in the **iris.world** uses a heightmap as ground.
 
 ```
 export PX4_SIM_SPEED_FACTOR=2
@@ -155,7 +165,7 @@ For more information see: [Simulation > Run Simulation Faster than Realtime](../
 
 ### Change Wind Speed
 
-As an example:
+To simulate wind speed, add this plugin to your world file and replace `SET_YOUR_WIND_SPEED` with the desired speed:
 ```xml
   <plugin name='wind_plugin' filename='libgazebo_wind_plugin.so'>
       <frameId>base_link</frameId>
@@ -170,7 +180,7 @@ As an example:
       <windPubTopic>world_wind</windPubTopic>
     </plugin>
 ```
-[&lt;Firmware>/Tools/sitl_gazebo/worlds/typhoon_h480.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/typhoon_h480.world)).
+You can see this how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L26).
 
 ### Using a Joystick
 
@@ -179,9 +189,9 @@ Joystick and thumb-joystick support are supported through *QGroundControl* ([set
 
 ### Improving Distance Sensor Performance
 
-The current default world is the **iris.world** located in the directory [worlds](https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds). The default surrounding in the **iris.world** uses a heightmap as ground.
+The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/sitl_gazebo/tree/master/worlds)), which uses a heightmap as ground.
 
-This ground can cause difficulty when using a distance sensor. If there are unexpected results with that heightmap, we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
+This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
 
 <a id="gps_noise"></a>
 
@@ -196,8 +206,9 @@ To enable/disable GPS noise:
    ```
    make px4_sitl gazebo_iris
    ```
+   :::tip The SDF files are not overwritten on subsequent builds.
+:::
 
-   > **Tip** The SDF files are not overwritten on subsequent builds.
 2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
 3. Search for the `gpsNoise` element: xml
    ```xml
@@ -208,7 +219,7 @@ To enable/disable GPS noise:
    * If it is present, GPS is enabled. You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
    * If it is not preset GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
-The next time you build/restart Gazebo it will use the new GPS noise setting.
+Once the plugin is enabled you can run SITL with Gazebo in the normal way:
 
 <a id="set_world"></a>
 
@@ -218,32 +229,40 @@ PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which 
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
-Install *Gstreamer 1.0* and its dependencies:
+For example, to load the *warehouse* world, you can append it as shown:
 ```
 make px4_sitl gazebo_hippocampus
 ```
 
-> **Note** There are *two underscores* after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
+:::tip
+Note There are *two underscores* after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
+:::
 
 You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable. This is useful if testing a new world that is not yet included with PX4.
 
-> **Tip** If the loaded world does not align with the map, you may need to [set the world location](#set_world_location).
+:::tip
+If the loaded world does not align with the map, you may need to [set the world location](#set_world_location).
+:::
 
 <a id="set_world_location"></a>
 
 ## Set World Location
 
-Once the plugin is enabled you can run SITL with Gazebo in the normal way:
+To enable the button:
 
-> **Note** This step will not be required once video streaming is enabled by default.
+:::tip
+Note The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
+:::
 
 If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS co-ordinates where it would be in "real life".
 
-> **Note** You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
+:::tip
+Note You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
+:::
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world):
+This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -258,9 +277,9 @@ You can test this by spawning a rover in the [Sonoma Raceway World](../simulatio
 make px4_sitl gazebo_rover__sonoma_raceway
 ```
 
-Video streaming can be enabled/disabled using the Gazebo UI *Video ON/OFF* button.
+The video below shows that the location of the environment is aligned with the gazebo world:
 {% youtube %}
-To enable the button:
+https://youtu.be/-a2WWLni5do
 {% endyoutube %}
 
 <a id="start_px4_sim_separately"></a>
@@ -284,7 +303,7 @@ To start Gazebo and PX4 separately:
 * In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
 * Start the debug session directly from IDE
 
-This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.
+This approach significantly reduces the debug cycle time because simulator (e.g. Gazebo) is always running in background and you only re-run the px4 process which is very light.
 
 
 ## Simulated Survey Camera
@@ -293,15 +312,17 @@ The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/se
 
 The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
 
-To simulate a plane with this camera:
+**Note** Video streaming from Gazebo and the Gazebo widget to turn streaming on/off are not enabled by default.
 ```
 make px4_sitl_default gazebo_plane_cam
 ```
 
-> **Note** The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+:::tip
+Note The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+:::
 
-<span></span>
-> **Note** The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp).
+:::tip
+Note The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp). Simply open **Settings > General** and set **Video Source** to *UDP Video Stream* and **UDP Port** to *5600*:
 
 <a id="flight_termination"></a>
 
@@ -325,7 +346,7 @@ For more information see:
 
 ## Video Streaming
 
-PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model. You can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline.
+PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model. When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
 
 The Gazebo camera sensor is supported/enabled on the following frames:
 * [&gt; **Tip** This section present in **typhoon_h480.world** - you just need to uncomment the section.](#typhoon_h480)
@@ -335,8 +356,9 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 
 *Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-> Enable the *GStreamer Plugin* (if disabled) by changing the `BUILD_GSTREAMER_PLUGIN` option to `"ON"` in [&lt;Firmware&gt;/Tools/sitl_gazebo/CMakeLists.txt](https://github.com/PX4/sitl_gazebo/blob/master/CMakeLists.txt) (as shown below):
-
+:::tip
+Note FYI only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+:::
 
 ### Gazebo GUI to Start/Stop Video Streaming
 
@@ -345,14 +367,14 @@ Video streaming is automatically started when supported by the target vehicle. F
 sudo apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | grep -v gstreamer1.0-hybris) -y
 ```
 
-**Note** Video streaming from Gazebo and the Gazebo widget to turn streaming on/off are not enabled by default.
+Streaming can be paused/restarted using the Gazebo UI *Video ON/OFF* button..
 
 ![Video ON/OFF button](../../assets/simulation/gazebo/sitl_video_stream.png)
 
 
 ### How to View Gazebo Video
 
-The easiest way to view the SITL/Gazebo camera video stream is in *QGroundControl*. Simply open **Settings > General** and set **Video Source** to *UDP Video Stream* and **UDP Port** to *5600*:
+The easiest way to view the SITL/Gazebo camera video stream is in *QGroundControl*. Simply open **Application Settings > General** and set **Video Source** to *UDP h.264 Video Stream* and **UDP Port** to *5600*:
 
 ![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
 
@@ -360,7 +382,9 @@ The video from Gazebo should then display in *QGroundControl* just as it would f
 
 ![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
 
-> **Note** The Typhoon world is not very interesting.
+:::tip
+Note The Typhoon world is not very interesting.
+:::
 
 It is also possible to view the video using the *Gstreamer Pipeline*. Simply enter the following terminal command:
 ```sh
@@ -388,7 +412,9 @@ VERBOSE_SIM=1 make px4_sitl gazebo
 
 To extend or customize the simulation interface, edit the files in the `Tools/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/px4/sitl_gazebo) on Github.
 
-> **Note** The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+:::tip
+Note The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+:::
 
 ## Further Information
 
