@@ -6,7 +6,7 @@
 
 这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
-> **Note** 无人机上没有预先安装的软件。 预成像U盘包含[PX4/避障](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由*Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+> **Note** 无人机上没有预先安装的软件。 预成像U盘包含[PX4/避障](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由*Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 开发者可以使用套件来尝试 [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 项目提供的其他功能。 修改现有代码，或尝试全新的计算机视觉功能。
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
@@ -16,14 +16,14 @@
 
 ## 警告&通知
 - [警告&通知](#warnings-and-notifications)
-- [What is Inside](#what-is-inside)
-- [What Else Do You Need](#what-else-do-you-need)
+- [包装内容](#what-is-inside)
+- [其他注意事项](#what-else-do-you-need)
 - [首次使用](#first-time-setup)
-- [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
+- [试飞无人机（带避障）](#fly-the-drone-with-avoidance)
 - [使用套件开发](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
+- [Px4 Vision 载板引脚排列](#px4-vision-carrier-board-pinouts)
 - [其他拓展资源](#other-development-resources)
-- [How to get Technical Support](#how-to-get-technical-support)
+- [如何获得技术支持](#how-to-get-technical-support)
 
 ## 开始了解你的开发套件
 
@@ -34,29 +34,29 @@
 
    ![警告 - 不连接电源端口](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
-## 开始了解你的开发套件
+## 包装内容
 ![包装内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
 <img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 正侧面图" />
 
-该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
-- Core Components:
+该套件中包含了必要的无人机硬件：
+- 核心组件：
   - 一个Pixhawk 4飞控（包含定制化的PX4固件）
-  - 1x PMW3901 optical flow sensor
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
+  - 一个 PMW3901 光流传感器
+  - 一个 TOF 红外距离传感器(PSK‐CM8JL65‐CC5)
   - 一个 Structure Core 深度相机
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
+    - 160 深度视图摄像机
+    - 立体红外摄像头
+    - 板载传感器
+    - 强大的 NU3000 多核深度处理器
+  - 一个 *UP Core* 计算机 (4GB 内存；64GB eMMC 带 Ubuntu 系统和 PX4 避障)
+    - Intel® AtomTM x5-z8350 (up to 1.92 GHz)
+    - 兼容的操作系统: Microsoft Windows 10 完整版本, Linux (ubilinux, Ubuntu, Yocto), Android
     - FTDI UART 连接到飞控
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
+    - `USB1`：USB3-A 接口被用来从 USB2.0 储存器启动 PX4 避障环境（连接到 USB3.0 外设可能会导致GPS无法使用）。
+    - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
     - `USB3`: USB2.0 JST-GH port connected to depth camera
     - `HDMI`：HDMI 输出
     - SD 卡插槽
