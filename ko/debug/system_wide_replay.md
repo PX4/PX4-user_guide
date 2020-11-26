@@ -6,7 +6,7 @@ Replay is useful to test the effect of different parameter values based on real 
 ## Prerequisites
 The first thing that needs to be done is to identify the module or modules that should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB topics. For system-wide replay, this consists of all hardware input: sensors, RC input, mavlink commands and file system.
 
-All identified topics need to be logged at full rate (see [logging](../log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
+All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
 
 It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, then they must be relative with respect to the main timestamp. For an example, see [sensor_combined.msg](https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg). Reasons for this are given below.
 
