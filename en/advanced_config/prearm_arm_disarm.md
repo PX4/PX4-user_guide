@@ -9,10 +9,16 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 
 > **Note** Ground stations may display *disarmed* for both disarmed and pre-armed states.
   While not technically correct for pre-armed vehicles, it is "safe".
-  
-A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if available) is used as a precondition for arming the vehicle, and may also be used to enable the pre-armed state.
 
-When permitted, arming is enabled using an [arming gesture](#arm_disarm_gestures), [arming switch](#arm_disarm_switch) or MAVLink command. 
+Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures),  or *MAVLink command* on the ground controller:
+- A *safety switch* is an optional button or switch *on the vehicle* that completely prevents arming (i.e. motors turning) and which may also prevent prearming (depending on the configuration).
+  It is often part of the GPS reciever, but may be  separate switch.
+- An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
+- An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
+- MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
+
+PX4 will also automatically disarm the vehicle if it does not takeoff within a certain amount of time after arming, and if it is not manually disarmed after landing.
+This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
 
 PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
