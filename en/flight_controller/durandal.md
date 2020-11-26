@@ -121,7 +121,10 @@ All dimensions are in millimeters.
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::tip Note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -179,12 +182,14 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 The pinout uses the standard Dronecode debug connector pinout.
 Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
-> **Note** No Debug port is exposed for the I/O board.
+:::tip Note
+No Debug port is exposed for the I/O board.
+:::
 
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
@@ -365,7 +370,10 @@ Pin | Signal | Volt
 10 (black) | GND | GND
 
 <span id="warn_sensor"></span>
-> **Warning** \++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+
+:::warning
+\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+:::
 
 ### Left-side Pinouts
 

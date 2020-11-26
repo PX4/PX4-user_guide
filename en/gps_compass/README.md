@@ -24,7 +24,7 @@ If it fails before flight, arming will be denied.
 Some popular GPS/compass options include:
 * [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
 * [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
-* [Drotek uBlox GPS/Compasses](https://drotek.com/shop/en/184-u-blox) (drotek)
+* [Drotek uBlox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass) - e.g [DP0804 (NEO-M9N GPS + LIS3MDL Magnetometer for Pixhawk 3 Pro)](https://store-drotek.com/920-DP0804.html) (drotek)
 * [Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) ([Holybro Shop](https://shop.holybro.com/pix32-gps-module_p1099.html)) ([getfpv](https://www.getfpv.com/holybro-pix32-neo-m8n-gps.html))
 * [Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) ([Holybro Shop](https://shop.holybro.com/micro-m8n-gps_p1009.html)) ([getfpv](https://www.getfpv.com/holybro-micro-m8n-gps-module.html))
 * [Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) ([Holybro Shop](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html))) ([getfpv](https://www.getfpv.com/holybro-pixhawk-4-neo-m8n-gps.html))
