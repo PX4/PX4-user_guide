@@ -136,7 +136,8 @@ https://youtu.be/gWtrka2mK7U
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::提示 注意 可以使用 [FlightPlot](../log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计(如上)。
+:::tip
+注意 可以使用 [FlightPlot](../log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计(如上)。
 :::
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
@@ -148,11 +149,11 @@ https://youtu.be/gWtrka2mK7U
 
 执行以下检查，以确保在首次飞行*之前*VIO正常运行：
 
-* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
+* 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息
 
-* Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
+* 偏航机身，直到` ODOMETRY `消息的四元数非常接近单位四元数（w = 1，x = y = z = 0）。
   
-    * At this point the body frame is aligned with the reference frame of the external pose system.
+    * 在这一点上，机身框架与外部姿态系统的参考框架一致。
   * If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
 * Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
 
