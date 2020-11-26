@@ -72,7 +72,7 @@ th {
 <tbody>
 
 <tr id="position_fw">
- <td><a href="../flight_modes/position_fw.md">Position</a>
+ <td><a href="../flight_modes/position_fw.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -97,7 +97,7 @@ th {
 
 
 <tr id="altitude_fw">
- <td><a href="../flight_modes/altitude_fw.md">Altitude</a>
+ <td><a href="../flight_modes/altitude_fw.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
@@ -126,7 +126,7 @@ th {
 
 
 <tr id="stabilized_fw">
- <td><a href="../flight_modes/stabilized_fw.md">Stabilized</a>
+ <td><a href="../flight_modes/stabilized_fw.html">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -145,7 +145,7 @@ th {
 </tr>
 
 <tr id="acro_fw">
- <td><a href="../flight_modes/acro_fw.md">Acro</a>
+ <td><a href="../flight_modes/acro_fw.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -158,7 +158,7 @@ th {
 
 
 <tr id="manual_fw">
- <td><a href="../flight_modes/manual_fw.md">Manual</a>
+ <td><a href="../flight_modes/manual_fw.html">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>M</td>
@@ -173,7 +173,7 @@ th {
 
 
 <tr id="takeoff_fw">
- <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
+ <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).</td>
@@ -181,21 +181,21 @@ th {
 
 
 <tr id="land_fw">
- <td><a href="../flight_modes/land.md">Land</a></td>
+ <td><a href="../flight_modes/land.html">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle initiates the <a href="../flying/fixed_wing_landing.md">fixed-wing landing</a> sequence.</td>
+ <td>Vehicle initiates the <a href="../flying/fixed_wing_landing.html">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr id="hold_fw">
- <td><a href="../flight_modes/hold.md">Hold</a></td>
+ <td><a href="../flight_modes/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle circles around the GPS hold position at the current altitude.</td>
 </tr>
 
 <tr id="return_fw">
- <td><a href="../flight_modes/return.md">Return</a></td>
+ <td><a href="../flight_modes/return.html">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
@@ -203,14 +203,14 @@ th {
 
 
 <tr id="mission_fw">
- <td><a href="../flight_modes/mission.md">Mission</a></td>
+ <td><a href="../flight_modes/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
+ <td>Vehicle executes a <a href="../flying/missions.html">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
 </tr>
 
 <tr id="offboard_fw">
- <td><a href="../flight_modes/offboard.md">Offboard</a></td>
+ <td><a href="../flight_modes/offboard.html">Offboard</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle obeys attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
@@ -237,7 +237,7 @@ th {
 
 
 <tr id="position_mc">
- <td><a href="../flight_modes/position_mc.md">Position</a>
+ <td><a href="../flight_modes/position_mc.html">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
@@ -267,7 +267,7 @@ th {
 </tr>
 
 <tr id="altitude_mc">
- <td><a href="../flight_modes/altitude_mc.md">Altitude</a>
+ <td><a href="../flight_modes/altitude_mc.html">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -300,7 +300,7 @@ th {
 
 
 <tr id="manual_stabilized_mc">
- <td><a href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a>
+ <td><a href="../flight_modes/manual_stabilized_mc.html">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -325,7 +325,7 @@ th {
 
 
 <tr id="rattitude_mc">
- <td><a href="../flight_modes/rattitude_mc.md">Rattitude</a>
+ <td><a href="../flight_modes/rattitude_mc.html">Rattitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S or S<sub>rate</sub></td>
@@ -352,7 +352,7 @@ th {
 
 
 <tr id="acro_mc">
- <td><a href="../flight_modes/acro_mc.md">Acro</a>
+ <td><a href="../flight_modes/acro_mc.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -366,7 +366,7 @@ th {
 
 
 <tr id="orbit_mc">
- <td><a href="../flight_modes/orbit.md">Orbit</a>
+ <td><a href="../flight_modes/orbit.html">Orbit</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>-</td>
@@ -379,28 +379,28 @@ th {
 </tr>
 
 <tr id="takeoff_mc">
- <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
+ <td><a href="../flight_modes/takeoff.html">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle ascends to takeoff altitude and holds position.</td>
 </tr>
 
 <tr id="land_mc">
- <td><a href="../flight_modes/land.md">Land</a></td>
+ <td><a href="../flight_modes/land.html">Land</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle lands at the position where the mode was engaged.</td>
 </tr>
 
 <tr id="hold_mc">
- <td><a href="../flight_modes/hold.md">Hold</a></td>
+ <td><a href="../flight_modes/hold.html">Hold</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle hovers at the current GPS position and altitude.</td>
 </tr>
 
 <tr id="return_mc">
- <td><a href="../flight_modes/return.md">Return</a></td>
+ <td><a href="../flight_modes/return.html">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
@@ -408,21 +408,21 @@ th {
 
 
 <tr id="mission_mc">
- <td><a href="../flight_modes/mission.md">Mission</a></td>
+ <td><a href="../flight_modes/mission.html">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller.</td>
+ <td>Vehicle executes a <a href="../flying/missions.html">predefined mission/flight plan</a> that has been uploaded to the flight controller.</td>
 </tr>
 
 <tr id="followme_mc">
- <td><a href="../flight_modes/follow_me.md">Follow Me</a></td>
+ <td><a href="../flight_modes/follow_me.html">Follow Me</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle autonomously follows a user using an Android phone/tablet running QGC.</td>
 </tr>
 
 <tr id="offboard_mc">
- <td><a href="../flight_modes/offboard.md">Offboard</a></td>
+ <td><a href="../flight_modes/offboard.html">Offboard</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle obeys a position, velocity or attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
@@ -435,7 +435,7 @@ th {
 
 VTOL vehicles support both fixed-wing and multicopter flight modes, executing them based on the current vehicle mode (MC or FW).
 
-VTOL supports <a href="../flight_modes/offboard.md">Offboard</a> mode in either configuration.
+VTOL supports [Offboard](../flight_modes/offboard.md) mode in either configuration.
 
 
 ## Key
