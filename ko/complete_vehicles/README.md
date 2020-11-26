@@ -2,7 +2,9 @@
 
 This section contains information about complete vehicles that run PX4.
 
-> **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::tip
+Note This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::
 
 - PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
   - 멀티콥터 
@@ -20,7 +22,7 @@ This section contains information about complete vehicles that run PX4.
 - (벤더가 지원하는) 커스텀 버전의 PX4를 구동하는 소비자용 드론들:
   
   - Multicopter 
-    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus)
+    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus.html)
     - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     - [Airlango Mystic](http://airlango.com/products/)
