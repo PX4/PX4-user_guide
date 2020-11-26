@@ -13,7 +13,7 @@ Further isolation may be needed in order to reduce vibration to the level that s
 
 ## Vibration Analysis
 
-[Log Analysis using Flight Review > Vibration](../dev_log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
+[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
 
 
 ## Basic Vibration Fixes

@@ -20,13 +20,16 @@ graph LR;
   MAVLink-- >PX4_SITL;
 -->
 
-> **Note** See [Simulation](/simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
-
+:::tip Note
+See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::
 
 <a id="installation"></a>
 ## Installation (Ubuntu Linux)
 
-> **Note** These instructions were tested on Ubuntu 18.04
+:::tip Note
+These instructions were tested on Ubuntu 18.04
+:::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
 1. Install FlightGear:
@@ -37,8 +40,10 @@ graph LR;
    ```
    This installs the latest stable FlightGear version from the PAA repository along with the the FGdata package.
    
-   > **Tip** For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
-     Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+   :::tip
+   For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
+   Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+   :::
 
 1. Check that you are able to run FlightGear:
    ```
@@ -76,15 +81,17 @@ Vehicle | Command
 The commands above launch a single vehicle with the full UI.
 *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
-> **Note** For the full list of FlightGear build targets (highlighted) run:
-  ```
-  make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
-  ```
-  For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+:::tip Note
+For the full list of FlightGear build targets (highlighted) run:
+```
+make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
+```
+For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+:::
 
-<span></span>
-> **Note** The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
-
+:::tip Note
+The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+:::
 
 ## Taking it to the Sky
 
@@ -140,7 +147,9 @@ Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicl
 At this point, you should see a FlightGear window with some view of aircraft.
 
 
-> **Note** You can change the view by pressing **Ctrl+V**.
+:::tip Note
+You can change the view by pressing **Ctrl+V**.
+:::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
 
