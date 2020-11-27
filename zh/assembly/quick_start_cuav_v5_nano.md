@@ -10,14 +10,14 @@ This quick start guide shows how to power the [CUAV V5 nano](../flight_controlle
 
 ## 接线图概述
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+下图展示了如何连接最重要的传感器和外围设备（电机和伺服舵机输出除外）。 我们将在下面各节中介绍它们的细节。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
 | 主要接口           | 功能                                                                                                               |
 |:-------------- |:---------------------------------------------------------------------------------------------------------------- |
-| 电源             | Connect Power module; Provides Power and ANALOG voltage and current measurements.                                |
-| PM2            | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                    |
+| 电源             | 连接电源模块；提供能量、模拟电压和电流测量。                                                                                           |
+| PM2            | [不要与PX4一起使用](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                             |
 | TF CARD        | SD card for log storage (comes with card)                                                                        |
 | M1~M8          | PWM输出接口 可以使用它控制电机或舵机。                                                                                            |
 | A1~A3          | Capture pins (not *currently* supported on PX4).                                                                 |
