@@ -21,7 +21,7 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 | TF CARD        | 用于日志存储的SD卡（随卡提供）                                                                    |
 | M1~M8          | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
 | A1~A3          | 捕获引脚（目前 PX4 上不支持）                                                                   |
-| nARMED         | 表示 FUM 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
+| nARMED         | 表示 FMU 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
 | DSU7           | 用于 FMU 调试，读取调试信息。                                                                   |
 | I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部的罗盘。                                                                  |
 | CAN1/CAN2      | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
@@ -35,7 +35,7 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-> **注意**如果控制器无法安装在推荐/默认方向（例如，由于空间限制），则需要使用实际使用的方向配置自动驾驶仪软件，请参考： [飞行控制器方向](../advanced_features/rtk-gps.md) 。
+> **注意**如果控制器无法安装在推荐/默认方向（例如，由于空间限制），则需要使用实际使用的方向配置自动驾驶仪软件，请参考： [Flight Controller Orientation](../advanced_features/rtk-gps.md)。
 
 ## GPS + 罗盘 + 安全开关 + LED
 
