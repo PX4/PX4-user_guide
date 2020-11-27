@@ -188,7 +188,7 @@ You can see that the vehicle overshoots only by a very small amount:
 
 This controls the orientation and outputs desired body rates with the following tuning parameters:
 - Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
+- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
 - Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
 The attitude controller is much easier to tune.
@@ -199,7 +199,7 @@ If you start to see oscillations or overshoots, the gains are too high.
 
 The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
 - Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
+- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 
