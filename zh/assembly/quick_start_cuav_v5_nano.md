@@ -18,9 +18,9 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 |:-------------- |:----------------------------------------------------------------------------------- |
 | 电源             | 连接电源模块；提供能量、模拟电压和电流测量。                                                              |
 | PM2            | [不要与 PX4 一起使用 ](../flight_controller/cuav_v5_nano.md#compatibility_pm2)             |
-| TF CARD        | SD card for log storage (comes with card)                                           |
+| TF CARD        | 用于日志存储的SD卡（随卡提供）                                                                    |
 | M1~M8          | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
-| A1~A3          | Capture pins (not *currently* supported on PX4).                                    |
+| A1~A3          | 捕获引脚（目前 PX4 上不支持）                                                                   |
 | nARMED         | 表示 FUM 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
 | DSU7           | 用于 FMU 调试，读取调试信息。                                                                   |
 | I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部的罗盘。                                                                  |
@@ -63,7 +63,7 @@ GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方
 
 如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 您需要选择一个飞控兼容的发射机和接收机并对频，使它们能够通信 (对频方法参考发射/接收机的说明书)。
 
-The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
+下图显示了您如何访问远程接收机 (请在工具包中找到SBUS电缆)。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
@@ -79,13 +79,13 @@ v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块�
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs. 如果您需要连接伺服电机/促动器，您需要使用 BEC 为它们分别提供电源。
+> **注意**电源模块不能作为连接到PWM输出的外围设备的电源。 如果您需要连接伺服电机/促动器，您需要使用 BEC 为它们分别提供电源。
 
-## Telemetry System (Optional)
+## 数传系统（可选）
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+数传系统允许您通过地面站对飞行器进行通信、监控和控制 （例如，您可以让无人机飞行到指定位置或上传新的飞行任务）。
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+通信频道是通过数传无线电实现的。 机载的无线数传模块应连接到 **TELEM1** 或者 **TELEM2** 端口（如果连接到这些端口，则无需进一步配置）。 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过 USB 连接）。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
@@ -93,11 +93,11 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ## SD 卡
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+出厂时已插入[SD卡](../getting_started/px4_basic_concepts.md#sd_cards)（无需执行任何操作）。
 
 ## 电机
 
-Motors/servos are connected to the MAIN ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
+电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN** 端口。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
