@@ -1,10 +1,10 @@
-# 사전시동/시동/시동끄기 설정
+# 시동 전, 시동, 제동 구성
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+기체에는 전원을 인가했을 때 잠재적으로 위험한 움직이는 부품이 붙어있습니다(그 중 일부는 모터와 프로펠러입니다)!
 
-To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
+사고 위험을 줄이기 위해, PX4에는 기체 부속에 전원을 인가하는 분명한 몇가지 상태가 있습니다:
 
-- **Disarmed:** There is no power to motors or actuators.
+- **제동:** 모터와 액츄에이터에 전원을 인가하지 않음
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
