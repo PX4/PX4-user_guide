@@ -129,26 +129,26 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 #### EKF2_EV_DELAY 调参
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)是*相对于 IMU 测量值的视觉位置估算器的延迟* 。 换而言之，这是视觉系统时间戳和 IMU 时钟（ EKF2 “时基” ）记录的“实际”捕获时间之间的差异。
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+从技术上讲，如果 MoCap 和（例如）ROS 计算机之间有正确的时间戳（而不仅仅是到达时间）和时间同步（例如 NTP ），则可以将其设置为0。 实际上，由于通信链路的延迟非常特殊，这可能需要一些经验来调整。 系统设置完全同步链的情况很少见!
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
+通过检查 IMU 速率和 EV 速率之间的偏移，可以从日志中获取对延迟的粗略估计：
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::tip
-Note A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计 (如上) 。
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
 
 <span id="verify_estimate"></span> 
 
 
 ## 检查/校验 VIO 估计
 
-Perform the following checks to verify that VIO is working properly *before* your first flight:
+执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
 * 设置 PX4 参数 `MAV_ODOM_LP` 为1。 然后PX4将接收到的外部姿态用MAVLink[ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY)消息回传。 您可以使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 查看这些MAVLink 消息
 
@@ -156,7 +156,7 @@ Perform the following checks to verify that VIO is working properly *before* you
   
     * 在这一点上，机架与外部姿态系统的参考机架一致。
   * 如果在不使横滚或俯仰的情况下无法使四元数接近单位四元数，则机架可能仍存在俯仰或滚动偏移。 这种情况下不要再检查机架坐标系。
-* 对齐后，将机架抬离地面，应该看到位置的z坐标减小。 Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
+* 对齐后，将机架抬离地面，应该看到位置的z坐标减小。 向前移动无人机，应该增加位置的 x 坐标。 向右移动无人机时，应增加 y 坐标。
 
 * Check that linear velocities in the message are in expressed in the *FRD* body frame reference frame.
 
