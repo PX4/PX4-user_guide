@@ -5,11 +5,11 @@
 사고 위험을 줄이기 위해, PX4에는 기체 부속에 전원을 인가하는 분명한 몇가지 상태가 있습니다:
 
 - **제동:** 모터와 액츄에이터에 전원을 인가하지 않음
-- **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
-- **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
+- **시동 전:** 모터와 프로펠러를 잠궈두었으나 액츄에이터에는 위험하지 않은 수준의 전원을 인가함(예: 보조익, 플랩 등).
+- **시동:** 기체 전체에 전원을 인가한 상태. 모터와 프로펠러가 동작할 수 있음 (위험!)
 
 :::tip
-Note Ground stations may display *disarmed* for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+Note 시동 전 기체 상태를 지상 통제 장치에서는 *disarmed*로 나타냅니다. 시동 전 기체에 기술적으로 타당하지는 않지만, "안전" 상태입니다.
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
@@ -34,31 +34,31 @@ Arming/disarming parameters can be found in [Parameter Reference > Commander](..
 
 <span id="arm_disarm_gestures"></span>
 
-## Arming Gesture
+## 시동 움직임
 
 By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 
-- **Arming:** Throttle minimum, yaw maximum
-- **Disarming:** Throttle minimum, yaw minimum
+- **시동:** 추진 모터 출력 최소, 방향타 최대 움직임
+- **제동:** 추진 모터 출력 최소, 방향타 최소 움직임
 
 RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
 
-- **Mode 2**: 
+- **모드 2번**: 
   - *Arm:* Left stick to bottom right. 
   - *Disarm:* Left stick to the bottom left.
-- **Mode 1**: 
+- **모드 1번**: 
   - *Arm:* Left-stick to right, right-stick to bottom.
   - *Disarm:* Left-stick to left, right-stick to the bottom.
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
-| 파라미터                                                                                                    | 설명                                                                                                         |
+| 매개변수                                                                                                    | 설명                                                                                                         |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
 
 <span id="arm_disarm_switch"></span>
 
-## Arming Button/Switch
+## 시동 단추/스위치
 
 An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
@@ -81,7 +81,7 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 
 > **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
 
-## Auto-Disarming
+## 자동 제동
 
 By default vehicles will automatically disarm on landing, or if you take too long to take off after arming. The feature is configured using the following timeouts.
 
@@ -178,9 +178,9 @@ The startup sequence is:
    - The system is armed.
    - All motors and actuators can move.
 
-### 파라미터들
+### 매개변수
 
-| 파라미터                                                                                                    | 설명                                                                                                                                                                                                                                 |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="COM_PREARM_MODE"></span>[COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) | Condition to enter prearmed mode. `0`: Disabled, `1`: Safety switch (prearm mode enabled by safety switch; if no switch present cannot be enabled), `2`: Always (prearm mode enabled from power up). Default: `1` (safety button). |
 | <span id="CBRK_IO_SAFETY"></span>[CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY)   | Circuit breaker for IO safety.                                                                                                                                                                                                     |
