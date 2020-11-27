@@ -8,13 +8,17 @@
 {% youtube %}https://youtu.be/y5azVNmIVyw{% endyoutube %}
 
 
-> **Note**有关模拟器，模拟环境和可用模拟配置（例如支持的机型）的一般信息，请参见[Simulation](/simulation/README.md)。
+:::tip
+Note See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::
 
 <a id="installation"></a>
 
 ## Installation (Ubuntu Linux)
 
-> **Note** These instructions were tested on Ubuntu 18.04
+:::tip
+Note These instructions were tested on Ubuntu 18.04
+:::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
 1. Install a JSBSim release from the [release page](https://github.com/JSBSim-Team/jsbsim/releases/tag/Linux):
@@ -32,7 +36,7 @@ JSBSim SITL simulation can be conveniently run through a `make` command as shown
 cd /path/to/PX4-Autopilot
 make px4_sitl jsbsim
 ```
-This will run both the PX4 SITL instance and the FlightGear UI (for visualization). If you want to run without the FlightGear UI, you can add `HEADLESS=1` to the front of the `make` command.
+以上指令启动了一个具有完整 UI 的载具。 If you want to run without the FlightGear UI, you can add `HEADLESS=1` to the front of the `make` command.
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
@@ -42,7 +46,7 @@ The supported vehicles and `make` commands are listed below (click on the links 
 | 四旋翼        | `make px4_sitl jsbsim_quadrotor_x` |
 | 六旋翼        | `make px4_sitl jsbsim_hexarotor_x` |
 
-以上指令启动了一个具有完整 UI 的载具。 *QGroundControl* should be able to automatically connect to the simulated vehicle.
+The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
 
 ## 更多信息

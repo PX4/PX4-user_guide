@@ -69,7 +69,7 @@ If directed by the development team, code issues may be raised on [Github here](
 
 ## 기여하기
 
-Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
+Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
 * [코드](contribute/README.md)
 * [문서](contribute/docs.md)
