@@ -6,17 +6,17 @@
 
 ## 개요
 
-RTK uses measurements of the phase of the signal's carrier wave, rather than the information content of the signal. It relies on a single reference station to provide real-time corrections, which can work with multiple mobile stations.
+실시간 운동 감지(RTK)는 신호 정보 내용 자체 보다는 신호 캐리어 파형의 위상 측정 값을 활용합니다. 다중 이동 스테이션과도 동작할 수 있도록 실시간 보정을 제공하는 단일 참조 스테이션에 의존합니다.
 
-Two RTK GPS modules and a datalink are required to setup RTK with PX4. The fixed-position ground-based GPS unit is called the *Base* and the in-air unit is called the *Rover*. The Base unit connects to *QGroundControl* (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message). On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
+PX4에 RTK를 설정하려면 RTK GPS 모듈 둘과 데이터 링크가 필요합니다. 고정 위치 지상 기반 GPS 장치를 *베이스*라 하고, 공중에 띄우는 장치를 *탐사선(Rover)*이라 합니다. 베이스 장치는 *QGroundControl*에 (USB로) 연결하며 기체로 RTCM 메시지를 지속 송수신(MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 메시지 활용)하도록 데이터링크를 활용합니다. 자동 항법 장치에서는 MAVLink 패킷을 해제한 후 RTK 솔루션을 받았을 때 처리할 탐사선 장치로 보냅니다.
 
-The datalink should typically be able to handle an uplink rate of 300 bytes per second (see the [Uplink Datarate](#uplink-datarate) section below for more information).
+데이터링크는 보통 초당 300바이트 전송을 처리할 수 있어야합니다(더 많은 정보는 [상위 링크 데이터 송수신율](#uplink-datarate) 부분을 참고하십시오).
 
-## Supported RTK GPS modules
+## 지원 RTK GPS 모듈
 
-PX4 currently only supports the single-frequency (L1) u-blox M8P based GNSS receivers for RTK.
+PX4는 현재 RTK 용으로 단일 주파(L1) u-blox M8P 기반 GNSS 수신기만을 지원합니다.
 
-A number of manufacturers have created products using this receiver. The list of devices that we have tested can be found [in the user guide](https://docs.px4.io/en/advanced_features/rtk-gps.html#supported-rtk-devices).
+많은 제조사에서 이 수신기로 제품을 만들고 있습니다. [사용자 안내서](../gps_compass/rtk_gps.md#supported-rtk-devices)에서 우리가 시험 완료한 장치 목록을 찾아보실 수 있습니다.
 
 > **Note** u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
 
