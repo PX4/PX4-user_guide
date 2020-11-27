@@ -1,6 +1,6 @@
-# External Modules (Out-of-Tree)
+# 외부 모듈(트리 외부)
 
-External modules provide a convenient mechanism for developers to manage/group proprietary modules that they want add to (or update in) PX4 firmware. External modules can use the same includes as internal modules and can interact with internal modules via uORB.
+외부 모듈에서는 PX4 펌웨어에 추가(또는 업데이트)할 상용 모듈을 관리/분류하는 편의 매커니즘을 개발자에게 제공합니다. 외부 모듈은 내부 모듈처럼 활용할 수 있으며, 내부 모듈과의 uORB 메시지 교환에 활용할 수 있습니다.
 
 This topic explains how to add an external ("out of tree") module to the PX4 build.
 
