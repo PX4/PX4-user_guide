@@ -73,13 +73,13 @@ V5 nano 有专用 DSM 电缆。 如果使用 Spektrum 卫星接收器，应连�
 
 ## 电源
 
-v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
+v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
 
-> **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+> **警告** 提供的电源模块没有安装熔断器。 连接外围设备时**必须**关闭电源。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+> **Note** The power module is not a power source for peripherals connected to the PWM outputs. 如果您需要连接伺服电机/促动器，您需要使用 BEC 为它们分别提供电源。
 
 ## Telemetry System (Optional)
 
