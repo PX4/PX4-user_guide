@@ -61,7 +61,7 @@ GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方
 
 ## 遥控器
 
-如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 您需要选择一个飞控兼容的发射机和接收机并对频，使它们能够通信 (对频方法参考发射/接收机的说明书)。
 
 The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 
@@ -69,11 +69,11 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum 卫星接收器
 
-The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller `DSM/SBUS/RSSI` interface.
+V5 nano 有专用 DSM 电缆。 如果使用 Spektrum 卫星接收器，应连接到飞控的 `DSM/SBUS/RSSI` 接口。
 
 ## 电源
 
-The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
+v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
 > **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 
