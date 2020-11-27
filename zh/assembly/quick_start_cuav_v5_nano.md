@@ -14,21 +14,21 @@ This quick start guide shows how to power the [CUAV V5 nano](../flight_controlle
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
-| 主要接口           | 功能                                                                                                               |
-|:-------------- |:---------------------------------------------------------------------------------------------------------------- |
-| 电源             | 连接电源模块；提供能量、模拟电压和电流测量。                                                                                           |
-| PM2            | [不要与PX4一起使用](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                             |
-| TF CARD        | SD card for log storage (comes with card)                                                                        |
-| M1~M8          | PWM输出接口 可以使用它控制电机或舵机。                                                                                            |
-| A1~A3          | Capture pins (not *currently* supported on PX4).                                                                 |
-| nARMED         | Indicates the FMU armed state. It is active low (low when armed).                                                |
-| DSU7           | 用于FMU调试，读取调试信息。                                                                                                  |
-| I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部指南针。                                                                                               |
-| CAN1/CAN2      | 用于连接UAVCAN设备,比如CAN GPS。                                                                                          |
-| TYPE-C(USB)    | Connect to a computer for communication between the flight controller and the computer, such as loading firmware |
-| GPS&SAFETY     | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                                                   |
-| TELEM1/TELEM2  | 连接到数传电台                                                                                                          |
-| DSM/SBUS/RSSI  | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。                              |
+| 主要接口           | 功能                                                                                  |
+|:-------------- |:----------------------------------------------------------------------------------- |
+| 电源             | 连接电源模块；提供能量、模拟电压和电流测量。                                                              |
+| PM2            | [不要与 PX4 一起使用 ](../flight_controller/cuav_v5_nano.md#compatibility_pm2)             |
+| TF CARD        | SD card for log storage (comes with card)                                           |
+| M1~M8          | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
+| A1~A3          | Capture pins (not *currently* supported on PX4).                                    |
+| nARMED         | 表示 FUM 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
+| DSU7           | 用于 FMU 调试，读取调试信息。                                                                   |
+| I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部的罗盘。                                                                  |
+| CAN1/CAN2      | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
+| TYPE-C(USB)    | 连接到计算机，以便在飞控和计算机之间进行通信，例如加载固件。                                                      |
+| GPS&SAFETY     | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                      |
+| TELEM1/TELEM2  | 连接到数传电台                                                                             |
+| DSM/SBUS/RSSI  | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
 
 > **Note** For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
