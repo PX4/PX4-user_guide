@@ -9,7 +9,7 @@ PX4는 설정 값을 저장하는 수단으로 *매개변수 하위 체계* (`fl
 
 ## 명령행 사용법
 
-The PX4 [system console](../debug/system_console.md) offers the [param](../modules/modules_command.md#param) tool, which can be used to set parameters, read their value, save them, and export and restore to/from files.
+PX4 [시스템 콘솔](../debug/system_console.md)에서는 [매개변수](../modules/modules_command.md#param)값을 파일로(부터) 설정, 불러오기, 저장, 내보내기, 복원 처리하는 도구를 제공합니다.
 
 ### 매개변수 값 가져오고 설정하기
 
@@ -18,7 +18,7 @@ The PX4 [system console](../debug/system_console.md) offers the [param](../modul
 param show
 ```
 
-To be more selective, a partial parameter name with wildcard "*" can be used:
+좀 더 원하는 부분을 선택할 경우, 매개변수 이름 일부 대신 와일드 카드 문자 "*"를 사용할 수 있습니다:
 ```sh
 nsh> param show RC_MAP_A*
 Symbols: x = used, + = saved, * = unsaved
@@ -30,37 +30,37 @@ x   RC_MAP_ACRO_SW [375,514] : 0
  723 parameters total, 532 used.
 ```
 
-You can use the `-c` flag to show all parameters that have changed (from their defaults):
+`-c` 플래그를 사용하여 (기본값으로부터) 값이 바뀐 모든 매개변수를 확인할 수 있습니다:
 ```sh
 param show -c
 ```
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have changed been changed, even if they have been changed back to their default).
+`param show-for-airframe` 명령으로 현재 에어프레임 정의 파일용 기본 설정(과 가져온 모든 기본값)을 바꾼 모든 매개변수 값을 보여줄 수 있습니다.
 
 
 ### 매개변수 값 불러오고 내보내기
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have been changed, even if they have been changed back to their default).
+모든 매개변수 값을 펌웨어 지정 기본값으로 초기화한 이래로 *값을 바꾼*적이 있는 임의의 매개변수를 저장할 수 있습니다(기본값으로 되돌린 적이 있다 하더라도 바뀐 매개변수 값이 들어감).
 
-The standard `param save` command will store the parameters in the current default file:
+`param save` 표준 명령은 현재 기본 파일에 매개변수 값을 저장합니다:
 ```sh
 param save
 ```
 
-If provided with an argument, it will store the parameters instead to this new location:
+인자 값을 추가로 기재했다면, 인자 값에 해당하는 새 위치에 매개변수 값을 저장합니다:
 ```sh
 param save /fs/microsd/vtol_param_backup
 ```
 
-There are two different commands to *load* parameters:
-- `param load` first does a full reset of all parameters to their defaults, and then overwrites parameter values with any values stored in the file.
-- `param import` just overwrites parameter values with the values from the file and then saves the result (i.e. effectively calls `param save`).
+매개변수를 *불러오는(load)* 명령에는 두가지가 있습니다:
+- 우선 `param load` 명령은 모든 매개변수 값을 기본값으로 초기화하며, 파일에 저장한 어떤 값이든 덮어씁니다.
+- `param import`는 파일에서 가져온 매개변수 값을 덮어쓰기만 하고, 결과를 저장합니다(예: `param save` 명령 호출과 동일한 결과).
 
-The `load` effectively resets the parameters to the state when the parameters were saved (we say "effectively" because any parameters saved in the file will be updated, but other parameters may have different firmware-defined default values than when the parameters file was created).
+`load` 명령은 "실질적"으로 매개변수 값을 저장했을 때의 상태로 초기화합니다("실질적"이란 표현을 쓴 이유는 파일에 저장한 어떤 매개변수 값이든 업데이트하겠지만, 다른 매개변수는 파일을 만들었을 때의 매개변수 값과는 다른 펌웨어 지정 기본 값을 가집니다).
 
-By contrast, `import` merges the parameters in the file with the current state of the vehicle. This can be used, for example, to just import a parameter file containing calibration data, without overwriting the rest of the system configuration.
+반면에, `import` 명령은 기체의 현재 상태 값과 파일의 매개변수 값을 병합합니다. 이를테면 시스템 설정의 나머지 부분을 덮어쓰기 하지 않고 보정 값을 동반하여 매개변수 값 파일을  내용을 가져올 때 사용할 수 있습니다.
 
-Examples for both cases are shown below:
+아래 예제에서는 두가지 경우를 모두 보여드립니다:
 
 ```sh
 # Reset the parameters to when file was saved
@@ -211,7 +211,7 @@ PX4에서는 확장 매개변수 메타데이터 시스템을 활용하여 펌�
 
 매개변수 메타데이터는 소스트리 어디에든 **.c** 또는 **.yaml** 매개변수 정의파일로 저장할 수 있습니다(YAML 정의가 더 최신이며 다루기에 유연합니다). 보통 관련 모듈과 함께 저장합니다.
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced/parameter_reference.md) and the parameter information used by ground stations.
+빌드 시스템에서는 (`make parameters_metadata` 명령을 활용하여) 메타데이터를 추출하여 지상 관제 프로그램에서 활용할 [매개변수 참조](../advanced_config/parameter_reference.md)와 매개변수 정보를 빌드합니다.
 
 > **Warning** *새* 매개변수 파일을 추가하고 나면, 새 매개변수를 만들기 전 `make clean`을 실행해야합니다(매개변수 파일은 *cmake* 설정 단계의 일부로서 추가하며, 이 명령을 실행하면 cmake 파일을 수정했을 때, 기존의 빌드 파일을 정리합니다).
 
