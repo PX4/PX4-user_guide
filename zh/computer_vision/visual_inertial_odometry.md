@@ -164,15 +164,15 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
 
-1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above). Lower your throttle stick and arm the motors.
+1. 将无人机放在地面上，并开始流式传输`ODOMETRY`反馈（如上所述）。 油门杆推到最低并解锁。
    
    此时，设置为位置控制模式。 如果切换成功，飞控会闪绿灯。 绿灯代表：你的外部位置信息已经注入到飞控中，并且位置控制模式已经切换成功。
 
-1. Put the throttle stick in the middle (the dead zone) so that the vehicle maintains its altitude. Raising the stick will increase the reference altitude while lowering the value will decrease it. Similarly the other stick will change position over ground.
+1. 油门杆放到中间位置（死区），以便无人机保持飞行高度。 提高操控杆会增加参考高度，降低操控杆会降低参考高度。 同样，另一个操控杆会更改离地位置。
 
-1. Increase the value of the throttle stick and the vehicle will take off, put it back to the middle right after.
+1. 推油门杆无人机会起飞，起飞后立即将油门杆回中。
 
-1. Confirm that the vehicle can hold its position.
+1. 确保无人机可以保持位置。
 
 
 
