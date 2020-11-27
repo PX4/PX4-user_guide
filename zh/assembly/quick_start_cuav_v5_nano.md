@@ -1,4 +1,4 @@
-# CUAV V5 nano Wiring Quick Start
+# 雷迅 V5 nano飞控接线快速入门
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
