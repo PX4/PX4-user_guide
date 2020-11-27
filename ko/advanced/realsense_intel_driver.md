@@ -6,11 +6,11 @@ This tutorial aims to give instructions on how to install the camera driver of t
 
 The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box  and the guest system are given below:
 
-- Host Operation System: Windows 8
-- Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
-- Virtual Box: Oracle VM. Version 5.0.14 r105127
-- Extensions: Extension package for Virtual Box installed (Needed for USB3 support)
-- Guest Operation System: Linux - Ubuntu 14.04.3 LTS
+- 호스트 운영체제: 윈도우 8
+- 프로세서: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
+- 버추어박스: 오라클 가상 머신. 버전 5.0.14 r105127
+- 확장 기능: 버추어 박스 확장 꾸러미 설치 (USB3 지원에 필요)
+- 게스트 운영체제: 리눅스 - 우분투 14.04.3 LTS
 
 The tutorial is ordered in the following way: In a first part it is shown how to install Ubuntu 14.04 as a guest OS in the Virtual Box. In a second part is shown how to install ROS Indigo and the camera driver. The  ensuing frequently used expressions have the following meaning:
 - Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.
