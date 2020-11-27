@@ -2,8 +2,8 @@
 
 이 섹션에는 PX4 비행 제어 장치의 고급 기능 관련 주제를 다룹니다:
 
-* [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
-* [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)
+* [항공 충돌 방지: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
+* [항공 충돌 방지: UTM](../advanced_features/traffic_avoidance_utm.md)
 * [컴퓨터 비전](../computer_vision/README.md) 
   * [장애물 회피](../computer_vision/obstacle_avoidance.md) (보조 컴퓨터 필요)
   * [안전 착륙](../computer_vision/safe_landing.md) (보조 컴퓨터 필요)
