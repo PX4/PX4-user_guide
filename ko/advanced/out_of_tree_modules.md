@@ -55,7 +55,7 @@ uORB 메시지는 별도 메시지로 정의할 수 있습니다. 이렇게 하�
       PARENT_SCOPE
       )
   ```
-  `<message#>.msg` 부분은 uORB 메시지 생성 과정에서 처리하고 활용할 uORB 메시지 정의 파일의 이름입니다.
+  `<message#>.msg` 부분은 uORB 메시지 생성 과정에서 처리, 활용하는 uORB 메시지 정의 파일의 이름입니다.
 
 별도의 uORB 메시지는 일반 uORB 메시지와 동일한 위치에 만듭니다. uORB 토픽 헤더는 `<build_dir>/uORB/topics/`에 만들고, 메시지 원본 파일은  `<build_dir>/msg/topics_sources/`에 만듭니다.
 
@@ -67,8 +67,8 @@ uORB 메시지는 별도 메시지로 정의할 수 있습니다. 이렇게 하�
 
 ## 외부 모듈 및 uORB 메시지 빌드
 
-Execute `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`.
+`make px4_sitl EXTERNAL_MODULES_LOCATION=<path>` 명령을 실행하십시오.
 
-Any other build target can be used, but the build directory must not yet exist. If it already exists, you can also just set the *cmake* variable in the build folder.
+다른 빌드 대상을 활용할 수 있지만, 아직 빌드 디렉터리를 두면 안됩니다. 이미 있다면 *cmake* 변수 값을 빌드 폴더에 설정할 수 있습니다.
 
-For subsequent incremental builds `EXTERNAL_MODULES_LOCATION` does not need to be specified.
+차후 추가 빌드 과정에서는 `EXTERNAL_MODULES_LOCATION` 값을 지정할 필요가 없습니다.
