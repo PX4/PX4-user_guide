@@ -7,7 +7,7 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note This guide is still a work in progress! It does not yet cover all of PX4.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note 本指南将持续更新！ It does not yet cover all of PX4.
 :::
 
 ## 如何开始？
