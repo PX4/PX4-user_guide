@@ -1,18 +1,18 @@
 # 짐벌 제어 설정
 
-If you want to control a gimbal with a camera (or any other payload) attached to the vehicle, you need to configure how you want to control it and how PX4 can command it. 여기서는 이 설정에 관해 설명합니다.
+기체에 카메라(또는 다른 장치)를 달아 장착하는 짐벌을 제어하려면, 어떻게 제어할 지, PX4가 어떻게 명령을 내릴지 설정해야합니다. 여기서는 설정 방법을 설명합니다.
 
-PX4 contains a generic mount/gimbal control driver with different input and output methods.
-- The input defines how you control the gimbal: via RC or via MAVLink commands (for example in missions or surveys).
-- The output defines how the gimbal is connected: some support MAVLink commands, others use PWM (described as AUX output in the following). Any input method can be selected to drive any output. 두 방식 모두 매개변수를 통해 구성되어야 합니다.
+PX4에는 제각각의 입출력 방식을 가진 일반 마운트/짐벌 제어 드라이버가 있습니다.
+- 입력에서는 (임무 수행이나 조사 활동시) RC나 MAVLink 명령 중 짐벌 제어 방식을 정의합니다.
+- 출력에서는 MAVLink 명령 또는 비행 제어 장치 AUX PWM 포트 중 어떤 방식으로 짐벌을 연결할 지 정의합니다. 어떤 입력 방식이든 출력을 처리할 용도로 선택할 수 있으며, 두 방식 모두 매개변수로 구성해야합니다.
 
 ## 매개변수
 
-[These parameters](../advanced/parameter_reference.md#mount) are used to setup the mount driver.
+[마운트](../advanced_config/parameter_reference.md#mount) 매개변수는 마운트 드라이버 구성애 활용합니다.
 
-The most important ones are the input ([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) and the output ([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) mode. 초기 값으로 입력은 활성화되어 있지 않고 드라이버도 작동하지 않습니다. After selecting the input mode, reboot the vehicle so that the mount driver starts.
+가장 중요한 부분은 입력([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) 상태와 출력([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 상태입니다. 기본적으로 입력은 꺼져있으며 드라이버를 실행하지 않습니다. 입력 상태를 선택하고 나면, 기체 구동을 다시 시작하여 마운트 드라이버를 시작하십시오.
 
-If the input mode is set to `AUTO`, the mode will automatically be switched based on the latest input. To switch from MAVLink to RC, a large stick motion is required.
+입력 상태를 `AUTO`(자동)로 설정하면, 가장 최근의 입력 상태로 자동으로 전환합니다. To switch from MAVLink to RC, a large stick motion is required.
 
 ## AUX 출력
 
