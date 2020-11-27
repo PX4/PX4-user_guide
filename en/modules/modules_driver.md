@@ -551,6 +551,8 @@ pca9685_pwm_out <command> [arguments...]
                  default: 64
      [-b <val>]  bus that pca9685 is connected to
                  default: 1
+     [-r <val>]  schedule rate limit
+                 default: 400
 
    stop
 
