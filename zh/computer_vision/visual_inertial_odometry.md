@@ -158,9 +158,9 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
   * 如果在不使横滚或俯仰的情况下无法使四元数接近单位四元数，则机架可能仍存在俯仰或滚动偏移。 这种情况下不要再检查机架坐标系。
 * 对齐后，将机架抬离地面，应该看到位置的z坐标减小。 向前移动无人机，应该增加位置的 x 坐标。 向右移动无人机时，应增加 y 坐标。
 
-* Check that linear velocities in the message are in expressed in the *FRD* body frame reference frame.
+* 检查消息中的线性速度是否以 *FRD* 机架参照系表示。
 
-* Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming the `ODOMETRY` message back.
+* 设置 PX4 参数 `MAV_ODOM_LP` 为0。 PX4 将停止 `ODOMETRY` 消息回传。
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
 
