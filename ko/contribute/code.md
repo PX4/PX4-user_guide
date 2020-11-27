@@ -21,29 +21,29 @@ PX4는 [astyle](http://astyle.sourceforge.net/) 방식으로 코드 형식을 �
 * [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
 * [astyle 3.01](https://sourceforge.net/projects/astyle/files/)
 
-설치하고 나면 `./Tools/astyle/check_code_style_all.sh` 명령으로 코드 형식을 점검할 수 있습니다. 정리한 master 브랜치에서의 출력은 `Format checks passed`로 나와야 합니다. If that worked, `make format` can be used in the future to check and format all files automatically.
+설치하고 나면 `./Tools/astyle/check_code_style_all.sh` 명령으로 코드 형식을 점검할 수 있습니다. 정리한 master 브랜치에서의 출력은 `Format checks passed`로 나와야 합니다. 이 결과가 나왔다면, 나중에 모든 파일의 코드 형식을 검사할 때  `make format` 명령을 활용할 수 있습니다.
 
-## In-Source Documentation
+## 소스 코드 내 문서 정리
 
-PX4 developers are encouraged to create appropriate in-source documentation.
+PX4 개발자 여러분들에게 목적에 부합하는 소스코드 내 문서 정리를 권장합니다.
 
-> **Note** Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+> **참고** 소스 코드 문서 표준을 강제하지 않으며, 현재 코드는 불규칙하게 문서로 정리했습니다. 이보다 더 나아지길 바랍니다!
 
-Currently we have two types of source-based documentation:
-- `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
-  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
-  - Good examples of usage include the [Application/Module Template](../apps/module_template.md) and the files linked from the modules reference.
-* We encourage other in-source documentation *where it adds value/is not redundant*.
+현재 두가지 방식의 소스코드 기반 문서가 있습니다:
+- `PRINT_MODULE_*` 메서드는 이 안내서에서 실행 시간의 모듈 사용 방법과 [모듈 및 명령 참고](../modules/modules_main.md) 내용 작성을 목적으로 활용합니다.
+  - API는 [이곳 소스 코드에](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381) 문서로 정리했습니다.
+  - 바람직한 활용 예시로 [프로그램/모듈 템플릿](../apps/module_template.md)과 모듈 참조에서 연결한 파일을 들 수 있습니다.
+* *값을 추가하였고, 내용의 반복이 없는 코드에 대해* 소스코드 내 문서 작성을 권장합니다.
 
-  > **Tip** Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+  > **팁** 개발자 여러분은 C++ 구성 요소(클래스, 함수, 변수 등)를 목적의 추측이 가능하게끔 작명해야 합니다. 작명을 잘하면 분명하게 문서로 정리할 필요성이 줄어듭니다.
 
-  - Do not add documentation that can trivially be assumed from C++ entity names.
-  - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h).
+  - C++ 항목 이름으로 분명하게 추정할 수 있는 문서는 추가하지 마십시오.
+  - 보통 특이 상황이나 오류 처리 등의 추가 정보를 넣고 싶을 때가 있습니다.
+  - 문서에서 필요하다면 다음의 [Doxgyen](http://www.doxygen.nl/) 태그를 사용해야합니다: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. 바람직한 활용 예시는  [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h) 파일에 있습니다.
 
-## Commits and Commit Messages
+## 코드 제출과 제출 메시지
 
-Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+분명하지 않은 모든 바뀐 내용에 대해 상세하게, 여러 문단에 걸쳐 제출 설명 메시지를 기재하십시오. 내용을 문단 별로 잘 구성하여 한줄 요약 뿐만 아니라 완전한 상세 설명을 통해서도 이해할 수 있게 하십시오.
 
 ```
 Component: Explain the change in one sentence. Fixes #1234
@@ -69,6 +69,6 @@ Bad: "Add gps_reception_check() function").
 Reported-by: Name <email@px4.io>
 ```
 
-**Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
+**모든 수정안 제출에 서명하려면 **`git commit -s` 명령을 활용** 하십시오.** 마지막 줄에 성명과 전자메일 주소가 들어간 `signed-off-by:`를 추가합니다.
 
-This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+이 제출 안내서 내용은 리누스 토발즈가 관리하는 리눅스 커널과 기타 [관리 프로젝트](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)에서 나온 우수 사례를 기반으로 하였습니다.
