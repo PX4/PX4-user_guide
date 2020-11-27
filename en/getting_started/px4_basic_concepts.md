@@ -215,7 +215,7 @@ To reduce the chance of accidents:
 - A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left).
-It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can also be sent from a ground station).
+It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
