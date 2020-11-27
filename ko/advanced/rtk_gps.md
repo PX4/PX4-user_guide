@@ -1,10 +1,10 @@
-# RTK GPS (PX4 Integration)
+# RTK GPS (PX4 통합)
 
-[Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy. This page explains how RTK is integrated into PX4.
+[실시간 운동 감지](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK)는 센티미터 단위의 GPS 정확도를 확보해줍니다. 이 페이지에서는 실시간 운동 감지 기능을 PX4에 결합하는 방법을 설명합니다.
 
-> **Note** Instructions for *using* RTK GPS are provided in the [PX4 User Guide](https://docs.px4.io/en/advanced_features/rtk-gps.html).
+> **Note** RTK GPS *활용* 방법 내용은 [주변 하드웨어 > RTK GPS](../gps_compass/rtk_gps.md)에서 설명합니다.
 
-## Overview
+## 개요
 
 RTK uses measurements of the phase of the signal's carrier wave, rather than the information content of the signal. It relies on a single reference station to provide real-time corrections, which can work with multiple mobile stations.
 
