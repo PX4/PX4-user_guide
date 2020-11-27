@@ -4,11 +4,11 @@
 > 
 > 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT**으로 레이블이 나타납니다.
 
-이 페이지에서는 지원하는 모든 기체 프레임과 형식을 나열하며, 모터 배정 상태와 번호 내용도 들어있습니다. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
+이 페이지에서는 지원하는 모든 기체 프레임과 형식을 나열하며, 모터 배정 상태와 번호 내용도 들어있습니다. **green** 모터는 시계 방향으로 돌며 **blue** 모터는 그 반대입니다.
 
-## Airship
+## 비행선
 
-### Airship
+### 비행선
 
 <div>
   <img src="../../assets/airframes/types/Airship.svg" width="29%" style="max-height: 180px;" /> 
@@ -36,8 +36,8 @@
   </tr>
 <tbody>
 <tr id="airship_airship_cloudship">
- <td style="vertical-align: top;">Cloudship</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4002</p></td>
+ <td style="vertical-align: top;">구름선</td>
+ <td style="vertical-align: top;"><p>유지관리자: John Doe<john@example.com></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
 
 </tr>
 </tbody></table>
