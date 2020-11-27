@@ -30,7 +30,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 ### 相机安装
 
-Attach the camera to the companion computer and mount it to the frame:
+将相机连接到机载计算机并将其安装到机架上：
 
 - 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
@@ -41,7 +41,7 @@ Attach the camera to the companion computer and mount it to the frame:
 
 ### ROS/VIO 安装
 
-To setup the Bridge, ROS and PX4:
+设置桥接，ROS 和 PX4：
 
 - 在机载计算机上安装和配置 [MAVROS](../ros/mavros_installation.md)。
 - 获取 Auterion [VIO Bridge ROS 节点](https://github.com/Auterion/VIO_bridge)：
