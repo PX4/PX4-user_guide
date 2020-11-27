@@ -53,15 +53,15 @@ GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方
 
 只有在不使用推荐的 *Neo V2 GPS*（带有内置安全开关）时，才需要V5+附带的专用安全开关。 
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
+如果您在没有安装 GPS 的情况下飞行，则必须将安全开关直接连接到`GPS1`端口，以便能够启动无人机并飞行（如果您使用过去的 6 针 GPS，请阅读底部接口的定义以更改接线）。
 
 ## 蜂鸣器
 
-If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
+如果不使用推荐的 *Neo v2 GPS*，蜂鸣器可能会不工作。
 
 ## 遥控器
 
-A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 
