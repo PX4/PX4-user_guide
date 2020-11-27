@@ -24,9 +24,9 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 | nARMED         | 表示 FMU 处于待命状态。 低电平时表示激活（待命时是低电平）。                                                   |
 | DSU7           | 用于 FMU 调试，读取调试信息。                                                                   |
 | I2C2/I2C3/I2C4 | 连接I2C总线设备；比如外部的罗盘。                                                                  |
-| CAN1/CAN2      | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
+| CAN1/CAN2      | 用于连接 UAVCAN 设备，比如 CAN GPS。                                                          |
 | TYPE-C(USB)    | 连接到计算机，以便在飞控和计算机之间进行通信，例如加载固件。                                                      |
-| GPS&SAFETY     | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                      |
+| GPS&SAFETY     | 连接到 Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                     |
 | TELEM1/TELEM2  | 连接到数传电台                                                                             |
 | DSM/SBUS/RSSI  | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
@@ -63,7 +63,7 @@ GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方
 
 如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 您需要选择一个飞控兼容的发射机和接收机并对频，使它们能够通信 (对频方法参考发射/接收机的说明书)。
 
-下图显示了您如何访问远程接收机 (请在工具包中找到SBUS电缆)。
+下图显示了您如何访问远程接收机 (请在工具包中找到 SBUS 电缆)。
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
