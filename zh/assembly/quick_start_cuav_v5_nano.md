@@ -1,7 +1,6 @@
 # 雷迅 V5 nano飞控接线快速入门
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::警告 PX4 没有制造这个(或任何)飞控。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store.cuav.net/)。
 :::
 
 本快速入门指南介绍了如何为 [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) 飞控供电以及如何连接其最主要的外部设备。
@@ -79,7 +78,7 @@ v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块�
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **注意**电源模块不能作为连接到PWM输出的外围设备的电源。 如果您需要连接伺服电机/促动器，您需要使用 BEC 为它们分别提供电源。
+> **注意**电源模块不能作为连接到PWM输出的外围设备的电源。 如果您需要连接伺服电机/舵机，您需要使用 BEC 为它们分别提供电源。
 
 ## 数传系统（可选）
 
