@@ -1,14 +1,14 @@
-# 任务
+# Missions
 
-## 规划任务
+## Planning Missions
 
-手动规划任务非常简单:
+Manually planning missions is straightforward:
 
-- 切换到mission视图
-- 在左上选择 ** 添加航点 ** ("加号") 图标。 
-- 点击地图添加航点。
-- 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
-- 完成后, 单击 ** 上载 ** 按钮 (右上), 将任务发送到飞行器。
+- Switch to the mission view
+- Select the **Add Waypoint** ("plus") icon in the top left. 
+- Click on the map to add waypoints.
+- Use the waypoint list on the right to modify the waypoint parameters/type The altitude indicator on the bottom provides a sense of the relative altitude of each waypoint.
+- Once finished, click on the **Upload** button (top right) to send the mission to the vehicle.
 
 You can also use the *Pattern* tool to automate creation of survey grids.
 
@@ -24,8 +24,8 @@ If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`
 
 Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
 
-## 执行飞行任务
+## Flying Missions
 
-一旦任务上传, 切换到飞行视图。 该任务以便于跟踪进度的方式显示 (在此视图中无法修改航点)。
+Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)
