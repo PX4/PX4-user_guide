@@ -1,39 +1,39 @@
 # MAVLink Shell
 
-MAVLink Shell 是一个可以通过串口（USB、数传或基于WIFI的UDP/TCP链路）使用MAVLink协议访问的 *NSH 控制台* 。只适用于基于NuttX的系统，如：Pixhawk、Pixracer等。
+The MAVLink Shell is an *NSH console* that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).
 
-它可用于启动系统指令与模块，并得到输出信息。 尽管它不能*直接*显示那些不是由它启动的模块的输出，但是可以间接的使用 `dmesg` 命令来查询。执行 `dmesg -f &` 可以打印出工作队列中其它模块和任务的输出信息。
+The shell can be used for running commands and modules, and displaying their output. While the shell cannot *directly* display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
 
-> **Tip** [QGC地面站 MAVLink 控制台](#qgroundcontrol) 是访问控制台最方便的方法。 如果系统未能正常启动，则应使用[System Console](../debug/system_console.md)。
+> **Tip** The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to access the console. If the system does not start properly you should instead use the [System Console](../debug/system_console.md).
 
-## 启用 Shell
+## Opening the Shell
 
 <a id="qgroundcontrol"></a>
 
 ### QGroundControl MAVLink Console
 
-访问 shell 的最简单方式是使用 [QGC地面站 MAVLink 控制台](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html) (见**Analyze View > Mavlink Console**)。
+The easiest way to access shell is to use the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html) (see **Analyze View > Mavlink Console**).
 
 ### mavlink_shell.py
 
-您也可以使用 **mavlink_shell.py** 脚本从终端访问shell：
-1. 关闭 *QGroundControl*.
-1. 安装依赖项
+You can also access the shell in a terminal using the **mavlink_shell.py** script:
+1. Shut down *QGroundControl*.
+1. Install dependencies:
    ```sh
    sudo pip3 install pymavlink pyserial
    ```
 1. Open terminal (in PX4-Autopilot directory) and start the shell:
    ```sh
-   # 通过串口
+   # For serial port
    ./Tools/mavlink_shell.py /dev/ttyACM0
    ```
     ```sh
-   # 通过 WiFi 连接
+   # For Wifi connection
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```
 
-执行 `mavlink_shell.py -h` 获取所有可用参数的描述。
+Use `mavlink_shell.py -h` to get a description of all available arguments.
 
-## 使用 MAVLink Shell
+## Using the MAVLink Shell
 
-详情见：[PX4 控制台/Shells > 使用控制台/Shells](../debug/consoles.md#using_the_console)。
+For information see: [PX4 Consoles/Shells > Using Consoles/Shells](../debug/consoles.md#using_the_console).
