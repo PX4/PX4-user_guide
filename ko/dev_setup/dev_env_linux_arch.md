@@ -1,23 +1,24 @@
-# Development Environment on ArchLinux
+# Development Environment on Arch Linux
 
-The user needs to be added to the group "uucp": <!-- NEED px4_version -->
+The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
 The script installs (by default) all tools to build PX4 (without RTPS) for NuttX targets and run simulation with *jMAVsim*. You can additionally install the *Gazebo* simulator by specifying the command line argument: `--gazebo`.
 
 ![Gazebo on Arch](../../assets/simulation/gazebo/arch-gazebo.png)
 
-> *Alternatively*, the standard instructions for installing the **official** version are listed below.
+> **Note** The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
 
-To install using this script, enter the following in a terminal:
+To get and run the scripts, do either of:
 * [Download PX4 Source Code](../dev_setup/building_px4.md) and run the scripts in place:
   ```
-  wget https://raw.githubusercontent.com/PX4/containers/master/docker/px4-dev/scripts/archlinux_install_script.sh
-sudo -s
-source ./archlinux_install_script.sh
+  git clone https://github.com/PX4/PX4-Autopilot.git
+  bash PX4-Autopilot/Tools/setup/arch.sh
   ```
 * Download just the needed scripts and then run them:
   ```sh
-  Once ArchLinux is installed you can use the docker script <a href="https://github.com/PX4/containers/blob/master/docker/px4-dev/scripts/archlinux_install_script.sh">archlinux_install_script.sh</a> to install all dependencies required for building PX4 firmware.
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/arch.sh
+  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
+  bash arch.sh
   ```
 
 The script takes the following optional parameters:
