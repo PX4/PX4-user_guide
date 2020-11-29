@@ -29,26 +29,26 @@ Note These instructions were tested on Ubuntu 18.04
 
 <a id="running"></a>
 
-## 运行仿真
+## Running the Simulation
 
 JSBSim SITL simulation can be conveniently run through a `make` command as shown below:
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl jsbsim
 ```
-以上指令启动了一个具有完整 UI 的载具。 If you want to run without the FlightGear UI, you can add `HEADLESS=1` to the front of the `make` command.
+This will run both the PX4 SITL instance and the FlightGear UI (for visualization). If you want to run without the FlightGear UI, you can add `HEADLESS=1` to the front of the `make` command.
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| 载具类型       | 指令                                 |
-| ---------- | ---------------------------------- |
-| 标准构型的固定翼飞机 | `make px4_sitl jsbsim_rascal`      |
-| 四旋翼        | `make px4_sitl jsbsim_quadrotor_x` |
-| 六旋翼        | `make px4_sitl jsbsim_hexarotor_x` |
+| Vehicle        | Command                            |
+| -------------- | ---------------------------------- |
+| Standard Plane | `make px4_sitl jsbsim_rascal`      |
+| Quadrotor      | `make px4_sitl jsbsim_quadrotor_x` |
+| Hexarotor      | `make px4_sitl jsbsim_hexarotor_x` |
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
 
-## 更多信息
+## Further Information
 
 * [px4-jsbsim-bridge readme](https://github.com/Auterion/px4-jsbsim-bridge)
