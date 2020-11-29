@@ -14,46 +14,46 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## 빠른 요약
+## Quick Summary
 
-* 메인 FMU 프로세서: STM32F765 
+* Main FMU Processor: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO 프로세서: STM32F100 
+* IO Processor: STM32F100 
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* 내장 센서: 
-  * 가속도/자이로: ICM-20689
-  * 가속/자이로: BMI055
-  * 지자계: IST8310
-  * 기압계: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS 수신기; IST8310 지자계 센서가 통합된
-* 인터페이스: 
-  * PWM 출력 8-16개 (IO에서 8개, FMU에서 8개)
-  * FMU의 전용 PWM/캡처 입력 3 개
-  * CPPM 전용 R/C 입력
-  * 아날로그 / PWM RSSI 입력이있는 Spektrum / DSM 및 S.Bus 전용 R / C 입력
-  * 전용 S.Bus 서보 출력
-  * 범용 serial 포트 5개
-  * I2C 포트 3개
-  * SPI 버스 4개
-  * 직렬 ESC를 사용하는 듀얼 CAN에 최대 2 개의 CAN 버스
-  * 배터리 2 개의 전압 / 전류를위한 아날로그 입력
-* 전원시스템 
-  * 전원 모듈 출력: 4.9~5.5V
-  * USB 전원 입력: 4.75~5.25V
-  * 서보 전원 입력: 0~36V
-* 무게와 치수 
-  * 무게: 15.8g
-  * 치수: 44x84x12mm
-* 기타 특성: 
-  * 작동 온도: -40 ~ 85°c
+* On-board sensors: 
+  * Accel/Gyro: ICM-20689
+  * Accel/Gyro: BMI055
+  * Magnetometer: IST8310
+  * Barometer: MS5611
+* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* Interfaces: 
+  * 8-16 PWM outputs (8 from IO, 8 from FMU)
+  * 3 dedicated PWM/Capture inputs on FMU
+  * Dedicated R/C input for CPPM
+  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
+  * Dedicated S.Bus servo output
+  * 5 general purpose serial ports
+  * 3 I2C ports
+  * 4 SPI buses
+  * Up to 2 CANBuses for dual CAN with serial ESC
+  * Analog inputs for voltage / current of 2 batteries
+* Power System: 
+  * Power module output: 4.9~5.5V
+  * USB Power Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
+* Weight and Dimensions: 
+  * Weight: 15.8g
+  * Dimensions: 44x84x12mm
+* Other Characteristics: 
+  * Operating temperature: -40 ~ 85°c
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## 구입처
+## Purchase
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
-## 커넥터 Connectors
+## Connectors
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
@@ -61,7 +61,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 :::
 
-## 핀아웃 Pinouts
+## Pinouts
 
 Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
 
@@ -97,16 +97,16 @@ Note The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do n
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** 과 **POWER2** 에 (4.9V to 5.5V) 를 입력
-2. **USB** 에 (4.75V to 5.25V) 입력
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** 과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 비손상 범위0V ~ 10V)
-2. **USB** 입력 (작동 범위 4.1V to 5.7V, 비손상 범위 0V to 6V)
-3. 서보 입력: **FMU PWM OUT** 과 **I/O PWM OUT**의 VDD_SERVO 핀 (0V to 42V undamaged)
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 ## Assembly/Setup
 
