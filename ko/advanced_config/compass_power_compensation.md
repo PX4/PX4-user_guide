@@ -32,7 +32,7 @@
    - 기체에 시동을 걸고 스로틀을 천천히 최대로 올립니다.
    - 스로틀을 천천히 0까지 낮춥니다.
    - 기체 시동을 끄십시오. > **참고** 진동을 면밀히 관찰하고, 신중하게 테스트를 진행하십시오.
-1. ulog를 검색하고, python 스크립트 [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)를 사용하여 보정 매개변수를 확인하십시오.
+1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
