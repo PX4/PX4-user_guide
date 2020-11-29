@@ -96,7 +96,7 @@
     * [Offboard Mode](flight_modes/offboard.md)
   * [Terrain Following/Holding](flying/terrain_following_holding.md)
 * [Flight Log Analysis](log/flight_log_analysis.md) 
-  * [Flight Review를 이용한 기록 분석](log/flight_review.md)
+  * [Log Analysis using Flight Review](log/flight_review.md)
 * [Advanced Features](advanced_features/README.md) 
   * [Air Traffic Avoidance: ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
   * [Air Traffic Avoidance: UTM](advanced_features/traffic_avoidance_utm.md)
