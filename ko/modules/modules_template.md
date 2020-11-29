@@ -1,7 +1,7 @@
 # Modules Reference: Template
 
 ## module
-Source: [templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module)
+Source: [templates/template_module](https://github.com/PX4/Firmware/tree/master/src/templates/template_module)
 
 
 ### Description
