@@ -9,7 +9,7 @@ This topic lists/displays the vehicles supported by the PX4 [FlightGear](../simu
 
 <a id="standard_plane"></a>
 
-## 标准构型的固定翼飞机
+## Standard Plane
 
 FlightGear has models for many planes. The most suitable one for UAV development is currently the [Rascal RC plane](https://github.com/ThunderFly-aerospace/FlightGear-Rascal) (which also exists in multiple variants).
 
@@ -57,7 +57,7 @@ This variant does not have a direct `make` option but can be manually selected i
 
 <a id="autogyro"></a>
 
-## 飞机
+## Autogyro
 
 The only UAV autogyro model supported by FlightGear is [TF-G1 Autogyro](https://github.com/ThunderFly-aerospace/TF-G1).
 
@@ -69,7 +69,7 @@ make px4_sitl_nolockstep flightgear_tf-g1
 
 <a id="ugv"></a>
 
-## Ackerman 车 （UGV/Rover）
+## Ackerman vehicle (UGV/Rover)
 
 ### TF-R1 Ground support Rover
 
@@ -83,7 +83,7 @@ make px4_sitl_nolockstep flightgear_tf-r1
 
 <a id="quadrotor"></a>
 
-## 四旋翼
+## Quadrotor
 
 There is only an [incomplete multirotor model](https://github.com/ThunderFly-aerospace/FlightGear-TF-Mx1). This is not yet usable (it is numerically unstable and needs an additional work).
 

@@ -1,17 +1,17 @@
-# RFD900长距离数传
+# RFD900 Long-Range Telemetry
 
-[jDrones](http://store.jDrones.com) 和 [RFDesign](http://rfdesign.com.au/)推出了一款兼容 SiK 的长距离数传电台。 这个电台配合普通天线可以提供最少5公里的稳定链接。
+[jDrones](http://store.jDrones.com) and [RFDesign](http://rfdesign.com.au/) offer *long-range* [SiK](../telemetry/sik_radio.md)-compatible telemetry radios. The radios provide reliable connectivity at greater than 5km ranges with normal antennas (and have been reported to achieve much greater ranges).
 
-![jDrones 长距离数传](../../assets/hardware/telemetry/jdrones_long_range_uav_telemetry_rf900set02_2.jpg)
+![jDrones Long Range Telemetry](../../assets/hardware/telemetry/jdrones_long_range_uav_telemetry_rf900set02_2.jpg)
 
-> **Tip** *jDrones*生产了 *RFDesign* 的调制解调器（添加电源管理、滤波器和其他电子器件，连接普遍的飞控，并且单独验证的天线）。 第一个这种设计的调制解调器是 *RFD900*，*RFD900* 和 *jDrones*之后的都升级到新的版本。
+> **Tip** *jDrones* have productized *RFDesign* modems (added a casing with power management, filtering and other electronics inside, along with cables to connect to popular flight controllers, and individually validated antennas). The first such modem was the *RFD900*, but both *RFDesign* and *jDrones* have since iterated to new versions.
 
-*iterated* 电台有一个 JST-GH 连接器，并带有 *JST-GH to JST-GH* 和 *JST-GH to DF-13* 的连接线。 对大多数的 [Pixhawk](../flight_controller/pixhawk_series.md) 系列的飞控，它们都可以“即插即用”（一些“非标准”的飞控，可以使用一些合适的转接器）。
+The *jDrones* radios have a JST-GH connector, and come with cables for: *JST-GH to JST-GH* and *JST-GH to DF-13*. They can therefore be used in a "plug-n-play" way with most [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers (you might have to change/use an appropriate connector for some "non-standard" boards).
 
-下面是可用的版本：
+There are a number of versions available:
 
-* [jD-RF900Plus 长距离(900Mhz)](http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm)（USA）
-* [jD-RF868Plus 长距离(868Mhz)](http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm)(Europe)
+* [jD-RF900Plus Longrange (900Mhz)](http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm) (USA)
+* [jD-RF868Plus Longrange (868Mhz)](http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm) (Europe)
 * [RFD 900+ Modem](http://store.rfdesign.com.au/rfd-900p-modem/)
 * [RFD 868+ Modem](http://store.rfdesign.com.au/rfd-868-modem/)
-* [RFD900u](http://store.rfdesign.com.au/rfd-900u-radio-modem/)\(small\)
+* [RFD900u](http://store.rfdesign.com.au/rfd-900u-radio-modem/) \(small\)

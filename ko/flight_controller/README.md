@@ -1,4 +1,4 @@
-# 비행 컨트롤러 (자동 조종 장치) 하드웨어
+# Flight Controller (Autopilot) Hardware
 
 This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
 

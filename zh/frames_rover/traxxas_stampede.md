@@ -6,17 +6,17 @@ This vehicle was chosen to understand how a Pixhawk could be used for wheeled pl
 
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
-## 配件列表
+## Parts List
 
 - [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
-- [Pixhawk Mini （停产）](../flight_controller/pixhawk_mini.md) 
+- [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md) 
     - 3DR 10S Power Module
     - [3DR 433MHz Telemetry Module (EU)
 - [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
 - [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 - [PX4Flow](../sensor/px4flow.md)
 
-## 组装
+## Assembly
 
 The assembly consists of a wooden frame on which all the autopilot parts were attached. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
 
@@ -38,14 +38,14 @@ For this particular mounting we chose to use the clip supplied with the rover to
 
 ## Output Connections
 
-| PWM Output | 执行器            |
+| PWM Output | Actuator       |
 | ---------- | -------------- |
 | MAIN2      | Steering servo |
 | MAIN4      | ESC input      |
 
 > **Note** As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
 
-## 配置
+## Configuration
 
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
@@ -56,9 +56,9 @@ The main rover-specific configuration is setting the correct frame:
 3. Scroll down the list to find the **Rover** icon. 
 4. Choose **Traxxas stampede vxl 2wd** from the drop down list.
 
-![选择机架](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
-## 用法
+## Usage
 
 At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
 

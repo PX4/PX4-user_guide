@@ -2,20 +2,20 @@
 
 Developers are encouraged to write unit tests during all parts of development, including adding new features, fixing bugs, and refactoring.
 
-Alternatively it is also possible to run the complete unit-tests right from bash:
+PX4 provides several methods for writing unit tests:
 
-1. Create a new .cpp file within [tests](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tests) with name **test_[description].cpp**.
+1. Unit tests with [Google Test](https://github.com/google/googletest/blob/master/googletest/docs/primer.md) ("GTest") - tests that have minimal, internal-only dependencies
 1. Functional tests with GTest - tests that depend on parameters and uORB messages
 1. SITL unit tests. This is for tests that need to run in full SITL. These tests are much slower to run and harder to debug, so it is recommended to use GTest instead when possible.
 
-## Writing a Test
+## Writing a GTest Unit Test
 
-To see a full list of available tests write within px4 shell:
+**Tip**: In general, if you need access to advanced GTest utilities, data structures from the STL or need to link to `parameters` or `uorb` libraries you should use the functional tests instead.
 
 The steps to create new unit tests are as follows:
 
 1. Unit tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
-1. Add the test `test_[desciption].cpp` to the [CMakeLists.txt](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/CMakeLists.txt).
+1. Copy and rename the example unit test [AttitudeControlTest](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_att_control/AttitudeControl/AttitudeControlTest.cpp) to the directory the code to be tested is in.
 1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_unit_gtest(SRC MyNewUnitTest.cpp LINKLIBS <library_to_be_tested>)`
 1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the setup, running the code to be tested and verifying that it behaves as expected.
 1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
@@ -29,7 +29,7 @@ GTest functional tests should be used when the test or the components being test
 The steps to creating new functional tests are as follows:
 
 1. In general (and similar to unit tests), functional tests should be arranged in three sections: setup, run, check results. Each test should test one very specific behavior or setup case, so if a test fails it is obvious what is wrong. Please try to follow these standards when possible.
-1. Within [tests_main.c](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. Copy and rename the example functional test [ParameterTest](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/parameters/ParameterTest.cpp) to the directory the code to be tested is in.
 1. Rename the class from ParameterTest to something better representing the code being testing
 1. Add the new file to the directory's `CMakeLists.txt`. It should look something like `px4_add_functional_gtest(SRC MyNewFunctionalTest.cpp LINKLIBS <library_to_be_tested>)`
 1. Add the desired test functionality. This will mean including the header files required for your specific tests, adding new tests (each with an individual name) and putting the logic for the test setup, running the code to be tested and verifying that it behaves as expected.
@@ -43,8 +43,8 @@ SITL unit tests should be used when you specifically need all of the flight cont
 
 The steps to create new SITL unit tests are as follows:
 
-1. Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/Firmware/blob/master/src/include/unit_test.h).
-1. Within [tests_main.h](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/tests_main.h) define the new test:
+1. Examine the sample [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/master/src/include/unit_test.h).
+1. Create a new .cpp file within [tests](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tests) with name **test_[description].cpp**.
 1. Within **test_[description].cpp** include the base unittest-class `<unit_test.h>` and all files required to write a test for the new feature.
 1. Within **test_[description].cpp** create a class `[Description]Test` that inherits from `UnitTest`.
 1. Within `[Description]Test` class declare the public method `virtual bool run_tests()`.
@@ -58,51 +58,51 @@ The steps to create new SITL unit tests are as follows:
    Here is a template:
    ```cpp
    #include <unit_test.h>
-    #include "[new feature].h"
-    ...
+   #include "[new feature].h"
+   ...
 
    class [Description]Test : public UnitTest
-    {
-    public:
+   {
+   public:
        virtual bool run_tests();
 
-    private:
+   private:
        bool test1();
        bool test2();
        ...
    };
 
-    bool [Description]Test::run_tests()
-    {
+   bool [Description]Test::run_tests()
+   {
        ut_run_test(test1)
        ut_run_test(test2)
        ...
 
        return (_tests_failed == 0);
-    }
+   }
 
-    bool [Description]Test::test1()
-    {
+   bool [Description]Test::test1()
+   {
        ut_[name of one of the unit test functions](...
        ut_[name of one of the unit test functions](...
        ...
 
        return true;
-    }
+   }
 
-    bool [Description]Test::test2()
-    {
+   bool [Description]Test::test2()
+   {
        ut_[name of one of the unit test functions](...
        ut_[name of one of the unit test functions](...
        ...
 
        return true;
-    }
-    ...
+   }
+   ...
 
    ut_declare_test_c(test_[description], [Description]Test)
    ```
-   PX4 provides a simple base [Unittest-class](https://github.com/PX4/Firmware/blob/master/src/include/unit_test.h). Each developer is encouraged to write unit tests in the process of adding a new feature to the PX4 framework.
+   Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/include/unit_test.h).
 
 1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.h) define the new test:
 
@@ -119,7 +119,7 @@ The steps to create new SITL unit tests are as follows:
        ...
    }
 ```
-   `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called: ```bash pxh&gt; tests all
+   `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called:
 
    ```bash
    pxh> tests all
@@ -147,7 +147,7 @@ The individual GTest test binaries are in the `build/px4_sitl_test/` directory, 
 Filter to run only a subset of tests using a regular expression for the ctest name with this command:
 
 ```bash
-pxh> tests help
+make tests TESTFILTER=<filter expression>
 ```
 
 For example:

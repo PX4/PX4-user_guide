@@ -1,11 +1,11 @@
-# 기본 조립
+# Basic Assembly
 
-PX4를 실행하는 일반적인 "최소" 비행 제어 시스템은 전원 시스템, GPS, 외부 나침반 (선택), 무선 제어 시스템(선택) 및 텔레메트리 무선 시스템(선택 사양)에 연결된 비행 컨트롤러로 구성됩니다.
+A typical autopilot "minimal" system running PX4 consists of a flight controller connected to a power system, GPS, external compass (optional), radio control system (optional) and/or telemetry radio system (optional).
 
-이 섹션에는 다양한 [비행 컨트롤러](../flight_controller/README.md)를 조립하는 법에 대해 설명합니다.
+This section contains topics that explain how to assemble such a system for different [flight controllers](../flight_controller/README.md).
 
-> **팁** 퀵 스타트 설명서는 몇 가지 비행 컨트롤러만 설명합니다. 다른 컨트롤러도 비슷한 배선 및 연결 방식을 가집니다. 추가 정보는 [비행 컨트롤러](../flight_controller/README.md) 페이지 또는 제조업체 설명서를 이용하십시오.
+> **Tip** Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
 
-* 센서 및 기타 주변 장치(예: 비행기의 속도 센서) 연결에 대한 정보는 [주변 장치](../peripherals/README.md)를 참조하십시오.
-* 다른 기체 프레임에 대한 완전한 조립 예는 [기체 프레임 제작](../airframes/README.md)을 참고하십시오.
-* 레이서 관련 조립 및 구성 정보는 [멀티콥터 레이서 설정](../config_mc/racer_setup.md)을 참조하십시오.
+* See [Peripherals](../peripherals/README.md) for information about connecting sensors and other peripherals (e.g. airspeed sensor for planes).
+* See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
+* See [Multicopter Racer Setup](../config_mc/racer_setup.md) for racer-specific assembly and configuration information.

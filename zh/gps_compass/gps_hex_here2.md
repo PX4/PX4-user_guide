@@ -12,18 +12,18 @@ Main features include:
 
 ![](../../assets/hardware/gps/here2_gps_module.jpg)
 
-## 购买
+## Purchase
 
 - [ProfiCNC](http://www.proficnc.com/all-products/152-gps-module.html) (Australia)
 - [Other resellers](http://www.proficnc.com/stores)
 
-## 配置
+## Configuration
 
 Setup and use on PX4 is largely plug and play.
 
 > **Note** If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 
-## 接线和连接
+## Wiring and Connections
 
 The Here2 GPS comes with an 8 pin connector that can be inserted directly into the [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART port.
 
@@ -33,22 +33,22 @@ The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector. For these contro
 
 Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
-### 针脚定义
+### Pinout
 
-The Here2 GPS pinout is provided below. 这可用于帮助用户修改接口线序以适配其它自动驾驶仪板的连接器。
+The Here2 GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
-| 引脚 | Here2 GPS  | 引脚 | Pixhawk 3 Pro GPS |
-| -- | ---------- | -- | ----------------- |
-| 1  | VCC_5V     | 1  | VCC               |
-| 2  | GPS_RX     | 2  | GPS_TX            |
-| 0  | GPS_TX     | 3  | GPS_RX            |
-| 4  | SCL        | 4  | SCL               |
-| 5  | SDA        | 5  | SDA               |
-| 6  | BUTTON     | -  | -                 |
-| 7  | BUTTON_LED | -  | -                 |
-| 8  | GND        | 6  | GND               |
+| pin | Here2 GPS  | pin | Pixhawk 3 Pro GPS |
+| --- | ---------- | --- | ----------------- |
+| 1   | VCC_5V     | 1   | VCC               |
+| 2   | GPS_RX     | 2   | GPS_TX            |
+| 3   | GPS_TX     | 3   | GPS_RX            |
+| 4   | SCL        | 4   | SCL               |
+| 5   | SDA        | 5   | SDA               |
+| 6   | BUTTON     | -   | -                 |
+| 7   | BUTTON_LED | -   | -                 |
+| 8   | GND        | 6   | GND               |
 
-## 技术规范
+## Specification
 
 - **Processor:** STM32F302
 - **Sensor** 

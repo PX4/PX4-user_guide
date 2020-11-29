@@ -23,41 +23,41 @@ Some of its main features include:
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-### 概览
+### Quick Summary
 
 Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 
-* 内置传感器：
+* On-board sensors:
   
-  * 加速度计 / 陀螺仪：ICM-20689
-  * 加速度计 / 陀螺仪：ICM-20602
-  * 加速度计 / 陀螺仪：BMI055
-  * 磁力计：IST8310
-  * 气压计：MS5611
+  * Accel/Gyro: ICM-20689
+  * Accel/Gyro: ICM-20602
+  * Accel/Gyro: BMI055
+  * Magnetometer: IST8310
+  * Barometer: MS5611
 * Interfaces: 8 PWM outputs
   
-  * FMU上有3个专用PWM/Capture输入
-  * 用于 CPPM 的专用遥控输入
+  * 3 dedicated PWM/Capture inputs on FMU
+  * Dedicated R/C input for CPPM
   * Dedicated R/C input for Spektrum / DSM and S.Bus
-  * 电平/PWM RSSI输入
-  * 4个通用串行口
-  * 3 个 I2C 接口
-  * 4路SPI总线
+  * Analog / PWM RSSI input
+  * 4 general purpose serial ports
+  * 3 I2C ports
+  * 4 SPI buses
   * 2 CAN Buses 
-  * 电池电压 / 电流模拟输入口
+  * Analog inputs for voltage / current of battery
   * 2 additional analog inputs
   * Supports nARMED
 * Power System: Power Brick Input: 4.75~5.5V
 
-* USB 电源输入：4.75~5.25V
+* USB Power Input: 4.75~5.25V
 
-* 重量和尺寸:
+* Weight and Dimensions:
   
   * Dimensions: 60*40*14mm
-* 其它特性: 
-  * 工作温度：-20 ~ 85°C （实测值）
+* Other Characteristics: 
+  * Operating temperature: -20 ~ 85°C （Measured value）
 
-## 购买
+## Purchase
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
@@ -73,11 +73,11 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
 
-## 针脚定义
+## Pinouts
 
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -90,7 +90,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 <span id="debug_port"></span>
 
-## Debug调试端口
+## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
 
@@ -98,14 +98,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| 针脚   | 信号             | 电压    |
-| ---- | -------------- | ----- |
-| 2    | 5V+            | +5V   |
-| 2    | DEBUG TX (OUT) | +3.3V |
-| 3    | DEBUG RX (IN)  | +3.3V |
-| 4（黑） | FMU_SWDIO      | +3.3V |
-| 6    | FMU_SWCLK      | +3.3V |
-| 6    | GND            | GND   |
+| Pin     | Signal         | Volt  |
+| ------- | -------------- | ----- |
+| 1 (red) | 5V+            | +5V   |
+| 2 (blk) | DEBUG TX (OUT) | +3.3V |
+| 3 (blk) | DEBUG RX (IN)  | +3.3V |
+| 4 (blk) | FMU_SWDIO      | +3.3V |
+| 5 (blk) | FMU_SWCLK      | +3.3V |
+| 6 (blk) | GND            | GND   |
 
 
 The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
@@ -120,7 +120,7 @@ The product package includes a convenient debug cable that can be connected to t
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                                  |
+| UART   | Device     | Port                                  |
 | ------ | ---------- | ------------------------------------- |
 | UART1  | /dev/ttyS0 | GPS                                   |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
@@ -131,7 +131,7 @@ The product package includes a convenient debug cable that can be connected to t
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
 
-## 额定电压
+## Voltage Ratings
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
@@ -139,7 +139,7 @@ The product package includes a convenient debug cable that can be connected to t
 
 <span></span>
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
 ## Over Current Protection
 
@@ -147,13 +147,13 @@ The *V5 nano* has no over current protection.
 
 <span id="Optional-hardware"></span>
 
-## 外部设备
+## Peripherals
 
-* [数字空速传感器](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
-* [数传电台模块](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
-* [测距仪/距离传感器](../sensor/rangefinders.md)
+* [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
+* [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
+* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## 支持的平台/机身
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
@@ -187,7 +187,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 > **Warning** PX4 does not support this interface.
 
-## 已知的问题
+## Known Issues
 
 The issues below refer to the *batch number* in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
@@ -202,7 +202,7 @@ Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
 
-## 更多信息
+## Further Information
 
 * [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)

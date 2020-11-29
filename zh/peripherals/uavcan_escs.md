@@ -20,7 +20,7 @@ The only difference between UAVCAN ESCs from a setup perspective is that the phy
 Some popular UAVCAN ESC firmware/products include:
 
 - [Sapog](#sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles. 
-  - [Zubax orel 20](https://zubax.com/products/orel_20)
+  - [Zubax Orel 20](https://zubax.com/products/orel_20)
   - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
 - [Mitochondrik](https://zubax.com/products/mitochondrik) - integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives) 
   - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
@@ -31,11 +31,11 @@ Some popular UAVCAN ESC firmware/products include:
 
 > **Note** This list is *not exhaustive/complete*. If you know of another ESC, please add it to the list!
 
-## 采购
+## Purchase
 
 Sapog-based ESCs:
 
-- [Zubax orel 20](https://zubax.com/products/orel_20)
+- [Zubax Orel 20](https://zubax.com/products/orel_20)
   
     ![Orel20 - Top](../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg)
 
@@ -61,7 +61,7 @@ Connect all of the on-board UAVCAN devices into a chain and make sure the bus is
 
 For more information information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
-## PX4 配置
+## PX4 Configuration
 
 In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
 
@@ -134,7 +134,7 @@ There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zub
 
 For [VESC ESCs](https://vesc-project.com/) the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool). In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration. The recommended app setup is as follows:
 
-| 参数                      | 选项                     |
+| Parameter               | Option                 |
 | ----------------------- | ---------------------- |
 | App to use              | `No App`               |
 | VESC ID                 | `1,2,...`              |
@@ -148,7 +148,7 @@ VESC ID should have the same motor numbering as in PX4 convention, starting at `
 
 Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
 
-## 更多信息
+## Further Information
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 - [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)

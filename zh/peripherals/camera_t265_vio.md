@@ -29,7 +29,7 @@ At high level:
 - The camera is sensitive to high frequency vibrations! It should be soft-mounted with, for example, vibration isolation foam.
 <span id="launch_files"></span> Launch files are provided for a number of different scenarios.
 
-| Launch File                                                                                                 | Starts               | 参数描述                                                             |
+| Launch File                                                                                                 | Starts               | Description                                                      |
 | ----------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------- |
 | [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)             | Bridge, MAVROS       | Use on vehicle in most cases                                     |
 | [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch)                           | Bridge only          | Use if some other component is responsible for starting MAVROS). |

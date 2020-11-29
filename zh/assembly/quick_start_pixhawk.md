@@ -1,4 +1,4 @@
-# Pixhawk快速使用指导
+# Pixhawk Wiring Quick Start
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
@@ -10,7 +10,7 @@ This quick start guide shows how to power the *3DR Pixhawk* flight controller an
 
 > **Note** The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 
-## 接线介绍
+## Wiring Chart Overview
 
 The image below shows standard Pixhawk connections (excepting the motor and servo outputs). We'll go through each main part in the following sections.
 
@@ -18,7 +18,7 @@ The image below shows standard Pixhawk connections (excepting the motor and serv
 
 > **Note** More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 
-## 飞控的安装和方向
+## Mount and Orient Controller
 
 The *Pixhawk* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
@@ -26,7 +26,7 @@ The *Pixhawk* should be mounted on the frame using vibration-damping foam pads (
 
 > **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-## 蜂鸣器与安全开关
+## Buzzer and Safety Switch
 
 Connect the included buzzer and safety switch as shown below (these are mandatory).
 
@@ -54,7 +54,7 @@ For planes and VTOL the output rail will need to be separately powered in order 
 
 <!-- It would be good to have real example of this powering -->
 
-## 无线电遥控
+## Radio Control
 
 A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -62,15 +62,15 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to Pixhawk:
 
-- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Spektrum接收机数传端口](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM receivers connect to the **SPKT/DSM** input. ![Pixhawk - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk` - PPM/S.BUS接收机数传端口](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown. ![Pixhawk - Radio port for PPM/S.BUS receivers](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
-- PPM and PWM 接收机有 *每个通道单独的连接线* 必须连接在 **RC** 端口，*通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 编码器* (PPM-Sum 接收机每个通道使用单独的信号线).
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
-## 数传电台（可选）
+## Telemetry Radios (Optional)
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
@@ -78,7 +78,7 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 <!-- what configuration is required once you've set up a radio) -->
 
-## 电机
+## Motors
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -98,7 +98,7 @@ The mappings between MAIN/AUX output ports and motor/servos for all supported ai
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
-## 配置
+## Configuration
 
 General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
@@ -106,11 +106,11 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## 详细接线示意图(直升机)。
+## Detailed Wiring Infographic (Copter)
 
 ![QuadCopter Pixhawk Wiring Infographic](../../assets/flight_controller/pixhawk1/pixhawk_infographic2.jpg)
 
-## 更多信息
+## Further information
 
-- [Pixhawk 系列](../flight_controller/pixhawk_series.md)
+- [Pixhawk Series](../flight_controller/pixhawk_series.md)
 - [3DR Pixhawk](../flight_controller/pixhawk.md)

@@ -1,4 +1,4 @@
-# 技术支持
+# Support
 
 This section shows how you can get help from the core dev team and the wider community.
 
@@ -8,12 +8,12 @@ Developers are most welcome to attend the [weekly dev call](../contribute/dev_ca
 
 <a id="support"></a>
 
-## 论坛和聊天
+## Forums and Chat
 
 The core development team and community are active on the following forums and chat channels.
 
-* [PX4 Discuss](http://discuss.px4.io/)（*推荐*）
-* [Slack](http://slack.px4.io) （注册链接，注册时加载验证码可能需要翻墙）
+* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
+* [Slack](http://slack.px4.io) (sign up)
 
 ## Diagnosing Problems
 
@@ -30,18 +30,18 @@ If you are unsure what the problem is and you need help diagnosing
 
 <a id="dev_call"></a>
 
-## 每周开发通讯
+## Weekly Dev Call
 
-在议程中，为重大影响的回拉请求，给与回答。
+The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.
 
-Dronecode 测试团队可以帮助您检查（测试飞行）您的拉取请求并提供反馈和日志。
+There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
 
 :::tip
 For other developer events see: [Contribution > Calendar & Events](../README.md#calendar).
 :::
 
 
-## 测试飞行
+## Tests Flights
 
 The Dronecode test team can help review (test flight) your pull requests and provide feedback and logs.
 
@@ -50,6 +50,6 @@ See [Test Flights](../test_and_ci/test_flights.md) for information about availab
 
 ## General Support
 
-* [加入我们的 Slack 社区](http://slack.px4.io/)
-* [发布一条讨论](http://discuss.px4.io)
-* [开启 Github Issue](https://github.com/PX4/Devguide/issues)
+* [Join our Slack community](http://slack.px4.io/)
+* [Open a discussion](http://discuss.px4.io)
+* [Open Github Issue](https://github.com/PX4/Devguide/issues)

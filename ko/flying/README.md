@@ -1,8 +1,8 @@
 # Flying
 
-이 섹션에는 (완전 구성된) 자동 조종 장치로 조종되는 기체의 비행에 관한 주제가 포함되어 있습니다. 완전 자율 비행을위한 수동 비행과 임무 계획 모두를 다루고 있습니다.
+This section contains topics about flying your (fully configured) autopilot controlled vehicle. It covers both (autopilot-assisted) manual flight and mission planning for fully autonomous flight.
 
-[첫 비행 지침](../flying/first_flight_guidelines.md) - 첫 비행을 즐겁고, 교육적이며, 안전하도록하는 지침.
+[First Flight Guidelines](../flying/first_flight_guidelines.md) — Guidelines to ensure that your first flight is enjoyable, educational, and safe.
 
 [Flying 101](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
 

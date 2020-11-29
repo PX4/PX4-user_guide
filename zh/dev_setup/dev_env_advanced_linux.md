@@ -1,19 +1,19 @@
-# 高级 Linux 安装用例
+# Advanced Linux Installation Use-Cases
 
-## 使用 JTAG 编程调试器
+## Using JTAG Programming Adapters
 
-Linux 用户需要为 JTAG 调试器接入 USB 总线开放权限。
+Linux users need to explicitly allow access to the USB bus for JTAG programming adapters.
 
-> **Note** 对于 Archlinux：使用如下命令将 plugdev 组替换成 uucp
+> **Note** For Archlinux: replace the group plugdev with uucp in the following commands
 
 
-使用 `sudo` 模式运行 `ls`，确保命令成功运行：
+Run a simple `ls` in `sudo` mode to ensure the commands below succeed:
 
 ```sh
 sudo ls
 ```
 
-然后，暂时授予 `sudo` 权限，运行此命令：
+Then with `sudo` rights temporarily granted, run this command:
 
 ```sh
 cat > $HOME/rule.tmp <<_EOF
@@ -28,7 +28,7 @@ sudo mv $HOME/rule.tmp /etc/udev/rules.d/10-px4.rules
 sudo /etc/init.d/udev restart
 ```
 
-将当前用户添加到组 **plugdev**：
+The user needs to be added to the group **plugdev**:
 
 ```sh
 sudo usermod -a -G plugdev $USER

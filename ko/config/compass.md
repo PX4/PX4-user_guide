@@ -1,8 +1,8 @@
-# 캘리브레이션
+# Compass Calibration
 
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md). *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
-> **Note** If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. GPS+내포장을 연결하는 방법은 특정 오토파일럿 하드웨어의 [ 기본 어셈블리 ](../assembly/README.md)에서 확인할 수 있습니다. Once connected, *QGroundControl* will automatically detect the external magnetometer.
+> **Note** If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. Instructions for connecting your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, *QGroundControl* will automatically detect the external magnetometer.
 
 <span></span>
 
@@ -34,5 +34,5 @@ Once you've calibrated the vehicle in all the positions *QGroundControl* will di
 ## Further Information
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
-* [PX4 설정 비디오 - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (유튜브)
+* [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
 * [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)

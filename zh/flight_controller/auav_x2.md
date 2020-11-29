@@ -1,4 +1,4 @@
-# AUAV-X2 自动驾驶仪 (停产)
+# AUAV-X2 Autopilot (Discontinued)
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
@@ -12,50 +12,50 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
-## 总览
+## Quick Summary
 
-* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU：STM32F427VIT6 ARM 微控制器-版本 3
-  * IO：STM32F100C8T6 ARM 微控制器
-* 传感器： 
+* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU: STM32F427VIT6 ARM microcontroller - Revision 3
+  * IO: STM32F100C8T6 ARM microcontroller
+* Sensors: 
   * Invensense MPU9250 9DOF
   * Invensense ICM-20608 6DOF
-  * MEAS MS5611 气压计
-* 尺寸/重量 
-  * 尺寸：36mm x 50mm
-  * 安装点：30.5mm x 30.5mm 直径 3.2mm
-  * 重量: 10.9g
-* 具有反向电压保护的电源 OR-ing 原理图。 需要 5V 电源模块！
+  * MEAS MS5611 barometer
+* Dimensions/Weight 
+  * Size: 36mm x 50mm
+  * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
+  * Weight: 10.9g
+* Power OR-ing schematic with reverse voltage protection. 5V power module is required!
 
-## 连接
+## Connectivity
 
-* 2.54 毫米头：
+* 2.54mm headers:
 * GPS (USART4)
-* I2C
-* 遥控输入
-* PPM 输入
-* Spektrum 输入
-* RSSI 输入
-* sBus 输入 
-* sBus 输出
-* 电源输入
-* 蜂鸣器输出
-* LED 输出
-* 8路伺服输出
-* 6路辅助输出
-* USART7（控制台）
-* USART8（OSD）
+* i2c
+* RC input
+* PPM input
+* Spektrum input
+* RSSI input
+* sBus input
+* sBus output
+* Power input
+* Buzzer output
+* LED output
+* 8 x Servo outputs
+* 6 x Aux outputs
+* USART7 (Console)
+* USART8 (OSD)
 
-## 访问链接
+## Availability
 
 No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the distributor for the AUAV Products from August 2017.
 
-## 主链接
+## Key Links
 
-* [用户手册](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
-* [DIY 无人机邮报](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
+* [User Manual](http://arsovtech.com/wp-content/uploads/2015/08/AUAV-X2-user-manual-EN.pdf)
+* [DIY Drones Post](http://diydrones.com/profiles/blogs/introducing-the-auav-x2-1-flight-controller)
 
-## 接线指南
+## Wiring Guide
 
 ![AUAV-X2-basic-setup 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
 
@@ -65,17 +65,17 @@ No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md)
 
 ![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
 
-## 原理图
+## Schematics
 
 The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
-* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 原理图和布局
+* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
 > **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |

@@ -10,7 +10,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 > **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
-## 总览
+## Quick Summary
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 
@@ -26,7 +26,7 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
   * RAM: 256 KB SRAM
   * 2MB Flash
   * ST Micro LSM303D 14 bit accelerometer/magnetometer
-  * MEAS MS5611 气压计
+  * MEAS MS5611 barometer
   * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
 * Highlighted features:
@@ -44,19 +44,19 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 
 ![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
 
-### 布线
+### Wiring
 
 ![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
 ![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
-### 针脚
+### Pin
 
 ![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
-| Num. |             描述             | Num. |          参数描述          |
+| Num. |        Description         | Num. |      Description       |
 |:----:|:--------------------------:|:----:|:----------------------:|
-|  1   |             电源             |  9   |    I2C2 (MindFLow)     |
+|  1   |           Power            |  9   |    I2C2 (MindFLow)     |
 |  2   | Debug (refresh bootloader) |  10  | USB2 (Serial 2 to USB) |
 |  3   |  USB1 (refresh firmware)   |  11  |        UART4,5         |
 |  4   |           Reset            |  12  |   UART1 (Telemetry)    |
@@ -71,7 +71,7 @@ MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SB
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-### 编译固件
+### Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -92,13 +92,13 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-## 在哪里买
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port          |
+| UART   | Device     | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | RC            |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -108,6 +108,6 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
 
-## 技术支持
+## Support
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.

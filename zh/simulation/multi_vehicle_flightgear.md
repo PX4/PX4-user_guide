@@ -1,39 +1,39 @@
-# 用 FlightGear 进行多机仿真
+# Multi-Vehicle Simulation with FlightGear
 
-本节介绍如何在SITL中使用 FlightGear 进行多机仿真 所有车辆实例都有其启动脚本定义的参数。
+This topic explains how to simulate multiple vehicles using FlightGear in SITL. All vehicle instances have parameters defined by their startup scripts.
 
-> **Note** 这是运行PX4代码进行多机仿真最真实的方式， 并且能够方便地测试多种不同类型的无人机。 它适合使用 *QGroundControl*，[MAVSDK](https://mavsdk.mavlink.io/) 等工具进行多机测试。 [Gazebo 进行多机仿真](../simulation/multi-vehicle-simulation.md) 应改为用于使用许多车辆的种群模拟，并测试只有Gazebo支持的计算机视图等功能。
+> **Note** This is the most environmentally realistic way to simulate multiple vehicles running PX4, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo.
 
 
-## 如何启动多机实例
+## How to Start Multiple Instances
 
-启动多个实例（使用单独的端口和 ID）：
+To start multiple instances (on separate ports and IDs):
 
-1. 确定 [支持多机的 PX4 分支](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi)（查阅ThunderFly-aerospace）：
+1. Checkout the [PX4 branch that supports multiple vehicles](https://github.com/ThunderFly-aerospace/PX4Firmware/tree/flightgear-multi) (at ThunderFly-aerospace):
    ```bash
    git clone https://github.com/ThunderFly-aerospace/PX4Firmware.git
    cd PX4Firmware
    git checkout flightgear-multi  
    ```
-1. 使用标准工具链构建PX4固件（并已安装 FlightGear）。
-1. 使用 [预定义脚本](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts) 启动第一个实例：
+1. Build the PX4 Firmware using the standard toolchain (with FlightGear installed).
+1. Start the first instance using the [predefined scripts](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/tree/master/scripts):
    ```bash
    cd ./Tools/flightgear_bridge/scripts
    ./vehicle1.sh
    ```
-1. 使用另一个脚本开始后续实例：
+1. Start subsequent instances using another script:
    ```bash
    ./vehicle2.sh
    ```
 
-每个实例都应该有自己的启动脚本，可以代表完全不同的载具类型。 对于准备好的脚本，你应该看到以下视图。
+Each instance should have its own startup script, which can represent a completely different vehicle type. For prepared scripts you should get the following view.
 
-![使用 PX4 SITL 和 FlightGear 的多载具仿真](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
+![Multi-vehicle simulation using PX4 SITL and FlightGear](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
 
 像 *QGroundControl* 这样的地面站通过使用 UDP 14550 端口（所有流量都连接到同一端口）来连接所有实例的。
 
-同时运行的实例数量主要受到计算机资源的限制。 FlightGear是一个单线程应用程序，但空气动力特性解算会消耗大量内存。 因此，可能需要（将任务）拆分到多台计算机并使用 [多台用户服务器](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) 来运行*多个*载具实例。
+The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) is probably required to run *many* vehicle instances.
 
-## 额外资源
+## Additional Resources
 
 * 查看 [仿真](../simulation/README.md) 章节查看端口配置的更多信息。

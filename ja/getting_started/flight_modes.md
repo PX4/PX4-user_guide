@@ -1,22 +1,22 @@
-# PX4のフライトモードについて
+# PX4 Flight Modes Overview
 
-フライトモードは，オートパイロットがリモートからの信号についてどのように反応するかや，完全自律飛行中にどのように機体を制御するかを決定します。
+Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
 
-フライトモードはユーザー(パイロット) に離陸や着陸といった共通タスクの自動化から，水平保持機能や，経路保持，位置保持など，様々な方法・レベルでの操縦アシストを行います。
+The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
 
-本トピックでは，利用可能なフライトモードについての概要と，それぞれのモードの(多くの場合，微妙な違いではありますが)，マルチコプター(MC) ・固定翼機(FW) ，VTOL機での挙動の違いについて説明します。
+This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
-> **Tip** それぞれのモードの詳細については [飛行 > フライトモード](../flight_modes/README.md)を参照してください。
+> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
 
-## モードの切替
+## Switching Between Modes
 
-パイロットはリモートコントローラのスイッチまたは，地上局ソフト( [Flight Mode Configuration](../config/flight_mode.md)を参照してください) を用いて，モードを切り替えることが可能です。
+Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 
-機体のタイプによっては，利用不可能なモードがあります。また，いくつかのモードは機体のタイプによって動作が異なることがあります。
+Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types.
 
-いくつかのモードは飛行前/飛行中に特定の条件(例：GPSの受信，大気速度センサー，機体姿勢の推定等) を満たすことで利用可能です。 これらの場合，PX4は特定の条件が満たされるまで，該当するモードへの遷移を禁止します。
+Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
 
-最後に, マルチコプターを飛行させている場合(バッテリーのフェイルセーフ状態でない限り)，[自律モード](#categories) ではRC送信機のスティックを動かすと，[標準設定](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) では[Position モード](../flight_modes/position_mc.md) へ移行します。 固定翼機の場合，スティックの動作は無視されます。
+Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
 
 <span id="categories"></span>
 
@@ -24,28 +24,28 @@
 
 Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
 
-> **Tip** いくつかの手動モードでは，オートパイロットが機体の操縦がしやすくなるよう，アシストを行います。 実際，ほとんどのモードでは，RC送信機が中立の場合，機体を水平に保つよう制御が行われます。
+> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
 Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
 Fixed Wing:
 
-* 手動-簡単: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
-* 手動-アクロバティック: [Acro](#acro_fw)
-* 自律: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
+* Manual-Easy: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
+* Manual-Acrobatic: [Acro](#acro_fw)
+* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
 
 Multicopter:
 
-* 手動-簡単: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
-* 手動-アクロバティック: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
-* 自律: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
+* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
+* Manual-Acrobatic: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
+* Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
 
-## 記号
+## Key
 
 The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
 
 <td>
-  手動モード. リモートコントロールが必要です。
+  Manual mode. Remote control required.
 </td></tr> 
 
 <tr>
@@ -53,7 +53,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
     <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a></td> 
     
     <td>
-      自律モード. モードの切替を除いて，RC送信機からの信号は無効化されます。
+      Automatic mode. RC control is disabled by default except to change modes.
     </td></tr> 
     
     <tr>

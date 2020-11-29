@@ -1,7 +1,8 @@
 # Holybro Pix32 v5
 
 :::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv5** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
 
 [Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS. It can be regarded as a variant version of Pixhawk4.
 
@@ -13,50 +14,50 @@ The Pix32 v5 is designed for pilots who need a high power, flexible and customis
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 概览
+## Quick Summary
 
-* 主 FMU 处理器：STM32F765
-  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
-* IO 处理器：STM32F100
-  * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
-* 板载传感器：
-  * 加速度计 / 陀螺仪：ICM-20689
-  * 加速度计 / 陀螺仪：BMI055
-  * 磁力计：IST8310
-  * 气压计：MS5611
-* GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
-* 接口：
-  * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
-  * FMU 上有 3 路专用 PWM/Capture 输入
-  * 用于 CPPM 的专用遥控输入
+* Main FMU Processor: STM32F765
+  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+* IO Processor: STM32F100
+  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+* On-board sensors:
+  * Accel/Gyro: ICM-20689
+  * Accel/Gyro: BMI055
+  * Magnetometer: IST8310
+  * Barometer: MS5611
+* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* Interfaces:
+  * 8-16 PWM outputs (8 from IO, 8 from FMU)
+  * 3 dedicated PWM/Capture inputs on FMU
+  * Dedicated R/C input for CPPM
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * Dedicated S.Bus servo output
-  * 5个通用串行口
+  * 5 general purpose serial ports
     * 2 with full flow control
     * 1 with separate 1.5A current limit
-  * 3 个 I2C 接口
-  * 4路SPI总线
+  * 3 I2C ports
+  * 4 SPI buses
     * 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
     * 1 internal low noise SPI bus dedicated for
     * Barometer with 2 chip selects, no DRDYs
     * 1 internal SPI bus dedicated for FRAM
     * Supports dedicated SPI calibration EEPROM located on sensor module
     * 1 external SPI buses
-  * 多达 2 路 CAN 总线用于带串口的电调
+  * Up to 2 CANBuses for dual CAN with serial ESC
     * Each CANBus has individual silent controls or ESC RX-MUX control
-    * 2个电池电流/电压模拟输入口
+    * Analog inputs for voltage / current of 2 batteries
     * 2 additional analog inputs
 * Electrical System:
-  * 电源模块输出：4.9~5.5V
+  * Power module output: 4.9~5.5V
   * Max input voltage: 6V
-  * 最大电流感应：120A
-  * USB 电源输入：4.75~5.25V
-  * 伺服导轨输入电压：0~36V
-* 重量和尺寸：
+  * Max current sensing: 120A
+  * USB Power Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
+* Weight and Dimensions:
   * Dimensions: 45x45x13.5mm
   * Weight: 33.0g
 * Environmental Data, Quality & Reliability:
-  * 工作温度：-40 ~ 85°C
+  * Operating temperature: -40 ~ 85°c
   * Storage temp. -40~85℃
   * CE
   * FCC
@@ -64,47 +65,47 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-## 采购
+## Purchase
 
 Order from [Holybro website](https://shop.holybro.com/pix32-v5_p1218.html).
 
-## 组装 / 设置
+## Assembly/Setup
 
 The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
 ## Base Board Layouts
 ![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_base_boards_layout.jpg)
 
-## 针脚定义
+## Pinouts
 
 Download pinouts here:
 - [*pix32 v5* baseboard](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
 - [*pix32 v5* mini baseboard](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
-## 尺寸
+## Dimensions
 
 ![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
 
-## 额定电压
+## Voltage Ratings
 
 *Pix32 v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
-**绝对最大额定值**
+**Normal Operation Maximum Ratings**
 
-在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
-1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
-1. **USB** 输入电压（4.75 v 至 5.25 v）
+Under these conditions all power sources will be used in this order to power the system:
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+1. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
-1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
-1. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-1. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -115,7 +116,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 make holybro_pix32v5_default
 ```
 
-## 调试接口
+## Debug Port
 
 The system's [serial console](../debug/system_console.md) and SWD interface runs on the **FMU Debug** port
 
@@ -127,22 +128,22 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 - [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port).
 
 
-## 外部设备
+## Peripherals
 
-* [数字空速传感器](../sensor/airspeed.md)
-* [数传电台模块](../telemetry/README.md)
-* [测距仪/距离传感器](../sensor/rangefinders.md)
+* [Digital Airspeed Sensor](../sensor/airspeed.md)
+* [Telemetry Radio Modules](../telemetry/README.md)
+* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 
-## 支持的平台 / 机身
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
-## 附加信息
+## Additional Information
 
 - [Pix32 v5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
 - [Pix32 v5 Pinouts](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
 - [Pix32 v5 Base Board Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 Mini Base Board Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
-- FMUv5参考设计</0 >。</li> </ul>
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

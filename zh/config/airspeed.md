@@ -1,32 +1,32 @@
-# 空速校准
+# AirSpeed Calibration
 
-空速校准需要读取零空速的稳定基础数据以确定偏移量。 将手放在皮托管上以阻挡风（如果在室内校准传感器则不需要），然后用嘴向管中吹气（表示完成校准）。
+The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
 
-> **注**固定翼和VTOL飞机通常有一个空速传感器。
+> **Note** Fixed Wing and VTOL vehicles usually have an airspeed sensor.
 
-## 执行校准
+## Performing the Calibration
 
-校准空速传感器
+To calibrate the airspeed sensor:
 
-1. 打开 *QGroundControl* 并连接上飞机。
-2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. 点击 **空速** 传感器按钮。
+1. Start *QGroundControl* and connect the vehicle.
+2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+3. Click the **Airspeed** sensor button.
     
-    ![空速校准](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+    ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
-4. 将传感器与风隔离（即用手盖住传感器）。 注意不要阻挡任何孔。
+4. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
 
-5. 点击**确定**开始校准。
-6. 向皮托管的尖端内吹气以指示校准结束。
+5. Click **OK** to start the calibration.
+6. Blow into the tip of the pitot tube to signal the end of calibration.
     
-    > **提示**向管内吹气也是对动态和静态端口是否正确安装的基本检查。 如果它们被交换，那么当您吹气入管时，传感器将读取较大的负压差，并且校准将中止并出现错误。
+    > **Tip** Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
 
-7. 等待 2-3秒钟, 然后取出覆盖物 (几秒钟后, 校准以静默方式完成)
+7. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
 
-## 测试
+## Testing
 
-校准后, 快速测试是将手指按在皮托的尖端上并按住它。 你应该看到系统读取并保持一个正空速, 直到你释放手指。
+After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
 
-## 更多信息
+## Further Information
 
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)

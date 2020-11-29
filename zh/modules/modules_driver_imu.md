@@ -4,7 +4,7 @@ Source: [drivers/imu/adis16448](https://github.com/PX4/Firmware/tree/master/src/
 
 <a id="adis16448_usage"></a>
 
-### 使用
+### Usage
 ```
 adis16448 <command> [arguments...]
  Commands:
@@ -30,7 +30,7 @@ Source: [drivers/imu/adis16477](https://github.com/PX4/Firmware/tree/master/src/
 
 <a id="adis16477_usage"></a>
 
-### 使用
+### Usage
 ```
 adis16477 <command> [arguments...]
  Commands:
@@ -56,7 +56,7 @@ Source: [drivers/imu/adis16497](https://github.com/PX4/Firmware/tree/master/src/
 
 <a id="adis16497_usage"></a>
 
-### 使用
+### Usage
 ```
 adis16497 <command> [arguments...]
  Commands:
@@ -82,7 +82,7 @@ Source: [drivers/imu/bma180](https://github.com/PX4/Firmware/tree/master/src/dri
 
 <a id="bma180_usage"></a>
 
-### 用法
+### Usage
 ```
 bma180 <command> [arguments...]
  Commands:
@@ -108,7 +108,7 @@ Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="bmi055_usage"></a>
 
-### 描述
+### Usage
 ```
 bmi055 <command> [arguments...]
  Commands:
@@ -136,7 +136,7 @@ Source: [drivers/imu/bosch/bmi088](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="bmi088_usage"></a>
 
-### 用法
+### Usage
 ```
 bmi088 <command> [arguments...]
  Commands:
@@ -164,7 +164,7 @@ Source: [drivers/imu/bmi160](https://github.com/PX4/Firmware/tree/master/src/dri
 
 <a id="bmi160_usage"></a>
 
-### 用法
+### Usage
 ```
 bmi160 <command> [arguments...]
  Commands:
@@ -190,7 +190,7 @@ Source: [drivers/imu/fxas21002c](https://github.com/PX4/Firmware/tree/master/src
 
 <a id="fxas21002c_usage"></a>
 
-### 用法
+### Usage
 ```
 fxas21002c <command> [arguments...]
  Commands:
@@ -224,7 +224,7 @@ Source: [drivers/imu/fxos8701cq](https://github.com/PX4/Firmware/tree/master/src
 
 <a id="fxos8701cq_usage"></a>
 
-### 用法
+### Usage
 ```
 fxos8701cq <command> [arguments...]
  Commands:
@@ -258,7 +258,7 @@ Source: [drivers/imu/invensense/icm20602](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20602_usage"></a>
 
-### 用法
+### Usage
 ```
 icm20602 <command> [arguments...]
  Commands:
@@ -284,7 +284,7 @@ Source: [drivers/imu/invensense/icm20608g](https://github.com/PX4/Firmware/tree/
 
 <a id="icm20608g_usage"></a>
 
-### 用法
+### Usage
 ```
 icm20608g <command> [arguments...]
  Commands:
@@ -310,7 +310,7 @@ Source: [drivers/imu/invensense/icm20649](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20649_usage"></a>
 
-### 用法
+### Usage
 ```
 icm20649 <command> [arguments...]
  Commands:
@@ -336,7 +336,7 @@ Source: [drivers/imu/invensense/icm20689](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20689_usage"></a>
 
-### 描述
+### Usage
 ```
 icm20689 <command> [arguments...]
  Commands:
@@ -362,7 +362,7 @@ Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20948_usage"></a>
 
-### 用法
+### Usage
 ```
 icm20948 <command> [arguments...]
  Commands:
@@ -389,7 +389,7 @@ Source: [drivers/imu/invensense/icm40609d](https://github.com/PX4/Firmware/tree/
 
 <a id="icm40609d_usage"></a>
 
-### 用法
+### Usage
 ```
 icm40609d <command> [arguments...]
  Commands:
@@ -415,7 +415,7 @@ Source: [drivers/imu/invensense/icm42605](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm42605_usage"></a>
 
-### 用法
+### Usage
 ```
 icm42605 <command> [arguments...]
  Commands:
@@ -441,7 +441,7 @@ Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/Firmware/tree/
 
 <a id="icm42688p_usage"></a>
 
-### 用法
+### Usage
 ```
 icm42688p <command> [arguments...]
  Commands:
@@ -467,7 +467,7 @@ Source: [drivers/imu/st/ism330dlc](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="ism330dlc_usage"></a>
 
-### 用法
+### Usage
 ```
 ism330dlc <command> [arguments...]
  Commands:
@@ -495,7 +495,7 @@ Source: [drivers/imu/l3gd20](https://github.com/PX4/Firmware/tree/master/src/dri
 
 <a id="l3gd20_usage"></a>
 
-### 用法
+### Usage
 ```
 l3gd20 <command> [arguments...]
  Commands:
@@ -525,7 +525,7 @@ Source: [drivers/imu/lsm303d](https://github.com/PX4/Firmware/tree/master/src/dr
 
 <a id="lsm303d_usage"></a>
 
-### 用法
+### Usage
 ```
 lsm303d <command> [arguments...]
  Commands:
@@ -551,7 +551,7 @@ Source: [drivers/imu/st/lsm9ds1](https://github.com/PX4/Firmware/tree/master/src
 
 <a id="lsm9ds1_usage"></a>
 
-### 用法
+### Usage
 ```
 lsm9ds1 <command> [arguments...]
  Commands:
@@ -577,7 +577,7 @@ Source: [drivers/imu/invensense/mpu6000](https://github.com/PX4/Firmware/tree/ma
 
 <a id="mpu6000_usage"></a>
 
-### 用法
+### Usage
 ```
 mpu6000 <command> [arguments...]
  Commands:
@@ -603,7 +603,7 @@ Source: [drivers/imu/mpu9250](https://github.com/PX4/Firmware/tree/master/src/dr
 
 <a id="mpu9250_usage"></a>
 
-### 用法
+### Usage
 ```
 mpu9250 <command> [arguments...]
  Commands:
@@ -631,7 +631,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/Firmware/tree/ma
 
 <a id="mpu9520_usage"></a>
 
-### 用法
+### Usage
 ```
 mpu9520 <command> [arguments...]
  Commands:

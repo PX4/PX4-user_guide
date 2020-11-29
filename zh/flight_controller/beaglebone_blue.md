@@ -12,12 +12,12 @@ PX4 support for this flight controller is [experimental](../flight_controller/au
 
 ![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
-## 操作系统映像
+## OS Image
 
 *BeagleBone Blue* images can be found here:
 
-- [最新的稳定 OS 映像](https://beagleboard.org/latest-images)。
-- [测试 OS 映像](https://rcn-ee.net/rootfs/bb.org/testing/)（经常更新）。
+- [Latest stable OS image](https://beagleboard.org/latest-images).
+- [Test OS images](https://rcn-ee.net/rootfs/bb.org/testing/) (updated frequently).
 
 Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
@@ -65,9 +65,9 @@ sudo su
 echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 ```
 
-### 交叉编译器设置
+### Cross Compiler Setup
 
-1. 首先设置 *rsync*（这用于通过网络将文件从开发计算机传输到目标板 - WiFi 或以太网）。 For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
     
     1. Generate an SSH key if you have not previously done so:
         
@@ -91,13 +91,13 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
     1. Toolchain download
         
-        1. 首先将工具链安装到 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf* 中。 下面是一个使用软链接选择工具链的版本的例子：
+        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
             
                 mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
                 chmod -R 777 /opt/bbblue_toolchain
                 
             
-            可以在 [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/) 中可以找到 *BeagleBone Blue* 的 ARM 交叉编译器。
+            ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
             
             :::tip GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
 :::
@@ -111,7 +111,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
             
             General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
         
-        2. 将它添加到 〜/.profile 中的 PATH，如下所示
+        2. Add it to the PATH in ~/.profile as shown below
             
             ```sh
             export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
@@ -129,7 +129,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
                 #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
                 
 
-### 交叉编译和上传
+### Cross Compile and Upload
 
 Compile and Upload
 
@@ -153,25 +153,25 @@ Note Currently *librobotcontrol* requires root access.
 
 <span id="native_builds"></span>
 
-## 本机构建（可选）
+## Native Builds (optional)
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.
 
 After acquiring the pre-built library,
 
-1. 选择 *librobotcontrol* 安装目录，并将其设置在 `LIBROBOTCONTROL_INSTALL_DIR` 环境变量中，以便不包含其他不需要的标头
-2. 将 **robotcontrol.h** 和 **rc/\*** 安装到 `$LIBROBOTCONTROL_INSTALL_DIR/include`
-3. 将预先构建的本机（ARM）版本的 librobotcontrol.\* 安装到 `$LIBROBOTCONTROL_INSTALL_DIR/lib` 中
+1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
+2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
+3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
-1. 安装依赖项 
+1. Install dependencies: 
         sh
         sudo apt-get update
         sudo apt-get install cmake python-empy
 
-2. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
-3. 继续 [标准构建系统安装](../dev_setup/dev_env_linux.md)。
+2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
+3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
 
 ## Chnages in config
 
@@ -181,7 +181,7 @@ All changes can be made in de px4.config file directly on beaglebone. For exampl
 Note If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 
-## 引导期间自动启动
+## Autostart During Boot
 
 Here is an example [/etc/rc.local]:
 
@@ -230,26 +230,26 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### 其它选项
+### Miscellaneous
 
-#### 动力伺服导轨
+#### Power Servo Rail
 
 When PX4 starts, it automatically applies power to servos.
 
-#### 特殊功能
+#### Unique Features
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
-#### SBUS 信号转换器
+#### SBUS Signal Converter
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
 
-#### 典型连接
+#### Typical Connections
 
 For a quadcopter with GPS and an SBUS receiver, here are typical connections:
 
-1. 将电机 1,2,3 和 4 的电调连接到伺服输出的通道 1,2,3和4 分别在 BeagleBone Blue 上。 如果您的电调连接器包含电源输出引脚，将其移除，不要将其连接到伺服通道的电源输出引脚在 BeagleBone Blue 上。
+1. Connect the ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs on BeagleBone Blue, respectively. If your ESC connector contains a power output pin, remove it and do not connect it to the power output pin of the servo channel on the BeagleBone Blue.
 
 2. Connect the above mentioned converted SBUS signal to the dsm2 port if you have the matching connector for dsm2, otherwise connect it to any other available UART port and change the corresponding port in **/home/debian/px4/px4.config** accordingly.
 
-3. 将 GPS 模块的信号连接到 BeagleBone Blue 上的 GPS 端口。 Note that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V tolerant, so choose your GPS module accordingly.
+3. Connect the signals of GPS module to GPS port on the BeagleBone Blue. Note that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V tolerant, so choose your GPS module accordingly.

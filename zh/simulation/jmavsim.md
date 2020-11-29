@@ -1,24 +1,24 @@
-# jMAVSim 进行 SITL 仿真
+# jMAVSim with SITL
 
-jMAVSim是一个简单的多旋翼/四旋翼仿真软件，它可以允许你在仿真环境中飞行运行着 PX4 的 *旋翼* 无人机。 它很容易设置，可以用来测试您的工具是否可以起飞、飞行、降落、并对各种故障条件 (例如 gps 故障) 做出适当的反应。
+jMAVSim is a simple multirotor/Quad simulator that allows you to fly *copter* type vehicles running PX4 around a simulated world. It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure).
 
-<strong>支持机型：</strong>
+<strong>Supported Vehicles:</strong>
 
-* 四旋翼
+* Quad
 
-本问主要演示如何设置 jMAVSim 以连接到 SITL 版本的 PX4 。
+This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 
-> **Tip** jMAVSim 也可以用来进行 HITL 仿真 ([看这里](../simulation/hitl.md#using-jmavsim-quadrotor)).
+> **Tip** jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
 
-## 仿真环境
+## Installation
 
 jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) (for macOS, Ubuntu Linux, Windows).
 
-## 运行 SITL
+## Simulation Environment
 
-软件在环仿真在主机上运行仿真系统的全部组件，使用软件来模拟真实飞控， 并通过当地网络实现与仿真软件的连接。 并通过当地网络实现与仿真软件的连接。 整套仿真方案设置如下：
+Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
 
-[![{% mermaid %} graph LR; Simulator-->MAVLink; MAVLink-->SITL; {% endmermaid %}](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+[![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 
 <!-- original graph
@@ -27,15 +27,15 @@ graph LR;
   MAVLink-- >SITL;
 -->
 
-## 把飞机飞上天
+## Running SITL
 
-此外，它还会唤起一个显示 [jMAVSim](https://github.com/PX4/jMAVSim) 模拟器的3D视图的窗口。
+After ensuring that the [simulation prerequisites](../dev_setup/dev_env.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
 
 ```sh
 make px4_sitl_default jmavsim
 ```
 
-该命令最终将得到如下 PX4 控制台显示界面：
+This will bring up the PX4 shell:
 
 ```sh
 [init] shell id: 140735313310464
@@ -55,30 +55,30 @@ pxh>
 ```
 
 
-jMAVSim 3d 视图
+It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d 视图](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
 
 
-## 使用/配置选项
+## Taking it to the Sky
 
-系统将开始输出状态信息。 飞机完成位置锁定之后（控制台提示： *EKF commencing GPS fusion* 信息之后不久）你就可以开始飞行了。
+The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: *EKF commencing GPS fusion*).
 
-通过设定环境变量可以覆盖默认的起飞地点设定： `PX4_HOME_LAT`, `PX4_HOME_LON`, 以及 `PX4_HOME_ALT` 。
+To takeoff enter the following into the console:
 
 ```sh
 pxh> commander takeoff
 ```
 
-举个例子，使用如下命令设定无人机起飞点的维度、经度和高度：
+You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joystick).
 
-## 多飞行器仿真
+## Usage/Configuration Options
 
-### 指定起飞位置
+### Set Custom Takeoff Location
 
-通过 *QGroundControl* 可引入操纵杆或者拇指操纵杆（[如何进行设置看这里](../simulation/README.md#joystickgamepad-integration)）。
+The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
-有一个特殊的平台可以模拟一个通过 Wifi 进行连接的无人机。
+For example, to set the latitude, longitude and altitude:
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -86,84 +86,72 @@ export PX4_HOME_ALT=28.5
 make px4_sitl_default jmavsim
 ```
 
-### 更改仿真的时间流速
+### Change Simulation Speed
 
-模拟器会跟真实的该类无人机一样在当地网络中广播自己的位置信息等。
+The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
 ```
-./Tools/jmavsim_run.sh
-make px4_sitl none
+export PX4_SIM_SPEED_FACTOR=2
+make px4_sitl_default jmavsim
 ```
 
-你可以单独启动 JMAVSim 和 PX4:
+For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
 
 <a id="joystick"></a>
 
-### 模拟一个 Wifi 无人机
+### Using a Joystick
 
-此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
+Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
 
 
-### 单独启动 JMAVSim 和 PX4
+### Simulating a Wifi Drone
 
-JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+There is a special target to simulate a drone connected via Wifi on the local network:
 
 ```sh
 make broadcast jmavsim
 ```
 
-如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
+The simulator broadcasts its address on the local network as a real drone would do.
 
-### 分别启动 JMAVSim 和 PX4
+### Start JMAVSim and PX4 Separately
 
-在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
+You can start JMAVSim and PX4 separately:
 
 ```
-[init] shell id: 140735313310464
-[init] task name: px4
-
-______  __   __    ___ 
-| ___ \ \ \ / /   /   |
-| |_/ /  \ V /   / /| |
-|  __/   /   \  / /_| |
-| |     / /^\ \ \___  |
-\_|     \/   \/     |_/
-
-Ready to fly.
-
-
-pxh>
+./Tools/jmavsim_run.sh -l
+make px4_sitl none
 ```
 
-此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
+This allows a faster testing cycle (restarting jMAVSim takes significantly more time).
 
-### 无航向模式
+### Headless Mode
 
-要使用没有jMAVSim图形界面的仿真，请设置如下环境变量 `HEADLESS=1`
+To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
 
-## 扩展和定制
+## Multi-Vehicle Simulation
 
-JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
-## 与 ROS 对接交互
+## Extending and Customizing
 
-如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
+To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
 
-> **Info** 编译系统会强制检查所有依赖项的子模块正确无误，其中就包括了模拟器。 但是，它不会直接覆盖你对目录中文件所做的更改， 当提交这些更改时你需要在固件 repo 中重新为子模块注册新的哈希值。 为此,，使用 `git add Tools/jMAVSim` 灵敏提交你的更改。 这将更新模拟器的 GIT 哈希值。
+> **Info** The build system enforces the correct submodule to be checked out for all dependencies, including the simulator. It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change. This will update the GIT hash of the simulator.
 
-## 重要的文件
+## Interfacing to ROS
 
-在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
+The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the same way as onboard a real vehicle.
 
-## 值得一看的脚本文件
+## Important Files
 
-* 启动脚本位于 [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) 文件夹下，以 `rcS_SIM_AIRFRAME` 的方式进行命名，默认值是 `rcS_jmavsim_iris` 。
-* 根文件系统 (相当于 `/`) 位于生成目录内: `build/px4_sitl_default/src/firmware/posix/rootfs/` 。
+* The startup scripts are discussed in [System Startup](../concept/system_startup.md).
+* The simulated root file system ("`/`" directory) is created inside the build directory here: `build/px4_sitl_default/tmp/rootfs`.
 
-## 故障处理
+## Troubleshooting
 
 ### java.long.NoClassDefFoundError
 
@@ -226,16 +214,16 @@ at me.drton.jmavsim.Simulator.(Simulator.java:157)
 at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 ```
 
-如果遇到类似错误，可以尝试如下解决方法：
+If you see this error, try this workaround:
 
 Edit the **accessibility.properties** file:
 ```
 sudo gedit /etc/java-8-openjdk/accessibility.properties
 ```
 
-并注释下面所指示的一行：
+and comment out the line indicated below:
 ```
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). 该解决方案引自于 [askubuntu.com](https://askubuntu.com/questions/695560) 。
+For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).

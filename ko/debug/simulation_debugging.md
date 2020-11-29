@@ -84,7 +84,7 @@ make px4_sitl_default   # Configure with cmake
 make -C build/px4_sitl_default jmavsim___gdb
 ```
 
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
+A full list of the available make targets in the build directory can be obtained with:
 
 ```sh
 make help
@@ -108,7 +108,7 @@ For example,
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 ```
 
-The targets that can be matched with these regular expressions can be printed with the command:
+would suppress optimization of the targets: platforms\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB\_tests and px4.
 
 The targets that can be matched with these regular expressions can be printed with the command:
 

@@ -1,4 +1,4 @@
-# AirSim 仿真
+# FlightGear Simulation
 
 [FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
 
@@ -57,11 +57,11 @@ Additional installation instructions can be found on [FlightGear wiki](http://wi
 
 <a id="running"></a>
 
-## 运行仿真
+## Running the Simulation
 
 Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
 
-以上指令启动了一个具有完整 UI 的载具。 For example, to start a plane simulation :
+The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a plane simulation :
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
@@ -69,11 +69,11 @@ make px4_sitl_nolockstep flightgear_rascal
 
 The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
 
-| 载具类型                                                               | 指令                                           |
-| ------------------------------------------------------------------ | -------------------------------------------- |
-| [标准构型的固定翼飞机](../simulation/flightgear_vehicles.md#standard_plane)  | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman 车 （UGV/Rover）](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [旋翼机](../simulation/flightgear_vehicles.md#autogyro)               | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| Vehicle                                                                  | Command                                      |
+| ------------------------------------------------------------------------ | -------------------------------------------- |
+| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
 The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
 
@@ -82,15 +82,16 @@ Note For the full list of FlightGear build targets (highlighted) run:
 ```
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
-For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles). 一旦 INFO 打印出的 [ecl/EKF] 状态为 `commencing GPS fusion` ，则表明该载具已准备就绪可以解锁。
+For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+:::
 
 :::tip
 Note The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
 :::
 
-## 让飞行器起飞
+## Taking it to the Sky
 
-你可以通过输入以下指令让飞机起飞：
+The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
 
 Once the PX4 has started it will launch the PX4 shell as shown below. You must select enter to get the command prompt.
 
@@ -145,13 +146,13 @@ Note You can change the view by pressing **Ctrl+V**.
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
 
-例如：
+You can bring it into the air by typing:
 
 ```sh
 pxh> commander takeoff
 ```
 
-## 使用/配置选项
+## Usage/Configuration Options
 
 You can tune your FG installation/settings by the following environment variables:
 
@@ -167,7 +168,7 @@ In FlightGear you can display the frame rate by enabling it in: **View > View Op
 
 <a id="custom_takeoff_location"></a>
 
-### 带光流的四旋翼
+### Set Custom Takeoff Location
 
 Takeoff location in SITL FlightGear can be set using additional variables. Setting the variable will override the default takeoff location.
 
@@ -182,18 +183,18 @@ The example above starts the simulation on the [Honolulu international airport](
 
 <a id="joystick"></a>
 
-### 模拟一个 Wifi 无人机
+### Using a Joystick
 
 Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
 
 
-## 扩展与定制
+## Extending and Customizing
 
 To extend or customize the simulation interface, edit the files in the **Tools/flightgear_bridge* folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
 
 
-## 更多信息
+## Further Information
 
 * [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)

@@ -11,33 +11,31 @@ This topic explains how to add an external ("out of tree") module to the PX4 bui
 To create an external module:
 
 - Create an *external directory* directory for grouping the external modules:
-  - This can be located anywhere outside of the **Firmware** tree.
-  - It must have the same structure as **Firmware** (i.e. it must contain a directory called **src**).
+  - This can be located anywhere outside of the **PX4-Autopilot** tree.
+  - It must have the same structure as **PX4-Autopilot** (i.e. it must contain a directory called **src**).
   - Later we refer to this directory using `EXTERNAL_MODULES_LOCATION`.
 - Copy an existing module (e.g. **examples/px4_simple_app**) to the external directory, or directly create a new module.
-- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing Firmware *cmake* build config. This is to avoid conflicts with internal modules.
-- Add a file **CMakeLists.txt** in the external directory with content: set(config_module_list_external modules/
+- Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing PX4-Autopilot *cmake* build config. This is to avoid conflicts with internal modules.
+- Add a file **CMakeLists.txt** in the external directory with content:
   ```
-  set(config_msg_list_external
-    <message1>.msg
-    <message2>.msg
-    <message3>.msg
-    PARENT_SCOPE
-    )
+  set(config_module_list_external
+      modules/<new_module>
+      PARENT_SCOPE
+      )
   ```
 - Add a line `EXTERNAL` to the `modules/<new_module>/CMakeLists.txt` within `px4_add_module()`, for example like this:
 
   ```
   px4_add_module(
-  MODULE modules__test_app
-  MAIN test_app
-  STACK_MAIN 2000
-  SRCS
-    px4_simple_app.c
-  DEPENDS
-    platforms__common
-  EXTERNAL
-  )
+    MODULE modules__test_app
+    MAIN test_app
+    STACK_MAIN 2000
+    SRCS
+        px4_simple_app.c
+    DEPENDS
+        platforms__common
+    EXTERNAL
+    )
   ```
 
 <a id="uorb_message_definitions"></a>

@@ -1,4 +1,4 @@
-# 큐브 배선 퀵 스타트
+# Cube Wiring Quick Start
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
@@ -12,7 +12,7 @@ This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight cont
 The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 :::
 
-## 액세서리
+## Accessories
 
 Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
 
@@ -20,18 +20,18 @@ Cube comes with most (or all) of the accessories you will need when [purchased](
 
 The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
 
-## 배선 개요
+## Wiring Overview
 
 The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
-1. [텔레메트리 시스템](#telemetry) — 실시간으로 기체를 제어/모니터링하고, 미션을 계획/실행할 수 있도록 합니다. 일반적으로, 텔레메트리 라디오, 태블릿/PC와 지상국 소프트웨어(예: QgroundControl)가 포함됩니다.
-2. [버저](#buzzer) — 기체의 동작을 나타내는 오디오 신호를 제공합니다.
-3. [원격 제어 수신기 시스템](#rc_control) — 조종사가 기체를 수동으로 조작하는 데 사용할 수 있는 휴대용 송신기에 연결합니다 (그림은 PWM->PPM 변환기를 장착한 PWM 수신기입니다).
-4. (전용) [안전 스위치](#safety_switch) — 버튼을 눌러 모터를 잠금/잠금해제합니다. 내장 안전 스위치가 포함된 권장 [GPS](#gps)를 사용하지 않는 경우에만 필요합니다.
-5. [GPS, 나침반, LED, 안전 스위치](#gps) — 권장 GPS 모듈은 GPS, 나침반, LED, 그리고 안전 스위치로 구성됩니다. 
-6. [전원 시스템](#power) — Cube 및 모터 ESC에 전원을 공급합니다. LiPo 배터리,전원 모듈, 그리고 추가 배터리 경고 시스템 (배터리 전원이 설정된 전압보다 낮을 때 경고음)으로 구성됩니다. 
+1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
+2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
+3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
+4. (Dedicated) [Safety switch](#safety_switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
+5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
+6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
 
 <span></span>
 
@@ -41,7 +41,7 @@ The image below shows how to connect the most important sensors and peripherals.
 
 > **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
 
-## 컨트롤러 장착 및 정렬
+## Mount and Orient Controller
 
 Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
 
@@ -81,7 +81,7 @@ The *dedicated* safety switch that comes with the Cube is only required if you a
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
-## 버저
+## Buzzer
 
 The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
 
@@ -97,19 +97,19 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers.
 
-### PPM-SUM / Futaba S.BUS 수신기
+### PPM-SUM / Futaba S.Bus receivers
 
 Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
-### Spektrum Satellite 수신기
+### Spektrum Satellite Receivers
 
 Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
-### PWM 수신기
+### PWM Receivers
 
 The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
@@ -133,7 +133,7 @@ The communication channel is via [Telemetry Radios](../telemetry/README.md). The
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-## SD 카드 (선택 사항)
+## SD Card (Optional)
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
 
@@ -141,7 +141,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 > **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
-## 모터
+## Motors
 
 Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -153,13 +153,13 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 
 > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
-## 그 외 주변 장치
+## Other Peripherals
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 > **Note** If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 
-## 설정
+## Configuration
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
@@ -173,7 +173,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## 추가적인 정보
+## Further information
 
 - [Cube Black](../flight_controller/pixhawk-2.md) 
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)

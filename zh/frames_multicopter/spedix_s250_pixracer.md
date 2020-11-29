@@ -2,7 +2,7 @@
 
 The Spedix S250 is a asymmetric racing quadcopter perfectly suited for the [Pixracer](../flight_controller/pixracer.md) autopilot.
 
-## 硬件
+## Hardware
 
 The hardware required for this build is displayed below.
 
@@ -20,7 +20,7 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>

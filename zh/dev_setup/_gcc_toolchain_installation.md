@@ -1,9 +1,8 @@
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
-执行下面的脚本以安装 GCC 7-2017-q4：
+Execute the script below to install GCC 7-2017-q4:
 
 ```sh
-pushd .
 pushd .
 cd ~
 wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
@@ -13,23 +12,22 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 popd
 ```
 
-现在重启你的机器。
+Now restart your machine.
 
 
-**故障处理**
+**Troubleshooting**
 
-通过输入如下命令检查版本：
+Check the version by entering the following command:
 
 ```sh
 arm-none-eabi-gcc --version
 ```
 
-输出应该像是这样的：
+The output should be something similar to:
 
 ```sh
 arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]
 Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```

@@ -1,69 +1,66 @@
-# 模块参考：命令（Command）
+# Modules Reference: Command
 
 ## bl_update
-源码： [systemcmds/bl_update](https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update)
+Source: [systemcmds/bl_update](https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update)
 
-Utility to flash the bootloader from a file<a id="bl_update_usage"></a>
+Utility to flash the bootloader from a file
+<a id="bl_update_usage"></a>
 
-### 用法
+### Usage
 ```
 bl_update [arguments...]
-   bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
                  state)
 
    <file>        Bootloader bin file
 ```
 ## dumpfile
-源码： [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
+Source: [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
 
-转储文件应用。 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
+Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
 <a id="dumpfile_usage"></a>
 
-### 用法
+### Usage
 ```
 dumpfile [arguments...]
-     dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
-源码：[systemcmds/dyn](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn)
+Source: [systemcmds/dyn](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn)
 
 
-### 描述
-载入并运行一个未被编译至 PX4 二进制文件内的动态 PX4 模块。
+### Description
+Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.
 
-### 示例
+### Example
 ```
 dyn ./hello.px4mod start
 ```
 
 <a id="dyn_usage"></a>
 
-### 用法
+### Usage
 ```
 dyn [arguments...]
-     dyn [arguments...]
      <file>      File containing the module
-     [arguments...] Arguments to the module Arguments to the module
+     [arguments...] Arguments to the module
 ```
 ## esc_calib
-源码： [systemcmds/esc_calib](https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib)
+Source: [systemcmds/esc_calib](https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib)
 
-ESC 校准工具。
+Tool for ESC calibration
 
-校准流程（运行命令将会引导你完成此流程）：
-- 移除螺旋桨，将 ESC 断电
-- Stop attitude controllers: mc_att_control stop, fw_att_control stop
-- 确保安全设置断开（Make sure safety is off）
-- 运行这个命令
+Calibration procedure (running the command will guide you through it):
+- Remove props, power off the ESC's
+- Stop attitude and rate controllers: mc_rate_control stop, fw_att_control stop
+- Make sure safety is off
+- Run this command
 
 <a id="esc_calib_usage"></a>
 
-### 用法
+### Usage
 ```
 esc_calib [arguments...]
-     esc_calib [arguments...]
      [-d <val>]  Select PWM output device
                  values: <file:dev>, default: /dev/pwm_output0
      [-l <val>]  Low PWM value in us
@@ -73,27 +70,26 @@ esc_calib [arguments...]
      [-c <val>]  select channels in the form: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-                 default: 0
      [-a]        Select all channels
 ```
 ## failure
-Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
+Source: [systemcmds/failure](https://github.com/PX4/Firmware/tree/master/src/systemcmds/failure)
 
 
-### 描述
+### Description
 Inject failures into system.
 
-### 用法
+### Implementation
 This system command sends a vehicle command over uORB to trigger failure.
 
-### 示例
+### Examples
 Test the GPS failsafe by stopping GPS:
 
 failure gps off
 
 <a id="failure_usage"></a>
 
-### 用法
+### Usage
 ```
 failure [arguments...]
    help          Show this help text
@@ -110,7 +106,7 @@ Source: [systemcmds/gpio](https://github.com/PX4/Firmware/tree/master/src/system
 This command is used to read and write GPIOs.
 <a id="gpio_usage"></a>
 
-### 用法
+### Usage
 ```
 gpio [arguments...]
    read
@@ -125,18 +121,17 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-源码： [systemcmds/hardfault_log](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log)
+Source: [systemcmds/hardfault_log](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log)
 
-硬错误处理程序。
+Hardfault utility
 
-在启动脚本中用于处理硬错误。
+Used in startup scripts to handle hardfaults
 
 <a id="hardfault_log_usage"></a>
 
-### 用法
+### Usage
 ```
 hardfault_log <command> [arguments...]
- hardfault_log <command> [arguments...]
  Commands:
    check         Check if there's an uncommited hardfault
 
@@ -159,35 +154,34 @@ Source: [systemcmds/i2cdetect](https://github.com/PX4/Firmware/tree/master/src/s
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
 
-### 描述
+### Usage
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
                  default: 1
 ```
 ## led_control
-源码： [systemcmds/led_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/led_control)
+Source: [systemcmds/led_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/led_control)
 
 
-### 描述
-用于控制 & 测试 （外部） LED's 的命令行工具。
+### Description
+Command-line tool to control & test the (external) LED's.
 
-要使用该命令请确保有一个负责处理 led_control 的 uorb 主题处于运行状态。
+To use it make sure there's a driver running, which handles the led_control uorb topic.
 
-There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority. 也可使用 `reset` 命令来返回至一个更低的优先级。
+There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
 
-### 示例
-第一个 LED 闪烁蓝光 5 次：
+### Examples
+Blink the first LED 5 times in blue:
 ```
 led_control blink -c blue -l 0 -n 5
 ```
 
 <a id="led_control_usage"></a>
 
-### 用法
+### Usage
 ```
 led_control <command> [arguments...]
- led_control <command> [arguments...]
  Commands:
    test          Run a test pattern
 
@@ -212,24 +206,22 @@ led_control <command> [arguments...]
                  values: red|blue|green|yellow|purple|amber|cyan|white, default:
                  white
      [-l <val>]  Which LED to control: 0, 1, 2, ... (default=all)
-                 default: -1
      [-p <val>]  Priority
                  default: 2
 ```
 ## listener
-源码： [systemcmds/topic_listener](https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener)
+Source: [systemcmds/topic_listener](https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener)
 
 
-用于监听 uORB 主题并将数据输出在控制台上的工具。
+Utility to listen on uORB topics and print the data to the console.
 
-Note: this command currently only supports the `/dev/pwm_output0` output.
+The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 
 <a id="listener_usage"></a>
 
-### 用法
+### Usage
 ```
 listener <command> [arguments...]
- listener <command> [arguments...]
  Commands:
      <topic_name> uORB topic name
      [-i <val>]  Topic instance
@@ -240,20 +232,19 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mixer
-源码： [systemcmds/mixer](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mixer)
+Source: [systemcmds/mixer](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mixer)
 
 
-### 描述
-将混控器文件加载或者附加到 ESC 驱动中。
+### Description
+Load or append mixer files to the ESC driver.
 
-需要注意的是驱动必须支持这个命令使用的 ioctl ，这一点在 Nuttx 上是成立的，但在其它平台上就不一定成立，如 RPI。
+Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
 
 <a id="mixer_usage"></a>
 
-### 用法
+### Usage
 ```
 mixer <command> [arguments...]
- mixer <command> [arguments...]
  Commands:
    load
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
@@ -262,41 +253,28 @@ mixer <command> [arguments...]
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
 ```
 ## motor_ramp
-源码： [systemcmds/motor_ramp](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_ramp)
+Source: [systemcmds/motor_ramp](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_ramp)
 
 
-### 参数描述
-用于测试电机的加速。
+### Description
+Application to test motor ramp up.
 
-在开始之前需要确保停止所有姿态控制器的运行。
+Before starting, make sure to stop any running attitude controller:
 ```
-motor_ramp [arguments...]
-     ramp|sine|square mode
-     <min_pwm> <time> [<max_pwm>] pwm value in us, time in sec
-
- WARNING: motors will ramp up to full speed!
+mc_rate_control stop
+fw_att_control stop
 ```
 
-命令开始后将开启一个后台任务，该任务会持续若干秒（根据设定值）然后退出。
+When starting, a background task is started, runs for several seconds (as specified), then exits.
 
-### 示例
+### Example
 ```
-motor_test <command> [arguments...]
- Commands:
-   test          Set motor(s) to a specific output value
-     [-m <val>]  Motor to test (0...7, all if not specified)
-                 default: -1
-     [-p <val>]  Power (0...100)
-                 default: 0
-
-   stop          Stop all motors
-
-   iterate       Iterate all motors starting and stopping one after the other
+motor_ramp sine -a 1100 -r 0.5
 ```
 
 <a id="motor_ramp_usage"></a>
 
-### 用法
+### Usage
 ```
 motor_ramp [arguments...]
      ramp|sine|square mode
@@ -311,16 +289,16 @@ motor_ramp [arguments...]
  WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
-源码： [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test)
+Source: [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test)
 
 
-电机测试工具。
+Utility to test motors.
 
 WARNING: remove all props before using this command.
 
 <a id="motor_test_usage"></a>
 
-### 用法
+### Usage
 ```
 motor_test <command> [arguments...]
  Commands:
@@ -338,14 +316,14 @@ motor_test <command> [arguments...]
    iterate       Iterate all motors starting and stopping one after the other
 ```
 ## mtd
-源码： [systemcmds/mtd](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd)
+Source: [systemcmds/mtd](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd)
 
-Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).<a id="mtd_usage"></a>
+Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
+<a id="mtd_usage"></a>
 
-### 用法
+### Usage
 ```
 mtd <command> [arguments...]
- mtd <command> [arguments...]
  Commands:
    status        Print status information
 
@@ -357,44 +335,48 @@ mtd <command> [arguments...]
 
    erase         Erase partition(s)
 
+   has-secondary Check if the board has configured a secondary device
+
+ The commands 'start', 'readtest' and 'rwtest' have an optional instance index:
+     [-i <val>]  storage index (if the board has multiple storages)
+                 default: 0
+
  The commands 'start', 'readtest', 'rwtest' and 'erase' have an optional
  parameter:
      [<partition_name1> [<partition_name2> ...]] Partition names (eg.
-                 /fs/mtd_params), use system default if not provided Partition names (eg.
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-源码： [systemcmds/nshterm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/nshterm)
+Source: [systemcmds/nshterm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/nshterm)
 
-在指定端口启动一个 NSH shell
+Start an NSH shell on a given port.
 
-该命令此前被用于在 USB 串口端口开启一个 shell， This was previously used to start a shell on the USB serial port. Now there runs mavlink, and it is possible to use a shell over mavlink.
+This was previously used to start a shell on the USB serial port. Now there runs mavlink, and it is possible to use a shell over mavlink.
 
 <a id="nshterm_usage"></a>
 
-### 描述
+### Usage
 ```
 nshterm [arguments...]
-     nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-源码： [systemcmds/param](https://github.com/PX4/Firmware/tree/master/src/systemcmds/param)
+Source: [systemcmds/param](https://github.com/PX4/Firmware/tree/master/src/systemcmds/param)
 
 
-### 参数描述
-在 shell 或者脚本中获取参数并对其进行操作的命令。
+### Description
+Command to access and manipulate parameters via shell or script.
 
-例如，在启动脚本中使用此命令来设置特定于机型的参数。
+This is used for example in the startup script to set airframe-specific parameters.
 
-Parameters are automatically saved when changed, eg. with `param set`. 这些参数通常被存储在 FRAM 或者 SD 卡中。 `param select` 可用于更改后续参数保存的存储位置（这一选项在每次启动时都需要重新进行配置）。
+Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
 
-If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files. 然而，仍可使用 `param save/load &lt;file&gt;` 从文件中读取/写入参数。
+If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
 
-Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station. 它只是用于向地面控制站显示有关联的参数。
+Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
 
-### 示例
-更改机型，并确保机型的默认参数被加载了：
+### Examples
+Change the airframe and make sure the airframe's default parameters are loaded:
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -403,10 +385,9 @@ reboot
 
 <a id="param_usage"></a>
 
-### 用法
+### Usage
 ```
 param <command> [arguments...]
- param <command> [arguments...]
  Commands:
    load          Load params from a file (overwrite all)
      [<file>]    File name (use default if not given)
@@ -421,41 +402,20 @@ param <command> [arguments...]
      [<file>]    File name (use <root>/eeprom/parameters if not given)
 
    show          Show parameter values
-     [-c]        Show only changed params
+     [-a]        Show all parameters (not just used)
+     [-c]        Show only changed params (unused too)
      [-q]        quiet mode, print only param value (name needs to be exact)
      [<filter>]  Filter by param name (wildcard at end allowed, eg. sys_*)
+
+   show-for-airframe Show changed params for airframe config
+
+   status        Print status of parameter system
 
    set           Set parameter to a value
      <param_name> <value> Parameter name and value to set
      [fail]      If provided, let the command fail if param is not found
 
    compare       Compare a param with a value. Command will succeed if equal
-     <param_name> <value> Parameter name and value to compare
-
-   greater       Compare a param with a value. Command will succeed if param is
-                 greater than the value
-     <param_name> <value> Parameter name and value to compare
-
-   touch         Mark a parameter as used
-     [<param_name1> [<param_name2>]] Parameter name (one or more)
-
-   reset         Reset params to default
-     [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
-                 allowed)
-
-   reset_nostart Reset params to default, but keep SYS_AUTOSTART and
-                 SYS_AUTOCONFIG
-     [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
-                 allowed)
-
-   index         Show param for a given index
-     <index>     Index: an integer >= 0
-
-   index_used    Show used param for a given index
-     <index>     Index: an integer >= 0
-
-   find          Show index of a param
-     <param>     param name Command will succeed if equal
      [-s]        If provided, silent errors if parameter doesn't exists
      <param_name> <value> Parameter name and value to compare
 
@@ -485,14 +445,14 @@ param <command> [arguments...]
      <param>     param name
 ```
 ## perf
-源码： [systemcmds/perf](https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf)
+Source: [systemcmds/perf](https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf)
 
-Tool to print performance counters<a id="perf_usage"></a>
+Tool to print performance counters
+<a id="perf_usage"></a>
 
-### 用法
+### Usage
 ```
 perf [arguments...]
-   perf [arguments...]
    reset         Reset all counters
 
    latency       Print HRT timer latency histogram
@@ -500,26 +460,26 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## pwm
-源码： [systemcmds/pwm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/pwm)
+Source: [systemcmds/pwm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/pwm)
 
 
-### 描述
-此命令用于配置舵机和 ESC 的 PWM 控制输出。
+### Description
+This command is used to configure PWM outputs for servo and ESC control.
 
-默认设备是主通道的 `/dev/pwm_output0` ，AUX 辅助通道位于 `/dev/pwm_output1` (需要搭配 `-d` 参数)。
+The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
 
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm info` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`). `pwm info` 用于显示当前的设定 (配平值是一个偏移量，可使用 `PWM_MAIN_TRIMx` 和 `PWM_AUX_TRIMx` 进行设置)。
+It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm info` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
 
-Reboot the system
+The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
 
-通道被分配到一个组。 由于硬件限制, 只能为每个组设置更新速率。 使用 `pwm info` 显示所有的组。 Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm info` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
+Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm info` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
 
-参数 `-p` 和 `-r` 可设置为一个参数变量而不是一个指定的证书：例如， -p p:PWM_MIN 。
+The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
 
-注意，在 OneShot 模式下， PWM 范围 [1000, 2000] 会被自动映射到 [125, 250] 。
+Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
 
-### 示例
-将所有通道的 PWM 速率设置为 400 Hz:
+### Examples
+Set the PWM rate for all channels to 400 Hz:
 ```
 pwm rate -a -r 400
 ```
@@ -532,21 +492,9 @@ pwm test -c 13 -p 1200
 
 <a id="pwm_usage"></a>
 
-### 用法
+### Usage
 ```
 pwm <command> [arguments...]
- Commands:
-   arm           Arm output
-
-   disarm        Disarm output
-
-   info          Print current configuration of all channels
-
-   forcefail     Force Failsafe mode. PWM 输出将被设置为故障保护值。
-     on|off      开启或关闭
-
-   terminatefail 启用 Termination Failsafe 模式。 该设定为真时所有故障保护都是不可恢复的（即便满足恢复条件）。
-     pwm <command> [arguments...]
  Commands:
    arm           Arm output
 
@@ -590,17 +538,7 @@ pwm <command> [arguments...]
      [-c <val>]  select channels in the form: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-                 default: 0
      [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm info' to show
-                 groups)
-                 default: 0
-     [-a]        Select all channels
-
- These parameters apply to all commands:
-     [-d <val>]  Select PWM output device
-                 values: <file:dev>, default: /dev/pwm_output0
-     [-v]        Verbose output
-     [-e]        Exit with 1 instead of 0 on error use 'pwm info' to show
                  groups)
      [-a]        Select all channels
 
@@ -611,27 +549,26 @@ pwm <command> [arguments...]
      [-e]        Exit with 1 instead of 0 on error
 ```
 ## reboot
-源码： [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
+Source: [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
 
 Reboot the system
 <a id="reboot_usage"></a>
 
-### 用法
+### Usage
 ```
 reboot [arguments...]
-     reboot [arguments...]
      [-b]        Reboot into bootloader
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-源码： [systemcmds/sd_bench](https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench)
+Source: [systemcmds/sd_bench](https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench)
 
-Test the speed of an SD Card<a id="sd_bench_usage"></a>
+Test the speed of an SD Card
+<a id="sd_bench_usage"></a>
 
-### 用法
+### Usage
 ```
 sd_bench [arguments...]
-     sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
                  default: 4096
      [-r <val>]  Number of runs
@@ -644,13 +581,56 @@ sd_bench [arguments...]
 Source: [systemcmds/system_time](https://github.com/PX4/Firmware/tree/master/src/systemcmds/system_time)
 
 
-### 描述
+### Description
 
 Command-line tool to set and get system time.
 
-### 示例
+### Examples
 
 Set the system time and read it back
+```
+system_time set 1600775044
+system_time get
+```
+
+<a id="system_time_usage"></a>
+
+### Usage
+```
+system_time <command> [arguments...]
+ Commands:
+   set           Set the system time, provide time in unix epoch time format
+
+   get           Get the system time
+```
+## top
+Source: [systemcmds/top](https://github.com/PX4/Firmware/tree/master/src/systemcmds/top)
+
+Monitor running processes and their CPU, stack usage, priority and state
+<a id="top_usage"></a>
+
+### Usage
+```
+top [arguments...]
+   once          print load only once
+```
+## usb_connected
+Source: [systemcmds/usb_connected](https://github.com/PX4/Firmware/tree/master/src/systemcmds/usb_connected)
+
+Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
+<a id="usb_connected_usage"></a>
+
+### Usage
+```
+usb_connected [arguments...]
+```
+## ver
+Source: [systemcmds/ver](https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver)
+
+Tool to print various version information
+<a id="ver_usage"></a>
+
+### Usage
 ```
 ver <command> [arguments...]
  Commands:
@@ -679,70 +659,4 @@ ver <command> [arguments...]
    hwtypecmp     Compare hardware type (returns 0 on match)
      <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). An OR
                  comparison is used if multiple are specified
-```
-
-<a id="system_time_usage"></a>
-
-### 用法
-```
-system_time <command> [arguments...]
- Commands:
-   set           Set the system time, provide time in unix epoch time format
-
-   get           Get the system time
-```
-## top
-源码：[systemcmds/top](https://github.com/PX4/Firmware/tree/master/src/systemcmds/top)
-
-Monitor running processes and their CPU, stack usage, priority and state<a id="top_usage"></a>
-
-### 用法
-```
-top [arguments...]
-   top [arguments...]
-   once          print load only once
-```
-## usb_connected
-源码： [systemcmds/usb_connected](https://github.com/PX4/Firmware/tree/master/src/systemcmds/usb_connected)
-
-检查 USB 是否已连接的工具。 此前曾在启动脚本中使用过， Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
-<a id="usb_connected_usage"></a>
-
-### 使用
-```
-usb_connected [arguments...]
-```
-## ver
-源码： [systemcmds/ver](https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver)
-
-Tool to print various version information<a id="ver_usage"></a>
-
-### 使用
-```
-ver <command> [arguments...]
- Commands:
-   hw            Hardware architecture
-
-   mcu           MCU info
-
-   git           git version information
-
-   bdate         Build date and time
-
-   gcc           Compiler info
-
-   bdate         Build date and time
-
-   px4guid       PX4 GUID
-
-   uri           Build URI
-
-   all           Print all versions
-
-   hwcmp         Compare hardware version (returns 0 on match)
-     <hw> [<hw2>] Hardware to compare against (eg. PX4_FMU_V4). An OR comparison
-                 is used if multiple are specified
-
-   hwtypecmp     Compare hardware type (returns 0 on match)
-     <hwtype> [<hwtype2>] Hardware type to compare against (eg. V2). 如果指定了多种硬件类型将执行或比较（OR comparison）
 ```

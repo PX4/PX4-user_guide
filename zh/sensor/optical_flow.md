@@ -1,8 +1,8 @@
-# 光流
+# Optical Flow
 
 *Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation. Optical Flow based navigation is enabled by the estimators: EKF2 and LPE (deprecated).
 
-## 设置
+## Setup
 
 An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR). These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
@@ -43,7 +43,7 @@ It is also possible to use a board/quad that has an integrated camera (e.g. Snap
 
 You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
 
-## 估计器
+## Estimators
 
 Estimators fuse data from the optical flow sensor and other sources. The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
 
@@ -61,7 +61,7 @@ For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_A
 
 If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
 
-| 参数                                                                                                  | 描述                                                                      |
+| Parameter                                                                                           | Description                                                             |
 | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | <span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m). |
 | <span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m). |

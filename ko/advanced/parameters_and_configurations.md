@@ -35,7 +35,7 @@ You can use the `-c` flag to show all parameters that have changed (from their d
 param show -c
 ```
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have changed been changed, even if they have been changed back to their default).
+You can use `param show-for-airframe` to show all parameters that have changed from their defaults for just the current airframe's definition file (and defaults it imports).
 
 
 ### Exporting and Loading Parameters
@@ -98,9 +98,9 @@ In addition, the C++ version has also better type-safety and less overhead in te
 
 The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
-First include **px4_module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
+First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
 ```cpp
-#include <px4_module_params.h>
+#include <px4_platform_common/module_params.h>
 ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
@@ -170,7 +170,7 @@ In the above method:
 
 The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
 
-> **Tip** The [Application/Module Template](../apps/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter_metadata).
+> **Tip** The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter_metadata).
 
 
 ### C API
@@ -209,9 +209,9 @@ PX4 uses an extensive parameter metadata system to drive the user-facing present
 
 > **Tip** Correct meta data is critical for good user experience in a ground station.
 
-Parameter metadata can be stored anywhere in the source tree, in a file with extension **.c**. Typically it is stored alongside its associated module.
+Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced/parameter_reference.md) and the parameter information used by ground stations.
+The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
 
 > **Warning** After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
 
@@ -225,13 +225,19 @@ Parameter metadata sections look like the following examples:
 
 ```cpp
 /**
- * Acceleration compensation based on GPS
- * velocity.
+ * Pitch P gain
  *
- * @group Attitude Q estimator
- * @boolean
+ * Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
+ *
+ * @unit 1/s
+ * @min 0.0
+ * @max 10
+ * @decimal 2
+ * @increment 0.0005
+ * @reboot_required true
+ * @group Multicopter Attitude Control
  */
-PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
+PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 ```
 ```cpp
 /**
@@ -246,7 +252,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 
 The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
 
-The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/Firmware/blob/master/validation/module_schema.yaml)).
+The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)).
 
 ```cpp
 /**

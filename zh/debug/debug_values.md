@@ -1,60 +1,63 @@
-# 发送和接收调试值
+# Send and Receive Debug Values
 
-在软件开发过程中，输出单个重要数字通常是必要的。 这就是 MAVLink 的通用 `NAMED_VALUE_FLOAT`、`DEBUG` 和 `DEBUG_VECT` 数据包的来源。
+It is often necessary during software development to output individual important numbers. This is where the generic `NAMED_VALUE_FLOAT`, `DEBUG` and `DEBUG_VECT` packets of MAVLink come in.
 
-## 在 MAVLink 调试消息和 uORB 主题之间进行映射
+## Mapping between MAVLink Debug Messages and uORB Topics
 
-MAVLink调试消息转换为/自 uORB 主题。 为了发送或接收 MAVLink 调试消息，您必须分别发布或订阅相应的主题。 下面是一个表，其中总结了 MAVLink 调试消息和 uORB 主题之间的映射：
+MAVLink debug messages are translated to/from uORB topics. In order to send or receive a MAVLink debug message, you have to respectively publish or subscribe to the corresponding topic. Here is a table that summarizes the mapping between MAVLink debug messages and uORB topics:
 
-| MAVLink 消息          | uORB topic        |
+| MAVLink message     | uORB topic        |
 | ------------------- | ----------------- |
 | NAMED_VALUE_FLOAT | debug_key_value |
 | DEBUG               | debug_value       |
 | DEBUG_VECT          | debug_vect        |
 
-## 教程：发送字符串/浮点配对
+## Tutorial: Send String / Float Pairs
 
-本教程演示如何使用关联的 uORB 主题 `debug_key_value` `NAMED_VALUE_FLOAT` 发送 MAVLink 消息。
+This tutorial shows how to send the MAVLink message `NAMED_VALUE_FLOAT` using the associated uORB topic `debug_key_value`.
 
-本教程的代码可在此处找到：
+The code for this tutorial is available here:
 
-* [调试教程代码](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
-* [开启教程 app](https://github.com/PX4/Firmware/tree/master/cmake/configs)，方法是在你配置的主板上的 mavlink 调试应用程序来取消/开启
+* [Debug Tutorial Code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_mavlink_debug/px4_mavlink_debug.cpp)
+* [Enable the tutorial app](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake) by ensuring the MAVLink debug app (**px4_mavlink_debug**) is uncommented in the config of your board.
 
-设置调试发布所需的只是此代码段。 首先添加头文件：
+All required to set up a debug publication is this code snippet. First add the header file:
 
 ```C
 #include <uORB/uORB.h>
 #include <uORB/topics/debug_key_value.h>
+#include <string.h>
 ```
 
-然后广播调试值主题（一个针对不同发布名称的广播就足够了）。 把这个放在你的主循环前面：
+Then advertise the debug value topic (one advertisement for different published names is sufficient). Put this in front of your main loop:
 
 ```C
-/* 广播调试值 */
-struct debug_key_value_s dbg = { .key = "velx", .value = 0.0f };
+/* advertise debug value */
+struct debug_key_value_s dbg;
+strncpy(dbg.key, "velx", sizeof(dbg.key));
+dbg.value = 0.0f;
 orb_advert_t pub_dbg = orb_advertise(ORB_ID(debug_key_value), &dbg);
 ```
 
-而发送主循环更简单：
+And sending in the main loop is even simpler:
 
 ```C
 dbg.value = position[0];
 orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
-> **注意** 多个调试消息必须有足够的时间在各自的发布之间，Mavlink 可以处理它们。 这意味着，代码必须在发布多个调试消息之间等待，或者在每个函数调用迭代上替换消息。
+> **Caution** Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
 
-然后，QGroundControl 中的结果在实时图形上如下所示：
+The result in QGroundControl then looks like this on the real-time plot:
 
-![QGC 调试值绘图](../../assets/gcs/qgc-debugval-plot.jpg)
+![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
 
 
-## 教程：发送字符串/浮点配对
+## Tutorial: Receive String / Float Pairs
 
-下面的代码段演示如何接收上一教程中发送的 `velx` 调试变量。
+The following code snippets show how to receive the `velx` debug variable that was sent in the previous tutorial.
 
-首先，订阅主题 `debug_key_value`：
+First, subscribe to the topic `debug_key_value`:
 
 ```C
 #include <poll.h>
@@ -64,10 +67,9 @@ int debug_sub_fd = orb_subscribe(ORB_ID(debug_key_value));
 [...]
 ```
 
-然后对主题进行监听：
+Then poll on the topic:
 
 ```C
-[...]
 [...]
 /* one could wait for multiple topics with this technique, just using one here */
 px4_pollfd_struct_t fds[] = {
@@ -75,25 +77,24 @@ px4_pollfd_struct_t fds[] = {
 };
 
 while (true) {
-    /* 等待 debug_key_value 等待时间 1000 ms (1 秒) */
+    /* wait for debug_key_value for 1000 ms (1 second) */
     int poll_ret = px4_poll(fds, 1, 1000);
 
     [...]
 ```
 
-当 `debug_key_value` 主题上有新消息可用时，不要忘记根据其键属性对其进行筛选，以便放弃键与 `velx` 不同的消息：
+When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
 
 ```C
     [...]
-    [...]
     if (fds[0].revents & POLLIN) {
-        /* 获取数据用于第一文件描述符 */
+        /* obtained data for the first file descriptor */
         struct debug_key_value_s dbg;
 
-        /* 拷贝数据至本地缓存 */
+        /* copy data into local buffer */
         orb_copy(ORB_ID(debug_key_value), debug_sub_fd, &dbg);
 
-        /* 基于 key attribute 的消息过滤器 */
+        /* filter message based on its key attribute */
         if (strcmp(_sub_debug_vect.get().key, "velx") == 0) {
             PX4_INFO("velx:\t%8.4f", dbg.value);
         }

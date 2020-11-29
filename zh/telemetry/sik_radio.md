@@ -1,4 +1,4 @@
-# SiK 电台
+# SiK Radio
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
@@ -6,29 +6,29 @@ PX4 is protocol-compatible with radios that use *SiK*. SiK Radios often come wit
 
 Hardware for the SiK radio can be obtained from various manufacturers/stores in variants that support different range and form factors.
 
-![SiK 电台](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 <span id="vendors"></span>
 
 ## Vendors
 
-* [RFD900 遥测无线电](../telemetry/rfd900_telemetry.md)
+* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 * [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
 * [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
 
-## 安装/配置
+## Setup/Configuration
 
 The ground station-based radio is connected via USB (essentially plug-n-play).
 
 The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
-## 固件更新
+## Firmware Update
 
 Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
 
 You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
 
-## 高级安装/配置
+## Advanced Setup/Configuration
 
 The Development section has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration. This should not be required by non-developers.

@@ -1,8 +1,8 @@
 # STM32 Bootloader
 
-PX4 引导加载程序的代码可从 Github [ Bootloader ](https://github.com/px4/bootloader)存储库获得。
+The code for the PX4 bootloader is available from the Github [Bootloader](https://github.com/px4/bootloader) repository.
 
-## 支持的飞控板
+## Supported Boards
 
 * FMUv2 (Pixhawk 1, STM32F4)
 * FMUv3 (Pixhawk 2, STM32F4)
@@ -11,7 +11,7 @@ PX4 引导加载程序的代码可从 Github [ Bootloader ](https://github.com/p
 * TAPv1 (TBA, STM32F4)
 * ASCv1 (TBA, STM32F4)
 
-## 构建 Bootloader
+## Building the Bootloader
 
 ```bash
 git clone https://github.com/PX4/Bootloader.git
@@ -21,25 +21,25 @@ git submodule update
 make
 ```
 
-在此步骤之后，所有支持的主板的 elf 文件范围都出现在引导 Bootloader 目录中。
+After this step a range of elf files for all supported boards are present in the Bootloader directory.
 
-## 刷写 Bootloader
+## Flashing the Bootloader
 
-> **Important** 正确的电源序列对于某些电路板允来许 JTAG/SWD 访问至关重要。 请完全按照所述步骤操作。
+> **Warning** The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described.
 
-以下说明适用于 Blackmagic/Dronecode probe。 其他 JTAG 仿真器需要不同但相似的步骤。 试图刷新引导加载程序的开发人员应具备所需的知识。 如果您不知道如何执行此操作，您可能应该重新考虑是否确实需要更改引导加载程序的任何内容。
+The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
-顺序为：
-1. 断开 JTAG 电缆的连接
-1. 连接 USB 电源线
-1. 连接 JTAG 电缆
+The sequence is
+1. Disconnect the JTAG cable
+1. Connect the USB power cable
+1. Connect the JTAG cable
 
-### 黑魔法/无人机探测器
+### Black Magic / Dronecode Probe
 
-#### 使用正确的串行端口
+#### Using the right serial port
 
-* 在 Linux 上： `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
-* 在 MAC OS 上：确保使用 cu.xxx 端口，而不是 tty.xxx 端口： `tar ext /dev/tty.usbmodemDDEasdf`
+* On LINUX: `/dev/serial/by-id/usb-Black_Sphere_XXX-if00`
+* On MAC OS: Make sure to use the cu.xxx port, not the tty.xxx port: `tar ext /dev/tty.usbmodemDDEasdf`
 
 ```bash
 arm-none-eabi-gdb
@@ -52,35 +52,33 @@ arm-none-eabi-gdb
         ...
         Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) kill
-        Transfer rate: 17 KB/sec, 828 bytes/write.
-  (gdb) kill
 ```
 
 ### J-Link
 
-这些指令适用于[ J-Link GDB server](https://www.segger.com/jlink-gdb-server.html)。
+These instructions are for the [J-Link GDB server](https://www.segger.com/jlink-gdb-server.html).
 
-#### 系统必备组件
+#### Prerequisites
 
-[ Download the J-Link software ](https://www.segger.com/downloads/jlink)并按照 Segger 网站的说明进行安装。
+[Download the J-Link software](https://www.segger.com/downloads/jlink) from the Segger website and install it according to their instructions.
 
-#### 运行 JLink GDB 服务器
+#### Run the JLink GDB server
 
-以下命令用于为使用 STM32F427VI SoC 的飞行控制器运行服务器：
+The command below is used to run the server for flight controllers that use the STM32F427VI SoC:
 
 ```bash
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
-常见目标的 `--device`/SoC是：
+The `--device`/SoC for common targets is:
 
-* **FMUv2、FMUv3、FMUv4、aerofc-v1、mindpx-v2：**STM32F427VI
-* **px4_fmu-v4pro：**STM32F469II
-* **px4_fmu-v5：** STM32F765II
-* **crazyflie：**STM32F405RG
+* **FMUv2, FMUv3, FMUv4, aerofc-v1, mindpx-v2:** STM32F427VI
+* **px4_fmu-v4pro:** STM32F469II
+* **px4_fmu-v5:** STM32F765II
+* **crazyflie:** STM32F405RG
 
 
-#### 连接 GDB
+#### Connect GDB
 
 ```bash
 arm-none-eabi-gdb
@@ -88,16 +86,16 @@ arm-none-eabi-gdb
   (gdb) load aerofcv1_bl.elf
 ```
 
-### 故障处理
+### Troubleshooting
 
-如果找不到上述任何命令，则表示您未使用 Blackmagic 探针或其软件已过期。 首先更新 on-probe 软件。
+If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
 
-如果出现此错误消息： `Error erasing flash with vFlashErase packet`
+If this error message occurs:
 ```
 Error erasing flash with vFlashErase packet
 ```
 
-断开目标连接（同时保持 JTAG 连接）并运行
+Disconnect the target (while leaving JTAG connected) and run
 
 ```bash
 mon tpwr disable
@@ -105,4 +103,4 @@ swdp_scan
 attach 1
 load tapv1_bl.elf
 ```
-这将禁用目标供电并尝试另一个闪光周期。
+This will disable target powering and attempt another flash cycle.

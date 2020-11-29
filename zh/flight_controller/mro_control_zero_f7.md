@@ -16,19 +16,19 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 :::
 
 
-## 主要特性
+## Key Features
 
-- 微处理器：
+- Microprocessor:
   - 32-bit STM32F777 Cortex<sup>&reg;</sup> M4 core with FPU rev. 3
   - 216 MHz/512 KB RAM/2 MB Flash
   - F-RAM Cypress MF25V02-G 256-Kbit nonvolatile memory (Flash memory that performs as fast as RAM)
-- 传感器：
+- Sensors:
   - [Bosch BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) 3-axis accelerometer/gyroscope (internally vibration dampened)
   - [Invensense ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) 3-axis accelerometer/gyroscope
   - [Invensense ICM-20948](https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/) 3-axis accelerometer/gyroscope/magnetometer
   - [Infineon DPS310 barometer](https://www.infineon.com/cms/en/product/sensor/barometric-pressure-sensor-for-consumer-applications/dps310/) (So smooth and NO more light sensitivity)
 
-- 接口：
+- Interfaces:
   - 6x UART (serial ports total), 3x with HW flow control, 1x FRSky Telemetry (D or X types), 1x Console and 1x GPS+I2C
   - 8x PWM outputs (all DShot capable)
   - 1x CAN
@@ -49,18 +49,18 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
   - Width: 20mm (0.79")
   - Length: 32mm (1.26")
 
-- 电源系统
+- Power System:
   - 3x Ultra low noise LDO voltage regulator
 
 
 
-## 采购
+## Purchase
 
 * [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm)
 
 
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -97,14 +97,14 @@ You can use the [Tag Connect](https://www.tag-connect.com/) cable [TC2030 IDC NL
 
 There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connect.com/product/arm20-ctx-20-pin-to-tc2030-idc-adapter-for-cortex) that can be used with other debug probes.
 
-## 针脚定义
+## Pinouts
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_pinouts.jpg)
 
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                                                            |
+| UART   | Device     | Port                                                            |
 | ------ | ---------- | --------------------------------------------------------------- |
 | USART2 | /dev/ttyS0 | TELEM1 (flow control)                                           |
 | USART3 | /dev/ttyS1 | TELEM2 (flow control)                                           |
@@ -119,7 +119,7 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 
 
-## 更多信息
+## Further Information
 
 - [Introducing the new mRo Control Zero Autopilot](https://mrobotics.io/introducing-the-new-mro-control-zero-autopilot/) (blog)
 - [Quick Start Guide](https://mrobotics.io/mrocontrolzero/)

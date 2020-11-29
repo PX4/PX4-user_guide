@@ -1,10 +1,11 @@
-# WiFi 방식 텔레메트리
+# WiFi Telemetry Radio
 
-WiFi 방식의 텔레메트리는 기체의 WiFi 무선 장치와 GCS 간에 MAVLink 통신을 가능하게합니다. Wi-Fi는 일반적으로 일반 원격 측정기보다 짧은 거리에서 작동하지만 더 높은 데이터 속도를 지원하며 FPV/비디오 피드를 보다 쉽게 제공할 수 있습니다. 보통 기체를 위한 단일 무선 장치만 필요합니다 (지상국에 이미 WiFi가 있다고 가정).
+WiFi telemetry enables MAVLink communication between a WiFi radio on a vehicle and a GCS.  
+WiFi typically offers shorter range than a normal telemetry radio, but supports higher data rates, and makes it easier to support FPV/video feeds. Usually only a single radio unit for the vehicle is needed (assuming the ground station already has WiFi).
 
-PX4는 UDP 및 Wifi를 통한 텔레메트리를 지원합니다. 지상 제어 스테이션에서 첫 번째 heartbeat를 수신 할 때까지 하트 비트를 255.255.255.255의 포트 14550으로 heartbeat를 브로드캐스팅합니다. 이 지점에서 데이터는이 지상 제어 스테이션에만 전송됩니다.
+PX4 supports telemetry via UDP and Wifi. It broadcasts a heartbeat to port 14550 on 255.255.255.255 until it receives the first heartbeat from a ground control station, at which point it will only send data to this ground control station.
 
-호환 가능한 WiFi 텔레메트리 모듈은 다음과 같습니다.
+Compatible WiFi Telemetry modules include:
 
-* [ESP8266 WiFi 모듈](../telemetry/esp8266_wifi_module.md)
-*  3DR 원격측정 Wifi </ 0> (단종)</li> </ul>
+* [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md)
+* [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)

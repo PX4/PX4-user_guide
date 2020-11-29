@@ -1,12 +1,12 @@
-# 飞行控制器/传感器方向
+# Flight Controller/Sensor Orientation
 
-默认的飞行器（如果具有外部罗盘）应该向上安装在机架上部，箭头朝向飞行器的前方。 如果板载或外部罗盘被安装在其他方向，您需要在固件中配置。
+By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
-## 计算朝向
+## Calculating Orientation
 
 ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward (x), right (y), down (z) axes.
 
-![机架航向](../../assets/concepts/frame_heading.png)
+![Frame Heading](../../assets/concepts/frame_heading.png)
 
 The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
@@ -14,32 +14,32 @@ The axes to rotate around stay the same from one rotation step to the next one. 
 
 For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw 旋转](../../assets/qgc/setup/sensor/yaw_rotation.png)
+![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
 > **Note** For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
 > 
 > The axis are normally relative to the orientation of the vehicle during steady forward flight. For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
 
-## 设置朝向
+## Setting the Orientation
 
-设置朝向步骤如下：
+To set the orientations:
 
-1. 打开 *QGroundControl* 并连接上飞机。
-2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. 选择 **Set Orientations** 按钮。 <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
-4. 选择 **自驾仪方向（AutoPilot Orientation）**（[之前计算的值](#calculating-orientation)）。
+1. Start *QGroundControl* and connect the vehicle.
+2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+3. Select the **Set Orientations** button. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+4. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
     
     <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
-5. 同样的选择 **外置罗盘方向（External Compass Orientation）**（只有当您的飞行器有外部罗盘时，才会显示此选项）。
+5. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
 
-6. 点击 **OK**。
+6. Press **OK**.
 
-## 优化调整
+## Fine Tuning
 
-您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞控方向的少量误差，并校平飞行视图中的地平线。
+You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
-## 更多信息
+## Further Information
 
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md)（仅高级用户）。
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
+* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)

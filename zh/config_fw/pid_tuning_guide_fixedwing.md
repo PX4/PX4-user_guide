@@ -6,7 +6,7 @@ This guide explains how to tune the fixed_wing PID loop.
 
 <span></span>
 
-> **或者**
+> **Note**
 
 - Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
 - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.

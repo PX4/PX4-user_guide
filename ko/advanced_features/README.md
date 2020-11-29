@@ -1,6 +1,6 @@
-# 고급 기능
+# Advanced Features
 
-이 섹션에는 PX4 비행 제어기의 고급 기능과 관련된 항목이 포함되어 있습니다.
+This section contains topics related to some of the more advanced features of the PX4 autopilot:
 
 * [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
 * [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)

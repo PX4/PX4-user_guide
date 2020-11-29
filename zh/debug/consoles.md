@@ -1,38 +1,38 @@
-# PX4 控制台/Shell
+# PX4 Consoles/Shells
 
-用户可以通过 [MAVLink Shell](../debug/mavlink_shell.md) 和 [系统控制台](../debug/system_console.md) 访问 PX4 终端。
+PX4 enables terminal access to the system through the [MAVLink Shell](../debug/mavlink_shell.md) and the [System Console](../debug/system_console.md).
 
-这里将说明它们的主要区别，以及如何使用。
+This page explains the main differences and how the console/shell are used.
 
 <a id="console_vs_shell"></a>
 
 ## System Console vs. Shells
 
-PX4 系统控制台*（System Console）*提供对系统的底层访问能力，获得调试信息，也可用于分析PX4的启动过程。
+The PX4 *System Console* provides low-level access to the system, debug output and analysis of the system boot process.
 
-PX4 只有一个 *系统控制台* 。它运行在特定的串口上（由Nuttx配置为调试口），通常可以通过FTDI线或其他调试适配器连接至电脑，比如 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)。
-- 用于 *底层开发调试*，例如：系统启动过程、Nuttx、启动脚本、飞控板启动，以及 PX4 中一些特定组件的开发，比如uORB。
-- 更具体一点，这里是包括自启动的用户应用在内的整个PX4系统下所有启动过程唯一的输出位置。
+There is just one *System Console*, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached to a computer via an FTDI cable (or some other debug adapter like  a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)).
+- Used for *low-level debugging/development*: bootup, NuttX, startup scripts, board bringup, development on central parts of PX4 (e.g. uORB).
+- In particular, is the only place where all boot output (including information about applications auto-started on boot) is printed.
 
-Shell 提供对系统的上层访问能力：
-- 用于执行基础的模块调试运行命令。
-- 只会*直接*得到你启动的模块的输出信息。
-- 不能*直接*得到运行在任务队列上的其它输出信息。
-- 在 PX4 系统无法启动时无助于调试（它并没有运行）。
+Shells provide higher-level access to the system:
+- Used for basic module testing/running commands.
+- Only *directly* display the output of modules you start.
+- Cannot *directly* display the output of tasks running on the work queue.
+- Can't debug problems when the system doesn't start (as it isn't running yet).
 
-> **Note** `dmesg` 命令现在在某些飞控板上被支持，可以使 MAVLink Shell 能够进行更底层的调试。 例如，执行 `dmesg -f &` 命令将会得到其它后台任务的输出信息。
+> **Note** The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
 
-支持来自串口或 MAVLink 的多个shell同时运行。 由于 MAVLink 能提供更加灵活的使用方式，所以目前只使用了 [MAVLink Shell](../debug/mavlink_shell.md) 。
+There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
 
-[系统控制台（System Console）](../debug/system_console.md)在调试系统无法启动时十分必要，它会在飞控板上电后输出启动日志。 但是 [MAVLink Shell](../debug/mavlink_shell.md) 则更加易于配置使用，因此通常都推荐用它调试。
+The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
 
 <a id="using_the_console"></a>
 
-## 使用控制台/Shell
+## Using Consoles/Shells
 
-MAVLink shell/控制台和[系统控制台](../debug/system_console.md)使用方法基本一致。
+The MAVLink shell/console and the [System Console](../debug/system_console.md) are used in much the same way.
 
-举例来说，可以输入 `ls` 查看本地文件系统；输入 `free` 查看剩余可用RAM；输入 `dmesg` 查看启动日志。
+For example, type `ls` to view the local file system, `free` to see the remaining free RAM, `dmesg` to look at boot output.
 
 ```bash
 nsh> ls
@@ -40,6 +40,6 @@ nsh> free
 nsh> dmesg
 ```
 
-其它更多的系统命令与模块被列举在 [模块和命令参考](../middleware/modules_main.md) 中。（比如 `top`、`listener` 等）
+Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
-> **Tip** 部分飞控板禁用了一些命令。（RAM或FLASH受限的飞控板不含某些模块） 这时你将会得到 `command not found` 提示。
+> **Tip** Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints). In this case you will see the response: `command not found`

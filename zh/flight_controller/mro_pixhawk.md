@@ -16,19 +16,19 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## 主要特性
+## Key Features
 
-* 微处理器： 
+* Microprocessor: 
   * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * 168 MHz/256 KB RAM/2 MB Flash
   * 32 bit STM32F100 failsafe co-processor
   * 24 MHz/8 KB RAM/64 KB Flash
-* 传感器： 
+* Sensors: 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 气压计
-* 接口： 
+  * MEAS MS5611 barometer
+* Interfaces: 
   * 5x UART (serial ports), one high-power capable, 2x with HW flow control
   * 2x CAN
   * Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
@@ -40,26 +40,26 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 3.3 and 6.6V ADC inputs
   * External microUSB port
 
-* 电源系统
+* Power System:
   
   * Ideal diode controller with automatic failover
   * Servo rail high-power (7 V) and high-current ready
   * All peripheral outputs over-current protected, all inputs ESD protected
 
-* 重量和尺寸:
+* Weight and Dimensions:
   
   * Weight: 38g (1.31oz)
   * Width: 50mm (1.96")
   * Thickness: 15.5mm (.613")
   * Length: 81.5mm (3.21")
 
-## 访问链接
+## Availability
 
 * [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - Just the board (useful as a 3DR Pixhawk replacement)
 * [mRo Pixhawk 2.4.6 Essential Kit!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - Everything except for telemetry radios
 * [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -74,13 +74,13 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 
-## 针脚定义
+## Pinouts
 
 See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -89,7 +89,7 @@ See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
 
-## 原理图
+## Schematics
 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 

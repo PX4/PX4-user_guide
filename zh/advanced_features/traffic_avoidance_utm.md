@@ -9,7 +9,7 @@ PX4 can use MAVLink [`UTM_GLOBAL_POSITION`](https://mavlink.io/en/messages/commo
 
 Configure the trigger distance and action when there is a potential collision using the parameters below:
 
-| 参数                                                                                                                | 描述                                                                                                                |
+| Parameter                                                                                                         | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | !!crwdBlockTags_4_sgaTkcolBdwrc!![NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
 | !!crwdBlockTags_5_sgaTkcolBdwrc!![NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance trigger distance for *manned* aviation.                                                     |
@@ -17,7 +17,7 @@ Configure the trigger distance and action when there is a potential collision us
 
 <a id="implementation"></a>
 
-## 实现
+## Implementation
 
 PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions. When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for *ADS-B traffic avoidance*.
 
@@ -25,6 +25,6 @@ The implementation is otherwise *exactly* as described in: [ADS-B traffic avoida
 
 > **Note** [UTM_GLOBAL_POSITION](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) contains additional fields that are not provided by an ADSB transponder (see [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE)). The current implementation simply drops the additional fields (including information about the vehicle's planned next waypoint).
 
-## 更多信息
+## Further Information
 
 * [ADS-B Traffic Avoidance](../advanced_features/traffic_avoidance_adsb.md)

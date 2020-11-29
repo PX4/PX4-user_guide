@@ -5,7 +5,7 @@ This power module provides regulated power for a flight controller and ESCs, and
 ![PM06](../../assets/hardware/power_module/holybro_pm06/pm06_hero.jpg)
 
 
-## 产品规格
+## Specifications
 
 - **PCB Current:** 120A continued
 - **UBEC Current:** 3A Max
@@ -23,7 +23,7 @@ This power module provides regulated power for a flight controller and ESCs, and
 - 6pin JST cable (1)
 
 
-## 采购
+## Purchase
 
 [PM06 V2 Power Management Board](https://shop.holybro.com/micro-power-module-pm06_p1036.html)
 

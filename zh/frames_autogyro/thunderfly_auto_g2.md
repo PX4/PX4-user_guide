@@ -19,7 +19,7 @@ Modification of the Durafly model are as follows:
 * Two blade rotor with safely breakable rotor plate
 * Larger landing gears
 
-### 飞控
+### Autopilot
 
 The aircraft with all of the modifications is already quite heavy. Therefore a low-weight flight controller is recommended (e.g. [Holybro pix32](../flight_controller/holybro_pix32.md) or [CUAV nano](../flight_controller/cuav_v5_nano.md)).
 
@@ -71,7 +71,7 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 
 ![Release device](../../assets/airframes/autogyro/auto-g2/modif_release.png)
 
-## 配件列表
+## Parts List
 
 ### Electronic
 
@@ -114,7 +114,7 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 * Rotor centre plate with deformation zones (3D printed)
 * Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
 
-## 视频:
+## Video:
 
 {% youtube %}
 https://youtu.be/YhXXSWz5wWs
