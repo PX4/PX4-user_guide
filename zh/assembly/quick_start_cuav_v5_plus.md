@@ -1,4 +1,4 @@
-# CUAV V5+ 快速接线指南
+# CUAV V5+ Wiring Quick Start
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
@@ -8,58 +8,58 @@ This quick start guide shows how to power the [CUAV V5+](../flight_controller/cu
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
-## 接线图概述
+## Wiring Chart Overview
 
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
-![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
+![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-| 主要接口          | 功能                                                                                  |
-|:------------- |:----------------------------------------------------------------------------------- |
-| Power1        | 连接到电源模块（电流计）。 带有模拟电压和电流检测的电源输入。 请不要连接数字电源模块（比如UAVCAN电流计）！                           |
-| Power2        | 连接I2C总线的智能电池                                                                        |
-| TF CARD       | 用于日志存储的SD卡（出厂时SD已经装配好）。                                                             |
-| M1~M8         | PWM输出接口 可以使用它控制电机或舵机。                                                               |
-| A1~A6         | PWM 输出接口。 可以使用它控制电机或舵机。                                                             |
-| DSU7          | 用于FMU调试，读取调试信息。                                                                     |
-| I2C1/I2C2     | 连接I2C总线设备；比如外部指南针。                                                                  |
-| CAN1/CAN2     | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
-| TYPE-C(USB)   | 用于连接计算机，建立飞行控制器和计算机之间的通信；比如刷写固件。                                                    |
-| SBUS OUT      | 连接SBUS总线控制的相机和云台                                                                    |
-| GPS&SAFETY    | 连接到Neo GPS，其中包括GPS、安全开关、蜂鸣器接口。                                                      |
-| TELEM1/TELEM2 | 连接到数传电台                                                                             |
-| DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
+| Main interface  | Function                                                                                                                                                                                           |
+|:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Power1          | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector!                                                                          |
+| Power2          | Connect i2c smart battery.                                                                                                                                                                         |
+| TF CARD         | SD card for log storage (card pre-inserted in factory).                                                                                                                                            |
+| M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| A1~A6           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| DSU7            | 用于FMU调试，读取调试信息。                                                                                                                                                                                    |
+| I2C1/I2C2       | Connect an I2C device such as an external compass.                                                                                                                                                 |
+| CAN1/CAN2       | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
+| TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
+| SBUS OUT        | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
+| GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
+| TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
+| DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
 
 
 > **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
 
-## GPS + 罗盘 + 安全开关 + LED
+## GPS + Compass + Safety Switch + LED
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
+> **Note** Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
-> **Note** 如果您使用 CAN GPS，请使用电缆连接到飞行控制CAN 接口。
+> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
-## 安全开关
+## Safety Switch
 
-如果您在没有GPS的情况下飞行，则必须将安全开关直接连接到`GPS1`端口，以便能够启动无人机并飞行（如果您使用旧的6针GPS，请阅读底部接口的定义以更改线路）。
+The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo V2 GPS* (which has an inbuilt safety switch).
 
-如果您使用第三方GPS ，蜂鸣器可能无法工作。
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (if you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
-## 蜂鸣器
+## Buzzer
 
 If you do not use the recommended GPS, the buzzer may not work.
 
-## 遥控器
+## Radio Control
 
 A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
@@ -67,11 +67,11 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_04.png)
 
-## Spektrum 卫星接收器
+## Spektrum Satellite Receivers
 
-V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_PM*模块的6引脚连接到飞行控制器的`Power1`接口。
+The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
 
-## 电源
+## Power
 
 The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
@@ -91,11 +91,11 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 <span id="sd_card"></span>
 
-## SD 卡
+## SD Card (Optional)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
-## 电机
+## Motors
 
 Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
@@ -103,11 +103,11 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 <span id="pinouts"></span>
 
-## 针脚定义
+## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
-## 更多信息
+## Further Information
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf) (CUAV)
