@@ -18,7 +18,7 @@ for a list of all supported logger commands and parameters.
 
 The list of logged topics can be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 ```
-<topic_name>, <interval>
+<topic_name> <interval> <instance>
 ```
 The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate.
 
@@ -26,7 +26,7 @@ The `<instance>` is optional, and if specified, defines the instance to log. If 
 
 The topics in this file replace all of the default logged topics.
 
-Logging dropouts are undesired and there are a few factors that influence the amount of dropouts:
+Example :
 ```
 sensor_accel 0 0
 sensor_accel 100 1
@@ -67,7 +67,7 @@ More important than the mean write speed is the maximum write time per block (of
 
 By far the best card we know so far is the **SanDisk Extreme U3 32GB**. This card is recommended, because it does not exhibit write time spikes (and thus virtually no dropouts). Different card sizes might work equally well, but the performance is usually different.
 
-You can test your own SD card with `sd_bench -r 50`, and report the results to https://github.com/PX4/Firmware/issues/4634.
+You can test your own SD card with `sd_bench -r 50`, and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
 
 ## Log Streaming
 
@@ -76,14 +76,14 @@ The traditional and still fully supported way to do logging is using an SD card 
 The requirement is that the link provides at least ~50KB/s, so for example a WiFi link. And only one client can request log streaming at the same time. The connection does not need to be reliable, the protocol is designed to handle drops.
 
 There are different clients that support ulog streaming:
-- `mavlink_ulog_streaming.py` script in Firmware/Tools.
+- `mavlink_ulog_streaming.py` script in PX4-Autopilot/Tools.
 - QGroundControl: ![QGC Log Streaming](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
 ### Diagnostics
 - If log streaming does not start, make sure the `logger` is running (see above), and inspect the console output while starting.
-- If it still does not work, make sure that Mavlink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2.
-- Log streaming uses a maximum of 70% of the configured mavlink rate (`-r` parameter). If more is needed, messages are dropped. The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
+- If it still does not work, make sure that MAVLink 2 is used. Enforce it by setting `MAV_PROTO_VER` to 2.
+- Log streaming uses a maximum of 70% of the configured MAVLink rate (`-r` parameter). If more is needed, messages are dropped. The currently used percentage can be inspected with `mavlink status` (1.8% is used in this example):
   ```
   instance #0:
           GCS heartbeat:  160955 us ago
