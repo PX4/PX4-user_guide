@@ -12,7 +12,7 @@ The *Kakute F7* from Holybro is a flight controller board designed for racers.
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 主要特性
+## Key Features
 
 * Main System-on-Chip: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
   * CPU: 216 MHz ARM Cortex M7 with single-precision FPU
@@ -24,10 +24,10 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * microSD (for logging)
 * 6 UARTs
 * 1 I2C bus
-* 6 路 PWM 输出
+* 6 PWM outputs
 * Built-in OSD chip (AB7456 via SPI)
 
-## 在哪里买
+## Where to Buy
 
 The board can be bought from one of the following shops (for example):
 
@@ -42,7 +42,7 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 
 ![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
 
-| 针脚       | 功能                                                                   | PX4 default         |
+| Pin      | Function                                                             | PX4 default         |
 | -------- | -------------------------------------------------------------------- | ------------------- |
 | B+       | Battery positive voltage (2S-6S)                                     |                     |
 | 5V       | 5V output (2A max)                                                   |                     |
@@ -70,7 +70,7 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## 编译固件
+## Building Firmware
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
@@ -84,11 +84,11 @@ The firmware can be installed in any of the normal ways:
 - Build and upload the source ```make holybro_kakutef7_default upload```
 - [Load the firmware](../config/firmware.md) using *QGroundControl*. You can use either pre-built firmware or your own custom firmware.
 
-## 配置
+## Configuration
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
-| 参数                                                                     | 设置                                                                                                                      |
+| Parameter                                                              | Setting                                                                                                                 |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.            |
@@ -96,7 +96,7 @@ In addition to the [basic configuration](../config/README.md), the following par
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | TELEM1                |
 | USART2 | /dev/ttyS1 | TELEM2                |
@@ -106,9 +106,9 @@ In addition to the [basic configuration](../config/README.md), the following par
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
 
-## 调试接口
+## Debug Port
 
-### 系统控制台
+### System Console
 
 UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
