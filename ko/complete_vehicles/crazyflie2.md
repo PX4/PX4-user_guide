@@ -1,7 +1,7 @@
 # Crazyflie 2.0
 
 :::warning
-PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
 :::
 
 :::warning
@@ -12,7 +12,7 @@ The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the 
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## 간단한 요약 설명
+## Quick Summary
 
 :::tip
 Note The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
