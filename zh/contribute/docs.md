@@ -1,4 +1,4 @@
-# 投稿指南
+# Contributing to Documentation
 
 Contributions to the PX4 User Guide are very welcome; from simple fixes to spelling and grammar, through to the creation of whole new sections.
 
@@ -10,39 +10,39 @@ Note You will need a (free) [Github](http://github.com) account to contribute to
 
 <a id="github_changes"></a>
 
-## 快速更改
+## Quick Changes in Github
 
 Simple changes to *existing content* can be made by clicking the **Edit this page on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
 
 ![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
-The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change requests can be either done on the Gitbook website using the [Gitbook editor](https://gitbookio.gitbooks.io/documentation/content/editor/index.html) or locally (more flexible, but less user-friendly).
+To edit an existing page:
 1. Open the page.
 1. Click the **Edit this page on GitHub** link below the page content.
-1. At the bottom of the page you'll be prompted to create a separate branch and then guided to submit a *pull request*.
+1. Make the desired change.
 1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a *pull request*.
 
 The documentation team will review the request and either merge it or work with you to update it.
 
 <a id="big_changes"></a>
 
-## Adding New Content - Big Changes
+## Changes using Git (New Pages and Images)
 
 More substantial changes, including adding new pages or adding/modifying images, aren't as easy to make (or properly test) on Github. For these kinds of changes we suggest using the same approach as for *code*:
-1. The *Developer Guide* is for documentation that is relevant to *software developers*. This includes users who need to:
+1. Use the *git* toolchain to get the documentation source code onto your local computer.
 1. Modify the documentation as needed (add, change, delete).
 1. *Test* that it builds properly using Vuepress.
-1. In order to contribute many changes to the documentation, it is recommended that you follow these steps to add the changes locally and then create a pull request:
+1. Create a branch for your changes and create a pull request (PR) to pull it back into the documentation.
 
 The following explain how to get the source code, build locally (to test), and modify the code.
 
 
-### What Goes Where?
+### Get/Push Documentation Source Code
 
-指南使用 [旧版Gitbook 工具链](https://legacy.gitbook.com/) The instructions below explain how to get git and use it on your local computer.
+To get the library(s) sources onto your local computer you will need to use the git toolchain. The instructions below explain how to get git and use it on your local computer.
 
-1. git add &lt;file name&gt; git commit -m "&lt;your commit message&gt;"
-1. 如果您还没有注册Github，请先[注册](https://github.com/join) Github 账户
+1. Download git for your computer from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+1. [Sign up](https://github.com/join) for Github if you haven't already
 1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/px4_user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
 1. Clone (copy) your forked repository to your local computer:
    ```sh
@@ -86,9 +86,9 @@ The following explain how to get the source code, build locally (to test), and m
 1. You're done! Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
 
 
-### Gitbook Documentation Toolchain
+### Building the Library Locally
 
-概述：
+Build the library locally to test that any changes you have made have rendered properly:
 1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
    - [Nodejs 10+](https://nodejs.org/en/)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
@@ -104,7 +104,7 @@ The following explain how to get the source code, build locally (to test), and m
    ```sh
    yarn docs:dev
    ```
-   * 使用 PX4 控制飞行器
+   * Now you can browse the guide on http://localhost:8080/px4_user_guide/
    * Stop serving using **CTRL+C** in the terminal prompt.
 1. Build the library using:
    ```sh
@@ -143,21 +143,21 @@ In overview:
 * A file named **package.json** defines any dependencies of the build.
 * A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.
 
-### 文档规范指南
+### Adding New Pages
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+When you add a new page you must also add it to **en/SUMMARY.md**!
 
-## 翻译
+## Style Guide
 
-1. 图片
+1. Files/file names
 
    * Put new files in an appropriate sub-folder of **/en/**. Do not further nest folders.
-   * The *structure* of the book is defined in a file named **SUMMARY.md**. In particular, image filenames should describe what they contain.
-   * This is a [multilingual](https://toolchain.gitbook.com/languages.html) book, so there is a **LANGS.md** file in the root directory defining what languages are supported. Pages for each language are stored in the folder named for the associated language code \(e.g. "zh" for Chinese, "en" for English\).
+   * Use descriptive names. In particular, image filenames should describe what they contain.
+   * Use lower case filenames and separate words using underscores "\_"
 
-2. 内容:
+2. Images
 
-   * 将新文件放入相应的子文件夹
+   * Use the smallest size and lowest resolution that makes the image still useful (this reduces download cost for users with poor bandwidth).
    * New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
 
 3. Content:
@@ -166,13 +166,13 @@ All PX4/Dronecode documentation is free to use and modify under terms of the per
      - **Bold** for button presses and menu definitions.
      - _Emphasis_ for tool names.
      - Otherwise use as little as possible.
-   * New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
+   * Headings and page titles should use "First Letter Capitalisation"
    * The page title should be a first level heading \(\#\). All other headings should be h2 \(\#\#\) or lower.
    * Don't add any style to headings.
    * Don't translate the *first part* of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
 
 
-## 许可证
+## Where Do I Add Changes?
 
 Add new documentation in-line with the existing structure!
 
@@ -182,7 +182,7 @@ Some of the main categories are:
   - "Experimental" work that requires developer expertise to reproduce.
 - Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
 - Basic configuration: Configuration that every vehicle will need to do
-- 不要在标题中添加任何样式。
+- Advanced configuration: Configration that is specific to a vehicle type, or some segment of users.
 - Peripherals: Documentation on different hardware that can be used.
   - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
 - Basic Assembly: Assembly of an autopilot and its main peripherals
