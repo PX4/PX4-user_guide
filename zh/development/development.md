@@ -1,22 +1,23 @@
-# PX4 开发
+# PX4 Development
 
-本章节讲述了如何支持新的无人机/无人车类型及变种，如何修改飞行算法，如何添加新的飞行模式，如何集成新的硬件，如何通过外部飞控和PX4通信。
+This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
 
-::: 提示 本节适用于软件开发者和 (新) 硬件集成商。 如果要构建现有的机身或者PX4已有的，可以跳过此章节。
+::: tip
+This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle.
 :::
 
 It explains how to:
 
-* 了解到 [配置最小开发环境](../dev_setup/config_initial.md)，[用源码编译PX4](../dev_setup/building_px4.md) 以及部署到 [众多支持的自动驾驶仪](../flight_controller/README.md)。
-* 理解 [PX4 系统架构](../concept/architecture.md) 以及核心概念。
-* 学习如何更改飞行栈及中间层：
-  - 更改飞行算法和添加新的 [飞行模式](../concept/flight_modes.md)。
-  - 支持新的 [机型](airframes/README.md)。
-* 学习如何将PX4集成到新的硬件上：
-  - 支持新的传感器和执行器, 包括摄像头、测距仪等。
-  - 修改PX4使之能够在新的自驾仪硬件上运行。
-* 对 PX4 进行 [仿真](simulation/README.md)、[测试](../test_and_ci/README.md) 和 [调试/查看日志](../debug/README.md)。
-* 与外部机器人的 API 进行联调通信/集成。
+* Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
+* Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
+* Learn how to modify the flight stack and middleware:
+  - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
+  - Support new [airframes](../dev_airframes/README.md).
+* Learn how to integrate PX4 with new hardware:
+  - Support new sensors and actuators, including cameras, rangefinders, etc.
+  - Modify PX4 to run on new autopilot hardware.
+* [Simulate](../simulation/README.md), [test](../test_and_ci/README.md) and [debug/log](../debug/README.md) PX4.
+* Communicate/integrate with external robotics APIs.
 
 
 ## Key Developer Links
