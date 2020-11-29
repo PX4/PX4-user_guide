@@ -2,159 +2,61 @@
 
 This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
 
-> **Note** For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../apps/module_template.md).
+> **Note** For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
 
 
 ## Prerequisites
 
 You will require the following:
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](https://docs.px4.io/en/flight_controller/#documented-boards).
-* [PX4 Development Toolchain](../setup/dev_env.md) for the desired target.
-* [Download the PX4 Source Code](../setup/building_px4.md#get_px4_code) from Github
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md#documented-boards).
+* [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
+* [Download the PX4 Source Code](../dev_setup/building_px4.md#get_px4_code) from Github
 
-The source code [Firmware/src/examples/px4_simple_app](https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * Rename (or delete) the **px4_simple_app** directory.
 
 ## Minimal Application
 
 In this section we create a *minimal application* that just prints out `Hello Sky!`. This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
 
-1. Create a new directory **Firmware/src/examples/px4_simple_app**.
+1. Create a new directory **PX4-Autopilot/src/examples/px4_simple_app**.
 1. Create a new C file in that directory named **px4_simple_app.c**:
 
    * Copy in the default header to the top of the page. This should be present in all contributed files!
 
      ```c
      /****************************************************************************
- *
-
- *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
       *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+      *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
+      *
+      * Redistribution and use in source and binary forms, with or without
+      * modification, are permitted provided that the following conditions
+      * are met:
+      *
+      * 1. Redistributions of source code must retain the above copyright
+      *    notice, this list of conditions and the following disclaimer.
       * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
+      *    notice, this list of conditions and the following disclaimer in
+      *    the documentation and/or other materials provided with the
+      *    distribution.
       * 3. Neither the name PX4 nor the names of its contributors may be
- *    used to endorse or promote products derived from this software
- *    without specific prior written permission.
+      *    used to endorse or promote products derived from this software
+      *    without specific prior written permission.
       *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
- * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
+      * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+      * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+      * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+      * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+      * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+      * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+      * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+      * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+      * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+      * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+      * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+      * POSSIBILITY OF SUCH DAMAGE.
       *
- ****************************************************************************/
-
-/**
- * @file px4_simple_app.c
- * Minimal application example for PX4 autopilot
- *
- * @author Example User <mail@example.com>
- */
-
-#include <px4_config.h>
-#include <px4_tasks.h>
-#include <px4_posix.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <poll.h>
-#include <string.h>
-#include <math.h>
-
-#include <uORB/uORB.h>
-#include <uORB/topics/sensor_combined.h>
-#include <uORB/topics/vehicle_attitude.h>
-
-__EXPORT int px4_simple_app_main(int argc, char *argv[]);
-
-int px4_simple_app_main(int argc, char *argv[])
-{
-    PX4_INFO("Hello Sky!");
-
-    /* subscribe to sensor_combined topic */
-    int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    /* limit the update rate to 5 Hz */
-    orb_set_interval(sensor_sub_fd, 200);
-
-    /* advertise attitude topic */
-    struct vehicle_attitude_s att;
-    memset(&att, 0, sizeof(att));
-    orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
-
-    /* one could wait for multiple topics with this technique, just using one here */
-    px4_pollfd_struct_t fds[] = {
-        { .fd = sensor_sub_fd,   .events = POLLIN },
-        /* there could be more file descriptors here, in the form like:
-         * { .fd = other_sub_fd,   .events = POLLIN },
-         */
-    };
-
-    int error_counter = 0;
-
-    for (int i = 0; i < 5; i++) {
-        /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-        int poll_ret = px4_poll(fds, 1, 1000);
-
-        /* handle the poll result */
-        if (poll_ret == 0) {
-            /* this means none of our providers is giving us data */
-            PX4_ERR("Got no data within a second");
-
-        } else if (poll_ret < 0) {
-            /* this is seriously bad - should be an emergency */
-            if (error_counter < 10 || error_counter % 50 == 0) {
-                /* use a counter to prevent flooding (and slowing us down) */
-                PX4_ERR("ERROR return value from poll(): %d", poll_ret);
-            }
-
-            error_counter++;
-
-        } else {
-
-            if (fds[0].revents & POLLIN) {
-                /* obtained data for the first file descriptor */
-                struct sensor_combined_s raw;
-                /* copy sensors raw data into local buffer */
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-                PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                     (double)raw.accelerometer_m_s2[0],
-                     (double)raw.accelerometer_m_s2[1],
-                     (double)raw.accelerometer_m_s2[2]);
-
-                /* set att and publish this information for other apps
-                 the following does not have any meaning, it's just an example
-                */
-                att.q[0] = raw.accelerometer_m_s2[0];
-                att.q[1] = raw.accelerometer_m_s2[1];
-                att.q[2] = raw.accelerometer_m_s2[2];
-
-                orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
-            }
-
-            /* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents & POLLIN) {}
-             */
-        }
-    }
-
-    PX4_INFO("exiting");
-
-    return 0;
-}
+      ****************************************************************************/
      ```
 
    * Copy the following code below the default header. This should be present in all contributed files!
@@ -178,7 +80,7 @@ int px4_simple_app_main(int argc, char *argv[])
      }
      ```
 
-     > **Tip** The `px4_add_module()` format is documented in [Firmware/cmake/common/px4_base.cmake](https://github.com/PX4/Firmware/blob/master/cmake/common/px4_base.cmake).
+     > **Tip** The main function must be named `<module_name>_main` and exported from the module as shown.
 
 <span></span>
 
@@ -186,56 +88,52 @@ int px4_simple_app_main(int argc, char *argv[])
 
 1. Create and open a new *cmake* definition file named **CMakeLists.txt**. Copy in the text below:
    ```cmake
-   Copy in the text below:
-
-    ```cmake
-    ############################################################################
-    #
-    #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+   ############################################################################
    #
-    # Redistribution and use in source and binary forms, with or without
-    # modification, are permitted provided that the following conditions
-    # are met:
-    #
-    # 1. Redistributions of source code must retain the above copyright
-    #    notice, this list of conditions and the following disclaimer.
+   #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+   #
+   # Redistribution and use in source and binary forms, with or without
+   # modification, are permitted provided that the following conditions
+   # are met:
+   #
+   # 1. Redistributions of source code must retain the above copyright
+   #    notice, this list of conditions and the following disclaimer.
    # 2. Redistributions in binary form must reproduce the above copyright
-    #    notice, this list of conditions and the following disclaimer in
-    #    the documentation and/or other materials provided with the
-    #    distribution.
+   #    notice, this list of conditions and the following disclaimer in
+   #    the documentation and/or other materials provided with the
+   #    distribution.
    # 3. Neither the name PX4 nor the names of its contributors may be
-    #    used to endorse or promote products derived from this software
-    #    without specific prior written permission.
+   #    used to endorse or promote products derived from this software
+   #    without specific prior written permission.
    #
-    # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-    # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-    # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-    # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-    # COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-    # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-    # BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    # OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-    # AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-    # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-    # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-    # POSSIBILITY OF SUCH DAMAGE.
+   # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+   # COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+   # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+   # BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+   # OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+   # AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+   # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   # POSSIBILITY OF SUCH DAMAGE.
    #
-    ############################################################################
-    px4_add_module(
+   ############################################################################
+   px4_add_module(
     MODULE examples__px4_simple_app
     MAIN px4_simple_app
     STACK_MAIN 2000
     SRCS
         px4_simple_app.c
     DEPENDS
-        platforms__common
     )
    ```
    The `px4_add_module()` method builds a static library from a module description.
-   - PX4 SITL (Simulator): [Firmware/boards/px4/sitl/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake)
-   - The `MAIN` block lists the name of the module - this registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
+   - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
+   - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-   > Pixracer (px4/fmu-v4): [Firmware/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v4/default.cmake) <!-- NEED px4_version -->
+   > **Tip** The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
    
    <span></span>
 
@@ -245,10 +143,10 @@ int px4_simple_app_main(int argc, char *argv[])
 
 The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
 
-* Pixhawk v1/2: [Firmware/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake)
+* PX4 SITL (Simulator): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
 * Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
-* Other boards: [Building the Code](../setup/building_px4.md#building_nuttx)
+* *cmake* files for other boards can be found in [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)
 
 To enable the compilation of the application into the firmware create a new line for your application somewhere in the *cmake* file:
 
@@ -263,7 +161,7 @@ Build the example using the board-specific command:
 * jMAVSim Simulator: `make px4_sitl_default jmavsim`
 * Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
 * Pixhawk v3: `make px4_fmu-v4_default`
-* *cmake* files for other boards can be found in [Firmware/boards/](https://github.com/PX4/Firmware/tree/master/boards)
+* Other boards: [Building the Code](../dev_setup/building_px4.md#building_nuttx)
 
 
 ## Test App (Hardware)
@@ -335,7 +233,7 @@ The application is now correctly registered with the system and can be extended 
 
 ## Test App (SITL)
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../setup/building_px4.md#jmavsim_build)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
+If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#jmavsim_build)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
 
 Enter `px4_simple_app` to run the minimal app.
 
@@ -353,7 +251,7 @@ To do something useful, the application needs to subscribe inputs and publish ou
 
 > **Tip** The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 Subscribing to a topic is straightforward:
 
@@ -379,9 +277,9 @@ px4_pollfd_struct_t fds[] = {
 };
 
 while (true) {
-uORB/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-uORBint poll_ret = px4_poll(fds, 1, 1000);
-..
+    /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+    int poll_ret = px4_poll(fds, 1, 1000);
+    ..
     if (fds[0].revents & POLLIN) {
         /* obtained data for the first file descriptor */
         struct sensor_combined_s raw;
@@ -420,7 +318,7 @@ Your app will display 5 sensor values in the console and then exit:
 [px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
 ```
 
-> **Tip** The [Module Template for Full Applications](../apps/module_template.md) can be used to write background process that can be controlled from the command line.
+> **Tip** The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
 
 ## Publishing Data
 
@@ -447,37 +345,39 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## Full Example Code
 
-The [complete example code](https://github.com/PX4/Firmware/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
-* Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
- * 
-    * Redistribution and use in source and binary forms, with or without
-    * modification, are permitted provided that the following conditions
-    * are met:
-    * 
-    * 1. Redistributions of source code must retain the above copyright
-    * notice, this list of conditions and the following disclaimer.
+/****************************************************************************
+ *
+ *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
-    * notice, this list of conditions and the following disclaimer in
-    * the documentation and/or other materials provided with the
-    * distribution.
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
  * 3. Neither the name PX4 nor the names of its contributors may be
-    * used to endorse or promote products derived from this software
-    * without specific prior written permission.
- * 
-    * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-    * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-    * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-    * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-    * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-    * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-    * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-    * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-    * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-    * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-    * POSSIBILITY OF SUCH DAMAGE.
+ *    used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  *
  ****************************************************************************/
 
@@ -587,11 +487,11 @@ And finally run your app:
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot (**Widgets > Analyze**).
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)).
 
 ## Wrap-Up
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/Firmware/tree/master/msg/) and that the headers are well documented and serve as reference.
+This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
 
 Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 
