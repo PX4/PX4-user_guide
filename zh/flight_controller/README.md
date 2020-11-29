@@ -1,11 +1,11 @@
-# 飞控（自驾仪）硬件
+# Flight Controller (Autopilot) Hardware
 
 This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
 
 > **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
 
-- [Pixhawk 系列](../flight_controller/pixhawk_series.md) 
-  - [芯片勘误表](../flight_controller/silicon_errata.md)
+- [Pixhawk Series](../flight_controller/pixhawk_series.md) 
+  - [Silicon Errata](../flight_controller/silicon_errata.md)
 - [Pixhawk Standard/Supported Autopilots](../flight_controller/autopilot_pixhawk_standard.md) 
   - [CUAV Pixhack v3 (FMUv3)](../flight_controller/pixhack_v3.md)
   - [Drotek Pixhawk 3 Pro (FMUv4pro)](../flight_controller/pixhawk3_pro.md)
@@ -16,7 +16,7 @@ This section lists the autopilot hardware documented in this library (that can b
   - [Holybro pix32 (FMUv2)](../flight_controller/holybro_pix32.md)
   - [mRo Pixracer (FMUv4)](../flight_controller/pixracer.md)
   - [mRo Pixhawk (FMUv2)](../flight_controller/mro_pixhawk.md)
-- [由制造商支持的自动驾驶仪](../flight_controller/autopilot_manufacturer_supported.md) 
+- [Manufacturer-Supported Autopilots](../flight_controller/autopilot_manufacturer_supported.md) 
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
   - [CUAV X7](../flight_controller/cuav_x7.md)
@@ -42,7 +42,7 @@ This section lists the autopilot hardware documented in this library (that can b
   - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   - [CUAV v5 (FMUv5) (Discontinued)](../flight_controller/cuav_v5.md)
   - [Holybro Pixfalcon (FMUv2) (Discontinued)](../flight_controller/pixfalcon.md)
-  - [Intel® Aero RTF Drone（已停产）](../complete_vehicles/intel_aero.md)
+  - [Intel® Aero RTF Drone (Discontinued)](../complete_vehicles/intel_aero.md)
   - [mRo AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md)
   - [Qualcomm Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
   - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
