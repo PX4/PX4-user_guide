@@ -10,7 +10,7 @@ While MAVROS can be used to communicate with any MAVLink enabled autopilot this 
 
 MAVROS can be installed either from source or binary. Developers working with ROS are advised to use the source installation.
 
-> **Tip** These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Kinetic* release.
+> **Tip** These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic* release.
 
 
 ### Binary Installation (Debian / Ubuntu)
@@ -27,7 +27,7 @@ Then install [GeographicLib](https://geographiclib.sourceforge.io/) datasets by 
 
 ```
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
-./install_geographiclib_datasets.sh   
+sudo bash ./install_geographiclib_datasets.sh   
 ```
 
 ### Source Installation
@@ -55,35 +55,29 @@ $ wstool init ~/catkin_ws/src
 Now you are ready to do the build
 1. Install MAVLink:
    ```
-   Install MAVLink: 
-     # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
-     rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+   # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
+   rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
 1. Install MAVROS from source using either released or latest version:
    * Released/stable
      ```
-     Latest source 
-      sh
-      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
+     rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
    * Latest source
      ```sh
-     Released/stable <code>rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall</code>
+     rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
-
-     </code>
      ```sh
-     sh
-  # For fetching all the dependencies into your catkin_ws, 
-  # just add '--deps' to the above scripts, E.g.:
-  #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+     # For fetching all the dependencies into your catkin_ws, 
+     # just add '--deps' to the above scripts, E.g.:
+     #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
 1. Create workspace & deps
    ```
    wstool merge -t src /tmp/mavros.rosinstall
- wstool update -t src -j4
- rosdep install --from-paths src --ignore-src -y
+   wstool update -t src -j4
+   rosdep install --from-paths src --ignore-src -y
    ```
 
 1. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
