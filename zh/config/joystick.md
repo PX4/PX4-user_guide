@@ -1,4 +1,4 @@
-# 操纵杆设置
+# Joystick Setup
 
 A [computer joystick](https://en.wikipedia.org/wiki/Joystick) or gamepad connected through *QGroundControl* can be used to manually control the vehicle (*instead* of using an [RC Transmitter](../config/radio.md)).
 
@@ -17,7 +17,7 @@ This approach may be used by manual control units that have an integrated ground
 Information about how to set up a joystick is covered in: [QGroundControl > Joystick Setup](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html).
 
 In summary:
-* 开启 *QGroundControl*。
+* Open *QGroundControl*
 * Set the parameter [COM_RC_IN_MODE=1](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) - `Joystick/No RC Checks` (see [Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) for information about setting parameters)
 * Connect the joystick
 * Configure the connected joystick in: **Vehicle Setup > Joystick**.
