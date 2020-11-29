@@ -20,7 +20,7 @@ Note The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopil
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## 主要特性
+## Key Features
 
 - 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
 - 168 MHz / 252 MIPS 
@@ -39,17 +39,17 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 <span id="stores"></span>
 
-## 在哪里买
+## Where to Buy
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## 组装
+## Assembly
 
 [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
-## 产品规格
+## Specifications
 
-### 处理器
+### Processor
 
 - 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
 - 168 MHz / 252 MIPS 
@@ -57,11 +57,11 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - 2 MB Flash (fully accessible)
 - 32 bit STM32F103 failsafe co-processor
 
-### 传感器
+### Sensors
 
 - TBA
 
-### 接口
+### Interfaces
 
 - 5x UART (serial ports), one high-power capable, 2x with HW flow control
 - 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -80,11 +80,11 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - Servo rail high-power (max. 10V) and high-current (10A+) ready
 - All peripheral outputs over-current protected, all inputs ESD protected
 
-### 额定电压
+### Voltage Ratings
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-#### 正常运行最大额定值
+#### Normal Operation Maximum Ratings
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -92,7 +92,7 @@ Under these conditions all power sources will be used in this order to power the
 - Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
 - USB power input (4.8V to 5.4V)
 
-#### 绝对最大额定值
+#### Absolute Maximum Ratings
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
@@ -100,7 +100,7 @@ Under these conditions the system will not draw any power (will not be operation
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
 - USB power input (4.1V to 5.7V, 0V to 6V)
 
-## 引脚和原理图
+## Pinouts and Schematics
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
@@ -116,7 +116,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -138,7 +138,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -155,7 +155,7 @@ CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice v
 
 ## Further Information/Documentation
 
-- [Cube 快速接线指南](../assembly/quick_start_cube.md)
+- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer): 
   - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
