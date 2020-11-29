@@ -6,9 +6,9 @@ The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of thi
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Вступление
+## Introduction
 
-Основная документация по [официальной Wiki](https://github.com/intel-aero/meta-intel-aero/wiki) объясняет, как установить, обновить и подключится к полётному контроллеру, и как начать разработку в ОС Linux. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
+The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
 It's important to update to the latest image available since some instructions change between releases. You can check the BIOS and distro version by connecting to the board and running the following command:
 
@@ -23,11 +23,11 @@ The instructions here are tested with the following version:
     FPGA_VERSION = 0xc1
     
 
-## Установка Intel Aero в ОС Ubuntu
+## Setup Intel Aero using Ubuntu
 
 In order to install Ubuntu on Intel Aero, the following equipment is needed:
 
-1. Источник питания (батарея или сетевой блок питания)
+1. Power supply (battery or network cable)
 2. Micro HDMI to HDMI cable to attach a monitor
 3. Micro USB3 to USB2 female adapter
 4. USB Hub to attach mouse and keyboard
@@ -95,7 +95,7 @@ Create a catkin workspace and initialize it. Then clone the avoidance repository
     roslaunch local_planner local_planner_aero.launch
     
 
-## Прошивка PX4
+## Flashing PX4 software
 
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
@@ -120,7 +120,7 @@ After setting up the PX4 development environment, follow these steps update the 
 
 5. Upload with: `make intel_aerofc-v1_default upload`
 
-## Подключение к QGroundControl через сеть
+## Connecting QGroundControl via Network
 
 1. Make sure you are connected to the board with WiFi or USB Network
 2. SSH to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
