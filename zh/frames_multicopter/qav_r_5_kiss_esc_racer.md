@@ -11,7 +11,7 @@ Key information:
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
-## 配件列表
+## Parts List
 
 ### Vehicle (needed for flying)
 
@@ -65,7 +65,7 @@ This means we need to solder at least 6 joints on every ESC but it's still total
 
 > **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
 
-### 电机
+### Motors
 
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables. Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight. Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
 
@@ -141,25 +141,25 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 
 #### Pixracer GPS/I2C Port
 
-| 针脚 | Assignment |
-| -- | ---------- |
-| 1  | GND        |
-| 2  | SDA        |
-| 3  | SCL        |
-| 4  | RX         |
-| 5  | TX         |
-| 6  | +5V        |
+| Pin | Assignment |
+| --- | ---------- |
+| 1   | GND        |
+| 2   | SDA        |
+| 3   | SCL        |
+| 4   | RX         |
+| 5   | TX         |
+| 6   | +5V        |
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| 针脚   | Assignment | Connect to Pixracer Pin |
-| ---- | ---------- | ----------------------- |
-| 1（红） | SCL        | 3                       |
-| 2    | SDA        | 2                       |
-| 3    | VCC 5V     | 6                       |
-| 4    | RX         | 5                       |
-| 5    | TX         | 4                       |
-| 6    | GND        | 1                       |
+| Pin     | Assignment | Connect to Pixracer Pin |
+| ------- | ---------- | ----------------------- |
+| 1 (red) | SCL        | 3                       |
+| 2       | SDA        | 2                       |
+| 3       | VCC 5V     | 6                       |
+| 4       | RX         | 5                       |
+| 5       | TX         | 4                       |
+| 6       | GND        | 1                       |
 
 I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
 
@@ -177,9 +177,9 @@ Like you can see I mounted the transmitter from the inside to the "roof" of the 
 
 The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
 
-![相机](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
+![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## 软件配置
+## Software Configuration
 
 > **Warning** Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
 
@@ -194,7 +194,7 @@ For this build I pulled the latest PX4 master because it supports the "FMU as ta
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
 - You can also set up an arming switch.
 
-### 调试
+### Tuning
 
 Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
 
