@@ -14,7 +14,7 @@ If there is a persistent drift bias (often seen in multirotors but not limited t
 To change the orientation parameters:
 
 1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
-2. Change the parameters as shown below: ![비행 컨트롤러 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+2. Change the parameters as shown below: ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## Parameter information
 
@@ -22,9 +22,9 @@ The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, 
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. 가능한 값은 다음과 같습니다.
+This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
 
-- 0 = 회전 없음
+- 0 = No rotation
 - 1 = Yaw 45°
 - 2 = Yaw 90°
 - 3 = Yaw 135°
