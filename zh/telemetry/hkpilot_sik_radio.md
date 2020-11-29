@@ -6,7 +6,7 @@ HKPilot has a [SiK Radio](../telemetry/sik_radio.md)-compatible telemetry set th
 
 The radios come with a 6-position DF13 connector, and are essentially plug-n-play with *Pixhawk 1* and other early flight controller boards.
 
-## 购买
+## Purchase
 
 * [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 433Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-433mhz.html)
 * [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 915Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-915mhz.html)
