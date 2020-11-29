@@ -1,13 +1,13 @@
 # 고급 비행 제어장치 방향 조정
 
-방향 및 수평 균형은 매개변수 값을 직접 설정하여 센서 모드의 미세 오정렬 또는 부차적 보정 오류를 잡아 수정할 수 있습니다.
+The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
 
-> **참고** 이 지침은 일반 사용자들에게는 권장하지 않습니다. 기본 설정에 관해서는 아래 링크된 지침을 따르십시오:
+> **Note** These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
 
-- [비행 컨트롤러 방향](../config/flight_controller_orientation.md)
-- [수평 캘리브레이션](../config/level_horizon_calibration.md) 
+- [Flight Controller Orientation](../config/flight_controller_orientation.md)
+- [Level Horizon Calibration](../config/level_horizon_calibration.md) 
 
-지속적으로 드리프트 바이어스가 있는 경우(종종 멀티 로터에서 볼 수 있지만 이에 국한되지는 않음), RC 송신기의 트리머를 사용하는 대신 미세 조정 옵셋 각도 매개 변수를 사용하여 트리밍하는 것이 좋은 방법입니다. 이 방법은 완전 자율 비행시 기체가 트리밍을 유지하도록 할 것입니다.
+If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
 
 ## 방향 매개변수 설정
 
