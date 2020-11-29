@@ -125,7 +125,7 @@ This kit includes Dropix flight controller with most of the required electronics
 
 The outputs of Dropix should be wired using the standard QuadPlane configuration (orientation as if "sitting in the plane").
 
-| Port   | 接口定义                   |
+| Port   | Connection             |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
@@ -135,7 +135,7 @@ The outputs of Dropix should be wired using the standard QuadPlane configuration
 | AUX 2  | Right aileron          |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
-| AUX 5  | 油门                     |
+| AUX 5  | Throttle               |
 
 <span id="dropix_back"></span>
 
@@ -249,7 +249,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
         ![Level Motors](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_55_level_motors.jpg)
         
 
-## 配置
+## Configuration
 
 Perform the normal [Basic Configuration](../config/README.md).
 
@@ -265,10 +265,10 @@ Notes:
 
 After you finish calibration the VTOL is ready to fly.
 
-## 视频
+## Video
 
 {% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
 
-## 技术支持
+## Support
 
 If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
