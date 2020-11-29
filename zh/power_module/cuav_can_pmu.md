@@ -6,7 +6,7 @@ CAN PMU<sup>&reg;</sup> is a high-precision power module developed by CUAV<sup>&
 
 It is recommended for use in large commercial vehicles, but might also be used for research vehicles.
 
-## 产品规格
+## Specifications
 
 - **Processor:** STM32F412
 - **Voltage input**: 6~62V\(2-15S\)
@@ -29,18 +29,18 @@ It is recommended for use in large commercial vehicles, but might also be used f
   - **Size:** 46.5mm \* 38.5mm \* 22.5mm
   - **Weight:** 76g
 
-## 采购
+## Purchase
 
 - [CUAV store](https://store.cuav.net/index.php)
 - [CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
 
-## 针脚定义
+## Pinouts
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en.png)
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_pinouts_en2.png)
 
-## 接口定义
+## Connection
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu_connection_en.png)
 
@@ -60,7 +60,7 @@ Set the following parameters in the *QGroundControl* [parameter list](../advance
 
 ![CAN PMU list](../../assets/hardware/power_module/cuav_can/can_pmu_list.png)
 
-## 更多信息
+## Further Information
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
