@@ -1,48 +1,48 @@
-# Mac 上的开发环境
+# Development Environment on Mac
 
-MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发环境可以用编译：
-* 基于 NuttX 的硬件 (Pixhawk等)
-* jMAVSim 仿真模拟
-* Gazebo 8 仿真模拟
+MacOS is a supported development platform for PX4. The following instructions set up an environment for building:
+* NuttX-based hardware (Pixhawk, etc.)
+* jMAVSim Smulation
+* Gazebo Simulation
 
-> **提示：** 若需要为其他平台进行编译请参考： [Toolchain Installation > Supported Targets](../setup/dev_env.md#supported-targets)。
+> **Note** To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
 
 <span></span>
 > **Tip** A video tutorial can be found here: [Setting up your PX4 development environment on macOS](https://youtu.be/tMbMGiMs1cQ).
 
-## Homebrew 安装
+## Homebrew Installation
 
-Homebrew 的安装非常简单迅速：[installation instructions](https://brew.sh)。
+The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
-## 常用工具
+## Enable more open files (Handle "LD: too many open files" error)
 
 The PX4 toolchain requires the usage of the ZSH shell. If you are using the shell, add this line to your shell profile:
 
 Create this file or append it: `~/.zshenv` and add this line:
 ```sh
+ulimit -S -n 2048
+```
+
+## Ensuring Python points to Homebrew
+
+If not already existing, create the file `~/.zshrc` and add these lines:
+
+```sh
+# Point python to python 3 from Homebrew
+alias python=/usr/local/bin/python3
+# Point pip to python 3 pip
+alias pip=/usr/local/bin/pip3
+```
+
+## Common Tools
+
+After installing Homebrew, run these commands in your shell to install the common tools:
+
+```sh
 brew tap PX4/px4
 brew install px4-dev
-# 可选，但建议安装额外的仿真模拟用工具
-brew install px4-sim
 ```
-
-## 额外工具
-
-如果您还没有安装 pip ，请安装并使用它来安装所需的软件包：
-
-```sh
-brew cask install xquartz java
-```
-
-## 后续步骤
-
-完成编译/仿真开发环境设置后，你可以从 [Additional Tools](../setup/generic_dev_tools.md) 找到一些有用的“通用”开发工具。
-
-```sh
-sudo easy_install pip
-sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
-```
-设置完环境后，请转至 [build instructions](../setup/building_px4.md) 。
+Install the required Python packages
 
 ```sh
 # install required packages using pip3
@@ -51,7 +51,7 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
-## Gazebo 仿真
+## Gazebo Simulation
 
 To install SITL simulation with Gazebo:
 
@@ -60,7 +60,7 @@ brew cask install xquartz
 brew install px4-sim-gazebo
 ```
 
-## jMAVSim 仿真模拟
+## jMAVSim Simulation
 
 To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 14). You can either download [Java 14 from Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or use the AdoptOpenJDK tap:
 
@@ -75,11 +75,11 @@ brew install px4-sim-jmavsim
 
 > **Note** jMAVSim for PX4 v1.11 and earlier required Java 8.
 
-## 额外工具
+## Additional Tools
 
 See [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful development tools that are not part of the build toolchain (for example IDEs and GCSs).
 
-## 后续步骤
+## Next Steps
 
-sudo rosdep init rosdep update
+Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
 
