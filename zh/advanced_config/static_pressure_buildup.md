@@ -1,4 +1,4 @@
-# 静态压力生成
+# Static Pressure Buildup
 
 Air flowing over an enclosed vehicle can cause the *static pressure* to change within the canopy/hull. Depending on the location of holes/leaks in the hull, you can end up with under or overpressure (similar to a wing).
 
