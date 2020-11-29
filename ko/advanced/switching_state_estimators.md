@@ -1,25 +1,25 @@
-# 상태 추정자(State Estimator) 전환
+# Switching State Estimators
 
-이 페이지에서는 상태 추정자의 존재 여부를 확인하고 전환하는 방법을 보여줍니다.
+This page shows you which state estimators are available and how you can switch between them.
 
-> **팁** 다용도 EKF2를 추천합니다 (LPE는 더이상 관리하거나 지원해주지 않음).
+> **Tip** EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
 
-## 가용 추정자
+## Available Estimators
 
-가용 추정자는 다음과 같습니다:
-- **EKF2 고도 위치 풍향/풍속 상태 추정자** - EKF2는 고도, 3차원 위치 / 속도, 풍향/풍속 상태를 추정하는 확장 칼만 필터입니다.
-- **LPE 위치 추정자** - LPE 위치 추정자는 3차원 위치, 속도 상태를 추정하는 확장 칼만 필터입니다.
-- **Q 고도 추정자**  - Q 고도 추정자는 매우 간단한 쿼터니언 기반 고도 보완 필터입니다.
+The available estimators are:
+- **EKF2 attitude, position and wind states estimator** - EKF2 is an extended kalman filter estimating attitude, 3D position / velocity and wind states.
+- **LPE position estimator** - The LPE position estimator is an extended kalman filter for 3D position and velocity states.
+- **Q attitude estimator** - The attitude Q estimator is a very simple, quaternion based complementary filter for attitude.
 
 
-## 각 추정자 활성 방법
+## How to Enable Different Estimators
 
-멀티로터 수직 이착륙기에서는 다음 설정 중 하나를 선택하도록 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 활용합니다(LPE는 고정익에서 지원하지 않음).
+For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed Wing).
 
-| SYS_MC_EST_GROUP | Q 추정자 | LPE | EKF2 |
-| ------------------ | ----- | --- | ---- |
-| 1                  | 활성    | 활성  |      |
-| 2                  |       |     | 활성   |
-| 0                  | 활성    |     |      |
+| SYS_MC_EST_GROUP | Q Estimator | LPE     | EKF2    |
+| ------------------ | ----------- | ------- | ------- |
+| 1                  | enabled     | enabled |         |
+| 2                  |             |         | enabled |
+| 3                  | enabled     |         |         |
 
-> **참고** FMU-v2를 사용할 경우(에만) PX4 빌드시 필요한 추정자를 따로 넣어야 합니다.(예: EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). FMU-v2에 두가지 추정자를 넣기에는 하드웨어 자원이 제한적이기 때문에 이와같은 설정이 필요합니다. 다른 픽스호크 FMU 버전에서는 둘 다 넣습니다.
+> **Note** For FMU-v2 (only) you will also need to build PX4 to specifically include required estimator (e.g. EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). This is required because FMU-v2 is too resource constrained to include both estimators. Other Pixhawk FMU versions include both.
