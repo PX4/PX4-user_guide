@@ -1,10 +1,10 @@
-# Gazebo 世界（Worlds）
+# Gazebo Worlds
 
-本主题提供 PX4 支持的 [Gazebo](../simulation/gazebo.md) 世界的有关图像/信息。
+This topic provides imagery/information about the [Gazebo](../simulation/gazebo.md) worlds supported by PX4.
 
 The [empty.world](#empty_world) is spawned by default, though this may be overridden by a [model specific world](#model_specific_worlds). Developers can also manually specify the world to load: [Gazebo Simulation > Loading a Specific World](../simulation/gazebo.md#set_world).
 
-所支持世界的源代码可在 GitHub 上找到：[PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)。
+The source code for supported worlds can be found on GitHub here: [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds).
 
 <a id="empty_world"></a>
 
@@ -12,41 +12,41 @@ The [empty.world](#empty_world) is spawned by default, though this may be overri
 
 [PX4/sitl_gazebo/worlds/empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)
 
-![空白](../../assets/simulation/gazebo/worlds/empty.png)
+![empty](../../assets/simulation/gazebo/worlds/empty.png)
 
-## 海湾
+## Baylands
 
 [PX4/sitl_gazebo/worlds/baylands.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/baylands.world)
 
-![海湾世界](../../assets/simulation/gazebo/worlds/baylands.jpg)
+![Baylands World](../../assets/simulation/gazebo/worlds/baylands.jpg)
 
-## KSQL 机场
+## KSQL Airport
 
 [PX4/sitl_gazebo/worlds/ksql_airport.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/ksql_airport.world)
 
-![KSQL机场世界](../../assets/simulation/gazebo/worlds/ksql_airport.jpg)
+![KSQL Airport World](../../assets/simulation/gazebo/worlds/ksql_airport.jpg)
 
-## 麦克米兰机场
+## McMillan Airfield
 
 [PX4/sitl_gazebo/worlds/mcmillan_airfield.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/mcmillan_airfield.world)
 
-![麦克米兰机场世界](../../assets/simulation/gazebo/worlds/mcmillan_airfield.jpg)
+![McMillan Airfield World](../../assets/simulation/gazebo/worlds/mcmillan_airfield.jpg)
 
-## 索诺玛赛道
+## Sonoma Raceway
 
 [PX4/sitl_gazebo/worlds/sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world) ![Sonoma_Raceway](../../assets/simulation/gazebo/worlds/sonoma_raceway.png)
 
-## 仓库
+## Warehouse
 
 [PX4/sitl_gazebo/worlds/warehouse.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/warehouse.world)
 
-![仓库](../../assets/simulation/gazebo/worlds/warehouse.png)
+![Warehouse](../../assets/simulation/gazebo/worlds/warehouse.png)
 
-## 约塞米蒂
+## Yosemite
 
 [PX4/sitl_gazebo/worlds/yosemite.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/yosemite.world)
 
-![约塞米蒂](../../assets/simulation/gazebo/worlds/yosemite.jpg)
+![Yosemite](../../assets/simulation/gazebo/worlds/yosemite.jpg)
 
 <a id="model_specific_worlds"></a>
 
