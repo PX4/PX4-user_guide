@@ -7,7 +7,7 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note 本指南将持续更新！ It does not yet cover all of PX4.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note This guide is still a work in progress! It does not yet cover all of PX4.
 :::
 
 ## 如何开始？
@@ -16,14 +16,14 @@ This guide contains everything you need to assemble, configure, and safely fly a
 
 根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-**我已经有了一架飞机，我想让它飞起来：**
+**I already have a drone and I just want to fly:**
 
 如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 * [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
 * [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**我想从头开始组装一架使用 PX4 的飞机：**
+**I want to build a drone with PX4 from scratch:**
 
 :::tip
 The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
@@ -50,7 +50,7 @@ Modifications of the flight controller and basic sensors are covered above. In o
 
 * [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
-## 获取帮助
+## Getting Help
 
 The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
@@ -75,22 +75,22 @@ Information on how to contribute to code and documentation can be found in the [
 * [文档撰写](contribute/docs.md)
 * [参与翻译（中文翻译组长微信：253331754，QQ：76006963）](contribute/translation.md)
 
-## 翻译
+## Translations
 
 There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
-## 许可证
+## License
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
 
-## 日历 & 活动
+## Calendar & Events
 
 The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
 
 * [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [太平洋时间 – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 * [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
@@ -104,7 +104,7 @@ The following icons used in this library are licensed separately (as shown below
 
 <img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-## 治理
+## Governance
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
