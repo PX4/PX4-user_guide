@@ -25,18 +25,18 @@ The components used in this build are listed below (along with links to where th
 - **Receiver:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
 - **Battery:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
 
-用户应先加入组 ”dialout“：
+Notes:
 
 - The 4S Power Module that comes with the *Pixhawk Mini* can be used for the battery size above (instead of the 10S Power Module). Assembly is the same with either power module.
 - We also recommend these ESC: Lumenier 12 amp ESC w/ SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).
 
-## 硬件
+## Hardware
 
 This section lists all hardware for the frame and the autopilot installation.
 
 ### Frame QAV250
 
-| 参数描述                          | Quantity |
+| Description                   | Quantity |
 | ----------------------------- | -------- |
 | Unibody frame plate           | 1        |
 | Flight controller cover plate | 1        |
@@ -56,7 +56,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| 参数描述                               | Quantity |
+| Description                        | Quantity |
 | ---------------------------------- | -------- |
 | Motors lumenier Rx2204-14 2300KV   | 4        |
 | ESC lumenier 30A                   | 4        |
@@ -316,7 +316,7 @@ Vehicle calibration/setup is typically similar for all vehicles. You can follow 
 [Flight Modes](../flight_modes/README.md) provide autopilot assisted or fully controlled flight. New users should configure their receiver to support the following three modes (these make the vehicle much easier to fly):
 
 - *Stabilized* - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- *定高模式* - 飞行器的爬升和降落被限制了一个最大的速率。飞机会保持高度稳定（但仍无法保持位置定点）。
+- *Altitude* - Climb and drop are controlled to have a maximum rate.
 - *Position* - When sticks are released the vehicle will stop (and hold position against wind drift)
 
 There are a number of ways to [configure flight modes](../config/flight_mode.md). In this case we have a three-way switch on the receiver that we map to a single channel (5).
@@ -325,13 +325,13 @@ There are a number of ways to [configure flight modes](../config/flight_mode.md)
 
 For more information see:
 
-- [飞行模式有关配置](../config/flight_mode.md)
-- [飞行模式](../flight_modes/README.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
+- [Flight Modes](../flight_modes/README.md)
 - [Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html) (QGroundControl)
 
 **Step 6:** Calibrate ESC
 
-1. 卸下螺旋桨.
+1. Remove propellers.
     
     > **Warning** Propellers must be removed from vehicle prior to performing ESC calibration!
 
@@ -343,7 +343,7 @@ For more information see:
     
     ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
 
-### 调试
+### Tuning
 
 Firmware installation sets *default* autopilot parameters that have been configured for the selected frame (in this case for the *Lumenier QAV250*). As builds may use different components and place them differently, it is a good idea to tune the parameters for a specific frame build.
 
@@ -353,7 +353,7 @@ The parameters below are recommended for this build (the yellow parameters are t
 
 For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
 
-## 视频
+## Video
 
 The video below shows this QAV250 on a test flight.
 
