@@ -57,7 +57,7 @@ To support this there is a [default serial port mapping](../peripherals/serial_c
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
-## 示例
+## Example
 
 For example, to use a companion computer on `TELEM 2` you might set parameters as shown:
 
