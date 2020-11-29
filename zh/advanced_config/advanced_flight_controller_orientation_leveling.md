@@ -1,4 +1,4 @@
-# 飞行控制器的朝向的高级调参
+# Advanced Flight Controller Orientation Tuning
 
 可以通过手动调参来修正无人机的方向和地平线水准，以校正传感器芯片存在的微小不对准或校准误差。
 
@@ -16,7 +16,7 @@
 1. 打开 QGroundControl 菜单: **Settings > Parameters > Sensor Calibration**.
 2. 更改以下参数： ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
-## 参数信息
+## Parameter information
 
 参数**SENS_BOARD_ROT** 定义了相对于平台platform的旋转，而X，Y和Z微调偏移量相对于电路板本身是固定的。 实质上是微调的偏移量被添加到了 SENS_BOARD_ROT 角度中， 为了获得飞行控制器的偏航，俯仰和滚转方向的总偏移角度。
 
@@ -53,7 +53,7 @@
 
 **SENS_BOARD_X_OFF**
 
-以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转。 角度的正值增加CCW方向，角度的负值增加CW方向
+以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转。 Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Y_OFF**
 
