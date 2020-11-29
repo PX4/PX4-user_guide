@@ -1,4 +1,4 @@
-# 고급 비행 제어장치 방향 조정
+# Advanced Flight Controller Orientation Tuning
 
 The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
 
@@ -9,20 +9,20 @@ The orientation and horizon level may be fine-tuned manually with parameters to 
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
 
-## 방향 매개변수 설정
+## Setting Orientation Parameters
 
-방향 매개변수를 변경하려면:
+To change the orientation parameters:
 
-1. QGroundControl에서 다음의 메뉴를 엽니다: **설정> 매개 변수> 센서 캘리브레이션**.
-2. 아래와 같이 매개 변수를 변경하십시오: ![비행 컨트롤러 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
+2. Change the parameters as shown below: ![비행 컨트롤러 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
-## 매개변수 정보
+## Parameter information
 
-**SENS_BOOD_ROT** 매개변수는 플랫폼에 상대적인 회전을 정의하고, X,Y,Z 미세 튜닝 오프셋은 보드 자체에 상대적으로 고정되어 있습니다. 비행 컨트롤러의 요, 피치 및 롤 방향에 대한 총 오프셋 각도를 얻기 위해 미세 조정 오프셋이 SENS_BOOD_ROT 각도에 추가됩니다.
+The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself. What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
 
 **SENS_BOARD_ROT**
 
-이 매개변수는 플랫폼을 기준으로 상대적인 FMU 보드의 회전을 정의합니다. 가능한 값은 다음과 같습니다.
+This parameter defines the rotation of the FMU board relative to the platform. 가능한 값은 다음과 같습니다.
 
 - 0 = 회전 없음
 - 1 = Yaw 45°
@@ -53,7 +53,7 @@ If there is a persistent drift bias (often seen in multirotors but not limited t
 
 **SENS_BOARD_X_OFF**
 
-PX4FMU의 X축 또는 롤 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 각도는 양수일 떄 반시계(CCW) 방향으로 증가하고, 반대로 음수일 때 시계(CW) 방향으로 증가합니다.
+Rotation, in degrees, around PX4FMU's X axis or Roll axis. 각도는 양수일 떄 반시계(CCW) 방향으로 증가하고, 반대로 음수일 때 시계(CW) 방향으로 증가합니다.
 
 **SENS_BOARD_Y_OFF**
 
