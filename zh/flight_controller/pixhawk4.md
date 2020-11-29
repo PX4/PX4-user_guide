@@ -14,46 +14,46 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## 总览
+## Quick Summary
 
-* 主 FMU 处理器：STM32F765 
-  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
-* IO 处理器：STM32F100 
-  * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
-* 板载传感器： 
-  * 加速度计 / 陀螺仪：ICM-20689
-  * 加速度计 / 陀螺仪：BMI055
-  * 磁力计：IST8310
-  * 气压计：MS5611
-* GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
-* 接口： 
-  * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
-  * FMU 上有 3 路专用 PWM/Capture 输入
-  * 用于 CPPM 的专用遥控输入
-  * 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
-  * 专用 S.Bus 舵机输出
-  * 5 个通用串行接口
-  * 3 个 I2C 接口
-  * 4 路 SPI 总线
-  * 多达 2 路 CAN 总线用于带串口的电调
-  * 两路电池电压 / 电流模拟输入口
-* 电源系统： 
-  * 电源模块输出：4.9~5.5V
-  * USB 电源输入：4.75~5.25V
-  * 舵机轨道输入：0~36V
-* 重量和尺寸： 
-  * 重量：15.8g
-  * 尺寸：44x84x12mm
-* 其它特性： 
-  * 工作温度：-40 ~ 85°C
+* Main FMU Processor: STM32F765 
+  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+* IO Processor: STM32F100 
+  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+* On-board sensors: 
+  * Accel/Gyro: ICM-20689
+  * Accel/Gyro: BMI055
+  * Magnetometer: IST8310
+  * Barometer: MS5611
+* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* Interfaces: 
+  * 8-16 PWM outputs (8 from IO, 8 from FMU)
+  * 3 dedicated PWM/Capture inputs on FMU
+  * Dedicated R/C input for CPPM
+  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
+  * Dedicated S.Bus servo output
+  * 5 general purpose serial ports
+  * 3 I2C ports
+  * 4 SPI buses
+  * Up to 2 CANBuses for dual CAN with serial ESC
+  * Analog inputs for voltage / current of 2 batteries
+* Power System: 
+  * Power module output: 4.9~5.5V
+  * USB Power Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
+* Weight and Dimensions: 
+  * Weight: 15.8g
+  * Dimensions: 44x84x12mm
+* Other Characteristics: 
+  * Operating temperature: -40 ~ 85°c
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## 采购
+## Purchase
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
-## 连接器
+## Connectors
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
@@ -61,7 +61,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 :::
 
-## 针脚定义
+## Pinouts
 
 Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
 
@@ -71,7 +71,7 @@ Note Connector pin assignments are left to right (i.e. Pin 1 is the left-most pi
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | GPS                   |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
@@ -81,11 +81,11 @@ Note Connector pin assignments are left to right (i.e. Pin 1 is the left-most pi
 | UART7  | /dev/ttyS5 | Debug Console         |
 | UART8  | /dev/ttyS6 | PX4IO                 |
 
-## 尺寸
+## Dimensions
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## 额定电压
+## Voltage Ratings
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
@@ -97,22 +97,22 @@ Note The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do n
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
-2. **USB** 输入电压（4.75 v 至 5.25 v）
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+2. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
-1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
-2. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
-3. 舵机输入：**FMU PWM OUT** 和 **I/O PWM OUT** 的 VDD_SERVO 针脚 （0V 至 42V 不会损坏）
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-## 组装 / 设置
+## Assembly/Setup
 
 The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -125,7 +125,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 <span id="debug_port"></span>
 
-## Debug调试端口
+## Debug Port
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
 
@@ -135,21 +135,20 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 
 * [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
 
-## 外部设备
+## Peripherals
 
-* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [数传电台模块](../telemetry/README.md)
-* [测距仪/距离传感器](../sensor/rangefinders.md)
+* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Telemetry Radio Modules](../telemetry/README.md)
+* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## 支持的平台/机身
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## 更多信息
+## Further info
 
-* [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-* FMUv5参考设计</0 >。</li> 
-  
-  * [Pixhawk 4 快速接线指南](../assembly/quick_start_pixhawk4.md)
-  * [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
-  * [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)</ul>
+* [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+* [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
+* [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+* [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
