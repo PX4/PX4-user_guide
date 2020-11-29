@@ -16,7 +16,7 @@ Note The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## 总览
+## Quick Summary
 
 - Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
 - **ICM-20608-G** gyro / accelerometer
@@ -43,7 +43,7 @@ From [readymaderc](https://www.readymaderc.com) (USA) :
 
 - [Pixhawk 3 Pro](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -54,7 +54,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v4pro_default
     
 
-## Debug调试端口
+## Debug Port
 
 The board has FMU and IO debug ports as shown below.
 
@@ -62,14 +62,14 @@ The board has FMU and IO debug ports as shown below.
 
 The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
 
-| 针脚   | 信号               | 电压    |
-| ---- | ---------------- | ----- |
-| 2    | VCC TARGET SHIFT | +3.3V |
-| 2    | UART7 Tx         | +3.3V |
-| 3    | UART7 Rx         | +3.3V |
-| 4（黑） | SWDIO            | +3.3V |
-| 6    | SWCLK            | +3.3V |
-| 6    | GND              | GND   |
+| Pin     | Signal           | Volt  |
+| ------- | ---------------- | ----- |
+| 1 (red) | VCC TARGET SHIFT | +3.3V |
+| 2 (blk) | CONSOLE TX (OUT) | +3.3V |
+| 3 (blk) | CONSOLE RX (IN)  | +3.3V |
+| 4 (blk) | SWDIO            | +3.3V |
+| 5 (blk) | SWCLK            | +3.3V |
+| 6 (blk) | GND              | GND   |
 
 For information about wiring and using this port see:
 
@@ -78,7 +78,7 @@ For information about wiring and using this port see:
 
 ## Serial Port Mapping
 
-| UART   | 设备         | Port                  |
+| UART   | Device     | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | WiFi                  |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
