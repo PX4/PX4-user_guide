@@ -11,7 +11,7 @@ This topic explains how to setup the IDE and start developing.
 
 > **Note** There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
 
-## 前置条件
+## Preconditions
 
 You must already have installed the command line [PX4 developer environment](../dev_setup/dev_env.md) for your platform and downloaded the *Firmware* source code repo.
 
@@ -54,7 +54,7 @@ To build:
 After building at least once you can now use \[code completion\](#code completion) and other *VSCode* features.
 
 
-## 调试
+## Debugging
 
 <a id="debugging_sitl"></a>
 
