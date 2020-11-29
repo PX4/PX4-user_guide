@@ -1,14 +1,14 @@
-# 基本コンセプト
+# Basic Concepts
 
-本章では，ドローンの簡単な解説と，PX4の使い方について説明します。(初心者向けの内容ですが，熟練者にも良い紹介になると思われます)。
+This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
 
-もし，すでに基本コンセプトについてご存知であれば，[基本構成](../assembly/README.md)にジャンプし，オートパイロット用機器の接続方法について学ぶことができます。 *QGroundControl*を用いてファームウェアを書き込んだり，機体のセットアップを行うには，[Basic Configuration](../config/README.md)を参照してください。
+If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
 
-## ドローンってなに？
+## What is a Drone?
 
-ドローンは遠隔操縦または自律操縦可能な無人の”ロボット型”移動体です。
+A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
-Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
 :::tip
 Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
@@ -24,9 +24,9 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 
 Some of PX4's key features are:
 
-- [様々な構造/タイプの機体](../airframes/airframe_reference.md)を制御することができます。例: 航空機 (マルチコプター, 固定翼機，VTOL機), 地上走行型ロボット，水中ドローン。 
-- [ビークルコントローラ](#vehicle_controller)，センサー，周辺機器には，様々な選択肢があります。
-- 柔軟かつパワフルな [フライトモード](#flight_modes) と [安全機能](#safety)。
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
+- Great choice of hardware for [vehicle controller](#vehicle_controller), sensors and other peripherals.
+- Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
@@ -48,14 +48,14 @@ PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixha
 
 For more information see: [Flight Controller Selection](flight_controller_selection.md).
 
-## センサー
+## Sensors
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see:
 
-- [センサー](../getting_started/sensor_selection.md) 
-- [周辺機器](../peripherals/README.md)
+- [Sensors](../getting_started/sensor_selection.md) 
+- [Peripherals](../peripherals/README.md)
 
 <span id="outputs"></span>
 
