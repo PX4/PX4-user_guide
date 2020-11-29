@@ -21,7 +21,7 @@ Possible use cases include communicating with robotics libraries for computer vi
 > **Note** *Fast RTPS* is not intended as a replacement for MAVLink. MAVLink remains the most appropriate protocol for communicating with ground stations, gimbals, cameras, and other offboard components (although *Fast RTPS* may open other opportunities for working with some peripherals).
 
 <span></span>
-> **Note** This should not be a problem if [Fast RTPS is installed in the default location](../setup/fast-rtps-installation.md).
+> **Tip** RTPS can be used over slower links (e.g. radio telemetry), but care should be taken not to overload the channel.
 
 
 ## Architectural overview
@@ -57,11 +57,11 @@ Note the use of [ros1_bridge](https://github.com/ros2/ros1_bridge), which bridge
 
 ## Code generation
 
-> **Note** The requirement for this package should soon be deprecated, as `rosidl_generate_dds_interfaces` CMake tools will be used to generate the required IDL files (instead of only using `rosidl_generate_interfaces`).
+> **Note** [Fast RTPS 1.8.2 and FastRTPSGen 1.0.4 or later must be installed](../dev_setup/fast-rtps-installation.md) in order to generate the required code!
 
 ### ROS-independent applications
 
-All the code needed to create, build and use the bridge is automatically generated when the PX4 Firmware is compiled.
+All the code needed to create, build and use the bridge is automatically generated when PX4-Autopilot is compiled.
 
 The *Client* application is also compiled and built into the firmware as part of the normal build process. The *Agent* must be separately/manually compiled for the target computer.
 
@@ -72,11 +72,11 @@ The *Client* application is also compiled and built into the firmware as part of
 
 ### ROS2/ROS applications
 
-The [px4_ros_com](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access PX4 uORB messages from a ROS2 node (for ROS you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)). This includes all the required components of the *PX4 RTPS bridge*, including the IDL files (required by the `micrortps_agent`), the `micrortps_agent` itself and the sources and headers of the ROS messages.
+The [px4_ros_com](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access PX4 uORB messages from a ROS2 node (for ROS you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)). This includes all the required components of the *PX4 RTPS bridge*, including the `micrortps_agent` and the IDL files (required by the `micrortps_agent`).
 
 The ROS and ROS2 message definition headers and interfaces are generated from the [px4_msgs](https://github.com/PX4/px4_msgs) package, which match the uORB messages counterparts under PX4-Autopilot. These are required by `px4_ros_com` when generating the IDL files to be used by the `micrortps_agent`.
 
-Both branches additionally include some example listener and advertiser example nodes.
+Both `px4_ros_com` and `px4_msgs` packages have two separate branches:
 - a `master` branch, used with ROS2. It contains code to generate all the required ROS2 messages and IDL files to bridge PX4 with ROS2 nodes.
 - a `ros1` branch, used with ROS. It contains code to generate the ROS message headers and source files, which can be used *with* the `ros1_bridge` to share data between PX4 and ROS.
 
@@ -87,7 +87,7 @@ Both branches in `px4_ros_com` additionally include some example listener and ad
 
 The generated bridge code will enable a specified subset of uORB topics to be published/subscribed via RTPS. This is true for both ROS or non-ROS applications.
 
-For *automatic code generation* there's a *yaml* definition file in the PX4 **Firmware/msg/tools/** directory called **uorb_rtps_message_ids.yaml**. This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in DDS/RTPS middleware.
+For *automatic code generation* there's a *yaml* definition file in the PX4 **PX4-Autopilot/msg/tools/** directory called **uorb_rtps_message_ids.yaml**. This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in DDS/RTPS middleware.
 
 > **Note** An RTPS ID must be set for all messages.
 
@@ -116,13 +116,13 @@ rtps:
     send: true
 ```
 
-> **Note** The `px4_ros_com` build process (only) runs the CMake macro `rosidl_generate_interfaces()` to generate ROS2 IDL files and all the source and header files for each message. The PX4 Firmware includes a template for the IDL file generation, which is only used during the PX4 build process.
+> **Note** An API change in ROS2 Dashing means that we now use the `rosidl_generate_interfaces()` CMake module (in `px4_msgs`) to generate the IDL files that we require for microRTPS agent generation (in `px4_ros_com`). PX4-Autopilot includes a template for the IDL file generation, which is only used during the PX4 build process.
 > 
-> The `px4_ros_com` build generates *slightly different* IDL files for use with ROS2/ROS (than are built for PX4 firmware). The **uorb_rtps_message_ids.yaml** is transformed in a way that the message names become *PascalCased* (the name change is irrelevant to the client-agent communication, but is critical for ROS2, since the message naming must follow the PascalCase convention). The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
+> The `px4_msgs` build generates *slightly different* IDL files for use with ROS2/ROS (than are built for PX4 firmware). The **uorb_rtps_message_ids.yaml** is transformed in a way that the message names become *PascalCased* (the name change is irrelevant to the client-agent communication, but is critical for ROS2, since the message naming must follow the PascalCase convention). The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
 
 <a id="client_firmware"></a>
 
-## Client (PX4 Firmware)
+## Client (PX4/PX4-Autopilot)
 
 The *Client* source code is generated, compiled and built into the PX4 firmware as part of the normal build process.
 
@@ -139,10 +139,9 @@ make px4_sitl_rtps
 The *Client* application can be launched from [NuttShell/System Console](../debug/system_console.md). The command syntax is shown below (you can specify a variable number of arguments):
 
 ```sh
-> micrortps_client start|stop [options]
+> micrortps_client start|stop|status [options]
   -t <transport>          [UART|UDP] Default UART
   -d <device>             UART device. Default /dev/ttyACM0
-  -u <update_time_ms>     Time in ms for uORB subscribed topics update. Default 0
   -l <loops>              How many iterations will this program have. -1 for infinite. Default -1.
   -w <sleep_time_ms>      Time in ms for which each iteration sleep. Default 1ms
   -b <baudrate>           UART device baudrate. Default 460800
@@ -199,22 +198,22 @@ As an example, to start the *micrortps_agent* with connection through UDP, issue
 
 ## Agent interfacing with a ROS2 middleware
 
-Building `px4_ros_com` automatically generates and builds the agent application. Since it is also installed using the [`colcon`](http://design.ros2.org/articles/build_tool.html) build tools, running it works exactly the same way as the above. Check the **Building the `px4_ros_com` package** for details about the build structure.
+Building `px4_ros_com` automatically generates and builds the agent application, though it requires (as a dependency), that the `px4_msgs` package also gets build on the same ROS2 workspace (or overlaid from another ROS2 workspace). Since it is also installed using the [`colcon`](http://design.ros2.org/articles/build_tool.html) build tools, running it works exactly the same way as the above. Check the **Building the `px4_ros_com` package** for details about the build structure.
 
 
-## Building the `px4_ros_com` package
+## Building the `px4_ros_com` and `px4_msgs` package
 
-In order to install ROS Melodic and ROS2 Bouncy on a Ubuntu 18.04 machine, follow the links below, respectively:
+Install and setup both ROS2 and ROS environments on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
 
 > **Note** Only the master branch is needed for ROS2 (both are needed to target ROS).
 
 ### Installing ROS and ROS2 and respective dependencies
 
-> **Note** This install and build guide is also applicable in an environment with Ubuntu 16.04, ROS Kinetic and ROS2 Ardent installed.
+> **Note** This install and build guide covers ROS Melodic and ROS2 Dashing (ROS2 Ardent, Bouncy or Crystal are not covered as they are EOL).
 
 In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubuntu 18.04 machine, follow the links below, respectively:
 1. [Install ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
-1. [Install ROS2 Bouncy](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
+1. [Install ROS2 Dashing](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
 1. The install process should also install the *colcon* build tools, but in case that doesn't happen, you can install the tools manually:
 
    ```sh
@@ -224,7 +223,7 @@ In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubu
 1. *eigen3_cmake_module* is also required, since Eigen3 is used on the transforms library:
 
    ```sh
-   sudo apt install ros-bouncy-rmw-opensplice-cpp
+   sudo apt install ros-dashing-eigen3-cmake-module
    ```
 
 1. *setuptools* must also be installed (using *pip* or *apt*):
@@ -233,7 +232,7 @@ In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubu
    sudo pip3 install -U setuptools
    ```
 
-   > &gt; **Caution** Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
+   > **Caution** Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
 
 ### Setting up the workspaces
 
@@ -247,6 +246,7 @@ Since the ROS2 and ROS require different environments you will need a separate w
    Then, clone the respective ROS2 (`master`) branch to the `/src` directory:
    ```sh
    $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com # clones the master branch
+   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
    ```
 
 1. For ROS, follow exactly the same process, but create a different directory and clone a different branch:
@@ -257,16 +257,17 @@ Since the ROS2 and ROS require different environments you will need a separate w
    Then, clone the respective ROS2 (`ros1`) branch to the `/src` directory:
    ```sh
    $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
+   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
    ```
 
 ### Building the workspaces
 
 The directory `px4_ros_com/scripts` contains multiple scripts that can be used to build both workspaces.
 
-To build both workspaces with a single script, use the `build_all.bash`. Check the usage with `source build_all.bash --help`. The most common way of using it is by passing the ROS(1) workspace directory path and also the PX4 Firmware directory path:
+To build both workspaces with a single script, use the `build_all.bash`. Check the usage with `source build_all.bash --help`. The most common way of using it is by passing the ROS(1) workspace directory path and also the PX4-Autopilot directory path:
 
 ```sh
-$ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws> --px4_firmware_dir <path/to/PX4/Firmware>
+$ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
 
    > **Note** Using the `--verbose` argument will allow you to see the full *colcon* build output.
@@ -276,24 +277,24 @@ $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws> --px4_firmwa
 One can also use the following individual scripts in order to build the individual parts:
 
 - `build_ros1_bridge.bash`, to build the `ros1_bridge`;
-- `build_ros2_workspace.bash` (only the `ros1` branch of `px4_ros_com`), to build the ROS1 workspace to where the `px4_ros_com` `ros1` branch was cloned;
-- `build_ros2_workspace.bash`, to build the ROS2 workspace to where the `px4_ros_com` `master` branch was cloned;
+- `build_ros1_workspace.bash` (only on the `ros1` branch of `px4_ros_com`), to build the ROS1 workspace to where the `px4_ros_com` and `px4_msgs` `ros1` branches were cloned;
+- `build_ros2_workspace.bash`, to build the ROS2 workspace to where the `px4_ros_com` and `px4_msgs` `master` branches were cloned;
 
 The steps below show how to *manually* build the packages (provided for your information/better understanding only):
 
 1. `cd` into `px4_ros_com_ros2` dir and source the ROS2 environment. Don't mind if it tells you that a previous workspace was set before:
 
    ```sh
-   source /opt/ros/bouncy/setup.bash
+   source /opt/ros/dashing/setup.bash
    ```
 
 1. Clone the `ros1_bridge` package so it can be built on the ROS2 workspace:
 
    ```sh
-   git clone https://github.com/ros2/ros1_bridge.git ~/px4_ros_com_ros2/src/ros1_bridge
+   git clone https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
    ```
 
-1. Build the `px4_ros_com` package, excluding the `ros1_bridge` package:
+1. Build the `px4_ros_com` and `px4_msgs` packages, excluding the `ros1_bridge` package:
 
    ```sh
    colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
@@ -301,24 +302,23 @@ The steps below show how to *manually* build the packages (provided for your inf
 
    > **Note** `--event-handlers console_direct+` only serves the purpose of adding verbosity to the `colcon` build process and can be removed if one wants a more "quiet" build.
 
-1. Then, follows the process of building the ROS(1) packages side. For that, one requires to source the environments so when the `ros1_bridge` is built with support for any messages that are on PATH and have an associated mapping between ROS1 and ROS2:
+1. Then, follows the process of building the ROS(1) packages side. For that, one requires to open a new terminal window and source the ROS(1) environment that has installed on the system:
 
    ```sh
    source /opt/ros/melodic/setup.bash
-    source /opt/ros/bouncy/setup.bash
    ```
 
-1. Build the `px4_ros_com` package on the ROS end:
+1. On the terminal of the previous step, build the `px4_ros_com` and `px4_msgs` packages on the ROS end:
 
    ```sh
    cd ~/px4_ros_com_ros1 && colcon build --symlink-install --event-handlers console_direct+
    ```
 
-1. Then source the workspaces:
+1. Before building the `ros1_bridge`, one needs to open a new terminal and then source the environments and workspaces following the order below:
 
    ```sh
    source ~/px4_ros_com_ros1/install/setup.bash
-    source ~/px4_ros_com_ros2/install/setup.bash
+   source ~/px4_ros_com_ros2/install/setup.bash
    ```
 
 1. Finally, build the `ros1_bridge`. Note that the build process may consume a lot of memory resources. On a resource limited machine, reduce the number of jobs being processed in parallel (e.g. set environment variable `MAKEFLAGS=-j1`). For more details on the build process, see the build instructions on the [ros1_bridge](https://github.com/ros2/ros1_bridge) package page.
@@ -349,10 +349,10 @@ The *fastrtpsgen* script can be used to generate a simple RTPS application from 
 Enter the following commands to create the application:
 
 ```sh
-cd /path/to/PX4/Firmware/src/modules/micrortps_bridge
+cd /path/to/PX4/PX4-Autopilot/build/px4_sitl_rtps/src/modules/micrortps_bridge
 mkdir micrortps_listener
 cd micrortps_listener
-fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined_.idl
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
 ```
 
 This creates a basic subscriber and publisher, and a main-application to run them. To print out the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:
@@ -423,13 +423,13 @@ baro_temp_celcius: 43.93
 
 ## Creating a ROS2 listener
 
-With the `px4_ros_com` built successfully, one can now take advantage of the generated *micro-RTPS* agent app and also from the generated sources and headers of the ROS2 msgs, which represent a one-to-one matching with the uORB counterparts.
+With the `px4_ros_com` built successfully, one can now take advantage of the generated *micro-RTPS* agent app and also from the generated sources and headers of the ROS2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts.
 
 To create a listener node on ROS2, lets take as an example the `sensor_combined_listener.cpp` node under `px4_ros_com/src/listeners`:
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
-#include <px4_ros_com/msg/sensor_combined.hpp>
+#include <px4_msgs/msg/sensor_combined.hpp>
 ```
 
 The above brings to use the required C++ libraries to interface with the ROS2 middleware. It also includes the required message header file.
@@ -445,35 +445,34 @@ class SensorCombinedListener : public rclcpp::Node
 The above creates a `SensorCombinedListener` class that subclasses the generic `rclcpp::Node` base class.
 
 ```cpp
-subscription_ = this->create_subscription<px4_ros_com::msg::SensorCombined>("SensorCombined_topic", callback);
-    }
-
-private:
-    rclcpp::Subscription<px4_ros_com::msg::SensorCombined>::SharedPtr subscription_;
-};
-```
-
-This creates a callback function for when the `sensor_combined` messages are received. It outputs the content of the message fields each time the message is received.
-
-```cpp
 public:
     explicit SensorCombinedListener() : Node("sensor_combined_listener") {
-        auto callback =
-        [this](const px4_ros_com::msg::SensorCombined::SharedPtr msg)->void
-        {
+        subscription_ = this->create_subscription<px4_msgs::msg::SensorCombined>(
+            "SensorCombined_PubSubTopic", 10,
+            [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
             std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-            std::cout << "RECEIVED DATA ON SENSOR COMBINED" << std::endl;
-            std::cout << "================================" << std::endl;
-            std::cout << "gyro_rad[0]: " << msg->gyro_rad[0] << std::endl;
-            std::cout << "gyro_rad[1]: " << msg->gyro_rad[1] << std::endl;
-            std::cout << "gyro_rad[2]: " << msg->gyro_rad[2] << std::endl;
+            std::cout << "RECEIVED SENSOR COMBINED DATA"   << std::endl;
+            std::cout << "============================="   << std::endl;
+            std::cout << "ts: "          << msg->timestamp    << std::endl;
+            std::cout << "gyro_rad[0]: " << msg->gyro_rad[0]  << std::endl;
+            std::cout << "gyro_rad[1]: " << msg->gyro_rad[1]  << std::endl;
+            std::cout << "gyro_rad[2]: " << msg->gyro_rad[2]  << std::endl;
             std::cout << "gyro_integral_dt: " << msg->gyro_integral_dt << std::endl;
             std::cout << "accelerometer_timestamp_relative: " << msg->accelerometer_timestamp_relative << std::endl;
             std::cout << "accelerometer_m_s2[0]: " << msg->accelerometer_m_s2[0] << std::endl;
             std::cout << "accelerometer_m_s2[1]: " << msg->accelerometer_m_s2[1] << std::endl;
             std::cout << "accelerometer_m_s2[2]: " << msg->accelerometer_m_s2[2] << std::endl;
             std::cout << "accelerometer_integral_dt: " << msg->accelerometer_integral_dt << std::endl;
-        };
+        });
+    }
+```
+
+This creates a callback function for when the `sensor_combined` uORB messages are received (now as DDS messages). It outputs the content of the message fields each time the message is received.
+
+```cpp
+private:
+    rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
+};
 ```
 
 The above create a subscription to the `sensor_combined_topic` which can be matched with one or more compatible ROS publishers.
@@ -498,12 +497,12 @@ The instantiation of the `SensorCombinedListener` class as a ROS node is done on
 
 A ROS2 advertiser node publishes data into the DDS/RTPS network (and hence to PX4).
 
-Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/listeners`:
+Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/advertisers`:
 
 ```cpp
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
-#include <px4_ros_com/msg/debug_vect.hpp>
+#include <px4_msgs/msg/debug_vect.hpp>
 
 using namespace std::chrono_literals;
 ```
@@ -520,16 +519,18 @@ The above creates a `DebugVectAdvertiser` class that subclasses the generic `rcl
 ```cpp
 public:
     DebugVectAdvertiser() : Node("debug_vect_advertiser") {
-        publisher_ = this->create_publisher<px4_ros_com::msg::DebugVect>("DebugVect_topic");
+        publisher_ = this->create_publisher<px4_msgs::msg::DebugVect>("DebugVect_PubSubTopic", 10);
         auto timer_callback =
         [this]()->void {
-            auto debug_vect = px4_ros_com::msg::DebugVect();
+            auto debug_vect = px4_msgs::msg::DebugVect();
             debug_vect.timestamp = this->now().nanoseconds() * 1E-3;
+            std::string name = "test";
+            std::copy(name.begin(), name.end(), debug_vect.name.begin());
             debug_vect.x = 1.0;
             debug_vect.y = 2.0;
             debug_vect.z = 3.0;
-            RCLCPP_INFO(this->get_logger(), "Publishing debug_vect: time: %f x:%f y:%f z:%f",
-                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z)
+            RCLCPP_INFO(this->get_logger(), "\033[97m Publishing debug_vect: time: %f x:%f y:%f z:%f \033[0m",
+                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z);
             this->publisher_->publish(debug_vect);
         };
         timer_ = this->create_wall_timer(500ms, timer_callback);
@@ -537,7 +538,7 @@ public:
 
 private:
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<px4_ros_com::msg::DebugVect>::SharedPtr publisher_;
+    rclcpp::Publisher<px4_msgs::msg::DebugVect>::SharedPtr publisher_;
 };
 ```
 
@@ -558,7 +559,7 @@ int main(int argc, char *argv[])
 
 The instantiation of the `DebugVectAdvertiser` class as a ROS node is done on the `main` function.
 
-## Creating a ROS listener
+## Creating a ROS(1) listener
 
 The creation of ROS nodes is a well known and documented process. An example of a ROS listener for `sensor_combined` messages can be found in the `ros1` branch repo, under `px4_ros_com/src/listeners`.
 
@@ -579,22 +580,22 @@ To quickly test the package (using PX4 SITL with Gazebo):
 
 1. On one terminal, source the ROS2 environment and workspace and launch the `ros1_bridge` (this allows ROS2 and ROS nodes to communicate with each other). Also set the `ROS_MASTER_URI` where the `roscore` is/will be running:
    ```sh
-   $ source /opt/ros/ardent/setup.bash
-    $ source ~/px4_ros_com_ros2/install/setup.bash
-    $ export ROS_MASTER_URI=http://localhost:11311
-    $ ros2 run ros1_bridge dynamic_bridge
+   $ source /opt/ros/dashing/setup.bash
+   $ source ~/px4_ros_com_ros2/install/local_setup.bash
+   $ export ROS_MASTER_URI=http://localhost:11311
+   $ ros2 run ros1_bridge dynamic_bridge
    ```
 
 1. On another terminal, source the ROS workspace and launch the `sensor_combined` listener node. Since you are launching through `roslaunch`, this will also automatically start the `roscore`:
    ```sh
    $ source ~/px4_ros_com_ros1/install/setup.bash
-    $ roslaunch px4_ros_com sensor_combined_listener.launch
+   $ roslaunch px4_ros_com sensor_combined_listener.launch
    ```
 
 1. On a terminal, source the ROS2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
-    $ micrortps_agent -t UDP
+   $ micrortps_agent -t UDP
    ```
 
 1. On the [NuttShell/System Console](../debug/system_console.md), start the `micrortps_client` daemon also in UDP:
@@ -606,40 +607,40 @@ To quickly test the package (using PX4 SITL with Gazebo):
 
    ```sh
    RECEIVED DATA FROM SENSOR COMBINED
-    ================================
-    gyro_rad[0]: 0.00341645
-    gyro_rad[1]: 0.00626475
-    gyro_rad[2]: -0.000515705
-    gyro_integral_dt: 4739
-    accelerometer_timestamp_relative: 0
-    accelerometer_m_s2[0]: -0.273381
-    accelerometer_m_s2[1]: 0.0949186
-    accelerometer_m_s2[2]: -9.76044
-    accelerometer_integral_dt: 4739
+   ================================
+   gyro_rad[0]: 0.00341645
+   gyro_rad[1]: 0.00626475
+   gyro_rad[2]: -0.000515705
+   gyro_integral_dt: 4739
+   accelerometer_timestamp_relative: 0
+   accelerometer_m_s2[0]: -0.273381
+   accelerometer_m_s2[1]: 0.0949186
+   accelerometer_m_s2[2]: -9.76044
+   accelerometer_integral_dt: 4739
 
-    Publishing back...
+   Publishing back...
    ```
 
    You can also verify the rate of the message using `rostopic hz`. For the case of `sensor_combined`:
    ```sh
    average rate: 248.187
     min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
-    average rate: 248.006
+   average rate: 248.006
     min: 0.000s max: 0.012s std dev: 0.00147s window: 2972
-    average rate: 247.330
+   average rate: 247.330
     min: 0.000s max: 0.012s std dev: 0.00148s window: 3212
-    average rate: 247.497
+   average rate: 247.497
     min: 0.000s max: 0.012s std dev: 0.00149s window: 3464
-    average rate: 247.458
+   average rate: 247.458
     min: 0.000s max: 0.012s std dev: 0.00149s window: 3712
-    average rate: 247.485
+   average rate: 247.485
     min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
    ```
 
 1. You can also test the `sensor_combined` ROS2 listener by typing in a terminal:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/setup.bash
-    $ sensor_combined_listener # or ros2 run px4_ros_com sensor_combined_listener
+   $ source ~/px4_ros_com_ros2/install/local_setup.bash
+   $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
 And it should also get data being printed to the console output.
@@ -656,7 +657,6 @@ If the selected UART port is busy, it's possible that the MAVLink application is
 > **Tip** A quick/temporary fix to allow bridge testing during development is to stop MAVLink from *NuttShell*: 
 > 
 > ```sh
-  sh
   mavlink stop-all
 ```
 
@@ -672,7 +672,7 @@ On Linux/Mac this is done as shown below:
 export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 
-> **Note** [Fast RTPS must be installed](../setup/fast-rtps-installation.md) in order to generate the required code! *Fast RTPS* is installed *by default* if you use the normal installers/scripts for [macOS](../setup/dev_env_mac.md), [Windows Cygwin](../setup/dev_env_windows_cygwin.md) or [Ubuntu](../setup/dev_env_linux_ubuntu.md).
+> **Note** This should not be a problem if [Fast RTPS is installed in the default location](../dev_setup/fast-rtps-installation.md).
 
 ### Enable UART on an OBC (onboard computer)
 
@@ -682,7 +682,7 @@ For UART transport on a Raspberry Pi or any other OBC you will have to enable th
 
    ```sh
    groups pi
-    sudo usermod -a -G dialout pi
+   sudo usermod -a -G dialout pi
    ```
 1. For the Raspberry Pi in particular, you need to stop the GPIO serial console that is using the port:
 
