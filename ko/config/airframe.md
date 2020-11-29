@@ -1,24 +1,24 @@
-# 기체 설정
+# Airframe Setup
 
-펌웨어를 설치 한 후 [특정 기체 프레임](../airframes/airframe_reference.md)에 대한 펌웨어 파라미터를 설정해야 합니다.
+After installing firmware you need to configure the firmware parameters for your [specific airframe](../airframes/airframe_reference.md).
 
-## 기체 프레임 설정
+## Set the Airframe
 
-기체 프레임 설정하기:
+To set the airframe:
 
-1. *QGroundControl *을 시작하고 기체에 연결합니다.
-2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **기체 프레임**을 선택하십시오. 
-3. 가지고 있는 기체 프레임과 일치하는 큰 범주의 그룹/유형을 선택하고, 그룹 내에서 드롭다운하여 기체와 가장 일치하는 기체 프레임을 선택하십시오.
+1. Start *QGroundControl* and connect the vehicle.
+2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Airframe** in the sidebar. 
+3. Select the broad vehicle group/type that matches your airframe and then use the dropdown within the group to choose the airframe that best matches your vehicle.
     
     ![](../../assets/qgc/setup/airframe/airframe_px4.jpg)
     
-    위의 예는 *Quadrotor Wide* 그룹에서 선택된 *3DR Iris Quadrotor*입니다.
+    The example above shows *3DR Iris Quadrotor* selected from the *Quadrotor Wide* group.
 
-4. **적용하고 재시작**을 클릭하십시오. 그 다음 대화 상자에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
+4. Click **Apply and Restart**. Click **Apply** in the following prompt to save the settings and restart the vehicle.
     
-    <img src="../../assets/qgc/setup/airframe/airframe_px4_apply_prompt.jpg" width="300px" title="기체 프레임 선택 명령 적용" />
+    <img src="../../assets/qgc/setup/airframe/airframe_px4_apply_prompt.jpg" width="300px" title="Apply airframe selection prompt" />
 
-## 추가 정보
+## Further Information
 
-* [QGroundControl 사용자 설명서 > 기체 프레임](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
+* [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
 * [PX4 Setup Video - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
