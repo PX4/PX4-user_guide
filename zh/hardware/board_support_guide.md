@@ -109,7 +109,7 @@ Integrate the board according to the board porting release process described in 
 
 > **Warning** The board support process may be changed and improved over time. Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
 
-## 技术支持
+## Support
 
 If parts of the board support guide/process are not clear:
 
