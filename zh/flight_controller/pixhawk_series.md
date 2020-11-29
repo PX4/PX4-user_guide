@@ -1,4 +1,4 @@
-# Pixhawk 系列
+# Pixhawk Series
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
 
@@ -21,7 +21,7 @@ Key benefits of using a *Pixhawk series* controller include:
 
 <span id="recommended"></span>
 
-## 支持的飞控板
+## Supported Boards
 
 The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
 
@@ -94,7 +94,7 @@ Product names/brands can also be trademarked. Trademarked names may not be used 
 
 > **Tip** *Pixhawk* is a trademark, and cannot be used in product names without permission.
 
-## 附加信息
+## Additional Information
 
 ### LEDs
 
