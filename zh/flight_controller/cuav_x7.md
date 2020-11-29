@@ -1,9 +1,10 @@
-# CUAV X7 飞行控制器
+# CUAV X7 Flight Controller
 
-:::警告 PX4 没有制造这个(或任何)自动解压。 Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning
+PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
-[X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> 飞行控制器是一个高性能的自动飞行器。 这是工业无人机和大规模重型无人机的理想选择。 It is mainly supplied to commercial manufacturers.
+The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
@@ -13,7 +14,7 @@ The flight controller adopts a modular design and can be matched with different 
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 特性
+## Features
 
 * Internal shock absorption
 * Modular design, can be DIY carrier board
@@ -33,14 +34,14 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 ## Quick Summary{#quick-Summary}
 
 * Main FMU Processor: STM32H743
-* 内置传感器：
-  * 加速度计/陀螺仪：ICM-20689
-  * 加速度计/陀螺仪：ICM-20649
+* On-board sensors:
+  * Accelerometer/Gyroscope: ICM-20689
+  * Accelerometer/Gyroscope: ICM-20649
   * Accelerometer/Gyroscope: BMI088
   * Magnetometer: RM3100
   * Barometer: MS5611*2
 
-* 接口：
+* Interfaces:
    * 14 PWM outputs （12 supports Dshot）
    * Support multiple RC inputs (SBUs / CPPM / DSM)
    * Analogue / PWM RSSI input
@@ -50,13 +51,13 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
    * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
    * 2  ADC intput
    * 1 USB ports
-* 电源系统
-  * 输入电压：4.3~5.4V
-  * USB输入电压: 4.75~5.25V
-  * 伺服导轨输入电压：0~36V
-* 重量和尺寸:
+* Power System:
+  * Power: 4.3~5.4V
+  * USB Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
+* Weight and Dimensions:
   * Weight: 101 g
-* 其它特性:
+* Other Characteristics:
   * Operating temperature: -20 ~ 80°c（Measured value）
   * Three imus
   * Supports temperature compensation
@@ -64,7 +65,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 
 > ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
 
-## 采购
+## Purchase
 
 [CUAV Store](https://store.cuav.net)<\br> [CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
 
@@ -80,7 +81,7 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 
 > **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
-## 额定电压
+## Voltage Ratings
 
 The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
 
@@ -92,7 +93,7 @@ Under these conditions all power sources will be used in this order to power the
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
 2. **USB** input (4.75V to 5.25V)
 
-## 编译固件
+## Building Firmware
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -109,7 +110,7 @@ The *X7* has over-current protection on the 5 Volt Peripheral and 5 Volt high po
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
-## 调试接口
+## Debug Port
 
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
@@ -120,14 +121,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| 针脚   | 信号             | 电压    |
-| ---- | -------------- | ----- |
-| 2    | 5V+            | +5V   |
-| 2    | DEBUG TX (OUT) | +3.3V |
-| 3    | DEBUG RX (IN)  | +3.3V |
-| 4（黑） | FMU_SWDIO      | +3.3V |
-| 6    | FMU_SWCLK      | +3.3V |
-| 6    | GND            | GND   |
+| Pin     | Signal         | Volt  |
+| ------- | -------------- | ----- |
+| 1 (red) | 5V+            | +5V   |
+| 2 (blk) | DEBUG TX (OUT) | +3.3V |
+| 3 (blk) | DEBUG RX (IN)  | +3.3V |
+| 4 (blk) | FMU_SWDIO      | +3.3V |
+| 5 (blk) | FMU_SWCLK      | +3.3V |
+| 6 (blk) | GND            | GND   |
 
 CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
@@ -139,11 +140,11 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 > 
 > For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
-## 支持的平台/机身
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## 更多信息
+## Further info
 
 * [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 * [CUAV docs](http://doc.cuav.net)
