@@ -1,4 +1,4 @@
-# 降落伞
+# Parachute
 
 PX4 can be configured to trigger a parachute connected to a free PWM output during [flight termination](../advanced_config/flight_termination.md).
 
@@ -22,7 +22,7 @@ The setup below explains how you might configure a quad multicopter with motors 
 
 > **Tip** For the first test, try on the bench, without the props and with an unloaded parachute device!
 
-硬件设置:
+Hardware setup:
 
 - Connect the parachute to the IO port (MAIN), channel 7 (starting from 1).
 - Power the servo rail - i.e. connect a 5V BEC to the servo rail.
