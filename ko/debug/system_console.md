@@ -1,11 +1,11 @@
 # PX4 System Console
 
-The system console allows low-level access to the system, debug output and analysis of the system boot process.
+The PX4 *System Console* provides low-level access to the system, debug output and analysis of the system boot process.
 
 > **Tip** The console should be used for debugging if the system won't boot. The [MAVLink Shell](../debug/mavlink_shell.md) may otherwise be more suitable, as it is much easier to set up and can be used for [many of the same tasks](../debug/consoles.md#console_vs_shell).
 
 
-## Console Connector
+## Wiring the Console
 
 The console is made available through a (board-specific) UART that can be connected to a computer USB port using a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable. This allows the console to be accessed using a terminal application.
 
@@ -16,33 +16,33 @@ Pixhawk controller manufacturers are expected to expose the console UART and SWD
 The sections below outline/link to the wiring and system console information for many common boards.
 
 
-### Connecting via Dronecode Probe
+### Board-Specific Wiring
 
-There is just one *System Console*, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached via FTDI cable.
+The System Console UART pinouts/debug ports are typically documented in [autopilot overview pages](../flight_controller/README.md) (some are linked below):
 - [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [Holybro pix32](../flight_controller/holybro_pix32.md#debug-port))
-- [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
+- [Pixhawk 3](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
 - [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
   - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
+  - [DSP Debug Monitor/Console](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
 
 <a id="pixhawk_debug_port"></a>
 
-### Connecting via FTDI 3.3V Cable
+### Pixhawk Debug Port
 
-Connect the 6-pos JST SH 1:1 cable to the Dronecode probe or connect the individual pins of the cable to a FTDI cable like this:
+Flight controllers that adhere to the Pixhawk Connector standard use the \[Pixhawk Standard Debug Port\]( https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 
 The port/FTDI mapping is shown below.
 
-| Pixracer / Pixhawk v3 | -         | FTDI | -                |
-| --------------------- | --------- | ---- | ---------------- |
-| 2                     | +5V (red) |      | N/C              |
-| 2                     | UART7 Tx  | 5    | FTDI RX (yellow) |
-| 3                     | UART7 Rx  | 4    | FTDI TX (orange) |
-| 4 (blk)               | SWDIO     |      | N/C              |
-| +5V (red)             | SWCLK     |      | N/C              |
-| 6                     | GND       | 1    | FTDI GND (black) |
+| Pixhawk Debug Port | -                        | FTDI | -                                 |
+| ------------------ | ------------------------ | ---- | --------------------------------- |
+| 1 (red)            | TARGET PROCESSOR VOLTAGE |      | N/C (used for SWD/JTAG debugging) |
+| 2 (blk)            | CONSOLE TX (OUT)         | 5    | FTDI RX (yellow)                  |
+| 3 (blk)            | CONSOLE RX (IN)          | 4    | FTDI TX (orange)                  |
+| 4 (blk)            | SWDIO                    |      | N/C (used for SWD/JTAG debugging) |
+| 5 (blk)            | SWCLK                    |      | N/C (used for SWD/JTAG debugging) |
+| 6 (blk)            | GND                      | 1    | FTDI GND (black)                  |
 
 ## Opening the Console
 
