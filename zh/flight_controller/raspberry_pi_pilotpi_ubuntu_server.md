@@ -1,12 +1,12 @@
-# PilotPi 使用 Ubuntu Server 操作系统
+# PilotPi with Ubuntu Server
 
-> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并会产生不小的热量。 在使用此硬件时考虑高功耗并设计更好的散热。
+> **Warning** Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
 
-## 开发者快速指南
+## Developer Quick Start
 
-### 操作系统镜像
+### OS Image
 
-armhf 与 arm64 都已支持。
+Both armhf and arm64 arch are supported.
 
 #### armhf
 
@@ -21,78 +21,78 @@ armhf 与 arm64 都已支持。
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.1-preinstalled-server-arm64+raspi.img.xz)
 
-#### 最新操作系统
+#### Latest OS
 
-请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新更新的操作系统。
+Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
 
-### 首次启动
+### First boot
 
-当首次设置树莓派的 WiFi 时，我们建议先使用有线网络连接你的路由器与树莓派，并使用显示器和键盘。
+When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
 
-#### 启动前
+#### Before booting
 
-把SD卡挂载到您的电脑上并修改网络设置。 请遵循官方 [指南](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet)。
+Mount the SD card onto your computer and modify the network settings. Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
-现在将 SD 卡插入您的 Pi 并首次开机。 请确认您可以获得树莓派的 shell —— 通过有线以太网连接 SSH ，或直接通过键盘和显示器。
+Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
 
-#### WiFi 区域
+#### WiFi region
 
-首先安装必需的软件包：
+First install required package:
 
 ```sh
 sudo apt-get install crda
 ```
 
-编辑文件 `/etc/default/crda` 以设置正确的 WiFi 区域。 [参考列表](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
 ```sh
 sudo nano /etc/default/crda
 ```
 
-之后您的 Pi 将能够在重启后加入您的 WiFi 网络。
+Then your Pi will able to join your WiFi network after reboot.
 
-#### 主机名和 mDNS
+#### Hostname and mDNS
 
-让我们先设置主机名。
+Let's set up hostname at first.
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-按需更改主机名。 然后安装 mDNS 所需的软件包：
+Change the hostname to whatever you like. Then install the package required by mDNS:
 
 ```sh
 sudo apt-get update
 sudo apt-get install avahi-daemon
 ```
 
-执行重启。
+Perform a reboot.
 
 ```sh
 sudo reboot
 ```
 
-在上述操作后通过无线网络重新连回树莓派。
+Regain the accessibility through WiFi connection after the above operation.
 
 ```sh
 ssh ubuntu@pi_hostname.local
 ```
 
-#### 无密码认证(可选)
+#### Password-less Auth (Optional)
 
-您也可能想要设置 [无密码认证](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)。
+You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
-### 配置操作系统
+### Setting up OS
 
 #### config.txt
 
-在 Ubuntu 中的相应文件是 `/boot/firmware/usercfg.txt`。
+The corresponding file in Ubuntu is `/boot/firmware/usercfg.txt`.
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-将文件内容替换为：
+Replace the file with:
 
 ```sh
 # enable sc16is752 overlay
@@ -111,63 +111,63 @@ dtoverlay=miniuart-bt
 
 #### cmdline.txt
 
-Ubuntu Server 20.04：
+On Ubuntu Server 20.04:
 
 ```sh
 sudo nano /boot/firmware/cmdline.txt
 ```
 
-在Ubuntu Server 18.04 或更早版本，`nobtcmd.txt` 和 `btcmd.txt` 都需要修改。
+On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should both be modified.
 
 ```sh
 sudo nano /boot/firmware/nobtcmd.txt
 ```
 
-找到 `console=/dev/ttyAMA0,115200` 并删除该部分以禁用串口上的登录shell。
+Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
 
-在最后添加 `isolcpus=2` 然后整个文件将看起来像：
+Append `isolcpus=2` after the last word. The whole file will then look like:
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-这告诉Linux内核不要在 CPU 核心2 上调度任何进程。 我们将在稍后手动在该核心运行PX4。
+The above line tells the Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
 
-重启并SSH登陆到您的树莓派。
+Reboot and SSH onto your Pi.
 
-检查串口：
+Check UART interface:
 
 ```sh
 ls /dev/tty*
 ```
 
-应该有 `/dev/ttyAMA0`, `/dev/ttySC0` 和 `/dev/ttySC1`。
+There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
-检查 I2C：
+Check I2C interface:
 
 ```sh
 ls /dev/i2c*
 ```
 
-应该有 `/dev/i2c-0` 和 `/dev/i2c-1`
+There should be `/dev/i2c-0` and `/dev/i2c-1`
 
-检查SPI：:
+Check SPI interface:
 
 ```sh
 ls /dev/spidev*
 ```
 
-应该有 `/dev/spidev0.0`。
+There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-在本节中，我们将在 **rc.local** 中配置自动启动脚本。 请注意，我们需要创建此文件，因为它不存在于新的 Ubuntu OS 上。
+In this section we will configure the auto-start script in **rc.local**. Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-将下面的内容写入到文件：
+Append the content below to the file:
 
 ```sh
 #!/bin/sh
@@ -183,157 +183,157 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
-保存并退出。 然后设置正确的权限：
+Save and exit. Then set the correct permissions:
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
-> **Note** 在不需要自启动的时候关闭开关。
+> **Note** Don' t forget to turn off the switch when it is not needed!
 
-#### CSI 相机
+#### CSI camera
 
-> **Warning** 启用 CSI 摄像头将停止在 I2C-0 上工作的任何设备。
+> **Warning** Enable CSI camera will stop anything works on I2C-0.
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-在文件末尾追加以下行：
+Append the following line at the end of file:
 
 ```sh
 start_x=1
 ```
 
-### 构建代码
+### Building the code
 
-若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+To get the *very latest* version onto your computer, enter the following command into a terminal:
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-> **Note** 你只需要执行它就能够得到最新的代码。
+> **Note** This is all you need to do just to build the latest code.
 
-#### 配置上传
+#### Set RPi upload target
 
-设定您的树莓派的 IP (或主机名)：
+Set the IP (or hostname) of your RPi using:
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-或
+or
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
-此外，我们需要设置用户名：
+Additionally, we need to set the username:
 
 ```sh
 export AUTOPILOT_USER=ubuntu
 ```
 
-#### 为 armhf 目标交叉编译
+#### Build for armhf target
 
-构建可执行程序：
+Build the executable file:
 
 ```sh
 cd Firmware
 make scumaker_pilotpi_default
 ```
 
-然后上传：
+Then upload it with:
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
 
-#### 备选armhf构建方法 (使用 docker)
+#### Alternative build method for armhf (using docker)
 
-如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
+If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
 
-在 PX4-Autopilot 文件夹下执行：
+Execute the command in firmware folder:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
+> **Note** mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 
 <span></span>
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 参数。
+> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
 
-只是为了编译代码，则可以执行：
+It is also possible to just compile the code with command:
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
-#### 为arm64交叉编译
+#### Build for arm64 target
 
-> **注意** 此步骤需要安装 `aarch64-linux-gnu` 工具链。
+> **Note** This step requires `aarch64-linux-gnu` tool-chain to be installed.
 
-构建可执行程序：
+Build the executable file:
 
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_arm64
 ```
 
-然后上传：
+Then upload it with:
 
 ```sh
 make scumaker_pilotpi_arm64 upload
 ```
 
-#### 备选 arm64 构建方法 (使用 docker)
+#### Alternative build method for arm64 (using docker)
 
-如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
+If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
 
-在 PX4-Autopilot 文件夹下执行：
+Execute the command in `PX4-Autopilot` folder:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
-> **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
+> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
 
 <span></span>
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您可以只编译而无需上传 - 只需删除 `upload` 字段。
+> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
 
-只是为了编译代码，则可以执行：
+It is also possible to just compile the code with command:
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_arm64"
 ```
 
-#### 手动运行 PX4
+#### Manually run PX4
 
-通过 ssh 连接并运行它：
+Connect over SSH and run it with:
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-PX4 已配置使用多旋翼模型启动。
+Now PX4 is started with multi-rotor configuration.
 
-如果在树莓派上运行PX4时遇到了以下问题：
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-这时应当使用基于 Docker 的编译。
+Then you should compile with docker instead.
 
-在执行下一步之前，先清除现有构建目录：
+Before proceeding to next step, clear the existing building at first:
 
 ```sh
 rm -rf build/scumaker_pilotpi_*
 ```
 
-然后回到上面相应的章节。
+Then go back to the corresponding chapter above.
 
-### 后期配置
+### Post-configuration
 
-请参阅 [这里的说明](raspberry_pi_pilotpi_rpios.md)
+Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
