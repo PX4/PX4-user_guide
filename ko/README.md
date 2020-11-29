@@ -23,7 +23,7 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 * [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 * [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
-**처음부터 PX4로 무인 항공기를 만들고 싶은 경우:**
+**I want to build a drone with PX4 from scratch:**
 
 :::tip
 The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
