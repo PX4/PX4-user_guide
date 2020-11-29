@@ -27,7 +27,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 * 8x PWM with manual override
 * S.BUS / PPM input
 
-## 유효성:
+## Availability:
 
 From distributor [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html)
 
