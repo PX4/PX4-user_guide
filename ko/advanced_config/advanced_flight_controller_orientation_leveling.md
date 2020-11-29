@@ -53,12 +53,12 @@ This parameter defines the rotation of the FMU board relative to the platform. �
 
 **SENS_BOARD_X_OFF**
 
-Rotation, in degrees, around PX4FMU's X axis or Roll axis. 각도는 양수일 떄 반시계(CCW) 방향으로 증가하고, 반대로 음수일 때 시계(CW) 방향으로 증가합니다.
+Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Y_OFF**
 
-PX4FMU의 Y축 또는 피치 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 각도는 양수일 떄 반시계(CCW) 방향으로 증가하고, 반대로 음수일 때 시계(CW) 방향으로 증가합니다.
+Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Z_OFF**
 
-PX4FMU의 Z축 또는 Yaw 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 각도는 양수일 떄 반시계(CCW) 방향으로 증가하고, 반대로 음수일 때 시계(CW) 방향으로 증가합니다.
+Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
