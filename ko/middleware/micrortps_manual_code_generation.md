@@ -18,7 +18,7 @@ set(GENERATE_RTPS_BRIDGE off)
 The *generate_microRTPS_bridge* tool's command syntax is shown below:
 
 ```sh
-$ cd /path/to/PX4/Firmware/msg/tools
+$ cd /path/to/PX4/PX4-Autopilot/msg/tools
 $ python generate_microRTPS_bridge.py -h
 usage: generate_microRTPS_bridge.py [-h] [-s *.msg [*.msg ...]]
                                     [-r *.msg [*.msg ...]] [-a] [-c]
@@ -56,7 +56,7 @@ optional arguments:
 The example below shows how you can generate bridge code to publish/subscribe just the `sensor_baro` single uORB topic.
 
 ```sh
-$ cd /path/to/PX4/Firmware
+$ cd /path/to/PX4/PX4-Autopilot
 $ python Tools/generate_microRTPS_bridge.py -s msg/sensor_baro.msg -r msg/sensor_combined.msg
 ```
 
@@ -136,7 +136,7 @@ src/modules/micrortps_bridge/micrortps_client
 
 ## Build and use the code
 
-The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client-px4-firmware).
+The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client_firmware).
 
 Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 firmware as part of the normal build process. For example, to compile the code and include it in firmware for NuttX/Pixhawk targets:
 
@@ -146,4 +146,4 @@ make px4_fmu-v4_default upload
 
 > **Note** You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
 
-The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-off-board-fastrtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of **<emphasis>build/BUILDPLATFORM</emphasis>****/src/modules/micrortps_bridge/micrortps_agent/**.
+The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong><emphasis>build/BUILDPLATFORM</emphasis></strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
