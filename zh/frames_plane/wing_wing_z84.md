@@ -9,7 +9,7 @@ Key information:
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## 配件列表
+## Parts List
 
 ### Z-84 Plug n' Fly (PNF/PNP) or Kit
 
@@ -40,17 +40,17 @@ One of these (any small (>=12A) ESC will do):
 - 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-## 布线
+## Wiring
 
 The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not the ones labeled with AUX. The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
-| Port   | 接口定义                        |
+| Port   | Connection                  |
 | ------ | --------------------------- |
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                |
 | MAIN 2 | Right Aileron               |
-| MAIN 3 | 空白                          |
-| MAIN 4 | 油门                          |
+| MAIN 3 | Empty                       |
+| MAIN 4 | Throttle                    |
 
 ## Build Log
 
