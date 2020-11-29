@@ -7,7 +7,11 @@
 PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. ::: :::tip Note This guide is still a work in progress! It does not yet cover all of PX4.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+:::
+
+:::tip
+Note This guide is still a work in progress! It does not yet cover all of PX4.
 :::
 
 ## How Do I Get Started?
@@ -23,7 +27,7 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 * [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 * [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
-**처음부터 PX4로 무인 항공기를 만들고 싶은 경우:**
+**I want to build a drone with PX4 from scratch:**
 
 :::tip
 The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
