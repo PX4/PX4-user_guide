@@ -1,66 +1,66 @@
-# ESP8266 WiFi 模块
+# ESP8266 WiFi Module
 
-ESP8266 是一款低成本且易于使用的 Wi-Fi 模块，具有完整的 TCP/IP 协议栈和微控制器功能。 It can be used with any Pixhawk series controller.
+The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller.
 
-> **Tip** ESP8266是 *事实上的* 默认WiFi模块，用于 [Pixracer](../flight_controller/pixracer.md) (通常与其捆绑在一起)。
+> **Tip** ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 
-## 购买地点
+## Where to Buy
 
-该模块是现成的。 下面列出了一些供应商。
+The module is readily available. A few vendors are listed below.
 
 - [Sparkfun](https://www.sparkfun.com/products/13678)
 - [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
 
-## 模块设置
+## Module Setup
 
-ESP8266固件具有以下 *工厂* 设置：
+The ESP8266 firmware has these *factory* settings:
 
 - SSID: PixRacer
 - Password: pixracer
 - WiFi Channel: 11
 - UART speed 921600
 
-### 从源文件编译
+### Build From Sources
 
-[固件仓库](https://github.com/dogmaphobic/mavesp8266) 包含编译和下载固件所需的所有指令和工具。
+The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
 
-### 预编译二进制文件
+### Pre Built Binaries
 
 [MavLink ESP8266 Firmware V 1.2.2](http://www.grubba.com/mavesp8266/firmware-1.2.2.bin)
 
-### 更新固件
+### Updating the Firmware
 
-如果您安装了 1.0.4 或更高版本的固件，则可以通过使用 ESP 的 *Over The Air Update* 特性进行更新。 Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. 然后，您可以选择上面下载的固件文件，并将其上传到 WiFi 模块。
+If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature. Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
 
 ### Flashing the ESP8266 Firmware
 
-在下载之前，请确保在 *Flash Mode* 中启动 ESP8266，如下所述。 如果您克隆了 [MavESP8266](https://github.com/dogmaphobic/mavesp8266)存储库，您可以使用提供的 [PlatformIO](http://platformio.org) 工具和环境编译和下载固件。 如果下载了上面预先编译的固件，请下载 [esptool](https://github.com/espressif/esptool) 实用程序，并使用下面的命令行：
+Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described below. If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment. If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
 
     esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
     
 
-其中：
+Where:
 
-- **firmware_xxxxx.bin** 是您上面下载的固件
-- **your_serial_port** 是ESP 8266连接到的串行端口的名称 (例如 `/dev/cu.usbmodem`) 。
+- **firmware_xxxxx.bin** is the firmware you downloaded above
+- **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
 
-### 下载固件接线
+### Wiring for Flashing the Firmware
 
-> **Warning** ESP8266 必须仅以 3.3 伏特供电。
+> **Warning** ESP8266 must be powered with 3.3 volts only.
 
-将 ESP8266 设置为 *Flash Mode* 有多种方法，但并非所有 USB/UART 适配器都为自动模式切换提供了所有必要的引脚。 为了以 *Flash Mode* 启动 ESP8266，必须将 GPIO-0 引脚设置为低(GND)，必须将 CH_PD 引脚设置为高(VCC)。 这就是我自己的设置：
+There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
 
-![eSP8266 下载图](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
+![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
-我制作了一条电缆，其中 RX、TX、VCC 和 GND 可以从 FTDI 适配器直接连接到 ESP8266。 我为 ESP8266 留下了两条空闲线，并连接到 GPIO-0 和 CH_PD ，这样我可以通过把它们分别连接到 GND 和 VCC 而在正常或在 Flash Mode 下启动 ESP8266。
+I built a cable where RX, TX, VCC, and GND are properly wired directly from the FTDI adapter to the ESP8266. From the ESP8266, I left two wires connected to GPIO-0 and CH_PD free so I can boot it either normally or in flash mode by connecting them to GND and VCC respectively.
 
-### ESP8266 (ESP-01) 引脚图
+### ESP8266 (ESP-01) Pinout
 
-![eSP8266 无线模块引脚图](../../assets/hardware/telemetry/esp8266_pinout.jpg)
+![esp8266 wifi module pinout](../../assets/hardware/telemetry/esp8266_pinout.jpg)
 
 ### Flashing Diagram using an FTDI USB/UART Adapter
 
-![eSP8266 下载](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
+![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
 <span id="px4_config"></span>
 
@@ -90,7 +90,7 @@ On your wifi-enabled *QGroundControl* ground station computer/tablet, find and c
     
     ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
-QGC 在启动时自动启动其 UDP 连接。 一旦您的计算机/平板连接到 **Pixracer** WiFi ，它将自动进行连接。
+QGC automatically starts its UDP link on boot. Once your computer/tablet is connected to the **PixRacer** WiFi Access Point, it will automatically make the connection.
 
 You should now see HUD movement on your QGC computer via wireless link and be able to view the summary panel for the ESP8266 WiFi Bridge (as shown below).
 
