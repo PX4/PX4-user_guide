@@ -4,13 +4,13 @@
 
 The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
 
-Look at the [tutorial](../apps/hello_sky.md) to learn how to use it in C++.
+Look at the [tutorial](../modules/hello_sky.md) to learn how to use it in C++.
 
 uORB is automatically started early on bootup as many applications depend on it. It is started with `uorb start`. Unit tests can be started with `uorb_tests`.
 
 ## Adding a new topic
 
-New uORB topics can be added either within the main PX4/Firmware repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#uorb_message_definitions).
+New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#uorb_message_definitions).
 
 To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list. From this, the needed C/C++ code is automatically generated.
 
@@ -118,12 +118,12 @@ uORB provides a mechanism to publish multiple independent instances of the same 
 
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
-The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/uORBManager.hpp).
+The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
-## Troubleshooting and common Pitfalls
-The following explains some common pitfalls and corner cases:
+## Message/Field Deprecation
+As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
