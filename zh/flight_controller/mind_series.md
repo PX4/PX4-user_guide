@@ -1,4 +1,4 @@
-# (Air)Mind 系列
+# (Air)Mind Series
 
 AirMind<sup>&reg;</sup> have created two new controller series branched from the [Pixhawk Series](../flight_controller/pixhawk_series.md).
 
