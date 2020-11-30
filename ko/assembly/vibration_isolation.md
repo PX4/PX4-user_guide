@@ -1,30 +1,30 @@
-# Vibration Isolation
+# 방진
 
-This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
+이 절에서는 진동 규모의 크기를 판단하는 방법과 진동 특성을 개선하는 방법을 설명합니다.
 
-## Overview
+## 개요
 
-Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. High vibration levels can cause a range of problems, including reduced flight efficiency/performance, shorter flight times and increased vehicle wear-and-tear. In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
+내장된 가속도 센서 또는 자이로스코프 센서가 있는 비행 제어 보드는 진동에 민감합니다. 큰 규모의 진동은 비행 효율과 성능의 감소, 짧은 비행 시간, 기체 내구도 감소 등 다양한 문제을 일으킵니다. 극단적인 경우 진동으로 인해 센서가 오작동하거나 파손될 수 있으며, 이로 인해 자세/위치 추정에 실패하고 기체가 영원히 날아가버릴 수 있습니다.
 
-Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
+잘 설계된 기체는 특정한 비행 컨트롤러 장착 위치에서의 진동의 구조적 공명 진폭을 감쇠시킵니다. 민감한 장치(예: 몇몇 비행 컨트롤러는 반진동 폼을 사용해 기체에 장착해야 합니다)가 충분히 감당할 수 있는 수준까지 진동을 줄이기 위해 추가적인 방법이 필요할 수 있습니다.
 
-## Vibration Analysis
+## 진동 분석
 
-[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to use logs to confirm whether vibration is a probable cause of flight problems.
+[로그 분석의 비행 검토 > 진동](../log/flight_review.md#vibration)에서 로그를 사용해 진동이 문제를 일으키는지 확인하는 방법을 설명합니다.
 
-## Basic Vibration Fixes
+## 기본적인 진동 해결법
 
-A few of simple steps that may reduce vibrations are:
+몇몇 간단한 단계로 진동을 감쇠할 수 있습니다:
 
-- Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.).
-- Use balanced propellers.
-- Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
-- Use a vibration-isolation method to mount the autopilot. Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
-- As a *last* measure, adjust the software filters (see [here](../config_mc/racer_setup.md#filters)). It is better to reduce the source of vibrations, rather than filtering them out in software.
+- 모든 장비 (랜딩 기어, GPS 지지대 등)가 기체에 단단히 고정되었는지 확인하십시오.
+- 균형 잡힌 프로펠러를 사용하십시오.
+- 고품질의 프로펠러, 모터, ESC와 기체 프레임을 사용하십시오. 품질은 큰 차이를 만듭니다.
+- 비행 컨트롤러를 장착할 때 방진법을 사용하십시오. 많은 비행 컨트롤러는 방진을 위한 *장착 폼*과 함께 구성됩니다. 몇몇 다른 제품들은 독자적인 내장 방진 메커니즘을 가집니다.
+- *마지막* 방법으로, 소프트웨어 필터를 조정하십시오 ([여기](../config_mc/racer_setup.md#filters)를 참고하십시오). 그러나 진동 원인을 없애는 것이 소프트웨어를 사용한 필터링보다 좋습니다.
 
-## References
+## 참고
 
-Some references that you may find useful are:
+다음 레퍼런스가 유용할 수 있습니다:
 
-- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](http://www.vibrationdata.com/tutorials2/srs_intr.pdf) (free paper)
+- [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](https://info.mide.com/hubfs/eBooks/ebook-tom-irvine-shock-vibration-response-spectra.pdf) (ebook, 무료)
 - [Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover) (preview).
