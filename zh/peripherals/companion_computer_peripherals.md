@@ -1,43 +1,43 @@
-# Companion Computer Peripherals
+# 机载计算机外设
 
-This section contains information about peripherals for connecting Pixhawk (PX4) to a companion computer, and peripherals that might be connected to such a companion computer (and potentially triggered/accessed by PX4).
+本节包含有关用于连接 Pixhawk(PX4) 到机载计算机的外设的信息，以及可能连接到此类机载计算机(并可能由 PX4 触发/访问) 的外设的信息。
 
 ## Companion/Pixhawk Communication
 
 Typical companion computer work with Pixhawk requires a companion link to transmit/receive the data between the companion computer and Pixhawk hardware (e.g. Intel NUC and Pixhawk 4).
 
-There are a few devices that allow this communication bridge such as FTDI USB breakouts and level shifters (see below).
+有一些构建这种通信桥的设备，如 FTDI USB 接口和电平移位器(见下文)。
 
 :::tip
 Note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
 :::
 
-### FTDI Devices
+### FTDI 设备
 
 The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3v. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
 
 Options are listed below:
 
-| Device                                                                                                                  | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes               | Yes          | Yes        | Yes    |
-| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable           | Capable      | No         | Yes    |
-| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes               | No           | Yes        | No     |
+| 设备                                                                                                                      | 3.3v IO (默认) | 流控      | Tx/Rx LEDs | JST-GH接插件 |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------ | ------- | ---------- | --------- |
+| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes          | Yes     | Yes        | Yes       |
+| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable      | Capable | No         | Yes       |
+| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes          | No      | Yes        | No        |
 
-### Logic Level Shifters
+### 逻辑电平移位器
 
 On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
 Options include:
 
-- [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
-- [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
+- [SparkFun 逻辑电平转换器 - 双向](https://www.sparkfun.com/products/12009)
+- [4通道 I2C -安全双向逻辑电平转换器 - BSS 138](https://www.adafruit.com/product/757)
 
-## Cameras
+## 相机
 
 Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images)
 
-### Stereo Cameras
+### 立体摄像机
 
 Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
 
