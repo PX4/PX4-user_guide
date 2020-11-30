@@ -286,7 +286,7 @@ Then click **Apply and Restart**.
 
 > **Note** For additional information see:
 
-- [Autopilot Configuration](../config/README.md)
+- [자동 조종 장치 구성](../config/README.md)
 - [Firmware setup](../config/firmware.md)
 
 ### Vehicle calibration/setup
