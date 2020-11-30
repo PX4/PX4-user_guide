@@ -1,7 +1,7 @@
 # Modules Reference: Driver
 Subcategories:
 - [Imu](modules_driver_imu.md)
-- [Distance Sensor](modules_driver_distance_sensor.md)
+- [Source: [drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)](modules_driver_distance_sensor.md)
 - [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Baro](modules_driver_baro.md)
 - [Optical Flow](modules_driver_optical_flow.md)
@@ -18,38 +18,41 @@ ADC driver.
 
 ### Usage
 ```
-adc <command> [arguments...]
+rc_input <command> [arguments...]
  Commands:
-   start
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+     [-t]        Run as separate task instead of the work queue
 
-   test
+   bind          Send a DSM bind command (module must be running)
 
    stop
 
    status        print status info
 ```
-## ads1115
-Source: [drivers/adc/ads1115](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/ads1115)
+## fmu
+Source: [drivers/px4fmu](https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu)
 
 <a id="ads1115_usage"></a>
 
 ### Usage
 ```
-ads1115 <command> [arguments...]
+sf1xx <command> [arguments...]
  Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 72
+   start         Start driver
+     [-a]        Attempt to start driver on all I2C buses
+     [-b <val>]  Start driver on specific I2C bus
+                 default: 1
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
 
-   stop
+   stop          Stop driver
 
-   status        print status info
+   test          Test driver (basic functional tests)
+
+   reset         Reset driver
+
+   info          Print driver information
 ```
 ## atxxxx
 Source: [drivers/osd/atxxxx](https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx)
@@ -64,22 +67,13 @@ It can be enabled with the OSD_ATXXXX_CFG parameter.
 
 ### Usage
 ```
-atxxxx <command> [arguments...]
+tap_esc <command> [arguments...]
  Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-
-   stop
-
-   status        print status info
+   start         Start the task
+     [-d <val>]  Device used to talk to ESCs
+                 values: <device>
+     [-n <val>]  Number of ESCs
+                 default: 4
 ```
 ## batt_smbus
 Source: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus)
@@ -132,33 +126,59 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## blinkm
-Source: [drivers/lights/blinkm](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/blinkm)
+Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
 
 <a id="blinkm_usage"></a>
 
 ### Usage
 ```
-blinkm <command> [arguments...]
+fmu <command> [arguments...]
  Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 9
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+     [-t]        Run as separate task instead of the work queue
 
-   systemstate
+ All of the mode_* commands will start the fmu if not running already
 
-   ledoff
+   mode_gpio
 
-   list
+   mode_pwm      Select all available pins as PWM
 
-   script
-     -n <val>    Script file name
-                 values: <file>
+   mode_pwm8
+
+   mode_pwm6
+
+   mode_pwm5
+
+   mode_pwm5cap1
+
+   mode_pwm4
+
+   mode_pwm4cap1
+
+   mode_pwm3
+
+   mode_pwm3cap1
+
+   mode_pwm2
+
+   mode_pwm2cap2
+
+   mode_pwm1
+
+   sensor_reset  Do a sensor reset (SPI bus)
+     [<ms>]      Delay time in ms between reset and re-enabling
+
+   peripheral_reset Reset board peripherals
+     [<ms>]      Delay time in ms between reset and re-enabling
+
+   i2c           Configure I2C clock rate
+     <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
+
+   test          Test inputs and outputs
+
+   fake          Arm and send an actuator controls command
+     <roll> <pitch> <yaw> <thrust> Control values in range [-100, 100]
 
    stop
 
@@ -171,24 +191,22 @@ Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/
 
 ### Usage
 ```
-bst <command> [arguments...]
+pwm_out_sim <command> [arguments...]
  Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 118
+   start         Start the task in mode_pwm16
+
+ All of the mode_* commands will start the pwm sim if not running already
+
+   mode_pwm      use 8 PWM outputs
+
+   mode_pwm16    use 16 PWM outputs
 
    stop
 
    status        print status info
 ```
-## dshot
-Source: [drivers/dshot](https://github.com/PX4/Firmware/tree/master/src/drivers/dshot)
+## sf1xx
+Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
 
 
 ### Description
@@ -286,7 +304,7 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
-## fake_gyro
+## fmu mode_pwm
 Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
 
 
@@ -296,16 +314,20 @@ Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/exa
 
 ### Usage
 ```
-fake_gyro <command> [arguments...]
+vmount <command> [arguments...]
  Commands:
    start
+
+   test          Test the output: set a fixed angle for one axis (vmount must
+                 not be running)
+     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
 
    stop
 
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
+Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
 
 
 ### Description
@@ -344,7 +366,7 @@ gps start -f
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
-gps start -d /dev/ttyS3 -e /dev/ttyS4
+sf1xx stop
 ```
 
 Initiate warm restart of GPS device
@@ -371,17 +393,12 @@ gps <command> [arguments...]
      [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
-     [-j <val>]  secondary GPS interface
-                 values: spi|uart, default: uart
      [-p <val>]  GPS Protocol (default=auto select)
-                 values: ubx|mtk|ash|eml
+                 values: ubx|mtk|ash
 
    stop
 
    status        print status info
-
-   reset         Reset GPS device
-     cold|warm|hot Specify reset type
 ```
 ## ina226
 Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
@@ -390,9 +407,9 @@ Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/mast
 ### Description
 Driver for the INA226 power monitor.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
 
-For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.
+I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
 If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
@@ -420,7 +437,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
+Attempt to start driver on any bus (start on bus where first sensor found).
 
 <a id="irlock_usage"></a>
 
@@ -442,33 +459,25 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
+## fmu mode_pwm3cap1
+Stop driver
 
 <a id="lsm303agr_usage"></a>
 
 ### Usage
 ```
-lsm303agr <command> [arguments...]
+pga460 <command> [arguments...]
  Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
+   start <device_path>
+     [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6
+
+   status
 
    stop
 
-   status        print status info
+   help
 ```
-## paw3902
+## pga460
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
@@ -520,11 +529,11 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 
 ### Description
-This module is responsible for generate pwm pulse with PCA9685 chip.
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -534,7 +543,7 @@ This module depends on ModuleBase and OutputModuleInterface. IIC communication i
 ### Examples
 It is typically started with:
 ```
-pca9685_pwm_out start -a 64 -b 1
+sf1xx start -a
 ```
 
 Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
@@ -613,10 +622,10 @@ This module is responsible for driving the output and reading the input pins. Fo
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
 ### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+In case of running in its own thread, the module polls on the actuator_controls topic.
 
 ### Examples
 It is typically started with:
@@ -631,7 +640,7 @@ pwm_out mode_pwm3cap1
 ```
 This will enable capturing on the 4th pin. Then do:
 ```
-pwm_out test
+fmu test
 ```
 
 Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
@@ -907,7 +916,7 @@ Source: [modules/vmount](https://github.com/PX4/Firmware/tree/master/src/modules
 ### Description
 Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
-Documentation how to use it is on the [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html) page.
+Documentation how to use it is on the [gimbal_control](https://dev.px4.io/en/advanced/gimbal_control.html) page.
 
 ### Implementation
 Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
