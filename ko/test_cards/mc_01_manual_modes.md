@@ -1,42 +1,42 @@
-# Test MC_01 - Manual Modes
+# 시험 MC_01 - 수동 상태
 
-## Arm and Take-off
+## 시동 및 이륙
 
-❏ Set flight mode to stabilize and Arm
+❏  Stabilize로 비행 모드를 설정하고 시동
 
-❏ Take-off by raising the throttle
-
-
-## Flight
-
-❏ Stabilized
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
-
-❏ Altitude
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
-
-❏ Position
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
-
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
+❏ 추진력을 올려 이륙
 
 
-## Landing
+## 비행
 
-❏ Land in Position mode with the throttle below 40%
+❏ 안정화 상태
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 추진력 응답 1:1
+
+❏ 고도
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수직 위치를 유지해야 함
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상승/하강 속도 설정시 추력부의 반응
+
+❏ 위치
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수평 위치를 유지해야 함
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수직 위치를 유지해야 함
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상승/하강 속도 설정시 추력부의 반응
+
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답으로 상하/좌우/방위 각 변화 속도 설정
+
+
+## 착륙
+
+❏ 40% 미만의 추력으로 위치 모드 상태에서 착륙
 
 ❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND))
 
