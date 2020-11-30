@@ -1,14 +1,15 @@
-# Modules Reference: Communication
+# 模块参考：通信（Communication）
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry)
+源码：[drivers/telemetry/frsky_telemetry](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry)
 
-FrSky Telemetry support. Auto-detects D or S.PORT protocol.
+FrSky 数传支持， FrSky Telemetry support. Auto-detects D or S.PORT protocol.
 <a id="frsky_telemetry_usage"></a>
 
-### Usage
+### 用法
 ```
 frsky_telemetry <command> [arguments...]
+ frsky_telemetry <command> [arguments...]
  Commands:
    start
      [-d <val>]  Select Serial Device
@@ -16,36 +17,35 @@ frsky_telemetry <command> [arguments...]
      [-t <val>]  Scanning timeout [s] (default: no timeout)
                  default: 0
      [-m <val>]  Select protocol (default: auto-detect)
-                 values: sport|sport_single|sport_single_invert|dtype, default:
-                 auto
+                 values: sport|sport_single|dtype, default: auto
 
    stop
 
    status
 ```
 ## mavlink
-Source: [modules/mavlink](https://github.com/PX4/Firmware/tree/master/src/modules/mavlink)
+源码： [modules/mavlink](https://github.com/PX4/Firmware/tree/master/src/modules/mavlink)
 
 
-### Description
-This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
+### 描述
+此模块实现了 MAVLink 协议，该协议可在串口或 UDP 网络上使用。 This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
 
-Streams are used to send periodic messages with a specific rate, such as the vehicle attitude. When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates. For a running instance, streams can be configured via `mavlink stream` command.
+流（Stream）被用来以特定速率发送周期性的消息，例如飞机姿态信息。 Streams are used to send periodic messages with a specific rate, such as the vehicle attitude. When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates. For a running instance, streams can be configured via `mavlink stream` command. 对于一个正在运行的实例而言，可以使用 `mavlink stream` 命令来配置流。
 
-There can be multiple independent instances of the module, each connected to one serial device or network port.
+可以存在多个该模块的实例，每个实例连接到一个串口设备或者网络端口。
 
-### Implementation
-The implementation uses 2 threads, a sending and a receiving thread. The sender runs at a fixed rate and dynamically reduces the rates of the streams if the combined bandwidth is higher than the configured rate (`-r`) or the physical link becomes saturated. This can be checked with `mavlink status`, see if `rate mult` is less than 1.
+### 实现
+命令的具体实现使用了两个线程，分别为数据发送线程和接收线程。 发送线程以一个固定的速率运行，并会在组合带宽（combined bandwidth）高于设定速率(`-r`)，或者物理链路出现饱和的情况下动态降低信息流的发送速率。 可使用 `mavlink status` 命令检查是否发生降速，如果 `rate mult` 小于 1 则发生了降速。
 
 **Careful**: some of the data is accessed and modified from both threads, so when changing code or extend the functionality, this needs to be take into account, in order to avoid race conditions and corrupt data.
 
-### Examples
-Start mavlink on ttyS1 serial with baudrate 921600 and maximum sending rate of 80kB/s:
+### 示例
+在 ttyS1 串口启动 mavlink ，并设定波特率为 921600、最大发送速率为 80kB/s：
 ```
 mavlink start -d /dev/ttyS1 -b 921600 -m onboard -r 80000
 ```
 
-Start mavlink on UDP port 14556 and enable the HIGHRES_IMU message with 50Hz:
+在 UDP 端口 14556 启动 mavlink 并启用 50Hz 的 HIGHRES_IMU 消息：
 ```
 mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
@@ -53,9 +53,10 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 
 <a id="mavlink_usage"></a>
 
-### Usage
+### 用法
 ```
 mavlink <command> [arguments...]
+ mavlink <command> [arguments...]
  Commands:
    start         Start a new instance
      [-d <val>]  Select Serial Device
@@ -72,9 +73,8 @@ mavlink <command> [arguments...]
                  param)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
-                 values:
-                 custom|camera|onboard|osd|magic|config|iridium|minimal|extvsisi
-                 on, default: normal
+                 values: custom|camera|onboard|osd|magic|config|iridium|minimal,
+                 default: normal
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
@@ -84,8 +84,7 @@ mavlink <command> [arguments...]
      [-f]        Enable message forwarding to other Mavlink instances
      [-w]        Wait to send, until first message received
      [-x]        Enable FTP
-     [-z]        Force hardware flow control always on
-     [-Z]        Force hardware flow control always off
+     [-z]        Force flow control always on
 
    stop-all      Stop all instances
 
@@ -94,22 +93,24 @@ mavlink <command> [arguments...]
 
    stream        Configure the sending rate of a stream for a running instance
      [-u <val>]  Select Mavlink instance via local Network Port
+                 default: 0
      [-d <val>]  Select Mavlink instance via Serial Device
                  values: <file:dev>
      -s <val>    Mavlink stream to configure
      -r <val>    Rate in Hz (0 = turn off, -1 = set to default)
 
    boot_complete Enable sending of messages. (Must be) called as last step in
-                 startup script.
+                 startup script. (必须) 作为启动脚本的最后一步被调用。
 ```
 ## micrortps_client
-Source: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client)
+源码：[modules/micrortps_bridge/micrortps_client](https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client)
 
 <a id="micrortps_client_usage"></a>
 
-### Usage
+### 用法
 ```
 micrortps_client <command> [arguments...]
+ micrortps_client <command> [arguments...]
  Commands:
    start
      [-t <val>]  Transport protocol
@@ -119,6 +120,10 @@ micrortps_client <command> [arguments...]
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 460800
      [-p <val>]  Poll timeout for UART in ms
+                 default: 1
+     [-u <val>]  Interval in ms to limit the update rate of all sent topics
+                 (0=unlimited)
+                 default: 0
      [-l <val>]  Limit number of iterations until the program exits
                  (-1=infinite)
                  default: 10000
@@ -128,55 +133,49 @@ micrortps_client <command> [arguments...]
                  default: 2019
      [-s <val>]  Select UDP Network Port for sending (remote)
                  default: 2020
-     [-i <val>]  Select IP address (remote)
-                 values: <x.x.x.x>, default: 127.0.0.1
-     [-f]        Activate UART link SW flow control
-     [-h]        Activate UART link HW flow control
-     [-v]        Add more verbosity
 
    stop
 
    status
 ```
 ## uorb
-Source: [modules/uORB](https://github.com/PX4/Firmware/tree/master/src/modules/uORB)
+源码：[modules/uORB](https://github.com/PX4/Firmware/tree/master/src/modules/uORB)
 
 
-### Description
-uORB is the internal pub-sub messaging system, used for communication between modules.
+### 描述
+uORB 是各模块之间进行通讯的基于 发布-订阅 机制的内部消息传递系统。
 
-It is typically started as one of the very first modules and most other modules depend on it.
+uORB 模块通常作为第一个模块启动，并且绝大多数其它模块均依赖于它，
 
-### Implementation
-No thread or work queue is needed, the module start only makes sure to initialize the shared global state. Communication is done via shared memory. The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber.
+### 用法
+No thread or work queue is needed, the module start only makes sure to initialize the shared global state. Communication is done via shared memory. The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber. 通信是通过共享内存（shared memory）完成的。 The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. 这一特性是通过在发布者和订阅者之间建立单独的缓冲区来实现的。
 
-The code is optimized to minimize the memory footprint and the latency to exchange messages.
+我们对代码以最大限度地减少内存占用和交换消息的延迟为目标进行了优化。
 
-The interface is based on file descriptors: internally it uses `read`, `write` and `ioctl`. Except for the publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
+该接口基于文件描述符（file descriptor）实现：它在内部使用 `read`、`write` 和 `ioctl`。 The interface is based on file descriptors: internally it uses `read`, `write` and `ioctl`. Except for the publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
 
-Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
+Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time. 在构建时它们会被转化为 C/C++ 代码。
 
-If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which modules are allowed to publish which topics. This is used for system-wide replay.
+If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which modules are allowed to publish which topics. This is used for system-wide replay. 这可以用于全系统范围的回放。
 
-### Examples
-Monitor topic publication rates. Besides `top`, this is an important command for general system inspection:
+### 示例
+监控主题发布速率。 Monitor topic publication rates. Besides `top`, this is an important command for general system inspection:
 ```
 uorb top
 ```
 
 <a id="uorb_usage"></a>
 
-### Usage
+### 用法
 ```
 uorb <command> [arguments...]
+ uorb <command> [arguments...]
  Commands:
    start
 
    status        Print topic statistics
 
    top           Monitor topic publication rates
-     [-a]        print all instead of only currently publishing topics with
-                 subscribers
-     [-1]        run only once, then exit
+     [-a]        print all instead of only currently publishing topics
      [<filter1> [<filter2>]] topic(s) to match (implies -a)
 ```
