@@ -1,46 +1,46 @@
-# Tests Flights
+# 시험 비행
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/test_flights.md">can be found here</a>.</p>
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>이 페이지는 오래됐습니다. 최신 문서는 <a href="../test_and_ci/test_flights.md">여기에서  찾을 수 있습니다</a>.</p>
   </div>
 </div>
 
-Test flights are important for quality assurance. The Dronecode test team can help review (test flight) your pull requests and provide feedback and logs.
+시험 비행은 품질 보증에 중요한 과정입니다. 드론코드 시험 팀에서는 여러분이 보낸 pull 요청의 검토(시험 비행)를 지원할 수 있고 기록에 대한 의견을 제시할 수 있습니다.
 
 
-## How to Request Test Flights
+## 시험 비행 요청 방법
 
-* Add a complete and thorough description of your changes in the pull request
-* Tag the test team in a comment using **@PX4/testflight**
-* Wait for feedback from the test team
-* The test team will [add your PR/issue to their queue](https://github.com/PX4/Firmware/projects/18)
+* 여러분이 바꾼 코드를 pull 요청에 추가하십시오
+* **@PX4/testflight** 태그로 댓글에 시험 팀을 호출하십시오
+* 시험 팀의 답변을 기다리십시오
+* 시험 팀은 [자신들이 할 일에 여러분이 제출한 PR/Issue를 추가합니다](https://github.com/PX4/PX4-Autopilot/projects/18)
 
-## Response Times
+## 응답 시간
 
-* Multi-Copter: up to 48 hours (typically within 24 hours)
-* VTOL, Fixed Wing: up to 4 days (typically 2 days)
+* 멀티콥터: 최대 48시간(보통 24시간 이내)
+* 수직이착륙기, 고정익: 최대 4일(보통 2일)
 
-## Test Cards
+## 시험 항목
 
-The tests performed for each platform are linked below:
+각 플랫폼을 대상으로 수행할 시험은 아래 링크와 같습니다:
 
-* [MC_01 - Manual modes](../test_cards/mc_01_manual_modes.md)
-* [MC_02 - Full Autonomous](../test_cards/mc_02_full_autonomous.md)
-* [MC_03 - Auto Manual Mix](../test_cards/mc_03_auto_manual_mix.md)
-* [MC_04 - Failsafe Testing](../test_cards/mc_04_failsafe_testing.md)
-* [MC_05 - Indoor Flight (Manual Modes)](../test_cards/mc_05_indoor_flight_manual_modes.md)
+* [MC_01 - 수동 상태](../test_cards/mc_01_manual_modes.md)
+* [MC_02 - 완전 자동화](../test_cards/mc_02_full_autonomous.md)
+* [MC_03 - 자동 / 수동 혼합](../test_cards/mc_03_auto_manual_mix.md)
+* [MC_04 - 안전 장치 시험](../test_cards/mc_04_failsafe_testing.md)
+* [MC_05 - 실내 비행 (수동 상태)](../test_cards/mc_05_indoor_flight_manual_modes.md)
 
 <a id="fleet"></a>
 
-## Test Vehicles/Autopilots
+## 시험 기체/자동 비행 장치
 
-http://px4.io/portfolio/multicopter-portfolio/
+멀티콥터
 
-| Frame                                                                                                                                                                                                                                                             | Aerotenna OcPoc                                                                                                                                                                                                                                                  | UUID                                                        |
+| 프레임                                                                                                                                                                                                                                                               | 비행체 제어 장치                                                                                                                                                                                                                                                        | UUID                                                        |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [Pixhawk Mini](../flight_controller/pixhawk_mini.md)                                                                                                                                                                                                             | 002400283335510A33373538 (f450-v3)                          |
-| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [Pixhawk 1](../flight_controller/pixhawk.md)                                                                                                                                                                                                                     | 000100000000363533353336510900500021 (f450-v3)              |
-| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | Pixhawk 2.1 Cube                                                                                                                                                                                                                                                 | 00010000000033343537313751050040001c (F450 Pixhawk v2 cube) |
+| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [픽스호크 미니](../flight_controller/pixhawk_mini.md)                                                                                                                                                                                                                  | 002400283335510A33373538 (f450-v3)                          |
+| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [픽스호크 1](../flight_controller/pixhawk.md)                                                                                                                                                                                                                        | 000100000000363533353336510900500021 (f450-v3)              |
+| [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | 픽스호크 2.1 큐브                                                                                                                                                                                                                                                      | 00010000000033343537313751050040001c (F450 Pixhawk v2 cube) |
 | [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [Pixracer](../flight_controller/pixracer.md)                                                                                                                                                                                                                     | 00010000000037373430333551170037002a (F450-Pixracer)        |
 | [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)                                                                                                                                                                                                            | Pixhawk                                                     |
 | [DJI F450](https://www.getfpv.com/dji-flamewheel-f450-basic-kit.html)                                                                                                                                                                                             | [Pixhack V3](../flight_controller/pixhack_v3.md)                                                                                                                                                                                                                 | 003200293036511638363834 (f450-v5-m)                        |
