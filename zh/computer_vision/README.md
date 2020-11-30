@@ -1,19 +1,19 @@
-# Computer Vision (Optical Flow, MoCap, VIO, Avoidance)
+# Computer Vision (VIO, Avoidance)
 
-[Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
+[计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/pixhawk_companion.md)) in order to support the following features:
+PX4 使用计算机视觉系统（主要在机载计算机上运行）以支持以下功能：
 - Pose/Velocity Estimation:
-  - [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
-  - [Motion Capture](../computer_vision/motion_capture.md) provides 3D pose estimation using a vision system that is *external* to the vehicle. It is primarily used for indoor navigation.
-  - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.
+  - [光流](../sensor/optical_flow.md)提供2D速度估计（使用向下的相机和向下的距离传感器）。
+  - [运动捕捉](../computer_vision/motion_capture.md)使用载具*外部*的视觉系统进行3D姿态估计。 它主要用于室内导航。
+  - [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) provides 3D pose and velocity estimation using an onboard vision system and IMU. 当 GPS 不存在或不可靠时，它用于导航。
 - Avoidance/Path Planning:
-  - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) provides full navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/avoidance](https://github.com/PX4/avoidance) running on a companion computer.
-  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
+  - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) provides full navigation around obstacles when flying a planned path (currently missions are supported). 这依赖机载电脑上运行的 [PX4/avoidance](https://github.com/PX4/avoidance)
+  - [碰撞预防](../computer_vision/collision_prevention.md)使载具在撞到障碍物之前停止（主要是在手动模式下飞行时）。
   - [Safe Landing](../computer_vision/safe_landing.md) guides vehicles to find (and land on) flat terrain that is free of stationary obstacles.
 
 
-> **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+> **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
 
 
 ## External Resources
