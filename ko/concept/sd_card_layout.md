@@ -1,20 +1,20 @@
-# PX4 SD Card Layout
+# PX4 SD 카드 배치
 
-The PX4 SD Card is used for storing configuration files, flight logs, mission information etc.
+PX4 SD 카드는 설정 파일, 비행 기록, 임무 정보 등을 저장하는 용도로 사용합니다.
 
-> **Tip** The SD card should be FAT32 formatted for use with PX4 (this is the default for SD cards). We recommend that you reformat cards that are using a different file system.
+> **Tip** SD 카드는 PX4에서 활용하려면 FAT32 방식으로 포맷해야합니다(SD 카드 기본 파일 시스템 형식). 다른 파일 시스템을 사용한다면, 카드를 다시 포맷하시는게 좋습니다.
 
-The directory structure/layout is shown below.
+디렉터리 구조와 배치는 다음과 같습니다.
 
-| Directory/File(s)     | Description                                                                                                                              |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| /etc/                 | Extra config (+ mixers). See [System Startup > Replacing the System Startup](../concept/system_startup.md#replacing-the-system-startup). |
-| /etc/mixers/          | [Mixers](../concept/mixing.md)                                                                                                           |
-| /log/                 | Full [flight logs](../dev_log/logging.md)                                                                                                |
-| /mission_log/         | Reduced flight logs                                                                                                                      |
-| /fw/                  | [UAVCAN](../uavcan/README.md) firmware                                                                                                   |
-| /uavcan.db/           | UAVCAN DB + logs                                                                                                                         |
-| /params               | Parameters (if not in FRAM/FLASH)                                                                                                        |
-| /dataman              | Mission storage file                                                                                                                     |
-| /fault_<datetime>.txt | Hardfault files                                                                                                                          |
-| /bootlog.txt          | Boot log file                                                                                                                            |
+| 디렉터리/파일               | 설명                                                                                                        |
+| --------------------- | --------------------------------------------------------------------------------------------------------- |
+| /etc/                 | 추가 설정 (+믹서). [시스템 시작 > 시스템 시작 설정 바꾸기](../concept/system_startup.md#replacing-the-system-startup)를 참고하십시오. |
+| /etc/mixers/          | [믹서](../concept/mixing.md)                                                                                |
+| /log/                 | 전체 [비행 기록](../dev_log/logging.md)                                                                         |
+| /mission_log/         | 일부 비행 기록                                                                                                  |
+| /fw/                  | [UAVCAN](../uavcan/README.md) 펌웨어                                                                         |
+| /uavcan.db/           | UAVCAN DB + 로그                                                                                            |
+| /params               | 매개변수 값 (FRAM/FLASH에 없을 경우)                                                                                |
+| /dataman              | 임무 저장소 파일                                                                                                 |
+| /fault_<datetime>.txt | 하드 폴트 파일                                                                                                  |
+| /bootlog.txt          | 부팅 기록 파일                                                                                                  |
