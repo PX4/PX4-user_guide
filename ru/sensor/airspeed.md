@@ -1,12 +1,12 @@
-# Airspeed Sensors
+# Датчики воздушной скорости
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
-![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![Цифровой датчик воздушной скорости](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## Hardware Options
 
-Recommended digital airspeed sensors include:
+Рекомендуемые цифровые датчики скорости относятся:
 
 * MEAS Spec series (e.g. [MS4525DO](https://www.te.com/usa-en/product-CAT-BLPS0002.html))
   
@@ -25,10 +25,10 @@ All the above sensors are connected via the I2C bus/port.
 Note Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 :::
 
-## Configuration
+## Настройка
 
 PX4 setup information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## Developer Information
+## Информация для разработчиков
 
 * [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
