@@ -1,6 +1,6 @@
-# Racer Setup
+# 穿越机设置
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
+本页面描述了：如何设置和配置一台穿越机来获取良好的性能（尤其对于特技模式）
 
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
 
@@ -29,7 +29,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 
 > **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
 
-## Hardware Setup
+## 硬件安装
 
 The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
 
@@ -51,7 +51,7 @@ Make sure that the center of gravity is as close as possible to the center of th
 
 If you plan to use a 4-in-1 ESC, such as the [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), you will notice that it uses a motor ordering that is different from the one that PX4 uses. PX4 allows you to change the motor ordering in software via [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) parameter. You can select the Betaflight/Cleanflight motor ordering that is typically used on these 4-in-1 ESCs.
 
-## Software Setup
+## 软件设置
 
 After having built the racer, you will need to configure the software. Go through the [Basic Configuration Guide](../config/README.md) and choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which already sets some racer-specific parameters.
 
@@ -62,7 +62,7 @@ These parameters are important:
 - The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
 - Disable RC input filtering by setting [RC_FLT_CUTOFF](../advanced_config/parameter_reference.md#RC_FLT_CUTOFF) to 0.
 
-### Estimator
+### 估计器
 
 If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
 
