@@ -1,8 +1,8 @@
 # Offboard Control
 
-> **Warning** [Offboard control](../flight_modes/offboard.md) is dangerous. It is the responsibility of the developer to ensure adequate preparation, testing and safety precautions are taken before offboard flights.
+> **Warning** [Offboard control](https://docs.px4.io/en/flight_modes/offboard.html) is dangerous. It is the responsibility of the developer to ensure adequate preparation, testing and safety precautions are taken before offboard flights.
 
-The idea behind off-board control is to be able to control the PX4 flight stack using software running outside of the autopilot. This is done through the MAVLink protocol, specifically the [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) and the [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) messages.
+The idea behind off-board control is to be able to control the PX4 flight stack using software running outside of the autopilot. This is done through the Mavlink protocol, specifically the [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) and the [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) messages.
 
 ## Offboard Control Firmware Setup
 
@@ -46,7 +46,7 @@ graph TD;
 A small computer mounted onto the vehicle connected to the autopilot through a UART to USB adapter. There are many possibilities here and it will depend on what kind of additional on-board processing you want to do in addition to sending commands to the autopilot.
 
 Small low power examples:
-* [Odroid C1+](https://www.hardkernel.com/shop/odroid-c1/) or [Odroid XU4](https://magazine.odroid.com/odroid-xu4)
+* [Odroid C1+](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143703355573) or [Odroid XU4](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825)
 * [Raspberry Pi](https://www.raspberrypi.org/)
 * [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
 
