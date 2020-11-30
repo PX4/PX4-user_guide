@@ -67,37 +67,37 @@ NuttX에는 통합 셸 인터프리터가 있으며([NuttShell (NSH)](https://cw
 
 #### 개별 구성 (config.txt)
 
-`config.txt` 파일은 셸 변수 값을 바꿀때 활용할 수 있습니다. It is loaded after the main system has been configured and *before* it is booted.
+`config.txt` 파일은 셸 변수 값을 바꿀때 활용할 수 있습니다. 부팅하기 *전에 * 주 시스템을 구성할 때 불러옵니다.
 
-#### Starting additional applications
+#### 추가 프로그램 시작
 
-The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
+`extras.txt` 파일은 주 시스템 부팅 실행 후 프로그램을 추가로 시작할 때 활용할 수 있습니다. 보통 추가로 시작하는 프로그램은 적재 장치 제어 프로그램이거나, 이와 유사한 추가 개별 요소일 수 있습니다.
 
-> **Caution** Calling an unknown command in system boot files may result in boot failure. Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
+> **Caution** 시스템 부팅 파일에서 알 수 없는 명령을 호출하면 부팅이 실패합니다. 보통 시스템에서는 부팅에 실패하면 MAVLink 메시지를 내보내지 않는데, 이 경우 시스템 콘솔에 출력한 오류 메시지를 확인해보셔야 합니다.
 
-The following example shows how to start custom applications:
-  * Create a file on the SD card `etc/extras.txt` with this content: `custom_app start`
+다음 예제는 개별 프로그램을 시작하는 방법을 보여줍니다:
+  * SD 카드에 다음의 내용을 넣어 `etc/extras.txt` 파일을 만드십시오:
     ```
     custom_app start
     ```
-  * A command can be made optional by gating it with the `set +e` and `set -e` commands:
+  * `set +e` 명령과 `set -e` 명령으로 명령을 선택 실행할 수 있습니다.
     ```
     set +e
-  optional_app start      # Will not result in boot failure if optional_app is unknown or fails
-  set -e
+    optional_app start      # Will not result in boot failure if optional_app is unknown or fails
+    set -e
 
-  mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
+    mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
     ```
 
-#### Starting a custom mixer
+#### 개별 믹서 시작
 
-By default the system loads the mixer from `/etc/mixers`. If a file with the same name exists in `/fs/microsd/etc/mixers` this file will be loaded instead. This allows to customize the mixer file without the need to recompile the Firmware.
+기본적으로 시스템은 `/etc/mixers`에서 믹서를 불러옵니다. `/fs/microsd/etc/mixers`에 동일한 이름이 들어간 파일이 있다면, 이 파일을 대신 불러옵니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
 
-##### Example
+##### 예제
 
-The following example shows how to add a custom aux mixer:
-  * Create a file on the SD card, `etc/mixers/gimbal.aux.mix` with your mixer content.
-  * Then to use it, create an additional file `etc/config.txt` with this content: set MIXER_AUX gimbal set PWM_AUX_OUT 1234 set PWM_AUX_DISARMED 1500 set PWM_AUX_MIN 1000 set PWM_AUX_MAX 2000 set PWM_AUX_RATE 50
+다음 예제에서 개별 AUX 믹서를 추가하는 방법을 보여줍니다:
+  * SD 카드에 믹서 내용이 들어간 `etc/mixers/gimbal.aux.mix` 파일을 만드십시오.
+  * 그 다음 이 파일을 사용하려면, 아래 내용이 들어간 `etc/config.txt` 추가 파일을 만드십시오:
     ```
     set MIXER_AUX gimbal
     set PWM_AUX_OUT 1234
