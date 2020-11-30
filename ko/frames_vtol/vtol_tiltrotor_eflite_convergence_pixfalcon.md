@@ -1,4 +1,4 @@
-# E-flite Convergence Tiltrotor VTOL (Pixfalcon)
+# E-flite 컨버전스 Tiltrotor VTOL (Pixfalcon)
 
 The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
 
@@ -19,15 +19,15 @@ The convergence needs 7 PWM signals and is connected to a Pixfalcon in the follo
 | MAIN 7 | Elevon right     |
 | MAIN 8 | Elevon left      |
 
-The Pixfalcon can be mounted at the same place the original autopilot was.
+Pixfalcon은 원래 자동 조종 장치가 있던 동일한 장소에 장착 할 수 있습니다.
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-The telemetry module fits into the bay meant to hold FPV transmission gear.
+텔레 메 트리 모듈은 FPV 변속기를 수용 할 수있는 베이에 장착됩니다.
 
 ![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
+GPS를 넣기 위해 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
