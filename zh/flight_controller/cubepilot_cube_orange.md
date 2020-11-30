@@ -20,7 +20,7 @@ The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/th
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
 * 32bit STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
 * 32 bit STM32F103 failsafe co-processor
@@ -35,17 +35,17 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * microSD card for high-rate logging over extended periods of time
 
 <span id="stores"></span>
-## Where to Buy
+## 在哪里买
 
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 组装
 
 [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
-## Specifications
+## 产品规格
 
-* **Processor:**
+* **处理器:**
   * STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
   * 1 MB RAM
@@ -70,10 +70,10 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
     * Input voltage: 4.1V - 5.7V
     * Rated input current: 2.5A
     * Rated input/output power: 14W
-* **Dimensions:**
+* **尺寸:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
   - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-* **Interfaces**
+* **接口**
   * IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
   * 5x UART (serial ports), one high-power capable, 2x with HW flow control
   * 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -87,7 +87,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
   * 3.3v ADC input
   * Internal microUSB port and external microUSB port extension
 
-## Pinouts and Schematics
+## 引脚和原理图
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
@@ -101,7 +101,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                     |
+| UART   | 设备         | Port                                     |
 | ------ | ---------- | ---------------------------------------- |
 | USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
 |
@@ -126,7 +126,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -140,7 +140,7 @@ make cubepilot_cubeorange
 
 ## Further Information/Documentation
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+- [Cube 快速接线指南](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer):
   - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
