@@ -6,7 +6,7 @@ This a simple test to measure the throughput of the [PX4-FastRTPS Bridge](../mid
 
 ## Create the uORB message
 
-First create a new uORB message for this test in the folder **/PX4-Autopilot/msg/**. The message file will be called **throughput_256.msg** and have the following content:
+First create a new uORB message for this test in the folder **/Firmware/msg/**. The message file will be called **throughput_256.msg** and have the following content:
 
 ```
 uint8[256] data
@@ -15,21 +15,18 @@ uint8[256] data
 This can be done with the command line below:
 
 ```sh
-cd /path/to/PX4/PX4-Autopilot/msg
+cd /path/to/PX4/Firmware/msg
 echo uint8[256] data > throughput_256.msg
 ```
 
-Register the new message adding it to the list of messages in the file: **/PX4-Autopilot/msg/CMakeLists.txt**:
+Register the new message adding it to the list of messages in the file: **/Firmware/msg/CMakeLists.txt**:
 
 ```cmake
 ...
-wind_estimate.msg
-throughput_256.msg
-)
 ...
 ```
 
-Give the message a topic id by adding a line in the **/PX4-Autopilot/Tools/message_id.py** script:
+Give the message a topic id by adding a line in the **/Firmware/Tools/message_id.py** script:
 
 ```python
 ...
@@ -53,7 +50,7 @@ set(GENERATE_RTPS_BRIDGE off)
 Manually generate bridge code using *generate_microRTPS_bridge.py* (the code will send and receive "just" our `throughput_256` uORB topic):
 
 ```sh
-cd /path/to/PX4/PX4-Autopilot
+cd /path/to/PX4/Firmware
 python Tools/generate_microRTPS_bridge.py --send msg/throughput_256.msg --receive msg/throughput_256.msg
 ```
 
