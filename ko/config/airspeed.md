@@ -1,32 +1,32 @@
-# AirSpeed Calibration
+# 대기속도 캘리브레이션
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
+대기 속도 캘리브레이션은 오프셋을 결정하기 위해 대기 속도가 0 인 안정된 기준선을 읽어야합니다. 바람을 막기 위해 피톳 튜브를 손을 둥글게 감아 막고(만약 실내에서 캘리브레이션을 진행한다면 하지 않아도 됩니다), 튜브를 입으로 불어 주십시오(바람을 불어서 캘리브레이션 완료 신호를 보냅니다).
 
-> **Note** Fixed Wing and VTOL vehicles usually have an airspeed sensor.
+> **참고** 고정익과 VTOL 기체는 대개 대기속도 센서를 가지고 있습니다.
 
-## Performing the Calibration
+## 캘리브레이션 수행
 
-To calibrate the airspeed sensor:
+대기속도 센서를 캘리브레이션하려면:
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-3. Click the **Airspeed** sensor button.
+1. *QGroundControl *을 시작하고 기체에 연결합니다.
+2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
+3. **대기속도** 센서 버튼을 클릭합니다.
     
-    ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+    ![대기속도 캘리브레이션](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
-4. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
+4. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다). 피톳 튜브의 구멍을 막지 않도록 주의하십시오.
 
-5. Click **OK** to start the calibration.
-6. Blow into the tip of the pitot tube to signal the end of calibration.
+5. **확인**을 눌러 캘리브레이션을 시작하십시오.
+6. 피톳 튜브의 끝에 입으로 바람을 불어 캘리브레이션 완료 신호를 보내십시오.
     
-    > **Tip** Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+    > **팁** 튜브 안으로 바람을 불어 넣는 것도 동적 및 정적 포트가 올바르게 장착되었는지 확인하는 기본적인 점검입니다. 포트들이 바뀌면 튜브 안으로 바람을 불어넣을 때 센서는 큰 음의 압력 차를 읽고, 캘리브레이션은 에러가 발생하며 중단됩니다.
 
-7. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
+7. 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 캘리브레이션이 자동으로 완료됩니다).
 
-## Testing
+## 시험
 
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
+캘리브레이션 후 손가락을 피톳 튜브 끝에 대고 잡아 간단히 테스트해볼 수 있습니다. 시스템은 손가락을 놓기 전까지 + 대기속도를 읽고 유지합니다.
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
