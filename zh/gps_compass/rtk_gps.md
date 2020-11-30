@@ -1,20 +1,20 @@
 # RTK GPS
 
-[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) increases the accuracy of GNSS/GPS systems to centimeter-level. RTK allows PX4 to be used in applications like precision surveying, where pinpoint accuracy is essential.
+实时差分可以将 GNSS/GPS 的精度提高到厘米级。 装备 RTK 后可以将 PX4 应用到需要精确定位的精确测绘中。
 
-You will need:
+你需要：
 
-- A pair of (supported) [RTK GPS devices](#supported-rtk-devices) (a "base" for the ground station and a "rover" for the vehicle)
-- A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
-- A vehicle with a WiFi or Telemetry radio link to the laptop
+- 一对[RTK GPS 设备](#supported-rtk-devices)（地面站和移动站）
+- 一台装有 QGroundControl 的 *PC 或笔记本*（Android/iOS 的 QGroundControl 地面站不支持 RTK）
+- 一架连接有 WiFi 或数传的飞机
 
-> **Note** *QGroundControl* can theoretically enable RTK GPS for multiple vehicles (provided they each have a rover module). At time of writing this use case has not been tested.
+> **Note***QGroundControl*理论上可以在多台飞机启用 RTK GPS（每台设备上都安装一个移动站）。 在编写本文时, 此用发还未进行测试。
 
-## Supported RTK Devices
+## 支持的 RTK 设备
 
 PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it.
 
-The following RTK-compatible devices have been tested.
+下面的 RTK 设备已经经过测试。
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
@@ -27,66 +27,66 @@ The following RTK-compatible devices have been tested.
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 - [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
-> **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+> **Note**有一些 RTK 模块只能作为基站或移动站，有的则可以两用。
 
-## Hardware setup
+## 硬件安装
 
-### Rover RTK Module (Vehicle)
+### RTK 移动站（飞机）
 
-Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
+连接飞机上的移动站到飞控的 GPS 端口上（其他的 GPS模块同理）。
 
-The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
+实际的接线可能因飞控和 RTK 而有所差异（详情参看所[选设备的说明书](#supported-rtk-devices)）。
 
-### Base RTK Module (Ground)
+### RTK 基站（地面端）
 
-Connect the base module to *QGroundControl* via USB. The base module must not be moved while it is being used.
+使用 USB 连接基站到*QGroundControl*。 基站在使用中必须保持不动。
 
-> **Tip** Choose a position where it won't need to be moved, has a clear view of the sky, and is well separated from any buildings. Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+> **Tip**选择一个不会移动的地方，上方开阔，最好避开建筑物。 使用三脚架或安装在屋顶，效果更好。
 
-### Telemetry Radio/WiFi
+### 电台/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
+飞机和地面站之间必须使用 [wifi 或电台](../telemetry/README.md)连接。
 
-The link *must* use the MAVLink2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
+链接*必须*使用 MAVLink2 协议，因为 MAVLink2 能更好的利用通道。 这个设置默认即可，如果不是默认数据，可以参考下面的[MAVLink2 设置介绍](#mavlink2)。
 
-## RTK Connection Process
+## RTK 连接步骤
 
-The RTK GPS connection is essentially plug and play:
+RTK GPS 是即插即用的。
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
-2. Start the vehicle and make sure it is connected to *QGroundControl*.
+1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。
+2. 启动飞机，确保飞机连接上*QGroundControl*地面站。
     
-    > **Tip** An RTK GPS status icon is displayed in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+    > **Tip**当 RTK GPS 设备连接上，在上面工具栏的正常显示GPS的位置，会显示 RTK GPS 的状态。 当 RTK 正在被设置，会显示为红色，RTK GPS 激活后会变为白色。 点击图标，可以查看当前状态和 RTK 的精度。
 
-3. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
+3. 然后 *QGroundControl* 开始设置 RTK (称为 "测量")。
     
-    Survey-In is a startup procedure to get an accurate position estimate of the base station. The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+    测量是一个获得基站准确位置的设置过程。 这个过程通常会需要几分钟（在达到[RTK 设置](#rtk-gps-settings)中指定的最小时间和精度后结束）。
     
-    You can track the progress by clicking the RTK GPS status icon.
+    你也可以点击 RTK状态按钮查看。
     
-    <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="survey-in" />
+    <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="测量" />
 
-4. Once Survey-in completes:
+4. 测量完成：
 
-- The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
+- RTK GPS 图标变为白色，*QGroundControl*开始传送位置数据到飞机。
     
-    <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK streaming" />
+    <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK数据流" />
 
-- Vehicle GPS switches to RTK mode. The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
+- 飞机的 GPS 切换到 RTK 模式。 新的模式会显示在*普通*GPS 状态按钮的位置（` 3D RTK GPS 锁定`）：
     
-    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+    ![RTK GPS状态](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-## Optional PX4 Configuration
+## PX4 可用的设置
 
-The following settings may need to be changed (using *QGroundControl*).
+下面的设置可能需要设置。（使用*QGroundControl*）。
 
-### RTK GPS settings
+### RTK GPS 设置
 
 The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
-![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
+![RTK GPS 设置](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
-These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
+这些设置定义了 RTK GPS 设置过程（称为“测量”）完成的最小持续时间和最小精度。
 
 <span></span>
 
@@ -94,31 +94,32 @@ These settings define the minimum duration and minimum accuracy for completing t
 
 ### MAVLink2
 
-The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
+必须使用 maxink2 协议, 因为它可以更有效地使用低带宽通道。 默认情况下, 应在最近的生成中启用此功能。
 
-To ensure MAVLink2 is used:
+为确保使用MAVLink2:
 
-- Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
-- Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
-
-### Tuning
-
-You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
-
-### Use RTK GPS for Yaw
-
-Some RTK GPS units (i.e. with multiple antennas) can output a yaw angle, which can be used instead of the heading from the magnetic compass. To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to 1 (add 128 to the parameter value).
-
-### Dual Receivers
-
-A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
-
-<!--
+- 将遥测模块固件更新到最新版本 (请参阅 QGroundControl> 设置 > 固件 </a0 >)。</li> 
+    
+    - 将 [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) 设置为 2 (请参阅 < 1>QGroundControl 设置 > 参数 </1 >)</ul> 
+    
+    ### 调试
+    
+    您可能还需要调整一些参数, 因为默认参数是在假定 GPS 精度为米 (而不是厘米) 的情况下进行调整的。 例如, 您可以减少 [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE), 并将 [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) 到0.2。
+    
+    ### Use RTK GPS for Yaw
+    
+    Some RTK GPS units (i.e. with multiple antennas) can output a yaw angle, which can be used instead of the heading from the magnetic compass. To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to 1 (add 128 to the parameter value).
+    
+    ### 双 GPS 接收器
+    
+    A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+    
+    <!--
 
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
-
-## Vehicle Setup Example
-
-The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
+    
+    ## 飞机设置示例
+    
+    The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
