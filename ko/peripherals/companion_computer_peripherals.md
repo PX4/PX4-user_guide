@@ -1,15 +1,15 @@
-# Companion Computer Peripherals
+# 보조 컴퓨터 주변 장치
 
-This section contains information about peripherals for connecting Pixhawk (PX4) to a companion computer, and peripherals that might be connected to such a companion computer (and potentially triggered/accessed by PX4).
+이 절에서는 픽스호트(PX4)를 보조 컴퓨터에 연결하고 여러 주변 장치를 보조 컴퓨터로 연결(하고 PX4에서 잠재적으로 실행/접근)하는 내용을 다룹니다.
 
-## Companion/Pixhawk Communication
+## 보조 컴퓨터/픽스호크 통신
 
-Typical companion computer work with Pixhawk requires a companion link to transmit/receive the data between the companion computer and Pixhawk hardware (e.g. Intel NUC and Pixhawk 4).
+보통 픽스호크와 함께 동작하는 보조 컴퓨터는 보조 컴퓨터와 픽스호크 하드웨어와 통신(예: 인텔 누크와 픽스호크 4)하는 보조 연결이 필요합니다.
 
-There are a few devices that allow this communication bridge such as FTDI USB breakouts and level shifters (see below).
+FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가능한 몇가지 장치가 있습니다.
 
 :::tip
-Note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+Note 보조 컴퓨터와 통신할 때 필요한 PX4 MAVLink 설정은 [MAVLink \(OSD / 텔레메트리\)](../peripherals/mavlink_peripherals.md#example) 편에서 다룹니다. 기타 관련 주제/절은 [픽스호크 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md), [RTPS/ROS2 인터페이스: PX4-FastRTPS 브릿지](../middleware/micrortps.md)가 있습니다.
 :::
 
 ### FTDI Devices
@@ -18,11 +18,11 @@ The FTDI USB adapters are the most common way of communicating between companion
 
 Options are listed below:
 
-| Device                                                                                                                  | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ | ---------- | ------ |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes               | Yes          | Yes        | Yes    |
-| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable           | Capable      | No         | Yes    |
-| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes               | No           | Yes        | No     |
+| 장치                                                                                                                      | 3.3v 입출력 (기본) | Flow Control | Tx/Rx LEDs | JST-GH |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ | ---------- | ------ |
+| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes           | Yes          | Yes        | Yes    |
+| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable       | Capable      | No         | Yes    |
+| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes           | No           | Yes        | No     |
 
 ### Logic Level Shifters
 
