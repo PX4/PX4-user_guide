@@ -1,6 +1,6 @@
-# Frame Selection
+# 机架选择
 
-## Air Vehicles
+## 空中飞行器
 
 If you plan using PX4 for flying aircraft the most important question you should answer is, what will be the application. Is it for fun or for work, what is the planned flight times and coverage.
 
@@ -12,7 +12,7 @@ The [airframe reference](../airframes/airframe_reference.md) lists frames that h
 
 Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
 
-![Frame Selection](../../assets/qgc/setup/airframe/frame_selection.png)
+![机架选择](../../assets/qgc/setup/airframe/frame_selection.png)
 
 <!-- 
 ### Types of VTOL
@@ -27,6 +27,6 @@ Depending on the way the VTOL flies in copter mode or how it makes the transitio
 
 -->
 
-## Ground Vehicles
+## 地面车辆
 
-## Sea Vehicles
+## 海洋船只
