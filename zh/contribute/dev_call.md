@@ -1,39 +1,39 @@
 <a id="dev_call"></a>
 
-# Weekly Dev Call
+# 每周开发通讯
 
 <div v-if="$themeConfig.px4_version != 'master'">
   <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../contribute/dev_call.md">can be found here</a>.</p>
   </div>
 </div>
 
-The PX4 dev team syncs up on platform technical details and in-depth analysis. There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
+PX4开发团队会深入分析技术细节并同步到平台上。 在议程中，为重大影响的回拉请求，给与回答。
 
 
-## Who should attend:
+## 谁应该注意以下几点：
 
-* Core project maintainers
-* Component maintainers
-* Test team lead
-* Dronecode members
-* Community members
+* 核心项目维护者
+* 组件维护者
+* 测试团队负责人
+* 无人机编码成员
+* 社区成员
 
-> **Tip** The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+> **提示**  开发调用对所有感兴趣的开发人员进行开放（不仅仅是核心开发团队）。 这是为持续可开发的平台做出贡献并与团队交流的绝佳机会。
 
-## What gets discussed?
+## 讨论什么内容?
 
-The first/main part of the meeting runs for 45 minutes and provides a high-level forum to discuss where the project is going.
+会议的第一部分也是重要的部分将持续45分钟，为项目的发展方向提供一个高质量的讨论论坛。
 
-This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label. We expect the proposer and the assigned reviewer to be on the call!
+This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label. 我们希望提议者和指定的审阅者都可以参加回访。
 
-> **Note** The main call is designed to support rapid/focused decision making. We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+> **注意** 主要的调用被设计用来做出集中快速的决策。 我们希望不要过深的探究技术，同样也不会花费太多的时间用在功能请求上。 Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
 
-The second part of the meeting is for in-depth technical discussions and open ended questions. The core team/subsystem maintainers will be available for up to 45 additional minutes.
+会议的第二部分是对开发性问题和有深度的技术做些探究。 核心团队或者子系统维护者将会有额外的45分钟用来探究
 
 
-## Schedule
-* TIME: Wednesday 17h00 CET, 12h00 EST, 09h00 PST \([subscribe to calendar](https://www.dronecode.org/calendar/)\)
-* **Join the call**: https://meet.jit.si/PX4DeveloperCallWeekly
+## 日程
+* 时间: 欧洲中部时间周二17：00, 东部标准时间12：00, 太平洋标准时间9：00 \([订阅日历](https://www.dronecode.org/calendar/)\)
+* **加入通讯**：https://meet.jit.si/PX4DeveloperCallWeekly
 
-* Agenda is published before the call on [PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)
-* To nominate Issues and PRs for the call you can use the [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) label to flag them for discussion.
+* 议程在[PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)之前发布
+* 为了讨论指定的问题和回拉请求，你可以使用[devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall)标签来标记
