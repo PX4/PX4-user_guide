@@ -10,7 +10,7 @@ The [Drotek XL RTK GPS receiver](https://store-drotek.com/881-DP0503.html) is a 
 
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+* QGroundControl </ 0>을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그 앤 플레이입니다 (자세한 내용은  RTK GPS </ 1> 참조).</p> 
 
 :::tip
 The Drotek UCenter tool is not required for configuration - everything is handled by *QGroundControl*.
