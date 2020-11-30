@@ -1,4 +1,4 @@
-# Silicon Errata
+# 芯片勘误表
 
 This page lists known issues with silicon (hardware) errata of 3rd-party parts (micro controller, sensors, etc.) used on the Pixhawk board series. Depending on the type of silicon error, these cannot be fixed in software and might impose specific limitations.
 
