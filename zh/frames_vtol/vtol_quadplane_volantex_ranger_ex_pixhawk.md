@@ -25,7 +25,7 @@ The conversion is designed to minimize impact on the aerodynamics and provide ad
 
 - The basic parts required are;
 - Pixhawk or compatible
-- Digital airspeed sensor
+- 数字空速传感器
 - 3DR Power module or compatible
 - GPS
 
@@ -70,11 +70,11 @@ Attach the motor mount to the motor. With another motor mount plate and 4 M3x25
 
 ![QuadRanger motor and esc](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_motor_and_esc.jpg)
 
-## Wiring
+## 布线
 
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
-| Port   | Connection             |
+| Port   | 接口定义                   |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
@@ -84,18 +84,18 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | AUX 2  | Right aileron          |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
-| AUX 5  | Throttle               |
+| AUX 5  | 油门                     |
 
 > **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
 
-## Configuration
+## 配置
 
 Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
 
 ![QGC - select firmware for standard VTOL](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Support
+## 技术支持
 
 If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.

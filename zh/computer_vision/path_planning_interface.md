@@ -1,32 +1,32 @@
-# Path Planning Interface
+# 路径规划接口
 
-PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
+PX4使用多个MAVLink接口来整合机载计算机的路径规划服务（包括在执行航线任务时避障，[安全着陆](../computer_vision/safe_landing.md)和未来服务）：
 
-- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces: 
-  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the *desired path*. May be used by path planning software to send PX4 a stream of setpoints for the *planned path*.
-  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the *planned path* as a bezier curve. The curve indicates the (moving) position setpoint of the vehicle over a given time period.
-- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
-- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
+- 有两个 [MAVLink 路径规划协议](https://mavlink.io/en/services/trajectory.html) 接口： 
+  - [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): 被 PX4 用于发送 *期望路径*。 可能会被路径规划软件用于向 PX4 发送 *所规划路径* 的设定点数据流。
+  - [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 可能（或者）被路径规划软件用来以贝塞尔曲线的形式向PX4发送*所规划路径*。 曲线表示给定时间段内机体（移动的）位置设定值。
+- [HEARTBEAT/连接协议](https://mavlink.io/en/services/heartbeat.html) 用于检测“生命证明”。
+- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) 分别用来发送飞行器本地位置和高度。
 
-Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, mission, return) if [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). In these modes planning software is expected to supply setpoints to PX4; if the software cannot support a particular flight mode it must mirror back setpoints from the vehicle.
+如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID) ，那么 PX4 的路径规划功能会在自动模式 （着陆、起飞、持有、飞行任务、返回）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
-> **Tip** The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows).
+> **提示** 所有通过 MAVLink 在 PX4 UORB 话题和 ROS 话题间双向传送的消息流都记录在 [PX4/evidence > Message Flows](https://github.com/PX4/avoidance#message-flows) 文件中：
 
-All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
+所有使用此接口的服务均发送并且接收相同类型/格式的消息。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
-> **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+> **提示** 推荐使用 [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) 来开发路径规划软件。 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
 
-## PX4 Configuration
+## PX4 配置
 
-Path planning is activated in PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+通过将 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) [设置](../advanced_config/parameters.md)为 1 即可启用 PX4 的路径规划功能。
 
-## Companion Computer Setup
+## 机载计算机设置
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+机载计算机端的硬件设置和软硬件配置在 Github 代码仓库 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 中已经提供。
 
-The actual setup/configuration required depends on the planner being used.
+实际需要的设置/配置取决于所用的规划器。
 
-> **Warning** Only one planner can run on the companion computer at a time (at time of writing). This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
+> **警告** 一次只能有一个规划期在机载计算机上运行（在写入时）。 这意味着不能在同一个机体上同时启用不同规划器的上位机功能。 （例如，在一个机体启用避障和防撞时，就不能执行安全着陆了，反之亦然）。
 
 <span id="waypoint_interface"></span>
 
@@ -48,33 +48,33 @@ PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavl
 
 The fields set by PX4 as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 3
 - Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: 当前航向角
   - `vel_yaw[0]`: NaN
   - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
 - Point 1 - Current waypoint (Unmodified/not type adapted)): 
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
+  - `pos_yaw[1]`: 航向设定值
+  - `vel_yaw[1]`: 偏航速率设定值
   - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
 - Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
+  - `pos_yaw[2]`: 航向设定值
+  - `vel_yaw[2]`: 偏航速率设定值
   - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
-- All other indices/fields are set as NaN.
+- 所有其它字段都是NaN(未定义)。
 
 <span id="type_adapted"></span>
-Notes:
+备注：
 
 - Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
 - Point 1 and 2 are not used by the safe landing planner.
@@ -105,16 +105,16 @@ The path planning software (running on the companion computer) *may* send the pl
 
 The fields for the messages from the companion computer are set as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
-- Current vehicle information: 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+- 当前飞机信息： 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置设定值
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: 航向角设定值
+  - `vel_yaw[0]`: 偏航速率设定值
   - `command[0]`: NaN.
-- All other indices/fields are set as NaN.
+- 所有其它字段都是NaN(未定义)。
 
 A planner that implements this interface must:
 

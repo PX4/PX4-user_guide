@@ -1,23 +1,23 @@
-# Sending a Custom Message from MAVROS to PX4
+# 将自定义消息从 MOVROS 发送到 PX4
 
-> **Warning** This article has been tested against:
-  - **Ubuntu:** 18.04
-  - **ROS:** Melodic
-  - **PX4 Firmware:** 1.9.0
+> **Warning** 本文已经过如下测试：
+  - **Ubuntu：**18.04
+  - **ROS：**Melodic
+  - **PX4 Firmware：**1.9.0
 
-  However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
+  这些步骤普遍适用于其他发行版，或者只需要稍微修改。
 
 <!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
 
-## MAVROS Installation
+## MAVROS 安装
 
-Follow *Source Installation* instructions from [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) to install "ROS Kinetic".
+按照 *Source Installation* 中的指导，从 [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) 安装“ROS Kinetic”版本。
 
 ## MAVROS
 
-1. We start by creating a new MAVROS plugin, in this example named **keyboard_command.cpp** (in **workspace/src/mavros/mavros_extras/src/plugins**) by using the code below:
+1. 首先，我们创建一个新的MAVROS 插件，在**keyboard_command.cpp**(**workspace/src/mavros/mavros_extras/src/plugins**)示例中添加以下代码：
 
-   The code subscribes a 'char' message from ROS topic `/mavros/keyboard_command/keyboard_sub` and sends it as a MAVLink message.
+   代码功能是从ROS消息主题`/mavros/keyboard_command/keyboard_sub`中订阅了一个字符消息，并且将其作为MAVLink 消息发送出去。
    ```c
     #include <mavros/mavros_plugin.h>
     #include <pluginlib/class_list_macros.h>
@@ -86,7 +86,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    ...
    ```
 
-## PX4 Changes
+## PX4 修改
 
 1. Inside **common.xml** (in **PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions**), add your MAVLink message as following (same procedure as for MAVROS section above):
    ```xml
@@ -103,14 +103,14 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    rm -r common
    rm -r standard
    ```
-1. Git clone "mavlink_generator" to any directory you want and execute it.
+1. git 克隆"mavlink_generator"到你想要的文件夹下并执行。
    ```sh
    git clone https://github.com/mavlink/mavlink mavlink-generator
    cd mavlink-generator
    python mavgenerate.py
    ```
 
-1. You will see a "MAVLink Generator" popup:
+1. 你会看到一个“MAVLink Generator”应用程序窗口：
    - For *XML*, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml**.
    - For Out, "Browse" to **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
    - Select Language **C**
@@ -119,7 +119,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
    Then, press **Generate**. You will see *common*, and *standard* directories created in **/PX4-Autopilot/mavlink/include/mavlink/v2.0/**.
 
-1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). For this example the "key_command.msg" has only the code:
+1. Make your own uORB message file **key_command.msg** in (PX4-Autopilot/msg). 示例中的“key_command.msg”文件只包含以下代码：
    ```
    char cmd
    ```
@@ -147,7 +147,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.
+1. Edit **mavlink_receiver.cpp** (in **PX4-Autopilot/src/modules/mavlink**). 这是 PX4 接收 ROS 发送过来的 MAVLink 消息的地方，并且将消息作为 uORB 主题发布。
    ```cpp
    ...
    void MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -179,7 +179,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-1. Make your own uORB topic subscriber just like any example subscriber module. For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). In this directory, create two files **CMakeLists.txt**, **key_receiver.cpp**. Each one looks like following.
+1. 像其他示例一样订阅你自己的uORB主题。 For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). In this directory, create two files **CMakeLists.txt**, **key_receiver.cpp**. 两个文件如下所示。
 
    -CMakeLists.txt
 
@@ -269,12 +269,12 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
 Now you are ready to build all your work!
 
-## Building
+## 构建
 
 ### Build for ROS
 
 1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+1. 在此之前，你必须设置你的“px4.launch”（/workspace/src/mavros/mavros/launch）文件。 编辑“px4.launch”文件如下： 如果你使用USB来连接你的电脑和Pixhawk，你必须设置“fcu_url”如下所示。 但是，如果你使用CP2102来连接你的电脑和Pixhawk，你必须将“ttyACM0” 替换为"ttyUSB0"。 修改“gcs_url”是为了连接你的 Pixhawk 和 UDP，因为串口通信不能同时接收 MAVROS 和 nutshell。
 
 1. Write your IP address at "xxx.xx.xxx.xxx"
    ```xml
@@ -284,7 +284,7 @@ Now you are ready to build all your work!
    ...
    ```
 
-### Build for PX4
+### PX4 编译
 
 1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx).
 
@@ -303,28 +303,28 @@ Next test if the MAVROS message is sent to PX4.
    ```sh
    roslaunch mavros px4.launch
    ```
-1. In a second terminal run:
+1. 在第二个终端中运行：
    ```sh
    rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
+   这意味着以“std_msgs/Char”消息类型发布97（ASCII码的‘a'）到ROS主题“/mavros/keyboard_command/keyboard_sub” “-r 10”意味着以“10Hz”频率持续发布。
 
-### Running PX4
+### PX4 运行
 
-1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
+1. 通过UDP进入Pixhawk 的 nutshell。 用你的IP地址替换xxx.xx.xxx.xxx
    ```sh
    cd PX4-Autopilot/Tools
    ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
    ```
 
-1. After few seconds, press **Enter** a couple of times. You should see a prompt in the terminal as below:
+1. After few seconds, press **Enter** a couple of times. 你会看到终端中以下提示：
    ```sh
    nsh>
    nsh>
    ```
-   Type "key_receiver", to run your subscriber module.
+   输入“key_receiver”命令来运行你的订阅模块。
    ```
    nsh> key_receiver
    ```
 
-Check if it successfully receives `a` from your ROS topic.
+测试是否从你的 ROS 话题中接收到 `a` 字符。

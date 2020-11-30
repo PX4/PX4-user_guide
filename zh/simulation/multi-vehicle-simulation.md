@@ -1,9 +1,9 @@
-# Multi-Vehicle Simulation
+# 基于gazebo的多飞行器仿真
 
-PX4 supports multi-vehicle simulation using the following simulators:
-- [Multi-Vehicle Sim with Gazebo](../simulation/multi_vehicle_simulation_gazebo.md) (both with and without ROS)
-- [Multi-Vehicle Sim with FlightGear](../simulation/multi_vehicle_flightgear.md)
-- [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md)
+本主题介绍如何使用 gazebo 和 sitl (仅限 linux) 模拟多架无人机/车辆。
+- **注意**如果您不需要 gazebo 或 ros 提供的功能， [ jmavsim的 Multi-车辆仿真](../simulation/multi_vehicle_jmavsim.md)更容易设置。
+- [MAVROS 包](../simulation/multi_vehicle_flightgear.md)
+- [使用 JMAVSim 进行多飞行器仿真](../simulation/multi_vehicle_jmavsim.md)
 
 The choice of the simulator depends on the vehicle to be simulated, how "good" the simulation needs to be (and for what features), and how many vehicles need to be simulated at a time:
 - FlightGear is the most accurate simulator, and as a result the most heavy weight. It might be used if you need a great simulation but not too many vehicles at a time. It can also be used if different types of vehicles need to be simulated at the same time.

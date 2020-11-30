@@ -2,7 +2,7 @@
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### 概要 
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
@@ -25,6 +25,6 @@ MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackab
 
 MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-### Support
+### 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.

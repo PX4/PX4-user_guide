@@ -1,42 +1,42 @@
-# Test MC_05 - Indoor Flight (Manual Modes)
+# 시험 MC_05 - 실내 비행 (수동 상태)
 
-## When to Use This Test Card
+## 이 시험 카드를 사용해야 할 때
 
-* New build maiden flight
-* When required to replicate an issue in a confined area
-* Experimental builds that might have stability issues
-* Testing hardware that has been replaced and/or modified
+* 새 처녀비행 수립
+* 지정 영역에서 나타나는 문제를 재현하고자할 때
+* 안정성 문제를 내포할 수 있는 시험작
+* 교체하거나 수정한 하드웨어의 시험
 
-## Arm and Take-off
+## 시동 및 이륙
 
-❏ Set flight mode to stabilize and Arm
+❏  Stabilize로 비행 모드를 설정하고 시동
 
-❏ Take-off by raising the throttle
+❏ 추진력을 올려 이륙
 
-## Flight
+## 비행
 
-❏ Stabilized
+❏ 안정화 상태
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 추진력 응답 1:1
 
-❏ Altitude
+❏ 고도
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수직 위치를 유지해야 함
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답 1:1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상승 하강 속도 설정시 추력부의 반응
 
-## Landing
+## 착륙
 
-❏ Land in either Stabilized or Altitude mode with the throttle below 40%
+❏ 안정화 상태 또는 추진력을 40% 이하로 둔 상태의 고도 제어 모드에서 착륙
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ 콥터가 지면에 닿을 때, 2초 안에 제동해야 함(착륙 후 제동 시간은 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)로 설정)
 
-## Expected Results
+## 예상 결과
 
-* Take-off should be smooth as throttle is raised
-* No oscillations should present in any of the above flight modes
-* Upon landing, copter should not bounce on the ground
+* 추력을 올릴 때 서서히 이륙한다
+* 위에 언급한 어떤 비행 모드에서도 떨림이 나타나서는 안됨
+* 지면에 착륙시, 콥터가 지면에서 튀면 안됨

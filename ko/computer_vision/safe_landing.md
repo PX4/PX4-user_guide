@@ -1,10 +1,10 @@
-# Safe Landing
+# 안전 착륙
 
 The *Safe Landing* feature ensures that vehicles only land on flat terrain.
 
 The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mission mode](../flight_modes/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. It can also be used for VTOL vehicles in MC mode.
 
-If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter). If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
+착륙 명령을 내리면, 기체는 우선 지표면을 측정할 수 있는 높이만큼 하강합니다(보조 컴퓨터의 `loiter_height` 매개변수). 착륙 지점이 충분히 평평하지 않으면, 기체는 정방 나선 패턴 외부로 이동한 후 주기적으로 멈추고 지형을 다시 확인하는 절차를 반복하여 착륙 지점이 너무 고르지 않은지 확인합니다.
 
 {% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
 
@@ -35,19 +35,19 @@ The configuration information includes, among other things, how to set up safe l
 
 <span id="interface"></span>
 
-## Safe Landing Interface
+## 안전 착륙 인터페이스
 
-PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4는 [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)를 활용하여 보조 컴퓨터상에서 경로 계획 서비스를 통합합니다([임무간 충돌 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 그리고 앞으로 채택할 서비스에 해당).
 
 The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
 
-## Supported Hardware
+## 지원 하드웨어
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
 
-## Further Information
+## 추가 정보
 
-* [Vision and offboard control interfaces](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 Developer Summit 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
+* [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
 * [PX4/avoidance](https://github.com/PX4/avoidance) 
-  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+  * [모의 시험 환경 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#safe-landing-planner)
+  * [하드웨어 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#ssafe-landing-planner-1)

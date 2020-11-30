@@ -1,28 +1,28 @@
-# QuadPlane VTOL Configuration & Tuning
+# QuadPlane VTOL 구성 및 튜닝
 
-This is the configuration documentation for a QuadPlane VTOL setup (Plane combined with Quadcopter). For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
+181/5000 이것은 QuadPlane VTOL 설정 (Quadcopter와 결합 된 Plane)에 대한 설정 문서입니다. For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
 
-## Firmware & Basic Settings
+## 펌웨어 및 기본 설정
 
 1. Run *QGroundControl*
-2. Flash the master firmware
-3. In the Setup tab select the appropriate VTOL airframe, if your airframe is not listed select the Fun Cub VTOL airframe.
+2. 마스터 펌웨어를 플래시하십시오.
+3. 설정 탭에서 적절한 VTOL 기체를 선택하십시오. 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택하십시오.
 
-### Flight / Transition Mode Switch
+### 비행 / 전환 모드 스위치
 
 In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
 
 This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
 
-### Multirotor / Fixed Wing Tuning
+### 멀티 로터 / 고정 날개 튜닝
 
-Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. If it isn’t well tuned bad things might happen.
+Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 잘 조정되지 않으면 사고가 일어날 수 있습니다.
 
 If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
 Follow the the respective tuning guides on how to tune multirotors and fixed wings.
 
-### Transition Tuning
+### 전환 조정
 
 While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition.
 
@@ -50,7 +50,7 @@ A forward transition refers to the transition from multirotor to fixed wing mode
 
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
-#### Blending Airspeed
+#### 블렌딩 속도
 
 Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
@@ -58,13 +58,13 @@ By default, as the airspeed gets close to the transition speed, multirotor attit
 
 Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
 
-#### Transition Airspeed
+#### 천이 속도
 
 Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
 This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
-#### Fixed Wing Permanent Stabilisation
+#### 고정 날개 영구 안정화
 
 Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
@@ -82,7 +82,7 @@ Before you fly have a plan for what you will do in each of the three phases (mul
 
 Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
 
-#### Transition: Getting Ready
+#### 전환: 준비하기
 
 Make sure you are at least 20 meters above ground and have enough room to complete a transition. It could be that your VTOL will lose height when it switches to fixed wing mode, especially if the airspeed isn’t high enough.
 
@@ -116,6 +116,6 @@ When transitioning from **multirotor to fixed wing** (transition switch is on/
 
 When transitioning from **fixed wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
 
-### Support
+### 지원
 
 If you have any questions regarding your VTOL conversion or configuration please see <https://discuss.px4.io/c/px4/vtol>.

@@ -1,8 +1,8 @@
-# Airspeed Sensors
+# 空速传感器
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+对于固定翼和 VTOL 机架，*强烈建议* 使用空速传感器。 它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行来说，保证升力的是空速而不是地速。
 
-![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![数字空速传感器](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## Hardware Options
 
@@ -25,10 +25,10 @@ All the above sensors are connected via the I2C bus/port.
 Note Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 :::
 
-## Configuration
+## 配置
 
 PX4 setup information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## Developer Information
+## 开发人员信息
 
 * [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)

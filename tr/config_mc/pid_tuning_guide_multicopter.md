@@ -163,7 +163,7 @@ And here is a good example for the roll rate tracking with several flips, which 
 This controls the orientation and outputs desired body rates with the following tuning parameters:
 
 - Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
+- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
 - Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
 The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
@@ -173,7 +173,7 @@ To tune the attitude controller, fly in *Manual/Stabilized mode* and increase th
 The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
 
 - Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
+- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 <span id="thrust_curve"></span>

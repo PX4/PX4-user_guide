@@ -23,41 +23,41 @@ Some of its main features include:
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Quick Summary
+## 概览
 
-* Main FMU Processor: STM32F765 
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO Processor: STM32F100 
-  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* On-board sensors:
+* 主 FMU 处理器：STM32F765 
+  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
+* IO 处理器：STM32F100 
+  * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
+* 内置传感器：
   
-  * Accelerometer/Gyroscope: ICM-20689
-  * Accelerometer/Gyroscope: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* Interfaces:
+  * 加速度计/陀螺仪：ICM-20689
+  * 加速度计/陀螺仪：BMI055
+  * 磁力计：IST8310
+  * 气压计：MS5611
+* 接口：
   
-  * 8-14 PWM outputs (6 from IO, 8 from FMU)
-  * 3 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * analog / PWM RSSI input
-  * S.Bus servo output
-  * 5 general purpose serial ports
-  * 4 I2C ports
-  * 4 SPI buses
-  * 2 CANBuses with serial ESC
-  * Analog inputs for voltage / current of 2 batteries
-* Power System: 
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-* Weight and Dimensions: 
-  * Weight: 90g
+  * 14路PWM输出 (6路来自FMU, 8路来自 IO)
+  * FMU上有3个专用PWM/Capture输入
+  * 用于 CPPM 的专用遥控输入
+  * 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
+  * 电平/PWM RSSI输入
+  * S.BUS伺服输出
+  * 5个通用串行口
+  * 4路I2C总线
+  * 4路SPI总线
+  * 2路CAN总线
+  * 2个电池电流/电压模拟输入口
+* 电源系统 
+  * 输入电压：4.3~5.4V
+  * USB输入电压: 4.75~5.25V
+* 重量和尺寸: 
+  * 重量：99g
   * Dimensions: 85.5*42*33mm 
-* Other Characteristics: 
+* 其它特性: 
   * Operating temperature: -20 ~ 80°c（Measured value）
 
-## Purchase
+## 采购
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
@@ -73,11 +73,11 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 
-## Pinouts
+## 针脚定义
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
-## Voltage Ratings
+## 额定电压
 
 *V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
@@ -85,10 +85,10 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 **Normal Operation Maximum Ratings**
 
-Under these conditions all power sources will be used in this order to power the system:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 1. `Power1` and `Power2` inputs (4.3V to 5.4V)
-2. `USB` input (4.75V to 5.25V)
+2. `USB` 输入电压（4.75 v 至 5.25 v）
 
 ## Over Current Protection
 
@@ -96,7 +96,7 @@ The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high p
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -107,7 +107,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v5_default
     
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
 
@@ -115,17 +115,17 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
-| ------- | -------------- | ----- |
-| 1 (red) | 5V+            | +5V   |
-| 2 (blk) | DEBUG TX (OUT) | +3.3V |
-| 3 (blk) | DEBUG RX (IN)  | +3.3V |
-| 4 (blk) | FMU_SWDIO      | +3.3V |
-| 5 (blk) | FMU_SWCLK      | +3.3V |
-| 6 (blk) | GND            | GND   |
+| 针脚   | 信号             | 电压    |
+| ---- | -------------- | ----- |
+| 2    | 5V+            | +5V   |
+| 2    | DEBUG TX (OUT) | +3.3V |
+| 3    | DEBUG RX (IN)  | +3.3V |
+| 4（黑） | FMU_SWDIO      | +3.3V |
+| 6    | FMU_SWCLK      | +3.3V |
+| 6    | GND            | GND   |
 
 
-The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。 The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
@@ -137,7 +137,7 @@ The product package includes a convenient debug cable that can be connected to t
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                  |
+| UART   | 设备         | Port                                  |
 | ------ | ---------- | ------------------------------------- |
 | UART1  | /dev/ttyS0 | GPS                                   |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
@@ -149,17 +149,17 @@ The product package includes a convenient debug cable that can be connected to t
 
 <span id="optional-hardware"></span>
 
-## Peripherals
+## 外部设备
 
-* [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
-* [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [数字空速传感器](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
+* [数传电台模块](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
+* [测距仪/距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台 / 机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Notes
+## 备注
 
 #### Do not plug Digital or Analog PM onto connectors configured for other type of PM
 
@@ -189,7 +189,7 @@ Some JTAG use this voltage to set the IO levels when communicating to the target
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-## Known Issues
+## 已知的问题
 
 The issues below refer to the *batch number* in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
@@ -204,12 +204,12 @@ Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
 
-## Further Information
+## 更多信息
 
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
-- [CUAV Github](https://github.com/cuav)
+- [CUAV Github库](https://github.com/cuav)
 - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
-- [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
+- [雷迅 V5+飞控快速接线指南](../assembly/quick_start_cuav_v5_plus.md)
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)

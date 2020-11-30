@@ -1,38 +1,37 @@
-# Translation
+# 参与翻译
 
 We'd love your help to translate *QGroundControl*, and our guides for PX4, *QGroundControl* and MAVLink!
 
-Our docs (and *QGroundControl*) use the [Crowdin](https://crowdin.com) online tool for translation. Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).
+Our docs (and *QGroundControl*) use the [Crowdin](https://crowdin.com) online tool for translation. Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval). Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).
 
-Crowdin exports the translated documents back out to Github as a "Pull Request" (which the development team periodically review and accept). The exported output contains the source document with any translated and approved text replaced with translated strings (i.e. if a string is not translated/is changed, then it will be displayed in English).
+Crowdin exports the translated documents back out to Github as a "Pull Request" (which the development team periodically review and accept). The exported output contains the source document with any translated and approved text replaced with translated strings (i.e. if a string is not translated/is changed, then it will be displayed in English). The exported output contains the source document with any translated and approved text replaced with translated strings (i.e. if a string is not translated/is changed, then it will be displayed in English).
 
 :::tip
 You will need a (free) [Crowdin account](https://crowdin.com/join) account to join the translation team!
 :::
 
-:::tip
-Note The benefit of this system is that the translation closely tracks the source documents. Readers will not be mislead by old and out of date translations.
+Gitbook uses special prefix text to indicate Notes, Tips and Warnings (e.g. `> **Note**`, `> **Tip**`, `> **Warning**`). This is displayed in Crowdin as shown: Readers will not be mislead by old and out of date translations.
 :::
 
 
-## Getting Started
+## 由此开始
 
 The steps to join our translation tream are:
-1. Join Crowdin: [https://crowdin.com/join](https://crowdin.com/join)
-1. Open the translation project you want to join:
+1. 注册 Crowdin：https://crowdin.com/join
+1. 打开要加入的翻译项目：
    - [QGroundControl](https://crowdin.com/project/qgroundcontrol)
-   - [PX4 User Guide](https://crowdin.com/project/px4-user-guide)
-   - [QGroundControl Developer Guide](https://crowdin.com/project/qgroundcontrol-developer-guide)
-   - [QGroundControl User Guide](https://crowdin.com/project/qgroundcontrol-user-guide)
-   - [MAVLink Guide](https://crowdin.com/project/mavlink)
+   - [PX4 用户手册](https://crowdin.com/project/px4-user-guide)
+   - [PX4 开发人员指南](https://crowdin.com/project/qgroundcontrol-developer-guide)
+   - [QGroundControl 开发人员指南](https://crowdin.com/project/qgroundcontrol-user-guide)
+   - [QGroundControl 用户指南](https://crowdin.com/project/mavlink)
 1. Select the language you want to translate
 1. Click the **Join** button (next to the text *You must join the translators team to be able to participate in this project*) :::tip Note You will be notified once your application to join is accepted.
 :::
 1. Start translating!
 
-## Special Notes
+## 特别注意事项
 
-### Do not modify prefix text
+### 不要修改句首的 Note, Tip, Warning 字样
 
 Vuepress uses `:::` to mark the beginning of notes, tips and warning:
 ```html
@@ -42,7 +41,7 @@ The text for the tip.
 ```
 The text for `:::tip` or `:::warning` etc. should not be modified as it defines the colour of the notebox.
 
-## Adding a New Language
+## 添加新语言
 
 If the language you want to translate is not available then you will need to request it by contacting the project owner (there is a contact link on each project's home page).
 
@@ -51,7 +50,7 @@ Maintaining a translation is hard! Before you ask us to create a new language, p
 :::
 
 
-## Getting Help
+## 获取帮助
 
 The *Crowdin* interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/) and [feedback tool](https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool).
 

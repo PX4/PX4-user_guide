@@ -16,8 +16,7 @@ frsky_telemetry <command> [arguments...]
      [-t <val>]  Scanning timeout [s] (default: no timeout)
                  default: 0
      [-m <val>]  Select protocol (default: auto-detect)
-                 values: sport|sport_single|sport_single_invert|dtype, default:
-                 auto
+                 values: sport|sport_single|dtype, default: auto
 
    stop
 
@@ -72,9 +71,8 @@ mavlink <command> [arguments...]
                  param)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
-                 values:
-                 custom|camera|onboard|osd|magic|config|iridium|minimal|extvsisi
-                 on, default: normal
+                 values: custom|camera|onboard|osd|magic|config|iridium|minimal,
+                 default: normal
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
@@ -84,8 +82,7 @@ mavlink <command> [arguments...]
      [-f]        Enable message forwarding to other Mavlink instances
      [-w]        Wait to send, until first message received
      [-x]        Enable FTP
-     [-z]        Force hardware flow control always on
-     [-Z]        Force hardware flow control always off
+     [-z]        Force flow control always on
 
    stop-all      Stop all instances
 
@@ -94,6 +91,7 @@ mavlink <command> [arguments...]
 
    stream        Configure the sending rate of a stream for a running instance
      [-u <val>]  Select Mavlink instance via local Network Port
+                 default: 0
      [-d <val>]  Select Mavlink instance via Serial Device
                  values: <file:dev>
      -s <val>    Mavlink stream to configure
@@ -119,6 +117,10 @@ micrortps_client <command> [arguments...]
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 460800
      [-p <val>]  Poll timeout for UART in ms
+                 default: 1
+     [-u <val>]  Interval in ms to limit the update rate of all sent topics
+                 (0=unlimited)
+                 default: 0
      [-l <val>]  Limit number of iterations until the program exits
                  (-1=infinite)
                  default: 10000
@@ -128,11 +130,6 @@ micrortps_client <command> [arguments...]
                  default: 2019
      [-s <val>]  Select UDP Network Port for sending (remote)
                  default: 2020
-     [-i <val>]  Select IP address (remote)
-                 values: <x.x.x.x>, default: 127.0.0.1
-     [-f]        Activate UART link SW flow control
-     [-h]        Activate UART link HW flow control
-     [-v]        Add more verbosity
 
    stop
 
@@ -175,8 +172,6 @@ uorb <command> [arguments...]
    status        Print topic statistics
 
    top           Monitor topic publication rates
-     [-a]        print all instead of only currently publishing topics with
-                 subscribers
-     [-1]        run only once, then exit
+     [-a]        print all instead of only currently publishing topics
      [<filter1> [<filter2>]] topic(s) to match (implies -a)
 ```

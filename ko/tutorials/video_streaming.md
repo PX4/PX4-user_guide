@@ -1,51 +1,51 @@
-# Video Streaming from Odroid C1 to QGroundControl
+# 오드로이드 C1에서 QGroundControl로의 동영상 스트리밍
 
-> **Tip** This article is somewhat out of date. Community members are encouraged to retest the instructions on a more recent Ubuntu version, and to import Odroid setup instructions into the wiki.
+> **TIp** 이 글 일부는 내용이 오래됐습니다. 커뮤니티 구성원들은 최근 우분투 버전에 맞추어 절차를 다시 테스트해주었으면 좋겠고, 위치에 오드로이드 설치 절차 내용도 가져다 두었으면 좋겠습니다.
 
-This topic shows how to stream video from a camera (Logitech C920) attached to a companion computer ([Odroid C1](https://magazine.odroid.com/wp-content/uploads/odroid-c1-user-manual.pdf)) to another computer (over wifi) and display in *QGroundControl*.
+이 주제에서는 보조 컴퓨터([Odroid C1](https://magazine.odroid.com/wp-content/uploads/odroid-c1-user-manual.pdf))에 붙은 카메라(로지텍 C920)로 동영상을 촬영한 후 (무선랜 연결에 실어) 다른 컴퓨터로 실시간 전송하여 *QGroundControl*에 띄우는 방법을 보여드립니다.
 
-The hardware setup is shown in the figure below. It consists of the following parts:
-* Odroid C1
-* Logitech camera C920
-* WiFi module TP-LINK TL-WN722N
+하드웨어 구성은 아래 그림과 같습니다. 다음 부분으로 구성합니다:
+* 오드로이드 C1
+* 로지텍 카메라 C920
+* 무선랜 모듈 TP-LINK TL-WN722N
 
-![Setup](../../assets/videostreaming/setup_whole.jpg)
+![설정](../../assets/videostreaming/setup_whole.jpg)
 
-The instructions were tested on Ubuntu 14.04 but a similar approach should work for later Ubuntu versions.
+절차는 우분투 14.04에서 테스트했지만 최근 우분투 버전에서도 비슷한 방식으로 동작할지 모릅니다.
 
-## Install Linux Environment in Odroid C1
+## 오드로이드 C1에 리눅스 환경 설치
 
-To install the Linux environment (Ubuntu 14.04), follow the instruction given in the [Odroid C1 tutorial](http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1) (wayback machine). The tutorial also shows how to access the Odroid C1 with a UART cable and how to establish Ethernet connection.
+리눅스 환경(우분투 14.04)를 설치하려면, [오드로이드 C1 자습서](http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1)(기록 보관 사이트)에 주어진 절차를 따르십시오. 자습서에는 오드로이드 C1에 UART 케이블로 연결하는 방법과 이더넷 케이블로 연결하는 방법을 알려줍니다.
 
-## Set up Alternative Power Connection
+## 대안 전원 연결 설정
 
-The Odroid C1 can be powered via the 5V DC jack. If the Odroid is mounted on a drone, it is recommended to solder two pins next to the 5V DC jack by applying the through-hole soldering [method](https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering) as shown in the figure below. The power is delivered by connecting the DC voltage source (5 V) via a jumper cable (red in the image above) with the Odroid C1 and connect the ground of the circuit with a jumper cable (black in the image above) with a ground pin of the Odroid C1 in the example setup.
+오드로이드 C1에는 5V 직류 전원 커넥터로 전원을 공급합니다. 오드로이드를 드론에 연결할 경우 아래 그림과 같이 홀을 관통하는 [방식](https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering)으로 5V 직류 연결 커넥터 옆 핀 두개의 납땜을 권장합니다. 전원은 예제 설정과 같이 점퍼 케이블(그림 위쪽의 적색 케이블)을 직류 전압 공급원(5V)과 오드로이드 C1에 연결하고, 점퍼 케이블(그림 위쪽의 흑색)을 회로의 접지부와 오드로이드 C1의 접지 핀을 연결하여 끌어옵니다.
 
-![Power Pins](../../assets/videostreaming/power-pins.jpg)
+![전원 핀](../../assets/videostreaming/power-pins.jpg)
 
-## Enable WiFi Connection for Odroid C1
+## 오드로이드 C1 무선랜 연결 사용
 
-In this this tutorial the WiFi module TP-LINK TL-WN722N is used. To enable WiFi connection for the Odroid C1, follow the steps described in the [Odroid C1 tutorial](http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1) in the section Establishing wifi connection with antenna.
+이 자습서에서는 TP-LINK TL-WN722N 무선랜 모듈을 사용합니다. 오드로이드에서 무선랜 연결을 사용하려면, [오드로이드 C1 자습서](http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1)의 안테나로 무선랜 연결하기 절 단계를 따르십시오.
 
 
-## Configure as WiFi Access Point
+## 무선랜 액세스 포인트 구성
 
-This sections shows how to set up the Odroid C1 such that it is an access point. The content is taken from the pixhawk.org "access point" tutorial (no longer available) with some small adaptions. To enable to stream the video from the camera via the Odroid C1 to the QGroundControl that runs on a computer it is not required to follow this section. However, it is shown here because setting up the Odroid C1 as an access point allows to use the system in a stand-alone fashion. The TP-LINK TL-WN722N is used as a WiFi module.
+이 절에서는 오드로이드 C1을 액세스 포인트로 구성하는 방법을 알려드리겠습니다. 이 내용은 pixhawk.org의 "액세스 포인트" 구축 자습서(더이상 내용이 없음)의 일부 적용 예에서 가져왔습니다. 오드로이드 C1으로 촬영한 카메라 동영상을 컴퓨터에서 실행하는 QGroundControl로의 실시간 전송을 활성화하려 한다면 이 절의 내용을 따를 필요가 없습니다. 그러나, 오드로이드 C1를 자체 동작 모드 시스템으로 사용할 수 있는 액세스 포인트로 구성할 것이기에 이 내용을 보여드립니다. TP-LINK TL-WN722N을 무선랜 모듈로 활용합니다.
 
-In the following steps it is assumed that the Odroid C1 assigns the name wlan0 to your WiFi module. Change all occurrences of wlan0 to the appropriate interface if different (e.g. wlan1).
+다음 단계에서는 오드로이드 C1에서 무선랜 모듈 이름을 wlan0(으)로 지정했음을 가정합니다. wlan0이(가) 나오는 모든 부분 대신 인터페이스 이름이 차이가 있는 경우 적절한 이름(예: wlan1)으로 바꾸십시오.
 
-### Onboard Computer as Access Point
+### 액세스 포인트 내장 컴퓨터
 
-For a more in depth explanation, you can look at [RPI-Wireless-Hotspot](http://elinux.org/RPI-Wireless-Hotspot)
+좀 더 자세한 내용은 [RPI-Wireless-Hotspot](http://elinux.org/RPI-Wireless-Hotspot) 문서를 살펴볼 수 있습니다
 
-Install the necessary software
+필요한 프로그램을 설치하십시오
 
 
 ```bash
 sudo apt-get install hostapd udhcpd
 ```
 
-Configure DHCP. Edit the file `/etc/udhcpd.conf`
+DHCP를 설정합니다. `/etc/udhcpd.conf` 파일을 편집하십시오
 
 ```bash
 start 192.168.2.100 # This is the range of IPs that the hotspot will give to client devices.
@@ -57,21 +57,21 @@ opt subnet 255.255.255.0
 opt router 192.168.2.1 # The Onboard Computer's IP address on wlan0 which we will set up shortly.
 opt lease 864000 # 10 day DHCP lease time in seconds
 ```
-All other 'opt' entries should be disabled or configured properly if you know what you are doing.
+기타 모든 'opt' 항목은 비활성화하든지, 설정 방법을 안다면 적절하게 설정해야합니다.
 
-Edit the file `/etc/default/udhcpd` and change the line:
+`/etc/default/udhcpd` 파일을 편집하여 다음 줄을:
 
 ```bash
 DHCPD_ENABLED="no"
 ```
 
-to
+다음처럼 주석 처리하십시오.
 
 ```bash
 #DHCPD_ENABLED="no"
 ```
 
-You will need to give the Onboard Computer a static IP address. Edit the file `/etc/network/interfaces` and replace the line `iface wlan0 inet dhcp` (or `iface wlan0 inet manual`) to:
+자체 컴퓨터에 고정 IP 주소를 할당해야합니다. `/etc/network/interfaces` 파일을 편집하여 `iface wlan0 inet dhcp` 줄 (또는 `iface wlan0 inet manual`줄)을 다음과 같이 바꾸십시오:
 
 ```sh
 auto wlan0
@@ -83,14 +83,14 @@ broadcast 192.168.2.255
 wireless-power off
 ```
 
-Disable the original (WiFi Client) auto configuration. Change the lines (they probably will not be all next to each other or may not even be there at all):
+초기 (무선랜 클라이언트) 자동 설정을 끄십시오. 다음 줄을(아마 해당 설정은 같이 두지 않든지 모두 두지 않는게 좋을지도 모릅니다):
 
 ```sh
 allow-hotplug wlan0
 wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 ```
-to:
+다음과 같이 주석처리하십시오:
 
 ```sh
 #allow-hotplug wlan0
@@ -98,9 +98,9 @@ to:
 #iface default inet dhcp
 ```
 
-If you have followed the *Odroid C1 tutorial* (originally pixhawk.org) to set up the WiFi connection, you might have created the file `/etc/network/intefaces.d/wlan0`. Please comment out all lines in that file such that those configurations have no effect anymore.
+*오드로이드 C1 자습서*(pixhawk.org에 있었음)의 내용을 따라 무선랜 연결을 설정했다면, `/etc/network/interfaces.d/wlan0` 파일을 이미 만들었을지도 모릅니다. 파일의 해당 줄을 모두 주석처리하여 더이상 설정 내용이 반영되지 않게 하십시오.
 
-Configure HostAPD: To create a WPA-secured network, edit the file `/etc/hostapd/hostapd.conf` (create it if it does not exist) and add the following lines:
+HostAPD를 설정하십시오. WPA 보안 네트워크를 만들려면 `/etc/hostapd/hostapd.conf` 파일을 편집(없다면 새로 만드십시오)하고, 다음 줄을 추가하십시오:
 
 
 ```
@@ -121,31 +121,31 @@ ssid=OdroidC1
 wpa_passphrase=QGroundControl
 ```
 
-Change `ssid=`, `channel=`, and `wpa_passphrase=` to values of your choice. SSID is the hotspot's name which is broadcast to other devices, channel is what frequency the hotspot will run on, wpa_passphrase is the password for the wireless network. For many more options see the file `/usr/share/doc/hostapd/examples/hostapd.conf.gz`. Look for a channel that is not in use in the area. You can use tools such as *wavemon* for that.
+`ssid=`, `channel=`, `wpa_passphrase=` 값을 원하는 값으로 바꾸십시오. SSID는 다른 서비스에 뿌려주는 핫스팟 이름이고, 채널은 핫스팟을 실행할 주파수 대역이며, wpa_passphrase는 무선 네트워크의 암호입니다. 더 많은 옵션 내용을 보려면 `/usr/share/doc/hostapd/examples/hostapd.conf.gz` 파일을 살펴보십시오. 해당 영역에서 사용하지 않는 채널을 확인하십시오. *wavemon* 과 같은 도구를 활용해볼 수 있습니다.
 
-Edit the file `/etc/default/hostapd` and change the line:
+`/etc/default/hostapd` 파일을 편집하여 다음 줄을:
 
 ```
 #DAEMON_CONF=""
 ```
-to:
+다음처럼 주석을 해제하고 변수값을 입력하십시오.
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
-Your Onboard Computer should now be hosting a wireless hotspot. To get the hotspot to start on boot, run these additional commands:
+이제 내장 컴퓨터에서 무선 핫스팟 서비스를 쓸 수 있습니다. 핫스팟을 부팅할 때 가동하려면 다음 추가 명령을 실행하십시오:
 
 ```
 sudo update-rc.d hostapd enable
 sudo update-rc.d udhcpd enable
 ```
 
-This is enough to have the Onboard Computer present itself as an Access Point and allow your ground station to connect. If you truly want to make it work as a real Access Point (routing the WiFi traffic to the Onboard Computer’s Ethernet connection), we need to configure the routing and network address translation (NAT). Enable IP forwarding in the kernel:
+내장 컴퓨터 자체를 액세스 포인트로 띄워 나타내는데는 이정도면 충분하며, 지상 통제 장치에서 연결할 수 있습니다. 실제 액세스 포인트로 동작하게끔 하려면(무선랜 트래픽을 온보드 컴퓨터의 이더넷 연결로 전달하려면), 라우팅과 네트워크 주소 변환(NAT)을 설정해야합니다. 커널에서 IP 전달을 활성화하십시오:
 
 ```sh
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 ```
 
-To enable NAT in the kernel, run the following commands:
+커널에서 NAT를 활성화하려면, 다음 명령을 실행하십시오:
 
 ```sh
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -153,39 +153,39 @@ sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 ```
 
-To make this permanent, run the following command:
+이 설정을 영구적으로 동작하게 하려면, 다음 명령을 실행하십시오:
 
 ```sh
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 ```
 
-Now edit the file /etc/network/interfaces and add the following line to the bottom of the file:
+/etc/network/interfaces 파일을 편집하여 다음 줄을 파일 하단에 추가하십시오:
 
 ```sh
 up iptables-restore < /etc/iptables.ipv4.nat
 ```
 
-# Gstreamer Installation
+# 지스트리머 설치
 
-To install gstreamer packages on the computer and on the Odroid C1 and start the stream, follow the instruction given in the [QGroundControl README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
+컴퓨터와 오드로이드 C1에 지스트리머 꾸러미를 설치하고 스트리밍을 시작하려면, [QGroundControl README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md)에 설명하는 내용을 따르십시오.
 
-If you cannot start the stream on the Odroid with the uvch264s plugin, you can also try to start it with the v4l2src plugin:
+uvch264 플러그인으로 오드로이드에서 스트리밍 전송을 시작할 수 없다면, v4l2src 플러그인도 함께 시작하게 할 수도 있습니다.
 
 ```sh
 gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-h264,width=1920,height=1080,framerate=24/1 ! h264parse ! rtph264pay ! udpsink host=xxx.xxx.xxx.xxx port=5000
 ```
-Where `xxx.xxx.xxx.xxx` is the IP address where QGC is running.
+여기서 `xxx.xxx.xxx.xxx` 부분은 QGC를 실행하는 컴퓨터의 IP 주소입니다.
 
-> **Tip** If you get the system error: `Permission denied`, you might need to prepend `sudo` to the command above.
+> **Tip** `Permission denied` 오류가 뜬다면, 위 명령 앞에 `sudo` 를 붙여야합니다.
 
-Alternatively add the current user to the `video` group as shown below (and then logout/login):
+대신 아래와 같이 현재 사용자를 `video` 그룹에 추가할 수 있습니다(그리고 로그아웃한 다음 다시 로그인하십시오).
 
   ```sh
   sudo usermod -aG video $USER
   ```
 
-If everything works, you should see the video stream on the bottom left corner in the flight-mode window of *QGroundControl* as shown in the screenshot below.
+모든 부분이 제대로 동작한다면, 아래 화면과 같이 *QGroundControl*의 비행 모드 창 좌측 하단 구석에서 실시간 동영상 전송 화면을 볼 수 있어야합니다.
 
-![QGC displaying video stream](../../assets/videostreaming/qgc-screenshot.png)
+![QGC에서의 실시간 동영상 전송 화면](../../assets/videostreaming/qgc-screenshot.png)
 
-If you click on the video stream, the satellite map is shown in the left bottom corner and the video is shown in the whole background.
+실시간 동영상 전송 화면을 누르면, 좌측 하단 구석에는 인공위성 지도가 뜨고, 전체 배경에 동영상이 뜹니다.

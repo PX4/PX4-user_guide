@@ -1,43 +1,43 @@
-# Test MC_03 - Auto Manual Mix
+# 시험 MC_03 - 자동 / 수동 혼합
 
-## Create and Upload Mission
+## 임무 수립 및 업로드
 
-❏ Mission Criteria
+❏ 임무 규정
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 임무를 통한 고도 변경
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Mission should end in the air and NOT Land/RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 임무는 공중에 떠 있는 상태에서 끝나야 하며, 착륙하거나 회귀 지점 착륙 상태로 끝나면 안됨
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 3 to 4 minutes
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 3~4분간 수행
 
-❏ Upload mission to vehicle using *QGroundControl*
+❏ *QGroundControl*을 통한 기체로의 임무 업로드
 
-## Flight
+## 비행
 
-❏ Arm and take-off in Position mode
+❏ 위치 제어 모드에서 시동 및 이륙
 
-❏ Engage Auto
+❏ 자동 모드 인가
 
-❏ Observe tracking and cornering
+❏ 경로 추적, 선회 관찰
 
-❏ Once mission has completed, switch back to Position mode
+❏ 임무 완료 후 위치 제어 모드로 복귀
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Horizontal position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수평 위치를 유지해야 함
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 스틱을 가운데 두었을 때 현재 상태에서 수직 위치를 유지해야 함
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상승/하강 속도 설정시 추력부의 반응
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response set to Pitch/Roll/Yaw rates
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 상하/좌우/방위 회전각 응답으로 상하/좌우/방위 각 변화 속도 설정
 
-❏ Engage RTL
+❏ 회귀 지점 착륙 인가
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+❏ 콥터가 지면에 닿을 때, 2초 안에 제동해야 함(착륙 후 제동 시간은 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)로 설정)
 
 
-## Expected Results
+## 예상 결과
 
-* Take-off should be smooth as throttle is raised
-* No oscillations should present in any of the above flight modes
-* Upon landing, copter should not bounce on the ground
+* 추력을 올릴 때 서서히 이륙한다
+* 위에 언급한 어떤 비행 모드에서도 떨림이 나타나서는 안됨
+* 지면에 착륙시, 콥터가 지면에서 튀면 안됨
 

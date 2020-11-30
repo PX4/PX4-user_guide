@@ -10,9 +10,9 @@ Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tr
 
 ### Usage
 ```
-battery_simulator <command> [arguments...]
+load_mon <command> [arguments...]
  Commands:
-   start
+   start         Start the background task
 
    stop
 
@@ -35,9 +35,10 @@ It runs in its own thread and polls on the currently selected gyro topic.
 
 ### Usage
 ```
-battery_status <command> [arguments...]
+sensors <command> [arguments...]
  Commands:
    start
+     [-h]        Start in HIL mode
 
    stop
 
@@ -53,9 +54,10 @@ Source: [modules/camera_feedback](https://github.com/PX4/Firmware/tree/master/sr
 
 ### Usage
 ```
-camera_feedback <command> [arguments...]
+land_detector <command> [arguments...]
  Commands:
-   start
+   start         Start the background task
+     fixedwing|multicopter|vtol|ugv Select vehicle type
 
    stop
 
@@ -72,34 +74,15 @@ The commander module contains the state machine for mode switching and failsafe 
 
 ### Usage
 ```
-commander <command> [arguments...]
+send_event <command> [arguments...]
  Commands:
-   start
-     [-h]        Enable HIL mode
+   start         Start the background task
 
-   calibrate     Run sensor calibration
-     mag|accel|gyro|level|esc|airspeed Calibration type
-     quick       Quick calibration (accel only, not recommended)
-
-   check         Run preflight checks
-
-   arm
-     [-f]        Force arming (do not run preflight checks)
-
-   disarm
-
-   takeoff
-
-   land
-
-   transition    VTOL transition
-
-   mode          Change flight mode
-     manual|acro|offboard|stabilized|rattitude|altctl|posctl|auto:mission|auto:l
-                 oiter|auto:rtl|auto:takeoff|auto:land|auto:precland Flight mode
-
-   lockdown
-     [off]       Turn lockdown off
+   temperature_calibration Run temperature calibration process
+     [-g]        calibrate the gyro
+     [-a]        calibrate the accel
+     [-b]        calibrate the baro (if none of these is given, all will be
+                 calibrated)
 
    stop
 
@@ -174,22 +157,26 @@ Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/mo
 
 
 ### Description
-This implements using information from the ESC status and publish it as battery status.
+Background process running periodically with 1 Hz on the LP work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
 
 <a id="esc_battery_usage"></a>
 
 ### Usage
 ```
-esc_battery <command> [arguments...]
+replay <command> [arguments...]
  Commands:
-   start
+   start         Start replay, using log file from ENV variable 'replay'
+
+   trystart      Same as 'start', but silently exit if no log file given
+
+   tryapplyparams Try to apply the parameters from the log file
 
    stop
 
    status        print status info
 ```
 ## gyro_fft
-Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft)
+On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
 
 
 ### Description
@@ -322,7 +309,6 @@ logger <command> [arguments...]
    start
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
-     [-x]        Enable/disable logging via Aux1 RC channel
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -331,6 +317,8 @@ logger <command> [arguments...]
                  default: 280
      [-b <val>]  Log buffer size in KiB
                  default: 12
+     [-q <val>]  uORB queue size for mavlink mode
+                 default: 14
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
@@ -365,11 +353,11 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## rc_update
-Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches, low-pass filter, and then publish as `rc_channels` and `manual_control_setpoint`.
+Do RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches, low-pass filter, and then publish as `rc_channels` and `manual_control_setpoint`.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
@@ -399,7 +387,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 
@@ -422,7 +410,7 @@ Source: [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules
 
 
 ### Description
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for temperature calibration and tone alarm on RC Loss.
 
 The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
@@ -448,7 +436,7 @@ The sensors module is central to the whole system. It takes low-level output fro
 The provided functionality includes:
 - Read the output from the sensor drivers (`sensor_gyro`, etc.). If there are multiple of the same type, do voting and failover handling. Then apply the board rotation and temperature calibration (if enabled). And finally publish the data; one of the topics is `sensor_combined`, used by many parts of the system.
 - Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started.
-- Do sensor consistency checks and publish the `sensors_status_imu` topic.
+- Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
 
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
@@ -517,16 +505,18 @@ tune_control play -t 2
 ```
 tune_control <command> [arguments...]
  Commands:
-   play          Play system tune or single note.
-     error       Play error tune
+   play          Play system tune, tone, or melody
      [-t <val>]  Play predefined system tune
                  default: 1
-     [-f <val>]  Frequency of note in Hz (0-22kHz)
-     [-d <val>]  Duration of note in us
-     [-s <val>]  Volume level (loudness) of the note (0-100)
+     [-f <val>]  Frequency of tone in Hz (0-22kHz)
+                 default: 0
+     [-d <val>]  Duration of tone in us
+                 default: 1
+     [-s <val>]  Strength of tone (0-100)
                  default: 40
      [-m <val>]  Melody in string form
-                 values: <string> - e.g. "MFT200e8a8a"
+                 values: <string> - e.g.
+     "MFT200e8a8a"
 
    libtest       Test library
 

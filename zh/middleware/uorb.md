@@ -1,59 +1,59 @@
-# uORB Messaging
+# uORB 消息
 
-## Introduction
+## 简介
 
-The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
+uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进程或者线程间通信(IPC)。
 
-Look at the [tutorial](../modules/hello_sky.md) to learn how to use it in C++.
+查看 [教程](../apps/hello_sky.md) 以了解如何在 C++ 中使用它。
 
-uORB is automatically started early on bootup as many applications depend on it. It is started with `uorb start`. Unit tests can be started with `uorb_tests`.
+作为很多应用程序依赖的uORB，会在启动时自动启动。 它以 `uorb start</0 > 开头。 单元测试可以从 <code>uorb_tests` 开始。
 
-## Adding a new topic
+## 添加新 Topic（主题）
 
-New uORB topics can be added either within the main PX4/PX4-Autopilot repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#uorb_message_definitions).
+新的uORB</0>主题通过在主要的PX4/Firmware 存储库中添加，也能通过在out-of-tree</0>消息定义中添加。 有关添加树外 uORB 消息定义的信息，请参阅 [本节](../advanced/out_of_tree_modules.md#uorb_message_definitions)。
 
-To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list. From this, the needed C/C++ code is automatically generated.
+若要添加新主题，需要在 `msg/` 目录中创建一个新的 **.msg** 文件，并将文件名添加到 `msg/CMakeLists.txt` 列表中。 由此，将自动生成所需的 C/C++ 代码。
 
-Have a look at the existing `msg` files for supported types. A message can also be used nested in other messages.
+查看支持类型的现有 `msg` 文件。 消息还可以在其他消息中嵌套使用。
 
-To each generated C/C++ struct, a field `uint64_t timestamp` will be added. This is used for the logger, so make sure to fill it in when publishing the message.
+对于每个生成的 C/C + 结构，将添加一个字段 `uint64_t timestamp`。 此用于记录日志，因此请确保在发布时填充数据。
 
-To use the topic in the code, include the header:
+若要在代码中使用该主题，请包括头文件：
 
 ```
 #include <uORB/topics/topic_name.h>
 ```
 
-By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
+通过在 `.msg` 文件中添加如下内容的行，可以将一条消息定义用于多个独立主题：
 
 ```
 # TOPICS mission offboard_mission onboard_mission
 ```
 
-Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
+然后在代码中，将它们用作主题 id: `ORB_ID(offboard_mission)`。
 
 
-## Publishing
+## 发布
 
-Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API). However, advertising a topic is only possible outside of interrupt context. A topic has to be advertised in the same process as it's later published.
+发布主题可以在系统中的任何位置完成，包括中断上下文（由 `hrt_call` API 调用的函数）。 但是，仅在中断上下文之外才能为主题做广播。 一个主题必须与以后发布的过程相同。
 
-## Listing Topics and Listening in
+## 主题列表和监听（Listener）
 
-> **Note** The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+> **Note** `listener` 命令仅适用于 Pixracer (FMUv4) 和 Linux/OS X。
 
-To list all topics, list the file handles:
+要列出所有主题，列出文件句柄：
 
 ```sh
 ls /obj
 ```
 
-To listen to the content of one topic for 5 messages, run the listener:
+要监听五条信息中的一个主题内容，运行监听器：
 
 ```sh
 listener sensor_accel 5
 ```
 
-The output is n-times the content of the topic:
+输出主题内容如下：
 
 ```sh
 TOPIC: sensor_accel #3
@@ -85,12 +85,12 @@ range_m_s2: 78
 scaling: 0
 ```
 
-> **Tip** On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+> **Tip** 在基于 NuttX 的系统上（如 Pixhawk， Pixracer等），监听器可以用 *QGroundControl* 内部的 MAVLink 终端监视传感器的值和其他主题。 之所以是非常有用的调试工具是因为可以在 QGC 上通过无线连接（比如飞机在飞行过程中）。 有关详细信息，请参阅 [传感器/主题调试 ](../debug/sensor_uorb_topic_debugging.md)。
 
 
-### uorb top Command
+### uorb top 命令
 
-The command `uorb top` shows the publishing frequency of each topic in real-time:
+uorb top 命令实时显示每个主题的发布频率。
 
 ```sh
 update: 1s, num topics: 77
@@ -109,21 +109,21 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
-The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
+列分别是：主题名字，多实例索引值，订阅者数量，发布频率（Hz），每秒丢失的信息数（对所有订阅者）和队列大小。
 
 
-## Multi-instance
+## 多实例
 
-uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
+uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将实例索引返回到发布者。 然后, 订阅者必须选择订阅以使用 `orb_subscribe_multi`（`orb_subscribe` 订阅第一个实例）。 例如，如果系统具有多个相同类型的传感器, 则具有多个实例非常有用。
 
-Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
+请确保不要为同一主题混合 `orb_advertise_multi` 和 `orb_advertise`。
 
-The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
+完整的 API 记录在 [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/uORBManager.hpp) 中。
 
 <a id="deprecation"></a>
 
-## Message/Field Deprecation
-As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
+## 故障排除和常见的陷阱
+下面解释了一些常见的陷阱和边界案例：
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:

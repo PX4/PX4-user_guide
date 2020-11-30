@@ -1,18 +1,18 @@
-# Maintenance notes
+# 유지보수 참고
 
-This picks and describes some tools to help analyze the state of the codebase and support its maintenance.
+여기서는 코드 베이스 상태를 분석하고 유지 관리를 지원하는 몇가지 도구를 설명합니다.
 
-## Analyze churn
+## 변경 분석
 
-The amount of churn, so the number of changes done to a file can be an indicator which files/parts might need refactoring.
+휘젓는 횟수(주: 버터를 만들 때 우유를 충분히 숙성시키려 휘젓는 작업에 비유), 즉, 파일을 얼마나 많이 바꾸었느냐는 어떤 파일/일부분을 리팩토링해야 하는가에 대한 척도입니다.
 
-To find churn metrics a tool such as [Churn](https://github.com/danmayer/churn) can be used:
+변경 횟수의 척도를 찾는 도구 [Churn](https://github.com/danmayer/churn)을 이 용도로 활용할 수 있습니다:
 
 ```
 gem install churn
 ```
 
-An example output as of `v1.6.0-rc2` would be:
+`v1.6.0-rc2` 출력 예제는 다음과 같습니다:
 
 ```
 cd src/PX4-Autopilot

@@ -1,10 +1,10 @@
-# Simulation-In-Hardware (SIH)
+# 硬件仿真
 
-Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for a quadrotor. In this setup, everything is running on embedded hardware - the controller, the state estimator, and the simulator. The Desktop computer is only used to display the virtual vehicle.
+对于四旋翼，硬件仿真（SIH）是[硬件在环仿真（HITL）](../simulation/hitl.md)的替代品。 在这个设置中，所有的数据处理工作都在嵌入式硬件（PIXHAWK）中完成，包括控制器、状态估计器和仿真器。 与PIXHAWK连接的电脑只用来显示虚拟的载具。
 
-![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
+![仿真器 MAVLink API](../../assets/diagrams/SIH_diagram.png)
 
-The SIH provides two benefits over the HITL:
+与硬件在环仿真相比，硬件仿真有以下两点好处：
 - It ensures synchronous timing by avoiding the bidirectional connection to the computer. As a result the user does not need such a powerful desktop computer.
 
 - The whole simulation remains inside the PX4 environment. Developers who are familiar with PX4 can more easily incorporate their own mathematical model into the simulator. They can, for instance, modify the aerodynamic model, or noise level of the sensors, or even add a sensor to be simulated.
@@ -15,19 +15,19 @@ The dynamic model is described in this [pdf report](https://github.com/PX4/Devgu
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
-## Requirements
+## 标准安装
 
-To run the SIH, you will need a [flight controller hardware](../flight_controller/README.md) (e.g. a Pixhawk-series board). If you are planning to use a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) you should have that too. Alternatively, using *QGroundControl*, a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) can be used to emulate a radio control system.
+To run the SIH, you will need a [flight controller hardware](../flight_controller/README.md) (e.g. a Pixhawk-series board). 如果你计划使用一对[无线电控制发射机和接收机](../getting_started/rc_transmitter_receiver.md)，你也应该安装好。 或者，使用*QGC地面站*、[操纵杆](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)也能被用来仿真一个无线电控制系统。
 
-The SIH is compatible with all Pixhawk-series boards except those based on FMUv2. It is available on the PX4-Autopilot master branch and release versions v1.9.0 and above.
+硬件仿真可以在除了FMUv2硬件之外的所有Pixhawk飞控板上使用。 It is available on the PX4-Autopilot master branch and release versions v1.9.0 and above.
 
-## Setting up SIH
+## 配置硬件仿真（SIH）
 
-Running the SIH is as easy as selecting an airframe. Plug the autopilot to the desktop computer with a USB cable, let it boot, then using a ground control station select the [SIH airframe](../airframes/airframe_reference.md#simulation-copter). The autopilot will then reboot.
+运行SIH和挑选一个机架一样简单。 将飞控和电脑用USB线连接起来，让它通电启动，然后使用地面站选择[SIH 机架](../airframes/airframe_reference.md#simulation-copter) 飞控接下来会重启
 
-When the SIH airframe is selected, the SIH module starts by itself, the vehicle should be displayed on the ground control station map.
+当选择了SIH 机架之后，SIH模块就自动启动了，车辆应该显示在地面站的地图上
 
-## Setting up the Display
+## 设置显示
 
 The simulated quadrotor can be displayed in jMAVSim from PX4 v1.11.
 
@@ -48,10 +48,10 @@ The simulated quadrotor can be displayed in jMAVSim from PX4 v1.11.
 At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
 
 
-## Credits
+## 鸣谢
 
-The SIH was developed by Coriolis g Corporation, a Canadian company developing a new type of Vertical Takeoff and Landing (VTOL) Unmanned Aerial Vehicles (UAV) based on passive coupling systems.
+SIH功能是由Coriolis g公司开发的。 一家加拿大公司开发一种新型的垂直起飞和着陆 (VTOL) 无人驾驶飞行器，并以被动的耦合系统为基础。
 
-Specialized in dynamics, control, and real-time simulation, they provide the SIH as a simple simulator for quadrotors released for free under BSD license.
+他们专注于动力学、控制和实时仿真，他们在BSD许可下把硬件仿真作为一个免费的简单的仿真器提供给四旋翼飞行器。
 
-Discover their current platform at [www.vogi-vtol.com](http://www.vogi-vtol.com/).
+在[www.vogi-vtol.com](http://www.vogi-vtol.com/)上发现他们当前的平台。

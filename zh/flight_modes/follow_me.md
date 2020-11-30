@@ -2,9 +2,9 @@
 author: Jimmy Johnson
 ---
 
-# Follow-Me Mode
+# 跟随模式
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *Follow Me* mode allows a multicopter to autonomously follow and track another system that is broadcasting its position using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
 
@@ -14,7 +14,7 @@ The vehicle will automatically yaw to face and follow the target from a specifie
 
 The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
 
-> **Note** * This mode requires GPS. * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
+> **注** 该模式需要GPS。 * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
 
 {% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
 
@@ -22,7 +22,7 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 
 > **Warning** **Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
 
-The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off). - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
+The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off). - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. 如果GPS不准确，这将反映在跟随模式中。
 
 ## Using Follow Me with QGroundControl
 
@@ -30,15 +30,15 @@ The following flight precautions should be observed: - Follow me mode should onl
 
 To setup *Follow Me* mode: - Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios). - Disable sleep-mode on your Android device: - This setting can usually be found under: **Settings \> Display**. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
 
-At this point you should be able to start moving and the copter should follow your movements.
+此时你应该能够开始移动并且多旋翼应该跟随你的动作。
 
 The mode has been tested on the following Android devices: - Nexus 5 - Nexus 7 Tablet
 
-## Configuration
+## 配置
 
-The follow-me behaviour can be configured using the following parameters:
+可以使用以下参数配置跟随的行为：
 
-| Parameter                                                                                           | Description                                                                                                                                                                                                                                 |
+| 参数                                                                                                  | 描述                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).                                                                                       |
 | <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).                                                             |
@@ -48,6 +48,6 @@ The follow-me behaviour can be configured using the following parameters:
 - `2` = Follow from the front.  
 - `3` = Follow from the front left. |
 
-## Known Issues
+## 已知的问题
 
 - The SiK 915 Mhz [telemetry radio](../telemetry/sik_radio.md) is known to interfere with the GPS signal being received by some Android devices. Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.

@@ -1,4 +1,4 @@
-# Cube Wiring Quick Start
+# 接线指南
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
@@ -12,7 +12,7 @@ This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight cont
 The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 :::
 
-## Accessories
+## 配件
 
 Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
 
@@ -20,18 +20,18 @@ Cube comes with most (or all) of the accessories you will need when [purchased](
 
 The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
 
-## Wiring Overview
+## 接线图概览
 
 The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
-1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
-2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
-3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
-4. (Dedicated) [Safety switch](#safety_switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
-5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
-6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
+1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
+2. [蜂鸣器](#buzzer) — 提供声音信号显示UAV目前的状态。
+3. [远程控制接收系统](#rc_control) — 连接手持发射器能够手动操控飞行（如图所述是一个PWM 接收器能包括 PWM->PPM 转换器）。
+4. （专用） [安全开关](#safety_switch) — 按下以解锁和锁定电机。 如果您没有使用推荐的内置安全开关的 [GPS](#gps) 时，安全开关是必须的。
+5. [GPS、罗盘、LED、安全开关](#gps) — 推荐的GPS模块包括GPS、罗盘、LED 和安全开关。 
+6. [电源系统](#power) — 电源线和电机ESC。 包括锂电池、电源模块和可选的电源报警系统（如果电池电量低于预定时发出警报）。 
 
 <span></span>
 
@@ -41,7 +41,7 @@ The image below shows how to connect the most important sensors and peripherals.
 
 > **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
 Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
 
@@ -55,7 +55,7 @@ The Cube can be mounted using either vibration-damping foam pads (included in th
 
 <span id="gps"></span>
 
-## GPS + Compass + Safety Switch + LED
+## GPS + 罗盘 + 安全开关 + LED
 
 The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
 
@@ -75,13 +75,13 @@ The diagram below shows a schematic view of the module and its connections.
 
 <span id="safety_switch"></span>
 
-## Safety Switch
+## 安全开关
 
 The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
-## Buzzer
+## 蜂鸣器
 
 The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
 
@@ -89,7 +89,7 @@ The buzzer provides audio signals to that indicate UAV status. This should be co
 
 <span id="rc_control"></span>
 
-## Radio Control
+## 无线电遥控
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -97,23 +97,23 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers.
 
-### PPM-SUM / Futaba S.Bus receivers
+### PPM-SUM / Futaba S.Bus 接收机
 
 Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
-### Spektrum Satellite Receivers
+### Spektrum Satellite 接收机
 
 Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
-### PWM Receivers
+### PWM 接收机
 
 The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
-## Power
+## 电源
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
@@ -125,7 +125,7 @@ A typical power setup for a Multicopter vehicle is shown below.
 
 <span id="telemetry"></span>
 
-## Telemetry System (Optional)
+## 数传系统（可选）
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
@@ -133,7 +133,7 @@ The communication channel is via [Telemetry Radios](../telemetry/README.md). The
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-## SD Card (Optional)
+## SD 卡（可选）
 
 SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
 
@@ -141,7 +141,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 > **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
-## Motors
+## 电机
 
 Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -153,13 +153,13 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 
 > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
-## Other Peripherals
+## 其它外设
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 > **Note** If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 
-## Configuration
+## 配置
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
@@ -173,7 +173,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## Further information
+## 更多信息
 
 - [Cube Black](../flight_controller/pixhawk-2.md) 
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)

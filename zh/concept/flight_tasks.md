@@ -1,8 +1,8 @@
-# Flight Tasks
+# 飞行任务
 
-*Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
+*飞行任务* 在 [飞行模式](../concept/flight_modes.md) 中用于提供具体的移动行为：例如跟随或飞行平滑。
 
-At time of writing the best description of how flight modes work (in PX4 v1.9) is provided in the following video: **PX4 Flight Task Architecture Overview** - Dennis Mannhart, Matthias Grob (*PX4 Developer Summit 2019*).
+在编写本报告时，飞行模式如何运作的最佳描述（PX4v1）。 以下视频提供了：**PX4 飞行任务结构概述** - Dennis Mannhart, Matthias Grob (*PX4 开发者峰会2019*)。
 
 {% youtube %}
 https://youtu.be/-dkQG8YLffc

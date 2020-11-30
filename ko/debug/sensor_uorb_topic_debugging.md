@@ -5,7 +5,7 @@ The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for i
 > **Tip** This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
 
 <span></span>
-> **Note** The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/mavlink_shell.md).
+> **Note** The `listener` command is also available through the [System Console](../debug/system_console.md) and the [MAVLink Shell](../debug/system_console.md#mavlink-shell).
 
 <span></span>
 > **Note** The `listener` command is only available on NuttX-based systems (Pixhawk, Pixracer, etc.) and Linux / OS X.

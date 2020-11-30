@@ -1,118 +1,118 @@
-<div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
+<div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide ({{ $themeConfig.px4_version }})
+# PX4 자동 항법 장치 사용자 안내서 ({{ $themeConfig.px4_version }})
 
-[![Releases](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![릴리즈](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
+PX4는 *전문 자동 항법 장치*입니다. 산업계 및 학계의 세계적 수준의 개발자가 개발하고, 활발하게 활동 중인 전세계 커뮤니티에서 지원하며, 경주, 화물 드론에서부터 지상 차량과 잠수정에 이르기까지 모든 종류의 기기에 적용합니다.
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+이 안내서에서는 PX4 기반 기체의 조립, 설정, 안전 비행에 필요한 모든 내용이 들어있습니다.
 :::
 
 :::tip
-Note This guide is still a work in progress! It does not yet cover all of PX4.
+Note 이 안내서는 여전히 수정중입니다! 아직 PX4의 모든 내용을 다루지는 않습니다.
 :::
 
-## How Do I Get Started?
+## 어떻게 시작하나요?
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[시작하기](getting_started/README.md)는 모든 사용자가 읽어야 합니다! 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)로 제공하는 기능과 더불어 PX4의 전반적인 내용을 알려드립니다.
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+목적에 따라, 다음 팁은 이 안내서를 살펴볼 때 도움을 드립니다:
 
-**I already have a drone and I just want to fly:**
+**이미 드론을 가지고 있고 드론을 날리고 싶을 경우:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4를 지원하는 비행 준비(RTF) 기체가 있을 경우:
 
-* [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-* [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+* [기본 설정](config/README.md)에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등)를 캘리브레이션하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다.
+* [비행하기](flying/README.md)는 안전하게 비행할 수 있는 방법과 장소, 그리고 아밍 및 비행 문제를 해결하는 방법을 포함한 비행 요소들에 대해 설명합니다. 또한 비행 모드에 대한 자세한 정보를 제공합니다.
 
-**I want to build a drone with PX4 from scratch:**
+**처음부터 PX4로 무인 항공기를 만들고 싶을 경우:**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+"지원" 기체는 [기체 프레임 참고](airframes/airframe_reference.md) 목록에 있습니다. 이 목록의 여러 기체는 *QGroundControl*에서 다운로드 할 수 있는 설정으로 시험을 마쳤으며 설정을 조정했습니다.
 :::
 
-If you want to build a vehicle from scratch:
+처음부터 기체를 제작하려면:
 
-* Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-* Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-* [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-* [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* 프레임 선택하기 - [기체 프레임 제작](airframes/README.md)에서는 지원 프레임 목록이 있으며, 기체 하위 분류 항목을 구성하는 자세한 방법을 설명합니다.
+* 비행 제어장치 선택 - [시작하기 > 비행 제어 장치](getting_started/flight_controller_selection.md)와 [자동 항법 장치 하드웨어](flight_controller/README.md)를 살펴보십시오.
+* [조립](assembly/README.md)은 중요한 주변 장치를 자동 항법 장치에 연결하는 방법을 설명합니다.
+* [기초 설정](config/README.md)은 펌웨어를 업데이트하고 기체 프레임에 적합한 설정으로 펌웨어를 구성하는 방법을 보여줍니다. 또한 이 절에서는 주요 센서(나침반, 자이로/IMU, 항속 등)를 보정하고 원격 조종 장치 및 안전 기능을 설정하는 방법도 설명합니다.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+기체를 날릴 준비가 되었다면 [비행](flying/README.md) 절로 넘어가십시오.
 
-**I am modifying a supported vehicle:**
+**지원 기체를 뜯어 고치려는 경우:**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+비행 제어 장치 및 기본 센서 수정은 위 항목에서 다룹니다. 새 센서를 사용하려 하거나 비행 특성에 중대한 영향을 주는 설정을 바꾼다면:
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [주변 장치 하드웨어](peripherals/README.md)에서는 외부 센서 사용에 대한 추가 정보를 제공합니다.
+* [기본 설정](config/README.md)에서는 주요 센서를 보정하는 방법을 설명합니다.
+* [고급 설정](advanced_config/README.md)에서는 기체의 재설정 및 미세 조정 내용을 설명합니다.
 
-**I want to run PX4 on new hardware and extend the platform:**
+**새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하고 싶은 경우:**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [개발](development/development.md)에서는 새 기체, 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부와 PX4간의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
 
-## Getting Help
+## 도움 받기
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[지원](contribute/support.md)페이지는 핵심 개발 팀과 수많은 커뮤니티 구성원들에게 도움을 받는 방법을 알려드립니다.
 
-Among other things it covers:
+특히 다음 내용을 다룹니다:
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [도움을 받을 수 있는 포럼 목록](contribute/support.md#forums-and-chat)
+* [문제 진단](contribute/support.md#diagnosing-problems)
+* [버그 보고 방법](contribute/support.md#issue-bug-reporting)
+* [주간 유선 개발 미팅](contribute/support.md#weekly-dev-call)
 
-## Reporting Bugs & Issues
+## 버그 및 문제점 보고
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 게시하십시오 (기체 설정때문에 문제가 발생할 수 있음).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+개발 팀의 요청에 따라 [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 문제를 제시할 수 있습니다. 가능한 경우, 문제 보고 양식에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
 
-## Contributing
+## 기여하기
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+코드와 문서에 기여하는 방법은 [기여](contribute/README.md) 절에서 찾을 수 있습니다:
 
-* [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [코드](contribute/README.md)
+* [문서](contribute/docs.md)
+* [번역](contribute/translation.md)
 
-## Translations
+## 번역
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+이 안내서의 다양한 [번역](contribute/translation.md) 이 있습니다. (우측 상단의) 언어 메뉴에서 해당 번역을 선택할 수 있습니다:
 
-![Language Selector](../assets/vuepress/language_selector.png)
+![언어 선택](../assets/vuepress/language_selector.png)
 
-## License
+## 라이센스
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-Clause)의 조항에 따라 자유롭게 사용하고 수정할 수 있습니다. 이 문서는 [크리에이티브 커먼즈 저작자표시 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스를 따릅니다. 자세한 정보는 [라이선스](contribute/licenses.md)를 참고하십시오.
 
-## Calendar & Events
+## 달력과 행사
 
-The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+*드론 코드 달력*에서는 플랫폼 개발자, 사용자를 위한 주요 일정을 보여줍니다. 여러분 거주지의 시간대에 맞춘 달력을 보려면 아래 링크를 선택하십시오(그리고 여러분 자신의 달력에 추가하십시오):
 
-* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+* [스위스 – 취리히](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [태평양 시간대 – 티후아나](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [오스트레일리아 – 멜버른/시드니/호바트](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
+달력의 기본 시간대는 CET 입니다. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
-### Icons
+### 아이콘
 
-The following icons used in this library are licensed separately (as shown below):
+이 라이브러리에서 사용하는 다음 아이콘은 별도의 라이선스를 적용합니다 (아래 그림 참조):
 
-<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="필요한 위치 수정(예: GPS)" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>가 만든 <em>placeholder</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
 
-<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="http://www.freepik.com" title="Freepik">Freepik</a>이 만든 <em>camera-automatic-mode</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
 
-## Governance
+## 운영 방식
 
-The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
+PX4 플라이트 기술 스택은 [드론코드 프로젝트](https://www.dronecode.org/)의 운영 기반으로 제공합니다.
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
+<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>

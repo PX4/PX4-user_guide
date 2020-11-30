@@ -4,6 +4,6 @@ This is a placholder to create the modules.
 
 Directory contains:
 
-* [Writing your First Application](hello_sky.md)
-* [Application/Module Template](module_template.md)
-* [Modules & Commands](modules/modules_main.md)
+* [编写您的第一个应用程序](hello_sky.md)
+* [应用/模块模板](module_template.md)
+* [模块 & 命令](modules/modules_main.md)

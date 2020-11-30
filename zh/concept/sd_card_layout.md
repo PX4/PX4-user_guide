@@ -6,7 +6,7 @@ The PX4 SD Card is used for storing configuration files, flight logs, mission in
 
 The directory structure/layout is shown below.
 
-| Directory/File(s)     | Description                                                                                                                              |
+| Directory/File(s)     | 描述                                                                                                                                       |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | /etc/                 | Extra config (+ mixers). See [System Startup > Replacing the System Startup](../concept/system_startup.md#replacing-the-system-startup). |
 | /etc/mixers/          | [Mixers](../concept/mixing.md)                                                                                                           |

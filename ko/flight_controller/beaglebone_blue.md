@@ -1,4 +1,4 @@
-# BeagleBone Blue
+# 비글본 블루
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
@@ -16,8 +16,8 @@ PX4 support for this flight controller is [experimental](../flight_controller/au
 
 *BeagleBone Blue* images can be found here:
 
-- [Latest stable OS image](https://beagleboard.org/latest-images).
-- [Test OS images](https://rcn-ee.net/rootfs/bb.org/testing/) (updated frequently).
+- [가장 안정적인 OS 이미지 ](https://beagleboard.org/latest-images).
+- [ 테스트 OS 이미지 ](https://rcn-ee.net/rootfs/bb.org/testing/)(자주 업데이트됨).
 
 Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
@@ -181,7 +181,7 @@ All changes can be made in de px4.config file directly on beaglebone. For exampl
 Note If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 
-## Autostart During Boot
+## 부팅 중 자동 시작
 
 Here is an example [/etc/rc.local]:
 
@@ -232,19 +232,19 @@ WantedBy=multi-user.target
 
 ### Miscellaneous
 
-#### Power Servo Rail
+#### 파워 서보 레일
 
 When PX4 starts, it automatically applies power to servos.
 
-#### Unique Features
+#### 언닉 피어스
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
-#### SBUS Signal Converter
+#### SBUS 신호 변환기
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
 
-#### Typical Connections
+#### 일반적인 연결
 
 For a quadcopter with GPS and an SBUS receiver, here are typical connections:
 

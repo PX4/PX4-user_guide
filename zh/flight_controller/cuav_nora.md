@@ -14,7 +14,7 @@ Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and 
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Features
+## 特性
 
 * Internal shock absorption
 * The integrated integrated process reduces the failure caused by interface damage.
@@ -26,21 +26,21 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
 
 
 
 ## Quick Summary{#quick-Summary}
 
 * Main FMU Processor: STM32H743
-* On-board sensors:
-  * Accelerometer/Gyroscope: ICM-20689
-  * Accelerometer/Gyroscope: ICM-20649
+* 内置传感器：
+  * 加速度计/陀螺仪：ICM-20689
+  * 加速度计/陀螺仪：ICM-20649
   * Accelerometer/Gyroscope: BMI088
   * Magnetometer: RM3100
   * Barometer: MS5611*2
 
-* Interfaces:
+* 接口：
    * 14 PWM outputs （12 supports Dshot）
    * Support multiple RC inputs (SBUs / CPPM / DSM)
    * Analogue / PWM RSSI input
@@ -50,13 +50,13 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
    * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
    * 2  ADC intput
    * 1 USB ports
-* Power System:
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
-* Weight and Dimensions:
+* 电源系统
+  * 输入电压：4.3~5.4V
+  * USB输入电压: 4.75~5.25V
+  * 伺服导轨输入电压：0~36V
+* 重量和尺寸:
   * Weight: 101 g
-* Other Characteristics:
+* 其它特性:
   * Operating temperature: -20 ~ 80°c（Measured value）
   * Three imus
   * Supports temperature compensation
@@ -64,7 +64,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 > **Note** When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 
-## Purchase
+## 采购
 
 - [CUAV Store](https://store.cuav.net)<\br>
 - [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
@@ -82,7 +82,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 > **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
-## Voltage Ratings
+## 额定电压
 
 Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
@@ -92,9 +92,9 @@ Nora AutoPilot* can be triple-redundant on the power supply if three power sourc
 
 Under these conditions all power sources will be used in this order to power the system:
 1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 输入电压（4.75 v 至 5.25 v）
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -111,7 +111,7 @@ The *Nora* has over-current protection on the 5 Volt Peripheral and 5 Volt high 
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
-## Debug Port
+## 调试接口
 
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
@@ -119,14 +119,14 @@ The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debu
 
 The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
 
-| Pin     | Signal         | Volt  |
-| ------- | -------------- | ----- |
-| 1 (red) | 5V+            | +5V   |
-| 2 (blk) | DEBUG TX (OUT) | +3.3V |
-| 3 (blk) | DEBUG RX (IN)  | +3.3V |
-| 4 (blk) | FMU_SWDIO      | +3.3V |
-| 5 (blk) | FMU_SWCLK      | +3.3V |
-| 6 (blk) | GND            | GND   |
+| 针脚   | 信号             | 电压    |
+| ---- | -------------- | ----- |
+| 2    | 5V+            | +5V   |
+| 2    | DEBUG TX (OUT) | +3.3V |
+| 3    | DEBUG RX (IN)  | +3.3V |
+| 4（黑） | FMU_SWDIO      | +3.3V |
+| 6    | FMU_SWCLK      | +3.3V |
+| 6    | GND            | GND   |
 
 CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
@@ -138,11 +138,11 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 > 
 > For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 更多信息
 
 * [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV docs](http://doc.cuav.net)

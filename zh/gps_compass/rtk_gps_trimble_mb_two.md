@@ -24,7 +24,7 @@ The antenna connector type on the device is MMCX. Suitable cables for the above 
 - [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
-## Wiring and Connections
+## 接线和连接
 
 The Trimble MB-Two is connected to a UART on the flight controller (GPS port) for data.
 
@@ -36,14 +36,14 @@ The pins on the 28-pin connector are numbered as shown below:
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
-| Pin | Name     | Description                                          |
-| --- | -------- | ---------------------------------------------------- |
-| 6   | Vcc 3.3V | Power supply                                         |
-| 14  | GND      | Connect to power the supply and GND of the Autopilot |
-| 15  | TXD1     | Connect to RX of the Autopilot                       |
-| 16  | RXD1     | Connect to TX of the Autopilot                       |
+| 针脚 | 参数名      | 参数描述                                                 |
+| -- | -------- | ---------------------------------------------------- |
+| 6  | Vcc 3.3V | Power supply                                         |
+| 14 | GND      | Connect to power the supply and GND of the Autopilot |
+| 15 | TXD1     | Connect to RX of the Autopilot                       |
+| 16 | RXD1     | Connect to TX of the Autopilot                       |
 
-## Configuration
+## 配置
 
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 

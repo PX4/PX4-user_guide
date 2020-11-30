@@ -41,11 +41,11 @@ First of all, build the firmware as follows:
 ```bash
 make px4_sitl_default
 ```
-Start jmavsim: `./Tools/jmavsim_run.sh -l`
+Start jmavsim: `./Tools/jmavsim_run.sh`
 
 In another terminal, type:
 ```bash
-cd build/px4_sitl_default/tmp/rootfs
+cd build/px4_sitl_default/tmp
 export HEAPPROFILE=/tmp/heapprofile.hprof
 export HEAP_PROFILE_TIME_INTERVAL=30
 ```
@@ -54,13 +54,13 @@ Enter this depending on your system:
 
 ##### Fedora:
 ```bash
-env LD_PRELOAD=/lib64/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
+env LD_PRELOAD=/lib64/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
 pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
 ```
 
 ##### Ubuntu:
 ```bash
-env LD_PRELOAD=/usr/lib/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
+env LD_PRELOAD=/usr/lib/libtcmalloc.so ../src/firmware/posix/px4 ../../posix-configs/SITL/init/lpe/iris
 google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
 ```
 
@@ -71,7 +71,7 @@ See the [gperftools docs](https://htmlpreview.github.io/?https://github.com/gper
 
 ## Hard Fault Debugging
 
-A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This might occur when key areas in RAM have been corrupted.
+A hard fault is a state when a CPU executes an invalid instruction or accesses an invalid memory address. This is typically the case when key areas in RAM have been corrupted.
 
 ### Video
 
@@ -83,7 +83,7 @@ https://www.youtube.com/watch?v=KZkAM_PVOi0
 
 ### Debugging Hard Faults in NuttX
 
-A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack. This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
+A typical scenario is when incorrect memory access smashed the stack and the processor sees that the address in memory is not a valid address for the microprocessors's RAM. This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
 
 * NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
 * The stack grows downward. So the highest address in the example below is 0x20021060, the size is 0x11f4 (4596 bytes) and consequently the lowest address is 0x2001fe6c.

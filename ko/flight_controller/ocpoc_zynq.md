@@ -1,4 +1,4 @@
-# Aerotenna OcPoC-Zynq Mini Flight Controller
+# Aerotenna OcPoC-Zynq 미니 비행 컨트롤러
 
 :::warning
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://ainstein.ai/) for hardware support or compliance issues.
@@ -18,34 +18,34 @@ Main documentation is available on [Aerotenna's User Hub](https://aerotenna.read
 
 ## Quick Summary
 
-- Main FPGA+ARM System-on-Chip: Xilinx Zynq Z-7010 
-    - CPU: 667 MHz Dual-Core ARM A9
-    - FPGA: Artix®-7 with 28K Logic Cells
-    - RAM: 512 MB DDR3
-    - Flash: 128 MB
-    - SD Card: 16 GB
-- IMU: 2x MPU9250 9-DOF
-- Baro: 1x MS5611
+- 메인 FPGA + ARM 시스템 - 온 - 칩 : 자일링스 Zynq Z-7010 
+    - CPU: 667 MHz Dual-Core ARM A9 
+    - FPGA: Artix®-7 with 28K Logic Cells 
+    - RAM: 512 MB DDR3 
+    - Flash: 128 MB 
+    - SD Card: 16 GB 
+- IMU: 2x MPU9250 9-DOF 
+- Baro: 1x MS5611 
 - Power: 5-30 VDC 
-    - OcPoC regulates internally to 5V
-    - 2S-6S LiPo battery is typical power source on airframe
-    - For bench testing, the console "USB1" port supplies 5V
+    - OcPoC regulates internally to 5V 
+    - 2S-6S LiPo 배터리는 기체상의 일반적인 전원입니다.
+    - 벤치 테스트를 위해 콘솔 "USB1"포트는 5V
 - 16x Programmable 3-pin GPIOs
-- 10x Programmable I/Os on JST-GH connectors supporting the following interfaces: 
+- 다음 인터페이스를 지원하는 JST-GH 커넥터에서 10x 프로그래밍 가능한 I / O : 
     - I2C
-    - USB-OTG
-    - USB-UART
+    - USB-OTG 
+    - USB-UART 
     - SPI
-    - CSI
-    - GSI
+    - CSI 
+    - GSI 
     - CAN
 - Availability: [Ainstein Store](https://sensing.ai/products/ocpoc%E2%84%A2-with-xilinx-zynq%C2%AE-mini-soc-flight-controller)
 
-## Pinouts and SD Card Setup
+## 핀아웃 및 SD 카드 설정
 
 Pinouts for the default OcPoC-Zynq configuration and full step-by-step instructions for first time setup are available on [Aerotenna's User Hub](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications).
 
-## Building PX4 for OcPoC-Zynq
+## OcPoC-Zynq 용 PX4 구현
 
 After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/PX4-Autopilot), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
 

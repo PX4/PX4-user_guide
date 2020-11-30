@@ -15,23 +15,23 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 :::
 
 
-## Specification
+## 技术规范
 
-| Feature          | Details                                                                                                                                                         |
+| 特性               | Details                                                                                                                                                         |
 |:---------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Weight           | 6 g                                                                                                                                                             |
+| 重量               | 6 g                                                                                                                                                             |
 | MCU              | 216MHz, 32-bit ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html)                                                    |
-| Memory           | 256Kb FRAM                                                                                                                                                      |
+| 内存               | 256Kb FRAM                                                                                                                                                      |
 |                  | 2Mbit Flash                                                                                                                                                     |
 |                  | 512Kbit SRAM                                                                                                                                                    |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
+| 固件               | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
 |                  | ICM-42688 (SPI2)                                                                                                                                                |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
 | Barometer        | [BMP388](https://www.bosch-sensortec.com/bst/products/all_products/bmp388) (I2C4)                                                                               |
 | Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
 | microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards)                                                                                                |
-| Inputs           | GPS/Mag                                                                                                                                                         |
+| 输入               | GPS/Mag                                                                                                                                                         |
 |                  | Spektrum                                                                                                                                                        |
 |                  | Telemetry                                                                                                                                                       |
 |                  | CAN bus                                                                                                                                                         |
@@ -44,7 +44,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 > **Note** More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 
-## Dimensions
+## 尺寸
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
@@ -57,11 +57,11 @@ ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmwa
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
-## QGroundControl Support
+## QGroundControl支持
 
 This board supported in QGroundControl 4.0 and later.
 
-## Availability
+## 访问链接
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
 - [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (only)
@@ -71,7 +71,7 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Quick Start
 
-### Orientation
+### 安装方向
 
 The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11 (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
@@ -79,13 +79,13 @@ The diagram below shows the recommended orientation, which corresponds to `ROTAT
 
 > **Warning** For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
 
-### Connectors
+### 连接器
 
 Detailed information about the pinouts can be found [here](https://docs.modalai.com/flight-core-datasheet-connectors).
 
 ![FlightCoreV1Top](../../assets/flight_controller/modalai/fc_v1/top.png)
 
-| Connector | Summary                                                    |
+| Connector | 概要                                                         |
 | --------- | ---------------------------------------------------------- |
 | J1        | VOXL Communications Interface Connector (TELEM2)           |
 | J2        | Programming and Debug Connector                            |
@@ -117,7 +117,7 @@ make modalai_fc-v1
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                     |
+| UART   | 设备         | Port                                     |
 | ------ | ---------- | ---------------------------------------- |
 | USART1 | /dev/ttyS0 | GPS1 (J10)                               |
 | USART2 | /dev/ttyS1 | TELEM3 (J4)                              |
@@ -129,6 +129,6 @@ make modalai_fc-v1
 | UART8  | /dev/ttyS7 | N/A                                      |
 
 
-## Support
+## 技术支持
 
 Please visit http://support.modalai.com/ for more information.

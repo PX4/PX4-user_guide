@@ -1,8 +1,8 @@
-# Offboard Mode
+# 오프보드(Offboard) 모드
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink. The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+기체는 MAVLink를 태워 전달한 위치, 속도, 고도 지점 설정을 따릅니다. 셋포인트 명령은 컴페니언 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 통해 기체의 fcu와 연결합니다.
 
 > **Tip** Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
 > 
@@ -28,8 +28,9 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
     
     * Position setpoint (only `x`, `y`, `z`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * *Thrust* setpoint (only `afx`, `afy`, `afz`) > **Note** Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+    * Acceleration setpoint (only `afx`, `afy`, `afz`)
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
+    * Position setpoint **and** velocity setpoint **and** acceleration (the acceleration setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
   * * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)

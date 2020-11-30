@@ -10,7 +10,7 @@ All PX4 [airframes](../airframes/README.md) share a single codebase (this includ
 
 <a id="architecture"></a>
 
-## High-Level Software Architecture
+## High-Level Software Architecture{#architecture}
 
 The diagram below provides a detailed overview of the building blocks of PX4. The top part of the diagram contains middleware blocks, while the lower section shows the components of the flight stack.
 
@@ -27,7 +27,7 @@ again. -->
 
 The source code is split into self-contained modules/programs (shown in `monospace` in the diagram). Usually a building block corresponds to exactly one module.
 
-> **Tip** At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+> **Tip** At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../middleware/modules_main.md).
 
 The arrows show the information flow for the *most important* connections between the modules. In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
 
@@ -75,7 +75,7 @@ In addition, the middleware includes a [simulation layer](../simulation/README.m
 
 Since the modules wait for message updates, typically the drivers define how fast a module updates. Most of the IMU drivers sample the data at 1kHz, integrate it and publish with 250Hz. Other parts of the system, such as the `navigator`, don't need such a high update rate, and thus run considerably slower.
 
-The message update rates can be [inspected](../middleware/uorb.md) in real-time on the system by running `uorb top`.
+The message update rates can be [inspected](../middleware/uorb.md#urb-top-command) in real-time on the system by running `uorb top`.
 
 <a id="runtime-environment"></a>
 
@@ -88,15 +88,15 @@ The inter-module communication (using [uORB](../middleware/uorb.md)) is based on
 > **Info** The system is designed such that with minimal effort it would be possible to run each module in separate address space (parts that would need to be changed include `uORB`, `parameter interface`, `dataman` and `perf`).
 
 There are 2 different ways that a module can be executed:
-- **Tasks**: The module runs in its own task with its own stack and process priority.
-- **Work queue tasks**: The module runs on a shared work queue, sharing the same stack and work queue thread priority as other modules on the queue.
+- **Tasks**: The module runs in its own task with its own stack and process priority (this is the more common way).
+- **Work queues**: The module runs on a shared task, meaning that it does not own a stack. Multiple tasks run on the same stack with a single priority per work queue.
   - All the tasks must behave co-operatively as they cannot interrupt each other.
   - Multiple *work queue tasks* can run on a queue, and there can be multiple queues.
   - A *work queue task* is scheduled by specifying a fixed time in the future, or via uORB topic update callback.
 
-  The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
+  The advantage is that it uses less RAM, but the task is not allowed to sleep or poll on a message. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
-> **Note** Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
+> **Note** Tasks running on a work queue do not show up in `top` (only the work queues themselves can be seen - e.g. as `lpwork`).
 
 
 ### Background Tasks

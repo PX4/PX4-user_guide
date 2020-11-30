@@ -1,57 +1,57 @@
-# Connecting an RC Receiver on Linux (Including S.Bus)
+# 리눅스에 원격 조종 수신기 연결 (S.Bus 포함)
 
-This topic shows how to setup a PX4 Linux-based autopilot to connect and use a [supported RC receiver](../getting_started/rc_transmitter_receiver.md) on any serial port.
+이 절에서는 [지원 원격 조종 수신기](../getting_started/rc_transmitter_receiver.md)를 임의의 직렬 포트에 연결하고 사용할 목적으로 리눅스 기반 오토파일럿을 설정하는 방법을 알려드립니다.
 
-For RC types other than S.Bus, you can just connect the receiver directly to the serial ports, or to USB via a USB to TTY serial cable (e.g. like PL2302 USB to Serial TTL converter).
+S.Bus에 비해 원격 조종 형식은 수신기를 직렬 포트에 연결하거나 USB to TTY 직렬 케이블(PL2302 USB to Serial TTL 변환기)로 USB에 연결할 수 있습니다.
 
-> **Note** For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+> **Note** S.Bus 수신기(또는 후타바, 래디오링크 등의 인코더)를 사용하는 목적이라면 보통 [신호 반전 회로](#signal_inverter_circuit)를 거쳐 수신기와 장치를 연결해야겠지만, 이외의 경우 설정은 동일합니다.
 
-Then [Start the PX4 RC Driver](#start_driver) on the device, as shown below.
+이후, 장치에서 다음과 같이 [PX4 원격 조정 드라이버를 시작](#start_driver)하십시오.
 
 <a id="start_driver"></a>
 
-## Starting the Driver
+## 드라이버 시작
 
-To start the RC driver on a particular UART (e.g. in this case `/dev/ttyS2`):
+원격 조종 드라이버를 각 UART 에서 시작하려면 (예: `/dev/ttS2`):
 ```
 rc_input start -d /dev/ttyS2
 ```
 
-For other driver usage information see: [rc_input](../modules/modules_driver.md#rcinput).
+다른 드라이버 사용법을 보려면 [rc_input](../modules/modules_driver.md#rcinput)을 참고하십시오.
 
 <a id="signal_inverter_circuit"></a>
 
-## Signal Inverter Circuit (S.Bus only)
+## 신호 반전 회로(S.Bus 전용)
 
-S.Bus is an *inverted* UART communication signal.
+S.Bus에서는 *반전* UART 통신 신호를 주고 받습니다.
 
-While some serial ports/flight controllers can read an inverted UART signal, most require a signal inverter circuit between the receiver and serial port to un-invert the signal.
+일부 직렬 포트/비행체 제어 장치에서는 반전 UART 신호를 읽을 수 있으나 대부분 반전 신호를 복원하는 신호 반전 회로가 필요합니다.
 
-> **Tip** This circuit is also required to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter.
+> **Tip** 이 회로는 직렬 포트 또는 USB-to-TTY 직렬 변환기에서 S.Bus 원격 제어 신호를 읽는데 필요합니다.
 
-This section shows how to create an appropriate circuit.
+이 절에서는 적절한 회로를 만드는 방법을 알아봅니다.
 
-### Required Components
+### 필요한 소자 부품
 
-* 1x NPN transistor (e.g. NPN S9014 TO92)
-* 1x 10K resistor
-* 1x 1K resistor
+* 1x NPN 트랜지스터 (예: NPN S9014 TO92)
+* 1x 10K 저항
+* 1x 1K 저항
 
-> **Note** Any type/model of transistor can be used because the current drain is very low.
+> **Note** 전류 드레인 값이 상당히 낮으므로 트랜지스터를 어떤 형식/모델로 써도 상관 없습니다.
 
 
-### Circuit Diagram/Connections
+### 회로 구성도/연결
 
-Connect the components as described below (and shown in the circuit diagram):
+아래에 설명(그리고 회로 구성도)과 같이 회로 소자를 연결하십시오:
 
-* S.Bus signal &rarr; 1K resistor &rarr; NPN transistor base
-* NPN transistor emit &rarr; GND
-* 3.3VCC &rarr; 10K resistor &rarr; NPN transistor collection &rarr; USB-to-TTY rxd
+* S.Bus 신호선 &rarr; 1K 저항 &rarr; NPN 트랜지스터 베이스
+* NPN 트랜지스터 에밋 &rarr; GND
+* 3.3VCC &rarr; 10K 저항 &rarr; NPN 트랜지스터 컬렉션 &rarr; USB-to-TTY rxd
 * 5.0VCC &rarr; S.Bus VCC
 * GND &rarr; S.Bus GND
 
-![Signal inverter circuit diagram](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
+![신호 인버터 회로도](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
 
-The image below shows the connections on a breadboard.
+하단 이미지에서는 빵판 연결 모습을 보여줍니다.
 
-![Signal inverter breadboard](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)
+![신호 반전 빵판](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)

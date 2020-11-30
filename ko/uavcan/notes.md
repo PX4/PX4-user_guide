@@ -1,17 +1,17 @@
-# Various Notes
+# 다양한 참고 사항
 
-This is a collection of tips and tricks to solve issues when setting up or working with the UAVCAN.
+UAVCAN을 설정하거나 다룰 때 문제를 해결하는 요령과 꼼수를 모아둔 문서입니다.
 
-### Arm but motors not spinning
+### 시동을 걸었으나 모터가 회전하지 않음
 
-If the PX4 Firmware arms but the motors do not start to rotate, check the parameter **UAVCAN\_ENABLE**. It should be set to 3 in order to use the ESCs connected via UAVCAN as output. Moreover, if the motors do not start spinning before thrust is increased, check **UAVCAN\_ESC\_IDLT** and set it to one.
+PX4 펌웨어에서 시동을 걸었는데 모터 회전을 시작하지 않으면, **UAVCAN\_ENABLE** 매개변수 설정을 확인하십시오. 전동 변속기를 UAVCAN 기반 출력으로 사용하려면 3 값을 설정해야합니다. 게다가, 추진력을 올렸음에도 불구, 모터가 회전하지 않는 경우 **UAVCAN\_ESC\_IDLT** 매개변수를 찾아 1로 설정했는지 확인하십시오.
 
-### Debugging with Zubax Babel
+### Zubax Babel로 디버깅하기
 
-A great tool to debug the transmission on the UAVCAN bus is the [Zubax Babel](https://zubax.com/products/babel) in combination with the [GUI tool](http://uavcan.org/GUI_Tool/Overview/). They can also be used independently from Pixhawk hardware in order to test a node or manually control UAVCAN enabled ESCs.
+가장 우수한 UAVCAN 전송 디버깅 도구는 [Zubax Babel](https://zubax.com/products/babel)에 GUI 도구를 붙인 형태의 디버거입니다. 픽스호크 하드웨어와는 별개로 노드를 시험하거나 UAVCAN 기능을 켠 ESC를 따로 직접 제어하려는 용도로 사용할 수 있습니다.
 
 
-### UAVCAN devices dont get node ID/FW doesn't update
+### UAVCAN 장치에서 최신 노드 ID/FW 정보를 가져오지 못함
 
-PX4 requires an SD card for UAVCAN node allocation and firmware upgrade (both of which happen during boot). Check that there is a (working) SD card present and reboot.
+PX4는 UAVCAN 노드 할당을 하려면 SD 카드가 필요하며 펌웨어 업그레이드가 필요합니다(두 동작 모두 부팅하는 동안 진행함). SD 카드가 있는지 (동작하는지) 확인하고 다시 부팅하십시오.
 

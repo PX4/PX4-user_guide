@@ -17,11 +17,11 @@ The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs
 > **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 
-## Quick Summary
+## 概览
 
 - **Main FMU Processor:**
   - Kinetis K66 MK66FN2MOVLQ18 microcontroller running at 180MHz Cortex-M4F MCU, 2MB Flash, 256KB SRAM, Dual USBs (FS + HS), Ethernet, 144-LQFP.
-- **On-board sensors:**
+- **内置传感器：**
   - Accel/Gyro: BMI088/ICM42688 (RevD)...
   - Accel/Magnetometer: FXOS8700CQ
   - Gyro: FXAS21002CQ
@@ -41,7 +41,7 @@ A "Lite" version RDDRONE-FMUK66L is also available which does not include the po
 Additional information can be found in the [Technical Data Sheet](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66). <!-- www.nxp.com/rddrone-fmuk66 -->
 
 
-## Purchase
+## 采购
 
 **RDDRONE-FMUK66** reference design kit may be purchased direct from NXP or from any of NXP's authorised worldwide network of [electronics distributors](https://www.nxp.com/support/sample-and-buy/distributor-network:DISTRIBUTORS).
 
@@ -69,11 +69,11 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
 
 -->
 
-## Assembly/Setup
+## 组装 / 设置
 
-https://nxp.gitbook.io/hovergames
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -85,7 +85,7 @@ make nxp_fmuk66-v3_default
 ```
 
 
-## Debug Port
+## Debug调试端口
 
 The [PX4 System Console](../debug/system_console.md) and the [SWD interface](../debug/swd_debug.md) run on the [DCD-LZ FMU Debug](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) port.
 
@@ -101,7 +101,7 @@ The DCD-LZ breakout adapter permits the use of a standard 10 pin JTAG/SWD interf
 
 -->
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
@@ -109,7 +109,7 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 > **Tip** The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter. You only need to supply the 3S/4S LiPo battery.
 
-## Further info
+## 更多信息
 
 - [HoverGames online documentation](https://nxp.gitbook.io/hovergames) PX4 user and programming guide, specific assembly, construction, debugging, programming instructions.
 

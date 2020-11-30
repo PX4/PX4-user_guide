@@ -22,7 +22,7 @@ easy_install cerberus
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake vim-common
 ```
 
-> **Note** You may want to also install  python-pip and screen
+> **Note** You may want to also install python-pip and screen
 
 ## GCC Toolchain Installation
 <!-- import GCC toolchain common documentation -->

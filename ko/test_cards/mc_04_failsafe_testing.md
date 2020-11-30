@@ -1,49 +1,49 @@
-# Test MC_04 - Failsafe Testing
+# 시험 MC_04 - 안전 장치 시험
 
-❏ Verify RC Loss action is Return to Land
+❏ 원격 조종 유실 동작이 회귀 지점 착륙인지 확인
 
-❏ Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
+❏ 데이터 링크 유실 동작이 회귀 지점 착륙이며 10초의 제한 시간을 두는지 확인
 
-❏ Verify Battery failsafe
+❏ 배터리 안전 장치 검증
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 안전 조치 동작은 회귀 지점 착륙 동작
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 경고 잔여량이 25%인가
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 안전 장치 가동 잔여량이 20%인가
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 응급 상태 잔여량이 15%인가
 
-❏ Take off in Altitude mode
+❏ 고도 제어 모드에서 이륙
 
-❏ Move at least 20 meters away home position
+❏ 기준 위치에서 최소한 20미터 이상 이동
 
-❏ RC loss
+❏ 원격 조종기 연결 유실
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 원격 조종 장치를 끄고 기체가 시작점으로 돌아오는지 확인, 하강 대기 후 원격 조종 장치를 켜서 제어권을 넘겨받음
 
-## Datalink Loss
+## 데이터 연결 유실
 
-❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
+❏ 텔레메트리 연결을 끊으면, 기체는 10초 후 시작 점으로 돌아와야 하며, 하강 대기 후 텔레메트리 무선 통신 장치를 다시 연결
 
-## Switch to Altitude Mode
+## 고도 제어 모드 전환
 
-❏ Make sure roll, pitch and yaw sticks respond like in Stabilize mode
+❏ 좌우, 상하, 방위 회전각 응답이 안정 모드처럼 고정 값으로 응답하는지 확인
 
-❏ Throttle should control altitude, and when the stick is centered it must maintain altitude
+❏ 추진부에서 고도를 제어해야 하며, 스틱을 가운데로 두었을 때 고도를 유지해야 함
 
-## Switch to Position Mode
+## 위치 제어 모드로 전환
 
-❏ When the sticks are centered, it must maintain position
+❏ 스틱을 가운데로 두었을 때 위치를 유지해야 함
 
-❏ Move roll, pitch and yaw and check the vehicle is moving according to the inputs
+❏ 좌우, 상하, 방위 회전각을 움직여서 기체가 입력에 따라 움직이는지 확인
 
-❏ Center the sticks again and check the vehicle maintains position
+❏ 스틱을 가운데로 두어 기체 위치를 유지하는지 확인
 
-## Wait for Battery Failsafe to Trigger
+## 배터리 안전 장치 가동 대기
 
-❏ Confirm the warning message is received in QGC
+❏ QGC에서 경고 메시지를 받는지 확인
 
-❏ Confirm the vehicle returns to land
+❏ 기체가 지면으로 착륙하는지 확인
 
-❏ Confirm the vehicle lands.
+❏ 기체 착륙 확인

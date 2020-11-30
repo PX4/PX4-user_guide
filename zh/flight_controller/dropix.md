@@ -14,7 +14,7 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
 * Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 * 14 PWM/servo outputs (8 with failsafe and manual override, 5 auxiliary, high-power compatible)
@@ -26,13 +26,13 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * Multicolor LED indicator
 * High-power, multi-tone piezo audio indicator
 * microSD card for long-time high-rate logging
-* Sensors 
+* 传感器 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
+  * MEAS MS5611 气压计
 * Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
-* Dimensions 
+* 尺寸 
   * Size: 67*50*6 mm
   * Weight: 15g (without connectors)
 
@@ -40,11 +40,11 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 
 [DroPix Autopilots & Accessories](https://store.drotek.com/dropix-autopilots)
 
-## Documentation
+## 文档
 
 [DroPix User's Guide](https://drotek.gitbook.io/dropix-user-guide/)
 
-## Wiring Guides
+## 接线指南
 
 The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbook.io/dropix-user-guide/)).
 
@@ -52,7 +52,7 @@ The following diagrams show the Dropix connector information (for more informati
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="front connectors" width="500px" />
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -65,7 +65,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |

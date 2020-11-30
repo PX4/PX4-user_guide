@@ -1,6 +1,6 @@
-# 3DR WiFi Telemetry (Discontinued)
+# 3DR 无线数传 (停产)
 
-> **Warning** This product is no longer manufactured or available from 3DR.
+> **Warning** 3DR不再生产或提供此产品。
 
 The *3DR WiFi Telemetry Radio* is supported by PX4. Simply connect it to the flight controller's `TELEM1` port to create a WiFi "hotspot" for the vehicle with the details below:
 
