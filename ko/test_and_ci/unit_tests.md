@@ -35,81 +35,81 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
 1. 원하는 시험 기능을 추가하십시오. 특정 테스트를 수행하려면 헤더 파일 추가가 필요하며, 새 테스트 추가(제각각의 이름을 지님), 설정 로직 배치, 시험할 코드 실행, 결과 검증을 기대대로 수행합니다.
 1. 추가 라이브러리 의존 요소가 필요하다면, 위에서와 같이 CMakeLists의 `LINKLIBS` 다음에 추가해야합니다.
 
-Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/functional-MyNewFunctional`. It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
+`make tests`를 실행하여 시험을 진행할 수 있으며, 이 과정 후 `build/px4_sitl_test/functional-MyNewFunctional` 위치에서 바이너리를 찾을 수 있습니다. 디버거에서 바로 실행할 수 있으나, [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#running-a-subset-of-the-tests) 인자를 사용하여 개별 테스트 실행시 주의하십시오. uORB 일부분과 매개변수 라이브러리는 자체적으로 완전하게 정리되지 않아 여러번 설정을 진행하면 예기치 못한 동작이 일어날 수 있습니다.
 
-## Writing a SITL Unit Test
+## SITL 단위 테스트 작성
 
-SITL unit tests should be used when you specifically need all of the flight controller components - drivers, time, and more. These tests are slower to run (1s+ for each new module), and harder to debug, so in general they should only be used when necessary.
+특히 비행체 제어 장치의 모든 부분 - 드라이버, 시간, 등을 시험하려면 SITL 단위 테스트를 거쳐야합니다. 이 테스트는 실행이 느리며(새 모듈 별로 1초씩 추가), 디버깅도 어려워, 보통 필요할 때만 테스트를 활용합니다.
 
-The steps to create new SITL unit tests are as follows:
+새 SITL 단위 테스트의 작성 절차는 다음과 같습니다:
 
-1. Note that `ut_[name of one of the unit test functions]` corresponds to one of the unittest functions defined within [unit_test.h](https://github.com/PX4/Firmware/blob/master/src/include/unit_test.h).
-1. Within [tests_main.h](https://github.com/PX4/Firmware/blob/master/src/systemcmds/tests/tests_main.h) define the new test:
-1. Within **test_[description].cpp** include the base unittest-class `<unit_test.h>` and all files required to write a test for the new feature.
-1. Within **test_[description].cpp** create a class `[Description]Test` that inherits from `UnitTest`.
-1. Within `[Description]Test` class declare the public method `virtual bool run_tests()`.
-1. Within `[Description]Test` class declare all private methods required to test the feature in question (`test1()`, `test2()`,...).
-1. Within **test_[description].cpp** implement the `run_tests()` method where each test[1,2,...] will be run.
-1. Within **test_[description].cpp**, implement the various tests.
-1. At the bottom within **test_[description].cpp** declare the test.
+1. [Unittest-class](https://github.com/PX4/PX4-Autopilot/blob/master/src/include/unit_test.h) 예제를 검사하십시오.
+1. [tests](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tests)에 새 .cpp 파일을 만들고 이름을 **test_[description].cpp**와 같이 정하십시오.
+1. **test_[description].cpp** 파일에 unittest-class 기반 클래스 `<unit_test.h>` 헤더 파일을 넣고 새 기능 동작에 해당하는 시험 코드 작성시 필요한 모든 파일을 넣으십시오.
+1. **test_[description].cpp** 에 `UnitTest` 클래스를 상속하는 `[Description]Test`  클래스를 작성하십시오.
+1. `[Description]Test` 클래스에 공용 메서드`virtual bool run_tests()`를 선언하십시오.
+1. `[Description]Test` 클래스에 기능에 대해 확인하는 과정에서 필요한 모든 내부 메서드(`test1()`, `test2()`,...)를 선언하십시오.
+1. **test_[description].cpp** 파일에 각각의 test[1,2,...] 메드를 실행하도록 `run_tests()` 메서드를 작성하십시오.
+1. **test_[description].cpp** 파일에 다양한 시험 절차를 작성하십시오.
+1. **test_[description].cpp** 파일 내부 하단에 테스트를 선언하십시오.
    ```cpp
    ut_declare_test_c(test_[description], [Description]Test)
    ```
-   Here is a template:
+   서식은 아래와 같습니다:
    ```cpp
    #include <unit_test.h>
-    #include "[new feature].h"
-    ...
+   #include "[new feature].h"
+   ...
 
    class [Description]Test : public UnitTest
-    {
-    public:
+   {
+   public:
        virtual bool run_tests();
 
-    private:
+   private:
        bool test1();
        bool test2();
        ...
    };
 
-    bool [Description]Test::run_tests()
-    {
+   bool [Description]Test::run_tests()
+   {
        ut_run_test(test1)
        ut_run_test(test2)
        ...
 
        return (_tests_failed == 0);
-    }
+   }
 
-    bool [Description]Test::test1()
-    {
+   bool [Description]Test::test1()
+   {
        ut_[name of one of the unit test functions](...
        ut_[name of one of the unit test functions](...
        ...
 
        return true;
-    }
+   }
 
-    bool [Description]Test::test2()
-    {
+   bool [Description]Test::test2()
+   {
        ut_[name of one of the unit test functions](...
        ut_[name of one of the unit test functions](...
        ...
 
        return true;
-    }
-    ...
+   }
+   ...
 
    ut_declare_test_c(test_[description], [Description]Test)
    ```
-   PX4 provides a simple base [Unittest-class](https://github.com/PX4/Firmware/blob/master/src/include/unit_test.h). Each developer is encouraged to write unit tests in the process of adding a new feature to the PX4 framework.
+   참고로 `ut_[name of one of the unit test functions]`는 [unit_test.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/include/unit_test.h)에 지정한 단위 테스트 함수 중 하나에 해당합니다.
 
-1. Within [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.h) define the new test:
+1. [tests_main.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.h)에 새 테스트를 정의하십시오:
 
    ```cpp
    extern int test_[description](int argc, char *argv[]);
    ```
-1. Within [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.c) add description name, test function and option:
+1. [tests_main.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/tests_main.c)에 새 설명 이름, 테스트 함수, 옵션을 추가하십시오:
 
    ```cpp
    ...
@@ -119,17 +119,17 @@ The steps to create new SITL unit tests are as follows:
        ...
    }
 ```
-   `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called: ```bash pxh&gt; tests all
+   `OPTION`은 `OPT_NOALLTEST`,`OPT_NOJIGTEST`, `0` 중 한가지 값이 들어갈 수 있으며, px4 셸에서 한두가지 명령을 호출했을 때 고려합니다:
 
    ```bash
    pxh> tests all
    ```
-   or
+   또는
 
    ```bash
    pxh> tests jig
    ```
-   If a test has option `OPT_NOALLTEST`, then that test will be excluded when calling `tests all`. The same is true for `OPT_NOJITEST` when command `test jig` is called. Option `0` means that the test is never excluded, which is what most developer want to use.
+   `OPT_NOALLTEST` 옵션으로 테스트를 수행한다면, `tests all`을 호출할 때의 테스트를 제외합니다. `OPT_NOJIGTEST`에 대해서도 `test jig` 명령을 호출했을 때 마찬가지입니다. Option `0` means that the test is never excluded, which is what most developer want to use.
 
 1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/CMakeLists.txt).
 
