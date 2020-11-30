@@ -14,8 +14,8 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 
 ![MC Controller Diagram](../../assets/diagrams/mc_control_arch.jpg)
 
-* This is a standard cascaded control architecture.
-* The controllers are a mix of P and PID controllers.
+* Estimates come from [EKF2](../tutorials/tuning_the_ecl_ekf.md).
+* This is a standard cascaded position-velocity loop.
 * Estimates come from [EKF2](../advanced_config/tuning_the_ecl_ekf.md).
 * Depending on the mode, the outer (position) loop is bypassed (shown as a multiplexer after the outer loop). The position loop is only used when holding position or when the requested velocity in an axis is null.
 
@@ -42,7 +42,7 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 ![MC Velocity Control Diagram](../../assets/diagrams/mc_velocity_diagram.jpg)
 
 * PID controller to stabilise velocity. Commands an acceleration.
-* The integrator includes an anti-reset windup (ARW) using a clamping method.
+* The integrator in the inner loop (velocity) controller includes an anti-reset windup (ARW) using a clamping method.
 * The commanded acceleration is saturated.
 
 ### Multicopter Position Controller
@@ -69,7 +69,7 @@ The PX4 implementation of the Total Energy Control System (TECS) enables simulta
 
 As seen in the diagram above, TECS receives as inputs airspeed and altitude setpoints and outputs a throttle and pitch angle setpoint. These two outputs are sent to the fixed wing attitude controller which implements the attitude control solution. It's therefore important to understand that the performance of TECS is directly affected by the performance of the pitch control loop. A poor tracking of airspeed and altitude is often caused by a poor tracking of the aircraft pitch angle.
 
-> **Note** Make sure to tune the attitude controller before attempting to tune TECS.
+> **Note** If no airspeed sensor is used then gain scheduling for the FW attitude controller is disabled (it's open loop); no correction is/can be made in TECS using airspeed feedback.
 
 Simultaneous control of true airspeed and height is not a trivial task. Increasing aircraft pitch angle will cause an increase in height but also a decrease in airspeed. Increasing the throttle will increase airspeed but also height will increase due to the increase in lift. Therefore, we have two inputs (pitch angle and throttle) which both affect the two outputs (airspeed and altitude) which makes the control problem challenging.
 
@@ -85,35 +85,35 @@ TECS offers a solution by respresenting the problem in terms of energies rather 
 
 ![Energy balance loop](../../assets/diagrams/TECS_pitch.jpg)
 
-The total energy of an aircraft is the sum of kinetic and potential energy:
+$$\ell = \frac{1}{2}\rho V_T^2 S b C_\ell = \bar{q} S b C_\ell$$,
 
-$$E_T = \frac{1}{2} m V_T^2 + m g h$$
+$$\bar{q} = \frac{1}{2} \rho V_T^2$$,
 
 Taking the derivative with respect to time leads to the total energy rate:
 
-$$\dot{E_T} = m V_T \dot{V_T} + m g \dot{h}$$
+$$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$,
 
 From this, the specific energy rate can be formed as:
 
-$$\dot{E} = \frac{\dot{E_T}}{mgV_T}  = \frac{\dot{V_T}}{g} + \frac{\dot{h}}{V_T} = \frac{\dot{V_T}}{g} + sin(\gamma)$$
+$$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$.
 
 where $\gamma{}$ is the flight plan angle. For small $\gamma{}$ we can approximate this as:
 
 $$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
-From the dynamic equations of an aircraft we get the following relation:
+At a zero rates condition ($$p = 0$$), the damping term vanishes and a constant - instantaneous - torque can be generated using
 
-$$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
+$$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$.
 
 where T and D are the thrust and drag forces. In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
 
-$$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
+$$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}} \frac{1}{\rho V_T^2} \ell = \frac{bS}{C_{\ell_{\delta_a}}} \frac{1}{\bar{q}} \ell$$,
 
 As can be seen, $\Delta T{}$ is proportional to $\dot{E}{}$, and thus the thrust setpoint should be used for total energy control.
 
 Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as:
 
-$$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
+$$- C_{\ell_{\delta_a}} \:\delta_a = C_{\ell_p} \frac{b}{2 V_T} \: p$$.
 
 ## Fixed-Wing Attitude Controller
 
@@ -161,25 +161,25 @@ The reader should be aware of the difference between the [true airspeed (TAS)](h
 
 The definition of the dynamic pressure is
 
-$$\bar{q} = \frac{1}{2} \rho V_T^2$$
+$$\bar{q} = \frac{1}{2} \rho V_T^2 = \frac{1}{2} V_I^2 \rho_0$$.
 
 where $\rho{}$ is the air density and $V_T{}$ the true airspeed (TAS).
 
 Taking the roll axis for the rest of this section as an example, the dimensional roll moment can be written
 
-$$\ell = \frac{1}{2}\rho V_T^2 S b C_\ell = \bar{q} S b C_\ell$$
+$$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}\rho_0} \frac{1}{V_I^2} \ell$$.
 
 where $\ell{}$ is the roll moment, $b{}$ the wing span and $S{}$ the reference surface.
 
 The nondimensional roll moment derivative $C_\ell{}$ can be modeled using the aileron effectiveness derivative $C_{\ell_{\delta_a}}{}$, the roll damping derivative $C_{\ell_p}{}$ and the dihedral derivative $C_{\ell_\beta}{}$
 
-$$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$
+$$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: p$$.
 
 where $\beta{}$ is the sideslip angle, $p{}$ the body roll rate and $\delta_a{}$ the aileron deflection.
 
 Assuming a symmetric ($C_{\ell_0} = 0{}$) and coordinated ($\beta = 0{}$) aircraft, the equation can be simplified using only the rollrate damping and the roll moment produced by the ailerons
 
-$$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$
+$$\delta_{a} = \frac{V_{I_0}^2}{V_I^2} \delta_{a_{PI}} + \frac{V_{T_0}}{V_T} \delta_{a_{FF}}$$,
 
 This final equation is then taken as a baseline for the two next subsections to determine the airspeed scaling expression required for the PI and the FF controllers.
 
@@ -235,7 +235,7 @@ where $V_{I_0}{}$ and $V_{T_0}{}$ are the IAS and TAS at trim conditions.
 
 Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows:
 
-$$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
+$$\dot{\mathbf{\omega}}*{sp}^b = \frac{V*{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}*{sp*{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}*{sp*{FF}}^b$$,
 
 and implement it directly in the rollrate, pitchrate and yawrate controllers.
 
@@ -243,4 +243,4 @@ and implement it directly in the rollrate, pitchrate and yawrate controllers.
 
 The beauty of this airspeed scaling algorithm is that it does not require any specific tuning. However, the quality of the airspeed measurements directly influences its performance.
 
-Furthermore, to get the largest stable flight envelope, one should tune the attitude controllers at an airspeed value centered between the stall speed and the maximum airspeed of the vehicle (e.g.: an airplane that can fly between 15 and 25m/s should be tuned at 20m/s). This "tuning" airspeed should be set in the [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) parameter.
+Furthermore, to get the largest stable flight envelope, one should tune the attitude controllers at an airspeed value centered between the stall speed and the maximum airspeed of the vehicle (e.g.: an airplane that can fly between 15 and 25m/s should be tuned at 20m/s). This "tuning" airspeed should be set in the [FW_AIRSPD_TRIM](../advanced/parameter_reference.md#FW_AIRSPD_TRIM) parameter.
