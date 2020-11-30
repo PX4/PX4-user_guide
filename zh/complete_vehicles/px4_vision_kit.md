@@ -1,276 +1,301 @@
-# PX4 Vision Autonomy Development Kit
+# PX4 Vision 视觉自主开发套件
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+[*PX4 Vision 视觉自主开发套件*](http://www.holybro.com/product/px4-vision/) 是一个稳定且高性价比的套件，让你能够在自动化载具上开发计算机视觉。
 
-![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
+![综述](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
+这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
-> **Note** This vehicle comes with no pre-installed software. A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+> **Note** 无人机上没有预先安装的软件。 预成像U盘包含[PX4/避障](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由*Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 开发者可以使用套件来尝试 [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 项目提供的其他功能。 修改现有代码，或尝试全新的计算机视觉功能。
 
-The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
-## Purchase
+## PX4 Vision 自主无人机开发套件（先行者版）
 
-- [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
+- [购买链接（中国大陆地区及港澳地区由淘宝店“地面售货站”提供销售）](https://item.taobao.com/item.htm?id=609418685176)
 
-## Px4 Vision Guide Content
-- [Warnings & Notifications](#warnings-and-notifications)
-- [What is Inside](#what-is-inside)
-- [What Else Do You Need](#what-else-do-you-need)
-- [First-time Setup](#first-time-setup)
-- [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
-- [Development using the Kit](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
-- [Other Development Resources](#other-development-resources)
-- [How to get Technical Support](#how-to-get-technical-support)
+## 警告&通知
+- [警告&通知](#warnings-and-notifications)
+- [包装内容](#what-is-inside)
+- [其他注意事项](#what-else-do-you-need)
+- [首次使用](#first-time-setup)
+- [试飞无人机（带避障）](#fly-the-drone-with-avoidance)
+- [使用套件开发](#development-using-the-kit)
+- [Px4 Vision 载板引脚排列](#px4-vision-carrier-board-pinouts)
+- [其他拓展资源](#other-development-resources)
+- [如何获得技术支持](#how-to-get-technical-support)
 
-## Warnings and Notifications
+## 开始了解你的开发套件
 
-1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
-1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2.0* memory stick.
-1. The *UP Core* should only be powered using the battery (do not remove the *UP Core* power socket safety cover).
+1. 不要直接使用电源为 *UP Core* 计算机供电（可能会摧毁计算机）。 *UP Core* 只能使用电池供电。
+1. 该开发包使用前置摄像头，（它没有向下或后置深照相机）。 因此，它不能用于测试 [安全着陆](../computer_vision/safe_landing.md) 或其他需要下方摄像头的功能。
+1. 只有在 GPS 工作正常时才能测试任务模式中的自主避障（飞行任务需要使用 GPS 配合）。 防撞功能需要在可获得位置的模式下进行测试，比如GPS或光流有比较好的定位。
+1. *UP Core* 只能使用电池供电(请勿卸下 *UP Core* 电源安全盖)。
 
-   ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
+   ![警告 - 不连接电源端口](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
-## What is Inside
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+## 包装内容
+![包装内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
+<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 正侧面图" />
 
-The PX4 Vision DevKit contains following components:
-- Core Components:
-  - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
-  - 1x PMW3901 optical flow sensor
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
-  - 1x Structure Core depth camera
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
-    - FTDI UART connected to flight controller
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
-    - `HDMI`: HDMI out
-    - SD card slot
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
-
-
-- Mechanical Specification:
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
-  - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
+该套件中包含了必要的无人机硬件：
+- 核心组件：
+  - 一个Pixhawk 4飞控（包含定制化的PX4固件）
+  - 一个 PMW3901 光流传感器
+  - 一个 TOF 红外距离传感器(PSK‐CM8JL65‐CC5)
+  - 一个 Structure Core 深度相机
+    - 160 深度视图摄像机
+    - 立体红外摄像头
+    - 板载传感器
+    - 强大的 NU3000 多核深度处理器
+  - 一个 *UP Core* 计算机 (4GB 内存；64GB eMMC 带 Ubuntu 系统和 PX4 避障)
+    - Intel® AtomTM x5-z8350 (up to 1.92 GHz)
+    - 兼容的操作系统: Microsoft Windows 10 完整版本, Linux (ubilinux, Ubuntu, Yocto), Android
+    - FTDI UART 连接到飞控
+    - `USB1`：USB3-A 接口被用来从 USB2.0 储存器启动 PX4 避障环境（连接到 USB3.0 外设可能会导致GPS无法使用）。
+    - `USB2`：USB 2.0 接口，用于连接 JST-GH 插接件。 可以用于第二个相机，LTE模块等。 （或开发期间使用的键盘/鼠标）。
+    - `USB3`：USB 2.0 JST-GH 端口连接到深度摄像头
+    - `HDMI`：HDMI 输出
+    - SD 卡插槽
+    - WiFi 802.11 b/g/n @ 2.4 GHz (连接到外部1号天线)。 允许计算机进行 WiFi 家庭网络访问/更新。
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- 机械规格：
+  - 框架：全 5mm 3k 碳纤纹
+  - 电机：T-MOTOR F60 PROⅢ KV1750
+  - 电调: BEHEli-S 20A ESC
+  - 桨：T6045
+  - GPS: Pixhawk4 GPS 模块
+  - 电源模块： Holybro PM07
+  - 轴距：286毫米
+  - 重量：854克（无电池和桨）
+  - 数传：连接飞行控制器的ESP8266（连接外部2号天线）。 实现与地面站的无线连接。
+
+
+- 带有 Auterion 提供的预刷新软件的 USB2.0 盘，其附带：
   - Ubuntu 18.04 LTS
   - ROS Melodic
-  - Occipital Structure Core ROS driver
+  - Occipital Structure Core 相机 ROS 驱动
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+  - [PX4 Avoidance 避障库](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
 
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- 各种导线、8个螺旋桨、2个电池带（已安装）和其他附件（可用于连接其他外围设备）。
 
-## What Else Do You Need
+## 其他注意事项
 
-The kit contains all the essential drone hardware except a battery and a radio control system, which must be purchased separately:
-- Battery:
-  - 4S LiPo with XT60 female connector
-  - Less than 115mm long (to fit between power connector and GPS mast)
-- Radio control system
-  - Any [PX4-compatible RC System](../getting_started/rc_transmitter_receiver.md) can be used.
-  - An *FrSky Taranis* transmitter with R-XSR receiver is one of the more popular setups.
-- An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
+该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
+- 电池：
+  - 带 XT60 母头的 4S 锂电池
+  - 长度小于115毫米（以适合电源插座和 GPS 支架之间的空间）
+- 无线电控制系统
+  - 可以使用各种 [PX4 兼容的遥控系统](../getting_started/rc_transmitter_receiver.md)。
+  - 带有 R-XSR 接收机的 *FrSky Taranis* 发射机是一个受欢迎的配置。
+- 一个 H2.0 头的内六角螺丝刀（用来打开顶部的螺丝来安装接收机）
 
-In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+此外，用户也需要地面站硬件/软件：
+- 可运行 [QGC地面站（QGroundControl）](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) 的笔记本电脑或者平板。
 
-## First-time Setup
+## 首次使用
 
-1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
-   - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
-   - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
-   - Re-attach the top plate.
-   - Mount the RC receiver on the *UP Core* carrier board plate at the back of the vehicle (use zipties or double-sided tape).
-   - Ensure the antennas are clear of any obstructions and electrically isolated from the frame (e.g. secure them under the carrier board or to the vehicle arms or legs).
+1. 将一个 [兼容的遥控接收器](../getting_started/rc_transmitter_receiver.md#connecting-receivers) 连接到无人机上（未随套件提供）：
+   - 使用 H2.0 头的内六角螺丝刀移除/取消顶部板块(在电池进入的地方)。
+   - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
+   - 重新安装上面的外壳。
+   - 在无人机背部安装RC 接收器(使用双面胶或其他)。
+   - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
 
-1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done). The binding procedure depends on the specific radio system used (read the receiver manual).
-1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate.
+1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) 遥控和接收机配对(如果尚未完成)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
+1. GPS需要高于无人机，并固定到底板。
 
-   ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
+   ![提升GPS映射](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
-1. Insert the pre-imaged USB2.0 stick from the kit into the *UP Core* port labeled `USB1` (highlighted below).
+1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
-   ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Power the vehicle with a fully charged battery.
+   ![UP Core：USB1 端口 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
+1. 用充好电的电池的为无人机供电。
 
-   > **Note**  Ensure propellers are removed before connecting the battery.
-1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
-   - **SSID:** pixhawk4
-   - **Password:** pixhawk4
+   > **Note** 电池连接前移除螺旋桨。
+1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
+   - **SSID：** pixhawk4
+   - **密码：** pixhawk4
 
-   > **Tip** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+   > **提示** WiFi网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 使用 web 浏览器打开 URL： `http://192. 68.4.1` 波特率不得从921600更改。
 
-1. Start *QGroundControl* on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle:
+1. 在地面站启动 *QGroundControl*。
+1. [配置/校准](../config/README.md) 无人机：
 
-   > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   > **Note** 无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
-
-
-1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
-
-   > **Note** Modes can also be changed using *QGroundControl*
-
-   We recommend RC controller switches are define for:
-   - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
-   - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
+   - [校准遥控](../config/radio.md)
+   - [校准罗盘](../config/compass.md)
 
 
-1. Attach the propellers with the rotations as shown:
+1. 螺旋桨按照下面的方向安装：
 
-   ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
+   > **Note** 模式也可以通过*QGroundControl*切换
 
-   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
-
-     ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
-
-   - Screw down firmly using the provided propellor nuts:
-
-     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+   我们推荐的遥控设置为：
+   - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
+   - *globalplanner* 尚未用这个工具包测试。
+   - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
 
 
-## Fly the Drone with Avoidance
+1. 按如下所示旋转连接螺旋桨：
 
-When the vehicle setup described above is complete:
+   ![电机顺序示意图](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-1. Connect the battery to power the vehicle.
+   - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和 _6045_ **R** (逆时针)。
 
-1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
+     ![螺旋桨识别](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
-   > **Tip** The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   - 使用随附的螺旋桨螺母将其拧紧：
 
-1. Check that the avoidance system has started properly:
-
-   - The *QGroundControl* notification log displays the message: **Avoidance system connected**.
-
-     ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
-   - A red laser is visible on the front of the *Structure Core* camera.
-1. Wait for the GPS LED to turn green. This means that the vehicle has a GPS fix and is ready to fly!
-1. Connect the ground station to the vehicle WiFi network.
-1. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
-
-1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle. The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
-
-1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle. Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+     ![螺旋桨螺母](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
-## Development using the Kit
+## 测试飞行（带避障）
 
-The following sections explain how to use the kit as an environment for developing computer vision software.
+当无人机按上述安装完成时：
 
-### PX4 Avoidance Overview
+1. 连接电池来给载具供电
 
-The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
+1. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
-- The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
-- The *globalplanner* has not been tested with this kit.
-- The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
+   > **Tip** 从U盘启动/开始的流程大概会要1分钟（从内部存储大概需要30s）
 
-PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
-- [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
-- [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+1. 检查避障系统是否已经正常启动
+
+   - 使用套件中的 USB-JST电缆获取一个 USB A 连接器
+
+     ![USB 转 JST 线](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
+   - 如果键盘和鼠标具有单独的接口，则可以将USB集线器连接到电缆。
+1. 等待 GPS 的 LED 变成绿色。 这意味着无人机的GPS已定位并且准备好起飞！
+1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
+1. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
+
+1. 测试 [防止碰撞](../computer_vision/collision_prevention.md), 启用 [位置模式](../flight_modes/position_mc.md) 并手动向障碍飞行。 无人机应减速，然后在障碍物距离小于6米时悬停(通过 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 参数，距离 [可调整](../advanced_config/parameters.md)  )。
+
+1. 要测试 [避障](../computer_vision/obstacle_avoidance.md)，创建一个被障碍阻止的路径。 然后切换到 [任务模式](../flight_modes/mission.md) 来运行任务。并观察无人机绕开障碍物，然后返回计划路线。
+
+
+## 使用套件开发
+
+以下各节说明如何将工具包用作开发计算机视觉软件的环境。
+
+### PX4 避障概述
+
+*PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，为运行在一个 *飞控上的 PX4 飞行堆栈提供障碍和/或航线信息*
+
+关于配套计算机视觉/规划软件的文档可以在 github 上找到： [PX4/avoidcen](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)。 该项目提供了许多不同的规划程序实现（打包为ROS节点）：
+- 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
+- 加载新固件后选择 *PX4 Vision DevKit* 机架：
+- *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
+
+PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/en/) 交换数据：
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - 机载计算机技术信息
+- [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 
 <span id="install_image_mission_computer"></span>
-### Installing the image on the Companion Computer
+### 在机载计算机上安装镜像
 
-You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
+您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
 
-This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
+建议这样做是因为从内部内存启动得更快。 释放USB端口，也能提供比U盘更多的内存。
 
-> **Note** Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+> **提示** [ 飞行无人机(带避障)](#fly_drone) 另外解释了如何验证避障系统是否有效。
 
-To flash the USB image to the *UP Core*:
+将USB镜像刷新到UP Core：
 
-1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
-1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process.
+1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
+1.
+登录到配套计算机<0> （如上所述）。</li> 
+   
+   1 打开终端，然后运行以下命令将映像复制到内部存储器（eMMC）。 终端将在刷新过程中提示您一些响应。 
+  
+  
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
-   > **Note** All information saved in the *UP Core* computer will be removed when executing this script
-
-1. Pull out the USB stick.
-1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
-
-<span id="boot_mission_computer"></span>
-### Boot the Companion Computer {#boot_mission_computer}
-
-First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
-
-> **Tip** [Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
-
-If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
-
-Once started the companion computer can be used both as a computer vision development environment and for running the software.
-
-<span id="login_mission_computer"></span>
-### Login to the Companion Computer
-
-To login to the companion computer:
-1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
-
-   ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
-   - Use the USB-JST cable from the kit to get a USB A connector
-
-     ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
-   - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
-1. Connect a monitor to the *UP Core* HDMI port.
-
-   ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
-
-   The Ubuntu login screen should then appear on the monitor.
-1. Login to the *UP Core* using the credentials:
-   - **Username:** px4vision
-   - **Password:** px4vision
 
 
 
-### Developing/Extending PX4 Avoidance
+   > **Note** 保存到 *UP Core* 计算机的所有信息将在执行此脚本时被删除
 
-The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
+1 拔出U盘。
 
-The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+1 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
+<span id="boot_mission_computer"></span> 
 
-The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
-1. Disable the avoidance process using the following command:
+### 开启机载计算机 {#boot_mission_computer}
+
+首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
+
+
+
+> **Tip** [ 飞行无人机(带避障)](#Fly-the-Drone-with-Avoidance) 另外解释了如何验证避障系统是否有效。
+
+如果您已经在机载计算机上安装了 [镜像](#install_image_mission_computer) 您只需为该无人机供电(即不需要U盘)。 避障系统应在30秒内启动并运行。
+
+机载计算机一旦启动，就可以用作计算机视力开发环境和运行软件的环境。
+
+<span id="login_mission_computer"></span> 
+
+
+### 登录机载计算机
+
+登录到机载计算机:
+
+1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
+   
+   ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+
+   - 使用套件中的 USB-JST电缆获取一个 USB A 连接器
+     
+     ![USB 转 JST 线](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
+
+   - 如果键盘和鼠标具有单独的接口，则可以将USB集线器连接到电缆。
+     
+     1. 连接显示器到 *UP Core* 的 HDMI 接口。
+![UP Core：HDMI 端口](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+
+Ubuntu 登录屏幕应显示在显示器上。
+
+1. 使用凭据登录到 *UP Core*： 
+      - **用户名：**px4vision
+   - **密码：**px4vision
+
+
+
+
+
+### 开发/扩展 PX4 避障功能
+
+PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
+
+Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地计划程序。 引导启动文件 (`撤销.launch`) 位于 `px4vision_ros` 软件包中（修改此文件以更改启动计划程序的文件）。
+
+避障程序包在引导时启动。 要集成其他规划，需要禁用此功能。
+
+1. 使用以下指令禁用避障程序： 
+   
+   
    ```sh
    systemctl stop avoidance.service
    ```
-   You can simply reboot the machine to restart the service.
 
-   Other useful commands are:
+
+您只需重启机器即可重启服务。
+
+其他有用的指令是： 
+
+
    ```sh
    # restart service
    systemctl start avoidance.service
@@ -282,49 +307,69 @@ The avoidance package is started on boot. To integrate a different planner, this
    systemctl enable avoidance.service  
    ```
 
-1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
 
-1. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
+1. 避障碍包的源代码可在 https://github.com/PX4/evidence 中查找，该代码位于 `~/catkin_ws/src/evering` 中。
+
+1. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码： 
+   
+   
    ```sh
    git pull origin
    git checkout origin/master
    ```
-1. Build the package
+
+
+1. 构建软件包 
+   
+   
    ```
    catkin build local_planner
    ```
 
-The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+
+ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
 
 
-### Developing PX4 Firmware
 
-The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
-You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
-- You will need to connect *QGroundControl* to the kit's *Pixhawk 4* **via USB** in order to update firmware.
-- Select the *PX4 Vision DevKit* airframe after loading new firmware: ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
+### 开发 PX4 固件
 
-> **Note** Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+该套件旨在创建可在机载计算机上运行的计算机视觉软件，并与PX4的灵活路径规划和防撞界面集成在一起。
 
-## Px4 Vision Carrier Board Pinouts
+您也可以修改 PX4 本身，然后 [将其安装为自定义固件](../config/firmware.md#custom)：
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+- 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
+- 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-## Other Development Resources
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
-- [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
-- [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/avoidance)
-- [Path Planning Interface](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
-## How to get Technical Support
+> **Note** *不需要* 修改即可满足大多数计算机视觉用例的需要。 要讨论接口或如何集成其他功能，请加入PX4 slack 通道：＃computer-vision。
 
-For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
-For software issues, use the following community support channels:
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
-- [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+
+## 其他拓展资源
+
+硬件问题，请联系 Holybro： [productservice@holybro.com](mailto:productservice@holybro.com)。
+
+
+
+## 如何获得技术支持？
+
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 机载计算机技术信息
+- [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
+- [Pixhawk 4 概述](../flight_controller/pixhawk4.md)
+- [PX4 避障软件/文档](https://github.com/PX4/avoidance)
+- [路径规划接口](../computer_vision/path_planning_interface.md)
+- [Px4 Vision 载板引脚排列](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+
+
+
+## 如何获得技术支持
+
+软件问题，请使用以下 [社区支持频道](README.md#support)：
+
+软件问题，请使用以下社区支持频道：
+
+- [PX4讨论：计算机视觉分类。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 slack](https://slack.px4.io/) 频道: #避障
+- [Holybro PX4 Vision Wikifrate](https://wikifactory.com/+holybro/px4-vision)
