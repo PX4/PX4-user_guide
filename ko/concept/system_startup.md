@@ -1,12 +1,12 @@
-# System Startup
+# 시스템 시작
 
-The PX4 startup is controlled by shell scripts. On NuttX they reside in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d) folder - some of these are also used on Posix (Linux/MacOS). The scripts that are only used on Posix are located in [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix).
+PX4 시작은 쉘 스크립트로 제어합니다. NuttX에서 쉘 스크립트는 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 있습니다. 일부 POSIX 계열(Linux/MacOS) 운영체제도 동일합니다. POSIX 전용 스크립트는 [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix)에 위치합니다.
 
-All files starting with a number and underscore (e.g. `10000_airplane`) are canned airframe configurations. They are exported at build-time into an `airframes.xml` file which is parsed by [QGroundControl](http://qgroundcontrol.com) for the airframe selection UI. Adding a new configuration is covered [here](../dev_airframes/adding_a_new_frame.md).
+숫자와 밑줄 문자로 시작하는 모든 파일(예: `00000_airplane`)은 사전 정의 기체 프레임 설정 파일입니다. 설정 값은 빌드 타임에 [QGroundControl](http://qgroundcontrol.com)에서 해석할 `airframes.xml` 파일로 내보내고 기체 선택 UI에 활용합니다. 새 설정 추가는 [여기](../dev_airframes/adding_a_new_frame.md)에서 다룹니다.
 
-The remaining files are part of the general startup logic. The first executed file is the [init.d/rcS](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS) script (or [init.d-posix/rcS](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on Posix), which calls all other scripts.
+남아있는 파일은 공통 시작 로직의 일부입니다. 첫 실행 파일은 다른 모든 스크립트를 호출하는 [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS) 스크립트 (또는 POSIX에서 [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS))입니다.
 
-The following sections are split according to the operating system that PX4 runs on.
+다음의 섹션은 PX4가 실행되는 운영체제에 따라 구분되어 있습니다.
 
 
 ## Posix (Linux/MacOS)
