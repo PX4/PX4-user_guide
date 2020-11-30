@@ -1,30 +1,30 @@
-# Advanced Flight Controller Orientation Tuning
+# 고급 비행 제어장치 방향 조정
 
-The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
+방향 및 수평 균형은 매개변수 값을 직접 설정하여 센서 모드의 미세 오정렬 또는 부차적 보정 오류를 잡아 수정할 수 있습니다.
 
-> **Note** These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
+> **참고** 이 지침은 일반 사용자에게는 권장하지 않습니다. 기본 설정 내용은 아래 연결 지침을 따르십시오:
 
-- [Flight Controller Orientation](../config/flight_controller_orientation.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md) 
+- [비행 제어장치 방향](../config/flight_controller_orientation.md)
+- [레벨 수평 보정](../config/level_horizon_calibration.md) 
 
-If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
+기체가 계속 쏠린다면(멀티로터에서 종종 볼 수 있지만, 다른 기체에도 해당), RC 송신기의 트리머를 활용하기 보다는 오프셋 각도 매개변수를 미세 조정하여 트리밍 하는 방법이 좋습니다. 이 방법은 완전 자율 비행시 기체가 트리밍을 유지하도록 할 것입니다.
 
-## Setting Orientation Parameters
+## 방향 매개변수 설정
 
-To change the orientation parameters:
+방향 매개변수 값을 바꾸려면:
 
-1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
-2. Change the parameters as shown below: ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+1. QGroundControl에서 다음의 메뉴를 여십시오: **설정> 매개변수 > 센서 보정**.
+2. 아래와 같이 매개변수 값을 바꾸십시오:![비행 제어장치 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
-## Parameter information
+## 매개변수 정보
 
-The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself. What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
+**SENS_BOARD_ROT** 매개변수는 플랫폼에 상대적인 회전을 정의하는데, X, Y, Z 미세 조정 오프셋 값은 보드 자체에 상대적 고정값으로 저장합니다. 비행 제어장치의 Yaw, Pitch 및 Roll 방향의 전체 오프셋 각도를 가져올 용도로 미세 조정 오프셋 값을 SENS_BOOD_ROT 각도 값에 더합니다.
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
+이 매개변수는 플랫폼을 기준으로 상대적인 FMU 보드의 회전을 정의합니다. 사용할 수 있는 값은 다음과 같습니다.
 
-- 0 = No rotation
+- 0 = 회전 없음
 - 1 = Yaw 45°
 - 2 = Yaw 90°
 - 3 = Yaw 135°
@@ -53,12 +53,12 @@ This parameter defines the rotation of the FMU board relative to the platform. P
 
 **SENS_BOARD_X_OFF**
 
-Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 X축 또는 Roll 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Y_OFF**
 
-Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 Y축 또는 Pitch 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Z_OFF**
 
-Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 Z축 또는 Yaw 축을 중심으로 한 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
