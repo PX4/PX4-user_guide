@@ -25,7 +25,7 @@ All the usual PX4 features can still be used for your racer!
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
 * Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html) 
   * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
@@ -40,7 +40,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * Built-in current sensor
 * Built-in OSD chip (AB7456 via SPI)
 
-## Where to Buy
+## 在哪里买
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
 
@@ -71,7 +71,7 @@ Accessories include:
 
 * [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
 
-## Connectors
+## 连接器
 
 Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
 
@@ -87,9 +87,9 @@ Below are silkscreens for the Hobbywing XRotor Flight Controller F4.
 
 ![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
-## Pinouts
+## 针脚定义
 
-### Radio Control
+### 遥控器
 
 RC is connected to one of the following ports:
 
@@ -113,7 +113,7 @@ RC is connected to one of the following ports:
   
   * TX: MCU pin PA0
   * RX: MCU pin PA1
-  * 57600 baud
+  * 57600 波特率
   * This can be configured as the `TELEM 2` port.
   * Airbot Omnibus F4 SD Pinout: 
     * TX: RSSI pin
@@ -145,7 +145,7 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port     |
+| UART   | 设备         | Port     |
 | ------ | ---------- | -------- |
 | USART1 | /dev/ttyS0 | SerialRX |
 | USART4 | /dev/ttyS1 | TELEM1   |
@@ -174,7 +174,7 @@ On the handheld controller (e.g. Taranis) you will also need a [Transmitter Modu
 
 > **Note** The referenced links above contains the documentation for the TX/RX modules.
 
-#### Setup
+#### 设置
 
 Connect the Nano RX and Omnibus pins as shown:
 
@@ -187,7 +187,7 @@ Nothing else needs to be configured on PX4 flight controller side - the RC proto
 
 Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
-## Schematics
+## 原理图
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
@@ -197,7 +197,7 @@ The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-S
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## Building Firmware
+## 编译固件
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
@@ -211,11 +211,11 @@ The firmware can be installed in any of the normal ways:
 * Build and upload the source ```make omnibus_f4sd_default upload```
 * [Load the firmware](../config/firmware.md) using *QGroundControl*. You can use either pre-built firmware or your own custom firmware.
 
-## Configuration
+## 配置
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
-| Parameter                                                                | Setting                                                                                                                 |
+| 参数                                                                       | 设置                                                                                                                      |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
