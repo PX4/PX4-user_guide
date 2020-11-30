@@ -10,9 +10,9 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 
 ![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
 
-## Quick Summary
+## 总览
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
   * RAM: 256 KB SRAM (L1)
 * Failsafe System-on-Chip: STM32F100 
@@ -20,14 +20,14 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
   * RAM: 8 KB SRAM
 * GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
 
-### Connectivity
+### 连接性
 
 * 1x I2C
 * 2x UART (one for Telemetry / OSD, no flow control)
 * 8x PWM with manual override
 * S.BUS / PPM input
 
-## Availability:
+## 访问链接:
 
 From distributor [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html)
 
@@ -42,7 +42,7 @@ Optional hardware:
   * [HKPilot Micro Telemetry EU version (433 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html)
   * [HKPilot Micro Telemetry EU version (915 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html)
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -53,7 +53,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v2_default
     
 
-## Debug Port
+## Debug调试端口
 
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or the [SWD interface](../debug/swd_debug.md) (JTAG).
 
@@ -61,12 +61,12 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                     |
+| UART   | 设备         | Port                     |
 | ------ | ---------- | ------------------------ |
 | UART1  | /dev/ttyS0 | IO Debug                 |
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
 | UART4  | /dev/ttyS2 | GPS                      |
 
-## Key Links
+## 主链接
 
-* [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)
+* [用户手册](http://www.holybro.com/manual/pixfalcon11.pdf)
