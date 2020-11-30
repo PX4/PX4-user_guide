@@ -1,34 +1,34 @@
-# SiK Radio
+# SiK 무선 통신
 
-[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
+[SiK 무선 통신](https://github.com/LorenzMeier/SiK) 텔레메트리 무선 통신용 펌웨어, 도구 모음입니다.
 
-PX4 is protocol-compatible with radios that use *SiK*. SiK Radios often come with appropriate connectors/cables allowing them to be directly connected to [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers (in some cases you may need to obtain an appropriate cable/connector). Typically you will need a pair of devices - one for the vehicle and one for the ground station.
+PX4는 *SiK *를 활용하는 무선 통신 프로토콜과 호환됩니다. SiK 무선 통신 모듈은 보통 적절한 커넥터/케이블을 갖추고 있어 [픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에 직접 연결할 수 있습니다(어떤 경우 적절한 케이블/커넥터를 구해야 할 수도 있습니다). 보통 기체용 장치와 지상 통제 장치용 장치 한 쌍이 필요합니다.
 
-Hardware for the SiK radio can be obtained from various manufacturers/stores in variants that support different range and form factors.
+SiK 무선 통신용 하드웨어는 다양한 구성을 지원하는 여러 제조업체/상점에서 구입할 수 있습니다.
 
-![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK 무선 통신](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 <span id="vendors"></span>
 
-## Vendors
+## 공급업체
 
-* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
-* [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
-* [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
-* <del><em>3DR Telemetry Radio</em></del> (Discontinued)
+* [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
+* [HKPilot 텔레메트리 라디오](../telemetry/hkpilot_sik_radio.md)
+* [홀리브로 텔레메트리 라디오](../telemetry/holybro_sik_radio.md)
+* <del><em>3DR 텔레메트리 라디오</em></del> (단종)
 
-## Setup/Configuration
+## 설정/구성
 
-The ground station-based radio is connected via USB (essentially plug-n-play).
+지상 통제 장치 기반 무선 통신 장치는 USB로 연결합니다(보통 연결하면 동작함).
 
-The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
+기체 기반 무선 통신 장치는 비행 제어장치의 `TELEM1` 포트에 연결하며, 보통 추가 구성은 필요하지 않습니다.
 
-## Firmware Update
+## 펌웨어 업데이트
 
-Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
+대부분의 [공급 업체](#vendors)에서 제공하는 하드웨어는 최신 펌웨어에 이미 설정한 상태로 나옵니다. MAVLink 2 지원을 추가하려는 경우를 예로 들면, 오래된 하드웨어를 새 펌웨어로 업데이트 할 필요가 있습니다.
 
-You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+*QGroundControl*에서 무선 통신 장치 펌웨어를 업데이트할 수 있습니다. [QGroundControl 사용자 안내서 > 펌웨어 불러오기](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)를 참고하십시오.
 
-## Advanced Setup/Configuration
+## 고급 설정/구성
 
-The Development section has [additional information](../data_links/sik_radio.md) about building firmware and AT-command based configuration. This should not be required by non-developers.
+개발 절에서는 펌웨어 빌드 및 AT 명령 기반 설정 [추가 정보](../data_links/sik_radio.md)가 있습니다. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.
