@@ -159,73 +159,73 @@ docker rm 45eeb98f1dd9
 
 도커 컨테이너에서 SITL과 같은 모의시험 인스턴스를 실행하고 호스트에서  *QGroundControl*로 제어할 때, 통신 링크는 직접 설정해야합니다. 여기서 *QGroundControl*의 자동 연결 기능은 동작하지 않습니다.
 
-*QGroundControl*에서 [설정](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html)을 찾아 Comm 연결을 선택하십시오. UDP 프로토콜을 사용할 새 링크를 만드십시오. The port depends on the used [configuration](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL) e.g. port 14557 for the SITL iris config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network.
+*QGroundControl*에서 [설정](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html)을 찾아 Comm 연결을 선택하십시오. UDP 프로토콜을 사용할 새 링크를 만드십시오. 포트 번호는 [설정](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) 에서 사용 여부에 따라 다릅니다(예: SITL 설정에서는 14570번을 사용). IP 주소는 도커 컨테이너 중 하나를 나타냅니다. 보통 기본 네트워크 설정을 활용한다면 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 확인할 수 있습니다(컨테이너 이름은 `mycontainer`로 가정합니다):
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
-> **Note** Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+> **Note** 이중 중괄호 사이에 공백문자를 두어서는 안됩니다(gitbook의 인터페이스 렌더링 문제로 일부러 빈칸을 두었습니다).
 
 
-### Troubleshooting
+### 문제 해결
 
-#### Permission Errors
+#### 권한 오류
 
-The container creates files as needed with a default user - typically "root". This can lead to permission errors where the user on the host computer is not able to access files created by the container.
+컨테이너에서는 기본 사용자 권한으로 필요한 파일을 만듭니다. 보통 기본 사용자는 "root"입니다. 이렇게 하면 호스트 컴퓨터의 사용자가 컨테이너에서 만든 파일에 접근할 수 없는 권한 오류가 나타납니다.
 
-The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.
+위 예제에서는 호스트 사용자와 동일한 UID로 컨테이너의 사용자를 만들 때 `--env=LOCAL_USER_ID="$(id -u)"` 행을 활용합니다. 이 명령을 사용하면 호스트에서 컨테이너에 만든 모든 파일을 접근할 수 있습니다.
 
 
-#### Graphics Driver Issues
+#### 그래픽 드라이버 문제
 
-It's possible that running Gazebo will result in a similar error message like the following:
+가제보 실행시 다음과 같은 오류 메시지가 나타날 수 있습니다:
 
 ```sh
 libGL error: failed to load driver: swrast
 ```
 
-In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):
+이 경우 호스트 시스템에 자체 그래픽 드라이버를 설치해야 합니다. 올바른 드라이버를 다운로드하시고 컨테이너 내부에 설치하십시오. 엔비디아 드라이버의 경우 다음 명령을 사용합니다(그렇지 않으면 호스트에서 불러온 모듈을 설치 관리자가 찾아내어 과정 진행을 거절합니다):
 
 ```sh
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+더 많은 정보는 [여기](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/)에서 찾을 수 있습니다.
 
 <a id="virtual_machine"></a>
 
-## Virtual Machine Support
+## 가상 머신 지원
 
-Any recent Linux distribution should work.
+최근 리눅스 배포판이라면 동작해야 합니다.
 
-The following configuration is tested:
+다음 설정을 시험했습니다:
 
-  * OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+  * OS X VMWare Fusion 환경에 Ubuntu 14.04 설치(GUI 지원 도커 컨테이너 병렬 실행시 X-Server 치명 오류 발생).
 
-**Memory**
+**메모리**
 
-Use at least 4GB memory for the virtual machine.
+가상 머신에 최소한 4GB 용량의 메모리를 할당하십시오.
 
-**Compilation problems**
+**컴파일 문제**
 
-If compilation fails with errors like this:
+다음 오류로 컴파일에 실패했을 경우:
 
 ```sh
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
 
-Try disabling parallel builds.
+병렬 빌드가 아닌 단일 빌드로 진행해보십시오.
 
-**Allow Docker Control from the VM Host**
+**가상 머신 호스트에서 도커 제어 허용**
 
-Edit `/etc/defaults/docker` and add this line:
+`/etc/defaults/docker` 파일을 편집하여 다음 줄을 추가하십시오:
 
 ```sh
 DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock -H 0.0.0.0:2375"
 ```
 
-You can then control docker from your host OS:
+이제 호스트 운영체제에서 도커를 제어할 수 있습니다:
 
 ```sh
 export DOCKER_HOST=tcp://<ip of your VM>:2375
