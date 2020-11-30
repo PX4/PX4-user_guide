@@ -1,3 +1,3 @@
-# Sensor and Actuator I/O
+# 센서와 액츄에이터 입출력
 
-This section contains topics about integrating sensors and actuators into PX4. It covers both sensor busses ([I2C](../sensor_bus/i2c.md), [UAVCAN ](../uavcan/README.md), [UART](../uart/README.md), SPI) and also the main PWM ports.
+이 절에서는 센서와 액츄에이터를 PX4에 붙이는 주제가 들어있습니다. 센서 버스([I2C](../sensor_bus/i2c.md), [UAVCAN ](../uavcan/README.md), [UART](../uart/README.md), SPI)뿐만 아니라 메인 PWM 포트도 다룹니다.
