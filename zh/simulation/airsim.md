@@ -1,11 +1,11 @@
-# AirSim Simulation
+# AirSim 仿真
 
-AirSim is a open-source, cross platform simulator for drones, built on Unreal Engine. It provides physically and visually realistic simulations of Pixhawk/PX4 using either Hardware-In-The-Loop \(HITL\) or Software-In-The-Loop \(SITL\).
+AirSim 是一款开源、跨平台的无人机仿真器，基于虚幻引擎开发。 它提供物理上和视觉上都非常逼真的Pixhawk/PX4仿真，无论是硬件在环（HITL）或是软件在环（SITL）。
 
-The main entry point for the documentation is the [Github AirSim README](https://github.com/Microsoft/AirSim/blob/master/README.md).
+文档的主要切入点是 [Github AirSim README](https://github.com/Microsoft/AirSim/blob/master/README.md)。
 
-The main entry point for documentation on working with PX4 is [PX4 Setup for AirSim](https://github.com/Microsoft/AirSim/blob/master/docs/px4_setup.md) (covering both HITL and SITL).
+使用 PX4 的文档主要切入点为 [PX4 Setup for AirSim](https://github.com/Microsoft/AirSim/blob/master/docs/px4_setup.md)（涵盖 HITL 与 SITL）。
 
-## Further Information
+## 更多信息
 
-* [Using AirSim to Simulate Aircraft Inspection by Autonomous Drones](https://github.com/generalized-intelligence/GAAS/tree/master/demo/case_study_1?fbclid=IwAR2JO0LPesA5z313sA2QGm1t01bb4wn0Xpz_JkD7Z1s3nombJWHyTZdLuMA) (Case Study from Generalized Autonomy Aviation System (GAAS) project).
+* [在 AirSim 中模拟无人机对客机巡检](https://gaas.gitbook.io/guide/case-study/zai-airsim-zhong-mo-ni-wu-ren-ji-dui-ke-ji-xun-jian)（中文页面，来自 GAAS 项目的案例研究）
