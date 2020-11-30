@@ -51,23 +51,23 @@ NuttX에는 통합 셸 인터프리터가 있으며([NuttShell (NSH)](https://cw
 
 ### 시스템 시동 과정 바꾸기
 
-In most cases customizing the default boot is the better approach, which is documented below. If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card. If this file is present nothing in the system will be auto-started.
+대부분의 경우 기본 부팅 과정을 별도로 설정하는 방식이 아래에 설명하는대로 그나마 나은 방법입니다. 만약 완전하게 잘 돌아가는 부팅 과정을 바꾸어야 한다면 마이크로 SD 카드의 `etc` 폴더에 있는 `/fs/microsd/etc/rc.txt` 파일을 만드십시오. 이 파일이 시스템에 없다면 자동으로 시작합니다.
 
-### Customizing the System Startup
+### 시스템 시동 개별 설정
 
-The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md). If only tweaks are wanted (like starting one more application or just using a different mixer) special hooks in the startup can be used.
+시스템 시동 스크립트를 개별 설정하는 최상의 방법은 [새 기체프레임 설정](../dev_airframes/adding_a_new_frame.md)을 도입하는 방법입니다. 약간의 수정만이 필요하다면(프로그램을 하나 이상 시작하거나 다른 믹서를 사용하는 경우) 시동 과정에 특별한 훅을 활용할 수 있습니다.
 
-> **Caution** The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
+> **Caution** 시스템 부팅 파일은 UNIX 개행 문자가 들어가야 하는 UNIX 파일입니다. 윈도우에서 편집한다면 적절한 편집기를 사용하십시오.
 
-There are three main hooks. Note that the root folder of the microsd card is identified by the path `/fs/microsd`.
+세가지 주요 훅이 있습니다. 참고로 마이크로 SD 카드의 루트 폴더는 `/fs/microsd` 경로로 나타냅니다.
 
   * /fs/microsd/etc/config.txt
   * /fs/microsd/etc/extras.txt
   * /fs/microsd/etc/mixers/NAME_OF_MIXER
 
-#### Customizing the Configuration (config.txt)
+#### 개별 구성 (config.txt)
 
-The `config.txt` file can be used to modify shell variables. It is loaded after the main system has been configured and *before* it is booted.
+`config.txt` 파일은 셸 변수 값을 바꿀때 활용할 수 있습니다. It is loaded after the main system has been configured and *before* it is booted.
 
 #### Starting additional applications
 
