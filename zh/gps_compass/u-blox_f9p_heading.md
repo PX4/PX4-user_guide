@@ -6,7 +6,7 @@ Two u-blox F9P devices mounted on a vehicle can be used to accurately compute a 
 
 The general setup is described  in: [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf).
 
-In overview:
+概述：
 - The UART2 of the GPS devices need to be connected together (TXD2 of the "Moving Base" to RXD2 of the "Rover")
 - Connect UART1 on each of the GPS to (separate) unused UART's on the autopilot, and configure both of them as GPS with baudrate set to `Auto`. The mapping is as follows:
   - Main GPS = Rover
