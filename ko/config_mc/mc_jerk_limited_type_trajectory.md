@@ -1,6 +1,6 @@
-# Jerk-limited Type Trajectory for Multicopters
+# 멀티로터 가가속도 궤적
 
-The Jerk-limited trajectory type provides smooth motion in response to user stick input or mission changes (e.g.: for filming, mapping, cargo). It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+가가속도(jerk) 궤적은 사용자의 스틱 인풋 및 임무 변화에 기체가 보다 부드럽게 움직일 수 있도록 합니다. (촬영, 매핑, 운송 임무) It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
 
 This trajectory type is always enabled in [Mission mode](../flight_modes/mission.md). To enable it in [Position mode](../flight_modes/position_mc.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
