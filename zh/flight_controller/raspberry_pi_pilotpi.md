@@ -1,8 +1,6 @@
-# RPi PilotPi Shield
+# 树莓派 PilotPi 拓展板
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
-:::
+*PilotPi* 是一套支持树莓派直接运行 PX4 各项功能的拓展板方案。 它是一个低成本但高度可扩展的平台，从 Linux 和 PX4 两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。
 
 :::warning
 PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
@@ -12,163 +10,163 @@ The *PilotPi* shield is a fully functional solution to run PX4 autopilot directl
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## Quick Summary
+## 概览
 
-* Supported RPi boards:
-  * Raspberry Pi 2B/3B/3B+/4B
-* Supported OS:
+* 支持的树莓派：
+  * 树莓派 2B/3B/3B+/4B
+* 支持的操作系统：
   * Raspberry Pi OS
   * Ubuntu Server (armhf/arm64)
-* Accelerometer / Gyro:
+* 加速度计/角速度计：
   * ICM42688P
-* Magnetometer:
+* 磁力计：
   * IST8310
-* Barometer:
+* 气压计：
   * MS5611
-* PWM:
+* PWM：
   * PCA9685
-* ADC:
+* ADC：
   * ADS1115
-* Power:
-  * 3~6S battery with built-in voltage sensing.
-  * Power the Pi through USB cable
-* Availability: *preparing for shipping*
+* 电源：
+  * 3~6S 电池 具有内置电压监测
+  * 通过USB线启动树莓派
+* 市场状态： *准备生产*
 
-## Connectivity
+## 连接性
 
 Shield provides:
 
-* 16x PWM outputting channels
-* GPS connector
-* Telemetry connector
-* External I2C bus connector (**Note:** conflicts with CSI camera)
-* RC input port (SBUS)
-* 3x ADC channels range 0~5V
-* 2\*8 2.54mm unused GPIO connector
+* 16 x PWM 输出通道
+* GPS 连接器
+* 数传连接器
+* 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
+* 遥控输入口（SBUS 协议）
+* 3 x 0~5V ADC 通道
+* 2\*8 2.54mm 排插，引出未使用的 GPIO
 
 Direct accessible from RPi:
 
-* 4x USB connector
-* CSI connector(**Note:** conflict with external I2C bus)
-* etc.
+* 4x USB 连接器
+* CSI 连接器(**Note:** 与外部 I2C 总线冲突
+* 其它
 
-## Recommended Wiring
+## 推荐接线
 
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinout
+## 针脚定义
 
-> **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
 
-### Connectors
+### 连接器
 
-#### GPS connector
+#### GPS 连接器
 
-Mapped to `/dev/ttySC0`
+映射到 `/dev/i2c-0`
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | NC     | +3v3 |
-| 5   | NC     | +3v3 |
-| 6   | GND    | GND  |
+| 针脚 | 信号  | 电压   |
+| -- | --- | ---- |
+| 1  | VCC | +5V  |
+| 2  | TX  | +3v3 |
+| 3  | RX  | +3v3 |
+| 4  | NC  | +3v3 |
+| 5  | NC  | +3v3 |
+| 6  | GND | GND  |
 
-#### Telemetry connector
+#### 数传连接器
 
-Mapped to `/dev/ttySC1`
+遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | CTS    | +3v3 |
-| 5   | RTS    | +3v3 |
-| 6   | GND    | GND  |
+| 针脚 | 信号   | 电压   |
+| -- | ---- | ---- |
+| 1  | VCC  | +5V  |
+| 2  | TX   | +3v3 |
+| 3  | RX   | +3v3 |
+| 4  | CTS  | +3v3 |
+| 5  | RTS: | +3v3 |
+| 6  | GND  | GND  |
 
-#### External I2C connector
+#### 外部 I2C 总线连接器
 
-Mapped to `/dev/i2c-0`
+此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
 
-| Pin | Signal | Volt          |
-| --- | ------ | ------------- |
-| 1   | VCC    | +5V           |
-| 2   | SCL    | +3v3(pullups) |
-| 3   | SDA    | +3v3(pullups) |
-| 4   | GND    | GND           |
+| 针脚 | 信号  | 电压       |
+| -- | --- | -------- |
+| 1  | VCC | +5V      |
+| 2  | SCL | +3v3(上拉) |
+| 3  | SDA | +3v3(上拉) |
+| 4  | GND | GND      |
 
-#### RC & ADC2/3/4
+#### 遥控 & ADC 2/3/4
 
-RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+ADC3 和 ADC4 的 VCC 被以下设备驱动：
 
-| Pin | Signal | Volt     |
-| --- | ------ | -------- |
-| 1   | RC     | +3V3~+5V |
-| 2   | VCC    | +5V      |
-| 3   | GND    | GND      |
+| 针脚 | 信号  | 电压       |
+| -- | --- | -------- |
+| 1  | RC  | +3V3~+5V |
+| 2  | VCC | +5V      |
+| 3  | GND | GND      |
 
-- ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 is left unused.
-- ADC3 can be connected to an analog airspeed sensor.
-- ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+- ADC1 内部连接到分压电路以监测电池电压。
+- ADC2 空闲。
+- ADC3 可以连接模拟量空速计。
+- ADC4 在 ADC 和 VCC 之间有一个跳线帽，监测系统电压。
 
-| Pin | Signal | Volt   |
-| --- | ------ | ------ |
-| 1   | ADCx   | 0V~+5V |
-| 2   | VCC    | +5V    |
-| 3   | GND    | GND    |
+| 针脚 | 信号   | 电压     |
+| -- | ---- | ------ |
+| 1  | ADCx | 0V~+5V |
+| 2  | VCC  | +5V    |
+| 3  | GND  | GND    |
 
-> **Note** ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+> **Warning** PX4 [实验性地](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
 
-#### Unused GPIO available on top of the board
+#### 拓展板顶部引出的未使用的GPIO
 
-| Shield Pin | BCM | WiringPi | RPi Pin |
-| ---------- | --- | -------- | ------- |
-| 1          | 3V3 | 3v3      | 3V3     |
-| 2          | 5V  | 5V       | 5V      |
-| 3          | 4   | 7        | 7       |
-| 4          | 14  | 15       | 8       |
-| 5          | 17  | 0        | 11      |
-| 6          | 27  | 2        | 13      |
-| 7          | 22  | 3        | 15      |
-| 8          | 23  | 4        | 16      |
-| 9          | 7   | 11       | 26      |
-| 10         | 5   | 21       | 29      |
-| 11         | 6   | 22       | 31      |
-| 12         | 12  | 26       | 32      |
-| 13         | 13  | 23       | 33      |
-| 14         | 16  | 27       | 36      |
-| 15         | 26  | 25       | 37      |
-| 16         | GND | GND      | GND     |
+| 拓展板Pin | BCM号 | WiringPi号 | 树莓派Pin |
+| ------ | ---- | --------- | ------ |
+| 1      | 3V3  | 3v3       | 3V3    |
+| 2      | 5V   | 5V        | 5V     |
+| 3      | 4    | 7         | 7      |
+| 4      | 14   | 15        | 8      |
+| 5      | 17   | 0         | 11     |
+| 6      | 27   | 2         | 13     |
+| 7      | 22   | 3         | 15     |
+| 8      | 23   | 4         | 16     |
+| 9      | 7    | 11        | 26     |
+| 10     | 5    | 21        | 29     |
+| 11     | 6    | 22        | 31     |
+| 12     | 12   | 26        | 32     |
+| 13     | 13   | 23        | 33     |
+| 14     | 16   | 27        | 36     |
+| 15     | 26   | 25        | 37     |
+| 16     | GND  | GND       | GND    |
 
-### Switches
+### 开关
 
-#### RC Inverter
+#### 遥控信号反相器
 
 This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
-* On: suitable with SBUS (signal inverted)
-* Off: preserved
+* 开启：适合SBUS(反转信号)
+* 关闭：保留
 
-#### Vref
+#### 参考压
 
-ADC 3 & 4 will have VCC driven by:
-* Vref output from REF5050 if on
-* 5V pin directly from RPi if off
+根据具体操作系统选择以下指南：
+* 开启开关时：由REF5050驱动
+* 关闭开关时：从树莓派5V取电
 
-#### Boot Mode
+#### 启动模式
 
 This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
-* On: start PX4 automatically
-* Off: don' t start PX4
+* 开启：开机自启 PX4
+* 关闭：不启动 PX4
 
-## Developer Quick Start
+## 开发者快速指南
 
 Refer to specific instructions for the OS running on your RPi:
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [Ubuntu 服务器(arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
