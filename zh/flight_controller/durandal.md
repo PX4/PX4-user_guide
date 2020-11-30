@@ -22,32 +22,32 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 :::
 
 
-## Quick Summary
+## 概览
 
 #### Technical Specifications
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
-- IO Processor: STM32F100
+- IO 处理器：STM32F100
   - 32 Bit Arm ® Cortex® -M3, 24MHz, 8KB SRAM
 - On-board sensors
-  - Accel/Gyro: ICM-20689
+  - 加速度计 / 陀螺仪：ICM-20689
   - Accel/Gyro: BMI088
   - Mag: IST8310
-  - Barometer: MS5611
-- GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  - 气压计：MS5611
+- GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 
 
-#### Interfaces
+#### 接口
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-- 6 dedicated PWM/Capture inputs on FMU
+- FMU上有6个专用PWM/Capture输入
 - Dedicated R/C input for Spektrum / DSM
 - Dedicated R/C input for CPPM and S.Bus
 - Dedicated S.Bus servo output and analog / PWM RSSI input
-- 5 general purpose serial ports
+- 5个通用串行口
   - 3 with full flow control
   - 1 with separate 1.5A current limit
-- 3 I2C ports
-- 4 SPI buses
+- 3 个 I2C 接口
+- 4路SPI总线
   - 1 internal high speed SPI sensor bus with 4 chip  selects and 6 DRDYs
   - 1 internal low noise SPI bus dedicated for XXX
   - Barometer with 2 chip selects, no DRDYs
@@ -56,21 +56,21 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
   - 1 external SPI buses
 - Up to 2 CANBuses for dual CAN
   - Each CANBus has individual silent controls or ESC RX-MUX control
-- Analog inputs for voltage / current of 2 batteries
+- 2个电池电流/电压模拟输入口
 - 2 additional analog inputs
 
 #### Electrical Data
-- Power module output: 4.9~5.5V
+- 电源模块输出：4.9~5.5V
 - Max input voltage: 6V
-- Max current sensing: 120A
-- USB Power Input: 4.75~5.25V
-- Servo Rail Input: 0~36V
+- 最大电流感应：120A
+- USB 电源输入：4.75~5.25V
+- 伺服导轨输入电压：0~36V
 
 #### Mechanical Data
 - Dimensions: 80x45x20.5mm
-- Weight: 68.8g
+- 重量：68.8g
 
-#### Other Characteristics
+#### 其它特性
 - Operating temperature: ~40~85C
 - Storage temperature: -40~85C
 - CE
@@ -80,7 +80,7 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
 
 <span id="purchase"></span>
-## Purchase
+## 采购
 
 Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
@@ -106,7 +106,7 @@ The locations of ports/connections are shown here (and below in the [pinouts sec
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 
-## Dimensions
+## 尺寸
 
 All dimensions are in millimeters.
 
@@ -142,25 +142,23 @@ Under these conditions the system will not draw any power (will not be operation
 
 -->
 
-## Assembly/Setup
+## 组装 / 设置
 
 The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
 
-## Building Firmware
+## 编译固件
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
-:::
+端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](../debug/system_console.md) 页面。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
 ```
 make holybro_durandal-v1_default
 ```
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS1          |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -172,9 +170,9 @@ make holybro_durandal-v1_default
 
 
 <span id="debug_port"></span>
-## Debug Port
+## Debug调试端口
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
+全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
@@ -183,21 +181,21 @@ Note No Debug port is exposed for the I/O board.
 :::
 
 
-## Peripherals
+## 外部设备
 
-* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [数传电台模块](../telemetry/README.md)
+* [测距仪/距离传感器](../sensor/rangefinders.md)
 
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
-## Pinouts
+## 针脚定义
 
 *Durandal* pinouts are listed below. These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
 
@@ -212,45 +210,45 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 #### SUBS Out port
 
-| Pin        | Signal             | Volt  |
+| 针脚         | 信号                 | 电压    |
 | ---------- | ------------------ | ----- |
-| 1 (red)    | -                  | -     |
+| 1（红）       | -                  | -     |
 | 2 (yellow) | SBUS_OUT/RSSI_IN | +3.3V |
 | 3 (black)  | GND                | GND   |
 
 #### DSM RC port
 
-| Pin        | Signal  | Volt  |
+| 针脚         | 信号      | 电压    |
 | ---------- | ------- | ----- |
-| 1 (red)    | VDD_3V3 | +3.3V |
+| 2          | VDD_3V3 | +3.3V |
 | 2 (yellow) | DSM_IN  | +3.3V |
 | 3 (black)  | GND     | GND   |
 
 #### I2C A port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCL4   | +3.3V |
-| 3 (black) | SDA4   | +3.3V |
-| 4 (black) | GND    | GND   |
+| 针脚        | 信号   | 电压    |
+| --------- | ---- | ----- |
+| 2         | VCC  | +5V   |
+| 2 (black) | SCL4 | +3.3V |
+| 3 (black) | SDA4 | +3.3V |
+| 4 (black) | GND  | GND   |
 
 #### CAN1 port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 针脚        | 信号    | 电压    |
+| --------- | ----- | ----- |
+| 2         | VCC   | +5V   |
+| 2 (black) | CAN H | +3.3V |
+| 3 (black) | CAN L | +3.3V |
+| 4 (black) | GND   | GND   |
 
 
 <span id="gps"></span>
-#### GPS port
+#### GPS 接口
 
-| Pin        | Signal              | Volt  |
+| 针脚         | 信号                  | 电压    |
 | ---------- | ------------------- | ----- |
-| 1 (red)    | VCC                 | +5V   |
+| 2          | VCC                 | +5V   |
 | 2 (black)  | TX (out)            | +3.3V |
 | 3 (black)  | RX (in)             | +3.3V |
 | 4 (black)  | SCL1                | +3.3V |
@@ -265,9 +263,9 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 <span id="telem4_i2cb"></span>
 #### TELEM4 I2CB ports
 
-| Pin       | Signal   | Volt  |
+| 针脚        | 信号       | 电压    |
 | --------- | -------- | ----- |
-| 1 (red)   | VCC      | +5V   |
+| 2         | VCC      | +5V   |
 | 2 (black) | TX (out) | +3.3V |
 | 3 (black) | RX (in)  | -     |
 | 4 (black) | SCL2     | -     |
@@ -278,27 +276,27 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 <span id="telem1_2_3"></span>
 #### TELEM3, TELEM2, TELEM1 port
 
-| Pin       | Signal    | Volt  |
-| --------- | --------- | ----- |
-| 1 (red)   | VCC       | +5V   |
-| 2 (black) | TX (out)  | +3.3V |
-| 3 (black) | RX (in)   | +3.3V |
-| 4 (black) | CTS (in)  | +3.3V |
-| 5 (black) | RTS (out) | +3.3V |
-| 6 (black) | GND       | GND   |
+| 针脚        | 信号       | 电压    |
+| --------- | -------- | ----- |
+| 2         | VCC      | +5V   |
+| 2 (black) | TX (out) | +3.3V |
+| 3 (black) | RX (in)  | +3.3V |
+| 4 (black) | CTS（输入）  | +3.3V |
+| 5 (black) | RTS（输出）  | +3.3V |
+| 6 (black) | GND      | GND   |
 
 
 <span id="power"></span>
 #### POWER port
 
-| Pin       | Signal  | Volt  |
-| --------- | ------- | ----- |
-| 1 (red)   | VCC     | +5V   |
-| 2 (black) | VCC     | +5V   |
-| 3 (black) | CURRENT | +3.3V |
-| 4 (black) | VOLTAGE | +3.3V |
-| 5 (black) | GND     | GND   |
-| 6 (black) | GND     | GND   |
+| 针脚        | 信号  | 电压    |
+| --------- | --- | ----- |
+| 2         | VCC | +5V   |
+| 2 (black) | VCC | +5V   |
+| 3 (black) | 电流  | +3.3V |
+| 4 (black) | 电压  | +3.3V |
+| 5 (black) | GND | GND   |
+| 6 (black) | GND | GND   |
 
 
 ### Back Pinouts
@@ -307,34 +305,34 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 #### MAIN Out
 
-| Pin | Signal | Volt  | +         | -   |
-| --- | ------ | ----- | --------- | --- |
-| 1   | IO_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | IO_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | IO_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | IO_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | IO_CH5 | +3.3V | VDD_SERVO | GND |
-| 6   | IO_CH6 | +3.3V | VDD_SERVO | GND |
-| 7   | IO_CH7 | +3.3V | VDD_SERVO | GND |
-| 8   | IO_CH8 | +3.3V | VDD_SERVO | GND |
+| 针脚 | 信号     | 电压    | +         | -   |
+| -- | ------ | ----- | --------- | --- |
+| 1  | IO_CH1 | +3.3V | VDD_SERVO | GND |
+| 2  | IO_CH2 | +3.3V | VDD_SERVO | GND |
+| 3  | IO_CH3 | +3.3V | VDD_SERVO | GND |
+| 4  | IO_CH4 | +3.3V | VDD_SERVO | GND |
+| 5  | IO_CH5 | +3.3V | VDD_SERVO | GND |
+| 6  | IO_CH6 | +3.3V | VDD_SERVO | GND |
+| 7  | IO_CH7 | +3.3V | VDD_SERVO | GND |
+| 8  | IO_CH8 | +3.3V | VDD_SERVO | GND |
 
 
 #### AUX Out
 
-| Pin | Signal  | Volt  | +         | -   |
-| --- | ------- | ----- | --------- | --- |
-| 1   | FMU_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | FMU_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | FMU_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | FMU_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | FMU_CH5 | +3.3V | VDD_SERVO | GND |
+| 针脚 | 信号      | 电压    | +         | -   |
+| -- | ------- | ----- | --------- | --- |
+| 1  | FMU_CH1 | +3.3V | VDD_SERVO | GND |
+| 2  | FMU_CH2 | +3.3V | VDD_SERVO | GND |
+| 3  | FMU_CH3 | +3.3V | VDD_SERVO | GND |
+| 4  | FMU_CH4 | +3.3V | VDD_SERVO | GND |
+| 5  | FMU_CH5 | +3.3V | VDD_SERVO | GND |
 
 
 #### RC IN
 
-| Pin | Signal           | Volt  |
-| --- | ---------------- | ----- |
-| S   | SBUS_IN/PPM_IN | +3.3V |
+| 针脚 | 信号               | 电压    |
+| -- | ---------------- | ----- |
+| S  | SBUS_IN/PPM_IN | +3.3V |
 + | VCC | +5V
 - | GND | GND
 
@@ -345,18 +343,18 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 #### CAN2 port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 针脚        | 信号    | 电压    |
+| --------- | ----- | ----- |
+| 2         | VCC   | +5V   |
+| 2 (black) | CAN H | +3.3V |
+| 3 (black) | CAN L | +3.3V |
+| 4 (black) | GND   | GND   |
 
 #### CAP & ADC IN port
 
-| Pin        | Signal         | Volt                     |
+| 针脚         | 信号             | 电压                       |
 | ---------- | -------------- | ------------------------ |
-| 1 (red)    | VCC            | +5V                      |
+| 2          | VCC            | +5V                      |
 | 2 (black)  | FMU_CAP6       | +3.3V                    |
 | 3 (black)  | FMU_CAP5       | +3.3V                    |
 | 4 (black)  | FMU_CAP4       | +3.3V                    |
@@ -381,40 +379,40 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 <span id="debug_port"></span>
 #### DEBUG port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VT     | +3.3V |
-| 2 (black) | TX     | +3.3V |
-| 3 (black) | RX     | +3.3V |
-| 4 (black) | SWDIO  | +3.3V |
-| 5 (black) | SWCLK  | +3.3V |
-| 6 (black) | GND    | GND   |
+| 针脚        | 信号    | 电压    |
+| --------- | ----- | ----- |
+| 2         | VT    | +3.3V |
+| 2 (black) | TX    | +3.3V |
+| 3 (black) | RX    | +3.3V |
+| 4 (black) | SWDIO | +3.3V |
+| 5 (black) | SWCLK | +3.3V |
+| 6 (black) | GND   | GND   |
 
 
 #### SPI port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCK    | +3.3V |
-| 3 (black) | MISO   | +3.3V |
-| 4 (black) | MOSI   | +3.3V |
-| 5 (black) | CS1    | +3.3V |
-| 6 (black) | CS2    | +3.3V |
-| 7 (black) | GND    | GND   |
+| 针脚        | 信号   | 电压    |
+| --------- | ---- | ----- |
+| 2         | VCC  | +5V   |
+| 2 (black) | SCK  | +3.3V |
+| 3 (black) | MISO | +3.3V |
+| 4 (black) | MOSI | +3.3V |
+| 5 (black) | CS1  | +3.3V |
+| 6 (black) | CS2  | +3.3V |
+| 7 (black) | GND  | GND   |
 
 
 #### USB port
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VBUS   | +5V   |
-| 2 (black) | DM     | +3.3V |
-| 3 (black) | DP     | +3.3V |
-| 4 (black) | GND    | GND   |
+| 针脚        | 信号   | 电压    |
+| --------- | ---- | ----- |
+| 2         | VBUS | +5V   |
+| 2 (black) | DM   | +3.3V |
+| 3 (black) | DP   | +3.3V |
+| 4 (black) | GND  | GND   |
 
 
-## Further info
+## 更多信息
 
 - [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
 - [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
