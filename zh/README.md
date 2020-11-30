@@ -54,7 +54,7 @@ Modifications of the flight controller and basic sensors are covered above. In o
 
 * [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
-## Getting Help
+## 获取帮助
 
 The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
@@ -79,22 +79,22 @@ Information on how to contribute to code and documentation can be found in the [
 * [文档撰写](contribute/docs.md)
 * [参与翻译（中文翻译组长微信：253331754，QQ：76006963）](contribute/translation.md)
 
-## Translations
+## 翻译
 
 There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
-## License
+## 许可证
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
 
-## Calendar & Events
+## 日历 & 活动
 
 The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
 
 * [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [太平洋时间 – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 * [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
@@ -108,7 +108,7 @@ The following icons used in this library are licensed separately (as shown below
 
 <img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-## Governance
+## 治理
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
