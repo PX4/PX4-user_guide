@@ -36,20 +36,20 @@ dyn ./test.px4mod
 ```
 
 ## NuttX
-NuttX has an integrated shell interpreter ([NSH](http://nuttx.org/Documentation/NuttShell.html)), and thus scripts can be executed directly.
+NuttX에는 통합 셸 인터프리터가 있으며([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), 스크립트를 직접 실행할 수 있습니다.
 
-### Debugging the System Boot
+### 시스템 부팅 디버깅
 
-A failure of a driver of software component will not lead to an aborted boot. This is controlled via `set +e` in the startup script.
+프로그램 요소의 드라이버 동작 실패가 부팅 중단을 유발하지는 않습니다. 시동 스크립트에서 `set +e` 명령으로 다룹니다.
 
-The boot sequence can be debugged by connecting the [system console](../debug/system_console.md) and power-cycling the board. The resulting boot log has detailed information about the boot sequence and should contain hints why the boot aborted.
+[시스템 콘솔](../debug/system_console.md)에 연결한 후, 전원을 차단했다가 다시 연결하면 부팅 과정 디버깅을 수행할 수 있습니다. 결과 부팅 로그는 부팅 순서의 세부 정보를 담고 있으며, 왜 부팅이 멈추었는지에 대한 실마리가 들어갑니다.
 
-#### Common boot failure causes
+#### 일반적인 부팅 실패 사례
 
-  * For custom applications: The system was out of RAM. Run the `free` command to see the amount of free RAM.
-  * A software fault or assertion resulting in a stack trace
+  * 개별 프로그램: 시스템의 RAM 용량 부족. `free` 명령을 실행하여 남아있는 가용 RAM 용량을 살펴보십시오.
+  * 프로그램 동작 실패 또는 스택 트레이스 출력
 
-### Replacing the System Startup
+### 시스템 시동 과정 바꾸기
 
 In most cases customizing the default boot is the better approach, which is documented below. If the complete boot should be replaced, create a file `/fs/microsd/etc/rc.txt`, which is located in the `etc` folder on the microSD card. If this file is present nothing in the system will be auto-started.
 
