@@ -4,7 +4,7 @@ Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/Firmware/tree/
 
 <a id="ak09916_usage"></a>
 
-### Usage
+### 使用
 ```
 ak09916 <command> [arguments...]
  Commands:
@@ -27,7 +27,7 @@ Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/Firmware/tree/m
 
 <a id="ak8963_usage"></a>
 
-### Usage
+### 使用
 ```
 ak8963 <command> [arguments...]
  Commands:
@@ -50,7 +50,7 @@ Source: [drivers/magnetometer/bmm150](https://github.com/PX4/Firmware/tree/maste
 
 <a id="bmm150_usage"></a>
 
-### Usage
+### 使用
 ```
 bmm150 <command> [arguments...]
  Commands:
@@ -79,7 +79,7 @@ Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/Firmware/tree/mast
 
 <a id="hmc5883_usage"></a>
 
-### Usage
+### 使用
 ```
 hmc5883 <command> [arguments...]
  Commands:
@@ -108,7 +108,7 @@ Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/Firmware/t
 
 <a id="ist8308_usage"></a>
 
-### Usage
+### 使用
 ```
 ist8308 <command> [arguments...]
  Commands:
@@ -131,7 +131,7 @@ Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/Firmware/t
 
 <a id="ist8310_usage"></a>
 
-### Usage
+### 使用
 ```
 ist8310 <command> [arguments...]
  Commands:
@@ -156,7 +156,7 @@ Source: [drivers/magnetometer/lis2mdl](https://github.com/PX4/Firmware/tree/mast
 
 <a id="lis2mdl_usage"></a>
 
-### Usage
+### 使用
 ```
 lis2mdl <command> [arguments...]
  Commands:
@@ -184,7 +184,7 @@ Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/Firmware/tree/mast
 
 <a id="lis3mdl_usage"></a>
 
-### Usage
+### 使用
 ```
 lis3mdl <command> [arguments...]
  Commands:
@@ -214,7 +214,7 @@ Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/Firmware/tree/
 
 <a id="lsm9ds1_mag_usage"></a>
 
-### Usage
+### 使用
 ```
 lsm9ds1_mag <command> [arguments...]
  Commands:
@@ -240,7 +240,7 @@ Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/Firmware/tree/mas
 
 <a id="qmc5883l_usage"></a>
 
-### Usage
+### 使用
 ```
 qmc5883l <command> [arguments...]
  Commands:
@@ -263,7 +263,7 @@ Source: [drivers/magnetometer/rm3100](https://github.com/PX4/Firmware/tree/maste
 
 <a id="rm3100_usage"></a>
 
-### Usage
+### 使用
 ```
 rm3100 <command> [arguments...]
  Commands:
