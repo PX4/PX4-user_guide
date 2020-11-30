@@ -2,23 +2,23 @@
 
 [ROS](../ros/README.md) (로봇 운영체제)는 PX4와 [가제보 모의 시험 환경](../simulation/gazebo.md)을 함께 쓸 수 있습니다. ROS는 PX4와 통신하는 [MAVROS](../ros/mavros_installation.md) MAVLink 노드를 활용합니다.
 
-ROS/가제보의 PX4와의 통합시 다음 다이어그램 패턴을 따릅니다(*일반* [PX4 모의 시험 환경](../simulation/README.md#sitl-simulation-environment)을 보여줍니다). PX4 communicates with the simulator (e.g. Gazebo) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands.
+ROS/가제보의 PX4와의 통합시 다음 다이어그램 패턴을 따릅니다(*일반* [PX4 모의 시험 환경](../simulation/README.md#sitl-simulation-environment)을 보여줍니다). PX4는 모의 시험 환경(예: 가제보)과 통신하여 모의 환경으로부터 오는 센서 데이터를 받고 모터와 액츄에이터 값을 내보냅니다. 지상 통제 장치와 모의 환경과 수신 명령으로부터 텔레메트리 전송을 시행하는 보드 외부 장치 API(예: ROS)와 통신을 수행합니다.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
 
-> **Note** The only *slight* difference to "normal behaviour" is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540.
+> **Note** "보통 동작"과 유일하게 *약간* 다른점이라면, ROS는 14557 포트로 연결을 수립합니다. 반면에 더 일반적인 보드 외부 장치 API에서는 UDP 포트 14540에서 연결을 기다립니다.
 
 
-## Installing ROS and Gazebo
+## ROS와 가제보 설치
 
-> **Note** *ROS* is only supported on Linux (not macOS or Windows).
+> **Note** *ROS* 는 리눅스만 지원합니다 (macOS 또는 윈도우는 아님).
 
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../setup/dev_env_linux.md#gazebo-with-ros). The script installs everything you need: PX4, ROS "Kinetic", the Gazebo 7 simulator, and [MAVROS](../ros/mavros_installation.md).
+우분투 리눅스에서 ROS로 PX4 모의 시험 환경을 구성하는 가장 쉬운 방법은 [리눅스 개발 환경 > ROS와 가제보](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)에서 찾을 수 있는 표준 설치 스크립트의 활용입니다. 스크립트는 필요한 모든 구성 항목, PX4, ROS "키네틱", 가제보 7 모의 시험 환경, [MAVROS](../ros/mavros_installation.md)를 설치합니다.
 
-> **Note** The script follows the [standard ROS "Kinetic" installation instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu), which include Gazebo 7.
+> **Note** 스크립트는 가제보 7에 해당하는 <0>표준 ROS "키네틱" 설치 방법</a>을 따릅니다.
 
 
-## Launching ROS/Simulation
+## ROS/모의 시험 환경 실행
 
 The command below can be used to launch the simulation and connect ROS to it via [MAVROS](../ros/mavros_installation.md), where `fcu_url` is the IP / port of the computer running the simulation:
 
@@ -64,17 +64,17 @@ roslaunch px4 posix_sitl.launch
 
 Include one of the above mentioned launch files in your own launch file to run your ROS application in the simulation.
 
-## What's Happening Behind the Scenes
+## 움직임 뒤에서 일어나는 일
 
-This section shows how the *roslaunch* instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).
+이 절에서는 *roslaunch*가 앞에서 안내한 과정에 대해 어떻게 실제로 동작하는지를 보여줍니다(모의 시험 환경과 ROS를 직접 실행할 때 이 과정을 따라갈 수 있습니다).
 
-First start the simulator using the command below:
+우선 아래 명령으로 모의 시험 환경을 시작하십시오:
 
 ```sh
 no_sim=1 make px4_sitl_default gazebo
 ```
 
-The console will look like this:
+콘솔 화면은 다음과 같이 나타납니다:
 ```sh
 [init] shell id: 46979166467136
 [init] task name: px4
