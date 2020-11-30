@@ -1,4 +1,4 @@
-# GeoFence
+# GeoFence (地理围栏)
 
 A GeoFence is a virtual boundary that defines where a vehicle can travel. GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace.
 
