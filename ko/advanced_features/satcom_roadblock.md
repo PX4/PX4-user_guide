@@ -1,54 +1,59 @@
 # Iridium/RockBlock Satellite Communication System
 
-A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
+위성 통신 시스템은 지상국과 기체 사이에 긴 범위의 높은 대기 시간 링크를 제공하는 데 사용할 수 있습니다.
 
-This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
+이 항목에서는 이리듐 SBD 위성 통신 시스템의 서비스 공급자로 RockBlock을 사용하는 시스템을 설정하는 방법을 설명합니다. 신호 품질이 우수할 경우 사용자는 10~15초 사이의 지연 시간을 예상할 수 있습니다.
 
 ## Overview
 
-The following components are needed for the satellite communication link:
+위성 통신 링크에는 다음 구성 요소가 필요합니다.
 
-* A [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) module connected to a Pixhawk flashed with the PX4 Autopilot.
-* A message relay server running Ubuntu Linux.
-* A ground station computer running *QGroundControl* on Ubuntu Linux
+* PX4 오토파일럿으로 Pixhawk에 연결된 [록블록 9603 ](http://www.rock7mobile.com/products-rockblock-9603) 모듈이 깜박였습니다. 
+* 아이메시지 서버의 런닝맨 리눅스 서버.
+* Ubuntu Linux에서 *QGroundControl *을 실행하는 지상국 컴퓨터
 
-The full system architecture is shown below:
+전체 시스템 아키텍처는 다음과 같습니다.
 
-![Architecture](../../assets/satcom/architecture.jpg)
+![건축학](../../assets/satcom/architecture.jpg)
 
-> **Note** The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
+> ** 노트 ** 설정은 Ubuntu 14.04 및 16.04에서 실행되는 *QGoundControl *의 현재 릴리스로 테스트되었습니다.
 
     - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
     - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
       The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
     
 
-## Costs
+## 비용. 
 
-The UK link running cost consists of a line rental and per message cost:
+비용영국 링크 운영 비용은 라인 임대 및 메시지당 비용으로 구성됩니다.
 
 * Each module needs to be activated which costs £10.00 per month
 * Each message transmitted over the system costs one *credit* per 50 bytes. Bundles of credits can be bought from RockBlock for £0.04-£0.11 per credit, depending on the bundle size.
 
-Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) for a detailed explanation of the modules, running costs and *RockBlock* in general.
+일반적으로 모듈에 대한 자세한 설명은 [록블록 설명서 ](https://docs.rockblock.rock7.com/docs) 및 *록블록 *을 참조하십시오.
 
-## Vehicle Setup
+## 기체 설정
 
 ### Wiring
 
-Connect the RockBlock module to a serial port of the Pixhawk. Due to the power requirements of the module it can only be powered over a high-power serial port as a maximum of 0.5 A at 5 V are required. If none is available/free then another power source which has the same ground level as the Pixhawk and can provide required power has to be setup. The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
+RockBlock 모듈을 Pixhawk의 직렬 포트에 연결합니다. 모듈의 전원 요구 사항으로 인해 5V에서 최대 0.5A가 필요하므로 고출력 직렬 포트를 통해서만 전원을 공급할 수 있습니다. 사용 가능한 전원/무료인 경우 Pixhawk와 동일한 접지 레벨을 가지며 필요한 전력을 제공할 수 있는 다른 전원을 설정해야 합니다. [ 커넥터 ](https://docs.rockblock.rock7.com/docs/connectors) 및 [ 전원 요구 사항 ](https://docs.rockblock.rock7.com/docs/power-supply)의 세부 정보는 RockBlock 설명서에서 확인할 수 있습니다.
 
-### Module
+### 모듈
 
-The module can either use the internal antenna or an external one connected to the SMA connector. To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
+모듈은 내부 안테나 또는 SMA 커넥터에 연결된 외부 안테나를 사용할 수 있습니다. 두 안테나 모드(/0) 사이를 으로 전환하려면 작은 RF 링크 케이블의 위치를 변경해야 합니다. 외부 안테나를 사용하는 경우 모듈 손상을 방지하기 위해 안테나의 전원을 켜기 전에 항상 안테나가 모듈에 연결되어 있는지 확인하십시오.</p> 
 
-The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](http://www.rock7mobile.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+모듈의 기본 보드 속도는 19200입니다. 그러나 PX4 *iridiumsbd * 드라이버는 보레이트가 115200이어야 하므로 [을 사용하여 변경해야 합니다.AT 명령](http://www.rock7mobile.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
-1. Connect to the module with using a 19200/8-N-1 setting and check if the communication is working using the command: `AT`. The response should be: `OK`.
-2. Change the baud rate: ```AT+IPR=9```
-3. Reconnect to the model now with a 115200/8-N-1 setting and save the configuration using: ```AT&W0```
+1. 19200/8-N-1 설정을 사용하여 모듈에 연결하고 다음 명령을 사용하여 통신이 작동하는지 점검하십시오. 응답은 다음과 같아야 합니다.
+2. 보드 속도를 변경합니다. 
+      AT+IPR=9
+      
 
-The module is now ready to be used with PX4.
+3. 이제 115200/8-N-1 설정을 사용하여 모델에 다시 연결하고 다음을 사용하여 구성을 저장합니다. 
+      AT&W0
+      
+
+이제 이 모듈을 PX4와 함께 사용할 수 있습니다.
 
 ### Software
 
@@ -56,7 +61,7 @@ The module is now ready to be used with PX4.
 
 > **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/iridiumsbd```
 
-## RockBlock Setup
+## RockBlock 설정
 
 When buying the first module on RockBlock an user account needs to be created in a first step.
 
@@ -66,7 +71,7 @@ Set up a delivery group for the message relay server and add the module to that 
 
 ![Delivery Groups](../../assets/satcom/deliverygroup.png)
 
-## Relay Server Setup
+## 릴레이 서버 설정
 
 The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
 
@@ -102,11 +107,11 @@ Other instructions include:
 * Kill execution of the script: ```ctrl+a :quit```
 * Reattach to the screen:: ```screen -dr```
 
-## Ground Station Computer
+## 지상국 컴퓨터
 
 To setup the ground station:
 
-1. Install the required python modules: ```sudo pip install pika tornado future```
+1. 필요한 Python 모듈을 장착하십시오. ```sudo pip install pika tornado future```
 2. Clone the SatComInfrastructure repository: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
 3. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
 4. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
@@ -128,7 +133,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 ![udp2rabbit message acknowledge](../../assets/satcom/verification.png)
 
-## Running the System
+## 시스템 실행
 
 1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
   
