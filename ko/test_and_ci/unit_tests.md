@@ -129,28 +129,28 @@ GTest 기능 시험은 매개변수, uORB 메세지, 고급 GTest 기능에 따�
    ```bash
    pxh> tests jig
    ```
-   `OPT_NOALLTEST` 옵션으로 테스트를 수행한다면, `tests all`을 호출할 때의 테스트를 제외합니다. `OPT_NOJIGTEST`에 대해서도 `test jig` 명령을 호출했을 때 마찬가지입니다. Option `0` means that the test is never excluded, which is what most developer want to use.
+   `OPT_NOALLTEST` 옵션으로 테스트를 수행한다면, `tests all`을 호출할 때의 테스트를 제외합니다. `OPT_NOJIGTEST`에 대해서도 `test jig` 명령을 호출했을 때 마찬가지입니다. `0` 옵션은 개발자가 활용하고자 하는 테스트를 제외하지 않음을 의미합니다.
 
-1. Add the test `test_[description].cpp` to the [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/CMakeLists.txt).
+1. `test_[description].cpp` 테스트를 [CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/systemcmds/tests/CMakeLists.txt)에 추가하십시오.
 
 
-## Testing on the local machine
+## 로컬 머신에서의 테스트
 
-Run the complete list of GTest Unit Tests, GTest Functional Tests and SITL Unit Tests right from bash:
+GTest 단위 시험, GTest 기능 시험, SITL 단위 시험 전체를 배시 셸에서 실행하십시오:
 
 ```bash
 make tests
 ```
 
-The individual GTest test binaries are in the `build/px4_sitl_test/` directory, and can be run directly in most IDEs' debugger.
+개별 GTest 테스트 바이너리는 `build/px4_stil_test/` 디렉터리에 있으며, 대부분 IDE 디버거에서 바로 실행할 수 있습니다.
 
-Filter to run only a subset of tests using a regular expression for the ctest name with this command:
+테스트 하위 집합만 따로 실행하려면 이 명령에서 ctest 명칭에 대해 정규 표현식을 적용하여 걸러내십시오:
 
 ```bash
-pxh> tests help
+make tests TESTFILTER=<filter expression>
 ```
 
-For example:
-- `make tests TESTFILTER=unit` only run GTest unit tests
-- `make tests TESTFILTER=sitl` only run simulation tests
-- `make tests TESTFILTER=Attitude` only run the `AttitudeControl` test
+예를 들어:
+- `make tests TESTFILTER=unit`: GTest 단위 테스트만 실행
+- `make tests TESTFILTER=sitl` 모의 시험 환경상 테스트만 실행
+- `make tests TESTFILTER=Attitude` `AttitudeControl` 테스트만 실행
