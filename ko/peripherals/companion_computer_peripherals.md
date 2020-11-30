@@ -12,51 +12,51 @@ FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가
 Note 보조 컴퓨터와 통신할 때 필요한 PX4 MAVLink 설정은 [MAVLink \(OSD / 텔레메트리\)](../peripherals/mavlink_peripherals.md#example) 편에서 다룹니다. 기타 관련 주제/절은 [픽스호크 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md), [RTPS/ROS2 인터페이스: PX4-FastRTPS 브릿지](../middleware/micrortps.md)가 있습니다.
 :::
 
-### FTDI Devices
+### FTDI 장치
 
-The FTDI USB adapters are the most common way of communicating between companion computer and Pixhawk. They are usually plug and play as long as the IO of the adapter is set to 3.3v. In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
+FTDI USB 어댑터는 보조 컴퓨터와 픽스호크간 통신하는 일반적인 방편입니다. 보통 꼽으면 동작하며 입출력 어댑터는 3.3v로 설정합니다. 픽스호크 하드웨어에서 제공하는 직렬 링크의 완전한 기능성과 신뢰성을 확보하려면 흐름제어 설정을 추천합니다.
 
-Options are listed below:
+옵션은 다음과 같습니다:
 
-| 장치                                                                                                                      | 3.3v 입출력 (기본) | Flow Control | Tx/Rx LEDs | JST-GH |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ | ---------- | ------ |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes           | Yes          | Yes        | Yes    |
-| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable       | Capable      | No         | Yes    |
-| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes           | No           | Yes        | No     |
+| 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어 | Tx/Rx LED | JST-GH |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | --------- | ------ |
+| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | 예             | 예     | 예         | 예      |
+| [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | 가능            | 가능    | 아니요       | 예      |
+| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | 예             | 아니요   | 예         | 아니요    |
 
-### Logic Level Shifters
+### 논리 레벨 시프터
 
-On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
+픽스호크 하드웨어는 3.3v 입출력 레벨에서 동작하나, 보조 컴퓨터의 경우 1.8v 또는 5v 레벨에서 하드웨어 수준 입출력을 보일 수 있습니다. 이 문제를 해결하려면 송수신 신호 전압 안전하게 변환할 레벨 시프터를 제작할 수 있습니다.
 
-Options include:
+선택지는 다음과 같습니다:
 
-- [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
+- [SparkFun Logic Level Converter - 양방향](https://www.sparkfun.com/products/12009)
 - [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
 
-## Cameras
+## 카메라
 
-Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images)
+카메라는 정지 화상과 동영상을 잡아낼 때 활용하며 더 일반적으로는 [컴퓨터 시각 정보 처리](../computer_vision/README.md) 프로그램에 데이터를 제공하려는 목적입니다(이 경우 "카메라"는 원래 이미지가 아닌 처리한 데이터를 넘겨줍니다).
 
-### Stereo Cameras
+### 스테레오 카메라
 
-Stereo cameras are typically used for depth perception, path planning and SLAM. They are in no way guaranteed to be plug and play with your companion computer.
+스테레오 카메라는 보통 깊이 인식, 경로 계획, SLAM 용도로 활용합니다. 보조 컴퓨터에 붙어서 동작한다는 보장은 없습니다.
 
-Popular stereo cameras include:
+잘 알려진 스테레오 카메라는 다음과 같습니다:
 
-- [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
+- [인텔® 리얼센스™ 뎁스 카메라 D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
 - [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
 - [Ironsides](https://www.perceptin.io/products)
 - [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
-### VIO Cameras/Sensors
+### 관성 주행 시각 측정 카메라/센서
 
-The following sensors can be used for [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md):
+다음 센서는 [관성 주행 시각 측정(VIO)](../computer_vision/visual_inertial_odometry.md)에 활용할 수 있습니다:
 
-- [T265 Realsense Tracking Camera](../peripherals/camera_t265_vio.md)
+- [T265 리얼센스 트래킹 카메라](../peripherals/camera_t265_vio.md)
 
 <span id="data_telephony"></span>
 
-## Data Telephony (LTE)
+## 데이터 통신 (LTE)
 
 An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
 
