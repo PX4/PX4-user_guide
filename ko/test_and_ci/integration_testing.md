@@ -113,4 +113,4 @@ rosrun px4 mavros_new_test.py
     </group>
 ```
 
-Run the comlpete test suite as described above.
+위에서 보여드린 바와 같이 완전한 시험 모음을 실행하십시오.
