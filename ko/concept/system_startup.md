@@ -16,21 +16,21 @@ POSIX에서는 시스템 셸을 셸 인터프리터로 사용합니다 (예. /bi
 
   > **Tip** `px4-` 접두어는 시스템 명령어와의 충돌을 피하기 위해 사용합니다 (예. `shutdown`), 그리고 `px4-<TAB>`를 입력했을 때 간단하게 동작하는 자동 완성도 지원합니다.
 - 쉘은 심볼릭 링크를 찾을 위치를 알아야합니다. 이 때문에 시동 스크립트를 실행하기 전 심볼릭 링크가 들어있는 `bin` 디렉터리를 `PATH` 환경 변수에 추가합니다.
-- 셸에서는 각 모듈을 새 (클라이언트) 프로세스로 시작합니다. 각 클라이언트 프로세스는 PX4(서버)의 주 인스턴스와 통신해야 하는데, 실제 모듈은 스레드로 실행합니다. 이 일련의 과정은 [UNIX 소켓](http://man7.org/linux/man-pages/man7/unix.7.html)으로 처리합니다. The server listens on a socket, to which clients can connect and send a command. The server then sends the output and return code back to the client.
-- The startup scripts call the module directly, e.g. `commander start`, rather than using the `px4-` prefix. This works via aliases: for each module an alias in the form of `alias <module>=px4-<module>` is created in the file `bin/px4-alias.sh`.
-- The `rcS` script is executed from the main px4 instance. It does not start any modules, but first updates the `PATH` variable and then simply runs a shell with the `rcS` file as argument.
-- In addition to that, multiple server instances can be started for multi-vehicle simulations. A client selects the instance via `--instance`. The instance is available in the script via `$px4_instance` variable.
+- 셸에서는 각 모듈을 새 (클라이언트) 프로세스로 시작합니다. 각 클라이언트 프로세스는 PX4(서버)의 주 인스턴스와 통신해야 하는데, 실제 모듈은 스레드로 실행합니다. 이 일련의 과정은 [UNIX 소켓](http://man7.org/linux/man-pages/man7/unix.7.html)으로 처리합니다. 서버는 클라이언트가 연결하고 명령을 보낼 수 있는 소켓으로 수신 대기합니다. 그 다음 서버에서는 출력을 내보내고 클라이언트에 코드를 반환합니다.
+- 시동 스크립트는 `px4-` 접두어를 쓰지 않고 `commander start` 명령처럼 모듈을 직접 호출합니다. 이 과정은 alias로 진행합니다. `bin/px4-alias.sh` 파일 실행시 각 모듈에 대해 `alias <module>=px4-<module>` 모듈과 같은 모양새로 별칭을 만듭니다.
+- `rcS` 스크립트는 PX4 주 인스턴스에서 실행합니다. 어떤 모듈도 시작하지 않지만 `PATH` 환경 변수를 처음 업데이트하고 셸 상에서 단순하게 `rcS`  파일을 인자로 간주하여 실행합니다.
+- 게다가, 다중 서버 인스턴스는 다중 기체 모의 시험 용도로 시작할 수 있습니다. 클라이언트는 `--instance`로 인스턴스를 선택합니다. 인스턴스는 `$px4_instance` 변수로 스크립트에서 활용할 수 있습니다.
 
-The modules can be executed from any terminal when PX4 is already running on a system. For example:
+시스템에서 PX4를 이미 실행중일 때 모듈을 어떤 터미널에서든 실행할 수 있습니다. 예를 들어:
 ```
-cd <Firmware>/build/px4_sitl_default/bin
+cd <PX4-Autopilot>/build/px4_sitl_default/bin
 ./px4-commander takeoff
 ./px4-listener sensor_accel
 ```
 
-### Dynamic modules
+### 동적 모듈
 
-Normally, all modules are compiled into a single PX4 executable. However, on Posix, there's the option of compiling a module into a separate file, which can be loaded into PX4 using the `dyn` command.
+보통, 모든 모듈은 하나의 PX4 실행 파일로 합쳐 컴파일됩니다. 그러나 POSIX에서는 모듈을 `dyn` 명령으로 PX4에 불러올 수 있는 별개의 파일로 컴파일하는 옵션이 있습니다.
 ```
 dyn ./test.px4mod
 ```
