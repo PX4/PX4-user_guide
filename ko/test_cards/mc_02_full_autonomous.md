@@ -1,40 +1,40 @@
-# Test MC_02 - Full Autonomous
+# 시험 MC_02 - 완전 자동화
 
-## Create and upload mission
+## 임무 수립 및 업로드
 
-❏ Mission Criteria
+❏ 임무 규정
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 자동 이륙
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 임무를 통한 고도 변경
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ First waypoint set to Takeoff
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 이륙 후 첫 비행 지점 설정
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Enable Mission End RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 임무 종료시 회귀 지점 착륙 활성화
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 5~6분간 수행
 
-❏ Upload mission to vehicle using *QGroundControl*
-
-
-## Arm and Take-off
-
-❏ Arm in any manual mode
-
-❏ Engage Auto to trigger take-off
-
-❏ Observe tracking, cornering and proper RTL performance
-
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND))
+❏ *QGroundControl*을 통한 기체로의 임무 업로드
 
 
+## 시동 및 이륙
 
-## Expected Results
+❏ 임의의 수동 조종 상태에서 시동
 
-* Take-off should be smooth as throttle is raised
-* Mission should upload on first attempt
-* Vehicle should automatically take-off upon engaging Auto
-* Upon landing, copter should not bounce on the ground
+❏ 이륙 개시 전 자동 모드 인가
+
+❏ 경로 추적, 선회, 적절한 회귀 지점 착륙 동작
+
+❏ 콥터가 지면에 닿을 때, 2초 안에 제동해야 함(착륙 후 제동 시간은 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)로 설정)
+
+
+
+## 예상 결과
+
+* 추력을 올릴 때 서서히 이륙한다
+* 첫 시도시 임무 내용이 올라가야 함
+* 자동 모드 인가시 기체는 자동으로 이륙해야 함
+* 지면에 착륙시, 콥터가 지면에서 튀면 안됨
 
 
 
