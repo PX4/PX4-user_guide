@@ -12,19 +12,19 @@ This topic explains how to connect the SWD interface on different boards (actual
 
 The SWD interface consists of the following pins.
 
-| Pin     | Signal Type | Description                                                                                                                                                                                             |
+| 针脚      | Signal Type | 参数描述                                                                                                                                                                                                    |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Vref`  | Output      | Target reference voltage.<br>Some JTAG adapters require the `Vref` voltage to set the voltage on the SWD lines. For example, [SEGGER J-Link Debug Probes](#segger_jlink_edu_mini) require `Vref`. |
+| `参考压`   | 输出          | Target reference voltage.<br>Some JTAG adapters require the `Vref` voltage to set the voltage on the SWD lines. For example, [SEGGER J-Link Debug Probes](#segger_jlink_edu_mini) require `Vref`. |
 | `SWDIO` | I/O         | Single bi-directional data pin.                                                                                                                                                                         |
-| `SWCLK` | Output      | Clock signal.                                                                                                                                                                                           |
+| `SWCLK` | 输出          | Clock signal.                                                                                                                                                                                           |
 | `GND`   | -           | Ground pin.                                                                                                                                                                                             |
 
 
 While not "part" of SWD, an autopilot may also have an *Serial Wire Output (SWO)* trace output pin. If present this should also be connected.
 
-| Pin   | Signal Type | Description                                                                                                    |
+| 针脚    | Signal Type | 参数描述                                                                                                           |
 | ----- | ----------- | -------------------------------------------------------------------------------------------------------------- |
-| `SWO` | Output      | Serial  Wire Output trace output pin. This may be used in combination with *SWD* to emit real-time trace data. |
+| `SWO` | 输出          | Serial  Wire Output trace output pin. This may be used in combination with *SWD* to emit real-time trace data. |
 
 
 ## Connecting SWD Debuggers to PX4 Hardware
@@ -55,7 +55,7 @@ The debug port location and pinouts for a small subset of autopilots are linked 
 
 <span id="port_information"></span>
 
-| Autopilot                                                                  | Connector                                                                                                                                                                                                                                   |
+| 飞控                                                                         | Connector                                                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                    | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: *mRo Pixhawk*, *HobbyKing HKPilot32*).                                                                                                                                     |
 | [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)             | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
@@ -80,7 +80,7 @@ The Pixhawk project has defines a standard pinout and connector type for differe
 | ----------- | --------------------------------------------------------------- | ------------------------------------------------ |
 | FMUv2       | [Pixhawk / Pixhawk 1](../flight_controller/pixhawk.md#swd-port) | 10 pin ARM Debug                                 |
 | FMUv3       | Pixhawk 2                                                       | 6 pin SUR Debug                                  |
-| FMUv4       | Pixhawk 3                                                       | [6 pin SH Debug](#pixhawk_debug_port_6_pin_sh)   |
+| FMUv4       | Pixhawk 1/2                                                     | [6 pin SH Debug](#pixhawk_debug_port_6_pin_sh)   |
 | FMUv5       | Pixhawk 4 FMUv5                                                 | [6 pin SH Debug](#pixhawk_debug_port_6_pin_sh)   |
 | FMUv5X      | Pixhawk 5X                                                      | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
 | FMUv6       | Pixhawk 6                                                       | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
@@ -98,23 +98,23 @@ The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/bl
 
 The pinout is as shown below (SWD pins highlighted):
 
-| Debug Port | Pin        |
-| ---------- | ---------- |
-| 1          | `Vtref`    |
-| 2          | Console TX |
-| 3          | Console RX |
-| 4          | `SWDIO`    |
-| 5          | `SWDCLK`   |
-| 6          | `GND`      |
+| Debug调试端口 | 针脚         |
+| --------- | ---------- |
+| 1         | `Vtref`    |
+| 2         | Console TX |
+| 3         | Console RX |
+| 4         | `SWDIO`    |
+| 5         | `SWDCLK`   |
+| 6         | `GND`      |
 
 The debug port definition includes the following solder pads (on board next to connector):
 
-| Debug Port | Pin               | Voltage |
-| ---------- | ----------------- | ------- |
-| Pad        | Signal            | Volt    |
-| 1          | NRST (reset)      | +3.3V   |
-| 2          | GPIO1 (free GPIO) | +3.3V   |
-| 3          | GPIO2 (free GPIO) | +3.3V   |
+| Debug调试端口 | 针脚                | Voltage |
+| --------- | ----------------- | ------- |
+| Pad       | 信号                | 电压      |
+| 1         | NRST (reset)      | +3.3V   |
+| 2         | GPIO1 (free GPIO) | +3.3V   |
+| 3         | GPIO2 (free GPIO) | +3.3V   |
 
 The socket is a *6-pin JST SH* - Digikey number: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND) (vertical mount), [SM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND)(side mount).
 
@@ -132,18 +132,18 @@ The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/bl
 
 The pinout is as shown below (SWD pins highlighted):
 
-| Debug Port | Pin        |
-| ---------- | ---------- |
-| 1          | `Vtref`    |
-| 2          | Console TX |
-| 3          | Console RX |
-| 4          | `SWDIO`    |
-| 5          | `SWDCLK`   |
-| 6          | *SWO*      |
-| 7          | NFC GPIO   |
-| 8          | PH11       |
-| 9          | nRST       |
-| 10         | `GND`      |
+| Debug调试端口 | 针脚         |
+| --------- | ---------- |
+| 1         | `Vtref`    |
+| 2         | Console TX |
+| 3         | Console RX |
+| 4         | `SWDIO`    |
+| 5         | `SWDCLK`   |
+| 6         | *SWO*      |
+| 7         | NFC GPIO   |
+| 8         | PH11       |
+| 9         | nRST       |
+| 10        | `GND`      |
 
 The socket is a *10-pin JST SH* - Digikey number: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (vertical mount) or [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (side mount).
 
@@ -168,7 +168,7 @@ The [Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/
 
 The pin mapping to connect the J-Link Edu Mini to [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh) is shown below (note, the `-` indicates a pin that is not required for SWD).
 
-| Debug Port     | J-Link Mini |
+| Debug调试端口      | J-Link Mini |
 | -------------- | ----------- |
 | 1 (Vtref)      | 1           |
 | 2 (Console TX) | -           |
@@ -208,7 +208,7 @@ Adapters can be purchased separately:
 
 <a id="debugging_topics"></a>
 
-## Next Steps
+## 后续步骤
 
 You've now connected the flight controller to an SWD debug probe!
 
