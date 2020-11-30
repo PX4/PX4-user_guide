@@ -4,7 +4,7 @@
 
 [![Releases](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
+PX4 は *本格的なオートパイロットシステムです*. 世界中の産業界・アカデミアの開発者によって開発され，世界中のコミュニティによってサポートされており，レーシング用ドローンや運送用ドローンのみならず地上から潜水艇まで，様々なビークルに用いることができます．
 
 :::tip
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
@@ -14,7 +14,7 @@ This guide contains everything you need to assemble, configure, and safely fly a
 Note This guide is still a work in progress! It does not yet cover all of PX4.
 :::
 
-## How Do I Get Started?
+## なにから始めればいいの？
 
 [Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
 
@@ -24,8 +24,8 @@ Depending on what you want to achieve, the following tips will help you navigate
 
 If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
-* [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-* [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+* [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法・メインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについて説明しています．
+* [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードに関する詳細についても解説しています．
 
 **I want to build a drone with PX4 from scratch:**
 
@@ -35,10 +35,10 @@ The "supported" vehicles are listed in the [Airframes Reference](airframes/airfr
 
 If you want to build a vehicle from scratch:
 
-* Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-* Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-* [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-* [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
+* フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
+* [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
+* [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
@@ -46,9 +46,9 @@ Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) sec
 
 Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
+* [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
+* [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
 **I want to run PX4 on new hardware and extend the platform:**
 
@@ -65,19 +65,19 @@ Among other things it covers:
 * [How to report bugs](contribute/support.md#issue-bug-reporting)
 * [Weekly dev call](contribute/support.md#weekly-dev-call)
 
-## Reporting Bugs & Issues
+## バグ & 問題提起
 
 If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
-## Contributing
+## 貢献
 
 Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
-* [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [コード](contribute/README.md)
+* [ドキュメント](contribute/docs.md)
+* [翻訳](contribute/translation.md)
 
 ## Translations
 
@@ -100,7 +100,7 @@ The *Dronecode Calendar* shows important community events for platform users and
 :::tip
 Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
-### Icons
+### アイコン
 
 The following icons used in this library are licensed separately (as shown below):
 
