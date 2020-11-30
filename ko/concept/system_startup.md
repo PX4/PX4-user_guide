@@ -12,7 +12,7 @@ PX4 시작은 쉘 스크립트로 제어합니다. NuttX에서 쉘 스크립트�
 ## POSIX (Linux/MacOS)
 
 POSIX에서는 시스템 셸을 셸 인터프리터로 사용합니다 (예. /bin/sh는 우분투에서 대시로 심볼릭링크함) 동작하기 위한 몇가지 조건들이 있습니다.
-- PX4 모듈은 시스템에서 개별적으로 실행할 수 있어야합니다. 이 동작은 심볼릭 링크로 처리합니다. 빌드 폴더의 `bin` 디렉터리에 각 모듈의 `px4-<module> -> px4` 심볼릭 링크를 만듭니다. When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
+- PX4 모듈은 시스템에서 개별적으로 실행할 수 있어야합니다. 이 동작은 심볼릭 링크로 처리합니다. 빌드 폴더의 `bin` 디렉터리에 각 모듈의 `px4-<module> -> px4` 심볼릭 링크를 만듭니다. 이 심볼릭 링크를 실행하면 바이너리 경로를 확인(`argv[0]`) 하고, 모듈로 판명이 나면 (`px4-`), PX4 주 인스턴스로 명령을 보냅니다(하단 참조).
 
   > > **Tip** The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
 - The shell needs to know where to find the symbolic links. For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
