@@ -44,8 +44,8 @@ FTDI USB 어댑터는 보조 컴퓨터와 픽스호크간 통신하는 일반적
 잘 알려진 스테레오 카메라는 다음과 같습니다:
 
 - [인텔® 리얼센스™ 뎁스 카메라 D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
-- [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
-- [Ironsides](https://www.perceptin.io/products)
+- [인텔® 리얼센스™ 뎁스 카메라 D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
+- [아이언사이드](https://www.perceptin.io/products)
 - [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
 ### 관성 주행 시각 측정 카메라/센서
@@ -58,9 +58,9 @@ FTDI USB 어댑터는 보조 컴퓨터와 픽스호크간 통신하는 일반적
 
 ## 데이터 통신 (LTE)
 
-An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
+LTE USB 모듈은 보조 컴퓨터에 붙일 수 있으며 MAVLink 트래픽을 비행 제어 장치와 인터넷 간에전달하는 용도로 활용할 수 있습니다.
 
-There is no "standard method" for a ground station and companion to connect over the Internet. Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
+지상 통제 장치와 보조 컴퓨터를 인터넷을 통해 연결하는 "표준 방식"은 없습니다. 보통 인터넷에 공용/정적 IP를 할당할 수 없기 때문에 이들 장치에 연결할 수 없습니다.
 
 :::tip
 Note Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network. The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system. However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
@@ -74,7 +74,7 @@ This method has the benefit that the GCS computer address can be static within t
 Note You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 :::
 
-Some USB modules that are known to work include:
+동작하기로 알려진 일부 USB 모듈은 다음과 같습니다:
 
-- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
-  - The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.
+- [화웨이 E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) 과 [화웨이 E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
+  - *E8372*에는 보조 컴퓨터에 연결했을 때 SIM을 설정할 수 있도록 WiFi 기능이 들어있습니다 (개발 단계를 좀 더 쉽게 해줌). *E3372*에는 WiFi 기능이 빠져있어, 랩톱에 직접 연결하여 설정해야합니다.
