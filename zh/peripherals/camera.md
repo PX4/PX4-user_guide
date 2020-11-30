@@ -20,13 +20,13 @@ The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_back
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | Description                                                                                                                                                                                    |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Camera triggering is disabled.                                                                                                                                                                 |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                     |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
+| 模式 | 描述                                                                                                                                                                                             |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | Camera triggering is disabled.                                                                                                                                                                 |
+| 1  | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
+| 2  | Switches the intervalometer constantly on.                                                                                                                                                     |
+| 3  | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
+| 4  | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
 
 > **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 
@@ -44,16 +44,16 @@ The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering
 
 The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
-| Number | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Number | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1      | enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.                                                                                                                                                                     |
 | 2      | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of `TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1. |
 | 3      | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).                                                                                                                                                                                                                                                                                            |
 | 4      | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.                                                                                                                                                                                                                                                                                  |
 
-## Other Parameters
+## 其他参数
 
-| Parameter                                                                  | Description                                                                                                                                                                                                                      |
+| 参数                                                                         | 参数描述                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | Relevant only while using the GPIO interface. Sets the polarity of the trigger pin. Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa.                          |
 | [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | Defines the time between two consecutive trigger events in milliseconds.                                                                                                                                                         |
@@ -86,7 +86,7 @@ The camera trigger driver supports several commands:
 
 [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
-| Command Parameter | Description                                                                                 |
+| Command Parameter | 参数描述                                                                                        |
 | ----------------- | ------------------------------------------------------------------------------------------- |
 | Param #1          | Trigger enable/disable (set to 0 for disable, 1 for start)                                  |
 | Param #2          | Trigger cycle time in milliseconds (sets the `TRIG_INTERVAL` parameter.)                    |
@@ -94,7 +94,7 @@ The camera trigger driver supports several commands:
 
 [MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
 
-| Command Parameter | Description                                                          |
+| Command Parameter | 参数描述                                                                 |
 | ----------------- | -------------------------------------------------------------------- |
 | Param #5          | Trigger one-shot command (set to 1 to trigger a single image frame). |
 
@@ -139,7 +139,7 @@ To avoid autofocus and metering lag when the camera is triggered, the following 
 * ISO should be set as low as possible
 * Manual white balance suitable for scene
 
-### Mission Planning
+### 任务规划
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
