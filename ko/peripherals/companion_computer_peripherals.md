@@ -66,7 +66,7 @@ LTE USB 모듈은 보조 컴퓨터에 붙일 수 있으며 MAVLink 트래픽을 
 Note 보통 라우터(또는 이동 네트워크)에서 공용 IP 주소를 할당하며, 지상 통제 장치 컴퓨터와 기체는 *로컬* 네트워크에 속합니다. 라우터에서는 네트워크 주소 변환(NAT)을 통해 *외부로 내보내는* 요청에 대해 로컬 네트워크와 인터넷을 '1:1 대응' 하며, 이 대응관계를 요청 시스템의 *응답*을 전달하려는 용도로 활용할 수 있습니다. 그러나 NAT에는 임의의 외부 시스템에서 오는 데이터를 내부의 어떤 컴퓨터로 직접 전달할 수 있는 방법이 없기 때문에, 로컬 네트워크에서는 지상 통제 장치 또는 기체의 연결을 *수립*할 방법이 없습니다.
 :::
 
-A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system like [zerotier](https://www.zerotier.com/) on both computers). The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
+일반적인 접근 방식은 보조 컴퓨터와 지상 통제 장치 컴퓨터를 가상 개인 네트워크에 묶어 설정하는 방식입니다(예: [zerotier](https://www.zerotier.com/) 같은 VPN 시스템을 두 컴퓨터에 설치). The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
 
 This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time. In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
