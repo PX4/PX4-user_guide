@@ -1,45 +1,45 @@
-# Jenkins CI
+# Jenkins CI（持续集成测试）
 
 <div v-if="$themeConfig.px4_version != 'master'">
   <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/README.md">can be found here</a>.</p>
   </div>
 </div>
 
-Jenkins continuous integration server on [ci.px4.io](http://ci.px4.io/) is used to automatically run integration tests against PX4 SITL.
+[ci.px4.io](http://ci.px4.io/) 上的 Jenkins 持续集成服务器用于自动运行针对 PX4 SITL 的集成测试。
 
 
-## Overview
+## 概述
 
-  * Involved components: Jenkins, Docker, PX4 POSIX SITL
-  * Tests run inside [Docker Containers](../test_and_ci/docker.md)
-  * Jenkins executes 2 jobs: one to check each PR against master, and the other to check every push on master
+  * 涉及的组件：Jenkins，Docker，PX4 POSIX SITL
+  * 测试在 [Docker Containers](../test_and_ci/docker.md) 内运行
+  * Jenkins 执行了 2 个工作：一个用于检查每个 PR 与主控，另一个用于检查主控上的每次推送
 
-## Test Execution
+## 测试执行
 
-Jenkins uses [run_container.bash](https://github.com/PX4/PX4-Autopilot/blob/master/integrationtests/run_container.bash) to start the container, which in turn executes [run_tests.bash](https://github.com/PX4/PX4-Autopilot/blob/master/integrationtests/run_tests.bash) to compile and run the tests.
+Jenkins 使用 [run_container.bash](https://github.com/PX4/Firmware/blob/master/integrationtests/run_container.bash) 来启动 container，而 container 又执行 [ run_tests.bash ](https://github.com/PX4/Firmware/blob/master/integrationtests/run_tests.bash) 来编译和运行测试。
 
-If Docker is installed the same method can be used locally:
+如果安装了 Docker，则可以在本地使用相同的方法：
 
 ```sh
-cd <directory_where_PX4-Autopilot_is_cloned>
-sudo WORKSPACE=$(pwd) ./PX4-Autopilot/integrationtests/run_container.bash
+cd <directory_where_firmware_is_cloned>
+sudo WORKSPACE=$(pwd) ./Firmware/integrationtests/run_container.bash
 ```
 
-## Server Setup
+## 服务器配置
 
-### Installation
+### 安装
 
-See setup [script/log](https://github.com/PX4/containers/tree/master/scripts/jenkins) for details on how Jenkins got installed and maintained.
+有关如何安装和维护 Jenkins 的详细信息，请参阅 setup [script/log](https://github.com/PX4/containers/tree/master/scripts/jenkins) 。
 
-### Configuration
+### 配置
 
-  * Jenkins security enabled
-  * Installed plugins
+  * Jenkins 安全性已启用
+  * 已安装的插件
     * github
-    * github pull request builder
-    * embeddable build status plugin
-    * s3 plugin
-    * notification plugin
-    * collapsing console sections
+    * github 请求构建器
+    * 嵌入式构建状态插件
+    * s3 插件
+    * 通知插件
+    * 折叠控制台部分
     * postbuildscript
 
