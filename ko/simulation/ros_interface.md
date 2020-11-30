@@ -4,7 +4,7 @@
 
 ROS/가제보의 PX4와의 통합시 다음 다이어그램 패턴을 따릅니다(*일반* [PX4 모의 시험 환경](../simulation/README.md#sitl-simulation-environment)을 보여줍니다). PX4는 모의 시험 환경(예: 가제보)과 통신하여 모의 환경으로부터 오는 센서 데이터를 받고 모터와 액츄에이터 값을 내보냅니다. 지상 통제 장치와 모의 환경과 수신 명령으로부터 텔레메트리 전송을 시행하는 보드 외부 장치 API(예: ROS)와 통신을 수행합니다.
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
+![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.png)
 
 > **Note** "보통 동작"과 유일하게 *약간* 다른점이라면, ROS는 14557 포트로 연결을 수립합니다. 반면에 더 일반적인 보드 외부 장치 API에서는 UDP 포트 14540에서 연결을 기다립니다.
 
@@ -43,10 +43,10 @@ roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
 
 가제보 모의 시험 환경은 ROS 토픽에 데이터를 직접 내보내는 센서를 붙일 용도로 수정할 수 있습니다. 예를 들면 가제보 ROS 레이저 플러그인이 있습니다. 이 기능을 지원하려면, 가제보를 적당한 ROS 래퍼와 함께 실행해야합니다.
 
-There are ROS launch scripts available to run the simulation wrapped in ROS:
+ROS에 래핑한 모의 시험 환경을 실행할 수 있는 ROS 실행 스크립트가 있습니다:
 
-* [posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/mavros_posix_sitl.launch): SITL and MAVROS
+* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/posix_sitl.launch): 생짜 SITL 실행
+* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/mavros_posix_sitl.launch): SITL과 MAVROS
 
 ROS에 래핑한 SITL을 실행하려면 ROS 환경을 업데이트한 후 늘상 하던 방식대로 실행하십시오:
 
@@ -62,7 +62,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 roslaunch px4 posix_sitl.launch
 ```
 
-Include one of the above mentioned launch files in your own launch file to run your ROS application in the simulation.
+위에서 언급한 실행 파일 중 하를 여러분의 실행 파일 목록에 넣어 ROS 프로그램을 모의 시험 환경에서 실행할 수 있게 하십시오.
 
 ## 움직임 뒤에서 일어나는 일
 
@@ -98,14 +98,14 @@ INFO  Not using /dev/ttyACM0 for radio control input. Assuming joystick input vi
 INFO  Waiting for initial data on UDP. Please start the flight simulator to proceed..
 ```
 
-Now in a new terminal make sure you will be able to insert the Iris model through the Gazebo menus, to do this set your environment variables to include the appropriate `sitl_gazebo` folders.
+이제 새 터미널에서 가제보 메뉴를 통해 아이리스 모델을 넣을 수 있는지 확인하십시오. 이 과정을 수행하려면 적당한 `sitl_gazebo` 폴더를 환경 변수에 설정하십시오.
 
 ```sh
 cd <Firmware_clone>
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
-Now start Gazebo like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
+이제 ROS로 동작하며 아이리스 쿼드콥터 모델을 넣은 가제보를 시작하십시오. 아이리스를 불러오면 PX4 앱에 자동으로 연결합니다.
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
