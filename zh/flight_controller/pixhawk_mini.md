@@ -12,15 +12,15 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 
 Wiring information is available [below](#wiring).
 
-> **Note** This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 :::
 
-## Specifications
+## 产品规格
 
-**Processors:**
+**传感器：**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
@@ -32,7 +32,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
-**Voltage ratings:**
+**接口：**
 
 - **Power module output:** 4.1\~5.5V
 - **Max input voltage:** 45V (10S LiPo)
@@ -62,7 +62,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
-## Purchase
+## 采购
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
 
@@ -70,7 +70,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 `<To be added>`
 
-## Features
+## 特性
 
 Key features of the Pixhawk Mini are:
 
@@ -123,8 +123,8 @@ The *Pixhawk Mini* is shipped with the following contents:
 
 - 3DR 10S Power Module
 
-- WiFi Telemetry Radio
-- Digital Airspeed Sensor
+- WiFi 数传电台
+- 数字空速传感器
 
 ## Compatibility
 
@@ -189,7 +189,7 @@ The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* 
 
 > **Note** The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
 
-### Mount and Orient Controller
+### 飞控的安装和方向
 
 The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
@@ -209,7 +209,7 @@ NOTE - INSERT IMAGE SHOWING BOTH PORTS? OR FRONT-FACING image of GPS&I2C
 
 The compass must be calibrated before it is first used: [Compass Calibration](../config/compass.md)
 
-### Power
+### 电源
 
 The image below shows typical power-supply wiring when using *Pixhawk Mini* in a Quadcopter. This uses the *Quad Power Distribution Board* that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
 
@@ -225,19 +225,19 @@ The control signals come from MAIN OUT. In this case there is only one control c
 
 The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does not need to in the circuit as shown). For vehicles where MAIN OUT is attached to devices that draw power (e.g. a servo used in a plane) then you will need to power the rail using a BEC (battery elimination circuit). The included breakout board allows one channel to provide power on the other outputs.
 
-### Radio Control
+### 无线电遥控
 
-Pixhawk Mini supports many different radio receiver models:
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
 
-- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
+- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。
   
     <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
-- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+- PPM-SUM 和 S.BUS 接收机连接到 **RCIN** 端口。
   
     <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM 接收机通过一个 *PPM 编码器*将*每一个通道通过一根线*连接到** RCIN** 通道上[如这个所示](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)（PPM-Sum 接收机所有通道可以只需要一根信号线）。
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
@@ -245,11 +245,11 @@ For more information about selecting a radio system, receiver compatibility, and
 
 The controller has an integrated safety switch that you can use for motor activation once the autopilot is ready to take off. If this switch is hard to access on a particular vehicle you can attach the (optional) external safety button, as shown below.
 
-![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
+![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
 
 ### Telemetry Radios
 
-### Motors
+### 电机
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -266,17 +266,17 @@ Notes:
 
 <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
-### Other Peripherals
+### 其它外设
 
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
+一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
 
-### Configuration
+### 配置
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -287,7 +287,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v2_default
     
 
-## Debug Port
+## Debug调试端口
 
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md).
 
