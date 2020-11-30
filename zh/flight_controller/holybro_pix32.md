@@ -18,25 +18,25 @@ The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_cont
 Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## Key Features
+## 主要特性
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * RAM: 168 MHz/256 KB
   * Flash: 2 MB
 * Failsafe System-on-Chip: STM32F103
-* Sensors: 
+* 传感器： 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
-* Dimensions/Weight 
+  * MEAS MS5611 气压计
+* 尺寸/重量 
   * Size: 81x44x15mm
   * Weight: 33.1g
 * GPS: U-blox<sup>&reg;</sup> super precision Neo-7M with compass
 * Input Voltage: 2~10s (7.4~37V)
 
-### Connectivity
+### 连接性
 
 * 1x I2C
 * 2x CAN
@@ -50,18 +50,18 @@ Note This flight controller is [manufacturer supported](../flight_controller/aut
 * External microUSB port
 * Molex PicoBlade connectors
 
-## Purchase
+## 采购
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
 
-### Accessories
+### 配件
 
-* [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
+* [数字空速传感器](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
 * [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
 * [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
 
-## Building Firmware
+## 编译固件
 
 :::tip
 Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -72,21 +72,21 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
     make px4_fmu-v2_default
     
 
-## Debug Port
+## Debug调试端口
 
 See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
 
-## Pinouts and Schematics
+## 引脚和原理图
 
 The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
-* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 原理图和布局
 
 > **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
