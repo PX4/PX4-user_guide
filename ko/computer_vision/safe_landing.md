@@ -35,19 +35,19 @@ The configuration information includes, among other things, how to set up safe l
 
 <span id="interface"></span>
 
-## Safe Landing Interface
+## 안전 착륙 인터페이스
 
-PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4는 [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)를 활용하여 보조 컴퓨터상에서 경로 계획 서비스를 통합합니다([임무간 충돌 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 그리고 앞으로 채택할 서비스에 해당).
 
 The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
 
-## Supported Hardware
+## 지원 하드웨어
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
 
-## Further Information
+## 추가 정보
 
-* [Vision and offboard control interfaces](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 Developer Summit 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
+* [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
 * [PX4/avoidance](https://github.com/PX4/avoidance) 
-  * [Simulation setup > Safe Landing Planner](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [Hardware setup > Safe Landing Planner](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+  * [모의 시험 환경 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#safe-landing-planner)
+  * [하드웨어 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
