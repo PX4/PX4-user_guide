@@ -71,7 +71,7 @@ Note 보통 라우터(또는 이동 네트워크)에서 공용 IP 주소를 할�
 이 방식으로 VPN 내부에 있는 지상 통제 장치 컴퓨터의 주소를 고정할 수 있는 이득이 생기므로, *mavlink router* 설정을 나중에 바꿀 필요가 없습니다. 게다가, 모든 VPN 트래픽을 암호화하기 때문에 통신 링크는 안전합니다(MAVLink 2 자체는 암호화를 지원하지 않음).
 
 :::tip
-Note You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
+Note VPN 브로드캐스트 주소로 전달하도록 선택할 수 있습니다(예: `x.x.x.255:14550`, 'x'는 VPN 시스템에 따라 다름). 이 방식은 지상 통제 장치 컴퓨터의 IP 주소를 굳이 알 필요가 없지만, 예상보다 더 많은 트래픽을 소요할 수 있습니다(패킷을 VPN 네트워크의 모든 컴퓨터에 뿌리기 때문).
 :::
 
 동작하기로 알려진 일부 USB 모듈은 다음과 같습니다:
