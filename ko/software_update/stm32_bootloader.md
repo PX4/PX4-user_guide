@@ -27,7 +27,7 @@ make
 
 > **Important** JTAG / SWD 에 접근하려면 일부 보드에서는 올바른 전원 인가 과정이 중요합니다. 아래 설명대로 정확하게 단계를 따르십시오.
 
-The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
+다음 절차는 블랙매직 / 드론코드 프로브에 해당합니다. 기타 JTAG 프루브는 다르지만 비슷한 과정을 밟습니다. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지해야 합니다. 어떻게 하는지 모르겠다면 부트로더에서 정말로 뭘 바꿔야 하는지 다시한번 고민해보셔야 합니다.
 
 절차는 다음과 같습니다.
 1. JTAG 케이블 연결 제거
