@@ -1,65 +1,65 @@
-# Bootloader Flashing onto Betaflight Systems
+# Betaflight System 烧写 Bootloader
 
-This page documents how to flash the PX4 bootloader onto boards preflashed with Betaflight (e.g. [OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md)).
+本页介绍了如何将 PX4 bootloader 烧写到使用 Betaflight固件（例如[ OmnibusF4 SD ](../flight_controller/omnibus_f4_sd.md) 或 [ Kakute F7 ](../flight_controller/kakutef7.md)）的飞控板的 flash 中。
 
-There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
+烧写 bootloader 有两种选择：通过* Betaflight 配置器 *（更简单），或从源代码进行构建。
 
 <span id="betaflight_configurator"></span>
 
-### Bootloader Update using Betaflight Configurator
+### 使用 Betaflight 配置器 更新 Bootloader
 
-To install the PX4 bootloader using the *Betaflight Configurator*:
+要使用 * Betaflight 配置器* 安装 PX4 bootloader，请如下操作：
 
-1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
-2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform. > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
-3. Connect the board to your PC and start the Configurator.
-4. Press the **Load Firmware [Local]** button ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
-5. Select the bootloader binary from the file system and then flash the board.
+1. 您应该已经下载了已编译过的 bootloader 二进制文件（二进制文件针对特定的飞控板编译生成）。
+2. 下载适用于您平台的[ Betaflight 配置器](https://github.com/betaflight/betaflight-configurator/releases)。 > **提示** 如果使用 * Chrome * Web 浏览器，一个简单的跨平台替代方法是安装[配置器扩展插件](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao)。 
+3. 将飞控板连接到 PC 并启动 Betaflight 配置器。
+4. 按下 **加载固件[本地] ** 按钮 ![Betaflight 配置器-本地固件](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
+5. 从文件系统中选择 bootloader 二进制文件，然后烧写进飞控板的 flash。
 
-You should now be able to install PX4 firmware on the board.
+现在，您应当可以在飞控板上安装 PX4 固件了。
 
-### Bootloader Update using Source
+### 使用源代码进行 Bootloader 更新
 
-#### Download Bootloader Source
+#### 下载 Bootloader 源
 
-Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
+通过以下命令下载并编译 [ Bootloader ](https://github.com/PX4/Bootloader)：
 
     git clone --recursive  https://github.com/PX4/Bootloader.git
     cd Bootloader
     make <target> # For example: omnibusf4sd_bl or kakutef7_bl
     
 
-#### Flash Bootloader
+#### 烧写 Bootloader 进 flash
 
-You can flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
+您可以使用 Windows 上的[ dfu-util ](http://dfu-util.sourceforge.net/) 或图形化的[ dfuse ](https://www.st.com/en/development-tools/stsw-stm32080.html) 工具烧写 PX4 bootloader 进 flash。
 
-Don't be afraid to try flashing using any of the methods below.
+无需担心，使用以下任何一种方法进行烧写 flash 即可。
 
-> **Note** The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+> **注意** STM32 MCU 不会变成砖。 DFU （即通过USB更新固件）不会被烧写 flash 的操作覆盖（擦除），即使烧写 flash 失败，DFU 也始终允许您安装新固件。
 
-##### Enter DFU mode
+##### 进入 DFU 模式
 
-Both methods require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
+两种方法都要求飞控板处于 DFU 模式。 要进入 DFU 模式，请在将 USB 线连接到计算机的前按下启动按钮。 飞控板上电后可以放开该按钮。
 
 ##### dfu-util
 
     dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
     
 
-Reboot the flight controller and it let it boot without holding the boot button.
+重新启动飞控板，这一次不要按下启动按钮。
 
 ##### dfuse
 
-See the dfuse manual here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
+请在此处查看 dfuse 手册：https://www.st.com/resource/zh/user_manual/cd00155676.pdf
 
 Flash the **<target>.bin** file.
 
 <span id="reinstall_betaflight"></span>
 
-## Reinstall Betaflight
+## 重新安装 Beatflight 固件
 
-In order to switch back to *Betaflight*:
+为了切换回 * Betaflight *：
 
-- Backup the PX4 parameters, e.g. by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card
-- Keep the **bootloader** button pressed while attaching the USB cable
-- Then flash *Betaflight* as usual with the *Betaflight-configurator*
+- 备份 PX4 参数，例如通过[导出](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters)将它们导出到 SD卡
+- 连接 USB 线时，按住** bootloader **按钮
+- 然后使用* Betaflight-configurator </ 0>像往常一样烧写* Betaflight *固件进其 flash</li> </ul>
