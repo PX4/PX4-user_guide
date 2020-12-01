@@ -42,7 +42,7 @@ Path planner software sends back setpoints for the *planned path* using either `
 
 <span id="px4_waypoint_interface"></span>
 
-### PX4 Waypoint Interface
+### PX4 航点接口
 
 PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
@@ -99,7 +99,7 @@ PX4 safely handles the case where messages are not received from the offboard sy
 
 <span id="companion_waypoint_interface"></span>
 
-## Companion Waypoint Interface
+## 机载航点接口
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
 
@@ -123,7 +123,7 @@ A planner that implements this interface must:
 
 <span id="bezier_interface"></span>
 
-## Companion Bezier Trajectory Interface
+## 机载贝塞尔曲线轨迹接口
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
 
@@ -140,7 +140,7 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 - The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
 - Bezier curves expire after the execution time of the bezier curve has been reached. Ensure that new messages are sent at a high enough rate/with long enough execution time that this does not happen (or the vehicle will switch to Hold mode).
 
-## Supported Hardware
+## 支持的硬件
 
 Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
 
