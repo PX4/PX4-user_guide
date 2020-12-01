@@ -21,7 +21,7 @@ Key information
 The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
 
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Micro FPV Radio telemetry set](https://shop.holybro.com/micro-transceiver-telemetry-radio-set_p1025.html)
+* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
 * Power module holybro
 * Fully assembled Power Management Board with ESCs
 * Motors - DR2205 KV2300
@@ -60,18 +60,18 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| 参数描述                                                                                                           | Quantity |
-| -------------------------------------------------------------------------------------------------------------- | -------- |
-| Motors - DR2205 KV2300                                                                                         | 4        |
-| Fully assembled Power Management Board with ESCs                                                               | 4        |
-| Holybro power module                                                                                           | 1        |
-| Fr-sky D4R-II receiver                                                                                         | 1        |
-| Pixhawk 4 mini                                                                                                 | 1        |
-| Holybro GPS Neo-M8N                                                                                            | 1        |
-| Holybro [Micro FPV Radio telemetry set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/) | 1        |
-| Battery lumenier 1300 mAh 4S 14.8V                                                                             | 1        |
-| Vtx 5.8gHz                                                                                                     | 1        |
-| FPV camera (Complete Kit - only)                                                                               | 1        |
+| 参数描述                                                                                                     | Quantity |
+| -------------------------------------------------------------------------------------------------------- | -------- |
+| Motors - DR2205 KV2300                                                                                   | 4        |
+| Fully assembled Power Management Board with ESCs                                                         | 4        |
+| Holybro power module                                                                                     | 1        |
+| Fr-sky D4R-II receiver                                                                                   | 1        |
+| Pixhawk 4 mini                                                                                           | 1        |
+| Holybro GPS Neo-M8N                                                                                      | 1        |
+| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1        |
+| Battery lumenier 1300 mAh 4S 14.8V                                                                       | 1        |
+| Vtx 5.8gHz                                                                                               | 1        |
+| FPV camera (Complete Kit - only)                                                                         | 1        |
 
 The image below shows both frame and electronic components.
 
