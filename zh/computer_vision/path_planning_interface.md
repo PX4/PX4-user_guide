@@ -30,7 +30,7 @@ PX4使用多个MAVLink接口来整合机载计算机的路径规划服务（包�
 
 <span id="waypoint_interface"></span>
 
-## Trajectory Interface
+## 轨迹接口
 
 PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in *auto* modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
 
