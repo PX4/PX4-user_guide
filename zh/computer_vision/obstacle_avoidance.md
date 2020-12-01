@@ -14,7 +14,7 @@
 
 - 自主避障的最大速度当前约为 3 m/s（由于计算避障路径的开销）。
   
-  > **Note** Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+  > **注意** 避障可以使用*local planner* 规划器以 〜30 Hz的速度发出消息，并且以约 3 m/s的速度移动）或全局规划器（以 〜10 Hz和任务速度发出消息，避障速度约为 1-1.5 m/s）。
 
 <span id="offboard_mode"></span>
 
