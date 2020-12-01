@@ -190,18 +190,18 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
     - **问题：** 使能 VIO 时产生了马桶效应。
   
     - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
-- **问题：** 想使用视觉位置来做闭环，也想运行GPS。
+- **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
-    - This is really difficult, because when they disagree it will confuse the EKF. From testing it is more reliable to just use vision velocity (if you figure out a way to make this configuration reliable, let us know).</ul> 
+    - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。</ul> 
 
 
 
 
 ## 开发人员信息
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
+对扩展此实现感兴趣的开发人员（或编写另一种不依赖 ROS 的实现）应该看看 [使用视觉或运动捕获系统进行位置估计](../ros/external_position_estimation.md)。
 
-This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
+本主题还说明了如何配置 VIO 来配合 LPE Estimator 一起使用 （不推荐使用）。
 
 
 
