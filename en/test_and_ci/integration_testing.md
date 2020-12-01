@@ -12,19 +12,38 @@ Prerequisites:
 
 ### Execute Tests
 
-To run the complete MAVROS test suite:
+To run the MAVROS tests:
 
 ```sh
+source <catkin_ws>/devel/setup.bash
 cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-rostest px4 mavros_posix_tests_iris.launch
+make px4_sitl_default sitl_gazebo
+make <test_target>
+```
+test_target is one of the Makefile targets. The available ones are:
+*tests_mission*, *tests_mission_coverage*, *tests_offboard* and *tests_avoidance*.
+
+Test can also be executed directly by running the test scripts, located under `test/`:
+```sh
+source <catkin_ws>/devel/setup.bash
+cd <PX4-Autopilot_clone>
+make px4_sitl_default sitl_gazebo
+./test/<test_bash_script> <test_launch_file>
+```
+
+Example:
+```sh
+./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
 ```
 
 Or with GUI to see what's happening:
 
 ```sh
-rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
+./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test gui:=true headless:=false
 ```
+
+The .test files launch the corresponding Python tests defined in `integrationtests/python_src/px4_it/mavros/`
+
 
 ### Write a new MAVROS test (Python)
 
@@ -88,29 +107,34 @@ if __name__ == '__main__':
     rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
 ```
 
-####2.) Run the new test only
+#### 2.) Run the new test only
 
 ```sh
 # Start simulation
 cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-roslaunch px4 mavros_posix_sitl.launch
+source Tools/setup_gazebo.bash
+roslaunch launch/mavros_posix_sitl.launch
 
 # Run test (in a new shell):
 cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
+source Tools/setup_gazebo.bash
 rosrun px4 mavros_new_test.py
 ```
 
-####3.) Add new test node to launch file
+#### 3.) Add new test node to a launch file
 
-In `launch/mavros_posix_tests_irisl.launch` add new entry in test group:
+In `test/` create a new `<test_name>.test` ROS launch file.
+Call the test file using one of the base scripts *rostest_px4_run.sh* or *rostest_avoidance_run.sh*
 
-```xml
-	<group ns="$(arg ns)">
-		[...]
-        <test test-name="mavros_new_test" pkg="px4" type="mavros_new_test.py" />
-    </group>
+#### 4.) (Optional) Create a new target in the Makefile
+1. Open the Makefile
+2. Search the *Testing* section
+3. Add a new target name and call the test
+
+Example:
+```sh
+tests_<new_test_target_name>: rostest
+	@"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
 ```
 
-Run the comlpete test suite as described above.
+Run the tests as described above.
