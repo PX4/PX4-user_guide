@@ -8,13 +8,13 @@ PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（�
 - [HEARTBEAT（心跳包）/连接协议](https://mavlink.io/en/services/heartbeat.html) 用于检测“生命证明”。
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 和 [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) 分别用来发送机体本地位置和高度。
 
-如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID) ，那么 PX4 的路径规划功能会在自动模式 （着陆、起飞、持有、飞行任务、返回）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
+如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)，那么 PX4 的路径规划功能会在自动化模式 （着陆Landing、起飞Takeoff、保持Hold、任务Mission、返回Return）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
-> **提示** 所有通过 MAVLink 在 PX4 UORB 话题和 ROS 话题间双向传送的消息流都记录在 [PX4/evidence > Message Flows](https://github.com/PX4/avoidance#message-flows) 文件中：
+> **Tip** 所有通过 MAVLink 在 PX4 UORB 话题和 ROS 话题间双向传送的消息流都记录在 [PX4/evidence > Message Flows](https://github.com/PX4/avoidance#message-flows) 文件中：
 
 所有使用此接口的服务均发送并且接收相同类型/格式的消息。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
-> **提示** 推荐使用 [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) 来开发路径规划软件。 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
+> **Tip** 推荐使用 [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) 来开发路径规划软件。 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
 
 ## PX4 配置
 
@@ -26,7 +26,7 @@ PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（�
 
 实际需要的设置/配置取决于所用的规划器。
 
-> **警告** 一次只能有一个规划期在机载计算机上运行（在写入时）。 这意味着不能在同一个机体上同时启用不同规划器的上位机功能。 （例如，在一个机体启用避障和防撞时，就不能执行安全着陆了，反之亦然）。
+> **Warning** 一次只能有一个规划期在机载计算机上运行（在写入时）。 这意味着不能在同一个机体上同时启用不同规划器的上位机功能。 （例如，在一个机体启用避障和防撞时，就不能执行安全着陆了，反之亦然）。
 
 <span id="waypoint_interface"></span>
 
