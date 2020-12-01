@@ -1,12 +1,12 @@
 # 路径规划接口
 
-PX4使用多个MAVLink接口来整合机载计算机的路径规划服务（包括在执行航线任务时避障，[安全着陆](../computer_vision/safe_landing.md)和未来服务）：
+PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（包括在执行航线任务时避障，[安全着陆](../computer_vision/safe_landing.md)和未来的一些服务）：
 
 - 有两个 [MAVLink 路径规划协议](https://mavlink.io/en/services/trajectory.html) 接口： 
   - [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): 被 PX4 用于发送 *期望路径*。 可能会被路径规划软件用于向 PX4 发送 *所规划路径* 的设定点数据流。
   - [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 可能（或者）被路径规划软件用来以贝塞尔曲线的形式向PX4发送*所规划路径*。 曲线表示给定时间段内机体（移动的）位置设定值。
-- [HEARTBEAT/连接协议](https://mavlink.io/en/services/heartbeat.html) 用于检测“生命证明”。
-- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) 分别用来发送飞行器本地位置和高度。
+- [HEARTBEAT（心跳包）/连接协议](https://mavlink.io/en/services/heartbeat.html) 用于检测“生命证明”。
+- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 和 [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) 分别用来发送机体本地位置和高度。
 
 如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID) ，那么 PX4 的路径规划功能会在自动模式 （着陆、起飞、持有、飞行任务、返回）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
