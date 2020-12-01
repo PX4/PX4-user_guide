@@ -32,7 +32,7 @@ PX4使用多个MAVLink接口来整合机载计算机的路径规划服务（包�
 
 ## 轨迹接口
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in *auto* modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
+PX4 将 *期望路径* 的相关信息发送给机载计算机（当在 *自动* 模式下，`COM_OBS_AVOID=1` 时）， 并从路径规划软件接收*所规划路径* 的设定点数据流。
 
 The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
 
