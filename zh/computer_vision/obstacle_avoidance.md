@@ -56,25 +56,25 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 PX4 通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) 为1 来使能自主避障功能。
 
-> **Note** `COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offoard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+> **注意** `COM_OBS_AVOID` 还使能了 [安全着陆](../computer_vision/safe_landing.md)，以及使用了 PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) （轨迹接口）将外部路径规划服务与 PX4 集成的其他功能。
 
 ## 机载计算机设置
 
 机载计算机端的硬件设置和软硬件配置在 Github 代码仓库 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 中已经提供。
 
-Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
+任务中的自主避障可以使用 *local planner* 或者 *global planner* （建议使用 local planner / 更好的表现）。
 
 <span id="interface"></span>
 
-## Obstacle Avoidance Interface
+## 自主避障接口
 
-PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md)以及更多的服务）。
 
-The interface (messages sent) between PX4 and the companion are *exactly* the same as for any other path planning services.
+PX4 和机载设备之间的（消息发送）接口与任何其他路径规划服务*完全*一样。
 
-## Supported Hardware
+## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 <!-- ## Further Information -->
 
