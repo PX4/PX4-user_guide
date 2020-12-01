@@ -1,6 +1,6 @@
-# 视觉惯性测距(VIO)
+# 视觉惯性里程计（VIO）
 
-*视觉惯性测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*(当地位置和方向)，相对于*当地*起始位置的移动无人机/无人车的*速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给无人机/无人车导航。
+*视觉惯性里程计测距*（VIO）是一种[计算机视觉](../computer_vision/README.md)技术，用于估算3D*姿态*（local 位置和方向），相对于 *local* 起始位置的移动的机体 *速度*。 它通常用于在GPS不存在或不可靠的情况下（例如室内或在桥下飞行时）给载具导航。
 
 VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/Visual_odometry) 从相机图像中估计机身*姿态*，并结合机身IMU的惯性测量（以校正因不良的图像捕获导致的机身快速移动的错误）。
 
@@ -34,7 +34,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 - 使用提供的线缆连接 [T265 Intel Realse 追踪摄像头](../peripherals/camera_t265_vio.md)。
 - 尽可能使镜头朝下安装相机（默认）。
-- 相机对振动非常敏感，建议软安装(例如使用振动隔离泡沫)。
+- 该相机对振动非常敏感，建议软安装（例如使用振动隔离海绵）。
 
 
 
@@ -103,7 +103,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
   :::tip 您可以使用*QGroundControl *  [ MAVLink检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
 :::
 
-- 在第一次飞行前[确认VIO设置正确](#verify_estimate)！
+- 在第一次飞行前 [确认VIO设置正确](#verify_estimate)！
 
 <span id="ekf2_tuning"></span> 
 
@@ -120,9 +120,9 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 | [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                    |
 
 
-设置桥接，ROS和 PX4：
+These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
 
-必须将以下参数设置为将外部位置信息与EKF2一起使用。
+For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
 <span id="tuning-EKF2_EV_DELAY"></span> 
 
@@ -138,7 +138,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::tip
-Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计 (如上) 。
+注意 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计（如上）。
 :::
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
@@ -160,7 +160,7 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 * 检查消息中的线性速度是否以 *FRD* 机架参照系表示。
 
-* 设置 PX4 参数 `MAV_ODOM_LP` 为0。 PX4 将停止 `ODOMETRY` 消息回传。
+* 设置 PX4 参数 `MAV_ODOM_LP` 为 0。 PX4 将停止 `ODOMETRY` 消息回传。
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的EKF更新值。
 
@@ -179,28 +179,28 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 ## 故障处理
 
-执行以下检查，以确保在首次飞行*之前*VIO正常运行：
+执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
-If it is connecting properly common problems/solutions are:
+如果连接正确， 常见问题 / 解决方案是：
 
-- **Problem:** I get drift / flyaways when the drone flies, but not when I carry it around with the props off.
+- **问题：** 当无人机飞行时发生漂移/飞走，但是当拿掉螺旋桨时不会发生漂移。
   
-    - If using the [T265](../peripherals/camera_t265_vio.md) try soft-mounting it (this camera is very sensitive to high frequency vibrations).
-- **Problem:** I get toilet-bowling when VIO is enabled.
+    - 如果使用 [T265](../peripherals/camera_t265_vio.md)，请尝试将其软安装（soft-mounting，做好减震，此相机对高频振动非常敏感）。
+- **问题：** 启用 VIO 时产生了马桶效应。
   
-    - Make sure the orientation of the camera matches the transform in the launch file. Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
-- **Problem:** I want to use vision position to do loop closing, and also want to run GPS.
+    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
+- **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
-    - This is really difficult, because when they disagree it will confuse the EKF. From testing it is more reliable to just use vision velocity (if you figure out a way to make this configuration reliable, let us know).
+    - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。
 
 
 
 
 ## 开发人员信息
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
+对扩展此实现感兴趣的开发人员（或编写另一种不依赖 ROS 的实现）应该看看 [使用视觉或运动捕获系统进行位置估计](../ros/external_position_estimation.md)。
 
-This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
+本主题还说明了如何配置 VIO 来配合 LPE 估计器 一起使用（不推荐）。
 
 
 
