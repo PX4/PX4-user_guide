@@ -9,4 +9,4 @@ Holybro has a number of [SiK](../telemetry/sik_radio.md)-compatible telemetry ra
 
 * [Holybro Transceiver Telemetry Radio V3 433MHz](http://www.holybro.com/product/transceiver-telemetry-radio-v3/)
 * [Holybro Transceiver Telemetry Radio V3 915MHz](http://www.holybro.com/product/transceiver-telemetry-radio-v3-915mhz/)
-* [Holybro Micro Transceiver Telemetry Radio Set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/)
+* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
