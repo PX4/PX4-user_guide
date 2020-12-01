@@ -113,7 +113,7 @@ Finally append the stream class to the `streams_list` at the bottom of
 ```C
 StreamListItem *streams_list[] = {
 ...
-create_stream_list_item<MavlinkStreamCaTrajectory>(),,
+create_stream_list_item<MavlinkStreamCaTrajectory>(),
 ```
 
 Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
