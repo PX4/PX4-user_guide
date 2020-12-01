@@ -183,7 +183,7 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 如果连接正确， 常见问题 / 解决方案是：
 
-- **Problem:** I get drift / flyaways when the drone flies, but not when I carry it around with the props off.
+- **问题：** 当无人机飞行时发生漂移 / 失控飞走，但是当拿掉外设时不会发生漂移或者失控飞走。
   
     - If using the [T265](../peripherals/camera_t265_vio.md) try soft-mounting it (this camera is very sensitive to high frequency vibrations).
 - **Problem:** I get toilet-bowling when VIO is enabled.
