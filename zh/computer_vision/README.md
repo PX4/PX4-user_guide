@@ -13,9 +13,9 @@ PX4 使用计算机视觉系统（主要在机载计算机上运行）以支持�
   - [安全着陆](../computer_vision/safe_landing.md) 引导无人机找到（并着陆）没有固定障碍物的平坦地形。
 
 
-> **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
+> **提示**  [PX4 视觉开发套件](../complete_vehicles/px4_vision_kit.md) （Holybro）是一款功能强大且价格便宜的套件，适用于在 PX4 上使用计算机视觉的开发人员。 它预安装了 [ PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 软件，可以用作您自己算法的基础。
 
 
-## External Resources
+## 外部资源
 
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 v1.9 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
