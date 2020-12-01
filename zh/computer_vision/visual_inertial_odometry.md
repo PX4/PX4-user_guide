@@ -138,7 +138,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::tip
-Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计 (如上) 。
+注意 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计（如上）。
 :::
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
@@ -185,14 +185,13 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 - **问题：** 当无人机飞行时发生漂移 / 失控飞走，但是当拿掉外设时不会发生漂移或者失控飞走。
   
-    - 如果使用 T265<0> , 请尝试将其软安装（此相机对高频振动非常敏感）。</li> </ul></li> 
-    
-    - **问题：** 使能 VIO 时产生了马桶效应。
+    - 如果使用 [T265](../peripherals/camera_t265_vio.md)，请尝试将其软安装（soft-mounting，做好减震，此相机对高频振动非常敏感）。
+- **问题：** 启用 VIO 时产生了马桶效应。
   
     - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
 - **问题：** 想使用视觉位置来做闭环，也想运行 GPS 。
   
-    - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。</ul> 
+    - 这确实很困难，因为当他们不同意时，就会混淆 EKF。 通过测试，仅使用视觉速度更为可靠（如果您想出一种使该配置可靠的方法，请告诉我们）。
 
 
 
