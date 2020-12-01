@@ -179,9 +179,9 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
 
 ## 故障处理
 
-执行以下检查，以确保在首次飞行*之前*VIO正常运行：
+执行以下检查，以确保在首次飞行*之前* VIO 正常运行：
 
-If it is connecting properly common problems/solutions are:
+如果连接正确， 常见问题 / 解决方案是：
 
 - **Problem:** I get drift / flyaways when the drone flies, but not when I carry it around with the props off.
   
