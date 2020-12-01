@@ -189,8 +189,8 @@ Note 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或
     
     - **问题：** 使能 VIO 时产生了马桶效应。
   
-    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl* [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
-- **Problem:** I want to use vision position to do loop closing, and also want to run GPS.
+    - 确保相机的方向与启动文件中的变换匹配。 使用 *QGroundControl*  [MAVLink 检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) 验证来自 MAVROS 的 `ODOMETRY` 消息中的速度是否与 FRD 坐标系统一致。
+- **问题：** 想使用视觉位置来做闭环，也想运行GPS。
   
     - This is really difficult, because when they disagree it will confuse the EKF. From testing it is more reliable to just use vision velocity (if you figure out a way to make this configuration reliable, let us know).</ul> 
 
