@@ -10,7 +10,7 @@
 
 {% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
 
-## Limitations/Capabilities
+## 局限 / 能力
 
 - The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
   
@@ -20,11 +20,11 @@
 
 ## Offboard模式避障
 
-PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
+PX4 在 [Offboard 模式](../flight_modes/offboard.md)中支持自主避障功能。
 
-期望路径来自在配套计算机上运行的一个 [ROS](../ros/README.md) 节点。 并传递给自主避障模块（另一个ROS节点）。 避障软件将规划路径通过 `SET_POSITION_TARGET_LOCAL_NED` 消息流发送给飞行控制栈。
+期望路径来自在配套计算机上运行的一个 [ROS](../ros/README.md) 节点。 并传递给自主避障模块（另一个 ROS 节点）。 避障软件将规划路径通过 `SET_POSITION_TARGET_LOCAL_NED` 消息流发送给飞行控制栈。
 
-The only required PX4-side setup is to put PX4 into *Offboard mode*.
+唯一的 PX4 侧配置需求是将 PX4 设置为 *Offboard 模式*。 
 
 机载计算机端的硬件设置和软硬件配置在 Github 代码仓库 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 中已经提供。
 
@@ -41,16 +41,16 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 激活避障之后的不同之处有：
 
 - 飞机距离目标航点小于阈值半径，即判定为抵达，不考虑航向。 
-  - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
-- 一旦判定为到达某航点（即距离航点小于阈值半径），PX4就开始切换新的当前航点与下一个航点。
+  - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 开启自主避障后该约束失效，因为避障算法完全控制了飞机的航向，并且飞机始终在当前视野中移动。 
+- 一旦判定为到达某航点（即距离航点小于阈值半径），PX4 就开始切换新的当前航点与下一个航点。
 - 如果一个航点在某个障碍物*之内*，有可能无法抵达（任务将被阻塞）。 
   - 如果飞机在上一航点与当前航点连线上的投影经过了当前航点，阈值半径将被放大，当前航点将被标记为抵达。
   - 如果载具只能进入x-y方向的阈值半径，高度方向的可接受阈值将被修改，然后任务将继续（即使无法进入高度的可接受半径）。
-- （由 *QGroundControl*或PX4）预设的任务模式速度将被忽略。 速度将由避障软件决定： 
+- （由 *QGroundControl* 或 PX4 ）预设的任务模式速度将被忽略。 速度将由避障软件决定： 
   - *local planner* 任务速度约 3m/s。
   - *global planner* 任务速度约 1~1.5 m/s。
 
-If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes/hold.md).
+如果 PX4 停止接收设定点更新超过半秒钟， 将切换到 [保持模式](../flight_modes/hold.md)。
 
 ### PX4 配置
 
