@@ -10,8 +10,8 @@ PX4 is the *Professional Autopilot*. Developed by world-class developers from in
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
 :::
 
-:::tip
-Note This guide is still a work in progress! It does not yet cover all of PX4.
+:::note
+This guide is still a work in progress! It does not yet cover all of PX4.
 :::
 
 ## How Do I Get Started?
