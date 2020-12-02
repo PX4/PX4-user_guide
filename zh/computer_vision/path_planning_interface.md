@@ -113,7 +113,7 @@ PX4 中各字段定义如下：
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: 航向角设定值
   - `vel_yaw[0]`: 偏航速率设定值
-  - `command[0]`: NaN.
+  - `command[0]`: NaN
 - 所有其它字段都是NaN(未定义)。
 
 实现此接口的规划器必须：
@@ -125,20 +125,20 @@ PX4 中各字段定义如下：
 
 ## 机载贝塞尔曲线轨迹接口
 
-The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
+路径规划软件（运行在机载计算机上）*可以*将计划的路径作为 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 消息流发送给 PX4。
 
-The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`. PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
+消息定义了机体应遵循的路径（由控制点定义），从消息`时间戳`开始，在时间 `delta` 后到达终点。 PX4 使用消息发送时间、当前时间和贝塞尔曲线的总时间（delta）计算其新的轨迹设定点（沿曲线趋势来预测的当前位置/速度/加速度）。
 
-> **Note** For example, say the message was sent 0.1 seconds ago and `delta` (curve duration) is 0.3s. PX4 can calculate its setpoint at the 0.1s position in the curve.
+> **Note** 例如，消息是在 0.1 秒前发送的， `delta` (曲线持续时间) 是 0.3 秒。 PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。
 
-In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
+更详细地讲，`TRAJECTORY_REPRESENTATION_BEZIER` 被解析为：
 
-- The number of bezier control points determines the degree of the bezier curve. For example, 3 points makes a quadratic bezier curve with constant acceleration.
-- The bezier curve must be the same degree in x, y, z, and yaw, with all bezier control points finite
-- The `delta` array should have the value corresponding with the last bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. Other values in the `delta` array are ignored.
-- The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
-- The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Bezier curves expire after the execution time of the bezier curve has been reached. Ensure that new messages are sent at a high enough rate/with long enough execution time that this does not happen (or the vehicle will switch to Hold mode).
+- 贝塞尔控制点的数目决定贝塞尔曲线的曲度。 例如，3个控制点可构成具有恒定加速度的二次贝塞尔曲线。
+- 贝塞尔曲线在 x、y、z 和偏航中的阶数必须相同，且所有贝塞尔控制点都是有限的。
+- 在`delta` 数组中，应保存与最后一个贝塞尔控制点相对应的值，表示在执行曲线过程中，从航点到该点所需的总计持续时间。 其他 `delta` 数组中的值将被忽略。
+- MAVLink 消息的时间戳应为曲线开始的时间，通信延迟和时钟不匹配将通过时间同步机制在飞行控制器上进行补偿。
+- 所有控制点都应该在局部坐标系中指定（[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
+- 贝塞尔曲线在超过执行时间后将过期。 确保以足够高的速率/足够长的执行时间发送新消息，以免发生这种情况（否则机体将切换到保持模式）。
 
 ## 支持的硬件
 

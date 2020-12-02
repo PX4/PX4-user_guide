@@ -12,7 +12,7 @@ PX4 的系统构架可确保不需要在核心控制器中对不同的机身布�
 
 特定的控制器发送一个特定的归一化的力或力矩指令（缩放至 -1..+1 ）给混控器，混控器则相应地去设置每个单独的执行器。 控制量输出驱动程序（比如：UART, UAVCAN 或者 PWM）则将混控器的输出所放为执行器实际运行时的原生单位， 例如输出一个值为 1300 的 PWM 指令。
 
-![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
+![混控器控制通道](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 <!--- Mermaid Live Version:
 https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19
 graph LR;
@@ -120,13 +120,13 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 由于同时存在多个控制组（比如说飞行控制、载荷等）和多个输出组（最开始 8 个 PWM 端口， UAVCAN 等），一个控制组可以向多个输出组发送指令。
 
-混音器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混合物的目的 (例如控制MAIN或 AUX 输出) 从混音器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
+混控器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混控的目的 (例如控制 MAIN 或 AUX 输出) 从混控器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
 
 > **Note** This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) or uses UAVCAN for motor control. 启动脚本使用"设备"抽象将混音器文件加载到板子适当的设备驱动器。 如果 UAVCAN 已启用，主混音器将被加载到设备`/dev/uavcan/esc` (uavcan) 否则`/dev/pwm_output0` (此设备已映射给具有I/O 板的控制器的 IO 驱动，且 FMU 驱动程序已映射到未映射的板上)。 Aux 混控器 文件被加载到设备 `/dev/pwm_output1`, 它将映射到 Pixhawk 控制器上拥有 I/O 板子的 FMU 驱动程序。
 
 因为有多个控制组(例如飞行控制、有效载荷等)。 和多个输出组(总线) ，一个控制组可以向多个输出组发送命令。
 
-![Mixer Input/Output Mapping](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
+![混控器输入/输出映射](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version:
 https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0
 graph TD;
@@ -207,10 +207,10 @@ You can specify more than one mixer in each file. The output order (allocation o
 ```
 
 [这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
-- `R`: [Multirotor mixer](#multirotor_mixer)
-- `H`: [Helicopter mixer](#helicopter_mixer)
-- `M`: [Summing mixer](#summing_mixer)
-- `Z`: [Null mixer](#null_mixer)
+- `R`: [多旋翼混控器](#multirotor_mixer)
+- `H`: [直升机混控器](#helicopter_mixer)
+- `M`: [合成混控器](#summing_mixer)
+- `Z`: [无混控器](#null_mixer)
 
 多旋翼的混控器将四组控制输入（俯仰、滚转、偏航和推力）整合到一组用于驱动电机转速控制器的执行器输出指令中。
 
@@ -258,7 +258,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
 
-通常情况下在一个混控器集合中使用空的混控器作为占位符号，以实现某种特定的执行器输出模式。 It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
+通常情况下在一个混控器集合中使用空的混控器作为占位符号，以实现某种特定的执行器输出模式。 它也可以用来控制用于故障保护装置的输出值（输出为正常使用的 0）；在故障保护期间，混控器被忽略，故障安全值被代替)。
 
 空的混控器使用如下形式定义：
 ```
@@ -355,10 +355,10 @@ S: 0 2  10000  10000      0 -10000  10000
 
 <a id="vtol_mixer"></a>
 
-#### VTOL Mixer
+#### VTOL 混控器
 
-VTOL systems use a [multirotor mixer](#multirotor_mixer) for the multirotor outputs, and [summing mixers](#summing_mixer) for the fixed-wing actuators (and the tilting servos in case of a tiltrotor VTOL).
+VTOL 系统使用 [多旋翼混控器](#multirotor_mixer)来输出多旋翼控制信号，使用 [合成混控器](#summing_mixer) 来输出固定翼舵机（以及倾转旋翼类 VTOL 的倾转伺服机构）控制信号。
 
-The mixer system for a VTOL vehicle can be either combined into a single mixer, where all the actuators are connected to either the IO or the FMU port, or split into separate mixer files for IO and for AUX. If separated, we recommend that all the multicopter motors are on one port, and all the servos and the fixed-wing motor on the other.
+VTOL 机体的混控器系统可以合并成一个混控器，这样的话，所有舵机都将连接到 IO 或 FMU 端口。VTOL 机体的混控器系统也可以分割成独立的混控器文件，供 IO 和 AUX 使用。 如果分割成独立的文件，我们建议所有的多旋翼电机在一个端口上，所有的伺服电机和固定翼舵机在另一个端口上。
 
-> **Note** The FMU output can only be used for multirotor motors starting from PX4 v1.11. To use the FMU output set [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU) (otherwise they are not switched off when in fixed-wing flight mode).
+> **Note** FMU 输出只能用于不低于 PX4 v1.11 版本的多旋翼电机。 若要使用 FMU 输出，需设置参数 [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU) （否则 FMU 输出在固定翼模式下不会被关闭）。

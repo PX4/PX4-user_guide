@@ -64,7 +64,9 @@ An *arming button* or "momentary switch" can be configured to trigger arm/disarm
 
 A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
 
-> **Tip** Two-position arming switches are primarily used in/recommended for racing drones.
+:::tip
+Two-position arming switches are primarily used in/recommended for racing drones.
+:::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
 
@@ -79,7 +81,9 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 -`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                         |
 
 
-> **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::note
+The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::
 
 ## 自动上锁
 

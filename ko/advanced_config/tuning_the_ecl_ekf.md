@@ -2,11 +2,13 @@
 
 이 튜토리얼은 ECL EKF 알고리즘 사용에 대한 일반적인 질문에 답변합니다.
 
-> **팁** *PX4 Developer Summit 2019*에서 Paul Riseborough 박사가 발표한 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ)는 추정기의 개요와 2018/2019년도의 주요 변화와 2020년도 까지의 예상 개선점에 대해 설명합니다. 
+:::tip
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+:::
 
 ## What is the ecl EKF?
 
-Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래와 같은 상태를 추정하기 위해 확장 칼만 필터 (EKF) 알고리즘을 사용합니다:
+The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
 * Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
 * Velocity at the IMU - North,East,Down \(m/s\)
@@ -17,21 +19,23 @@ Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래
 * Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
 * Wind velocity - North,East \(m/s\)
 
-IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을 갖는 것을 허용하기 위해, EKF는 지연된 '합성 시간축'에서 실행됩니다. 각 센서 데이터는 선입선출(FIFO) 버퍼에 저장되고 알맞은 시간에 사용되기 위해 EKF에 의해 출력됩니다. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced/parameter_reference.md#ekf2) parameters.
+The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
 
-보완 필터는 버퍼링된 IMU 데이터를 사용하여 상태를 '합성 시간축'에서 현재 시간으로 전파하는 데 사용됩니다. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced/parameter_reference.md#EKF2_TAU_POS) parameters.
+A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
-> **Note** The 'fusion time horizon' delay and length of the buffers is determined by the largest of the EKF2\_\*\_DELAY parameters. 만약 센서가 사용되지 않는다면, 해당 센서의 시간 지연 매개변수를 0으로 맞추는 것을 권장합니다. "합성 시간축"의 지연을 줄이면 상태를 현재 시간으로 전달하는 데 사용되는 보완 필터의 오차가 줄어듭니다.
+:::note
+The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters. If a sensor is not being used, it is recommended to set its time delay to zero. Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+:::
 
-위치 및 속도 상태는 제어 루프로 출력되기 전에 IMU와 차체 프레임 사이의 오프셋을 고려하여 조정됩니다. The position of the IMU relative to the body frame is set by the `EKF2\_IMU\_POS\_X,Y,Z` parameters.
+The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-EKF는 IMU 데이터를 상태 예측에만 사용합니다. IMU 데이터는 EKF 유도 과정에서 관측값으로 사용되지 않습니다. 공분산 예측, 상태 업데이트 및 공분산 행렬 업데이트에 사용되는 대수적 계산식은 Matlab symbolic toolbox를 사용하여 유도되었습니다. 계산식은 다음 링크에서 찾을 수 있습니다:[Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
+The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
 
 ## EKF는 어떤 센서 측정값을 사용하나요?
 
 The EKF has different modes of operation that allow for different combinations of sensor measurements. On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
-This mode requires IMU data, a source of yaw \(magnetometer or external vision\) and a source of height data. This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
+This mode requires IMU data, a source of yaw (magnetometer or external vision) and a source of height data. This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.
 
 ### IMU
 
@@ -39,12 +43,12 @@ This mode requires IMU data, a source of yaw \(magnetometer or external vision\)
 
 ### Magnetometer
 
-Three axis body fixed magnetometer data \(or external vision system pose data\) at a minimum rate of 5Hz is required. Magnetometer data can be used in two ways:
+Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required. Magnetometer data can be used in two ways:
 
 * Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination. This yaw angle is then used as an observation by the EKF. This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. It is the default method used during start-up and on ground.
 * The XYZ magnetometer readings are used as separate observations. This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
 
-The logic used to select the mode is set by the [EKF2_MAG_TYPE](../advanced/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
 
 The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw_measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw_from_gps_velocity).
 
@@ -52,7 +56,9 @@ The option is available to operate without a magnetometer, either by replacing i
 
 A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required.
 
-> GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced/parameter_reference.md#EKF2_HGT_MODE) parameter.
+:::note
+The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+:::
 
 If these measurements are not present, the EKF will not start. When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment. When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
 
@@ -60,7 +66,7 @@ If these measurements are not present, the EKF will not start. When these measur
 
 Barometric pressure altitude is subject to errors generated by aerodynamic disturbances caused by vehicle wind relative velocity and orientation. This is known in aeronautics as *static pressure position error*. The EKF2 module that uses the ECL/EKF2 estimator library provides a method of compensating for these errors, provided wind speed state estimation is active.
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_MODE](../advanced/parameter_reference.md#EKF2_HGT_MODE) parameter to 2.
+For platforms operating in a fixed wing mode, wind speed state estimation requires either [Airspeed](#airspeed) and/or [Synthetic Sideslip](#synthetic-sideslip) fusion to be enabled.
 
 For multi-rotors, fusion of [Drag Specific Forces](#mc_wind_estimation_using_drag) can be enabled and tuned to provide the required wind velocity state estimates.
 
@@ -128,7 +134,9 @@ The table below shows the different metrics directly reported or calculated from
 | vpos_drift_rate    | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT))                                                                                                                                                | 0.02          | m/s                         | Drift rate calculated from reported GPS altitude (when stationary).                                                                                                            |
 | hspd                 | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))                                                                                                                                                    | 0.01          | 2\] Velocity NED \(m/s\) | Filtered magnitude of reported GPS horizontal velocity.                                                                                                                        |
 
-> **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
+:::note
+The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
+:::
 
 ### Range Finder
 
@@ -138,17 +146,17 @@ If operating over a flat surface that can be used as a zero height datum, the ra
 
 ### Airspeed
 
-Equivalent Airspeed \(EAS\) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced/parameter_reference.md#EKF2_ARSP_THR) to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
+Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
 
 ### Synthetic Sideslip
 
-Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the [EKF2_FUSE_BETA](../advanced/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
+Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
 
 <span id="mc_wind_estimation_using_drag"></span>
 
 ### Drag Specific Forces
 
-Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity. This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced/parameter_reference.md#EKF2_AID_MASK) parameter to true. The relationship between airspeed and specific force \(IMU acceleration\) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced/parameter_reference.md#EKF2_BCOEF_X) and [EKF2_BCOEF_Y](../advanced/parameter_reference.md#EKF2_BCOEF_Y) parameters which set the ballistic coefficients for flight in the X and Y directions respectively. The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
+Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity. This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to true. The relationship between airspeed and specific force (IMU acceleration) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) and [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) parameters which set the ballistic coefficients for flight in the X and Y directions respectively. The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
 
 These can be tuned by flying the vehicle in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards between rest and maximum maximum speed, adjusting [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) so that the corresponding innovation sequence in the `ekf2_innovations_0.drag_innov[0]` log message is minimised. This is then repeated for right/left movement with adjustment of [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) to minimise the `ekf2_innovations_0.drag_innov[1]` innovation sequence. Tuning is easier if this testing is conducted in still conditions.
 
@@ -166,7 +174,7 @@ Optical flow data will be used if the following conditions are met:
 
 ### External Vision System
 
-After re-tuning the filter, particularly re-tuning that involve reducing the noise variables, the value of estimator\_status.gps\_check\_fail\_flags should be checked to ensure that it remains zero.
+Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic manoeuvres once time delay parameters are set correctly.
 * External vision system vertical position data will be used if the [EKF2_HGT_MODE](../advanced/parameter_reference.md#EKF2_HGT_MODE) parameter is set to 3.
@@ -197,7 +205,7 @@ Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_
 
 Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
 
-For this reason, no claims for accuracy relative to the legacy combination of attitude\_estimator\_q + local\_position\_estimator have been made and the best choice of estimator will depend on the application and tuning.
+For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
 
 ### Disadvantages
 
@@ -216,13 +224,13 @@ For this reason, no claims for accuracy relative to the legacy combination of at
 
 ## How do I check the EKF performance?
 
-EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the .ulog file format. To use the .ulog format, set the SYS\_LOGGER parameter to 1.
+EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the *.ulog file format*. The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
-A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. This saves performance metadata in a csv file named `<log_file>.mdat.csv` and plots in a pdf file named `<log_file>.pdf`.
+A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
 
-Multiple log files in a directory can be analysed using the [batch\_process\_logdata\_ekf.py](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) script. When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch\_process\_metadata\_ekf.py](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
+Multiple log files in a directory can be analysed using the [batch\_process\_logdata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) script. When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch\_process\_metadata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
 
 ### Output Data
 
@@ -233,7 +241,7 @@ Multiple log files in a directory can be analysed using the [batch\_process\_log
 
 ### States
 
-Refer to states\[32\] in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for states\[32\] is as follows:
+Refer to states\[32\] in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg). The index map for states\[32\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)
@@ -247,7 +255,7 @@ Refer to states\[32\] in [estimator\_status](https://github.com/PX4/Firmware/blo
 
 ### State Variances
 
-Refer to covariances\[28\] in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
+Refer to covariances\[28\] in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
 
 * \[0 ... 3\] Quaternions
 * \[4 ... 6\] Velocity NED \(m/s\)^2
@@ -263,7 +271,13 @@ Refer to covariances\[28\] in [estimator\_status](https://github.com/PX4/Firmwar
 
 The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg). The messages all have the same field names/types (but different units).
 
-> **Note** The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created): ```hagl\_test\_ratio : ratio of the height above ground innovation to the innovation test limit```
+:::note
+The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
+
+    # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
+    
+
+:::
 
 Some of the observations are:
 
@@ -307,9 +321,9 @@ In addition, each sensor has its own fields for horizontal and vertical position
 
 ### Output Complementary Filter
 
-The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to output\_tracking\_error\[3\] in the ekf2\_innovations message.
+The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
 
-The index map for vel\_pos\_innov\[6\] is as follows:
+The index map is as follows:
 
 * [0] Angular tracking error magnitude (rad)
 * \[1\] Velocity tracking error magnitude \(m/s\). The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced/parameter_reference.md#EKF2_TAU_VEL) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
@@ -317,7 +331,7 @@ The index map for vel\_pos\_innov\[6\] is as follows:
 
 ### EKF Errors
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
 
 ### Observation Errors
 
@@ -326,9 +340,9 @@ There are two categories of observation faults:
 * Loss of data. An example of this is a range finder failing to provide a return.
 * The innovation, which is the difference between the state prediction and sensor observation is excessive. An example of this is excessive vibration causing a large vertical position error, resulting in the barometer height measurement being rejected.
 
-Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the EKF2\_\*\_GATE parameter for each observation type.
+Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
 
-Test levels are available in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) as follows:
+Test levels are available in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) as follows:
 
 * mag\_test\_ratio : ratio of the largest magnetometer innovation component to the innovation test limit
 * State variances \(diagonals in the covariance matrix\) are constrained to be non-negative.
@@ -337,11 +351,11 @@ Test levels are available in [estimator\_status](https://github.com/PX4/Firmware
 * tas\_test\_ratio : ratio of the true airspeed innovation to the innovation test limit
 * vel\_test\_ratio : ratio of the largest velocity innovation component to the innovation test limit
 
-For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
 
 ### GPS Quality Checks
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the [EKF2_GPS_CHECK](../advanced/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. This integer will be zero when all required GPS checks have passed. The pass/fail status for these checks is logged in the [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags message. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps\_check\_fail\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
 
 ### EKF Numerical Errors
 
@@ -416,7 +430,7 @@ The following plot shows the EKF vibration metrics for a multirotor with good is
 
 ![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
 
-The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency \(1 kHz for most boards\) will cause offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
+The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency (1 kHz for most boards) will cause offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
 
 In addition to generating large position and velocity test ratios of &gt; 1.0, the different error mechanisms affect the other test ratios in different ways:
 
@@ -428,7 +442,7 @@ High vibration levels normally affect vertical position and velocity innovations
 
 ### Determination of Excessive Gyro Bias
 
-Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight \(equivalent to ~3 deg/sec\) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying . Pre-flight checks performed by the commander should prevent arming if the position is diverging.
+Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
 \(insert example plots showing bad gyro bias here\)
 
@@ -440,7 +454,7 @@ Bad yaw alignment causes a velocity test ratio that increases rapidly when the v
 
 ### Determination of Poor GPS Accuracy
 
-Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
+Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 
 ![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
 
@@ -458,7 +472,7 @@ Loss of GPS data will be shown by the velocity and position innovation test rati
 
 The following plot shows the NED GPS velocity innovations `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, the GPS NE position innovations `ekf2_innovations_0.vel_pos_innov[3 ... 4]` and the Baro vertical position innovation `ekf2_innovations_0.vel_pos_innov[5]` generated from a simulated VTOL flight using SITL Gazebo.
 
-The simulated GPS was made to lose lock at 73 seconds. Note the NED velocity innovations and NE position innovations 'flat-line' after GPs is lost. Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
+The simulated GPS was made to lose lock at 73 seconds. Note the NED velocity innovations and NE position innovations 'flat-line' after GPS is lost. Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
 
 ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
 

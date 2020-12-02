@@ -2,15 +2,17 @@
 
 PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有足够好的位置估计来解锁和驾驶飞行器（这些检查由 [COM_*ARM_*](../advanced_config/parameter_reference.md#commander) 参数控制）。
 
-> **Tip**任何飞行前错误都会在*QGroundControl*中报告为`PREFLIGHT FAIL`消息。 [在日志中](../getting_started/flight_reporting.md)的`estimator_status.gps_check_fail_flags`消息还显示了 GPS 质量检查失败。
+:::tip
+Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) also shows which GPS quality checks are failing.
+:::
 
-以下部分列出了错误，可能的原因和解决方案，以及影响飞行前检查运行方式的所有参数。
+The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run.
 
 ## EKF 飞行前检查 / 错误
 
-[EKF](../tutorials/tuning_the_ecl_ekf.md)报告以下错误（带有相关的检查和参数）（并传播到*QGroundControl*）：
+The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
 
-`PREFLIGHT FAIL: EKF HGT ERROR`：
+`PREFLIGHT FAIL: EKF HGT ERROR`:
 
 - 当 IMU 和高度测量数据不一致时会产生此错误。
 - 执行加速度计和陀螺仪校准并重新启动飞行器。 如果错误仍然存在，请检查高度传感器数据是否存在问题。
@@ -76,11 +78,11 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 ## 其他参数
 
-一下参数也会影响飞行前检查。
+The following parameters also affect preflight checks.
 
 ### COM_ARM_WO_GPS
 
-[COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS)参数控制是否允许在没有全球位置估计的情况下进行解锁。
+The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
 
 - `1`( 默认)：*仅*对处于不需要获取位置信息的飞行模式时，即便没有位置估计也可以解锁。
 - </code>0</0>：只有当 EKF 提供全球位置估计并且 EKF GPS 质量检查正在通过时，才允许解锁。

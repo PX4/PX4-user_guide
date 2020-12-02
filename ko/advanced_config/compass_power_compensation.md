@@ -4,15 +4,18 @@
 
 이 항목에서는 나침반 이동이 현실적으로 불가능할 경우에 유도된 자기장을 보정하는 방법을 설명합니다.
 
-> **팁** 자기장 강도는 케이블과의 거리의 제곱에 반비례하여 급격하게 감소하기 때문에, 나침반을 전원 공급 케이블에서 멀리 떨어뜨려 장착하는 것이 문제를 해결하는 가장 쉽고 효과적인 방법입니다.
+:::tip
+Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+:::
 
-<span></span>
-> **참고** 이 과정은 멀티콥터에 대해 설명하지만, 다른 기체에도 동일하게 적용됩니다.
+:::note
+The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+:::
 
 <span id="when"></span>
 ## When is Power Compensation Applicable?
 
-전력 보정은 다음 사항이 모두 해당되는 경우에만 권장됩니다.
+Performing this power compensation is advisable only if all the following statements are true:
 1. 나침반과 전력 공급 케이블 사이의 거리를 띄울 수 없을 때.
 1. 나침반 센서 값이 모터 추력 설정값 또는 배터리 전류와 강한 상관관계를 보일 때. ![교란된 지자기](../../assets/advanced_config/corrupted_mag.png)
 
@@ -37,7 +40,8 @@
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   > **참고** 로그에 배터리 전류 측정값이 포함되어 있지 않은 경우, python 스크립트에서 해당 라인을 주석 처리하여 추력만 계산하도록 해야합니다.
+   :::note If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+:::
 1. 스크립트는 추력 및 전류에 대한 매개변수 식별값을 계산하여 콘솔에 인쇄할 것입니다. 스크립트에서 나타나는 그림은 각 나침반 인스턴스에 대한 "적합성"과 제안된 값으로 데이터가 보정된 경우의 모습을 보여줍니다. 전류 측정이 가능한 경우,  일반적으로 전류 보정을 사용하면 더 나은 결과를 얻을 수 있습니다. 다음은 현재 적합도는 양호하지만 관계가 선형이 아니므로 추력 매개 변수를 사용할 수 없는 로그의 예입니다. ![선형 적합](../../assets/advanced_config/line_fit.png)
 
 1. 파라미터가 식별되면 [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP)를 1 (추력 파라미터 사용시) 또는 2 (전류 파라미터 사용시)로 설정하여 전력 보정을 활성화해야합니다. 또한 각 나침반의 각 축에 대한 보정 매개 변수를 설정해야합니다.

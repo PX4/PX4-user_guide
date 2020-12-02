@@ -4,11 +4,13 @@ PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 �
 
 *QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
 
-> **참고** 일반적으로 사용되는 대부분의 파라미터는 [기본 설정](../config/README.md) 에서 설명한 설정 전용 화면을 이용하면 더 편하게 설정할 수 있습니다. *파라미터* 화면은 새 기체를 튜닝한다거나 하는 덜 일반적인 파라미터를 수정할 때 사용됩니다.
+:::note
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+:::
 
-<span></span>
-
-> **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
+:::warning
+While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+:::
 
 <span id="finding"></span>
 
@@ -22,7 +24,9 @@ You can also browse the parameters by group by clicking on the buttons to the le
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
-> **Tip** If you can't find an expected parameter, see the [next section](#missing).
+:::tip
+If you can't find an expected parameter, see the [next section](#missing).
+:::
 
 <span id="missing"></span>
 
@@ -51,9 +55,8 @@ The other reason that a parameter might not be in firmware is if its associated 
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture > 
-    
-    **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+:::
 
 <span id="changing"></span>
 
@@ -63,7 +66,9 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-> **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::note
+When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::
 
 ## Tools
 

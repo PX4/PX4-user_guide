@@ -64,7 +64,9 @@ An *arming button* or "momentary switch" can be configured to trigger arm/disarm
 
 A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
 
-> **Tip** Two-position arming switches are primarily used in/recommended for racing drones.
+:::tip
+Two-position arming switches are primarily used in/recommended for racing drones.
+:::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
 
@@ -79,7 +81,9 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 -`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                         |
 
 
-> **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::note
+The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::
 
 ## 자동 제동
 
@@ -101,15 +105,15 @@ The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode i
 - *Safety Switch* (Default): The pre-arm mode is enabled by the safety switch. If there is no safety switch then pre-arm mode will not be enabled.
 - *Always*: Prearm mode is enabled from power up. 
 
-If there is a safety switch then this will be a precondition for arming. If there is no safety switch the I/O safety circuit breaker must be engaged ([CBRK_IO_SAFETY](#CBRK_IO_SAFETY)), and arming will depend only on the arm command.
+기본 설정에서는 시동 전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 이 스위치를 켜고 나서 모든 모터와 액츄에이터를 가동할 목적으로 시동을 걸 수 있습니다.
 
-The sections below detail the startup sequences for the different configurations
+기본 시동 절차는 다음과 같습니다:
 
 ### 기본값: COM_PREARM_MODE=안전 및 안전 스위치
 
-기본 설정에서는 시동 전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 이 스위치를 켜고 나서 모든 모터와 액츄에이터를 가동할 목적으로 시동을 걸 수 있습니다. 이에 해당하는 설정은 [COM_PREARM_MODE=1](#COM_PREARM_MODE) (안전 스위치 사용)과 [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (입출력 안전 회로 차단기 비활성)이 있습니다.
+The default configuration uses safety switch to prearm. From prearm you can then arm to engage all motors/actuators. It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
 
-기본 시동 절차는 다음과 같습니다:
+시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
    - 모든 액츄에이터를 제동 상태로 두어 잠금
@@ -169,7 +173,7 @@ With no safety switch, when `COM_PREARM_MODE` is set to *Safety* or *Disabled* p
 
 When prearm mode is *Always*, prearm mode is enabled from power up. This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
 
-시작 절차는 다음과 같습니다:
+The startup sequence is:
 
 1. 전원 인가 
    - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)

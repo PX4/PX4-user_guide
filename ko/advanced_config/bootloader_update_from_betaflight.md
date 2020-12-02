@@ -11,7 +11,8 @@
 이제 보드에 PX4 펌웨어를 설치할 수 있습니다.
 
 1. 미리 빌드되어 있는 부트로더 바이너리를 다운 받아야 합니다. (보드에 따라 다를 수 있습니다.)
-2. 운영체제에 맞게 [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases)를 다운로드 합니다. > **Tip** 만약 *Chrome* 웹브라우저를 사용한다면, [여기서](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao) 크롬 확장 프로그램으로 Configurator를 설치하는 것으로 이 과정을 대체할 수 있습니다. 
+2. 운영체제에 맞게 [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases)를 다운로드 합니다. > **Tip** 만약 *Chrome* 웹브라우저를 사용한다면, [여기서](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao) 크롬 확장 프로그램으로 Configurator를 설치하는 것으로 이 과정을 대체할 수 있습니다.
+:::
 3. PC에 보드를 연결하고 Configurator를 실행합니다.
 4. **Load Firmware [Local]** 버튼을 누릅니다. ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
 5. 파일시스템으로부터 부트로더 바이너리를 선택하고 보드에 설치(flash)합니다.
@@ -35,7 +36,9 @@
 
 Don't be afraid to try flashing using any of the methods below.
 
-> **Note** STM32 MCU는 벽돌이 되지 않습니다. DFU는 설치로 덮어 쓸 수 없으며 설치가 실패하더라도 항상 새 펌웨어를 설치할 수 있습니다.
+:::note
+The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+:::
 
 ##### DFU 모드로 진입
 
@@ -46,13 +49,13 @@ Both methods require the board to be in DFU mode. To enter DFU mode, hold the bo
     dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
     
 
-여기서 dfuse 매뉴얼을 참고하십시오: https://www.st.com/resource/en/user_manual/cd00155676.pdf
+**<target>.bin** 파일을 설치합니다.
 
 ##### dfuse
 
-**<target>.bin** 파일을 설치합니다.
-
 *Betaflight*로 다시 돌아가려면:
+
+Flash the **<target>.bin** file.
 
 <span id="reinstall_betaflight"></span>
 
