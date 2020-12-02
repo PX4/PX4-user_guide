@@ -90,7 +90,7 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 ## 虚拟控制组
 
-> **Caution** *Virtual Control Group*s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for "completeness".
+> **注意** *虚拟控制组*仅与创建 VTOL 代码的开发人员有关。 它们不应用于混控器，而只用于“完整性”。
 
 虚拟控制组并不作为混控器的输入量使用，它们将作为元通道（meta-channels）将固定翼控制器和多旋翼控制器的输出传递给 VOTL 调节器模块（VTOL governor module）。
 
@@ -122,7 +122,7 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 混控器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混控的目的 (例如控制 MAIN 或 AUX 输出) 从混控器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
 
-> **Note** This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) or uses UAVCAN for motor control. 启动脚本使用"设备"抽象将混音器文件加载到板子适当的设备驱动器。 如果 UAVCAN 已启用，主混音器将被加载到设备`/dev/uavcan/esc` (uavcan) 否则`/dev/pwm_output0` (此设备已映射给具有I/O 板的控制器的 IO 驱动，且 FMU 驱动程序已映射到未映射的板上)。 Aux 混控器 文件被加载到设备 `/dev/pwm_output1`, 它将映射到 Pixhawk 控制器上拥有 I/O 板子的 FMU 驱动程序。
+> ** Note ** 这种方法很有必要，因为用于 MAIN 输出的物理总线并不总是一样的； 它取决于飞行控制器是否有 IO 拓展板(见[PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) 或使用UAVCAN 进行电机控制。 启动脚本使用"设备"抽象将混音器文件加载到板子适当的设备驱动器。 如果 UAVCAN 已启用，主混音器将被加载到设备`/dev/uavcan/esc` (uavcan) 否则`/dev/pwm_output0` (此设备已映射给具有I/O 板的控制器的 IO 驱动，且 FMU 驱动程序已映射到未映射的板上)。 Aux 混控器 文件被加载到设备 `/dev/pwm_output1`, 它将映射到 Pixhawk 控制器上拥有 I/O 板子的 FMU 驱动程序。
 
 因为有多个控制组(例如飞行控制、有效载荷等)。 和多个输出组(总线) ，一个控制组可以向多个输出组发送命令。
 
@@ -140,7 +140,7 @@ graph TD;
 
 ## PX4 混控器定义
 
-Mixers are defined in plain-text files using the [syntax](#mixer_syntax) below.
+混控器使用下面的[语法](#mixer_syntax)在纯文本文件中进行定义。
 
 **ROMFS/px4fmu_common/mixers** 文件夹下的文件定义了在预定义的机架中可以使用的所有混控器。 这些文件可以作为建立自定义混控器的基础，或者用于一般的测试目的。
 
