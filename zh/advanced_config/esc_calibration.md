@@ -20,9 +20,10 @@ To calibrate the ESCs:
 
 1. 卸下螺旋桨。
     
-    > **Warning** 切勿进行电调校准时将螺旋桨装上。
-    > 
-    > 电调校准期间电机不应旋转。 但是，如果ESC没有正确的进入校准程序，它将通过以最大的速度运行电机来响应pwm输入。
+    :::warning Never attempt ESC calibration with props on.
+    
+    The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+:::
 
 2. 断开电池并（仅）通过 USB 连接飞行控制器。
 
@@ -42,4 +43,6 @@ To calibrate the ESCs:
     
     ![ESC校准步骤4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-> **Note** High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+:::note
+High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+:::
