@@ -4,15 +4,18 @@
 
 本文解释了如何在不能改变磁航向计安装位置的情况下如何补偿诱发磁场带来的影响。
 
-> **Tip**使磁航向计远离动力电缆是最简单和最有效的避免诱发磁场干扰的方法，因为磁场强度是按与电缆的距离的二次方衰减的。
+:::tip
+Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+:::
 
-<span></span>
-> **Note** 下述过程基于多旋翼无人机演示，但同样适用于其他类型的载具。
+:::note
+The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+:::
 
 <span id="when"></span>
 ## 本节补偿方法可用的前提
 
-只有当下述的全部条件都满足时才建议采用电源补偿：
+Performing this power compensation is advisable only if all the following statements are true:
 1. 磁航向计无法远离动力线缆。
 1. 磁航向计读数与油门杆位与/或电池电流有强相关性。![失效的磁航向计](../../assets/advanced_config/corrupted_mag.png)
 
@@ -37,7 +40,8 @@
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   > **Note** 如果你的日志文件中不包含电池电流的测数，你就需要在python脚本中注释掉相关的代码行，这样就只通过推力计算。
+   :::note If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+:::
 1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 脚本弹出的数值显示了每个罗盘匹配的程度，以及使用了建议的补偿值后数据将是什么样的。 如果有电流测数，那么依据电流补偿通常可以获得更好的结果。 这里是一个日志的例子，电流匹配得很好，然而因为不是线性关系推力参数则完全不可用。 ![线性匹配](../../assets/advanced_config/line_fit.png)
 
 1. 一旦确定了参数，必须通过将[CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP)设为1（使用推力参数时）或2（使用电流参数时）来激活电源补偿。 此外，还要设置好每个罗盘每个轴的补偿参数值。
