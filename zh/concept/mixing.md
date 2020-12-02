@@ -120,7 +120,7 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 由于同时存在多个控制组（比如说飞行控制、载荷等）和多个输出组（最开始 8 个 PWM 端口， UAVCAN 等），一个控制组可以向多个输出组发送指令。
 
-混音器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混合物的目的 (例如控制MAIN或 AUX 输出) 从混音器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
+混控器文件没有明确定义输出应用的实际 *输出组* (物理总线)。 相反，混控的目的 (例如控制 MAIN 或 AUX 输出) 从混控器 [ filename ](#mixer_file_names) 中推断，并映射到系统中适当的物理总线 [startup scripts](../concept/system_startup.md) (尤其是[rc.interface](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rc.interface))。
 
 > **Note** This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see [PX4 Reference Flight Controller Design > Main/IO Function Breakdown](../hardware/reference_design.md#mainio-function-breakdown)) or uses UAVCAN for motor control. 启动脚本使用"设备"抽象将混音器文件加载到板子适当的设备驱动器。 如果 UAVCAN 已启用，主混音器将被加载到设备`/dev/uavcan/esc` (uavcan) 否则`/dev/pwm_output0` (此设备已映射给具有I/O 板的控制器的 IO 驱动，且 FMU 驱动程序已映射到未映射的板上)。 Aux 混控器 文件被加载到设备 `/dev/pwm_output1`, 它将映射到 Pixhawk 控制器上拥有 I/O 板子的 FMU 驱动程序。
 
@@ -207,10 +207,10 @@ You can specify more than one mixer in each file. The output order (allocation o
 ```
 
 [这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
-- `R`: [Multirotor mixer](#multirotor_mixer)
-- `H`: [Helicopter mixer](#helicopter_mixer)
-- `M`: [Summing mixer](#summing_mixer)
-- `Z`: [Null mixer](#null_mixer)
+- `R`: [多旋翼混控器](#multirotor_mixer)
+- `H`: [直升机混控器](#helicopter_mixer)
+- `M`: [全部混控器](#summing_mixer)
+- `Z`: [无混控器](#null_mixer)
 
 多旋翼的混控器将四组控制输入（俯仰、滚转、偏航和推力）整合到一组用于驱动电机转速控制器的执行器输出指令中。
 
@@ -258,7 +258,7 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
 
-通常情况下在一个混控器集合中使用空的混控器作为占位符号，以实现某种特定的执行器输出模式。 It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
+通常情况下在一个混控器集合中使用空的混控器作为占位符号，以实现某种特定的执行器输出模式。 它也可以用来控制用于故障保护装置的输出值（输出为正常使用的 0）；在故障保护期间，混控器被忽略，故障安全值被代替)。
 
 空的混控器使用如下形式定义：
 ```
@@ -355,7 +355,7 @@ S: 0 2  10000  10000      0 -10000  10000
 
 <a id="vtol_mixer"></a>
 
-#### VTOL Mixer
+#### VTOL 混控器
 
 VTOL systems use a [multirotor mixer](#multirotor_mixer) for the multirotor outputs, and [summing mixers](#summing_mixer) for the fixed-wing actuators (and the tilting servos in case of a tiltrotor VTOL).
 
