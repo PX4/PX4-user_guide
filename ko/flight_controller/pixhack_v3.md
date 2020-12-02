@@ -12,8 +12,8 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-:::tip
-Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Quick Summary
