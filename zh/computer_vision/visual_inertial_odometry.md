@@ -96,14 +96,14 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 启动文件选项是：
 
   - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch): 在大多数情况下在无人机/无人车上使用(启动桥桥接和MAVROS)。
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): 如果其他组件负责启动MAVROS（仅启动桥接），则使用
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): 如果其他组件负责启动 MAVROS（仅启动桥接），则使用
   - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):用于模拟仿真(启动桥接, MAVROS, SITL)
 - 验证与飞控的连接。
   
   :::tip 您可以使用*QGroundControl *  [ MAVLink检查器](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)来验证是否收到` ODOMETRY `或` VISION_POSITION_ESTIMATE `消息（或检查是否存在 ` HEARTBEAT `消息，其组件ID为197（` MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY `）。
 :::
 
-- 在第一次飞行前 [确认VIO设置正确](#verify_estimate)！
+- 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
 
 <span id="ekf2_tuning"></span> 
 
@@ -120,9 +120,9 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 | [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | 设置视觉传感器相对于车身框架的位置。                                                    |
 
 
-These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
+这些参数可以在*QGroundControl*>**Vehicle Setup > Parameters > EKF2**中设置（切记要使参数更改生效需要重启飞控）。
 
-For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+更多详情/附加信息，见： [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)。
 
 <span id="tuning-EKF2_EV_DELAY"></span> 
 
