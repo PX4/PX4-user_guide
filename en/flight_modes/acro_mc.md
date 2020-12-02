@@ -28,7 +28,7 @@ This roll and pitch input stick response can be tuned using the [MC_ACRO_EXPO](#
 
 ![Acro mode - expo - pure linear input curve](../../images/flight_modes/acro_mc_input_curve_expo_linear.png) ![Acro mode - expo - pure cubic input curve](../../images/flight_modes/acro_mc_input_curve_expo_cubic.png)
 
-> **Note** The mathematical relationship is: $$\mathrm{y} = r(x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate.
+> **Note** The mathematical relationship is: $$\mathrm{y} = r(f\cdotx^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate.
 You can experiment with the relationships [here](https://www.desmos.com/calculator/yty5kgurmc). 
 
 
