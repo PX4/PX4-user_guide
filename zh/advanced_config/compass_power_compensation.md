@@ -35,6 +35,9 @@ Performing this power compensation is advisable only if all the following statem
    - 解锁无人机，然后缓缓将油门推到最大。
    - 慢慢将油门降到0
    - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
+
+   :::note Perform the test carefully and closely monitor the vibrations.
+:::
 1. 获取ulog文件，并用python脚本[mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)来确定补偿参数。
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
