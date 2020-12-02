@@ -2,12 +2,14 @@
 
 PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
 
-> **Note** Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+:::tip Note
+Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+:::
 
-<span></span>
-> **Tip** For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+:::tip
+For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+:::
 
-<a id="get_px4_code"></a>
 ## Download the PX4 Source Code
 
 The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository.
@@ -17,11 +19,11 @@ To get the *very latest* version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-> **Note** This is all you need to do just to build the latest code. 
-  [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4. 
+:::tip Note
+This is all you need to do just to build the latest code. 
+[GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4. 
+:::
 
-
-<a id="jmavsim_build"></a>
 ## First Build (Using the jMAVSim Simulator)
 
 First we'll build a simulated target using a console environment.
@@ -51,17 +53,17 @@ This will reposition the vehicle.
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-> **Tip** PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). 
-  These are also started with *make* - e.g.
-  ```
-  make px4_sitl gazebo
-  ```
+:::tip
+PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). 
+These are also started with *make* - e.g.
+```
+make px4_sitl gazebo
+```
+:::
 
-<a id="nuttx"></a>
 ## NuttX / Pixhawk Based Boards
 
-<a id="building_nuttx"></a>
-### Building
+### Building for NuttX
 
 To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
 
@@ -71,11 +73,13 @@ cd PX4-Autopilot
 make px4_fmu-v4_default
 ```
 
-> **Note** In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration).
-  The `default` is optional so you could instead do: 
-  ```
-  make px4_fmu-v4
-  ```
+:::tip Note
+In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration).
+The `default` is optional so you could instead do: 
+```
+make px4_fmu-v4
+```
+:::
 
 A successful run will end with similar output to:
 ```sh
@@ -102,13 +106,16 @@ The following list shows the build commands for common boards:
 * [MindPX](../flight_controller/mindpx.md)/[MindRacer](../flight_controller/mindracer.md): `make airmind_mindpx-v2_default`
 * [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default` 
 * [Crazyflie 2.0](../complete_vehicles/crazyflie2.md): `make bitcraze_crazyflie_default`
-* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md): `make intel_aerofc-v1_default`
+* [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md): `make intel_aerofc-v1_default`
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
-  > **Warning** You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+  :::warning
+  You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+  :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-> **Note** Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
-
+:::tip Note
+Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+:::
 
 ### Uploading Firmware (Flashing the board)
 
@@ -150,7 +157,10 @@ or
 export AUTOPILOT_HOST=pi_hostname.domain
 ```
 
-> **Note** The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
+
+:::tip Note
+The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
+:::
 
 Build the executable file:
 
@@ -231,8 +241,10 @@ This section shows how to build for the [Qualcomm Snapdragon Flight](../flight_c
 
 #### Build
 
-> **Note** If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). 
-  If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
+:::tip Note
+If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). 
+If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
+:::
 
 The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../middleware/uorb.md).
 
@@ -355,8 +367,9 @@ After loading, the **play** button can be configured to run the project by selec
 
 ### Qt Creator on Windows
 
-> **Note** Windows has not been tested for PX4 development with Qt Creator.
-
+:::tip Note
+Windows has not been tested for PX4 development with Qt Creator.
+:::
 
 ### Qt Creator on Mac OS
 
@@ -374,7 +387,6 @@ That's it! Start *Qt Creator*, then complete the steps in the video below to set
 {% youtube %}https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720{% endyoutube %}
 
 
-<a id="make_targets"></a>
 ## PX4 Make Build Targets
 
 The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc.
@@ -392,26 +404,30 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 - **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
 - **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
 
-> **Tip** You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
-  ```sh
-  make list_config_targets
-  ```
+:::tip
+You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
+```sh
+make list_config_targets
+```
+:::
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
   
 - **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim` <!-- , ?airsim -->
 - **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator.
-  The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](..\simulation\README.md#scripts) to select appropriate parameters. 
+  The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters. 
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 
   For more information see [Simulation Debugging](../debug/simulation_debugging.md).
 - **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded.
   Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world).
   For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
 
-> **Tip** You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
-  ```sh
-  make px4_sitl list_vmd_make_targets
-  ```
+:::tip
+You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+```sh
+make px4_sitl list_vmd_make_targets
+```
+:::
 
 Notes:
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional.
@@ -429,13 +445,14 @@ Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR
 Additional make targets are discussed in the following sections (list is not exhaustive):
 
 
-<a id="bloaty_compare_master"></a>
 ### Binary Size Profiling
 
 The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size.
 When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
 
-> **Tip** This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
+:::tip
+This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
+:::
 
 *Bloaty* must be in your path and found at *cmake* configure time.
 The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install *bloaty* as shown:
@@ -488,7 +505,7 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
 This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB of flash.
 It also shows the sizes of different pieces of the *mpu9250* driver.
 
-<a id="firmware_version"></a>
+
 ## Firmware Version & Git Tags
 
 The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup > Summary** airframe panel:
@@ -498,10 +515,11 @@ The *PX4 Firmware Version* and *Custom Firmware Version* are published using the
 These are extracted at build time from the active *git tag* for your repo tree.
 The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
 
-> **Warning** If you use a different git tag format, versions information may not be displayed properly.
+:::warning
+If you use a different git tag format, versions information may not be displayed properly.
+:::
 
 
-<a id="troubleshooting"></a>
 ## Troubleshooting
 
 ### General Build Errors
@@ -525,8 +543,7 @@ If building your own branch, it is possibly you have increased the firmware size
 In this case you will need to remove any drivers/modules that you don't need from the build. 
 
 
-<a id="macos_open_files"></a>
-### macOS: Too many open fileserror
+### macOS: Too many open files error
 
 MacOS allows a default maximum of 256 open files in all running processes.
 The PX4 build system opens a large number of files, so you may exceed this number.

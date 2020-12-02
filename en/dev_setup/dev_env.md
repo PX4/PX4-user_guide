@@ -8,7 +8,7 @@ The table below show what PX targets you can build on each OS.
 
 Target | Linux (Ubuntu) | Mac | Windows
 --|:--:|:--:|:--:
-**NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) | X | X | X
+**NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../complete_vehicles/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) | X | X | X
 [Qualcomm Snapdragon Flight hardware](../flight_controller/snapdragon_flight.md) | X | | 
 **Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md) | X | | 
 **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md) | X | X | X
