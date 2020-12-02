@@ -11,11 +11,11 @@ It explains how to:
 * 理解 [PX4 系统架构](../concept/architecture.md) 以及核心概念。
 * 学习如何更改飞行栈及中间层：
   - 更改飞行算法和添加新的 [飞行模式](../concept/flight_modes.md)。
-  - 支持新的 [机型](airframes/README.md)。
+  - 支持新的 [机型](../dev_airframes/README.md)。
 * 学习如何将PX4集成到新的硬件上：
   - 支持新的传感器和执行器, 包括摄像头、测距仪等。
   - 修改PX4使之能够在新的自驾仪硬件上运行。
-* 对 PX4 进行 [仿真](simulation/README.md)、[测试](../test_and_ci/README.md) 和 [调试/查看日志](../debug/README.md)。
+* 对 PX4 进行 [仿真](../simulation/README.md)、[测试](../test_and_ci/README.md) 和 [调试/查看日志](../debug/README.md)。
 * 与外部机器人的 API 进行联调通信/集成。
 
 
