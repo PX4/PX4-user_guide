@@ -10,8 +10,8 @@ The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup
 
 Nora is a variant of the CUAV X7. It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
 
-:::tip
-Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Features
