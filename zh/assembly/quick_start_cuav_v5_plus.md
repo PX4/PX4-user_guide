@@ -41,19 +41,23 @@ The image below shows how to connect the most important sensors and peripherals 
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
+:::note
+Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
+:::
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
-> **Note** 如果您使用 CAN GPS，请使用电缆连接到飞行控制CAN 接口。
+:::note
+If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
 ## 安全开关
 
-如果您在没有GPS的情况下飞行，则必须将安全开关直接连接到`GPS1`端口，以便能够启动无人机并飞行（如果您使用旧的6针GPS，请阅读底部接口的定义以更改线路）。
+The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo V2 GPS* (which has an inbuilt safety switch).
 
-如果您使用第三方GPS ，蜂鸣器可能无法工作。
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (if you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
 ## 蜂鸣器
 
@@ -69,17 +73,21 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum 卫星接收器
 
-V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_PM*模块的6引脚连接到飞行控制器的`Power1`接口。
+The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
 
 ## 电源
 
 The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
-> **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+:::warning
+The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::note
+The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::
 
 ## Telemetry System (Optional)
 
@@ -100,8 +108,6 @@ An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in t
 Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
-
-<span id="pinouts"></span>
 
 ## 针脚定义
 

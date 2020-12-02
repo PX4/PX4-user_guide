@@ -1,9 +1,9 @@
-# 상태 추정자(State Estimator) 전환
+# 상태 추정자 전환
 
 이 페이지에서는 상태 추정자의 존재 여부를 확인하고 전환하는 방법을 보여줍니다.
 
 :::tip
-EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
+다용도 EKF2를 추천합니다 (LPE는 더이상 관리하거나 지원해주지 않음).
 :::
 
 ## 가용 추정자
@@ -16,7 +16,7 @@ EKF2 is highly recommended for all purposes (LPE is no longer supported/maintain
 
 ## 각 추정자 활성 방법
 
-For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to choose between the following configurations (LPE is not supported for Fixed Wing).
+멀티로터 수직 이착륙기에서는 다음 설정 중 하나를 선택하도록 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 활용합니다(LPE는 고정익에서 지원하지 않음).
 
 | SYS_MC_EST_GROUP | Q 추정자 | LPE | EKF2 |
 | ------------------ | ----- | --- | ---- |
@@ -25,5 +25,5 @@ For multirotors and VTOL use the parameter [SYS_MC_EST_GROUP](../advanced_config
 | 0                  | 활성    |     |      |
 
 :::note
-For FMU-v2 (only) you will also need to build PX4 to specifically include required estimator (e.g. EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). This is required because FMU-v2 is too resource constrained to include both estimators. Other Pixhawk FMU versions include both.
+FMU-v2를 사용할 경우(에만) PX4 빌드시 필요한 추정자를 따로 넣어야 합니다.(예: EKF2: `make px4_fmu-v2`, LPE: `make px4_fmu-v2_lpe`). FMU-v2에 두가지 추정자를 넣기에는 하드웨어 자원이 제한적이기 때문에 이와같은 설정이 필요합니다. 다른 픽스호크 FMU 버전에서는 둘 다 넣습니다.
 :::

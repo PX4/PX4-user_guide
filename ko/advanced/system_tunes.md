@@ -13,13 +13,14 @@ PX4에는 기본음 또는 사용자 지정음을 재생(시험)할 때 활용�
 
 음 문자열은 [안시 악보 표기 방식](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)으로 정의합니다.
 
-새 알림음을 만드는 가장 쉬운 방법은 음악 편집기를 활용하는 방법입니다. 이 방법으로 컴퓨터에서 음악을 편집하고 재생해볼 수 있으며, PX4에서 재생할 수 있는 형식으로 내보낼 수 있습니다.
+새 알림음을 만드는 가장 쉬운 방법은 음악 편집기를 활용하는 방법입니다.
+:::
 
 안시 뮤직은 안시 BBS 시스템을 사용하던 시절에 유명한 방식이었기에, 최고의 편집 도구는 DOS 유틸리티입니다. 윈도우에서는 *도스박스*에서 *멜로디 마스터*를 사용하는 선택지가 있습니다.
 
-ANSI music was popular in the days of ANSI BBS systems, and so the best editing tools are DOS utilities. On Windows, one option is to use *Melody Master* within *Dosbox*.
+안시 뮤직은 안시 BBS 시스템을 사용하던 시절에 유명한 방식이었기에, 최고의 편집 도구는 DOS 유틸리티입니다. 윈도우에서는 *도스박스*에서 *멜로디 마스터*를 사용하는 선택지가 있습니다.
 
-The steps for using the software are:
+프로그램을 사용하는 단계는 다음과 같습니다:
 
 1. [도스박스](http://www.dosbox.com/)를 다운로드하여 설치합니다
 1. [멜로디 마스터](ftp://archives.thebbs.org/ansi_utilities/melody21.zip)를 다운로드하고 새 디렉터리로 압축을 해제합니다
@@ -48,26 +49,26 @@ The steps for using the software are:
 
 ## 알림음 시험
 
-When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tunecontrol) library. For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
+PX4에서 재생할 알림음을 새로 추가할 준비가 끝났다면, [tune_control](../modules/modules_system.md#tunecontrol) 라이브러리를 활용하십시오. 예를 들어, 우리가 위 과정을 거쳐 "만든" 재생음을 시험하려면 다음 명령을 콘솔 또는 셸(예: [MAVLink 셸](../debug/mavlink_shell.md))에 입력하십시오:
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
 :::note
-Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+별개로, `tune_control` 이 실제 하드웨어(모의 시험 환경 아님)에 대해 유일하게 나타납니다.
 :::
 
 ## 기존 알림음 바꾸기
 
-곧 추가 예정.
+알림음은 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 지정되어 있습니다.
 
-If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in `PX4_DEFINE_TUNE`.
+기존 알림음을 바꾸려면, 파일을 별도로 복사한 후, `PX4_DEFINE_TUNE` 에 정의한 알림음 문자열을 새로 바꾸시면 됩니다.
 
 
 ## 새 알림음 추가
 
 
-TBD.
+곧 추가 예정.
 
 
 <!-- 
