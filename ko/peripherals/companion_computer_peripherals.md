@@ -8,8 +8,8 @@
 
 FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가능한 몇가지 장치가 있습니다.
 
-:::tip
-Note 보조 컴퓨터와 통신할 때 필요한 PX4 MAVLink 설정은 [MAVLink \(OSD / 텔레메트리\)](../peripherals/mavlink_peripherals.md#example) 편에서 다룹니다. 기타 관련 주제/절은 [픽스호크 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md), [RTPS/ROS2 인터페이스: PX4-FastRTPS 브릿지](../middleware/micrortps.md)가 있습니다.
+:::note
+PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). 기타 관련 주제/절은 [픽스호크 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md), [RTPS/ROS2 인터페이스: PX4-FastRTPS 브릿지](../middleware/micrortps.md)가 있습니다.
 :::
 
 ### FTDI 장치
@@ -62,16 +62,16 @@ LTE USB 모듈은 보조 컴퓨터에 붙일 수 있으며 MAVLink 트래픽을 
 
 지상 통제 장치와 보조 컴퓨터를 인터넷을 통해 연결하는 "표준 방식"은 없습니다. 보통 인터넷에 공용/정적 IP를 할당할 수 없기 때문에 이들 장치에 연결할 수 없습니다.
 
-:::tip
-Note 보통 라우터(또는 이동 네트워크)에서 공용 IP 주소를 할당하며, 지상 통제 장치 컴퓨터와 기체는 *로컬* 네트워크에 속합니다. 라우터에서는 네트워크 주소 변환(NAT)을 통해 *외부로 내보내는* 요청에 대해 로컬 네트워크와 인터넷을 '1:1 대응' 하며, 이 대응관계를 요청 시스템의 *응답*을 전달하려는 용도로 활용할 수 있습니다. 그러나 NAT에는 임의의 외부 시스템에서 오는 데이터를 내부의 어떤 컴퓨터로 직접 전달할 수 있는 방법이 없기 때문에, 로컬 네트워크에서는 지상 통제 장치 또는 기체의 연결을 *수립*할 방법이 없습니다.
+:::note
+Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network. 라우터에서는 네트워크 주소 변환(NAT)을 통해 *외부로 내보내는* 요청에 대해 로컬 네트워크와 인터넷을 '1:1 대응' 하며, 이 대응관계를 요청 시스템의 *응답*을 전달하려는 용도로 활용할 수 있습니다. 그러나 NAT에는 임의의 외부 시스템에서 오는 데이터를 내부의 어떤 컴퓨터로 직접 전달할 수 있는 방법이 없기 때문에, 로컬 네트워크에서는 지상 통제 장치 또는 기체의 연결을 *수립*할 방법이 없습니다.
 :::
 
 일반적인 접근 방식은 보조 컴퓨터와 지상 통제 장치 컴퓨터를 가상 개인 네트워크에 묶어 설정하는 방식입니다(예: [zerotier](https://www.zerotier.com/) 같은 VPN 시스템을 두 컴퓨터에 설치). 그런 후, 보조 컴퓨터에서 [mavlink-router](https://github.com/intel/mavlink-router) 를 사용하여 가상 개인 네트워크의 직렬 인터페이스(비행 제어 장치)와 지상 통제 장치 컴퓨터 사이에서 MAVLink 패킷을 전달하면 됩니다.
 
 이 방식으로 VPN 내부에 있는 지상 통제 장치 컴퓨터의 주소를 고정할 수 있는 이득이 생기므로, *mavlink router* 설정을 나중에 바꿀 필요가 없습니다. 게다가, 모든 VPN 트래픽을 암호화하기 때문에 통신 링크는 안전합니다(MAVLink 2 자체는 암호화를 지원하지 않음).
 
-:::tip
-Note VPN 브로드캐스트 주소로 전달하도록 선택할 수 있습니다(예: `x.x.x.255:14550`, 'x'는 VPN 시스템에 따라 다름). 이 방식은 지상 통제 장치 컴퓨터의 IP 주소를 굳이 알 필요가 없지만, 예상보다 더 많은 트래픽을 소요할 수 있습니다(패킷을 VPN 네트워크의 모든 컴퓨터에 뿌리기 때문).
+:::note
+You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system). 이 방식은 지상 통제 장치 컴퓨터의 IP 주소를 굳이 알 필요가 없지만, 예상보다 더 많은 트래픽을 소요할 수 있습니다(패킷을 VPN 네트워크의 모든 컴퓨터에 뿌리기 때문).
 :::
 
 동작하기로 알려진 일부 USB 모듈은 다음과 같습니다:

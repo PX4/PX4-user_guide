@@ -42,11 +42,13 @@ The gimbal can be connected to the Flight controller AUX ports by setting the ou
 
 ### 自定义混控器配置
 
-> **注意** 阅读 [混控与执行器](../concept/mixing.md) 去理解混控器的工作方式与混控器文件的格式。
-
-输出能够使用在 SD 卡上 [创建一个混控器文件](../concept/system_startup.md#starting-a-custom-mixer) 进行配置。 文件名字为`etc/mixers/mount.aux.mix`。
+:::tip
+Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixers work and the format of the mixer file.
+:::
 
 下面举例的是挂载设备的基本混控器配置：
+
+台风 H480 的模型带有一个预先配置的仿真云台。
 
 ```
 # roll
@@ -68,29 +70,29 @@ S: 2 2  10000  10000      0 -10000  10000
 
 ## 测试
 
-台风 H480 的模型带有一个预先配置的仿真云台。
-
 若要运行它，请使用：
+
+为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
 
-为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
+To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
 
 
 ## 测试
-驱动程序提供了一个简单的测试指令。 首先它需要使用 </code>vmount stop</0> 指令来停止。 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
+The driver provides a simple test command - it needs to be stopped first with `vmount stop`. The following describes testing in SITL, but the commands also work on a real device.
 
-使用下面这条指令开始仿真（不需要修改任何参数）：
+Start the simulation with (no parameter needs to be changed for that):
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
-Make sure it's armed, eg. with `commander takeoff`, then use the following command to control the gimbal (for example):
+因此，如果发送 mavlink 命令，请将 `stabilize` 标志设置为 false。
 ```
 vmount test yaw 30
 ```
 
-因此，如果发送 mavlink 命令，请将 `stabilize` 标志设置为 false。
+Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
 
-![Gazebo 云台仿真](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
 

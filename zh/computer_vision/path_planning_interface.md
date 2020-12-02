@@ -36,74 +36,74 @@ PX4 将 *期望路径* 的相关信息发送给机载计算机（当在 *自动*
 
 期望路径信息由 PX4 通过使用 [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息来发送，如下文 [PX4 航点接口](#px4_waypoint_interface) 所述。
 
-Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+路径规划器软件通过 `TRAJECTORY_REPRESTATION_WAYPOINTS` （参见 [Companion Waypoint Interface](#companion_waypoint_interface) ）或 [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) （参见 [Companion Bezier Tracjectory Interface](#bezier_interface) ）返回 *所规划路径* 的设置点。 不同之处在于，前者航点参数只是指定下一个设定的目标航点，而贝塞尔轨迹则描述精确的车辆运动（即随时间变化的设定点）。
 
-> **Warning** Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+> **警告** 路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。
 
 <span id="px4_waypoint_interface"></span>
 
 ### PX4 航点接口
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
 
-The fields set by PX4 as shown:
+PX4 中各字段定义如下：
 
-- `time_usec`: UNIX纪元时间戳
+- `time_usec`: UNIX 纪元时间戳
 - `valid_points`: 3
-- Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
+- Point 0 - 由 FlightTaskAutoMapper 发布的适应格式的当前航点（见以下注释）： 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点位置坐标
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点速度坐标
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: 当前航向角
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
-- Point 1 - Current waypoint (Unmodified/not type adapted)): 
+  - `command[0]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 1 - 当前航点（未修改/未调整类型）： 
   - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
   - `pos_yaw[1]`: 航向设定值
   - `vel_yaw[1]`: 偏航速率设定值
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
+  - `command[1]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
+- Point 2 - 局部坐标系中的下一个航点 (未修改/未调整类型)： 
   - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
   - `pos_yaw[2]`: 航向设定值
   - `vel_yaw[2]`: 偏航速率设定值
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
+  - `command[2]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
 - 所有其它字段都是NaN(未定义)。
 
 <span id="type_adapted"></span>
 备注：
 
-- Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Point 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planner.
+- Point 0 是当前根据目标类型所修改的目标航点/目标。 例如，在着陆时指定目标的 x、y 坐标和降落速度是合理的。 为了实现这一点，`FlightTaskAutoMapper` 修改 Point 0 中的着陆点，将 z 轴位置的分量设置为 NAN，将 z 轴速度设置为期望值。
+- 安全着陆规划器中没有用到 Point 1 和 2。
+- 局部和全局规划器中用到了 Point 1。
 
 <span id="companion-failure-handling"></span>
 
-#### Handling of Companion Failure
+#### 机载计算机的失效处理
 
-PX4 safely handles the case where messages are not received from the offboard system:
+通过以下措施，PX4 安全地处理未从机载计算机系统接收到消息的情况：
 
-- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
-  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
-- If no planner is running and `COM_OBS_AVOID` is enabled after boot: 
-  - the vehicle will run normally in manual modes.
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
-- When external path planning is enabled: 
-  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md). > **Note** A planner must always provide points in this timeframe. 
-    - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
-  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+- 如果规划器均未运行并且 `COM_OBS_AVOID` 在/从启动时处于启用状态： 
+  - 航前自检将失败（无论机体模式如何），在 `COM_OBS_AVOID` 设置为 0 之前，机体不会起飞。
+- 如果规划器均未运行并且 `COM_OBS_AVOID` 在启动后处于启用状态： 
+  - 机体将以手动方式正常运行。
+  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [保持模式](../flight_modes/hold.md)。
+- 当启用外部路径规划时： 
+  - 如果 `HEARTBEAT` 丢失，PX4 将会发出状态消息(显示在 *QGroundControl* 中)，声明“避障系统丢失”或“避障系统超时”（取决于机体状态）。 这项提醒与当前的飞行模式无关。
+  - 如果超过 0.5 秒未收到轨迹信息并且机体处于自动模式（返航、任务、起飞、着陆），则机体将切换到[保持模式](../flight_modes/hold.md)。 > **Note** 规划器在此时间段内必须始终提供航点信息。 
+    - 当机体处于不提供路径规划的模式/状态时，规划器将镜像其接收到的设置航点。 （即车辆将沿着期望路径行驶，且延迟时间很小）。
+  - 如果上次提供的贝塞尔轨迹的执行时间在路径规划期间超时（当使用[贝塞尔轨迹接口](#bezier_interface)时），这将被视为在 0.5 秒内没有收到新消息（即机体切换到[保持模式](../flight_modes/hold.md)）。
 
 <span id="companion_waypoint_interface"></span>
 
 ## 机载航点接口
 
-The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
+路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
-The fields for the messages from the companion computer are set as shown:
+来自机载计算机的消息字段设置如下：
 
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
@@ -116,10 +116,10 @@ The fields for the messages from the companion computer are set as shown:
   - `command[0]`: NaN.
 - 所有其它字段都是NaN(未定义)。
 
-A planner that implements this interface must:
+实现此接口的规划器必须：
 
-- Emit setpoints at more than 2Hz when receiving messages from PX4. PX4 will enter [Hold mode](../flight_modes/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
+- 从 PX4 接收消息时，以超过 2Hz 的频率发出设定点。 如果超过 0.5 秒没有收到消息，PX4 将进入[保持模式](../flight_modes/hold.md)。
+- 当不支持对当前机体状态进行规划时，镜像回规划器收到的设定点值（例如，由于不支持着陆模式，局部路径规划器把安全着陆期间发送的信息镜像回去）。
 
 <span id="bezier_interface"></span>
 
@@ -142,7 +142,7 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
 ## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 <!-- ## Further Information -->
 

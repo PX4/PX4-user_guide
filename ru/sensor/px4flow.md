@@ -119,8 +119,8 @@ If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver 
 
 In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*. Under the settings menu, select the PX4Flow and you should see a camera image. Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
-:::tip
-Note If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+:::note
+If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
 :::
 
 ![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
@@ -257,8 +257,8 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - PC with *QGroundControl* installed
 - PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::tip
-Note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::note
+PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 :::
 
 ## Build

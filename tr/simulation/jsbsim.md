@@ -8,16 +8,16 @@
 {% youtube %}https://youtu.be/y5azVNmIVyw{% endyoutube %}
 
 
-:::tip
-Note See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+:::note
+See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 <a id="installation"></a>
 
 ## Installation (Ubuntu Linux)
 
-:::tip
-Note These instructions were tested on Ubuntu 18.04
+:::note
+These instructions were tested on Ubuntu 18.04
 :::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).

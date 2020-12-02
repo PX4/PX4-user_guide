@@ -13,7 +13,9 @@ This topic provides general guidance on how to create your own tunes and add to/
 
 Tune strings are defined using [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt).
 
-> **Tip** More information about the format can be found in [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) and has been reproduced in [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc).
+:::tip
+More information about the format can be found in [QBasic PLAY statement](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY) (Wikibooks) and has been reproduced in [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc).
+:::
 
 The easiest way to create a new tune is to use a music editor. This allows you to edit the music and play it back on your computer, then export it to a format that can be played by PX4.
 
@@ -53,8 +55,9 @@ When you're ready to try it out a new tune on PX4, use the [tune_control](../mod
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
-> **Note** Out of the box, the tune_control is only present on real hardware (not the simulator).
-
+:::note
+Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+:::
 
 ## Replacing Existing Tunes
 

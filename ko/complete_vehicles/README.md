@@ -2,8 +2,8 @@
 
 This section contains information about complete vehicles that run PX4.
 
-:::tip
-Note This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::note
+This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 :::
 
 - PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
