@@ -73,24 +73,21 @@ public:
     }
 
 private:
-    uORB::Subscription *_sub;
-    uint64_t _ca_traj_time;
+    uORB::Subscription _sub{ORB_ID(ca_trajectory)};
 
     /* do not allow top copying this class */
     MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &);
     MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &);
 
 protected:
-    explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink),
-        _sub(_mavlink->add_orb_subscription(ORB_ID(ca_trajectory))),  // make sure you enter the name of your uORB topic here
-        _ca_traj_time(0)
+    explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
     {}
 
     bool send(const hrt_abstime t)
     {
         struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic
 
-        if (_sub->update(&_ca_traj_time, &_ca_trajectory)) {
+        if (_sub.update(&_ca_trajectory)) {
             mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom MAVLink message
 
             _msg_ca_trajectory.timestamp = _ca_trajectory.timestamp;
@@ -99,7 +96,7 @@ protected:
             _msg_ca_trajectory.coefficients =_ca_trajectory.coefficients;
             _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
 
-            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory)
+            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory);
         }
 
         return true;
@@ -114,6 +111,7 @@ Finally append the stream class to the `streams_list` at the bottom of
 StreamListItem *streams_list[] = {
 ...
 create_stream_list_item<MavlinkStreamCaTrajectory>(),
+...
 ```
 
 Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
@@ -151,7 +149,7 @@ Add an uORB publisher in the `MavlinkReceiver` class in
 [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```C
-uORB::Publication<ca_trajectory_s>			_flow_pub{ORB_ID(ca_trajectory)};;
+uORB::Publication<ca_trajectory_s>			_flow_pub{ORB_ID(ca_trajectory)};
 ```
 
 Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)
