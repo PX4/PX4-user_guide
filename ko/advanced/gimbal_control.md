@@ -42,11 +42,13 @@ MAVLink 짐벌 동작을 켜려면 우선 [MNT_MODE_IN](../advanced_config/param
 
 ### 믹서 구성 맞춤설정
 
-> **주의** 믹서의 작동 및 믹서 파일의 형식에 대한 설명은 [혼합과 구동기](../concept/mixing.md)를 보십시오.
-
-출력은 SD 카드의 `etc/mixers/mount.aux.mix` [믹서 파일을 만들어](../concept/system_startup.md#starting-a-custom-mixer) 원하는 대로 바꿀 수 있습니다.
+:::tip
+Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixers work and the format of the mixer file.
+:::
 
 마운트 기본 믹서 구성은 다음과 같습니다.
+
+태풍 H480 모델은 사전 구성 후 모의 설정한 짐벌이 딸려옵니다.
 
 ```
 # roll
@@ -68,29 +70,29 @@ S: 2 2  10000  10000      0 -10000  10000
 
 ## SITL
 
-태풍 H480 모델은 사전 구성 후 모의 설정한 짐벌이 딸려옵니다.
-
 모의 설정 짐벌을 실행하려면 다음 명령을 활용하십시오:
+
+다른 모듈 또는 모의 시험 환경에 설치한 마운트 드라이버를 시험하려면, 드라이버가 실행 중인지 확인(`vmount start` 명령 활용)하고, 매개변수를 구성하십시오.
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
 
-다른 모듈 또는 모의 시험 환경에 설치한 마운트 드라이버를 시험하려면, 드라이버가 실행 중인지 확인(`vmount start` 명령 활용)하고, 매개변수를 구성하십시오.
+To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
 
 
 ## 시험
-이 드라이버는 간단한 시험 명령어를 제공합니다. 먼저 `vmount stop`으로 동작을 멈추어야합니다. 아래는 SITL에서의 시험 방법을 설명하지만, 실제 장비에서도 이 명령어가 동작합니다.
+The driver provides a simple test command - it needs to be stopped first with `vmount stop`. The following describes testing in SITL, but the commands also work on a real device.
 
-다음 명령으로 모의 시험 환경을 시작하십시오. 매개변수 값을 굳이 바꿀 필요는 없습니다:
+`commander takeoff`과 같은 명령으로 시동 상태인지 확인하십시오. 그리고 짐벌을 제어할 다음과 같은 명령을 활용해보십시오:
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
-`commander takeoff`과 같은 명령으로 시동 상태인지 확인하십시오. 그리고 짐벌을 제어할 다음과 같은 명령을 활용해보십시오:
+참고로 모의 환경 짐벌은 자체적으로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낼 경우 `stabilize` 플래그를 `false`로 설정하십시오.
 ```
 vmount test yaw 30
 ```
 
-참고로 모의 환경 짐벌은 자체적으로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낼 경우 `stabilize` 플래그를 `false`로 설정하십시오.
+Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
 
-![Gazebo 짐벌 모의시험](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
 
