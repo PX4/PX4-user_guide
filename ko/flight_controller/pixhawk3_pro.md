@@ -8,8 +8,8 @@ The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixrace
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
-:::tip
-Note The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+:::note
+The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
 :::
 
 :::tip
