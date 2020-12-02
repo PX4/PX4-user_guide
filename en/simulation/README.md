@@ -124,7 +124,7 @@ The simulation can be further configured via environment variables:
   It can be set via `export PX4_ESTIMATOR=lpe` before running the simulation.
 
 The syntax described here is simplified, and there are many other options that you can configure via *make* - for example, to set that you wish to connect to an IDE or debugger.
-For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
+For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 
 <a id="simulation_speed"></a>
 ### Run Simulation Faster than Realtime
@@ -184,7 +184,7 @@ To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/
 
 To disable lockstep in jMAVSim, remove `-l` in [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75), or make sure otherwise that the java binary is started without the `-lockstep` flag.
 
-<a id="scripts"></a>
+
 ### Startup Scripts
 
 Scripts are used to control which parameter settings to use or which modules to start.

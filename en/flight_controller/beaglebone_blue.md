@@ -123,7 +123,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          Logout and Login to apply the change, or execute the same line on your current shell.
 		 :::
          
-         Follow the [Development Environment Setup](../dev)setup/dev_env_linux_ubuntu.md) instructions.
+         Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
          
          You may have to edit the upload target to match with your setup:
          ```

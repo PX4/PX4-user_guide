@@ -31,7 +31,7 @@ See [Simulation](../simulation/README.md) for general information about simulato
 
 Gazebo 9 setup is included in our standard build instructions:
 - **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#sim_nuttx)
+- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
 - **Windows:** Not supported.
 
 Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
@@ -248,7 +248,7 @@ make px4_sitl_default gazebo_plane_cam__warehouse
 
 :::tip Note
 There are *two underscores* after the model (`plane_cam`) indicating that the default debugger is used (none).
-See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
+See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 :::
 
 You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable.

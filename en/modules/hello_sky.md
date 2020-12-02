@@ -12,7 +12,7 @@ These are covered in [Application/Module Template](../modules/module_template.md
 You will require the following:
 * [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md#documented-boards).
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
-* [Download the PX4 Source Code](../dev_setup/building_px4.md#get_px4_code) from Github
+* [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
 The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck. 
 * Rename (or delete) the **px4_simple_app** directory. 
@@ -172,7 +172,7 @@ Build the example using the board-specific command:
 * jMAVSim Simulator: `make px4_sitl_default jmavsim`
 * Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
 * Pixhawk v3: `make px4_fmu-v4_default`
-* Other boards: [Building the Code](../dev_setup/building_px4.md#building_nuttx)
+* Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 
 ## Test App (Hardware)
@@ -246,7 +246,7 @@ The application is now correctly registered with the system and can be extended 
 
 ## Test App (SITL)
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#jmavsim_build)).
+If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)).
 As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
 
 Enter `px4_simple_app` to run the minimal app.
