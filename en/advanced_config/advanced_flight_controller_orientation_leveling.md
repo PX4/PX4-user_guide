@@ -2,9 +2,11 @@
 
 The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
 
-> **Note** These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
-  * [Flight Controller Orientation](../config/flight_controller_orientation.md)
-  * [Level Horizon Calibration](../config/level_horizon_calibration.md) 
+:::note
+These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
+* [Flight Controller Orientation](../config/flight_controller_orientation.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md) 
+:::
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming. 
 

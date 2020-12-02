@@ -10,7 +10,9 @@ There are two options for flashing the bootloader: via *Betaflight Configurator*
 To install the PX4 bootloader using the *Betaflight Configurator*:
 1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
 1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
-   > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here]( https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
+   :::tip
+   If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here]( https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
+   :::
 1. Connect the board to your PC and start the Configurator.
 1. Press the **Load Firmware [Local]** button
    ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
@@ -35,8 +37,10 @@ You can flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforg
 
 Don't be afraid to try flashing using any of the methods below. 
 
-> **Note** The STM32 MCU cannot be bricked. 
-> DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+:::note
+The STM32 MCU cannot be bricked. 
+DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+:::
 
 ##### Enter DFU mode
 

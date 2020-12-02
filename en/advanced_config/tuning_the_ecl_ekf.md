@@ -2,8 +2,9 @@
 
 This tutorial answers common questions about use of the ECL EKF algorithm.
 
-> **Tip** The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
-
+:::tip
+The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+:::
 
 ## What is the ECL EKF?
 
@@ -25,9 +26,11 @@ The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../ad
 A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data.
 The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
-> **Note** The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
-  If a sensor is not being used, it is recommended to set its time delay to zero.
-  Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+:::note
+The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters.
+If a sensor is not being used, it is recommended to set its time delay to zero.
+Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+:::
 
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops.
 The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
@@ -68,7 +71,9 @@ The option is available to operate without a magnetometer, either by replacing i
 
 A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required.
 
-> **Note** The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+:::note
+The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+:::
 
 If these measurements are not present, the EKF will not start.
 When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment.
@@ -173,8 +178,9 @@ hpos_drift_rate | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_refer
 vpos_drift_rate | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Drift rate calculated from reported GPS altitude (when stationary).
 hspd | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC)) | 0.01 | m/s | Filtered magnitude of reported GPS horizontal velocity.
 
-> **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
-
+:::note
+The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
+:::
 
 ### Range Finder
 
@@ -329,11 +335,13 @@ The index map for covariances\[28\] is as follows:
 The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).
 The messages all have the same field names/types (but different units).
 
-> **Note** The messages have the same fields because they are generated from the same field definition.
-  The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
-  ```
-  # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
-  ```
+:::note
+The messages have the same fields because they are generated from the same field definition.
+The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
+```
+# TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
+```
+:::
 
 Some of the observations are:
 * Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
