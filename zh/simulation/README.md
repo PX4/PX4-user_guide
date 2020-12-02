@@ -36,8 +36,8 @@ All simulators communicate with PX4 using the Simulator MAVLink API. This API de
 
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
-:::tip
-Note A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp). 这些端口是： All motors / actuators are blocked, but internal software is fully operational.
+:::note
+A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp). 这些端口是： All motors / actuators are blocked, but internal software is fully operational.
 :::
 
 The messages are described below (see links for specific detail).
@@ -101,7 +101,7 @@ make px4_sitl jmavsim
 The simulation can be further configured via environment variables:
 - `PX4_ESTIMATOR`：此变量配置要使用的估算器。 Possible options are: `ekf2` (default), `lpe` (deprecated). 在运行模拟之前，可以通过 `export PX4_ESTIMATOR=lpe` 进行设置。
 
-The syntax described here is simplified, and there are many other options that you can configure via *make* - for example, to set that you wish to connect to an IDE or debugger. For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#make_targets).
+The syntax described here is simplified, and there are many other options that you can configure via *make* - for example, to set that you wish to connect to an IDE or debugger. For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 
 <a id="simulation_speed"></a>
 
@@ -124,20 +124,20 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
-:::tip
-Note At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically". Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+:::note
+At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically". Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
 :::
 
-:::tip
-Note To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
+:::note
+To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
 :::
 
 ### Lockstep Simulation
 
 PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in *lockstep*. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
-:::tip
-Note Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
+:::note
+Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
 :::
 
 The sequence of steps for lockstep are:
@@ -157,7 +157,6 @@ To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/
 
 有关设置信息，请参阅 *QGroundControl 用户指南 *：
 
-<a id="scripts"></a>
 
 ### 启动脚本
 
@@ -198,7 +197,7 @@ The simulated camera is a gazebo plugin that implements the [MAVLink Camera Prot
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-   :::tip Note More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+   :::note More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 :::
 
 The same approach can be used by other simulators to implement camera support.
@@ -242,8 +241,8 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   Port = 14550
   ```
 
-:::tip
-Note More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
+:::note
+More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
 :::
 
 
@@ -258,8 +257,8 @@ This should be done in various configuration files where `mavlink start` is call
 
 SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
 
-:::tip
-Note You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
+:::note
+You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
 :::
 
 One way to create the tunnel is to use SSH tunneling options. The tunnel itself can be created by running the following command on *localhost*, where `remote.local` is the name of a remote computer:
