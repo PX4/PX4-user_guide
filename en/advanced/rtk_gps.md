@@ -26,7 +26,7 @@ PX4 currently only supports the single-frequency (L1) u-blox M8P based GNSS rece
 A number of manufacturers have created products using this receiver.
 The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
 
-:::tip Note
+:::note
 u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. 
 The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
 :::
@@ -37,11 +37,11 @@ The PX4 GPS stack automatically sets up the u-blox M8P modules to send and recei
 
 As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module.
 
-:::tip Note
+:::note
 The U-Center RTK module configuration tool is not needed/used!
 :::
 
-:::tip Note
+:::note
 Both *QGroundControl* and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers).
 In practice, this means that support for new protocols and/or messages only need to be added to one place.
 :::

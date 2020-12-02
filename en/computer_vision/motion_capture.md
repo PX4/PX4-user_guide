@@ -5,7 +5,7 @@ It is commonly used to navigate a vehicle in situations where GPS is absent (e.g
 
 *MoCap* systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used.
 
-:::tip Note
+:::note
 *MoCap* is conceptually similar to [Visual Intertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md).
 The main difference is that in VIO the vision system runs on the vehicle, and additionally makes use of the vehicle IMU to provide velocity information.
 :::  

@@ -1,6 +1,8 @@
 # ESC Calibration
 
-> **Note** These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
+:::note
+These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
+:::
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC).
 The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.

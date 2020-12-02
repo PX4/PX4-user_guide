@@ -44,7 +44,7 @@ The recommended approach is use *Single Channel Mode Selection* because it easy 
 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
-:::tip Note
+:::note
 In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
 :::
 
@@ -88,7 +88,7 @@ This example shows how you can configure a transmitter and PX4 with:
 * A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
 * A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
 
-:::tip Note
+:::note
 This example shows how to set up the popular *FrSky Taranis* transmitter. Configuration will be slightly different for other transmitters.
 :::
 
@@ -141,7 +141,7 @@ To configure flight modes using the multi-channel UI:
 
 This mode is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=6m53s) (youtube).
 
-:::tip Note
+:::note
 This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](../concept/flight_modes.md#flight-mode-evaluation-diagram).
 :::
 

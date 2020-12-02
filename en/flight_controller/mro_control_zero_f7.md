@@ -16,7 +16,7 @@ All accessed using front and rear 30pin Molex PicoClasp connectors.
 A durable plastic case, conformal board coating, and optional temperature calibration included.
 
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

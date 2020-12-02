@@ -126,7 +126,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
-:::tip Note
+:::note
 As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 :::
 
@@ -286,7 +286,7 @@ The complete wiring is shown below.
 
 ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
-:::tip Note
+:::note
 For information on how to *use* the console see: [System Console](../debug/system_console.md).
 :::
 
@@ -305,7 +305,7 @@ The pinout for the ports is shown below (the square markers in the corners above
 
 <!-- For more information on SWD debugging see devguide [link to follow] -->
 
-:::tip Note
+:::note
 All Pixhawk FMUv2 boards have a similar SWD port. 
 :::
 

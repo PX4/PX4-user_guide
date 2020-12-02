@@ -141,7 +141,7 @@ To focus the camera, put an object with text on (e. g. a book) and plug in the P
 Under the settings menu, select the PX4Flow and you should see a camera image.
 Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
-:::tip Note
+:::note
 If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
 :::
 
@@ -299,7 +299,7 @@ You can configure the image quality and output (the image output is only intende
 * PC with *QGroundControl* installed
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::tip Note
+:::note
 PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 :::
 

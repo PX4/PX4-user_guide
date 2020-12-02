@@ -21,7 +21,7 @@ It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detectio
 Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle.
 MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
 
-:::tip Note
+:::note
 MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a a *local* co-ordinate system.
 :::
 
@@ -38,7 +38,7 @@ It is commonly used to navigate a vehicle in situations where GPS is absent (e.g
 
 VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle *pose* from visual information, combined with inertial measurements from an IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
 
-:::tip Note
+:::note
 On difference between VIO and [MoCap](#mocap) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
 :::
 

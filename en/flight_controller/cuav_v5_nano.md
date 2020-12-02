@@ -19,7 +19,7 @@ Some of its main features include:
 - Firmware-compatible with PX4.
 - Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces.
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

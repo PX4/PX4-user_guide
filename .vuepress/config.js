@@ -16,6 +16,10 @@ module.exports = {
       ], 
 
   plugins: ['@vuepress/medium-zoom',
+      ['container', {
+      type: 'note',
+      defaultTitle: 'Note',
+      }],
       ['vuepress-plugin-mathjax',
         {
           target: 'svg',

@@ -16,7 +16,7 @@ This design allows users to either select a base board made by Holybro, or custo
 
 ![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

@@ -204,7 +204,7 @@ int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-:::tip Note
+:::note
 If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
 :::
 
@@ -296,7 +296,7 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
 
 ### YAML Metadata
 
-:::tip Note
+:::note
 At time of writing YAML parameter definitions cannot be used in *libraries*.
 :::
 

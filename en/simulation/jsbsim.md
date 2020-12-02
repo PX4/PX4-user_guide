@@ -10,14 +10,14 @@ Rotational earth effects are also modeled into the dynamics.
 {% youtube %}https://youtu.be/y5azVNmIVyw{% endyoutube %}
 
 
-:::tip Note
+:::note
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
 <a id="installation"></a>
 ## Installation (Ubuntu Linux)
 
-:::tip Note
+:::note
 These instructions were tested on Ubuntu 18.04
 :::
 

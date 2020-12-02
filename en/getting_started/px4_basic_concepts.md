@@ -135,7 +135,7 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. 
 Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::tip Note
+:::note
 PX4 does not require a remote control system for autonomous flight modes.
 :::
 
@@ -246,7 +246,7 @@ Instructions for how to set up your remote control switches to turn on different
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! 
 These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-:::tip Note
+:::note
 You can only specify the action for the *first* failsafe event. 
 Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 :::
@@ -269,7 +269,7 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-:::tip Note
+:::note
 For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
 :::
 

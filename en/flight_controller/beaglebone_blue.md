@@ -41,7 +41,7 @@ The recommended way to build PX4 for *BeagleBone Blue* is to compile on a develo
 This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
 :::
 
-:::tip Note
+:::note
 The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
 :::
 
@@ -119,7 +119,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          ```sh
          export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
          ```
-         :::tip Note
+         :::note
          Logout and Login to apply the change, or execute the same line on your current shell.
 		 :::
          
@@ -139,7 +139,7 @@ Compile and Upload
 make beaglebone_blue_default upload
 ```
 
-:::tip Note
+:::note
 Without upload, files stored local in build folder.
 :::
 
@@ -149,7 +149,7 @@ cd /home/debian/px4
 sudo ./bin/px4 -s px4.config 
 ```
 
-:::tip Note
+:::note
 Currently *librobotcontrol* requires root access.
 :::
 
@@ -178,7 +178,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 All changes can be made in de px4.config file directly on beaglebone.
 For example, you can change the WIFI to wlan.
 
-:::tip Note
+:::note
 If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 :::
 

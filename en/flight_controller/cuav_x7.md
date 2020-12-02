@@ -15,7 +15,7 @@ The flight controller adopts a modular design and can be matched with different 
 You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board).
 CUAV has also provided a variety of carrier boards for you to choose from.
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

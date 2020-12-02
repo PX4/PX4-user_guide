@@ -42,7 +42,7 @@ The image below shows the message flow.
 
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
-:::tip Note
+:::note
 A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp).
 Sensor data from the simulator is written to PX4 uORB topics.
 All motors / actuators are blocked, but internal software is fully operational.
@@ -74,7 +74,7 @@ These ports are:
 * The simulator's local TCP Port **4560** is used for communication with PX4.
   PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.
 
-:::tip Note
+:::note
 The ports for the GCS and offboard APIs are set in configuration files, while the simulator broadcast port is hard-coded in the simulation MAVLink module.
 :::
 
@@ -147,12 +147,12 @@ export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
-:::tip Note
+:::note
 At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically".
 Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
 :::
 
-:::tip Note
+:::note
 To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate.
 For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
 :::
@@ -162,7 +162,7 @@ For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increa
 PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in *lockstep*.
 What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
-:::tip Note
+:::note
 Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
 :::
 
@@ -235,7 +235,7 @@ PX4 connects/integrates with this camera in *exactly the same way* as it would w
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-   :::tip Note
+   :::note
    More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
    :::
 
@@ -282,7 +282,7 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   Port = 14550
   ```
 
-:::tip Note
+:::note
 More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
 :::
 
@@ -299,7 +299,7 @@ For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-
 
 SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
 
-:::tip Note
+:::note
 You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
 :::
 

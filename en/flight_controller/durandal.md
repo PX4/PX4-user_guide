@@ -20,7 +20,7 @@ At high level, some of the key features are:
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
@@ -121,7 +121,7 @@ All dimensions are in millimeters.
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-:::tip Note
+:::note
 The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
 You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 :::
@@ -182,7 +182,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 The pinout uses the standard Dronecode debug connector pinout.
 Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
-:::tip Note
+:::note
 No Debug port is exposed for the I/O board.
 :::
 

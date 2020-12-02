@@ -23,7 +23,7 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 All the usual PX4 features can still be used for your racer!
 :::
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

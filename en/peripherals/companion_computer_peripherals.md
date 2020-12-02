@@ -9,7 +9,7 @@ Typical companion computer work with Pixhawk requires a companion link to transm
 
 There are a few devices that allow this communication bridge such as FTDI USB breakouts and level shifters (see below).
 
-:::tip Note
+:::note
 PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example).
 Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
 :::
@@ -68,7 +68,7 @@ An LTE USB module can be attached to a companion computer and used to route MAVL
 There is no "standard method" for a ground station and companion to connect over the Internet.
 Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
 
-:::tip Note
+:::note
 Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network.
 The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system.
 However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
@@ -80,7 +80,7 @@ The companion then uses [mavlink-router](https://github.com/intel/mavlink-router
 This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time.
 In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
-:::tip Note
+:::note
 You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system).
 This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 :::

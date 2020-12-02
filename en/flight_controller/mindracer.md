@@ -10,7 +10,7 @@ The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicle
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-:::tip Note
+:::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 

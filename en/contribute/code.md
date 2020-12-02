@@ -29,7 +29,7 @@ Once installed, formatting can be checked with `./Tools/astyle/check_code_style_
 
 PX4 developers are encouraged to create appropriate in-source documentation.
 
-:::tip Note
+:::note
 Source-code documentation standards are not enforced, and the code is currently inconsistently documented.
 We'd like to do better!
 :::

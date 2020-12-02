@@ -11,7 +11,7 @@ Developed by world-class developers from industry and academia, and supported by
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
 :::
 
-:::tip Note
+:::note
 This guide is still a work in progress!
 It does not yet cover all of PX4.
 :::

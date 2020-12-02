@@ -1,3 +1,33 @@
 table
   font-size: 1.0rem !important
   overflow: auto !important
+  
+//Additional custom blocks (Note)  
+.custom-block
+  .custom-block-title
+    font-weight 600
+    margin-bottom -0.4rem
+  &.note
+    padding .1rem 1.5rem
+    border-left-width .5rem
+    border-left-style solid
+    margin 1rem 0
+  &.note
+    background-color #f3f5f7
+    border-color #42b983
+  &.details
+    display block
+    position relative
+    border-radius 2px
+    margin 1.6em 0
+    padding 1.6em
+    background-color #eee
+    h4
+      margin-top 0
+    figure, p
+      &:last-child
+        margin-bottom 0
+        padding-bottom 0
+    summary
+      outline none
+      cursor pointer

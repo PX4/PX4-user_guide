@@ -14,7 +14,7 @@ This topic shows how to set up PX4 and a companion computer to use the *supporte
 The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
 :::
 
-:::tip Note
+:::note
 This (supported) solution uses ROS for routing VIO information to PX4.
 PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
@@ -115,7 +115,7 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-:::tip Note
+:::note
 A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 

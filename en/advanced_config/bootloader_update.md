@@ -4,7 +4,7 @@ The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware
 
 This topic explains several methods for updating the Pixhawk bootloader.
 
-:::tip Note
+:::note
 Hardware usually comes with an appropriate bootloader version pre-installed.
 A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
@@ -15,7 +15,7 @@ A case where you may need to update is newer Pixhawk boards that install FMUv2 f
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-:::tip Note
+:::note
 This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
 :::
 
@@ -23,7 +23,7 @@ The steps are:
 
 1. Insert an SD card (enables boot logging to debug any problems).
 1. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
-   :::tip Note
+   :::note
    The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
    :::
 
