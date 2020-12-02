@@ -103,7 +103,7 @@ PX4 中各字段定义如下：
 
 路径规划软件（在机载计算机上运行）*可以* 以[TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息流的形式发送所规划路径给 PX4，消息流中包含 Point 0 设定航点。
 
-The fields for the messages from the companion computer are set as shown:
+来自机载计算机的消息字段设置如下：
 
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
@@ -116,10 +116,10 @@ The fields for the messages from the companion computer are set as shown:
   - `command[0]`: NaN.
 - 所有其它字段都是NaN(未定义)。
 
-A planner that implements this interface must:
+实现此接口的规划器必须：
 
-- Emit setpoints at more than 2Hz when receiving messages from PX4. PX4 will enter [Hold mode](../flight_modes/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
+- 从 PX4 接收消息时，以超过 2Hz 的频率发出设定点。 如果超过 0.5 秒没有收到消息，PX4 将进入[保持模式](../flight_modes/hold.md)。
+- 当不支持对当前机体状态进行规划时，镜像回规划器收到的设定点值（例如，由于不支持着陆模式，局部路径规划器把安全着陆期间发送的信息镜像回去）。
 
 <span id="bezier_interface"></span>
 
@@ -142,7 +142,7 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
 ## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 <!-- ## Further Information -->
 
