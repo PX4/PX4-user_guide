@@ -12,7 +12,7 @@ PX4 的系统构架可确保不需要在核心控制器中对不同的机身布�
 
 特定的控制器发送一个特定的归一化的力或力矩指令（缩放至 -1..+1 ）给混控器，混控器则相应地去设置每个单独的执行器。 控制量输出驱动程序（比如：UART, UAVCAN 或者 PWM）则将混控器的输出所放为执行器实际运行时的原生单位， 例如输出一个值为 1300 的 PWM 指令。
 
-![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
+![混控器控制通道](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 <!--- Mermaid Live Version:
 https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19
 graph LR;
@@ -126,7 +126,7 @@ PX4 系统中使用控制组（输入）和输出组。 从概念上讲这两个
 
 因为有多个控制组(例如飞行控制、有效载荷等)。 和多个输出组(总线) ，一个控制组可以向多个输出组发送命令。
 
-![Mixer Input/Output Mapping](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
+![混控器输入/输出映射](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version:
 https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0
 graph TD;
@@ -209,7 +209,7 @@ You can specify more than one mixer in each file. The output order (allocation o
 [这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
 - `R`: [多旋翼混控器](#multirotor_mixer)
 - `H`: [直升机混控器](#helicopter_mixer)
-- `M`: [全部混控器](#summing_mixer)
+- `M`: [合成混控器](#summing_mixer)
 - `Z`: [无混控器](#null_mixer)
 
 多旋翼的混控器将四组控制输入（俯仰、滚转、偏航和推力）整合到一组用于驱动电机转速控制器的执行器输出指令中。
@@ -361,4 +361,4 @@ VTOL 系统使用 [多旋翼混控器](#multirotor_mixer)来输出多旋翼控�
 
 VTOL 机体的混控器系统可以合并成一个混控器，这样的话，所有舵机都将连接到 IO 或 FMU 端口。VTOL 机体的混控器系统也可以分割成独立的混控器文件，供 IO 和 AUX 使用。 如果分割成独立的文件，我们建议所有的多旋翼电机在一个端口上，所有的伺服电机和固定翼舵机在另一个端口上。
 
-> **Note** FMU 输出只能用于不低于 PX4 v1.11 版本的多旋翼电机。 To use the FMU output set [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU) (otherwise they are not switched off when in fixed-wing flight mode).
+> **Note** FMU 输出只能用于不低于 PX4 v1.11 版本的多旋翼电机。 若要使用 FMU 输出，需设置参数 [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU) （否则 FMU 输出在固定翼模式下不会被关闭）。
