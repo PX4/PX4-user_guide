@@ -14,8 +14,8 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 
 ![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
-:::tip
-Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Key Features
