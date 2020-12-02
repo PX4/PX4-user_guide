@@ -77,13 +77,13 @@ S: 2 2  10000  10000      0 -10000  10000
 make px4_sitl gazebo_typhoon_h480
 ```
 
-To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
+다른 모델 또는 모의 시험 환경에 설치한 마운트 드라이버를 시험하려면, 드라이버가 실행 중인지 확인(`vmount start` 명령 활용)하고, 매개변수를 구성하십시오.
 
 
 ## 시험
-The driver provides a simple test command - it needs to be stopped first with `vmount stop`. The following describes testing in SITL, but the commands also work on a real device.
+이 드라이버는 간단한 시험 명령어를 제공합니다. 먼저 `vmount stop`으로 동작을 멈추어야합니다. 아래는 SITL에서의 시험 방법을 설명하지만, 이 명령어가 실제 장비에서도 작동합니다.
 
-`commander takeoff`과 같은 명령으로 시동 상태인지 확인하십시오. 그리고 짐벌을 제어할 다음과 같은 명령을 활용해보십시오:
+다음 명령으로 시작하십시오(매개 변수값을 바꿀 필요는 없습니다):
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
@@ -92,7 +92,7 @@ make px4_sitl gazebo_typhoon_h480
 vmount test yaw 30
 ```
 
-Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
+참고로 모의 환경 짐벌은 스스로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낸다면 `stabilize` 플래그를 `false`로 설정하십시오.
 
-![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 짐벌 모의 시험](../../assets/simulation/gazebo/gimbal-simulation.png)
 
