@@ -14,8 +14,8 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
 :::
 
-:::tip
-Note This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
 ## Key Features
