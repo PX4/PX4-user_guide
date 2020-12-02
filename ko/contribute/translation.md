@@ -44,15 +44,15 @@ Vuepress에서는 참고, 팁, 경고 시작 부분에 `:::` 표시를 사용합
 
 ## 새 언어 추가
 
-If the language you want to translate is not available then you will need to request it by contacting the project owner (there is a contact link on each project's home page).
+번역하고자 하는 언어가 없다면 프로젝트 관리자와 연락하여 요청해야합니다.(각 프로젝트 홈페이지에 연락처 링크가 있음).
 
 :::warning
-Maintaining a translation is hard! Before you ask us to create a new language, please find a few other people to help you translate!
+번역 관리는 어렵습니다! 새 언어 생성을 요청하기 전, 번역을 도와줄 다른 사람이 있는지 찾아보십시오!
 :::
 
 
-## Getting Help
+## 도움 받기
 
-The *Crowdin* interface is self explanatory, but there is plenty of additional information on the [knowledgeable](https://support.crowdin.com/) and [feedback tool](https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool).
+*Crowdin* 인터페이스는 자체적으로 설명이 잘 붙어있지만, 상당한 분량의 [풍부한](https://support.crowdin.com/) 추가 정보가 있으며, [피드백 도구](https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool)도 제공합니다.
 
-You can also ask for help from translators and developers in the Dronecode community using [our support channels](../contribute/support.md).
+[지원 채널](../contribute/support.md)을 통해 드론코드 커뮤니티의 번역자와 개발자에게 도움을 요청할 수도 있습니다.
