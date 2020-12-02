@@ -161,7 +161,7 @@ examples/px4_simple_app
 * Pixhawk v1/2：`make px4_fmu-v2_default upload`
 * Pixhawk v3：`make px4_fmu-v4_default upload`
 * Pixhawk v3：`make px4_fmu-v4_default`
-* Other boards: [Building the Code](../dev_setup/building_px4.md#building_nuttx)
+* Other boards: [Building the Code](../dev_setup/building_px4.md#building-for-nuttx)
 
 
 ## 测试应用（硬件）
@@ -233,7 +233,7 @@ Hello Sky!
 
 ## 测试应用（SITL）
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#jmavsim_build)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
+If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
 
 输入 `px4_simple_app` 以运行该最小的应用程序。
 
