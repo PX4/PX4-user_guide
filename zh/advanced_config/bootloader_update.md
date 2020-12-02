@@ -4,22 +4,25 @@
 
 此篇介绍了更新Pixhawk bootloader的几种常见方法。
 
-> **Note** 硬件通常会预先安装匹配版本的引导程序。 如果需要给新版本的 Pixhawk 板安装FMUv2固件，应先更新Bootloader：[固件>FMUv2 Bootloader更新](../config/firmware.md#bootloader)
+:::note
+Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+:::
 
 <span id="qgc_bootloader_update"></span>
 
 ## QGroundControl Bootloader 更新
 
-最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
+The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-> **注意** 仅当固件（当前只有 FMUv2 和某些自定义固件）中存在参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)时，才可以使用此方法。
+:::note
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+:::
 
-步骤如下：
+The steps are:
 
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
-2. 使用包含 最新的/所需的 bootloader 的映像 (原单词 Image ) 来[更新固件](../config/firmware.md#custom)。
-    
-    > **提示** 已经更新的 bootloader 可能以自定义固件形式提供（例如，来自开发团队），或者可能包含在最新的 master 分支中。
+2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader. :::note The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+:::
     
     ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
@@ -28,13 +31,13 @@
 4. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 5. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
 
-通常，此时您可能想要使用 正确/新安装 的 bootloader 再次[更新固件](../config/firmware.md)。
+Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
 <span id="dronecode_probe"></span>
 
 ### 使用 Dronecode Probe 更新 Bootloader (Dronecode Probe 是官方 JTAG/SWD+UART 调试器 )
 
-以下步骤说明了如何使用 dronecode probe “手动” 更新 bootloader ：
+The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 
 1. 获取包含 bootloader 的二进制文件（从开发团队 或 自行编译获得）。
 2. 通过 USB 将 Dronecode Probe 连接到PC。 
@@ -74,12 +77,12 @@
 
 9. 将二进制文件加载到 Pixhawk 中 ： ```(gdb) load```
 
-Bootloader 更新后，您可以使用* QGroundControl * 来 [加载 PX4 固件](../config/firmware.md)。
+After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
 <span id="non-pixhawk"></span>
 
 ## 其他飞控板（非 Pixhawk）
 
-不属于 [ Pixhawk 系列](../flight_controller/pixhawk_series.md)的板卡将具有自己的 Bootloader 更新机制。
+Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 
-对于已预烧写 Betaflight 的板卡，请参见[ Betaflight System 烧写 Bootloader ](bootloader_update_from_betaflight.md)。
+For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
