@@ -27,15 +27,18 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 
 鼓励PX4开发者创建适当的源文档。
 
-> **Note** 源代码文件标准没有得到执行，目前该代码的文件记录不一致。 我们想做得更好！
+:::note
+Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+:::
 
-目前，我们有两种基于来源的文件：
+Currently we have two types of source-based documentation:
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
   - API 记录在 [源代码](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)。
   - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
 * 我们鼓励其它源文档 *添加必要的值*。
 
-  > **Tip** 开发者应命名C++ 实体 (类、函数、变量等)，从而可以推断其目的――减少对明确文档的需求。
+  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::
 
   - 不要添加可以从 C++ 实体名称零碎地推断出的文档。
   - 通常您可能想要添加关于 corner cases 和错误处理的信息。
@@ -43,7 +46,7 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 
 ## 提交和提交消息
 
-请对所有详细的更改使用描述、多段提交消息。 即使结构安排得很好，从一行摘要中看得出，但也提供了详尽的细节。
+Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
 
 ```
 组成部分：在一个句子中解释这一更改。 修复 #1234
@@ -63,6 +66,6 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 已上报：名字 <email@px4.io>
 ```
 
-**使用** `git commit -s` ** 来登录您的所有提交。** 这将添加 `签名-退出：`，您的姓名和电子邮件作为最后一行。
-
 本提交指南基于 Linux Kernel 和 Linus Torvald 维护的 [项目的最佳做法](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)。
+
+This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
