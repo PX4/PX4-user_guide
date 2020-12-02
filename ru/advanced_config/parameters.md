@@ -4,11 +4,13 @@ PX4 behaviour can be configured/tuned using [parameters](../advanced_config/para
 
 The *QGroundControl Parameters* screen allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the top menu *Gear* icon and then *Parameters* in the sidebar.
 
-> **Note** Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+:::note
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+:::
 
-<span></span>
-
-> **Warning** While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+:::warning
+While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+:::
 
 <span id="finding"></span>
 
@@ -22,7 +24,9 @@ You can also browse the parameters by group by clicking on the buttons to the le
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
-> **Tip** If you can't find an expected parameter, see the [next section](#missing).
+:::tip
+If you can't find an expected parameter, see the [next section](#missing).
+:::
 
 <span id="missing"></span>
 
@@ -51,9 +55,8 @@ The other reason that a parameter might not be in firmware is if its associated 
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture > 
-    
-    **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+:::
 
 <span id="changing"></span>
 
@@ -63,7 +66,9 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-> **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::note
+When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::
 
 ## Tools
 
