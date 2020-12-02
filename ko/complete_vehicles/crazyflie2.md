@@ -14,8 +14,8 @@ The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the 
 
 ## 간단한 요약 설명
 
-:::tip
-Note The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::note
+The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
 * Main System-on-Chip: STM32F405RG 
