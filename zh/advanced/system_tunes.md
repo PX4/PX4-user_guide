@@ -13,13 +13,13 @@ PX4还有一个模块可以用于播放（测试）默认或用户自定义音�
 
 提示音字符串使用 [ANSI 音乐提示](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt) 定义。
 
-> **Tip** 关于格式的更多信息见 [QBasic PLAY 声明](https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY)（Wikibooks），而且在[tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)文件里面也有说明。
-
 创建新乐曲的最简单方式是使用音乐编辑器。 这允许您编辑乐曲并在您的电脑上播放， 然后导出为 PX4 可以播放的格式。
 
 ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 DOS 实用程序。 在 Windows 上，一个选项是在 *Dosbox* 内使用 *Melody Master*。
 
-使用软件的步骤是：
+ANSI music was popular in the days of ANSI BBS systems, and so the best editing tools are DOS utilities. On Windows, one option is to use *Melody Master* within *Dosbox*.
+
+The steps for using the software are:
 
 1. 下载 [DosBox](http://www.dosbox.com/) 并安装应用程序
 1. 下载 [Melody Master](ftp://archives.thebbs.org/ansi_utilities/melody21.zip) 并解压缩到新目录
@@ -48,25 +48,26 @@ ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 D
 
 ## 测试乐曲
 
-当您准备好在 PX4 上尝试新的乐曲时，请使用 [tune_control](../middleware/modules_system.md#tunecontrol) 库。 例如，要测试我们在上面“创建的”乐曲，您应在控制台或 shell（例如 [MAVLink Shell](../debug/mavlink_shell.md)）上输入以下命令 ：
+When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tunecontrol) library. For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
-> **Note** 开箱即用产品中，tune_control 只存在于实际硬件上（而不是模拟器）。
-
+:::note
+Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+:::
 
 ## 正在替换已存在的乐曲
 
-乐曲定义在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)。
+待开发
 
-如果你只需要替换现有的乐曲，可以在自己的 fork 中替换文件， 并更新 `PX4_DEFINE_TUNE` 中定义的乐曲字符串。
+If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in `PX4_DEFINE_TUNE`.
 
 
 ## 添加新乐曲
 
 
-待开发
+TBD.
 
 
 <!-- 
