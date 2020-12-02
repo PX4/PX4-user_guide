@@ -20,9 +20,10 @@ To calibrate the ESCs:
 
 1. 프로펠러를 분리하십시오.
     
-    > **경고** 절대로 프로펠러를 장착하고 ESC 캘리브레이션을 수행하지 마십시오.
-    > 
-    > 모터는 ESC 캘리브레이션 동안 작동하지 않습니다. 그러나 만약 ESC가 캘리브레이션 시퀀스를 적절히 지원하거나 감지하지 않으면, ESC는 모터를 최대 속도로 회전시키는 것으로 PWM 입력신호에 응답합니다.
+    :::warning Never attempt ESC calibration with props on.
+    
+    The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+:::
 
 2. 배터리를 분리하고 USB만을 사용하여 비행 컨트롤러를 연결하십시오.(그 외 다른 연결 방법을 사용하지 마십시오.)
 
@@ -42,4 +43,6 @@ To calibrate the ESCs:
     
     ![ESC 캘리브레이션 단계 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
-> **Note** High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+:::note
+High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+:::
