@@ -3,7 +3,9 @@
 [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK) provides centimeter-level GPS accuracy.
 This page explains how RTK is integrated into PX4.
 
-> **Note** Instructions for *using* RTK GPS are provided in [Peripheral Hardware > RTK GPS](../gps_compass/rtk_gps.md).
+:::tip
+Instructions for *using* RTK GPS are provided in [Peripheral Hardware > RTK GPS](../gps_compass/rtk_gps.md).
+:::
 
 ## Overview
 
@@ -24,9 +26,10 @@ PX4 currently only supports the single-frequency (L1) u-blox M8P based GNSS rece
 A number of manufacturers have created products using this receiver.
 The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
 
-> **Note** u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. 
-  The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
-
+:::tip Note
+u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. 
+The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
+:::
 
 ## Automatic Configuration
 
@@ -34,12 +37,14 @@ The PX4 GPS stack automatically sets up the u-blox M8P modules to send and recei
 
 As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module.
 
-> **Note** The U-Center RTK module configuration tool is not needed/used!
+:::tip Note
+The U-Center RTK module configuration tool is not needed/used!
+:::
 
-<span></span>
-> **Note** Both *QGroundControl* and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers).
-  In practice, this means that support for new protocols and/or messages only need to be added to one place.
-
+:::tip Note
+Both *QGroundControl* and the autopilot firmware share the same [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers).
+In practice, this means that support for new protocols and/or messages only need to be added to one place.
+:::
 
 ### RTCM messages
 
@@ -65,7 +70,9 @@ This can lead to link saturation on low-bandwidth half-duplex telemetry modules 
 If *MAVLink 2* is used then any empty space in the `GPS_RTCM_DATA message` is removed. 
 The resulting uplink requirement is about the same as the theoretical value (~300 bytes per second). 
 
-> **Tip** PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
+:::tip
+PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
+:::
 
 MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. 
 You can verify the protocol version by using the `mavlink status` command on the system console:

@@ -5,7 +5,9 @@ PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) an
 This section discusses the *param* subsystem in detail.
 It covers how to list, save and load parameters, and how to define them.
 
-> **Note** [System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages. 
+:::tip
+[System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages. 
+:::
 
 
 ## Command Line Usage
@@ -82,7 +84,7 @@ Parameter names must be no more than 16 ASCII characters.
 
 By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed wing systems. This convention is not enforced.
 
-The name must match in both code and [parameter metadata](#parameter_metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
+The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
 
 ## C / C++ API
@@ -182,8 +184,9 @@ In the above method:
 
 The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
 
-> **Tip** The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter_metadata).
-
+:::tip
+The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+:::
 
 ### C API
 
@@ -201,7 +204,9 @@ int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-> **Note** If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed. 
+:::tip Note
+If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
+:::
 
 `param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. 
 If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
@@ -216,22 +221,24 @@ param_get(my_param_handle, &my_param);
 ```
 
 
-<a id="parameter_metadata"></a>
-## Parameter Meta Data
+## Parameter Metadata
 
 PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
-> **Tip** Correct meta data is critical for good user experience in a ground station.
+:::tip
+Correct metadata is critical for good user experience in a ground station.
+:::
 
 Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible).
 Typically it is stored alongside its associated module. 
 
 The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
 
-> **Warning** After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+:::warning
+After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+:::
 
 
-<a id="c_metadata"></a>
 ### c Parameter Metadata
 
 The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
@@ -287,10 +294,11 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
  */
 ```
 
-<a id="yaml_metadata"></a>
 ### YAML Metadata
 
-> **Note** At time of writing YAML parameter definitions cannot be used in *libraries*.
+:::tip Note
+At time of writing YAML parameter definitions cannot be used in *libraries*.
+:::
 
 YAML meta data is intended as a full replacement for the **.c** definitions. 
 It supports all the same metadata, along with new features like multi-instance definitions.
@@ -298,7 +306,7 @@ It supports all the same metadata, along with new features like multi-instance d
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
 
-<a id="multi_instance_metadata"></a>
+
 #### Multi-Instance (Templated) Meta Data
 
 Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
