@@ -8,8 +8,8 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-:::tip
-Note Ground stations may display *disarmed* for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+:::note
+Ground stations may display *disarmed* for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
