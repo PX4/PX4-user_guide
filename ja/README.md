@@ -10,8 +10,8 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
 :::
 
-:::tip
-Note This guide is still a work in progress! It does not yet cover all of PX4.
+:::note
+This guide is still a work in progress! It does not yet cover all of PX4.
 :::
 
 ## なにから始めればいいの？
