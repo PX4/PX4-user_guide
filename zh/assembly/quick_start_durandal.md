@@ -22,8 +22,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
-> **Tip** More information about available ports can be found here: [Durandal > Pinouts](../flight_controller/durandal.md#pinouts).
-
+:::tip
+More information about available ports can be found here: [Durandal > Pinouts](../flight_controller/durandal.md#pinouts).
+:::
 
 ## 飞控的安装和方向
 
@@ -33,8 +34,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-> **Tip** The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
-
+:::tip
+The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::
 
 ## GPS + 指南针 + 蜂鸣器 + 安全开关 + LED
 
@@ -44,8 +46,9 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
-
+:::note
+The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::
 
 ## 电源
 
@@ -65,12 +68,15 @@ Connect the output of the *Power Module* as shown.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
 - PM power output (XT60 female connector): wire out to any motor ESCs.
 
-> **Note** As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::tip
+As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::
 
-<span></span>
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::tip
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::
 
-The power module has the following characteristics/limits:
+如果你想*手动*控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
 - Max input voltage: 60V
 - Max current sensing: 120A Voltage
 - Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
@@ -80,16 +86,18 @@ The power module has the following characteristics/limits:
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-> **Note** See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::note
+See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::
 
 <span id="pm07"></span>
 ### Pixhawk 4 Power Module (PM07)
 
 The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
 
-This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
 
-It has the following characteristics/limits:
+遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
 - PCB Current: total 120A outputs (MAX)
 - UBEC 5V output current: 3A
 - UBEC input voltage : 7~51v (2~12s LiPo)
@@ -100,22 +108,24 @@ It has the following characteristics/limits:
   - PM07 board (1)
   - 80mm XT60 connector wire (1)
 
-> **Note** See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+:::note
+See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+:::
 
 ### Battery Configuration
 
 The battery/power setup must be configured in [Power Settings](../config/battery.md). For either Power Module you will need to configure the *Number of Cells*.
 
-如果你想*手动*控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
+You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
 
 
 ## 无线电遥控
 
-您需要 [选择一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md) 并 *对频* 使它们能够通信 (对频方法参考发射/接收机的说明书)。
+A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
 You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
+The instructions below show how to connect the different types of receivers to *Durandal*:
 
 
 - Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/durandal.md#dsm-rc-port) input.
@@ -128,12 +138,12 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 - PPM 和 *每个通道有单独连接线* 的 PWM 接收机需要连接在 **PPM RC** 端口，PWM信号需要通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)* PPM 编码器*（PPM-Sum 接收机只需要一根信号线就包含所有通道）。
 
-遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 
 ## 数传电台（可选）
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 
 The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
 
@@ -146,8 +156,9 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
-> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
-
+:::tip
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
+:::
 
 ## 电机
 
@@ -155,13 +166,15 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
+The motors must be separately [powered](#power).
 
-> **Note** If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::note
+If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::
 
-<span></span>
-> **Note** *Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
-
+:::tip
+*Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
+:::
 
 ## 其它外设
 
@@ -175,10 +188,12 @@ The wiring and configuration of optional/less common components is covered withi
 ## PX4 配置
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.
-> **Note** Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
 
+:::note
+Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
+:::
 
-QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
+Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
