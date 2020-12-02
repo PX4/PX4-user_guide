@@ -36,34 +36,34 @@ PX4 将 *期望路径* 的相关信息发送给机载计算机（当在 *自动*
 
 期望路径信息由 PX4 通过使用 [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息来发送，如下文 [PX4 航点接口](#px4_waypoint_interface) 所述。
 
-Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+路径规划器软件通过 `TRAJECTORY_REPRESTATION_WAYPOINTS` （参见 [Companion Waypoint Interface](#companion_waypoint_interface) ）或 [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) （参见 [Companion Bezier Tracjectory Interface](#bezier_interface) ）返回 *所规划路径* 的设置点。 这两个参数的区别在于前者只是指定下一个目标设定点，而后者的贝塞尔轨迹则描述确切的车辆运动（如随时间变化的设置点）。
 
-> **Warning** Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+> **警告** 路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。
 
 <span id="px4_waypoint_interface"></span>
 
 ### PX4 航点接口
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
 
-The fields set by PX4 as shown:
+PX4 中各字段定义如下：
 
-- `time_usec`: UNIX纪元时间戳
+- `time_usec`: UNIX 纪元时间戳
 - `valid_points`: 3
-- Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
+- Point 0 - 由 FlightTaskAutoMapper 发布的适应格式的当前航点（见以下注释）： 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点位置坐标
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点速度坐标
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: 当前航向角
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
-- Point 1 - Current waypoint (Unmodified/not type adapted)): 
+  - `command[0]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 1 - 当前航点（未修改/未调整类型）： 
   - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
   - `pos_yaw[1]`: 航向设定值
   - `vel_yaw[1]`: 偏航速率设定值
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
+  - `command[1]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
 - Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
   - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
