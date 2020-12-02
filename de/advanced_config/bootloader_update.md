@@ -67,7 +67,8 @@ The following steps explain how you can "manually" update the bootloader using t
 6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
     
-    > **Note** To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+    :::note To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+:::
 
 8. Use the following command to scan for the Pixhawk’s swd and connect to it:
     
@@ -78,8 +79,6 @@ The following steps explain how you can "manually" update the bootloader using t
 9. Load the binary into the Pixhawk: ```(gdb) load```
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
-
-<span id="non-pixhawk"></span>
 
 ## Other Boards (Non-Pixhawk)
 
