@@ -18,8 +18,8 @@ Upload the log file to the online [Flight Review](http://logs.px4.io) tool. Afte
 
 [Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
 
-:::tip
-Note There are many other great tools for visualising and analysing PX4 Logs. For more information see: [Flight Analysis](../dev_log/flight_log_analysis.md).
+:::note
+There are many other great tools for visualising and analysing PX4 Logs. For more information see: [Flight Analysis](../dev_log/flight_log_analysis.md).
 :::
 
 :::tip
@@ -46,8 +46,8 @@ Logging may further be configured using the [SD Logging](../advanced_config/para
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".  
 This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance. |
 
-:::tip
-Note *Developers* can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](../dev_log/logging.md).
+:::note
+*Developers* can further configure what information is logged via the [logger](../modules/modules_system.md#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](../dev_log/logging.md).
 :::
 
 ## Key Links
