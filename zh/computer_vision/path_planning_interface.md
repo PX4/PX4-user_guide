@@ -76,13 +76,13 @@ PX4 中各字段定义如下：
 <span id="type_adapted"></span>
 备注：
 
-- Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Point 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planner.
+- Point 0 是当前根据目标类型所修改的目标航点/目标。 例如，在着陆时指定目标的 x、y 坐标和降落速度是合理的。 为了实现这一点，`FlightTaskAutoMapper` 修改 Point 0 中的着陆点，将 z 轴位置的分量设置为 NAN，将 z 轴速度设置为期望值。
+- 安全着陆规划器中没有用到 Point 1 和 2。
+- 局部和全局规划器中用到了 Point 1。
 
 <span id="companion-failure-handling"></span>
 
-#### Handling of Companion Failure
+#### 机载计算机的失效处理
 
 PX4 safely handles the case where messages are not received from the offboard system:
 
