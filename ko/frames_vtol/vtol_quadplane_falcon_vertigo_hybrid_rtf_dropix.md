@@ -68,7 +68,7 @@ The RTF kit requires the following assembly.
 
 2. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
   
-  :::tip Note This is very important because the white mark indicates the center of gravity.
+  :::note This is very important because the white mark indicates the center of gravity.
 :::
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="Carbon tube in brackets" width="300px" />
