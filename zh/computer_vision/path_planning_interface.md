@@ -86,13 +86,13 @@ PX4 中各字段定义如下：
 
 通过以下措施，PX4 安全地处理未从机载计算机系统接收到消息的情况：
 
-- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
-  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
-- If no planner is running and `COM_OBS_AVOID` is enabled after boot: 
-  - the vehicle will run normally in manual modes.
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
-- When external path planning is enabled: 
-  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
+- 如果规划器均未运行并且 `COM_OBS_AVOID` 在/从启动时处于启用状态： 
+  - 航前自检将失败（无论机体模式如何），在 `COM_OBS_AVOID` 设置为 0 之前，机体不会起飞。
+- 如果规划器均未运行并且 `COM_OBS_AVOID` 在启动后处于启用状态： 
+  - 机体将以手动方式正常运行。
+  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [定点悬停](../flight_modes/hold.md) 模式。
+- 当启用外部路径规划时： 
+  - 如果 `HEARTBEAT` 丢失，PX4 将会发出状态消息(显示在 *QGroundControl* 中)，声明“避障系统丢失”或“避障系统超时”（取决于机体状态）。 这项提醒与当前的飞行模式无关。
   - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md). > **Note** A planner must always provide points in this timeframe. 
     - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
   - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
