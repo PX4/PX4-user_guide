@@ -90,12 +90,12 @@ PX4 中各字段定义如下：
   - 航前自检将失败（无论机体模式如何），在 `COM_OBS_AVOID` 设置为 0 之前，机体不会起飞。
 - 如果规划器均未运行并且 `COM_OBS_AVOID` 在启动后处于启用状态： 
   - 机体将以手动方式正常运行。
-  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [定点悬停模式](../flight_modes/hold.md)。
+  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [保持模式](../flight_modes/hold.md)。
 - 当启用外部路径规划时： 
   - 如果 `HEARTBEAT` 丢失，PX4 将会发出状态消息(显示在 *QGroundControl* 中)，声明“避障系统丢失”或“避障系统超时”（取决于机体状态）。 这项提醒与当前的飞行模式无关。
-  - 如果超过 0.5 秒未收到轨迹信息并且机体处于自动模式（返航、任务、起飞、着陆），则机体将切换到[定点悬停模式](../flight_modes/hold.md)。 > **Note** 规划器在此时间段内必须始终提供航点信息。 
+  - 如果超过 0.5 秒未收到轨迹信息并且机体处于自动模式（返航、任务、起飞、着陆），则机体将切换到[保持模式](../flight_modes/hold.md)。 > **Note** 规划器在此时间段内必须始终提供航点信息。 
     - 当机体处于不提供路径规划的模式/状态时，规划器将镜像其接收到的设置航点。 （即车辆将沿着期望路径行驶，且延迟时间很小）。
-  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - 如果上次提供的贝塞尔轨迹的执行时间在路径规划期间超时（当使用[贝塞尔轨迹接口](#bezier_interface)时），这将被视为在 0.5 秒内没有收到新消息（即机体切换到[保持模式](../flight_modes/hold.md)）。
 
 <span id="companion_waypoint_interface"></span>
 
