@@ -64,13 +64,13 @@ PX4 中各字段定义如下：
   - `pos_yaw[1]`: 航向设定值
   - `vel_yaw[1]`: 偏航速率设定值
   - `command[1]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
+- Point 2 - 局部坐标系中的下一个航点 (未修改/未调整类型)： 
   - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
   - `pos_yaw[2]`: 航向设定值
   - `vel_yaw[2]`: 偏航速率设定值
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
+  - `command[2]`: 当前航点的 [MAVLink 命令](https://mavlink.io/en/messages/common.html#mav_commands)
 - 所有其它字段都是NaN(未定义)。
 
 <span id="type_adapted"></span>
