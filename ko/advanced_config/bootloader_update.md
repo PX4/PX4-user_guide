@@ -4,7 +4,9 @@
 
 이 절에서는 픽스호크 부트로더를 업데이트하는 여러가지 방법을 설명합니다.
 
-> **Note** 하드웨어에는 보통 적정 버전의 부트로더가 미리 설치되어 제공됩니다. FMUv2 펌웨어가 설치된 최신 버전의 픽스호크 보드를 업데이트해야 하는 경우에는 다음을 참고하십시오: [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)
+:::note
+Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+:::
 
 <span id="qgc_bootloader_update"></span>
 
@@ -12,14 +14,15 @@
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-> **Note** 이 방법은 펌웨어에 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 있을 때만 사용할 수 있습니다. ( 현재는 FMUv2와 일부 커스텀 펌웨어에서만 사용 가능합니다.)
+:::note
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+:::
 
 The steps are:
 
 1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
-2. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
-    
-    > **팁** 업데이트된 부트로더는 커스텀 펌웨어 (예 - 개발 팀 펌웨어)나 최신 마스터 버전일 수 있습니다.
+2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader. :::note The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+:::
     
     ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
