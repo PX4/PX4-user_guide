@@ -2,8 +2,8 @@
 
 PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
 
-:::tip
-Note Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+:::note
+Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
 :::
 
 :::tip
@@ -18,8 +18,8 @@ The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://githu
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-:::tip
-Note This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+:::note
+This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
 :::
 
 ## First Build (Using the jMAVSim Simulator)
@@ -67,8 +67,8 @@ cd PX4-Autopilot
 make px4_fmu-v4_default
 ```
 
-:::tip
-Note In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration). The `default` is optional so you could instead do:
+:::note
+In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration). The `default` is optional so you could instead do:
 ```
 make px4_fmu-v4
 ```
@@ -104,8 +104,8 @@ The following list shows the build commands for common boards:
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
-:::tip
-Note Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+:::note
+Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
 ### Uploading Firmware (Flashing the board)
@@ -148,8 +148,8 @@ export AUTOPILOT_HOST=pi_hostname.domain
 ```
 
 
-:::tip
-Note The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
+:::note
+The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
 :::
 
 Build the executable file:
@@ -228,8 +228,8 @@ This section shows how to build for the [Qualcomm Snapdragon Flight](../flight_c
 
 #### Build
 
-:::tip
-Note If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
+:::note
+If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
 :::
 
 The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../middleware/uorb.md).
@@ -347,8 +347,8 @@ After loading, the **play** button can be configured to run the project by selec
 
 ### Qt Creator on Windows
 
-:::tip
-Note Windows has not been tested for PX4 development with Qt Creator.
+:::note
+Windows has not been tested for PX4 development with Qt Creator.
 :::
 
 ### Qt Creator on Mac OS
