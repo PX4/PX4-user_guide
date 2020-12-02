@@ -34,7 +34,10 @@ Performing this power compensation is advisable only if all the following statem
 1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
    - Arm the vehicle and slowly raise the throttle to the maximum
    - Slowly lower the throttle down to zero
-   - Disarm the vehicle > **Note** Perform the test carefully and closely monitor the vibrations.
+   - Disarm the vehicle
+
+   :::note Perform the test carefully and closely monitor the vibrations.
+:::
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
