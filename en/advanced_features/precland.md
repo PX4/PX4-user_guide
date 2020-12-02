@@ -14,8 +14,10 @@ Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sen
 
 Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the *LidarLite v3* has been found to work well).
 
-> **Note** Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
-  Refer to the IR-LOCK guide for other compatible sensors.
+:::note
+Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
+Refer to the IR-LOCK guide for other compatible sensors.
+:::
 
 ### Firmware Configuration
 
@@ -69,7 +71,10 @@ In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if
 If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
 ## Performing a Precision Landing
-> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+
+:::note
+Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+:::
 
 ### Via Command
 

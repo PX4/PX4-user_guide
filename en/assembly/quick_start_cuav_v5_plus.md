@@ -44,12 +44,16 @@ DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface c
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
+:::note
+Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
+:::
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
 
-> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
+:::note
+If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
@@ -82,13 +86,17 @@ If using a Spektrum satellite receiver, this should be connected to the flight c
 The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
-> **Warning** The supplied power module is unfused.
-  Power **must** be turned off while connecting peripherals.
+:::warning
+The supplied power module is unfused.
+Power **must** be turned off while connecting peripherals.
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs.
-  If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::note
+The power module is not a power source for peripherals connected to the PWM outputs.
+If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::
 
 ## Telemetry System (Optional) 
 
@@ -112,7 +120,6 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
 
-<span id="pinouts"></span>
 ## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
