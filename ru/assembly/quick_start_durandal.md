@@ -22,8 +22,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
-> **Tip** More information about available ports can be found here: [Durandal > Pinouts](../flight_controller/durandal.md#pinouts).
-
+:::tip
+More information about available ports can be found here: [Durandal > Pinouts](../flight_controller/durandal.md#pinouts).
+:::
 
 ## Mount and Orient Controller
 
@@ -33,8 +34,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-> **Tip** The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
-
+:::tip
+The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
@@ -44,8 +46,9 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
-
+:::note
+The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::
 
 ## Power
 
@@ -65,10 +68,13 @@ Connect the output of the *Power Module* as shown.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
 - PM power output (XT60 female connector): wire out to any motor ESCs.
 
-> **Note** As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::tip
+As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::
 
-<span></span>
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::tip
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::
 
 The power module has the following characteristics/limits:
 - Max input voltage: 60V
@@ -80,7 +86,9 @@ The power module has the following characteristics/limits:
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-> **Note** See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::note
+See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::
 
 <span id="pm07"></span>
 ### Pixhawk 4 Power Module (PM07)
@@ -100,7 +108,9 @@ It has the following characteristics/limits:
   - PM07 board (1)
   - 80mm XT60 connector wire (1)
 
-> **Note** See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+:::note
+See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+:::
 
 ### Battery Configuration
 
@@ -146,8 +156,9 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
-> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
-
+:::tip
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
+:::
 
 ## Motors
 
@@ -157,11 +168,13 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**
 
 The motors must be separately [powered](#power).
 
-> **Note** If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::note
+If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::
 
-<span></span>
-> **Note** *Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
-
+:::tip
+*Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
+:::
 
 ## Other Peripherals
 
@@ -175,8 +188,10 @@ The wiring and configuration of optional/less common components is covered withi
 ## PX4 Configuration
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.
-> **Note** Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
 
+:::note
+Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
+:::
 
 Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
