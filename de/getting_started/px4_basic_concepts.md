@@ -113,8 +113,8 @@ Information about batteries and battery configuration can be found in [Battery C
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::tip
-Note PX4 does not require a remote control system for autonomous flight modes.
+:::note
+PX4 does not require a remote control system for autonomous flight modes.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
@@ -212,8 +212,8 @@ An overview of the available flight modes [can be found here](../getting_started
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-:::tip
-Note You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+:::note
+You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 :::
 
 The main failsafe areas are listed below:
@@ -235,8 +235,8 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
-:::tip
-Note For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+:::note
+For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
 :::
 
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
