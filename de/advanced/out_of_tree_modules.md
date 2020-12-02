@@ -4,7 +4,9 @@ External modules provide a convenient mechanism for developers to manage/group p
 
 This topic explains how to add an external ("out of tree") module to the PX4 build.
 
-> **Tip** We encourage you to contribute your changes into PX4, where possible!
+:::tip
+We encourage you to contribute your changes into PX4, where possible!
+:::
 
 ## Usage
 
@@ -38,7 +40,6 @@ To create an external module:
     )
   ```
 
-<a id="uorb_message_definitions"></a>
 
 ## Out-of-Tree uORB Message Definitions
 
@@ -61,9 +62,10 @@ The out-of-tree uORB messages will be generated in the same locations as the nor
 
 The new uORB messages can be used like any other uORB message as described [here](../middleware/uorb.md#adding-a-new-topic).
 
-> **Warning** The out-of-tree uORB message definitions cannot have the same name as any of the normal uORB messages.
+:::warning
+The out-of-tree uORB message definitions cannot have the same name as any of the normal uORB messages.
+:::
 
-<a id="building"></a>
 
 ## Building External Modules and uORB Messages
 
