@@ -84,7 +84,7 @@ PX4 中各字段定义如下：
 
 #### 机载计算机的失效处理
 
-PX4 safely handles the case where messages are not received from the offboard system:
+通过以下措施，PX4 安全地处理未从机载计算机系统接收到消息的情况：
 
 - If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
   - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
