@@ -36,7 +36,7 @@ PX4 将 *期望路径* 的相关信息发送给机载计算机（当在 *自动*
 
 期望路径信息由 PX4 通过使用 [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息来发送，如下文 [PX4 航点接口](#px4_waypoint_interface) 所述。
 
-路径规划器软件通过 `TRAJECTORY_REPRESTATION_WAYPOINTS` （参见 [Companion Waypoint Interface](#companion_waypoint_interface) ）或 [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) （参见 [Companion Bezier Tracjectory Interface](#bezier_interface) ）返回 *所规划路径* 的设置点。 这两个参数的区别在于前者只是指定下一个目标设定点，而后者的贝塞尔轨迹则描述确切的车辆运动（如随时间变化的设置点）。
+路径规划器软件通过 `TRAJECTORY_REPRESTATION_WAYPOINTS` （参见 [Companion Waypoint Interface](#companion_waypoint_interface) ）或 [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) （参见 [Companion Bezier Tracjectory Interface](#bezier_interface) ）返回 *所规划路径* 的设置点。 不同之处在于，前者航点参数只是指定下一个设定的目标航点，而贝塞尔轨迹则描述精确的车辆运动（即随时间变化的设定点）。
 
 > **警告** 路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。
 
@@ -90,11 +90,11 @@ PX4 中各字段定义如下：
   - 航前自检将失败（无论机体模式如何），在 `COM_OBS_AVOID` 设置为 0 之前，机体不会起飞。
 - 如果规划器均未运行并且 `COM_OBS_AVOID` 在启动后处于启用状态： 
   - 机体将以手动方式正常运行。
-  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [定点悬停](../flight_modes/hold.md) 模式。
+  - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [定点悬停模式](../flight_modes/hold.md)。
 - 当启用外部路径规划时： 
   - 如果 `HEARTBEAT` 丢失，PX4 将会发出状态消息(显示在 *QGroundControl* 中)，声明“避障系统丢失”或“避障系统超时”（取决于机体状态）。 这项提醒与当前的飞行模式无关。
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md). > **Note** A planner must always provide points in this timeframe. 
-    - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
+  - 如果超过 0.5 秒未收到轨迹信息并且机体处于自动模式（返航、任务、起飞、着陆），则机体将切换到[定点悬停模式](../flight_modes/hold.md)。 > **Note** 规划器在此时间段内必须始终提供航点信息。 
+    - 当机体处于不提供路径规划的模式/状态时，规划器将镜像其接收到的设置航点。 （即车辆将沿着期望路径行驶，且延迟时间很小）。
   - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
 
 <span id="companion_waypoint_interface"></span>
