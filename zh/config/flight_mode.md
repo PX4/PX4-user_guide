@@ -55,7 +55,8 @@ To configure single-channel flight mode selection:
     
     ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
-    > **Tip** 如果界面中显示的是 *Multi Channel Mode*，点击 **Use Single Channel Mode Selection** 按钮来切换成单通道模式。
+    :::tip If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+:::
 
 4. 进行 *飞行模式设置* :
     
