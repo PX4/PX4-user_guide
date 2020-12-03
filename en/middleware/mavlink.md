@@ -83,7 +83,7 @@ protected:
     explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
     {}
 
-    bool send(const hrt_abstime t)
+    bool send() override
     {
         struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic
 
@@ -97,9 +97,11 @@ protected:
             _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
 
             mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory);
+            
+            return true;
         }
 
-        return true;
+        return false;
     }
 };
 ```
