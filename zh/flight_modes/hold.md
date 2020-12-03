@@ -4,21 +4,27 @@
 
 *保持*飞行模式（也就是“留待”模式）使飞机停止运动并保持其当前的GPS位置和高度（多旋翼将悬停在GPS位置，而固定翼飞机将围绕它旋转）。
 
-> **注***保持模式*可用于暂停任务或帮助您在紧急情况下重新获得对飞机的控制权。 它通常通过预编程开关激活。
+:::tip
+*Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+:::
 
-<span></span>
+:::note
 
-> **注** 该模式需要GPS。 * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* This mode requires GPS.
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC control switches can be used to change flight modes on any vehicle.
+* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::
 
-下面描述每种类型飞机的具体行为。
+The specific behaviour for each vehicle type is described below.
 
 ## 多旋翼（MC）
 
-多旋翼飞行器在当前位置和高度盘旋。
+A multicopter hovers at the current position and altitude.
 
 RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
-可以使用以下参数配置此行为。
+The behaviour can be configured using the parameters below.
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,11 +35,11 @@ RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Pos
 
 ## 固定翼飞行器（FW）
 
-飞机在当前高度的GPS保持位置周围旋转。 如果模式低于该高度，则飞机将首先上升到`MIS_LTRMIN_ALT`。
+The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
 
 RC stick movement is ignored.
 
-可以使用以下参数配置此行为。
+The behaviour can be configured using the parameters below.
 
 | 参数                                                                           | 描述                                  |
 | ---------------------------------------------------------------------------- | ----------------------------------- |
@@ -42,4 +48,6 @@ RC stick movement is ignored.
 
 ## 垂直起降（VTOL）
 
-当处于FW模式时，VTOL遵循HOLD行为和固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循多旋翼</ 1>的参数。</p> <!-- this maps to AUTO_LOITER in flight mode state machine -->
+A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+
+<!-- this maps to AUTO_LOITER in flight mode state machine -->

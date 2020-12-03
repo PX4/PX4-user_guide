@@ -1,11 +1,13 @@
 # Sending a Custom Message from MAVROS to PX4
 
-> **Warning** This article has been tested against:
-  - **Ubuntu:** 18.04
-  - **ROS:** Melodic
-  - **PX4 Firmware:** 1.9.0
+:::warning
+This article has been tested against:
+- **Ubuntu:** 18.04
+- **ROS:** Melodic
+- **PX4 Firmware:** 1.9.0
 
-  However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
+However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
+:::
 
 <!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
 

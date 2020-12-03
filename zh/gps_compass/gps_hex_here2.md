@@ -21,7 +21,9 @@ Main features include:
 
 Setup and use on PX4 is largely plug and play.
 
-> **Note** If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+:::note
+If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+:::
 
 ## 接线和连接
 
@@ -35,7 +37,7 @@ Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
 ### 针脚定义
 
-The Here2 GPS pinout is provided below. 这可用于帮助用户修改接口线序以适配其它自动驾驶仪板的连接器。
+The Here2 GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
 | 引脚 | Here2 GPS  | 引脚 | Pixhawk 3 Pro GPS |
 | -- | ---------- | -- | ----------------- |

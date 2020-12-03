@@ -12,7 +12,9 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 
 Wiring information is available [below](#wiring).
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::note
+This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+:::
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -20,19 +22,19 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 ## 产品规格
 
-**传感器：**
+**Processors:**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
 
-**Sensors:**
+**接口：**
 
 - **Accel/Gyro/Mag:** MPU9250 
   - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
-**接口：**
+**Voltage ratings:**
 
 - **Power module output:** 4.1\~5.5V
 - **Max input voltage:** 45V (10S LiPo)
@@ -117,9 +119,8 @@ The *Pixhawk Mini* is shipped with the following contents:
 
 ## Optional accessories
 
-- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European)
-  
-  > **Note** When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European) :::note When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+:::
 
 - 3DR 10S Power Module
 
@@ -177,7 +178,9 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
 
 ## Wiring Quick Start
 
-> **Warning** The *Pixhawk Mini* is no longer manufactured or available from 3DR.
+:::warning
+The *Pixhawk Mini* is no longer manufactured or available from 3DR.
+:::
 
 This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals.
 
@@ -185,9 +188,11 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). We'll go through each main part in the following sections.
 
-![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)  
+![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
-> **Note** The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+:::note
+The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+:::
 
 ### 飞控的安装和方向
 
@@ -197,7 +202,9 @@ The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam p
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
 ### GPS + Compass
 
@@ -213,7 +220,9 @@ The compass must be calibrated before it is first used: [Compass Calibration](.
 
 The image below shows typical power-supply wiring when using *Pixhawk Mini* in a Quadcopter. This uses the *Quad Power Distribution Board* that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
 
-> **Note** The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
+:::note
+The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
+:::
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
@@ -227,7 +236,7 @@ The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does 
 
 ### 无线电遥控
 
-更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
+Pixhawk Mini supports many different radio receiver models:
 
 - Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。
   
@@ -245,19 +254,21 @@ For more information about selecting a radio system, receiver compatibility, and
 
 The controller has an integrated safety switch that you can use for motor activation once the autopilot is ready to take off. If this switch is hard to access on a particular vehicle you can attach the (optional) external safety button, as shown below.
 
-![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
+![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg)一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
 
 ### Telemetry Radios
 
 ### 电机
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
 
-> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+:::caution
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+:::
 
-<span></span>
-
-> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+:::tip
+If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+:::
 
 Notes:
 
@@ -268,13 +279,13 @@ Notes:
 
 ### 其它外设
 
-一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
+The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 ### 配置
 
-QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
+General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 ## 编译固件
 

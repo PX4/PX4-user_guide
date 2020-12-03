@@ -9,7 +9,9 @@ There are a number of reasons to use VSCode for PX4 development:
 
 This topic explains how to setup the IDE and start developing.
 
-> **Note** There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+:::note
+There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+:::
 
 ## 前置条件
 
@@ -30,7 +32,8 @@ You must already have installed the command line [PX4 developer environment](../
    ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
 1. A number of notifications/prompts may appear in the bottom right corner
 
-   > **Tip** If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
+   :::tip If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
+:::
 
    - If prompted to install a new version of *cmake*:
      - Say **No** (the right version is installed with the [PX4 developer environment](../dev_setup/dev_env.md)).
@@ -65,7 +68,8 @@ To debug PX4 on SITL:
 
 1. Then choose your debug target (e.g. *Debug SITL (Gazebo Iris)*) from the top bar debug dropdown (purple box).
 
-   > **Note** The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+   :::note The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+:::
 1. Start debugging by clicking the debug "play" arrow (next to the debug target in the top bar - pink box).
 
 While debugging you can set breakpoints, step over code, and otherwise develop as normal.
@@ -87,4 +91,3 @@ In order for the code completion to work (and other IntelliSense magic) you need
 Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
 
 ![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
-

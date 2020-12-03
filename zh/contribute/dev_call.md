@@ -18,17 +18,21 @@ PX4开发团队会深入分析技术细节并同步到平台上。 在议程中�
 * 无人机编码成员
 * 社区成员
 
-> **提示**  开发调用对所有感兴趣的开发人员进行开放（不仅仅是核心开发团队）。 这是为持续可开发的平台做出贡献并与团队交流的绝佳机会。
+:::tip
+The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+:::
 
 ## 讨论什么内容?
 
-会议的第一部分也是重要的部分将持续45分钟，为项目的发展方向提供一个高质量的讨论论坛。
-
-This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label. 我们希望提议者和指定的审阅者都可以参加回访。
-
-> **注意** 主要的调用被设计用来做出集中快速的决策。 我们希望不要过深的探究技术，同样也不会花费太多的时间用在功能请求上。 Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+The first/main part of the meeting runs for 45 minutes and provides a high-level forum to discuss where the project is going.
 
 会议的第二部分是对开发性问题和有深度的技术做些探究。 核心团队或者子系统维护者将会有额外的45分钟用来探究
+
+:::note
+The main call is designed to support rapid/focused decision making. We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+:::
+
+The second part of the meeting is for in-depth technical discussions and open ended questions. The core team/subsystem maintainers will be available for up to 45 additional minutes.
 
 
 ## 日程

@@ -4,17 +4,21 @@
 
 *位置模式*是一种易于驾驶的遥控模式，其中滚动和俯仰操纵杆在左右和前后方向（相对于飞机的“前部”）控制地面速度，并且油门控制上升-下降的速度。 当杆被释放/居中时，飞机将主动制动、改平并锁定到3D空间中的位置——补偿风和其他力。
 
-> 位置模式是对于新手而言最安全的手动模式。 与[高度](../flight_modes/altitude_mc.md)和[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式不同，当摇杆居中时飞机将停止运动，而不是持续运动直至被风阻减慢为止。
+:::tip
+Position mode is the safest manual mode for new fliers. Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+:::
 
-下图显示了模式行为（对于模式2发射器）。
+The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
-![多旋翼位置模式](../../assets/flight_modes/position_MC.png)
+![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
-> 在此模式下降落时必须小心。 首次在此模式下着陆时, 准备切换到 [手动/稳定模式](../flight_modes/manual_stabilized_mc.md), 以便能够锁定飞机。 如果正确地检测到着陆, 电机会在触地后停止旋转, 然后在不久后锁定。 如果电机继续在较高的转速旋转或开始加速旋转, 首先切换到[手动/稳定(多旋翼)](../flight_modes/manual_stabilized_mc.md), 然后锁定。 请注意，由于GPS漂移，飞机可能会翻倒在地面上。
+:::warning
+Care must be taken when landing in this mode. When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm. If landing is correctly detected, motors will spin down after touch down and then disarm shortly after. If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
+:::
 
 ## 技术总结
 
-遥控/手动模式，其中RPT摇杆 在相应的方向控制 *速度*。 中心摇杆水平飞机, 并保持它的固定位置和高度逆风。
+RC/manual mode where RPT sticks control *speed* in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
 
 * 回正的RPT摇杆（在死区内）可以抗风并保持飞机X、Y、Z位置稳定以及姿态水平。
 * 中心以外： 
@@ -26,11 +30,15 @@
 * 着陆: 
   * When close to the ground ([MPC_LAND_ALT2](#MPC_LAND_ALT2)), horizontal velocity is limited ([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY)).
 
-> **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 注 该模式需要GPS。
+:::note
+
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* This mode requires GPS.
+:::
 
 ### 参数
 
-[ Multicopter Position Control ](../advanced_config/parameter_reference.md#multicopter-position-control)组中的所有参数都是相关的。 下面列出了一些特别注意的参数。
+All the parameters in the [Multicopter Position Control](../advanced_config/parameter_reference.md#multicopter-position-control) group are relevant. A few parameters of particular note are listed below.
 
 | 参数                                                                                                          | 描述                                                                                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

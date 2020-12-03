@@ -4,7 +4,9 @@
 
 本节所包含的话题，将详细说明针对不同的 [飞行控制器](../flight_controller/README.md) ，如何搭建上述提及到的系统。
 
-> **Tip** 快速入门指南仅针对几个控制器。 其它控制器将会有类似的指南链接。 更多信息可在 [飞行控制器](../flight_controller/README.md) 页面中获取，或者厂商的说明文档中。
+:::tip
+Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
+:::
 
 * 查看 [外设](../peripherals/README.md) 了解连接传感哭和其它外设的相关信息(比如飞机的空速感应器)。
 * 不同机型完整装配参见 [机架建造](../airframes/README.md)。

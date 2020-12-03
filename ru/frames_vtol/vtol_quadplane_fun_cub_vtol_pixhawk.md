@@ -36,7 +36,9 @@ The structure is made out of aluminum booms as shown below.
 
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
-> **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
+:::tip
+The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
+:::
 
 | Port   | Connection              |
 | ------ | ----------------------- |

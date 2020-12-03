@@ -43,8 +43,9 @@ FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the 
 | 5 (blk) | -        | +3.3V       |
 | 6 (blk) | GND      | GND         |
 
-> **Note** The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
-
+:::note
+The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
+:::
 
 ## Software Configuration
 
@@ -63,17 +64,19 @@ Then reboot the vehicle.
 
 You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
-> **Note** Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
+:::note
+Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
+:::
 
 ### Configure Traffic Avoidance
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                         | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| !!crwdBlockTags_5_sgaTkcolBdwrc!![NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
-| !!crwdBlockTags_6_sgaTkcolBdwrc!![NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
-| !!crwdBlockTags_7_sgaTkcolBdwrc!![NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
+| Parameter                                                                                                           | Description                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
+| <span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
+| <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
 
 
 ## Implementation

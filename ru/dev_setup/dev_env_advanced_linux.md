@@ -4,8 +4,9 @@
 
 Linux users need to explicitly allow access to the USB bus for JTAG programming adapters.
 
-> **Note** For Archlinux: replace the group plugdev with uucp in the following commands
-
+:::note
+For Archlinux: replace the group plugdev with uucp in the following commands
+:::
 
 Run a simple `ls` in `sudo` mode to ensure the commands below succeed:
 

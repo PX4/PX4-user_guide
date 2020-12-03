@@ -43,18 +43,20 @@ dbg.value = position[0];
 orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
-> **注意** 多个调试消息必须有足够的时间在各自的发布之间，Mavlink 可以处理它们。 这意味着，代码必须在发布多个调试消息之间等待，或者在每个函数调用迭代上替换消息。
+:::caution
+Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
+:::
 
-然后，QGroundControl 中的结果在实时图形上如下所示：
+The result in QGroundControl then looks like this on the real-time plot:
 
-![QGC 调试值绘图](../../assets/gcs/qgc-debugval-plot.jpg)
+![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
 
 
 ## 教程：发送字符串/浮点配对
 
-下面的代码段演示如何接收上一教程中发送的 `velx` 调试变量。
-
 首先，订阅主题 `debug_key_value`：
+
+然后对主题进行监听：
 
 ```C
 #include <poll.h>
@@ -64,7 +66,7 @@ int debug_sub_fd = orb_subscribe(ORB_ID(debug_key_value));
 [...]
 ```
 
-然后对主题进行监听：
+当 `debug_key_value` 主题上有新消息可用时，不要忘记根据其键属性对其进行筛选，以便放弃键与 `velx` 不同的消息：
 
 ```C
 [...]
@@ -81,7 +83,7 @@ while (true) {
     [...]
 ```
 
-当 `debug_key_value` 主题上有新消息可用时，不要忘记根据其键属性对其进行筛选，以便放弃键与 `velx` 不同的消息：
+When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
 
 ```C
     [...]

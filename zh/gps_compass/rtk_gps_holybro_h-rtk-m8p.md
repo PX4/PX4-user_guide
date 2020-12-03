@@ -21,7 +21,9 @@ RTK设置和使用在px4上通过 _QGroundControl_ 很大程度上可以即插�
 
 All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible with [Pixhawk 4](../flight_controller/pixhawk4.md).
 
-> **Note** The cables/connectors may need to be modified in order to connect to other flight controller boards (see [pin map](#pin_map)below).
+:::note
+The cables/connectors may need to be modified in order to connect to other flight controller boards (see [pin map](#pin_map)below).
+:::
 
 <span id="pin_map"></span>
 ## Pin Map

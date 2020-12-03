@@ -64,18 +64,20 @@ PX4 项目支持并维护着 [FMU 标准参考硬件](../hardware/reference_desi
 
 我们鼓励飞控板制造商以与 [FMU 规格](https://pixhawk.org/) 完全兼容为目标进行生产。 We encourage board manufacturers to aim for full compatibility with the [FMU spec](https://pixhawk.org/). With full compatibility you benefit from the ongoing day-to-day development of PX4, but have none of the maintenance costs that come from supporting deviations from the specification.
 
-> **Note** The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
-
-For fresh installs of PX4 onto Ubuntu using [ubuntu_sim_nuttx.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh) you will also need to install *kconfig* tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
+:::tip
+Manufacturers should carefully consider the cost of maintenance before deviating from the specification (the cost to the manufacturer is proportional to the level of divergence).
+:::
 
 还需要注意的是 PX4 开发团队有责任发布安全的软件，因此我们要求所有飞控板制造商都应投入必要的资源来保证他们的意志平台始终处于最新状态并且可用。
 
 如果你想让你的飞控板被 PX4 项目正式支持：
+
+If you want to have your board officially supported in PX4:
 * 你的硬件必须在市场上可用（例如它可以被任何开发人员不受限制地购买到） 。
 * Hardware must be made available to the PX4 Dev Team so that they can validate the port (contact <lorenz@px4.io> for guidance on where to ship hardware for testing).
 * 飞控板必须通过完整的 [测试套件（test suite）](../test_and_ci/README.md) 和 [飞行测试](../test_and_ci/test_flights.md)。
 
-**PX4 项目团队保留因未能满足项目规定需求而 拒绝接收新的移植平台（或者移除现有移植平台）的权利。**
+**The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.**
 
 You can reach out to the core developer team and community on the [official support channels](../contribute/support.md).
 

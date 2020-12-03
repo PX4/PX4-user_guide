@@ -25,7 +25,9 @@ After this step a range of elf files for all supported boards are present in the
 
 ## Flashing the Bootloader
 
-> **Warning** The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described.
+:::warning
+The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described.
+:::
 
 The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 

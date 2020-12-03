@@ -11,6 +11,7 @@
 여기서,
 - `-d`: 직렬 포트 이름.
 - `-b`: 드라이버에서 다중 전송율을 지원할 경우 전송율(선택). 전송율 설정을 지원하는 경우 드라이버에서 `-b p:<param_name>`와 같이 전송율과 매개변수 이름으로 전송율을 지정할 수 있어야합니다(이 값은 `px4_get_parameter_value()`에서 해석 가능). > **Tip** 예제는 [GPS 드라이버](https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/gps/gps.cpp#L1023)를 참고하십시오.
+:::
 
 
 ## 설정 가능 드라이버 구성
@@ -27,8 +28,8 @@
              name: SENS_ULAND_CFG
              group: Sensors
      ```
-
-   > **Note** 모듈 설정 파일에 대한 완전한 내용은 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 파일에서 찾아볼 수 있습니다. CI의 모든 설정 파일을 검증할 때도 활용합니다.
+   :::note The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file. This is also used to validate all configuration files in CI.
+:::
 1. 드라이버 모듈에 **CMakeLists.txt** 파일을 넣고 다음 모듈 설정 내용을 추가하십시오:
    ```
    px4_add_module(

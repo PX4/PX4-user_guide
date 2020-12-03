@@ -2,15 +2,17 @@
 
 This guide offers some help in tuning the high-level fixed-wing controllers needed for flying missions and in altitude/position control mode. PX4 uses TECS for altitude and airspeed control, and L1 for horizontal heading/position control.
 
-> **Warning** This guide is for advanced users / experts only. If you don't understand TECS tuning you may crash your aircraft.
+:::warning
+This guide is for advanced users / experts only. If you don't understand TECS tuning you may crash your aircraft.
+:::
 
-<span></span>
+:::note
+An incorrectly set gain during tuning can make altitude or heading control unstable. A pilot tuning the TECS gains should therefore be able to fly and land the plane in stabilized control mode.
+:::
 
-> **Note** An incorrectly set gain during tuning can make altitude or heading control unstable. A pilot tuning the TECS gains should therefore be able to fly and land the plane in stabilized control mode.
-
-<span></span>
-
-> **Tip** All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+:::tip
+All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+:::
 
 ## TECS Tuning (Altitude and Airspeed)
 
@@ -20,7 +22,9 @@ A well-tuned attitude controller is required before tuning TECS: [PID Tuning Gui
 
 Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes/stabilized_fw.md).
 
-> **Tip** It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers. To improve accuracy we also recommended that you verify the data obtained during flight with the data recorded in the flight logs.
+:::tip
+It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers. To improve accuracy we also recommended that you verify the data obtained during flight with the data recorded in the flight logs.
+:::
 
 #### 1st: Trim Conditions
 

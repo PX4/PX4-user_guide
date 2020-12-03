@@ -1,6 +1,8 @@
 # Intel Aero Ready to Fly Drone
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
 
@@ -148,7 +150,9 @@ To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/paramete
 
 ## Connecting Lidar Lite Range Finder
 
-> **Warning** The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
+:::warning
+The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
+:::
 
 The following instructions are for a [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
 

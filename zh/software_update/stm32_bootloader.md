@@ -25,11 +25,11 @@ make
 
 ## 刷写 Bootloader
 
-> **Important** 正确的电源序列对于某些电路板允来许 JTAG/SWD 访问至关重要。 请完全按照所述步骤操作。
+以下说明适用于 Blackmagic/Dronecode probe。 其他 JTAG 仿真器需要不同但相似的步骤。 试图刷新引导加载程序的开发人员应具备所需的知识。
 
-以下说明适用于 Blackmagic/Dronecode probe。 其他 JTAG 仿真器需要不同但相似的步骤。 试图刷新引导加载程序的开发人员应具备所需的知识。 如果您不知道如何执行此操作，您可能应该重新考虑是否确实需要更改引导加载程序的任何内容。
+The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
-顺序为：
+这些指令适用于[ J-Link GDB server](https://www.segger.com/jlink-gdb-server.html)。
 1. 断开 JTAG 电缆的连接
 1. 连接 USB 电源线
 1. 连接 JTAG 电缆
@@ -58,21 +58,21 @@ arm-none-eabi-gdb
 
 ### J-Link
 
-这些指令适用于[ J-Link GDB server](https://www.segger.com/jlink-gdb-server.html)。
+[ Download the J-Link software ](https://www.segger.com/downloads/jlink)并按照 Segger 网站的说明进行安装。
 
 #### 系统必备组件
 
-[ Download the J-Link software ](https://www.segger.com/downloads/jlink)并按照 Segger 网站的说明进行安装。
+以下命令用于为使用 STM32F427VI SoC 的飞行控制器运行服务器：
 
 #### 运行 JLink GDB 服务器
 
-以下命令用于为使用 STM32F427VI SoC 的飞行控制器运行服务器：
+常见目标的 `--device`/SoC是：
 
 ```bash
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
-常见目标的 `--device`/SoC是：
+The `--device`/SoC for common targets is:
 
 * **FMUv2、FMUv3、FMUv4、aerofc-v1、mindpx-v2：**STM32F427VI
 * **px4_fmu-v4pro：**STM32F469II
@@ -90,14 +90,14 @@ arm-none-eabi-gdb
 
 ### 故障处理
 
-如果找不到上述任何命令，则表示您未使用 Blackmagic 探针或其软件已过期。 首先更新 on-probe 软件。
+If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
 
-如果出现此错误消息： `Error erasing flash with vFlashErase packet`
+断开目标连接（同时保持 JTAG 连接）并运行
 ```
 Error erasing flash with vFlashErase packet
 ```
 
-断开目标连接（同时保持 JTAG 连接）并运行
+这将禁用目标供电并尝试另一个闪光周期。
 
 ```bash
 mon tpwr disable
@@ -105,4 +105,4 @@ swdp_scan
 attach 1
 load tapv1_bl.elf
 ```
-这将禁用目标供电并尝试另一个闪光周期。
+This will disable target powering and attempt another flash cycle.

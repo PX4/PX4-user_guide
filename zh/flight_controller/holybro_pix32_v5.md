@@ -89,11 +89,13 @@ Download pinouts here:
 
 *Pix32 v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
-**绝对最大额定值**
+**Normal Operation Maximum Ratings**
 
-在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
+Under these conditions all power sources will be used in this order to power the system:
 1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
 1. **USB** 输入电压（4.75 v 至 5.25 v）
 

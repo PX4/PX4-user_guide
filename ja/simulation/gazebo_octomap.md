@@ -30,7 +30,9 @@ Open ~/catkin_ws/src/rotors_simulator/rotors_gazebo/package.xml and add the foll
 
 Run the following two lines:
 
-> **Note** The first line changes your default shell editor to *gedit*. This is recommended for users who have little experience with *vim* (the default editor), but can otherwise be omitted.
+:::note
+The first line changes your default shell editor to *gedit*. This is recommended for users who have little experience with *vim* (the default editor), but can otherwise be omitted.
+:::
 
 ```sh
 export EDITOR='gedit'

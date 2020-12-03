@@ -31,28 +31,32 @@ M: 1
 S: 3 4  10000  10000      0 -10000  10000
 ```
 
-> **Note** The file defines four [summing mixers](../concept/mixing.md#summing_mixer) (for four outputs). - `M：1` 表示由一个控制输入定义的输出(以下的`S` 行内容)。 - `S：3`_`n`_ 表示输入的是<>th<> 输入的[控制组3(手动通过)](../concept/mixing.md#control-group-3-manual-passthrough)。 所以对于r `S: 3 5`  输入被称为"RC aux1" （这表示参数`RC_MAP_AUX1`映射到遥控器通道） - The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).
-
-
-Start by copying the mixer file and putting it onto the SD Card at: **/etc/mixers/pass.aux.mix** (see [Mixing and Actuators > Loading a Custom Mixer](../concept/mixing.md#loading_custom_mixer).
+:::note
+The file defines four [summing mixers](../concept/mixing.md#summing_mixer) (for four outputs).
+- `M: 1` indicates an output that is defined by one control input (the following `S` line).
+- `S: 3`_`n`_ indicates that the input is the n<sup>th</sup> input of [Control Group 3 (Manual Passthrough)](../concept/mixing.md#control-group-3-manual-passthrough). So for `S: 3 5` the input is called "RC aux1" (this maps to the RC channel set in parameter `RC_MAP_AUX1`).
+- The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).
+:::
 
 删除带有载荷控制组函数输入的第一个部分：
-- 更改此项
+
+Remove the first section with a payload control group function input:
+- Change this:
   ```
-  # AUX1 通道(控制组 3, 遥控器5通道) ( RC_MAP_AUX1参数决定使用哪个遥控器通道)
+  # AUX1 channel (control group 3, RC CH5) (select RC channel with RC_MAP_AUX1 param)
   M: 1
   S: 3 5  10000  10000      0 -10000  10000
   ```
-- 为：
+- To:
   ```
-  # 载荷1（控制组6）通道1
+  # Payload 1 (control group 6) channel 1
   M: 1
-  S: 6 1 100001 0000 -10000 1 0000
+  S: 6 1  10000  10000      0 -10000  10000
   ```
 
-因为这个输出处于文件中的第一个位置，它将映射到第一个AUX PWM输出(除非启用 UAVCAN)。 此输出将遵从对载荷控制组(6)输出1的更新。
+Because this output is in the first position in the file it will map to the first AUX PWM output (unless UAVCAN is enabled). This output will now respect updates to the payload control group (6) output 1.
 
-控制组6也需要在代码中定义(缺少!):
+Control group 6 will need to be defined in the code as well (it is missing!):
 - Add `actuator_controls_6` to the TOPICS definition in [/msg/actuator_controls.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/actuator_controls.msg#L17):
   ```
   # TOPICS actuator_controls actuator_controls_0 actuator_controls_1 actuator_controls_2 actuator_controls_3 actuator_controls_6

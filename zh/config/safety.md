@@ -90,9 +90,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ![安全 - 地理围栏（QGC）](../../assets/qgc/setup/safety/safety_geofence.png)
 
-> **Tip** PX4 单独支持更复杂的地理围栏几何结构，如多个任意多边形和圆形内外的区域，设置操作为：[飞行 > 地理围栏](../flying/geofence.md)。
+:::tip
+PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+:::
 
-设置和基本[地理围栏参数](../advanced_config/parameter_reference.md#geofence)如下所示。
+The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
 
 | 设置         | 参数                                                                             | 描述                                                      |
 | ---------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
@@ -100,9 +102,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 | 最大半径       | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 地理围栏圆柱体的水平半径。 如果为 0，则禁用地理围栏。                            |
 | 最大高度       | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 地理围栏圆柱体的高度。 如果为 0，则禁用地理围栏。                              |
 
-> **Note** 通过设置 `GF_ACTION` 来终止飞行将导致机体因违反地理围栏而急停。 由于这种情况具有一定的危险性，可以利用 [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM) 禁用此功能（需要将其重置为0才能真正关闭系统）。
+:::note
+Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
+:::
 
-如下设置也适用，但不显示在 QGC 用户界面中。
+The following settings also apply, but are not displayed in the QGC UI.
 
 | 设置                                | 参数                                                                           | 描述                               |
 | --------------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
@@ -115,11 +119,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 返航设置
 
-*返航*是一种常见的[故障保护动作](#failsafe_actions)，这将启动[返航模式](../flight_modes/return.md)，使机体返回起飞位置。 本节说明如何设置返航后的降落/悬停行为。
+*Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
 
-![安全 - 返航设置（QGC）](../../assets/qgc/setup/safety/safety_return_home.png)
+![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
 
-设置和基本参数如下所示。
+The settings and underlying parameters are shown below:
 
 | 设置   | 参数                                                                             | 描述                               |
 | ---- | ------------------------------------------------------------------------------ | -------------------------------- |
@@ -128,15 +132,17 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 | 悬停高度 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 如果选择了返航并悬停，您还可以指定机体保持的高度。        |
 | 悬停时间 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 如果选择返航并悬停随后降落，您还可以指定机体将保持悬停多长时间。 |
 
-> **Note** 返航行为由 [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) 定义。 如果该参数为负值，机体将立即着陆。 更多信息可参阅[返航模式](../flight_modes/return.md)。
+:::note
+The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
+:::
 
 ### 降落模式设置
 
-*在当前位置降落*是一种常见的[故障保护动作](#failsafe_actions)，采用降落模式启动。 本节介绍何时及是否使载具在降落后自动上锁的设置方式。 对于多旋翼飞机（仅限），您可以另外设置降落速度。
+*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
 
-![安全 - 降落模式设置（QGC）](../../assets/qgc/setup/safety/safety_land_mode.png)
+![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
-设置和基本参数如下所示。
+The settings and underlying parameters are shown below:
 
 | 设置    | 参数                                                                             | 描述                                      |
 | ----- | ------------------------------------------------------------------------------ | --------------------------------------- |
@@ -147,20 +153,20 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ## 其他故障保护设置
 
-本节包含无法通过 QGroundControl 安全设置页面配置的故障保护设置的信息。
+This section contains information about failsafe settings that cannot be configured through the *QGroundControl* [Safety Setup](#qgc_safety_setup) page.
 
 ### 位置（GPS）丢失故障保护
 
-如果在对位置估计有要求的模式下，PX 4位置估计的精度低于要求（这可能是由 GPS 丢失引起的），则会触发位置丢失故障保护。
+The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
 
-故障动作由 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) 控制, 基于遥控控制（和高度信息）是否可用：
+The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
 
 * `0`：遥控控制可用。 如果高度估计值可用，则切换到*定高模式*，否则为*自稳模式*。
 * `1`：遥控控制*不*可用。 如果高度估计值可用，则切换到*降落模式*，否则进入飞行终止。
 
-此外，固定翼机体还有一个参数（[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)），用于定义机体在丢失位置到试图降落这段时间内将悬停（盘旋）多长时间。
+Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land.
 
-以下为所有机体的相关参数(另见 [GPS 故障导航参数](../advanced_config/parameter_reference.md#gps-failure-navigation))：
+The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
 
 | 参数                                                                               | 描述                                        |
 | -------------------------------------------------------------------------------- | ----------------------------------------- |
@@ -168,7 +174,7 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 | [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
 | [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 用于位置错误检查的断路器（在所有模式下禁用错误检查）。               |
 
-仅影响固定翼机体的参数：
+Parameters that only affect Fixed Wing vehicles:
 
 | 参数                                                                     | 描述                                 |
 | ---------------------------------------------------------------------- | ---------------------------------- |
@@ -179,9 +185,9 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### Offboard 中断故障保护
 
-如果在 Offboard 控制模式下发生 Offboard 通信链路中断，则会触发 *Offboard 中断故障保护*。 可以根据是否还有可用的遥控连接来指定不同的故障保护行为。
+The *Offboard Loss Failsafe* is triggered if the offboard link is lost while under Offboard control. Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
 
-相关参数如下：
+The relevant parameters are shown below:
 
 | 参数                                                                           | 描述                                            |
 | ---------------------------------------------------------------------------- | --------------------------------------------- |
@@ -191,9 +197,9 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 任务故障保护
 
-任务故障保护检查可防止上一个任务在新的位置起飞，也可防止任务规模超标（航点之间的距离太大）。 故障保护措施指的是任务不会运行。
+The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great). The failsafe action is that the mission will not be run.
 
-相关参数如下：
+The relevant parameters are shown below:
 
 | 参数                                                                       | 描述                                          |
 | ------------------------------------------------------------------------ | ------------------------------------------- |
@@ -202,9 +208,9 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 交通规避故障保护
 
-交通规避故障保护使 PX4 在执行任务期间可以响应转发器的数据（例如来自 [ADSB 转发器](../advanced_features/traffic_avoidance_adsb.md)）。
+The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from [ADSB transponders](../advanced_features/traffic_avoidance_adsb.md)) during missions.
 
-相关参数如下：
+The relevant parameters are shown below:
 
 | 参数                                                                             | 描述                        |
 | ------------------------------------------------------------------------------ | ------------------------- |
@@ -212,11 +218,13 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 自适应 QuadChute 故障安全
 
-在固定翼模式下，当推力电机（或空速管）故障使垂直起降机体无法再上升到设定高度时的故障保护。 If triggered, the vehicle will transition to multicopter mode and enter failsafe [Return mode](../flight_modes/return.md).
+Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode. If triggered, the vehicle will transition to multicopter mode and enter failsafe [Return mode](../flight_modes/return.md).
 
-> **Note** You can pause *Return mode* and transition back to fixed wing if desired. Note that if the condition that caused the failsafe still exists, it may trigger again!
+:::note
+You can pause *Return mode* and transition back to fixed wing if desired. Note that if the condition that caused the failsafe still exists, it may trigger again!
+:::
 
-相关参数如下：
+The relevant parameters are shown below:
 
 | 参数                                                                         | 描述                                                              |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -226,127 +234,110 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ## 故障检测器
 
-故障检测器允许机体在意外翻转或收到外部故障检测系统通知时执行保护措施。
+The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips, or if it is notified by an external failure detection system.
 
 During **flight**, the failure detector can be used to trigger [flight termination](../advanced_config/flight_termination.md) if failure conditions are met, which may then launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
-> **Note** 飞行期间的故障检测默认被停用（通过设置参数启用：CBRK_FLIGHTTERM=0）。</p> </blockquote> 
-> 
-> During **takeoff** the failure detector [attitude trigger](#attitude_trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
-> 
-> 故障检测器在所有机体类型和飞行模式下均处于激活状态，但*预期*会翻转的机体类型除外（即 [Acro 特技模式（MC）](../flight_modes/altitude_mc.md)，[Acro 特技模式（FW）](../flight_modes/altitude_fw.md)，[Rattitude 半自稳模式](../flight_modes/rattitude_mc.md)和 Manual 手动模式（FW））。</p> 
-> 
-> 
+> **Note** Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
+
+During **takeoff** the failure detector [attitude trigger](#attitude_trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
+
+The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), [Rattitude](../flight_modes/rattitude_mc.md) and [Manual (FW)](../flight_modes/manual_fw.md)).
 
 <span id="attitude_trigger"></span>
 
-> 
-> ### 姿态触发器
-> 
-> 如果机体姿态在超过规定时间的情况下超过预定的俯仰和横滚值，则故障检测器可以配置为触发器。
-> 
-> 相关参数如下：
-> 
-> | 参数                                                                                                     | 描述                                                    |
-> | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-> | <span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 飞行终止断路器。 从 121212（默认）取消设置，以启用由于故障检测器或 FMU 丢失而导致的飞行终止。 |
-> | <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | 最大允许俯仰角（角度制）。                                         |
-> | <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | 最大允许横滚角（角度制）。                                         |
-> | <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | 超过故障检测的 [FD_FAIL_P](#FD_FAIL_P) 时间（默认为 0.3s）。       |
-> | <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | 超过故障检测的 [FD_FAIL_R](#FD_FAIL_R) 时间（默认为 0.3s）。       |
-> 
-> 
+### 姿态触发器
+
+The failure detector can be configured to trigger if the vehicle attitude exceeds predefined pitch and roll values for longer than a specified time.
+
+The relevant parameters are shown below:
+
+| 参数                                                                                                     | 描述                                                    |
+| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| <span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 飞行终止断路器。 从 121212（默认）取消设置，以启用由于故障检测器或 FMU 丢失而导致的飞行终止。 |
+| <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | 最大允许俯仰角（角度制）。                                         |
+| <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | 最大允许横滚角（角度制）。                                         |
+| <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | 超过故障检测的 [FD_FAIL_P](#FD_FAIL_P) 时间（默认为 0.3s）。       |
+| <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | 超过故障检测的 [FD_FAIL_R](#FD_FAIL_R) 时间（默认为 0.3s）。       |
 
 <span id="external_ats"></span>
 
-> 
-> ### 外部自动触发系统（ATS）
-> 
-> [故障检测器](#failure_detector)在[启用](#CBRK_FLIGHTTERM)的状态下也可以由外部自动触发系统 ATS 触发。 外部触发系统必须连接到飞行控制器的 AUX5 端口（或者是那些没有 AUX 端口的飞控板上的 MAIN5 端口），并使用以下参数进行配置。
-> 
-> > **Note** [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218) 标准规范要求启用外部自动触发系统 ATS。 ATS设备的一个例子是 [Fruity Chutes 公司的降落伞自动触发系统](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm)。
-> 
-> | 参数                                                                                                       | 描述                                                               |
-> | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-> | <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | 启用 AUX5 或 MAIN5（取决于飞控板）上的 PWM 输入，以便从外部自动触发系统（ATS）启用故障保护。 默认值：禁用。 |
-> | <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | 来自外部自动触发系统的用于接通故障保护的 PWM 阈值。 默认值：1900m/s。                        |
-> 
-> 
+### 外部自动触发系统（ATS）
+
+The [failure detector](#failure_detector), if [enabled](#CBRK_FLIGHTTERM), can also be triggered by an external ATS system. The external trigger system must be connected to flight controller port AUX5 (or MAIN5 on boards that do not have AUX ports), and is configured using the parameters below.
+
+:::note
+External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
+:::
+
+| 参数                                                                                                       | 描述                                                               |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | 启用 AUX5 或 MAIN5（取决于飞控板）上的 PWM 输入，以便从外部自动触发系统（ATS）启用故障保护。 默认值：禁用。 |
+| <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | 来自外部自动触发系统的用于接通故障保护的 PWM 阈值。 默认值：1900m/s。                        |
 
 <span id="safety_switch"></span>
 
-> 
-> ## 应急开关
-> 
-> 可以配置遥控开关（*QGroundControl* [飞行模式设置](../config/flight_mode.md)的一部分），以便在出现问题或发生紧急情况时及时采取矫正措施；例如，制动所有电机或激活[返航模式](#return_switch)。
-> 
-> 本节列出了可用的应急开关。
-> 
-> 
+## 应急开关
+
+Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
+
+This section lists the available emergency switches.
 
 <span id="kill_switch"></span>
 
-> 
-> ### 急停开关
-> 
-> 急停开关会立即终止所有电机的输出（如果正处于飞行状态，机体将开始降落）！ 如果开关在 5 秒内复位，电机将重启。 5 秒后，机体将自动上锁；您需要再次解锁才能启动电机。
-> 
-> 
+### 急停开关
+
+A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
 
 <span id="arming_switch"></span>
 
-> 
-> ### 解锁/上锁开关
-> 
-> 解锁/上锁开关是对默认杆状安全开关机制的*直接替换*（二者作用相同：确保在电机启动/停止之前有一个需要用户留意的步骤）。 它可能优先于默认机制使用，原因如下：
-> 
-> * 这种机制偏向于切换动作而不是持续运动。
-> * 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
-> * 这种机制没有延迟（立即作出反应）。
-> 
-> 对于那些*支持在飞行期间上锁*的飞行模式<1>，解锁/上锁开关会立即上锁（制动）电机。 支持飞行期间上锁的模式如下：</p> 
-> 
-> * *手动模式*
-> * *特技模式*
-> * *自稳模式*
-> * *半自稳模式*
-> 
-> 对于不支持在飞行期间上锁的模式，在飞行期间会忽略该开关信号，但在检测到着陆后可以使用该开关。 不支持飞行期间上锁的模式包括*定点模式*和自主模式（例如*任务模式*、*降落模式*等）。
-> 
-> > **Note** [自动上锁超时](#auto-disarming-timeouts)（如由 [COM_DISARM_LAND](#COM_DISARM_LAND) 导致）独立于解锁/上锁开关——即使解锁开关已超时，操作仍然有效。
-> 
-> <!--
+### 解锁/上锁开关
+
+The arm/disarm switch is a *direct replacement* for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+
+* 这种机制偏向于切换动作而不是持续运动。
+* 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
+* 这种机制没有延迟（立即作出反应）。
+
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight*. This includes:
+
+* *手动模式*
+* *特技模式*
+* *自稳模式*
+* *半自稳模式*
+
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+
+:::note
+[Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
+:::
+
+<!--
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
-> 
-> 
 
 <span id="return_switch"></span>
 
-> 
-> ### 返航开关
-> 
-> 返航开关可以立即启动[返航模式](../flight_modes/return.md)。
-> 
-> ## 其他安全设置
-> 
-> 
+### 返航开关
+
+A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+
+## 其他安全设置
 
 <span id="auto-disarming-timeouts"></span>
 
-> 
-> ### 超时自动上锁
-> 
-> 如果起飞，并且/或者着陆后的响应速度太慢，您可以设置超时自动上锁（上锁会断开电机的电源，导致螺旋桨不会旋转）。
-> 
-> [相关参数](../advanced_config/parameters.md)显示如下：
-> 
-> | 参数                                                                                                         | 描述                |
-> | ---------------------------------------------------------------------------------------------------------- | ----------------- |
-> | <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
-> | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
-> 
-> ## 更多信息
-> 
-> * [QGroundControl 用户手册 > 安全设置](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+### 超时自动上锁
+
+You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+
+The [relevant parameters](../advanced_config/parameters.md) are shown below:
+
+| 参数                                                                                                         | 描述                |
+| ---------------------------------------------------------------------------------------------------------- | ----------------- |
+| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
+| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
+
+## 更多信息
+
+* [QGroundControl 用户手册 > 安全设置](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)

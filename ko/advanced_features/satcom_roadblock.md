@@ -16,33 +16,33 @@
 
 ![건축학](../../assets/satcom/architecture.jpg)
 
-> ** 노트 ** 설정은 Ubuntu 14.04 및 16.04에서 실행되는 *QGoundControl *의 현재 릴리스로 테스트되었습니다.
+:::note
+The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
 
-    - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-    - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
-      The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
-    
+* It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
+* The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+:::
 
 ## 비용. 
 
-비용영국 링크 운영 비용은 라인 임대 및 메시지당 비용으로 구성됩니다.
+The UK link running cost consists of a line rental and per message cost:
 
 * Each module needs to be activated which costs £10.00 per month
 * Each message transmitted over the system costs one *credit* per 50 bytes. Bundles of credits can be bought from RockBlock for £0.04-£0.11 per credit, depending on the bundle size.
 
-일반적으로 모듈에 대한 자세한 설명은 [록블록 설명서 ](https://docs.rockblock.rock7.com/docs) 및 *록블록 *을 참조하십시오.
+Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) for a detailed explanation of the modules, running costs and *RockBlock* in general.
 
 ## 기체 설정
 
 ### Wiring
 
-RockBlock 모듈을 Pixhawk의 직렬 포트에 연결합니다. 모듈의 전원 요구 사항으로 인해 5V에서 최대 0.5A가 필요하므로 고출력 직렬 포트를 통해서만 전원을 공급할 수 있습니다. 사용 가능한 전원/무료인 경우 Pixhawk와 동일한 접지 레벨을 가지며 필요한 전력을 제공할 수 있는 다른 전원을 설정해야 합니다. [ 커넥터 ](https://docs.rockblock.rock7.com/docs/connectors) 및 [ 전원 요구 사항 ](https://docs.rockblock.rock7.com/docs/power-supply)의 세부 정보는 RockBlock 설명서에서 확인할 수 있습니다.
+Connect the RockBlock module to a serial port of the Pixhawk. Due to the power requirements of the module it can only be powered over a high-power serial port as a maximum of 0.5 A at 5 V are required. If none is available/free then another power source which has the same ground level as the Pixhawk and can provide required power has to be setup. The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
 
 ### 모듈
 
-모듈은 내부 안테나 또는 SMA 커넥터에 연결된 외부 안테나를 사용할 수 있습니다. [두 안테나의 여러 상태를 전환](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode)하려면 작은 RF 연결 케이블의 위치를 바꾸어야 합니다. 외부 안테나를 사용하는 경우 모듈 손상을 방지하기 위해 안테나의 전원을 켜기 전에 항상 안테나가 모듈에 연결되어 있는지 확인하십시오.
+The module can either use the internal antenna or an external one connected to the SMA connector. To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
 
-모듈의 기본 보드 속도는 19200입니다. 그러나 PX4 *iridiumsbd * 드라이버는 보레이트가 115200이어야 하므로 [을 사용하여 변경해야 합니다.AT 명령](http://www.rock7mobile.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](http://www.rock7mobile.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
 1. 19200/8-N-1 설정을 사용하여 모듈에 연결하고 다음 명령을 사용하여 통신이 작동하는지 점검하십시오. 응답은 다음과 같아야 합니다.
 2. 보드 속도를 변경합니다. 
@@ -53,13 +53,19 @@ RockBlock 모듈을 Pixhawk의 직렬 포트에 연결합니다. 모듈의 전�
       AT&W0
       
 
-이제 이 모듈을 PX4와 함께 사용할 수 있습니다.
+The module is now ready to be used with PX4.
 
 ### Software
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/iridiumsbd```
+:::note
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+
+    drivers/telemetry/iridiumsbd
+    
+
+:::
 
 ## RockBlock 설정
 

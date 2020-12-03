@@ -1,19 +1,19 @@
 # Windows 虚拟机托管的工具链
 
-> **Note** [Windows Cygwin 工具链](../setup/dev_env_windows_cygwin.md) 是 Windows 平台唯一获得官方支持的开发环境。
-
 Windows 平台开发者可以在运行Linux的虚拟机中运行 PX4 工具链。 设置好虚拟机后，在虚拟机内进行 PX4 开发环境的安装、设置的流程与原生 Linux 电脑没有任何差别。
 
-> **Tip** 尽量为虚拟机分配尽更多的 cpu 内核和内存资源。
+Windows developers can run the PX4 toolchain in a virtual machine (VM) with Linux as the guest operating system. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
 
-虽然使用虚拟机进行开发环境的安装、测试非常简单，但用户们仍应知晓：
+有很多种方法在你的系统上设定一个可以运行 PX4 开发环境的虚拟机。 本指南将引导你使用 VMWare 完成虚拟机的设置。
+
+While using a VM is a very easy way to set up and test an environment for building firmware, users should be aware:
 1. 固件的编译速度比原生 Linux 要更慢一些。
 1. JMAVSim 的帧率比原生 Linux 要低得多。 虚拟机运行资源不足可能导致特定情况下无人机坠毁。
 1. 可以安装 Gazebo 和 ROS，但运行速度非常慢。
 
 ## 操作说明
 
-有很多种方法在你的系统上设定一个可以运行 PX4 开发环境的虚拟机。 本指南将引导你使用 VMWare 完成虚拟机的设置。 VMWare 虚拟机的表现于基本使用 (构建固件) 是可以接受的，但对于运行 ROS 和 Gazebo 来说则不可接受。
+There are multiple ways to setup a VM which is capable of executing the PX4 environment on your system. This guide walks you through a VMWare setup. VMWare performance is acceptable for basic usage (building Firmware) but not for running ROS or Gazebo.
 
 1. 下载 [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)。
 1. 将其安装在 Windows 系统上。

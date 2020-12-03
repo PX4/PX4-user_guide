@@ -21,7 +21,9 @@ Main features include:
 
 Setup and use on PX4 is largely plug and play.
 
-> **Note** If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+:::note
+If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
+:::
 
 ## Wiring and Connections
 

@@ -16,13 +16,15 @@ For example, the vehicles shown below have rotations around the z-axis (i.e. yaw
 
 ![Yaw 旋转](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
-> **Note** For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
-> 
-> The axis are normally relative to the orientation of the vehicle during steady forward flight. For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
+:::note
+For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
+
+The axis are normally relative to the orientation of the vehicle during steady forward flight. For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
+:::
 
 ## 设置朝向
 
-设置朝向步骤如下：
+To set the orientations:
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
@@ -37,7 +39,7 @@ For example, the vehicles shown below have rotations around the z-axis (i.e. yaw
 
 ## 优化调整
 
-您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞控方向的少量误差，并校平飞行视图中的地平线。
+You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
 ## 更多信息
 

@@ -1,17 +1,18 @@
 # 将自定义消息从 MOVROS 发送到 PX4
 
-> **Warning** 本文已经过如下测试：
-  - **Ubuntu：**18.04
-  - **ROS：**Melodic
-  - **PX4 Firmware：**1.9.0
+按照 *Source Installation* 中的指导，从 [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) 安装“ROS Kinetic”版本。
+- **Ubuntu：**18.04
+- **ROS：**Melodic
+- **PX4 Firmware:** 1.9.0
 
-  这些步骤普遍适用于其他发行版，或者只需要稍微修改。
+However these steps are fairly general and so it should work with other distros/versions with little to no modifications.
+:::
 
 <!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
 
 ## MAVROS 安装
 
-按照 *Source Installation* 中的指导，从 [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) 安装“ROS Kinetic”版本。
+Follow *Source Installation* instructions from [mavlink/mavros](https://github.com/mavlink/mavros/blob/master/mavros/README.md) to install "ROS Kinetic".
 
 ## MAVROS
 
@@ -267,7 +268,7 @@
         ...
     ```
 
-Now you are ready to build all your work!
+测试是否从你的 ROS 话题中接收到 `a` 字符。
 
 ## 构建
 
@@ -327,4 +328,4 @@ Next test if the MAVROS message is sent to PX4.
    nsh> key_receiver
    ```
 
-测试是否从你的 ROS 话题中接收到 `a` 字符。
+Check if it successfully receives `a` from your ROS topic.

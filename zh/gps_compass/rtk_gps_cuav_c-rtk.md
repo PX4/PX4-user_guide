@@ -19,15 +19,17 @@ RTK设置和使用在px4上通过 *QGroundControl* 很大程度上可以即插�
 
 C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/c-rtk/hardware-connection.html). 6针连接器提供 rtk gps 的接口, 并应连接到飞行控制器的 gps 接口。 4针连接器是一个 m8n (标准) gps 接口, 可作为第二个 gps(可选)。
 
-> **Tip**在编写本文时, PX4固件还没有完全支持第二个 gps。 无需连接4针端口。
+:::tip
+At time of writing PX4 does not yet fully support a second GPS. The 4-pin port need not be connected.
+:::
 
-<img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="c-RTK_6PIN" />
+<img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
 
-为了连接到其他飞行控制器板, 可能需要修改连接器。 < 0>Pixhawk 3 pro< a0/0 > 和 *Pixracer* 的引脚分配如下所示。
+The cables/connectors may need to be modified in order to connect to other flight controller boards. The pin mappings for *Pixhawk 3 Pro* and *Pixracer* are shown below.
 
 ### 针脚定义
 
-C-RTK GPS引脚分配如下所示。 这可用于帮助用户修改接口线序以适配其它自动驾驶仪板的连接器。
+The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
 | 引脚 | C-RTK GPS 6P | 引脚 | Pixhawk 3 Pro GPS | C-RTK GPS 4P |
 | -- | ------------ | -- | ----------------- | ------------ |

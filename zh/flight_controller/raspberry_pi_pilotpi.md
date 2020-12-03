@@ -58,13 +58,15 @@ Direct accessible from RPi:
 
 ## 针脚定义
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
+:::warning
+It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+:::
 
 ### 连接器
 
 #### GPS 连接器
 
-映射到 `/dev/i2c-0`
+遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
 
 | 针脚 | 信号  | 电压   |
 | -- | --- | ---- |
@@ -77,7 +79,7 @@ Direct accessible from RPi:
 
 #### 数传连接器
 
-遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
+此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
 
 | 针脚 | 信号   | 电压   |
 | -- | ---- | ---- |
@@ -90,7 +92,7 @@ Direct accessible from RPi:
 
 #### 外部 I2C 总线连接器
 
-此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
+ADC3 和 ADC4 的 VCC 被以下设备驱动：
 
 | 针脚 | 信号  | 电压       |
 | -- | --- | -------- |
@@ -101,7 +103,7 @@ Direct accessible from RPi:
 
 #### 遥控 & ADC 2/3/4
 
-ADC3 和 ADC4 的 VCC 被以下设备驱动：
+RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 
 | 针脚 | 信号  | 电压       |
 | -- | --- | -------- |
@@ -120,7 +122,9 @@ ADC3 和 ADC4 的 VCC 被以下设备驱动：
 | 2  | VCC  | +5V    |
 | 3  | GND  | GND    |
 
-> **Warning** PX4 [实验性地](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
+:::note
+ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::
 
 #### 拓展板顶部引出的未使用的GPIO
 
@@ -154,7 +158,7 @@ This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INP
 
 #### 参考压
 
-根据具体操作系统选择以下指南：
+ADC 3 & 4 will have VCC driven by:
 * 开启开关时：由REF5050驱动
 * 关闭开关时：从树莓派5V取电
 

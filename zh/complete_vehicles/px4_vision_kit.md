@@ -6,9 +6,10 @@
 
 这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
-> **Note** 无人机上没有预先安装的软件。 预成像U盘包含[PX4/避障](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由*Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 开发者可以使用套件来尝试 [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 项目提供的其他功能。 修改现有代码，或尝试全新的计算机视觉功能。
+该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。 This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+:::
 
-该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
+The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
 ## PX4 Vision 自主无人机开发套件（先行者版）
 
@@ -35,13 +36,13 @@
    ![警告 - 不连接电源端口](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
 ## 包装内容
-![包装内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 正侧面图" />
+<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
 
-该套件中包含了必要的无人机硬件：
+该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
 - 核心组件：
   - 一个Pixhawk 4飞控（包含定制化的PX4固件）
   - 一个 PMW3901 光流传感器
@@ -87,7 +88,7 @@
 
 ## 其他注意事项
 
-该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
+此外，用户也需要地面站硬件/软件：
 - 电池：
   - 带 XT60 母头的 4S 锂电池
   - 长度小于115毫米（以适合电源插座和 GPS 支架之间的空间）
@@ -96,7 +97,7 @@
   - 带有 R-XSR 接收机的 *FrSky Taranis* 发射机是一个受欢迎的配置。
 - 一个 H2.0 头的内六角螺丝刀（用来打开顶部的螺丝来安装接收机）
 
-此外，用户也需要地面站硬件/软件：
+当无人机按上述安装完成时：
 - 可运行 [QGC地面站（QGroundControl）](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) 的笔记本电脑或者平板。
 
 ## 首次使用
@@ -116,19 +117,20 @@
 1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
    ![UP Core：USB1 端口 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. 用充好电的电池的为无人机供电。
-
-   > **Note** 电池连接前移除螺旋桨。
+1. Power the vehicle with a fully charged battery. :::note Ensure propellers are removed before connecting the battery.
+:::
 1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
    - **SSID：** pixhawk4
    - **密码：** pixhawk4
 
-   > **提示** WiFi网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 使用 web 浏览器打开 URL： `http://192. 68.4.1` 波特率不得从921600更改。
+   :::tip WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+:::
 
 1. 在地面站启动 *QGroundControl*。
 1. [配置/校准](../config/README.md) 无人机：
 
-   > **Note** 无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
+   :::note The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+:::
 
    - [校准遥控](../config/radio.md)
    - [校准罗盘](../config/compass.md)
@@ -136,9 +138,9 @@
 
 1. 螺旋桨按照下面的方向安装：
 
-   > **Note** 模式也可以通过*QGroundControl*切换
-
    我们推荐的遥控设置为：
+
+   We recommend RC controller switches are define for:
    - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
    - *globalplanner* 尚未用这个工具包测试。
    - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
@@ -159,13 +161,14 @@
 
 ## 测试飞行（带避障）
 
-当无人机按上述安装完成时：
+以下各节说明如何将工具包用作开发计算机视觉软件的环境。
 
 1. 连接电池来给载具供电
 
 1. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
 
-   > **Tip** 从U盘启动/开始的流程大概会要1分钟（从内部存储大概需要30s）
+   :::tip The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+:::
 
 1. 检查避障系统是否已经正常启动
 
@@ -184,31 +187,31 @@
 
 ## 使用套件开发
 
-以下各节说明如何将工具包用作开发计算机视觉软件的环境。
+*PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，为运行在一个 *飞控上的 PX4 飞行堆栈提供障碍和/或航线信息*
 
 ### PX4 避障概述
 
-*PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，为运行在一个 *飞控上的 PX4 飞行堆栈提供障碍和/或航线信息*
+The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
 
-关于配套计算机视觉/规划软件的文档可以在 github 上找到： [PX4/avoidcen](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)。 该项目提供了许多不同的规划程序实现（打包为ROS节点）：
+Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
 - 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
 - 加载新固件后选择 *PX4 Vision DevKit* 机架：
 - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
 
-PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/en/) 交换数据：
+您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
 - [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - 机载计算机技术信息
 - [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
 
 <span id="install_image_mission_computer"></span>
 ### 在机载计算机上安装镜像
 
-您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
-
 建议这样做是因为从内部内存启动得更快。 释放USB端口，也能提供比U盘更多的内存。
 
-> **提示** [ 飞行无人机(带避障)](#fly_drone) 另外解释了如何验证避障系统是否有效。
-
 将USB镜像刷新到UP Core：
+
+首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
+
+To flash the USB image to the *UP Core*:
 
 1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
 1.
@@ -223,9 +226,9 @@ PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/e
    ```
 
 
-
-
-   > **Note** 保存到 *UP Core* 计算机的所有信息将在执行此脚本时被删除
+:::note
+All information saved in the *UP Core* computer will be removed when executing this script.
+:::
 
 1 拔出U盘。
 
@@ -235,22 +238,22 @@ PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/e
 
 ### 开启机载计算机 {#boot_mission_computer}
 
-首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
+First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
 
+:::tip
+[Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+:::
 
+PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
 
-> **Tip** [ 飞行无人机(带避障)](#Fly-the-Drone-with-Avoidance) 另外解释了如何验证避障系统是否有效。
-
-如果您已经在机载计算机上安装了 [镜像](#install_image_mission_computer) 您只需为该无人机供电(即不需要U盘)。 避障系统应在30秒内启动并运行。
-
-机载计算机一旦启动，就可以用作计算机视力开发环境和运行软件的环境。
+Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
 <span id="login_mission_computer"></span> 
 
 
 ### 登录机载计算机
 
-登录到机载计算机:
+To login to the companion computer:
 
 1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
    
@@ -277,11 +280,11 @@ Ubuntu 登录屏幕应显示在显示器上。
 
 ### 开发/扩展 PX4 避障功能
 
-PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
+ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
 
-Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地计划程序。 引导启动文件 (`撤销.launch`) 位于 `px4vision_ros` 软件包中（修改此文件以更改启动计划程序的文件）。
+The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
 
-避障程序包在引导时启动。 要集成其他规划，需要禁用此功能。
+The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
 1. 使用以下指令禁用避障程序： 
    
@@ -327,29 +330,29 @@ Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地�
    ```
 
 
-ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
+The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
 
 
 
 
 ### 开发 PX4 固件
 
-该套件旨在创建可在机载计算机上运行的计算机视觉软件，并与PX4的灵活路径规划和防撞界面集成在一起。
+软件问题，请使用以下 [社区支持频道](README.md#support)：
 
-您也可以修改 PX4 本身，然后 [将其安装为自定义固件](../config/firmware.md#custom)：
+软件问题，请使用以下社区支持频道：
 
 - 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-
-
-> **Note** *不需要* 修改即可满足大多数计算机视觉用例的需要。 要讨论接口或如何集成其他功能，请加入PX4 slack 通道：＃computer-vision。
+:::note
+Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+:::
 
 
 
 ## 其他拓展资源
 
-硬件问题，请联系 Holybro： [productservice@holybro.com](mailto:productservice@holybro.com)。
+The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
 
 
 
@@ -366,9 +369,9 @@ ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工�
 
 ## 如何获得技术支持
 
-软件问题，请使用以下 [社区支持频道](README.md#support)：
+For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
-软件问题，请使用以下社区支持频道：
+For software issues, use the following community support channels:
 
 - [PX4讨论：计算机视觉分类。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
 - [PX4 slack](https://slack.px4.io/) 频道: #避障

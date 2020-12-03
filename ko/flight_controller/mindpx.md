@@ -8,11 +8,15 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
-> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
-> **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+:::note
+The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+:::
 
 MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
 
@@ -309,11 +313,10 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
         User Guide
       </h2>
       
-      <blockquote>
-        <p>
-          <strong>Note</strong> The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
-        </p>
-      </blockquote>
+      <p>
+        :::note The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
+:::
+      </p>
       
       <h2>
         Where to Buy

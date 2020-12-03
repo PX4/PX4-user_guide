@@ -43,7 +43,9 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Pix32 v5 with GPS](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::note
+The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::
 
 ## Power
 
@@ -62,10 +64,13 @@ Connect the output of the *Power Module* as shown.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
 - PM power output (XT60 female connector): wire out to any motor ESCs.
 
-> **Note** As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::note
+As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::
 
-<span></span>
+:::note
 > **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::
 
 The power module has the following characteristics/limits:
 - Max input voltage: 60V
@@ -77,7 +82,9 @@ The power module has the following characteristics/limits:
   - 6pin MLX cable (1)
   - 6pin GH cable (1)
 
-> **Note** See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::note
+See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+:::
 
 ### Battery Configuration
 
@@ -131,7 +138,9 @@ Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN**) an
 
 The motors must be separately [powered](#power).
 
-> **Note** If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::note
+If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+:::
 
 ## Other Peripherals
 

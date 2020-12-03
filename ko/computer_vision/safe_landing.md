@@ -20,7 +20,9 @@ Safe landing is designed for finding flat areas in rough terrain.
 
 Safe landing is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 
-> **Note** `COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+:::note
+`COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+:::
 
 ## Companion Computer Setup
 
@@ -37,13 +39,13 @@ The configuration information includes, among other things, how to set up safe l
 
 ## 안전 착륙 인터페이스
 
-PX4는 [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)를 활용하여 보조 컴퓨터상에서 경로 계획 서비스를 통합합니다([임무간 충돌 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 그리고 앞으로 채택할 서비스에 해당).
+PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
 
 The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
 
 ## 지원 하드웨어
 
-시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
+Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
 
 ## 추가 정보
 

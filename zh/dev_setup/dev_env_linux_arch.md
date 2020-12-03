@@ -6,9 +6,11 @@
 
 ![Arch上使用Gazebo](../../assets/simulation/gazebo/arch-gazebo.png)
 
-> **Note** *genromfs* is also available in the [Archlinux User Repository](https://aur.archlinux.org/packages/genromfs/) (AUR). To use this package, install [yaourt](https://archlinux.fr/yaourt-en) (Yet AnOther User Repository Tool) and then use it to download, compile and install *genromfs* as shown:
+:::note
+The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
+:::
 
-To install using this script, enter the following in a terminal:
+该脚本可以加入这些可选的参数：
 * [Download PX4 Source Code](../dev_setup/building_px4.md) and run the scripts in place:
   ```
   wget https://raw.githubusercontent.com/PX4/containers/master/docker/px4-dev/scripts/archlinux_install_script.sh
@@ -20,7 +22,9 @@ source ./archlinux_install_script.sh
   Once ArchLinux is installed you can use the docker script <a href="https://github.com/PX4/containers/blob/master/docker/px4-dev/scripts/archlinux_install_script.sh">archlinux_install_script.sh</a> to install all dependencies required for building PX4 firmware.
   ```
 
-该脚本可以加入这些可选的参数：
-- `--gazebo`：添加此参数从 [AUR](https://aur.archlinux.org/packages/gazebo/) 安装 Gazebo 仿真器。 > **Note** Gazebo gets compiled from source. 这个过程需要花费一些时间并且需要添加 `sudo` 并多次输入密码（对于依赖项）。
-- `--no-nuttx`: 不要安装 NuttX/Pixhawk 的工具链 (比如你只想使用仿真器的功能)。
+The script takes the following optional parameters:
+- `--gazebo`: Add this parameter parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/). :::note Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
+:::
+
+- `--no-nuttx`: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).
 - `--no-sim-tools`：不要安装 jMAVSim/Gazebo 仿真器（例如你只想使用或者开发调试 Pixhawk/NuttX）

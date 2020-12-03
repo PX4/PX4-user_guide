@@ -6,17 +6,19 @@
 
 飞机基于俯仰输入爬升/下降，如果滚转/俯仰杆输入非零，则执行协调转弯。 滚转和俯仰是角度控制的（您不能倒滚或循环）。
 
-> *稳定模式*比[手动模式](../flight_modes/manual_fw.md)更容易飞行，因为你不能滚动或翻转飞机，并且通过控制杆回中很容易使飞机保持水平。
+:::tip
+*Stabilized mode* is much easier to fly than [Manual mode](../flight_modes/manual_fw.md) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+:::
 
-如果油门降至0％（电机停止），飞机将滑行。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果滚动杆被释放，则飞机将停止转动并自行改平（对于俯仰和偏航命令也是如此）。
+The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![固定翼手动飞行](../../assets/flight_modes/manual_stabilized_FW.png)
+![FW Manual Flight](../../assets/flight_modes/manual_stabilized_FW.png)
 
 ## 技术描述
 
-遥控/手动模式，杆回中使飞机改平。
+RC/manual mode where centered RP sticks level vehicle.
 
 * 杆回中会使飞机进入定直平飞。 但是飞行航向和高度并不稳定，可能被风吹飘离。
 * 如果滚转/俯仰杆输入非零，则飞机进行协调转弯（手动偏航输入被添加到方向舵控制输入以控制侧滑）。

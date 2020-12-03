@@ -2,9 +2,11 @@
 
 *QGroundControl* 被用来在飞行控制器硬件上安装 [固件](../config/firmware.md) 、 选择 [机型](../config/airframe.md)，以及配置PX4在飞行器上需要的核心传感器 (罗盘、GPS、陀螺仪等)。
 
-> **Tip** 在开始本部分之前，您应该 [下载QGroundControl](http://qgroundcontrol.com/downloads/) 并将其安装在 **桌面** 计算机上（*QGroundControl* 不支持移动平台上的飞机配置）。
+:::tip
+Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+:::
 
-本节包含的 *重要* 配置如下：
+This section contains *essential* configuration topics:
 
 * [固件](../config/firmware.md)
 * [机架](../config/airframe.md)
@@ -21,17 +23,19 @@
 * [Safety](../config/safety.md) (optional)
 * [电机/舵机](../config/motors.md)
 
-> **Note** 对于 [支持的机架](../config/airframe.md) 只需要这种基本配置。 如果要创建新的机架，还需要执行调整 (请参阅 [高级配置](../advanced_config/README.md) )。
+:::note
+For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
+:::
 
 ## 视频教程
 
-下面的视频详细介绍了校准过程。
+The video below shows the calibration process in detail.
 
 {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
 
 ## 支持
 
-如果您需要有关配置信息的帮助，请在 [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)上寻求帮助。
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
 
 ## 更多信息
 

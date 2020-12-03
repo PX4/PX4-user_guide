@@ -18,7 +18,9 @@ MindRacer is a fully stackable flight platform for miniature UAVs. Based on [Min
 
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
-> **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+:::note
+The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+:::
 
 - Ultra mini size, weight ~6g
 - High performance STM32F427 168MHz floating point processor, super fast throttle response
@@ -73,7 +75,9 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ### User Guide
 
-> **Note** The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+:::note
+The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+:::
 
 ## Where to Buy
 

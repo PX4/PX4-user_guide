@@ -60,7 +60,9 @@ Direct accessible from RPi:
 
 ## Pinout
 
-> **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+:::warning
+It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+:::
 
 ### Connectors
 
@@ -122,7 +124,9 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2   | VCC    | +5V    |
 | 3   | GND    | GND    |
 
-> **Note** ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note
+ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::
 
 #### Unused GPIO available on top of the board
 

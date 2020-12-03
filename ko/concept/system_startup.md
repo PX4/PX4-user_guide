@@ -14,7 +14,8 @@ PX4 시작은 쉘 스크립트로 제어합니다. NuttX에서 쉘 스크립트�
 POSIX에서는 시스템 셸을 셸 인터프리터로 사용합니다 (예. /bin/sh는 우분투에서 대시로 심볼릭링크함) 동작하기 위한 몇가지 조건들이 있습니다.
 - PX4 모듈은 시스템에서 개별적으로 실행할 수 있어야합니다. 이 동작은 심볼릭 링크로 처리합니다. 빌드 폴더의 `bin` 디렉터리에 각 모듈의 `px4-<module> -> px4` 심볼릭 링크를 만듭니다. 이 심볼릭 링크를 실행하면 바이너리 경로를 확인(`argv[0]`) 하고, 모듈로 판명이 나면 (`px4-`), PX4 주 인스턴스로 명령을 보냅니다(하단 참조).
 
-  > **Tip** `px4-` 접두어는 시스템 명령어와의 충돌을 피하기 위해 사용합니다 (예. `shutdown`), 그리고 `px4-<TAB>`를 입력했을 때 간단하게 동작하는 자동 완성도 지원합니다.
+  :::tip The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+:::
 - 쉘은 심볼릭 링크를 찾을 위치를 알아야합니다. 이 때문에 시동 스크립트를 실행하기 전 심볼릭 링크가 들어있는 `bin` 디렉터리를 `PATH` 환경 변수에 추가합니다.
 - 셸에서는 각 모듈을 새 (클라이언트) 프로세스로 시작합니다. 각 클라이언트 프로세스는 PX4(서버)의 주 인스턴스와 통신해야 하는데, 실제 모듈은 스레드로 실행합니다. 이 일련의 과정은 [UNIX 소켓](http://man7.org/linux/man-pages/man7/unix.7.html)으로 처리합니다. 서버는 클라이언트가 연결하고 명령을 보낼 수 있는 소켓으로 수신 대기합니다. 그 다음 서버에서는 출력을 내보내고 클라이언트에 코드를 반환합니다.
 - 시동 스크립트는 `px4-` 접두어를 쓰지 않고 `commander start` 명령처럼 모듈을 직접 호출합니다. 이 과정은 alias로 진행합니다. `bin/px4-alias.sh` 파일 실행시 각 모듈에 대해 `alias <module>=px4-<module>` 모듈과 같은 모양새로 별칭을 만듭니다.
@@ -57,25 +58,26 @@ NuttX에는 통합 셸 인터프리터가 있으며([NuttShell (NSH)](https://cw
 
 시스템 시동 스크립트를 개별 설정하는 최상의 방법은 [새 기체프레임 설정](../dev_airframes/adding_a_new_frame.md)을 도입하는 방법입니다. 약간의 수정만이 필요하다면(프로그램을 하나 이상 시작하거나 다른 믹서를 사용하는 경우) 시동 과정에 특별한 훅을 활용할 수 있습니다.
 
-> **Caution** 시스템 부팅 파일은 UNIX 개행 문자가 들어가야 하는 UNIX 파일입니다. 윈도우에서 편집한다면 적절한 편집기를 사용하십시오.
-
 세가지 주요 훅이 있습니다. 참고로 마이크로 SD 카드의 루트 폴더는 `/fs/microsd` 경로로 나타냅니다.
-
-  * /fs/microsd/etc/config.txt
-  * /fs/microsd/etc/extras.txt
-  * /fs/microsd/etc/mixers/NAME_OF_MIXER
-
-#### 개별 구성 (config.txt)
+:::
 
 `config.txt` 파일은 셸 변수 값을 바꿀때 활용할 수 있습니다. 부팅하기 *전에 * 주 시스템을 구성할 때 불러옵니다.
 
-#### 추가 프로그램 시작
+* /fs/microsd/etc/config.txt
+* /fs/microsd/etc/extras.txt
+* /fs/microsd/etc/mixers/NAME_OF_MIXER
+
+#### 개별 구성 (config.txt)
 
 `extras.txt` 파일은 주 시스템 부팅 실행 후 프로그램을 추가로 시작할 때 활용할 수 있습니다. 보통 추가로 시작하는 프로그램은 적재 장치 제어 프로그램이거나, 이와 유사한 추가 개별 요소일 수 있습니다.
 
-> **Caution** 시스템 부팅 파일에서 알 수 없는 명령을 호출하면 부팅이 실패합니다. 보통 시스템에서는 부팅에 실패하면 MAVLink 메시지를 내보내지 않는데, 이 경우 시스템 콘솔에 출력한 오류 메시지를 확인해보셔야 합니다.
+#### 추가 프로그램 시작
 
-다음 예제는 개별 프로그램을 시작하는 방법을 보여줍니다:
+The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
+
+기본적으로 시스템은 `/etc/mixers`에서 믹서를 불러옵니다. `/fs/microsd/etc/mixers`에 동일한 이름이 들어간 파일이 있다면, 이 파일을 대신 불러옵니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
+
+다음 예제에서 개별 AUX 믹서를 추가하는 방법을 보여줍니다:
   * SD 카드에 다음의 내용을 넣어 `etc/extras.txt` 파일을 만드십시오:
     ```
     custom_app start
@@ -91,11 +93,11 @@ NuttX에는 통합 셸 인터프리터가 있으며([NuttShell (NSH)](https://cw
 
 #### 개별 믹서 시작
 
-기본적으로 시스템은 `/etc/mixers`에서 믹서를 불러옵니다. `/fs/microsd/etc/mixers`에 동일한 이름이 들어간 파일이 있다면, 이 파일을 대신 불러옵니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
+By default the system loads the mixer from `/etc/mixers`. If a file with the same name exists in `/fs/microsd/etc/mixers` this file will be loaded instead. This allows to customize the mixer file without the need to recompile the Firmware.
 
 ##### 예제
 
-다음 예제에서 개별 AUX 믹서를 추가하는 방법을 보여줍니다:
+The following example shows how to add a custom aux mixer:
   * SD 카드에 믹서 내용이 들어간 `etc/mixers/gimbal.aux.mix` 파일을 만드십시오.
   * 그 다음 이 파일을 사용하려면, 아래 내용이 들어간 `etc/config.txt` 추가 파일을 만드십시오:
     ```

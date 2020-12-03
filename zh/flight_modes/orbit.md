@@ -10,9 +10,11 @@ The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in m
 
 Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
 
-> **Note** The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+:::note
+The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+:::
 
-RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
+下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 - **Left stick:** 
   - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes/position_mc.md). When in center deadzone, altitude is locked.
@@ -23,7 +25,7 @@ RC control can be used to change the orbit altitude, radius, speed, and orbit di
   - *up/down:* controls orbit radius (smaller/bigger). When centered the current radius is locked. 
     - Minimum radius is 1m. Maximum radius is 100m.
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
 

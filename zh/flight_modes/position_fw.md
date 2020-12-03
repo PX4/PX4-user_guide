@@ -6,15 +6,17 @@
 
 油门确定空速（在50％油门时，飞机将以预设的巡航速度保持其当前高度）。 俯仰用于爬升或下降。 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
 
-> 位置模式是对于新手而言最安全的固定翼手动模式。
+:::tip
+Position mode is the safest fixed-wing manual mode for new fliers.
+:::
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![固定翼位置模式](../../assets/flight_modes/position_FW.png)
+![FW Position Mode](../../assets/flight_modes/position_FW.png)
 
 ## 技术描述
 
-回正摇杆使得水平飞行，沿着直线地面轨道在当前方向飞行并能抗风。
+Centered RC RPY sticks – gives level flight that follows a straight line ground track in the current direction against any wind.
 
 ## 参数
 
