@@ -1,19 +1,22 @@
 # Bash on Windows 工具链
 
-> **注意：** [Windows Cygwin 工具链](../setup/dev_env_windows_cygwin.md) 是Windows平台唯一获得官方支持的开发环境。
+:::note
+The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::
 
-Windows 用户还可以选择在 [Bash on Windows](https://github.com/Microsoft/BashOnWindows) 中安装经过 *少许修改* 的基于Ubuntu Linux的PX4 开发环境 ，该开发环境可用于：
+设置开发环境的最简单的方法是使用 **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download>windows_bash_nuttx.sh</a>** 安装脚本 （脚本文件的详细说明见 [下文](#build_script_details)）。
 * 编译针对 NuttX/Pixhawk 平台的固件。
 * 使用 JMAVSim 进行PX4仿真 (需要搭配一个基于Windows的 X-Windows 应用来显示仿真UI界面)。
 
-> **注意：** 本特性仅可在Windows 10上实现， 它本质上仍是在虚拟机中运行工具链, 与其他解决方案相比运行相对缓慢。 它本质上仍是在虚拟机中运行工具链, 与其他解决方案相比运行相对缓慢。
-
+:::note
+This mechanism only works on Windows 10. It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
+:::
 
 ### 设置开发环境
 
-设置开发环境的最简单的方法是使用 **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download>windows_bash_nuttx.sh</a>** 安装脚本 （脚本文件的详细说明见 [下文](#build_script_details)）。 <!-- NEED px4_version -->
+固件编译流程（以编译 px4_fmu-v4 的固件为例）： <!-- NEED px4_version -->
 
-要设置开发环境, 请执行以下操作:
+To setup the development environment:
 1. 在Windows 10上启用、安装 [Bash on Windows](https://github.com/Microsoft/BashOnWindows)。
 1. 打开 bash shell 命令行界面。
 1. 下载 **windows_bash_nuttx.sh** 脚本文件: `wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh` <!-- NEED px4_version -->
@@ -24,7 +27,7 @@ Windows 用户还可以选择在 [Bash on Windows](https://github.com/Microsoft/
 
 ### 编译固件
 
-固件编译流程（以编译 px4_fmu-v4 的固件为例）：
+JMAVSim 运行流程：
 1. 在 bash shell 命令行界面输入如下指令：
    ```
    cd ~/src/Firmware
@@ -32,16 +35,17 @@ Windows 用户还可以选择在 [Bash on Windows](https://github.com/Microsoft/
    ```
    成功完成编译后可以在 `Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4` 文件夹下找到编译好的固件。
 
-   > **注意：** 为其它飞控板编译固件的 `make` 指令参见 [编译代码](../setup/building_px4.md#nuttx--pixhawk-based-boards)
+   :::note The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+:::
 
 1. 在 Windows 平台上无法直接在 bash shell 中使用 `upload` 命令完成固件的烧写，你可以使用 *QGroundControl* 或者 *Mission Planner* 烧写自定义的固件。
 
 
 ### 仿真模拟 （JMAVSim）
 
-Bash on Windows 并不包括任何UI库的支持。 为了显示 jMAVSim 的UI界面，在进行仿真之前你需要在 Windows 平台上安装 X-Window 图形用户接口应用，比如： [XMing](https://sourceforge.net/projects/xming/)。
+Bash on Windows does not include support for UI libraries. In order to display the jMAVSim UI you will first need to install an X-Window application like [XMing](https://sourceforge.net/projects/xming/) into Windows.
 
-JMAVSim 运行流程：
+此外， 由于 Bash on Windows 不支持运行32位 ELF 程序，该脚本弃用了来自 `https://launchpad.net/gcc-arm-embedded` 的默认32位编译器，改用 [64 bit arm-none-eabi compiler](https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git) 。
 1. 在 Windows 平台安装并启动 [XMing](https://sourceforge.net/projects/xming/)。
 1. 在 bash shell 命令行界面输入如下指令： sh export DISPLAY=:0 >
    ```sh
@@ -51,7 +55,8 @@ JMAVSim 运行流程：
   make px4_sitl gazebo
    ```
 
-   > **提示：** 将上一行命令加入 Ubuntu 的 **.bashrc** 文件末尾可避免在新的 bash 会话中重复输入该命令。
+   :::tip Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+:::
 1. 在 bash shell 界面中启动 px4 和 jmavsim：
    ```sh
    make px4_sitl jmavsim
@@ -60,23 +65,24 @@ JMAVSim 运行流程：
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-> **注意！ ** Gazebo 也可以以类似方式在 Ubuntu Bash for Windows 中运行，但运行速度太慢以至于没有实用价值。 如要尝试运行，请遵循 [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) 的指示然后在 Bash shell 界面中使用如下命令运行Gazebo： 
-> 
-> ```sh
-  export DISPLAY=:0
-  export GAZEBO_IP=127.0.0.1
-  make px4_sitl gazebo
+:::caution
+Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
+```sh
+export DISPLAY=:0
+export GAZEBO_IP=127.0.0.1
+make px4_sitl gazebo
 ```
+:::
 
-<a id="build_script_details" mark="crwd-mark"></a>
+<a id="build_script_details"></a>
 
 ### 开发环境安装脚本详情
 
-Bash on Windows开发环境的 [windows_bash_nuttx.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh) 安装脚本在 Ubuntu 开发环境搭建脚本的基础上进行了修改，移除了包括包括 *Qt Creator* IDE 和模拟器仿真程序在内的所有 Ubuntu 独有的以及与UI界面相关的程序组件。
+The <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh">windows_bash_nuttx.sh</a> <!-- NEED px4_version --> build script modifies the Ubuntu build instructions to remove Ubuntu-specific and UI-dependent components, including the *Qt Creator* IDE and the simulators.
 
-此外， 由于 Bash on Windows 不支持运行32位 ELF 程序，该脚本弃用了来自 `https://launchpad.net/gcc-arm-embedded` 的默认32位编译器，改用 [64 bit arm-none-eabi compiler](https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git) 。
+In addition, it uses a [64 bit arm-none-eabi compiler](https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git) since BashOnWindows doesn't run 32 bit ELF programs (and the default compiler from `https://launchpad.net/gcc-arm-embedded` is 32 bit).
 
-手动将此编译器添加到您的环境中请执行以下操作:
+To add this compiler to your environment manually:
 
 1. 下载编译器:
    ```sh
