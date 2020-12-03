@@ -2,15 +2,17 @@
 
 本主题介绍如何使用 JMAVSim和 SITL 模拟多架 (多旋翼) 无人机。 在仿真中所有无人机实例均在同一位置启动。
 
-> **Tip** 这是模拟多架运行 PX4 无人机的最简单的方法。 可用于测试 *QGroundControl*对多无人机的支持 (或 [Dronecode SDK](https://sdk.dronecode.org/en/)) 。 [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) 应用于使用多架无人机进行无人机蜂群模拟，或者用于测试仅有 Gazebo 仿真平台支持的一些特性，比如计算机视觉。
+:::tip
+This is the easiest way to simulate multiple vehicles running PX4. It is suitable for testing multi-vehicle support in *QGroundControl* (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.). [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
+:::
 
-<span></span>
-> **Note** JMAVSim 多飞行器仿真仅适用于 PX4 v1.8.0 及更高版本。
-
+:::note
+JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
+:::
 
 ## 如何启动多个飞行器实例
 
-要启动多个无人机实例 请执行以下操作（每架无人机使用一个单独的端口）：
+像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
 
 1. 编译 PX4 `make px4_sitl_default`
    ```
@@ -30,9 +32,9 @@
    ```
    端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
-*QGroundControl* 和开发者 APIs (比如 Dronecode SDK) 可以通过代码默认端口连接到所有实例（分别为14550 和 14540）。
+Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
 
-像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
+Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on.
 
 ## 额外资源
 
