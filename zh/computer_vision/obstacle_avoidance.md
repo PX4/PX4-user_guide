@@ -14,7 +14,7 @@
 
 - 自主避障的最大速度当前约为 3m/s（由于计算避障路径的开销）。
   
-  :::note Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+  :::note 避障可以使用 *local planner* 规划器以约 30Hz 的速度发出消息，并且以约 3m/s的速度移动）或全局规划器（以约 10Hz 和任务速度发出消息，自主避障速度约为 1-1.5 m/s）。
 :::
 
 <span id="offboard_mode"></span>
@@ -58,7 +58,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 PX4 通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) 为1 来使能自主避障功能。
 
 :::note
-`COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+`COM_OBS_AVOID` 还使能了 [安全着陆](../computer_vision/safe_landing.md)，以及使用了 PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) （轨迹接口）将外部路径规划服务与 PX4 集成的其他功能。
 :::
 
 ## 机载计算机设置
