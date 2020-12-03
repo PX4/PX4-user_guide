@@ -66,7 +66,9 @@ The debug port location and pinouts for a small subset of autopilots are linked 
 | [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)           | Solder pads                                                                                                                                                                                                                                 |
 | [Holybro Durandal](../flight_controller/durandal.md#debug-port)            | [Pixhawk 6-pin SH Debug](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                      |
 
-> **Tip** Check the [autopilot topics](../flight_controller/README.md) if your flight controller is not listed.
+:::tip
+Check the [autopilot topics](../flight_controller/README.md) if your flight controller is not listed.
+:::
 
 <a id="pixhawk_standard_debug_ports"></a>
 
@@ -74,7 +76,9 @@ The debug port location and pinouts for a small subset of autopilots are linked 
 
 The Pixhawk project has defines a standard pinout and connector type for different Pixhawk FMU releases:
 
-> **Tip** Check your [specific board](#port_information) to confirm the port used.
+:::tip
+Check your [specific board](#port_information) to confirm the port used.
+:::
 
 | FMU Version | Pixhawk Ver.                                                    | Debug Interface                                  |
 | ----------- | --------------------------------------------------------------- | ------------------------------------------------ |
@@ -86,7 +90,9 @@ The Pixhawk project has defines a standard pinout and connector type for differe
 | FMUv6       | Pixhawk 6                                                       | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
 | FMUv6X      | Pixhawk 6                                                       | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
 
-> **Note** There FMU and Pixhawk versions are (only) consistent after FMUv5X.
+:::note
+There FMU and Pixhawk versions are (only) consistent after FMUv5X.
+:::
 
 <a id="pixhawk_debug_port_6_pin_sh"></a>
 
@@ -94,7 +100,9 @@ The Pixhawk project has defines a standard pinout and connector type for differe
 
 The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines a *6-Pin SH Debug Port* that provides access to both SWD pins and the [System Console](../debug/system_console.md).
 
-> **Note** This debug port is used in FMUv4 and FMUv5.
+:::note
+This debug port is used in FMUv4 and FMUv5.
+:::
 
 The pinout is as shown below (SWD pins highlighted):
 
@@ -128,7 +136,9 @@ You can connect to the debug port using a [cable like this one](https://www.digi
 
 The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)  defines a *10-Pin SH Debug Port* that provides access to both SWD pins and the [System Console](../debug/system_console.md). This essentially moves the solder pads from beside the [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh) into the connector, and also adds an SWO pin.
 
-> **Note** This port is specified for use in FMUv5x, FMUv6, FMUv6x.
+:::note
+This port is specified for use in FMUv5x, FMUv6, FMUv6x.
+:::
 
 The pinout is as shown below (SWD pins highlighted):
 
@@ -177,7 +187,9 @@ The pin mapping to connect the J-Link Edu Mini to [Pixhawk 6-Pin SH Debug Port](
 | 5 (SWDCLK)     | 4           |
 | 6 (GND)        | 3 or 5      |
 
-> **Tip** From the table above you can infer the connections for autopilots that do not use the standard port.
+:::tip
+From the table above you can infer the connections for autopilots that do not use the standard port.
+:::
 
 <!-- Image of SWD cable and connector to debug port? --> 
 
@@ -192,10 +204,13 @@ The probe's USB interface exposes two separate virtual serial port interfaces: o
 
 The probe provides a DCD-M connector cable for attaching to the [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh).
 
-> **Note** The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
+:::note
+The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
+:::
 
-<span></span>
-> **Note** The *Dronecode Probe* is based on the [Black Magic Probe](#black_magic_probe).
+:::note
+The *Dronecode Probe* is based on the [Black Magic Probe](#black_magic_probe).
+:::
 
 <a id="black_magic_probe"></a>
 
