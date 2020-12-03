@@ -96,7 +96,9 @@ Transition into the wind, whenever possible otherwise it will travel further fro
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
-> **Caution** The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+:::caution
+The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+:::
 
 #### 过渡：从固定翼模式过渡到多旋翼模式（后转换）
 
@@ -104,7 +106,7 @@ When you transition back to multirotor mode bring your aircraft in on a straight
 
 Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
 
-对于更多得后转换配置，请看 [后转换调参指南](vtol_back_transition_tuning.md)
+For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
 <span id="aborting_a_transition"></span>
 
