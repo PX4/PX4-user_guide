@@ -4,7 +4,9 @@
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
 :::
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
 
@@ -52,7 +54,9 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 
 ## Pinouts
 
-> **Warning** Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::warning
+Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::
 
 Detailed pinout information can be found here: [Qualcomm Developer Network](https://developer.qualcomm.com/hardware/snapdragon-flight/board-pin-outs).
 
