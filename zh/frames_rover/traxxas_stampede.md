@@ -34,7 +34,9 @@ The assembly consists of a wooden frame on which all the autopilot parts were at
 
 For this particular mounting we chose to use the clip supplied with the rover to attach the upper plate. For this, two supports were 3D printed. The CAD files are provided [here](https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
-> **Warning** It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual) so to reduce the power to 50%.
+:::warning
+It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual) so to reduce the power to 50%.
+:::
 
 ## Output Connections
 
@@ -43,7 +45,9 @@ For this particular mounting we chose to use the clip supplied with the rover to
 | MAIN2      | Steering servo |
 | MAIN4      | ESC input      |
 
-> **Note** As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
+:::note
+As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
+:::
 
 ## 配置
 
@@ -56,13 +60,15 @@ The main rover-specific configuration is setting the correct frame:
 3. Scroll down the list to find the **Rover** icon. 
 4. Choose **Traxxas stampede vxl 2wd** from the drop down list.
 
-![选择机架](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
 ## 用法
 
 At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
 
-> **Warning** It is ***VERY IMPORTANT*** to do a mission composed ***ONLY*** of normal waypoints (i.e. ***NO TAKEOFF WAYPOINTS***) and it is crucial to ***SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0*** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+:::warning
+It is ***VERY IMPORTANT*** to do a mission composed ***ONLY*** of normal waypoints (i.e. ***NO TAKEOFF WAYPOINTS***) and it is crucial to ***SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0*** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+:::
 
 A correct mission setup looks as follows:
 
