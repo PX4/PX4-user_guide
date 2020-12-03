@@ -24,9 +24,11 @@ make px4_fmu-v5_default qconfig
 
 For fresh installs of PX4 onto Ubuntu using [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> you will also need to install *kconfig* tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
 
-> **Note** 如果使用的是 [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker 容器作为开发环境或者根据我们的标准指南在 macOS 上安装的开发环境（这些情况下已经默认安装了 `kconfig-mconf` ），那么你并不需要执行下述步骤。
+:::note
+The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
+:::
 
-在任意目录运行以下命令：
+Run the following commands from any directory:
 ```sh
 git clone https://bitbucket.org/nuttx/tools.git
 cd tools/kconfig-frontends
@@ -36,9 +38,9 @@ make
 sudo make install
 ```
 
-The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable). `--enable-mconf` 和 `--enable-qconf` 选项将会分别启用 `menuconfig` 和 `qconfig` 这两个选项。
+The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable). The `--enable-mconf` and `--enable-qconf` options will enable the `menuconfig` and `qconfig` options respectively.
 
-想运行 `qconfig` 的话你可能还需要安装额外的 Qt 依赖项。
+To run `qconfig` you may need to install additional Qt dependencies.
 
 ### Bootloader
 
