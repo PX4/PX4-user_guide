@@ -22,7 +22,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.jpg)
 
-> **Tip** More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+:::tip
+More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+:::
 
 ## Mount and Orient Controller
 
@@ -30,10 +32,13 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Pix32 v5 With Orientation](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
-<span></span>
-> **Tip** The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::tip
+The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
@@ -69,7 +74,7 @@ As this power module does not include power distribution wiring, you would norma
 :::
 
 :::note
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
 :::
 
 The power module has the following characteristics/limits:
@@ -128,7 +133,9 @@ SD cards are most commonly used to [log and analyse flight details](../getting_s
 
 ![Pix32 v5 With SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-cards).
+:::tip
+The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-cards).
+:::
 
 ## Motors
 
