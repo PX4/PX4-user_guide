@@ -28,7 +28,9 @@ rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
 
 ### Write a new MAVROS test (Python)
 
-> **Note** Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
+:::note
+Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
+:::
 
 #### 1.) Create a new test script
 
