@@ -12,7 +12,9 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 
 Wiring information is available [below](#wiring).
 
-> **Note** This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+:::note
+This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+:::
 
 :::tip
 This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
@@ -117,9 +119,8 @@ The *Pixhawk Mini* is shipped with the following contents:
 
 ## Optional accessories
 
-- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European)
-  
-  > **Note** When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European) :::note When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+:::
 
 - 3DR 10S Power Module
 
@@ -177,7 +178,9 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
 
 ## Wiring Quick Start
 
-> **Warning** The *Pixhawk Mini* is no longer manufactured or available from 3DR.
+:::warning
+The *Pixhawk Mini* is no longer manufactured or available from 3DR.
+:::
 
 This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals.
 
@@ -185,9 +188,11 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). We'll go through each main part in the following sections.
 
-![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)  
+![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
-> **Note** The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+:::note
+The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+:::
 
 ### Mount and Orient Controller
 
@@ -197,7 +202,9 @@ The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam p
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
 ### GPS + Compass
 
@@ -213,7 +220,9 @@ The compass must be calibrated before it is first used: [Compass Calibration](.
 
 The image below shows typical power-supply wiring when using *Pixhawk Mini* in a Quadcopter. This uses the *Quad Power Distribution Board* that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
 
-> **Note** The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
+:::note
+The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
+:::
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
@@ -253,11 +262,13 @@ The controller has an integrated safety switch that you can use for motor activa
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
-> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+:::caution
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+:::
 
-<span></span>
-
-> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+:::tip
+If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+:::
 
 Notes:
 
