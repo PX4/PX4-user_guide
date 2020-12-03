@@ -218,6 +218,18 @@ listener <command> [arguments...]
      [-r <val>]  Subscription rate (unlimited if 0)
                  default: 0
 ```
+## mfd
+Source: [systemcmds/mft](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mft)
+
+Utility interact with the manifest
+<a id="mfd_usage"></a>
+
+### Usage
+```
+mfd <command> [arguments...]
+ Commands:
+   query         Returns true if not existed
+```
 ## mixer
 Source: [systemcmds/mixer](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mixer)
 
@@ -248,32 +260,31 @@ Application to test motor ramp up.
 
 Before starting, make sure to stop any running attitude controller:
 ```
-mc_att_control stop
-fw_att_control stop
+motor_ramp sine 1100 0.5
 ```
 
 When starting, a background task is started, runs for several seconds (as specified), then exits.
 
 ### Example
 ```
-motor_ramp sine 1100 0.5
+motor_ramp sine -a 1100 -r 0.5
 ```
 
 <a id="motor_ramp_usage"></a>
 
 ### Usage
 ```
-motor_test <command> [arguments...]
-     Commands:
-   test          Set motor(s) to a specific output value
-     [-m <val>]  Motor to test (0...7, all if not specified)
-                 default: -1
-     [-p <val>]  Power (0...100)
-                 default: 0
+motor_ramp [arguments...]
+     ramp|sine|square mode
+     [-d <val>]  Pwm output device
+                 default: /dev/pwm_output0
+     -a <val>    Select minimum pwm duty cycle in usec
+     [-b <val>]  Select maximum pwm duty cycle in usec
+                 default: 2000
+     [-r <val>]  Select motor ramp duration in sec
+                 default: 1.0
 
-   stop          Stop all motors
-
-   iterate       Iterate all motors starting and stopping one after the other
+ WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
 Source: [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test)
@@ -281,7 +292,7 @@ Source: [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/
 
 Utility to test motors.
 
-WARNING: remove all props before using this command.
+Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 
 <a id="motor_test_usage"></a>
 
@@ -305,7 +316,8 @@ motor_test <command> [arguments...]
 ## mtd
 Source: [systemcmds/mtd](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd)
 
-Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)<a id="mtd_usage"></a>
+Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
+<a id="mtd_usage"></a>
 
 ### Usage
 ```
@@ -313,23 +325,19 @@ mtd <command> [arguments...]
  Commands:
    status        Print status information
 
-   start         Mount partitions
-
    readtest      Perform read test
 
    rwtest        Perform read-write test
 
    erase         Erase partition(s)
 
-   has-secondary Check if the board has configured a secondary device
-
- The commands 'start', 'readtest' and 'rwtest' have an optional instance index:
+ The commands 'readtest' and 'rwtest' have an optional instance index:
      [-i <val>]  storage index (if the board has multiple storages)
                  default: 0
 
- The commands 'start', 'readtest', 'rwtest' and 'erase' have an optional
- parameter:
-     [<partition_name1> [<partition_name2> ...]] Partition names (eg. /fs/mtd_params), use system default if not provided
+ The commands 'readtest', 'rwtest' and 'erase' have an optional parameter:
+     [<partition_name1> [<partition_name2> ...]] Partition names (eg.
+                 /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
 Source: [systemcmds/nshterm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/nshterm)
@@ -354,14 +362,14 @@ Command to access and manipulate parameters via shell or script.
 
 This is used for example in the startup script to set airframe-specific parameters.
 
-Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
+Parameters are automatically saved when changed, eg. with `param set`. It is used to only show relevant parameters to a ground control station. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
 
 If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
 
 Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
 
 ### Examples
-Change the airframe and make sure the airframe's default parameters are loaded:
+Tool to print performance counters
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -404,22 +412,19 @@ param <command> [arguments...]
      [-s]        If provided, silent errors if parameter doesn't exists
      <param_name> <value> Parameter name and value to compare
 
-   greater       Compare a param with a value. Command will succeed if equal
-     <param_name> <value> Parameter name and value to compare
-
    greater       Compare a param with a value. Command will succeed if param is
                  greater than the value
+     [-s]        If provided, silent errors if parameter doesn't exists
+     <param_name> <value> Parameter name and value to compare
      <param_name> <value> Parameter name and value to compare
 
    touch         Mark a parameter as used
      [<param_name1> [<param_name2>]] Parameter name (one or more)
 
-   reset         Reset params to default
-     [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
-                 allowed)
+   reset         Reset only specified params to default
+     [<param1> [<param2>]] Parameter names to reset (wildcard at end allowed)
 
-   reset_nostart Reset params to default, but keep SYS_AUTOSTART and
-                 SYS_AUTOCONFIG
+   reset_all     Reset all params to default
      [<exclude1> [<exclude2>]] Do not reset matching params (wildcard at end
                  allowed)
 
@@ -435,7 +440,8 @@ param <command> [arguments...]
 ## perf
 Source: [systemcmds/perf](https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf)
 
-Tool to print performance counters<a id="perf_usage"></a>
+Tool to print performance counters
+<a id="perf_usage"></a>
 
 ### Usage
 ```
@@ -453,11 +459,11 @@ Source: [systemcmds/pwm](https://github.com/PX4/Firmware/tree/master/src/systemc
 ### Description
 This command is used to configure PWM outputs for servo and ESC control.
 
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
+Reboot the system
 
 It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm info` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
 
-Reboot the system
+The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
 
 Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm info` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
 
@@ -525,10 +531,8 @@ pwm <command> [arguments...]
      [-c <val>]  select channels in the form: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-                 default: 0
-     [-g <val>]  Select channels by group (eg. use 'pwm info' to show
+     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm info' to show
                  groups)
-                 default: 0
      [-a]        Select all channels
 
  These parameters apply to all commands:
@@ -540,8 +544,7 @@ pwm <command> [arguments...]
 ## reboot
 Source: [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
 
-Reboot the system
-<a id="reboot_usage"></a>
+Test the speed of an SD Card<a id="reboot_usage"></a>
 
 ### Usage
 ```
@@ -552,7 +555,8 @@ reboot [arguments...]
 ## sd_bench
 Source: [systemcmds/sd_bench](https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench)
 
-Test the speed of an SD Card<a id="sd_bench_usage"></a>
+Test the speed of an SD Card
+<a id="sd_bench_usage"></a>
 
 ### Usage
 ```
@@ -575,7 +579,7 @@ Command-line tool to set and get system time.
 
 ### Examples
 
-Set the system time and read it back
+Monitor running processes and their CPU, stack usage, priority and state
 ```
 system_time set 1600775044
 system_time get
@@ -594,7 +598,8 @@ system_time <command> [arguments...]
 ## top
 Source: [systemcmds/top](https://github.com/PX4/Firmware/tree/master/src/systemcmds/top)
 
-Monitor running processes and their CPU, stack usage, priority and state<a id="top_usage"></a>
+Monitor running processes and their CPU, stack usage, priority and state
+<a id="top_usage"></a>
 
 ### Usage
 ```
@@ -614,7 +619,8 @@ usb_connected [arguments...]
 ## ver
 Source: [systemcmds/ver](https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver)
 
-Tool to print various version information<a id="ver_usage"></a>
+Tool to print various version information
+<a id="ver_usage"></a>
 
 ### Usage
 ```
