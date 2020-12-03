@@ -4,9 +4,11 @@
 
 ## 基本设备
 
-> **提示：** 除了这里提及的设备外 PX4 还适用于很多其他硬件设备，但新晋开发人员可以受益于使用下文的标准配置进行开发。 一个Taranis RC 遥控器加上一个 Note 4 平板电脑可以组成一套物美价廉的外场套件。
+:::tip
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::
 
-强烈建议使用以下硬件设备:
+飞机配置流程：
 
 * 一个供安全飞行员（或等效职能人员）使用的 Taranis Plus Rm 遥控器
 * 开发用计算机：
@@ -21,9 +23,11 @@
 
 ## 飞机配置
 
-> **提示：** 进行飞机配置时需要使用运行在 **桌面操作系统** 上的 *QGroundControl* 。 您应该使用 (并定期更新) daily build版本的 QGroundControl，以便使用 PX4 的最新功能。
+:::tip
+*QGroundControl* for a **desktop OS** is required for vehicle configuration. You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+:::
 
-飞机配置流程：
+To configure the vehicle:
 
 1. 下载并安装 [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)。
 1. [基本配置](https://docs.px4.io/en/config/)（PX4 用户指南）说明了如何执行基本配置。
