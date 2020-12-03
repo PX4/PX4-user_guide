@@ -2,24 +2,28 @@
 
 The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md). *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
 
-> **Note** If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. GPS+내포장을 연결하는 방법은 특정 오토파일럿 하드웨어의 [ 기본 어셈블리 ](../assembly/README.md)에서 확인할 수 있습니다. Once connected, *QGroundControl* will automatically detect the external magnetometer.
+:::note
+If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. Instructions for connecting your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, *QGroundControl* will automatically detect the external magnetometer.
+:::
 
-<span></span>
-
-> **Tip** You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics. Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
+:::tip
+You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics. Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
+:::
 
 ## Performing the Calibration
 
 The calibration steps are:
 
-1. Choose a location away from large metal objects or magnetic fields. > **Tip** Metal is not always obvious! Avoid calibrating on top of an office table (often contain metal bars) or next to a vehicle. Calibration can even be affected if you're standing on a slab of concrete with uneven distribution of re-bar.
+1. Choose a location away from large metal objects or magnetic fields. :::tip Metal is not always obvious! Avoid calibrating on top of an office table (often contain metal bars) or next to a vehicle. Calibration can even be affected if you're standing on a slab of concrete with uneven distribution of re-bar.
+:::
 2. Start *QGroundControl* and connect the vehicle.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
 4. Click the **Compass** sensor button.
     
     ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
     
-    > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+    :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::
 
 5. Click **OK** to start the calibration.
 
