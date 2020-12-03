@@ -110,9 +110,8 @@ Finally append the stream class to the `streams_list` at the bottom of [mavlink_
 ```C
 StreamListItem *streams_list[] = {
 ...
-new StreamListItem(&MavlinkStreamCaTrajectory::new_instance, &MavlinkStreamCaTrajectory::get_name_static, &MavlinkStreamCaTrajectory::get_id_static),
-nullptr
-};
+create_stream_list_item<MavlinkStreamCaTrajectory>(),
+...
 ```
 
 Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
@@ -146,7 +145,7 @@ void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
 
 ```C
-orb_advert_t _ca_traj_msg_pub;
+uORB::Publication<ca_trajectory_s>          _flow_pub{ORB_ID(ca_trajectory)};
 ```
 
 Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)
@@ -167,12 +166,7 @@ void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
     for(int i=0;i<28;i++)
         f.coefficients[i] = traj.coefficients[i];
 
-    if (_ca_traj_msg_pub == nullptr) {
-        _ca_traj_msg_pub = orb_advertise(ORB_ID(ca_trajectory), &f);
-
-    } else {
-        orb_publish(ORB_ID(ca_trajectory), _ca_traj_msg_pub, &f);
-    }
+    _ca_traj_msg_pub.publish(f);
 }
 ```
 
