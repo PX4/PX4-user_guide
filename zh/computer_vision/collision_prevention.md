@@ -88,31 +88,31 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 ### CP_GUIDE_ANG 制导调试
 
-取决于机身，环境类型和飞行员技能，可能需要不同数量的制导。 Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+取决于机身，环境类型和飞行员技能，可能需要不同数量的制导。 将 [CP_GUIDE_ANG](#CP_GUIDE_ANG) 参数设置为 0 将禁用制导，从而使得无人机只能在正确的方向上移动。 增大此参数将使无人机选择最佳方向来避开障碍物，从而更容易飞过狭窄的间隙，并与物体周围保持最小间距。
 
-If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
+如果该参数设置太小，机身在靠近障碍物时可能会感觉“卡住”， 因为只允许以最小距离远离障碍物移动。 如果该参数设置太大，机身可能会感觉它朝着飞手未指示的方向“滑动”远离障碍物。 从测试来看，尽管不同的车辆可能有不同的要求，但是 30度是一个很好的平衡点。
 
 :::note
-The guidance feature will never direct the vehicle in a direction without sensor data. If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+制导功能绝不会把无人机/无人车引导到没有传感器数据的方向。 如果只有一个距离传感器指向前方时无人机感到“卡住”，这可能是因为由于缺乏信息，制导无法安全地调整方向。
 :::
 
 <span id="rangefinder"></span>
 
 ## PX4距离传感器
 
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
+使用 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) 红外距离传感器对PX4的防撞功能来说“开箱即用”，最少的额外配置就可以使用。
 
-- 首先，[连接和配置传感器](../sensor/cm8jl65_ir_distance_sensor.md), 使能防撞功能（如上所述，使用[CP_DIST](#CP_DIST)参数）。
-- 使用参数[SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) 设置传感器方向。
+- 首先，[连接和配置传感器](../sensor/cm8jl65_ir_distance_sensor.md), 使能防撞功能（如上所述，使用 [CP_DIST](#CP_DIST) 参数）。
+- 使用参数 [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) 设置传感器方向。
 
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+其他传感器的使能需要修改驱动代码来设置传感器方向和视觉范围。
 
 - 在特定端口上连接并配置距离传感器（请参阅特殊传感器文档</ 0>），并使用 CP_DIST </ 1>使能防撞功能。</li> 
     
-    - 修改驱动程序以设置方向。 这个可以通过类似于`SENS_CM8JL65_R_0`参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样: `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
-    - 在距离传感器UORB主题 (`distance_sensor_s.h_fov`)中设置*视觉范围*的地方修改驱动代码。</ul> 
+    - 修改驱动程序以设置方向。 这个可以通过类似于 `SENS_CM8JL65_R_0` 参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样: `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
+    - 在距离传感器 UORB 主题（`distance_sensor_s.h_fov`）中设置 *视野* 的地方修改驱动代码。</ul> 
     
-    :::tip You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Please contribute back your changes!
+    :::tip 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 Please contribute back your changes!
 :::
     
     
@@ -122,9 +122,9 @@ Other sensors may be enabled, but this requires modification of driver code to s
     
     ## 机载计算机设置
     
-    If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
+    如果使用机载计算机或者外部传感器，需要提供 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息流，该消息流反映检测到障碍物的时间和位置。
     
-    The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+    消息发送的最低频率 *必须* 由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
     
     :::note Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
 :::
