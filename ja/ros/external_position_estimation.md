@@ -10,8 +10,9 @@ Pose data from either type of system can be used to update a PX4-based autopilot
 
 This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
-> **Note** The instructions differ depending on whether you are using the EKF2 or LPE estimator.
-
+:::note
+The instructions differ depending on whether you are using the EKF2 or LPE estimator.
+:::
 
 ## PX4 MAVLink Integration
 
@@ -26,7 +27,9 @@ PX4 uses the following MAVLink messages for getting external position informatio
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
-> **Tip** EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip
+EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.
 
@@ -39,7 +42,9 @@ PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body fram
 
 Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
 
-> **Tip** ROS users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+:::tip
+ROS users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+:::
 
 For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention.
 
@@ -66,7 +71,9 @@ The following parameters must be set to use external position information with E
 | [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
 | [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.                                                       |
 
-> **Tip** Reboot the flight controller in order for parameter changes to take effect.
+:::tip
+Reboot the flight controller in order for parameter changes to take effect.
+:::
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
@@ -82,7 +89,10 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-> **Note** A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+
+:::note
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
@@ -90,7 +100,10 @@ The value can further be tuned by varying the parameter to find the value that y
 
 You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
 
-> **Note** If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+
+:::note
+If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+:::
 
 ### Enabling External Pose Input
 
@@ -112,8 +125,9 @@ This can be done by in *QGroundControl* by unchecking the *fuse baro* option in 
 
 If your vision or MoCap data is highly accurate, and you just want the estimator to track it tightly, you should reduce the standard deviation parameters: [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) and [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z) (for VIO) or [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P) (for MoCap). Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.
 
-> **Tip** If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
-
+:::tip
+If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
+:::
 
 ## Working with ROS
 
@@ -156,7 +170,9 @@ The local/world and world frames used by ROS and PX4 are different.
 | Body  | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link`                 | FRD (X **F**orward, Y **R**ight and Z **D**own)  |
 | World | FLU or ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) |
 
-> **Tip** See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+:::tip
+See [REP105: Coordinate Frames for Mobile Platforms](http://www.ros.org/reps/rep-0105.html) for more information about ROS frames.
+:::
 
 Both frames are shown in the image below (FLU on left/FRD on right).
 
@@ -164,7 +180,9 @@ Both frames are shown in the image below (FLU on left/FRD on right).
 
 With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
 
-> **Note** When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+:::note
+When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+:::
 
 Using MAVROS, this operation is straightforward. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. If you have an Optitrack system you can use [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) node which streams the object pose on a ROS topic already in ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
 
@@ -181,7 +199,9 @@ Make sure that you change the values of yaw, pitch and roll such that it properl
 ```
 If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
 
-> **Note** When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+:::note
+When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+:::
 
 <a id="setup_specific_systems"></a>
 
@@ -212,7 +232,9 @@ If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_
 
 MAVROS provides a plugin to relay pose data published on `/mavros/vision_pose/pose` to PX4. Assuming that MAVROS is running, you just need to **remap** the pose topic that you get from MoCap `/vrpn_client_node/<rigid_body_name>/pose` directly to `/mavros/vision_pose/pose`. Note that there is also a `mocap` topic that MAVROS provides to feed `ATT_POS_MOCAP` to PX4, but it is not applicable for EKF2. However, it is applicable with LPE.
 
-> **Note** Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+:::note
+Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+:::
 
 Assuming that you have configured EKF2 parameters as described above, PX4 now is set and fusing MoCap data.
 

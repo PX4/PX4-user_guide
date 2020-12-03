@@ -113,11 +113,15 @@ echo "25" > /sys/class/gpio/unexport
 
 保存并退出。
 
-> **Note** 在不需要自启动的时候关闭开关。
+:::note
+Don't forget to turn off the switch when it is not needed.
+:::
 
 #### CSI 相机
 
-> **Warning** 启用 CSI 摄像头将停止在 I2C-0 上工作的任何设备。
+:::note
+Enable CSI camera will stop anything works on I2C-0.
+:::
 
 ```sh
 sudo raspi-config
@@ -127,59 +131,61 @@ sudo raspi-config
 
 ### 构建代码
 
-若要在您的计算机上获得*最新的*版本，请在终端中输入以下命令：
+或
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-> **Note** 你只需要执行它就能够得到最新的代码。
+:::note
+This is all you need to do just to build the latest code.
+:::
 
 #### 为 Raspberry Pi OS 交叉编译
 
-设定您的树莓派的 IP (或主机名)：
+然后上传：
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-或
+通过 ssh 连接并运行它：
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
-构建可执行程序：
+PX4 已配置使用多旋翼模型启动。
 
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_default
 ```
 
-然后上传：
+如果在树莓派上运行PX4时遇到了以下问题：
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
 
-通过 ssh 连接并运行它：
+这时应当使用基于 Docker 的编译。
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-PX4 已配置使用多旋翼模型启动。
+在执行下一步之前，先清除现有构建目录：
 
-如果在树莓派上运行PX4时遇到了以下问题：
+以下方法可以获得与CI相同的编译工具与环境。
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-这时应当使用基于 Docker 的编译。
+如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
-在执行下一步之前，先清除现有构建目录：
+在 PX4-Autopilot 文件夹下执行：
 
 ```sh
 rm -rf build/scumaker_pilotpi_default
@@ -187,22 +193,24 @@ rm -rf build/scumaker_pilotpi_default
 
 ### 备选构建方法 (使用 docker)
 
-以下方法可以获得与CI相同的编译工具与环境。
+只是为了编译代码，则可以执行：
 
-如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
+您需要检查这些额外项目才能使您机体正常工作。
 
-在 PX4-Autopilot 文件夹下执行：
+混控器在 `pilotpi_xx.conf` 文件中启用：
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
 
-<span></span>
+所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
+:::
 
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 参数。
+:::note
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::
 
-只是为了编译代码，则可以执行：
+It is also possible to just compile the code with command:
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
@@ -210,21 +218,21 @@ rm -rf build/scumaker_pilotpi_default
 
 ### 后期配置
 
-您需要检查这些额外项目才能使您机体正常工作。
+示例输出
 
 #### 混控器文件
 
-混控器在 `pilotpi_xx.conf` 文件中启用：
+Mixer file is defined in `pilotpi_xx.conf`:
 
 ```sh
 mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
 ```
 
-所有可用的混控配置都存储在 `etc/mixers` 中。 您也可以自己创建一个。
+All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
 
 #### 外部罗盘
 
-在启动脚本中(`*.conf`), 你会找到
+In the startup script(`*.config`), you will find
 
 ```sh
 # external GPS & compass
@@ -233,7 +241,7 @@ gps start -d /dev/ttySC0 -i uart -p ubx -s
 #ist8310 start -X
 ```
 
-按需去掉对应的注释。 不确定您的 GPS 模块附带哪一款罗盘？ 执行以下命令并查看输出：
+Uncomment the correct one for your case. Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
 
 ```sh
 sudo apt-get update
@@ -241,7 +249,7 @@ sudo apt-get install i2c-tools
 i2cdetect -y 0
 ```
 
-示例输出
+Sample output:
 
 ```
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -255,6 +263,8 @@ i2cdetect -y 0
 70: -- -- -- -- -- -- -- --
 ```
 
-`1e` 表示基于 HMC5883 的罗盘接在外部I2C总线上。 相似的，IST8310的值为 `0e`。
+`1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-> **Note** 通常你只拥有其中一个。 其他连接到外部 I2C 总线(`/dev/i2c-0` ) 的设备也会显示在此处。
+:::note
+Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+:::

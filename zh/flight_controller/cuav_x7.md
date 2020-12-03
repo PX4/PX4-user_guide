@@ -62,7 +62,9 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
   * Supports temperature compensation
   * Internal shock absorption
 
-> ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
+:::note
+When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
+:::
 
 ## 采购
 
@@ -78,13 +80,17 @@ The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonic
 
 ![X7 pinouts](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
 
-> **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
+:::warning
+The `RCIN` port is limited to powering the RC receiver and cannot be connected to any power/load.
+:::
 
 ## 额定电压
 
 The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
 
-> **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
+:::note
+The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -107,7 +113,9 @@ make cuav_x7pro_default
 
 The *X7* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The *X7* has short circuit protection.
 
-> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::warning
+Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::
 
 ## 调试接口
 
@@ -133,11 +141,13 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
-> 
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
-> 
-> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::warning
+The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+
+For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::
 
 ## 支持的平台/机身
 

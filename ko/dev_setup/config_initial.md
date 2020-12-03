@@ -4,9 +4,11 @@
 
 ## 기본 장비
 
-> **팁** PX4는 여기 설명된 것보다 훨씬 더 광범위한 장비로 사용되지만, 초보 개발자들은 표준 설정 중 하나를 사용하는 것이 좋습니다. 아주 저렴한 필트 키트로 Taranis RC와 노트 4 구성이 있습니다.
+:::tip
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::
 
-아래는 강력 추천 장비입니다:
+비행기를 구성하려면:
 
 * 안전 조종을 위해 Taranis Plus 원격 조종기 (또는 동급)
 * 개발 컴퓨터:
@@ -21,9 +23,11 @@
 
 ## 비행기 구성
 
-> **팁** **데스크탑용** *QGroundControl*이 비행기 구성에 필요합니다. PX4의 최신 기능을 이용하려면 데일리 빌드를 사용(하고 주기적으로 업데이트) 해야합니다.
+:::tip
+*QGroundControl* for a **desktop OS** is required for vehicle configuration. You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+:::
 
-비행기를 구성하려면:
+To configure the vehicle:
 
 1. 개발 플랫폼을 위해 [QGroundControl 데일리 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)를 다운로드 하십시오.
 1. [기본 구성](https://docs.px4.io/en/config/) (PX4 사용자 가이드)는 기본 구성 수행법을 설명합니다.

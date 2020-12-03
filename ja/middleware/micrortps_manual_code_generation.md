@@ -46,7 +46,9 @@ optional arguments:
   --delete-tree         Delete dir tree output dir(s)
 ```
 
-> **Caution** Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the `AGENTDIR` before creating new files and folders.
+:::caution
+Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the `AGENTDIR` before creating new files and folders.
+:::
 
 - The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages.
 - The output appears in `CLIENTDIR` (`-o src/modules/micrortps_bridge/micrortps_client`, by default) and in the `AGENTDIR` (`-u src/modules/micrortps_bridge/micrortps_agent`, by default).
@@ -85,8 +87,9 @@ IDL files are generated from the uORB **.msg** files ([for selected uORB topics]
 
 *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
 
-> **Note** IDL files are compiled to C++ by the *fastrtpsgen* tool.
-
+:::note
+IDL files are compiled to C++ by the *fastrtpsgen* tool.
+:::
 
 ## Verify code generation
 
@@ -144,6 +147,8 @@ Specifically, once manually generated, the *Client* source code is compiled and 
 make px4_fmu-v4_default upload
 ```
 
-> **Note** You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
+:::note
+You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
+:::
 
 The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong><emphasis>build/BUILDPLATFORM</emphasis></strong>**/src/modules/micrortps_bridge/micrortps_agent/**.

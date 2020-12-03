@@ -2,23 +2,27 @@
 
 無線操縦 (RC) システムは，*マニュアルで* 機体を手持ちの送信機から操縦する場合に必要です。 本章では，無線操縦システムについての概要と，選定の仕方，接続の仕方について解説します。
 
-> **Note** PX4 は自動操縦モードでは無線操縦システムを必要としません。 [パラメータの設定](../advanced_config/parameters.md)によって，RCの接続チェックを無効化することができます。: 無効化するには，[COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) を 1にしてください。
+:::tip
+PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::
 
 ## RCシステムはどのように動作するのか?
 
-*RC システム* はオペレータによって操作される*リモートコントロールユニット* を持っています。 リモートコントロールユニットは機体の運動(例：速度・方位・スロットル・ロール・ピッチ・ヨー他)を指示したり，[フライトモード](../flight_modes/README.md) (例： takeoff, land, return to land, mission 他)を切り替えるための物理的インターフェースによって構成されています。 *テレメトリ対応*RCシステムでは，リモートコントロールユニットは機体の情報(例：バッテリー残量，フライトモード)を表示することができます。
+An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.). On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-リモートコントロールユニットは，機載の受信機と対をなし，通信を行います。 機載受信機は，フライトコントローラと接続されています。 フライトコントローラは機載受信機からの指令を受けて，オートパイロットのフライトモードや，機体の状態を考慮して，機体のモータやアクチュエータを適切に制御・駆動します。
+The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
 <!-- image showing the different parts here would be nice -->
 
-> **Note** 地上と機載のRCシステムはそれぞれ，(たとえ双方向通信であっても，) 送信機・受信機と呼ばれます。そして，総称して *送受信機*と呼ばれます。 リモートコントロールユニットは，その内部の無線モジュールも含めて，"送信機"と呼ばれます。
+:::note
+The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The remote control unit and it's included radio module are also referred to as a "transmitter".
+:::
 
-RCシステムの性能において，重要なのはいくつの"チャンネル"がサポートされているかです。 チャンネル数は何種類の送信機の物理的スイッチ情報を機体に送信できるかを決定します（スイッチ・ダイヤル・スティックの情報が，実際にどれだけ利用可能かを示します）。
+An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
 
-飛行体においては、4チャンネル(ロール・ピッチ・ヨー・推力) 以上をサポートしているシステムが必要です。 地上を走行する機体の場合，2チャンネル(ステアリング・スロットル) 以上が必要です。 8チャンネルや16チャンネルなどをサポートしている送信機の場合，その他の機構の動作を行ったり，オートパイロットから提供される [フライトモード](../flight_modes/README.md) の切替が可能です。
+An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
 
 ## RCシステムの種別
 
@@ -34,7 +38,9 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
-> **Note** モードの選択は好みで選択されます。 (*モード 2* がより一般的です)。
+:::note
+The choice of mode is largely one of taste (*Mode 2* is more popular).
+:::
 
 ## 地上機用RCシステム
 
@@ -52,7 +58,9 @@ Compatible radio systems are often sold together. For example, [FrSky Taranis X9
 
 One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
-> **Note** 本ユニットでは，[FrSky](../peripherals/frsky_telemetry.md) モジュールと組み合わせることで，機体のテレメトリ情報を表示することも可能です。
+:::note
+This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+:::
 
 Other popular transmitter/receiver pairs
 
@@ -90,7 +98,9 @@ Instructions for connecting to specific flight controllers are given in the foll
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
-> **Tip** より詳しい情報は，フライトコントローラの製造者のマニュアルを参照してください。
+:::tip
+See the manufacturer's flight controller setup guide for additional information.
+:::
 
 <span id="binding"></span>
 

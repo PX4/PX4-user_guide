@@ -4,9 +4,11 @@
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
-*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv5** 开源硬件设计。 它在[NuttX](http://nuttx.org) OS操作系统上运行PX4，并与PX4固件完全兼容。 它主要面向学术和商业开发者。
+*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
 
@@ -49,25 +51,27 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 
 ## 采购
 
-从 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz) 官方淘宝店采购。
-
-<span id="connection"></span>
+Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
 ## 接口定义
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
-> **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+:::warning
+The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+:::
 
 ## 额定电压
 
-*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. 三个电源口：**POWER1**, **POWER2** and **USB**。 
+*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
-**正常运行最大额定值**
+**Normal Operation Maximum Ratings**
 
-在这些条件下，所有电源将按此顺序用于为系统供电：
+Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** 和 **POWER2** 输入电压 (4.3 v 至 5.4 v)
 2. **USB** 输入电压 (4.75 v 至 5.25 v)

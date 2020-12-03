@@ -44,17 +44,18 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
 
-> **Tip** PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::tip
+PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::
 
-<span></span>
-
-> **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+:::tip
+Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+:::
 
 These are the boards tested and known to work:
 
-* [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636)
-  
-  > **Note** This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+* [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636) :::note This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+:::
   
   Purchase from:
   
@@ -96,7 +97,9 @@ RC is connected to one of the following ports:
 * UART1
 * SBUS/PPM port (via inverter, internally goes to UART1)
 
-> **Note** Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+:::note
+Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+:::
 
 ### UARTs
 
@@ -130,7 +133,9 @@ There is one I2C port available via:
 * SCL: MCU pin PB10 (might be labeled as TX3)
 * SDA: MCU pin PB11 (might be labeled as RX3)
 
-> **Note** You will need external pullups on both signals (clock and data). You can use 2.2k pullups for example to attach an external mag.
+:::note
+You will need external pullups on both signals (clock and data). You can use 2.2k pullups for example to attach an external mag.
+:::
 
     - Airbot Omnibus F4 SD Pinout is on Port J10 (SCL [clock] / SCA [data]):
     
@@ -172,7 +177,9 @@ For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/
 
 On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing). This can be plugged into the back of the RC controller.
 
-> **Note** The referenced links above contains the documentation for the TX/RX modules.
+:::note
+The referenced links above contains the documentation for the TX/RX modules.
+:::
 
 #### 设置
 

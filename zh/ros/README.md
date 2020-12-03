@@ -4,13 +4,17 @@
 
 本节包含有关使用 ROS 在 PX4 的离板控制的主题。
 
-> **Tip** ROS 仅在 Linux 平台上得到官方支持。
+:::tip
+ROS is only officially supported on Linux platforms.
+:::
 
 ## 安装
 
 The easiest way to setup PX4 simulation with ROS (on Ubuntu Linux) is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS, the Gazebo simulator, and [MAVROS](../ros/mavros_installation.md).
 
-> **Note** If you just need to install ROS then follow the [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation) for your platform.
+:::note
+If you just need to install ROS then follow the [ROS Melodic installation instructions](http://wiki.ros.org/melodic/Installation) for your platform.
+:::
 
 
 ## External Resources

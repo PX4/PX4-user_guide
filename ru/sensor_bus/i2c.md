@@ -7,8 +7,9 @@ Pixhawk/PX4 support it for:
 * Compatibility with peripheral devices that only support I2C.
 * Allowing multiple devices to attach to a single bus (useful for conserving ports). For example, LEDs, Compass, rangefinders etc.
 
-> **Tip** IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
-
+:::tip
+IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
+:::
 
 ## Integrating I2C Devices
 
@@ -21,8 +22,9 @@ To include a driver in firmware you must add the driver to the board-specific cm
 drivers/sf1xx
 ```
 
-> **Tip** For example, you can see/search for this driver in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
-
+:::tip
+For example, you can see/search for this driver in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+:::
 
 ## I2C Driver Examples
 

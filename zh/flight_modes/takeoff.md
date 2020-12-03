@@ -4,17 +4,25 @@
 
 *起飞*飞行模式使飞机起飞到指定高度并等待进一步指令。
 
-> **Note** * This mode requires GPS. * 使用此模式前飞机必须先被激活。 * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::note
 
-下面描述每种类型飞机的具体行为。
+* This mode requires GPS.
+* The vehicle must be armed before this mode can be engaged.
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC control switches can be used to change flight modes on any vehicle.
+* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::
+
+The specific behaviour for each vehicle type is described below.
 
 ## 多旋翼（MC）
 
-多旋翼上升到` MIS_TAKEOFF_ALT `中定义的高度并保持位置。
+A multi rotor ascends to the altitude defined in `MIS_TAKEOFF_ALT` and holds position.
 
 RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
-起飞受以下参数影响：
+Takeoff is affected by the following parameters:
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +34,7 @@ RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Pos
 
 ## 固定翼（FW）
 
-飞机使用*弹射器/手动启动模式*或*跑道起飞模式*在当前方向上起飞。 模式默认为弹射/手动发射，但可以使用[ RWTO_TKOFF ](#RWTO_TKOFF)设置为跑道起飞。 RC stick movement is ignored in both cases.
+The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using [RWTO_TKOFF](#RWTO_TKOFF). RC stick movement is ignored in both cases.
 
 <span id="hand_launch"></span>
 
@@ -34,13 +42,15 @@ RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Pos
 
 In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger). On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
 
-> 除了上面讨论的行为之外，还有一个启动检测器可以阻止启动程序开始直到满足某些条件。 对于弹射器发射，这是一些加速度阈值。
+:::note
+In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met. For catapult launch this is some acceleration threshold.
+:::
 
 <span id="runway_launch"></span>
 
 ### Runway Takeoff
 
-*跑道起飞模式*具有以下阶段：
+The *runway takeoff mode* has the following phases:
 
 1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
@@ -48,13 +58,12 @@ In *catapult/hand launch mode* the vehicle waits to detect launch (based on acce
 
 ### Fixed Wing Takeoff Parameters
 
-起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
+Takeoff is affected by the following parameters:高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
-<blockquote>
-  <p>
-    在起飞期间飞机总是遵守标准的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN"> FW_THR_MIN </a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX"> FW_THR_MAX </a>）。
-  </p>
-</blockquote>
+<p>
+  :::note The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
+:::
+</p>
 
 <h2>
   垂直起降（VTOL）

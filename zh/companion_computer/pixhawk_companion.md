@@ -6,19 +6,21 @@ Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只�
 
 在 任何 [可配置的串口 ](https://docs.px4.io/en/peripherals/serial_configuration.html)上使能MAVLink消息。
 
-> **Tip** `TELEM 2` 一般用作与配套计算机通信。
+:::tip
+Typically the `TELEM 2` port is used for a companion computer.
+:::
 
-要在`TELEM 2` 上配置默认的配套计算机消息流，请设置以下参数：
+更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/en/peripherals/mavlink_peripherals.html)。
 * [MAV_1_CONFIG](../advanced/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG`总是配置为 `TELEM 2` 端口)
 * [MAV_1_MODE](../advanced/parameter_reference.md#MAV_1_MODE) = `Onboard`
 * [SER_TEL2_BAUD](../advanced/parameter_reference.md#SER_TEL2_BAUD) = `921600`（建议在像日志流或FastRTPS之类的应用，使用 921600 或更高）
 
-更多信息，请参考 [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/en/peripherals/mavlink_peripherals.html)。
+For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
 
 
 ## 配套计算机设置
 
-为了接收 mavlink消息, 配套计算机需要运行一些与串行端口对话的软件。 最常见的选择有:
+按照以下说明连接串行端口。 所有 pixhawk 串行端口都以 3.3 v 电平工作，同时与5v 电平兼容。
 
   * [MAVROS](../ros/mavros_installation.md) 与ros 节点通信
   * C/C++ example code </0> 连接自定义代码
@@ -26,11 +28,12 @@ Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只�
 
 ## 硬件设置
 
-按照以下说明连接串行端口。 所有 pixhawk 串行端口都以 3.3 v 电平工作，同时与5v 电平兼容。
-
-> **Warning** 许多现代配套计算机在其硬件 UART 上只支持 1.8 V 级别，3.3 V 电平可能会损坏配套计算机。 推荐使用一个电平转换器。 在大多数情况下， 可访问的硬件串行端口已经具有与之关联的一些功能 (调制解调器或控制台)，并且需要在 linux*重新配置*， 然后才能使用它们。
-
 安全的选择是使用 ftdi 芯片 usb 到串行适配器板和下面的接线方式。 这种方式有效且容易设置。
+
+在 linux 上, usb ftdi 的默认名称将类似于 `\dev\ttyUSB0`。 如果您在 usb 或 arduino 上连接了第二个 ftdi, 它将注册为 `\dev\ttyUSB1`。 为了避免第一次插入和第二个插头之间的混淆, 我们建议您创建一个从 `ttyUSBx` 到友好名称的符号链接, 具体取决于 usb 设备的供应商和产品 ID。
+:::
+
+The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
 |  | TELEM2 |           | FTDI |                    |
 |  | ------ | --------- | ---- | ------------------ |
@@ -43,9 +46,9 @@ Pixhawk与配套计算机(Raspberry Pi，Odroid，Tegra K1) 的交互方式只�
 
 ## Linux系统上的软件设置
 
-在 linux 上, usb ftdi 的默认名称将类似于 `\dev\ttyUSB0`。 如果您在 usb 或 arduino 上连接了第二个 ftdi, 它将注册为 `\dev\ttyUSB1`。 为了避免第一次插入和第二个插头之间的混淆, 我们建议您创建一个从 `ttyUSBx` 到友好名称的符号链接, 具体取决于 usb 设备的供应商和产品 ID。
+On Linux the default name of a USB FTDI would be like `\dev\ttyUSB0`. If you have a second FTDI linked on the USB or an Arduino, it will registered as `\dev\ttyUSB1`. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from `ttyUSBx` to a friendly name, depending on the Vendor and Product ID of the USB device.
 
-使用 `lsusb`指令，我们可以获得供应商和产品 ID。
+Pixhawk 是 `Bus 003 Device 005: ID 26ac:0011`
 
 ```sh
 $lsusb
@@ -63,22 +66,26 @@ $lsusb
     Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-Arduino 是 `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)`
-
-Pixhawk 是 `Bus 003 Device 005: ID 26ac:0011`
-
-> **Note** 如果你没找到你是设备，拔掉，执行 `lsusb`，再插上， 再次执行`lsusb`，查看增加的设备。
-
 最终，我们可以在文件中创建一个新的UDEV规则，文件名是`/etc/udev/rules.d/99-pixhawk.rules` 。 文件能把idVendor和idProduct改成你的。
+
+最后, 在 **reboot** 后, 您可以确定您的设备名, 并将 `/dev/ttyPixhawk`替换掉在脚本中的 `/dev/ttyUSB0`。
+
+:::note
+If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
+:::
+
+Therefore, we can create a new UDEV rule in a file called `/etc/udev/rules.d/99-pixhawk.rules` with the following content, changing the idVendor and idProduct to yours.
 
 ```sh
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0042", SYMLINK+="ttyArduino"
     SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0011", SYMLINK+="ttyPixhawk"
 ```
 
-最后, 在 **reboot** 后, 您可以确定您的设备名, 并将 `/dev/ttyPixhawk`替换掉在脚本中的 `/dev/ttyUSB0`。
+Finally, after a **reboot** you can be sure to know which device is what and put `/dev/ttyPixhawk` instead of `/dev/ttyUSB0` in your scripts.
 
-> **Note** 请务必通过 `usermod` 将自己添加到 `tty`和`dialout` 组, 以避免必须以 root 身份执行脚本。
+:::note
+Be sure to add yourself in the `tty` and `dialout` groups via `usermod` to avoid to have to execute scripts as root.
+:::
 
 ```sh
 usermod -a -G tty ros-user

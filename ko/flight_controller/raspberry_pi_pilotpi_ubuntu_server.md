@@ -1,6 +1,8 @@
 # PilotPi with Ubuntu Server
 
-> **Warning** Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+:::warning
+Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+:::
 
 ## Developer Quick Start
 
@@ -189,11 +191,15 @@ Save and exit. Then set the correct permissions:
 sudo chmod +x /etc/rc.local
 ```
 
-> **Note** Don' t forget to turn off the switch when it is not needed!
+:::note
+Don't forget to turn off the switch when it is not needed!
+:::
 
 #### CSI camera
 
-> **Warning** Enable CSI camera will stop anything works on I2C-0.
+:::warning
+Enable CSI camera will stop anything works on I2C-0.
+:::
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
@@ -213,7 +219,9 @@ To get the *very latest* version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-> **Note** This is all you need to do just to build the latest code.
+:::note
+This is all you need to do just to build the latest code.
+:::
 
 #### Set RPi upload target
 
@@ -259,10 +267,14 @@ Execute the command in firmware folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 
-<span></span>
-> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::note
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+:::
+
+:::note
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::
 
 It is also possible to just compile the code with command:
 
@@ -272,7 +284,9 @@ It is also possible to just compile the code with command:
 
 #### Build for arm64 target
 
-> **Note** This step requires `aarch64-linux-gnu` tool-chain to be installed.
+:::note
+This step requires `aarch64-linux-gnu` tool-chain to be installed.
+:::
 
 Build the executable file:
 
@@ -296,10 +310,14 @@ Execute the command in `PX4-Autopilot` folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
 
-<span></span>
-> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+:::note
+mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+:::
+
+:::note
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+:::
 
 It is also possible to just compile the code with command:
 

@@ -7,28 +7,30 @@ Pixhawk/PX4 支持：
 * 与仅支持 I2C 的外围设备兼容。
 * 允许多个设备连接到单个总线（有效保护端口）。 例如，LED、指南针、测距仪等。
 
-> **Tip** IMU（加速度计/陀螺仪）不应通过 I2C 连接（通常使用 [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) 总线）。 即使连一个设备可以进行振动过滤（实例），总线的速度也不够快，并且总线上的每一个额外设备都会进一步降低性能。
-
+:::tip
+IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
+:::
 
 ## 集成 I2C 设备
-
-驱动程序应 `#include<drivers/device/i2c.h>`，然后提供在目标硬件（即 Nuttx 的[这里](https://github.com/PX4/Firmware/blob/master/src/drivers/device/nuttx/I2C.hpp)）的 **I2C.hpp** 中定义的抽象基类 `I2C` 的实现。
 
 驱动程序还需要在 [/src/drivers/](https://github.com/PX4/Firmware/tree/master/src/drivers) 中包括其设备类型（**drv_*.h**）的标头--例如 [drv_baro.h](https://github.com/PX4/Firmware/blob/master/src/drivers/drv_baro.h)。
 
 若要在固件中包含驱动程序，必须将驱动程序添加到与要为其生成的目标相对应的 [cmake 配置文件](https://github.com/PX4/Firmware/tree/master/cmake/configs)：
+
+若要查找 I2C 驱动程序示例，请在 [/src/drivers/](https://github.com/PX4/Firmware/tree/master/src/drivers) 中搜索 **i2c.h**。
 ```
 drivers/sf1xx
 ```
 
-> **Tip** 例如，您可以在 [px4_fmu-v4_default](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v4/default.cmake) 配置中搜索此驱动程序。
-
+:::tip
+For example, you can see/search for this driver in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+:::
 
 ## I2C 驱动程序示例
 
-若要查找 I2C 驱动程序示例，请在 [/src/drivers/](https://github.com/PX4/Firmware/tree/master/src/drivers) 中搜索 **i2c.h**。
+To find I2C driver examples, search for **i2c.h** in [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers).
 
-仅举几个例子：
+Just a few examples are:
 * [drivers/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)-i2c 驱动程序，用于 [Lightware sf1xx lidar](https://docs.px4.io/en/sensor/sfxx_lidar.html)。
 * [drivers/ms5611](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/ms5611)-通过 I2C（或 SPI）连接的 MS5611 和 MS6507 气压传感器的 I2C 驱动程序。
 

@@ -4,12 +4,15 @@ Docker containers are provided for the complete [PX4 development toolchain](../d
 
 This topic shows how to use the [available docker containers](#px4_containers) to access the build environment in a local Linux computer.
 
-> **Note** Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/README.md). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
-
+:::note
+Dockerfiles and README can be found on [Github here](https://github.com/PX4/containers/blob/master/README.md). They are built automatically on [Docker Hub](https://hub.docker.com/u/px4io/).
+:::
 
 ## Prerequisites
 
-> **Note** PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+:::note
+PX4 containers are currently only supported on Linux (if you don't have Linux you can run the container [inside a virtual machine](#virtual_machine)). Do not use `boot2docker` with the default Linux image because it contains no X-Server.
+:::
 
 [Install Docker](https://docs.docker.com/installation/) for your Linux computer, preferably using one of the Docker-maintained package repositories to get the latest stable version. You can use either the *Enterprise Edition* or (free) *Community Edition*.
 
@@ -50,8 +53,9 @@ The available containers are listed below (from [Github](https://github.com/PX4/
 
 The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx:latest` (available tags are listed for each container on *hub.docker.com*. For example, the *px4-dev-ros* tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx/tags)).
 
-> **Tip** Typically you should use a recent container, but not necessarily the latest (as this changes too often).
-
+:::tip
+Typically you should use a recent container, but not necessarily the latest (as this changes too often).
+:::
 
 ## Use the Docker Container
 
@@ -78,7 +82,9 @@ Or to start a bash session using the NuttX toolchain:
 ./Tools/docker_run.sh 'bash'
 ```
 
-> **Tip** The script is easy because you don't need to know anything much about *Docker* or think about what container to use. However it is not particularly robust! The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
+:::tip
+The script is easy because you don't need to know anything much about *Docker* or think about what container to use. However it is not particularly robust! The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
+:::
 
 <a id="manual_start"></a>
 
@@ -164,8 +170,10 @@ In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/S
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
-> **Note** Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
 
+:::note
+Spaces between double curly braces above should be not be present (they are needed to avoid a UI rendering problem in gitbook).
+:::
 
 ### Troubleshooting
 

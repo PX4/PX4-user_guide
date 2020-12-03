@@ -22,7 +22,9 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.jpg)
 
-> **Tip** More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+:::tip
+More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+:::
 
 ## 飞控的安装和方向
 
@@ -30,10 +32,13 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![Pix32 v5 With Orientation](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
-<span></span>
-> **Tip** The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::tip
+The board has internal vibration-isolation. Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
+:::
 
 ## GPS + 指南针 + 蜂鸣器 + 安全开关 + LED
 
@@ -56,7 +61,7 @@ You can use a power module or power distribution board to power motors/servos an
 
 The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *pix32 v5*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
-Connect the output of the *Power Module* as shown.
+如果你想*手动*控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
 
 ![Pix32 v5 With Power Module](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.jpg)
 
@@ -68,11 +73,11 @@ Connect the output of the *Power Module* as shown.
 As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
 :::
 
-如果你想*手动*控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::note
+The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
 :::
 
-您需要 [选择一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md) 并 *对频* 使它们能够通信 (对频方法参考发射/接收机的说明书)。
+遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
 - Max input voltage: 60V
 - Max current sensing: 120A Voltage
 - Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
@@ -90,7 +95,7 @@ See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02
 
 The battery/power setup must be configured in [Power Settings](../config/battery.md). For either Power Module you will need to configure the *Number of Cells*.
 
-遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
+You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
 
 ## 遥控器
 
@@ -128,14 +133,15 @@ SD cards are most commonly used to [log and analyse flight details](../getting_s
 
 ![Pix32 v5 With SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-cards).
+:::tip
+The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-cards).
+:::
 
 ## 电机
 
-一般配置信息在以下内容中介绍:
-Autopilot 配置 </0 >。 </p> 
+Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Pix32 v5 - Back Pinouts (Schematic)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+  ![Pix32 v5 - Back Pinouts (Schematic)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 The motors must be separately [powered](#power).
 
@@ -143,19 +149,13 @@ The motors must be separately [powered](#power).
 If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
 :::
 
-
-
 ## 其它外设
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
-
-
 ## 针脚定义
 
 [Pix32 v5 Pinouts](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) (Holybro)
-
-
 
 ## 配置
 

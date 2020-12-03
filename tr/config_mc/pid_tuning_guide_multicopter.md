@@ -4,7 +4,9 @@ This tutorial explains how to tune the PID loops on PX4 for all [multicopter set
 
 Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely. To get the very best performance it is usually good to tune a new vehicle. For example, different ESCs or motors require different tuning gains for optimal flight.
 
-> **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash. Make sure to have a Kill-switch assigned.
+:::warning
+This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash. Make sure to have a Kill-switch assigned.
+:::
 
 ## Introduction
 
@@ -26,11 +28,15 @@ The controllers are layered, which means a higher-level controller passes its re
   - Check that no motors turn off
 - Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
 
-> **Warning** Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+:::warning
+Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+:::
 
 ## Tuning Steps
 
-> **Note** For safety reasons, the default gains are set to low values. You must increase the gains before you can expect good control responses. 
+:::note
+For safety reasons, the default gains are set to low values. You must increase the gains before you can expect good control responses.
+:::
 
 Here are some general points to follow when tuning:
 
@@ -42,7 +48,9 @@ Here are some general points to follow when tuning:
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
-> **Note** A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::note
+A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::
 
 #### Rate Controller Architecture/Form
 
@@ -60,15 +68,16 @@ Users can select the form that is used by setting the proportional gain for the 
 
 The two forms are described below.
 
-> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::note
+The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::
 
-<span></span>
+:::tip
+For more information see:
 
-> **Tip** For more information see:
-
-    - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
-    - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
-    
+- [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+:::
 
 <span id="parallel_form"></span>
 
@@ -148,7 +157,9 @@ To test the current gains, provide a fast **step-input** when hovering and obser
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-> **Note** A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+:::note
+A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+:::
 
 #### Logs
 
@@ -184,7 +195,9 @@ The tuning above optimises performance around the hover throttle. But you may st
 
 To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-> **Note** The rate controller might need to be re-tuned if you change this parameter.
+:::note
+The rate controller might need to be re-tuned if you change this parameter.
+:::
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
@@ -192,7 +205,9 @@ If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrus
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
 
-> **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+:::note
+The mapping between PWM and static thrust depends highly on the battery voltage.
+:::
 
 An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter. An example of that graph is shown here:
 

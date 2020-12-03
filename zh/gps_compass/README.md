@@ -4,17 +4,21 @@ PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS,
 
 PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2C总线）、HMC5883/HMC5983（I2C或SPI）、IST8310（I2C）和 LIS3MDL（I2C或SPI）。
 
-> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) in the source code.
+:::note
+The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) in the source code.
+:::
 
-最多可以连接4个内部或外部磁强计，但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘（外部磁强计具有更高的优先级）。 如果主指南针在飞行中失败它将跳转到下一个指南针。 如果它在飞行前失败，将无法起飞。
+Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source. The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-> **Tip** 在使用 [Pixhawk-系列](../flight_controller/pixhawk_series.md) 飞行控制器时，我们建议使用安装在远离飞机/esc电源线的地方使用 *整合GPS和罗盘* - 通常安装在基座或机翼上（适用于固定翼飞机）。 内部指南针 *可能* 在较大的机型（如垂直起降机型）上有用，在这些车辆上，通过安装Pixhawk距离电源线很远，可以减少电磁干扰。 在小型飞行器上，几乎总是需要外置罗盘。
+:::tip
+When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+:::
 
 ## 组合GPS/罗盘选项
 
-一些流行的GSP/指南针选项包括：
+Some popular GPS/compass options include:
 
 - [带罗盘的Ublox Neo-M8N GPS](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us)（Hobbyking）
 - [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
@@ -29,20 +33,20 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 - [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
 - 3DR uBlox GPS与罗盘kit</0 >(getfpv)-*停产*</li> </ul> 
   
-  GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪](../flight_controller/README.md)）提供
+  Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
   
-  > **Note** [Pixhawk系列](../flight_controller/pixhawk_series.md) 控制器通常有一个标记明确的端口用于连接GPS，指南针连接I2C或SPI总线（取决于设备）。 The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+  :::note [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+:::
   
-  
-
-<span></span>
-
-  
-  > **Tip** 连接GPS模块时，请注意引脚。 虽然这些都是软件兼容，有几个不同的引脚。
+  :::tip Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+:::
   
   ## GPS (Only) Options
   
-  - [Emlid Reach M+](https://emlid.com/reach/) (emlid.com) > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
+  - [Emlid Reach M+](https://emlid.com/reach/) (emlid.com)
+    
+    :::note At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
+:::
   
   ## Compass (Only) Options
   
@@ -50,7 +54,7 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
   
   ## RTK-GPS设备
   
-  有关支持的设备和setup/配置的信息，请参阅边栏下的 [RTK GPS](../gps_compass/rtk_gps.md)。
+  Information about supported devices and setup/configuration can be found in the sidebar under: [RTK GPS](../gps_compass/rtk_gps.md).
   
   ## 配置
   
@@ -58,7 +62,8 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
   
   GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
   
-  > **Note** The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+  :::note The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+:::
   
   
 
@@ -83,9 +88,9 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
   
   ### 罗盘
   
-  指南针校准内容包括在：[罗盘配置](../config/compass.md) 中。 该过程非常简单，将校准所有连接的磁强计。
+  Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will calibrate all connected magnetometers.
   
-  可以使用 [CAL\ *MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters（`x=0-3`）[performed](../advanced_config/parameters.md) 其他配置。 通常，您不需要 *修改* 这些，因为罗盘是自动检测的，优先排序，并且都是同时校准的（可能的例外是 [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) 可能用于禁用内部指南针）。 但是，您可能希望阅读它们，因为它们会让您知道哪些磁强计是内部或外部（[CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)），哪些是用作主要标题源（[CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)）。
+  Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters (where `x=0-3`). Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) which might be used to disable an internal compass). You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
   
   ## 开发人员信息
   

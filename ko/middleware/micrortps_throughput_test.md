@@ -2,31 +2,32 @@
 
 This a simple test to measure the throughput of the [PX4-FastRTPS Bridge](../middleware/micrortps.md). It sends and receives 256-byte messages (simultaneously) at maximum rate, and then outputs the result.
 
-> **Tip** This example requires that you [Manually Generate Client and Agent Code](../middleware/micrortps_manual_code_generation.md).
+First create a new uORB message for this test in the folder **/Firmware/msg/**.
+:::
 
 ## Create the uORB message
 
-First create a new uORB message for this test in the folder **/Firmware/msg/**. The message file will be called **throughput_256.msg** and have the following content:
+First create a new uORB message for this test in the folder **/PX4-Autopilot/msg/**. The message file will be called **throughput_256.msg** and have the following content:
 
 ```
 uint8[256] data
 ```
 
-This can be done with the command line below:
+Register the new message adding it to the list of messages in the file: **/Firmware/msg/CMakeLists.txt**:
 
 ```sh
 cd /path/to/PX4/Firmware/msg
 echo uint8[256] data > throughput_256.msg
 ```
 
-Register the new message adding it to the list of messages in the file: **/Firmware/msg/CMakeLists.txt**:
+Give the message a topic id by adding a line in the **/Firmware/Tools/message_id.py** script:
 
 ```cmake
 ...
 ...
 ```
 
-Give the message a topic id by adding a line in the **/Firmware/Tools/message_id.py** script:
+Give the message a topic id by adding a line in the **/PX4-Autopilot/Tools/message_id.py** script:
 
 ```python
 ...
@@ -88,9 +89,9 @@ while (!_should_exit_task)
 ...
 ```
 
-
-> **Note** You may recall this is intended to be a *bidirectional* throughput test, where messages must also be sent from the *Agent* to the *Client*. You do not need to modify the Agent code to make this happen. As the *Agent* is an RTPS publisher and subscriber, it will automatically get notified of the RTPS messages it sends, and will then mirror these back to the client.
-
+:::note
+You may recall this is intended to be a *bidirectional* throughput test, where messages must also be sent from the *Agent* to the *Client*. You do not need to modify the Agent code to make this happen. As the *Agent* is an RTPS publisher and subscriber, it will automatically get notified of the RTPS messages it sends, and will then mirror these back to the client.
+:::
 
 [Compile and launch](../middleware/micrortps_manual_code_generation.md#build-and-use-the-code) both the *Client* and the *Agent*.
 

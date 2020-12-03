@@ -2,17 +2,18 @@
 
 This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
 
-> **Note** For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../apps/module_template.md).
-
+:::note
+For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+:::
 
 ## Prerequisites
 
-You will require the following:
+The source code [Firmware/src/examples/px4_simple_app](https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](https://docs.px4.io/en/flight_controller/#documented-boards).
 * [PX4 Development Toolchain](../setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../setup/building_px4.md#get_px4_code) from Github
 
-The source code [Firmware/src/examples/px4_simple_app](https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
+The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
 * Rename (or delete) the **px4_simple_app** directory.
 
 ## Minimal Application
@@ -178,11 +179,11 @@ int px4_simple_app_main(int argc, char *argv[])
      }
      ```
 
-     > **Tip** The `px4_add_module()` format is documented in [Firmware/cmake/common/px4_base.cmake](https://github.com/PX4/Firmware/blob/master/cmake/common/px4_base.cmake).
+     :::tip The main function must be named `<module_name>_main` and exported from the module as shown.
+:::
 
-<span></span>
-
-     > **Tip** `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+     :::tip `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+:::
 
 1. Create and open a new *cmake* definition file named **CMakeLists.txt**. Copy in the text below:
    ```cmake
@@ -235,11 +236,12 @@ int px4_simple_app_main(int argc, char *argv[])
    - PX4 SITL (Simulator): [Firmware/boards/px4/sitl/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake)
    - The `MAIN` block lists the name of the module - this registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-   > Pixracer (px4/fmu-v4): [Firmware/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v4/default.cmake) <!-- NEED px4_version -->
-   
-   <span></span>
+   :::tip The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
-   > **Note** If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
+
+   :::note If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
 
 ## Build the Application/Firmware
 
@@ -256,7 +258,9 @@ To enable the compilation of the application into the firmware create a new line
 examples/px4_simple_app
 ```
 
-> **Note** The line will already be present for most files, because the examples are included in firmware by default.
+:::note
+The line will already be present for most files, because the examples are included in firmware by default.
+:::
 
 Build the example using the board-specific command:
 
@@ -324,7 +328,7 @@ Builtin Apps:
   serdis
 ```
 
-Note that `px4_simple_app` is now part of the available commands. Start it by typing `px4_simple_app` and ENTER:
+If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../setup/building_px4.md#jmavsim_build)). Start it by typing `px4_simple_app` and ENTER:
 
 ```sh
 nsh> px4_simple_app
@@ -335,7 +339,7 @@ The application is now correctly registered with the system and can be extended 
 
 ## Test App (SITL)
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../setup/building_px4.md#jmavsim_build)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
+If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
 
 Enter `px4_simple_app` to run the minimal app.
 
@@ -351,9 +355,11 @@ The application can now be extended to actually perform useful tasks.
 
 To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands).
 
-> **Tip** The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+:::tip
+The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+:::
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
 
 Subscribing to a topic is straightforward:
 
@@ -420,13 +426,17 @@ Your app will display 5 sensor values in the console and then exit:
 [px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
 ```
 
-> **Tip** The [Module Template for Full Applications](../apps/module_template.md) can be used to write background process that can be controlled from the command line.
+:::tip
+The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+:::
 
 ## Publishing Data
 
 To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
 
-> **Note** We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+:::note
+We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+:::
 
 The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
@@ -447,7 +457,7 @@ orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 
 ## Full Example Code
 
-The [complete example code](https://github.com/PX4/Firmware/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
+The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
 
 ```c
 * Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
@@ -587,11 +597,11 @@ And finally run your app:
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot (**Widgets > Analyze**).
+If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)).
 
 ## Wrap-Up
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/Firmware/tree/master/msg/) and that the headers are well documented and serve as reference.
+This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
 
 Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
 

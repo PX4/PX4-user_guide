@@ -28,7 +28,9 @@ Generally SPort receivers have an *inverted* S.Port signal and you have to use a
 
 ![FrSky-Taranis-遥测](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
-> **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 自制一个[DIY转接线缆](#diy_cables)需要专业的电子装配技术。
+:::tip
+When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+:::
 
 If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins. <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
 Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
@@ -39,7 +41,9 @@ Then [configure PX4](#configure).
 
 For Pixhawk FMUv5 and later PX4 can read either inverted (or uninverted) S.Port signals directly - no special cable is required.
 
-> **Note** More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
+:::note
+More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
+:::
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type). Then [configure PX4](#configure).
 
@@ -47,70 +51,67 @@ Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin 
 
 ## PX4配置
 
-睿思凯遥控器使用[TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)运行的[串口配置](../peripherals/serial_configuration.md). 无需设置端口的波特率, 因为这是由驱动程序配置的。
+[Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note**您可以使用任何可用的 uart, 但通常 `TELEM 2 ` 用于 frsky 遥测 ([Pixracer](../flight_controller/pixracer.md) 除外, 默认情况下, 它被预先配置为使用 *FrSky* 端口)。
+:::note
+You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the *FrSky* port by default).
+:::
 
-<span></span>
+:::tip
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 
-> **Tip** 如果配置参数在 *QGroundControl* 中不可用, 则可能需要 添加驱动程序到固件 </1 >: ```drivers/telemetry/frsky_telemetry```</p> </blockquote> 
-> 
-> 至此，不需要进一步的配置; frsky 遥测在连接时自动启动, 并检测d 或 s 模式的接收机。
-> 
-> 
+    drivers/telemetry/frsky_telemetry
+    
+
+:::
+
+No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
 
 <span id="transmitters"></span>
 
-> 
-> ## 兼容遥控发射机
-> 
-> 您将需要一个可以接收遥测数据流的遥控发射机，并且绑定到了睿思凯的接收机。
-> 
-> 主流的可选方案有：
-> 
-> * FrSky Taranis X9D Plus (推荐)
-> * FrSky Taranis X9D
-> * FrSky Taranis X9E
-> * FrSky Taranis Q X7
-> * Turnigy 9XR Pro
-> 
-> 上面这些发射机无需任何进一步的配置即可显示遥测数据。 以下部分将解释如何自定义遥测显示界面（例如，创建更友好的UI/UX）。
-> 
-> ### Taranis脚本设置(LuaPilot) 
-> 
-> 运行OpenTX 2.1.6或更新版本的兼容Taranis发射机(例如X9D Plus)，可以使用LuaPilot脚本修改显示的遥测数据(如下面的截图所示)。
-> 
-> ![Taranis 遥控器上的遥测回传界面](../../assets/hardware/telemetry/taranis_telemetry.jpg)
-> 
-> 这里可以找到安装脚本的说明: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
-> 
-> 如果您使用文本编辑工具打开`LuaPilot脚本`，您可以进行编辑配置。 建议修改包括：
-> 
-> * `local BattLevelmAh = -1` 使用载机计算的电池信息；
-> * `local SayFlightMode = 0 `没有可供PX4飞行模式使用的WAV音频文件 遥测信息
-> 
-> 
+## 兼容遥控发射机
+
+You will need an RC transmitter that can receive the telemetry stream (and that is bound to the FrSky receiver).
+
+Popular alternatives include:
+
+* FrSky Taranis X9D Plus (推荐)
+* FrSky Taranis X9D
+* FrSky Taranis X9E
+* FrSky Taranis Q X7
+* Turnigy 9XR Pro
+
+The above transmitters can display telemetry data without any further configuration. The following section(s) explain how you can customise telemetry display (for example, to create a better UI/UX).
+
+### Taranis脚本设置(LuaPilot) 
+
+Compatible Taranis receivers (e.g. X9D Plus) running OpenTX 2.1.6 or newer can use the LuaPilot script to modify the displayed telemetry (as shown in the screenshot below).
+
+![Telemetry Screen on the Taranis](../../assets/hardware/telemetry/taranis_telemetry.jpg)
+
+Instructions for installing the script can be found here: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
+
+If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Suggested modifications include:
+
+* `local BattLevelmAh = -1` 使用载机计算的电池信息；
+* `local SayFlightMode = 0 `没有可供PX4飞行模式使用的WAV音频文件 遥测信息
 
 <span id="messages"></span>
 
-> 
-> ## 遥测信息
-> 
-> 睿思凯遥测技术可以从PX4传输大部分有用的状态信息回来。 S. port和D. port接收机传输不同的消息集，如下所示。
-> 
-> 
+## 遥测信息
+
+FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
 
 <span id="s_port"></span>
 
-> 
-> ### S-Port
-> 
-> S-Port接收机从 PX4传输以下信息 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
-> 
-> * **AccX, accy, accz:**加速度计数值。
-> * **Alt:**基于气压计的高度, 初始化水平为零。
-> * **Curr:**实际电流消耗 (安培)。
-> * **Fuel:**当`电池容量`参数和 smartport_fuel_percent = on</1 >参数设置好了, 则剩余电池剩余容量百分比，否则显示电池消耗容量时, 。</li>
+### S-Port
+
+S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+
+* **AccX, accy, accz:**加速度计数值。
+* **Alt:**基于气压计的高度, 初始化水平为零。
+* **Curr:**实际电流消耗 (安培)。
+* **Fuel:**当`电池容量`参数和 smartport_fuel_percent = on</1 >参数设置好了, 则剩余电池剩余容量百分比，否则显示电池消耗容量时, 。</li>
 <li><strong>Alt:</strong>基于气压计的高度, 初始化水平为零。</li>
 <li><strong>GPS:</strong>gps 坐标。</li>
 <li><strong>GSpd:</strong>当前相对水平地面速度, 由 gps 计算。</li>
@@ -121,9 +122,9 @@ Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin 
 <li><strong>Tmp2:</strong>gps 信息。 最右边的数字是 gps 定位类型 (0 = 无, 2 = 2d, 3 = 3d)。 其他数字是卫星的数量。</li>
 </ul>
 
-<blockquote>
-  <p><strong>Note</strong>px4 不支持以下 "标准" s 端口消息: <strong>ASpd</strong>、<strong>A4</strong>。</p>
-</blockquote>
+<p>:::note
+The following "standard" S-Port messages are not supported by PX4: <strong>ASpd</strong>, <strong>A4</strong>. 
+:::</p>
 
 <!-- FYI: 
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
@@ -136,7 +137,7 @@ Lua map of flight modes:
 
 <h3>D-port</h3>
 
-<p>D-Port 接收机从PX4传输以下信息(from <a href="https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md">here</a>):</p>
+<p>D-Port receivers transmit the following messages (from <a href="https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md">here</a>):</p>
 
 <ul>
 <li><strong>AccX, accy, accz:</strong>加速度计数值。</li>
@@ -164,11 +165,11 @@ Lua map of flight modes:
 
 <h2>睿思凯遥测接收机</h2>
 
-<p>Pixhawk/PX4支持睿思凯的D. port和S. port遥测功能。 下表是所有通过D.port/S.port支持遥测功能的睿思凯接收机。（理论上，这些都是可以正常工作的。）</p>
+<p>Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work).</p>
 
-<blockquote>
-  <p><strong>Tip</strong>值得注意的是，下面列出的X系列接收机是推荐可用的，如XSR、X8R。 R系列和G系列还没有经过测试团队的测试，但是应该也是可以工作的。</p>
-</blockquote>
+<p>:::tip
+Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
+:::</p>
 
 <table>
 <thead>
@@ -297,9 +298,9 @@ Lua map of flight modes:
 </tbody>
 </table>
 
-<blockquote>
-  <p><strong>Note</strong> 以上列表信息来源于： http://www.redsilico.com/frsky-receiver-chart and FrSky <a href="https://www.frsky-rc.com/product-category/receivers/">product documentation</a>.</p>
-</blockquote>
+<p>:::note
+The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky <a href="https://www.frsky-rc.com/product-category/receivers/">product documentation</a>.
+:::</p>
 
 <p>
 
@@ -326,47 +327,47 @@ Lua map of flight modes:
 <h2>自制转接线缆</h2>
 
 <p>It is possible to create your own adapter cables.
-您将需要适合你的自驾仪的连接头。比如<em>JST-GH 接头</em>（FMUv3/Pixhawk 2 "The Cube" / FMUv4/PixRacer v1)，以及DF-13兼容<em>PicoBlade接头</em>(FMUv2/3DR Pixhawk, FMUv2/HKPilot32）。</p>
+You will need connectors that are appropriate for your autopilot (e.g. <em>JST-GH connectors</em> for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible <em>PicoBlade connectors</em> for older autopilots).</p>
 
 <p>The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. 
-他们可以从以下渠道获取：</p>
+These can be sourced from:</p>
 
 <ul>
 <li><a href="https://www.frsky-rc.com/product/ful-1/">FrSky FUL-1</a>: <a href="https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/">unmannedtech.co.uk</a></li>
 <li>SPC: <a href="http://www.getfpv.com/frsky-smart-port-converter-cable.html">getfpv.com</a>, <a href="https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/">unmannedtechshop.co.uk</a> </li>
 </ul>
 
-<p>关于不同飞控板连接头的更多信息如下所示。</p>
+<p>More information about the connections for different boards is given below.</p>
 
 <h3>Pixracer to S-port 接收机</h3>
 
-<p>将Pixracer中的FrSky端口的TX和RX连接到一起，再连接到X系列接收机的S.port端口。 
-GND不需要连接，因为这将在连接Subs时完成（常规遥控器连接）。</p>
+<p>Connect the Pixracer FrSky TX and RX lines together (solder the wires together) to the X series receiver's S.port pin. 
+GND need not be attached as this will have been done when attaching to S.Bus (normal RC connection).</p>
 
-<p>	S. port的连接方式如下图所示，使用提供的I/O连接头。</p>
+<p>The S-port connection is shown below (using the provided I/O Connector).</p>
 
-<p><img src="../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg" alt="Grau b Pixracer FrSkyS接口连接" /></p>
+<p><img src="../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg" alt="Grau b Pixracer FrSkyS.Port Connection" /></p>
 
-<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg" alt="Pixracer FrSkyS接口连接" /></p>
+<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg" alt="Pixracer FrSkyS.Port Connection" /></p>
 
 <h3>Pixracer to D-port 接收机</h3>
 
-<blockquote>
-  <p><strong>Tip</strong> 绝大多数用户现在更倾向于使用S.port。</p>
-</blockquote>
+<p>:::tip
+The vast majority of users now prefer to use S.PORT.
+:::</p>
 
-<p>将Pixracer中FrSky端口的TX（FS out）连接到接收机的RX,
-将Pixracer中FrSky端口的RX（FS out）连接到接收机的TX。
-GND不需要连接，因为这将在连接RC/Subs时完成。</p>
+<p>Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line.
+Connect the Pixracer FrSky RX line (FS in) to the receivers TX line.
+GND need not be connected as this will have been done when attaching to RC/SBus (for normal RC).</p>
 
 
->     
->     <!-- Image would be nice -->
+    
+    <!-- Image would be nice -->
 
 <h3>Pixhawk Pro</h3>
 
-<p>Piahawk 3 Pro可以连接到TELEM4端口，无需额外的软件配置。
-您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
+<p><a href="../flight_controller/pixhawk3_pro.md">Pixhawk 3 Pro</a> can be connected to TELEM4 (no additional software configuration is needed).
+You will need to connect via a UART to S.PORT adapter board, or a <a href="#ready_made_cable">ready-made cable</a>.</p>
 
 <h3>Pixhawk FMUv5 and later</h3>
 
@@ -380,18 +381,18 @@ GND不需要连接，因为这将在连接RC/Subs时完成。</p>
 
 <h3>其他飞控板</h3>
 
-<p>大部分其他型号飞控板是通过TELEM2端口连接到接收机，从而使用睿思凯的遥测功能， 
-这其中包括了：Pixhawk 1, mRo Pixhawk, Pixhawk2。</p>
+<p>Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. 
+This includes, for example: <a href="../flight_controller/pixhawk.md">Pixhawk 1</a>, <a href="../flight_controller/mro_pixhawk.md">mRo Pixhawk</a>, Pixhawk2.</p>
 
-<p>您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
+<p>You will need to connect via a UART to S.PORT adapter board, or a <a href="#ready_made_cable">ready-made cable</a>.</p>
 
 
->     
->     <!-- ideally add diagram here -->
+    
+    <!-- ideally add diagram here -->
 
 <h2>附加信息</h2>
 
-<p>更多其他信息，请访问以下链接</p>
+<p>For additional information, see the following links:</p>
 
 <ul>
 <li><a href="https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry">FrSky Taranis 遥测回传</a></li>

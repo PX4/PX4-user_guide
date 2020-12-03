@@ -8,28 +8,26 @@ PX4 几乎只消耗来自 [uORB](../middleware/uorb.md) 的数据。 常见外�
 
 PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
 
-> **Tip** 有关使用特定 ito 总线和传感器的更多详细信息，请参见 [传感器和执行器总线](../sensor_bus/README.md) 部分。
+PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used: 文件句柄不是必需或用于系统的核心操作。
 
-<span></span>
-> **Note** 发布正确的 uORB 主题是驱动程序 *必须* 遵循的唯一模式。
-
+PX4 使用设备 ID 在整个系统中一致地识别单个传感器。 PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
 
 ## 核心架构
 
-PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used: 文件句柄不是必需或用于系统的核心操作。 使用了两个主要 API：
+PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
 
 * Publish / subscribe 系统具有文件、网络或共享内存后端，具体取决于系统 PX4 运行。
 * The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system. 这可以像链接列表或映射到文件系统一样简单。
 
 ## 设备ID
 
-PX4 使用设备 ID 在整个系统中一致地识别单个传感器。 PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
+For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding. 这三个参数解码传感器的 ID， 并且 `MAG_PRIME` 区分那个磁力计作为主传感器。
 
-传感器序列（比如，如果有一个 `/dev/mag0` 和一个备用的 `/dev/mag1`）并不决定优先级 — 优先级作为已发布的 uORB 主题的一部分存储。
+这是通过 I2C 总线1 的外部 HMC5983 连接在地址 `0x1E`：会在日志文件中以 `IMU.MagX` 格式显示出来。
 
 ### 解码示例
 
-For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding. 这三个参数解码传感器的 ID， 并且 `MAG_PRIME` 区分那个磁力计作为主传感器。 每个 MAGx_ID 是 24 bit 的数，手动解码的话高位补 0。
+This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`. 它将以 `IMU1.MagX` 显示在日志文件中。 Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
 
 
 ```
@@ -39,7 +37,7 @@ CAL_MAG2_ID = 263178.0
 CAL_MAG_PRIME = 73225.0
 ```
 
-这是通过 I2C 总线1 的外部 HMC5983 连接在地址 `0x1E`：会在日志文件中以 `IMU.MagX` 格式显示出来。
+This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will show up in the log file as `IMU.MagX`.
 
 ```
 # device ID 73225 in 24-bit binary:
@@ -49,7 +47,7 @@ CAL_MAG_PRIME = 73225.0
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`. 它将以 `IMU1.MagX` 显示在日志文件中。
+根据此格式，设备 ID 是一个24bit 数字。 The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -59,7 +57,7 @@ This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It w
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`. 它将以 `IMU2.MagX` 显示在日志文件中。
+And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`.
 
 ```
 # device ID 263178 in 24-bit binary:
@@ -71,7 +69,7 @@ MPU9250   dev 4   bus 1 SPI
 
 ### 设备 ID 编码
 
-根据此格式，设备 ID 是一个24bit 数字。 The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
+The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
 
 ```C
 struct DeviceStructure {
@@ -81,7 +79,7 @@ struct DeviceStructure {
   uint8_t devtype;   // device class specific device type
 };
 ```
-`bus_type` 是根据以下情况解码的：
+The `bus_type` is decoded according to:
 
 ```C
 enum DeviceBusType {
@@ -92,7 +90,7 @@ enum DeviceBusType {
 };
 ```
 
-`devtype` 是根据以下情况解码的：
+and `devtype` is decoded according to:
 
 ```C
 #define DRV_MAG_DEVTYPE_HMC5883  0x01
@@ -142,4 +140,6 @@ px4_add_module(
     )
 ```
 
-> **Tip** Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+:::tip
+Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+:::

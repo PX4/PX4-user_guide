@@ -21,38 +21,40 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 | <span id="action_flight_termination"></span>[飞行终止](../advanced_config/flight_termination.md) | 关闭所有控制器并将所有 PWM 输出设置为其故障保护值（例如 [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1)，[PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) 等输出）。 故障保护输出可用于启动降落伞、起落架或执行其他操作。 对于固定翼飞行器，这可能允许您将机体滑翔至安全位置。 |
 | <span id="action_lockdown"></span>锁定                                               | 制动发动机（使其上锁）。 这和使用[急停开关](#kill_switch)是一样的。                                                                                                                                                                                                         |
 
-> **Note** 可以通过切换模式从故障保护动作（如果原因已修复）中恢复。 例如，在遥控信号丢失且故障保护导致机体进入*返航模式*的情况下，如果遥控信号恢复，您可以切换到*定点模式*并继续飞行。
+:::note
+It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
+:::
 
-<span></span>
-
-> **Note** 如果在机体响应一个故障保护时发生另一个故障保护（例如，由于遥控信号丢失而处于返航模式时，电池电量也提示不足），则忽略第二个故障保护的指定触发动作。 相反，此操作由单独的系统级别和机体的特定代码决定。 这可能会导致机体被更改为手动模式，以便用户能够直接管理并收回机体。
+:::note
+If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored. Instead the action is determined by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+:::
 
 <span id="qgc_safety_setup"></span>
 
 ## QGroundControl 安全设置
 
-通过依次单击 *QGroundControl* **Gear** 图标（位于机体设置 - 顶部工具栏），然后单击侧栏中的**安全**来访问 *QGroundControl* 安全设置页面。 其中包括最重要的故障保护设置（电池故障，遥控信号丢失等）和返航动作的设置（*返航*和*降落*）。
+The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
 
-![安全设置（QGC）](../../assets/qgc/setup/safety/safety_setup.png)
+![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### 低电量故障保护
 
-当电池电量低于一个（或多个警告）水平值时，会触发低电量故障保护。
+The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
 
-![安全 - 电池（QGC）](../../assets/qgc/setup/safety/safety_battery.png)
+![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
-最常见的配置是按上述方式设置参数的值和相应故障保护动作（ `警告 > 故障安全 > Emergency`)。 通过如此配置，故障保护将触发警告，随后返航，最后在电池电量过低时降落。
+The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
 
-也可以在[电池故障保护等级](#BAT_CRIT_THR)达到指定水平时，将*故障保护动作*设置为警告、返航或降落。
+It is also possible to set the *Failsafe Action* to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
 
-设置和基本参数如下所示。
+The settings and underlying parameters are shown below.
 
-| 设置                                 | 参数                                                                             | 描述                                               |
-| ---------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ |
-| 故障保护动作                             | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 当电池电量过低时，根据下面的每个水平值执行警告、返航、降落三者之一，或分别设置警告、返航或降落。 |
-| 电池警告水平                             | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 需做出警告（或其他动作）的电量百分比。                              |
+| 设置                                | 参数                                                                             | 描述                                               |
+| --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ |
+| 故障保护动作                            | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 当电池电量过低时，根据下面的每个水平值执行警告、返航、降落三者之一，或分别设置警告、返航或降落。 |
+| 电池警告水平                            | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 需做出警告（或其他动作）的电量百分比。                              |
 | <span id="BAT_CRIT_THR"></span>电池故障保护水平 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 电量低于该百分比则返航（或者执行其他事前选择动作）。                       |
-| 电量紧急水平                             | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 电量低于该百分比则（立即）触发降落动作。                             |
+| 电量紧急水平                            | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 电量低于该百分比则（立即）触发降落动作。                             |
 
 <span id="rc_loss_failsafe"></span>
 
@@ -60,11 +62,13 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
 
-![安全 - 遥控丢失（QGC）](../../assets/qgc/setup/safety/safety_rc_loss.png)
+![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
-> **Note** 为了*检测遥控信号丢失情况*，可能还需要配置 PX4 和接收机：[无线电设置 > 遥控信号丢失检测](../config/radio.md#rc_loss_detection)。
+:::note
+PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+:::
 
-设置和基本参数如下所示。
+The settings and underlying parameters are shown below.
 
 | 设置       | 参数                                                                         | 描述                  |
 | -------- | -------------------------------------------------------------------------- | ------------------- |
@@ -73,11 +77,11 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 数据链路丢失故障保护
 
-如果在执行任务时数传链路（与地面站的连接）丢失，则会触发数据链路丢失故障保护。
+The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
 
-![安全 - 数据链路丢失（QGC）](../../assets/qgc/setup/safety/safety_data_link_loss.png)
+![Safety - Data Link Loss (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
-设置和基本参数如下所示。
+The settings and underlying parameters are shown below.
 
 | 设置       | 参数                                                                         | 描述                   |
 | -------- | -------------------------------------------------------------------------- | -------------------- |
@@ -86,9 +90,9 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ### 地理围栏故障保护
 
-地理围栏故障保护是一个以初始位置为中心“虚拟”圆柱体。 如果机体在圆柱体的半径以外或在高于圆柱体的高度移动，将触发特定的故障保护动作。
+The *Geofence Failsafe* is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
-![安全 - 地理围栏（QGC）](../../assets/qgc/setup/safety/safety_geofence.png)
+![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
 :::tip
 PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
@@ -238,7 +242,9 @@ The failure detector allows a vehicle to take protective action(s) if it unexpec
 
 During **flight**, the failure detector can be used to trigger [flight termination](../advanced_config/flight_termination.md) if failure conditions are met, which may then launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
-> **Note** Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
+:::note
+Failure detection during flight is deactivated by default (enable by setting the parameter: [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM)).
+:::
 
 During **takeoff** the failure detector [attitude trigger](#attitude_trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 
@@ -313,7 +319,7 @@ For modes that do not support disarming in flight, the switch is ignored during 
 :::
 
 <!--
-> **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
+**Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 

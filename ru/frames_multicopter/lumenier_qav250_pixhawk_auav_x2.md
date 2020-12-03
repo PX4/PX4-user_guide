@@ -2,7 +2,9 @@
 
 The [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250) is a small but fully functional FPV multicopter frame. This topic provides build guidance for using the frame with the *Pixhawk* and AUAV-X2 flight controllers.
 
-> **Note** Our [HolyBro QAV250 Pixhawk4-Mini Build](holybro_qav250_pixhawk4_mini.md) contains more complete build instructions for working with the QAV250.
+:::note
+Our [HolyBro QAV250 Pixhawk4-Mini Build](holybro_qav250_pixhawk4_mini.md) contains more complete build instructions for working with the QAV250.
+:::
 
 Key information:
 
@@ -34,7 +36,9 @@ It is mounted underneath the top plate to move it further away from the EMI gene
 
 The X2 is mounted in a sintered nylon case with a "baro chamber" which reduces sensitivity of the barometer altitude to pressure effects created by wind and turbulence.
 
-> **Note** Originally this case could be ordered from Phil Kocmoud's Shapeways store: "auav x2 r4 screwless nylon case nylon". It is no longer available (but not "required").
+:::note
+Originally this case could be ordered from Phil Kocmoud's Shapeways store: "auav x2 r4 screwless nylon case nylon". It is no longer available (but not "required").
+:::
 
 Also note that you must order the top and bottom case halves separately.
 

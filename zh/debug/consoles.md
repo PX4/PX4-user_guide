@@ -20,19 +20,20 @@ Shell 提供对系统的上层访问能力：
 - 不能*直接*得到运行在任务队列上的其它输出信息。
 - 在 PX4 系统无法启动时无助于调试（它并没有运行）。
 
-> **Note** `dmesg` 命令现在在某些飞控板上被支持，可以使 MAVLink Shell 能够进行更底层的调试。 例如，执行 `dmesg -f &` 命令将会得到其它后台任务的输出信息。
-
 支持来自串口或 MAVLink 的多个shell同时运行。 由于 MAVLink 能提供更加灵活的使用方式，所以目前只使用了 [MAVLink Shell](../debug/mavlink_shell.md) 。
+:::
 
 [系统控制台（System Console）](../debug/system_console.md)在调试系统无法启动时十分必要，它会在飞控板上电后输出启动日志。 但是 [MAVLink Shell](../debug/mavlink_shell.md) 则更加易于配置使用，因此通常都推荐用它调试。
+
+The [System Console](../debug/system_console.md) is essential when the system does not boot (it displays the system boot log when power-cycling the board). The [MAVLink Shell](../debug/mavlink_shell.md) is much easier to setup, and so is more generally recommended for most debugging.
 
 <a id="using_the_console"></a>
 
 ## 使用控制台/Shell
 
-MAVLink shell/控制台和[系统控制台](../debug/system_console.md)使用方法基本一致。
-
 举例来说，可以输入 `ls` 查看本地文件系统；输入 `free` 查看剩余可用RAM；输入 `dmesg` 查看启动日志。
+
+其它更多的系统命令与模块被列举在 [模块和命令参考](../middleware/modules_main.md) 中。（比如 `top`、`listener` 等）
 
 ```bash
 nsh> ls
@@ -40,6 +41,8 @@ nsh> free
 nsh> dmesg
 ```
 
-其它更多的系统命令与模块被列举在 [模块和命令参考](../middleware/modules_main.md) 中。（比如 `top`、`listener` 等）
+Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
-> **Tip** 部分飞控板禁用了一些命令。（RAM或FLASH受限的飞控板不含某些模块） 这时你将会得到 `command not found` 提示。
+:::tip
+Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints). In this case you will see the response: `command not found`
+:::

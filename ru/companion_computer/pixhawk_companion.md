@@ -6,7 +6,9 @@ Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-fam
 
 Enable MAVLink on any [configurable serial port](../peripherals/serial_configuration.md).
 
-> **Tip** Typically the `TELEM 2` port is used for a companion computer.
+:::tip
+Typically the `TELEM 2` port is used for a companion computer.
+:::
 
 To set up the default companion computer message stream on `TELEM 2`, set the following parameters:
 * [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG` is often used to map the `TELEM 2` port)
@@ -28,7 +30,9 @@ In order to receive MAVLink, the companion computer needs to run some software t
 
 Wire the serial port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.
 
-> **Warning** Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
+:::warning
+Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be *reconfigured in Linux* before they can be used.
+:::
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
@@ -68,7 +72,9 @@ The Arduino is `Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC AC
 
 The Pixhawk is `Bus 003 Device 005: ID 26ac:0011`
 
-> **Note** If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
+:::note
+If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
+:::
 
 Therefore, we can create a new UDEV rule in a file called `/etc/udev/rules.d/99-pixhawk.rules` with the following content, changing the idVendor and idProduct to yours.
 
@@ -79,7 +85,9 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0011", SYMLINK+="t
 
 Finally, after a **reboot** you can be sure to know which device is what and put `/dev/ttyPixhawk` instead of `/dev/ttyUSB0` in your scripts.
 
-> **Note** Be sure to add yourself in the `tty` and `dialout` groups via `usermod` to avoid to have to execute scripts as root.
+:::note
+Be sure to add yourself in the `tty` and `dialout` groups via `usermod` to avoid to have to execute scripts as root.
+:::
 
 ```sh
 usermod -a -G tty ros-user

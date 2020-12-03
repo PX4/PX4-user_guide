@@ -4,7 +4,9 @@
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 *CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
 
@@ -51,19 +53,21 @@ PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](htt
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
-<span id="connection"></span>
-
 ## Connection
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
-> **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+:::warning
+The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+:::
 
 ## Voltage Ratings
 
 *CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
