@@ -50,7 +50,9 @@ Logging dropouts are undesired and there are a few factors that influence the am
 
 The following provides performance results for different SD cards. Tests were done on a Pixracer; the results are applicable to Pixhawk as well.
 
-> **Tip** The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
+:::note
+The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
+:::
 
 | SD Card                                                       | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
 | ------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
@@ -67,7 +69,7 @@ More important than the mean write speed is the maximum write time per block (of
 
 By far the best card we know so far is the **SanDisk Extreme U3 32GB**. This card is recommended, because it does not exhibit write time spikes (and thus virtually no dropouts). Different card sizes might work equally well, but the performance is usually different.
 
-You can test your own SD card with `sd_bench -r 50`, and report the results to https://github.com/PX4/Firmware/issues/4634.
+You can test your own SD card with `sd_bench -r 50`, and report the results to https://github.com/PX4/PX4-Autopilot/issues/4634.
 
 ## Log Streaming
 
