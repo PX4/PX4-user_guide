@@ -119,8 +119,9 @@ This kit includes Dropix flight controller with most of the required electronics
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
-> **Note**  General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md).
-
+:::note
+General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md).
+:::
 
 #### Connect the ESC power connector and pass the signals cables to the flight controller
 
@@ -192,8 +193,10 @@ The inputs for the USB port, power module and external USB are located on the ri
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_41_connect_power_module_usb.jpg" width="500px" title="Connect power module and USB" />
 
-> **Tip** The external USB is optional. It should be used if access to the USB port is difficult once the flight controller is mounted.
-
+:::tip
+The external USB is optional.
+It should be used if access to the USB port is difficult once the flight controller is mounted.
+:::
 
 #### Install the pitot tube (airspeed sensor)
 
@@ -255,8 +258,9 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
-   > **Tip** If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel
-     tab, last item in the left menu)
+   :::note
+   If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
+   :::
  
 1. Check the vehicle is balanced around the expected centre of gravity
 
@@ -290,7 +294,6 @@ After you finish calibration the VTOL is ready to fly.
 {% youtube %}
 http://www.youtube.com/watch?v=h7OHTigtU0s
 {% endyoutube %}
-
 
 
 ## Support

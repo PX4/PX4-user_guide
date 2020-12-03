@@ -8,8 +8,10 @@ You will need:
 - A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
 - A vehicle with a WiFi or Telemetry radio link to the laptop
 
-> **Note** *QGroundControl* can theoretically enable RTK GPS for multiple vehicles (provided they each have a rover module).
-  At time of writing this use case has not been tested.
+:::note
+*QGroundControl* can theoretically enable RTK GPS for multiple vehicles (provided they each have a rover module).
+At time of writing this use case has not been tested.
+:::
 
 ## Supported RTK Devices
 
@@ -27,8 +29,9 @@ The following RTK-compatible devices have been tested.
 * [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 * [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
-
-> **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+:::note
+Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+:::
 
 ## Hardware setup
 
@@ -43,8 +46,10 @@ The actual cables/connectors required will depend on the flight controller and s
 Connect the base module to *QGroundControl* via USB.
 The base module must not be moved while it is being used.
 
-> **Tip** Choose a position where it won't need to be moved, has a clear view of the sky, and is well separated from any buildings.
-  Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+:::tip
+Choose a position where it won't need to be moved, has a clear view of the sky, and is well separated from any buildings.
+Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+:::
 
 ### Telemetry Radio/WiFi
 
@@ -61,9 +66,11 @@ The RTK GPS connection is essentially plug and play:
 1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
 1. Start the vehicle and make sure it is connected to *QGroundControl*.
 
-   > **Tip** An RTK GPS status icon is displayed in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
-     The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
-	 You can click the icon to see the current state and RTK accuracy.
+   :::tip
+   An RTK GPS status icon is displayed in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
+   The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
+   You can click the icon to see the current state and RTK accuracy.
+   :::
 1. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
 
    Survey-In is a startup procedure to get an accurate position estimate of the base station.
@@ -96,10 +103,10 @@ The RTK GPS settings are specified in the *QGroundControl* [General Settings](ht
 
 These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
 
-<span></span>
-> **Tip** You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey.
-  The values will then persist across QGC reboots until they are changed.
-
+:::tip
+You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey.
+The values will then persist across QGC reboots until they are changed.
+:::
 
 ### MAVLink2
 

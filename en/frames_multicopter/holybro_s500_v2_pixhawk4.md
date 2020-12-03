@@ -27,10 +27,10 @@ The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pr
 * Dimensions:383*385*240mm
 * Wheelbase:480mm
 
-
-> **Note** No LiPo battery is included. 
-  In addition, we use a FrSky Taranis controller.
-
+:::note
+No LiPo battery is included. 
+In addition, we use a FrSky Taranis controller.
+:::
 
 ## Hardware
 
@@ -266,14 +266,18 @@ Fully assembled, the kit looks as shown below:
 [Download and install](http://qgroundcontrol.com/downloads/)
 *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
 
-> **Note** You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+:::note
+You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+:::
 
 ![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
 

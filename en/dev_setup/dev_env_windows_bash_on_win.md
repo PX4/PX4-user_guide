@@ -1,13 +1,16 @@
 # Bash on Windows Toolchain
 
-> **Note** The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::note
+The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::
 
 Windows users can alternatively install a *slightly modified* Ubuntu Linux PX4 development environment within [Bash on Windows](https://github.com/Microsoft/BashOnWindows), and use it to:
 * Build firmware for NuttX/Pixhawk targets.
 * Run the PX4 JMAVSim simulation (using a Windows-hosted X-Windows app to display the UI)
 
-> **Note** This mechanism only works on Windows 10. It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
-
+:::note
+This mechanism only works on Windows 10. It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
+:::
 
 ### Setup Environment
 
@@ -32,8 +35,10 @@ To build the firmware (i.e. for px4_fmu-v4):
    make px4_fmu-v4_default
    ```
    On successful completion you'll find the firmware here: `PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4`
-
-   > **Note** The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards)
+   
+   :::note
+   The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+   :::
 
 1. You can flash the custom firmware on Windows using *QGroundControl* or *Mission Planner* (it is not possible to directly flash the firmware from within the bash shell using the `upload` command).
 
@@ -48,7 +53,10 @@ To run JMAVSim:
    ```sh
    export DISPLAY=:0
    ```
-   > **Tip** Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+   
+   :::tip
+   Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+   :::
 1. Start PX4 and jMAVSim in the bash shell:
    ```sh
    make px4_sitl jmavsim
@@ -57,12 +65,15 @@ To run JMAVSim:
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-> **Caution** Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
-  ```sh
-  export DISPLAY=:0
-  export GAZEBO_IP=127.0.0.1
-  make px4_sitl gazebo
- ```
+:::caution
+Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful.
+To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
+```sh
+export DISPLAY=:0
+export GAZEBO_IP=127.0.0.1
+make px4_sitl gazebo
+```
+:::
 
 
 <a id="build_script_details"></a>

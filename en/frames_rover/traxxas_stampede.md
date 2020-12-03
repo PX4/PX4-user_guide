@@ -38,8 +38,9 @@ For this particular mounting we chose to use the clip supplied with the rover to
 For this, two supports were 3D printed. 
 The CAD files are provided [here](https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip).
 
-> **Warning** It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual) so to reduce the power to 50%.
-
+:::warning
+It is **HIGHLY RECOMMENDED** to set the ESC in training mode (see Traxxas Stampede Manual) so to reduce the power to 50%.
+:::
 
 ## Output Connections
 
@@ -48,8 +49,9 @@ PWM Output | Actuator
 MAIN2 | Steering servo
 MAIN4 | ESC input
 
-> **Note** As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
-
+:::note
+As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
+:::
 
 ## Configuration
 
@@ -68,7 +70,9 @@ The main rover-specific configuration is setting the correct frame:
 
 At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm. 
 
-> **Warning** It is **_VERY IMPORTANT_** to do a mission composed **_ONLY_** of normal waypoints (i.e. **_NO TAKEOFF WAYPOINTS_**) and it is crucial to **_SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0_** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+:::warning
+It is **_VERY IMPORTANT_** to do a mission composed **_ONLY_** of normal waypoints (i.e. **_NO TAKEOFF WAYPOINTS_**) and it is crucial to **_SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0_** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+:::
 
 A correct mission setup looks as follows:
 

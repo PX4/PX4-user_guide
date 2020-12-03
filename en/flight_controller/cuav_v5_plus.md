@@ -66,7 +66,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
-> **Note** Autopilot may be purchased with included Neo GPS module
+:::note
+Autopilot may be purchased with included Neo GPS module
+:::
 
 <span id="connection"></span>
 ## Connections (Wiring)
@@ -82,10 +84,11 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 *V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`.
 You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
-  It is neither powered by, nor provides power to the FMU.
-  However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
-
+:::note
+On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
+It is neither powered by, nor provides power to the FMU.
+However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -99,8 +102,9 @@ Under these conditions all power sources will be used in this order to power the
 The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
 The *V5+* has short circuit protection.
 
-> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
-
+:::warning
+Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::
 
 ## Building Firmware
 
@@ -138,13 +142,15 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
->
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
-> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
->
->For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
+:::warning
+The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+
+For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::
 
 ## Serial Port Mapping
 
@@ -209,7 +215,9 @@ For example, the serial number Batch V011904((V01 is the number of V5, 1904 is t
 <span id="pin1_unfused"></span>
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
-> **Warning** This is a safety issue.
+:::warning
+This is a safety issue.
+:::
 
 Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
 

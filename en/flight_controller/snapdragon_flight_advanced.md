@@ -1,7 +1,9 @@
 # Snapdragon Advanced
 
-> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
-  This documentation is provided for existing users, but will be removed in a future release.
+:::warning
+The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+This documentation is provided for existing users, but will be removed in a future release.
+:::
 
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
@@ -49,7 +51,9 @@ With the Snapdragon connected via USB, open the mini-dm to see the output of the
 ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
-> **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::note
+Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::
 
 Run the main app on the linaro side:
 ```sh
@@ -78,7 +82,9 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 ## Wi-Fi settings
 
-> **Todo** These are notes for advanced developers.
+:::note ToDo
+These are notes for advanced developers.
+:::
 
 Connect to the Linux shell (see [console instructions](../debug/system_console.md#snapdragon-flight-wiring-the-console)).
 
@@ -90,7 +96,9 @@ ssid=EnterYourSSID
 wpa_passphrase=EnterYourPassphrase
 ```
 
-> **Note** The passphrase must be at least 8 characters
+:::note
+The passphrase must be at least 8 characters
+:::
 
 Then configure AP mode:
 

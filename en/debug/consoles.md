@@ -20,8 +20,10 @@ Shells provide higher-level access to the system:
 - Cannot *directly* display the output of tasks running on the work queue.
 - Can't debug problems when the system doesn't start (as it isn't running yet).
 
-> **Note** The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible.
-  For example, with `dmesg -f &` you also see the output of background tasks.
+:::note
+The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible.
+For example, with `dmesg -f &` you also see the output of background tasks.
+:::
 
 There can be several shells, either running on a dedicated UART, or via MAVLink.
 Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
@@ -45,5 +47,7 @@ nsh> dmesg
 
 Many other system commands and modules are listed in the [Modules and Command Reference](../modules/modules_main.md) (e.g. `top`, `listener`, etc.).
 
-> **Tip** Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints).
-  In this case you will see the response: `command not found`
+:::tip
+Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM or FLASH constraints).
+In this case you will see the response: `command not found`
+:::

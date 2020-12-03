@@ -128,7 +128,9 @@ The following tools are used in this assembly:
 
    Connect the motors on the ESC’s, make sure the motors turns to the correct side, if the motor turns of the opposite side change the cable A to the pad C and C to the pad A of the ESC.
    
-   > **Warning** Test motor directions with propellers removed.
+   :::warning
+   Test motor directions with propellers removed.
+   :::
    
    ![QAV250 Connect ESCs to Power](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11b_escs.jpg)
 1. Connect the signal ESC cables to the PWM outputs of the Pixhawk in the correct order (see previous image)
@@ -183,9 +185,10 @@ The steps to install the kit are:
      The wires are: yellow=video out, black=ground, red=+voltage.
 1. Secure the Video Transmitter and OSD board to the frame using tape.
 
-> **Note** If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
-  ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
-
+:::note
+If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
+![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::
 
 <span id="configure"></span>
 ## Install/Configure PX4
@@ -194,15 +197,19 @@ The steps to install the kit are:
 [Download and install](http://qgroundcontrol.com/downloads/) 
 *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
-  > **Note** You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+  
+  :::note
+  You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
-   ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
-
+  ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
+  :::
 Then perform the mandatory setup/calibration:
 * [Sensor Orientation](../config/flight_controller_orientation.md)
 * [Compass](../config/compass.md)
@@ -230,5 +237,3 @@ For general information on tuning see: [Multicopter PID Tuning Guide](../config_
 ## Acknowledgements
 
 This build log was provided by the PX4 Test Team.
-
-

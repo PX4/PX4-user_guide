@@ -6,10 +6,11 @@ Generally if you're using a [supported specific configuration](../airframes/airf
 To get the very best performance it is usually good to tune a new vehicle.
 For example, different ESCs or motors require different tuning gains for optimal flight.
 
-> **Warning** This guide is for advanced users.
-  Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
-  Make sure to have a Kill-switch assigned.
-
+:::warning
+This guide is for advanced users.
+Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
+Make sure to have a Kill-switch assigned.
+:::
 
 ## Introduction
 
@@ -35,13 +36,16 @@ The PID tuning needs to be done in the same order, starting with the rate contro
   - Check that no motors turn off
 - Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
 
-> **Warning** Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
-
+:::warning
+Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+:::
 
 ## Tuning Steps
 
-> **Note** For safety reasons, the default gains are set to low values.
-> You must increase the gains before you can expect good control responses. 
+:::note
+For safety reasons, the default gains are set to low values.
+You must increase the gains before you can expect good control responses.
+:::
 
 Here are some general points to follow when tuning:
 - All gains should be increased very slowly as large gains may cause dangerous oscillations!
@@ -54,8 +58,10 @@ Here are some general points to follow when tuning:
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
-> **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
-  A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::note
+A well-tuned rate controller is very important as it affects *all* flight modes.
+A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::
 
 #### Rate Controller Architecture/Form
 
@@ -74,14 +80,15 @@ Users can select the form that is used by setting the proportional gain for the 
 
 The two forms are described below.
 
+:::note
+The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::
 
-> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
-
-<span></span>
-> **Tip** For more information see:
-  - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
-  - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
-
+:::tip
+For more information see:
+- [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+:::
 
 <span id="parallel_form"></span>
 ##### Parallel Form
@@ -167,9 +174,9 @@ It should immediately follow the command, and neither oscillate, nor overshoot (
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-> **Note** A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side,
-> but keeps the attitude for tens of seconds even without any corrections.
-
+:::note
+A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+:::
 
 #### Logs
 
@@ -211,7 +218,9 @@ But you may start to see oscillations when going towards full throttle.
 
 To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-> **Note** The rate controller might need to be re-tuned if you change this parameter.
+:::note
+The rate controller might need to be re-tuned if you change this parameter.
+:::
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
 Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
@@ -224,7 +233,9 @@ In order to simplify the curve fit problem, you can normalize the data between 0
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
-> **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+:::note
+The mapping between PWM and static thrust depends highly on the battery voltage.
+:::
 
 An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter.
 An example of that graph is shown here:

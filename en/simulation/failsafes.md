@@ -5,12 +5,14 @@
 In SITL some failsafes are disabled by default to enable easier simulation usage.
 This topic explains how you can test safety-critical behavior in SITL simulation before attempting it in the real world.
 
-> **Note** You can also test failsafes using [HITL simulation](../simulation/hitl.md).
-  HITL uses the normal configuration parameters of your flight controller.
+:::note
+You can also test failsafes using [HITL simulation](../simulation/hitl.md).
+HITL uses the normal configuration parameters of your flight controller.
+:::
 
-<span></span>
-> **Tip** The [SITL parameters](../advanced_config/parameter_reference.md#sitl) allow you to simulate other common sensor failure cases that are not covered here, including: loss of barometer, gyro and accelerometer, increased GPS noise etc.
-
+:::tip
+The [SITL parameters](../advanced_config/parameter_reference.md#sitl) allow you to simulate other common sensor failure cases that are not covered here, including: loss of barometer, gyro and accelerometer, increased GPS noise etc.
+:::
 
 ## Data Link Loss
 
@@ -20,7 +22,9 @@ This makes the simulation only usable with a connected GCS, SDK, or other MAVLin
 Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior.
 For example, set to `0` to disable it.
 
-> **Note** All parameters in SITL including this one get reset when you do `make clean`.
+:::note
+All parameters in SITL including this one get reset when you do `make clean`.
+:::
 
 ## RC Link Loss
 
@@ -30,8 +34,9 @@ This makes the simulation only usable with either an active MAVLink or remote co
 Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior.
 For example, set to `0` to disable it.
 
-> **Note** All parameters in SITL including this one get reset when you do `make clean`.
-
+:::note
+All parameters in SITL including this one get reset when you do `make clean`.
+:::
 
 ## Low Battery
 
@@ -42,7 +47,9 @@ To change this minimal battery percentage value change [this line](https://githu
 
 To control how fast the battery depletes to the minimal value use the parameter [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
 
-> **Tip** By changing this configuration in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
+:::tip
+By changing this configuration in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
+:::
 
 ## GPS Loss
 

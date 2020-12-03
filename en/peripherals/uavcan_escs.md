@@ -13,7 +13,9 @@ UAVCAN ESCs have a number of advantages over [PWM ESCs and Servos](../peripheral
 
 PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
 
-> **Note** At time of writing PX4 supports UAVCAN v0 (not v1.0).
+:::note
+At time of writing PX4 supports UAVCAN v0 (not v1.0).
+:::
 
 The only difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different. 
 
@@ -29,9 +31,10 @@ Some popular UAVCAN ESC firmware/products include:
 - [OlliW’s UC4H ESC-Actuator Node](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
 - A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
 
-> **Note** This list is *not exhaustive/complete*.
-  If you know of another ESC, please add it to the list!
-
+:::note
+This list is *not exhaustive/complete*.
+If you know of another ESC, please add it to the list!
+:::
 
 ## Purchase
 
@@ -50,8 +53,9 @@ Mitochondrik based drives and ESC:
 
   ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 
-> **Note** There are many other commercially available ESCs; please add new links as you find them!
-
+:::note
+There are many other commercially available ESCs; please add new links as you find them!
+:::
 
 <span id="connecting"></span>
 ## Wiring/Connections
@@ -59,8 +63,10 @@ Mitochondrik based drives and ESC:
 Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes.
 The order in which the ESCs are connected/chained does not matter.
 
-> **Note** All UAVCAN ESCs share the same connection architecture/are wired the same way.
-  Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybro Kotleta20* use Dronecode standard connectors (JST-GH 4 Pin) - while VESCs do not).
+:::note
+All UAVCAN ESCs share the same connection architecture/are wired the same way.
+Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybro Kotleta20* use Dronecode standard connectors (JST-GH 4 Pin) - while VESCs do not).
+:::
 
 For more information information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
@@ -82,8 +88,10 @@ If applicable (some systems will not benefit from this behavior, e.g. glider dro
 
 While UAVCAN devices are generally *plug'n'play* you will still need to enumerate (number) each of the ESC used in your system and set their direction so that they can be identified/controlled by PX4.
 
-> **Note** The ESC index and direction must match/map to the [Airframe Reference](../airframes/airframe_reference.md) for the vehicle type.
-  ESC indexes from 0-7 map to MAIN 1-8, while ESC indexes 8-15 map to AUX 1-8.
+:::note
+The ESC index and direction must match/map to the [Airframe Reference](../airframes/airframe_reference.md) for the vehicle type.
+ESC indexes from 0-7 map to MAIN 1-8, while ESC indexes 8-15 map to AUX 1-8.
+:::
 
 The mechanism for enumerating each type of UAVCAN ESC is different (look up the instructions in your ESC's manual).
 Setup information for some UAVCAN ESCs is provided below.
@@ -98,7 +106,9 @@ The instructions should work for any Sapog-based ESC design.
 <span id="sapog_esc_qgc"></span>
 #### ESC Enumeration using QGroundControl
 
-> **Tip** You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
+:::tip
+You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
+:::
 
 To enumerate the ESC:
 1. Power the vehicle with a battery and connect to *QGroundControl*
@@ -111,7 +121,9 @@ To enumerate the ESC:
 1. Manually turn each motor in the correct direction of its rotation, starting from the first motor and finishing with the last motor.
    Each time you turn a motor, you should hear a confirmation.
    
-   > **Note** Make sure to turn each of the motors in the correct direction, because the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   :::note
+   Make sure to turn each of the motors in the correct direction, because the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   :::
 
 1. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
 
@@ -123,14 +135,18 @@ https://www.youtube.com/watch?v=4nSa8tvpbgQ
 
 #### Manual ESC Enumeration using Sapog
 
-> **Tip** We recommend automated [ESC Enumeration using QGroundControl](#sapog_esc_qgc) rather than manual enumeration - it is easier and safer.
+:::tip
+We recommend automated [ESC Enumeration using QGroundControl](#sapog_esc_qgc) rather than manual enumeration - it is easier and safer.
+:::
 
 You can manually configure the ESC index and direction using the [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/).
 This assigns the following Sapog configuration parameters for each enumerated ESC:
 - `esc_index`
 - `ctl_dir`
 
-> **Note** See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+:::note
+See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+:::
 
 ### Myxa ESC Setup
 

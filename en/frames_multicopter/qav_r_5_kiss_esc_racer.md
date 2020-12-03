@@ -37,8 +37,9 @@ Key information:
 * Video Antennas: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
 * FPV voltage source plug: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
-> **Info** These parts cover the sending side for standard FPV 5.8GHz analog FM video. You need to have a compatible receiver and display device to actually consume the live video stream.
-
+:::note
+These parts cover the sending side for standard FPV 5.8GHz analog FM video. You need to have a compatible receiver and display device to actually consume the live video stream.
+:::
 
 ## Assembling the Basic Frame
 
@@ -58,16 +59,20 @@ The KISS ESCs are known for their good performance but they also come with two d
 
 This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
 
-> **Tip** Always tin both sides you want to connect with solder before actually soldering them together.
-  This will make it a lot easier and it will be less likely to have cold soldering joints.
+:::tip
+Always tin both sides you want to connect with solder before actually soldering them together.
+This will make it a lot easier and it will be less likely to have cold soldering joints.
+:::
 
-<span></span>
-> **Tip** Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors.
-  All signal cables can be very thin in comparison.
+:::tip
+Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors.
+All signal cables can be very thin in comparison.
+:::
 
-<span></span>
-> **Tip** Put heat shrink on the cables before you start soldering!
+:::tip
+Put heat shrink on the cables before you start soldering!
 Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
+:::
 
 ### Motors
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables.
@@ -85,7 +90,10 @@ Now comes the tricky part. I soldered all four ESC voltage source + and - ports 
 Make sure to not have any cold solder joint here because the quad will not end up well with a loose connection in flight.
 Using the additional power distribution board of the frame would make the job a lot easier but also takes too much space on such a small frame...
 
-> **Tip** If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
+:::tip
+If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. 
+You'll need it for your [FPV setup](#fpv-setup) later on.
+:::
 
 ![Power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
 
@@ -105,8 +113,10 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 <span id="mounting"></span>
 ## Connecting & Mounting Electronics
 
-> **Tip**
-> Double check the pin assignment of every component you connect. Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
+:::tip
+Double check the pin assignment of every component you connect.
+Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
+:::
 
 You'll need the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) for this step to find all needed connectors.
 I tried to route all the cables under the Pixracer board to have a clean build and save space for FPV camera and transmitter in the future.
@@ -115,8 +125,9 @@ I mounted the Pixracer using the nylon spacers and screws that get shipped with 
 Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension.
 The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
 
-> **Warning**
-> This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+:::warning
+This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+:::
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
@@ -208,7 +219,10 @@ I mounted it like you can see in the next picture. The two screws and nuts to lo
 
 ## Software Configuration
 
-> **Warning** Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
+:::warning
+Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration.
+Better safe than sorry!
+:::
 
 For general configuration instruction please see [Basic Configuration](../config/README.md).
 
@@ -231,5 +245,3 @@ Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) 
 [Log in FPV acro flight (maximum values: 108km/h speed, 85A total current draw)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
 
 [Log in (mostly) manual LOS flight for the entire battery](https://logs.px4.io/plot_app?log=6de8b8cd-74f9-4eae-ad2f-76867e916f4f)
-
-

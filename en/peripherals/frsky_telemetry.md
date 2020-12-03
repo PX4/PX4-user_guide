@@ -31,9 +31,11 @@ An example is shown below.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
-> **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
-  Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
-  
+:::tip
+When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
+Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+:::
+
 If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
 <!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
 Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
@@ -44,7 +46,9 @@ Then [configure PX4](#configure).
 
 For Pixhawk FMUv5 and later PX4 can read either inverted (or uninverted) S.Port signals directly - no special cable is required.
 
-> **Note** More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
+:::note
+More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](../flight_controller/durandal.md) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
+:::
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 Then [configure PX4](#configure).
@@ -55,13 +59,16 @@ Then [configure PX4](#configure).
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). 
 There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the *FrSky* port by default).
+:::note
+You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the *FrSky* port by default).
+:::
 
-<span></span>
-> **Tip** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
-  ```
-  drivers/telemetry/frsky_telemetry
-  ```
+:::tip
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+```
+drivers/telemetry/frsky_telemetry
+```
+:::
   
 No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
 
@@ -117,7 +124,9 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 - **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 21 - Rattitude, 25 - Takeoff, 29 - Land, 30 - Follow Me.
 - **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 
-> **Note** The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**. 
+:::note
+The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**. 
+:::
 
 <!-- FYI: 
 Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
@@ -153,8 +162,9 @@ D-Port receivers transmit the following messages (from [here](https://github.com
 
 Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work). 
 
-> **Tip** Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
-
+:::tip
+Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
+:::
 
 Receiver | Range | Combined output | Digital telemetry input | Dimensions | Weight
 --- | --- | --- | --- | --- | ---
@@ -173,8 +183,9 @@ G-RX8 | 1.5km | S.Bus (16) | Smart Port + integrated vario | 55.26*17*8mm | 5.8g
 R9 | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 R9 slim | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 
-
-> **Note** The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
+:::note
+The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
+:::
 
 <span id="ready_made_cable"></span>
 ## Ready-Made Cables
@@ -212,7 +223,9 @@ The S-port connection is shown below (using the provided I/O Connector).
 
 ### Pixracer to D-port Receivers
 
-> **Tip** The vast majority of users now prefer to use S.PORT.
+:::tip
+The vast majority of users now prefer to use S.PORT.
+:::
 
 Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line.
 Connect the Pixracer FrSky RX line (FS in) to the receivers TX line.

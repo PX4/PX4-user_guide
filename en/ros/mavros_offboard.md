@@ -3,10 +3,13 @@
 This tutorial shows the basics of *Offboard* control with MAVROS, using an Iris quadcopter simulated in Gazebo/SITL.
 At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
 
-> **Caution** *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+:::caution
+*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+:::
 
-<span></span>
-> **Tip** This example uses C++. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros).
+:::tip
+This example uses C++. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros).
+:::
 
 <video width="100%" autoplay="true" controls="true">
 	<source src="../../assets/simulation/gazebo_offboard.webm" type="video/webm">
@@ -215,5 +218,7 @@ We attempt to switch to *Offboard* mode, after which we arm the quad to allow it
 We space out the service calls by 5 seconds so to not flood the autopilot with the requests.
 In the same loop, we continue sending the requested pose at the appropriate rate.
 
-> **Tip** This code has been simplified to the bare minimum for illustration purposes.
-  In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+:::tip
+This code has been simplified to the bare minimum for illustration purposes.
+In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+:::

@@ -3,8 +3,10 @@
 A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter.
 This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
 
-> **Tip** PX4 does not require a remote control system for autonomous flight modes.
-  You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::tip
+PX4 does not require a remote control system for autonomous flight modes.
+You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::
 
 ## How do RC Systems Work?
 
@@ -20,8 +22,10 @@ The flight controller determines how to interpret the commands based on the curr
 
 <!-- image showing the different parts here would be nice -->
 
-> **Note** The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*.
-  The remote control unit and it's included radio module are also referred to as a "transmitter".
+:::note
+The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*.
+The remote control unit and it's included radio module are also referred to as a "transmitter".
+:::
 
 An important quality of an RC system is how many "channels" it supports.
 The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
@@ -44,8 +48,9 @@ The more common layouts have been given specific "Mode" numbers. *Mode 1* and *M
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
-> **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
-
+:::note
+The choice of mode is largely one of taste (*Mode 2* is more popular).
+:::
 
 ## Remote Control Units for Ground Vehicles
 
@@ -70,7 +75,9 @@ One of the most popular RC units is the *FrSky Taranis X9D*.
 It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box.
 It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware. 
 
-> **Note** This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+:::note
+This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+:::
 
 Other popular transmitter/receiver pairs
 
@@ -109,8 +116,9 @@ Instructions for connecting to specific flight controllers are given in the foll
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
-> **Tip** See the manufacturer's flight controller setup guide for additional information.
-
+:::tip
+See the manufacturer's flight controller setup guide for additional information.
+:::
 
 <span id="binding"></span>
 ## Binding Transmitter/Receiver

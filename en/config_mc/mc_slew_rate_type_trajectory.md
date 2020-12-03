@@ -1,9 +1,10 @@
 # Slew-rate Type Trajectory for Multicopters
 
-> **Tip** The trajectory type can be enabled in [Position mode](../flight_modes/position_mc.md) (only) using the following parameter setting: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE).
->
->  [MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) is an alternative trajectory that provides for smoother responses.
+:::tip
+The trajectory type can be enabled in [Position mode](../flight_modes/position_mc.md) (only) using the following parameter setting: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
+[MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) is an alternative trajectory that provides for smoother responses.
+:::
 
 The Slew Rate trajectory type is a simple implementation where the jerk and acceleration is limited using slew-rates (jerk and acceleration limits are not hard constraints).
 
@@ -16,10 +17,12 @@ This topic explains how the trajectory type can be tuned.
 
 In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
 
-> **Note** The position controller ([diagram here](../flight_stack/controller_diagrams.md#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop.
+:::note
+The position controller ([diagram here](../flight_stack/controller_diagrams.md#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop.
 Depending on the mode and situation either both loops are active or just the velocity control loop.
->
-> For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
+
+For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
+:::
 
 Position-control is active when the stick inputs are within the deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ), and velocity-control otherwise.
 

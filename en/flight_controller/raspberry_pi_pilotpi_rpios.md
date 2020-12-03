@@ -118,11 +118,15 @@ echo "25" > /sys/class/gpio/unexport
 
 Save and exit.
 
-> **Note** Don't forget to turn off the switch when it is not needed.
+:::note
+Don't forget to turn off the switch when it is not needed.
+:::
 
 #### CSI camera
 
-> **Warning** Enable CSI camera will stop anything works on I2C-0.
+:::note
+Enable CSI camera will stop anything works on I2C-0.
+:::
 
 ```sh
 sudo raspi-config
@@ -138,7 +142,9 @@ To get the *very latest* version onto your computer, enter the following command
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
-> **Note** This is all you need to do just to build the latest code. 
+:::note
+This is all you need to do just to build the latest code. 
+:::
 
 #### Cross build for Raspberry Pi OS
 
@@ -201,12 +207,15 @@ Execute the command in PX4-Autopilot folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 
-<span></span>
+:::note
+mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+:::
 
-> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
-  You can compile without uploading too. Just remove `upload` target.
+:::note
+If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+You can compile without uploading too. Just remove `upload` target.
+:::
 
 It is also possible to just compile the code with command:
 
@@ -264,5 +273,7 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-> **Note** Generally you only have one of them.
-  Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+:::note
+Generally you only have one of them.
+Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+:::

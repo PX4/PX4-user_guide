@@ -31,19 +31,22 @@ On launch detection, the vehicle ramps up to to maximum throttle ([RWTO_MAX_THR]
 The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
 All RC stick movement is ignored until climbout ends.
 
-> **Warning** The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/PX4-Autopilot/pull/9243 -->
+:::warning
+The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/PX4-Autopilot/pull/9243 -->
+:::
 
 To launch in this mode:
 - Arm the vehicle.
 - Put the vehicle into *Takeoff mode*.
 - Launch/throw the vehicle (firmly) directly into the wind.
 
+:::note
+Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
+:::
 
-> **Note** Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
-
-<span></span>
-> **Tip** Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
-
+:::tip
+Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
+:::
 
 ### Runway Takeoff Mode
 
@@ -58,21 +61,27 @@ You can also hand/catapult launch a fixed wing vehicle in a mission.
 
 To launch in a mission:
 1. Add a fixed wing takeoff item to the **start** of the mission.
-   > **Tip** Set the takeoff item minimum pitch parameter to an appropriate value for your airframe!
+
+   :::tip
+   Set the takeoff item minimum pitch parameter to an appropriate value for your airframe!
+   :::
 1. Switch to mission mode.
 1. Arm the vehicle.
 1. Launch/throw the vehicle (firmly) directly into the wind.
 
-> **Note** Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
+:::note
+Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
+:::
 
-<span></span>
-> **Tip** Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
+:::tip
+Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
+:::
 
 Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) and navigates  towards the location of the Takeoff waypoint.
 It continues climbing until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude (if it reaches the target waypoint before achieving this altitude it spirals up to this level).
 
-> **Note** The roll angle is limited to a maximum of 15 degrees during climbout (`FW_CLMBOUT_DIFF is > 0` and distance to takeoff altitude is > `FW_CLMBOUT_DIFF`).
+:::note
+The roll angle is limited to a maximum of 15 degrees during climbout (`FW_CLMBOUT_DIFF is > 0` and distance to takeoff altitude is > `FW_CLMBOUT_DIFF`).
+:::
 
 The mission transitions to the next waypoint when it has reached the altitude (within `FW_CLMBOUT_DIFF`) and location.
-
-

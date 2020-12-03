@@ -8,8 +8,9 @@ The protocol defines a number of standard [messages](https://mavlink.io/en/messa
 
 This tutorial explains how you can add PX4 support for your own new "custom" messages.
 
-> **Note** The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_trajectory` message in `msg/ca_trajectory.msg` and a custom MAVLink `ca_trajectory` message in `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`.
-
+:::note
+The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_trajectory` message in `msg/ca_trajectory.msg` and a custom MAVLink `ca_trajectory` message in `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`.
+:::
 
 ## Defining Custom MAVLink Messages
 
@@ -124,12 +125,12 @@ Then make sure to enable the stream, for example by adding the following line to
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 ```
 
-> **Tip** You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). 
-  This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
->
-> To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/),
-> and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
+:::tip
+You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). 
+This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
 
+To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
+:::
 
 ## Receiving Custom MAVLink Messages
 
@@ -208,8 +209,10 @@ An alternative - and temporary - solution is to re-purpose debug messages.
 Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields.
 See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
 
-> **Note** This solution is not efficient as it sends character string over the network and involves comparison of strings. 
-  It should be used for development only!
+:::note
+This solution is not efficient as it sends character string over the network and involves comparison of strings. 
+It should be used for development only!
+:::
 
 ## General
 

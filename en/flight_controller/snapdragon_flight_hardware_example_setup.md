@@ -1,12 +1,16 @@
 # Snapdragon Hardware Setup Example
 
-> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
-  This documentation is provided for existing users, but will be removed in a future release.
+:::warning
+The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+This documentation is provided for existing users, but will be removed in a future release.
+:::
 
 This guide shows a Lumenier QAV-R 250 frame build with *Qualcomm Snapdragon Flight* and custom hardware mounts. 
 The setup uses a conventional PWM ESC board and therefore needs to be built with the `atlflight_eagle_default` make target (see instructions [here](../dev_setup/building_px4.md#qurt--snapdragon-based-boards)).
 
-> **Tip** The PX4 development team has built, tested and documented this specific setup.
+:::tip
+The PX4 development team has built, tested and documented this specific setup.
+:::
 
 ![Snapdragon Lumenier QAV-R Build](../../assets/hardware/snapdragon/snapdragon_minimal_finished.jpg)
 
@@ -30,7 +34,9 @@ The setup uses a conventional PWM ESC board and therefore needs to be built with
 
 ## Wiring
 
-> **Warning** Although the Snapdragon uses DF13 connectors, the [pinout](../flight_controller/snapdragon_flight.md#pinouts) is different from Pixhawk.
+:::warning
+Although the Snapdragon uses DF13 connectors, the [pinout](../flight_controller/snapdragon_flight.md#pinouts) is different from Pixhawk.
+:::
 
 ![Snapdragon wiring](../../assets/hardware/snapdragon/snapdragon_wiring.jpg)
 
@@ -39,7 +45,9 @@ The setup uses a conventional PWM ESC board and therefore needs to be built with
 
 The Lumenier QAV-R250 can be assembled normally, ignoring the side-plates intended for the FPV camera mount. In order to mount the motors along with the custom printed legs, you will need longer screws than the ones provided with the motors. Regular M3x10mm screws will do.
 
-> **Warning** Snapdragon is very susceptible to frame vibrations. Make sure to tighten all screws well, but not so much that you damage the windings in the plastic nut on the other end.
+:::warning
+Snapdragon is very susceptible to frame vibrations. Make sure to tighten all screws well, but not so much that you damage the windings in the plastic nut on the other end.
+:::
 
 The Hobbywing 4in1 ESC fits the frame tidily as seen in the picture below.
 
@@ -49,7 +57,10 @@ To attach the Snapdragon Flight to the frame, first port it over to the stereo-v
 This task is quite delicate, make sure not to damage the cameras when taking them out of the old plastic housing. 
 We recommend attaching the WiFi antenna's uFL connector during this step, as it will become incredibly difficult to do so once the Snapdragon is in its new housing.
 
-> **Note** We are using the stereo-vision add-on kit, as it is easier to mount to the QAV-250 and we may be using stereo-vision in the future. However, currently the stereo-functionality is not being enabled.
+:::note
+We are using the stereo-vision add-on kit, as it is easier to mount to the QAV-250 and we may be using stereo-vision in the future.
+However, currently the stereo-functionality is not being enabled.
+:::
 
 ![Stereo assembly](../../assets/hardware/snapdragon/snapdragon_stereo_assembly.jpg)
 

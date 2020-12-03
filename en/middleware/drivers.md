@@ -8,11 +8,13 @@ PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers
 
 The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers)). 
 
-> **Tip** More detailed information about working with specific I/O busses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
+:::note
+More detailed information about working with specific I/O busses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
+:::
 
-<span></span>
-> **Note** Publishing the correct uORB topics is the only pattern that drivers *must* follow. 
-
+:::note
+Publishing the correct uORB topics is the only pattern that drivers *must* follow. 
+:::
 
 ## Core Architecture
 
@@ -143,4 +145,6 @@ px4_add_module(
 	)
 ```
 
-> **Tip** Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+:::tip
+Verbose logging can also be enabled on a per-file basis, by adding `#define DEBUG_BUILD` at the very top of a .cpp file (before any includes).
+:::

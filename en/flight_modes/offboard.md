@@ -5,17 +5,20 @@
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink.
 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Tip** Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 
-  Read the sections below *carefully* to ensure only supported values are used.
-  Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
+:::tip
+Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. 
+Read the sections below *carefully* to ensure only supported values are used.
+Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
+:::
 
-> **Note**
->  * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
->  * RC control is disabled except to change modes.
->  * The vehicle must be armed before this mode can be engaged.
->  * The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
->  * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
->  * Not all co-ordinate frames and field values allowed by MAVLink are supported.
+:::note
+* This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
+* RC control is disabled except to change modes.
+* The vehicle must be armed before this mode can be engaged.
+* The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
+* The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
+* Not all co-ordinate frames and field values allowed by MAVLink are supported.
+:::
 
 ## Description
 
@@ -49,7 +52,10 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * *Thrust* setpoint  (only `afx`, `afy`, `afz`)
-      > **Note** Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+	
+	  :::note
+      Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+	  :::
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
   - PX4 supports the following  `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
@@ -64,7 +70,9 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
   * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
-        > **Note** Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        :::note
+		Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+		:::
 
         The values are:
         - 292: Gliding setpoint.
@@ -80,7 +88,10 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
   * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
-        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+	  
+        :::note
+		The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+		:::
 
         The values are:
         - 4096: Takeoff setpoint.
@@ -102,7 +113,10 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
   * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `x`, `y`, `z`)
       * Specify the *type* of the setpoint in `type_mask`:
-        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+	  
+	    :::note
+        The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+		::
 
         The values are:
         - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
@@ -121,7 +135,9 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   * The following input combinations are supported:
     * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-      > **Note** Only the yaw setting is actually used/extracted.
+	  :::note
+      Only the yaw setting is actually used/extracted.
+	  :::
 
 ## Offboard Parameters
 
@@ -142,4 +158,3 @@ The following resources may be useful for a developer audience:
 
 * [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
 * [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
-

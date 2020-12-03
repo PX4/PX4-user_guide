@@ -40,14 +40,18 @@ In addition:
 Some SWD [debug probes](#debug_probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug_ports).
 You can also create custom cables for connecting to different boards or probes.
 
-> **Note** Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console.md). 
-  For example the [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
-  ![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
+:::note
+Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console.md). 
+For example the [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
 
-<span></span>
+![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
+:::
 
-> **Tip** Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers.
-  This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
+
+:::tip
+Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers.
+This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
+:::
 
 
 <a id="debug_ports"></a>
