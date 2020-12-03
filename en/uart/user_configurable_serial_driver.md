@@ -12,7 +12,9 @@ where,
 - `-d`: serial port name.
 - `-b`: Baud rate (optional) if the driver supports multiple baud rates. 
   If supported, the driver must allow you to specify the rate as both a bare baudrate and as a parameter name in the form `-b p:<param_name>` (which can be parsed with `px4_get_parameter_value()`).
-  > **Tip** See the [gps driver](https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/gps/gps.cpp#L1023) for an example.
+  :::tip
+  See the [gps driver](https://github.com/PX4/PX4-Autopilot/blob/master/src/drivers/gps/gps.cpp#L1023) for an example.
+  :::
 
 
 ## Making the Driver Configurable
@@ -29,8 +31,10 @@ To make driver configurable:
              name: SENS_ULAND_CFG
              group: Sensors
      ```
-   > **Note** The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file.
+   :::note
+   The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file.
    This is also used to validate all configuration files in CI.
+   :::
 1. Add the module configuration to the **CMakeLists.txt** file for the driver module:
    ```
    px4_add_module(

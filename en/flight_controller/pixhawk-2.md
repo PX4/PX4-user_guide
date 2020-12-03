@@ -132,7 +132,7 @@ UART7  | /dev/ttyS5 | CONSOLE
 UART8  | /dev/ttyS6 | <!-- unknown -->
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART): > **Note** `TEL4` is labeled as `GPS2` on Cube." -->
+<!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
 
 ### Debug Ports

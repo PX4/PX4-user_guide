@@ -18,8 +18,9 @@ The calibration steps are:
 1. When finished, *QGroundControl* will display a progress bar *Calibration complete* 
    ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.jpg)
 
-> **Note** If you move the vehicle *QGroundControl* will automatically restart the gyroscope calibration.
-
+:::note
+If you move the vehicle *QGroundControl* will automatically restart the gyroscope calibration.
+:::
 
 
 ## Further Information

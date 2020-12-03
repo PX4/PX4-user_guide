@@ -7,7 +7,9 @@ PX4 provides two independent mechanisms for specify a GeoFence:
 - A basic "failsafe" Geofence that defines a simple cylinder. 
 - More complicated geometries can be defined using a GeoFence Plan (*QGroundControl*).
 
-> **Note** GeoFences apply in all modes, including both missions and manual flight.
+:::note
+GeoFences apply in all modes, including both missions and manual flight.
+:::
 
 ## Failsafe GeoFence
 
@@ -45,6 +47,6 @@ In summary:
 1. Once finished, click on the **Upload** button (top right) to send the fence (along with rally points and mission) to the vehicle.
 1. Set the breach action in the [GeoFence Failsafe](../config/safety.md#geofence-failsafe).
 
-
-> **Note** PX4 implements the MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
-
+:::note
+PX4 implements the MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
+:::

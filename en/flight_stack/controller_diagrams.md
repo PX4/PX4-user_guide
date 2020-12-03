@@ -72,7 +72,9 @@ These two outputs are sent to the fixed wing attitude controller which implement
 It's therefore important to understand that the performance of TECS is directly affected by the performance of the pitch control loop.
 A poor tracking of airspeed and altitude is often caused by a poor tracking of the aircraft pitch angle.
 
-> **Note** Make sure to tune the attitude controller before attempting to tune TECS.
+:::note
+Make sure to tune the attitude controller before attempting to tune TECS.
+:::
 
 Simultaneous control of true airspeed and height is not a trivial task.
 Increasing aircraft pitch angle will cause an increase in height but also a decrease in airspeed.
@@ -143,7 +145,9 @@ The inner loop then computes the error in rates and uses a PI (proportional + in
 The angular position of the control effectors (ailerons, elevators, rudders, ...) is then computed using this desired angular acceleration and a priori knowledge of the system through control allocation (also known as mixing). 
 Furthermore, since the control surfaces are more effective at high speed and less effective at low speed, the controller - tuned for cruise speed - is scaled using the airspeed measurements (if such a sensor is used).
 
-> **Note** If no airspeed sensor is used then gain scheduling for the FW attitude controller is  disabled (it's open loop); no correction is/can be made in TECS using airspeed feedback.
+:::note
+If no airspeed sensor is used then gain scheduling for the FW attitude controller is  disabled (it's open loop); no correction is/can be made in TECS using airspeed feedback.
+:::
 
 The feedforward gain is used to compensate for aerodynamic damping.
 Basically, the two main components of body-axis moments on an aircraft are produced by the control surfaces (ailerons, elevators, rudders, - producing the motion) and the aerodynamic damping (proportional to the body rates - counteracting the motion). 

@@ -5,20 +5,21 @@
 *Position* is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent. 
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
 
-> **Tip** Position mode is the safest manual mode for new fliers. 
-  Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
+:::tip
+Position mode is the safest manual mode for new fliers. 
+Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
+:::
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
-
-> **Warning** Care must be taken when landing in this mode. When first landing in this mode, be ready to switch 
-> to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm. If landing is correctly 
-> detected, motors will spin down after touch down and then disarm shortly after. 
-> If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. 
-> Be aware that the vehicle may tip over on the ground due to GPS drift. 
-
+:::warning
+Care must be taken when landing in this mode. When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm.
+If landing is correctly detected, motors will spin down after touch down and then disarm shortly after. 
+If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. 
+Be aware that the vehicle may tip over on the ground due to GPS drift. 
+:::
 
 ## Technical Summary
 
@@ -34,10 +35,10 @@ RC/manual mode where RPT sticks control *speed* in corresponding directions. Cen
 * Landing:
   * When close to the ground ([MPC_LAND_ALT2](#MPC_LAND_ALT2)), horizontal velocity is limited ([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY)).
 
-> **Note**
->  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
->  * This mode requires GPS.
-
+:::note
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* This mode requires GPS.
+:::
 
 ### Parameters
 

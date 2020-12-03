@@ -18,7 +18,9 @@ At high level:
    - You can select another rally point (shown as a more orange/yellow **R** on the map) to edit it instead.
 1. Select the **Upload Required** button to upload the rally points (along with any [mission](../flying/missions.md) and [geofence](../flying/geofence.md)) to the vehicle.
 
-> **Tip** More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html).
+:::tip
+More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html).
+:::
 
 ## Using Safety Points
 

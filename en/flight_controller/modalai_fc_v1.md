@@ -44,7 +44,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 |                  | I2C |
 |                  | GPIO |
 
-> **Note** More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
+:::note
+More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
+:::
 
 ## Dimensions
 
@@ -80,7 +82,9 @@ The diagram below shows the recommended orientation, which corresponds to `ROTAT
 
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
-> **Warning** For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
+:::warning
+For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
+:::
 
 ### Connectors
 

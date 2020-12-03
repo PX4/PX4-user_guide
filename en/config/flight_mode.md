@@ -56,7 +56,9 @@ To configure single-channel flight mode selection:
    
    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
    
-   > **Tip** If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+   :::tip
+   If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+   :::
    
 1. Specify *Flight Mode Settings*:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration). 

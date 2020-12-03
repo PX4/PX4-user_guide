@@ -2,8 +2,10 @@
 
 This topic explains how to configure power settings.
 
-> **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware.
-  In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+:::note
+The battery monitoring features of PX4 can only be used if you have compatible hardware.
+In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+:::
 
 ## Overview
 
@@ -20,17 +22,20 @@ PX4 provides a number of (progressively more effective) methods that can be used
 Later methods build on preceding methods.
 The approach you use will depend on whether the vehicle's power module can measure current.
 
-> **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
-  Other batteries use the `BATx_*` parameters, where `x` is the battery number.
-  All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+:::note
+The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
+Other batteries use the `BATx_*` parameters, where `x` is the battery number.
+All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+:::
   
-<span></span>
-> **Tip** In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
-  This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+:::tip
+In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
+This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+:::
   
-<span></span>
-> **Tip** [Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
-
+:::tip
+[Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+:::
 
 <span id="basic_settings"></span>
 ## Basic Battery Settings (default)
@@ -38,7 +43,9 @@ The approach you use will depend on whether the vehicle's power module can measu
 The basic battery settings configure PX4 to use the default method for capacity estimate. 
 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells). 
 
-> **Note** This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+:::note
+This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+:::
 
 To configure the basic settings for battery 1:
 
@@ -50,18 +57,22 @@ The sections below explain what values to set for each field.
 
 ![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
-> **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view.
-  For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
+:::note
+At time of writing *QGroundControl* only allows you to set values for battery 1 in this view.
+For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
+:::
 
 ### Number of Cells (in Series)
 
 This sets the number of cells connected in series in the battery.
 Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
-> **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
-  Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V.
-  In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
-  The battery voltage at the terminals is then a multiple of the cell voltage.
+:::note
+The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V.
+In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
+The battery voltage at the terminals is then a multiple of the cell voltage.
+:::
 
 If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell.
 The table below shows the voltage-to-cell relationship for these batteries:
@@ -75,7 +86,9 @@ Cells | LiPo (V) | LiIon (V)
 5S |18.5 | 18.5
 6S | 22.2 | 22.2
 
-> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
+:::note
+This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS).
+:::
 
 ### Full Voltage (per cell)
 
@@ -87,20 +100,24 @@ Appropriate values to use are:
 - **LiPo:** 4.05V (default in *QGroundControl*)
 - **LiIon:** 4.05V
 
+:::note
+The voltage of a full battery may drop a small amount over time after charging.
+Setting a slightly-lower than maximum value compensates for this drop.
+:::
 
-> **Note** The voltage of a full battery may drop a small amount over time after charging.
-  Setting a slightly-lower than maximum value compensates for this drop.
-
-<span></span>
-> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) and [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED). 
+:::note
+This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) and [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED). 
+:::
 
 ### Empty Voltage (per cell)
 
 This sets the nominal minimum safe voltage of each cell (using below this voltage may damage the battery).
 
-> **Note** There is no single value at which a battery is said to be empty.
-  If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash).
-  If you choose a value that is too high you may unnecessarily curtail your flight.
+:::note
+There is no single value at which a battery is said to be empty.
+If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash).
+If you choose a value that is too high you may unnecessarily curtail your flight.
+:::
 
 A rule of thumb for minimum per-cell voltages:
 
@@ -110,11 +127,13 @@ Conservative (voltage under no-load) | 3.7 | 3
 "Real" minimum (voltage under load/while flying | 3.5 | 2.7
 Damage battery (voltage under load) | 3.0 | 2.5
 
-> **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
+:::tip
+Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
+:::
 
-<span></span>
-> **Note** This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY). 
-
+:::note
+This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY). 
+:::
 
 
 ### Voltage Divider
@@ -123,28 +142,37 @@ If you have a vehicle that measures voltage through a power module and the ADC o
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide). 
 
-> **Note** This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
+:::note
+This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
+:::
 
 <span id="current_divider"></span>
 ### Amps per volt
 
-> **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
+:::tip
+This setting is not needed if you are using the basic configuration (without load compensation etc.)
+:::
 
 If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated. 
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-> **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
-
+:::note
+This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
+:::
 
 <span id="load_compensation"></span>
 ## Voltage-based Estimation with Load Compensation
 
-> **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+:::note
+With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+:::
 
 Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity. 
 
-> **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+:::note
+To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+:::
 
 PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
 * [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
@@ -158,9 +186,12 @@ It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load
 
 To enable this feature:
 
-1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of  battery 1 (and repeat for other batteries). 
-   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery.
-     A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of  battery 1 (and repeat for other batteries).
+
+   :::tip
+   There are LiPo chargers out there which can measure the internal resistance of your battery.
+   A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+   :::
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
 <span id="thrust_based_load_compensation"></span>
@@ -168,7 +199,10 @@ To enable this feature:
 
 This load compensation method estimates the load based on the total thrust that gets commanded to the motors. 
 
-> **Caution** This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use  [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+:::caution
+This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current.
+Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+:::
 
 To enable this feature:
 
@@ -178,7 +212,10 @@ To enable this feature:
 <span id="current_integration"></span>
 ## Voltage-based Estimation Fused with Current Integration
 
-> **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
+:::note
+This is the most accurate way to measure relative battery consumption.
+If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
+:::
 
 This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed.
 It requires hardware that can accurately measure current.
@@ -186,10 +223,16 @@ It requires hardware that can accurately measure current.
 To enable this feature:
 
 1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
-   > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
+
+   :::tip
+   Including calibrating the [Amps per volt divider](#current_divider) setting.
+   :::
    
 1. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
-   > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+
+   :::note
+   Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+   :::
    
 ---
 
@@ -203,7 +246,10 @@ The emptier the battery gets, the more of the voltage based estimate gets fused 
 
 If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
 
-> **Note** Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+:::note
+Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity.
+Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+:::
 
 
 ## Parameter Migration Notes

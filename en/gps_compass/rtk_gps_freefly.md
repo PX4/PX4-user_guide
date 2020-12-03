@@ -8,7 +8,9 @@ Main features include:
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
 
-> **Note** This module can be used with PX4 v1.9 or above (support for the UBlox ZED-F9P was added in PX4 v1.9).
+:::note
+This module can be used with PX4 v1.9 or above (support for the UBlox ZED-F9P was added in PX4 v1.9).
+:::
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 

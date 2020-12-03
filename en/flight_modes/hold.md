@@ -4,15 +4,17 @@
 
 The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
 
-> **Tip** *Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency.
-  It is usually activated with a pre-programmed switch. 
+:::tip
+*Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency.
+It is usually activated with a pre-programmed switch. 
+:::
 
-<span></span>
-> **Note** 
-> * This mode requires GPS.
-> * This mode is automatic - no user intervention is *required* to control the vehicle.
-> * RC control switches can be used to change flight modes on any vehicle.
-> * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::note
+* This mode requires GPS.
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC control switches can be used to change flight modes on any vehicle.
+* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::
 
 The specific behaviour for each vehicle type is described below.
 

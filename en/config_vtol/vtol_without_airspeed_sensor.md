@@ -1,8 +1,9 @@
 # VTOL Without an Airspeed Sensor
 
-> **Warning** Warning: the use of an airspeed sensor is advised.
-  Support for VTOL's without an airspeed sensor is considered experimental
-  and should only be attempted by experienced pilots.
+:::warning
+The use of an airspeed sensor is advised.
+Support for VTOL's without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
+:::
 
 Fixed wings use airspeed sensors to determine the speed at which the airplane is moving through the air.
 Depending on wind this could vary from groundspeed. 
@@ -46,7 +47,9 @@ This can be used to tune your throttle setting after the first flight without a
 
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
-> **Note** Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+:::note
+Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+:::
 
 To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
 
@@ -93,5 +96,3 @@ If all these conditions have been met you can start to tune down the cruise thro
 - [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE): determined (e.g. 70%)
 - [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): determined (e.g. 10 seconds)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
-
-
