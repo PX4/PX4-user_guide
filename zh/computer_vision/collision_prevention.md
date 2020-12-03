@@ -112,7 +112,7 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
     - 修改驱动程序以设置方向。 这个可以通过类似于 `SENS_CM8JL65_R_0` 参数的方式实现（也可以在关于传感器的*module.yaml*这个文件中写死方向，类似于这样: `sf0x start -d ${SERIAL_DEV} -R 25` - 25是`ROTATION_DOWNWARD_FACING`）。
     - 在距离传感器 UORB 主题（`distance_sensor_s.h_fov`）中设置 *视野* 的地方修改驱动代码。</ul> 
     
-    :::tip 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 Please contribute back your changes!
+    :::tip 您可以从 [功能 PR](https://github.com/PX4/PX4-Autopilot/pull/12179) 中看到所需的修改。 请回馈你的更改！
 :::
     
     
@@ -126,16 +126,16 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
     
     消息发送的最低频率 *必须* 由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
     
-    :::note Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
+    :::note 系统在初始测试时，无人机以 4m/s的速度移动，并且以 10Hz（视觉系统支持的最大速率）的频率发送`OBSTACLE_DISTANCE` 消息。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 :::
     
-    The tested companion software is the *local_planner* from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. For more information on hardware and software setup see: [PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
+    配套的测试软件是 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 仓库中的 *local_planner*。 关于硬件和软件配置的更多信息请查看链接：[PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
     
-    The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+    软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 仓库的说明。 要发出 `OBSTACLE_DISTANCE` 消息，必须使用 *rqt_reconfigure* 工具，并将参数 `send_obstacles_fcu` 设置为true。
     
     ## Gazebo设置
     
-    *Collision Prevention* can also be tested using Gazebo. See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) for setup instructions.
+    *防撞*功能支持Gazebo仿真测试。 请参阅 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 的配置说明。
     
     <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
     
