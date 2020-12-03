@@ -8,4 +8,6 @@ This section contains topics about integrating PX4 with *new* hardware, includin
 * [Telemetry Radios/Modems](../data_links/telemetry.md) and other communications links
 * Other peripherals
 
-> **Tip** Other sections show how to *use* and *configure* supported [autopilot](../flight_controller/README.md) and [peripheral](../peripherals/README.md) hardware.
+:::tip
+Other sections show how to *use* and *configure* supported [autopilot](../flight_controller/README.md) and [peripheral](../peripherals/README.md) hardware.
+:::
