@@ -2,7 +2,9 @@
 
 This a simple test to measure the throughput of the [PX4-FastRTPS Bridge](../middleware/micrortps.md). It sends and receives 256-byte messages (simultaneously) at maximum rate, and then outputs the result.
 
-> **Tip** This example requires that you [Manually Generate Client and Agent Code](../middleware/micrortps_manual_code_generation.md).
+:::tip
+This example requires that you [Manually Generate Client and Agent Code](../middleware/micrortps_manual_code_generation.md).
+:::
 
 ## Create the uORB message
 
@@ -91,9 +93,9 @@ while (!_should_exit_task)
 ...
 ```
 
-
-> **Note** You may recall this is intended to be a *bidirectional* throughput test, where messages must also be sent from the *Agent* to the *Client*. You do not need to modify the Agent code to make this happen. As the *Agent* is an RTPS publisher and subscriber, it will automatically get notified of the RTPS messages it sends, and will then mirror these back to the client.
-
+:::note
+You may recall this is intended to be a *bidirectional* throughput test, where messages must also be sent from the *Agent* to the *Client*. You do not need to modify the Agent code to make this happen. As the *Agent* is an RTPS publisher and subscriber, it will automatically get notified of the RTPS messages it sends, and will then mirror these back to the client.
+:::
 
 [Compile and launch](../middleware/micrortps_manual_code_generation.md#build-and-use-the-code) both the *Client* and the *Agent*.
 
