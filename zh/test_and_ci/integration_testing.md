@@ -28,14 +28,14 @@ rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
 
 ### 写一个新的 MAVROS 测试（Python）
 
-> **Note** 目前处于早期阶段，更加精简的测试支持（辅助类/方法等）即将到来。
+测试脚本位于 `integrationtests/python_src/px4_it/mavros/` 中。 有关示例，请参阅其他现有脚本
 
 #### 1.) 1.）创建一个新的测试脚本
 
-测试脚本位于 `integrationtests/python_src/px4_it/mavros/` 中。 有关示例，请参阅其他现有脚本 有关示例，请参阅其他现有脚本 另请参阅官方 ROS 文档，了解如何使用 [unittest](http://wiki.ros.org/unittest) 。
+Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
 
 
-空测试骨架：
+在 `launch/mavros_posix_tests_irisl.launch` 中添加测试组中的新条目：
 
 ```python
 #!/usr/bin/env python
@@ -107,7 +107,7 @@ rosrun px4 mavros_new_test.py
 
 #### 3.) 3.）添加新测试节点以启动文件
 
-在 `launch/mavros_posix_tests_irisl.launch` 中添加测试组中的新条目：
+如上所述运行完整的测试套件。
 
 ```xml
     <group ns="$(arg ns)">
@@ -118,4 +118,4 @@ rosrun px4 mavros_new_test.py
     </group>
 ```
 
-如上所述运行完整的测试套件。
+Run the comlpete test suite as described above.
