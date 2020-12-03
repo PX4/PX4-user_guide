@@ -2,14 +2,15 @@
 
 This page shows how to set up a companion computer with a camera (Logitech C920 or RaspberryPi camera) such that the video stream is transferred from the UAV to a ground computer and displayed in *QGroundControl*. This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki). The mechanism also provide a bidirectional telemetry link (i.e. like SiK radio). 此设置使用未连接 (广播) 模式下的 wifi 和 [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki) 中的软件。
 
-> **Note** 在使用 *Wifibroadcast* 检查规章是否允许在您的国家使用这种 wifi。
-
+:::note
+Before using *Wifibroadcast* check regulators allow this kind of WiFi use in your country.
+:::
 
 ## 无线广播概述
 
-The *Wifibroadcast project* aims to mimic the advantageous properties of using an analog link to transmit HD video (and other) data when using WiFi radios. For example, it attempts to provide a video feed that degrades gracefully with signal degradation/distance.
-
 *Wifibroadcast* 的高级别优势包括:
+
+有关详细信息，请参阅 [FAQ](#faq)。
 
 - Minimal latency by encoding every incoming RTP packet to a single WiFi (IEEE80211) packet and immediately sending (doesn't serialize to byte stream).
 - 智能 FEC 支持（如果 FEC 管道没有间隔，立即将数据包提供给视频解码器）。
@@ -21,27 +22,27 @@ The *Wifibroadcast project* aims to mimic the advantageous properties of using a
 - [Enhanced OSD for Raspberry Pi](https://github.com/svpcom/wifibroadcast_osd) (consumes 10% CPU on Pi Zero).
 - Compatible with any screen resolution. Supports aspect correction for PAL to HD scaling.
 
-有关详细信息，请参阅 [FAQ](#faq)。
+硬件由如下部分组成：
 
 
 ## 硬件安装
 
-硬件由如下部分组成：
-
 在发送端（无人机）：
+
+在接收端（地面站）：
 * [NanoPI NEO2](http://www.friendlyarm.com/index.php?route=product/product&product_id=180) (and/or Raspberry Pi if use Pi camera).
 * [Logitech camera C920](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34) 或者 [Raspberry Pi camera](https://www.raspberrypi.org/products/camera-module-v2/).
 * WiFi module [ALPHA AWUS051NH v2](https://www.alfa.com.tw/products_show.php?pc=67&ps=241).
 
-在接收端（地面站）：
+Alpha WUS051NH is a high power card that uses too much current while transmitting. If you power it from USB it will reset the port on most ARM boards. So you need to connect it to 5V BEC directly. You can do this two ways:
 * 任何使用 linux 的计算机 (在 fedora 25 x86-64 上测试)。
 * WiFi module [ALPHA AWUS051NH v2](https://www.alfa.com.tw/products_show.php?pc=67&ps=241). See [wifibroadcast wiki > WiFi hardware](https://github.com/svpcom/wifibroadcast/wiki/WiFi-hardware) for more information on supported modules.
 
-Alpha WUS051NH is a high power card that uses too much current while transmitting. If you power it from USB it will reset the port on most ARM boards. So you need to connect it to 5V BEC directly. You can do this two ways:
+If you don't need high-power cards, you can use any card with **rtl8812au** chipset.
 
 ## 硬件设置
 
-Alpha AWUS036ACH is a high power card that uses too much current while transmitting. 如果您从 USB 供电, 它将导致大多数的 ARM 板子的端口被重置。 So it must be directly connected to 5V BEC in one of two ways:
+Alpha AWUS036ACH is a high power card that uses too much current while transmitting. If you power it from USB it will reset the port on most ARM boards. So it must be directly connected to 5V BEC in one of two ways:
 
 1. Make a custom USB cable. [You need to cut `+5V` wire from USB plug and connect it to BEC](https://electronics.stackexchange.com/questions/218500/usb-charge-and-data-separate-cables)
 2. Cut a `+5V` wire on PCB near USB port and wire it to BEC. Don't do this if doubt. Use custom cable instead! Also I suggest to add 470uF low ESR capacitor (like ESC has) between power and ground to filter voltage spikes. Be aware of [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29) when using several ground wires. 还建议在电源和接地之间添加 470uf 低 ESR 电容器 (如电调电容器) 来过滤电压峰值。 使用多根地线时，请注意 [ground loop](https://en.wikipedia.org/wiki/Ground_loop_%28electricity%29)。
@@ -49,7 +50,7 @@ Alpha AWUS036ACH is a high power card that uses too much current while transmitt
 
 ## 软件设置
 
-See [wiki](https://github.com/svpcom/wifibroadcast/wiki/enhanced-setup) article. Using RX setup above (and ALPHA AWUS051NH v2 as TX) I was able to receive stable 1080p video on 1-2km in any copter pitch/roll angles.
+To setup the (Linux) development computer:
 1. Install **libpcap** and **libsodium** development libs.
 1. 下载 [wifibroadcast sources](https://github.com/svpcom/wifibroadcast)。
 1. [Patch](https://github.com/svpcom/wifibroadcast/wiki/Kernel-patches) your kernel. You only need to patch the kernel on TX (except if you want to use a WiFi channel which is disabled in your region by CRDA).
@@ -95,21 +96,23 @@ For simple cases you can use omnidirectional antennas with linear (that bundled 
 
 ## 常见问题
 
-The [original version of wifibroadcast](https://befinitiv.wordpress.com/wifibroadcast-analog-like-transmission-of-live-video-data/) shares the same name as the [current project](https://github.com/svpcom/wifibroadcast/wiki), but does not derive any code from it.
+**Q:** *What is a difference from original wifibroadcast?*
 
-**A:** The original version of wifibroadcast used a byte-stream as input and split it to packets of fixed size (1024 by default). The original version used a byte-stream as input and split it to packets of fixed size (1024 by default). If a radio packet was lost and this was not corrected by FEC you'll got a hole at random (unexpected) place in the stream. This is especially bad if the data protocol is not resistant to (was not designed for) such random erasures. This is especially bad if the data protocol is not resistant to such random erasures.
+The new version has been rewritten to use UDP as data source and pack one source UDP packet into one radio packet. Radio packets now have variable size depends on payload size. This is reduces a video latency a lot. With this scheme if radio packets were lost (and this was not corrected by FEC) the result was random/unexpected holes in the stream. This is especially bad if the data protocol is not resistant to such random erasures.
 
-The new version has been rewritten to use UDP as data source and pack one source UDP packet into one radio packet. Radio packets now have variable size depends on payload size. This is reduces a video latency a lot. Radio packets now have variable size that depends on payload size. This significantly reduces a video latency.
+The new version was rewritten to use UDP as data source and pack one source UDP packet into one radio packet. Radio packets now have variable size that depends on payload size. This significantly reduces a video latency.
 
-Any UDP with packet size <= 1466. For example x264 inside RTP or MAVLink.
+**Q:** *What type of data can be transmitted using wifibroadcast?*
 
 **A:** Any UDP with packet size <= 1466. For example x264 inside RTP or MAVLink.
 
-This can be due to:
+**Q:** *What are transmission guarantees?*
 
-*Wifibroadcast* uses Forward Error Correction (FEC) which can recover 4 lost packets from a 12 packet block with default settings. You can tune both TX and RX (simultaneously) to fit your needs. You can tune it (both TX and RX simultaneously!) to fit your needs.
+**A:** Wifibrodcast use FEC (forward error correction) which can recover 4 lost packets from 12 packets block with default settings. You can tune it (both TX and RX simultaneously!) to fit your needs.
 
-> **Caution** Don't use band that the RC TX operates on! Or setup RTL properly to avoid model loss. Or setup RTL properly to avoid model loss.
+:::caution
+Don't use band that the RC TX operates on! Or setup RTL properly to avoid model loss.
+:::
 
 **Q:** *Is only Raspberry PI supported?*
 
