@@ -1,8 +1,10 @@
 # 许可证
 
-> **Note** 所有代码贡献都必须在许可的 [BSD 3 条款的许可证 ](https://opensource.org/licenses/BSD-3-Clause) 下进行，不得对其使用施加任何进一步的限制。
+:::note
+All code contributions must be made under the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause) and must not impose any further constraints on its use.
+:::
 
-此页记录系统中各种组件的许可证。
+This page documents the licenses of various components in the system.
 
 * [PX4 飞行栈](https://github.com/PX4/Firmware) &mdash; BSD
 * [PX4 中间件](https://github.com/PX4/Firmware) &mdash; BSD
