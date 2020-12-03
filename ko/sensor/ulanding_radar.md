@@ -1,6 +1,8 @@
 # Ainstein US-D1 Standard Radar Altimeter
 
-> **Tip** This supersedes the *Aerotenna uLanding Radar* (discontinued) but uses the same driver/setup.
+:::tip
+This supersedes the *Aerotenna uLanding Radar* (discontinued) but uses the same driver/setup.
+:::
 
 The *Ainstein* [US-D1 Standard Radar Altimeter](https://ainstein.ai/drone-makers-drone-service-providers/us-d1/) is a compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of about 40 metres, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
@@ -18,4 +20,10 @@ US-D1 can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3,
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/distance_sensor/ulanding```
+:::note
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+
+    drivers/distance_sensor/ulanding
+    
+
+:::
