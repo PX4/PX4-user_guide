@@ -5,10 +5,13 @@ MacOS is a supported development platform for PX4. The following instructions se
 * jMAVSim Smulation
 * Gazebo Simulation
 
-> **Note** To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
+:::note
+To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
+:::
 
-<span></span>
-> **Tip** A video tutorial can be found here: [Setting up your PX4 development environment on macOS](https://youtu.be/tMbMGiMs1cQ).
+:::tip
+A video tutorial can be found here: [Setting up your PX4 development environment on macOS](https://youtu.be/tMbMGiMs1cQ).
+:::
 
 ## Homebrew Installation
 
@@ -74,7 +77,9 @@ brew cask install adoptopenjdk14
 brew install px4-sim-jmavsim
 ```
 
-> **Note** jMAVSim for PX4 v1.11 and earlier required Java 8.
+:::note
+jMAVSim for PX4 v1.11 and earlier required Java 8.
+:::
 
 ## Additional Tools
 

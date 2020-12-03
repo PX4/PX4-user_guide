@@ -4,8 +4,10 @@ We recommend that developers obtain the basic equipment described below (or simi
 
 ## Basic Equipment
 
-> **Tip** PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
+:::tip
+PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups.
 A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::
 
 The equipment below is highly recommended:
 
@@ -22,8 +24,10 @@ The equipment below is highly recommended:
 
 ## Vehicle Configuration
 
-> **Tip** *QGroundControl* for a **desktop OS** is required for vehicle configuration.
-  You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+:::tip
+*QGroundControl* for a **desktop OS** is required for vehicle configuration.
+You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+:::
 
 To configure the vehicle:
 

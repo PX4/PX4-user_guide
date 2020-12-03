@@ -4,13 +4,14 @@
 
 The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
-> **Note**
-> * This mode requires GPS.
-> * The vehicle must be armed before this mode can be engaged.
-> * This mode is automatic - no user intervention is *required* to control the vehicle.
-> * RC control switches can be used to change flight modes on any vehicle.
-> * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
-> * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::note
+* This mode requires GPS.
+* The vehicle must be armed before this mode can be engaged.
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC control switches can be used to change flight modes on any vehicle.
+* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::
 
 The specific behaviour for each vehicle type is described below.
 
@@ -42,8 +43,10 @@ In *catapult/hand launch mode* the vehicle waits to detect launch (based on acce
 On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. 
 Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
 
-> **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
-  For catapult launch this is some acceleration threshold.
+:::note
+In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
+For catapult launch this is some acceleration threshold.
+:::
 
 <span id="runway_launch"></span>
 ### Runway Takeoff
@@ -69,9 +72,9 @@ Parameter | Description
 <span id="RWTO_AIRSPD_SCL"></span>[RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL) | Min. airspeed scaling factor for takeoff. Pitch is increased when the airspeed reaches: `FW_AIRSPD_MIN` * `RWTO_AIRSPD_SCL`
 <span id="RWTO_NAV_ALT"></span>[RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT) | Altitude above ground level (AGL) at which we have enough ground clearance to allow some roll. Until `RWTO_NAV_ALT` is reached the plane is held level and only rudder is used to keep the heading (see <span id="RWTO_HDG"></span>[RWTO_HDG](../advanced_config/parameter_reference.md#RWTO_HDG)). This should be below `FW_CLMBOUT_DIFF` if `FW_CLMBOUT_DIFF` > 0.
 
-
-> **Note** The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
-
+:::note
+The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
+:::
 
 ## VTOL
 

@@ -8,7 +8,9 @@ jMAVSim is a simple multirotor/Quad simulator that allows you to fly *copter* ty
 
 This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
 
-> **Tip** jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
+:::tip
+jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
+:::
 
 ## Installation
 
@@ -138,9 +140,11 @@ JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSi
 
 To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
 
-> **Info** The build system enforces the correct submodule to be checked out for all dependencies, including the simulator.
-  It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change.
-  This will update the GIT hash of the simulator.
+:::note
+The build system enforces the correct submodule to be checked out for all dependencies, including the simulator.
+It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change.
+This will update the GIT hash of the simulator.
+:::
 
 ## Interfacing to ROS
 

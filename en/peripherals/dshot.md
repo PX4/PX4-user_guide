@@ -20,26 +20,31 @@ If using a Pixhawk flight controller that only has a MAIN port, connect the pins
 
 If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*.
 
-> **Note** A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively.
-> DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
->
-> To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
-> Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
->
-> Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
+:::note
+A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively.
+DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
 
-<span></span>
-> **Note** FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
-> The other pins cannot be used as motor/servo outputs.
+To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
 
-<span></span>
-> **Tip** You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
+Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
+:::
 
+:::note
+FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
+The other pins cannot be used as motor/servo outputs.
+:::
+
+:::tip
+You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
+:::
 
 <span id="configuration"></span>
 ## Configuration
 
-> **Warning** Remove propellers before changing ESC configuration parameters!
+:::warning
+Remove propellers before changing ESC configuration parameters!
+:::
 
 Enable DShot with the [DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG) parameter (if the parameter does not exist, the board does not support DShot).
 
@@ -104,4 +109,6 @@ After a reboot you can check if telemetry is working (make sure the battery is c
 dshot esc_info -m 1
 ```
 
-> **Tip** You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+:::tip
+You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+:::

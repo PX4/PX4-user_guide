@@ -2,9 +2,10 @@
 
 The PX4 *System Console* provides low-level access to the system, debug output and analysis of the system boot process.
 
-> **Tip** The console should be used for debugging if the system won't boot.
-  The [MAVLink Shell](../debug/mavlink_shell.md) may otherwise be more suitable, as it is much easier to set up and can be used for [many of the same tasks](../debug/consoles.md#console_vs_shell).
-
+:::tip
+The console should be used for debugging if the system won't boot.
+The [MAVLink Shell](../debug/mavlink_shell.md) may otherwise be more suitable, as it is much easier to set up and can be used for [many of the same tasks](../debug/consoles.md#console_vs_shell).
+:::
 
 ## Wiring the Console
 
@@ -14,8 +15,10 @@ This allows the console to be accessed using a terminal application.
 Pixhawk controller manufacturers are expected to expose the console UART and SWD (JTAG) debug interfaces through a dedicated *debug port* that complies with the [Pixhawk Connector Standard](#pixhawk_debug_port).
 Unfortunately some boards predate this standard or a non-compliant.
 
-> **Tip** Developers targeting a number of different boards may wish to use a *debug adapter* to simplify connecting multiple boards.
-  For example, the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) comes with connectors for the [Pixhawk Debug Port](#pixhawk_debug_port) and several other boards.
+:::note
+Developers targeting a number of different boards may wish to use a *debug adapter* to simplify connecting multiple boards.
+For example, the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) comes with connectors for the [Pixhawk Debug Port](#pixhawk_debug_port) and several other boards.
+:::
 
 The sections below outline/link to the wiring and system console information for many common boards.
 

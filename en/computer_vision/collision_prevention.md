@@ -101,7 +101,9 @@ Vehicle *velocity setpoint tracking delay* can be measured by flying at full spe
 The delay between the actual velocity and the velocity setpoint can then be measured from the logs.
 The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
 
-> **Tip** If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+:::tip
+If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+:::
 
 <span id="angle_change_tuning"></span>
 ### CP_GUIDE_ANG Guidance Tuning
@@ -114,9 +116,10 @@ If this parameter is too small the vehicle may feel 'stuck' when close to obstac
 If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator.
 From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
-> **Note** The guidance feature will never direct the vehicle in a direction without sensor data.
-  If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
-
+:::note
+The guidance feature will never direct the vehicle in a direction without sensor data.
+If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+:::
 
 <span id="rangefinder"></span>
 ## PX4 Distance Sensor

@@ -46,7 +46,9 @@ A topic has to be advertised in the same process as it's later published.
 
 ## Listing Topics and Listening in
 
-> **Note** The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+:::note
+The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+:::
 
 To list all topics, list the file handles:
 
@@ -92,10 +94,11 @@ range_m_s2: 78
 scaling: 0
 ```
 
-> **Tip** On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics.
-  This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
-  For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
-
+:::tip
+On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics.
+This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying).
+For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+:::
 
 ### uorb top Command
 
