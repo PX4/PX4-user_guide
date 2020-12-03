@@ -6,8 +6,11 @@ Not all flight modes are available on all vehicle types, and some modes behave d
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
 
-> **Note** User-facing flight mode documentation can be found in: - [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes. - [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
-
+:::note
+User-facing flight mode documentation can be found in:
+- [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
+- [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+:::
 
 ## Flight Mode Summary
 
@@ -23,7 +26,8 @@ The sections below provide an overview of the modes, followed by a [flight mode 
 * **Multirotors:**
   * **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
 
-    > **Note** For Multirotors, Manual and Stabilized modes are the same.
+    :::note For Multirotors, Manual and Stabilized modes are the same.
+:::
 
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
   * **RATTITUDE** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot if they are greater than the mode's threshold, i.e. if the RC sticks are a certain distance away from the center position. If not the inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. In short, the autopilot acts as an angular rate controller when the RC sticks are away from center (like in the ACRO mode), whereas when the RC sticks are centered, the autopilot acts as an attitude controller (like in the Stabilized mode).
