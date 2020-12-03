@@ -4,17 +4,21 @@
 
 Fast RTPS is used by PX4 to enable an RTPS interface allowing PX4 uORB topics to be shared with offboard components, including robotics and simulator tools. RTPS is the underlying protocol of DDS, a standard from the OMG (Object Management Group) providing a real-time publish/subscribe middleware that is widely used in aerospace, defense and IoT applications. It has also been adopted as the middleware for the ROS2 robotics toolkit. For more information see: [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
 
-> **Tip** For Ubuntu, at time of writing, you will need to install Fast-RTPS 1.8.2 *from source*.
+:::tip
+For Ubuntu, at time of writing, you will need to install Fast-RTPS 1.8.2 *from source*.
+:::
 
-<span></span>
-> **Note** This topic is derived from the official [*eProsima Fast RTPS* documentation](http://eprosima-fast-rtps.readthedocs.io/en/latest/). For more information see:
-  - Installation from Sources
-    - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_linux.html)
-    - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_windows.html)
-  - Installation from Binaries
-    - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html)
-    - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html)
+:::note
+This topic is derived from the official [*eProsima Fast RTPS* documentation](http://eprosima-fast-rtps.readthedocs.io/en/latest/).
 
+For more information see:
+- Installation from Sources
+  - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_linux.html)
+  - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_windows.html)
+- Installation from Binaries
+  - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html)
+  - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html)
+:::
 
 ## Requirements
 
@@ -47,7 +51,9 @@ $ cd ~/FastRTPS-1.8.2
 $ mkdir build && cd build
 ```
 
-> **Note** You may need to [install Gradle](https://gradle.org/install/) to build the source (e.g. this is true on vanilla Fedora Linux). A build warning will be displayed if this is the case.
+:::note
+You may need to [install Gradle](https://gradle.org/install/) to build the source (e.g. this is true on vanilla Fedora Linux). A build warning will be displayed if this is the case.
+:::
 
 If you are on Linux, execute:
 
@@ -86,7 +92,9 @@ git clone --recursive https://github.com/eProsima/Fast-RTPS-Gen.git -b v1.0.4 ~/
 
 ## Installation from Binaries
 
-> **Note** Although the binaries are available, we recommend to build and install the code from source, given that the binaries may not come with required components and dependencies in place.
+:::note
+Although the binaries are available, we recommend to build and install the code from source, given that the binaries may not come with required components and dependencies in place.
+:::
 
 You can always download the latest binary release of *eProsima Fast RTPS* from the [company website](http://www.eprosima.com/).
 
