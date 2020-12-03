@@ -4,11 +4,13 @@
 
 ![jDrones 장거리 텔레메트리](../../assets/hardware/telemetry/jdrones_long_range_uav_telemetry_rf900set02_2.jpg)
 
-> Tip </strong> *jDrones *은(는) 케이블, 필터링 및 기타 전자장치를 내부에 연결하는 케이싱과 함께 * RFDesign * 모뎀을 개별적으로 생산했습니다. 이러한 첫 번째 모뎀은 * RFD900 *이었지만, 이후 * RFDDesign *과 *jDrones * 모두 새로운 버전으로 반복되었습니다.
+:::tip
+*jDrones* have productized *RFDesign* modems (added a casing with power management, filtering and other electronics inside, along with cables to connect to popular flight controllers, and individually validated antennas). The first such modem was the *RFD900*, but both *RFDesign* and *jDrones* have since iterated to new versions.
+:::
 
-0>jDrones </em> 라디오에는 JST-GH 커넥터가 있으며, 다음 기능을 위한 케이블과 함께 제공됩니다. 따라서 대부분의 [ Pixhawk Series ](../flight_controller/pixhawk_series.md) 컨트롤러에서 "플러그 앤 플레이" 방식으로 사용할 수 있습니다(일부 "비표준" 보드의 경우 적절한 커넥터를 변경/사용해야 할 수 있음).
+The *jDrones* radios have a JST-GH connector, and come with cables for: *JST-GH to JST-GH* and *JST-GH to DF-13*. They can therefore be used in a "plug-n-play" way with most [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers (you might have to change/use an appropriate connector for some "non-standard" boards).
 
-사용할 수 있는 버전은 다음과 같습니다.
+There are a number of versions available:
 
 * jD-RF900Plus Longrange (900Mhz)</a> (미국)
 * jD-RF868Plus Longrange (868Mhz)</a> (유럽)
