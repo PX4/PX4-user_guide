@@ -2,10 +2,13 @@
 
 This topic lists/displays the vehicles supported by the PX4 [FlightGear](../simulation/flightgear.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory). The supported types are: plane, autogyro and rover (there are specific frames within these types).
 
-> **Tip** For the full list of build targets run `make px4_sitl list_vmd_make_targets` (filter out those that start with `flightgear_`).
+:::tip
+For the full list of build targets run `make px4_sitl list_vmd_make_targets` (filter out those that start with `flightgear_`).
+:::
 
-<span></span>
-> **Note** The [FlightGear](../simulation/flightgear.md) page shows how to install and use FlightGear in more detail. (this page is a summary of vehicle-specific features).
+:::note
+The [FlightGear](../simulation/flightgear.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
+:::
 
 <a id="standard_plane"></a>
 
@@ -47,7 +50,9 @@ A Rascal vehicle with an electric engine.
 make px4_sitl_nolockstep flightgear_rascal-electric
 ```
 
-> **Note** This variant needs the latest FlightGear code (sources at least from 26 April 2020). Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
+:::note
+This variant needs the latest FlightGear code (sources at least from 26 April 2020). Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.
+:::
 
 ### Rascal 110 JSBsim
 
