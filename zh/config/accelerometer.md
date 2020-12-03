@@ -2,19 +2,23 @@
 
 You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed. Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
 
-> **Note** Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+:::note
+Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+:::
 
-按照 QGC地面站 的指引，将机体翻转到一系列的位置并静置（需要翻转到下一个位置时，QGC会有提示）。
+*QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
 
-> **Tip** 这个步骤与 [罗盘校准](../config/compass.md) 类似，不同的只是在每个方向将机体静置（而非旋转）。
+:::tip
+This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
+:::
 
-<span></span>
-
-> **Note** The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations. Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+:::note
+The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations. Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+:::
 
 ## 执行校准
 
-校准步骤如下：
+The calibration steps are:
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标（机体设置），然后在侧边栏选择 **传感器**。
@@ -22,7 +26,8 @@ You will need to calibrate your accelerometer on first use or if the flight cont
     
     ![加速度计校准](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
-    > **Note** 你必须首先设置好 [自动驾驶仪方向](../config/flight_controller_orientation.md)。 如果没有，也可以在这里设置。
+    :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::
 
 4. 点击**确定**开始校准。
 
@@ -32,7 +37,7 @@ You will need to calibrate your accelerometer on first use or if the flight cont
 
 6. 在机体的所有方向上重复校准步骤。
 
-所有位置都标定完成后，*QGroundControl*将显示*标定完成* (所有标定位置都变成绿色，进度条也显示完成)。 然后可以开始标定下一个传感器。
+Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
 
 ## 更多信息：
 
