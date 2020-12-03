@@ -4,8 +4,10 @@
 
 图的右侧显示了端到端的软件堆栈。 堆栈 "近似" 与关系图的硬件部分水平对齐, 并使用颜色进行了编码以显示哪些软件在飞行控制器上运行、哪些软件在配套计算机上运行。
 
-> **Note** [PX4 Architectural Overview](../concept/architecture.md) 页面提供了有关飞行控制栈和中间件的相关信息。 Offboard APIs are covered in [ROS](../ros/README.md) and [Dronecode SDK](https://www.dronecode.org/sdk/).
+:::note
+The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+:::
 
-![Dronecode 平台架构](../../assets/diagrams/dronecode_platform_architecture.jpg)
+![PX4 Platform architecture](../../assets/diagrams/dronecode_platform_architecture.jpg)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/14sgSpcs7NcBatW-qn0dLtyMHvwNMSSlm/view?usp=sharing. Request access from dev team. -->
