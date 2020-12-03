@@ -1,6 +1,8 @@
 # 속도 센서가없는 VTOL
 
-> 경고 경고 : 속도 센서 사용을 권장합니다. 속도 센서가없는 VTOL에 대한 지원은 실험으로 간주되며 숙련 된 조종사 만 시도해야합니다.
+:::warning
+The use of an airspeed sensor is advised. Support for VTOL's without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
+:::
 
 Fixed wings use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed wings but this is currently untested.
 
@@ -23,19 +25,21 @@ After the reference flight download the log and use [FlightPlot](../dev_log/flig
 
 Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), during the ascend (increasing altitude) and when the vehicle is banking (more roll). The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
 
-또한 전면 전환이 완료되는 데 걸린 시간을 메모하십시오. 이 값은 최소 전환 시간을 설정하는 데 사용됩니다. For safety reasons you should add +- 30% to this time.
+Also take note of the time it took for a front transition to complete. This will be used to set the minimum transition time. For safety reasons you should add +- 30% to this time.
 
-마지막으로 크루즈 비행 중 지상 속도를 기록하십시오. This can be used to tune your throttle setting after the first flight without an airspeed sensor.
+Finally take note of the groundspeed during cruise flight. This can be used to tune your throttle setting after the first flight without an airspeed sensor.
 
 ## Setting the Parameters
 
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
-> **Note** Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+:::note
+Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+:::
 
 To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
 
-Set the cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from 1..100 and the thrust value from the log is scaled from 0..1. 따라서 0.65의 추력을 65로 입력해야합니다. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
+Set the cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from 1..100 and the thrust value from the log is scaled from 0..1. So a thrust of 0.65 should be entered as 65. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
 
 Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM)) to the number of seconds determined from the reference flight and add +- 30% for safety.
 
