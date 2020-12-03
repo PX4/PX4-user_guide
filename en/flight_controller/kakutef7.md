@@ -36,8 +36,9 @@ The board can be bought from one of the following shops (for example):
 - [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
-> **Tip** The *Kakute F7* is designed to work with the *Tekko32* 4-in-1 ESC and
-> they can be bought in combination.
+:::tip
+The *Kakute F7* is designed to work with the *Tekko32* 4-in-1 ESC and they can be bought in combination.
+:::
 
 ## Connectors and Pins
 

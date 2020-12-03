@@ -17,8 +17,13 @@ module.exports = {
 
   plugins: ['@vuepress/medium-zoom',
       ['container', {
-      type: 'note',
-      defaultTitle: 'Note',
+        type: 'note',
+        defaultTitle: {
+          '/zh/': '注解',
+		  '/en/': 'Note',
+          '/': 'Note',		  
+        },
+	  
       }],
       ['vuepress-plugin-mathjax',
         {

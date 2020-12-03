@@ -76,7 +76,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 The SPRacingH7EXTREME is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
 
-> **Note** Select the PX4 edition when purchasing!
+:::note
+Select the PX4 edition when purchasing!
+:::
 
 ## Manual, Pinouts and Connection Diagrams
 

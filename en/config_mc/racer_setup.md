@@ -5,11 +5,13 @@ This page describes how to setup and configure a racer for optimal performance (
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! 
 You should already have some experience, or let someone with experience help you.
 
-> **Tip** Many things described here can also be applied to improve the flight performance of other types of multicopters.
+:::tip
+Many things described here can also be applied to improve the flight performance of other types of multicopters.
+:::
 
-<span></span>
-> **Note** A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
-
+:::note
+A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+:::
 
 ## Build Options
 
@@ -17,7 +19,9 @@ A racer usually omits some sensors.
 
 The minimal configuration is to use only a gyro and accelerometer sensor.
 
-> **Note** If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+:::note
+If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+:::
 
 Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break). 
 
@@ -31,9 +35,10 @@ There are however some benefits in adding GPS, particularly for beginners:
 - The log contains the flight track, which means you can review the flight (in 3D).
   This can help to improve your acrobatic flight skills.
 
-> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time.
-> If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
-
+:::note
+During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time.
+If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
+:::
 
 ## Hardware Setup
 
@@ -55,8 +60,10 @@ Make sure that the center of gravity is as close as possible to the center of th
 Left-right balance is usually not a problem, but front-back balance may be.
 You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
 
-> **Note** The integral term can account for an imbalanced setup, and a custom mixer can do that even better.
-  However it is best to fix any imbalance as part of the vehicle setup.
+:::note
+The integral term can account for an imbalanced setup, and a custom mixer can do that even better.
+However it is best to fix any imbalance as part of the vehicle setup.
+:::
 
 ### Motor Ordering
 If you plan to use a 4-in-1 ESC, such as the [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), you will notice that it uses a motor ordering that is different from the one that PX4 uses.
@@ -98,7 +105,9 @@ Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [armi
 
 ### PID Tuning
 
-> **Note** Make sure to calibrate the ESCs before doing any tuning.
+:::note
+Make sure to calibrate the ESCs before doing any tuning.
+:::
 
 At this point you should be ready for a first test flight.
 
@@ -113,8 +122,10 @@ There will be a second PID tuning round later.
 
 The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
-> **Tip** It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. 
+:::tip
+It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. 
 Even one millisecond added to the latency makes a difference. 
+:::
 
 These are the factors that affect the latency:
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
@@ -156,7 +167,9 @@ The defaults are set conservatively — such that they work on lower-quality set
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter).
 [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
-> **Warning** Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
+:::warning
+Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
+:::
 
 Filter tuning is best done by reviewing flight logs. 
 You can do multiple flights right after each other with different parameters and then inspect all logs, 
@@ -177,8 +190,10 @@ At 90 Hz the general noise level starts to increase (especially for roll), and t
 ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png)
 ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
-> **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. 
-> On the same vehicle it is consistent and independent of the flight duration though.
+:::note
+The plot cannot be compared between different vehicles, as the y axis scale can be different. 
+On the same vehicle it is consistent and independent of the flight duration though.
+:::
 
 ### PID Tuning (Second Round)
 

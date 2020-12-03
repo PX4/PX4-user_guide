@@ -5,7 +5,9 @@ This improves stability (reducing the chance that wind from the side will pick-u
 
 The feature is [enabled by default](#configuration) on VTOL hybrid vehicles flying in multicopter mode.
 
-> **Note** Weather vane functionality is not supported on pure multirotors.
+:::note
+Weather vane functionality is not supported on pure multirotors.
+:::
 
 ## Manual Mode Behaviour
 

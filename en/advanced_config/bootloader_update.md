@@ -49,21 +49,21 @@ The following steps explain how you can "manually" update the bootloader using t
    ```
 1. The *gdb terminal* appears and it should display the following output:
    ```bash
-GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
-Copyright (C) 2017 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-and "show warranty" for details.
-This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<http://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-<http://www.gnu.org/software/gdb/documentation/>.
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from px4fmuv5_bl.elf...done.
+   GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
+   Copyright (C) 2017 Free Software Foundation, Inc.
+   License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+   This is free software: you are free to change and redistribute it.
+   There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+   and "show warranty" for details.
+   This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
+   Type "show configuration" for configuration details.
+   For bug reporting instructions, please see:
+   <http://www.gnu.org/software/gdb/bugs/>.
+   Find the GDB manual and other documentation resources online at:
+   <http://www.gnu.org/software/gdb/documentation/>.
+   For help, type "help".
+   Type "apropos word" to search for commands related to "word"...
+   Reading symbols from px4fmuv5_bl.elf...done.
    ```
 1. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
 1. Now connect to the Dronecode probe with the following command:

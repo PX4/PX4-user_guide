@@ -5,11 +5,14 @@ PX4 contains functionality to calibrate and compensate rate gyro, accelerometer 
 This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures).
 At the end there is a description of the [implementation](#implementation).
 
-> **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
-  Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
-  
-<span></span>
-> **Note** At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
+:::note
+After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
+Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+:::
+ 
+:::note
+At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
+:::
 
 <span id="test_setup"></span>
 ## Test Setup/Best Practice
@@ -22,7 +25,9 @@ The board should be placed in a ziplock/anti-static bag containing a silica pack
 with a power lead coming out through a sealed hole. 
 After the cold soak the bag can be moved to the test environment and the test continued in the same bag. 
 
-> **Note** The bag/silica is to prevent condensation from forming on the board.
+:::note
+The bag/silica is to prevent condensation from forming on the board.
+:::
 
 It possible to perform the calibration without a commercial-grade environment chamber.
 A simple environment container can be created using a styrofoam box with a very small internal volume of air. 
@@ -32,8 +37,9 @@ Using this sort of setup it is possible to heat a board to ~70C.
 Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. 
 If in doubt, check the safe operating range with your manufacturer.
 
-> **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
-
+:::tip
+To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
+:::
 
 <span id="calibration_procedures"></span>
 ## Calibration Procedures

@@ -14,7 +14,9 @@ If one or more of the motors do not turn in the correct direction according to t
 There are several options:
 - If using ESCs that support [DShot](../peripherals/dshot.md) you can reverse the direction via [DShot commands](../peripherals/dshot.md#commands).
 - Swap 2 of the 3 motor cables (it does not matter which ones).
-  > **Note** If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+  :::note
+  If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+  :::
 
 The following additional checks should be performed to validate that the vehicle is setup correctly:
 1. With propellers still removed, switch to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) (Multicopter) or [Manual mode](../flight_modes/manual_fw.md) (Fixed Wing) and arm the vehicle.

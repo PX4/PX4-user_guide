@@ -5,8 +5,10 @@ The MAVLink Shell is an *NSH console* that can be accessed via MAVLink over seri
 The shell can be used for running commands and modules, and displaying their output.
 While the shell cannot *directly* display the output of modules that it does not start, it can do so indirectly using the `dmesg` command (`dmesg -f &` can be used to display the output of other modules and tasks running on the work queue).
 
-> **Tip** The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to access the console.
-  If the system does not start properly you should instead use the [System Console](../debug/system_console.md).
+:::tip
+The [QGroundControl MAVLink Console](#qgroundcontrol) is the easiest way to access the console.
+If the system does not start properly you should instead use the [System Console](../debug/system_console.md).
+:::
 
 ## Opening the Shell
 

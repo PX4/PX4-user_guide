@@ -34,11 +34,16 @@ GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer inter
 TELEM1/TELEM2 | Connect to the Telemetry System.
 DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
 
-> **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+:::note
+For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+:::
+
 
 ## GPS + Compass + Safety Switch + LED 
 

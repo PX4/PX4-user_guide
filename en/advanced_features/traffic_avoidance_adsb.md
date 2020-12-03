@@ -47,8 +47,9 @@ Pin | Signal | Volt
 5 (blk) | - | +3.3V
 6 (blk) | GND      | GND
 
-> **Note** The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
-
+:::note
+The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
+:::
 
 ## Software Configuration
 
@@ -68,7 +69,9 @@ Then reboot the vehicle.
 
 You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
-> **Note** Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
+:::note
+Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
+:::
 
 ### Configure Traffic Avoidance
 

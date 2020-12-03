@@ -35,12 +35,13 @@ M: 1
 S: 3 4  10000  10000      0 -10000  10000
 ```
 
-> **Note** The file defines four [summing mixers](../concept/mixing.md#summing_mixer) (for four outputs).
-> - `M: 1` indicates an output that is defined by one control input (the following `S` line).
-> - `S: 3 `_`n`_ indicates that the input is the n<>th<> input of [Control Group 3 (Manual Passthrough)](../concept/mixing.md#control-group-3-manual-passthrough).
->  So for `S: 3 5` the input is called "RC aux1" (this maps to the RC channel set in parameter `RC_MAP_AUX1`).
-> - The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).
-
+:::note
+The file defines four [summing mixers](../concept/mixing.md#summing_mixer) (for four outputs).
+- `M: 1` indicates an output that is defined by one control input (the following `S` line).
+- `S: 3 `_`n`_ indicates that the input is the n<sup>th</sup> input of [Control Group 3 (Manual Passthrough)](../concept/mixing.md#control-group-3-manual-passthrough).
+  So for `S: 3 5` the input is called "RC aux1" (this maps to the RC channel set in parameter `RC_MAP_AUX1`).
+- The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).
+:::
 
 Start by copying the mixer file and putting it onto the SD Card at: **/etc/mixers/pass.aux.mix** (see [Mixing and Actuators > Loading a Custom Mixer](../concept/mixing.md#loading_custom_mixer).
 

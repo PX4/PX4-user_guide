@@ -18,8 +18,10 @@ There is also space in the agenda to discuss pull requests, major impacting issu
 * Dronecode members
 * Community members
 
-> **Tip** The dev call is open to all interested developers (not just the core dev team). 
-> This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+:::tip
+The dev call is open to all interested developers (not just the core dev team). 
+This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+:::
 
 ## What gets discussed?
 
@@ -28,9 +30,11 @@ The first/main part of the meeting runs for 45 minutes and provides a high-level
 This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label.
 We expect the proposer and the assigned reviewer to be on the call!
 
-> **Note** The main call is designed to support rapid/focused decision making.
-  We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. 
-  Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+:::note
+The main call is designed to support rapid/focused decision making.
+We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. 
+Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+:::
 
 The second part of the meeting is for in-depth technical discussions and open ended questions.
 The core team/subsystem maintainers will be available for up to 45 additional minutes. 

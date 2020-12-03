@@ -3,8 +3,10 @@
 Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4.
 This section contains topics about advanced use of supported radios and integrating new telemetry systems into PX4. 
 
-> **Tip** [Peripheral Hardware > Telemetry Radios](../telemetry/README.md) contains information about telemetry radio systems already supported by PX4.
-  This includes radios that use the *SiK Radio* firmware and *3DR WiFi Telemetry Radios*.
+:::tip
+[Peripheral Hardware > Telemetry Radios](../telemetry/README.md) contains information about telemetry radio systems already supported by PX4.
+This includes radios that use the *SiK Radio* firmware and *3DR WiFi Telemetry Radios*.
+:::
 
 ## Integrating Telemetry Systems
 

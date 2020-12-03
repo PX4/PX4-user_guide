@@ -48,8 +48,11 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
    - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective.
      ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - Click the **update all** button.
-     > **Tip** This takes a VERY LONG TIME (10 minutes).
-       Ignore all the errors about missing packages that pop up.
+   
+     :::tip
+     This takes a VERY LONG TIME (10 minutes).
+     Ignore all the errors about missing packages that pop up.
+	 :::
      
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
    - The STM32Fxx devices are found in the Keil folder, install by right-clicking and then selecting **install** on the according device for F4 and F7.
@@ -66,7 +69,9 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
 1. Setup build config:
    - Give it a name and set  the *C/C++ Application* to the corresponding **.elf** file.
    - Choose *Disable Auto build*
-     > **Note** Remember that you must build the target from the command line before starting a debug session.
+     :::note
+     Remember that you must build the target from the command line before starting a debug session.
+	 :::
      
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 1. The *Debugger* and *Startup* tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
@@ -81,7 +86,9 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
 
 If the target CPU does not appear in the package manager you may need these steps to get the register view working. 
 
-> **Tip** This should not generally happen (but anecdotally has been reported when connecting to an STM F7 controller).
+:::tip
+This should not generally happen (but anecdotally has been reported when connecting to an STM F7 controller).
+:::
 
 Adding missing SVD files for the *Peripheral View*:
 1. Find out where MCU Eclipse stores its packages (**Preferences > C/C++ > MCU Packages**):

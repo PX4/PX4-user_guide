@@ -7,7 +7,9 @@ The receiver is connected to PX4 via a serial port (UART) and may be configured 
 
 ![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
-> **Note** PX4 drivers for Ethernet, CAN and USB are under development.
+:::note
+PX4 drivers for Ethernet, CAN and USB are under development.
+:::
 
 ## Required Firmware Options
 

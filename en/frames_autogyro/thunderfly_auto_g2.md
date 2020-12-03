@@ -5,7 +5,9 @@ Durafly™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyr
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
-> **Note** Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
+:::note
+Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
+:::
 
 All the added parts are available on [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/) as an open-source project.
 Printed parts are designed in [OpenSCAD](https://www.openscad.org/).

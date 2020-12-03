@@ -32,7 +32,9 @@ The Trimble MB-Two is connected to a UART on the flight controller (GPS port) fo
 
 To power the module you will need a separate 3.3V power supply (the maximum consumption is 360mA). 
 
-> **Note** The module cannot be powered from a Pixhawk.
+:::note
+The module cannot be powered from a Pixhawk.
+:::
 
 The pins on the 28-pin connector are numbered as shown below:
 

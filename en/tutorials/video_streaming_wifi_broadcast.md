@@ -4,8 +4,9 @@ This page shows how to set up a companion computer with a camera (Logitech C920 
 The mechanism also provide a bidirectional telemetry link (i.e. like SiK radio).
 This setup uses WiFi in unconnected (broadcast) mode and software from the [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki).
 
-> **Note** Before using *Wifibroadcast* check regulators allow this kind of WiFi use in your country. 
-
+:::note
+Before using *Wifibroadcast* check regulators allow this kind of WiFi use in your country. 
+:::
 
 ## Wifibroadcast Overview
 
@@ -134,8 +135,10 @@ This significantly reduces a video latency.
 **A:** Wifibrodcast use FEC (forward error correction) which can recover 4 lost packets from 12 packets block with default settings. 
   You can tune it (both TX and RX simultaneously!) to fit your needs.
 
-> **Caution** Don't use band that the RC TX operates on! 
-  Or setup RTL properly to avoid model loss.
+:::caution
+Don't use band that the RC TX operates on! 
+Or setup RTL properly to avoid model loss.
+:::
 
 **Q:** *Is only Raspberry PI supported?*
 

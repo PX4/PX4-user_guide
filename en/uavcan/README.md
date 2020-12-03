@@ -7,9 +7,10 @@ It supports hardware like:
 
 * Motor controllers
   * [Zubax Orel 20](https://zubax.com/product/zubax-orel-20)
-  
-    > **Note** Runs [Sapog Firmware](https://github.com/px4/sapog) (open source).
-      Based on [Sapog Reference Hardware]( https://github.com/PX4/Hardware/tree/master/sapog_reference_hardware).
+    :::note
+    Runs [Sapog Firmware](https://github.com/px4/sapog) (open source).
+    Based on [Sapog Reference Hardware]( https://github.com/PX4/Hardware/tree/master/sapog_reference_hardware).
+	:::
 * Airspeed sensors
   * [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 * GNSS receivers for GPS and GLONASS
@@ -21,8 +22,10 @@ It supports hardware like:
 In contrast to hobby-grade devices it uses rugged, differential signalling and supports firmware upgrades over the bus.
 All motor controllers provide status feedback and implement field-oriented-control \(FOC\).
 
-> **Note** PX4 requires an SD card for UAVCAN node allocation and firmware upgrade.
-  It is not used during flight by UAVCAN.
+:::note
+PX4 requires an SD card for UAVCAN node allocation and firmware upgrade.
+It is not used during flight by UAVCAN.
+:::
 
 ## Initial Setup
 
@@ -65,6 +68,3 @@ The routine can be started by the user through QGroundControl.
 * [Homepage](http://uavcan.org)
 * [Specification](https://uavcan.org/specification/)
 * [Implementations and tutorials](http://uavcan.org/Implementations)
-
-
-

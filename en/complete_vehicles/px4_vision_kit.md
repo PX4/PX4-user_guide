@@ -6,10 +6,12 @@ The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-v
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
-> **Note** This vehicle comes with no pre-installed software.
-  A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
-   This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
-   Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+:::note
+This vehicle comes with no pre-installed software.
+A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
+This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
+Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+:::
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
@@ -124,19 +126,25 @@ In addition, users will need ground station hardware/software:
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Power the vehicle with a fully charged battery.
-   > **Note**  Ensure propellers are removed before connecting the battery.
+   :::note
+   Ensure propellers are removed before connecting the battery.
+   :::
 1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
    - **SSID:** pixhawk4
    - **Password:** pixhawk4
-
-   > **Tip** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
-     The baud rate must not be changed from 921600.
-
+   
+   :::tip
+   WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
+   The baud rate must not be changed from 921600.
+   :::
+   
 1. Start *QGroundControl* on the ground station.
 1. [Configure/calibrate](../config/README.md) the vehicle:
 
-   > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
-     You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   :::note
+   The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
+   You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   :::
 
    - [Calibrate the Radio System](../config/radio.md)
    - [Calibrate the Compass](../config/compass.md)
@@ -144,7 +152,9 @@ In addition, users will need ground station hardware/software:
 
 1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
 
-   > **Note** Modes can also be changed using *QGroundControl*
+   :::note
+   Modes can also be changed using *QGroundControl*
+   :::
 
    We recommend RC controller switches are define for:
    - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
@@ -173,7 +183,9 @@ When the vehicle setup described above is complete:
 
 1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
 
-   > **Tip** The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   :::tip
+   The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   :::
 
 1. Check that the avoidance system has started properly:
 
@@ -218,7 +230,9 @@ You can install the image on the *UP Core* and boot from internal memory (instea
 
 This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
 
-> **Note** Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+:::note
+Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+:::
 
 To flash the USB image to the *UP Core*:
 
@@ -231,7 +245,9 @@ To flash the USB image to the *UP Core*:
    sudo ./flash_emmc.sh
    ```
 
-   > **Note** All information saved in the *UP Core* computer will be removed when executing this script
+   :::note
+   All information saved in the *UP Core* computer will be removed when executing this script.
+   :::
 
 1. Pull out the USB stick.
 1. Restart the vehicle.
@@ -243,7 +259,9 @@ To flash the USB image to the *UP Core*:
 First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
 The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
 
-> **Tip** [Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+:::tip
+[Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+:::
 
 If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed).
 The avoidance system should be up and running within around 30 seconds.
@@ -326,8 +344,10 @@ You can also modify PX4 itself, and [install it as custom firmware](../config/fi
 - Select the *PX4 Vision DevKit* airframe after loading new firmware:
   ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-> **Note** Modification of PX4 code is not *needed* to meet most computer vision use cases.
-  To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+:::note
+Modification of PX4 code is not *needed* to meet most computer vision use cases.
+To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+:::
 
 ## Px4 Vision Carrier Board Pinouts
 

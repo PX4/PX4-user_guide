@@ -33,23 +33,30 @@ GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer inter
 TELEM1/TELEM2 | Connect to the Telemetry System.
 DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
 
-> **Note** For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
+:::note
+For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
-
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+:::
 
 ## GPS + Compass + Safety Switch + LED
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
+:::note
+Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
+:::
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
 
-> **Note**If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+:::note
+If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
@@ -87,14 +94,17 @@ If using a Spektrum satellite receiver, this should be connected to the flight c
 The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
-> **Warning** The supplied power module is unfused.
-  Power **must** be turned off while connecting peripherals.
+:::warning
+The supplied power module is unfused.
+Power **must** be turned off while connecting peripherals.
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs.
-  If you're connecting servos/actuators you will need to separately power them using a BEC. 
-
+:::note
+The power module is not a power source for peripherals connected to the PWM outputs.
+If you're connecting servos/actuators you will need to separately power them using a BEC. 
+:::
 
 ## Telemetry System (Optional)
 

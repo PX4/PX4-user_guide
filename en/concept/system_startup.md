@@ -21,7 +21,10 @@ For that to work, a few things are required:
 - PX4 modules need to look like individual executables to the system. This is done via symbolic links.
   For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder.
   When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
-  > **Tip** The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+  
+  :::tip
+  The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+  :::
 - The shell needs to know where to find the symbolic links.
   For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
 - The shell starts each module as a new (client) process.
@@ -76,13 +79,15 @@ In most cases customizing the default boot is the better approach, which is docu
 The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md).
 If only tweaks are wanted (like starting one more application or just using a different mixer) special hooks in the startup can be used.
 
-> **Caution** The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
+:::caution
+The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
+:::
 
 There are three main hooks. Note that the root folder of the microsd card is identified by the path `/fs/microsd`.
 
-  * /fs/microsd/etc/config.txt
-  * /fs/microsd/etc/extras.txt
-  * /fs/microsd/etc/mixers/NAME_OF_MIXER
+* /fs/microsd/etc/config.txt
+* /fs/microsd/etc/extras.txt
+* /fs/microsd/etc/mixers/NAME_OF_MIXER
 
 #### Customizing the Configuration (config.txt)
 
@@ -94,8 +99,10 @@ It is loaded after the main system has been configured and *before* it is booted
 The `extras.txt` can be used to start additional applications after the main system boot.
 Typically these would be payload controllers or similar optional custom components.
 
-> **Caution** Calling an unknown command in system boot files may result in boot failure.
-  Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
+:::caution
+Calling an unknown command in system boot files may result in boot failure.
+Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
+:::
 
 The following example shows how to start custom applications:
   * Create a file on the SD card `etc/extras.txt` with this content:

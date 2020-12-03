@@ -1,7 +1,9 @@
 # Video Streaming from Odroid C1 to QGroundControl
 
-> **Tip** This article is somewhat out of date. 
-  Community members are encouraged to retest the instructions on a more recent Ubuntu version, and to import Odroid setup instructions into the wiki.
+:::note
+This article is somewhat out of date. 
+Community members are encouraged to retest the instructions on a more recent Ubuntu version, and to import Odroid setup instructions into the wiki.
+:::
 
 This topic shows how to stream video from a camera (Logitech C920) attached to a companion computer ([Odroid C1](https://magazine.odroid.com/wp-content/uploads/odroid-c1-user-manual.pdf)) to another computer (over wifi) and display in *QGroundControl*.
 
@@ -198,7 +200,9 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-h264,width=1920,height=1080,
 ```
 Where `xxx.xxx.xxx.xxx` is the IP address where QGC is running.
 
-> **Tip** If you get the system error: `Permission denied`, you might need to prepend `sudo` to the command above.
+:::tip
+If you get the system error: `Permission denied`, you might need to prepend `sudo` to the command above.
+:::
 
 Alternatively add the current user to the `video` group as shown below (and then logout/login): 
 

@@ -18,7 +18,7 @@ Key information
 The components used in this build are listed below (along with links to where they can be purchased).
 In general we used hardware recommended by the manufacturers for the flight controller and frame.
 
-- **Flight controller:** [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
+- **Flight controller:** [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
 - **Power module:** 3DR 10s Power Module (Discontinued)
 - **ESC:** Lumenier f390 with Blheli ([getfpv.com](http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html)). These come with the motors.
 - **Motors:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
@@ -263,8 +263,7 @@ Connect the *FRSky D4-R* receiver channel 1 to the **RCIN** port on the *Pixha
     this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
   - You can also use a Spektrum receiver. These are connected to the
     **SPKT/DSM** input next to **RCIN** on the *Pixhawk Mini*.
-  - For more information see: Pixhawk Mini Receiver Compatibility <FIX
-    LINK>
+  - For more information see: [Pixhawk Mini Receiver Compatibility](../flight_controller/pixhawk_mini.md#rc-radio)
 
 **Step 13:** Connect the GPS/COMPASS module
 

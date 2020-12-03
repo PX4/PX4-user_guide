@@ -63,11 +63,13 @@ The instructions below explain how to get git and use it on your local computer.
 1. Add a *remote* called "upstream" to point to the PX4 version of the library:
    ```sh
    git remote add upstream https://github.com/PX4/px4_user_guide.git
-   ``` 
+   ```
    
-   > **Tip** A "remote" is a handle to a particular repository.
-     The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide.
-     Above you create a new remote *upstream* that points to the PX4 project version of the documents.
+   :::tip
+   A "remote" is a handle to a particular repository.
+   The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide.
+   Above you create a new remote *upstream* that points to the PX4 project version of the documents.
+   :::
 1. Create a branch for your changes:
    ```sh
    git checkout -b <your_feature_branch_name>
