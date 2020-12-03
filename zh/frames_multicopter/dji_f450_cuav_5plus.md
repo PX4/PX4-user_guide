@@ -150,7 +150,8 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
 12. Plug in the RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5plus/12_fc_attach_periperhals.jpg)
   
-  > **Note** The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+    :::note The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+:::
 
 设置完成！ The final build is shown below:
 
@@ -162,16 +163,17 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 
 * [固件](../config/firmware.md)
-* [机架](../config/airframe.md)
-  
-  > **Note** You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
+* [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
   
     ![QGroundControl - Select Generic Quadrotor X airframee](../../assets/airframes/multicopter/dji_f450_cuav_5plus/qgc_select_airframe.jpg)
+:::
 
 Then perform the mandatory setup/calibration:
 
@@ -180,7 +182,10 @@ Then perform the mandatory setup/calibration:
 * [加速度计 Accelerometer](../config/accelerometer.md)
 * [水平平面校准](../config/level_horizon_calibration.md)
 * [无线电系统设置](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md) > **Note** For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+* [Flight Modes](../config/flight_mode.md)
+  
+    :::note For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+:::
 
 Ideally you should also do:
 
