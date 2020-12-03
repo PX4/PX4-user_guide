@@ -8,7 +8,9 @@ jMAVSim是一个简单的多旋翼/四旋翼仿真软件，它可以允许你在
 
 本问主要演示如何设置 jMAVSim 以连接到 SITL 版本的 PX4 。
 
-> **Tip** jMAVSim 也可以用来进行 HITL 仿真 ([看这里](../simulation/hitl.md#using-jmavsim-quadrotor)).
+:::tip
+jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
+:::
 
 ## 仿真环境
 
@@ -16,9 +18,9 @@ jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_
 
 ## 运行 SITL
 
-软件在环仿真在主机上运行仿真系统的全部组件，使用软件来模拟真实飞控， 并通过当地网络实现与仿真软件的连接。 并通过当地网络实现与仿真软件的连接。 整套仿真方案设置如下：
+Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
 
-[![{% mermaid %} graph LR; Simulator-->MAVLink; MAVLink-->SITL; {% endmermaid %}](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+[![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 
 <!-- original graph
@@ -29,13 +31,13 @@ graph LR;
 
 ## 把飞机飞上天
 
-此外，它还会唤起一个显示 [jMAVSim](https://github.com/PX4/jMAVSim) 模拟器的3D视图的窗口。
+该命令最终将得到如下 PX4 控制台显示界面：
 
 ```sh
 make px4_sitl_default jmavsim
 ```
 
-该命令最终将得到如下 PX4 控制台显示界面：
+jMAVSim 3d 视图
 
 ```sh
 [init] shell id: 140735313310464
@@ -55,30 +57,30 @@ pxh>
 ```
 
 
-jMAVSim 3d 视图
+It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
 
-![jMAVSim 3d 视图](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
 
 
 ## 使用/配置选项
 
-系统将开始输出状态信息。 飞机完成位置锁定之后（控制台提示： *EKF commencing GPS fusion* 信息之后不久）你就可以开始飞行了。
+The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: *EKF commencing GPS fusion*).
 
-通过设定环境变量可以覆盖默认的起飞地点设定： `PX4_HOME_LAT`, `PX4_HOME_LON`, 以及 `PX4_HOME_ALT` 。
+举个例子，使用如下命令设定无人机起飞点的维度、经度和高度：
 
 ```sh
 pxh> commander takeoff
 ```
 
-举个例子，使用如下命令设定无人机起飞点的维度、经度和高度：
+通过 *QGroundControl* 可引入操纵杆或者拇指操纵杆（[如何进行设置看这里](../simulation/README.md#joystickgamepad-integration)）。
 
 ## 多飞行器仿真
 
 ### 指定起飞位置
 
-通过 *QGroundControl* 可引入操纵杆或者拇指操纵杆（[如何进行设置看这里](../simulation/README.md#joystickgamepad-integration)）。
-
 有一个特殊的平台可以模拟一个通过 Wifi 进行连接的无人机。
+
+模拟器会跟真实的该类无人机一样在当地网络中广播自己的位置信息等。
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -88,35 +90,35 @@ make px4_sitl_default jmavsim
 
 ### 更改仿真的时间流速
 
-模拟器会跟真实的该类无人机一样在当地网络中广播自己的位置信息等。
+你可以单独启动 JMAVSim 和 PX4:
 
 ```
 ./Tools/jmavsim_run.sh
 make px4_sitl none
 ```
 
-你可以单独启动 JMAVSim 和 PX4:
+此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 
 <a id="joystick"></a>
 
 ### 模拟一个 Wifi 无人机
 
-此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
+JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
 
 ### 单独启动 JMAVSim 和 PX4
 
-JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
 
 ```sh
 make broadcast jmavsim
 ```
 
-如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
+在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
 
 ### 分别启动 JMAVSim 和 PX4
 
-在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
+此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
 
 ```
 [init] shell id: 140735313310464
@@ -135,28 +137,30 @@ Ready to fly.
 pxh>
 ```
 
-此举可以缩短测试循环时间（重启 jMAVSim 需要耗费非常多的时间）。
+要使用没有jMAVSim图形界面的仿真，请设置如下环境变量 `HEADLESS=1`
 
 ### 无航向模式
 
-要使用没有jMAVSim图形界面的仿真，请设置如下环境变量 `HEADLESS=1`
+JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
 
 ## 扩展和定制
 
-JMAVSim 也可用来进行多飞行器仿真： [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
 
 ## 与 ROS 对接交互
 
-如果想扩展或者定制仿真接口，你可以编辑 **Tools/jMAVSim** 文件夹下的文件： 源代码可以从 Github 上的 [jMAVSim 软件仓库](https://github.com/px4/jMAVSim) 获取。
+To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
 
-> **Info** 编译系统会强制检查所有依赖项的子模块正确无误，其中就包括了模拟器。 但是，它不会直接覆盖你对目录中文件所做的更改， 当提交这些更改时你需要在固件 repo 中重新为子模块注册新的哈希值。 为此,，使用 `git add Tools/jMAVSim` 灵敏提交你的更改。 这将更新模拟器的 GIT 哈希值。
+:::note
+The build system enforces the correct submodule to be checked out for all dependencies, including the simulator. It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change. This will update the GIT hash of the simulator.
+:::
 
 ## 重要的文件
 
-在仿真中可以使用跟真实飞机一样的方式实现 [与 ROS 的对接交互](../simulation/ros_interface.md) 。
+The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the same way as onboard a real vehicle.
 
 ## 值得一看的脚本文件
 
@@ -187,7 +191,7 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:566)
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 
-This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
+如果遇到类似错误，可以尝试如下解决方法：
 
 
 ### An illegal reflective access operation has occured
@@ -226,16 +230,16 @@ at me.drton.jmavsim.Simulator.(Simulator.java:157)
 at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 ```
 
-如果遇到类似错误，可以尝试如下解决方法：
+并注释下面所指示的一行：
 
 Edit the **accessibility.properties** file:
 ```
 sudo gedit /etc/java-8-openjdk/accessibility.properties
 ```
 
-并注释下面所指示的一行：
+and comment out the line indicated below:
 ```
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). 该解决方案引自于 [askubuntu.com](https://askubuntu.com/questions/695560) 。
+For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).
