@@ -6,11 +6,13 @@ In other words, this topic explains how to tune the parameters that affect the v
 
 The algorithm that generates those setpoints is called a "trajectory generator".
 
-> **Warning** This guide is for advanced users/experts.
+:::warning
+This guide is for advanced users/experts.
+:::
 
-<span></span>
-
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here. Do not use these tuning parameters to fix bad tracking or vibration!
+:::tip
+Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here. Do not use these tuning parameters to fix bad tracking or vibration!
+:::
 
 ## Overview
 
@@ -20,7 +22,9 @@ The *desired setpoint* passed to the P/PID controller is itself calculated from 
 
 *Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
 
-> **Tip** Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+:::tip
+Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+:::
 
 <span id="modes"></span>
 
