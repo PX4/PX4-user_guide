@@ -128,7 +128,9 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## 编译固件
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://cubepilot.org/#/home)。
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
