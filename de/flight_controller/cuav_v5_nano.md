@@ -10,7 +10,9 @@ The autopilot is small enough to use in 220mm racing drones, but remains powerfu
 
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
+:::note
+The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
+:::
 
 Some of its main features include:
 
@@ -65,7 +67,9 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (China Mainland users)
 
-> **Note** Autopilot may be purchased with included Neo GPS module
+:::note
+Autopilot may be purchased with included Neo GPS module
+:::
 
 <span id="connection"></span>
 
@@ -112,11 +116,13 @@ The product package includes a convenient debug cable that can be connected to t
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
-> 
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
-> 
-> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::warning
+The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+
+For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::
 
 ## Serial Port Mapping
 
@@ -135,11 +141,13 @@ The product package includes a convenient debug cable that can be connected to t
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#compatibility_pm2)).
+:::note
+The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#compatibility_pm2)).
+:::
 
-<span></span>
-
-> **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+:::note
+The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+:::
 
 ## Over Current Protection
 
@@ -185,7 +193,9 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-> **Warning** PX4 does not support this interface.
+:::warning
+PX4 does not support this interface.
+:::
 
 ## Known Issues
 
@@ -195,7 +205,9 @@ The issues below refer to the *batch number* in which they first appear. The bat
 
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
-> **Warning** This is a safety issue.
+:::warning
+This is a safety issue.
+:::
 
 Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
 
