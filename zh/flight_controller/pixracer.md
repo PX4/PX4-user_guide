@@ -50,7 +50,8 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
 
-> **Todo** Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
+::note ToDo Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
+:::
 
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
