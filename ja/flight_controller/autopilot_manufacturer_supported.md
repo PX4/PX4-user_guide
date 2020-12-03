@@ -2,10 +2,13 @@
 
 Manufacturer-supported autopilots are maintained and supported by a board manufacturer (manufacturers commit to delivering compatibility with the current stable PX4 release within 4 months of the official release announcement).
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::
 
-<span></span>
-> **Note** This category includes boards that are not fully compliant with the pixhawk standard; manufacturers support and maintain the board for any areas of incompatibility.
+:::note
+This category includes boards that are not fully compliant with the pixhawk standard; manufacturers support and maintain the board for any areas of incompatibility.
+:::
 
 The boards in this category are:
 - [AirMind MindPX](../flight_controller/mindpx.md)
