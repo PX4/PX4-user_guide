@@ -39,21 +39,21 @@ uORB 是一种异步 `publish()`/`subscribe()` 的消息传递 API，用于进�
 
 ## 主题列表和监听（Listener）
 
-> **Note** `listener` 命令仅适用于 Pixracer (FMUv4) 和 Linux/OS X。
-
 要列出所有主题，列出文件句柄：
+
+要监听五条信息中的一个主题内容，运行监听器：
 
 ```sh
 ls /obj
 ```
 
-要监听五条信息中的一个主题内容，运行监听器：
+输出主题内容如下：
 
 ```sh
 listener sensor_accel 5
 ```
 
-输出主题内容如下：
+uorb top 命令实时显示每个主题的发布频率。
 
 ```sh
 TOPIC: sensor_accel #3
@@ -85,12 +85,13 @@ range_m_s2: 78
 scaling: 0
 ```
 
-> **Tip** 在基于 NuttX 的系统上（如 Pixhawk， Pixracer等），监听器可以用 *QGroundControl* 内部的 MAVLink 终端监视传感器的值和其他主题。 之所以是非常有用的调试工具是因为可以在 QGC 上通过无线连接（比如飞机在飞行过程中）。 有关详细信息，请参阅 [传感器/主题调试 ](../debug/sensor_uorb_topic_debugging.md)。
-
+:::tip
+On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+:::
 
 ### uorb top 命令
 
-uorb top 命令实时显示每个主题的发布频率。
+The command `uorb top` shows the publishing frequency of each topic in real-time:
 
 ```sh
 update: 1s, num topics: 77
@@ -109,21 +110,21 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
-列分别是：主题名字，多实例索引值，订阅者数量，发布频率（Hz），每秒丢失的信息数（对所有订阅者）和队列大小。
+请确保不要为同一主题混合 `orb_advertise_multi` 和 `orb_advertise`。
 
 
 ## 多实例
 
-uORB 提供了一种通过 `orb_advertise_multi` 发布同一主题的多个独立实例的机制。 它将实例索引返回到发布者。 然后, 订阅者必须选择订阅以使用 `orb_subscribe_multi`（`orb_subscribe` 订阅第一个实例）。 例如，如果系统具有多个相同类型的传感器, 则具有多个实例非常有用。
+uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
 
-请确保不要为同一主题混合 `orb_advertise_multi` 和 `orb_advertise`。
+下面解释了一些常见的陷阱和边界案例：
 
-完整的 API 记录在 [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/uORBManager.hpp) 中。
+The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
 ## 故障排除和常见的陷阱
-下面解释了一些常见的陷阱和边界案例：
+As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
