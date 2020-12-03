@@ -18,12 +18,13 @@ The SiK repository includes bootloaders and firmware for the following telemetry
 - RFD900u
 - RFD900ue
 
-> **Note** The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios**. In order to update firmware on these radios (for instance, in order to support MAVLink v2.0), the following process is suggested:
-> 
-> 1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
-> 2. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
-> 3. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+:::note
+The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios. In order to update firmware on these radios (for instance, in order to support MAVLink v2.0), the following process is suggested:
 
+1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
+1. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
+1. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+:::
 
 ## Build Instructions
 
@@ -61,7 +62,10 @@ screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 
 Then start command mode:
 
-> **Note** DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
+:::note
+DO NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
+:::
+
 
 ```
 +++
@@ -81,4 +85,6 @@ AT&W
 ATZ
 ```
 
-> **Note** You might have to power-cycle the radio to connect it to the 2nd radio.
+:::note
+You might have to power-cycle the radio to connect it to the 2nd radio.
+:::
