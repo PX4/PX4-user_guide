@@ -27,7 +27,9 @@ again. -->
 
 The source code is split into self-contained modules/programs (shown in `monospace` in the diagram). Usually a building block corresponds to exactly one module.
 
-> **Tip** At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+:::tip
+At runtime, you can inspect which modules are executed with the `top` command in shell, and each module can be started/stopped individually via `<module_name> start/stop`. While `top` command is specific to NuttX shell, the other commands can be used in the SITL shell (pxh>) as well. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+:::
 
 The arrows show the information flow for the *most important* connections between the modules. In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
 
@@ -37,9 +39,10 @@ Modules communicate with each other through a publish-subscribe message bus name
 - All operations and communication are fully parallelized
 - A system component can consume data from anywhere in a thread-safe fashion
 
-> **Info** This architecture allows every single one of these blocks to be rapidly and easily replaced, even at runtime.
+:::note
+This architecture allows every single one of these blocks to be rapidly and easily replaced, even at runtime.
+:::
 
-<a id="flight-stack"></a>
 
 ### Flight Stack
 
@@ -70,7 +73,6 @@ The [middleware](../middleware/README.md) consists primarily of device drivers f
 In addition, the middleware includes a [simulation layer](../simulation/README.md) that allows PX4 flight code to run on a desktop operating system and control a computer modeled vehicle in a simulated "world".
 
 
-
 ## Update Rates
 
 Since the modules wait for message updates, typically the drivers define how fast a module updates. Most of the IMU drivers sample the data at 1kHz, integrate it and publish with 250Hz. Other parts of the system, such as the `navigator`, don't need such a high update rate, and thus run considerably slower.
@@ -85,7 +87,9 @@ PX4 runs on various operating systems that provide a POSIX-API (such as Linux, m
 
 The inter-module communication (using [uORB](../middleware/uorb.md)) is based on shared memory. The whole PX4 middleware runs in a single address space, i.e. memory is shared between all modules.
 
-> **Info** The system is designed such that with minimal effort it would be possible to run each module in separate address space (parts that would need to be changed include `uORB`, `parameter interface`, `dataman` and `perf`).
+:::note
+The system is designed such that with minimal effort it would be possible to run each module in separate address space (parts that would need to be changed include `uORB`, `parameter interface`, `dataman` and `perf`).
+:::
 
 There are 2 different ways that a module can be executed:
 - **Tasks**: The module runs in its own task with its own stack and process priority.
@@ -96,8 +100,9 @@ There are 2 different ways that a module can be executed:
 
   The advantage of running modules on a work queue is that it uses less RAM, and potentially results in fewer task switches. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
 
-> **Note** Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
-
+:::note
+Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
+:::
 
 ### Background Tasks
 
