@@ -63,21 +63,21 @@ PX4 通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../
 
 ## 机载计算机设置
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+机载计算机侧的硬件设置和硬件/软件配置在 Github 仓库 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 中已经提供。
 
-Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
+任务中的自主避障可以使用 *local planner* 或者 *global planner*（建议使用 local planner / 更好的表现）。
 
 <span id="interface"></span>
 
 ## 自主避障接口
 
-PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md) 以及更多的服务）。
 
-The interface (messages sent) between PX4 and the companion are *exactly* the same as for any other path planning services.
+PX4 和机载设备之间的（消息发送）接口与任何其他路径规划服务*完全*一样。
 
 ## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 <!-- ## Further Information -->
 
