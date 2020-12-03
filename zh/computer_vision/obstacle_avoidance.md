@@ -14,7 +14,8 @@
 
 - 自主避障的最大速度当前约为 3m/s（由于计算避障路径的开销）。
   
-  > **Note** 避障可以使用 *local planner* 规划器以约 30Hz 的速度发出消息，并且以约 3m/s的速度移动）或全局规划器（以约 10Hz 和任务速度发出消息，自主避障速度约为 1-1.5 m/s）。
+  :::note Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+:::
 
 <span id="offboard_mode"></span>
 
@@ -56,25 +57,27 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 PX4 通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) 为1 来使能自主避障功能。
 
-> **注意** `COM_OBS_AVOID` 还使能了 [安全着陆](../computer_vision/safe_landing.md)，以及使用了 PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) （轨迹接口）将外部路径规划服务与 PX4 集成的其他功能。
+:::note
+`COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+:::
 
 ## 机载计算机设置
 
-机载计算机端的硬件设置和软硬件配置在 Github 代码仓库 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 中已经提供。
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
 
-任务中的自主避障可以使用 *local planner* 或者 *global planner*（建议使用 local planner / 更好的表现）。
+Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
 <span id="interface"></span>
 
 ## 自主避障接口
 
-PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md)以及更多的服务）。
+PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
 
-PX4 和机载设备之间的（消息发送）接口与任何其他路径规划服务*完全*一样。
+The interface (messages sent) between PX4 and the companion are *exactly* the same as for any other path planning services.
 
 ## 支持的硬件
 
-测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
+Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
 
 <!-- ## Further Information -->
 
