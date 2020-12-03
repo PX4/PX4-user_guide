@@ -4,7 +4,9 @@ The diagram below provides a forward-looking high level overview of a full PX4 o
 
 The right hand side of the diagram shows the end-to-end software stack. The stack "approximately" aligns horizontally with the hardware parts of the diagram, and is colour-coded to show which software is running on the flight controller and which on the companion computer.
 
-> **Note** The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+:::note
+The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+:::
 
 ![PX4 Platform architecture](../../assets/diagrams/dronecode_platform_architecture.jpg)
 
