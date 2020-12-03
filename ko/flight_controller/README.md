@@ -2,7 +2,9 @@
 
 This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
 
-> **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+:::tip
+You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+:::
 
 - [Pixhawk Series](../flight_controller/pixhawk_series.md) 
   - [Silicon Errata](../flight_controller/silicon_errata.md)
