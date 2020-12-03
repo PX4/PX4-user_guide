@@ -4,19 +4,29 @@
 
 飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Tip** Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
-> 
-> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * RC control is disabled except to change modes. * 使用此模式前飞机必须先被激活。 * The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged. * 如果没能以 > 2Hz 的速率接收目标设定值飞机将退出该模式。 * Not all co-ordinate frames and field values allowed by MAVLink are supported.
+:::tip
+Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
+:::
+
+:::note
+
+* This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
+* RC control is disabled except to change modes.
+* The vehicle must be armed before this mode can be engaged.
+* The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
+* The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
+* Not all co-ordinate frames and field values allowed by MAVLink are supported.
+:::
 
 ## 描述
 
 Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink messages (more may be supported in future).
 
-其他操作, 如起飞、降落、返回起飞点，最好使用其它适当的模式来处理。 上传、下载任务等操作可以在任何模式下执行。
+Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
-要启用或保持该模式, 飞机必须先接收到一个提供设定值的消息流 (如果消息速率低于 2Hz 飞机将退出该模式)。 如果要在此模式下做位置保持，必须向飞机提供一个包含当前位置设定值的消息流。
+A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
 
-Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机或GCS)。 如果连接丢失, 在超时 ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 后, 飞机将尝试降落或执行其他故障保护操作。 故障保护操作在参数 [COM_OBL_ACT](#COM_OBL_ACT) 和 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 中定义。
+Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
 ## Supported Messages
 
@@ -39,7 +49,11 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
     
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
     * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * *Thrust* setpoint (only `afx`, `afy`, `afz`) > **Note** Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+    * *Thrust* setpoint (only `afx`, `afy`, `afz`)
+    
+    :::note Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+:::
+    
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
   * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
@@ -57,9 +71,8 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
     
     * Position setpoint (`x`, `y`, `z` only; velocity and acceleration setpoints are ignored).
       
-      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
-        
-        > **Note** Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+:::
         
         The values are:
         
@@ -78,7 +91,8 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
       
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
         
-        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+:::
         
         The values are:
         
@@ -106,14 +120,16 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
     * Position setpoint (only `x`, `y`, `z`)
       
       * Specify the *type* of the setpoint in `type_mask`:
-        
-        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
-        
-        The values are:
-        
-        * 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+      
+      :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
+      
+          The values are:
+          
+          - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+          
+    
     * Velocity setpoint (only `vx`, `yy`, `vz`)
-  * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
+  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
@@ -128,11 +144,12 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
   * The following input combinations are supported: 
-    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`). > **Note** Only the yaw setting is actually used/extracted.
+    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`). :::note Only the yaw setting is actually used/extracted.
+:::
 
 ## Offboard参数
 
-*Offboard模式*受以下参数影响：
+*Offboard mode* is affected by the following parameters:
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -145,7 +162,7 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 
 Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
 
-以下资源可能对开发者有用:
+The following resources may be useful for a developer audience:
 
-* [基于Linux的Offboard控制](../ros/offboard_control.md) (PX4 Devguide)
-* [MAVROS Offboard控制示例](../ros/mavros_offboard.md) (PX4 Devguide)
+* [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
+* [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
