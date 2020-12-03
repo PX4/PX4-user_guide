@@ -14,7 +14,9 @@ This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
 The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives.
 
-> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## 概览
@@ -50,9 +52,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
   - [HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433)
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
-
-> **Note** *RDDRONE-FMUK66* FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
-
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
 <!--
 ## Connectors
@@ -71,7 +71,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
 
 ## 组装 / 设置
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+https://nxp.gitbook.io/hovergames
 
 ## 编译固件
 
@@ -107,7 +107,9 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ![HoverGames Drone Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_001.jpg)
 
-> **Tip** The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter. You only need to supply the 3S/4S LiPo battery.
+:::tip
+The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter. You only need to supply the 3S/4S LiPo battery.
+:::
 
 ## 更多信息
 
