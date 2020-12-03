@@ -31,61 +31,71 @@ PX4 没有制造这款（或任何一款）飞控。 若需要硬件支持或咨
 | DSM/SBUS/RSSI  | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
 
-> **注意** ：获取更多的接口信息，请阅读 [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf) 。
+:::note
+For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-> **注意**如果控制器无法安装在推荐/默认方向（例如，由于空间限制），则需要使用实际使用的方向配置自动驾驶仪软件，请参考： [Flight Controller Orientation](../advanced_features/rtk-gps.md)。
+GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方向标记朝向机体前方（ Neo GPS 方向箭头与飞行控制箭头方向相同）。 使用电缆连接到飞控的 GPS 接口。
 
 ## GPS + 罗盘 + 安全开关 + LED
 
-推荐的 GPS 模块是 *Neo v2 GPS *，其中包含GPS、指南针、安全开关、蜂鸣器、LED 状态灯。
+The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
+:::note
+Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
+:::
 
-GPS /罗盘模块应安装在机架上，尽可能远离其他电子设备，方向标记朝向机体前方（ Neo GPS 方向箭头与飞行控制箭头方向相同）。 使用电缆连接到飞控的 GPS 接口。
+The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
-> **Note** 如果您使用 CAN 接口的 GPS，请将电缆连接到飞控的 CAN 接口。
+:::note
+If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_04.png)
 
 ## 安全开关
 
-只有在不使用推荐的 *Neo V2 GPS*（带有内置安全开关）时，才需要V5+附带的专用安全开关。 
+下图显示了您如何访问远程接收机 (请在工具包中找到 SBUS 电缆)。
 
-如果您在没有安装 GPS 的情况下飞行，则必须将安全开关直接连接到`GPS1`端口，以便能够启动无人机并飞行（如果您使用过去的 6 针 GPS，请阅读底部接口的定义以更改接线）。
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
 ## 蜂鸣器
 
-如果不使用推荐的 *Neo v2 GPS*，蜂鸣器可能会不工作。
+If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
 
 ## 遥控器
 
-如果您想要手动控制飞行器，则需要使用遥控器（PX4 在自动飞行模式下不需要遥控器）。 您需要选择一个飞控兼容的发射机和接收机并对频，使它们能够通信 (对频方法参考发射/接收机的说明书)。
+v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
 
-下图显示了您如何访问远程接收机 (请在工具包中找到 SBUS 电缆)。
+The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
 ## Spektrum 卫星接收器
 
-V5 nano 有专用 DSM 电缆。 如果使用 Spektrum 卫星接收器，应连接到飞控的 `DSM/SBUS/RSSI` 接口。
+通信频道是通过数传无线电实现的。 机载的无线数传模块应连接到 **TELEM1** 或者 **TELEM2** 端口（如果连接到这些端口，则无需进一步配置）。
 
 ## 电源
 
-v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块。 将 *HW\\u PM* 模块的6针连接器连接到飞控的`电源`接口。
+The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
-> **警告** 提供的电源模块没有安装熔断器。 连接外围设备时**必须**关闭电源。
+:::warning
+The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+:::
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **注意**电源模块不能作为连接到PWM输出的外围设备的电源。 如果您需要连接伺服电机/舵机，您需要使用 BEC 为它们分别提供电源。
+:::note
+The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+:::
 
 ## 数传系统（可选）
 
-数传系统允许您通过地面站对飞行器进行通信、监控和控制 （例如，您可以让无人机飞行到指定位置或上传新的飞行任务）。
+A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-通信频道是通过数传无线电实现的。 机载的无线数传模块应连接到 **TELEM1** 或者 **TELEM2** 端口（如果连接到这些端口，则无需进一步配置）。 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过 USB 连接）。
+The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
@@ -93,11 +103,11 @@ v5 nano</em>套件包括了支持 2~14S 锂聚合物电池的 *HV\\u PM* 模块�
 
 ## SD 卡
 
-出厂时已插入[SD卡](../getting_started/px4_basic_concepts.md#sd_cards)（无需执行任何操作）。
+An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
 ## 电机
 
-电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN** 端口。
+Motors/servos are connected to the MAIN ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
