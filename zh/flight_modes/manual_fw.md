@@ -6,17 +6,19 @@
 
 *手动模式*发送遥控杆指令输入直接发送到输出混频器进行全手动控制。
 
-> 这是最难飞行的模式，因为没有什么能够稳定下来。 不像[特技模式](../flight_modes/acro_fw.md)如果遥控杆居中，飞机将不会自动停止绕轴旋转; 飞行员实际上必须移动杆以向另一个方向施加力。
+:::tip
+This is the hardest mode to fly, because nothing is stabilized. Unlike [Acro Mode](../flight_modes/acro_fw.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction.
+:::
 
-<span></span>
-
-> 这是覆盖FMU（命令通过安全协处理器发送）的唯一模式。 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
+:::note
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+:::
 
 ## 技术描述
 
-遥控模式，其中摇杆输入直接发送到输出混频器（用于 "完全" 手动控制）。
+RC mode where stick input is sent directly to the output mixer (for "fully" manual control).
 
-这是覆盖FMU（命令通过安全协处理器发送）的唯一模式。 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
 
 ## 参数
 
