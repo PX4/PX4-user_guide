@@ -11,7 +11,10 @@ PX4有一个灵活的[混合系统](../concept/mixing.md), 它允许通过单个
 
 本节提供给希望向PX4添加对新车辆或车辆类型的支持的开发人员相关的信息, 包括仍在开发中的车辆的生成日志。
 
-> **Tip**PX4也非常适合用于其他车辆类型和普通机器人,从潜艇,船只,或两栖车辆,到实验用的飞机和火箭。 如果您有需要在PX4中帮助支持的新车辆或框架类型, 请*让我们知道*。
+:::note
+PX4 is also well-suited for use in other vehicle types and general robots, ranging from submarine, boats, or amphibious vehicles, through to experimental aircraft and rockets. *Let us know* if you have a new vehicle or frame-type you want to help support in PX4.
+:::
 
-<span></span>
-> **Note** Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/README.md).
+:::note
+Build logs for some of the supported airframes can be found in [Airframe/Vehicle Builds](../airframes/README.md).
+:::
