@@ -1,6 +1,8 @@
 # Snapdragon Advanced
 
-> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::warning
+The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::
 
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
@@ -35,35 +37,37 @@ To get a shell, do:
 
 ### Console Debug
 
-When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX). DSP 一侧 (QuRT) 的相互作用可以通过 `qshell` 开启POSIX 应用和自身模块。
+When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX). The interaction with the DSP side (QuRT) is enabled with the `qshell` posix app and its QuRT companion.
 
-使用 USB 连接骁龙， 打开 mini-dm 查看 DSP 输出：
+With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:
 
     ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
     
 
-> **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::note
+Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::
 
-在 Linaro 运行主程序：
+Run the main app on the linaro side:
 
 ```sh
 cd /home/linaro
 ./px4 -s px4.config
 ```
 
-用以下语法，可以通过 Linaro shell 使用已经加载到 DSP 上的所有 Apps：
+You can now use all apps loaded on the DSP from the linaro shell with the following syntax:
 
 ```sh
 pxh> qshell command [args ...]
 ```
 
-比如，查看可用的 QuRT Apps：
+For example, to see the available QuRT apps:
 
 ```sh
 pxh> qshell list_tasks
 ```
 
-执行命令输出的结果显示在 minidm。
+The output of the executed command is displayed on the minidm.
 
 ## Serial ports
 
@@ -73,7 +77,9 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 ## Wi-Fi settings
 
-> **Todo** These are notes for advanced developers.
+:::note
+ToDo These are notes for advanced developers.
+:::
 
 Connect to the Linux shell (see [console instructions](../debug/system_console.md#snapdragon-flight-wiring-the-console)).
 
@@ -85,7 +91,9 @@ If you want the Snapdragon to be a wifi access point (AP mode), edit the file: *
     wpa_passphrase=EnterYourPassphrase
     
 
-> **Note** The passphrase must be at least 8 characters
+:::note
+The passphrase must be at least 8 characters
+:::
 
 Then configure AP mode:
 
