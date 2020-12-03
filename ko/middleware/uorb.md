@@ -39,7 +39,9 @@ Publishing a topic can be done from anywhere in the system, including interrupt 
 
 ## Listing Topics and Listening in
 
-> **Note** The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+:::note
+The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+:::
 
 To list all topics, list the file handles:
 
@@ -85,8 +87,9 @@ range_m_s2: 78
 scaling: 0
 ```
 
-> **Tip** On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
-
+:::tip
+On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+:::
 
 ### uorb top Command
 
@@ -116,14 +119,14 @@ The columns are: topic name, multi-instance index, number of subscribers, publis
 
 uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
 
-Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
+The following explains some common pitfalls and corner cases:
 
-The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/Firmware/blob/master/src/modules/uORB/uORBManager.hpp).
+The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
 ## Troubleshooting and common Pitfalls
-The following explains some common pitfalls and corner cases:
+As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
