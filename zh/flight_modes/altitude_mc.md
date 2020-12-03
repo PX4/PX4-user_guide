@@ -6,15 +6,17 @@
 
 当杆被释放/回中时，飞机将恢复水平并保持当前的*高度*。 如果在水平面上运动，飞机将继持续运动直到任何动量被风阻力消散。 如果刮风，飞机会向风的方向漂移。
 
-> **注意***高度模式*是对于新手而言最安全的非GPS手动模式。 它就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式，但额外地在操纵杆回中时锁定飞机高度。
+:::tip
+*Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode but additionally locks the vehicle altitude when the sticks are released.
+:::
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![高度控制MC - Mode2 RC控制器](../../assets/flight_modes/altitude_control_mode_copter.png)
+![Altitude Control MC - Mode2 RC Controller](../../assets/flight_modes/altitude_control_mode_copter.png)
 
 ## 技术总结
 
-遥控/手动模式就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式但是具有*高度稳定*功能（杆回中使飞机水平并保持固定高度）
+RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md) mode but with *altitude stabilization* (centered sticks level vehicle and hold it to fixed altitude).
 
 * 回正摇杆（内带死区）： 
   * RPY摇杆使飞机水平。
@@ -26,11 +28,15 @@
 * 起飞 Takeoff: 
   * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
 
-> **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
+:::note
+
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+:::
 
 ## 参数
 
-该模式受以下参数影响：
+The mode is affected by the following parameters:
 
 | 参数                                                                                                          | 描述                                                                                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
