@@ -4,7 +4,9 @@ PX4를 실행하는 일반적인 "최소" 비행 제어 시스템은 전원 시�
 
 이 절에는 다양한 [비행 제어 장치](../flight_controller/README.md)를 조립하는 법에 대해 설명합니다.
 
-> **팁** 퀵 스타트 설명서는 몇 가지 비행 컨트롤러만 설명합니다. 다른 컨트롤러도 비슷한 배선 및 연결 방식을 가집니다. 추가 정보는 [비행 컨트롤러](../flight_controller/README.md) 페이지 또는 제조업체 설명서를 이용하십시오.
+:::tip
+Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
+:::
 
 * 센서 및 기타 주변 장치(예: 비행기의 속도 센서) 연결에 대한 정보는 [주변 장치](../peripherals/README.md)를 참조하십시오.
 * 다른 기체 프레임에 대한 완전한 조립 예는 [기체 프레임 제작](../airframes/README.md)을 참고하십시오.
