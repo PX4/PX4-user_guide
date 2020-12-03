@@ -7,24 +7,24 @@
 如果传感器的测量范围不够大，防撞功能可能会限制无人机的最大飞行速度。 它也会阻止在没有传感器数据的方向上运动。（例如：如果后方没有传感器数据，将无法向后方飞行 ）。
 
 :::tip
-If high flight speeds are critical, consider disabling collision prevention when not needed.
+如果高速飞行至关重要，请在不需要时考虑关闭防撞功能。
 :::
 
 :::tip
-Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+确保您想要飞行的所有方向上都有传感器或传感器数据(当使能防撞功能时)。
 :::
 
 ## 综述
 
-*Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
+通过设置参数（[CP_DIST](#CP_DIST)） 最小安全距离来使能 PX4 上的*防撞*功能。
 
-The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
+该功能需要外部系统提供的障碍物信息（发送的 MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 消息）和或一个连接到飞控的[距离传感器](../sensor/rangefinders.md)。
 
 :::note
-Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
+多个传感器可用于获取机身*周围*物体的信息并防撞。 如果多个数据源提供*相同*的方向数据，系统将使用离物体最小距离的数据。
 :::
 
-The vehicle restricts the maximum velocity in order to slow down as it gets closer to obstacles, and will stop movement when it reaches the minimum allowed separation. In order to move away from (or parallel to) an obstacle, the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the setpoint direction if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
+为了在靠近障碍物时减速，无人机限制了最大速度，并且在达到最小允许间距时停止移动。 为了远离（或与之平行的）障碍物，用户必须使无人机/无人车朝向不靠近障碍物的设定点移动。 如果存在一个”更好”的设定点，这个设定点在请求设定点的任何一侧，并且在固定的间隙内，算法将对设定点方向做最小的调整。
 
 Users are notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
