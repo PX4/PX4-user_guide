@@ -65,7 +65,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
-> **Note** Autopilot may be purchased with included Neo GPS module
+:::note
+Autopilot may be purchased with included Neo GPS module
+:::
 
 <span id="connection"></span>
 
@@ -81,11 +83,13 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 *V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+:::note
+On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+:::
 
 **Normal Operation Maximum Ratings**
 
-为此目标 [编译 PX4](../dev_setup/building_px4.md)：
+Under these conditions all power sources will be used in this order to power the system:
 
 1. `Power1` and `Power2` inputs (4.3V to 5.4V)
 2. `USB` 输入电压（4.75 v 至 5.25 v）
@@ -94,7 +98,9 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The *V5+* has short circuit protection.
 
-> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::warning
+Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::
 
 ## 编译固件
 
@@ -109,7 +115,7 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ## Debug调试端口
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
 
@@ -125,15 +131,17 @@ The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-de
 | 6    | GND            | GND   |
 
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。 The provided debug cable does not connect to the SWD port `Vref` pin (1).
+The product package includes a convenient debug cable that can be connected to the `DSU7` port. This splits out an FTDI cable for connecting the [PX4 System Console](../debug/system_console.md) to a computer USB port, and SWD pins used for SWD/JTAG debugging. The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
-> 
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
-> 
-> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::warning
+The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+
+For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::
 
 ## Serial Port Mapping
 
@@ -197,7 +205,9 @@ The issues below refer to the *batch number* in which they first appear. The bat
 
 #### SBUS / DSM / RSSI interface Pin1 unfused
 
-> **Warning** This is a safety issue.
+:::warning
+This is a safety issue.
+:::
 
 Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
 
