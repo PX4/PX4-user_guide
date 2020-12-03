@@ -76,19 +76,19 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 延迟的主要来源有两个：*传感器延迟* 和机身 *速度设定点跟踪延迟*。 这两个延迟来源都可以通过 [CP_DELAY](#CP_DELAY) 这个参数来调整。
 
-The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0. For external vision-based systems the sensor delay may be as high as 0.2s.
+连接到飞控的距离传感器的 *传感器延迟* 可以假定为 0。 对于外部视觉系统，传感器延迟可能高达 0.2秒。
 
-Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes/position_mc.md), then commanding a stop. The delay between the actual velocity and the velocity setpoint can then be measured from the logs. The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
+无人机 *速度设定点跟踪延迟* 可以通过在 <0>位置模式</0> 下全速飞行，然后停止这种方式来测量。 然后可以从日志中测量实际速度和速度设置值之间的延迟。 跟踪延迟通常在 0.1 至 0.5秒之间，取决于机身尺寸和调试情况。
 
 :::tip
-If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+如果车速在接近障碍物时发生振荡（即减速，加速，减速），则延迟设置太高。
 :::
 
 <span id="angle_change_tuning"></span>
 
-### CP_GUIDE_ANG 制导调整
+### CP_GUIDE_ANG 制导调试
 
-Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired. Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+取决于机身，环境类型和飞行员技能，可能需要不同数量的制导。 Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
 
 If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
