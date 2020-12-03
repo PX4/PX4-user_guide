@@ -2,8 +2,9 @@
 
 This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
 
-> **Note** For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
-
+:::note
+For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+:::
 
 ## Prerequisites
 
@@ -80,11 +81,11 @@ In this section we create a *minimal application* that just prints out `Hello Sk
      }
      ```
 
-     > **Tip** The main function must be named `<module_name>_main` and exported from the module as shown.
+     :::tip The main function must be named `<module_name>_main` and exported from the module as shown.
+:::
 
-<span></span>
-
-     > **Tip** `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+     :::tip `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+:::
 
 1. Create and open a new *cmake* definition file named **CMakeLists.txt**. Copy in the text below:
    ```cmake
@@ -133,11 +134,12 @@ In this section we create a *minimal application* that just prints out `Hello Sk
    - The `MODULE` block is the Firmware-unique name of the module (by convention the module name is prefixed by parent directories back to `src`).
    - The `MAIN` block lists the entry point of the module, which registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
 
-   > **Tip** The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
-   
-   <span></span>
+   :::tip The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
 
-   > **Note** If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
+
+   :::note If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+:::
 
 ## Build the Application/Firmware
 
@@ -154,7 +156,9 @@ To enable the compilation of the application into the firmware create a new line
 examples/px4_simple_app
 ```
 
-> **Note** The line will already be present for most files, because the examples are included in firmware by default.
+:::note
+The line will already be present for most files, because the examples are included in firmware by default.
+:::
 
 Build the example using the board-specific command:
 
@@ -249,7 +253,9 @@ The application can now be extended to actually perform useful tasks.
 
 To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands).
 
-> **Tip** The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+:::tip
+The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+:::
 
 Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
 
@@ -318,13 +324,17 @@ Your app will display 5 sensor values in the console and then exit:
 [px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
 ```
 
-> **Tip** The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+:::tip
+The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+:::
 
 ## Publishing Data
 
 To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
 
-> **Note** We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+:::note
+We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+:::
 
 The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
 
