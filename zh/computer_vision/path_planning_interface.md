@@ -10,7 +10,8 @@ PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（�
 
 如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)，那么 PX4 的路径规划功能会在自动化模式 （着陆Landing、起飞Takeoff、保持Hold、任务Mission、返回Return）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
-所有使用此接口的服务均发送并且接收相同类型/格式的消息。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
+:::tip
+这些消息流来自 PX4 的 UORB 主题， 通过 MAVLink 到 ROS，再回传，都在记录在下列文档中：[PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows)。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
 所有使用此接口的服务均发送并且接收相同类型/格式的消息。 因此，开发者可以使用这个接口来创建自己新的机载计算机侧的路径规划服务，或调整现有的规划者软件。
 
