@@ -1,6 +1,8 @@
 # Installing Software on the Snapdragon
 
-> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::warning
+The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::
 
 To get the platform running with the complete VIO system running, multiple pieces are required. The following is an overview of the different versions used. Detailed installation instructions are provided below.
 
@@ -22,7 +24,9 @@ To prevent the system from hanging on boot because of anything wrong with the AD
     adb shell
     
 
-> **Note** Note that the Snapdragon Flight needs to be powered by an external power source. The power over USB is not sufficient. As always, take your props off before you apply power!
+:::note
+Note that the Snapdragon Flight needs to be powered by an external power source. The power over USB is not sufficient. As always, take your props off before you apply power!
+:::
 
 Edit the file **/usr/local/qr-linux/q6-admin.sh**:
 
@@ -47,7 +51,9 @@ Finally:
 
 ## Update Linux Image
 
-> **Warning** Updating the Linux image on your Snapdragon will erase everything.
+:::warning
+Updating the Linux image on your Snapdragon will erase everything.
+:::
 
 Get the latest `Flight_x.x_JFlash.zip` from [here](https://support.intrinsyc.com/projects/snapdragon-flight/files) and unzip it. In the unzipped folder is a script that has to be used to update the Linux image. Power your Snapdragon Flight, connect it using a micro USB cable and run:
 
