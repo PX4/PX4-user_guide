@@ -62,7 +62,9 @@ Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
 The Here+ to [Pixhawk 4](../flight_controller/pixhawk4.md) GPS port pin mapping is 1:1 for pins 1-7 and then connect GND (Here+ pin 8 / Pixhawk pin 10). Pixhawk 4 GPS port pins 8 and 9 can be left disconnected.
 
-> **Note** The Pixhawk 4 GPS port has pin 1 on the left hand side.
+:::note
+The Pixhawk 4 GPS port has pin 1 on the left hand side.
+:::
 
 | Pin | Here+ GPS  | pin | Pixhawk 4 GPS Port  |
 | --- | ---------- | --- | ------------------- |
