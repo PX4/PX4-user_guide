@@ -31,11 +31,15 @@ The image below shows how to connect the most important sensors and peripherals 
 | DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
 
-> **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+:::note
+For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+:::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+:::
 
 ## GPS + 罗盘 + 安全开关 + LED
 
