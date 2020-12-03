@@ -4,9 +4,14 @@
 
 *Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/en/) (QGC).
 
-<span></span>
+:::note
 
-> **Note** * This mode requires 3d position information (e.g. GPS). * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* This mode requires 3d position information (e.g. GPS).
+* The vehicle must be armed before this mode can be engaged.
+* This mode is automatic - no user intervention is *required* to control the vehicle.
+* RC control switches can be used to change flight modes on any vehicle.
+* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::
 
 ## Description
 
@@ -14,7 +19,9 @@ Missions are usually created in a ground control station (e.g. [QGroundControl](
 
 Individual [mission commands](#mission_commands) are handled in a way that is appropriate for each vehicle's flight characteristics (for example loiter is implemented as *hover* for copter and *circle* for fixed-wing). VTOL vehicles follow the behavior and parameters of fixed-wing when in FW mode, and of copter when in MC mode.
 
-> **Note** Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+:::note
+Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+:::
 
 At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
@@ -25,12 +32,22 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 3. If no mission is stored, or if PX4 has finished executing all mission commands: 
   * If flying the vehicle will loiter.
   * If landed the vehicle will "wait".
-4. You can manually change the current mission command by selecting it in *QGroundControl*. > **Note** If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
-5. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded. > **Tip** To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle.
+
+4. You can manually change the current mission command by selecting it in *QGroundControl*.
+  
+  :::note If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+:::
+
+5. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
+  
+  :::tip To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle.
+:::
 
 Missions can be paused by activating [HOLD mode](../flight_modes/hold.md). The mission will then continue from the current mission command when you reactivate the MISSION flight mode. While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
 
-> **Warning** Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
+:::warning
+Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
+:::
 
 For more information about mission planning, see:
 
@@ -113,7 +130,8 @@ Note:
 * Not all messages/commands are exposed via *QGroundControl*.
 * The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
   
-  > **Note** Please add an bug fix or PR if you find a missing/incorrect message.
+  :::note Please add an bug fix or PR if you find a missing/incorrect message.
+:::
 
 ## Inter-Waypoint Trajectory
 
