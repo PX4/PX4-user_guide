@@ -8,7 +8,9 @@ Almost all Flight Controllers have a *heading mark arrow* (shown below). The con
 
 ![FC Orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::note
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+:::
 
 ## Vibration Isolation
 
@@ -18,4 +20,6 @@ Flight Control boards with in-built accelerometers or gyros are sensitive to vib
 
 You should use the mounting strategy recommended in your flight controller documentation.
 
-> **Tip** [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.
+:::tip
+[Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.
+:::
