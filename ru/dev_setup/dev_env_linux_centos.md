@@ -1,6 +1,8 @@
 # Development Environment on CentOS
 
-> **Note** These instructions have not been tested with recent builds of PX4. We hope to provide fully tested instructions with the supported toolchain in the near future.
+:::note
+These instructions have not been tested with recent builds of PX4. We hope to provide fully tested instructions with the supported toolchain in the near future.
+:::
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
 
@@ -22,7 +24,9 @@ easy_install cerberus
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake vim-common
 ```
 
-> **Note** You may want to also install  python-pip and screen
+:::note
+You may want to also install `python-pip` and `screen`.
+:::
 
 ## GCC Toolchain Installation
 <!-- import GCC toolchain common documentation -->
