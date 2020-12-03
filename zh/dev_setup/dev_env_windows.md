@@ -2,23 +2,27 @@
 
 如果希望在Windows平台进行PX4的开发，请参考： [Windows Cygwin 工具链](../setup/dev_env_windows_cygwin.md)进行工具链的安装。
 
-> **Tip** The *Cygwin 工具链* 仅支持NuttX/Pixhawk 平台和 jMAVSim仿真平台。 如果你想编译用于 [其他硬件平台](/setup/dev_env.md#supported-targets)的代码，可以考虑额外安装一个 [Ubuntu Linux](http://ubuntu.com)组成双系统环境。
+:::tip
+The *Cygwin toolchain* supports building for NuttX/Pixhawk and jMAVSim simulator targets. If you want to build for [other targets](/setup/dev_env.md#supported-targets), consider setting up a dual boot system with [Ubuntu Linux](http://ubuntu.com).
+:::
 
 ## 额外工具
-
-完成编译/仿真开发环境设置后，你可以从 [额外工具](../setup/generic_dev_tools.md) 找到一些有用的“通用”开发工具。
-
-
-## 后续步骤
 
 设置完环境后，请转至 构建说明</0> 进行编译测试。
 
 
+## 后续步骤
+
+Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
+
+
 ## 其他 windows 工具链
 
-除 Cygwin 外开发者们还可以使用一些替代解决方案完成开发环境的构建， 下表对这些替代解决方案进行了详细的对比。
+There are a number of other legacy/alternative solutions that may be of interest to some developers. A comparison of the options is provided below.
 
-> **注意** Windows平台下仅 [Cygwin 工具链](../setup/dev_env_windows_cygwin.md) 获得了PX4开发团队的官方支持。 它作为我们持续集成系统的一部分会被定期测试，在性能方面要比其它替代方案更出色。
+:::note
+The [Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the only one that is supported by the PX4 dev team. It is regularly tested as part of our continuous integration system and is known to be better performing than the other alternatives.
+:::
 
 |            | [Cygwin 工具链](../setup/dev_env_windows_cygwin.md) **(官方支持)** | [虚拟机工具链](../dev_setup/dev_env_windows_vm.md) | [Bash on Windows 工具链](../dev_setup/dev_env_windows_bash_on_win.md) |
 | ---------- | ----------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
