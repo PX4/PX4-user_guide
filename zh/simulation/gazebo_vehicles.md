@@ -4,10 +4,13 @@ This topic lists/displays the vehicles supported by the PX4 [Gazebo](../simulati
 
 支持的机型种类包括：多旋翼、VTOL、尾座式 VTOL、固定翼、无人车、潜艇/无人水下航行器。
 
-> **Tip** 使用命令 `make px4_sitl list_vmd_make_targets` 获取构建目标的完整列表（你还可以过滤掉以 `gazebo_` 开头的目标）。
+:::tip
+For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+:::
 
-<span></span>
-> **Note** [Gazebo](../simulation/gazebo.md) 页面展示了如何安装 Gazebo、如何启用视频并加载自定义地图以及许多其他的配置选项。
+:::note
+The [Gazebo](../simulation/gazebo.md) page shows how to install Gazebo, how to enable video and load custom maps, and many other configuration options.
+:::
 
 ## 多旋翼
 
@@ -35,7 +38,7 @@ make px4_sitl gazebo_iris_opt_flow
 make px4_sitl gazebo_solo
 ```
 
-![3DR Solo 的 Gazebo 仿真](../../assets/simulation/gazebo/vehicles/solo.png)
+![固定翼的 Gazebo 仿真](../../assets/simulation/gazebo/vehicles/solo.png)
 
 <a id="typhoon_h480"></a>
 
@@ -45,9 +48,11 @@ make px4_sitl gazebo_solo
 make px4_sitl gazebo_typhoon_h480
 ```
 
-![Typhoon H480 的 Gazebo 仿真](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
+![Typhoon H480 in Gazebo](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
 
-> **Note** 此机型还支持[视频流仿真](#video)。
+:::note
+This target also supports [video streaming simulation](#video).
+:::
 
 <a id="fixed_wing"></a>
 
@@ -61,7 +66,7 @@ make px4_sitl gazebo_typhoon_h480
 make px4_sitl gazebo_plane
 ```
 
-![固定翼的 Gazebo 仿真](../../assets/simulation/gazebo/vehicles/plane.png)
+![标准构型的 VTOL](../../assets/simulation/gazebo/vehicles/plane.png)
 
 <a id="standard_plane_catapult"></a>
 
@@ -86,7 +91,7 @@ The plane will automatically be launched as soon as the vehicle is armed.
 make px4_sitl gazebo_standard_vtol
 ```
 
-![标准构型的 VTOL](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![探测车](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
 <a id="tailsitter_vtol"></a>
 
@@ -96,7 +101,7 @@ make px4_sitl gazebo_standard_vtol
 make px4_sitl gazebo_tailsitter
 ```
 
-![尾座式 VTOL](../../assets/simulation/gazebo/vehicles/tailsitter.png)
+![潜艇 /UUV](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
 <a id="ugv"></a>
 
@@ -110,7 +115,7 @@ make px4_sitl gazebo_tailsitter
 make px4_sitl gazebo_rover
 ```
 
-![探测车](../../assets/simulation/gazebo/vehicles/rover.png)
+![船/USV](../../assets/simulation/gazebo/vehicles/rover.png)
 
 <a id="ugv_differential"></a>
 
@@ -120,7 +125,7 @@ make px4_sitl gazebo_rover
 make px4_sitl gazebo_r1_rover
 ```
 
-![探测车](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+![旋翼机](../../assets/simulation/gazebo/vehicles/r1_rover.png)
 
 <a id="uuv"></a>
 
@@ -134,7 +139,7 @@ make px4_sitl gazebo_r1_rover
 make px4_sitl gazebo_uuv_hippocampus
 ```
 
-![潜艇 /UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
+![Submarine/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
 
 <a id="usv"></a>
 
@@ -148,7 +153,7 @@ make px4_sitl gazebo_uuv_hippocampus
 make px4_sitl gazebo_boat
 ```
 
-![船/USV](../../assets/simulation/gazebo/vehicles/boat.png)
+![Boat/USV](../../assets/simulation/gazebo/vehicles/boat.png)
 
 <a id="airship"></a>
 
@@ -162,4 +167,4 @@ make px4_sitl gazebo_boat
 make px4_sitl gazebo_cloudship
 ```
 
-![旋翼机](../../assets/simulation/gazebo/vehicles/airship.png)
+![Airship](../../assets/simulation/gazebo/vehicles/airship.png)
