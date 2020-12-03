@@ -26,8 +26,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://www.cuav.net)。
-
+:::tip
+The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora. They should be used by preference as they contain the most complete and up to date information.
+:::
 
 
 ## Quick Summary{#quick-Summary}
@@ -62,7 +63,9 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * Supports temperature compensation
   * Internal shock absorption
 
-> **Note** When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
+:::note
+When it runs PX4 firmware, only 8 PWM outputs work. The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
+:::
 
 ## 采购
 
@@ -80,13 +83,17 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 ![X7 pinouts](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
 
-> **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
+:::warning
+The `RCIN` port is limited to powering the rc receiver and cannot be connected to any power/load.
+:::
 
 ## 额定电压
 
 Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
-> **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
+:::note
+The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -109,7 +116,9 @@ make cuav_nora_default
 
 The *Nora* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A. The *Nora* has short circuit protection.
 
-> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::warning
+Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+:::
 
 ## 调试接口
 
@@ -132,11 +141,13 @@ CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` 
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
-> 
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
-> 
-> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::warning
+The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+
+Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+
+For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+:::
 
 ## 支持的平台/机身
 
