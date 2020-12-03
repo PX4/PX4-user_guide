@@ -25,11 +25,11 @@ make
 
 ## 부트로더 플래싱
 
-> **Important** JTAG / SWD 에 접근하려면 일부 보드에서는 올바른 전원 인가 과정이 중요합니다. 아래 설명대로 정확하게 단계를 따르십시오.
+다음 절차는 블랙매직 / 드론코드 프로브에 해당합니다. 기타 JTAG 프루브는 다르지만 비슷한 과정을 밟습니다. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지해야 합니다.
 
-다음 절차는 블랙매직 / 드론코드 프로브에 해당합니다. 기타 JTAG 프루브는 다르지만 비슷한 과정을 밟습니다. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지해야 합니다. 어떻게 하는지 모르겠다면 부트로더에서 정말로 뭘 바꿔야 하는지 다시한번 고민해보셔야 합니다.
+The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
-절차는 다음과 같습니다.
+[J-Link GDB 서버](https://www.segger.com/jlink-gdb-server.html) 관련 절차입니다.
 1. JTAG 케이블 연결 제거
 1. USB 전원 케이블 연결
 1. JTAG 케이블 연결
@@ -56,21 +56,21 @@ arm-none-eabi-gdb
 
 ### J-Link
 
-[J-Link GDB 서버](https://www.segger.com/jlink-gdb-server.html) 관련 절차입니다.
+Segger 웹사이트의 [Download the J-Link software](https://www.segger.com/downloads/jlink)의 안내사항을 따라 다운로드 및 설치를 수행하십시오.
 
 #### 준비 요건
 
-Segger 웹사이트의 [Download the J-Link software](https://www.segger.com/downloads/jlink)의 안내사항을 따라 다운로드 및 설치를 수행하십시오.
+다음 명령어는 STM32F427VI SoC 기반의 비행 제어 장치용 서버를 실행합니다:
 
 #### JLink GDB 서버 실행
 
-다음 명령어는 STM32F427VI SoC 기반의 비행 제어 장치용 서버를 실행합니다:
+일반 대ㅇ의 `--device`/SoC 옵션은 다음과 같습니다:
 
 ```bash
 JLinkGDBServer -select USB=0 -device STM32F427VI -if SWD-DP -speed 20000
 ```
 
-일반 대ㅇ의 `--device`/SoC 옵션은 다음과 같습니다:
+The `--device`/SoC for common targets is:
 
 * **FMUv2, FMUv3, FMUv4, aerofc-v1, mindpx-v2:** STM32F427VI
 * **px4_fmu-v4pro:** STM32F469II
@@ -88,14 +88,14 @@ arm-none-eabi-gdb
 
 ### 문제 해결
 
-위의 명령어가 존재하지 않는 경우, 블랙매직 프로브를 사용하지 않는 경우이거나 프로그램을 업데이트하지  않은 경우입니다. 프로브의 프로그램을 먼저 업그레이드하십시오.
+If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
 
-아래의 에러 메시지가 발생하는 경우:
+타겟의 연결을 끊고(JTAG 연결은 유지한 채로) 다음 명령을 실행하십시오:
 ```
 Error erasing flash with vFlashErase packet
 ```
 
-타겟의 연결을 끊고(JTAG 연결은 유지한 채로) 다음 명령을 실행하십시오:
+이 절차는 타겟의 전원을 끊고 플래싱 과정을 다시 시도합니다.
 
 ```bash
 mon tpwr disable
@@ -103,4 +103,4 @@ swdp_scan
 attach 1
 load tapv1_bl.elf
 ```
-이 절차는 타겟의 전원을 끊고 플래싱 과정을 다시 시도합니다.
+This will disable target powering and attempt another flash cycle.
