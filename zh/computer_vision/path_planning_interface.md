@@ -141,7 +141,7 @@ PX4 中各字段定义如下：
 例如，消息是在 0.1秒前发送的， `delta` （曲线持续时间）是 0.3秒。 PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。
 :::
 
-In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
+更详细地讲，`TRAJECTORY_REPRESENTATION_BEZIER` 被解析为：
 
 - 贝塞尔控制点的数目决定贝塞尔曲线的曲度。 例如，3个控制点可构成具有恒定加速度的二次贝塞尔曲线。
 - 贝塞尔曲线在 x、y、z 和偏航中的阶数必须相同，且所有贝塞尔控制点都是有限的。
@@ -152,7 +152,7 @@ In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
 ## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 <!-- ## Further Information -->
 
