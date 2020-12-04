@@ -18,10 +18,10 @@
 
 ## PX4配置
 
-PX4通过[设置](../advanced_config/parameter_reference.md#COM_OBS_AVOID)参数<1>COM_OBS_AVOID</1> 为1来启动安全着陆功能。
+PX4通过 [设置](../advanced_config/parameters.md) 参数 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) 为1来启动安全着陆功能。
 
 :::note
-`COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+`COM_OBS_AVOID` 还使能了 [安全着陆](../computer_vision/obstacle_avoidance.md#mission_mode)，以及使用了 PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) （轨迹接口）将外部路径规划服务与 PX4 集成的其他功能。
 :::
 
 ## 机载计算机设置
@@ -33,19 +33,19 @@ PX4通过[设置](../advanced_config/parameter_reference.md#COM_OBS_AVOID)参数
 * [仿真模拟安装配置](https://github.com/PX4/avoidance#safe-landing-planner)
 * [硬件安装配置](https://github.com/PX4/avoidance#safe-landing-planner-1)
 
-The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
+配置信息除了其他外，还包括使用不同的相机怎样设置安全着陆，无人机大小和决定是否降落的高度。
 
 <span id="interface"></span>
 
 ## 安全着陆接口
 
-PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4 使用 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) 集成机载计算机中的路径规划服务（包括 [任务中自主避障](../computer_vision/obstacle_avoidance.md#mission_mode)，[安全着陆](../computer_vision/safe_landing.md)以及更多的服务）。
 
-The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
+PX4 和机载设备之间的（消息发送）接口与任何其他路径规划服务完全一样。 但是请注意，安全着陆规划仅将` TRAJECTORY_REPRESENTATION_WAYPOINTS `消息的第0点中的信息用于所需路径。
 
 ## 支持的硬件
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+测试过的机载计算机和相机列于 [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware) 中。
 
 ## 更多信息
 

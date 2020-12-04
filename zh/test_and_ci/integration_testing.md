@@ -19,30 +19,54 @@ cd <Firmware_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 rostest px4 mavros_posix_tests_iris.launch
 ```
+test_target is one of the Makefile targets. The available ones are: *tests_mission*, *tests_mission_coverage*, *tests_offboard* and *tests_avoidance*.
 
-或者使用 GUI 来查看发生的情况：
-
+Test can also be executed directly by running the test scripts, located under `test/`:
 ```sh
 rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
 ```
 
+Example:
+```sh
+./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
+```
+
+在 `launch/mavros_posix_tests_irisl.launch` 中添加测试组中的新条目：
+
+```sh
+# 开始仿真
+cd <Firmware_clone>
+source integrationtests/setup_gazebo_ros.bash $(pwd)
+roslaunch px4 mavros_posix_sitl.launch
+
+# 运行测试（在新的 shell 中）：
+cd <Firmware_clone>
+source integrationtests/setup_gazebo_ros.bash $(pwd)
+rosrun px4 mavros_new_test.py
+```
+
+如上所述运行完整的测试套件。
+
+
 ### 写一个新的 MAVROS 测试（Python）
 
-测试脚本位于 `integrationtests/python_src/px4_it/mavros/` 中。 有关示例，请参阅其他现有脚本
+:::note
+Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
+:::
 
 #### 1.) 1.）创建一个新的测试脚本
 
 Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
 
 
-在 `launch/mavros_posix_tests_irisl.launch` 中添加测试组中的新条目：
+Empty test skeleton:
 
 ```python
 #!/usr/bin/env python
-# [... LICENSE ...]
-
-#!/usr/bin/env python
-# [... LICENSE ...]
+# [... <group ns="$(arg ns)">
+        [...]
+        <test test-name="mavros_new_test" pkg="px4" type="mavros_new_test.py" />
+    </group>
 
 #
 # @author Example Author <author@example.com>
@@ -94,28 +118,30 @@ if __name__ == '__main__':
 #### 2.) 2.）仅运行新测试
 
 ```sh
-# 开始仿真
-cd <Firmware_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-roslaunch px4 mavros_posix_sitl.launch
+# Start simulation
+cd <PX4-Autopilot_clone>
+source Tools/setup_gazebo.bash
+roslaunch launch/mavros_posix_sitl.launch
 
-# 运行测试（在新的 shell 中）：
-cd <Firmware_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
+# Run test (in a new shell):
+cd <PX4-Autopilot_clone>
+source Tools/setup_gazebo.bash
 rosrun px4 mavros_new_test.py
 ```
 
 #### 3.) 3.）添加新测试节点以启动文件
 
-如上所述运行完整的测试套件。
+In `test/` create a new `<test_name>.test` ROS launch file. Call the test file using one of the base scripts *rostest_px4_run.sh* or *rostest_avoidance_run.sh*
 
-```xml
-    <group ns="$(arg ns)">
-        [...]
-        <group ns="$(arg ns)">
-        [...]
-        <test test-name="mavros_new_test" pkg="px4" type="mavros_new_test.py" />
-    </group>
+#### 4.) (Optional) Create a new target in the Makefile
+1. Open the Makefile
+2. Search the *Testing* section
+3. Add a new target name and call the test
+
+Example:
+```sh
+tests_<new_test_target_name>: rostest
+    @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
 ```
 
-Run the comlpete test suite as described above.
+Run the tests as described above.
