@@ -30,34 +30,34 @@ PX4 使用数个 MAVLink 接口来整合机载计算机的路径规划服务（�
 实际需要的设置/配置取决于所用的规划器。
 
 :::warning
-一次只能有一个规划期在机载计算机上运行（在写入时）。 This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
+一次只能有一个规划期在机载计算机上运行（在写入时）。 这意味着不能在同一个无人机上同时启用不同规划器的 offboard 功能。 同时使用无人机（例如，无人机可以支持避障和防撞功能，但不支持安全着陆 - 反之亦然）。
 :::
 
 <span id="waypoint_interface"></span>
 
 ## 轨迹接口
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in *auto* modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
+PX4 将 *期望路径* 的相关信息发送给机载计算机（当在 *自动* 模式下，`COM_OBS_AVOID=1` 时）， 并从路径规划软件接收 *已规划路径* 的设定点数据流。
 
-PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
+期望路径信息由 PX4 通过使用 [TRAJECTORY_REPRESTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息来发送，如下文 [PX4 航点接口](#px4_waypoint_interface) 所述。
 
-Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+路径规划器软件通过 `TRAJECTORY_REPRESTATION_WAYPOINTS` （参见 [Companion Waypoint Interface](#companion_waypoint_interface) ）或 [TRAJECTORY_REPRESTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) （参见 [Companion Bezier Tracjectory Interface](#bezier_interface) ）返回 *所规划路径* 的设置点。 不同之处在于，前者航点参数只是指定下一个设定的目标航点，而贝塞尔轨迹则描述精确的车辆运动（即随时间变化的设定点）。
 
 :::warning
-Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+路由规划软件在执行任务时不应混用这些接口（PX4 将使用最近收到的任意类型的消息）。
 :::
 
 <span id="px4_waypoint_interface"></span>
 
 ### PX4 航点接口
 
-通过以下措施，PX4 安全地处理未从机载计算机系统接收到消息的情况：
+PX4 将期望路径封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送。
 
-The fields set by PX4 as shown:
+PX4 中各字段定义如下：
 
 - `time_usec`: UNIX 纪元时间戳
 - `valid_points`: 3
-- Point 0 - 由 FlightTaskAutoMapper 发布的适应格式的当前航点（见以下注释）： 
+- Point 0 - FlightTaskAutoMapper修改当前航点 *适配类型* （参见 [以下注释](#type_adapted)）： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点位置坐标
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下适应格式的 *当前* 任务航点速度坐标
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
@@ -100,10 +100,10 @@ The fields set by PX4 as shown:
   - 如果您切换到自动模式（例如着陆模式），机体将立即切回到 [保持模式](../flight_modes/hold.md)。
 - 当启用外部路径规划时： 
   - 如果 `HEARTBEAT` 丢失，PX4 将会发出状态消息(显示在 *QGroundControl* 中)，声明“避障系统丢失”或“避障系统超时”（取决于机体状态）。 这项提醒与当前的飞行模式无关。
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md). :::note A planner must always provide points in this timeframe.
-  - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
+  - 如果超过 0.5 秒未收到轨迹信息并且机体处于自动模式（返航、任务、起飞、着陆），则无人机将切换到[保持模式](../flight_modes/hold.md)。 :::note 规划器必须在此时间段内始终提供航点信息。
+  - 当无人机处于不提供路径规划的模式/状态时，规划器将镜像其接收到的设置航点。 （即无人机将沿着期望路径行驶，且延迟时间很小）。
 :::
-  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - 如果上次提供的贝塞尔轨迹的执行时间在路径规划期间超时（当使用[贝塞尔轨迹接口](#bezier_interface)时），这将被视为在 0.5 秒内没有收到新消息（即无人机切换到[保持模式](../flight_modes/hold.md)）。
 
 <span id="companion_waypoint_interface"></span>
 
@@ -111,7 +111,7 @@ The fields set by PX4 as shown:
 
 路径规划软件（运行在机载计算机上）*可以*将计划的路径作为 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 消息流发送给 PX4。
 
-The fields for the messages from the companion computer are set as shown:
+来自机载计算机的消息字段设置如下：
 
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
@@ -133,12 +133,12 @@ The fields for the messages from the companion computer are set as shown:
 
 ## 机载贝塞尔曲线轨迹接口
 
-The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
+路径规划软件（运行在机载计算机上）*可以*将计划的路径作为 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 消息流发送给 PX4。
 
-The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`. PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
+消息定义了无人机应遵循的路径（由控制点定义），从消息 `时间戳` 开始，在时间 `delta` 后到达终点。 PX4 使用消息发送时间、当前时间和贝塞尔曲线的总时间（delta）计算其新的轨迹设定点（沿曲线趋势来预测的当前位置/速度/加速度）。
 
 :::note
-For example, say the message was sent 0.1 seconds ago and `delta` (curve duration) is 0.3s. PX4 can calculate its setpoint at the 0.1s position in the curve.
+例如，消息是在 0.1秒前发送的， `delta` （曲线持续时间）是 0.3秒。 PX4 可以在曲线中以 0.1 秒间隔的精度计算其轨迹设定点。
 :::
 
 In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
