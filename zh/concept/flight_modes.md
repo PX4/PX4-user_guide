@@ -37,10 +37,10 @@
 “辅助”飞行模式也由飞手控制，但会提供一定程度的“自动”辅助，例如，在风的干扰下自动保持位置/方向。 辅助飞行模式会让获取或恢复受控的飞行状态变得更加容易。
 
 * **定高模式：** （高度控制）
-  * **Fixed wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude. Its x and y position will drift with the wind.
-  * **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode. Throttle inputs indicate climb or sink at a predetermined maximum rate. Throttle has large deadzone. Centered Throttle holds altitude steady. The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
-* **AUTO_RTL：** （返回并降落）
-  * **固定翼飞机：** 飞机返回 home 位置并在 home 位置上空盘旋。
+  * **固定翼飞机：**当滚转、俯仰和偏航（RPY）控制杆全部居中（或小于某个规定的死区范围），飞机将保持当前高度平直飞行。 飞机的的 X 和 Y 方向的位置会随风漂移。
+  * **多旋翼：** 滚转、俯仰和偏航输入与自稳模式相同。 油门输入会按照预定的最大速率上升或下降。 油门的输入有很大的死区。 油门居中表示保持当前高度。 飞控程序仅控制高度，所以飞机的 X、Y 位置会随风漂移。
+* **自动返航模式：** （位置控制）
+  * **固定翼飞机：** 中兴的输入（遥控器控制杆居中）会令飞机保持水平飞行，且如果需要保持直线飞行的话飞控程序将会根据情况产生偏航指令以应对风的影响。
   * **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground. Yaw controls yaw rate as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL mode. This means that the x, y, z position of the vehicle is held steady by the autopilot against any wind disturbances, when the roll, pitch and throttle sticks are centered.
 
 ### 自动飞行模式
