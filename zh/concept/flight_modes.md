@@ -28,8 +28,8 @@
     :::note 对于多旋翼无人机，手动控制模式和自稳模式是相通的。
 :::
 
-  * **特技模式：**飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 飞控程序会控制无人机的姿态角变化的角速度，但不会控制姿态。 因此即便遥控器摇杆处于居中位置，无人机也不会调平。 This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
-  * **RATTITUDE** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot if they are greater than the mode's threshold, i.e. if the RC sticks are a certain distance away from the center position. If not the inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. In short, the autopilot acts as an angular rate controller when the RC sticks are away from center (like in the ACRO mode), whereas when the RC sticks are centered, the autopilot acts as an attitude controller (like in the Stabilized mode).
+  * **特技模式：**飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 飞控程序会控制无人机的姿态角变化的角速度，但不会控制姿态。 因此即便遥控器摇杆处于居中位置，无人机也不会调平。 这一特性使得多旋翼无人机可以完全翻转过来。 飞手对油门的操作输入将直接传递到输出混控器上。
+  * **姿态特技模式：**如果飞行员的输入值大于该模式的阈值，即如果遥控器操纵杆离中心位置有一定距离，飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。 飞手对油门的操作输入将直接传到输出混控器上。 In short, the autopilot acts as an angular rate controller when the RC sticks are away from center (like in the ACRO mode), whereas when the RC sticks are centered, the autopilot acts as an attitude controller (like in the Stabilized mode).
 
 
 ### 辅助飞行模式
