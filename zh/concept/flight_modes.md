@@ -1,10 +1,10 @@
 # 飞行模式
 
-*飞行模式* 定义自动驾驶仪如何响应用户输入并控制飞机移动。 可以根据自动驾驶仪介入的程度将飞行模式粗略地分为 *手动 （manual）*, *辅助 （assisted）* 和 *自动 （auto）* 三大模式。 飞行员使用遥控器上的开关或者 [ground control station](../qgc/README.md) 在飞行模式之间进行切换。
+*飞行模式* 定义自动驾驶仪如何响应用户输入并控制飞机移动。 可以根据飞控程序介入的程度将飞行模式粗略地分为 *手动 （manual）*, *辅助 （assisted）* 和 *自动 （auto）* 三大模式。 飞行员使用遥控器上的开关或者 [ground control station](../qgc/README.md) 在飞行模式之间进行切换。
 
-需要注意的是并非所有类型的飞机都具备全部的飞行模式，同时部分模式在不同类型的飞机上的行为模式也不相同（见下文）。 最后，部分飞行模式仅在飞行前或者飞行中某些特定条件下才有意义（如 GPS锁定，空速传感器，飞机扰一个轴进行姿态感知）。 除非满足合适的条件，则系统不会允许切换到这些模式下。
+需要注意的是并非所有类型的飞机都具备全部的飞行模式，同时部分模式在不同类型的飞机上的行为模式也不相同（见下文）。 最后，部分飞行模式仅在飞行前或者飞行中某些特定条件下才有意义（如 GPS锁定，空速传感器，某个轴的姿态感知）。 除非满足合适的条件，则系统不会允许切换到这些模式下。
 
-下面的各小节对所以的飞行模式进行了一个概述，随后给出了一张 [飞行模式评估图](#flight-mode-evaluation-diagram) ，改图展示了 PX4 在何种条件下会切换至一个新的飞行模式。
+下面的各小节对所有的飞行模式进行了一个概述，随后给出了一张 [飞行模式评估图](#flight-mode-evaluation-diagram) ，该图展示了 PX4 在哪一种条件下会切换至一个新的飞行模式。
 
 面向用户的飞行模式文件可在以下面找到：
 - [Getting Started > Flight Modes](../getting_started/flight_modes.md): 对初学者友好的所有飞行模式解释
@@ -52,10 +52,10 @@
   * **多旋翼：** 多旋翼无人机会在当前位置和高度悬停/盘旋。
 * **自动返航模式：** （返航）
   * **固定翼飞机：** 飞机返回起飞的位置并在该位置上空盘旋。
-  * **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
-* **AUTO_MISSION** (Mission)
-  * **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS). If no mission received, aircraft will LOITER at current position instead.
-  * **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
+  * **多旋翼：** 多旋翼无人机保持当前高度，沿直线返回起飞位置（如果当前高度大于起飞位置高度 + [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT)）或者 [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT) （如果 [RTL_RETURN_ALT](../advanced/parameter_reference.md#RTL_RETURN_ALT) 比当前高度要高），则无人机将自动降落。
+* **任务模式：** （任务）
+  * **所有类型的系统：**飞机执行由地面控制站 (GCS) 发送的预规划飞行任务。 如果没有收到任务, 飞机将会在当前的的位置上停留/盘旋。
+  * ***离线模式*** (离线) 此模式下位置、速度和姿态角的 参考值/目标值/设定值 由通过串口或者 MAVLink 连接的配套计算机提供。 离线模式的设定值可以由诸如 [MAVROS](https://github.com/mavlink/mavros) 或者 [Dronekit](http://dronekit.io) 等 API 接口提供。
 
 ## 飞行模式评估图
 
