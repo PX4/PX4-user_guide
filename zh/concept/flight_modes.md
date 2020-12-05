@@ -6,19 +6,18 @@
 
 下面的各小节对所以的飞行模式进行了一个概述，随后给出了一张 [飞行模式评估图](#flight-mode-evaluation-diagram) ，改图展示了 PX4 在何种条件下会切换至一个新的飞行模式。
 
-:::note
-User-facing flight mode documentation can be found in:
-- [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
-- [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+面向用户的飞行模式文件可在以下面找到：
+- [Getting Started > Flight Modes](../getting_started/flight_modes.md): 对初学者友好的所有飞行模式解释
+- [Flying > Flight Modes](../flight_modes/README.md): 每种模式的详细解释文件
 :::
 
 ## 飞行模式概要
 
 ### 手动飞行模式
 
-“辅助”飞行模式下也是用户进行控制，但该模式会提供一定程度的“自动”辅助 - 比如说在风的干扰下自动保持飞机的位置/指向。 辅助模式使得获取或恢复受控飞行变得更容易。 For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+“辅助”飞行模式下也是用户进行控制，但该模式会提供一定程度的“自动”辅助 - 比如说在风的干扰下自动保持飞机的位置/指向。 辅助模式使得获取或恢复受控飞行变得更容易。 例如，有经验的飞手会使用操纵杆-舵机强联系的模式，而初学者通常会选择操纵杆-舵机弱联系的模式。
 
-* **Fixed wing aircraft/ rovers / boats:**
+* **固定翼飞机/无人车/无人船：**
   * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
   * **多旋翼：** 滚转、俯仰和偏航输入与 Stabilised 模式相同。 油门输入表示以预设的最大速率爬升或下降， 油门有很大的死区。 油门居中表示保持当前高度。 自驾仪仅控制高度，所以飞机的 X、Y 位置会跟着风发生漂移。
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
