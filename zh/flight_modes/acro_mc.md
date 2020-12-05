@@ -30,7 +30,7 @@ RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中�
 :::note
 The mathematical relationship is:
 
-$$\mathrm{y} = r(x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate.
+$$\mathrm{y} = r(f \cdot x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate.
 
 You can experiment with the relationships [here](https://www.desmos.com/calculator/yty5kgurmc).
 :::
