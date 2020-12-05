@@ -39,19 +39,19 @@
 * **定高模式：** （高度控制）
   * **固定翼飞机：**当滚转、俯仰和偏航（RPY）控制杆全部居中（或小于某个规定的死区范围），飞机将保持当前高度平直飞行。 飞机的的 X 和 Y 方向的位置会随风漂移。
   * **多旋翼：** 滚转、俯仰和偏航输入与自稳模式相同。 油门输入会令飞机按照预定的最大速率爬升或下降。 油门的输入有很大的死区。 油门居中表示保持当前高度。 飞控程序仅控制高度，所以飞机的 X、Y 位置会随风漂移。
-* **自动返航模式：** （位置控制）
-  * **固定翼飞机：** 中兴的输入（遥控器控制杆居中）会令飞机保持水平飞行，且如果需要保持直线飞行的话飞控程序将会根据情况产生偏航指令以应对风的影响。
+* **位置保持模式：** （位置控制）
+  * **固定翼飞机：** 中性的输入（遥控器控制杆居中）会令飞机保持水平飞行，且如果需要保持直线飞行的话飞控程序将会根据情况产生偏航指令以应对风的影响。
   * **多旋翼：** 滚转控制左右向速度，俯仰控制飞机相对地面的前后向速度。 偏航与手动控制模式一样，控制的是偏航角速率。 油门与定高模式 模式一样控制飞机的爬升/下降速率。 这意味着当滚转、俯仰和油门杆居中时，飞控程序会在任意风的干扰下稳定地保持飞机的X、Y、Z 位置。
 
 ### 自动飞行模式
 
-"Auto" modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
+"自动" 模式下飞控程序几乎不需要或者完全不需要飞手的操作就可以完成特定任务(例如执行起飞、降落和飞行任务)。
 
-* **AUTO_LOITER** (Loiter)
-  * **Fixed wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  * **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
-* **AUTO_RTL** (Return to Land)
-  * **Fixed wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
+* **自动盘旋模式：** （留待）
+  * **固定翼飞机：** 飞机将在当前高度、当前位置附近盘旋（或者比当前高度稍高一点的高度，对“我找不到飞机了”的情况比较有用）。
+  * **多旋翼：** 多旋翼无人机会在当前位置和高度悬停/盘旋。
+* **自动返航模式：** （返航）
+  * **固定翼飞机：** 飞机返回起飞的位置并在该位置上空盘旋。
   * **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
 * **AUTO_MISSION** (Mission)
   * **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS). If no mission received, aircraft will LOITER at current position instead.
