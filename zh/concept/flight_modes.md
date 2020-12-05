@@ -29,14 +29,14 @@
 :::
 
   * **特技模式：**飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 飞控程序会控制无人机的姿态角变化的角速度，但不会控制姿态。 因此即便遥控器摇杆处于居中位置，无人机也不会调平。 这一特性使得多旋翼无人机可以完全翻转过来。 飞手对油门的操作输入将直接传递到输出混控器上。
-  * **姿态特技模式：**如果飞行员的输入值大于该模式的阈值，即如果遥控器操纵杆离中心位置有一定距离，飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。 飞手对油门的操作输入将直接传到输出混控器上。 In short, the autopilot acts as an angular rate controller when the RC sticks are away from center (like in the ACRO mode), whereas when the RC sticks are centered, the autopilot acts as an attitude controller (like in the Stabilized mode).
+  * **姿态特技模式：**如果飞行员的输入值大于该模式的阈值，即如果遥控器操纵杆离中心位置有一定距离，飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。 飞手对油门的操作输入将直接传到输出混控器上。 简言之，当遥控器操纵杆远离中心时，飞控程序会充当角速率控制器（如特技模式模式），而当遥控器操纵杆中间部位时，飞控程序会充当姿态控制器（如在自稳模式下）。
 
 
 ### 辅助飞行模式
 
-"Assisted" modes are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind. Assisted modes often make it much easier to gain or restore controlled flight.
+“辅助”飞行模式也由飞手控制，但会提供一定程度的“自动”辅助，例如，在风的干扰下自动保持位置/方向。 辅助飞行模式会让获取或恢复受控的飞行状态变得更加容易。
 
-* **AUTO_LOITER：** （留待）
+* **定高模式：** （高度控制）
   * **Fixed wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude. Its x and y position will drift with the wind.
   * **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode. Throttle inputs indicate climb or sink at a predetermined maximum rate. Throttle has large deadzone. Centered Throttle holds altitude steady. The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
 * **AUTO_RTL：** （返回并降落）
