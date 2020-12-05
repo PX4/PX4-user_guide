@@ -18,7 +18,7 @@
 “辅助”飞行模式下也是用户进行控制，但该模式会提供一定程度的“自动”辅助 - 比如说在风的干扰下自动保持飞机的位置/指向。 辅助模式使得获取或恢复受控飞行变得更容易。 例如，有经验的飞手会使用操纵杆-舵机强联系的模式，而初学者通常会选择操纵杆-舵机弱联系的模式。
 
 * **固定翼飞机/无人车/无人船：**
-  * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
+  * **手动控制模式：** 飞手的控制输入（ 来自 RC 发射器的原始用户输入 ）直接传递给输出混控器。
   * **多旋翼：** 滚转、俯仰和偏航输入与 Stabilised 模式相同。 油门输入表示以预设的最大速率爬升或下降， 油门有很大的死区。 油门居中表示保持当前高度。 自驾仪仅控制高度，所以飞机的 X、Y 位置会跟着风发生漂移。
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
 
