@@ -19,7 +19,7 @@
 
 * **固定翼飞机/无人车/无人船：**
   * **手动控制模式：** 飞手的控制输入（ 来自 RC 发射器的原始用户输入 ）直接传递给输出混控器。
-  * **多旋翼：** 滚转、俯仰和偏航输入与 Stabilised 模式相同。 油门输入表示以预设的最大速率爬升或下降， 油门有很大的死区。 油门居中表示保持当前高度。 自驾仪仅控制高度，所以飞机的 X、Y 位置会跟着风发生漂移。
+  * **自稳飞行模式：**飞手的俯仰和横滚输入以角度的方式传递给飞控，而偏航输入通过输出混合器直接发送到方向舵（手动控制）。 如果遥控器的俯仰杆和滚转杆在中间，飞控程序会将无人机的俯仰角和滚转角调为0°，从而稳定（调平）姿态，以防止风的干扰。 然而，在这种模式下，飞控程序不会去控制无人机的位置，因此位置会因风而漂移。 油门居中表示保持当前高度。 自驾仪仅控制高度，所以飞机的 X、Y 位置会跟着风发生漂移。
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
 
 * **Multirotors:**
