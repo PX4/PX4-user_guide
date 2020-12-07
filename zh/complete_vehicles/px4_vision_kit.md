@@ -6,10 +6,11 @@
 
 这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4飞控* ， *UP Core* 机载计算机（4GB 内存和64GB eMMC），以及*Structure Core* 深度相机。
 
-该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。 This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+:::note
+该无人机发货时没有预先安装软件。 预装镜像的 U 盘包含 [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) 本地规划软件的参考实现，由 *Auterion* 提供。 该软件仅提供一个非常基本的示例，说明您可以使用 PX4 Vision 自主套件做什么。 开发者可以使用套件来尝试 [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 项目提供的其他功能。 修改现有代码，或尝试全新的计算机视觉功能。
 :::
 
-The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
 ## PX4 Vision 自主无人机开发套件（先行者版）
 
@@ -117,7 +118,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
    ![UP Core：USB1 端口 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Power the vehicle with a fully charged battery. :::note Ensure propellers are removed before connecting the battery.
+1. Power the vehicle with a fully charged battery. :::note 连接电池前要移除螺旋桨。
 :::
 1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
    - **SSID：** pixhawk4
