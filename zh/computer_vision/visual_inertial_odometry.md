@@ -135,7 +135,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 通过检查 IMU 速率和 EV 速率之间的偏移，可以从日志中获取对延迟的粗略估计：
 
-![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
+![ekf2_ev_delay 日志](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::tip
 注意 可以使用 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 或类似的飞行分析工具生成一组外部数据与板载估计（如上）。
