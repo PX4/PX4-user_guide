@@ -4,8 +4,8 @@ PX4는 설정 값을 저장하는 수단으로 *매개변수 하위 체계* (`fl
 
 이 장에서는 *매개변수* 하위 시스템을 자세하게 다루도록 하겠습니다. 매개변수를 살펴보고, 저장하고, 불러오고, 지정하는 방법의 내용을 다룹니다.
 
-:::tip
-[System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages.
+:::note
+[시스템 시작](../concept/system_startup.md)과 [에어프레임 구성](../dev_airframes/adding_a_new_frame.md) 방법은 다른 페이지에서 자세하게 언급합니다.
 :::
 
 
@@ -275,10 +275,10 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ### YAML 메타데이터
 
 :::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
+이 내용을 작성하는 시점에서는 YAML 매개변수 정의를 *라이브러리*에서 활용할 수 없습니다.
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+YAML 메타데이터는 **.c**의 정의를 완전히 대체할 용도로 존재합니다. 모든 동일한 메타데이터를 지원하며, 다중 인스턴스 정의와 같은 새 기능도 있습니다.
 
 - YAML 매개변수 메타데이터 스키마는 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에 있습니다.
 - 활용 중인 YAML 정의 예제는 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의파일에서 찾을 수 있습니다.
@@ -286,20 +286,20 @@ YAML meta data is intended as a full replacement for the **.c** definitions. It 
 
 #### 다중 인스턴스 (서식화) 메타데이터
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
+서식화 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원합니다(서식화 매개변수 코드는 지원하지 않습니다).
 
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+YAML 형식 코드에서는 매개변수 이름, 설명의 인스턴스 번호를 `${i}`로 정할 수 있습니다. 예를 들어, 아래 예제에서는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 만듭니다.
 ```
 MY_PARAM_${i}_RATE:
             description:
                 short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes.
+다음 YAML 정의에서는 시작, 끝 인덱스 번호를 제공합니다.
 - `num_instances` (기본값 1): 생성할 인스턴스 갯수(하나 이상)
 - `instance_start` (기본값 0): 첫번재 인스턴스 번호. 0으로 지정하면, `${i}` 값은 0부터 N-1 까지 갑니다.
 
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
+전체 예제를 보려면 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의 파일을 살펴보십시오
 
 ## 추가 정보
 
