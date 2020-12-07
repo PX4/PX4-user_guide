@@ -43,10 +43,10 @@ MAVLink 짐벌 동작을 켜려면 우선 [MNT_MODE_IN](../advanced_config/param
 ### 믹서 구성 맞춤설정
 
 :::tip
-Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixers work and the format of the mixer file.
+믹서의 작동 및 믹서 파일의 형식에 대한 설명은 [믹싱과 액츄에이터](../concept/mixing.md)를 확인하십시오.
 :::
 
-마운트 기본 믹서 구성은 다음과 같습니다.
+출력은 SD 카드의 `etc/mixers/mount.aux.mix` [믹서 파일을 만들어](../concept/system_startup.md#starting-a-custom-mixer) 원하는 대로 개별 설정할 수 있습니다.
 
 태풍 H480 모델은 사전 구성 후 모의 설정한 짐벌이 딸려옵니다.
 
