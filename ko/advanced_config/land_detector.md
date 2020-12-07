@@ -1,16 +1,16 @@
 # 착륙 감지기 설정
 
-착륙 감지기는 지면과의 접촉 및 착륙을 포함하는 기체의 핵심 상태를 포함하는 역학모델입니다. 이 문서는 기체의 착륙을 개선하기 위해 조정할 수 있는 파라미터들에 대해 설명합니다.
+착륙 감지기는 접지 및 착륙 상태의 모든 기체 핵심 상태를 나타내는 동적 기체 모델입니다. 이 주제에서는 기체의 착륙 활동을 개선하는 용도로 미세 조정할 수 있는 주요 매개변수를 설명합니다.
 
 ## 자동으로 시동 끄기
 
-착륙 감지기가 착륙시 자동으로 기체의 시동을 끕니다. 
+기체가 착륙하면 착륙 감지기에서 자동으로 시동을 끕니다.
 
- COM_DISARM_LAND </ 0>를 설정하여 착륙 후 시스템이 꺼지는 시간(초)을 지정할 수 있습니다.(파라미터를 -1로 설정하여 자동으로 시동을 끄지 않을 수 있습니다.) </p> 
+[ COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)를 설정하여 착륙 후 시스템의 시동이 꺼지는 시간(초)을 지정할 수 있습니다.(파라미터를 -1로 설정하여 자동으로 시동을 끄지 않을 수 있음). 
 
-## 멀티콥터 설정
+## 멀티콥터 구성
 
-착륙 감지기와 연관된 파라미터의 전체 리스트는 파라미터 레퍼런스에 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)으로 나열되어 있습니다. (QGroundControl의 파라미터 편집기를 통해 수정할 수 있습니다.)
+착륙 감지기 관련 매개변수는 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)가 붙어 있습니다(QGroundControl의 [매개변수 편집기](../advanced_config/parameters.md)에서 수정할 수 있습니다).
 
 :::tip
 매개변수의 착륙 영향 관련 내용은 [착륙 감지 상태](#states)에서 살펴볼 수 있습니다.
@@ -18,12 +18,12 @@
 
 각 기체에서 착륙 동작을 개선할 목적으로 미세 조정해야 할 기타 핵심 매개변수는 다음과 같습니다:
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - 시스템의 공중부양 추진력(기본값 50%). 고도를 보다 정확하게 제어하고 정확한 착륙 감지 보장하기 때문에 이 파라미터를 올바르게 설정하는 것이 중요합니다. 페이로드가 장착되지 않은 레이서 또는 대형 촬영용 드론은 훨씬 낮은 값의 세팅이 필요할 수 있습니다. (예. 35%)
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - 시스템의 공중부양 추진력(기본값 50%). 고도를 좀 더 정확하게 제어하고 올바른 착륙 감지를 보장하도록 이 매개변수를 제대로 설정하는게 중요합니다. 적재 장치가 없는 레이서 또는 대형 카메라 드론은 좀 더 낮은 값을 설정해야합니다(예: 35%).
     
-    :::note Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+    :::note 부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position 모드](../flight_modes/position_mc.md)나 [Altitude 모드](../flight_modes/altitude_mc.md)일 때 그렇습니다.) 이 현상은 기체의 "요동"(모터를 껐다가 즉시 모터가 켜지는) 현상을 유발합니다.
 :::
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 스로틀 이 설정은 제어된 강하가 가능하게 합니다.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 이 설정은 제어된 강하가 가능하게 합니다.
 
 ## 고정익 설정
 
