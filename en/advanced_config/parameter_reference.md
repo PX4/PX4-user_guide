@@ -1583,6 +1583,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_HOME_IN_AIR">COM_HOME_IN_AIR</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Allows setting the home position after takeoff</p><p><strong>Comment:</strong> If set to true, the autopilot is allowed to set its home position after takeoff The true home position is back-computed if a local position is estimate if available. If no local position is available, home is set to the current position.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_HOME_V_T">COM_HOME_V_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Home set vertical threshold</p><p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>   </td>
  <td style="vertical-align: top;">5 > 25 (0.5)</td>
