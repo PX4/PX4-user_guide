@@ -23,19 +23,19 @@
     :::note 부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position 모드](../flight_modes/position_mc.md)나 [Altitude 모드](../flight_modes/altitude_mc.md)일 때 그렇습니다.) 이 현상은 기체의 "요동"(모터를 껐다가 즉시 모터가 켜지는) 현상을 유발합니다.
 :::
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 이 설정은 제어된 강하가 가능하게 합니다.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 이 설정 값으로 제어 강하를 할 수 있어야 합니다.
 
-## 고정익 설정
+## 고정익 구성
 
-The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. These two parameters are sometimes worth tuning:
+모든 관련 매개변수는 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 접두어가 붙어있습니다. 아래 매개변수 두가지는 때에 따라 약간 조정하시는게 좋습니다:
 
-- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 착륙한 것으로 간주되는 최대 대기속도. 기본값 8m/s는 대기속도 센서의 정확도와 착륙 감지기의 시작을 안정적으로 절충합니다. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
+- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 여전히 착륙했다고 간주할 수 있는 최대 항속. 기본값 8m/s는 대기속도 센서의 정확도와 착륙 감지기의 시작을 안정적으로 절충합니다. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
 - [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - 시스템이 착륙하는 것으로 간주되는 최대 수평 속도 
 - [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX)-시스템이 착륙한 것으로 간주되는 최대 수직 속도. 이 파라미터는 착륙 감지 시작을 조금 더 빠르거나 느리도록 조절하거나, 기체를 손으로 던져서 날릴 때 사용할 수 있습니다.
 
 <span id="states"></span>
 
-## Land Detector States
+## 착륙 감지기 상태
 
 ### 멀티콥터 착륙 감지
 
@@ -43,7 +43,7 @@ In order to detect landing, the multicopter first has to go through three differ
 
 In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
 
-#### 지면 접촉
+#### 접지
 
 This state is reached if following conditions are true for 0.35 seconds:
 
@@ -53,7 +53,7 @@ This state is reached if following conditions are true for 0.35 seconds:
 
 If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
-#### Maybe Landed
+#### 착륙 예측
 
 This state is reached if following conditions are true for 0.25 seconds:
 
