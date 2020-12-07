@@ -45,7 +45,7 @@ In order to proceed to the next state, each condition has to be true for some pr
 
 #### 접지
 
-This state is reached if following conditions are true for 0.35 seconds:
+다음 조건이 0.35초 동안 참이면 이 상태에 도달합니다:
 
 - 수직 방향으로 움직임이 없음 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 수평 방향으로 움직임이 없음 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
@@ -55,9 +55,9 @@ If the vehicle is in position- or velocity-control and ground contact was detect
 
 #### 착륙 예측
 
-This state is reached if following conditions are true for 0.25 seconds:
+다음 조건이 0.25초 동안 참이면 이 상태에 도달합니다:
 
-- 지면 접촉 조건이 모두 참일 경우
+- 접지 조건이 모두 참일 경우
 - 기체 회전이 없을 경우 ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - 추력이 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`보다 낮을 경우
 
@@ -65,8 +65,8 @@ If the vehicle only has knowledge of thrust and angular rate, in order to procee
 
 If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
 
-#### 착륙함
+#### 착륙
 
-This state is reached if following conditions are true for 0.3 seconds:
+다음 조건이 0.3초 동안 참이면 이 상태에 도달합니다:
 
 - maybe landed 조건이 모두 참일 경우
