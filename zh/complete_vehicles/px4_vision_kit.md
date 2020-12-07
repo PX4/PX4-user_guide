@@ -118,7 +118,7 @@
 1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
    ![UP Core：USB1 端口 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Power the vehicle with a fully charged battery. :::note 连接电池前要移除螺旋桨。
+1. 用充好电的电池的为无人机供电。 :::note 连接电池前要移除螺旋桨。
 :::
 1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
    - **SSID：** pixhawk4
@@ -374,6 +374,6 @@ For hardware issues, please contact Holybro at: [productservice@holybro.com](mai
 
 For software issues, use the following community support channels:
 
-- [PX4讨论：计算机视觉分类。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) 频道: #避障
-- [Holybro PX4 Vision Wikifrate](https://wikifactory.com/+holybro/px4-vision)
+- [PX4讨论：Computer Vision（计算机视觉）目录。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 slack](https://slack.px4.io/) 频道：#avoidance
+- [Holybro PX4 Vision Wikifactory 资料库](https://wikifactory.com/+holybro/px4-vision)
