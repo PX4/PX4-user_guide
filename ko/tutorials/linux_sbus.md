@@ -5,7 +5,7 @@
 S.Bus에 비해 원격 조종 형식은 수신기를 직렬 포트에 연결하거나 USB to TTY 직렬 케이블(PL2302 USB to Serial TTL 변환기)로 USB에 연결할 수 있습니다.
 
 :::note
-For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a [signal inverter circuit](#signal_inverter_circuit), but otherwise the setup is the same.
+S.Bus 수신기(또는 후타바, 래디오링크 등의 인코더)를 사용하는 목적이라면 보통 [신호 반전 회로](#signal_inverter_circuit)를 거쳐 수신기와 장치를 연결해야겠지만, 이외의 경우 설정은 동일합니다.
 :::
 
 원격 조종 드라이버를 각 UART 에서 시작하려면 (예: `/dev/ttS2`):
@@ -30,10 +30,10 @@ S.Bus에서는 *반전* UART 통신 신호를 주고 받습니다.
 이 절에서는 적절한 회로를 만드는 방법을 알아봅니다.
 
 :::tip
-This circuit is also required to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter.
+이 회로는 직렬 포트 또는 USB-to-TTY 직렬 변환기에서 S.Bus 원격 제어 신호를 읽는데 필요합니다.
 :::
 
-This section shows how to create an appropriate circuit.
+이 절에서는 적절한 회로를 만드는 방법을 알아봅니다.
 
 ### 필요한 소자 부품
 
@@ -42,12 +42,12 @@ This section shows how to create an appropriate circuit.
 * 1x 1K 저항
 
 :::note
-Any type/model of transistor can be used because the current drain is very low.
+전류 드레인 값이 상당히 낮으므로 트랜지스터를 어떤 형식/모델로 써도 상관 없습니다.
 :::
 
 ### 회로 구성도/연결
 
-Connect the components as described below (and shown in the circuit diagram):
+아래에 설명(그리고 회로 구성도)하는 바와 같이 회로 소자를 연결하십시오:
 
 * S.Bus 신호선 &rarr; 1K 저항 &rarr; NPN 트랜지스터 베이스
 * NPN 트랜지스터 에밋 &rarr; GND
@@ -55,8 +55,8 @@ Connect the components as described below (and shown in the circuit diagram):
 * 5.0VCC &rarr; S.Bus VCC
 * GND &rarr; S.Bus GND
 
-![Signal inverter circuit diagram](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
+![신호 인버터 회로도](../../assets/sbus/driver_sbus_signal_inverter_circuit_diagram.png)
 
-The image below shows the connections on a breadboard.
+아래 이미지에서는 빵판 연결 모습을 보여줍니다.
 
-![Signal inverter breadboard](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)
+![신호 반전 빵판](../../assets/sbus/driver_sbus_signal_inverter_breadboard.png)
