@@ -39,9 +39,9 @@
 ## 包装内容
 ![原理图概述](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+![包含内容](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
+<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 直观图像" />
 
 该套件包含除电池和无线电控制系统之外的所有基本无人机硬件，这些必须单独购买：
 - 核心组件：
