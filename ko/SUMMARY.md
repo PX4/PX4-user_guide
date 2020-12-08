@@ -224,6 +224,7 @@
     * [NXP RDDRONE-FMUK66 FMU](flight_controller/nxp_rddrone_fmuk66.md)
     * [옴니버스 F4 SD](flight_controller/omnibus_f4_sd.md)
     * [ModalAI 플라이트 코어 v1](flight_controller/modalai_fc_v1.md)
+    * [ModalAI VOXL Flight](flight_controller/modalai_voxl_flight.md)
     * [SPRacing SPRacingH7EXTREME](flight_controller/spracingh7extreme.md)
   * [시험/단종 자동 항법 장치](flight_controller/autopilot_experimental.md) 
     * [에어로테나 OcPoC-Zynq 미니](flight_controller/ocpoc_zynq.md)
