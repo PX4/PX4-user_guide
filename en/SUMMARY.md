@@ -224,6 +224,7 @@
     * [NXP RDDRONE-FMUK66 FMU](flight_controller/nxp_rddrone_fmuk66.md)
     * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
     * [ModalAI Flight Core v1](flight_controller/modalai_fc_v1.md)
+    * [ModalAI VOXL Flight](flight_controller/modalai_voxl_flight.md)
     * [SPRacing SPRacingH7EXTREME](flight_controller/spracingh7extreme.md)
   * [Experimental/Discontinued Autopilots](flight_controller/autopilot_experimental.md)
     * [Aerotenna OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
