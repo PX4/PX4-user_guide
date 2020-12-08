@@ -57,8 +57,8 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 
 *Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
-ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.10) for PX4 v1.10.
-This includes improvements in VIO and VOA that are planned to be upstreamed.
+ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11.
+This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
@@ -138,4 +138,4 @@ UART8 | /dev/ttyS7 | N/A
 
 ## Support
 
-Please visit http://support.modalai.com/ for more information.
+Please visit the [ModalAI Forum](https://forum.modalai.com/category/10/flight-core) for more information.
