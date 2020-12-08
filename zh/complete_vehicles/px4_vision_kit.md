@@ -168,7 +168,7 @@
 
 1. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
 
-   :::tip The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   :::tip 从U盘启动/开始的流程大概会要1分钟（从 [内部存储](#install_image_mission_computer) 大概需要30s）
 :::
 
 1. 检查避障系统是否已经正常启动
@@ -192,9 +192,9 @@
 
 ### PX4 避障概述
 
-The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
+*PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，向运行在 *飞行控制器* 上的PX4飞行堆栈提供障碍和/或路线信息。
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
+有关配套的计算机视觉/计划软件的文档可在github上的以下位置找到：[ PX4 / 避障 ](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)。 该项目提供了许多不同的规划程序实现（打包为ROS节点）：
 - 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
 - 加载新固件后选择 *PX4 Vision DevKit* 机架：
 - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
@@ -212,7 +212,7 @@ Documentation about the companion computer vision/planning software can be found
 
 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
-To flash the USB image to the *UP Core*:
+要将USB映像刷到 *UP Core* ：
 
 1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
 1.
@@ -228,7 +228,7 @@ To flash the USB image to the *UP Core*:
 
 
 :::note
-All information saved in the *UP Core* computer will be removed when executing this script.
+执行此脚本时，将删除 *UP Core* 计算机中保存的所有信息。
 :::
 
 1 拔出U盘。
@@ -239,7 +239,7 @@ All information saved in the *UP Core* computer will be removed when executing t
 
 ### 开启机载计算机 {#boot_mission_computer}
 
-First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
+首先将提供的 USB2.0 U盘插入标有 `USB1` 的 *UP Core* 端口，然后使用4S电池为无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
 :::tip
 [Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
