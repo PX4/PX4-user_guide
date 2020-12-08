@@ -242,19 +242,19 @@
 首先将提供的 USB2.0 U盘插入标有 `USB1` 的 *UP Core* 端口，然后使用4S电池为无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
 
 :::tip
-[Fly the Drone with Avoidance](#Fly-the-Drone-with-Avoidance) additionally explains how to verify that the avoidance system is active.
+[带避障飞行的无人机](#Fly-the-Drone-with-Avoidance) 进一步说明了如何验证避障系统是否处于活动状态。
 :::
 
 PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
 
-Once started the companion computer can be used both as a computer vision development environment and for running the software.
+机载计算机一旦启动，就可以用作计算机视力开发环境和运行软件的环境。
 
 <span id="login_mission_computer"></span> 
 
 
 ### 登录机载计算机
 
-To login to the companion computer:
+按以下步骤登录到机载计算机：
 
 1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
    
@@ -281,11 +281,11 @@ Ubuntu 登录屏幕应显示在显示器上。
 
 ### 开发/扩展 PX4 避障功能
 
-ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
+ROS 工作区位于 `~/catkin_ws`。 关于在 ROS 中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。 
 
-The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+catkin 工作区位于 `〜/ catkin_ws` ，并且已预先配置为运行 PX4 避障本地计划程序。 引导启动文件 (`avoidance.launch`) 位于 `px4vision_ros` 软件包中（修改此文件以更改启动计划程序的文件）。
 
-The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
+避障程序包在引导时启动。 要整合一个不同的计划，需要禁用此项。
 
 1. 使用以下指令禁用避障程序： 
    
@@ -331,7 +331,7 @@ The avoidance package is started on boot. To integrate a different planner, this
    ```
 
 
-The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+ROS 工作区位于 `~/catkin_ws`。 有关在 ROS 中进行开发以及使用 catkin 工作区的参考，请参见 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
 
 
 
@@ -346,14 +346,14 @@ The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS
 - 加载新固件后选择 *PX4 Vision DevKit* 机架： ![机身选择 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
-Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+*不需要* 修改 PX4 代码即可满足大多数计算机视觉用例。 要讨论接口或如何集成其他功能，请加入PX4 slack 通道：＃computer-vision。
 :::
 
 
 
 ## 其他拓展资源
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+可从 [Holybro的网站](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf) 下载载板的引脚 。
 
 
 
@@ -370,9 +370,9 @@ The Carrier board pinouts can be download from [Holybro's website](http://www.ho
 
 ## 如何获得技术支持
 
-For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
+硬件问题，请联系 Holybro：[productservice@holybro.com](mailto:productservice@holybro.com).
 
-For software issues, use the following community support channels:
+软件问题，请使用以下社区支持频道：
 
 - [PX4讨论：Computer Vision（计算机视觉）目录。](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
 - [PX4 slack](https://slack.px4.io/) 频道：#avoidance
