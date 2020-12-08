@@ -5,7 +5,8 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
 :::
 
-The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7, made in the USA.  VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
+The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7. Made in the USA, VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
+
 ![VOXL-Flight](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dk.jpg)
 
 :::note
@@ -76,7 +77,7 @@ More detailed hardware documentation can be found [here](https://docs.modalai.co
 
 ## Dimensions
 
-![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.png)
+![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
 [3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
@@ -106,11 +107,12 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Quick Start
 
-A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-flight-quickstart/)
+A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-flight-quickstart/).
 
 ### voxl-vision-px4
 
-The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the  companion computer portion of the hardware serving as a sort of MAVLink proxy.  For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
+The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the  companion computer portion of the hardware serving as a sort of MAVLink proxy.
+For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
 
 ### Connectors
 
@@ -118,7 +120,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 #### Top
 
-![VOXLFlightTop](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.png)
+![VOXLFlightTop](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
 
 *Note: 1000 Series connectors accessible from the STM32/PX4*
 
@@ -145,7 +147,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 #### Bottom
 
-![VOXLFlightBottom](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.png)
+![VOXLFlightBottom](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
 
 *Note: 1000 Series connectors accessible from the STM32/PX4*
 
