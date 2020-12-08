@@ -165,7 +165,7 @@ The local/world and world frames used by ROS and PX4 are different.
 
 | 框架    | ROS                                                                           | PX4                                           |
 | ----- | ----------------------------------------------------------------------------- | --------------------------------------------- |
-| 机体    | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link`          | FRD (X **F**orward, Y **R**ight 和 Z **D**own) |
+| 机体    | FRD (X **F**orward, Y **R**ight, Z **D**own)                                  | FRD (X **F**orward, Y **R**ight 和 Z **D**own) |
 | 世界坐标系 | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | NED (X **N**orth, Y **E**ast, Z **D**own)     |
 
 The following steps explain how to feed position estimates from an [OptiTrack](http://optitrack.com/systems/#robotics) system to PX4. It is assumed that the MoCap system is calibrated. See [this video](https://www.youtube.com/watch?v=cNZaFEghTBU) for a tutorial on the calibration process. 假定 mocap 系统已校准。

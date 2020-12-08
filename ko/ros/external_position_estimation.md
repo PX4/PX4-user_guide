@@ -165,15 +165,15 @@ If you're working with EKF2, only the "vision" pipelines are supported. To use M
 
 The local/world and world frames used by ROS and PX4 are different.
 
-| Frame | ROS                                                                           | PX4                                             |
-| ----- | ----------------------------------------------------------------------------- | ----------------------------------------------- |
-| Body  | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link`          | FRD (X **F**orward, Y **R**ight and Z **D**own) |
-| World | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | NED (X **N**orth, Y **E**ast, Z **D**own)       |
+| Frame | PX4                                                                           | ROS                                                                  |
+| ----- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)                                  | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link` |
+| World | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | NED (X **N**orth, Y **E**ast, Z **D**own)                            |
 
 The following steps explain how to feed position estimates from an [OptiTrack](http://optitrack.com/systems/#robotics) system to PX4.
 :::
 
-Both frames are shown in the image below (FLU on left/FRD on right).
+Both frames are shown in the image below (FRD on the left/FLU on the right).
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
