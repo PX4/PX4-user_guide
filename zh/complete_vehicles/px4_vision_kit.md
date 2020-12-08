@@ -124,13 +124,13 @@
    - **SSID：** pixhawk4
    - **密码：** pixhawk4
 
-   :::tip WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+   :::tip WiFi 网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 使用 web 浏览器打开 URL： `http://192. 68.4.1` 波特率不得从921600更改。
 :::
 
 1. 在地面站启动 *QGroundControl*。
 1. [配置/校准](../config/README.md) 无人机：
 
-   :::note The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   :::note 无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 :::
 
    - [校准遥控](../config/radio.md)
@@ -141,7 +141,7 @@
 
    我们推荐的遥控设置为：
 
-   We recommend RC controller switches are define for:
+   我们推荐的 RC 控制器开关定义为：
    - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
    - *globalplanner* 尚未用这个工具包测试。
    - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
