@@ -27,7 +27,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces:
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU

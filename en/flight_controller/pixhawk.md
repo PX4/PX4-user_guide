@@ -28,7 +28,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
   * CPU: 24 MHz ARM Cortex M3
   * RAM: 8 KB SRAM
 * Wifi: ESP8266 external
-* GPS: U-Blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / U-Blox 6 (3D Robotics)
+* GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
 * Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
 * Redundant power supply inputs and automatic failover
 * External safety switch
