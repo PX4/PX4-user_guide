@@ -12749,6 +12749,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_VL53L1X">SENS_EN_VL53L1X</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>VL53L1X Distance Sensor</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EXT_I2C_PRB">SENS_EXT_I2C_PRB</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>External I2C probe</p><p><strong>Comment:</strong> Probe for optional external I2C devices.</p>   </td>
  <td style="vertical-align: top;"></td>
