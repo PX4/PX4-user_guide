@@ -1,9 +1,8 @@
-# Advanced Fixed-wing Position Tuning
+# 高级固定翼位置调整
 
-This guide offers some help in tuning the high-level fixed-wing controllers needed for flying missions and in altitude/position control mode. PX4 uses TECS for altitude and airspeed control, and L1 for horizontal heading/position control.
+本指南为调整飞行任务和高度/位置控制模式下所需的高级固定翼控制器提供一些帮助。 PX4 使用 TECS 进行高度和空速控制，使用 L1 进行水平航向/位置控制。
 
-:::warning
-This guide is for advanced users / experts only. If you don't understand TECS tuning you may crash your aircraft.
+本指南仅适合高级用户/专家使用。 如果你不熟悉 TECS 调整，可能会导致您的飞机坠毁。
 :::
 
 :::note
