@@ -95,9 +95,9 @@ make px4_fmu-v4_default upload
 * [Dropix](https://docs.px4.io/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
 * [MindPX](https://docs.px4.io/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
 * [mRo X-2.1](https://docs.px4.io/en/flight_controller/mro_x2.1.html): `make auav_x21_default`
-* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
+* [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default`
 * **Note** 通常，`_default` 后缀是可选的（即，您也可以使用 `make px4_fmu-v4`、`make bitcraze_crazyflie` 等）生成。
-* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md): `make intel_aerofc-v1_default`
+* [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md): `make intel_aerofc-v1_default`
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
 * **Tip** 这有助于分析（可能）导致 `px4_fmu-v2_default` 达到1MB 闪存限制的更改。
