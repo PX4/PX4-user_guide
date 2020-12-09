@@ -28,9 +28,9 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 
 设置以下参数：
 
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)设置为操作过程中所需要的平衡空速。
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)设置为以平衡空速飞行所需要油门。
-- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)设置为维持水平飞行所需要俯仰角。
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - 设置为操作过程中所需要的平衡空速。
+- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - 设置为以平衡空速飞行所需要油门。
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 设置为维持水平飞行所需要俯仰角。
 
 #### 2nd：空速和油门限制
 
@@ -52,14 +52,14 @@ TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，�
 以稳定模式飞行，降低油门至`FW_THR_MIN`并缓慢减小俯仰角直到飞行器达到`FW_AIRSPD_MAX`。
 
 - [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - 设定为从`FW_THR_MIN`到达 `FW_AIRSPD_MAX`所需要俯仰角。
-- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - set to the sink rate achieved during the descent.
+- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - 设置为下降期间达到的下沉速率。
 
-Fly in stabilized mode, reduce throttle to `FW_THR_MIN` and adjust the pitch angle such that the plane maintains `FW_AIRSPD_TRIM`.
+以稳定模式飞行，减小油门到`FW_THR_MIN`并调整俯仰角使飞机保持`FW_AIRSPD_TRIM`。
 
-- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
+- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - 设置为保持`FW_AIRSPD_TRIM`达到的下沉速率。
 
-### L1 Controller Tuning (Position)
+### L1控制器调整（位置）
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
+L1所有的参数在[此](../advanced_config/parameter_reference.md#fw-l1-control)描述
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. A value of 25 meters works for most aircraft. A value of 16-18 will still work, and provide a sharper response. Shorten slowly during tuning until response is sharp without oscillation.
+- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - 这是 L1 的距离，它定义了需要跟踪的跟踪点。 25米适合大部分飞机。 16-18米仍然可以工作并提供更清晰的响应。 调整期间缓慢缩短，直到响应迅速没有振荡。
