@@ -53,7 +53,7 @@ It is generally recommended to connect RC via separate RX and TX pins to the mic
 
 ## 官方支持的硬件
 
-PX4 项目支持并维护着 [FMU 标准参考硬件](../hardware/reference_design.md) 及任何与标准相兼容的飞控板平台。 The PX4 project supports and maintains the [FMU standard reference hardware](../debug/reference-design.md) and any boards that are compatible with the standard. This includes the [Pixhawk-series](https://docs.px4.io/en/flight_controller/pixhawk_series.html) (see the user guide for a [full list of officially supported hardware](https://docs.px4.io/en/flight_controller/)).
+PX4 项目支持并维护着 [FMU 标准参考硬件](../hardware/reference_design.md) 及任何与标准相兼容的飞控板平台。 This includes the [Pixhawk-series](../flight_controller/pixhawk_series.md) (see the user guide for a [full list of officially supported hardware](../flight_controller/README.md)).
 
 每个受官方支持的飞控板平台都将受益于：
 * PX4 项目仓库中可用的 PX4 移植

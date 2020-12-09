@@ -34,13 +34,13 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 配置防撞功能需要通过 [QGroundControl](../advanced_config/parameters.md) 地面站来设置以下参数：
 
-| 参数                                                                                                  | 描述                                                                                                    |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| 参数                                                                                                  | 描述                                                                                                   |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | <span id="CP_DIST"></span>[CP_DIST](../advanced_config/parameter_reference.md#CP_DIST)               | 设置最小允许距离（无人机/无人车可以接近障碍物的最近距离）。 设置为负值将禁用 *防撞* 功能。   
-> **警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨的外部距离。 确保一个安全距离。 |
-| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                         |
-| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                      |
-| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                         |
+>**警告** 此值是相对传感器的距离，而不是相对机身或者螺旋桨的外部距离。 确保一个安全距离。 |
+| <span id="CP_DELAY"></span>[CP_DELAY](../advanced_config/parameter_reference.md#CP_DELAY)             | 设置传感器和速度设定值跟踪延迟。 查看下面的 [延迟调整](#delay_tuning)。                                                        |
+| <span id="CP_GUIDE_ANG"></span>[CP_GUIDE_ANG](../advanced_config/parameter_reference.md#CP_GUIDE_ANG)   | 如果在该方向上发现的障碍物较少，则设置无人机/无人车可能偏离的角度（在指令方向的两侧）。 请参阅下面的[制导调整](#angle_change_tuning)。                     |
+| <span id="CP_GO_NO_DATA"></span>[CP_GO_NO_DATA](../advanced_config/parameter_reference.md#CP_GO_NO_DATA) | 设置为 1 可以使无人机/无人车在没有传感器覆盖的方向移动（默认值是0/`False`）。                                                        |
 
 <span id="algorithm"></span>
 
@@ -98,7 +98,7 @@ PX4 软件配置在下一章节中。 如果您准备使用距离传感器连接
 
 <span id="rangefinder"></span>
 
-## PX4距离传感器
+## PX4 距离传感器
 
 使用 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) 红外距离传感器对PX4的防撞功能来说“开箱即用”，最少的额外配置就可以使用。
 

@@ -1,6 +1,6 @@
 # Windows 安装指南
 
-如果希望在Windows平台进行PX4的开发，请参考： [Windows Cygwin 工具链](../setup/dev_env_windows_cygwin.md)进行工具链的安装。
+如果希望在Windows平台进行PX4的开发，请参考： [Windows Cygwin 工具链](../dev_setup/dev_env_windows_cygwin.md) 进行工具链的安装。
 
 :::tip
 The *Cygwin toolchain* supports building for NuttX/Pixhawk and jMAVSim simulator targets. If you want to build for [other targets](/setup/dev_env.md#supported-targets), consider setting up a dual boot system with [Ubuntu Linux](http://ubuntu.com).
