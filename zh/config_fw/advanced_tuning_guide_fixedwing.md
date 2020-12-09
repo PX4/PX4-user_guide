@@ -5,27 +5,24 @@
 本指南仅适合高级用户/专家使用。 如果你不熟悉 TECS 调整，可能会导致您的飞机坠毁。
 :::
 
-:::note
-An incorrectly set gain during tuning can make altitude or heading control unstable. A pilot tuning the TECS gains should therefore be able to fly and land the plane in stabilized control mode.
+调整时增益设置不当会使高度和航向控制不稳定。 因此，调节 TECS 增益的飞行员应该能够以稳定的控制模式飞行和降落飞机。
 :::
 
-:::tip
-All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+所有参数都记录在[参数参考](../advanced_config/parameter_reference.md#fw-tecs)中。 本指南将介绍所有重要参数。
 :::
 
-## TECS Tuning (Altitude and Airspeed)
+## TECS 调节（高度和空速）
 
-TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircraft that coordinates throttle and pitch angle setpoints to control the aircraft's altitude and airspeed. For a detailed description of the TECS algorithm and the control diagram, see [Controller Diagrams](../flight_stack/controller_diagrams.md).
+TECS（总能量控制系统）是一种用于固定翼飞机的制导算法，该算法通过协调油门和俯仰角设定值来控制飞机的高度和空速。 有关 TECS 算法和控制图的详细说明，请参阅[控制图](../flight_stack/controller_diagrams.md)。
 
-A well-tuned attitude controller is required before tuning TECS: [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+调整 TECS 之前需要一个调整好的姿态控制器：[PID调整指南](../config_fw/pid_tuning_guide_fixedwing.md)。
 
-Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes/stabilized_fw.md).
+调整 TECS 主要是正确地设置机身限制。 这些限制可以通过如下所述的一系列飞行操作确定的参数来指定。 大多数操作要求飞行员在[稳定飞行模式](../flight_modes/stabilized_fw.md)下飞行。
 
-:::tip
-It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers. To improve accuracy we also recommended that you verify the data obtained during flight with the data recorded in the flight logs.
+当飞行员飞行时，能有人帮助阅读和记录遥测数据时非常有益的。 为了提高准确性，我们还建议您使用飞行日志中记录的数据来验证飞行期间获得的数据。
 :::
 
-#### 1st: Trim Conditions
+#### 1st：平衡条件
 
 Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
 
