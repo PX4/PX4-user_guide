@@ -51,7 +51,7 @@ Additional information can be found in the [Pixhawk 4 Technical Data Sheet](http
 
 ## 采购
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+中国大陆用户请从官方代理商 [思动智能](https://thone.io/) 的淘宝店 [地面售货站](https://dimianzhan.taobao.com/) 购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html) 购买。
 
 ## 连接器
 
