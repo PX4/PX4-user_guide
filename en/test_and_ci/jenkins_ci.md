@@ -1,7 +1,7 @@
 # Jenkins CI
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/README.md">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/">can be found here</a>.</p>
   </div>
 </div>
 
@@ -10,9 +10,9 @@ Jenkins continuous integration server on [ci.px4.io](http://ci.px4.io/) is used 
 
 ## Overview
 
-  * Involved components: Jenkins, Docker, PX4 POSIX SITL
-  * Tests run inside [Docker Containers](../test_and_ci/docker.md)
-  * Jenkins executes 2 jobs: one to check each PR against master, and the other to check every push on master
+* Involved components: Jenkins, Docker, PX4 POSIX SITL
+* Tests run inside [Docker Containers](../test_and_ci/docker.md)
+* Jenkins executes 2 jobs: one to check each PR against master, and the other to check every push on master
 
 ## Test Execution
 
@@ -33,13 +33,12 @@ See setup [script/log](https://github.com/PX4/containers/tree/master/scripts/jen
 
 ### Configuration
 
-  * Jenkins security enabled
-  * Installed plugins
-    * github
-    * github pull request builder
-    * embeddable build status plugin
-    * s3 plugin
-    * notification plugin
-    * collapsing console sections
-    * postbuildscript
-
+* Jenkins security enabled
+* Installed plugins
+  * github
+  * github pull request builder
+  * embeddable build status plugin
+  * s3 plugin
+  * notification plugin
+  * collapsing console sections
+  * postbuildscript

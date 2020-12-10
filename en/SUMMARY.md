@@ -397,10 +397,11 @@
     * [Maintenance](test_and_ci/maintenance.md)
 * [Contribution (&Dev Call)](contribute/README.md)
   * [Dev Call](contribute/dev_call.md)
+  * [Support](contribute/support.md)
   * [Source Code Management](contribute/code.md)
     * [GIT Examples](contribute/git_examples.md)
   * [Documentation](contribute/docs.md)
   * [Translation](contribute/translation.md)
   * [Terminology/Notation](contribute/notation.md)
   * [Licenses](contribute/licenses.md)
-* [Support](contribute/support.md)
+
