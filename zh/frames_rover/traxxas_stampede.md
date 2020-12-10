@@ -2,8 +2,6 @@
 
 This vehicle was chosen to understand how a Pixhawk could be used for wheeled platforms. We chose to use a Traxxas vehicle as they are very popular and it is a very strong brand in the RC community. The idea was to develop a platform that allows for easy control of wheeled UGVs with an autopilot.
 
-{% youtube %}https://youtu.be/N3HvSKS3nCw{% endyoutube %}
-
 ![Traxxas Stampede VXL](../../assets/airframes/rover/traxxas_stampede_vxl/stampede.jpg)
 
 ## 配件列表
@@ -67,9 +65,11 @@ The main rover-specific configuration is setting the correct frame:
 At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
 
 :::warning
-It is ***VERY IMPORTANT*** to do a mission composed ***ONLY*** of normal waypoints (i.e. ***NO TAKEOFF WAYPOINTS***) and it is crucial to ***SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0*** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+It is very important to do a mission composed *only** of normal waypoints (i.e. no takeoff waypoints etc.) and it is crucial to set the waypoint height of **every** waypoint to 0 for correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
 :::
 
 A correct mission setup looks as follows:
 
 ![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
+
+## Video <iframe width="560" height="315" src="https://www.youtube.com/embed/N3HvSKS3nCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
