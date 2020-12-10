@@ -1,7 +1,7 @@
 # Jenkins CI（持续集成测试）
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/README.md">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/">can be found here</a>.</p>
   </div>
 </div>
 
@@ -10,9 +10,9 @@
 
 ## 概述
 
-  * 涉及的组件：Jenkins，Docker，PX4 POSIX SITL
-  * 测试在 [Docker Containers](../test_and_ci/docker.md) 内运行
-  * Jenkins 执行了 2 个工作：一个用于检查每个 PR 与主控，另一个用于检查主控上的每次推送
+* 涉及的组件：Jenkins，Docker，PX4 POSIX SITL
+* 测试在 [Docker Containers](../test_and_ci/docker.md) 内运行
+* Jenkins 执行了 2 个工作：一个用于检查每个 PR 与主控，另一个用于检查主控上的每次推送
 
 ## 测试执行
 
@@ -33,13 +33,12 @@ sudo WORKSPACE=$(pwd) ./Firmware/integrationtests/run_container.bash
 
 ### 配置
 
-  * Jenkins 安全性已启用
-  * 已安装的插件
-    * github
-    * github 请求构建器
-    * 嵌入式构建状态插件
-    * s3 插件
-    * 通知插件
-    * 折叠控制台部分
-    * postbuildscript
-
+* Jenkins 安全性已启用
+* 已安装的插件
+  * github
+  * github 请求构建器
+  * 嵌入式构建状态插件
+  * s3 插件
+  * 通知插件
+  * 折叠控制台部分
+  * postbuildscript
