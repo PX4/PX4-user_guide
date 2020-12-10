@@ -1,7 +1,7 @@
 # Tests Flights
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/test_flights.md">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/test_flights.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -63,4 +63,3 @@ VTOL
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------ |
 | [Convergence VTOL](https://www.horizonhobby.com/convergence-vtol-bnf-basic-efl11050) | [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) | 000200000000343233383038511500350039 (vtol-v5-m) |
 | [Delta Quad Pro](https://px4.io/portfolio/deltaquad-vtol/)                           | [Dropix](../flight_controller/dropix.md)                | 0001000000003437393931375114004c0042 (delta-v2)  |
-
