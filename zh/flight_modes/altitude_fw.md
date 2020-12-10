@@ -29,7 +29,7 @@
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
 * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 :::
 
