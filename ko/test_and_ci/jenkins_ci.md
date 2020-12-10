@@ -1,7 +1,7 @@
 # 젠킨스 CI
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>이 페이지는 오래됐습니다. 최신 문서는 <a href="../test_and_ci/README.md">여기에서  찾을 수 있습니다</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">TIP</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/">can be found here</a>.</p>
   </div>
 </div>
 
@@ -10,9 +10,9 @@
 
 ## 개요
 
-  * 수반 요소: 젠킨스, 도커, PX4 POSIX SITL
-  * [도커 컨테이너](../test_and_ci/docker.md)에서의 코드 시험 실행
-  * 젠킨스에서 실행하는 작업 두가지: 마스터 브랜치에 대한 PR 점검, 마스터 브랜치로의 push 점검
+* 수반 요소: 젠킨스, 도커, PX4 POSIX SITL
+* [도커 컨테이너](../test_and_ci/docker.md)에서의 코드 시험 실행
+* 젠킨스에서 실행하는 작업 두가지: 마스터 브랜치에 대한 PR 점검, 마스터 브랜치로의 push 점검
 
 ## 테스트 실행
 
@@ -33,13 +33,12 @@ sudo WORKSPACE=$(pwd) ./PX4-Autopilot/integrationtests/run_container.bash
 
 ### 설정
 
-  * 젠킨스 보안 활성
-  * 설치 플러그인
-    * github
-    * Github pull 요청 빌더
-    * 내장형 빌드 상태 표시 플러그인
-    * s3 플러그인
-    * 알림 플러그인
-    * 콘솔 섹션 축소 기능
-    * postbuildscript
-
+* 젠킨스 보안 활성
+* 설치 플러그인
+  * github
+  * Github pull 요청 빌더
+  * 내장형 빌드 상태 표시 플러그인
+  * s3 플러그인
+  * 알림 플러그인
+  * 콘솔 섹션 축소 기능
+  * postbuildscript
