@@ -1,9 +1,7 @@
-<a id="dev_call"></a>
-
 # 每周开发通讯
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../contribute/dev_call.md">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/dev_call.html">can be found here</a>.</p>
   </div>
 </div>
 
