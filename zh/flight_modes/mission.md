@@ -41,9 +41,9 @@
   
   * 该任务仅在飞机锁定或上传新任务时重置。
     
-    :::tip To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle. :::</ol> 
+    :::tip 要使无人机在降落后自动锁定，在 *QGroundControl* 地面站上打开 [Vehicle Setup （无人机设置） > Safety （安全） ](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)，导航栏找到 *Land Mode Settings （降落模式设置）* 并且勾选 *Disarm after（锁定后）*。 输入飞机降落后，锁定前的等待时间。 :::</ol> 
   
-  Missions can be paused by activating [HOLD mode](../flight_modes/hold.md). The mission will then continue from the current mission command when you reactivate the MISSION flight mode. While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
+  可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
   
   :::warning Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
 :::
