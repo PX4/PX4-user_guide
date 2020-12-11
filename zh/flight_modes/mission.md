@@ -43,17 +43,17 @@
     
     :::tip 要使无人机在降落后自动锁定，在 *QGroundControl* 地面站上打开 [Vehicle Setup （无人机设置） > Safety （安全） ](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)，导航栏找到 *Land Mode Settings （降落模式设置）* 并且勾选 *Disarm after（锁定后）*。 输入飞机降落后，锁定前的等待时间。 :::</ol> 
   
-  可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
+  可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 在任务模式下飞行时，如果决定中止任务，并且切换到了其他飞行模式，如位置模式，通过遥控器讲无人机飞到了其他地方，然后切换回任务模式，无人机将从当前位置继续执行任务，并会飞往下一个未访问的任务航点。
   
-  :::warning Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
+  :::warning 在切换 RC 模式前确保遥控器油门摇杆不为零（否则会炸机）。建议在切换到其他模式前控制摇杆回中。
 :::
   
-  For more information about mission planning, see:
+  有关任务规划的更多信息，请参阅：
   
-  * [Mission Planning](../flying/missions.md)
-  * [Plan View](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+  * [任务规划](../flying/missions.md)
+  * [规划视图](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)（ *QGroundControl* 用户手册）
   
-  ## QGroundControl支持
+  ## QGroundControl 支持
   
   *QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). For more information see:
   
