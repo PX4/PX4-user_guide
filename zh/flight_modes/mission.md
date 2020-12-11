@@ -10,7 +10,7 @@
 * 使用此模式前必须先解锁。
 * 此模式是自动的 - 不*需要*用户干预即可控制无人机。
 * 遥控器开关可以用于更改任何无人机的飞行模式。
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。
 :::
 
 ## 参数描述
@@ -20,21 +20,21 @@
 以适合于每个飞机飞行特性的方式处理单独的[任务命令](#mission_commands)（例如，留待指令对于旋翼机是*悬停*，对于固定翼是*转圈*）。 VTOL飞机在固定翼模式下遵循固定翼的行为和参数，在多旋翼模式下遵循旋翼机的行为和参数。
 
 :::note
-Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+在启动自驾仪前需要将装载有任务的 SD 卡插入。
 :::
 
-At high level all vehicle types behave in the same way when MISSION mode is engaged:
+在高级别上，所有无人机类型在使用 MISSION 模式时表现相同：
 
 1. 如果任务被存储并且PX4正在飞行，则它将从当前步骤执行任务/飞行计划</ 0>。 </li> 
   
   * 如果存储了任务, 并且PX4着陆: 
-    * 在旋翼机上PX4 将执行[任务/飞行计划](../flying/missions.md). 如果任务没有`TAKEOFF`命令，则在从当前步骤执行飞行计划的剩余部分之前，PX4将使飞机飞行到最小高度。
-    * 在固定翼飞行器上，PX4不会自动起飞（自动驾驶仪将检测运动并将油门设置为零）。 如果在任务模式下手动或弹射发射，飞机可以开始执行任务。 
-  * 如果没有存储任务，或者PX4已完成所有任务命令： 
+    * 在旋翼机上 PX4 将执行[任务/飞行计划](../flying/missions.md). 如果任务没有 `TAKEOFF` 命令，则在从当前步骤执行飞行计划的剩余部分之前，PX4 将使飞机飞行到最小高度。
+    * 在固定翼飞行器上，PX4 不会自动起飞（自动驾驶仪将检测运动并将油门设置为零）。 如果在任务模式下手动或弹射发射，飞机可以开始执行任务。 
+  * 如果没有存储任务，或者 PX4 已完成所有任务命令： 
     * 如果正在飞行，飞机将会留待。
     * 如果已着陆，飞机将“等待”。
   
-  * You can manually change the current mission command by selecting it in *QGroundControl*.
+  * 您可以通过在 *QGroundControl* 中选择它来手动更改当前任务命令。
     
     :::note If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
 :::
