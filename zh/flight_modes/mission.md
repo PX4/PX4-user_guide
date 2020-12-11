@@ -2,14 +2,14 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*任务模式*使飞机执行已上载到飞行控制器的预定义的自主[任务](../flying/missions.md)（飞行计划）。 通常使用地面控制站（GCS）应用程序（如[QGroundControl](https://docs.qgroundcontrol.com/en/)（QGC））创建和上载任务。
+*任务模式*使飞机执行已上载到飞行控制器的预定义的自主[任务](../flying/missions.md)（飞行计划）。 通常使用地面站（GCS）应用程序如 [QGroundControl](https://docs.qgroundcontrol.com/en/)（QGC）创建和上传任务。
 
 :::note
 
-* This mode requires 3d position information (e.g. GPS).
-* The vehicle must be armed before this mode can be engaged.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
+* 此模式需要 3d 位置信息（如 GPS）。
+* 使用此模式前必须先解锁。
+* 此模式是自动的 - 不*需要*用户干预即可控制无人机。
+* 遥控器开关可以用于更改任何无人机的飞行模式。
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 :::
 
