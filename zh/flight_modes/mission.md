@@ -130,21 +130,20 @@
   * PX4 解析上述消息，但不是必须要 *做*的。 例如，某些消息是针对飞机类型的。
   * 对于任务命令，PX4 通常不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
   * 并非所有消息/命令都通过 *QGroundControl* 公开。
-  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
+  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 支持 [ /src/modules/mavlink/mavlink_mission.cpp ](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) 中的 ` MavlinkMissionManager::parse_mavlink_mission_item` （在this git changelist </ 2>中生成的列表）。</p> 
     
-    :::note Please add an bug fix or PR if you find a missing/incorrect message.
-:::
-  
-  ## Inter-Waypoint Trajectory
-  
-  PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
-  
-  MC vehicles will change the *speed* when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
-  
-  Vehicles switch to the next waypoint as soon as they enter the acceptance radius.
-  
-  * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
-  * For FW the radius is defined by the "L1 distance". 
-    * The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
-    * By default, it's about 70 meters.
-    * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
+    :::note 如果发现缺失或错误的消息，请添加 bug 修复或者 PR。 :::</li> </ul> 
+    
+    ## 航点间轨迹
+    
+    PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。
+    
+    当MC 无人机接近或离开航点时，将基于[jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)的调试来更改*速度*。
+    
+    无人机在进入接受半径后立即切换到下一个航点。
+    
+    * 对于 MC，这个半径由 [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)来定义。
+    * 对于 FW，半径由“L1距离”定义。 
+      * L1 距离是根据两个参数计算的： [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) 和 [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD)，还有当前地速。
+      * 默认情况下，约 70米。
+      * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
