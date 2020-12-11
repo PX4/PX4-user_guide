@@ -36,10 +36,10 @@
   
   * 您可以通过在 *QGroundControl* 中选择它来手动更改当前任务命令。
     
-    :::note If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+    :::note 如果在任务中有一个*跳转到条目*命令，移动到另外一个条目将**不会**复位循环计数器。 也就意味着，如果将当前任务命令更改为 1，则不会“完全重启”任务。
 :::
   
-  * The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
+  * 该任务仅在飞机锁定或上传新任务时重置。
     
     :::tip To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle. :::</ol> 
   
