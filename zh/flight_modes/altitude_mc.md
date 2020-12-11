@@ -16,7 +16,7 @@
 
 ## 技术总结
 
-RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md) mode but with *altitude stabilization* (centered sticks level vehicle and hold it to fixed altitude).
+遥控/手动模式就像 [手动/自稳（MC）](../flight_modes/manual_stabilized_mc.md)模式，但具有*高度稳定* （摇杆中位能够使无人机水平并且保持固定高度）。
 
 * 回正摇杆（内带死区）： 
   * RPY摇杆使飞机水平。
@@ -26,12 +26,12 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_m
   * 油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
   * 偏航摇杆控制水平面上方的角度旋转速率。
 * 起飞 Takeoff: 
-  * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
+  * 降落时，如果将油门杆抬高至 62.5%（从油门杆最低开始的整个范围），无人机将起飞。
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+* 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
+* 通常使用气压计测量高度，在极端天气条件下可能会变的不准确。 Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 :::
 
 ## 参数
