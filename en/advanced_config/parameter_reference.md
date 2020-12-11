@@ -4164,7 +4164,7 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed max</p><p><strong>Comment:</strong> Maximum airspeed allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;">4 > 20 </td>
- <td style="vertical-align: top;">8.00</td>
+ <td style="vertical-align: top;">6.00</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
