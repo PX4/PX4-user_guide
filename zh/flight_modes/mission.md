@@ -80,7 +80,7 @@
   PX4 在任务模式下“接受”以下 MAVLink 任务命令（注意：下面列出注意事项）。 除非另有说明，否则该实现与 MAVLink 规范中定义的一样。
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
-    * *Param3* (飞越) 被忽略。 Flythrough is always enabled if *param 1* (time_inside) > 0.
+    * *Param3* （漫游） 被忽略。 如果 *param1* （time_inside）> 0，漫游始终使能。
   * [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM)
   * [MAV_CMD_NAV_LOITER_TIME](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME)
   * [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 
