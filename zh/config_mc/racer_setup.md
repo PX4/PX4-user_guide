@@ -29,23 +29,23 @@
 - 你可以让飞机进入定位状态，飞行器将会待在一个地方。 当你失去方向或者需要刹车时候，这会是有用的。 它通常也可以被用来安全降落。
 - 返航模式将可以使用，可以使用开关触发，或者是遥控器信号丢失或者低电量保护逻辑触发。
 - 当发生事故时，你将有飞机最后的位置，方便寻找飞机。
-- The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
+- 飞行记录将包含飞行路线追踪，这意味着你可以进行航行回顾（3D 模式）。 这可以帮助你改善特技飞行技巧。
 
 :::note
-During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
+在有挑战性的特技精巧操作中，GPS会在短时间内失效。 如果您在此期间切换到位置模式，高度模式将被使用，直到位置再次生效。
 :::
 
 ## 硬件安装
 
-The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
+以下各段叙述了在构建穿越机时的几个重要问题。 如果你需要完整的构建指南，你可以参考 [QAV-R 5"KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 构建日志。
 
-### Vibration Setup
+### 振动设置
 
-There are various mounting approaches to reduce vibrations. For example, the flight controller can be mounted with vibration dampening foam, or using [O-rings](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
+有各种安装方法来减少振动。 例如，飞行控制器可以安装震动抑制泡沫，或者使用 [O-圆环](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting)。
 
-While there is no single best method, you will typically have fewer problems with vibrations if you use high-quality components (frame, motors, props) as for example used in the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
+虽然没有单一最好的方法，但如果您使用高质量的组件，您会遇到更少的振动问题。 例如在 [QAV-R 5" 中使用的 KISS ESC 穿越机](../frames_multicopter/qav_r_5_kiss_esc_racer.md)。
 
-Make sure to use **balanced props**.
+确保使用 **均衡props**。
 
 ### Center of Gravity
 
