@@ -137,15 +137,14 @@
 
 #### 滤波器整定
 
-First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
+首先确保激活高速率日志文件记录(通过[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数)。 [飞行记录](../getting_started/flight_reporting.md) 将显示一个关于roll、pitch、yaw控制的FFT 图。
 
-:::warning
-Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
+:::警告 不要试图通过调整滤波器来完善一台受到较大振动的飞行器。 而是改善飞行器的硬件安装来改善性能。
 :::
 
-Filter tuning is best done by reviewing flight logs. You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
+最好通过检查飞行日志来进行滤波器调整。 您可以用不同的参数进行多次飞行，然后检查所有日志， 但确保在两者之间加锁电机，以便分隔日志文件。
 
-The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
+执行的飞行可以只是在 [手动/稳定模式](../flight_modes/manual_stabilized_mc.md) 中悬停，可以有一些到所有方向的roll和pitch，以及增加一些油门。 总持续时间不需要超过 30 秒。 为了更好地进行比较，所有测试中的操作都应该是相似的。
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
 Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
