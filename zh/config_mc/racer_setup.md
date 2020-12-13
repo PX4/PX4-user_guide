@@ -82,19 +82,19 @@
 
 ### 故障保护
 
-配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭发动机。 Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
+配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭发动机。 通过将飞机安装在测试台上不装桨叶时，解锁后关闭遥控器，测试遥控器信号丢失后的保护策略 。
 
-Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [arming switch](../config/safety.md#arming_switch). Test it and train to use it!
+请务必分配一个 [杀死开关](../config/safety.md#kill_switch) 或 [填充开关](../config/safety.md#arming_switch)。 测试并训练它来使用它！
 
-### PID Tuning
+### PX4 调试
 
 :::note
-Make sure to calibrate the ESCs before doing any tuning.
+请确保在进行任何调试之前已经完成了电调校准。
 :::
 
-At this point you should be ready for a first test flight.
+此刻，您应该准备好进行第一次测试飞行。
 
-If it goes well, do a first pass of [PID tuning](../config_mc/pid_tuning_guide_multicopter.md) (ignore the thrust curve settings). The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). This is important for the [filter](#filters) tuning. There will be a second PID tuning round later.
+如果进展顺利，请先通过 [PID 调整](../config_mc/pid_tuning_guide_multicopter.md) (忽略推力曲线设置)。 穿越机需要 **undertuned**，这意味着 **P** 和 **D** 增益应该设置得很低 - 因此没有可以被解释为噪声的来自控制器的震荡(默认增益可能已足够好)。 This is important for the [filter](#filters) tuning. There will be a second PID tuning round later.
 
 <span id="control_latency"></span>
 
