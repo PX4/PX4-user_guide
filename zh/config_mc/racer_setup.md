@@ -94,33 +94,33 @@
 
 此刻，您应该准备好进行第一次测试飞行。
 
-如果进展顺利，请先通过 [PID 调整](../config_mc/pid_tuning_guide_multicopter.md) (忽略推力曲线设置)。 穿越机需要 **undertuned**，这意味着 **P** 和 **D** 增益应该设置得很低 - 因此没有可以被解释为噪声的来自控制器的震荡(默认增益可能已足够好)。 This is important for the [filter](#filters) tuning. There will be a second PID tuning round later.
+如果进展顺利，请先通过 [PID 调整](../config_mc/pid_tuning_guide_multicopter.md) (忽略推力曲线设置)。 穿越机需要 **undertuned**，这意味着 **P** 和 **D** 增益应该设置得很低 - 因此没有可以被解释为噪声的来自控制器的震荡(默认增益可能已足够好)。 这对于 [滤镜](#filters) 调节非常重要。 稍后将进行第二轮PID调整。
 
 <span id="control_latency"></span>
 
-### Control Latency
+### 控制延迟
 
-The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
+*控制延迟* 是由于受到物理干扰造成的从指令发出到电机做出反应的延迟。
 
 :::tip
-It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+是尽可能减少控制延迟是 *关键的* — 较低的延迟允许您提高 **P** 增益, 这意味着更好的飞行性能。 即使在延迟中添加了一个毫秒，也是不同的。
 :::
 
-These are the factors that affect the latency:
+这些因素影响到延迟：
 
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
+- 软机架或软振动安装会增加延迟(它们充当了滤波器)。
+- 软件和传感器芯片中的低通滤波器在改善噪声与增加延迟之间形成均衡。
+- PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
+- IO chip (MAINpins) 添加了大约5.4ms的延迟相对于使用 AUX pins的延迟时间(这不适用于 *Pixracer* 或 *Omnibus F4*, 但适用于Pixhawk)。 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
+- 通过设置 [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) 到 0来启用单射以减少延迟。 
 
 <span id="filters"></span>
 
-### Filters
+### 滤波器
 
 <!-- TODO: this probably should be documented somewhere else --> As mentioned in the previous section, filters affect the control latency.
 
-This is the filtering pipeline for the controllers in PX4:
+这是控制器在 PX4 控制器中使用滤波器的流程：
 
 - On-chip DLPF for the gyro sensor. The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
 - Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
