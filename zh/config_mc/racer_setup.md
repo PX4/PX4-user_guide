@@ -122,20 +122,20 @@
 
 这是控制器在 PX4 控制器中使用滤波器的流程：
 
-- On-chip DLPF for the gyro sensor. The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
+- 芯片内的DLPF用于陀螺仪滤波。 截止频率设置到98赫兹，采样频率1千赫兹。
+- 低通滤波器用于陀螺数据。 它可以使用 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 参数进行配置。
+- D条目上单独的低通滤波器。 D项对噪声敏感，稍微增加延迟不会对减低性能。 出于这个原因，D项一个可单独配置的低通过过滤器， [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)。
+- 用于电机输出的限速滤波器 ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX))。 通常不使用。
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors. Noise on the motors has the following consequences:
+为了减少控制延迟，我们希望提高低通滤波器的截止频率。 然而，这是一种权衡，因为它也会增加信号的噪音，并带入电机。 发动机上的噪音具有以下后果：
 
-- Motors and ESCs can get hot, to the point where they get damaged.
-- Reduced flight time because the motors continuously change their speed.
-- Visible random small twitches.
+- 电机和电调会发热，可能达到损坏程度。
+- 飞行时间减少，因为电机不断改变其速度。
+- 可见的随机小抽动。
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+最佳过滤器设置取决于穿越机本身。 默认设置是保守的，这样它们就可以在较低质量的飞行棋配置上。
 
-#### Filter Tuning
+#### 滤波器整定
 
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
