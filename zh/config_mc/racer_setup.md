@@ -22,13 +22,13 @@
 如果板载自带了磁罗盘，不应该使用他（小穿越机尤其容易受到较强的电磁干扰）。
 :::
 
-Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
+穿越机通常没有GPS，因为它会增加重量且再发生撞击时候更容易被损坏（一个GPS+外部磁罗盘需要被放置在GPS杆上来避免大电流对磁罗盘的影响，因此也就意味着它更容易被损坏）。
 
-There are however some benefits in adding GPS, particularly for beginners:
+但是增加GPS也有一些好处，尤其是对于初学者。
 
-- You can go into position hold and the vehicle will just stay in one place. This is handy if you lose the orientation or need a brake. It can also be used to land safely.
-- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
-- You will have the last position when it crashes.
+- 你可以让飞机进入定位状态，飞行器将会待在一个地方。 当你失去方向或者需要刹车时候，这会是有用的。 它通常也可以被用来安全降落。
+- 返航模式将可以使用，可以使用开关触发，或者是遥控器信号丢失或者低电量保护逻辑触发。
+- 当发生事故时，你将有飞机最后的位置，方便寻找飞机。
 - The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
 
 :::note
