@@ -2,14 +2,14 @@
 
 本页面描述了：如何设置和配置一台穿越机来获取良好的性能（尤其对于特技模式）
 
-Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
+请注意穿越机是经过特殊设计的动力强劲的快速飞行器。 你应该是有一定经验的使用者，或者让有经验的使用者帮助你。
 
 :::tip
-Many things described here can also be applied to improve the flight performance of other types of multicopters.
+这里所述的许多知识可以用来改善其他类型多旋翼飞行器的飞行性能。
 :::
 
 :::note
-A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+穿越机通常会少一些传感器（比如：GPS）。 As a result, fewer failsafe options are available.
 :::
 
 ## Build Options
