@@ -61,28 +61,28 @@
 
 ## 软件设置
 
-在搭建好穿越机硬件后, 你需要配置软件。 Go through the [Basic Configuration Guide](../config/README.md) and choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which already sets some racer-specific parameters.
+在搭建好穿越机硬件后, 你需要配置软件。 跳过 [基本配置指南](../config/README.md) 并选择 [通用的 250 穿越机](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) 机架，这些机架已经设置了一些针对穿越机的参数。
 
-These parameters are important:
+这些参数很重要：
 
-- Enable One-Shot by setting [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0.
-- Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
-- The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
-- Disable RC input filtering by setting [RC_FLT_CUTOFF](../advanced_config/parameter_reference.md#RC_FLT_CUTOFF) to 0.
+- 通过设置 [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) 到 0来启用单射。
+- 设置手动/稳定模式的最大滚动、pitch-和 yaw 速率为 所希望： [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 和 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX) 最大倾斜角度是用 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX) 配置的。
+- 最小推力 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) 应该设置为 0。
+- 设置 [RC_FLT_CUTOFF](../advanced_config/parameter_reference.md#RC_FLT_CUTOFF) 到 0，禁用RC 输入过滤。
 
 ### 估计器
 
-If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
+如果您使用GPS，您可以跳过此部分，使用默认估算。 否则，您应该切换到Q姿态估计器，它可以在没有磁罗盘或气压计的情况下工作。
 
-To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
+若要选择它，请设置 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 至 1, 并更改 以下参数：
 
-- Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to 0 if the system does not have a magnetometer.
-- Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to 0 if the system does not have a barometer.
-- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. You can tune these later if you wish.
+- 如果系统没有磁罗盘，设置 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) 至 0。
+- 如果系统没有气压计，设置 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) 到 0。
+- 配置 Q 估算器：设置 [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) 到 0, [ATT_W_AC](../advanced_config/parameter_reference.md#ATT_W_ACC) 到 0.4 和 [ATT_W_GYRO_BIA](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) 到 0。 如果您愿意，您可以稍后调整这些。
 
-### Failsafe
+### 故障保护
 
-Configure [RC loss and low battery failsafe](../config/safety.md). If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors. Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
+配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭发动机。 Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
 Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [arming switch](../config/safety.md#arming_switch). Test it and train to use it!
 
