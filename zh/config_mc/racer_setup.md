@@ -118,7 +118,7 @@
 
 ### 滤波器
 
-<!-- TODO: this probably should be documented somewhere else --> As mentioned in the previous section, filters affect the control latency.
+<!-- TODO: this probably should be documented somewhere else --> 如上一节所述，滤波器会影响控制延迟。
 
 这是控制器在 PX4 控制器中使用滤波器的流程：
 
@@ -146,21 +146,21 @@
 
 执行的飞行可以只是在 [手动/稳定模式](../flight_modes/manual_stabilized_mc.md) 中悬停，可以有一些到所有方向的roll和pitch，以及增加一些油门。 总持续时间不需要超过 30 秒。 为了更好地进行比较，所有测试中的操作都应该是相似的。
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
-Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
+首先调整陀螺仪的滤波器 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) ，方法是在使用一个较低的D项滤波值时以十赫兹的步长增加它([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)。  
+上传日志到 https://logs.px4.io 并比较 *执行器控制 FFT* 图。 在噪声开始显著增加之前设置截止频率(对于60赫兹周围和以上的频率)。 然后以同样的方式调整D项滤波器(`IMU_DGYRO_CUTOFF`)。
 
-Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
+下面是三种不同滤波器设置值的示例(40Hz, 70Hz, 90Hz)。 在90赫兹，一般噪音水平开始增加（尤其是roll），因此70赫兹的截断频率是安全的。 ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
 :::note
-The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration though.
+飞行记录图不能在不同的飞行器之间进行比较，因为y轴尺度可能不同。 在同一台飞行器上，它是一贯的，独立于飞行时间的。
 :::
 
-### PID Tuning (Second Round)
+### PID 调整 (第二轮)
 
-Now do a second round of PID tuning, this time as tight as possible, and also tune the thrust curve.
+现在进行第二轮PID调整，这次尽可能紧凑，同时调整推力曲线。
 
-### Airmode
+### 飞行模式
 
-After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
+在你已经验证了飞行器在高低油门下都飞行的很好后，你可以通过[MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)参数使能[airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode)。 这个功能可以确保飞行器是可控的，并且在低油门时追踪角速度设置。
 
-Happy flipping :)
+快乐翻飞 :)
