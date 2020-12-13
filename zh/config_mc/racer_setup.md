@@ -9,17 +9,17 @@
 :::
 
 :::note
-穿越机通常会少一些传感器（比如：GPS）。 As a result, fewer failsafe options are available.
+穿越机通常会少一些传感器（比如：GPS）。 因此，他的保护性选项有所缺失。
 :::
 
-## Build Options
+## 构建选项
 
-A racer usually omits some sensors.
+穿越机通常会少一些传感器。
 
-The minimal configuration is to use only a gyro and accelerometer sensor.
+最小配置是只使用陀螺仪和加速度计。
 
 :::note
-If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+如果板载自带了磁罗盘，不应该使用他（小穿越机尤其容易受到较强的电磁干扰）。
 :::
 
 Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
