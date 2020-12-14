@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+飞机遵守 MAVLink 提供的位置，速度或姿态设定值。 设定值可以由机载计算机上运行的 MAVLink API（例如 [MAVSDK](https://mavsdk.mavlink.io/) 或 [MAVROS](https://github.com/mavlink/mavros)）提供（通常通过串口或 wifi 连接）。
 
 :::tip
 Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
