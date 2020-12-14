@@ -24,11 +24,11 @@ Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink
 
 其他操作, 如起飞、降落、返航，最好使用适当的模式来处理。 像上传、下载任务这样的操作可以在任何模式下执行。
 
-在进入该模式之前，无人机必须收到设定值数据流，并且保持在该模式下（如果消息速率降至 2Hz 以下，无人机将停止）。 In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
+在进入该模式之前，无人机必须收到设定值数据流，并且保持在该模式下（如果消息速率降至 2Hz 以下，无人机将停止）。 为了在此模式下保持位置，必须向无人机提供一个包含当前位置设定值的数据流。
 
-Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算机或 GCS）。 如果连接丢失，在超时 ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 后，无人机将尝试降落或执行其他故障失效保护操作。 该动作定义在参数 [COM_OBL_ACT](#COM_OBL_ACT) 和 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 中。
 
-## Supported Messages
+## 支持的消息
 
 ### Copter/VTOL
 
