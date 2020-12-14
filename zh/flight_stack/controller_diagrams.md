@@ -10,16 +10,16 @@
         The easiest way to generate the diagrams and edit them is to copy the code and paste it an Overleaf (www.overleaf.com/) document to see the output.
 -->
 
-## 多旋翼的控制结构
+## 多旋翼的控制架构
 
 ![多旋翼位置控制器图解](../../assets/diagrams/mc_control_arch.jpg)
 
-* 状态估计来自[EKF2](../tutorials/tuning_the_ecl_ekf.md)模块。
-* 这是一个标准的位置-速度级联控制回路。
+* 这是一个标准的级联控制架构。
+* 控制器采用P和PID控制的组合方式。
 * 状态估计来自[EKF2](../advanced_config/tuning_the_ecl_ekf.md)模块。
-* 在某些模式，外环(位置回路) 可能会被绕过 (图中在外环之后增加一个多路开关来表示)。 只有在位置保持模式或某轴无速度请求时，位置回路才会发挥作用。
+* 在某些模式下，外环(位置回路) 可能会被绕过 (在图中表示为外环之后增加一个多路开关)。 只有在位置保持模式或某轴无速度请求时，位置回路才会发挥作用。
 
-### 空速缩放补偿
+### 多旋翼角速率控制器
 
 ![固定翼姿态控制器图解](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
