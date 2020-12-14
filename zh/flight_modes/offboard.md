@@ -13,16 +13,16 @@
 * 此模式需要位置或位/姿信息 - 例如 GPS、光流、视觉惯性里程计、mocap 等。
 * 除了更改模式外， 禁止遥控器控制。
 * 使用此模式前必须先解锁。
-* The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
-* The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
-* Not all co-ordinate frames and field values allowed by MAVLink are supported.
+* 在启用此模式前，无人机必须已经收到**目标设定值数据流（> 2Hz）**。
+* 如果未以 > 2Hz的速率接收到目标设定值，则无人机将退出该模式。
+* 并非所有坐标帧和字段值 MAVLink都支持。
 :::
 
 ## 描述
 
-Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink messages (more may be supported in future).
+Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink 消息的一个有限子集（未来将支持更多）。
 
-Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+其他操作, 如起飞、降落、返航，最好使用适当的模式来处理。 像上传、下载任务这样的操作可以在任何模式下执行。
 
 A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
 
