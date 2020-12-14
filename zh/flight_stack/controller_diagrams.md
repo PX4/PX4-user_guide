@@ -24,17 +24,17 @@
 ![固定翼姿态控制器图解](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
 * 采用K-PID控制器。 详情请参阅 [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) 文件。
-* The integral authority is limited to prevent wind up.
+* 为了防止积分饱和，积分环节的权重是受限的，
 * 在微分路径上采用低通滤波器（LPF）来降低噪声。
 * 输出量是受限的，通常的阈值是 -1 到 1。
 
-### Multicopter Attitude Controller
+### 多旋翼姿态控制器
 
 ![MC Angle Control Diagram](../../assets/diagrams/mc_angle_diagram.jpg)
 
-* The attitude controller makes use of [quaternions](https://en.wikipedia.org/wiki/Quaternion).
-* The controller is implemented from this [article](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf).
-* When tuning this controller, the only parameter of concern is the P gain.
+* 姿态控制器使用 [四元数](https://en.wikipedia.org/wiki/Quaternion)。
+* 姿态控制器是以这篇 [文章](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf)为基础实现的
+* 当你调整这个控制器是，唯一需要考虑的参数是增益 P。
 * The rate command is saturated.
 
 ### Multicopter Velocity Controller
