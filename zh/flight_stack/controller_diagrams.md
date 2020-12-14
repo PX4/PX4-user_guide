@@ -34,8 +34,8 @@
 
 * 姿态控制器使用 [四元数](https://en.wikipedia.org/wiki/Quaternion)。
 * 姿态控制器是以这篇 [文章](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf)为基础实现的
-* 当你调整这个控制器是，唯一需要考虑的参数是增益 P。
-* 输出的角速率命令饱和。
+* 当你调整这个控制器时，唯一需要考虑的参数是增益 P。
+* 输出的角速率命令是饱和的。
 
 ### 多旋翼速度控制器
 
