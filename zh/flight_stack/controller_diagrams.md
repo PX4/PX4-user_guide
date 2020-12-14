@@ -85,13 +85,13 @@ TECS 提供了一种解决方案，即根据能量而不是初始设定值来反
 
 ![Energy balance loop](../../assets/diagrams/TECS_pitch.jpg)
 
-$$\ell$$ 代表滚转力矩，$$b$$ 代表飞机翼展，$$S$$ 代表参考面。
+一架飞行器的总能量包括动能和势能。
 
-无量纲的滚转力矩系数 $$C_\ell$$ 可以通过通过以下几个系数建模得到：副翼效率系数 $$C_{\ell_{\delta_a}}$$，滚转阻尼系数 $$C_{\ell_p}$$ 和二面角系数 $$C_{\ell_\beta}$$。
+$$E_T = \frac{1}{2} m V_T^2 + m g h$$
 
-$$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$,
+对时间求微分，就可以得到能量的变化率：
 
-$$\beta$$ 代表侧滑角，$$p$$ 代表滚转角速率，$$\delta_a$$ 代表副翼偏转角。
+$$\dot{E_T} = m V_T \dot{V_T} + m g \dot{h}$$
 
 假设一架飞机对称 ($$C_{\ell_0} = 0$$) 且无侧滑 ($$\beta = 0$$) ，上面的方程就可以简化到只有滚转率阻尼和副翼产生的滚转力矩。
 
