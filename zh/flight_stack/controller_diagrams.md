@@ -42,15 +42,15 @@
 ![MC Velocity Control Diagram](../../assets/diagrams/mc_velocity_diagram.jpg)
 
 * 采用PID控制器来稳定速度。 该控制器输出的命令是加速度。
-* 积分器包括了一个采用钳制方法的反复位饱和
-* The commanded acceleration is saturated.
+* 积分器包括了一个采用钳制方法的反复位饱和措施。
+* 输出的加速度命令是饱和的。
 
 ### 多旋翼位置控制器
 
 ![MC Position Control Diagram](../../assets/diagrams/mc_position_diagram.jpg)
 
-* Simple P controller that commands a velocity.
-* The commanded velocity is saturated to keep the velocity in certain limits.
+* 采用简单的P控制器来控制速度。
+* 输出的速度命令是饱和的，目的是保持一定的速度限制。
 
 #### 静态力矩 (PI) 缩放补偿
 
@@ -60,7 +60,7 @@
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
 
-## 固定翼姿态控制器
+## 固定翼位置控制器
 
 ### 总能量控制系统
 通过总能量控制系统(TECS)，PX4可以持续得对固定翼飞行器的真空速和高度进行控制。 这其中的代码通过一个用库（这个库是用于固定翼位置控制模块）作为接口。
