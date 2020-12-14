@@ -93,25 +93,25 @@ $$E_T = \frac{1}{2} m V_T^2 + m g h$$
 
 $$\dot{E_T} = m V_T \dot{V_T} + m g \dot{h}$$
 
-假设一架飞机对称 ($$C_{\ell_0} = 0$$) 且无侧滑 ($$\beta = 0$$) ，上面的方程就可以简化到只有滚转率阻尼和副翼产生的滚转力矩。
+通过上式，我们可以定义能量变化率：
 
 $$\dot{E} = \frac{\dot{E_T}}{mgV_T}  = \frac{\dot{V_T}}{g} + \frac{\dot{h}}{V_T} = \frac{\dot{V_T}}{g} + sin(\gamma)$$
 
-where $\gamma{}$ is the flight plan angle. For small $\gamma{}$ we can approximate this as:
+其中$\gamma{}$是飞行器纵平面的速度角。 当$\gamma{}$很小时，我们可以近似认为sin（$\gamma{}$）=$\gamma{}$，所以可以得到下式：
 
-在滚转角速率为0 ($$p = 0$$) 的情况下, 阻尼项将会消失，并得到一个瞬时常量
+$$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
-$$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$.
+列出飞行器的动力学方程，我们可以得到下式：
 
 $$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-where T and D are the thrust and drag forces. In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
+这里面的 T 和 D 分别是飞行器的推力和受到的阻力。 在水平飞行中，推力和阻力应该相等，所以推力的变化会导致下面式子：
 
-观察上面的公式可以知道，第一项是个常值，第二项则取决于空气密度和真实空速的平方。
+$$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-As can be seen, $\Delta T{}$ is proportional to $\dot{E}{}$, and thus the thrust setpoint should be used for total energy control.
+正如可以看到的，$\Delta T{}$ 成正比 $\dot{E}{}$，因此推力设置值应该用于控制总能量。
 
-Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as:
+另一方面，对升降舵的控制是能量守恒的，因此用来交换动力能源，反之亦然。控制升降舵可以将势能转换为动能，反之亦然。 为此，特定的能量平衡变化率定义为：
 
 $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
