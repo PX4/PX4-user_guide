@@ -23,10 +23,10 @@
 
 ![固定翼姿态控制器图解](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
-* K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
+* 采用K-PID控制器。 详情请参阅 [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) 文件。
 * The integral authority is limited to prevent wind up.
-* A Low Pass Filter (LPF) is used on the derivative path to reduce noise.
-* The outputs are limited, usually at -1 and 1.
+* 在微分路径上采用低通滤波器（LPF）来降低噪声。
+* 输出量是受限的，通常的阈值是 -1 到 1。
 
 ### Multicopter Attitude Controller
 
