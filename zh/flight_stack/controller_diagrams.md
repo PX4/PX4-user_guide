@@ -62,18 +62,18 @@ Request access from dev team. -->
 
 ## 固定翼位置控制器
 
-### 总能量控制系统
+### 总能量控制系统(TECS)
 通过总能量控制系统(TECS)，PX4可以同时对固定翼飞行器的空速和高度进行控制。 这其中的代码通过一个用库（这个库是用于固定翼位置控制模块）作为接口。
 
 ![总能量控制系统](../../assets/diagrams/tecs_in_context.svg)
 
-从上面的图表可以看出，总能量控制系统接受空速和高度需求量，然后输出油门和俯仰角控制量。 这两个输出控制量输入到固定翼的姿态控制器（姿态控制器实施姿态控制） 因此，总能量控制系统是直接受到俯仰控制逻辑环的性能影响 对飞行器俯仰角度的预测不准往往会导致对空速和高度的预测不准。
+从上面的图表可以看出，TECS 接受空速和高度需求量，然后输出油门和俯仰角控制量。 这两个输出控制量输入到固定翼的姿态控制器（姿态控制器实施姿态控制） 因此，TECS 是直接受到俯仰控制逻辑环的性能影响。 对飞行器俯仰角度的预测不准往往会导致对空速和高度的预测不准。
 
-在试图调试总能量控制系统前，请一定要调试好姿态控制器。 增加飞行器的俯仰角度不仅会导致高度上升还会导致空速下降。
+在试图调试总能量控制系统 TECS 前，请一定要调试好姿态控制器。 增加飞行器的俯仰角度不仅会导致高度上升还会导致空速下降。
 
 同时控制飞机的空速和高度不是一件简单的事。 增加飞行器的俯仰角会导致高度上升，同时也会导致空速下降。 推力（通过油门控制）增加整个飞机的总能量。 因此，俯仰角和油门两个输入量都会对空速和高度产生影响，从而使控制问题变得难了。
 
-TECS offers a solution by respresenting the problem in terms of energies rather than the original setpoints. The total energy of an aircraft is the sum of kinetic and potential energy. Thrust (via throttle control) increases the total energy state of the aircraft. A given total energy state can be achieved by arbitrary combinations of potential and kinetic energies. In other words, flying at a high altitude but at a slow speed can be equivalent to flying at a low altitude but at a faster airspeed in a total energy sense. We refer to this as the specific energy balance and it is calculated from the current altitude and true airspeed setpoint. The specific energy balance is controlled via the aircraft pitch angle. An increase in pitch angle transfers kinetic to potential energy and a negative pitch angle vice versa. The control problem was therefore decoupled by transforming the initial setpoints into energy quantities which can be controlled independently. We use thrust to regulate the specific total energy of the vehicle and pitch maintain a specific balance between potential (height) and kinetic (speed) energy.
+TECS 提供了一种解决方案，即根据能量而不是初始设定值来反映问题。 一架飞行器的总能量是飞行器动能和势能之和。 推力（通过油门控制）可以增加飞机的总能量。 一个给定的总能量状态可以通过势能和动能的任意组合来实现。 换句话说，飞行器在高海拔以低空速飞行和在低海拔以高空速飞行时的总能量是等价的。 我们称这种情况叫做比能量平衡，它是根据当前高度和真实空速设定值计算的。 可以通过控制俯仰角来控制飞行器的比能量平衡。 俯仰角增加将动能转变为势能，俯仰角减少则情况相反。 这样，通过将初始空速和海拔设定值转化为能量大小（空速和海拔存在耦合，而能量大小可以独立控制），就可以把控制问题解耦。 我们利用油门调节飞行器的特定总能量，利用俯仰角来维持势能（高度）和动能（真空速）的特定平衡点。
 
 
 #### 角速率回路 (FF) 缩放补偿
