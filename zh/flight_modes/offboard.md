@@ -30,15 +30,15 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
 
 ## 支持的消息
 
-### Copter/VTOL
+### 直升机/垂直起降
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `x`, `y`, `z`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * Acceleration setpoint (only `afx`, `afy`, `afz`)
+    * 位置设置值 （仅 `x`，`y`，`z`）
+    * 速度设定值（仅 `vx`，`yy`，`vz`）
+    * 加速度设定值（仅 `afx`，`afy`，`afz`）
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
     * Position setpoint **and** velocity setpoint **and** acceleration (the acceleration setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
   * * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
