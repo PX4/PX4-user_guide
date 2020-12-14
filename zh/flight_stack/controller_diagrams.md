@@ -2,7 +2,7 @@
 
 本节包括PX4主要控制器的图解。
 
-图解使用标准的 [PX4 符号](../contribute/notation.md) (附有详细图例注解)。
+下面的图解使用标准 [PX4 注释](../contribute/notation.md) (附有详细图例注解)。
 
 
 <!--    The diagrams were created with LaTeX / TikZ.
@@ -10,7 +10,7 @@
         The easiest way to generate the diagrams and edit them is to copy the code and paste it an Overleaf (www.overleaf.com/) document to see the output.
 -->
 
-## 多旋翼位置控制器
+## 多旋翼的控制结构
 
 ![多旋翼位置控制器图解](../../assets/diagrams/mc_control_arch.jpg)
 
