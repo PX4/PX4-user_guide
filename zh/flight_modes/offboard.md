@@ -47,11 +47,11 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
   
   * 支持以下输入组合： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `lat_int`, `lon_int`, `alt`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * *Thrust* setpoint (only `afx`, `afy`, `afz`)
+    * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
+    * 速度设定值（仅`vx`，`yy`，`vz`）
+    * *推力*设定值（仅`afx`，`afy`，`afz`）
     
-    :::note Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+    :::note 映射加速度设定值以创建正常的推力设定值（即不支持加速度设定值）。
 :::
     
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
