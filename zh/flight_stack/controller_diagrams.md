@@ -35,14 +35,14 @@
 * 姿态控制器使用 [四元数](https://en.wikipedia.org/wiki/Quaternion)。
 * 姿态控制器是以这篇 [文章](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf)为基础实现的
 * 当你调整这个控制器是，唯一需要考虑的参数是增益 P。
-* The rate command is saturated.
+* 输出的角速率命令饱和。
 
-### Multicopter Velocity Controller
+### 多旋翼速度控制器
 
 ![MC Velocity Control Diagram](../../assets/diagrams/mc_velocity_diagram.jpg)
 
-* PID controller to stabilise velocity. Commands an acceleration.
-* The integrator includes an anti-reset windup (ARW) using a clamping method.
+* 采用PID控制器来稳定速度。 该控制器输出的命令是加速度。
+* 积分器包括了一个采用钳制方法的反复位饱和
 * The commanded acceleration is saturated.
 
 ### 多旋翼位置控制器
