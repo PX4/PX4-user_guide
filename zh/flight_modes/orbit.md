@@ -1,14 +1,14 @@
-# 环绕模式 （多旋翼）
+# 轨道模式 （多旋翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如 GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*轨迹* 引导飞行模式允许控制多旋翼无人机（或者 多旋翼模式下的 VTOL）绕圈飞行，[默认](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) 偏航，使其时钟朝向中心。
+*轨道* 引导飞行模式允许控制多旋翼无人机（或者 多旋翼模式下的 VTOL）绕圈飞行，[默认](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) 偏航，使其时钟朝向中心。<0>
 
-![Orbit Mode - MC](../../assets/flying/orbit.jpg)
+![轨道模式 - 多旋翼](../../assets/flying/orbit.jpg)
 
 *需要* *QGroundControl* （或其他兼容的 GCS 或 MAVLink API）来使能该模式，并且设置轨迹中心位置，初始半径和高度。 一旦启用后，无人机将尽快飞到控制的圆周轨迹上的最近点，并在规划的圆周上朝中心方向缓慢（1 m/s）顺时针旋转。
 
-关于如何启动绕圈模式的说明在这里：[FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) （*QGroundControl* 指南）。
+关于如何启动轨道模式的说明在这里：[FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) （*QGroundControl* 指南）。
 
 :::note
 使用遥控是*可选的*。 如果没有遥控，则环绕模式如上所述。 无法使用遥控来启动该模式（如果使用遥控切换该模式，无人机会处于空闲状态）。
@@ -27,7 +27,7 @@
 
 下图直观的显示了模式行为（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
-![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
+![轨道模式 - 多旋翼](../../assets/flight_modes/orbit_MC.png)
 
 切换到其他飞行模式（使用遥控或 QGC 地面站）可以停止此模式。
 
@@ -45,5 +45,5 @@
 
 环绕模式使用以下 MAVLink 命令：
 
-- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Start an orbit with specified center point, radius, direction, altitude, speed and [yaw direction](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) (vehicle defaults to faceing centre of orbit).
-- [ORBIT_EXECUTION_STATUS](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - Orbit status emitted during orbit to update GCS of current orbit parameters (these may be changed by the RC controller).
+- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - 启动一个指定中心点，半径，方向，高度，速度和[偏航方向](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR)的轨道（无人机默认朝向轨道中心）。
+- [ORBIT_EXECUTION_STATUS](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - 在轨道模式发出的轨道状态，以更新当前轨道参数的 GCS（可以由遥控改这些参数）。
