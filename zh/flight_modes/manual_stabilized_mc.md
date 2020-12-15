@@ -11,7 +11,7 @@
 
 一旦释放摇杆，它们将会返回中心死区。 一旦横滚和俯仰摇杆居中，多旋翼无人机将平稳并停止运动。 然后飞机将悬停在适当的位置/保持高度 - 前提是平衡得当，油门设置适当（参见[下面](#params)），并且没有施加任何外力（例如风）。 飞行器将朝着任何风的方向漂移，您必须控制油门以保持高度。
 
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
+![多旋翼手动飞行](../../assets/flight_modes/manual_stabilized_MC.png)
 
 ## 技术描述
 
