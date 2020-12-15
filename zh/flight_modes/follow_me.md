@@ -32,9 +32,9 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 
 ## 配合QGroundControl使用跟随模式
 
-*Follow Me* mode is supported by *QGroundControl* on ground station hardware that has a GPS module. The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
+*QGroundControl* 在拥有 GPS 模块的地面站硬件上支持*跟随*模式。 推荐的配置是一个能使用 USB OTG 的安卓设备，配备两个数传。
 
-To setup *Follow Me* mode: - Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios). - Disable sleep-mode on your Android device: - This setting can usually be found under: **Settings \> Display**. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
+配置 *跟随* 模式： - 将一个数传连接到安卓设备，另外一个连接到无人机（这使得位置信息可以在两个数传之间中继）。 - 禁用安卓设备的休眠模式： - 这个设置通常可以在 **设置 \> 显示** 中找到。 - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
 
 At this point you should be able to start moving and the copter should follow your movements.
 
