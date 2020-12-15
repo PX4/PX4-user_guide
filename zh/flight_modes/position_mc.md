@@ -5,7 +5,7 @@
 *位置模式*是一种易于驾驶的遥控模式，其中横滚和俯仰摇杆控制左右和前后方向（相对于无人机的“前面”）对地速度，油门控制上升-下降的速度。 当摇杆释放/居中时，无人机将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。
 
 :::tip
-位置模式对于新手是最安全的手动模式。 Unlike [Altitude](../flight_modes/altitude_mc.md) and [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+位置模式对于新手是最安全的手动模式。 不同于[高度模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
 :::
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
