@@ -17,7 +17,7 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 该模式支持具有 GPS 模块的 安卓平板上的 *QGroundControl* 和 [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html)。
 
 :::note
-* 该模式需要 GPS。 * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
+* 该模式需要 GPS。 * 该模式目前仅支持多旋翼。 * 跟随的目标必须能够提供位置信息。 * *QGroundControl* 仅在有 GPS 的安卓设备上支持该模式。
 :::
 
 {% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
@@ -25,10 +25,10 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 ## 安全须知
 
 :::warning
-**Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
+**跟随模式**没有实现任何类型的避障功能，使用此模式是必须格外小心。
 :::
 
-The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off). - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
+应遵守以下飞行预防措施： - 跟随模式只能再不受树木，电线，房屋等遮挡的广阔区域中使用。 - 将 [跟随高度](#NAV_MIN_FT_HT) 设置为远高于周围障碍物的值。 By *default* this is 8 metres/26 feet above the home (arming) position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off). - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
 
 ## 配合QGroundControl使用跟随模式
 
