@@ -2,21 +2,20 @@
 
 [<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*手动/稳定*模式在当遥控杆居中时可稳定多旋翼飞行器。 要手动移动/飞行飞机，您可以移动杆使其偏离居中位置。
+*手动/自稳* 模式在当遥控摇杆居中时可稳定多旋翼无人机。 要手动飞无人机，您可以移动摇杆使其偏离居中位置。
 
-:::note
-This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+如果设置 *手动* 或 *自稳* 模式，则启用该多旋翼模式。
 :::
 
-When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+在手动控制下，横滚和俯仰摇杆控制无人机围绕各个轴的*角度*（姿态），横滚摇杆控制水平面上方的旋转速率，油门控制高度 / 速度。
 
-As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+一旦释放摇杆，它们将会返回中心死区。 一旦横滚和俯仰摇杆居中，多旋翼无人机将平稳并停止运动。 然后飞机将悬停在适当的位置/保持高度 - 前提是平衡得当，油门设置适当（参见[下面](#params)），并且没有施加任何外力（例如风）。 飞行器将朝着任何风的方向漂移，您必须控制油门以保持高度。
 
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
 
 ## 技术描述
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新调节（参见[下面的](#params)）并直接传递到输出混控器。 The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
 
 :::note
 
