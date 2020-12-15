@@ -98,28 +98,28 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
         
         * 4096：起飞设定值。
         * 8192：降落设定值。
-        * 12288: Loiter setpoint (fly a circle centred on setpoint).
-        * 16384: Idle setpoint (zero throttle, zero roll / pitch).
-  * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+        * 12288：悬停设定值（以设定值为中心绕圈飞行）。
+        * 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
+  * PX4 支持以下 `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
-  * The following input combinations are supported: 
-    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
-    * Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
+  * 支持以下输入组合： 
+    * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的姿态和方向（`SET_ATTITUDE_TARGET.q`）。
+    * 带有推力设定值（`SET_ATTITUDE_TARGET.thrust`）的机身速率（`SET_ATTITUDE_TARGET` `.body_roll_rate` ，`.body_pitch_rate`，`.body_yaw_rate`）。
 
 <!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
 See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/PX4-Autopilot/pull/12311 -->
 
-### Rover
+### 无人车
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   
-  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合(在 `type_mask` 中)： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `x`, `y`, `z`)
+    * 位置设置值 （仅 `x`，`y`，`z`）
       
-      * Specify the *type* of the setpoint in `type_mask`:
+      * 在 `type_mask` 中指定 *类型* 的设置点类型：
       
       :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
       
