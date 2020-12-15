@@ -4,10 +4,10 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*手动模式*发送遥控杆指令输入直接发送到输出混频器进行全手动控制。
+*手动模式*发送遥控器摇杆输入直接混控器输出进行全手动控制。
 
 :::tip
-This is the hardest mode to fly, because nothing is stabilized. Unlike [Acro Mode](../flight_modes/acro_fw.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction.
+这是最难飞行的模式，因为什么都不稳定。 Unlike [Acro Mode](../flight_modes/acro_fw.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction.
 :::
 
 :::note
