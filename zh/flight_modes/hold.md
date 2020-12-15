@@ -2,16 +2,16 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*保持*飞行模式（也就是“留待”模式）使飞机停止运动并保持其当前的GPS位置和高度（多旋翼将悬停在GPS位置，而固定翼飞机将围绕它旋转）。
+*保持*飞行模式（也就是“留待”模式）使飞机停止运动并保持其当前的 GPS 位置和高度（多旋翼将悬停在 GPS 位置，而固定翼将围绕它旋转）。
 
 :::tip
-*Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+*保持模式* 可以用于暂停任务或帮助您在紧急情况下重新获得对飞机的控制权。 它通常通过预编程开关激活。
 :::
 
 :::note
 
-* This mode requires GPS.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
+* 该模式需要 GPS。
+* 该模式是自动的 - 不 *需要* 用户干预即可控制无人机。
 * RC control switches can be used to change flight modes on any vehicle.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 :::
