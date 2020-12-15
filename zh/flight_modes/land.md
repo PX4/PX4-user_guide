@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位估计（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*着陆*飞行模式使飞机降落在指定点。 After landing, vehicles will disarm after a short timeout (by default).
+*着陆*飞行模式使飞机降落在指定点。 降落后，无人机将会在一小段时间后上锁（默认情况下）。
 
 :::note
 
