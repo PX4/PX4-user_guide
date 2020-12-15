@@ -44,16 +44,16 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 
 可以使用以下参数配置跟随的行为：
 
-| 参数                                                                                                  | 描述                                                                                                                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | 无人机 / 地面站在*水平* （x，y）平面上分离。最小允许间距为 1 米。默认距离为 8 米（约 26 英尺）。                                                                                                                                                                                   |
-| <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).                                                             |
-| <span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS)         | Flight position relative to the user when follow-me mode is active.  
-- `0` = Follow from the front right.  
-- `1` = Follow from behind or trail the user (Default).  
-- `2` = Follow from the front.  
-- `3` = Follow from the front left. |
+| 参数                                                                                                  | 描述                                                                                                       |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | 无人机 / 地面站在*水平* （x，y）平面上分离。最小允许间距为 1 米。默认距离为 8 米（约 26 英尺）。                                                |
+| <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | 无人机跟随高度。 注意，此高度*相对起始/解锁位置*是固定的（不是目标无人机）。默认最小高度是 8 米（约 26 英尺）。                                            |
+| <span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS)         | 当跟随模式处于激活状态，相对于用户的飞行位置。  
+- `0` = 从右前方跟随。  
+- `1` = 从用户后方或者尾部跟随（默认）。  
+- `2` = 从正前方跟随。  
+- `3` = 从左前方跟随。 |
 
 ## 已知的问题
 
-- The SiK 915 Mhz [telemetry radio](../telemetry/sik_radio.md) is known to interfere with the GPS signal being received by some Android devices. Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
+- 已知 SiK 915 Mhz [数传](../telemetry/sik_radio.md) 会干扰某些安卓设备的 GPS 信号接收。 保持数传和安卓设备之间尽可能远的距离，避免使用跟随模式时受到干扰。
