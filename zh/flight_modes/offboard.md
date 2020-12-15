@@ -153,8 +153,8 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | 在丢失Offboard连接时的等待超时 (以秒为单位), 然后将触发offboard丢失的故障保护措施 (`COM_OBL_ACT` 和 `COM_OBL_RC_ACT`)                                                                                                         |
-| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | *没有* 连接到遥控器的情况下, 丢失offboard连接后切换到的模式 (取值为- 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md))。                                   |
+| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | 丢失 Offboard 连接时的等待超时时间（以秒为单位），然后将触发 offboard 丢失的失效保护措施 (`COM_OBL_ACT` 和 `COM_OBL_RC_ACT`)                                                                                                      |
+| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | 在*没有* 连接到遥控器的情况下，如果丢失 offboard 控制，则切换换到该模式（值为 - 0：[降落](../flight_modes/land.md)，1：[保持](../flight_modes/hold.md)，2：[返航](../flight_modes/return.md)）。                                            |
 | <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | 连接到遥控器的情况下，丢失offboard连接后切换到的模式 (取值为 - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md))。 |
 | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 如果使能，在多旋翼上移动摇杆（或者 VTOL 在多旋翼模式）讲控制权还给处于[位置模式](../flight_modes/position_mc.md)的无人机（除非无人机正在处理电池失效保护）。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。                                               |
 
@@ -164,5 +164,5 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 
 以下资源可能对开发者有用：
 
-* [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
-* [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
+* [基于 Linux 的 Offboard 控制](../ros/offboard_control.md) （PX4 开发指南）
+* [MAVROS Offboard 控制示例](../ros/mavros_offboard.md) （PX4 开发指南）
