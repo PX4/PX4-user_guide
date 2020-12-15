@@ -34,19 +34,19 @@ PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始�
 
 *QGroundControl* 在拥有 GPS 模块的地面站硬件上支持*跟随*模式。 推荐的配置是一个能使用 USB OTG 的安卓设备，配备两个数传。
 
-配置 *跟随* 模式： - 将一个数传连接到安卓设备，另外一个连接到无人机（这使得位置信息可以在两个数传之间中继）。 - 禁用安卓设备的休眠模式： - 这个设置通常可以在 **设置 \> 显示** 中找到。 将安卓设备设置为不进入睡眠状态非常重要，因为这可能导致 GPS 信号停止定期发射。 - 起飞到至少 2-3 米的高度（及时支持自动起飞也建议使用）。 - 将飞机放在地面上，按下安全开关并向后退至少 10 米。 - 解锁并起飞。 - 切换到跟随模式。 - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
+配置 *跟随* 模式： - 将一个数传连接到安卓设备，另外一个连接到无人机（这使得位置信息可以在两个数传之间中继）。 - 禁用安卓设备的休眠模式： - 这个设置通常可以在 **设置 \> 显示** 中找到。 将安卓设备设置为不进入睡眠状态非常重要，因为这可能导致 GPS 信号停止定期发射。 - 起飞到至少 2-3 米的高度（及时支持自动起飞也建议使用）。 - 将飞机放在地面上，按下安全开关并向后退至少 10 米。 - 解锁并起飞。 - 切换到跟随模式。 - 无人机会上升到指定的[最小高度](#NAV_MIN_FT_HT)， 然后暂停一段时间来评估数传链路。 如果链路更新速率正常， 多旋翼无人机将偏航到朝向目标。
 
-At this point you should be able to start moving and the copter should follow your movements.
+此时应该可以移动了，并且无人机会跟随你的移动。
 
-The mode has been tested on the following Android devices: - Nexus 5 - Nexus 7 Tablet
+该模式已经在以下的安卓设备上测试过： - Nexus 5 - Nexus 7 平板
 
 ## 配置
 
-The follow-me behaviour can be configured using the following parameters:
+可以使用以下参数配置跟随的行为：
 
 | 参数                                                                                                  | 描述                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).                                                                                       |
+| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | 无人机 / 地面站在*水平* （x，y）平面上分离。最小允许间距为 1 米。默认距离为 8 米（约 26 英尺）。                                                                                                                                                                                   |
 | <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).                                                             |
 | <span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS)         | Flight position relative to the user when follow-me mode is active.  
 - `0` = Follow from the front right.  
