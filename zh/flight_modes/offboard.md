@@ -76,28 +76,28 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
         
         值为：
         
-        * 292：滑动设定值。 This configures TECS to prioritize airspeed over altitude in order to make the vehicle glide when there is no thrust (i.e. pitch is controlled to regulate airspeed). It is equivalent to setting `type_mask` as `POSITION_TARGET_TYPEMASK_Z_IGNORE`, `POSITION_TARGET_TYPEMASK_VZ_IGNORE`, `POSITION_TARGET_TYPEMASK_AZ_IGNORE`. 
-        * 4096: Takeoff setpoint.
-        * 8192: Land setpoint.
-        * 12288: Loiter setpoint (fly a circle centred on setpoint).
-        * 16384: Idle setpoint (zero throttle, zero roll / pitch).
+        * 292：滑动设定值。 这会将 TECS 配置为空速优先于高度，以便在没有推力时使无人机滑行（即控制俯仰以调节空速）。 这相当于设置 `type_mask` 为 `POSITION_TARGET_TYPEMASK_Z_IGNORE`，`POSITION_TARGET_TYPEMASK_VZ_IGNORE`，`POSITION_TARGET_TYPEMASK_AZ_IGNORE`。 
+        * 4096：起飞设定值。
+        * 8192：降落设定值。
+        * 12288：悬停设定值（以设定值为中心绕圈飞行）。
+        * 16384：空闲设定值（油门为0， 横滚 / 俯仰为0）。
   * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
-  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合（通过 `type_mask`）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `lat_int`, `lon_int`, `alt`)
+    * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
       
-      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
+      * 在`type_mask`中指定设定值的*type*（如果未设置这些位，无人机将以花朵状飞行）：
         
-        :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        :::note 下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
 :::
         
-        The values are:
+        值为：
         
-        * 4096: Takeoff setpoint.
-        * 8192: Land setpoint.
+        * 4096：起飞设定值。
+        * 8192：降落设定值。
         * 12288: Loiter setpoint (fly a circle centred on setpoint).
         * 16384: Idle setpoint (zero throttle, zero roll / pitch).
   * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
