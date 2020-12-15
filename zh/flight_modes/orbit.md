@@ -6,12 +6,12 @@
 
 ![Orbit Mode - MC](../../assets/flying/orbit.jpg)
 
-*QGroundControl* (or other compatible GCS or MAVLink API) is *required* to enable the mode, and to set the center position, initial radius and altitude of the orbit. Once enabled the vehicle will fly as fast as possible to the closest point on the commanded circle trajectory and do a slow (1m/s) clockwise orbit on the planned circle, facing the center.
+*需要* *QGroundControl* （或其他兼容的 GCS 或 MAVLink API）来使能该模式，并且设置轨迹中心位置，初始半径和高度。 一旦启用后，无人机将尽快飞到控制的圆周轨迹上的最近点，并在规划的圆周上朝中心方向缓慢（1 m/s）顺时针旋转。
 
-Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
+关于如何启动绕圈模式的说明在这里：[FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) （*QGroundControl* 指南）。
 
 :::note
-The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+使用遥控是*可选的*。 If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
 :::
 
 下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
