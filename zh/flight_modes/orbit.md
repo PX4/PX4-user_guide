@@ -11,39 +11,39 @@
 关于如何启动绕圈模式的说明在这里：[FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) （*QGroundControl* 指南）。
 
 :::note
-使用遥控是*可选的*。 If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+使用遥控是*可选的*。 如果没有遥控，则环绕模式如上所述。 无法使用遥控来启动该模式（如果使用遥控切换该模式，无人机会处于空闲状态）。
 :::
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+遥控可以用于改变绕圈的高度，半径，速度和绕圈方向：
 
-- **Left stick:** 
-  - *up/down:* controls speed of ascent/descent, as in [Position mode](../flight_modes/position_mc.md). When in center deadzone, altitude is locked.
-  - *left/right:* no effect.
-- **Right stick:** 
-  - *left/right:* controls acceleration of orbit in clockwise/counter-clockwise directions. When centered the current speed is locked. 
-    - Maximum velocity is 10m/s and further limited to keep the centripetal acceleration below 2m/s^2. 
-  - *up/down:* controls orbit radius (smaller/bigger). When centered the current radius is locked. 
-    - Minimum radius is 1m. Maximum radius is 100m.
+- **左摇杆：** 
+  - *上/下：* 控制上升/下降速度，像在[位置模式](../flight_modes/position_mc.md)中一样。 当在中部死区时，高度被锁定。
+  - *左/右：* 无效。
+- **右摇杆：** 
+  - *左/右：* 控制顺时针/逆时针方向的加速度。 当居中时，当前速度被锁定。 
+    - 最大速度为 10 m/s，进一步的限制是将向心加速度保持在 2 m/s^2 以下。 
+  - *上/下：* 控制绕圈半径（更小/更大）。 当居中时，当前半径被锁定。 
+    - 最小半径是 1 米。 最大半径是 100 米。
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+下图直观的显示了模式行为（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
 
-The mode can be stopped by switching to any other flight mode (using RC or QGC).
+切换到其他飞行模式（使用遥控或 QGC 地面站）可以停止此模式。
 
-## Parameters/Limits
+## 参数/限制
 
-There are no orbit mode-specific parameters.
+没有特定的环绕模式参数。
 
-The following limits are hard coded:
+下面的限制是写死的：
 
-- Initial/default rotation is 1 m/s in a clockwise direction.
-- The maximum acceleration is limited to 2 m/s^2, with priority on keeping the commanded circle trajectory rather than commanded ground speed (i.e. the vehicle will slow down in order to achieve the correct circle if the acceleration exceeds 2m/s^2).
-- Maximum radius is 100m.
+- 初始/默认是顺时针方向 1 m/s 旋转。
+- 最大加速度限制在 2 2 m/s^2，优先保持控制的圆周轨迹而不是地速（即， 如果加速度超过 2 m/s^2，无人机将减速以达到正确的圆周）。
+- 最大半径是 100 米。
 
-## MAVLink Messages (Developers)
+## MAVLink 消息 （开发者）
 
-Orbit mode uses the following MAVLink commands:
+环绕模式使用以下 MAVLink 命令：
 
 - [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Start an orbit with specified center point, radius, direction, altitude, speed and [yaw direction](https://mavlink.io/en/messages/common.html#ORBIT_YAW_BEHAVIOUR) (vehicle defaults to faceing centre of orbit).
 - [ORBIT_EXECUTION_STATUS](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - Orbit status emitted during orbit to update GCS of current orbit parameters (these may be changed by the RC controller).
