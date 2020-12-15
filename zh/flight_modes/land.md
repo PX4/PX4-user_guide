@@ -46,4 +46,4 @@
 
 ## 垂直起降（VTOL）
 
-A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.
+当处于固定翼模式时，VTOL 遵循 LAND 行为和[固定翼](#fixed-wing-fw)的参数，而当处于多旋翼模式时，VTOL 遵循[多旋翼](#multi-copter-mc)的参数。 当设置 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)（默认：开）时，固定翼模式下的 VTOL 将在着陆前切换回多旋翼模式。
