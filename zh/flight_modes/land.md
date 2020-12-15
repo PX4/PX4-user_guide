@@ -30,19 +30,19 @@
 
 ## 固定翼（FW）
 
-The vehicle will turn and land at the location at which the mode was engaged. RC stick movement is ignored.
+无人机将转弯并降落在该模式指定的位置。 遥控器摇杆操作被忽略。
 
-Fixed wing landing logic and parameters are explained in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+固定机翼着陆逻辑和参数在主题：[着陆（固定翼）](../flying/fixed_wing_landing.md)中说明。
 
 :::note
-Often a FW vehicle will follow a fixed landing trajectory to ground (it will not attempt a flared landing). This is because in LAND mode the vehicle may not know ground altitude and will assume it is at sea level. As ground level may be much higher, a vehicle will often reach the ground at an altitude above where flare logic would be engaged.
+通常固定翼无人机会遵循固定的着陆轨迹到地面（它不会尝试拉平着陆）。 这是因为在着陆模式下，飞机可能不知道地面高度并且将假设它处于海平面。 由于地面高度可能会高得多，因此飞机通常会在高于拉平辑逻辑的高度处到达地面。
 :::
 
-Landing is affected by the following parameters (also see [Landing (Fixed Wing)](../flying/fixed_wing_landing.md)):
+着陆受以下参数影响（也见[着陆（固定翼）](../flying/fixed_wing_landing.md)）：
 
-| 参数                                                                             | 描述                                                                                                       |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing, in seconds. If set to -1 the vehicle will not disarm on landing. |
+| 参数                                                                             | 描述                                         |
+| ------------------------------------------------------------------------------ | ------------------------------------------ |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 降落后自动上锁的超时时间，以秒为单位。 如果设定为 -1，无人机将不会在着陆时上锁。 |
 
 ## 垂直起降（VTOL）
 
