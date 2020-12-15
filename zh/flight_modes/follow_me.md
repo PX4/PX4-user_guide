@@ -8,16 +8,16 @@ author: Jimmy Johnson
 
 *跟随*模式允许多旋翼无人机自主跟随并跟踪使用[FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink消息广播其位置的另一个系统。
 
-The vehicle will automatically yaw to face and follow the target from a specified [relative position](#NAV_FT_FS), [horizontal separation](#NAV_FT_DST) and [height](#NAV_MIN_FT_HT) above the home position. By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home/arming position. While in this mode no user input is required.
+无人机将自动偏航到朝向并跟随指定的[相对位置](#NAV_FT_FS)目标，目标的[水平间距](#NAV_FT_DST)和[高度](#NAV_MIN_FT_HT)是从起始位置上方。 默认情况下跟随是从距离目标后面 8 米， 距离起始 / 解锁位置以上 8 米高的位置开始。 在此模式下不需要用户输入。
 
 :::tip
-PX4 currently ignores the altitude of/from the target and follows at a constant altitude above home. This limitation is because altitude sources from GPS on ground stations are often inaccurate.
+PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始位置的恒定高度跟随。 这一限制是因为来自地面站 GPS 的高度源通常不准确。
 :::
 
-The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
+该模式支持具有 GPS 模块的 安卓平板上的 *QGroundControl* 和 [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html)。
 
 :::note
-* This mode requires GPS. * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
+* 该模式需要 GPS。 * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
 :::
 
 {% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
