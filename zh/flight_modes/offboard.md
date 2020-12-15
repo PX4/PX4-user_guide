@@ -121,19 +121,19 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
       
       * 在 `type_mask` 中指定 *类型* 的设置点类型：
       
-      :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
+      :::note 下面的 *设置点类型* 值不是 `type_mask` 字段的 MAVLink 标准的一部分。 ::
       
-          The values are:
+          值为：
           
-          - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+          - 12288：悬停设定值(无人机停在足够接近设置点)。
           
     
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+    * 速度设定值（仅 `vx`，`yy`，`vz`）
+  * PX4 支持坐标系（`coordinate_frame` 字段）： [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
-  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 支持以下输入组合（在 `type_mask` 中）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
   * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard). The values are: 
