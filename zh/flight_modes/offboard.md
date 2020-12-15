@@ -71,12 +71,12 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
     
     * 位置设定值（仅` x `，` y `，` z `；速度和加速度设定值被忽略）。
       
-      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern): :::note Some of the *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+      * 在`type_mask`中指定设定值的*type*（如果未设置这些位，无人机将以花朵状飞行）： :::note 下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
 :::
         
-        The values are:
+        值为：
         
-        * 292: Gliding setpoint. This configures TECS to prioritize airspeed over altitude in order to make the vehicle glide when there is no thrust (i.e. pitch is controlled to regulate airspeed). It is equivalent to setting `type_mask` as `POSITION_TARGET_TYPEMASK_Z_IGNORE`, `POSITION_TARGET_TYPEMASK_VZ_IGNORE`, `POSITION_TARGET_TYPEMASK_AZ_IGNORE`. 
+        * 292：滑动设定值。 This configures TECS to prioritize airspeed over altitude in order to make the vehicle glide when there is no thrust (i.e. pitch is controlled to regulate airspeed). It is equivalent to setting `type_mask` as `POSITION_TARGET_TYPEMASK_Z_IGNORE`, `POSITION_TARGET_TYPEMASK_VZ_IGNORE`, `POSITION_TARGET_TYPEMASK_AZ_IGNORE`. 
         * 4096: Takeoff setpoint.
         * 8192: Land setpoint.
         * 12288: Loiter setpoint (fly a circle centred on setpoint).
