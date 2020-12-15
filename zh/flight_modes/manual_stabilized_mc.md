@@ -15,19 +15,19 @@
 
 ## 技术描述
 
-飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新调节（参见[下面的](#params)）并直接传递到输出混控器。 The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+飞手的输入通过横滚和俯仰角度以及偏航角速率指令传递给自驾仪。 油门被重新调节（参见[下面的](#params)）并直接传递到输出混控器。 自动驾驶仪控制着姿态，这意味着当遥控器摇杆居中时，自驾仪调整飞机的横滚和俯仰角为零（从而实现飞机姿态的改平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
 :::
 
 <span id="params"></span>
 
 ## 参数
 
-| 参数                                                                                                  | 描述                                                                                                                                                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <span id="MPC_THR_HOVER"></span>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | 当油门杆居中并且` MPC_THR_CURVE `设置为默认值时输出的悬停油门。                                                                                                                                                                                                                                       |
-| <span id="MPC_THR_CURVE"></span>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | 定义油门比例。 默认设置为**重新调节至悬停推力**这意味着当油门杆居中时，输出配置的悬停油门（` MPC_THR_HOVER`）并且杆输入在其下方和上方线性重新调整（允许在稳定模式和高度/位置控制模式之间平滑过渡）。   
+| 参数                                                                                                  | 描述                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="MPC_THR_HOVER"></span>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | 当油门杆居中并且` MPC_THR_CURVE `设置为默认值时输出的悬停油门。                                                                                                                                                                                                                                                 |
+| <span id="MPC_THR_CURVE"></span>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | 定义油门比例。 默认情况下，此值设置为**重新调节至悬停推力**，这意味着当油门杆居中时，输出配置的悬停油门（` MPC_THR_HOVER`），并且摇杆输入会重新线性调整低于和高于此值（允许在自稳模式和高度/位置控制模式之间平滑过渡）。   
 在功率大的飞机上，悬停油门可能非常低（例如低于20％），因此重新调整会使油门输入变形—— 即这里80％的推力将仅由杆输入的上半部分控制，20％由底部的来控制。 如果需要，可以将` MPC_THR_CURVE `设置为**无重新调整**，不进行重新调整（干输入对油门的映射的棒独立于`MPC_THR_HOVER`）。 |
