@@ -135,8 +135,8 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
   
   * 支持以下输入组合（在 `type_mask` 中）： <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `lat_int`, `lon_int`, `alt`)
-  * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard). The values are: 
+    * 位置设定值（仅`lat_int`，`lon_int`，`alt`）
+  * 在 `type_mask` 中指定设定值的 *type* （不是 MAVLink 标准的一部分）。 值为： 
     * Following bits not set then normal behaviour.
     * 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
