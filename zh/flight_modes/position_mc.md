@@ -55,4 +55,4 @@
 
 ### 位置丢失/安全
 
-位置模式取决于获得可接受的位置估计。 如果估计值由于 GPS 丢失等原因而低于可接受的水平，则可能会触发[位置（GPS）丢失失效保护](../config/safety.md#position-gps-loss-failsafe)。 Depending on configuration, whether you have a remote control, and whether there is an adequate altitude estimate, PX4 may switch to altitude mode, manual mode, land mode or terminate.
+位置模式取决于获得可接受的位置估计。 如果估计值由于 GPS 丢失等原因而低于可接受的水平，则可能会触发[位置（GPS）丢失失效保护](../config/safety.md#position-gps-loss-failsafe)。 根据配置，不论是否有遥控器以及是否有足够的海拔高度估计值，PX4 可能会切换到高度模式，手动模式，着陆模式或终止。
