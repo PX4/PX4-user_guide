@@ -4,7 +4,7 @@
 
 *自稳模式*在摇杆回中时使车辆进入定直平飞，保持姿态水平并抵抗风（但不包括飞机航向和高度）。
 
-飞机基于俯仰输入爬升/下降，如果滚转/俯仰杆输入非零，则执行协调转弯。 滚转和俯仰是角度控制的（您不能倒滚或循环）。
+如果横滚/俯仰摇杆杆不为零，则无人机根据俯仰输入进行爬升/下降并执行协调的转弯。 横滚和俯仰是角度控制的（不能上下滚动或循环）。
 
 :::tip
 *Stabilized mode* is much easier to fly than [Manual mode](../flight_modes/manual_fw.md) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
