@@ -172,8 +172,7 @@ Do not try to fix a vehicle that suffers from high vibrations with filter tuning
 :::
 
 Filter tuning is best done by reviewing flight logs. 
-You can do multiple flights right after each other with different parameters and then inspect all logs, 
-but make sure to disarm in between so that separate log files are created.
+You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
 
 The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods.
 The total duration does not need to be more than 30 seconds. 
@@ -201,7 +200,7 @@ Now do a second round of PID tuning, this time as tight as possible, and also tu
 
 ### Airmode
 
-After you verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
 This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
 
 Happy flipping :)

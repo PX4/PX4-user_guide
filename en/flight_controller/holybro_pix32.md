@@ -38,7 +38,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Dimensions/Weight
   * Size: 81x44x15mm
   * Weight: 33.1g
-* GPS: U-blox<sup>&reg;</sup> super precision Neo-7M with compass
+* GPS: u-blox<sup>&reg;</sup> super precision Neo-7M with compass
 * Input Voltage: 2~10s (7.4~37V)
 
 ### Connectivity

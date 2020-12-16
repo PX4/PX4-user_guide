@@ -1761,7 +1761,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;"><p>RC input arm/disarm command duration</p><p><strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.</p>   </td>
  <td style="vertical-align: top;">100 > 1500 </td>
  <td style="vertical-align: top;">1000</td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_IN_MODE">COM_RC_IN_MODE</strong> (INT32)</td>
@@ -4164,7 +4164,7 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;"><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed max</p><p><strong>Comment:</strong> Maximum airspeed allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;">4 > 20 </td>
- <td style="vertical-align: top;">8.00</td>
+ <td style="vertical-align: top;">6.00</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>

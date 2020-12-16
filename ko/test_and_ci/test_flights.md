@@ -1,7 +1,7 @@
 # 시험 비행
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>이 페이지는 오래됐습니다. 최신 문서는 <a href="../test_and_ci/test_flights.md">여기에서  찾을 수 있습니다</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">TIP</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/test_flights.html">can be found here</a>.</p>
   </div>
 </div>
 
@@ -63,4 +63,3 @@
 | ------------------------------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------ |
 | [혼합 수직 이착륙기](https://www.horizonhobby.com/convergence-vtol-bnf-basic-efl11050) | [픽스호크 4 미니](../flight_controller/pixhawk4_mini.md) | 000200000000343233383038511500350039 (vtol-v5-m) |
 | [Delta Quad Pro](https://px4.io/portfolio/deltaquad-vtol/)                     | [드로픽스](../flight_controller/dropix.md)             | 0001000000003437393931375114004c0042 (delta-v2)  |
-

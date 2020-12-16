@@ -4,12 +4,12 @@ The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/f
 The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
 
 Main features include:
-- Multiband (L1/L2) receiver (Ublox ZED-F9P)
+- Multiband (L1/L2) receiver (u-blox ZED-F9P)
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
 
 :::note
-This module can be used with PX4 v1.9 or above (support for the UBlox ZED-F9P was added in PX4 v1.9).
+This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
 :::
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
@@ -57,7 +57,7 @@ Pin | Freefly GPS
 
 ## Specification
 
-- Ublox ZED-F9P GPS Receiver
+- u-blox ZED-F9P GPS Receiver
   - Ultracap backup power for fast (hot-start) restarts
   - EMI shield over receiver for improved EMI immunity
 - IST8310 Magnetometer

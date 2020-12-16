@@ -23,13 +23,13 @@
   * 如果空速传感器已连接，油门杆控制飞机速度。 在没有空速传感器的情况下，用户无法控制油门（在这种情况下，飞机将在巡航油门下([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) 水平飞行，根据需要增加或减少油门以上升或下降。
 * 外部中心： 
   * 俯仰摇杆控制高度。
-  * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
-  * 翻滚摇杆控制滚动角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
+  * 油门杆控制飞机的空速（如回中输入 横滚/俯仰/偏航）。
+  * 横滚摇杆控制横滚角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
   * 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
 * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 :::
 
