@@ -27,7 +27,7 @@ It will then continue in *Postion mode*.
 ### Catapult/Hand-Launch Mode
 
 When armed and in takeoff mode the vehicle waits to detect launch (i.e. from acceleration due to catapult or hand launch). 
-On launch detection, the vehicle ramps up to to maximum throttle ([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch.
+On launch detection, the vehicle ramps up to maximum throttle ([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch.
 The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
 All RC stick movement is ignored until climbout ends.
 
@@ -77,7 +77,7 @@ Most traditional fixed-wing vehicles must be flat and level on release (it is im
 Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
 :::
 
-Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) and navigates  towards the location of the Takeoff waypoint.
+Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the Takeoff waypoint) and navigates  towards the location of the Takeoff waypoint.
 It continues climbing until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude (if it reaches the target waypoint before achieving this altitude it spirals up to this level).
 
 :::note

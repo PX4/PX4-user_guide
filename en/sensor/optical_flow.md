@@ -35,7 +35,7 @@ The approach used for fusing sensor data and any offsets from the center of the 
 
 ### PX4Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and and in low outdoor light conditions without the need for an illumination LED.
+[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED.
 It is one of the easiest and most established ways to calculate the optical flow.
 
 ### PMW3901-Based Sensors

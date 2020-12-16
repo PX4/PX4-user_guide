@@ -1,13 +1,31 @@
-# RTK GPS Heading with u-blox F9P
+# RTK GPS Heading with Dual u-blox F9P
 
 Two u-blox F9P devices mounted on a vehicle can be used to accurately compute a heading angle (i.e. an alternative to compass-based heading estimation).
 The two GPS devices in this scenario are referred to as the *Moving Base* and *Rover*.
 
 :::note
-RTK positioning using a fixed base station is possible in parallel with this feature.
+This feature works on F9P devices that expose the GPS UART2 port (access to the port is required for setup).
 :::
 
-The general setup is described  in: [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf).
+
+## Supported Devices
+
+The following devices are supported for this use case:
+* [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
+* [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
+* [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm) (store.mrobotics.io)
+
+:::note
+[Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) and [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md) cannot be used because they do not expose the UART2 port.
+:::
+
+## Setup
+
+:::tip
+The general setup is described in: [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf).
+:::
+
+## Configuration/Setup
 
 In overview:
 - The UART2 of the GPS devices need to be connected together (TXD2 of the "Moving Base" to RXD2 of the "Rover")
@@ -33,4 +51,4 @@ The application note does not state the minimal required separation between modu
 50cm has been used in test vehicles running PX4.
 :::
 
-To activate heading fusion for the attitude estimation, set the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to enable *GPS yaw fusion*.
+To activate heading fusion for the attitude estimation, set the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter bit 7 (*GPS yaw fusion*).
