@@ -31,7 +31,7 @@ These flight controllers are [manufacturer supported](../flight_controller/autop
   - Barometer: ML3115A2
   - Barometer: BMP280
 - **GPS:**
-  - ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  - u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers. Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.
