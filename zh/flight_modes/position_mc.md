@@ -20,14 +20,14 @@
 
 遥控/手动模式中的俯仰、横滚、油门摇杆在想用的方向上控制*速度*。 回中摇杆可以拉平飞机，保持在固定位置和高度并抗风。
 
-* 回正的RPT摇杆（在死区内）可以抗风并保持飞机X、Y、Z位置稳定以及姿态水平。
+* 横滚、俯仰、油门摇杆回中（在遥控死区内）可以保持 x，y，z位置稳定来抗风，并且保持姿态水平。
 * 中心以外： 
-  * 滚转/俯仰摇杆控制相对于飞机”前部“的左右前后方向的速度。
+  * 横滚/俯仰摇杆控制相对于飞机”前部“的左右前后方向的速度。
   * 油门摇杆控制上升-下降的速度。
   * 偏航摇杆控制水平面上方的角度旋转速率。
-* 起飞 Takeoff: 
-  * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-* 着陆: 
+* 起飞： 
+  * 当飞机在地上时，如果油门摇杆抬高至 62.5%（从油门杆最低开始的整个范围），无人机将起飞。
+* 着陆： 
   * When close to the ground ([MPC_LAND_ALT2](#MPC_LAND_ALT2)), horizontal velocity is limited ([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY)).
 
 :::note
