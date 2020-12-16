@@ -18,11 +18,11 @@
 
 ## 多旋翼（MC）
 
-A multi rotor ascends to the altitude defined in `MIS_TAKEOFF_ALT` and holds position.
+多旋翼上升到 `MIS_TAKEOFF_ALT` 中定义的高度并保持位置。
 
-RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+摇杆动作（[默认情况下](#COM_RC_OVERRIDE)）会将无人机切换到 [位置模式](../flight_modes/position_mc.md)， 除非是正在处理电池失效保护。
 
-Takeoff is affected by the following parameters:
+起飞受以下参数影响：
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
