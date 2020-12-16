@@ -28,7 +28,7 @@ If you have a runway available and the total weight isn’t too high you will al
 If not then you will be attempting this when it switches to fixed wing mode.
 If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
-Follow the the respective tuning guides on how to tune multirotors and fixed wings.
+Follow the respective tuning guides on how to tune multirotors and fixed wings.
 
 
 ### Transition Tuning

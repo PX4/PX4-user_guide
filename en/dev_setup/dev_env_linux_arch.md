@@ -25,7 +25,7 @@ To get and run the scripts, do either of:
   ```
 
 The script takes the following optional parameters:
-- `--gazebo`: Add this parameter parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/).
+- `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/).
   :::note
   Gazebo gets compiled from source.
   It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).

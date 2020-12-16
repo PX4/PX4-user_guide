@@ -73,7 +73,7 @@ The recommended mounting orientation is defined as Y on flow board pointing towa
 On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
 The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the default).
 
-Make sure the the PX4Flow board is well dampened.
+Make sure the PX4Flow board is well dampened.
 
 :::warning
 PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).

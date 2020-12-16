@@ -32,7 +32,7 @@ The power is delivered by connecting the DC voltage source (5 V) via a jumper ca
 
 ## Enable WiFi Connection for Odroid C1
 
-In this this tutorial the WiFi module TP-LINK TL-WN722N is used.
+In this tutorial the WiFi module TP-LINK TL-WN722N is used.
 To enable WiFi connection for the Odroid C1, follow the steps described in the [Odroid C1 tutorial](http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1) in the section Establishing wifi connection with antenna.
 
 
