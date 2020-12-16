@@ -43,9 +43,30 @@ Both transmissive and reflective sensor types may be used for pulse generation.
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
+## Software Setup
 
-## Parameter Setup
+### Starting driver
+The driver does not start automatically in any airframes. You can start it manually from the console or add it to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on SD card.
 
+#### Start driver from console
+Start driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) with the command:
+```
+pcf8583 start -X -b <bus number>
+```
+insted of `<bus number>` you must specify the bus number to which the device is connected. `-X` means that it is external bus.
+
+### Function validation
+You can verify functionality in multiple ways:
+
+With [`listener`](../middleware/modules_command.html#listener) command you can monitor RPM messages from the driver. 
+```
+listener rpm
+```
+Now, you should see uOrb messages containing data from the sensor.
+
+You can also see the data in the QGroundControl in the [MavlinkInspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) section. You should see an RPM messages here.
+
+### Parameter Setup
 Usually sensors can be used without configuration.
 
 If needed, the following parameters may be used:
@@ -56,7 +77,7 @@ If needed, the following parameters may be used:
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
 :::note
-If the configuration parameters is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+If the configuration parameters is not available in [*QGroundControl*](../qgc/#setting-parameters) then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
 ```
 drivers/rpm/pcf8583
 ```
