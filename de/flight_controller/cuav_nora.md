@@ -17,7 +17,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## Features
 
 * Internal shock absorption
-* The integrated integrated process reduces the failure caused by interface damage.
+* The integrated process reduces the failure caused by interface damage.
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better
