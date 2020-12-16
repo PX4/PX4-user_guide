@@ -18,7 +18,7 @@
 
 ## 技术总结
 
-遥控/手动模式中的俯仰、横滚、油门摇杆在想用的方向上控制*速度*。 Centered sticks level vehicle and hold it to fixed position and altitude against wind.
+遥控/手动模式中的俯仰、横滚、油门摇杆在想用的方向上控制*速度*。 回中摇杆可以拉平飞机，保持在固定位置和高度并抗风。
 
 * 回正的RPT摇杆（在死区内）可以抗风并保持飞机X、Y、Z位置稳定以及姿态水平。
 * 中心以外： 
