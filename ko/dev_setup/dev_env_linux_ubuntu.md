@@ -39,7 +39,7 @@ You can alternatively download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/
 Notes:
 - **Tip** PX4 works with Gazebo 7, 8, and 9. The [installation instructions](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) above are for installing Gazebo 9.
 - **Note** If you're going work with ROS then follow the [ROS/Gazebo](#rosgazebo) instructions in the following section (these install Gazebo automatically, as part of the ROS installation).
-- You can verify the the NuttX installation by confirming the gcc version as shown:
+- You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash
    $arm-none-eabi-gcc --version
 

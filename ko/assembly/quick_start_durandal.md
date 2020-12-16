@@ -10,7 +10,7 @@ This quick start guide shows how to power the Holybro [Durandal](../flight_contr
 
 ## Unboxing
 
-Durandal is sold bundled with a number of different combinations of accessories, including power modules: *PM02 V3* and *PM07*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
+Durandal is sold bundled with a number of different combinations of accessories, including power modules: *PM02 V3* and *PM07*, and the *Pixhawk 4 GPS/Compass* ( u-blox NEO-M8N).
 
 The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
 

@@ -25,7 +25,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 加速度计 / 陀螺仪：BMI055
   * 磁力计：IST8310
   * 气压计：MS5611
-* GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * 接口： 
   * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   * FMU 上有 3 路专用 PWM/Capture 输入

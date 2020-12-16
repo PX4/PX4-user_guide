@@ -1,6 +1,6 @@
 # CUAV C-RTK
 
-[ CUAV C-RTK ](http://doc.cuav.net/gps/c-rtk/en/)是CUAV面向大众市场推出的[ RTK GPS](../gps_compass/rtk_gps.md)模块。 一个完整的RTK 系统由至少两个 c-rtk 模块 组成(一个用于基站, 另外一个作为移动站用于飞机上)。 使用RTK，PX4控制器可以获取到它的位置，并且这个位置的精度可以达到厘米级的精度，这比普通GPS提供的位置更加精确。
+The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is an [RTK GPS module](../gps_compass/rtk_gps.md) for the mass market. 一个完整的RTK 系统由至少两个 c-rtk 模块 组成(一个用于基站, 另外一个作为移动站用于飞机上)。 使用RTK，PX4控制器可以获取到它的位置，并且这个位置的精度可以达到厘米级的精度，这比普通GPS提供的位置更加精确。
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 

@@ -10,7 +10,7 @@ Travis-ci also has a macOS px4_sitl build which includes testing.
 
 ## [Semaphore](https://semaphoreci.com/px4/PX4-Autopilot)
 
-Semaphore is primarily used to compile changes for the Qualcomm Snapdragon platform, but also serves as a backup to Travis-ci using the the same [px4io/px4-dev-base](https://hub.docker.com/r/px4io/px4-dev-base/) docker image. In addition to the set of firmware compiled by Travis-ci, Semaphore also builds for the stm32discovery, crazyflie, runs unit testing, and verifies code style.
+Semaphore is primarily used to compile changes for the Qualcomm Snapdragon platform, but also serves as a backup to Travis-ci using the same [px4io/px4-dev-base](https://hub.docker.com/r/px4io/px4-dev-base/) docker image. In addition to the set of firmware compiled by Travis-ci, Semaphore also builds for the stm32discovery, crazyflie, runs unit testing, and verifies code style.
 
 ## [CircleCI](https://circleci.com/gh/PX4/PX4-Autopilot)
 

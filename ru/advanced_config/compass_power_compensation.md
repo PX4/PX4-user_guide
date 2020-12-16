@@ -28,7 +28,7 @@ Performing this power compensation is advisable only if all the following statem
 1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
 1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
 1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *high rate* (bit 2) to get more data points.
-1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the the same current as in flight). This example secures the vehicle using straps.
+1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the same current as in flight). This example secures the vehicle using straps.
 
    ![strap](../../assets/advanced_config/strap.png)
 1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).

@@ -23,7 +23,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * Pre laminated EPP wings
 * Wingtips and full hardware
 * [Dropix](https://store-drotek.com/888-dropix.html) flight controller with 
-  * [GPS Ublox M8N](https://store-drotek.com/876-DP0105.html)
+  * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor 
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)

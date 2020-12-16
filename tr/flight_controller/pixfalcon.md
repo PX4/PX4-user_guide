@@ -20,7 +20,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 * Failsafe System-on-Chip: STM32F100 
   * CPU: 24 MHz ARM Cortex M3
   * RAM: 8 KB SRAM
-* GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
+* GPS: u-blox<sup>&reg;</sup> M8 (bundled)
 
 ### Connectivity
 

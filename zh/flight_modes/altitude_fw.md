@@ -8,7 +8,7 @@
 
 油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
 
-当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
+当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约 50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
 
 下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
@@ -30,12 +30,12 @@
 :::note
 
 * 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
-* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-:::
+* 通常使用气压计测量高度，在极端天气条件下可能会变的不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
+
 
 ## 参数
 
-The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+该模式受以下参数影响：<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
 
 <td>
   在高度稳定模式下手动控制的最大俯仰角。 默认：45度

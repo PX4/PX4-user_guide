@@ -369,7 +369,7 @@ Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modu
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches, low-pass filter, and then publish as `rc_channels` and `manual_control_setpoint`.
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.

@@ -60,7 +60,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 **GPS module (supplied with kit):**
 
-- **GNSS receiver:** ublox<sup>&reg;</sup> Neo-M8N; compass HMC5983
+- **GNSS receiver:** u-blox<sup>&reg;</sup> Neo-M8N; compass HMC5983
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
@@ -88,7 +88,7 @@ Key features of the Pixhawk Mini are:
 
 The Pixhawk Mini is shipped with new **GPS module**:
 
-- Based on the uBlox M8N
+- Based on the u-blox M8N
 - Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Industry leading –167 dBm navigation sensitivity
 - Security and integrity protection

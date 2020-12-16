@@ -67,7 +67,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
 ### 交叉编译器设置
 
-1. 首先设置 *rsync*（这用于通过网络将文件从开发计算机传输到目标板 - WiFi 或以太网）。 For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+1. First set up *rsync* (this is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
     
     1. Generate an SSH key if you have not previously done so:
         

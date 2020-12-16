@@ -1,6 +1,6 @@
 # GPS & Compass
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 
@@ -20,18 +20,18 @@ When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight contr
 
 Some popular GPS/compass options include:
 
-- [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
-- [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
-- [Drotek uBlox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass) - e.g [DP0804 (NEO-M9N GPS + LIS3MDL Magnetometer for Pixhawk 3 Pro)](https://store-drotek.com/920-DP0804.html) (drotek)
-- [Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) ([Holybro Shop](https://shop.holybro.com/pix32-gps-module_p1099.html)) ([getfpv](https://www.getfpv.com/holybro-pix32-neo-m8n-gps.html))
-- [Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) ([Holybro Shop](https://shop.holybro.com/micro-m8n-gps_p1009.html)) ([getfpv](https://www.getfpv.com/holybro-micro-m8n-gps-module.html))
-- [Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) ([Holybro Shop](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html))) ([getfpv](https://www.getfpv.com/holybro-pixhawk-4-neo-m8n-gps.html))
+- [u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
+- [mRo GPS u-blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
+- [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass) - e.g [DP0804 (NEO-M9N GPS + LIS3MDL Magnetometer for Pixhawk 3 Pro)](https://store-drotek.com/920-DP0804.html) (drotek)
+- [Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) ([Holybro Shop](https://shop.holybro.com/pix32-gps-module_p1099.html), [getfpv](https://www.getfpv.com/holybro-pix32-neo-m8n-gps.html))
+- [Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) ([Holybro Shop](https://shop.holybro.com/micro-m8n-gps_p1009.html), [getfpv](https://www.getfpv.com/holybro-micro-m8n-gps-module.html))
+- [Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) ([Holybro Shop](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html), [getfpv](https://www.getfpv.com/holybro-pixhawk-4-neo-m8n-gps.html))
 - [Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) (Holybro Shop)
 - [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv)
 - [Hex Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md)
 - [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
 - [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
-- [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
+- [3DR u-blox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
 
 Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
 
@@ -39,7 +39,7 @@ Instructions for connecting the GPS and compass are usually provided by the manu
 [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 :::
 
-:::tip
+:::warning
 Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
 :::
 

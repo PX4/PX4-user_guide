@@ -34,7 +34,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   - Accel/Gyro: BMI088
   - Mag: IST8310
   - Barometer: MS5611
-- GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 #### Interfaces

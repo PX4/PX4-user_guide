@@ -23,14 +23,14 @@ The gimbal can be connected to *any free serial port* using the instructions in 
 A common configuration is to have a serial connection to the gimbal from the Flight Controller TELEM2 port (assuming TELEM2 is free). For this configuration you would set:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
-- [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baude rate.
+- [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
 
 This will enable the user to command the gimbal using [MAV_CMD_DO_MOUNT_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL) and [MAV_CMD_DO_MOUNT_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONFIGURE).
 
 
 ## Gimbal on Flight Controller (MNT_MODE_OUT=AUX)
 
-The gimbal can be connected to the Flight controller AUX ports by setting the ouptut mode to `MNT_MODE_OUT=AUX`.
+The gimbal can be connected to the Flight controller AUX ports by setting the output mode to `MNT_MODE_OUT=AUX`.
 
 A mixer file is required to define the mapping for the output pins and the [mount mixer](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix) is automatically selected (this overrides any AUX mixer provided by the airframe configuration).
 
@@ -48,7 +48,7 @@ Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixe
 
 The outputs can be customized by [creating a mixer file](../concept/system_startup.md#starting-a-custom-mixer) on the SD card named `etc/mixers/mount.aux.mix`.
 
-A basic basic mixer configuration for a mount is shown below.
+A basic mixer configuration for a mount is shown below.
 
 ```
 # roll

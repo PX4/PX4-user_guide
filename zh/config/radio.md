@@ -23,7 +23,7 @@ PX4 needs to be able to detect when the signal from the RC controller has been l
 RC receivers have different ways of indicating signal loss:
 
 * Output nothing (automatically detected by PX4)
-* Output a low throttle value value (you can configure PX4 to detect this).
+* Output a low throttle value (you can configure PX4 to detect this).
 * Output the last received signal (*cannot be detected by PX4* as it looks like valid input).
 
 If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
