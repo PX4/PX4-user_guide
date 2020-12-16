@@ -8,12 +8,12 @@
 位置模式对于新手是最安全的手动模式。 不同于[高度模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
 :::
 
-The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
+下图直观地显示了模式行为（对于模式2变送器）。
 
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 :::warning
-Care must be taken when landing in this mode. When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm. If landing is correctly detected, motors will spin down after touch down and then disarm shortly after. If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
+在此模式下降落是需要格外小心。 首次在此模式下降落时，准备切换到 [手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，以便能够锁定飞机。 如果正确地检测到着陆,，电机会在触地后停止旋转，然后很快锁定。 If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
 :::
 
 ## 技术总结
