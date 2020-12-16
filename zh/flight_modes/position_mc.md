@@ -13,12 +13,12 @@
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 :::warning
-在此模式下降落是需要格外小心。 首次在此模式下降落时，准备切换到 [手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，以便能够锁定飞机。 如果正确地检测到着陆,，电机会在触地后停止旋转，然后很快锁定。 If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
+在此模式下降落是需要格外小心。 首次在此模式下降落时，准备切换到 [手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，以便能够锁定飞机。 如果正确地检测到着陆,，电机会在触地后停止旋转，然后很快锁定。 如果点击继续高速旋转或者开始加速旋转，先切换到[手动/自稳模式（多旋翼）](../flight_modes/manual_stabilized_mc.md)，然后再锁定。 请注意，由于 GPS 漂移，飞机可能会翻倒在地面上。
 :::
 
 ## 技术总结
 
-RC/manual mode where RPT sticks control *speed* in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
+遥控/手动模式中的俯仰、横滚、油门摇杆在想用的方向上控制*速度*。 Centered sticks level vehicle and hold it to fixed position and altitude against wind.
 
 * 回正的RPT摇杆（在死区内）可以抗风并保持飞机X、Y、Z位置稳定以及姿态水平。
 * 中心以外： 
