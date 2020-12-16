@@ -13,9 +13,14 @@ Description for creating and testing your own flight task.
 In this tutorial, the name of the flight task supposes "Test".
 
 ### Steps Overview 
-#### Create flight task
-- Create a directory named with new flight task in `PX4-Autopilot/src/lib/flight_tasks/tasks`
-- Create files for new flight task
+#### Create Flight Task
+- Create a directory named with new flight task in [PX4-Autopilot/src/lib/flight_tasks/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/flight_tasks/tasks).
+
+  :::note
+  In this example the new task is named *Test*.
+  By convention the directory is named for the task (**Test**) and the task source/header files are named **FlightTask_Task\_name_**. 
+  :::
+- Create files for new flight task:
   - CMakeLists.txt
   - FlightTaskTest.hpp
   - FlightTaskTest.cpp
