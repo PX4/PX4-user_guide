@@ -78,7 +78,7 @@ To perform an offboard calibration:
 6. Cold soak the board to the minimum temperature it will be required to operate in.
 7. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
 8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: 
         sh
         python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
     
