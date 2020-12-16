@@ -19,7 +19,7 @@ Some of its main features include:
 - Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
 - More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
 - Firmware-compatible with PX4.
-- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces.
+- Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).

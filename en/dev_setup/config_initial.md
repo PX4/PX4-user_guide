@@ -32,5 +32,5 @@ You should use (and regularly update) the daily build in order to take advantage
 To configure the vehicle:
 
 1. Download the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for your development platform.
-1. [Basic Configuration](../config/README.md) explains how to to perform basic configuration. 
+1. [Basic Configuration](../config/README.md) explains how to perform basic configuration. 
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.

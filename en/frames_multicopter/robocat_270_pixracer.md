@@ -24,7 +24,8 @@ Those CAN based FOC/Vector Control ESCs have the potential for huge gains in eff
 
 ![Robocat 750 basic setup](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
 
-The first step should be the attachment of all parts for a test, before before mounting them onto the frame. Wiring details are shown @ the [Pixracer instructions](../flight_controller/pixracer.md) guide.
+The first step should be the attachment of all parts for a test, before mounting them onto the frame.
+Wiring details are shown in the [Pixracer instructions](../flight_controller/pixracer.md) guide.
 
 ![red robo esc](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_esc.jpg)
 
