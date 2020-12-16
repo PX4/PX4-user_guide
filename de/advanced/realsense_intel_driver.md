@@ -31,7 +31,7 @@ The tutorial is ordered in the following way: In a first part it is shown how to
   -  If a window pops up in Ubuntu that asks whether to update, reject to update at this point.
 - Enable USB 3 Controller in Virtual Box:
   - Shut down Virtual Machine.
-  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)".        This is only possible if you have installed the extension package for the Virtual Box.
+  - Go to the settings of the Virtual Machine to the menu selection USB and choose: "USB 3.0(xHCI)". This is only possible if you have installed the extension package for the Virtual Box.
   - Start the Virtual Machine again.
 
 ## Installing ROS Indigo
