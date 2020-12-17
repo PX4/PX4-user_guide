@@ -58,7 +58,7 @@ insted of `<bus number>` you must specify the bus number to which the device is 
 :::note
 Bus number `-b <bus number>` does not match the bus numbering on the autopilot. After running the command, the driver shows the bus number corresponding to the label on the box.
 
-When using CUAV V5+:
+When using CUAV V5+ or CUAV Nano:
 
 | bus label | -b number |
 |-----------|-----------|
