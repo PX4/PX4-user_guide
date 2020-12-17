@@ -55,6 +55,20 @@ pcf8583 start -X -b <bus number>
 ```
 insted of `<bus number>` you must specify the bus number to which the device is connected. `-X` means that it is external bus.
 
+:::note
+Bus number `-b <bus number>` does not match the bus numbering on the autopilot. After running the command, the driver shows the bus number corresponding to the label on the box.
+
+When using CUAV V5+:
+
+| bus label | -b number |
+|-----------|-----------|
+| 1    |  -X -b 4  |
+| 2    |  -X -b 2  |
+| 3    |  -X -b 1  |
+
+:::
+
+
 ### Function validation
 You can verify functionality in multiple ways:
 
@@ -62,7 +76,7 @@ With [`listener`](../middleware/modules_command.html#listener) command you can m
 ```
 listener rpm
 ```
-Now, you should see uOrb messages containing data from the sensor.
+Now, you should see uOrb messages containing data from the sensor. For periodic display, you can add `-n 50` parametr after the command, which prints next 50 messages.
 
 You can also see the data in the QGroundControl in the [MavlinkInspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) section. You should see an RPM messages here.
 
