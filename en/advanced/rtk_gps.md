@@ -21,24 +21,21 @@ The datalink should typically be able to handle an uplink rate of 300 bytes per 
 
 ## Supported RTK GPS modules
 
-PX4 currently only supports the single-frequency (L1) u-blox M8P based GNSS receivers for RTK.
-
-A number of manufacturers have created products using this receiver.
 The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
 
 :::note
-u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. 
-The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
+Most devices come with two variants, a base and a rover.
+Make sure to select the correct variant.
 :::
 
 ## Automatic Configuration
 
-The PX4 GPS stack automatically sets up the u-blox M8P modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to *QGroundControl* or the autopilot). 
+The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to *QGroundControl* or the autopilot). 
 
 As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module.
 
 :::note
-The U-Center RTK module configuration tool is not needed/used!
+The u-blox U-Center RTK module configuration tool is not needed/used!
 :::
 
 :::note
@@ -48,12 +45,14 @@ In practice, this means that support for new protocols and/or messages only need
 
 ### RTCM messages
 
-QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz:
+QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz, unless otherwise stated:
 
-- **1005** - Station coordinates XYZ for antenna reference point (Base position).
+- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
 - **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
 - **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-
+- **1230** - GLONASS code-phase biases.
+- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
 
 ## Uplink datarate
 
