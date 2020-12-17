@@ -142,7 +142,7 @@
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
-* [Hardware (RTF&Parts)](hardware/drone_parts.md)
+* [Hardware (Drones&Parts)](hardware/drone_parts.md)
   * [Complete Vehicles](complete_vehicles/README.md)
     * [PX4 Vision Kit](complete_vehicles/px4_vision_kit.md)
     * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md)
