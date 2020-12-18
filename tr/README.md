@@ -35,12 +35,12 @@ Eğer PX4'ü destekleyen uçuşa hazır bir dronunuz varsa:
 
 Eğer en başından bir araç oluşturmak istiyorsanız:
 
-* Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-* Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-* [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-* [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* Bir gövde seçin - [Gövde Yapıları](airframes/README.md) bölümünde desteklenen gövdelerin listesini ve yapım aşaması için detaylı açıklamaları bulabilirsiniz. 
+* Bir uçuş kontrolcüsü seçin - bkz [Başlangıç > Uçuş Kontrolcüleri](getting_started/flight_controller_selection.md) ve [Otopilot Donanımı](flight_controller/README.md).
+* [Montaj](assembly/README.md), önemli yanbirimleri otopilota nasıl bağlayacağınızı açıklar.
+* [Temel Kurulum](config/README.md) aygıt yazılımınızı nasıl güncelleyeceğinizi ve uçak gövdenize uygun ayarlarla nasıl yapılandıracağınızı gösterir. Ayrıca bu bölümde ana sensörlerin nasıl kalibre edileceği ve RC kumanda ile güvenlik özelliklerinin nasıl ayarlanacağı dair açıklamaları da bulabilirsiniz.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+Aracınızı uçurmaya hazır olduğunuzda, [Uçuş](flying/README.md) bölümüne geçin.
 
 **I am modifying a supported vehicle:**
 
