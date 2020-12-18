@@ -25,15 +25,15 @@ Aşağıdaki ipuçları, hedeflerinize ve istediklerinizi göz önünde bulundur
 Eğer PX4'ü destekleyen uçuşa hazır bir dronunuz varsa:
 
 * [Temel kurulum](config/README.md) aygıt yazılımınızı en son sürüme nasıl güncelleyeceğinizi, pusula ve IMU gibi ana sensörleri nasıl kalibre edeceğinizi ve uzaktan kumanda ile güvenlik özelliklerini nasıl ayarlayacağınızı açıklar.
-* [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+* [Uçuş](flying/README.md) güvenli bir şekilde nerede ve nasıl aracın uçurulacağı, silahlanma ve uçuş sorunlarının nasıl giderileceği başta olmak üzere uçuşla ilgili temel bilgileri öğretir. Ayrıca bu bölümde uçuş modları da detaylıca açıklanmıştır.
 
-**I want to build a drone with PX4 from scratch:**
+**PX4 ile sıfırdan bir drone yapmak istiyorum:**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+"Desteklenen" araçlar [Araç Gövdesi](airframes/airframe_reference.md) bölümünde listelenmiştir. Bunlar, *QGroundControl* kullanarak kolayca indirebileceğiniz, yapılandırmaları test edilip ayarlanmış araçlardır.
 :::
 
-If you want to build a vehicle from scratch:
+Eğer en başından bir araç oluşturmak istiyorsanız:
 
 * Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
 * Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
