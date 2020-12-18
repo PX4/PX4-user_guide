@@ -40,17 +40,16 @@
 
 ### 弹射/手动发射
 
-在*弹射/手动发射模式*中，无人机等待检测发射（基于加速度触发）。 On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
+在*弹射/手动发射模式*中，无人机等待检测发射（基于加速度触发）。 发射时，它会在大约2秒钟内升至全油门（[ RWTO_MAX_THR ](#RWTO_MAX_THR)），然后以全油门爬升，并且以*最小</ 1> 10度俯仰角起飞。 一旦它达到 [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) 它将过渡到 [保持模式](../flight_modes/hold.md) 和悬停。</p> 
 
-:::note
-In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met. For catapult launch this is some acceleration threshold.
+除了上面讨论的行为之外，还有一个启动检测器可以阻止启动程序开始直到满足某些条件。 对于弹射器发射，这是一些加速度阈值。
 :::
 
 <span id="runway_launch"></span>
 
-### Runway Takeoff
+### 跑到起飞
 
-The *runway takeoff mode* has the following phases:
+*跑道起飞模式*具有以下阶段：
 
 1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
