@@ -81,36 +81,36 @@ Koda ve dokümantasyona nasıl katkıda bulunulacağına ilişkin bilgiler [Katk
 
 ## Çeviri
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+Bu rehber için bulunan çevirilere sağ üstte bulunan Diller menüsünden erişebilirsiniz.
 
-![Language Selector](../assets/vuepress/language_selector.png)
+![Dil seçme ](../assets/vuepress/language_selector.png)
 
-## License
+## Lisans
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+PX4 kodunun izin verilen şartlar kapsamında kullanılması ve değiştirilmesi serbesttir. [BSD 3-clause lisansı](https://opensource.org/licenses/BSD-3-Clause). Bu dokümantasyon [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) lisansı altında lisanslanmıştır. Daha fazla bilgi için: [Lisanslar](contribute/licenses.md).
 
-## Calendar & Events
+## Takvim & Etkinlikler
 
-The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+Platform kullanıcıları ve geliştiriciler için bazı önemli etkinlikler *Dronecode Takvimi*nden takip edilebilir. Takvimi kendi saat diliminizde görüntülemek (ve kendi takviminize eklemek) için aşağıdaki linklerden faydalanabilirsiniz:
 
-* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+* [İsviçre– Zürih](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [Pasifik Zaman Dilimi – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Avustralya – Melbourne/Sidney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
+Varsayılan takvim ayarı CET'dir (Central European Time). ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
-### Icons
+### Simgeler
 
-The following icons used in this library are licensed separately (as shown below):
+Bu kitaplıkta kullanılan aşağıdaki simgeler aşağıda gözüktüğü gibi ayrı olarak lisanslanmıştır:
 
-<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="Konum sabitleme gerekli (ör. GPS)" width="30px" /> *yertutucu* simgesi <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> (<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>), lisans - <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *otomatik-kamera-modu* simgesi <a href="http://www.freepik.com" title="Freepik">Freepik</a> (<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>), lisans - <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-## Governance
+## Yönetim
 
-The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
+PX4 uçuş modülü [Dronecode Project](https://www.dronecode.org/) yönetimi altında barındırılmaktadır.
 
 <a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
