@@ -115,7 +115,7 @@ The following tools are used in this assembly:
    ![QAV250 Add power module and standoffs](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/5_power_module_on_screws.jpg)
 1. Put the flight controller plate on the standoffs (over the power module)
    ![QAV250 Add flight controller plate](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
-1. Attach the motors. The motors have an arrow indicating the direction of rotation.
+1. Attach the motors. The motors have an arrow indicating the direction of rotation. Update: if you received 4 motors with blacks nuts on their top (and not two black and two red on the following pictures) they do not have anymore rotation direction restriction.
    ![QAV250 Add motors](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
 1. Use double sided tape from kit to attach the *Pixhawk 4 Mini* to the flight controller plate.
    ![QAV250 Add doublesided tape](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
