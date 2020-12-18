@@ -34,13 +34,13 @@
 
 ## 固定翼（FW）
 
-飞机使用*弹射器/手动启动模式*或*跑道起飞模式*在当前方向上起飞。 模式默认为弹射/手动发射，但可以使用[ RWTO_TKOFF ](#RWTO_TKOFF)设置为跑道起飞。 RC stick movement is ignored in both cases.
+飞机使用*弹射器/手动启动模式*或*跑道起飞模式*在当前方向上起飞。 模式默认为弹射/手动发射，但可以使用[ RWTO_TKOFF ](#RWTO_TKOFF)设置为跑道起飞。 在这两种情况下，遥控操作都被忽略。
 
 <span id="hand_launch"></span>
 
-### Catapult/Hand Launch
+### 弹射/手动发射
 
-In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger). On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
+在*弹射/手动发射模式*中，无人机等待检测发射（基于加速度触发）。 On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
 
 :::note
 In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met. For catapult launch this is some acceleration threshold.
