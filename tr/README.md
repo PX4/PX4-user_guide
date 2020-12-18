@@ -58,28 +58,28 @@ Uçuş kontrolcüsü ve ana sensörlerin modifikasyonu hakkında gerekli bilgile
 
 [Destek](contribute/support.md) sayfası, ana geliştirme ekibinden ve geniş PX4 topluluğundan nasıl yardım alınacağını açıklar.
 
-Ayrıca:
+Ayrıca aşağıdaki konular hakkında da ilave bilgilere ulaşabilirsin:
 
 * [İhtiyaç duyduğunda yardıma başvurabileceğin yer olan forumlar](contribute/support.md#forums-and-chat)
 * [Sorunların teşhisi](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [Bugları bildirme](contribute/support.md#issue-bug-reporting)
+* [Haftalık geliştiriciler toplantısı](contribute/support.md#weekly-dev-call)
 
-## Reporting Bugs & Issues
+## Bug Bildirme & Sorunlar
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+Eğer PX4'ü kullanırken herhangi bir sorun yaşarsanız, önce [destek forumları](contribute/support.md#forums-and-chat)nı kullanarak yaşadığınız sorunu sorabilirsiniz (bunun nedeni araç yapılandırmasından kaynaklanıyor olabilir).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+Eğer geliştirici ekip tarafından yönlendirilirse, kod sorunları [Github](https://github.com/PX4/PX4-Autopilot/issues)ta gündeme getirilebilir. Mümkün olduğunca [uçuş kayıtları](getting_started/flight_reporting.md) ve şablonda istenen diğer bilgileri sağlamaya çalışın.
 
-## Contributing
+## Katkıda Bulunma
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+Koda ve dokümantasyona nasıl katkıda bulunulacağına ilişkin bilgiler [Katkıda Bulunmak](contribute/README.md) bölümünde bulunabilir:
 
-* [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [Kod](contribute/README.md)
+* [Dokümentasyon](contribute/docs.md)
+* [Çeviri](contribute/translation.md)
 
-## Translations
+## Çeviri
 
 There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
 
