@@ -16,15 +16,15 @@ Rehberi büyütme çalışmaları hala devam ettiğinden bu rehber PX4'ün büt�
 
 ## Nasıl Başlayabilirim?
 
-[Başlangıç](getting_started/README.md) kılavuzu bütün kullanıcılar tarafından okunmalıdır. It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[Başlangıç](getting_started/README.md) kılavuzu bütün kullanıcılar tarafından okunmalıdır. Bu giriş ile birlikte uçuş modları, güvenlik özellikleri ve desteklenen uçuş kontrolcüsü, telemetri sistemleri ve RC kumanda gibi donanımların da açıklandığı PX4'e genel bir bakış atmış olacaksınız.
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+Aşağıdaki ipuçları, hedeflerinize ve istediklerinizi göz önünde bulundurarak bu rehberi daha kolay incelemenizde ve gezinmenizde yardımcı olacaktır.
 
-**I already have a drone and I just want to fly:**
+**Halihazırda dronum var ve sadece uçurmak istiyorum:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+Eğer PX4'ü destekleyen uçuşa hazır bir dronunuz varsa:
 
-* [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* [Temel kurulum](config/README.md) aygıt yazılımınızı en son sürüme nasıl güncelleyeceğinizi, pusula ve IMU gibi ana sensörleri nasıl kalibre edeceğinizi ve uzaktan kumanda ile güvenlik özelliklerini nasıl ayarlayacağınızı açıklar.
 * [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
 **I want to build a drone with PX4 from scratch:**
