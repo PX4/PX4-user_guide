@@ -52,16 +52,16 @@ Uçuş kontrolcüsü ve ana sensörlerin modifikasyonu hakkında gerekli bilgile
 
 **PX4'ü yeni bir donanım üzerinde çalıştırmak ve platformu genişletmek istiyorum:**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [Geliştirme](development/development.md) bölümünden yeni uçak gövdelerinin ve araç türlerinin nasıl desteklenebileceği, uçuş algoritmalarının nasıl değiştirileceği, yeni uçuş modlarının nasıl ekleneceği, yeni donanımın nasıl entegre edileceği, uçuş kontrolcüsü dışından PX4 ile nasıl iletişim kurulacağı ve PX4'e nasıl katkıda bulunabileceğin gibi bilgilere ulaşabilirsiniz.
 
-## Getting Help
+## Yardım Alma
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[Destek](contribute/support.md) sayfası, ana geliştirme ekibinden ve geniş PX4 topluluğundan nasıl yardım alınacağını açıklar.
 
-Among other things it covers:
+Ayrıca:
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
+* [İhtiyaç duyduğunda yardıma başvurabileceğin yer olan forumlar](contribute/support.md#forums-and-chat)
+* [Sorunların teşhisi](contribute/support.md#diagnosing-problems)
 * [How to report bugs](contribute/support.md#issue-bug-reporting)
 * [Weekly dev call](contribute/support.md#weekly-dev-call)
 
