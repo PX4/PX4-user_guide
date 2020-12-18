@@ -106,7 +106,7 @@ Bu kitaplıkta kullanılan aşağıdaki simgeler aşağıda gözüktüğü gibi 
 
 <img src="../assets/site/position_fixed.svg" title="Konum sabitleme gerekli (ör. GPS)" width="30px" /> *yertutucu* simgesi <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> (<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>), lisans - <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *otomatik-kamera-modu* simgesi <a href="http://www.freepik.com" title="Freepik">Freepik</a> (<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>), lisans - <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/automatic_mode.svg" title="Otomatik mod" width="30px" /> *otomatik-kamera-modu* simgesi <a href="http://www.freepik.com" title="Freepik">Freepik</a> (<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>), lisans - <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 ## Yönetim
 
