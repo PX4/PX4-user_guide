@@ -11,12 +11,12 @@ Bu rehber, PX4 tabanlı bir aracı kurmak, yapılandırmak ve güvenli bir şeki
 :::
 
 :::note
-Rehberi geliştirme çalışmaları hala devam ettiğinden Henüz PX4'ün tamamını kapsamıyor.
+Rehberi büyütme çalışmaları hala devam ettiğinden bu rehber PX4'ün bütününü henüz kapsamıyor olabilir.
 :::
 
-## How Do I Get Started?
+## Nasıl Başlayabilirim?
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[Başlangıç](getting_started/README.md) kılavuzu bütün kullanıcılar tarafından okunmalıdır. It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
