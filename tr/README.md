@@ -42,15 +42,15 @@ Eğer en başından bir araç oluşturmak istiyorsanız:
 
 Aracınızı uçurmaya hazır olduğunuzda, [Uçuş](flying/README.md) bölümüne geçin.
 
-**I am modifying a supported vehicle:**
+**Desteklenmekte olan bir aracı değiştiriyorum:**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+Uçuş kontrolcüsü ve ana sensörlerin modifikasyonu hakkında gerekli bilgilendirmeler yukarıda yapılmıştı. Yeni sensörler kullanmak istiyorsanız ya da uçuş karakteristiğini etkileyecek ölçüde değişiklikler yaptıysanız:
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [Yanbirim Donanımı](peripherals/README.md) bölümünden harici sensörlerin kullanımı hakkında ilave bilgilere ulaşabilirsiniz.
+* [Temel Kurulum](config/README.md) bölümünden ana sensörlerin kalibrasyonu hakkında ayrıntılara ulaşabilirsiniz.
+* [Gelişmiş Yapılandırma](advanced_config/README.md) bölümünden araç gövdesinin ince ayarı için detaylı açıklamalara ulaşabilirsiniz.
 
-**I want to run PX4 on new hardware and extend the platform:**
+**PX4'ü yeni bir donanım üzerinde çalıştırmak ve platformu genişletmek istiyorum:**
 
 * [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
