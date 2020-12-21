@@ -60,7 +60,7 @@
 起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
 <p>
-  :::note The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
+  :::note 起飞时，无人机时钟遵循正常的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>）。
 :::
 </p>
 
@@ -69,11 +69,11 @@
 </h2>
 
 <p>
-  VTOLs default to MC mode on boot, and it is generally expected that they will take off in <a href="#multi-copter-mc">multicopter mode</a> (and also safer).
+  VTOL 在启动时默认为多旋翼模式，通常可以在多旋翼模式下起飞（而且也更安全）。
 </p>
 
 <p>
-  That said, if transitioned to Fixed wing before takeoff, they will takeoff in <a href="#fixed_wing">Fixed Wing</a> mode.
+  也就是说，如果在起飞前切换到固定翼，将以<a href="#fixed_wing">固定翼</a>模式起飞。
 </p>
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
