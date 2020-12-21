@@ -4,23 +4,23 @@
 
 返航模式用于使无人机在通向安全目的地的畅通路径上安全飞行，这里可以等待（悬停或绕圈）或着陆。
 
-PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and mission landing sequences.
+PX4 提供了几种机制来选择安全的返航路径，返航目的地和着陆，包括使用其实位置，集结（“安全”）点，任务路径和任务着陆顺序。
 
-The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
+以下章节解释了如何配置 [返航类型](#return_types)， [返航高度](#return_altitude) 和 [降落/抵达行为](#arrival)。 最后，有几节说明了每种[载具类型](#default_configuration)的*默认*（预配置）行为。
 
 :::note
 
-- This mode requires GPS.
-- This mode is automatic - no user intervention is *required* to control the vehicle.
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+- 该模式需要 GPS。
+- 该模式是自动的 - 不 *需要* 用户干预即可控制无人机。
+- 遥控开关可以在任何无人机上更改飞行模式。
+- 在多旋翼中移动遥控器摇杆（或 VTOL 在多旋翼模式下）[默认情况下](#COM_RC_OVERRIDE)会将无人机切换到[位置模式](../flight_modes/position_mc.md)，除非是处理电池失效保护。
 :::
 
 <span id="return_types"></span>
 
-## Return Types (RTL_TYPE)
+## 返航类型（RTL_TYPE）
 
-PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an unobstructed path to a safe destination and/or landing:
+PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通向安全目的地和/或着陆的畅通路径：
 
 - [Home/rally point return](#home_return) (`RTL_TYPE=0`): Ascend to safe altitude and return via a direct path to the closest rally point or home location.
 - [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination *other than home*: rally point or start of mission landing. If no mission landing or rally points are defined, return home via direct path.
