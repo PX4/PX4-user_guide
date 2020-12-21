@@ -25,19 +25,19 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 - [返航到起始位置/集结点](#home_return)（`RTL_TYPE=0`）: 上升到安全高度并通过直接路径返回到最近的集结点或起始地点。
 - [任务降落/集结点返航](#mission_landing_return)（`RTL_TYPE=1`）：爬升到安全的高度，直接飞往最近的目的地*除了起始位置*：集结点或任务着陆开始。 如果未定义任务着陆点或集结点，请通过直接路径返回起始位置。
 - [任务路径返航](#mission_path_return)（`RTL_TYPE=2`）：使用任务路径并快速继续执行任务着陆（如果已定义）。 如果未定义任务降落，则将快速回退到任务起始位置。 如果未定义任务，直接返航到起始位置（集结点将被忽略）。
-- [Closest safe destination return](#safety_point_return) (`RTL_TYPE=3`): Ascend to a safe altitude and return via direct path to closest destination: home, start of mission landing pattern, or rally point. If the destination is a mission landing pattern, follow the pattern to land.
+- [最近的安全目的地返航](#safety_point_return)（` RTL_TYPE = 3 `）：上升到安全高度并通过直接路径返回最近的目的地：起始位置，任务着陆点的开始位置或集结点。 如果目的地是飞行任务着陆模式，则按照该模式降落。
 
-More detailed explanations for each of the types are provided in the following sections.
+以下各节提供了每种类型的更详细说明。
 
 <span id="home_return"></span>
 
-### Home/Rally Point Return Type (RTL_TYPE=0)
+### 起始位置/集结点返航类型（RTL_TYPE=0）
 
-In this return type the vehicle:
+无人机在该返航类型中：
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies via direct path to the home position or a rally point (whichever is closest)
-- [Land or waits](#arrival) at descent altitude (depending on landing parameters).
+- 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
+- 通过直接路径飞往起始位置或集结点（以最近者为准）。
+- [降落或等待](#arrival)处于下降高度（取决于着陆参数）。
 
 :::note
 If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
