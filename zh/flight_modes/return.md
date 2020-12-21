@@ -22,7 +22,7 @@ PX4 提供了几种机制来选择安全的返航路径，返航目的地和着�
 
 PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通向安全目的地和/或着陆的畅通路径：
 
-- [Home/rally point return](#home_return) (`RTL_TYPE=0`): Ascend to safe altitude and return via a direct path to the closest rally point or home location.
+- [返航到起始位置/集结点](#home_return)（`RTL_TYPE=0`）: 上升到安全高度并通过直接路径返回到最近的集结点或起始地点。
 - [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination *other than home*: rally point or start of mission landing. If no mission landing or rally points are defined, return home via direct path.
 - [Mission path return](#mission_path_return) (`RTL_TYPE=2`): Use mission path and fast-continue to mission landing (if defined). If no mission landing defined, fast-reverse mission to home. If no mission defined, return direct to home (rally points are ignored).
 - [Closest safe destination return](#safety_point_return) (`RTL_TYPE=3`): Ascend to a safe altitude and return via direct path to closest destination: home, start of mission landing pattern, or rally point. If the destination is a mission landing pattern, follow the pattern to land.
