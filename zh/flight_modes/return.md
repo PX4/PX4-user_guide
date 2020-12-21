@@ -40,18 +40,18 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 - [降落或等待](#arrival)处于下降高度（取决于着陆参数）。
 
 :::note
-If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
+如果未定义集结点，则与*返航*（RTL）/ *返回到起始位置*（RTH）相同。
 :::
 
 <span id="mission_landing_return"></span>
 
-### Mission Landing/Rally Point Return Type (RTL_TYPE=1)
+### 任务着陆/集结点返航类型 (RTL_TYPE=1)
 
-In this return type the vehicle:
+无人机在该返航类型中：
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies via direct path to a rally point or the start of a [mission landing pattern](#mission_landing_pattern) (whichever is closest). If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
-- If the destination is a mission landing pattern it will follow the pattern to land.
+- 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
+- 通过直接路径飞行到一个集结点或[任务着陆模式](#mission_landing_pattern)的起点（以最近者为准）。 If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
+- 如果目的地是飞行任务着陆模式，则按照该模式降落。
 - If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
 
 <span id="mission_landing_pattern"></span>
@@ -65,7 +65,7 @@ When this type is set PX4 will reject any mission without a valid landing patter
 
 <span id="mission_path_return"></span>
 
-### Mission Path Return Type (RTL_TYPE=2)
+### 任务路径返航类型（RTL_TYPE=2）
 
 This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. Rally points, if any, are ignored.
 
@@ -103,7 +103,7 @@ If the mission changes during return mode, then the behaviour is re-evaluated ba
 
 <span id="safety_point_return"></span>
 
-### Closest Safe Destination Return Type (RTL_TYPE=3)
+### 最近的安全目的地返回类型（RTL_TYPE=3）
 
 In this return type the vehicle:
 
@@ -114,7 +114,7 @@ In this return type the vehicle:
 
 <span id="return_altitude"></span>
 
-## Return Altitude
+## 返航高度
 
 A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
 
@@ -124,7 +124,7 @@ This is true for most [return types](#return_types). The exception is when execu
 
 The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
 
-![Return mode cone](../../assets/flying/rtl_cone.jpg)
+![返航模式锥形](../../assets/flying/rtl_cone.jpg)
 
 <!-- Original draw.io diagram can be found here: https://drive.google.com/file/d/1W72XeZYSOkRlBSbPXCCiam9NMAyAWSg-/view?usp=sharing -->
 
@@ -146,7 +146,7 @@ Note:
 
 <span id="arrival"></span>
 
-## Hover/Landing at Destination
+## 悬停/降落在目的地
 
 Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 
@@ -154,7 +154,7 @@ The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DEL
 
 <span id="default_configuration"></span>
 
-## Vehicle Default Behaviour
+## 无人机默认行为
 
 The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
