@@ -50,17 +50,17 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 无人机在该返航类型中：
 
 - 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
-- 通过直接路径飞行到一个集结点或[任务着陆模式](#mission_landing_pattern)的起点（以最近者为准）。 If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
+- 通过直接路径飞行到一个集结点或[任务着陆模式](#mission_landing_pattern)的起点（以最近者为准）。 如果未定义任务降落或集结点，无人机通过直接路径返回到起始位置。
 - 如果目的地是飞行任务着陆模式，则按照该模式降落。
-- If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
+- 如果目的地是集结点或者起始位置，无人机将在降落高度（取决于着陆参数）[降落或等待](#arrival)。
 
 <span id="mission_landing_pattern"></span>
 :::note
-A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+任务着陆模式包括[ MAV_CMD_DO_LAND_START ](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START)，一个或多个位置航点和[ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)。
 :::
 
 :::warning
-When this type is set PX4 will reject any mission without a valid landing pattern.
+当此类型设置时，PX4 会拒绝任何没有有效着陆模式的任务。
 :::
 
 <span id="mission_path_return"></span>
