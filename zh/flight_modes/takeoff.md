@@ -51,13 +51,13 @@
 
 *跑道起飞模式*具有以下阶段：
 
-1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
+1. **油门斜坡**：飞机依附在跑道上（俯仰固定，无横滚，航向保持），直到达到起最小起飞空速（[ FW_AIRSPD_MIN ](#FW_AIRSPD_MIN) x [ RWTO_AIRSPD_SCL ](#RWTO_AIRSPD_SCL)）
 2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
 3. ** 爬出**：爬升至地面以上的高度> [ FW_CLMBOUT_DIFF ](#FW_CLMBOUT_DIFF)。 在此阶段中, 将移除滚转和航向限制。
 
-### Fixed Wing Takeoff Parameters
+### 固定翼起飞参数
 
-Takeoff is affected by the following parameters:高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
+起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
 <p>
   :::note The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
