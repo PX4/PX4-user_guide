@@ -91,7 +91,7 @@ If needed, the following parameters may be used:
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
 :::note
-If the configuration parameters is not available in [*QGroundControl*](../qgc/#setting-parameters) then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+The parameters in QGC appear after the first start of the driver and subsequent restart of QGC. If still, the configuration parameters is not available in [*QGroundControl*](../qgc/#setting-parameters) then you should check if [the driver](../peripherals/serial_configuration.md#parameter_not_in_firmware)  is added to the firmware:
 ```
 drivers/rpm/pcf8583
 ```
