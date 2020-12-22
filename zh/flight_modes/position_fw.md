@@ -1,8 +1,8 @@
-# 位置模式（固定翼）
+# 定点模式（固定翼）
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*位置模式*是一种易于驾驶的遥控模式，当摇杆释放/居中时，无人机将在当前方向上水平直线飞行 — 补偿风和其他力。
+*定点模式*是一种易于驾驶的遥控模式，当摇杆释放/居中时，无人机将在当前方向上水平直线飞行 — 补偿风和其他力。
 
 油门取决于空速（在 50％ 油门时，飞机将以预设的巡航速度保持其当前高度）。 俯仰用于爬升或下降。 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
 
