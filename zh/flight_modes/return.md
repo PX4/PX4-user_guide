@@ -90,16 +90,16 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 - **任务模式:** 
   - 从上一个航点开始以“快退”（反向）飞行的任务 
     - 跳，延迟和其他任何非定位命令都会被忽略，悬停和其他位置航点将转换为简单航点。
-    - VTOL vehicles transition to FW mode (if needed) before flying the mission in reverse.
-  - On reaching waypoint 1, the vehicle ascends to the [return altitude](#return_altitude) and flies to the home position (where it [lands or waits](#arrival)).
+    - VTOL 无人机在反向飞行任务之前切换到固定翼模式（如果需要）。
+  - 在到达航点1时，无人机会上升到[返回高度](#return_altitude)并飞到原始位置（在该位置[着陆或等待](#arrival)）。
 - **任务模式以外的自动模式：** 
-  - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
-  - Continue the mission in reverse, exactly as though Return mode was triggered in mission mode (above)
+  - 直接飞到最近的航点（不是固定翼的着陆航点），然后下降到航点高度。
+  - 反向执行任务，就像在任务模式中触发返航模式一样（上图）。
 - **手动模式：** 直接飞到起始位置然后降落。
 
-If no mission is defined PX4 will fly directly to home location and land (rally points are ignored).
+如果未定义任务，PX4 将直接飞回起始位置并着陆（集结点将被忽略）。
 
-If the mission changes during return mode, then the behaviour is re-evaluated based on the new mission following the same rules as above (e.g. if the new mission has no landing sequence and you're in a mission, the mission is reversed).
+如果任务在返航模式期间发生更改，则将按照与上述相同的规则根据新任务重新评估行为（例如，如果新任务没有降落顺序并且你在一个任务中，则任务将被逆转）。
 
 <span id="safety_point_return"></span>
 
