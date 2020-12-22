@@ -105,9 +105,9 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 
 ### 最近的安全目的地返回类型（RTL_TYPE=3）
 
-In this return type the vehicle:
+无人机在该返航类型中：
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
+- 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
 - Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
 - If the destination is a mission landing pattern the vehicle will follow the pattern to land
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
