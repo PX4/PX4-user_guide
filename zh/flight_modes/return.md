@@ -176,11 +176,11 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
 - 否则直接飞到起始位置，并在半径上方圆环 [NAV_LOITER_RAD](#NAV_LOITER_RAD)。
 
-If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+如果未跟随任务降落，且[ RTL_LAND_DELAY ](#RTL_LAND_DELAY)设置为 -1，则无人机将按照主题[着陆（固定翼）](../flying/fixed_wing_landing.md)中所述降落。
 
-The fixed wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
+固定翼 [安全返回高度](#return_altitude) 仅取决于 [RTL_RETURN_ALT](#RTL_RETURN_ALT) (未使用 [RTL_CONE_ANG](#RTL_CONE_ANG) 定义的圆锥)
 
-RC stick movement is ignored.
+遥控器摇杆操作被忽略。
 
 ### 垂直起降
 
