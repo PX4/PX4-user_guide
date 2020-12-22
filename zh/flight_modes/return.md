@@ -139,32 +139,32 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 
 注意：
 
-- If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone": 
-  - the vehicle returns at `RTL_RETURN_ALT` (or above).
-- If [RTL_CONE_ANG](#RTL_CONE_ANG) is 90 degrees the vehicle will return at the greater of `RTL_DESCEND_ALT` and the current altitude.
-- The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
+- 如果 [RTL_CONE_ANG](#RTL_CONE_ANG) 为 0 度，则没有 "圆锥"： 
+  - 无人机在`RTL_RETURN_ALT`的高度或者（或以上）返航。
+- 如果 [RTL_CONE_ANG](#RTL_CONE_ANG) 是90度，无人机将更大程度在 `RTL_DESCEND_ALT` 的高度和当前高度返航。
+- 无人机总是会爬升到至少[RTL_DESCEND_ALT](#RTL_DESCEND_ALT)的高度返航。
 
 <span id="arrival"></span>
 
 ## 悬停/降落在目的地
 
-Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
+除非执行任务着陆（例如，如果执行[起始位置返航](#home_return)或[最安全目的地返航](#safety_point_return)），无人机才会到达目的地，并迅速降落到[RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 高度。
 
-The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) and then land. If [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) it will loiter indefinitely.
+无人机会在悬停一段指定的时间（[RTL_LAND_DELAY](#RTL_LAND_DELAY)）后降落。 如果 [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) 它将无限期悬停。
 
 <span id="default_configuration"></span>
 
 ## 无人机默认行为
 
-The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
+在所有无人机类型中，该模式几乎完全以相同的方式*实现* (例外情况是，固定翼在等候时会绕圈而不是悬停)， 并因此使用相同的参数调试。
 
-However the *default configuration* is tailored to suit the vehicle type, as described below.
+然而，*默认配置* 是为了适合无人机类型而设计的，如下所述。
 
 ### 多旋翼（MC）
 
-Multicopters use a [home location return](#home_return) by default (and the following configuration):
+多旋翼默认使用[起始位置返航](#home_return)（并使用一下配置）：
 
-- Ascend to [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG=0](#RTL_CONE_ANG) - cone not used).
+- 爬升到 [RTL_RETURN_ALT](#RTL_RETURN_ALT)（[RTL_CONE_ANG=0](#RTL_CONE_ANG) - 未使用锥体）。
 - Fly to the home position in a straight line and constant altitude (if already above the return altitude it will return at its current altitude).
 - Rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 - Land more or less immediately (small [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
