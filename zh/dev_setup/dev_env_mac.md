@@ -39,11 +39,20 @@ brew cask install xquartz java
 
 ## 后续步骤
 
-After installing Homebrew, run these commands in your shell to install the common tools:
+If not already existing, create the file `~/.zshrc` and add these lines:
 
 ```sh
 sudo easy_install pip
 sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
+```
+
+## Gazebo 仿真
+
+After installing Homebrew, run these commands in your shell to install the common tools:
+
+```sh
+brew tap PX4/px4
+brew install px4-dev
 ```
 Install the required Python packages
 
@@ -54,7 +63,7 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
-## Gazebo 仿真
+## jMAVSim 仿真模拟
 
 To install SITL simulation with Gazebo:
 
@@ -63,7 +72,7 @@ brew cask install xquartz
 brew install px4-sim-gazebo
 ```
 
-## jMAVSim 仿真模拟
+## 额外工具
 
 To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 14). You can either download [Java 14 from Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or use the AdoptOpenJDK tap:
 
@@ -80,11 +89,11 @@ brew install px4-sim-jmavsim
 jMAVSim for PX4 v1.11 and earlier required Java 8.
 :::
 
-## 额外工具
+## 后续步骤
 
 See [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful development tools that are not part of the build toolchain (for example IDEs and GCSs).
 
-## 后续步骤
+## Next Steps
 
 Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
 
