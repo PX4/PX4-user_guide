@@ -82,20 +82,20 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
   - 从该航点以快速模式继续执行任务。
 - **手动模式:** 
   - 爬升到一个安全的[返航高度](#return_altitude)高于任何可预期的障碍物。
-  - Fly directly to landing sequence position and descend to waypoint altitude
-  - Land using mission landing pattern
+  - 直接飞到降落序列位置并下降到航点高度。
+  - 使用任务降落模式着陆。
 
-Mission *without* landing pattern defined:
+*没有*定义着陆模式的任务。
 
-- **Mission mode:** 
-  - Mission flown "fast-backward" (in reverse) starting from the previous waypoint 
-    - Jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints.
+- **任务模式:** 
+  - 从上一个航点开始以“快退”（反向）飞行的任务 
+    - 跳，延迟和其他任何非定位命令都会被忽略，悬停和其他位置航点将转换为简单航点。
     - VTOL vehicles transition to FW mode (if needed) before flying the mission in reverse.
   - On reaching waypoint 1, the vehicle ascends to the [return altitude](#return_altitude) and flies to the home position (where it [lands or waits](#arrival)).
-- **Auto mode other than mission mode:** 
+- **任务模式以外的自动模式：** 
   - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
   - Continue the mission in reverse, exactly as though Return mode was triggered in mission mode (above)
-- **Manual modes:** Fly directly to home location and land.
+- **手动模式：** 直接飞到起始位置然后降落。
 
 If no mission is defined PX4 will fly directly to home location and land (rally points are ignored).
 
