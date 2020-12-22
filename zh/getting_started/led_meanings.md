@@ -41,11 +41,11 @@ In the event of an error (blinking red), or if the vehicle can't achieve GPS loc
 
 ## LED 状态
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+三种*LED 状态* 指示FMU SoC状态，另外三个指示 PX4IO 的状态(如果存在)。 它们表示电源、引导模式和激活以及错误状态。
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). 下表显示了Bootloader 和 APP 如何使用 LED 指示状态。
 
 | 颜色     | 标签              | 引导加载程序使用        | APP使用   |
 | ------ | --------------- | --------------- | ------- |
@@ -54,7 +54,7 @@ From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the
 | 绿色     | PWR(电源)         | 引导加载程序不使用       | 表示ARM状态 |
 
 :::note
-The LED labels shown above are commonly used, but might differ on some boards.
+上面所列的 LED 标签是常用的，但是在一些飞控板上可能有所不同。
 :::
 
 More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
