@@ -184,17 +184,17 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 
 ### 垂直起降
 
-VTOL aircraft use a [mission landing return type](#mission_landing_return) by default:
+VTOL 默认使用[任务降落返航](#mission_landing_return):
 
-- If a mission landing is defined, fly direct to the mission landing start point and then land.
-- Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter.
+- 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
+- 否则直接飞向起始位置，切换到多旋翼模式，然后像多旋翼一样着陆。
   
-  :::note If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+  :::note 如果不在任务降落中，VTOL 在固定翼模式下将*始终*在着陆前切换回多旋翼模式（忽略 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)）。
 :::
 
 ## 参数
 
-The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
+RTL 参数列于 [参数 > 返航模式](../advanced_config/parameter_reference.md#return-mode) (以及下面的概述)。
 
 | 参数                                                                                                       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
