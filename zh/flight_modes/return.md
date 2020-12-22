@@ -108,18 +108,18 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 无人机在该返航类型中：
 
 - 爬升到一个安全的[返航高度](#return_altitude)（高于任何可预期的障碍物）。
-- Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
-- If the destination is a mission landing pattern the vehicle will follow the pattern to land
-- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
+- 飞到最近目的地的直接路径：起始位置，任务着陆模式或集结点。
+- 如果目的地是飞行任务着陆模式，则按照该模式降落。
+- 如果目的地是起始位置或者集结点，无人机会下降到下降高度（[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)），然后[着陆或等待](#arrival)。
 
 <span id="return_altitude"></span>
 
 ## 返航高度
 
-A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
+无人机通常会在返航之前首先上升到安全的高度，以躲避其与目的地之间的任何障碍。
 
 :::note
-This is true for most [return types](#return_types). The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
+对于大多数 [返航类型](#return_types) 来说都是如此。 The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
 :::
 
 The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
