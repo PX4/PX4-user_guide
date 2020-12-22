@@ -119,25 +119,25 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 无人机通常会在返航之前首先上升到安全的高度，以躲避其与目的地之间的任何障碍。
 
 :::note
-对于大多数 [返航类型](#return_types) 来说都是如此。 The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
+对于大多数 [返航类型](#return_types) 来说都是如此。 例外是在任务内执行[任务路径返回](#mission_path_return)时，无人机遵循任务航点飞行（我们可以假定这些航点避开了障碍物）。
 :::
 
-The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
+固定翼返回高度是使用参数 [RTL_RETURN_ALT](#RTL_RETURN_ALT) 配置的。 多旋翼和 VTOL 无人机的返航高度使用 [RTL_RETURN_ALT](#RTL_RETURN_ALT) 和 [RTL_CONE_ANG](#RTL_CONE_ANG) 来配置，这两个参数定义了一个以目标（起始位置或者安全点）为中心的半圆锥。
 
 ![返航模式锥形](../../assets/flying/rtl_cone.jpg)
 
 <!-- Original draw.io diagram can be found here: https://drive.google.com/file/d/1W72XeZYSOkRlBSbPXCCiam9NMAyAWSg-/view?usp=sharing -->
 
-If the vehicle is:
+如果无人机是：
 
-- Above [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) it will return at its current altitude.
-- Below the cone it will return where it intersects the cone (2) or [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (whichever is higher).
-- Outside the cone (3) it will first climb until it reaches [RTL_RETURN_ALT](#RTL_RETURN_ALT).
-- Inside the cone: 
-  - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will return at its current altitude.
-  - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) it will first ascend to `RTL_DESCEND_ALT`.
+- 高于[RTL_RETURN_ALT](#RTL_RETURN_ALT) (1)，无人机将在当前高度返航。
+- 在圆锥下方，它将返回与圆锥（2）或[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)（以较高者为准）相交的位置。
+- 在圆锥（3）之外，它将首先爬升，直到达到[ RTL_RETURN_ALT ](#RTL_RETURN_ALT)。
+- 在圆锥内： 
+  - 高于[RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4)，无人机将在当前高度返航。
+  - 低于 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5)，它将会先爬升到 `RTL_DESCEND_ALT`的高度。
 
-Note:
+注意：
 
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone": 
   - the vehicle returns at `RTL_RETURN_ALT` (or above).
