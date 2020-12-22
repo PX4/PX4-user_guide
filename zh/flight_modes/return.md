@@ -67,21 +67,21 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 
 ### 任务路径返航类型（RTL_TYPE=2）
 
-This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. Rally points, if any, are ignored.
+这个返航类型使用任务(如果定义的话)，提供一个安全的返回 *路径*和飞行任务着陆模式（如果定义的话）以提供着陆行为。 如果有任务但没有任务着陆模式，则该任务*反向飞行*。 集结点，如果有的话，将被忽略。
 
 :::note
-The behaviour is fairly complex because it depends on the flight mode, and whether a mission and mission landing are defined.
+该行为相当复杂，因为它取决于飞行模式以及是否定义了任务和任务着陆。
 :::
 
-Mission *with* landing pattern:
+任务 *带有* 着陆模式：
 
-- **Mission mode:** Mission is continued in "fast-forward mode" (jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints) and then lands.
-- **Auto mode other than mission mode:** 
-  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
-  - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
-  - Continue mission in fast forward mode from that waypoint.
-- **Manual modes:** 
-  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
+- **任务模式：**在“快进模式”下继续执行任务（跳过，延迟和任何其他非位置命令被忽略，悬停和其他位置航点转换为简单航路点），然后着陆。
+- **任务模式以外的自动模式：** 
+  - 爬升到一个安全的[返航高度](#return_altitude) 高于任何可预期的障碍物。
+  - 直接飞到最近的航点（对固定翼而言，不是着陆航点），然后降落到航点高度。
+  - 从该航点以快速模式继续执行任务。
+- **手动模式:** 
+  - 爬升到一个安全的[返航高度](#return_altitude)高于任何可预期的障碍物。
   - Fly directly to landing sequence position and descend to waypoint altitude
   - Land using mission landing pattern
 
