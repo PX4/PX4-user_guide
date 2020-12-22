@@ -17,7 +17,7 @@ A video tutorial can be found here: [Setting up your PX4 development environment
 
 The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
-## Enable more open files (Handle "LD: too many open files" error)
+## Earlier versions than Big Sur: Enable more open files (Handle "LD: too many open files" error)
 
 The PX4 toolchain requires the usage of the ZSH shell. If you are using the shell, add this line to your shell profile:
 
@@ -26,7 +26,16 @@ Create this file or append it: `~/.zshenv` and add this line:
 ulimit -S -n 2048
 ```
 
-## Ensuring Python points to Homebrew
+## MacOS Big Sur: Enforce Python Version
+
+If not already existing, create the file `~/.zshrc` and add these lines:
+
+```sh
+# Point pip3 to MacOS system python 3 pip
+alias pip3=/usr/bin/pip3
+```
+
+## MacOS Catalina and earlier: Ensuring Python points to Homebrew
 
 If not already existing, create the file `~/.zshrc` and add these lines:
 
