@@ -165,16 +165,16 @@ PX4 提供了四种替代方法（[ RTL_TYPE ](#RTL_TYPE)），用于找到通�
 多旋翼默认使用[起始位置返航](#home_return)（并使用一下配置）：
 
 - 爬升到 [RTL_RETURN_ALT](#RTL_RETURN_ALT)（[RTL_CONE_ANG=0](#RTL_CONE_ANG) - 未使用锥体）。
-- Fly to the home position in a straight line and constant altitude (if already above the return altitude it will return at its current altitude).
-- Rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
-- Land more or less immediately (small [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
+- 以直线和恒定的高度飞到起始位置（如果已经超过返航高度，它将在当前高度返航）。
+- 快速下降到[RTL_DESCEND_ALT](#RTL_DESCEND_ALT)的高度。
+- 立即或多或少降落（小[RTL_LAND_DELAY](#RTL_LAND_DELAY)）。
 
 ### 固定翼（FW）
 
-Fixed-wing aircraft use a [mission landing return type](#mission_landing_return) by default:
+固定翼默认使用[任务降落返航](#mission_landing_return)：
 
-- If a mission landing is defined, fly direct to the mission landing start point and then land.
-- Otherwise fly directly to the home position and circle above it at radius [NAV_LOITER_RAD](#NAV_LOITER_RAD).
+- 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
+- 否则直接飞到起始位置，并在半径上方圆环 [NAV_LOITER_RAD](#NAV_LOITER_RAD)。
 
 If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
 
