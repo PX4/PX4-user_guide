@@ -1,4 +1,4 @@
-# LED灯含义（Pixhawk系列）
+# LED 含义（Pixhawk系列）
 
 [Pixhawk系列飞行控制器](../flight_controller/pixhawk_series.md) 使用LED来显示当前飞行器的状态。
 
@@ -39,7 +39,7 @@ In the event of an error (blinking red), or if the vehicle can't achieve GPS loc
 
 <span id="status_led"></span>
 
-## LED状态
+## LED 状态
 
 Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
 
