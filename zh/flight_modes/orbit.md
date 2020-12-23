@@ -1,4 +1,4 @@
-# 轨道模式 （多旋翼）
+# 环绕模式 （多旋翼）
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如 GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
@@ -17,7 +17,7 @@
 遥控可以用于改变绕圈的高度，半径，速度和绕圈方向：
 
 - **左摇杆：** 
-  - *上/下：* 控制上升/下降速度，像在[位置模式](../flight_modes/position_mc.md)中一样。 当在中部死区时，高度被锁定。
+  - *上/下：* 控制上升/下降速度，像在[定点模式](../flight_modes/position_mc.md)中一样。 当在中部死区时，高度被锁定。
   - *左/右：* 无效。
 - **右摇杆：** 
   - *左/右：* 控制顺时针/逆时针方向的加速度。 当居中时，当前速度被锁定。 

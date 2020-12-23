@@ -17,7 +17,7 @@ A video tutorial can be found here: [Setting up your PX4 development environment
 
 The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
-## Enable more open files (Handle "LD: too many open files" error)
+## Earlier versions than Big Sur: Enable more open files (Handle "LD: too many open files" error)
 
 The PX4 toolchain requires the usage of the ZSH shell. If you are using the shell, add this line to your shell profile:
 
@@ -29,7 +29,7 @@ brew install px4-dev
 brew install px4-sim
 ```
 
-## Ensuring Python points to Homebrew
+## MacOS Big Sur: Enforce Python Version
 
 Once you have finished setting up the environment, continue to the [build instructions](../setup/building_px4.md).
 
@@ -37,15 +37,24 @@ Once you have finished setting up the environment, continue to the [build instru
 brew cask install xquartz java
 ```
 
-## Common Tools
+## MacOS Catalina and earlier: Ensuring Python points to Homebrew
 
-After installing Homebrew, run these commands in your shell to install the common tools:
+If not already existing, create the file `~/.zshrc` and add these lines:
 
 ```sh
 sudo easy_install pip
 sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
 ```
-Install the required Python packages
+
+## Common Tools
+
+After installing Homebrew, run these commands in your shell to install the common tools:
+
+```sh
+brew tap PX4/px4
+brew install px4-dev
+```
+After setting up the build/simulation toolchain, see [Additional Tools](../setup/generic_dev_tools.md) for information about other useful tools.
 
 ```sh
 # install required packages using pip3
@@ -56,7 +65,7 @@ sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyy
 
 ## Gazebo Simulation
 
-After setting up the build/simulation toolchain, see [Additional Tools](../setup/generic_dev_tools.md) for information about other useful tools.
+To install SITL simulation with Gazebo:
 
 ```sh
 brew cask install xquartz

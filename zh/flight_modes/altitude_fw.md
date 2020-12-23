@@ -1,8 +1,8 @@
-# 高度模式（固定翼）
+# 定高模式（固定翼）
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
-*高度模式*使操纵者更容易控制飞机高度，特别是到达并维持一个固定高度。 该模式不会试图抵抗风扰保持航向。
+* 定高模式 *使操纵者更容易控制飞机高度，特别是到达并维持一个固定高度。 该模式不会试图抵抗风扰保持航向。
 
 爬升/下沉率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。
 
@@ -16,7 +16,7 @@
 
 ## 技术总结
 
-遥控/手动模式，如稳定模式，但具有高度稳定性（杆回中使飞机进入直线和水平飞行并保持当前高度）。 但是飞行过程并不稳定，可能被风吹飘离。
+遥控/手动模式，如自稳模式，但具有高度稳定性（杆回中使飞机进入直线和水平飞行并保持当前高度）。 但是飞行过程并不稳定，可能被风吹飘离。
 
 * 回中的滚动/俯仰/偏航输入（在死区内）： 
   * 自动驾驶仪使飞机/机翼水平并且维持高度。
@@ -25,13 +25,13 @@
   * 俯仰摇杆控制高度。
   * 油门杆控制飞机的空速（如回中输入 横滚/俯仰/偏航）。
   * 横滚摇杆控制横滚角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
-  * 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](../flight_modes/stabilized_fw.md)一样。
+  * 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[自稳模式](../flight_modes/stabilized_fw.md)一样。
 
 :::note
 
 * 需要手动输入（遥控器，或者通过 MAVLink 连接的游戏手柄/拇指摇杆）。
 * 通常使用气压计测量高度，在极端天气条件下可能会变的不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
-
+:::
 
 ## 参数
 
