@@ -58,19 +58,18 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 ![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
 
 - *G(s)* represents the angular rates dynamics of a vehicle
-- *r* is the rate setpoint
-- *y* 是机体角度率 (由陀螺仪测量)
-- *e* is the error between the rate setpoint and the measured rate
-- *u* is the output of the PID controller
+- *r* 是角速读目标值
+- *y* 是机体角速度 (由陀螺仪测量)
+- *e* 是设定角速度和测定角速度之间的误差
+- *u* 是 PID 控制器的输出
 
-The two forms are described below.
+这两种形式将在后面介绍。
 
 :::note
-The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+微分项(**D**) 加在反馈路径上，以避免被称为 [微分冲击](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/)的现象。
 :::
 
-:::tip
-For more information see:
+有关详细信息，请参阅︰
 
 - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
 - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
@@ -78,17 +77,17 @@ For more information see:
 
 <span id="parallel_form"></span>
 
-##### Parallel Form
+##### 并行模式
 
-The *parallel form* is the simplest form, and is (hence) commonly used in textbooks. In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
+*并行模式* 是最简单的形式，也是教科书中最常用的形式。 在这种情况下，控制器的输出只是简单的将比例，积分和微分项相加。
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
 <span id="standard_form"></span>
 
-##### Standard Form
+##### 标准模式
 
-This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
+这种形式在数学上等同于平行形式。 但主要的优点是（即使似乎反直觉）将比例增益的调试与积分、微分增益分离开来。 This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
 
 ![PID_Standard](../../assets/mc_pid_tuning/PID_algorithm_Standard.png)
 
