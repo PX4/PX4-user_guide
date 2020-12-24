@@ -14,9 +14,10 @@ PX4는 다음 기능 지원을 목적으로 컴퓨터 비전 시스템([보조 �
 
 ## 움직임 감지(Motion Capture) {#mocap}
 
-Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
+움직임 감지(Motion Capture, a.k.a MoCap)는 기체 *외부*의 위치 결정 방법으로, 3차원 *자세*(위치와 방향) 를 추정하는 기술입니다. MoCap 시스템은 보통 적외선 카메라로 움직임을 감지하나, 광선 레이더, 광대역 주파(UWB) 형태 기술을 활용할 수도 있습니다.
 
-관성 주행 시각 측정(VIO) 기술은 *로컬* 시작점에서 상대 위치로 기체가 이동할 경우 3차원 *자세* (위치와 방향)와 *속도*를 추정할 때 활용합니다. 보통 GPS가 빠졌거나 (예: 실내) 신뢰할 수 없을 때(예: 다리 아래로 비행할 경우) 기체 운행에 활용합니다.
+관성 주행 시각 측정(VIO) 기술은 *로컬* 시작점에서 상대 위치로 기체가 이동할 경우 3차원 *자세* (위치와 방향)와 *속도*를 추정할 때 활용합니다.
+:::
 
 관성 주행 시각 측정(VIO) 기술은 관성 측정부(IMU)에서 시각 정보와 관성 측정 수치를 결합(저화질 이미지를 촬영하는 고속 기체 이동시 오류 보정)하여 기체의 *자세*를 추정하는 [주행 시각 측정](https://en.wikipedia.org/wiki/Visual_odometry) 기술을 활용합니다.
 - [외부 위치 추정](../ros/external_position_estimation.md)
