@@ -108,17 +108,19 @@ Alpha AWUS036ACH는 고출력 무선랜 카드로, 전송하는 동안 최대 �
 
 **문:** *전송을 보장하는 기술은 무엇인가요?*
 
-**답:** wifibroadcast는 전송 오류 수정(FEC) 기법을 통해 기본 설정에 따라 12패킷 단위로 들어가는 한 블록에서 손실 패킷 4개 정도 복구할 수 있습니다. You can tune it (both TX and RX simultaneously!) to fit your needs.
+**답:** wifibroadcast는 전송 오류 수정(FEC) 기법을 통해 기본 설정에 따라 12패킷 단위로 들어가는 한 블록에서 손실 패킷 4개 정도 복구할 수 있습니다. 필요에 따라 (TX, RX에서 동시에!) 설정 값을 조율할 수 있습니다.
+
+:::caution
+RC TX 동작시 해당 대역을 사용하지 마십시오! 만일 그대로 사용하려면 모델 손상을 막기 위해 RTL 속성을 설정하십시오.
+:::
+
+**문:** *라즈베리 파이에서만 지원하나요?*
 
 **답:** wifibroadcast 기술은 어떤 GPU에 한정하지 않습니다. UDP 패킷에 대해 동작합니다. 그런데 RTP 실시간 전송 데이터를 받으려면 (카메라 원시 데이터에서 x264 실시간 전송 데이터로 변환하는) 동영상 인코더가 필요합니다. 라즈베리 파이의 경우 동영상 인코딩 목적으로만 활용(라즈베리 파이 제로에서 다른 작업을 동시에 하기엔 너무 느리므로)하고 기타 다른 작업(wifibroadcast 동작 포함)은 다른 보드(나노파이 네오2)에서 수행합니다.
 
-**Q:** *Is only Raspberry PI supported?*
-
-**A:** Wifibroadcast is not tied to any GPU - it operates with UDP packets. But to get RTP stream you need a video encoder (with encode raw data from camera to x264 stream). In my case RPI is only used for video encoding (because RPI Zero is too slow to do anything else) and all other tasks (including wifibroadcast) are done by other board (NanoPI NEO2).
-
 ## 이론
 
-Wifibroadcast puts the WiFi cards into monitor mode. This mode allows to send and receive arbitrary packets without association and waiting for ACK packets. [Analysis of Injection Capabilities and Media Access of IEEE 802.11 Hardware in Monitor Mode](https://github.com/svpcom/wifibroadcast/blob/master/patches/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf) [802.11 timings](https://github.com/ewa/802.11-data)
+wifibroadcast는 무선랜 카드를 감시자 모드로 둡니다. 이 모드를 통해 ACK 패킷을 기다리거나 (3-way handshake 등을 통한) 연결을 진행하지 않고도 임의의 패킷을 주고받을 수 있습니다. [802.11 타이밍](https://github.com/ewa/802.11-data) [감시자 모드에서의 IEEE 802.11 하드웨어 데이터 강제 전송 기능 및 미디어 접근 분석](https://github.com/svpcom/wifibroadcast/blob/master/patches/Analysis%20of%20Injection%20Capabilities%20and%20Media%20Access%20of%20IEEE%20802.11%20Hardware%20in%20Monitor%20Mode.pdf)
 
 
 #### 무인 항공기에 추천할 ARM 보드는 무엇입니까?
@@ -129,7 +131,7 @@ Wifibroadcast puts the WiFi cards into monitor mode. This mode allows to send an
 | [오드로이드 C0](https://www.hardkernel.com/shop/odroid-c0/)                                | - 빠른 CPU<br>- EMMC<br>- 1GB SDRAM                                                                                                                                | - 무선 통신 혼선에 매우 민감<br>- 메인 라인 커널을 지원하지 않음<br>- 높은 가격대<br>- 하드웨어 동영상 인코더 동작 안함<br>- 인쇄기판 품질 불량(너무 얇고, 접지 핀에 [내열](https://en.wikipedia.org/wiki/Thermal_relief)기능이 없음) |
 | [나노파이 네오2](http://www.friendlyarm.com/index.php?route=product/product&product_id=180) | - ARM 64비트 CPU<br>- 매우 쌈<br>- 메인라인 커널 지원<br>- 독립 USB 버스 3개 장착<br>- 1Gbps 이더넷 포트<br>- UART 포트 3개<br>- 기판이 매우 작음<br>- 무선 통신 혼선에 잘 견딤 | - 커뮤니티 조직이 작음<br>- 512MB SDRAM<br>- 카메라 인터페이스 없음                                                                                                                                |
 
-This article chose to use Pi Zero as camera board (encode video) and NEO2 as main UAV board (wifibroadcast, MAVLink telemetry, etc.)
+위 내용을 통해 라즈베리 파이 제로를 카메라 보드(동영상 인코딩 용)로, 네오2를 무인항공기 메인보드(wifibroadcast, MAVLink 텔레메트리 통신 등)로 선택했습니다.
 
 
 ## 할 일
