@@ -209,19 +209,19 @@ PWM 和静态推力之间的映射高度取决于电池电压。
 
 ![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
 
-If raw motor command and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
+如果在整个实验范围内收集电机命令和推力数据是全范围的，可以使用下面的公式对数据进行归一化：
 
 *normalized_value = ( raw_value - min (raw_value) ) / ( max ( raw_value ) - min ( raw_value ) )*
 
-After you have a scatter plot of the normalized values, you can try and make the curve match by plotting the equation
+当你有归一化数值的散射图时，你可以尝试通过绘制方程式进行曲线匹配
 
 *rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
 
-over a linear range of normalized motor command values between 0 and 1. Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference. Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
+over a linear range of normalized motor command values between 0 and 1. Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference. 在这里， *rel_thrust* 是介于 0 和 1 之间的归一化推力值， *rel_signal* 是介于 0 和 1 之间的归一化电机信号值。
 
-In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7.
+在上面的例子中，当 `THR_MDL_FAC` 被设置为 0.7时，曲线似乎最适合。
 
-If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
+If you don't have access to a thrust stand, you can also tune the modeling factor empirically. 以0.3开始后每次增加0.1。 如果该参数太大，你可以看到低油门下的振荡现象。 如果参数太小，高油门下可以看到振荡。
 
 <!-- TODO
 ### Velocity & Position Controller
