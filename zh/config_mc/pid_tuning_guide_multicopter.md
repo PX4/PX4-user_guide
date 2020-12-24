@@ -132,19 +132,19 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 
 典型值是：
 
-- standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
-- parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
+- 标准模式 (**P** = 1): 0.01 (4" racer) 到0.04 (500 size)之间， 不管 **K**的值是多少
+- 并行模式 (**K** = 1): 0.0004 到0.005之间, 取决于 **P**的值
 
-##### Integral Gain (I)
+##### 积分增益 (I)
 
-The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying *Acro mode*), but it should not be set too high.
+**I**（积分）增益可以「记住误差」。 当一段时间后没有达到目的角速度，积分项 **I**就会增加 它很重要(尤其在*特技模式*下) ，但我们不应该把它设得太高。
 
-- If the I gain is too high: you will see slow oscillations.
-- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. It should keep the same angle. If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
+- 如果积分增益太高：你会看到缓慢的振荡。
+- 如果积分增益太低：我们可以在*特技模式*下很好地看到这一点，让飞行器朝一个方向转45度，并保持一会。 他应该始终保持相同的角度。 如果它往回漂移，增加** I **。 通过观察日志我们也可以发现** I **增益太小的问题，可以看到实际的角速度过很久也达不到期望的角速度。
 
-Typical values are:
+典型值是：
 
-- standard form (**P** = 1): between 0.5 (VTOL plane), 1 (500 size) and 8 (4" racer), for any value of **K**
+- 标准模式 (**P** = 1): 在 0.5 (VTOL 飞机), 1 (500 size) and 8 (4" 竞速机)之间, 不管 **K**是多少
 - parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15 The pitch gain usually needs to be a bit higher than the roll gain.
 
 #### 测试步骤
