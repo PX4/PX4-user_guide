@@ -112,25 +112,25 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 - 如果你发现首次起飞有严重的振荡（严重到根本没法飞），那你可以减小所有的**P**和**D**参数，直到它能够正常起飞。
 - 如果对对遥控器的响应微小，增加 **P** 增益。
 
-The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
+*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 一开始你的ROLL和PITCH可以用相同的值，等调的差不多了，细调的时候可以分别再调整滚转和俯仰（如果你的飞行器是对称的，那就不用再细调了。） 偏航调试也是同样的方法，除了偏航的D可以为0。
 
 ##### Proportional Gain (P/K)
 
-The proportional gain is used to minimize the tracking error (below we use **P** to refer to both **P** or **K**). It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
+比例增益用于最小化跟踪误差 (下面我们使用 **P** 来代指 **P** 或 **K**)。 它可以加快响应速度，因此应该在不引入震荡的前提下设的尽量的高。
 
-- If the **P** gain is too high: you will see high-frequency oscillations.
-- If the **P** gain is too low: 
-  - the vehicle will react slowly to input changes.
-  - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
+- 如果**P**增益太高了，会有高频率的振荡。
+- 如果 **P** 增益太低了: 
+  - 飞行器会对遥控器的输入很迟钝。
+  - 如果是在*特技模式*下，飞行器会漂移，你会一直要矫正它来让它水平。
 
-##### Derivative Gain (D)
+##### 微分增益
 
-The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
+**D增益**(微分增益) 用来增加阻尼，可以防止超调。 同样地，这个值应该尽量设大一些来避免超调。
 
-- If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
-- If the **D** gain is too low: you see overshoots after a step-input.
+- **D增益**太大，电机可能会抽搐、发热(也有可能不会) 。这是因为**D**项同时也会放大震动等带来的噪声。
+- **D增益**太低会导致超调，在一个阶跃输入后看到超调。
 
-Typical values are:
+典型值是：
 
 - standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
 - parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
