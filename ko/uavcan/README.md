@@ -28,7 +28,7 @@
 
 처음 단계에서 할 일은 UAVCAN을 활성화한 모든 장치와 비행체 제어 장치의 연결입니다. 다음 그림은 모든 부품에 대한 결선 방법을 보여줍니다. 여기서 활용하는 Zubax 장치는 모두 두번째 버스를 옵션으로 달고 있지만 이를 통해 연결 신뢰성을 개선하는 이중 CAN 인터페이스를 지원합니다.
 
-![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
+![UAVCAN 결선](../../assets/uavcan/uavcan_wiring.png)
 
 그 다음, [UAVCAN 설정](../uavcan/node_enumeration.md)의 지침에 따라 펌웨어에서 UAVCAN 기능을 켜십시오. 전원을 끊은 후 다시 연결하십시오.
 
@@ -44,7 +44,7 @@ ID와 각 모터 컨트롤러의 회전 방향은 간단한 설치 루틴에서 
 
 ## 모터 컨트롤러 기수 부여 및 설정
 
-ID와 각 모터 컨트롤러의 회전 방향은 간단한 설치 루틴에서 설치 과정을 마친 후 할당할 수 있습니다: [UAVCAN 노드 기수 부여](../uavcan/node_enumeration.md). The routine can be started by the user through QGroundControl.
+ID와 각 모터 컨트롤러의 회전 방향은 간단한 설치 루틴에서 설치 과정을 마친 후 할당할 수 있습니다: [UAVCAN 노드 기수 부여](../uavcan/node_enumeration.md). QGroundControl에서는 사용자가 과정을 시작할 수 있습니다.
 
 ## 참고할만한 링크
 
