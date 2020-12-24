@@ -46,20 +46,20 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 
 角速度控制是最内环的控制器，它用三个独立的PID控制来控制机身角速度(航向，俯仰，横滚)。
 
-**注意** 把角速度控制器调好是非常重要的，因为它会影响到 *所有的*飞行模式。 A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+**注意** 把角速度控制器调好是非常重要的，因为它会影响到 *所有的*飞行模式。 角速度控制器跳得好不好可以在[位置模式](../flight_modes/position_mc.md)中显现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
 :::
 
-#### Rate Controller Architecture/Form
+#### 速率控制器架构/形式
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel_form) and [Standard](#standard_form).
+PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速率控制器:并行和标准。
 
-Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
+用户可以通过设置其他形式的比例值为“1”，来选择使用的形式(即在下图设置K 为1来选择并行形式,或P为1选择标准形式——这将用一条线来取代 K或P框图)。
 
 ![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
 
 - *G(s)* represents the angular rates dynamics of a vehicle
 - *r* is the rate setpoint
-- *y* is the body angular rate (measured by a gyro)
+- *y* 是机体角度率 (由陀螺仪测量)
 - *e* is the error between the rate setpoint and the measured rate
 - *u* is the output of the PID controller
 
