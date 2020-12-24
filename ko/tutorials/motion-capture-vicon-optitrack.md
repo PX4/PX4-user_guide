@@ -16,9 +16,9 @@ VICON이나 광추적 같은 실내 움직임 감지 체계는 기체 상태 추
 
 Most standard telemetry links like 3DR/SiK radios are **not** suitable for high-bandwidth motion capture applications.
 
-## Coordinate Frames
+## 좌표 프레임
 
-This section shows how to setup the system with the proper reference frames. There are various representations but we will use two of them: ENU and NED.
+이 절에서는 적당한 참조 프레임 체계의 설정 방법을 알려드리겠습니다. 다양한 표현법이 있지만 ENU와 NED 방식을 활용하겠습니다.
 
 * ENU is a ground-fixed frame where **X** axis points East, **Y** points North and **Z** up. The robot/vehicle body frame is **X** towards the front, **Z** up and **Y** towards the left.
 * NED has **X** towards North, **Y** East and **Z** down. The robot/vehicle body frame has **X** towards the front, **Z** down and **Y** accordingly.
