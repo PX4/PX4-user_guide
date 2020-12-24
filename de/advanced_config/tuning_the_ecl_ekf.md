@@ -164,7 +164,7 @@ If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](..
 
 ### Optical Flow
 
-Optical flow data will be used if the following conditions are met:
+[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
 
 * Valid range finder data is available.
 * Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
