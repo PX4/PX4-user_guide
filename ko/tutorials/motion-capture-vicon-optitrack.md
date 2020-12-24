@@ -1,18 +1,18 @@
-# Flying with Motion Capture (VICON, Optitrack)
+# 움직임 감지 기술로 비행하기 (VICON, 광추적)
 
 :::warning
-**WORK IN PROGRESS**.
+**작성중입니다**.
 
-This topic shares significant overlap with [External Position Estimation (ROS)](../ros/external_position_estimation.md).
+이 주제에서는 [외부 위치 추정(ROS)](../ros/external_position_estimation.md)과 약간 겹칩니다.
 :::
 
-Indoor motion capture systems like VICON and Optitrack can be used to provide position and attitude data for vehicle state estimation, orto serve as ground-truth for analysis. The motion capture data can be used to update PX4's local position estimate relative to the local origin. Heading (yaw) from the motion capture system can also be optionally integrated by the attitude estimator.
+VICON이나 광추적 같은 실내 움직임 감지 체계는 기체 상태 추정시 위치와 자세 정보를 제공하거나, 분석시 실제 값으로 활용할 수 있습니다. 움직임 감지 데이터는 지역 원점을 기준으로 PX4의 지역 위치 추정치 업데이트에 활용할 수 있습니다. 선택에 따라 움직임 감지 체계의 방위(Yaw)값도 자세 추정기에 통합할 수 있습니다.
 
-Pose (position and orientation) data from the motion capture system is sent to the autopilot over MAVLink, using the [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP) message. See the section below on coordinate frames for data representation conventions. The [mavros](../ros/mavros_installation.md) ROS-Mavlink interface has a default plugin to send this message. They can also be sent using pure C/C++ code and direct use of the MAVLink library.
+움직임 감지 체계 가져온 자세 (위치 및 방향) 데이터는 MAVLink의 [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP) 메시지에 실어 자동 비행 장치로 전달합니다. 데이터 표현 방식용 좌표 프레임은 아래 절을 참고하십시오. [mavros](../ros/mavros_installation.md) ROS-Mavlink 인터페이스에는 이 메시지를 보낼 기본 플러그인이 있습니다. 순수한 C/C++ 코드와 MAVLink 라이브러리를 직접 사용하여 보낼 수도 있습니다.
 
-## Computing Architecture
+## 처리 구조
 
-It is **highly recommended** that you send motion capture data via an **onboard** computer (e.g Raspberry Pi, ODroid, etc.) for reliable communications. The onboard computer can be connected to the motion capture computer through WiFi, which offers reliable, high-bandwidth connection.
+온전한 통신 수행을 위해 **내장 컴퓨터**(예: 라즈베리 파이, 오드로이드 등)로의 동영상 촬영 데이터 전송 방식을 **강력 추천**합니다. The onboard computer can be connected to the motion capture computer through WiFi, which offers reliable, high-bandwidth connection.
 
 Most standard telemetry links like 3DR/SiK radios are **not** suitable for high-bandwidth motion capture applications.
 
