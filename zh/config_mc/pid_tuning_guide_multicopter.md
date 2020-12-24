@@ -195,9 +195,9 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 如果改变了这个参数，角速度控制器可能需要重新调试。
 :::
 
-The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
+默认情况下电机的推力和它的输入信号(也就是PWM)应该是线性的 — 设置`THR_MDL_FAC` 为 1就会变成二次的. 0~1之间的值表示线性和二次之间的一个插值。 典型的数值介于 0.3 和 0.5 之间。
 
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise *measure* thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. [This Notebook](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb) shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
+如果您有一个 [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (或可以 *同时测量* 推力和电机指令), 你可以确定电机控制信号和实际推力之间的关系，并找到适应数据的一个函数。 电机命令，PX4称之为`执行器输出`根据使用的电调可以是PWM，Dshot，UAVCAN。 [这个手册](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb) 展示了一种方法，可以从先前测量的推力和 PWM 数据计算来计算推力模型因子 `THR_MDL_FAC` 。 此图中显示的曲线被 &alpha; 和 k参数化， 并显示推力和PWM的真实单位(kgf 和 &mu;s)。 In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
 
