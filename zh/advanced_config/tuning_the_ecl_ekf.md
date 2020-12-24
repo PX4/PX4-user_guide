@@ -164,7 +164,7 @@ If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](..
 
 ### 光流
 
-Optical flow data will be used if the following conditions are met:
+[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
 
 * 有效的测距仪数据可用。
 * The ecl EKF uses more RAM and flash space
