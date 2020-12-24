@@ -163,36 +163,36 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 
 ![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
-And here is a good example for the roll rate tracking with several flips, which create an extreme step-input. You can see that the vehicle overshoots only by a very small amount: ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
+下面这份日志的滚转角速度调试的很号，它有几个翻转，也就是很极限的阶跃输入。 你可以看到飞行器的超调量非常小。 ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
 ### 角度控制
 
-This controls the orientation and outputs desired body rates with the following tuning parameters:
+角度控制环控制机体的姿态角，并通过一下可调参数输出目标角速度：
 
-- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
-- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+- 滚转角控制 ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
+- 俯仰角控制 ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
+- 偏航角控制([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
-The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
+姿态角控制环调起来就容易多了。 其实大多数时候默认值就够了，完全不用调。
 
-To tune the attitude controller, fly in *Manual/Stabilized mode* and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
+角度控制环可以在*手动/自稳模式*下调，逐渐增大**P**增益。 如果看到有振荡或者超调，就说明调得太高了。
 
-The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
+下面这几个参数也可以调整 这些参数决定了绕三个轴的最大角速度：
 
-- Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
-- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+- 最大滚转角速度 ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
+- 最大俯仰角速度 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
+- 最大偏航角速度 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 <span id="thrust_curve"></span>
 
-### Thrust Curve
+### 推力曲线
 
-The tuning above optimises performance around the hover throttle. But you may start to see oscillations when going towards full throttle.
+以上的调整都是在悬停油门的基础上的。 但当你逐渐增大到满油门时，机体可能又开始振荡了。
 
-To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
+为了抵消这个现象，用 [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC)参数来调整**推力曲线**。
 
 :::note
-The rate controller might need to be re-tuned if you change this parameter.
+如果改变了这个参数，角速度控制器可能需要重新调试。
 :::
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
