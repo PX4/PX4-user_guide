@@ -1,32 +1,32 @@
-# Logging
+# 로깅
 
-The logger is able to log any ORB topic with all included fields. Everything necessary is generated from the `.msg` file, so that only the topic name needs to be specified. An optional interval parameter specifies the maximum logging rate of a certain topic. All existing instances of a topic are logged.
+로거 프로그램은 어떤 ORB 주제에 대해서든 모든 내용을 넣어 기록할 수 있습니다. 필요한 모든 내용은 `.msg` 파일에서 만들기에, 토픽 이름만 정하면 됩니다. 추가 주기 매개변수에는 각 토픽별 최대 기록 주기를 지정합니다. 모든 토픽의 실존 인스턴스를 기록합니다.
 
-The output log format is [ULog](../dev_log/ulog_file_format.md).
+출력 로그 형식은 [ULog](../dev_log/ulog_file_format.md) 입니다.
 
-## Usage
-By default, logging is automatically started when arming, and stopped when disarming. A new log file is created for each arming session on the SD card. To display the current state, use `logger status` on the console. If you want to start logging immediately, use `logger on`. This overrides the arming state, as if the system was armed. `logger off` undoes this.
+## 사용법
+기본적으로, 로깅은 시동을 걸었을 때 시작하며, 제동 후 멈춥니다. 새 로그 파일은 시동을 걸 때마다 SD 카드에 만듭니다. 현재 상태를 표시하려면 콘솔에서 `logger status`명령을 활용하십시오. 로깅을 바로 시작하고 싶다면 `logger on` 명령을 내리십시오. 이 명령은 시동을 걸었을 때, 시동 동작보다 우선합니다. `logger off` 명령은 그 반대입니다.
 
-Use
+다음 명령
 ```
 logger help
 ```
-for a list of all supported logger commands and parameters.
+을 활용하면 모든 지원 로거 명령과 매개변수 목록을 확인할 수 있습니다.
 
 
-## Configuration
+## 구성
 
-The list of logged topics can be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
+SD 카드에 기록할 토픽 목록은 설정 파일로 개별 지정할 수 있습니다. SD 카드에 `etc/logging/logger_topics.txt` 파일을 만들어 토픽 목록을 넣으십시오(SITL용 파일은 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`입니다).
 ```
-<topic_name>, <interval>
+<topic_name> <interval> <instance>
 ```
-The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate.
+`<interval>` 항목은 선택 사항이나, 밀리초 단위로 이 토픽을 기록할 두 기록 내용 사이의 최소 간격 시간을 지정합니다. 지정하지 않으면, 토픽을 최대 기록율로 기록합니다.
 
-The `<instance>` is optional, and if specified, defines the instance to log. If not specified, all instances of the topic are logged. To specify `<instance>`, `<interval>` must be specified. It can be set to 0 to log at full rate
+`<instance>` 항목 역시 선택사항이나, 이 항목은 로그를 진행할 인스턴스를 지정합니다. 지정하지 않으면, 토픽의 모든 인스턴스를 로깅합니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다. 0 값을 설정하면 최대 기록율로 지정할 수 있습니다.
 
-The topics in this file replace all of the default logged topics.
+이 파일에 들어간 토픽 목록은 기본 로깅 토픽 종류를 바꿉니다.
 
-Logging dropouts are undesired and there are a few factors that influence the amount of dropouts:
+예 :
 ```
 sensor_accel 0 0
 sensor_accel 100 1
