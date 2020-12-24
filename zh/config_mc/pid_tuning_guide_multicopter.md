@@ -145,21 +145,21 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 典型值是：
 
 - 标准模式 (**P** = 1): 在 0.5 (VTOL 飞机), 1 (500 size) and 8 (4" 竞速机)之间, 不管 **K**是多少
-- parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15 The pitch gain usually needs to be a bit higher than the roll gain.
+- 并行模式 (**K** = 1): 如果 **P** 是差不多 0.15，那在0.3 和 0.5之间。 俯仰的增益一般要比横滚的高一点。
 
 #### 测试步骤
 
-To test the current gains, provide a fast **step-input** when hovering and observe how the vehicle reacts. It should immediately follow the command, and neither oscillate, nor overshoot (it feels 'locked-in').
+要测试现在的增益，可以给一个在悬停状况下给一个**脉冲输入**（打一下杆再回来）然后观察飞行器的反应。 他应该反应很快，振荡和超调量都不大。(有种「锁定」的感觉)。
 
-You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
+比如在横滚方向上来一个阶跃输入，把横滚杆推向一侧，然后让它迅速回中（注意如果你直接松手的话，由于它的弹簧结构，杆会振荡 - 调好的无人机会跟随这些振荡）。
 
 :::note
-A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+一个调得很好的旋翼在*特技模式*不会随便超某个方向倾斜，即使不做任何矫正也能保持姿态几十秒。
 :::
 
 #### 日志
 
-Looking at a log helps to evaluate tracking performance as well. Here is an example for good roll and yaw rate tracking:
+看看日志有助于你看看你调的参咋样。 下面是一份调得比较好的滚转和偏航角速度的日志。
 
 ![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
