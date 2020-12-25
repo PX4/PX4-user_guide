@@ -5,12 +5,12 @@
 此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 若要在[定点模式](../flight_modes/position_mc.md)启用，请设置参数：[MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE)。
 
 :::note
-The jerk-limited type is used *by default* in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+在位置模式下，默认使用加加速度限制型轨迹。 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
 :::
 
 ## 轨迹生成器
 
-其中，约束 `jMax`、`aMax` 由用户通过参数页配置，在手动定点控制和自动模式下可能有所不同。
+下图显示了具有如下约束的典型加加速度限制剖面：
 
 - `jMax`：最大抖动
 - `jMax`：初始加速度 
