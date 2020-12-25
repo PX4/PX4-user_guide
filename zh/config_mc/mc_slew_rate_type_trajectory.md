@@ -1,11 +1,12 @@
 # 多旋翼的转换速率型轨迹
 
-转换速率轨迹类型是一种简单的实现方式，在这种情况下，加加速度和加速度使用转换速率进行限制（加加速度和加速度限制不是硬约束）。
+:::tip
+该轨迹类型可以通过设置以下参数：[MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE) 在[定点模式](../flight_modes/position_mc.md)（仅限）下启用。
 
-[MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) is an alternative trajectory that provides for smoother responses.
+[多旋翼的加加速度限制型轨迹调整](../config_mc/mc_jerk_limited_type_trajectory.md)是另一种提供更平滑响应的轨迹。
 :::
 
-本话题解释了如何调整轨迹类型。
+转换速率轨迹类型是一种简单的实现方式，在这种情况下，加加速度和加速度使用转换速率进行限制（加加速度和加速度限制不是硬约束）。
 
 在[定点模式](../flight_modes/position_mc.md)中， 摇杆输入映射为**位置-控制**或**速度-控制**。
 
