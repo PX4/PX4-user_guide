@@ -20,29 +20,28 @@ P/PID控制器的输入是飞行器尝试跟踪的*期望设定值*。 [PID 调�
 
 发送给 P/PID 控制器的*期望设定值*本身是根据摇杆位置（在遥控模式下）或任务指令的*要求设定值*计算的。 要求设定值可能会改变得很快（例如，如果用户“一下子”将摇杆从零移动到最大值）。 如果缓慢调整相应的目标设定值, 飞行器的特性就会更好。
 
-*Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
+*期望值调试* ("高层调试") 用来映射 *要求* 和 *目的* 期望值之间的关系- 比如在目的期望值和要求期望值之间加个“斜率”.
 
 :::tip
-Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
-:::
+P/PID 增益<0>整定不当会导致机体不稳定。 *设定值*整定不当不会导致机体不稳定，但可能会导致产生非常大的加加速度或对设定值变化地响应不灵敏。 :::</p> 
 
 <span id="modes"></span>
 
 ## 飞行模式轨迹支持
 
-[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
+[任务模式](../flight_modes/mission.md)始终使用[加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 
-[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[位置模式](../flight_modes/position_mc.md)支持下文列出的所有[轨迹类型](#trajectory_implementation)。 默认情况下使用加加速度限制型<0>轨迹；若要使用其他轨迹类型可以利用 [MPC_POS_MOD](../advanced_config/parameter_reference.md#MPC_POS_MODE) 设置。</p> 
 
-[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+[定高模式](../flight_modes/altitude_mc.md)同样使用 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) 所指的[轨迹类型](#trajectory_implementation)，但*仅*用于平滑垂直分量（即仅在控制高度时使用）。
 
-No other modes support trajectory tuning.
+其他模式不支持轨迹调整。
 
 <span id="trajectory_implementation"></span>
 
 ## 轨迹实现
 
-The following list provides an *overview* of the different trajectory implementations:
+下表*概述*了不同类型的轨迹实现：
 
 - [加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md) （默认） 
   - 当需要平滑运动时使用（例如：航拍、测绘、货运）。
