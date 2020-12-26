@@ -1,11 +1,10 @@
-# Initial Setup & Configuration
+# İlk Kurulum & Yapılandırma
 
-We recommend that developers obtain the basic equipment described below (or similar) and use a "default" [airframe](../airframes/airframe_reference.md) configuration.
+Geliştiricilerin aşağıda açıklanan temel ekipmanları (veya benzerlerini) edinmelerini de "varsayılan" [gövde](../airframes/airframe_reference.md) konfigürasyonlarını tercih etmelerini öneririz.
 
-## Basic Equipment
+## Temel Ekipman:
 
-:::tip
-PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::tip PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
 :::
 
 The equipment below is highly recommended:
