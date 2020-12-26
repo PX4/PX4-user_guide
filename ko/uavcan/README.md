@@ -4,10 +4,10 @@
 
 [UAVCAN](http://uavcan.org)는 보드상에서 처리하는 네트워크로 자동 항법 장치를 항공 전자장비에 연결할 수 있게 합니다. 다음 하드웨어를 지원합니다:
 
-* Motor controllers
-  * [Zubax Orel 20](https://zubax.com/product/zubax-orel-20) :::note Runs [Sapog Firmware](https://github.com/px4/sapog) (open source). Based on [Sapog Reference Hardware](https://github.com/PX4/Hardware/tree/master/sapog_reference_hardware).
+* 모터 컨트롤러
+  * [Zubax Orel 20](https://zubax.com/product/zubax-orel-20) :::note [Sapog 펌웨어](https://github.com/px4/sapog)(오픈 소스)를 실행합니다. [Sapog 참고 하드웨어](https://github.com/PX4/Hardware/tree/master/sapog_reference_hardware)에 기반합니다.
 :::
-* Airspeed sensors
+* 항속 센서
   * [Thiemar 항속 센서](https://github.com/thiemar/airspeed)
 * GPS 및 GLONASS용 GNSS 리시버
   * [Zubax GNSS](https://zubax.com/products/gnss_2)
@@ -26,17 +26,17 @@
 
 ### 결선
 
-The first step is to connect all UAVCAN enabled devices with the flight controller. The following diagram displays how to wire all components. The used Zubax devices all support a redundant CAN interface in which the second bus is optional but increases the robustness of the connection.
+처음 단계에서 할 일은 UAVCAN을 활성화한 모든 장치와 비행체 제어 장치의 연결입니다. 다음 그림은 모든 부품에 대한 결선 방법을 보여줍니다. 여기서 활용하는 Zubax 장치는 모두 두번째 버스를 옵션으로 달고 있지만 이를 통해 연결 신뢰성을 개선하는 이중 CAN 인터페이스를 지원합니다.
 
-![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
+![UAVCAN 결선](../../assets/uavcan/uavcan_wiring.png)
 
 그 다음, [UAVCAN 설정](../uavcan/node_enumeration.md)의 지침에 따라 펌웨어에서 UAVCAN 기능을 켜십시오. 전원을 끊은 후 다시 연결하십시오.
 
 ### 펌웨어 설치
 
-사용 하드웨어에 따라, UAVCAN 장치의 펌웨어 업데이트를 진행할 여건이 갖춰집니다. UAVCAN 자체와 PX4 펌웨어로 처리가 가능합니다. 자세한 내용은 [UAVCAN 펌웨어](../uavcan/node_firmware.md)의 절차를 참고 하십시오. You can now continue with the general setup and calibration.
+사용 하드웨어에 따라, UAVCAN 장치의 펌웨어 업데이트를 진행할 여건이 갖춰집니다. UAVCAN 자체와 PX4 펌웨어로 처리가 가능합니다. 자세한 내용은 [UAVCAN 펌웨어](../uavcan/node_firmware.md)의 절차를 참고 하십시오. 이제 일반 설치 및 보정 과정으로 계속 진행할 수 있습니다.
 
-PX4 미들웨어에서는 UAVCAN 노드에 일치하는 펌웨어를 받았을 경우 자동으로 업그레이드합니다. 절차와 요구사항은 [UAVCAN 펌웨어](../uavcan/node_firmware.md) 페이지에 있습니다. For more details please refer to the instructions in [UAVCAN Firmware](../uavcan/node_firmware.md).
+PX4 미들웨어에서는 UAVCAN 노드에 일치하는 펌웨어를 받았을 경우 자동으로 업그레이드합니다. 절차와 요구사항은 [UAVCAN 펌웨어](../uavcan/node_firmware.md) 페이지에 있습니다. 자세한 내용은 [UAVCAN 펌웨어](../uavcan/node_firmware.md)의 절차를 참고 하십시오.
 
 ## 노드 펌웨어 업그레이드
 
@@ -44,7 +44,7 @@ ID와 각 모터 컨트롤러의 회전 방향은 간단한 설치 루틴에서 
 
 ## 모터 컨트롤러 기수 부여 및 설정
 
-The ID and rotational direction of each motor controller can be assigned after installation in a simple setup routine: [UAVCAN Node Enumeration](../uavcan/node_enumeration.md). The routine can be started by the user through QGroundControl.
+ID와 각 모터 컨트롤러의 회전 방향은 간단한 설치 루틴에서 설치 과정을 마친 후 할당할 수 있습니다: [UAVCAN 노드 기수 부여](../uavcan/node_enumeration.md). QGroundControl에서는 사용자가 과정을 시작할 수 있습니다.
 
 ## 참고할만한 링크
 

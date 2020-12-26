@@ -5,38 +5,38 @@
 此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 若要在[定点模式](../flight_modes/position_mc.md)启用，请设置参数：[MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE)。
 
 :::note
-The jerk-limited type is used *by default* in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+在位置模式下，默认使用加加速度限制型轨迹。 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
 :::
 
 ## 轨迹生成器
 
-其中，约束 `jMax`、`aMax` 由用户通过参数页配置，在手动定点控制和自动模式下可能有所不同。
+下图显示了具有如下约束的典型加加速度限制剖面：
 
 - `jMax`：最大抖动
-- `jMax`：初始加速度 
+- `a0`：初始加速度 
 - `aMax`：最大加速度
 - `a3`：最终加速度（始终为 0）
 - `v0`：初始速度
 - `vRef`：期望速度
 
+其中，约束 `jMax`、`aMax` 由用户通过参数页配置，在手动定点控制和自动模式下可能有所不同。
+
 所得的速度剖面通常称为“S-曲线”。
 
-The resulting velocity profile is often called "S-Curve".
-
-![Jerk-limited trajectory](../../assets/config/mc/jerk_limited_trajectory_1d.png)
+![加加速度限制型轨迹](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
 ## 手动模式
 
-XY平面：
+在手动定点模式下，通过摇杆控制速度，摇杆的最大行程对应 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) 定义的最大速度。
 
 ### 约束
 
-Z轴：
+XY平面：
 
 - `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`: [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)
 
-在自动模式下，所需的速度是 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)，但该值会根据到下一个航点的距离、航线中可能的最大速度以及所需的最大加速度和加加速度自动调整。
+Z轴：
 
 - `jMax`：[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)
 - `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
@@ -44,22 +44,22 @@ Z轴：
 
 ## 自动模式
 
-XY平面：
+在自动模式下，所需的速度是 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)，但该值会根据到下一个航点的距离、航线中可能的最大速度以及所需的最大加速度和加加速度自动调整。
 
 ### 约束
 
-Z轴：
+XY平面：
 
 - `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`：[MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR)
 
-渐进某个航点时的距离-速度增益：
+Z轴：
 
 - `jMax`：[MPC_JERK_AUTO](../advanced_config/parameter_reference.md#MPC_JERK_AUTO)
 - `aMax`（上升动作）：[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)
 - `aMax`（下降动作）：[MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)
 
-Distance to velocity gains when close to a waypoint:
+渐进某个航点时的距离-速度增益：
 
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
 

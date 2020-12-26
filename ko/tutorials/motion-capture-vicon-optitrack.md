@@ -1,46 +1,46 @@
-# Flying with Motion Capture (VICON, Optitrack)
+# 움직임 감지 기술로 비행하기 (VICON, 광추적)
 
 :::warning
-**WORK IN PROGRESS**.
+**작성중입니다**.
 
-This topic shares significant overlap with [External Position Estimation (ROS)](../ros/external_position_estimation.md).
+이 주제에서는 [외부 위치 추정(ROS)](../ros/external_position_estimation.md)과 약간 겹칩니다.
 :::
 
-Indoor motion capture systems like VICON and Optitrack can be used to provide position and attitude data for vehicle state estimation, orto serve as ground-truth for analysis. The motion capture data can be used to update PX4's local position estimate relative to the local origin. Heading (yaw) from the motion capture system can also be optionally integrated by the attitude estimator.
+VICON이나 광추적 같은 실내 움직임 감지 체계는 기체 상태 추정시 위치와 자세 정보를 제공하거나, 분석시 실제 값으로 활용할 수 있습니다. 움직임 감지 데이터는 지역 원점을 기준으로 PX4의 지역 위치 추정치 업데이트에 활용할 수 있습니다. 선택에 따라 움직임 감지 체계의 방위(Yaw)값도 자세 추정기에 통합할 수 있습니다.
 
-Pose (position and orientation) data from the motion capture system is sent to the autopilot over MAVLink, using the [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP) message. See the section below on coordinate frames for data representation conventions. The [mavros](../ros/mavros_installation.md) ROS-Mavlink interface has a default plugin to send this message. They can also be sent using pure C/C++ code and direct use of the MAVLink library.
+움직임 감지 체계 가져온 자세 (위치 및 방향) 데이터는 MAVLink의 [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP) 메시지에 실어 자동 비행 장치로 전달합니다. 데이터 표현 방식용 좌표 프레임은 아래 절을 참고하십시오. [mavros](../ros/mavros_installation.md) ROS-Mavlink 인터페이스에는 이 메시지를 보낼 기본 플러그인이 있습니다. 순수한 C/C++ 코드와 MAVLink 라이브러리를 직접 사용하여 보낼 수도 있습니다.
 
-## Computing Architecture
+## 처리 구조
 
-It is **highly recommended** that you send motion capture data via an **onboard** computer (e.g Raspberry Pi, ODroid, etc.) for reliable communications. The onboard computer can be connected to the motion capture computer through WiFi, which offers reliable, high-bandwidth connection.
+온전한 통신 수행을 위해 **내장 컴퓨터**(예: 라즈베리 파이, 오드로이드 등)로의 동영상 촬영 데이터 전송 방식을 **강력 추천**합니다. 내장 컴퓨터는 안정적인 고대역폭 WiFi 연결로 움직임 감지 컴퓨터에 연결할 수 있습니다.
 
-Most standard telemetry links like 3DR/SiK radios are **not** suitable for high-bandwidth motion capture applications.
+3DR/SiK 라디오 와 같은 대부분의 표준 텔레메트리 연결은 고대역폭 움직임 감지 활용에 ** 적합하지  않습니다 **.
 
-## Coordinate Frames
+## 좌표 프레임
 
-This section shows how to setup the system with the proper reference frames. There are various representations but we will use two of them: ENU and NED.
+이 절에서는 적당한 참조 프레임 체계의 설정 방법을 알려드리겠습니다. 다양한 표현법이 있지만 ENU와 NED 방식을 활용하겠습니다.
 
-* ENU is a ground-fixed frame where **X** axis points East, **Y** points North and **Z** up. The robot/vehicle body frame is **X** towards the front, **Z** up and **Y** towards the left.
-* NED has **X** towards North, **Y** East and **Z** down. The robot/vehicle body frame has **X** towards the front, **Z** down and **Y** accordingly.
+* ENU는 지상 고정 좌표로서,  **X**축은 동쪽, **Y** 축은 북쪽, **Z**축은 상공을 향합니다. 로봇/기체 틀 기준으로는 **X**축은 전면, **Z**축은 상단, **Y**축은 좌측을 향합니다.
+* NED에서 **X**축은 북쪽, **Y**축은 동쪽, **Z**축은 지면을 향합니다. 로봇/기체 틀 기준으로는 **X**축은 북쪽, **Y**축은 동쪽 **Z**축은 지면을 향합니다.
 
-Frames are shown in the image below. NED on the left, ENU on the right: ![Reference frames](../../assets/lpe/ref_frames.png)
+아래 그림에서 프레임의 방향 상태를 보여드립니다. NED는 좌측, ENU는 우측에 있습니다: ![참조 프레임](../../assets/lpe/ref_frames.png)
 
-With the external heading estimation, however, magnetic North is ignored and faked with a vector corresponding to world *x* axis (which can be placed freely at mocap calibration); yaw angle will be given respect to local *x*.
+그러나 외부 방향 추정시, 자북은 무시하고 가상 세계 *X* 좌표 축을 따라 벡터 기준을 삼습니다(움직임 촬영 기법으로 보정할 때 언제든 자유롭게 둘 수 있습니다), 방위각면이 로컬 *x* 좌표를 두는 면입니다.
 
 :::warning
-When creating the rigid body in the motion capture software, remember to first align the robot with the world **X** axis otherwise yaw estimation will have an initial offset.
+움직임을 감지하는 프로그램에서 강체를 만들 때, 세계 **X** 좌표 축에 로봇을 우선 맞춰야 함을 기억하십시오. 그렇지 않으면 방위 회전각 추정시 초기 오프셋으로 처리합니다.
 :::
 
-## Estimator choice
+## 추정자 선택
 
-### LPE and Attitude Estimator Q
+### LPE와 고도 추정자 Q
 
 ### EKF2
 
 
-The ROS topic for motion cap `mocap_pose_estimate` for mocap systems and `vision_pose_estimate` for vision. Check [mavros_extras](http://wiki.ros.org/mavros_extras) for further info.
+움직임 촬영 기법에 있어 mocap 시스템에선 `mocap_pose_estimate`을 시각 정보 처리에는 `vision_pose_estimate`를 ROS 토픽 메시지로 다룹니다. 더 자세한 정보는 [mavros_extras](http://wiki.ros.org/mavros_extras)를 확인하십시오.
 
 
-## Testing
+## 시험
 
-## Troubleshooting
+## 문제 해결
