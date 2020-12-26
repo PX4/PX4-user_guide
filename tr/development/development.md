@@ -1,4 +1,4 @@
-# PX4 Development
+# PX4 Geliştime
 
 This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
 
