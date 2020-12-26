@@ -17,17 +17,16 @@ Tavsiye edilen ekipmanlar:
   * iPad (Wifi telemetri adaptörü gerektirir)
   * Herhangi bir MacBook veya Ubuntu Linux dizüstü bilgisayar (geliştirme bilgisayarı da kullanılabilir)
   * Samsung Note 4 veya eşdeğeri (*QGroundControl *'ı etkili bir şekilde çalıştırmak için yeterince büyük ekrana sahip herhangi bir yeni Android tablet veya telefon).
-* Safety glasses
-* For multicopters - tether for more risky tests
+* Koruyucu gözlük
+* Multikopterler için sağlam bir ip (daha riskli testler için)
 
-## Vehicle Configuration
+## Araç Yapılandırması
 
-:::tip
-*QGroundControl* for a **desktop OS** is required for vehicle configuration. You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+Araç yapılandırması için QGroundControl'ü çalıştıran masaüstü bir işletim sistemi gereklidir. PX4'ün en yeni özelliklerinden faydalanmak istiyorsanız günlük sürümü kullanıp güncellemeleri düzenli takip etmelisiniz.
 :::
 
-To configure the vehicle:
+Aracı yapılandırmak için:
 
-1. Download the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for your development platform.
-1. [Basic Configuration](../config/README.md) explains how to perform basic configuration.
+1. Geliştirme platformunuz için [QGroundControl Günlük Sürüm](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)'ü indirin.
+1. [Temel Yapılandırma](../config/README.md) bölümünden temel konfigurasyonun nasıl yapılacağına dair açıklamalara ulaşabilirsiniz.
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.
