@@ -22,7 +22,7 @@ Bu rehber ile birlikte:
 
 ## Geliştiriciler için bazı ana linkler
 
-- [Destek](contribute/support.md): [Tartışma panolarını](http://discuss.px4.io/) ve diğer destek kanallarını kullanarak yardım iste
-- [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
-- [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
-- [Contributing](../contribute/README.md): How to work with our [source code](../contribute/code.md).
+- [Destek](contribute/support.md): [Tartışma panolarını](http://discuss.px4.io/) ve diğer destek kanallarını kullanarak yardım isteyebilirsiniz.
+- [Haftalık geliştirici toplantıları](../contribute/dev_call.md): PX4 geliştirici takımıyla tanışıp teknik detayları (pull requestler, önemli sorunlar ve genel soru&cevap vb.) tartışabilirsiniz.
+- [Lisanslar](../contribute/licenses.md): Kaynak kod ile yapabileceklerinizi öğrenmek için lisans ayrıntılarına bakabilirsiniz (ücretsiz kullanıp [BSD 3-clause lisansı](https://opensource.org/licenses/BSD-3-Clause) şartları altında değişiklik yapılabilir).
+- [Katkıda Bulunma](../contribute/README.md): [Kaynak kodumuzla](../contribute/code.md) nasıl çalışabileceğinizi görebilirsiniz.
