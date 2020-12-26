@@ -4,19 +4,19 @@ Geliştiricilerin aşağıda açıklanan temel ekipmanları (veya benzerlerini) 
 
 ## Temel Ekipman:
 
-:::tip PX4 can be used with a much wider range of equipment than described here, but new developers will benefit from going with one of the standard setups. A Taranis RC plus a Note 4 tablet make up for a very inexpensive field kit.
+:::tip PX4 burada bahsedilenlerden çok daha geniş bir ekipman setiyle de kullanılabilir ancak yeni geliştiricilerin standart kurulumlardan faydalanmaları daha kullanışlı olacaktır. A Taranis RC + Note 4 tablet kullanarak cebinizi yakmayan oldukça ucuz bir kit oluşturabilirsiniz.
 :::
 
-The equipment below is highly recommended:
+Tavsiye edilen ekipmanlar:
 
-* A Taranis Plus remote control for the safety pilot (or equivalent)
-* A development computer:
-  * MacBook Pro (early 2015 and later) with OSX 10.15 or later
-  * Lenovo Thinkpad 450 (i5) with Ubuntu Linux 18.04 or later
-* A ground control station device:
-  * iPad (requires Wifi telemetry adapter)
-  * Any MacBook or Ubuntu Linux laptop (can be the development computer)
-  * Samsung Note 4 or equivalent (any recent Android tablet or phone with a large enough screen to run *QGroundControl* effectively).
+* Güvenlik pilotu için bir Taranis Plus (veya eşdeğeri) RC kumanda
+* Geliştirme bilgisayarı:
+  * MacBook Pro (2015 ve sonraki modellerinden) - OSX 10.15 veya sonraki bir sürümü yüklü
+  * Lenovo Thinkpad 450 (i5) - Ubuntu Linux 18.04 veya sonraki bir sürümü yüklü
+* Yer kontrol istasyonu cihazı:
+  * iPad (Wifi telemetri adaptörü gerektirir)
+  * Herhangi bir MacBook veya Ubuntu Linux dizüstü bilgisayar (geliştirme bilgisayarı da kullanılabilir)
+  * Samsung Note 4 veya eşdeğeri (*QGroundControl *'ı etkili bir şekilde çalıştırmak için yeterince büyük ekrana sahip herhangi bir yeni Android tablet veya telefon).
 * Safety glasses
 * For multicopters - tether for more risky tests
 
