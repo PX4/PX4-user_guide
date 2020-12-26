@@ -8,12 +8,12 @@ Bu bölüm, yazılım geliştiriciler ve (yeni) donanım entegre etmek isteyen m
 
 Bu rehber ile birlikte:
 
-* Çalıştığınız bilgisayar için geliştirici ortamınızı kurmayı, PX4'ü kaynak kodundan build etmeyi ve desteklenen otopilotlar üzerinde uygulamayı,
-* Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
-* Learn how to modify the flight stack and middleware:
-  - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
-  - Support new [airframes](../dev_airframes/README.md).
-* Learn how to integrate PX4 with new hardware:
+* Çalıştığınız bilgisayar için [geliştirici ortamınızı](../dev_setup/config_initial.md) kurmayı, [ PX4'ü kaynak kodundan build etmeyi](../dev_setup/building_px4.md) ve  [desteklenen otopilotlar ](../flight_controller/README.md)  üzerinde uygulamayı öğreneceksiniz.
+* [PX4 Sistem Mimarisini](../concept/architecture.md) ve diğer temel konseptleri anlayacaksınız.
+* Flight stack ve middleware üzerinde değişiklikleri nasıl yapabileceğinizi öğreneceksiniz.
+  - Uçuş algoritmalarını değiştirme ve yeni [uçuş modları](../concept/flight_modes.md) ekleme.
+  - Yeni araç [gövdelerini](../dev_airframes/README.md) destekleme.
+* PX4'ü yeni bir donanım ile nasıl entegre edebileceğinizi göreceksiniz.
   - Support new sensors and actuators, including cameras, rangefinders, etc.
   - Modify PX4 to run on new autopilot hardware.
 * [Simulate](../simulation/README.md), [test](../test_and_ci/README.md) and [debug/log](../debug/README.md) PX4.
