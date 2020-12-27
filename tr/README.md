@@ -63,7 +63,7 @@ Ayrıca aşağıdaki konular hakkında da ilave bilgilere ulaşabilirsin:
 * [İhtiyaç duyduğunda yardıma başvurabileceğin yer olan forumlar](contribute/support.md#forums-and-chat)
 * [Sorunların teşhisi](contribute/support.md#diagnosing-problems)
 * [Bugları bildirme](contribute/support.md#issue-bug-reporting)
-* [Haftalık geliştiriciler toplantısı](contribute/support.md#weekly-dev-call)
+* [Haftalık geliştirici toplantıları](contribute/support.md#weekly-dev-call)
 
 ## Bug Bildirme & Sorunlar
 
