@@ -1,8 +1,8 @@
-# Mounting the Flight Controller
+# 비행 제어기(FC) 장착하기
 
-## Orientation
+## 방향
 
-Almost all Flight Controllers have a *heading mark arrow* (shown below). The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
+비행제어기는 아래의 그림과 같이 전방을 가르기는 화살표가 있습니다. The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
 
 ![FC Heading Mark](../../assets/qgc/setup/sensor/fc_heading_mark_1.png)
 
