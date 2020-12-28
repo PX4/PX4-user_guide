@@ -68,7 +68,7 @@ sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyy
 To install SITL simulation with Gazebo:
 
 ```sh
-brew cask install xquartz
+brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
