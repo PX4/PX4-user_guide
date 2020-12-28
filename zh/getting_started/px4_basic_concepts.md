@@ -11,18 +11,18 @@
 无人机可被用于 [消费级、工业级、政府、军工应用](https://px4.io/ecosystem/commercial-systems/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
 :::tip
-Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+不同类型的无人机可用于空中、地面、海上和水下。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 :::
 
-The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+无人机的“大脑”被称为自动驾驶仪。 它由 *载具控制器*（“飞行控制器”）硬件和运行其上的 *飞行栈* 软件组成。
 
 <span id="autopilot"></span>
 
 ## PX4 自动驾驶仪
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](http://px4.io/) 是强大的开源自动驾驶仪 *飞行栈*。
 
-Some of PX4's key features are:
+PX4 的一些主要功能包括：
 
 - 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
 - 适用于[设备控制器](#vehicle_controller)，传感器和其他外围设备的硬件选择。
@@ -113,8 +113,7 @@ Information about batteries and battery configuration can be found in [Battery C
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::note
-PX4 does not require a remote control system for autonomous flight modes.
+:::note PX4 does not require a remote control system for autonomous flight modes.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
