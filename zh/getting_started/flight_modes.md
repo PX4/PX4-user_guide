@@ -579,16 +579,16 @@
             </p>
             
             <p>
-              <a href="../flight_modes/manual_fw.md">Manual mode</a> sends RC stick input directly to the output mixer for "fully" manual control.
+              <a href="../flight_modes/manual_fw.md">手动模式</a>发送 RC 摇杆输入直接发送到输出混控器，以进行 ”完全“ 手动控制。
             </p>
             
             <p>
-              :::tip This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+              :::tip 这是最难飞行的模式，因为什么都不稳定。 与<a href="#acro_fw">特技模式</a>不同，如果 RP 摇杆居中，飞行器将不会自动停止绕轴转动-飞行员实际上必须移动摇杆以向另一个方向施加力。
 :::
             </p>
             
             <p>
-              :::note This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+              :::note 这是唯一忽略 FMU（命令通过安全协处理器发送） 的飞行模式。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
 :::
             </p>
             
@@ -608,7 +608,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+              <a href="../flight_modes/hold.md">保持 </a>使固定翼飞行器在当前高度围绕当前位置盘旋。 该模式可用于暂停任务或帮助在紧急情况下重新获得飞行器的控制。 它可以通过预编程的 RC 开关或<em>QGroundControl</em> <strong>Pause</strong> 按钮激活。
             </p>
             
             <p>
@@ -627,11 +627,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+              <a href="../flight_modes/return.md">返航模式</a> 使飞行器飞行到安全位置。 该模式可以手动（通过预编程的 RC 开关）或者自动（如<a href="../config/safety.md">故障保护</a>被触发的事件）激活。
             </p>
             
             <p>
-              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
+              返航取决于参数设置，并且可遵循任务路径和/或任务着陆模式（如果已定义）。 默认情况下，固定翼将升至安全高度，如果有，则使用任务着陆模式， 否则它将飞到家的位置并开始环绕。
             </p>
             
             <p>
@@ -650,11 +650,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+              <a href="../flight_modes/mission.md">任务模式</a>使飞行器执行上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务</a> (飞行规划) 。 通常使用地面站(GCS) 来创建和上传任务。
             </p>
             
             <p>
-              :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+              :::tip PX4 GCS 叫做<a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. 我们同样使用<em>QGroundControl</em>来配置 PX4。
 :::
             </p>
             
@@ -674,7 +674,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff mode</a> initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+              <a href="../flight_modes/takeoff.md#fixed_wing">起飞 </a>模式启动飞行器起飞序列。 具体的起飞行为取决于被配置的起飞模式（弹射/手抛模式或跑道起飞模式）。
             </p>
             
             <p>
@@ -693,7 +693,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
+              <a href="../flight_modes/land.md">着陆模式</a> 使飞行器转弯并降落在该模式启动的位置。 固定机翼着陆逻辑和参数在主题：<a href="../flying/fixed_wing_landing.md">着陆（固定翼）</a>中解释。
             </p>
             
             <p>
@@ -712,11 +712,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink.
+              <a href="../flight_modes/offboard.md">Offboard 模式</a>使固定翼飞行器服从 MAVLink 提供的位置，速度或姿态设定值。
             </p>
             
             <p>
-              :::note This mode is intended for companion computers and ground stations!
+              :::note 此模式适用于机载计算机和地面站!
 :::
             </p>
             
@@ -725,19 +725,19 @@
             </h2>
             
             <p>
-              A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+              VTOL 飞行器可以作为多旋翼飞行器或固定翼飞行器飞行。 多旋翼飞行模式主要用于起飞和着陆，而固定翼模式用于高效运动和/或执行任务。
             </p>
             
             <p>
-              Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
+              通常，VTOL 飞行器的飞行模式，在 MC 模式下飞行时和<a href="#mc_flight_modes">多旋翼 </a>相同 ，在固定翼模式飞行时和 <a href="#fw_flight_modes">固定翼 </a>相同。
             </p>
             
             <p>
-              The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+              模式之间的切换由飞行员使用 RC 开关启动，或自主模式下在需要时自动启动。
             </p>
             
             <p>
-              A few notes:
+              一些注释：
             </p>
             
             <ul>
