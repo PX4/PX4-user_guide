@@ -82,9 +82,9 @@
 
 ### 故障保护
 
-配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭发动机。 通过将飞机安装在测试台上不装桨叶时，解锁后关闭遥控器，测试遥控器信号丢失后的保护策略 。
+配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭电机。 通过将飞机安装在测试台上不装桨叶时，解锁后关闭遥控器，测试遥控器信号丢失后的保护策略 。
 
-请务必分配一个 [杀死开关](../config/safety.md#kill_switch) 或 [填充开关](../config/safety.md#arming_switch)。 测试并训练它来使用它！
+请务必分配一个 [杀死开关](../config/safety.md#kill_switch) 或 [解锁开关](../config/safety.md#arming_switch)。 测试并训练它来使用它！
 
 ### PX4 调试
 
