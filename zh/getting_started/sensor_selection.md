@@ -59,15 +59,15 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 一些选项包括：
 
 * [PX4Flow](../sensor/px4flow.md)内置声纳测距传感器。
-* [PMW3901](../sensor/pmw3901.md) based flow sensors, which have a sensor much like in an optical mouse trackpad.
+* [PMW3901](../sensor/pmw3901.md) 有着与光学鼠标非常相似的感应器.
 
 <span id="wiring"></span>
 
 ## 传感器接线
 
-Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
+传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
 
-In addition, see:
+另外，请参阅：
 
 * [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
 * [飞控](../flight_controller/README.md) 主题通常包含接线信息。
