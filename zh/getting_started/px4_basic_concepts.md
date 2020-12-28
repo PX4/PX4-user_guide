@@ -230,18 +230,18 @@ PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回�
 
 ## 航向和运动方向
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+所有车辆，船只和飞机都具有航向（机头朝向）或基于其前进运动的方向。
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
 :::note
-For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+对于 VTOL Tailsitter 机头朝向是与多旋翼配置相关的(比如无人机在起飞，悬停，降落时的姿态)。
 :::
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+知道机体朝向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有朝向！ 通常制造商使用彩色螺旋桨或带颜色的机臂来表示朝向。
 
 ![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的航向。
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解朝向。
