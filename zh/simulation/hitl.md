@@ -10,12 +10,12 @@ HITL 模式下 PX4 支持多旋翼 (使用 jMAVSim 或者 Gazebo) 和固定翼 (
 
 目前兼容的机架构型和模拟器的情况如下：
 
-| 机架                                                                                                      | `SYS_AUTOSTART` | Gazebo | jMAVSim |
-| ------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
-| <a href="../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x">HIL Quadcopter X</a>                                                                               | 1001            | Y      | Y       |
-| <a href="../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane">HIL Standard VTOL QuadPlane</a>                                                                               | 1002            | Y      |         |
-| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadrotor_x) copter | 4001            | Y      | Y       |
-| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_flame_wheel_f450)      | 4011            | Y      | Y       |
+| 机架                                                                                                               | `SYS_AUTOSTART` | Gazebo | jMAVSim |
+| ---------------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
+| [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x)               | 1001            | Y      | Y       |
+| [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y      |         |
+| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadrotor_x) copter          | 4001            | Y      | Y       |
+| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_flame_wheel_f450)               | 4011            | Y      | Y       |
 
 <a id="simulation_environment"></a>
 
@@ -133,4 +133,4 @@ Make sure *QGroundControl* is not running!
 
 ## 在 HITL 仿真中执行自主飞行任务
 
-You should be able to use *QGroundControl* to [run missions](../qgc/README.md#planning-missions) and otherwise control the vehicle.
+You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
