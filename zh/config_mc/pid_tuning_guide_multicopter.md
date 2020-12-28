@@ -4,7 +4,8 @@
 
 通常, 如果您使用的是 [ 已经支持的机型 ](../airframes/airframe_reference.md#copter) （例如, [ QGroundControl ](../config/airframe.md) 中的机身），则默认参数应足以安全地飞行。 为了获得最好的性能, 最好能整定新飞机的 PID 参数。 例如, 不同的电调或电机需要不同的控制增益, 才能获得最佳飞行效果。
 
-:::warning本指南仅适用于高级用户。 未调试或部分调试的无人机很可能不稳定，很容易坠毁。 请确保预先指定了保护开关 ( Kill-switch ) 。
+:::warning
+本指南仅适用于高级用户。 未调试或部分调试的无人机很可能不稳定，很容易坠毁。 请确保预先指定了保护开关 ( Kill-switch ) 。
 :::
 
 ## 简介
@@ -27,7 +28,7 @@ PX4 使用 **P比例**, **I积分**, **D微分**(PID) 控制器，(是使用最�
   - 确保没有电机停转
 - 可以通过 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数，启用高速率日志记录配置文件, 以便使用日志来查看角速率和姿态跟踪性能 (之后可以禁用该选项) 。
 
-:::warning**警告** 在调参过程中，禁用 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)。
+::warning 在调参过程中，禁用 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)。
 :::
 
 ## 调参步骤
@@ -46,7 +47,8 @@ PX4 使用 **P比例**, **I积分**, **D微分**(PID) 控制器，(是使用最�
 
 角速度控制是最内环的控制器，它用三个独立的PID控制来控制机身角速度(航向，俯仰，横滚)。
 
-:::note**注意** 把角速度控制器调好是非常重要的，因为它会影响到 *所有的*飞行模式。 角速度控制器跳得好不好可以在[位置模式](../flight_modes/position_mc.md)中显现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
+:::note
+把角速度控制器调好是非常重要的，因为它会影响到 *所有的*飞行模式。 角速度控制器跳得好不好可以在[位置模式](../flight_modes/position_mc.md)中显现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
 :::
 
 #### 速率控制器架构/形式
@@ -200,8 +202,8 @@ PX4在一个单一的“混合”实现上支持两种(数学上等价的)PID速
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
 
-:::note
-PWM 和静态推力之间的映射高度取决于电池电压。
+:::note PWM
+和静态推力之间的映射高度取决于电池电压。
 :::
 
 进行这个试验的另一种方法是对归一化的电机指令和推力值做散电图， 并通过试验`THR_MDL_FAC`参数迭代调整推力曲线。 该图示的示例显示在这里：
