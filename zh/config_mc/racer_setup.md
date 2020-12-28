@@ -139,7 +139,8 @@
 
 首先确保激活高速率日志文件记录(通过[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数)。 [飞行记录](../getting_started/flight_reporting.md) 将显示一个关于roll、pitch、yaw控制的FFT 图。
 
-:::警告 不要试图通过调整滤波器来完善一台受到较大振动的飞行器。 而是改善飞行器的硬件安装来改善性能。
+:::warning
+不要试图通过调整滤波器来完善一台受到较大振动的飞行器。 而是改善飞行器的硬件安装来改善性能。
 :::
 
 最好通过检查飞行日志来进行滤波器调整。 您可以用不同的参数进行多次飞行，然后检查所有日志， 但确保在两者之间加锁电机，以便分隔日志文件。
