@@ -40,23 +40,23 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 * [装配](assembly/README.md) 解释了如何将重要的外围设备连接到自动驾驶仪上。
 * [基本配置](config/README.md) 演示如何更新固件，并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器（罗盘、陀螺仪、空速等），并设置遥控器和安全功能。
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+一旦你准备好驾驶你的飞机，请访问 [飞行](flying/README.md) 部分。
 
-**I am modifying a supported vehicle:**
+**我想修改支持的飞机：**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+上面介绍了飞行控制器和基本传感器的修改。 为了使用新的传感器，或者如果您所做的更改会显著影响飞行特性：
 
 * [外设硬件](peripherals/README.md) 提供了有关使用外部传感器的其他信息。
 * [基本配置](config/README.md) 讲解了如何校准主传感器。
 * 请使用 [高级配置](advanced_config/README.md) 对机身进行重新微调。
 
-**I want to run PX4 on new hardware and extend the platform:**
+**我想在新硬件上运行 PX4 并扩展平台：**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [开发指南](development/development.md) 解释了如何支持新的机架、机型，修改飞行算法、添加新模式、集成新硬件、从飞行控制器外部与 PX4 通信，以及如何为 PX4 做出贡献。
 
 ## 获取帮助
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[支持](contribute/support.md) 页面解释了如何从核心开发团队和更广泛的社区获得帮助。
 
 Among other things it covers:
 
@@ -67,13 +67,13 @@ Among other things it covers:
 
 ## 报告Bug & 问题
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+如果您在使用 PX4 时遇到任何问题，请先将其发布在 [支持频道](contribute/support.md#forums-and-chat) 上（因为它们可能是由飞机配置引起的）。
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+如果是由开发团队转过来的问题，可在[Github here](https://github.com/PX4/PX4-Autopilot/issues) 寻找。 在可能的情况下，提供问题模板中要求的 [飞行日志](getting_started/flight_reporting.md) 和其他信息。
 
 ## 参与贡献
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+如何贡献代码和文档的信息可以在 [贡献](contribute/README.md) 部分中找到：
 
 * [贡献代码](contribute/README.md)
 * [文档撰写](contribute/docs.md)
@@ -81,21 +81,21 @@ Information on how to contribute to code and documentation can be found in the [
 
 ## 翻译
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+本指南有多种语言 [翻译](contribute/translation.md)。 您可以从语言菜单中访问这些(右上角)：
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
 ## 许可证
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 更多信息请参见：[许可证](contribute/licenses.md)。
 
 ## 日历 & 活动
 
-The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+*Dronecode 日历* 显示了平台用户和开发者的重要社区事件。 选择下面的链接以在显示您时区的日历(并将其添加到您自己的日历中)：
 
-* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [太平洋时间 – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
-* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+* [瑞士 - 苏黎世州](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [太平洋时间——蒂华纳](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [澳大利亚 - 墨尔本/悉尼/霍巴特](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
 Calendar defaults to CET. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
