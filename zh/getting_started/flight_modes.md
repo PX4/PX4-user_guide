@@ -7,7 +7,8 @@
 这一主题概述了可用的飞行模式，以及多旋翼飞行器（MC）、固定翼（FW）和 VTOL 默认行为中的（大部分情况下很小）差异。
 
 :::tip
-More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md). :::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## 飞行模式切换
 
