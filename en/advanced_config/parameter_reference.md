@@ -10103,12 +10103,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10269,12 +10267,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10435,12 +10431,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10601,12 +10595,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10767,12 +10759,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10912,12 +10902,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11057,12 +11045,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11202,12 +11188,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11347,12 +11331,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11567,12 +11549,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11787,12 +11767,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -12007,12 +11985,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -12507,12 +12483,10 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
