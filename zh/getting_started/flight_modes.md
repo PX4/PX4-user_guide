@@ -356,7 +356,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md">Takeoff</a> mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
+              <a href="../flight_modes/takeoff.md">起飞模式</a> 使多旋翼飞行器垂直爬升至起飞高度并悬停。
             </p>
             
             <p>
@@ -375,7 +375,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">Land mode</a> causes the multicopter to land at the location at which the mode was engaged.
+              <a href="../flight_modes/land.md">着陆模式</a> 使多旋翼飞行器降落在模式被启用的位置。
             </p>
             
             <p>
@@ -394,7 +394,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/follow_me.md">Follow Me mode</a> causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a MAVSDK app.
+              <a href="../flight_modes/follow_me.md">跟随我模式</a>使多旋翼飞行器自动跟踪提供其当前位置设定点的用户。 位置设定点可以来自运行<em>QGroundControl</em> Android 手机/平板或者来自MAVSDK 应用。
             </p>
             
             <p>
@@ -413,11 +413,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink.
+              <a href="../flight_modes/offboard.md">Offboard 模式</a>使多旋翼飞行器服从 MAVLink 提供的位置，速度或姿态设定值。
             </p>
             
             <p>
-              :::note This mode is intended for companion computers and ground stations!
+              :::note 此模式适用于机载计算机和地面站!
 :::
             </p>
             
@@ -448,15 +448,15 @@
             </p>
             
             <p>
-              <a href="../flight_modes/position_fw.md">Position mode</a> is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
+              <a href="../flight_modes/position_fw.md">位置模式</a> 是一种易于飞行的 RC 模式，当摇杆被释放/居中时，飞行器将会保持水平，并在当前方向上以直线地面轨迹飞行-补偿风和其它力。
             </p>
             
             <p>
-              The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+              油门决定空速（在 50% 油门时，飞机将以预设的巡航速度保持其当前高度）。 俯仰用于爬升或下降。 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
             </p>
             
             <p>
-              :::tip Position mode is the safest fixed-wing manual mode for new fliers.
+              :::tip 位置模式对于新手是最安全的固定翼手动模式。
 :::
             </p>
             
@@ -480,19 +480,19 @@
             </p>
             
             <p>
-              <a href="../flight_modes/altitude_fw.md">Altitude mode</a> makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+              <a href="../flight_modes/altitude_fw.md">高度模式</a>使用户更容易控制飞行器高度，特别是达到并保持固定高度。 该模式不会试图抵抗风扰保持航向。
             </p>
             
             <p>
-              The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+              爬升/下降速率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。 油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
             </p>
             
             <p>
-              When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+              当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约 50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
             </p>
             
             <p>
-              :::tip <em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+              :::tip <em>高度模式 </em>是最安全的非 GPS 引导模式，适合初学者学习如何飞行。 这就像 <a href="#manual_fw">手动</a>模式，但当俯仰摇杆被释放，额外稳定飞行器的高度。
 :::
             </p>
             
@@ -516,20 +516,20 @@
             </p>
             
             <p>
-              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+              <a href="../flight_modes/stabilized_fw.md">自稳模式</a>在摇杆回中时使车辆进入定直平飞，保持姿态水平并抵抗风（但不包括飞机航向和高度）。
             </p>
             
             <p>
-              The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+              如果横滚/俯仰摇杆杆不为零，则无人机根据俯仰输入进行爬升/下降并执行协调的转弯。 滚转和俯仰是角度控制的（您不能翻转至倒置或循环）。
             </p>
             
             <p>
-              :::tip <em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+              :::tip <em>稳定模式</em>比<a href="#manual_fw">手动模式</a>更容易飞行，因为你不能滚动或翻转飞机，并且通过控制杆回中很容易使飞机保持水平。
 :::
             </p>
             
             <p>
-              The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+              如果油门降至0％（电机停止），飞机将滑行。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果滚动杆被释放，则飞机将停止转动并自行改平（对于俯仰和偏航命令也是如此）。
             </p>
             
             <p>
@@ -552,11 +552,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/acro_fw.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+              <a href="../flight_modes/acro_fw.md">特技模式</a>是用于执行特技动作的 RC 模式，如连续翻滚，筋斗，失速和其它特技动作。
             </p>
             
             <p>
-              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+              滚动、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混合器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
             </p>
             
             <p>
