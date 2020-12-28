@@ -10,12 +10,12 @@ PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and fixed wing (usi
 
 The current set of compatible airframes vs Simulators is:
 
-| Airframe                                                                                                | `SYS_AUTOSTART` | Gazebo | jMAVSim |
-| ------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
-| <a href="../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x">HIL Quadcopter X</a>                                                                               | 1001            | Y      | Y       |
-| <a href="../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane">HIL Standard VTOL QuadPlane</a>                                                                               | 1002            | Y      |         |
-| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadrotor_x) copter | 4001            | Y      | Y       |
-| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_flame_wheel_f450)      | 4011            | Y      | Y       |
+| Airframe                                                                                                         | `SYS_AUTOSTART` | Gazebo | jMAVSim |
+| ---------------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
+| [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x)               | 1001            | Y      | Y       |
+| [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y      |         |
+| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadrotor_x) copter          | 4001            | Y      | Y       |
+| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_flame_wheel_f450)               | 4011            | Y      | Y       |
 
 <a id="simulation_environment"></a>
 
@@ -133,4 +133,4 @@ Make sure *QGroundControl* is not running!
 
 ## Fly an Autonomous Mission in HITL
 
-You should be able to use *QGroundControl* to [run missions](../qgc/README.md#planning-missions) and otherwise control the vehicle.
+You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
