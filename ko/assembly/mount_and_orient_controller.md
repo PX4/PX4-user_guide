@@ -13,9 +13,9 @@
 
 ## 진동 방지
 
-비행제어기의 보드에 장착된 가속 센서나 자이로 회전 센서는 진동에 매우 민감합니다. 일부의 보드는 진동 방지 창치가 내장되어 있을 수 있으나, *스티로폼 등* 을 사용하여 제어기의 진동을 방지할 수 있습니다.
+비행제어기의 보드에 장착된 가속 센서나 자이로 회전 센서는 진동에 매우 민감합니다. 일부의 보드는 진동 방지 창치가 내장되어 있을 수 있으나, *스폰지 등* 을 사용하여 제어기의 진동을 방지할 수 있습니다.
 
-![Pixhawk Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) 진동 방지 스티로폼
+![Pixhawk Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) 진동 방지 스폰지
 
 제어기 문서에서 추천하는 방법대로 장착하는 것이 제일 좋습니다.
 
