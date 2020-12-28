@@ -8,9 +8,9 @@
 - 对于更长的飞行和更大的覆盖区域，您将需要固定翼飞机，即**固定翼飞行器 **。
 - 甚至还有混合型飞机，称为**VTOL** - 垂直起降飞行器。 它可以像多旋翼一样在垂直模式下起飞，然后在向前飞行时切换为固定翼飞机。
 
-The [airframe reference](../airframes/airframe_reference.md) lists frames that have been tuned for perfect flight with PX4.
+[机架参考](../airframes/airframe_reference.md) 列出了调试过， 可以在PX4上完美飞行的机型 。
 
-Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
+选择并购买或组装您的机架后，您必须在 [初始设置过程 ](../config/README.md)中使用 QGroundControl 中选择相应机架模板预设机架类型。
 
 ![机架选择](../../assets/qgc/setup/airframe/frame_selection.png)
 
