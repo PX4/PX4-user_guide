@@ -267,7 +267,7 @@
             </p>
             
             <p>
-              A GCS is <em>required</em> to enable the mode, and to set the center position and initial radius of the orbit. By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction. RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
+              <em>需要</em> GCS来使能这个模式, 设置中心位置和环绕的半径. 默认情况下，飞行器将沿顺时针方向围绕中心位置(1米/秒)缓慢运行。 遥控是可选的，可用于设置环绕高度，半径，速度和方向。
             </p>
             
             <p>
@@ -290,7 +290,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">Hold mode</a> causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+              <a href="../flight_modes/hold.md">保持模式</a>使多旋翼飞行器制动并悬停在其当前位置和高度（保持位置并抵抗风和其它力）。 该模式可用于暂停任务或帮助在紧急情况下重新获得飞行器的控制。 它可以通过预编程的 RC 开关或<em>QGroundControl</em> <strong>Pause</strong> 按钮激活。
             </p>
             
             <p>
@@ -309,11 +309,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+              <a href="../flight_modes/return.md">返航模式</a> 使飞行器飞行到安全位置。 该模式可以手动（通过预编程的 RC 开关）或者自动（如<a href="../config/safety.md">故障保护</a>被触发的事件）激活。
             </p>
             
             <p>
-              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
+              返航取决于参数设置，并且可遵循任务路径和/或任务着陆模式（如果已定义）。 默认情况下，多旋翼会升到一个安全的高度，飞到home点，然后降落。
             </p>
             
             <p>
