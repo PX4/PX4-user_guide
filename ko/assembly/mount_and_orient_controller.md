@@ -2,7 +2,7 @@
 
 ## 방향
 
-비행제어기는 아래의 그림과 같이 전방을 가르기는 화살표가 있습니다. The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
+비행제어기에는 아래의 그림과 같이 전방을 나타내는 화살표가 있습니다. 제어기는 기체의 위쪽을 향하도록, 화살표가 전방을 향하도록 설치되어야 합니다(이는 고정익, 다중로터, 수직이착륙기, 지상 운송체에 상관없이 모든 비행체에 동일하게 적용됩니다.).
 
 ![FC Heading Mark](../../assets/qgc/setup/sensor/fc_heading_mark_1.png)
 
