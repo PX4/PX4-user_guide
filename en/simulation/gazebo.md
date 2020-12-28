@@ -165,6 +165,12 @@ make px4_sitl_default gazebo
 
 For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
 
+### Simulating Sensor Failure/Battery
+
+Some hardware and failsafe behaviour can be simulated using parameters; for example, battery drain rate and minimum percentage can be set using the parameters [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN) and [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
+
+For more information see: [Simulation > Simulating Failsafes and Sensor/Hardware Failure](../simulation/README.md#simulating-failsafes-and-sensor-hardware-failure).
+
 
 ### Change Wind Speed
 

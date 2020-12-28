@@ -193,7 +193,7 @@ See [System Startup](../concept/system_startup.md) for more information.
 
 ### Simulating Failsafes and Sensor/Hardware Failure 
 
-The [SITL parameters](../advanced_config/parameter_reference.md#sitl) can also be used to simulate common sensor failure cases, including low battery, loss of GPS or barometer, gyro failure, increased GPS noise etc.  (e.g. [SIM_GPS_BLOCK](../advanced_config/parameter_reference.md#SIM_GPS_BLOCK) can be set to simulate GPS failure).
+The [SITL parameters](../advanced_config/parameter_reference.md#sitl) can also be used to simulate low battery and common sensor failure cases, including: loss of GPS or barometer, gyro failure, increased GPS noise etc. (e.g. [SIM_GPS_BLOCK](../advanced_config/parameter_reference.md#SIM_GPS_BLOCK) can be set to simulate GPS failure).
 
 Additionally (and with some overlap), [Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes.
 
