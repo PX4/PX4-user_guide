@@ -149,7 +149,7 @@
             </p>
             
             <p>
-              :::tip <em>高度模式</em>是对新手来说最安全的无 GPS 手动模式。 It is just like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but additionally stabilizes the vehicle altitude when the sticks are released.
+              :::tip <em>高度模式</em>是对新手来说最安全的无 GPS 手动模式。 它就像 <a href="#manual_stabilized_mc">手动/自稳</a> 模式，但在释放摇杆时还额外可以稳定飞行器高度。
 :::
             </p>
             
@@ -173,20 +173,20 @@
             </p>
             
             <p>
-              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centered. To manually move/fly the vehicle you move the sticks outside of the center.
+              <a href="../flight_modes/manual_stabilized_mc.md">手动/自稳</a> 模式在 RC 摇杆居中时稳定多旋翼飞行器。 要手动飞无人机，您可以移动摇杆使其偏离居中位置。
             </p>
             
             <p>
-              :::note This multicopter mode is enabled if you set either <em>Manual</em> or <em>Stabilized</em> modes for an MC vehicle.
+              :::note 如果为 MC 飞行器设置 <em>手动</em>　或 <em>自稳</em>　模式，则启用此多旋翼模式。
 :::
             </p>
             
             <p>
-              When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+              当在手动控制下，滚转和俯仰摇杆控制飞行器角度（姿态），偏航摇杆控制水平面内的旋转速率，油门摇杆控制高度／速度。
             </p>
             
             <p>
-              As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰杆居中，多旋翼飞行器将平稳并停止运动。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 飞行器将朝着任何风的方向漂移，你必须控制油门以保持高度。
             </p>
             
             <p>
@@ -209,11 +209,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/rattitude_mc.md">Rattitude mode</a> allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired.
+              <a href="../flight_modes/rattitude_mc.md">半自稳模式</a> 允许飞行员在大多数时间使用<a href="#manual_stabilized_mc">手动/自稳</a>飞行，但在需要时仍然可以执行 <a href="#acro_mc">特技模式</a>式的翻转和其它技巧。
             </p>
             
             <p>
-              The vehicle behaves as in <em>Manual/Stabilized mode</em> when the Roll/Pitch stick is moved within the central area and like <em>Acro mode</em> when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
+              当滚转/俯仰操纵杆在中心区域内移动时，飞机表现为<em>手动/自稳模式</em>，当杆在外圆周移动时，车辆表现为<em> 特技模式</em> （默认情况下，手动/自稳模式占据杆行程的约80％）。 当操纵杆回中时，多旋翼飞行器将会改平（但仍然会在任何风的方向上漂移并且具有任何预先存在的动量）。
             </p>
             
             <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
@@ -234,11 +234,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/acro_mc.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
+              <a href="../flight_modes/acro_mc.md">特技模式</a>是用于执行特技动作的 RC 模式，如滚转和环绕。
             </p>
             
             <p>
-              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+              滚动、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混合器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
             </p>
             
             <p>
@@ -255,7 +255,7 @@
             </p>
             
             <h3>
-              Orbit Mode
+              环绕模式
             </h3>
             
             <p>
@@ -263,7 +263,7 @@
             </p>
             
             <p>
-              The <a href="../flight_modes/orbit.md">Orbit mode</a> allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
+              <a href="../flight_modes/orbit.md">环绕模式</a> 控制多旋翼无人机（或者 多旋翼模式下的 VTOL）绕圈飞行，航向始终朝向中心。
             </p>
             
             <p>
