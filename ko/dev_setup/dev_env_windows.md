@@ -3,7 +3,7 @@
 To develop for PX4 on Windows, follow the instructions in [Windows Cygwin Toolchain](../setup/dev_env_windows_cygwin.md).
 
 :::tip
-The *Cygwin toolchain* supports building for NuttX/Pixhawk and jMAVSim simulator targets. If you want to build for [other targets](/setup/dev_env.md#supported-targets), consider setting up a dual boot system with [Ubuntu Linux](http://ubuntu.com).
+The *Cygwin toolchain* supports building for NuttX/Pixhawk and jMAVSim simulator targets. If you want to build for [other targets](../dev_setup/dev_env.md#supported-targets), consider setting up a dual boot system with [Ubuntu Linux](http://ubuntu.com).
 :::
 
 ## Additional Tools
