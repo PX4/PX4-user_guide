@@ -7,33 +7,33 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。
 :::
 
 :::note
-This guide is still a work in progress! It does not yet cover all of PX4.
+本指南将持续更新！ 尚未涵盖 PX4 的全部。
 :::
 
 ## 如何开始？
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+所有用户都应阅读 [入门指南](getting_started/README.md)！ 它概述了 PX4，包括飞行栈提供的功能（飞行模式和安全功能）和支持的硬件（飞控板、飞机、机架、遥测系统、遥控系统）。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-**I already have a drone and I just want to fly:**
+**我已经有了一架飞机，我想让它飞起来：**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 * [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
 * [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**I want to build a drone with PX4 from scratch:**
+**我想从头开始组装一架使用 PX4 的飞机：**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+支持的飞行器列举在 [机架参考](airframes/airframe_reference.md)。 其中已经有很多测试过和调试好参数的机型，可以使用 *QGroundControl*下载这些参数，。
 :::
 
-If you want to build a vehicle from scratch:
+如果你想自己从头开始组建一架飞机：
 
 * 选择机架 - [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何组装。
 * 选择飞控板 - 请参阅 [入门指南 > 飞控板](getting_started/flight_controller_selection.md)和 [自驾仪硬件](flight_controller/README.md)。
