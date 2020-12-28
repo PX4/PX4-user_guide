@@ -82,9 +82,9 @@
 
 ### 故障保护
 
-配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭发动机。 通过将飞机安装在测试台上不装桨叶时，解锁后关闭遥控器，测试遥控器信号丢失后的保护策略 。
+配置 [RC 丢失和低电量保护](../config/safety.md)。 如果您不使用 GPS，请将故障安全设置为 **Lockdown**，后者关闭电机。 通过将飞机安装在测试台上不装桨叶时，解锁后关闭遥控器，测试遥控器信号丢失后的保护策略 。
 
-请务必分配一个 [杀死开关](../config/safety.md#kill_switch) 或 [填充开关](../config/safety.md#arming_switch)。 测试并训练它来使用它！
+请务必分配一个 [杀死开关](../config/safety.md#kill_switch) 或 [解锁开关](../config/safety.md#arming_switch)。 测试并训练它来使用它！
 
 ### PX4 调试
 
@@ -94,21 +94,21 @@
 
 此刻，您应该准备好进行第一次测试飞行。
 
-如果进展顺利，请先通过 [PID 调整](../config_mc/pid_tuning_guide_multicopter.md) (忽略推力曲线设置)。 穿越机需要 **undertuned**，这意味着 **P** 和 **D** 增益应该设置得很低 - 因此没有可以被解释为噪声的来自控制器的震荡(默认增益可能已足够好)。 这对于 [滤镜](#filters) 调节非常重要。 稍后将进行第二轮PID调整。
+如果进展顺利，请先通过 [PID 调整](../config_mc/pid_tuning_guide_multicopter.md) (忽略推力曲线设置)。 穿越机需要是 **欠调试的**，这意味着 **P** 和 **D** 增益应该设置得很低 - 这样控制器就不会产生可能被解释为噪音的振荡(默认增益可能足够好)。 这对于 [滤波器](#filters) 调节非常重要。 稍后将进行第二轮PID调整。
 
 <span id="control_latency"></span>
 
 ### 控制延迟
 
-*控制延迟* 是由于受到物理干扰造成的从指令发出到电机做出反应的延迟。
+*控制延迟* 是从飞机受到物理干扰出到电机做出相应反应的延迟。
 
 :::tip
-是尽可能减少控制延迟是 *关键的* — 较低的延迟允许您提高 **P** 增益, 这意味着更好的飞行性能。 即使在延迟中添加了一个毫秒，也是不同的。
+是尽可能减少控制延迟是 *关键的* — 较低的延迟允许您提高角速度 **P** 增益, 这意味着更好的飞行性能。 即使在延迟中添加了一个毫秒，也是不同的。
 :::
 
 这些因素影响到延迟：
 
-- 软机架或软振动安装会增加延迟(它们充当了滤波器)。
+- 软机架或软振动隔离装置会增加延迟(它们充当了滤波器)。
 - 软件和传感器芯片中的低通滤波器在改善噪声与增加延迟之间形成均衡。
 - PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
 - IO chip (MAINpins) 添加了大约5.4ms的延迟相对于使用 AUX pins的延迟时间(这不适用于 *Pixracer* 或 *Omnibus F4*, 但适用于Pixhawk)。 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
@@ -124,7 +124,7 @@
 
 - 芯片内的DLPF用于陀螺仪滤波。 截止频率设置到98赫兹，采样频率1千赫兹。
 - 低通滤波器用于陀螺数据。 它可以使用 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 参数进行配置。
-- D条目上单独的低通滤波器。 D项对噪声敏感，稍微增加延迟不会对减低性能。 出于这个原因，D项一个可单独配置的低通过过滤器， [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)。
+- D条目上单独的低通滤波器。 D项对噪声敏感，稍微增加延迟不会减低性能。 出于这个原因，D项一个可单独配置的低通过过滤器， [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)。
 - 用于电机输出的限速滤波器 ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX))。 通常不使用。
 
 为了减少控制延迟，我们希望提高低通滤波器的截止频率。 然而，这是一种权衡，因为它也会增加信号的噪音，并带入电机。 发动机上的噪音具有以下后果：
@@ -139,7 +139,8 @@
 
 首先确保激活高速率日志文件记录(通过[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数)。 [飞行记录](../getting_started/flight_reporting.md) 将显示一个关于roll、pitch、yaw控制的FFT 图。
 
-:::警告 不要试图通过调整滤波器来完善一台受到较大振动的飞行器。 而是改善飞行器的硬件安装来改善性能。
+:::warning
+不要试图通过调整滤波器来完善一台受到较大振动的飞行器。 而是改善飞行器的硬件安装来改善性能。
 :::
 
 最好通过检查飞行日志来进行滤波器调整。 您可以用不同的参数进行多次飞行，然后检查所有日志， 但确保在两者之间加锁电机，以便分隔日志文件。
