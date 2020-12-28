@@ -8,13 +8,12 @@
 
 ![FC Orientation](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
-:::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+::주의 제어기가 물리적인 제약으로 인하여 추천하는 기본적인 위치에 장착할 수 없으면, autopilot software에서 실제 장착된 방향을 설정하여 합니다. [Flight Controller Orientation](../config/flight_controller_orientation.md).
 :::
 
-## Vibration Isolation
+## 진동 방지
 
-Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. Some boards include in-built vibration-isolation, while others come with *mounting foam* that you can use to isolate the controller from the vehicle.
+비행제어기의 보드에 장착된 가속 센서나 자이로 회전 센서는 진동에 매우 민감합니다. 일부의 보드는 진동 방지 창치가 내장되어 있을 수 있으나, *스티로폼 등* 을 사용하여 제어기의 진동을 방지할 수 있습니다.
 
 ![Pixhawk Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png) *Vibration damping foam*
 
