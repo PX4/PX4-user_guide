@@ -7,7 +7,8 @@
 이 항목에서는 비행 모드에 대한 개요와 MC (multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소한 차이점)을 설명합니다.
 
 :::tip
-More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md). :::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## 모드 간 전환
 
