@@ -74,12 +74,12 @@ PX4使用*输出*来控制:电机速度(例如通过[ESC](#esc_and_motors))，�
 :::
 
 :::warning
-A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`. Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+飞行控制器可能只有`MAIN` 输出， (比如 *Pixhawk 4 Mini*)，也可能只有6个`MAIN` 或 `AUX`输出。 确保您选择的控制器有足够的端口/输出接口适应您的[机身](../airframes/airframe_reference.md)。
 :::
 
-Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL). For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
+通常情况下， `MAIN` 端口用于核心飞行控制。 `AUX` 用于非关键执行器/载荷（但是，比如VTOL机型，如果 `MAIN`没有足够的接口， `AUX`也可能用来做飞行控制）。 例如, [通用四旋翼](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) 用 `MAIN` 输出的 1-4 来控制电机，其余的 `MAIN` 和`AUX` 输出可以用来做 RC 透传。
 
-The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration. *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
+[飞行控制器](#vehicle_controller) 上的实际输出端口/总线取决于硬件和 PX4 配置。 *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
 They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar). Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
 
