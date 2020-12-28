@@ -7,7 +7,8 @@
 本トピックでは，利用可能なフライトモードについての概要と，それぞれのモードの(多くの場合，微妙な違いではありますが)，マルチコプター(MC) ・固定翼機(FW) ，VTOL機での挙動の違いについて説明します。
 
 :::tip
-More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md). :::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## モードの切替
 
