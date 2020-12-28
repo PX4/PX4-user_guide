@@ -113,13 +113,13 @@ PX4 和 *Pixhawk*兼容的接收机如下所示：
 
 遥控器接收器有不同方式指示信号损失：
 
-* Output nothing (automatically detected by PX4)
-* Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
-* Output the last received signal (PX4 cannot handle this case!)
+* 无输出(由PX4自动检测)
+* 输出低油门值(您可以 [配置 PX4 来检测这个](../config/radio.md#rc_loss_detection))。
+* 输出最后收到的信号 (PX4 无法处理此情况!)
 
-Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).
+首选一个当RC断开时无输出的接收机，然后才是低油门的接收机。 可能需要配置接收器(请参阅手册)。
 
-For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+欲了解更多信息，请参阅 [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
 ## 相关章节
 
