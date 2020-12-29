@@ -1,6 +1,6 @@
 # 기본 개념
 
-이 주제는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
+무인 항공기에 대한 소개와 PX4 사용법에 대해 설명합니다. 초보자와 전문가에게도 유익한 자료입니다.
 
 기본 개념을 이미 잘 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 특정 비행 컨트롤러 하드웨어를 배선하는 방법을 배울 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 설치하고 기체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
 
@@ -113,8 +113,7 @@ Information about batteries and battery configuration can be found in [Battery C
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::note
-PX4 does not require a remote control system for autonomous flight modes.
+:::note PX4 does not require a remote control system for autonomous flight modes.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
