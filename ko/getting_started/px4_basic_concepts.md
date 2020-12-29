@@ -13,19 +13,19 @@
 드론 적용 분야는 항공, 지상, 바다, 수중 등 다양한 분야가 있습니다. 드론을 지칭하는 공식적인 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론을 움직이는 두되에 해당하는 것이 자율비행 프로그램입니다. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+드론을 움직이는 두되에 해당하는 것이 자율비행 프로그램입니다. 자율 비행 프로그램은 운송 제어기(비행 제어기)에서 동작하는 flight stack으로 되어 있습니다.
 
 <span id="autopilot"></span>
 
-## PX4 Autopilot
+## PX4 자율비행 프로그램
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](http://px4.io/) 는 다양한 기능을 가진 오픈 소스 자율 비행*비행 스택*. 프로그램 입니다. 
 
-Some of PX4's key features are:
+PX의 주요기능
 
-- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 기체 및 수중함을 포함하여 [ 다양한 기체 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
-- [기체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 좋은 선택입니다.
-- 유연하고 강력한 [비행 모드](#flight_modes) 및 [안전 기능](#safety)을 갖고 있습니다.
+- 항공기 (멀티콥터, 고정익 및 수직이착륙기), 지상 운송체및 잠수함을 포함하여 [ 다양한 기체 유형](../airframes/airframe_reference.md)을 제어 
+- [운송체 컨트롤러](#vehicle_controller), 센서 및 다양한 주변 장치 지원
+- 강력한 [비행 기능](#flight_modes) 및 [안전 기능](#safety)
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
