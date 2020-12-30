@@ -1,15 +1,17 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 자동 항법 장치 사용자 안내서 ({{ $themeConfig.px4_version }})
+# PX4 자율 비행 프로그램 안내서 ({{ $themeConfig.px4_version }})
 
 [![릴리즈](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4는 *자율 비행 S/W*입니다. 세계적인 수준의 산업계와 학계에 걸친 여러 개발자들이 개발하였으며, 여러나라에서 활발하게 활동중인 다양한 단체의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 잠수함에 이르기까지 다양한 종류의 기기에 적용할 수 있습니다.
+PX4는 *자율 비행 프로그램*입니다. 산업계와 학계에서 세계적인 수준의 개발자들이 개발하였으며, 세계 여러 나라에서 활발히 활동중인 단체들의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 잠수함에 이르기까지 다양한 종류의 운송체에 적용할 수 있습니다.
 
-:::팁 이 안내서는 PX4 기반의 기체 조립, 설정, 비행에 필요한 내용들이 기술되어 있습니다.
+:::tip
+이 안내서는 PX4 기반의 기체 조립, 설정, 비행에 필요한 내용들이 기술되어 있습니다.
 :::
 
-:::팁 안내 이 안내서는 작업중인 버전입니다. 아직, PX4의 모든 내용을 번역하지는 않았음을 참고하여 주십시오.
+:::note
+이 안내서는 번역 작업중인 버전입니다. 모든 내용을 번역되지 않았습니다.
 :::
 
 ## 어떻게 시작하나요?

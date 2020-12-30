@@ -1,65 +1,64 @@
 # 기본 개념
 
-이 주제는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
+무인 항공기에 대한 소개와 PX4 사용법에 대해 설명합니다. 초보자와 전문가에게도 유익한 자료입니다.
 
-기본 개념을 이미 잘 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 특정 비행 컨트롤러 하드웨어를 배선하는 방법을 배울 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 설치하고 기체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
+기본 개념을 이미 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 비행 컨트롤러 조립법을 배울 수 있습니다. *QGroundControl*을 사용하여 PX4 펌웨어를 설치하고 기체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
 
 ## 드론이란?
 
-드론은 원격 또는 자율적으로 제어될 수 있는 무인 "로봇" 기체입니다.
+드론은 수동이나 자동으로 제어 가능한 무인 로봇 입니다.
 
-Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 여기에는 (대략) 항공 사진/비디오, 화물 운송, 레이싱, 검색 및 측량 등 내용이 포함됩니다.
+드론은 [개인, 산업체, 공공기관, 국방 분야에서 다양하게 적용](https://px4.io/ecosystem/commercial-systems/).되고 있습니다. 응용분야는 항공 측량, 화물 운송, 레이싱, 수색 등이 있습니다.
 
-:::tip
-Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+드론 적용 분야는 항공, 지상, 바다, 수중 등 다양한 분야가 있습니다. 드론을 지칭하는 공식적인 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+드론을 움직이는 두되에 해당하는 것이 자율비행 프로그램입니다. 자율 비행 프로그램은 운송 제어기(비행 제어기)에서 동작하는 flight stack으로 되어 있습니다.
 
 <span id="autopilot"></span>
 
-## PX4 Autopilot
+## PX4 자율비행 프로그램
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](http://px4.io/) 는 다양한 기능을 가진 오픈 소스 자율 비행*비행 스택*. 프로그램 입니다. 
 
-Some of PX4's key features are:
+PX의 주요기능
 
-- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 기체 및 수중함을 포함하여 [ 다양한 기체 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
-- [기체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 좋은 선택입니다.
-- 유연하고 강력한 [비행 모드](#flight_modes) 및 [안전 기능](#safety)을 갖고 있습니다.
+- 항공기 (멀티콥터, 고정익 및 수직이착륙기), 지상 운송체및 잠수함을 포함하여 [ 다양한 기체 유형](../airframes/airframe_reference.md)을 제어 
+- [운송체 컨트롤러](#vehicle_controller), 센서 및 다양한 주변 장치 지원
+- 강력한 [비행 기능](#flight_modes) 및 [안전 기능](#safety)
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
+PX4는 [QGroundControl](#qgc) 지상 제어 프로그램, [Pixhawk 하드웨어](https://pixhawk.org/) 그리고 보조 컴퓨터, 카메라 및 하드웨어(MAVLink 프로토콜을 지원)를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 플랫폼 중에서 핵심적인 요소입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
 <span id="qgc"></span>
 
 ## QGroundControl
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/). You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+Dronecode에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [기체 제어기](flight_controller_selection.md)에 업로드할 수 있으며, 해당 기체 비행에 필요한 각종 변수를 설정하고, 실시간 비행 정보와 자율 비행을 실행할 수 있습니다.
 
-*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+*QGroundControl*은 윈도우, 안드로이드, 맥오에스 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## Vehicle/Flight Controller Board
+## 비행(기체) 제어기 보드
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4는 초기에 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 에서만 실행되도록 설계되었으나, 현재는 리눅스 및 기타 하드웨어에서도 실행되어 집니다. 기체의 물리적인 조건과 비행의 목적과 비용에 적절한 하드웨어를 선택해야 합니다.
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
 
 ## 센서
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4는 센서를 사용하여 기체의 상태를 결정합니다 (자율 비행에 필요한 기체 안정화 작업입니다). 자이로스코프 센서, 가속도 센서, 지자기(나침반) 센서 및 기압 센서는 * 시스템 구동에 필요한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 VTOL 기체는 대기속도 센서가 추가로 포함되어야 합니다(매우 권장됨).
 
-For more information see:
+더 자세한 정보는 다음을 참고하세요.
 
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
 
 <span id="outputs"></span>
 
-## Outputs: Motors, Servos, Actuators
+## 출력 장치: 모터, 서보, 액츄에이터
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
@@ -113,8 +112,7 @@ Information about batteries and battery configuration can be found in [Battery C
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::note
-PX4 does not require a remote control system for autonomous flight modes.
+:::note PX4 does not require a remote control system for autonomous flight modes.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
