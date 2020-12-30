@@ -24,6 +24,24 @@ mc_att_control <command> [arguments...]
 
    status        print status info
 ```
+## flight_mode_manager
+Source: [modules/flight_mode_manager](https://github.com/PX4/Firmware/tree/master/src/modules/flight_mode_manager)
+
+
+### Description
+This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input and outputs setpoints for controllers.
+
+<a id="flight_mode_manager_usage"></a>
+
+### Usage
+```
+flight_mode_manager <command> [arguments...]
+ Commands:
+
+   stop
+
+   status        print status info
+```
 ## fw_att_control
 Source: [modules/fw_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/fw_att_control)
 
@@ -37,6 +55,7 @@ fw_att_control is the fixed wing attitude controller.
 ```
 fw_att_control <command> [arguments...]
  Commands:
+   start
 
    stop
 
@@ -53,31 +72,6 @@ fw_pos_control_l1 is the fixed wing position controller.
 
 ### Usage
 ```
-fw_pos_control_l1 <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
-## mc_att_control
-Source: [modules/mc_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_att_control)
-
-
-### Description
-This implements the multicopter attitude controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) as inputs and outputs a rate setpoint.
-
-The controller has two loops: a P loop for angular error and a PID loop for angular rate error.
-
-Publication documenting the implemented Quaternion Attitude Control: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
-
-https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
-
-<a id="mc_att_control_usage"></a>
-
-### Usage
-```
 mc_pos_control <command> [arguments...]
  Commands:
    start
@@ -86,16 +80,20 @@ mc_pos_control <command> [arguments...]
 
    status        print status info
 ```
-## mc_pos_control
-Source: [modules/mc_pos_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_pos_control)
+## mc_att_control
+The controller has two loops: a P loop for angular error and a PID loop for angular rate error.
 
 
 ### Description
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+This implements the multicopter attitude controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) as inputs and outputs a rate setpoint.
 
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+The controller has a P loop for angular error
 
-<a id="mc_pos_control_usage"></a>
+Publication documenting the implemented Quaternion Attitude Control: Nonlinear Quadrocopter Attitude Control (2013) by Dario Brescianini, Markus Hehn and Raffaello D'Andrea Institute for Dynamic Systems and Control (IDSC), ETH Zurich
+
+https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
+
+<a id="mc_att_control_usage"></a>
 
 ### Usage
 ```
@@ -111,8 +109,30 @@ navigator <command> [arguments...]
 
    status        print status info
 ```
+## mc_pos_control
+The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+
+
+### Description
+The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+
+The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+
+<a id="mc_pos_control_usage"></a>
+
+### Usage
+```
+mc_pos_control <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
 ## mc_rate_control
-Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
+Source: [modules/mc_rate_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_rate_control)
 
 
 ### Description
