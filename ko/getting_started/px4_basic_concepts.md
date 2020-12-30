@@ -35,30 +35,30 @@ PX4는 [QGroundControl](#qgc) 지상 제어 프로그램, [Pixhawk 하드웨어]
 
 Dronecode에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [기체 제어기](flight_controller_selection.md)에 업로드할 수 있으며, 해당 기체 비행에 필요한 각종 변수를 설정하고, 실시간 비행 정보와 자율 비행을 실행할 수 있습니다.
 
-*QGroundControl*은 윈도우, 안드로이드, 맥오에스 그리고 리눅스에서 실행 가능합니다. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+*QGroundControl*은 윈도우, 안드로이드, 맥오에스 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
 
 ![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## Vehicle/Flight Controller Board
+## 비행(기체) 제어기 보드
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4는 초기에 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 에서만 실행되도록 설계되었으나, 현재는 리눅스 및 기타 하드웨어에서도 실행되어 집니다. 기체의 물리적인 조건과 비행의 목적과 비용에 적절한 하드웨어를 선택해야 합니다.
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
 
 ## 센서
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4는 센서를 사용하여 기체의 상태를 결정합니다 (자율 비행에 필요한 기체 안정화 작업입니다). 자이로스코프 센서, 가속도 센서, 지자기(나침반) 센서 및 기압 센서는 * 시스템 구동에 필요한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 VTOL 기체는 대기속도 센서가 추가로 포함되어야 합니다(매우 권장됨).
 
-For more information see:
+더 자세한 정보는 다음을 참고하세요.
 
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
 
 <span id="outputs"></span>
 
-## Outputs: Motors, Servos, Actuators
+## 출력 장치: 모터, 서보, 액츄에이터
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
