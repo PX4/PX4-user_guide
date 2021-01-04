@@ -9443,7 +9443,7 @@ default 1.5 turns per second</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 90 </td>
- <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">45</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
@@ -9462,9 +9462,9 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
+ <td style="vertical-align: top;"><p>Horizontal radius from return point within which special rules for return mode apply</p><p><strong>Comment:</strong> The return altitude will be calculated based on RTL_CONE_ANG parameter. The yaw setpoint will switch to the one defined by corresponding waypoint.</p>   </td>
  <td style="vertical-align: top;">0.5 > 100 (0.5)</td>
- <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;">10.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
