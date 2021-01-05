@@ -1,4 +1,4 @@
-# LED灯含义（Pixhawk系列）
+# LED 含义（Pixhawk系列）
 
 [Pixhawk系列飞行控制器](../flight_controller/pixhawk_series.md) 使用LED来显示当前飞行器的状态。
 
@@ -14,11 +14,11 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 下图显示LED和飞行器状态的关系。
 
 :::warning
-It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+有可能出现GPS锁定 (绿色LED) 但仍然无法解锁的情况，这是因为PX4还没有[通过起飞前检查](../flying/pre_flight_checks.md). **起飞需要有效的全球位置估计!**
 :::
 
 :::tip
-In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+在遇到错误 (红色LED闪烁), 或者飞行器GPS无法锁定 (LED从蓝色变为绿色) 时， 在*QGroundControl*中查看详细的状态信息，包括校准状态，[飞行前检查(内部)](../flying/pre_flight_checks.md)报告的错误信息。 还要检查GPS模块是否正确连接，Pixhawk是否正确读取GPS信息，GPS是否发送正确的GPS位置。
 :::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
@@ -39,13 +39,13 @@ In the event of an error (blinking red), or if the vehicle can't achieve GPS loc
 
 <span id="status_led"></span>
 
-## LED状态
+## LED 状态
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+三种*LED 状态* 指示FMU SoC状态，另外三个指示 PX4IO 的状态(如果存在)。 它们表示电源、引导模式和激活以及错误状态。
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+从上电开始，FMU和PX4IO的CPU首先运行引导程序(BL) 然后运行程序(APP)。 下表显示了Bootloader 和 APP 如何使用 LED 指示状态。
 
 | 颜色     | 标签              | 引导加载程序使用        | APP使用   |
 | ------ | --------------- | --------------- | ------- |
@@ -54,10 +54,10 @@ From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the
 | 绿色     | PWR(电源)         | 引导加载程序不使用       | 表示ARM状态 |
 
 :::note
-The LED labels shown above are commonly used, but might differ on some boards.
+上面所列的 LED 标签是常用的，但是在一些飞控板上可能有所不同。
 :::
 
-More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
+下面给出了LED更详细的信息(“x”表示任意状态)
 
 | 红色/琥珀色 | 蓝色 | 绿色    | 含义                                    |
 | ------ | -- | ----- | ------------------------------------- |

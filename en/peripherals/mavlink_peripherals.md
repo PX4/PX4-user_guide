@@ -73,7 +73,6 @@ For example, to use a companion computer on `TELEM 2` you might set parameters a
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
 - [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
 - [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s
-  
   :::tip
   This value might have to be tuned/reduced in the event of message losses.
   :::

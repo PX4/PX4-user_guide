@@ -31,7 +31,7 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 
 ### PX4Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
+[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
 
 ### PMW3901-Based Sensors
 

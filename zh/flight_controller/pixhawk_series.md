@@ -31,7 +31,7 @@ The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilo
 The PX4 maintenance and test teams maintain and support these standard boards.
 :::
 
-The list of boards boards supported by the PX4 project is reproduced below:
+The list of boards supported by the PX4 project is reproduced below:
 
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)

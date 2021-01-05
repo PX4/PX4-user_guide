@@ -1,7 +1,7 @@
 # 젠킨스 CI
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">TIP</p> <p>The latest version <a href="https://docs.px4.io/master/en/test_and_ci/">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래됐습니다</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/test_and_ci/">여기에서  찾을 수 있습니다</a>.</p>
   </div>
 </div>
 

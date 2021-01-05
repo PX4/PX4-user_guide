@@ -75,7 +75,7 @@ Vehicle movement always follows stick movement, but the level/type of response c
 * **AUTO_LOITER** (Loiter)
   * **Fixed wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it'). 
   * **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
-* **AUTO_RTL** (Return to Land)
+* **AUTO_RTL** (Return to Launch)
   * **Fixed wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position. 
   * **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
 * **AUTO_MISSION** (Mission)

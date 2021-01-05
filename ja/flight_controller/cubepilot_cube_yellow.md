@@ -4,6 +4,10 @@
 PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
+
 The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
@@ -16,9 +20,6 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
-:::
 
 ## Key Features
 

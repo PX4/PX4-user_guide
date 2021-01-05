@@ -67,7 +67,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
 ### Cross Compiler Setup
 
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+1. First set up *rsync* (this is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
     
     1. Generate an SSH key if you have not previously done so:
         

@@ -97,7 +97,7 @@ JLinkGDBServer -select USB=0 -device STM32F446RE -if SWD-DP -speed 20000 -vd
 arm-none-eabi-gdb px4esc_1_6-bootloader.elf
 ```
 
-At the `gdb` prompt, run:
+`gdb` 프롬프트에서 다음 명령을 실행하십시오:
 
 ```
 tar ext :2331

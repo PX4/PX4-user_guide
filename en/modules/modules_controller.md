@@ -26,6 +26,27 @@ airship_att_control <command> [arguments...]
 
    status        print status info
 ```
+## flight_mode_manager
+Source: [modules/flight_mode_manager](https://github.com/PX4/Firmware/tree/master/src/modules/flight_mode_manager)
+
+
+### Description
+This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input
+and outputs setpoints for controllers.
+
+
+<a id="flight_mode_manager_usage"></a>
+### Usage
+```
+flight_mode_manager <command> [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+```
 ## fw_att_control
 Source: [modules/fw_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/fw_att_control)
 

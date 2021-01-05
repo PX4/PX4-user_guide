@@ -1570,7 +1570,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_HLDL_REG_T">COM_HLDL_REG_T</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>High Latency Datalink regain time threshold</p><p><strong>Comment:</strong> After a data link loss: after this this amount of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>   </td>
+ <td style="vertical-align: top;"><p>High Latency Datalink regain time threshold</p><p><strong>Comment:</strong> After a data link loss: after this number of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>   </td>
  <td style="vertical-align: top;">0 > 60 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;">s</td>
@@ -9443,7 +9443,7 @@ default 1.5 turns per second</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 90 </td>
- <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">45</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
@@ -9462,9 +9462,9 @@ default 1.5 turns per second</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
+ <td style="vertical-align: top;"><p>Horizontal radius from return point within which special rules for return mode apply</p><p><strong>Comment:</strong> The return altitude will be calculated based on RTL_CONE_ANG parameter. The yaw setpoint will switch to the one defined by corresponding waypoint.</p>   </td>
  <td style="vertical-align: top;">0.5 > 100 (0.5)</td>
- <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;">10.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
@@ -10103,12 +10103,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10269,12 +10267,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10435,12 +10431,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10601,12 +10595,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10767,12 +10759,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10912,12 +10902,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11057,12 +11045,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11202,12 +11188,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11347,12 +11331,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11567,12 +11549,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11787,12 +11767,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -12007,12 +11985,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -12507,12 +12483,10 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>39:</strong> Pitch 315°</li> 
 
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
-
-<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1 > 40 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -14416,21 +14390,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_CAL_ACCEL">SYS_CAL_ACCEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable auto start of accelerometer thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the the temperature calibration starts. default (0, no calibration)</p>   </td>
+ <td style="vertical-align: top;"><p>Enable auto start of accelerometer thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_CAL_BARO">SYS_CAL_BARO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable auto start of barometer thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the the temperature calibration starts. default (0, no calibration)</p>   </td>
+ <td style="vertical-align: top;"><p>Enable auto start of barometer thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_CAL_GYRO">SYS_CAL_GYRO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable auto start of rate gyro thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the the temperature calibration starts. default (0, no calibration)</p>   </td>
+ <td style="vertical-align: top;"><p>Enable auto start of rate gyro thermal calibration at the next power up</p><p><strong>Comment:</strong> 0 : Set to 0 to do nothing 1 : Set to 1 to start a calibration at next boot This parameter is reset to zero when the temperature calibration starts. default (0, no calibration)</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
@@ -14472,7 +14446,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>

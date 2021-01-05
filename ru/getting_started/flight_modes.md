@@ -7,7 +7,8 @@ The modes provide different types/levels of autopilot assistance to the user (pi
 This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
 :::tip
-More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md). :::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## Switching Between Modes
 
@@ -515,7 +516,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
             </p>
             
             <p>
@@ -673,7 +674,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff mode</a> initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
             </p>
             
             <p>

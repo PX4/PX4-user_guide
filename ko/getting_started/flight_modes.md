@@ -7,7 +7,8 @@
 이 항목에서는 비행 모드에 대한 개요와 MC (multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소한 차이점)을 설명합니다.
 
 :::tip
-More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md). :::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## 모드 간 전환
 
@@ -515,7 +516,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
             </p>
             
             <p>
@@ -673,7 +674,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff mode</a> initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
             </p>
             
             <p>

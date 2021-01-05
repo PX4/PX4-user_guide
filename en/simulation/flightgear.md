@@ -38,7 +38,7 @@ These instructions were tested on Ubuntu 18.04
    sudo apt update
    sudo apt install flightgear
    ```
-   This installs the latest stable FlightGear version from the PAA repository along with the the FGdata package.
+   This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
    
    :::tip
    For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
