@@ -66,10 +66,9 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 ![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
-The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
+출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누어지며, 각각의 장치들은 번호로 구분됩니다. (예: `MAINn` and `AUXn`, 여기서 `n` 1부터 6또는 8까지의 번호).
 
-:::tip
-The specific purpose for each output is hard coded on a per-airframe basis. The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+각각의 출력장치들은 기체별로 정해진 기능이 부여되어 있습니다. 기체별로 출력장치의 연결 방법은 [기체 설명](../airframes/airframe_reference.md)편에 자세히 기술되어 있습니다..
 :::
 
 :::warning
