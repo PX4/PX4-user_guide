@@ -2372,58 +2372,6 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_ID">EKF2_MAGBIAS_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Magnetometer the learned bias is for</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_X">EKF2_MAGBIAS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Learned value of magnetometer X axis bias.
-This is the amount of X-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;">-0.5 > 0.5 </td>
- <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">gauss</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Y">EKF2_MAGBIAS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Learned value of magnetometer Y axis bias.
-This is the amount of Y-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;">-0.5 > 0.5 </td>
- <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">gauss</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Z">EKF2_MAGBIAS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Learned value of magnetometer Z axis bias.
-This is the amount of Z-axis magnetometer bias learned by the EKF and saved from the last flight. It must be set to zero if the ground based magnetometer calibration is repeated</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;">-0.5 > 0.5 </td>
- <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">gauss</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGB_K">EKF2_MAGB_K</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum fraction of learned mag bias saved at each disarm.
-Smaller values make the saved mag bias learn slower from flight to flight. Larger values make it learn faster. Must be > 0.0 and <= 1.0</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_MAGB_VREF">EKF2_MAGB_VREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>State variance assumed for magnetometer bias storage.
-This is a reference variance used to calculate the fraction of learned magnetometer bias that will be used to update the stored value. Smaller values will make the stored bias data adjust more slowly from flight to flight. Larger values will make it adjust faster</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2.5E-7</td>
- <td style="vertical-align: top;">gauss^2</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method.
 This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion</p>   </td>
