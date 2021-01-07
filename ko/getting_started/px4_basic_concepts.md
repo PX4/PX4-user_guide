@@ -73,7 +73,7 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 :::
 
 :::warning
-A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`. Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+어떤 기체 제어기에는 `MAIN` 출력 장치들만 있을 수 있으며 (예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치들입니다. 적용하고자하는 [기체](../airframes/airframe_reference.md)에 적합한 출력 포트가 있는 제어기를 선택하여야 합니다..
 :::
 
 Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL). For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
