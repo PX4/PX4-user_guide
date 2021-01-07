@@ -49,7 +49,7 @@ PX4는 초기에 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에�
 
 ## 센서
 
-PX4는 센서를 사용하여 기체의 상태를 결정합니다 (자율 비행의 기체 안정화에 필요한 과정입니다). 자이로스코프 센서, 가속도 센서, 지자기(나침반) 센서 및 기압 센서는 * 시스템 구동에 필요한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 VTOL 기체는 대기속도 센서가 추가로 포함되어야 합니다(매우 권장됨).
+PX4는 센서를 사용하여 기체의 상태를 결정합니다 (자율 비행의 기체 안정화에 필요한 과정입니다). 자이로스코프 센서, 가속도 센서, 지자기 센서 및 기압 센서는 * 시스템 구동을 위한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서가 반드시 추가되어야 합니다.
 
 더 자세한 정보는 다음을 참고하세요.
 
@@ -60,9 +60,9 @@ PX4는 센서를 사용하여 기체의 상태를 결정합니다 (자율 비행
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
-PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+PX4는 *출력 장치*를 사용하여 모터 속도 (예 : [ ESC](#esc_and_motors)를 통해), 에일러론 및 플랩과 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 여러 유형의 페이로드를 제어합니다.
 
-For example, the images below show the PWM output ports for [Pixhawk 4](../flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
+아래의 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 나타냅니다.
 
 ![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
