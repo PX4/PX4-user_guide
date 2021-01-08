@@ -16497,5 +16497,17 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Skip the controller</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> use the module's controller</li> 
+
+<li><strong>1:</strong> skip the controller and feedthrough the setpoints</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
