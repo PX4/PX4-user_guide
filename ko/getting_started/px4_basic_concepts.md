@@ -6,7 +6,7 @@
 
 ## 드론이란?
 
-드론은 수동이나 자동으로 제어 가능한 무인 로봇 입니다.
+드론은 수동이나 자동으로 제어할 수 있는 무인 로봇을 의미합니다.
 
 드론은 [개인, 산업체, 공공기관, 국방 분야에서 다양하게 적용](https://px4.io/ecosystem/commercial-systems/).되고 있습니다. 응용분야는 항공 측량, 화물 운송, 레이싱, 수색 등이 있습니다.
 
@@ -80,7 +80,7 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 [비행 제어기](#vehicle_controller)의 출력 포트는 하드웨어와 PX4 설정에 의해서 결정되어집니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
 
-출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
+출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드를 *있을 수 있습니다.* If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
 
 The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The (same) airframe mapping of outputs to nodes is used in this case.
 
