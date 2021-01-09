@@ -86,11 +86,11 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 **주의:**
 
-- `MAIN` 포트나 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드의 Bus에서 더 많은 갯수의 출력용 포트를 제공할 수 있습니다. 특히, UAVCAN bus는 이러한 제한들 받지 않습니다.
+- `MAIN` 포트나 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드 bus에서 더 많은 갯수의 출력용 포트를 제공할 수 있습니다. 특히, UAVCAN bus는 이러한 제한들 받지 않습니다.
 
 <span id="esc_and_motors"></span>
 
-## 속도제어기(ESC) & 모터
+## 속도제어기(ESC)와 모터
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
