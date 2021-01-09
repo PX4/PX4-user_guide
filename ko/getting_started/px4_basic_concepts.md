@@ -80,17 +80,17 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 [비행 제어기](#vehicle_controller)의 출력 포트는 하드웨어와 PX4 설정에 의해서 결정되어집니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
 
-출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드가 *있을 수 있습니다.* 별도의 IO 보드에는 `AUX` 포트들은 FMU 보드에 연결되어 있고, `MAIN` 포트들은 IO 보드에 연결되어 있습니다. 그렇지 않으면 `MAIN` 포트들은 FMU 보드에 연결되어 있고, `AUX` 포트가 없을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. This can be useful for racers and other airframes that require better performance.
+출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드가 *있을 수 있습니다.* 별도의 IO 보드에는 `AUX` 포트들은 FMU 보드에 연결되어 있고, `MAIN` 포트들은 IO 보드에 연결되어 있습니다. 그렇지 않으면 `MAIN` 포트들은 FMU 보드에 연결되어 있고, `AUX` 포트가 없을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. 이것들은 높은 성능이 필요한 레이싱 드론 등과 같은 기체에 적합합니다.
 
-The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The (same) airframe mapping of outputs to nodes is used in this case.
+출력 포트는 UAVCAN 노드에 연결될 수 있습니다(예: UAVCAN [모터 제어기](../peripherals/uavcan_escs.md)). 이 경우에는 출력 포트 매핑과 동일한 매핑 방식으로 UAVCAN 노드에 연결합니다.
 
-**Notes:**
+**주의:**
 
-- There are only 6-8 outputs in `MAIN` and `AUX` because most flight controllers only have this many PWM/Dshot/Oneshot outputs. In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
+- `MAIN` 포트나 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드의 Bus에서 더 많은 갯수의 출력용 포트를 제공할 수 있습니다. 특히, UAVCAN bus는 이러한 제한들 받지 않습니다.
 
 <span id="esc_and_motors"></span>
 
-## ESCs & Motors
+## 속도제어기(ESC) & 모터
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
