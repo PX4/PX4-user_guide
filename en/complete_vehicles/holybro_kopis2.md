@@ -1,13 +1,13 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](http://www.holybro.com/product/kopis-2/) is a ready-to-fly racer quad for flying FPV or line-of-sight.
+The [Holybro Kopis 2](https://shop.holybro.com/c/kopis_0480l) is a ready-to-fly racer quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
 ## Where to Buy
 
 The *Kopis 2* can be bought from a number of vendors, including:
-- [Holybro](https://shop.holybro.com/kopis-2_p1114.html)
+- [Holybro](https://shop.holybro.com/c/kopis_0480)
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 In addition you will need:
@@ -15,6 +15,7 @@ In addition you will need:
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV.
   There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+  You can also use the DJI FPV Goggle if you have the HDV verison of the Kopis 2.
   
   :::note
   FPV support is completely independent of PX4/flight controller.
