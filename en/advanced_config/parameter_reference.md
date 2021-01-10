@@ -1786,8 +1786,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable RC stick override of auto and/or offboard modes</p><p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks according to COM_RC_STICK_OV immediately gives control back to the pilot (switches to manual position mode): bit 0: Enable for auto modes (except for in critical battery reaction), bit 1: Enable for offboard mode. Only has an effect on multicopters, and VTOLS in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override in auto modes</li> 
-  <li><strong>1:</strong> Enable override in offboard mode</li> 
+ <td style="vertical-align: top;"><p>Enable RC stick override of auto and/or offboard modes</p><p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV from their center position immediately gives control back to the pilot by switching to Position mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
+  <li><strong>1:</strong> Enable override during offboard mode</li> 
 </ul>
  </td>
  <td style="vertical-align: top;">0 > 3 </td>
