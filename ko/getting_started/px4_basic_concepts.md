@@ -121,7 +121,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 - [ RC 설정](../config/radio.md) - *QGroundControl*의 RC 설정.
 - [비행 첫걸음](../flying/basic_flying.md) - RC로 수동 비행법.
-- [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
+- [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 기체의 비행정보를 실시간으로 수신하도록 RC 송신기를 설정하는 방법.
 
 <span id="joystick"></span>
 
