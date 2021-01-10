@@ -110,18 +110,18 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 무선 조종(RC)
 
-[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 드론을 *수동으로* 제어합니다. 기체를 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 몇몇 RC 시스템은 비행 컨트롤러부터 텔레메트리 정보를 추가적으로 다시 받아올 수 있습니다.
+[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 드론을 *수동으로* 조종할 수 있습니다. RC는 신호 수신기와 송신기로 구성됩니다. 수신기는 기체의 장착되고, 송신기는 RC 스틱의 위치 데이터를 전송합니다. 일부 RC는 비행 제어기의 텔레메트리 정보를 송수신할 수 있습니다.
 
-:::참고 PX4에는 자율 비행 모드에 원격 제어 시스템이 필요하지 않습니다.
+:::참고 PX4에는 자율 비행 모드에서는 RC가 반드시 필요하지는 않습니다.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+[RC 선택](../getting_started/rc_transmitter_receiver.md)은 무선 조종기를 선택에 필요한 정보뿐만 아니라, 다음과 같은 정보도 포함되어 있습니다.
 
-- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
-- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
+- [ RC 설정](../config/radio.md) - *QGroundControl*의 RC 설정.
+- [비행 첫걸음](../flying/basic_flying.md) - RC로 수동 비행법.
+- [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
 
 <span id="joystick"></span>
 
