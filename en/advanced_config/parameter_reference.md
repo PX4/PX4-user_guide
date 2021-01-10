@@ -3963,10 +3963,10 @@ but also ignore less noise</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GF_ALTMODE">GF_ALTMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Geofence altitude mode</p><p><strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> WGS84</li> 
+ <td style="vertical-align: top;"><p>Geofence altitude mode</p><p><strong>Comment:</strong> Select which altitude (AMSL) source should be used for geofence calculations.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Autopilot estimator global position altitude (GPS)</li> 
 
-<li><strong>1:</strong> AMSL</li> 
+<li><strong>1:</strong> Raw barometer altitude (assuming standard atmospheric pressure)</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 1 </td>
