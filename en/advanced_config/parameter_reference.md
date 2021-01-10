@@ -1873,6 +1873,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -3767,6 +3769,8 @@ but also ignore less noise</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -3815,6 +3819,8 @@ but also ignore less noise</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4069,6 +4075,8 @@ but also ignore less noise</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4569,6 +4577,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4647,6 +4657,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4725,6 +4737,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -7061,6 +7075,8 @@ default 1.5 turns per second</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -7090,6 +7106,8 @@ default 1.5 turns per second</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -9494,6 +9512,8 @@ default 1.5 turns per second</p>   </td>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -12481,6 +12501,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -12784,6 +12806,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13434,6 +13458,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13470,6 +13496,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13499,6 +13527,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13528,6 +13558,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13583,6 +13615,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14139,6 +14173,67 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">57600</td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SER_WIFI_BAUD">SER_WIFI_BAUD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Baudrate for the Wifi Port Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the Wifi Port Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>50:</strong> 50 8N1</li> 
+
+<li><strong>75:</strong> 75 8N1</li> 
+
+<li><strong>110:</strong> 110 8N1</li> 
+
+<li><strong>134:</strong> 134 8N1</li> 
+
+<li><strong>150:</strong> 150 8N1</li> 
+
+<li><strong>200:</strong> 200 8N1</li> 
+
+<li><strong>300:</strong> 300 8N1</li> 
+
+<li><strong>600:</strong> 600 8N1</li> 
+
+<li><strong>1200:</strong> 1200 8N1</li> 
+
+<li><strong>1800:</strong> 1800 8N1</li> 
+
+<li><strong>2400:</strong> 2400 8N1</li> 
+
+<li><strong>4800:</strong> 4800 8N1</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li> 
+
+<li><strong>230400:</strong> 230400 8N1</li> 
+
+<li><strong>460800:</strong> 460800 8N1</li> 
+
+<li><strong>500000:</strong> 500000 8N1</li> 
+
+<li><strong>921600:</strong> 921600 8N1</li> 
+
+<li><strong>1000000:</strong> 1000000 8N1</li> 
+
+<li><strong>1500000:</strong> 1500000 8N1</li> 
+
+<li><strong>2000000:</strong> 2000000 8N1</li> 
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Simulation In Hardware
@@ -14516,6 +14611,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14545,6 +14642,8 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 <li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
+
+<li><strong>301:</strong> Wifi Port</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
