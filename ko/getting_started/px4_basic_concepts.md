@@ -127,13 +127,13 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 지상제어 조이스틱
 
-A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *Auterion* [Skynav](https://auterion-gs.com/skynav/) or *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/). Joysticks are also commonly used to fly the vehicle in simulation.
+*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있다. 지상제어프로그램은 조이스틱의 신호를 MAVLink 메시지로 변환하여 텔레메트리로 전송한다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/)와 *UAVComponents*, [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용된다. 조이스틱은 비행 시뮬레이션에서도 많이 사용되어진다.
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
 <span id="safety_switch"></span>
 
-## Safety Switch
+## 안전 스위치
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
