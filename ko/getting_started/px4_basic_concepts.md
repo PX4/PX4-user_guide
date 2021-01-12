@@ -135,13 +135,12 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 안전 스위치
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+운송체에는 *안전 스위치*가 있으며, 안전 스위치는 켜야만 운송체의 시동을 걸 수 있습니다. 운송체의 시동이 걸려야만 모터와 프로펠러가 동작할 수 있습니다. 보통 안전 스위치는 GPS 장치에 붙어있으나, 별도의 부품으로 장착되기도 합니다.
 
-:::warning
-A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::경고 일단 기체에 시동이 걸리면 사고가 발생할 수 있으니, 안전 사고에 유의하여야 합니다. 안전 스위치는 갑자기 시동이 걸려 사고가 발생하는 것을 방지합니다.
 :::
 
-## Data/Telemetry Radios
+## 텔레메트리 무선 조종 및 데이터
 
 [Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
