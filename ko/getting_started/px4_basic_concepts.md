@@ -140,22 +140,22 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 :::경고 일단 기체에 시동이 걸리면 사고가 발생할 수 있으니, 안전 사고에 유의하여야 합니다. 안전 스위치는 갑자기 시동이 걸려 사고가 발생하는 것을 방지합니다.
 :::
 
-## 텔레메트리 무선 조종 및 데이터
+## 텔레메트리 무선 조종
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[텔레메트리](../telemetry/README.md)는 *QGroundControl*과 같은 지상국과 PX4를 실행하는 기체 사이에 MAVLink 무선 통신을 제공합니다. 기체가 비행 중일 때 매개변수를 조정, 실시간으로 데이터 원격 측정 및 확인, 비행 중 임무를 변경등의 작업을 수행할 수 있습니다.
 
-## Offboard/Companion Computer
+## 외부 보조 컴퓨터
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+외부 보조 컴퓨터에서 직렬 케이블이나 와이파이를 통해 PX를 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
 
-Relevent topics include:
+이와 관련된 추가 정보는 아래와 같습니다.
 
-- [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-- [Robotics APIs](../robotics/README.md)
+- [Offboard 모드](../flight_modes/offboard.md) - 지상제어 프로그램 또는 보조 컴퓨터와 같은 PX4의 외부에서 제어를 위한 비행 모드입니다. 
+- [로봇 API](../robotics/README.md)
 
 <span id="sd_cards"></span>
 
-## SD Cards (Removable Memory)
+## SD 카드
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
