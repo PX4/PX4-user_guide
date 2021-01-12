@@ -445,33 +445,6 @@ icm42688p <command> [arguments...]
 
    status        print status info
 ```
-## ism330dlc
-Source: [drivers/imu/st/ism330dlc](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/st/ism330dlc)
-
-<a id="ism330dlc_usage"></a>
-### Usage
-```
-ism330dlc <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
-
-   reset
-
-   stop
-
-   status        print status info
-```
 ## l3gd20
 Source: [drivers/imu/l3gd20](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/l3gd20)
 
