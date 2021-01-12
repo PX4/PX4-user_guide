@@ -26,7 +26,7 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 * K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
 * The integral authority is limited to prevent wind up.
 * A Low Pass Filter (LPF) is used on the derivative path to reduce noise.
-* The outputs are limited, usually at -1 and 1.
+* The outputs are limited (in the mixer), usually at -1 and 1.
 
 ### Multicopter Attitude Controller
 
