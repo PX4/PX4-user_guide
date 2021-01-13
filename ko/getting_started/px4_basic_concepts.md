@@ -159,24 +159,24 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하거나 비행 미션을 수행에 반드시 필요합니다.
 
-기본적으로, PX4는 부팅시에 SD 카드가 없으면 [포맷 실패 (2-beep)](../getting_started/tunes.md#format-failed) 경고음을 울립니다. 그리고, 위에서 기타 기본적인 기능들은 동작하지 않습니다.
+기본적으로, PX4는 부팅시에 SD 카드가 없으면 [포맷 실패 (2-beep)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 기타 기본적인 기능들은 동작하지 않습니다.
 
 :::팁 Pixhawk 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 적극적으로 [추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
-SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들을 포함하여야 합니다.
 
-- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
-- [Stream logs](../dev_log/logging.md#log-streaming) to another component (companion).
-- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 변수를 미사용으로 설정하여 경고음이 울리지 않도록 하여야 합니다.
+- [로그](../dev_log/logging.md#log-streaming)를 다른 장치에 기록하여야 합니다.
+- 비행 임무를 희발성 RAM에 저장하고 있어야 합니다.<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 <span id="arming"></span>
 
-## Arming and Disarming
+## 시동 걸고 꺼기
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+기체에 전원을 켜면 안전 사고를 유발할 수 있는 부품들이 있습니다. 그 대표적인 것인 모터와 프로펠러입니다!
 
-To reduce the chance of accidents:
+사고 발생을 줄이기 위해서는 다음의 사항을 유념하여야 합니다.
 
 - PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
 - Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
