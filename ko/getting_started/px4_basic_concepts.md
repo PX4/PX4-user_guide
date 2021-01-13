@@ -37,7 +37,7 @@ Dronecode에서 지원하는 지상 관제 프로그램은 [QGroundControl](http
 
 *QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드할 수 있습니다.
 
-![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
+![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
@@ -64,7 +64,7 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 아래의 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 나타냅니다.
 
-![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
+![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
 출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누어지며, 각각의 장치들은 번호로 구분됩니다. (예: `MAINn` and `AUXn`, 여기서 `n` 1부터 6또는 8까지의 번호).
 
@@ -115,7 +115,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 :::참고 PX4에는 자율 비행 모드에서는 RC가 반드시 필요하지는 않습니다.
 :::
 
-![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 [RC 선택](../getting_started/rc_transmitter_receiver.md)은 무선 조종기를 선택에 필요한 정보뿐만 아니라, 다음과 같은 정보도 포함되어 있습니다.
 
@@ -129,7 +129,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 *QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있다. 지상제어프로그램은 조이스틱의 신호를 MAVLink 메시지로 변환하여 텔레메트리로 전송한다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/)와 *UAVComponents*, [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용된다. 조이스틱은 비행 시뮬레이션에서도 많이 사용되어진다.
 
-![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
+![MicroNav와 지상제어프로그램에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
 <span id="safety_switch"></span>
 
@@ -223,20 +223,19 @@ PX4는 시스템이 잘못되었을 때를 대비해 기체을 보호하고 복�
 
 더 자세한 내용은 [ 안전](../config/safety.md)(기본 설정)을 참조하십시오.
 
-## 방향
+## 전진 방향
 
 모든 기체, 보트 및 항공기는 전진하는 방향이 있습니다.
 
-![Frame Heading](../../assets/concepts/frame_heading.png)
+![프레임 방향](../../assets/concepts/frame_heading.png)
 
-:::note
-For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+:::주의 수지이착륙 테일 시터의 경우 방향은 멀티 로터 구성 (즉, 이륙, 호버링, 착륙 중 차량 포즈)에 상대적입니다.
 :::
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+비행 컨트롤러를 기체의 이동 벡터와 정렬시키기 위해서는 기체의 전진 방향을 아는 것이 중요합니다. 멀티콥터는 모든 면에서 대칭인 경우에도 전진 방향이 있습니다! 보통은 제조사에서는 기체의 진행 방향을 표시하기 위해 프로펠러나 팔(프레임)을 색깔을 사용하여 구분합니다.
 
 ![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+위 그림에서 우리는 진행 방향을 보여주기 위해 멀티콥터에 붉은 전방 프로펠러를 사용했습니다.
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+[비행 컨트롤러 방향](../config/flight_controller_orientation.md)에서 전진 방향에 대해 더 자세한 정보가 있습니다.
