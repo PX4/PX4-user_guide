@@ -178,7 +178,7 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 
 사고 발생을 줄이기 위해서는 다음의 사항을 유념하여야 합니다.
 
-- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- PX4 비행체는 비행중이 아날 때는 *시동이 껴져 있고*, 비행을 위해서는 *시동*이 걸려야 한다.
 - Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
