@@ -179,10 +179,10 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 사고 발생을 줄이기 위해서는 다음의 사항을 유념하여야 합니다.
 
 - PX4 비행체는 비행중이 아날 때는 *시동이 껴져 있고*, 비행을 위해서는 *시동*이 걸려야 한다.
-- 비행체는 보통 [안전 스위치](#safety_switch)를 사용하여 시동을 켜거나 끌 수 있읍니다. GPS에 안전 스위치가 같이 포함되어 있는 경우가 많습니다.
-- Arming is prevented if the vehicle is not in a "healthy" state.
-- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
+- 비행체는 보통 [안전 스위치](#safety_switch)를 사용하여 시동을 켜거나 끌 수 있읍니다. GPS 수신기에 안전 스위치가 같이 포함되어 있는 경우가 많습니다.
+- 기체가 정상 상태가 아니면, 시동은 걸리지 않습니다.
+- 수직이착륙기가 고정익 모드이면 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- 비행기가 착륙하거나 적절한 시간내에 이륙하지 못하면 시동은 자동으로 꺼집니다.
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
 
