@@ -100,7 +100,7 @@ In the event of manual IO failsafe override (if the PX4FMU stops communicating w
 
 ## Virtual Control Groups
 
-:::caution
+:::warning
 *Virtual Control Group*s are only relevant to developers creating VTOL code.
 They should not be used in mixers, and are provided only for "completeness".
 :::
