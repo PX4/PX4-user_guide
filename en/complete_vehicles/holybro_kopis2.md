@@ -15,7 +15,7 @@ In addition you will need:
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV.
   There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
-  You can also use the DJI FPV Goggle if you have the HDV verison of the Kopis 2.
+  You can also use DJI FPV goggles if you have the HDV verison of the Kopis 2.
   
   :::note
   FPV support is completely independent of PX4/flight controller.
@@ -45,10 +45,3 @@ To install and configure PX4:
 - [Set the Airframe](../config/airframe.md) to *Holybro Kopis 2*.
 - Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 
-<!--
-## Video
-
-TODO
-{% youtube %}
-{% endyoutube %}
--->
