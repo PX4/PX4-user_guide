@@ -3329,7 +3329,7 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle time constant factor for landing</p><p><strong>Comment:</strong> Set this parameter to less than 1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.</p>   </td>
+ <td style="vertical-align: top;"><p>Altitude time constant factor for landing</p><p><strong>Comment:</strong> Set this parameter to less than 1.0 to make TECS react faster to altitude errors during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS altitude time constant (FW_T_ALT_TC) is multiplied by this value.</p>   </td>
  <td style="vertical-align: top;">0.2 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
@@ -3514,6 +3514,13 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_T_ALT_TC">FW_T_ALT_TC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Altitude error time constant</p>   </td>
+ <td style="vertical-align: top;">2.0 > ? (0.5)</td>
+ <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum climb rate</p><p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
@@ -3524,28 +3531,28 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Height rate feed forward</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.8</td>
+ <td style="vertical-align: top;">0.3</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="FW_T_HRATE_P">FW_T_HRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Height rate proportional factor</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.05</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="FW_T_INTEG_GAIN">FW_T_INTEG_GAIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integrator gain</p><p><strong>Comment:</strong> This is the integrator gain on the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
+ <td style="vertical-align: top;"><strong id="FW_T_I_GAIN_PIT">FW_T_I_GAIN_PIT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Integrator gain pitch</p><p><strong>Comment:</strong> This is the integrator gain on the pitch part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 (0.05)</td>
  <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_T_I_GAIN_THR">FW_T_I_GAIN_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Integrator gain throttle</p><p><strong>Comment:</strong> This is the integrator gain on the throttle part of the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 (0.05)</td>
+ <td style="vertical-align: top;">0.3</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_PTCH_DAMP">FW_T_PTCH_DAMP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch damping factor</p><p><strong>Comment:</strong> This is the damping gain for the pitch demand loop. Increase to add damping to correct for oscillations in height. The default value of 0.0 will work well provided the pitch to servo controller has been tuned properly.</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 (0.1)</td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -3584,32 +3591,32 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;">rad/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="FW_T_SRATE_P">FW_T_SRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed rate P factor</p>   </td>
- <td style="vertical-align: top;">0.0 > 2.0 (0.01)</td>
- <td style="vertical-align: top;">0.02</td>
+ <td style="vertical-align: top;"><strong id="FW_T_STE_R_TC">FW_T_STE_R_TC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Specific total energy rate first order filter time constant</p><p><strong>Comment:</strong> This filter is applied to the specific total energy rate used for throttle damping.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2 (0.01)</td>
+ <td style="vertical-align: top;">0.4</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="FW_T_THRO_CONST">FW_T_THRO_CONST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TECS Throttle time constant</p><p><strong>Comment:</strong> This is the time constant of the TECS throttle control algorithm (in seconds). Smaller values make it faster to respond, larger values make it slower to respond.</p>   </td>
- <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
- <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">s</td>
+ <td style="vertical-align: top;"><strong id="FW_T_TAS_R_TC">FW_T_TAS_R_TC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>True airspeed rate first order filter time constant</p><p><strong>Comment:</strong> This filter is applied to the true airspeed rate.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2 (0.01)</td>
+ <td style="vertical-align: top;">0.2</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_T_TAS_TC">FW_T_TAS_TC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>True airspeed error time constant</p>   </td>
+ <td style="vertical-align: top;">2.0 > ? (0.5)</td>
+ <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_THR_DAMP">FW_T_THR_DAMP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Throttle damping factor</p><p><strong>Comment:</strong> This is the damping gain for the throttle demand loop. Increase to add damping to correct for oscillations in speed and height.</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 (0.1)</td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="FW_T_TIME_CONST">FW_T_TIME_CONST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TECS time constant</p><p><strong>Comment:</strong> This is the time constant of the TECS control algorithm (in seconds). Smaller values make it faster to respond, larger values make it slower to respond.</p>   </td>
- <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
- <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_VERT_ACC">FW_T_VERT_ACC</strong> (FLOAT)</td>
