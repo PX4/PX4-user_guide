@@ -8,9 +8,9 @@
 
 드론은 수동이나 자동으로 조종 가능한 무인 로봇입니다.
 
-드론은 [개인, 산업체, 공공기관, 국방 분야에서 다양하게 적용](https://px4.io/ecosystem/commercial-systems/).되고 있습니다. 응용분야는 항공 측량, 화물 운송, 레이싱, 수색 등이 있습니다.
+드론은 [개인이나 산업체, 공공기관, 국방 분야](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 사용되고 있습니다. 드론은 항공 측량, 화물 운송, 레이싱, 수색 등의 분야에서 응용되고 있습니다.
 
-드론 적용 분야는 항공, 지상, 바다, 수중 등 다양한 분야가 있습니다. 드론을 지칭하는 공식적인 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+드론은 항공, 지상, 해양 등의 다양한 영역에서 사용되고 있습니다. 드론을 칭하는 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
 자율비행 프로그램은 드론을 움직이는 두되에 해당합니다. 자율 비행 프로그램은 비행 제어기에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
@@ -155,7 +155,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 <span id="sd_cards"></span>
 
-## SD 카드
+## SD 카드(휴대용 저장 장치)
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
