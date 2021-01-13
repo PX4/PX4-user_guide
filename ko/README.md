@@ -4,10 +4,9 @@
 
 [![릴리즈](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4는 *자율 비행 프로그램*입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 세계 여러 나라에서 활발하게 활동중인 단체들의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박등의 다양한 운송체에 적용할 수 있습니다.
+PX4는 *자율 비행 프로그램*입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활발하게 활동중인 단체들의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박등의 다양한 운송체에 적용할 수 있습니다.
 
-:::tip
-이 안내서에는 PX4를 이용한 기체 조립, 설정, 비행에 필요한 내용들이 기술되어 있습니다.
+:::팁 이 안내서에는 PX4를 이용한 기체 조립, 설정, 비행에 필요한 내용들이 기술되어 있습니다.
 :::
 
 :::note
@@ -89,20 +88,20 @@ PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.
 
 PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-Clause)의 조항에 따라 자유롭게 사용하고 수정할 수 있습니다. 이 문서는 [크리에이티브 커먼즈 저작자표시 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스를 따릅니다. 자세한 정보는 [라이선스](contribute/licenses.md)를 참고하십시오.
 
-## 달력과 행사
+## 행사 달력
 
-*드론 코드 달력*에서는 플랫폼 개발자, 사용자를 위한 주요 일정을 보여줍니다. 여러분 거주지의 시간대에 맞춘 달력을 보려면 아래 링크를 선택하십시오(그리고 여러분 자신의 달력에 추가하십시오):
+드론 코드 달력에서는 플랫폼 개발자와 사용자를 위한 주요 일정을 보여줍니다. 자신의 지역 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 자신의 달력에 추가할 수 있습니다.
 
 * [스위스 – 취리히](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
 * [태평양 시간대 – 티후아나](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 * [오스트레일리아 – 멜버른/시드니/호바트](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
-달력의 기본 시간대는 CET 입니다. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
+달력의 기본 시간대는 CET(Central European Time) 시간대입니다. ::: <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
 ### 아이콘
 
-이 라이브러리에서 사용하는 다음 아이콘은 별도의 라이선스를 적용합니다 (아래 그림 참조):
+이 라이브러리에서 사용하는 다음 아이콘은 별도의 라이선스를 적용합니다 (아래 그림 참조).
 
 <img src="../assets/site/position_fixed.svg" title="필요한 위치 수정(예: GPS)" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>가 만든 <em>placeholder</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
 
@@ -110,7 +109,7 @@ PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-
 
 ## 운영 방식
 
-PX4 플라이트 기술 스택은 [드론코드 프로젝트](https://www.dronecode.org/)의 운영 기반으로 제공합니다.
+PX4 플라이트 기술 스택은 [드론코드 프로젝트](https://www.dronecode.org/) 운영 지침 아래 제공되어 집니다.
 
 <a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
