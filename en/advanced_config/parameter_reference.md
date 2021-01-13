@@ -3764,6 +3764,20 @@ but also ignore less noise</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="GPS_1_GNSS">GPS_1_GNSS</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>GNSS Systems for Primary GPS (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver's documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver's default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li> 
+  <li><strong>1:</strong> SBAS</li> 
+  <li><strong>2:</strong> Galileo</li> 
+  <li><strong>3:</strong> BeiDou</li> 
+  <li><strong>4:</strong> GLONASS</li> 
+</ul>
+ <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 31 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Protocol for Main GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto detect</li> 
@@ -3810,6 +3824,20 @@ but also ignore less noise</p>   </td>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GPS_2_GNSS">GPS_2_GNSS</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>GNSS Systems for Secondary GPS (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set of GNSS systems used by the receiver. Check your receiver's documentation on how many systems are supported to be used in parallel. Currently this functionality is just implemented for u-blox receivers. When no bits are set, the receiver's default configuration should be used. Set bits true to enable: 0 : Use GPS (with QZSS) 1 : Use SBAS (multiple GPS augmentation systems) 2 : Use Galileo 3 : Use BeiDou 4 : Use GLONASS</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> GPS (with QZSS)</li> 
+  <li><strong>1:</strong> SBAS</li> 
+  <li><strong>2:</strong> Galileo</li> 
+  <li><strong>3:</strong> BeiDou</li> 
+  <li><strong>4:</strong> GLONASS</li> 
+</ul>
+ <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 31 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
