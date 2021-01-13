@@ -186,15 +186,15 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 
 Mode 2 상태의 RC의 throttle/yaw 스틱을 *오른 쪽 아래*방항으로 2~3초 정도 누르고 있으면 시동이 걸리고, 왼쪽 아래 방향으로 2~3초 정도 누르고 있으면 시동이 꺼진다. PX4에서는 RC 스위치 버튼을 시동 버튼으로 설정할 수 있다. 이때, 시동 MAVLink 명령어는 지상제어 프로그램으로 전송된다.
 
-A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
+시동에 관한 더 자세한 내용은 [시동 준비, 시동, 비시동 설정](../advanced_config/prearm_arm_disarm.md)에 기술되어 있습니다.
 
 <span id="flight_modes"></span>
 
-## Flight Modes
+## 비행 모드
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+비행 모드는 자동 비행 및 보조 기능에 관련된 다양한 형태와 기법들을 의미한다. *자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 원격/수동 제어가 필요하지 않다. 예를 들어 이륙 등과 같은 작업을 자동화으로 수행하고, 출발지로 복귀하여 착륙하는 과정도 수행한다. 또 다른 자율 모드는 사전에 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령에 따라 비행할 수 있습니다.
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*수동 모드*는 비행 제어기를 사용자가 RC를 통해서 제어합니다. 다른 수동 모드는 다른 비행 특성을 가능하게 합니다. 예를 들어, 어떤 모드는 곡예 비행을 가능하게 하고, 다른 모드는 뒤집기가 불가능하고 바람에 대한 위치/코스를 유지합니다.
 
 :::tip
 Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
