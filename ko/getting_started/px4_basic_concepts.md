@@ -196,38 +196,36 @@ Mode 2 상태의 RC의 throttle/yaw 스틱을 *오른 쪽 아래*방항으로 2~
 
 *수동 모드*는 비행 제어기를 사용자가 RC를 통해서 제어합니다. 다른 수동 모드는 다른 비행 특성을 가능하게 합니다. 예를 들어, 어떤 모드는 곡예 비행을 가능하게 하고, 다른 모드는 뒤집기가 불가능하고 바람에 대한 위치/코스를 유지합니다.
 
-:::tip
-Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+:::팁 모든 기체 유형에서 모든 비행 모드를 사용할 수 있는 것은 아니며, 일부 모드는 특정 조건이 충족 된 경우에만 사용할 수 있습니다 (예: 대부분의 모드에서는 GPS 위치 정보가 필요합니다).
 :::
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+여러가지 비행 모드에 대한 개요는 [여기](../getting_started/flight_modes.md)에서 확인할 수 있습니다. 다른 비행 모드를 변경하기 위하여 원격 스위치를 설정하는 방법은 [비행 모드 구성](../config/flight_mode.md)에 나와 있습니다.
 
 <span id="safety"></span>
 
-## Safety Settings (Failsafe)
+## 안전 설정(사고 방지)
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4는 시스템이 잘못되었을 때를 대비해 기체을 보호하고 복구할 수 있도록 장애 안전 시스템을 갖추고 있으며, 이와 관련된 각종 설정들이 있습니다! 이를 통해 안전하게 비행할 수 있는 지역 및 조건을 지정하고, 안전 장치가 작동(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)될 경우 수행할 작업을 지정할 수 있습니다.
 
-:::note
-You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+:::참고 *첫 번째* 사고 방지 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 기체별 코드에 의해 관리되도록 합니다.
 :::
 
-The main failsafe areas are listed below:
+주요 안전장치는 다음과 같습니다.
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
-- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- 배터리 부족
+- RC(원격 제어) 신호 상실
+- 위치 상실(GPS 전역 위치 추정 품질이 너무 낮음)
+- 외부 보드 연결 손실(예: 보조 컴퓨터와의 연결이 끊어짐)
+- 데이터 링크 손실(예: GCS에 대한 텔레메트리 연결이 끊어짐)
+- 지리적 경계 위반(가상 실린더 내부로 기체 비행을 제한합니다)
+- 미션 안전장치(새 이륙 시 이전 미션이 실행되는 것을 방지합니다)
+- 트래픽 회피(예: ADSB 응답기로부터 응답기 데이터에 의해 작동됩니다)
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+더 자세한 내용은 [ 안전](../config/safety.md)(기본 설정)을 참조하십시오.
 
-## Heading and Directions
+## 방향
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+모든 기체, 보트 및 항공기는 전진하는 방향이 있습니다.
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
