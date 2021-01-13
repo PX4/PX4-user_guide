@@ -92,7 +92,7 @@ This group is only used to define mapping of RC inputs to specific outputs durin
 
 ## Virtual Control Groups
 
-:::caution
+:::warning
 *Virtual Control Group*s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for "completeness".
 :::
 
