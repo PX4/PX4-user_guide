@@ -10,6 +10,7 @@
 
 드론은 [개인이나 산업체, 공공기관, 국방 분야](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 사용되고 있습니다. 드론은 항공 측량, 화물 운송, 레이싱, 수색 등의 분야에서 응용되고 있습니다.
 
+:::tip
 드론은 항공, 지상, 해양 등의 다양한 영역에서 사용되고 있습니다. 드론을 칭하는 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
@@ -84,7 +85,7 @@ PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors
 
 출력 포트는 UAVCAN 노드에 연결될 수 있습니다(예: UAVCAN [모터 제어기](../peripherals/uavcan_escs.md)). 이 경우에는 출력 포트 매핑과 동일한 매핑 방식으로 UAVCAN 노드에 연결합니다.
 
-**주의:**
+**Notes:**
 
 - `MAIN` 포트나 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드 bus에서 더 많은 갯수의 출력용 포트를 제공할 수 있습니다. 특히, UAVCAN bus는 이러한 제한들 받지 않습니다.
 
@@ -112,7 +113,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 [무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 드론을 *수동으로* 조종할 수 있습니다. RC는 신호 수신기와 송신기로 구성됩니다. 수신기는 기체의 장착되고, 송신기는 RC 스틱의 위치 데이터를 전송합니다. 일부 RC는 비행 제어기의 텔레메트리 정보를 송수신할 수 있습니다.
 
-:::참고 PX4에는 자율 비행 모드에서는 RC가 반드시 필요하지는 않습니다.
+:::note PX4에는 자율 비행 모드에서는 RC가 반드시 필요하지는 않습니다.
 :::
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
