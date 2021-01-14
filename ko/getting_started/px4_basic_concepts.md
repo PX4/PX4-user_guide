@@ -167,7 +167,7 @@ PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 �
 Pixhawk 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 적극적으로 [추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
-SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들을 포함하여야 합니다.
+SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들이 포함되어야 합니다.
 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 변수를 미사용으로 설정하여 경고음이 울리지 않도록 하여야 합니다.
 - [로그](../dev_log/logging.md#log-streaming)를 다른 장치에 기록하여야 합니다.
