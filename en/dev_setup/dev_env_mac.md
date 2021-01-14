@@ -79,7 +79,7 @@ You can either download [Java 14 from Oracle](https://www.oracle.com/java/techno
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk14
+brew install --cask adoptopenjdk14
 ```
 
 ```sh
