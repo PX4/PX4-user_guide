@@ -1,6 +1,6 @@
-# Flight Controller Selection
+# 비행 제어기 선택
 
-You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택해야 합니다.
 
 PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware)). A subset of the available options are listed below.
 
