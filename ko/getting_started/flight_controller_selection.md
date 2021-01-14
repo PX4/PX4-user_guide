@@ -2,11 +2,11 @@
 
 기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택해야 합니다.
 
-PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware)). A subset of the available options are listed below.
+PX4는 많은 수의 비행 제어기에서 실행가능합니다. [Autopilot Hardware](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하세요. 주요한 목록은 아래와 같습니다.
 
-## Pixhawk Series
+## 픽스호크 시리즈
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) open-hardware flight controllers run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments.
+[Pixhawk Series](../flight_controller/pixhawk_series.md) NuttX OS에서 PX4를 실행하는 개방형 하드웨어 비행 컨트롤러. 다양한 폼 팩터를 기반으로 다양한 적용 사례가 있으며, 높은 시장 점유율을 자랑합니다.
 
 The following [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) are supported and tested by the PX4 maintenance and test teams (other autopilots are [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md)).
 
