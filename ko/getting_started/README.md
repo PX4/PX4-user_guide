@@ -4,7 +4,7 @@ PX4를 이용하여 비행체 조립 및 조종에 대한 기본 개념을 설�
 
 [기본 개념](../getting_started/px4_basic_concepts.md) - PX4 및 Dronecode 플랫폼 개요
 
-[비행 컨트롤러](../getting_started/flight_controller_selection.md) - 다양햔 비행 제어기 플랫폼과 제품 소개
+[비행 컨트롤러](../getting_started/flight_controller_selection.md) - 비행 제어기 플랫폼과 제품들에 대한 소개
 
 [기체 프레임](../getting_started/frame_selection.md) - 항공, 지상 및 해양에서 지원되는 기체 유형
 
