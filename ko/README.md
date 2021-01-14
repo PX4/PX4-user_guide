@@ -88,9 +88,9 @@ PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.
 
 PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-Clause)의 조항에 따라 자유롭게 사용하고 수정할 수 있습니다. 이 문서는 [크리에이티브 커먼즈 저작자표시 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스를 따릅니다. 자세한 정보는 [라이선스](contribute/licenses.md)를 참고하십시오.
 
-## 행사 달력
+## 주요 행사 및 일정
 
-드론 코드 달력에서는 플랫폼 개발자와 사용자를 위한 주요 일정을 보여줍니다. 자신의 지역 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 자신의 달력에 추가할 수 있습니다.
+드론 코드 달력에서는 플랫폼 개발자와 사용자를 위한 주요 일정을 보여줍니다. 자신의 지역 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 사용자의 달력에 추가할 수도 있습니다.
 
 * [스위스 – 취리히](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
 * [태평양 시간대 – 티후아나](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
