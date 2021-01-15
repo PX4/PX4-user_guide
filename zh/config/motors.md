@@ -1,6 +1,6 @@
-# Motor/Servo Checks
+# 电机检查
 
-After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response. This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) tab.
+在机架设置并配置完毕后，您应该检查电机分配和旋转方向以及servo响应。 这些可以在QGroundControl中完成，其选项是Vehicle Setup > Motors tab.
 
 Note the following PX4-specific behaviour:
 - If a safety button is used, it must be pressed before motor testing is allowed.
