@@ -14,17 +14,17 @@ PX4는 많은 수의 비행 제어기에서 실행가능합니다. [Autopilot Ha
 
 </tbody> </table> 
 
-## Autopilots for Computationally Intensive Tasks
+## 고성능 컴퓨팅 연산 능력의 자율비행장치
 
-These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+이래의 비행 제어기 (및 개발 플랫폼)는 운송체내에 "보조 컴퓨팅"을 제공하여 컴퓨터 비전 및 기타 계산 집약적 작업이 가능하다.
 
-| Controller                                                                 | Description                                                              |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)     | RasPi can be connected to an autopilot and used as a companion computer. |
-| [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | Fly your Pi :)                                                           |
+| 제어기                                                                        | 설명                                         |
+| -------------------------------------------------------------------------- | ------------------------------------------ |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)     | 라즈베리파이를 자동 조종 장치에 연결하여 보조 컴퓨터로 사용할 수 있습니다. |
+| [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | Fly your Pi :)                             |
 
-## Commercial UAVs that can run PX4
+## PX4를 실행할 수있는 상용 초소형 드론
 
-PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
+PX4는 함께 제공되는 일부 제품과 PX4로 업데이트 할 수있는 다른 제품 (미션 계획 및 기타 PX4 비행 모드를 차량에 추가 할 수 있음)을 포함하여 다수의 상업용 드론에서도 사용할 수 있습니다.
 
-For more information see [Complete Vehicles](../complete_vehicles/README.md).
+더 자세한 내용은 [ 완전 차량 ](../complete_vehicles/README.md)을 참조하십시오
