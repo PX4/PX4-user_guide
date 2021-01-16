@@ -1141,6 +1141,18 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable preflight check for maximal allowed airspeed when arming</p><p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the stall speed (ASPD_STALL). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_ID">COM_ARM_AUTH_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Arm authorizer system id</p><p><strong>Comment:</strong> Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p>   </td>
  <td style="vertical-align: top;"></td>
