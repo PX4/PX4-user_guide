@@ -12,19 +12,18 @@ PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기�
 
 ## GPS와 나침반
 
-PX4는 여러 GNSS(Global Navigation Satellite System) 수신기와 나침반 (자기계)을 지원합니다. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4는 여러 GNSS(Global Navigation Satellite System) 수신기와 나침반 (자기계)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [ 실시간 운동학 (RTK) GPS 수신기 ](../gps_compass/rtk_gps.md)를 지원합니다.
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
-:::
+픽스호크 시리즈</ 0> 제어기에는 * 내부 * 나침반이 포함되어 있습니다. Pixhawk를 가능한 배터리나 전선에서 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 대부분의 소형 운송체에서는 외부 나침반이 필수적인 요구사항입니다. :::</p> 
 
-We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+모터나 ESC 전원에서 가능한 멀리 떨어진 곳에 장착된 외부 나침반/GPS 수신기을 사용하는 것이 좋습니다. 일반적으로 받침대 또는 고정 날개에 설치합니다.
 
-Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
+GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)에 기술되어 있습니다.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-## Airspeed
+## 대기속도 센서
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
