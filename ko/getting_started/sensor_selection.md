@@ -25,21 +25,21 @@ GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)�
 
 ## 대기속도 센서
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+고정이나 수직이착륙기에는 대기속도센서를 *사용하는 것이 좋습니다.*
 
-They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 비행 속도는 매우 중요한 항목입니다. 고정익 비행의 경우 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
+더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)편을 참조하십시오.
 
 ## Tachometer
 
-Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
+회전 속도계 ([ 회전 카운터 센서 ](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동 조종 장치가 실속 또는 다른 로터 고장을 감지 할 수 있기 때문에 로터 윙 프레임에 * 적극 권장 *합니다 (로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다).
 
 ![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
+더 자세한 정보와 권장 하드웨어는 [회전 속도계](../sensor/tachometers.md)편을 참조하십시오.
 
 ## Distance
 
