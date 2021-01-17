@@ -38,7 +38,6 @@ This implements the setpoint generation for all modes. It takes the current mode
 flight_mode_manager <command> [arguments...]
  Commands:
    start
-     [vtol]      VTOL mode
 
    stop
 
