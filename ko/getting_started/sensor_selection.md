@@ -41,7 +41,7 @@ GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)�
 
 더 자세한 정보와 권장 하드웨어는 [회전 속도계](../sensor/tachometers.md)편을 참조하십시오.
 
-## Distance
+## 거리 센서
 
 Distance sensors are used for precision landing, object avoidance and terrain following.
 
