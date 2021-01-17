@@ -78,7 +78,7 @@ To use SITL simulation with jMAVSim you need to install a recent version of Java
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk14
+brew install --cask adoptopenjdk14
 ```
 
 ```sh

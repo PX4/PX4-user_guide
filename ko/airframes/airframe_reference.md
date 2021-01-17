@@ -56,7 +56,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -70,13 +70,17 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
 
 </tr>
-</tbody></table>
+<tr id="autogyro_autogyro_thunderfly_tf-g2">
+ <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
+ <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: rotor_head_L</li><li><b>MAIN3</b>: rotor_head_R</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li></ul></p></td>
+
+</tr>
+</table>
 
 ## Copter
 

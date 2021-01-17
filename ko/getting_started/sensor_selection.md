@@ -1,48 +1,47 @@
-# Sensors
+# 센서
 
-PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, etc.
+PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기체 안정화에 필수적인 과정)합니다. 차량 상태에는 위치 / 고도, 방향, 속도, 대기 속도, 방향 (태도), 다른 방향의 회전 속도, 배터리 잔량 등이 포함됩니다.
 
-The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+자이로스코프 센서, 가속도 센서, 지자기 센서 및 기압 센서는 * 시스템 구동을 위한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서를 추가되어야 합니다.
 
-The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+최소한의 센서 세트가  Pixhawk 시리즈 < 0> 비행 제어기에 내장되어 있습니다 (다른 컨트롤러 플랫폼에도있을 수 있음). 제어기에 센서를 추가할 수 있습니다.</p> 
 
-Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
+주요 센서에 대해 설명합니다. 마지막에는 [ 센서 배선 ](#wiring)에 대한 링크가 있습니다.
 
 <span id="gps_compass"></span>
 
-## GPS & Compass
+## GPS와 나침반
 
-PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4는 여러 GNSS(Global Navigation Satellite System) 수신기와 나침반 (자기계)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [ 실시간 운동학 (RTK) GPS 수신기 ](../gps_compass/rtk_gps.md)를 지원합니다.
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
-:::
+픽스호크 시리즈</ 0> 제어기에는 * 내부 * 나침반이 포함되어 있습니다. Pixhawk를 가능한 배터리나 전선에서 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 대부분의 소형 운송체에서는 외부 나침반이 필수적인 요구사항입니다. :::</p> 
 
-We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+모터나 ESC 전원에서 가능한 멀리 떨어진 곳에 장착된 외부 나침반/GPS 수신기을 사용하는 것이 좋습니다. 일반적으로 받침대 또는 고정 날개에 설치합니다.
 
-Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
+GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)에 기술되어 있습니다.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-## Airspeed
+## 대기속도 센서
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+고정이나 수직이착륙기에는 대기속도센서를 *사용하는 것이 좋습니다.*
 
-They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 비행 속도는 매우 중요한 항목입니다. 고정익 비행의 경우 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
 
 ![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
+더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)편을 참조하십시오.
 
 ## Tachometer
 
-Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
+회전 속도계 ([ 회전 카운터 센서 ](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동 조종 장치가 실속 또는 다른 로터 고장을 감지 할 수 있기 때문에 로터 윙 프레임에 * 적극 권장 *합니다 (로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다).
 
 ![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
+더 자세한 정보와 권장 하드웨어는 [회전 속도계](../sensor/tachometers.md)편을 참조하십시오.
 
-## Distance
+## 거리 센서
 
 Distance sensors are used for precision landing, object avoidance and terrain following.
 
