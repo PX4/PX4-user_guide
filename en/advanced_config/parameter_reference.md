@@ -9455,7 +9455,7 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Return mode delay</p><p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td style="vertical-align: top;">-1 > 300 (0.5)</td>
- <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
