@@ -41,7 +41,6 @@ and outputs setpoints for controllers.
 flight_mode_manager <command> [arguments...]
  Commands:
    start
-     [vtol]      VTOL mode
 
    stop
 
