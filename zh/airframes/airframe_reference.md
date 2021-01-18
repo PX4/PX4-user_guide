@@ -290,6 +290,11 @@
  <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4004</p><p><b>特定的输出：</b><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li></ul></p></td>
 
 </tr>
+<tr id="copter_hexarotor_x_hex_x_with_control_allocation">
+ <td style="vertical-align: top;">Hex X with control allocation</td>
+ <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 6003</p></td>
+
+</tr>
 </table>
 
 ### Octo Coax Wide
@@ -653,6 +658,11 @@
  <td style="vertical-align: top;"><p>Maintainer: Iain Galloway <iain.galloway@nxp.com></p><p><code>SYS_AUTOSTART</code> = 4017</p><p><b>特定的输出：</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_s500_with_control_allocation">
+ <td style="vertical-align: top;">S500 with control allocation</td>
+ <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 4018</p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
  <td style="vertical-align: top;">Hobbyking Micro PCB</td>
  <td style="vertical-align: top;"><p>Maintainer: Thomas Gubler <thomas@px4.io></p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
@@ -665,12 +675,12 @@
 </tr>
 <tr id="copter_quadrotor_x_3dr_diy_quad">
  <td style="vertical-align: top;">3DR DIY Quad</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
  <td style="vertical-align: top;">Generic 250 Racer</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
@@ -695,17 +705,17 @@
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>特定的输出：</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_draco">
  <td style="vertical-align: top;">UVify Draco</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>特定的输出：</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>特定的输出：</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
@@ -720,7 +730,7 @@
 </tr>
 <tr id="copter_quadrotor_x_teal_one">
  <td style="vertical-align: top;">Teal One</td>
- <td style="vertical-align: top;"><p>Maintainer: Matt McFadden <matt.mcfadden@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>特定的输出：</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Matt McFadden <matt.mcfadden@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
