@@ -26,6 +26,12 @@ VMWare performance is acceptable for basic usage (building Firmware) but not for
 1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). 
    (see [Linux Instructions Page](../dev_setup/dev_env_linux.md) for recommended Ubuntu version).
 1. Open *VMWare Player* and select the option to create a new virtual machine
+
+:::note
+Make sure you enable 3D acceleration in the VM's settings. VM > Settings > Hardware > Display > Accelerate 3D graphics
+This option is required to properly run 3D simulation environments like jMAVSim and gazebo. And it's best to enable it before setting up the Linux distribution within the VM.
+:::
+
 1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use
 1. Also in the wizard, select the resources you want to allocate to your virtual machine while it is running. Allocate as much memory and as many CPU cores as you can without rendering your host Windows system unusable.
 1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
