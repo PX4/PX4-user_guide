@@ -6614,6 +6614,406 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS1">PWM_EXTRA_DIS1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS2">PWM_EXTRA_DIS2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS3">PWM_EXTRA_DIS3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS4">PWM_EXTRA_DIS4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS5">PWM_EXTRA_DIS5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS6">PWM_EXTRA_DIS6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS7">PWM_EXTRA_DIS7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DIS8">PWM_EXTRA_DIS8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the extra 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_EXTRA_DISARM will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_DISARM">PWM_EXTRA_DISARM</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for extra outputs</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 2200 </td>
+ <td style="vertical-align: top;">1500</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL1">PWM_EXTRA_FAIL1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL2">PWM_EXTRA_FAIL2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL3">PWM_EXTRA_FAIL3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL4">PWM_EXTRA_FAIL4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL5">PWM_EXTRA_FAIL5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL6">PWM_EXTRA_FAIL6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL7">PWM_EXTRA_FAIL7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_FAIL8">PWM_EXTRA_FAIL8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the failsafe PWM for the extra 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX">PWM_EXTRA_MAX</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the extra outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1600 > 2200 </td>
+ <td style="vertical-align: top;">2000</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX1">PWM_EXTRA_MAX1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 1 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX2">PWM_EXTRA_MAX2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 2 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX3">PWM_EXTRA_MAX3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 3 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX4">PWM_EXTRA_MAX4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 4 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX5">PWM_EXTRA_MAX5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 5 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX6">PWM_EXTRA_MAX6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 6 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX7">PWM_EXTRA_MAX7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 7 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MAX8">PWM_EXTRA_MAX8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the max PWM value for the extra 8 output</p><p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MAX will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN">PWM_EXTRA_MIN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the extra outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">800 > 1400 </td>
+ <td style="vertical-align: top;">1000</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN1">PWM_EXTRA_MIN1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 1 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN2">PWM_EXTRA_MIN2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 2 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN3">PWM_EXTRA_MIN3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 3 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN4">PWM_EXTRA_MIN4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 4 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN5">PWM_EXTRA_MIN5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 5 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN6">PWM_EXTRA_MIN6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 6 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN7">PWM_EXTRA_MIN7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 7 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_MIN8">PWM_EXTRA_MIN8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the min PWM value for the extra 8 output</p><p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_EXTRA_MIN will be used</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_RATE">PWM_EXTRA_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the PWM output frequency for the extra outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2000 </td>
+ <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV1">PWM_EXTRA_REV1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV2">PWM_EXTRA_REV2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV3">PWM_EXTRA_REV3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV4">PWM_EXTRA_REV4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV5">PWM_EXTRA_REV5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV6">PWM_EXTRA_REV6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV7">PWM_EXTRA_REV7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_REV8">PWM_EXTRA_REV8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of extra output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM1">PWM_EXTRA_TRIM1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM2">PWM_EXTRA_TRIM2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM3">PWM_EXTRA_TRIM3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM4">PWM_EXTRA_TRIM4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM5">PWM_EXTRA_TRIM5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM6">PWM_EXTRA_TRIM6</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM7">PWM_EXTRA_TRIM7</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_EXTRA_TRIM8">PWM_EXTRA_TRIM8</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for extra output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>   </td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set the disarmed PWM for the main 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
 </td>
