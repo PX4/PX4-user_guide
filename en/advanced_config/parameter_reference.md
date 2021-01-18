@@ -370,6 +370,142 @@
 </tr>
 </tbody></table>
 
+## Angular Velocity Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_D">AVC_X_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity D gain</p><p><strong>Comment:</strong> Body X axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 (0.01)</td>
+ <td style="vertical-align: top;">0.36</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_FF">AVC_X_FF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity feedforward gain</p><p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">Nm/(rad/s)</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_I">AVC_X_I</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity I gain</p><p><strong>Comment:</strong> Body X axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.2</td>
+ <td style="vertical-align: top;">Nm/rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_I_LIM">AVC_X_I_LIM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity integrator limit</p><p><strong>Comment:</strong> Body X axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.3</td>
+ <td style="vertical-align: top;">Nm</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_K">AVC_X_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_X_K * (AVC_X_P * error + AVC_X_I * error_integral + AVC_X_D * error_derivative) Set AVC_X_P=1 to implement a PID in the ideal form. Set AVC_X_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_X_P">AVC_X_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body X axis angular velocity P gain</p><p><strong>Comment:</strong> Body X axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 20.0 (0.01)</td>
+ <td style="vertical-align: top;">18.</td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_D">AVC_Y_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity D gain</p><p><strong>Comment:</strong> Body Y axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 (0.01)</td>
+ <td style="vertical-align: top;">0.36</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_FF">AVC_Y_FF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">Nm/(rad/s)</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_I">AVC_Y_I</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity I gain</p><p><strong>Comment:</strong> Body Y axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.2</td>
+ <td style="vertical-align: top;">Nm/rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_I_LIM">AVC_Y_I_LIM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity integrator limit</p><p><strong>Comment:</strong> Body Y axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.3</td>
+ <td style="vertical-align: top;">Nm</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_K">AVC_Y_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Y_K * (AVC_Y_P * error + AVC_Y_I * error_integral + AVC_Y_D * error_derivative) Set AVC_Y_P=1 to implement a PID in the ideal form. Set AVC_Y_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 20.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Y_P">AVC_Y_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Y axis angular velocity P gain</p><p><strong>Comment:</strong> Body Y axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 20.0 (0.01)</td>
+ <td style="vertical-align: top;">18.</td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_D">AVC_Z_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity D gain</p><p><strong>Comment:</strong> Body Z axis angular velocity differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 (0.01)</td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_FF">AVC_Z_FF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">Nm/(rad/s)</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_I">AVC_Z_I</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity I gain</p><p><strong>Comment:</strong> Body Z axis angular velocity integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;">Nm/rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_I_LIM">AVC_Z_I_LIM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity integrator limit</p><p><strong>Comment:</strong> Body Z axis angular velocity integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>   </td>
+ <td style="vertical-align: top;">0.0 > ? (0.01)</td>
+ <td style="vertical-align: top;">0.30</td>
+ <td style="vertical-align: top;">Nm</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_K">AVC_Z_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = AVC_Z_K * (AVC_Z_P * error + AVC_Z_I * error_integral + AVC_Z_D * error_derivative) Set AVC_Z_P=1 to implement a PID in the ideal form. Set AVC_Z_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="AVC_Z_P">AVC_Z_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Body Z axis angular velocity P gain</p><p><strong>Comment:</strong> Body Z axis angular velocity proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 20.0 (0.01)</td>
+ <td style="vertical-align: top;">7.</td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+</tbody></table>
+
 ## Attitude Q estimator
 
 <table>
@@ -1818,6 +1954,728 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">15</td>
  <td style="vertical-align: top;">min</td>
+</tr>
+</tbody></table>
+
+## Control Allocation
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT0_MAX">CA_ACT0_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 0</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT0_MIN">CA_ACT0_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 0</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT10_MAX">CA_ACT10_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 10</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT10_MIN">CA_ACT10_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 10</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT11_MAX">CA_ACT11_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 11</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT11_MIN">CA_ACT11_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 11</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT12_MAX">CA_ACT12_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 12</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT12_MIN">CA_ACT12_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 12</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT13_MAX">CA_ACT13_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 13</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT13_MIN">CA_ACT13_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 13</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT14_MAX">CA_ACT14_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 14</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT14_MIN">CA_ACT14_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 14</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT15_MAX">CA_ACT15_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 15</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT15_MIN">CA_ACT15_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 15</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT1_MAX">CA_ACT1_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 1</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT1_MIN">CA_ACT1_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 1</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT2_MAX">CA_ACT2_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 2</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT2_MIN">CA_ACT2_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 2</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT3_MAX">CA_ACT3_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 3</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT3_MIN">CA_ACT3_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 3</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT4_MAX">CA_ACT4_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 4</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT4_MIN">CA_ACT4_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 4</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT5_MAX">CA_ACT5_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 5</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT5_MIN">CA_ACT5_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 5</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT6_MAX">CA_ACT6_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 6</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT6_MIN">CA_ACT6_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 6</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT7_MAX">CA_ACT7_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 7</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT7_MIN">CA_ACT7_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 7</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT8_MAX">CA_ACT8_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 8</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT8_MIN">CA_ACT8_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 8</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT9_MAX">CA_ACT9_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum value for actuator 9</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_ACT9_MIN">CA_ACT9_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum value for actuator 9</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_AIRFRAME">CA_AIRFRAME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airframe ID</p><p><strong>Comment:</strong> This is used to retrieve pre-computed control effectiveness matrix</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Multirotor</li> 
+
+<li><strong>1:</strong> Standard VTOL (WIP)</li> 
+
+<li><strong>2:</strong> Tiltrotor VTOL (WIP)</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_AIR_SCALE_EN">CA_AIR_SCALE_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed scaler</p><p><strong>Comment:</strong> This compensates for the variation of flap effectiveness with airspeed.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_BAT_SCALE_EN">CA_BAT_SCALE_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Battery power level scaler</p><p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_AX">CA_MC_R0_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 0 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_AY">CA_MC_R0_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 0 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_AZ">CA_MC_R0_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 0 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_CT">CA_MC_R0_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 0</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT0_MIN and CA_ACT0_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_KM">CA_MC_R0_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 0</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_PX">CA_MC_R0_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 0 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_PY">CA_MC_R0_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 0 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R0_PZ">CA_MC_R0_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 0 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_AX">CA_MC_R1_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 1 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_AY">CA_MC_R1_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 1 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_AZ">CA_MC_R1_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 1 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_CT">CA_MC_R1_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 1</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT1_MIN and CA_ACT1_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_KM">CA_MC_R1_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 1</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust, Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_PX">CA_MC_R1_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 1 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_PY">CA_MC_R1_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 1 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R1_PZ">CA_MC_R1_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 1 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_AX">CA_MC_R2_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 2 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_AY">CA_MC_R2_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 2 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_AZ">CA_MC_R2_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 2 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_CT">CA_MC_R2_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 2</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT2_MIN and CA_ACT2_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_KM">CA_MC_R2_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 2</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_PX">CA_MC_R2_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 2 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_PY">CA_MC_R2_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 2 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R2_PZ">CA_MC_R2_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 2 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_AX">CA_MC_R3_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 3 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_AY">CA_MC_R3_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 3 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_AZ">CA_MC_R3_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 3 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_CT">CA_MC_R3_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 3</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT3_MIN and CA_ACT3_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_KM">CA_MC_R3_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 3</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_PX">CA_MC_R3_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 3 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_PY">CA_MC_R3_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 3 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R3_PZ">CA_MC_R3_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 3 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_AX">CA_MC_R4_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 4 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_AY">CA_MC_R4_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 4 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_AZ">CA_MC_R4_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 4 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_CT">CA_MC_R4_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 4</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT4_MIN and CA_ACT4_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_KM">CA_MC_R4_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 4</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_PX">CA_MC_R4_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 4 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_PY">CA_MC_R4_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 4 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R4_PZ">CA_MC_R4_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 4 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_AX">CA_MC_R5_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 5 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_AY">CA_MC_R5_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 5 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_AZ">CA_MC_R5_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 5 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_CT">CA_MC_R5_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 5</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT5_MIN and CA_ACT5_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_KM">CA_MC_R5_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 5</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_PX">CA_MC_R5_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 5 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_PY">CA_MC_R5_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 5 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R5_PZ">CA_MC_R5_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 5 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_AX">CA_MC_R6_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 6 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_AY">CA_MC_R6_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 6 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_AZ">CA_MC_R6_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 6 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_CT">CA_MC_R6_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 6</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT6_MIN and CA_ACT6_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_KM">CA_MC_R6_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 6</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_PX">CA_MC_R6_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 6 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_PY">CA_MC_R6_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 6 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R6_PZ">CA_MC_R6_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 6 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_AX">CA_MC_R7_AX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 7 thrust vector, X body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_AY">CA_MC_R7_AY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 7 thrust vector, Y body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_AZ">CA_MC_R7_AZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Axis of rotor 7 thrust vector, Z body axis component</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_CT">CA_MC_R7_CT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust coefficient of rotor 7</p><p><strong>Comment:</strong> The thrust coefficient if defined as Thrust = CT * u^2, where u (with value between CA_ACT7_MIN and CA_ACT7_MAX) is the output signal sent to the motor controller.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_KM">CA_MC_R7_KM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Moment coefficient of rotor 7</p><p><strong>Comment:</strong> The moment coefficient if defined as Torque = KM * Thrust Use a positive value for a rotor with CCW rotation. Use a negative value for a rotor with CW rotation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.05</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_PX">CA_MC_R7_PX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 7 along X body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_PY">CA_MC_R7_PY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 7 along Y body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_MC_R7_PZ">CA_MC_R7_PZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of rotor 7 along Z body axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CA_METHOD">CA_METHOD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control allocation method</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Pseudo-inverse with output clipping (default)</li> 
+
+<li><strong>1:</strong> Pseudo-inverse with sequential desaturation technique</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -16998,6 +17856,65 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;">0.0 > 3.0 (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">Hz</td>
+</tr>
+</tbody></table>
+
+## Vehicle Model
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_XX">VM_INERTIA_XX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, XX component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.01</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_XY">VM_INERTIA_XY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, XY component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_XZ">VM_INERTIA_XZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, XZ component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_YY">VM_INERTIA_YY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, YY component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.01</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_YZ">VM_INERTIA_YZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, YZ component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_INERTIA_ZZ">VM_INERTIA_ZZ</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Inertia matrix, ZZ component</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">0.01</td>
+ <td style="vertical-align: top;">kg m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VM_MASS">VM_MASS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Mass</p>   </td>
+ <td style="vertical-align: top;">(0.00001)</td>
+ <td style="vertical-align: top;">1.</td>
+ <td style="vertical-align: top;">kg</td>
 </tr>
 </tbody></table>
 

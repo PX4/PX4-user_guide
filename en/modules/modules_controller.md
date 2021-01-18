@@ -1,5 +1,24 @@
 # Modules Reference: Controller
 
+## ODULE_NAM
+Source: [modules/control_allocator](https://github.com/PX4/Firmware/tree/master/src/modules/control_allocator)
+
+
+### Description
+This implements control allocation. It takes torque and thrust setpoints
+as inputs and outputs actuator setpoint messages.
+
+<a id="ODULE_NAM_usage"></a>
+### Usage
+```
+ODULE_NAM <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## airship_att_control
 Source: [modules/airship_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/airship_att_control)
 
