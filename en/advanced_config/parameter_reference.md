@@ -1812,6 +1812,13 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RTL_FLT_TIME">RTL_FLT_TIME</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum allowed RTL flight in minutes</p><p><strong>Comment:</strong> This is used to determine when the vehicle should be switched to RTL due to low battery. Note, particularly for multirotors this should reflect flight time at cruise speed, not while stationary</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">15</td>
+ <td style="vertical-align: top;">min</td>
+</tr>
 </tbody></table>
 
 ## DShot
