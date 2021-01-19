@@ -116,6 +116,9 @@ make px4_sitl gazebo_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
+
+# Start PX4 with no simulator (i.e. to use your own "custom" simulator)
+make px4_sitl none_iris
 ```
 
 The simulation can be further configured via environment variables:
