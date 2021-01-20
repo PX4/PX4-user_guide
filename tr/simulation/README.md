@@ -98,6 +98,9 @@ make px4_sitl gazebo_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
+
+# Start PX4 with no simulator (i.e. to use your own "custom" simulator)
+make px4_sitl none_iris
 ```
 
 The simulation can be further configured via environment variables:
@@ -270,8 +273,8 @@ ssh -C -fR 14551:localhost:14551 remote.local
 
 The UDP packets need to be translated to TCP packets so they can be routed over SSH. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
 
-:::tip
-QGC must be running before executing *netcat*.
+:::tip QGC
+must be running before executing *netcat*.
 :::
 
 On the *QGroundControl* computer, UDP packet translation may be implemented by running following commands:
