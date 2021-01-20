@@ -774,6 +774,11 @@
  <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_crazyflie_2.1">
+ <td style="vertical-align: top;">Crazyflie 2.1</td>
+ <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4901</p></td>
+
+</tr>
 </table>
 
 ### Simulation (Copter)
