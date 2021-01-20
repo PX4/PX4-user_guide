@@ -6,10 +6,11 @@ These allow you to build for the [most PX4 targets](../dev_setup/dev_env.md#supp
 Bash scripts are provided to help make it easy to install development environment for different target platforms:
 - **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**: Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.
   Does not include dependencies for [FastRTPS](#fast_rtps). <!-- NEED px4_version -->
-- **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)**: Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS (and later). <!-- NEED px4_version -->
+- **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)**: Installs [ROS "Melodic"](#rosgazebo) and PX4.
+  > **Note:** ROS Melodic only works on Ubuntu 18.04 LTS (do not run this script on Ubuntu 20.04 or later).
 
 :::tip
-The scripts have been tested on *clean* Ubuntu 18.04 LTS and Ubuntu 20.04 LTS installations.
+The scripts have been tested on *clean* Ubuntu LTS installations.
 They *may* not work as expected if installed "on top" of an existing system, or on a different Ubuntu release.
 :::
 
@@ -148,7 +149,7 @@ Additional developer information for using PX4 on Raspberry Pi (including buildi
 <a id="rosgazebo"></a>
 ## ROS/Gazebo
 
-This section explains how to install [ROS/Gazebo](../ros/README.md) ("Melodic") for use with PX4.
+This section explains how to install [ROS/Gazebo](../ros/README.md) ("Melodic") and PX4 on Ubuntu 18.04.
 
 To install the development toolchain:
 
