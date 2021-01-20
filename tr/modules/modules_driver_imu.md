@@ -159,6 +159,33 @@ bmi088 <command> [arguments...]
 
    status        print status info
 ```
+## bmi088_i2c
+Source: [drivers/imu/bosch/bmi088/bmi088_i2c](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bosch/bmi088/bmi088_i2c)
+
+<a id="bmi088_i2c_usage"></a>
+
+### Usage
+```
+bmi088_i2c <command> [arguments...]
+ Commands:
+   start
+     [-A]        Accel
+     [-G]        Gyro
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 118
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## bmi160
 Source: [drivers/imu/bmi160](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bmi160)
 
