@@ -62,7 +62,7 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 ## 视频
 
-{% youtube %} http://www.youtube.com/watch?v=4K8yaa6A0ks {% endyoutube %}
+@[youtube](https://youtu.be/4K8yaa6A0ks)
 
 ## 技术支持
 
