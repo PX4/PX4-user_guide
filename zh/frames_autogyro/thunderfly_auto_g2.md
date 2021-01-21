@@ -118,9 +118,7 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 
 ## 视频:
 
-https://youtu.be/YhXXSWz5wWs
-{% endyoutube %}
-{% endyoutube %}
+@https://youtu.be/YhXXSWz5wWs
 
 ## Photo gallery of changes
 
