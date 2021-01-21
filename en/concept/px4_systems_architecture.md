@@ -34,7 +34,7 @@ The left hand side of the diagram shows the software stack, which is horizontall
 
 The diagram below shows a PX4 system that includes both a flight controller and a mission computer.
 
-![PX4 architecture - FC only system](../../assets/diagrams/px4_arch_fc_companion.svg)
+![PX4 architecture - FC + Mission Control](../../assets/diagrams/px4_arch_fc_companion.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1zFtvA_B-BmfmxFmAd-XIvAZ-jRqOydj0aBtqSolBcqI/edit -->
 
