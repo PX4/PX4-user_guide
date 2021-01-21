@@ -14,7 +14,14 @@ module.exports = {
       // 'ru/**/*.md',
       '!**/node_modules' 
       ], 
-
+  markdown: {
+    // options for markdown-it-toc (youtube video)
+    video: {},
+    extendMarkdown: md => {
+      // use more markdown-it plugins!
+      md.use(require('markdown-it-video'))
+    }
+  },
   plugins: [
       '@vuepress/medium-zoom',
       ['container', {

@@ -14,10 +14,7 @@ It can be freely reprogrammed to perform any other basic, efficient low-level co
 * Size 45.5 mm x 35mm
 * Power consumption 115mA / 5V
 
-{% youtube %}
-https://youtu.be/0Jpq6DU_HVg
-{% endyoutube %}
-
+@[youtube](https://youtu.be/0Jpq6DU_HVg)
 
 ## Where to Buy
 

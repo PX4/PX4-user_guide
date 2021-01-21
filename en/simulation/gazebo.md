@@ -11,7 +11,7 @@ Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for au
 If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
 :::
 
-{% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
 [![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -294,10 +294,8 @@ make px4_sitl gazebo_rover__sonoma_raceway
 ```
 
 The video below shows that the location of the environment is aligned with the gazebo world:
-{% youtube %}
-https://youtu.be/-a2WWLni5do
-{% endyoutube %}
 
+@[youtube](https://youtu.be/-a2WWLni5do)
 
 
 <a id="start_px4_sim_separately"></a>

@@ -421,9 +421,7 @@ For general information on tuning see: [Multicopter PID Tuning Guide](../config_
 
 The video below shows this QAV250 on a test flight.
 
-{% youtube %}
-http://www.youtube.com/watch?v=MZzo4DMNkug
-{% endyoutube %}
+@[youtube](https://youtu.be/MZzo4DMNkug)
 
 
 ## Acknowledgements

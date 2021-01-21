@@ -31,9 +31,7 @@ For a [supported airframe](../config/airframe.md) only this basic configuration 
 
 The video below shows the calibration process in detail.
 
-{% youtube %}
-https://www.youtube.com/watch?v=91VGmdSlbo4
-{% endyoutube %}
+@[youtube](https://youtu.be/91VGmdSlbo4)
 
 
 ## Support
@@ -45,5 +43,3 @@ If you need help with the configuration you can ask for help on the [QGroundCont
 
 * [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
 * [Advanced Configuration](../advanced_config/README.md) (more advanced topics, related to lesser-used sensors and peripherals, and to vehicle/parameter tuning).
-
-

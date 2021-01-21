@@ -8,4 +8,4 @@ This section contains build logs/instructions for assembling and configuring a n
 
 [Traxxas Stampede](../frames_rover/traxxas_stampede.md) 
 
-{% youtube %}https://youtu.be/N3HvSKS3nCw{% endyoutube %}
+@[youtube](https://youtu.be/N3HvSKS3nCw)

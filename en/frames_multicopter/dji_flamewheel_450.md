@@ -127,4 +127,4 @@ Set the following parameters as well:
 
 ## Video
 
-{% youtube %}https://www.youtube.com/watch?v=JovSwzoTepU{% endyoutube %}
+@[youtube](https://youtu.be/JovSwzoTepU)
