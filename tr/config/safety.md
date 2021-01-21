@@ -64,8 +64,7 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual 
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
-:::note
-PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+:::note PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 :::
 
 The settings and underlying parameters are shown below.
@@ -94,8 +93,7 @@ The *Geofence Failsafe* is a "virtual" cylinder centered around the home positio
 
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
-:::tip
-PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+:::tip PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 :::
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
