@@ -1,7 +1,6 @@
 # AUAV-X2 오토파일럿(계속)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 :::warning
