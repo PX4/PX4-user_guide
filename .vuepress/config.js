@@ -15,15 +15,15 @@ module.exports = {
       '!**/node_modules' 
       ], 
 
-  plugins: ['@vuepress/medium-zoom',
+  plugins: [
+      '@vuepress/medium-zoom',
       ['container', {
         type: 'note',
         defaultTitle: {
           '/zh/': '注解',
-		  '/en/': 'Note',
-          '/': 'Note',		  
+          '/en/': 'Note',
+          '/': 'Note',
         },
-	  
       }],
       ['vuepress-plugin-mathjax',
         {
@@ -39,7 +39,7 @@ module.exports = {
         // it will automatically redirect `/foo/bar/` to `/:locale/foo/bar/` if exists
         locales: true,
         }
-	  ],
+      ],
       '@vuepress/back-to-top',
       [
       'vuepress-plugin-right-anchor',
@@ -294,4 +294,3 @@ module.exports = {
     
   }
 }
-
