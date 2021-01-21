@@ -172,8 +172,7 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 
 C API는 모듈과 드라이버 모두에서 활용할 수 있습니다.
 
-:::Tip
-[어플리케이션/모듈 서식](../modules/module_template.md)에서는 새 방식의 C++ API를 사용하나 [매개변수 메타데이터](#parameter-metadata)는 들어있지 않습니다.
+:::Tip [어플리케이션/모듈 서식](../modules/module_template.md)에서는 새 방식의 C++ API를 사용하나 [매개변수 메타데이터](#parameter-metadata)는 들어있지 않습니다.
 :::
 
 ### C API
