@@ -2,8 +2,7 @@
 
 The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller.
 
-:::tip
-ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::tip ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 :::
 
 ## Where to Buy
@@ -48,8 +47,7 @@ Where:
 
 ### Wiring for Flashing the Firmware
 
-:::warning
-ESP8266 must be powered with 3.3 volts only.
+:::warning ESP8266 must be powered with 3.3 volts only.
 :::
 
 There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
