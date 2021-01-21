@@ -14,8 +14,7 @@
 
 비행 중단을 취소하고 되돌리는 방법은 없습니다. 비행 중단이 시행되면 가능한 빨리 배터리를 분리하십시오. 기체를 다시 사용하기 전에 재부팅하거나 전원을 껐다 켜야 합니다.
 
-:::tip
-PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
+:::tip PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
 :::
 
 :::tip
