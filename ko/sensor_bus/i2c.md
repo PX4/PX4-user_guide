@@ -7,8 +7,7 @@ I2C는 선 두가닥만 활용하여 다중 마스터 장비를 다중 슬레이
 * I2C만 지원하는 주변 장치와의 호환성 유지
 * 단일 버스로의 다중 장치 연결 허용 (포트 절약에 유용함) 예: LED, 지자계센서, 거리센서 등.
 
-:::tip
-IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
+:::tip IMUs (accelerometers/gyroscopes) should not be attached via I2C (typically the [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) bus is used). The bus is not fast enough even with a single device attached to allow vibration filtering (for instance), and the performance degrades further with every additional device on the bus.
 :::
 
 ## I2C 장치 통합
