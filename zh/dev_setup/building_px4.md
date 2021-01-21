@@ -326,7 +326,7 @@ adb reboot
 
 前面的部分演示了如何调用 *make* 来构建多个不同的目标、启动模拟器、使用 IDE 等。 本节介绍如何构造 *make* 选项以及如何查找可用选项。 Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
 
-或者将文件复制到计算机，在本地编辑，然后将其复制回：
+@或者将文件复制到计算机，在本地编辑，然后将其复制回：
 
 ## Qt Creator 功能
 
@@ -362,7 +362,7 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
 
 下面的示例演示如何查看从 `px4_fmu-v2_default` 中删除 *mpu9250* 驱动程序的影响。 首先，它在本地构建一个没有驱动程序的生成：
 
-然后通过 **文件 > 打开项目** 加载根目录下的 CMakeLists.txt。
+@然后通过 **文件 > 打开项目** 加载根目录下的 CMakeLists.txt。
 
 
 ## PX4 创建生成目标

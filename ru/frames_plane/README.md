@@ -6,4 +6,4 @@ This section contains build logs/instructions for assembling and configuring a n
 
 ## Videos
 
-{% youtube %}https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720)

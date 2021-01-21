@@ -8,7 +8,7 @@
 
 本文将阐述怎样在这两种模式中设置自主避障功能。
 
-{% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
+@[youtube](https://youtu.be/PrGt7pKj3tI)
 
 ## 局限 / 能力
 

@@ -77,9 +77,7 @@ A hard fault is a state when a CPU executes an invalid instruction or accesses a
 
 The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
 
-{% youtube %}
-https://www.youtube.com/watch?v=KZkAM_PVOi0
-{% endyoutube %}
+@[youtube](https://youtu.be/KZkAM_PVOi0)
 
 ### Debugging Hard Faults in NuttX
 

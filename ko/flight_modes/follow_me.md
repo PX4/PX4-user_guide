@@ -19,7 +19,7 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 * This mode requires GPS. * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
 :::
 
-{% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
+@[youtube](https://youtu.be/RxDL4CtkzAQ)
 
 ## Safety Precautions
 

@@ -12,7 +12,7 @@ PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自�
 - Size 45.5 mm x 35mm
 - Power consumption 115mA / 5V
 
-{% youtube %} https://youtu.be/0Jpq6DU_HVg {% endyoutube %}
+@[youtube](https://youtu.be/0Jpq6DU_HVg)
 
 ## 购买渠道
 

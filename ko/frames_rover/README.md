@@ -8,4 +8,4 @@ PX4는 무인 지상 기체 (UGV)에 대한 기본 지원을 제공합니다. �
 
 [Traxxas Stampede ](../frames_rover/traxxas_stampede.md)
 
-{% youtube %}https://youtu.be/N3HvSKS3nCw{% endyoutube %}
+@[youtube](https://youtu.be/N3HvSKS3nCw)

@@ -6,4 +6,4 @@ PX4는 정상적인 비행기, 날기 날개, 역 V 자형 비행기 등 모든 
 
 ## Videos
 
-{% youtube %}https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720)

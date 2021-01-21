@@ -6,7 +6,7 @@ The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mis
 
 착륙 명령을 내리면, 기체는 우선 지표면을 측정할 수 있는 높이만큼 하강합니다(보조 컴퓨터의 `loiter_height` 매개변수). 착륙 지점이 충분히 평평하지 않으면, 기체는 정방 나선 패턴 외부로 이동한 후 주기적으로 멈추고 지형을 다시 확인하는 절차를 반복하여 착륙 지점이 너무 고르지 않은지 확인합니다.
 
-{% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
+@{% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
 
 ## Limitations/Capabilities
 

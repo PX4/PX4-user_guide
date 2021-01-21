@@ -12,7 +12,7 @@ Unlike many mouse sensors, it also works indoors and in low outdoor light condit
 - Size 45.5 mm x 35mm
 - Power consumption 115mA / 5V
 
-{% youtube %} https://youtu.be/0Jpq6DU_HVg {% endyoutube %}
+@[youtube](https://youtu.be/0Jpq6DU_HVg)
 
 ## Where to Buy
 

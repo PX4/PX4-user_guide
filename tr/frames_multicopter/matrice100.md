@@ -66,4 +66,4 @@ The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](..
 
 ## Video
 
-{% youtube %}https://www.youtube.com/watch?v=3OGs0ONemGc{% endyoutube %}
+@[youtube](https://youtu.be/3OGs0ONemGc)

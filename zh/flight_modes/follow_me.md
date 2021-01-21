@@ -19,7 +19,7 @@ author: Jimmy Johnson
 * 该模式需要 GPS。 * 该模式目前仅支持多旋翼。 * 跟随的目标必须能够提供位置信息。 * *QGroundControl* 仅在有 GPS 的安卓设备上支持该模式。
 :::
 
-{% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
+@[youtube](https://youtu.be/RxDL4CtkzAQ)
 
 ## 安全须知
 
