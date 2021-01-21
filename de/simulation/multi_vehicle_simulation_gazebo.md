@@ -35,25 +35,19 @@ The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 ### Video: Multiple Multicopter (Iris)
 
-{% youtube %}
-https://youtu.be/Mskx_WxzeCk
-{% endyoutube %}
+@[youtube](https://youtu.be/Mskx_WxzeCk)
 
 <a id="video_fw"></a>
 
 ### Video: Multiple Plane
 
-{% youtube %}
-https://youtu.be/aEzFKPMEfjc
-{% endyoutube %}
+@[youtube](https://youtu.be/aEzFKPMEfjc)
 
 <a id="video_vtol"></a>
 
 ### Video: Multiple VTOL
 
-{% youtube %}
-https://youtu.be/lAjjTFFZebI
-{% endyoutube %}
+@[youtube](https://youtu.be/lAjjTFFZebI)
 
 <a id="with_rtps"></a>
 
