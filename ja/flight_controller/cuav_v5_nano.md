@@ -1,7 +1,6 @@
 # CUAV V5 nano Autopilot
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
@@ -193,8 +192,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-:::warning
-PX4 does not support this interface.
+:::warning PX4 does not support this interface.
 :::
 
 ## Known Issues
