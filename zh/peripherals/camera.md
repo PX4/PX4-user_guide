@@ -82,8 +82,7 @@ Cameras that have a hotshoe connector (for connecting a flash) can usually be co
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-:::note
-PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
+:::note PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 :::
 
 ## Command Interface {#command_interface}
