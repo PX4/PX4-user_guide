@@ -40,8 +40,7 @@ Order this module from:
 
 In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
-:::warning
-PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
+:::warning PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
 :::
 
 The steps are:
@@ -65,8 +64,7 @@ On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](..
 
 Make sure the PX4Flow board is well dampened.
 
-:::warning
-PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::warning PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
 :::
 
 <span id="px4_configuration"></span>
@@ -257,8 +255,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - PC with *QGroundControl* installed
 - PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::note
-PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 :::
 
 ## Build
