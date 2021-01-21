@@ -1,7 +1,7 @@
 # UAVCAN Bootloader Installation
 
-:::warning
-UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
+:::warning UAVCAN
+devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
 :::
 
 ## Overview
