@@ -1,20 +1,20 @@
 # UAVCAN ESCs (Motor Controllers)
 
-PX4 supports the [UAVCAN](https://uavcan.org/) bus for connecting peripherals, including ESCs, GPS modules, various types of sensors, etc.
+PX4 supports the [UAVCAN](https://uavcan.org/) bus for connecting peripherals, including ESCs, GPS modules, various types of sensors, etc. However PX4 currently does not support UAVCAN Servos.
 
-UAVCAN ESCs have a number of advantages over [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md):
+UAVCAN ESCs have a number of advantages over [PWM ESCs](../peripherals/pwm_escs_and_servo.md):
 - UAVCAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances.
   It enables safe use of ESCs on bigger vehicles and communication redundancy.
 - The bus is bi-directional, enabling health monitoring and diagnostics.
 - Wiring is less complicated as you can have a single bus for connecting all your ESCs and other UAVCAN peripherals.
-- Setup is easier as you configure ESC numbering by manually spinning each motor.
+- Setup is easier as you configure ESC numbering by manually spinning each motor (in most cases).
 
 ## PX4 Supported ESC
 
 PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
 
 :::note
-At time of writing PX4 supports UAVCAN v0 (not v1.0).
+At the time of writing PX4 supports UAVCAN v0 (not v1.0).
 :::
 
 The only difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different. 
