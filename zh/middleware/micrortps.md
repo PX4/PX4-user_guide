@@ -23,8 +23,8 @@ RTPS 桥接在 PX4 和 RTPS 应用程序之间交换消息, 在每个系统使�
 *Fast RTPS* is not intended as a replacement for MAVLink. MAVLink remains the most appropriate protocol for communicating with ground stations, gimbals, cameras, and other offboard components (although *Fast RTPS* may open other opportunities for working with some peripherals).
 :::
 
-:::tip
-RTPS can be used over slower links (e.g. radio telemetry), but care should be taken not to overload the channel.
+:::tip RTPS
+can be used over slower links (e.g. radio telemetry), but care should be taken not to overload the channel.
 :::
 
 ## 架构概述

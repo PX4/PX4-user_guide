@@ -14,8 +14,7 @@
 
 飞行终止是无法取消的。 在飞行终止触发后，您应尽快拔下电池。 您需要在重启载具或重新上电后才能再次使用。
 
-:::tip
-PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
+:::tip PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
 :::
 
 :::tip

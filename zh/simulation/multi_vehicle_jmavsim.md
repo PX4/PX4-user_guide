@@ -6,8 +6,7 @@
 This is the easiest way to simulate multiple vehicles running PX4. It is suitable for testing multi-vehicle support in *QGroundControl* (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.). [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
 :::
 
-:::note
-JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
+:::note JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
 :::
 
 ## 如何启动多个飞行器实例

@@ -10,8 +10,7 @@ author: Jimmy Johnson
 
 无人机将自动偏航到朝向并跟随指定的[相对位置](#NAV_FT_FS)目标，目标的[水平间距](#NAV_FT_DST)和[高度](#NAV_MIN_FT_HT)是从起始位置上方。 默认情况下跟随是从距离目标后面 8 米， 距离起始 / 解锁位置以上 8 米高的位置开始。 在此模式下不需要用户输入。
 
-:::tip
-PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始位置的恒定高度跟随。 这一限制是因为来自地面站 GPS 的高度源通常不准确。
+:::tip PX4 当前忽略目标的高度 / 从目标开始的高度，并与高于起始位置的恒定高度跟随。 这一限制是因为来自地面站 GPS 的高度源通常不准确。
 :::
 
 该模式支持具有 GPS 模块的 安卓平板上的 *QGroundControl* 和 [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html)。

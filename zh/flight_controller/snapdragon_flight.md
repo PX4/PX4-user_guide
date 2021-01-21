@@ -1,7 +1,6 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
 :::
 
 :::warning

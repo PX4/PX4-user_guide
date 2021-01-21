@@ -1,11 +1,9 @@
 # Crazyflie 2.0
 
-:::warning
-PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
 :::
 
-:::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
