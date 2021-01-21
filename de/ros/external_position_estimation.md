@@ -27,8 +27,7 @@ PX4 uses the following MAVLink messages for getting external position informatio
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
-:::tip
-EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
 :::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.
@@ -42,8 +41,8 @@ PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body fram
 
 Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
 
-:::tip
-ROS users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+:::tip ROS
+users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
 :::
 
 For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention.
