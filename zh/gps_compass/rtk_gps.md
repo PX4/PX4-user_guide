@@ -2,8 +2,8 @@
 
 *RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
 
-:::note
-GPS can also be used as a source of yaw/heading information:
+:::note GPS
+can also be used as a source of yaw/heading information:
 
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
 - [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
