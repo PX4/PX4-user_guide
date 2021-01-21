@@ -1,7 +1,6 @@
 # mRo Control Zero F7 Flight Controller
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
