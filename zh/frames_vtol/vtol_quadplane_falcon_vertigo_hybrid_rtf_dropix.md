@@ -272,7 +272,7 @@ After you finish calibration the VTOL is ready to fly.
 
 ## 视频
 
-{% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
+@[youtube](https://youtu.be/h7OHTigtU0s)
 
 ## 技术支持
 
