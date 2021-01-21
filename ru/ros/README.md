@@ -4,8 +4,8 @@
 
 This section contains topics about using ROS for offboard control with PX4.
 
-:::tip
-ROS is only officially supported on Linux platforms.
+:::tip ROS
+is only officially supported on Linux platforms.
 :::
 
 ## Installation
