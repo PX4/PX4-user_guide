@@ -1,11 +1,9 @@
 # RPi PilotPi Shield
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
 :::
 
-:::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
@@ -124,8 +122,7 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2   | VCC    | +5V    |
 | 3   | GND    | GND    |
 
-:::note
-ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
 
 #### Unused GPIO available on top of the board
