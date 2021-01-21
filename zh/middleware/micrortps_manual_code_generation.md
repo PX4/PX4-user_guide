@@ -102,8 +102,8 @@ void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, 
 
 *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
 
-:::note
-IDL files are compiled to C++ by the *fastrtpsgen* tool.
+:::note IDL
+files are compiled to C++ by the *fastrtpsgen* tool.
 :::
 
 ## 代码生成验证
