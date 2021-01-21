@@ -116,11 +116,9 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 * Rotor centre plate with deformation zones (3D printed)
 * Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
 
-## Video:
+## Video
 
-{% youtube %}
-https://youtu.be/YhXXSWz5wWs
-{% endyoutube %}
+@[youtube](https://youtu.be/YhXXSWz5wWs)
 
 ## Photo gallery of changes
 
