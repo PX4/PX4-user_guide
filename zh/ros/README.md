@@ -4,8 +4,8 @@
 
 本节包含有关使用 ROS 在 PX4 的离板控制的主题。
 
-:::tip
-ROS is only officially supported on Linux platforms.
+:::tip ROS
+is only officially supported on Linux platforms.
 :::
 
 ## 安装
