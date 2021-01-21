@@ -2,8 +2,7 @@
 
 *PilotPi* 是一套支持树莓派直接运行 PX4 各项功能的拓展板方案。 它是一个低成本但高度可扩展的平台，从 Linux 和 PX4 两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。
 
-:::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
@@ -122,8 +121,7 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2  | VCC  | +5V    |
 | 3  | GND  | GND    |
 
-:::note
-ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
 
 #### 拓展板顶部引出的未使用的GPIO
