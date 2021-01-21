@@ -80,9 +80,7 @@ This might occur when key areas in RAM have been corrupted.
 The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger.
 It was presented at the PX4 Developer Conference 2019.
 
-{% youtube %}
-https://www.youtube.com/watch?v=KZkAM_PVOi0
-{% endyoutube %}
+@[youtube](https://youtu.be/KZkAM_PVOi0)
 
 ### Debugging Hard Faults in NuttX
 

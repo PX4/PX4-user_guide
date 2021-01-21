@@ -23,6 +23,7 @@
     "docs:build": "yarn docs:build_ubuntu"
   },
   "dependencies": {
+    "markdown-it-video": "^0.6.3",
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-right-anchor": "^0.4.4"
   }

@@ -129,9 +129,8 @@ To enumerate the ESC:
 
 The following video demonstrates the process:
 
-{% youtube %}
-https://www.youtube.com/watch?v=4nSa8tvpbgQ
-{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
 
 #### Manual ESC Enumeration using Sapog
 

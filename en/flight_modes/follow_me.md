@@ -26,10 +26,7 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 * *QGroundControl* only supports this mode on Android devices that have GPS.
 :::
 
-{% youtube %}
-https://www.youtube.com/watch?v=RxDL4CtkzAQ
-{% endyoutube %}
-
+@[youtube](https://youtu.be/RxDL4CtkzAQ)
 
 ## Safety Precautions
 
