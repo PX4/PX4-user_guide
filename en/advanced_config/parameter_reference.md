@@ -265,51 +265,49 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
- <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Enable checks on airspeed sensors <p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   </td>
  <td></td>
- <td>Disabled (0)</td>
+ <td>Enabled (1)</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="ASPD_FALLBACK">ASPD_FALLBACK</strong> (INT32)</td>
- <td>Enable fallback to secondary airspeed measurement <p><strong>Comment:</strong> If ASPD_DO_CHECKS is set to true, then airspeed estimation can fallback from what specified in ASPD_PRIMARY to secondary source (other airspeed sensors, groundspeed minus windspeed).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> To other airspeed sensor (if one valid), else disable airspeed</li> 
+ <td><strong id="ASPD_FALLBACK_GW">ASPD_FALLBACK_GW</strong> (INT32)</td>
+ <td>Enable fallback to sensor-less airspeed estimation <p><strong>Comment:</strong> If set to true and airspeed checks are enabled, it will use a sensor-less airspeed estimation based on groundspeed minus windspeed if no other airspeed sensor available to fall back to.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable fallback to sensor-less estimation</li> 
 
-<li><strong>1:</strong> To other airspeed sensor (if one valid), else to ground-windspeed</li> 
+<li><strong>1:</strong> Enable fallback to sensor-less estimation</li> 
 </ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
+  </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency threshold (Experimental) <p><strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the navigation EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
+ <td>Airspeed failsafe consistency threshold <p><strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the wind EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
  <td>0.5 > 3.0 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)</td>
- <td>Airspeed failsafe consistency delay (Experimental) <p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
+ <td>Airspeed failsafe consistency delay <p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
  <td>? > 30.0 </td>
- <td>-1.0</td>
+ <td>5.0</td>
  <td>s</td>
 </tr>
 <tr>
- <td><strong id="ASPD_FS_T1">ASPD_FS_T1</strong> (INT32)</td>
- <td>Airspeed failsafe stop delay (Experimental) <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
+ <td><strong id="ASPD_FS_T_START">ASPD_FS_T_START</strong> (INT32)</td>
+ <td>Airspeed failsafe start delay <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. Set to a negative value to disable the re-enabling in flight.</p>   </td>
+ <td>-1 > 1000 </td>
+ <td>-1</td>
+ <td>s</td>
+</tr>
+<tr>
+ <td><strong id="ASPD_FS_T_STOP">ASPD_FS_T_STOP</strong> (INT32)</td>
+ <td>Airspeed failsafe stop delay <p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
  <td>1 > 10 </td>
- <td>3</td>
- <td>s</td>
-</tr>
-<tr>
- <td><strong id="ASPD_FS_T2">ASPD_FS_T2</strong> (INT32)</td>
- <td>Airspeed failsafe start delay (Experimental) <p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good.</p>   </td>
- <td>10 > 1000 </td>
- <td>100</td>
+ <td>2</td>
  <td>s</td>
 </tr>
 <tr>
@@ -333,14 +331,14 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="ASPD_SCALE">ASPD_SCALE</strong> (FLOAT)</td>
- <td>Airspeed scale (scale from IAS to CAS/EAS) <p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.</p>   </td>
+ <td>Airspeed scale (scale from IAS to CAS) <p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.</p>   </td>
  <td>0.5 > 1.5 </td>
  <td>1.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="ASPD_SCALE_EST">ASPD_SCALE_EST</strong> (INT32)</td>
- <td>Automatic airspeed scale estimation on <p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.</p>   </td>
+ <td>Automatic airspeed scale estimation on <p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -354,7 +352,7 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="ASPD_STALL">ASPD_STALL</strong> (FLOAT)</td>
- <td>Airspeed fault detection stall airspeed. (Experimental) <p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.</p>   </td>
+ <td>Airspeed fault detection stall airspeed <p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.</p>   </td>
  <td></td>
  <td>10.0</td>
  <td>m/s</td>
