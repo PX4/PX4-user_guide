@@ -468,6 +468,29 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
+## newpixel
+Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+
+
+### Description
+This module is responsible for driving interfasing to the Neopixel Serial LED
+
+### Examples
+It is typically started with:
+```
+neopixel -n 8
+```
+To drive all available leds.
+
+<a id="newpixel_usage"></a>
+### Usage
+```
+newpixel <command> [arguments...]
+ Commands:
+   stop
+
+   status        print status info
+```
 ## paw3902
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
 
