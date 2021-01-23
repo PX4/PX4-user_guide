@@ -478,6 +478,30 @@ pga460 <command> [arguments...]
    help
 ```
 ## pga460
+Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+
+
+### Description
+This module is responsible for driving interfasing to the Neopixel Serial LED
+
+### Examples
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+```
+neopixel -n 8
+```
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+
+<a id="newpixel_usage"></a>
+
+### Usage
+```
+newpixel <command> [arguments...]
+ Commands:
+   stop
+
+   status        print status info
+```
+## paw3902
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
@@ -529,11 +553,11 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
 
 
 ### Description
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+This module is responsible for generate pwm pulse with PCA9685 chip.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -543,10 +567,10 @@ This module depends on ModuleBase and OutputModuleInterface. IIC communication i
 ### Examples
 It is typically started with:
 ```
-sf1xx start -a
+pca9685_pwm_out start -a 64 -b 1
 ```
 
-Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
+Use the `mixer` command to load mixer files. For boards without a separate IO chip (eg. Pixracer), it uses the main channels.
 
 <a id="pca9685_pwm_out_usage"></a>
 
@@ -614,7 +638,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out)
+In case of running in its own thread, the module polls on the actuator_controls topic.
 
 
 ### Description
@@ -622,15 +646,15 @@ This module is responsible for driving the output and reading the input pins. Fo
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
 ### Implementation
-In case of running in its own thread, the module polls on the actuator_controls topic.
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
 ### Examples
 It is typically started with:
 ```
-pwm_out mode_pwm
+fmu test
 ```
 To drive all available pins.
 
@@ -640,7 +664,7 @@ pwm_out mode_pwm3cap1
 ```
 This will enable capturing on the 4th pin. Then do:
 ```
-fmu test
+pwm_out test
 ```
 
 Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
@@ -916,7 +940,7 @@ Source: [modules/vmount](https://github.com/PX4/Firmware/tree/master/src/modules
 ### Description
 Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
 
-Documentation how to use it is on the [gimbal_control](https://dev.px4.io/en/advanced/gimbal_control.html) page.
+Documentation how to use it is on the [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html) page.
 
 ### Implementation
 Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
