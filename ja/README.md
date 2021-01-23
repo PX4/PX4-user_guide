@@ -1,17 +1,15 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide ({{ $themeConfig.px4_version }})
+# PX4オートパイロット　ユーザーガイド
 
 [![Releases](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 PX4 は *本格的なオートパイロットシステムです*. 世界中の産業界・アカデミアの開発者によって開発され，世界中のコミュニティによってサポートされており，レーシング用ドローンや運送用ドローンのみならず地上から潜水艇まで，様々なビークルに用いることができます．
 
-:::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+このガイドはPX4を搭載する機体を組立て、形式を指定し、安全に飛ばすために必要な全てのことを含んでいる。
 :::
 
-:::note
-This guide is still a work in progress! It does not yet cover all of PX4.
+このガイドは今でも現在進行形で作られている。 このガイドはPX4の全てをカバーしているわけではない。
 :::
 
 ## なにから始めればいいの？
