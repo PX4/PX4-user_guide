@@ -14,40 +14,40 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 ## なにから始めればいいの？
 
-始めには全てのユーザーが読む必要がある それにはPX4の概要、即ち(飛行モードや安全対策等の）ソフトウエアの機能と、（フライトコントローラー、車両、機体、テレメトリーシステム、ラジコン送受信機等の）ハードウエアについて述べられています。
+始めには全てのユーザーが読む必要がある 本章は，様々な機能(フライトモードや安全機能) や利用可能なハードウェア(フライトコントローラ，機体，テレメトリーシステム，無線機) など，PX4の概要について説明しています。
 
-貴方の行いたいことに応じて、以下のヒントがこの解説書を探索するのに役に立つことでしょう。
+あなたが実現したいことに応じて，次の情報が本ガイドの活用に役立つと思われます:
 
-**既にドローンを所有し、単に飛ばし方を知りたい人**
+**既にドローンを持っていて，すぐ飛ばしたいという方:**
 
-PX4が使える既成機（RTF）を持っている人
+PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 * [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法・メインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについて説明しています．
 * [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードに関する詳細についても解説しています．
 
-**PX4を使ってゼロからドローンを作りたい人**
+**PX4準拠のドローンを手作りしたい方:**
 
-PX4が使える乗り物は機体の参照の項に一覧で示してある。 それらは試験済、調整済のビークルでQGroundControlを使ってダウンロードできる。
+:::**Tip** "サポートされている" 機体のリストは [機体一覧](airframes/airframe_reference.md)にあります. これらの機体はテストされており，調整された設定値を*QGroundControl*を通して書き込むことができます.
 :::
 
-ゼロからビークルを作り上げたいときは：
+機体を手作りしたい方:
 
 * フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
 * フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
 * [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
 * [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
 
-ビークルを飛ばす準備が出来たら飛行の項を見ること
+飛行させる準備が完了したら， [フライト](flying/README.md) 章を参照してください．
 
-**PX4が使えるビークルを改造したい人は：**
+**標準機を改造する場合:**
 
-フライトコントローラーと基本センサーの変更については上で述べられている。 新しいセンサーを使用する場合、または飛行特性に大きな影響を与える変更を加えた場合:
+フライトコントローラや，基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に影響を与える改造をした場合，以下を参照してください:
 
 * [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
 * [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
 * [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
-**PX4を新しいハードウェアで実行し、プラットフォームを拡張したい：**
+**PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
 
 * [開発](development/development.md) では、新しい機体と車両の種類をサポートする方法を説明し、飛行アルゴリズムを変更します。 新しいモードの追加、新しいハードウェアの統合、PX4との通信、PX4に貢献します。
 
@@ -64,9 +64,9 @@ PX4が使える乗り物は機体の参照の項に一覧で示してある。 �
 
 ## バグ & 問題提起
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+PX4の使用に問題がある場合は、まずそれらを [サポートフォーラム](contribute/support.md#forums-and-chat) に投稿してください（PX4の問題ではなく車両設定によって引き起こされた可能性がありますので）
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+開発チームによって指示された場合、コードの問題は [Github ここ](https://github.com/PX4/PX4-Autopilot/issues) にあげられる可能性があります。 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 貢献
 
