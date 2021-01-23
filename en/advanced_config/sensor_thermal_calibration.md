@@ -2,21 +2,32 @@
 
 PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures).
+At the end there is a description of the [implementation](#implementation).
 
-> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
+:::note
+After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
+Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+:::
+ 
+:::note
+At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
+:::
 
+<span id="test_setup"></span>
+## Test Setup/Best Practice
 
-## Test Setup/Best Practice {#test_setup}
-
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
+The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature.
+Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
 
 For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. 
 The board should be placed in a ziplock/anti-static bag containing a silica packet, 
 with a power lead coming out through a sealed hole. 
 After the cold soak the bag can be moved to the test environment and the test continued in the same bag. 
 
-> **Note** The bag/silica is to prevent condensation from forming on the board.
+:::note
+The bag/silica is to prevent condensation from forming on the board.
+:::
 
 It possible to perform the calibration without a commercial-grade environment chamber.
 A simple environment container can be created using a styrofoam box with a very small internal volume of air. 
@@ -26,19 +37,22 @@ Using this sort of setup it is possible to heat a board to ~70C.
 Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. 
 If in doubt, check the safe operating range with your manufacturer.
 
-> **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
+:::tip
+To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
+:::
 
-
-## Calibration Procedures {#calibration_procedures}
+<span id="calibration_procedures"></span>
+## Calibration Procedures
 
 PX4 supports two calibration procedures: 
 * [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
 * [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
 
-The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate. 
+The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
 
 
-### Onboard Calibration Procedure {#onboard_calibration}
+<span id="onboard_calibration"></span>
+### Onboard Calibration Procedure
 
 Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup. 
 
@@ -55,21 +69,22 @@ To perform and onboard calibration:
 9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
 8. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
 
-### Offboard Calibration Procedure {#offboard_calibration}
+<span id="offboard_calibration"></span>
+### Offboard Calibration Procedure
 
 Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
 
 To perform an offboard calibration:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-1. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
+1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
 1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
 1. Cold soak the board to the minimum temperature it will be required to operate in.
 1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
 1. Remove power and extract the .ulog file.
-1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: 
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
@@ -79,7 +94,8 @@ To perform an offboard calibration:
 1. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 
-## Implementation Detail {#implementation}
+<span id="implementation"></span>
+## Implementation Detail
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
@@ -118,7 +134,8 @@ Examples:
 
 ### Calibration Parameter Usage
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](https://dev.px4.io/master/en/middleware/modules_system.html#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](../modules/modules_system.md#sensors).
+The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
 ```
 delta = measured_temperature - reference_temperature
 ```

@@ -1,10 +1,12 @@
-# Pixhawk Standard Autopilots
+# Pixhawk 标准自动驾驶仪
 
 [Pixhawk series](../flight_controller/pixhawk_series.md) boards that fully comply with the [Pixhawk Standard](https://pixhawk.org/) (including use of the Pixhawk trademark), and that are still being manufactured, are supported by the PX4 project.
 
 These boards are maintained, updated, tested and otherwise supported by the PX4 project maintainers and Dronecode test team.
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::
 
 The boards in this category are:
 
@@ -13,7 +15,5 @@ The boards in this category are:
 - [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4pro)
 - [mRo Pixracer](../flight_controller/pixracer.md) (FMUv4)
 - [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
-- [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
 - [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
-- [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)

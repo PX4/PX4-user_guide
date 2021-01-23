@@ -1,6 +1,8 @@
 # Snapdragon Advanced
 
-> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::warning
+The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+:::
 
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
@@ -42,7 +44,9 @@ With the Snapdragon connected via USB, open the mini-dm to see the output of the
     ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
     
 
-> **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::note
+Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+:::
 
 Run the main app on the linaro side:
 
@@ -73,9 +77,11 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 ## Wi-Fi settings
 
-> **Todo** These are notes for advanced developers.
+:::note
+ToDo These are notes for advanced developers.
+:::
 
-Connect to the Linux shell (see [console instructions](https://dev.px4.io/master/en/debug/system_console.html#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](../debug/system_console.md#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
@@ -85,7 +91,9 @@ If you want the Snapdragon to be a wifi access point (AP mode), edit the file: *
     wpa_passphrase=EnterYourPassphrase
     
 
-> **Note** The passphrase must be at least 8 characters
+:::note
+The passphrase must be at least 8 characters
+:::
 
 Then configure AP mode:
 
@@ -317,7 +325,7 @@ If you see the following output on mini-dm when trying to start the px4 program,
 If you have changed the source, presumably added functions and you see `undefined PLT symbol ...` it means that the linking has failed.
 
 - Do the declaration and definition of your function match one to one?
-- Is your code actually getting compiled? Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/boards/atlflight/eagle/qurt-default.cmake)
+- Is your code actually getting compiled? Is the module listed in the [cmake config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/atlflight/eagle/qurt-default.cmake)
 - Is the (added) file included in the `CMakeLists.txt`?
 - Try adding it to the POSIX build and running the compilation. The POSIX linker will inform you about linking errors at compile/linking time.
 
@@ -334,9 +342,9 @@ If you have changed the source, presumably added functions and you see `undefine
 If you get errors like the above when starting px4, try
 
 - [upgrading the Linux image](../flight_controller/snapdragon_flight_software_installation.md#update-linux-image)
-- and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](https://dev.px4.io/master/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
-- and finally [rebuild and re-run it](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)
+- and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/PX4-Autopilot/issues/5303) where it didn't seem to work when done in a virtual machine.
+- then [rebuild the px4 software](../dev_setup/building_px4.md), by first completely deleting your existing PX4-Autopilot repo and then re-cloning it [as described here](../dev_setup/building_px4.md#get_px4_code)
+- and finally [rebuild and re-run it](../dev_setup/building_px4.md#qurt--snapdragon-based-boards)
 - make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set: ```adb shell chmod +x /usr/local/qr-linux/q6-admin.sh```
 
 ### ADSP restarts

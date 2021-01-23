@@ -12,60 +12,66 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 安装 [范围/距离传感器](../getting_started/sensor_selection.md#distance)（已发现 * LidarLite v3 * 效果良好）。
 
-> **Note**许多基于红外线的距离传感器在 IR-LOCK 信标存在的情况下表现不佳。 有关其他兼容传感器，请参阅 IR-LOCK 指南。
+:::note
+Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon. Refer to the IR-LOCK guide for other compatible sensors.
+:::
 
 ### 固件配置
 
-精确着陆需要模块 ` irlock ` 和 ` landing_target_estimator ` ，默认情况下不包含在 PX4 固件中。 可以通过在飞行控制器的相关[配置](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)，即 编译脚本 和 启动脚本 中添加（或取消注释）以下行来包含它们：
+Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)):
 
     drivers/irlock
     modules/landing_target_estimator
     
 
-这两个模块也应该在系统启动时启动。 有关说明，请参阅：[自定义系统启动](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)。
+The two modules should also be started on system boot. For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
 
 ## 软件配置（参数）
 
-使用` landing_target_estimator `和` navigator `参数配置精准着陆，你可以分别在“Landing target estimator”和“Precision land”组中找到这些参数。 最重要的参数将在下面讨论。
+Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. The most important parameters are discussed below.
 
-参数[ LTEST_MODE ](../advanced_config/parameter_reference.md#LTEST_MODE) 决定信标是被认为静止的还是移动的。 如果 <LT> LTEST_MODE </code>被设置为移动的（例如，它所安装得多旋翼飞行器将要在运动车辆上着陆），则信标测量仅用于在精准着陆控制器中产生位置设定点。 如果<LT> LTEST_MODE </code> 被设置为静止得，则飞行器位置估计器（EKF2 或 LPE）也使用信标测量结果。
+The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving. If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller. If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
 
-参数[ LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 和 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) 可用于在估计信标相对于飞行器的位置和速度之前对信标测量结果进行缩放。 由于 IR-LOCK 传感器的镜头失真，可能需要进行测量缩放。 注意，在传感器坐标系中考虑` LTEST_SCALE_X `和` LTEST_SCALE_Y `，而不是飞行器坐标系。
+The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle. Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor. Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
 
-要校准这些缩放参数，请将` LTEST_MODE `设置为移动模式（moving），操作多旋翼飞行器在信标上方飞行，并使飞行器前后和左右运动，同时[记录](https://dev.px4.io/master/en/log/logging.html#configuration) ` landing_target_pose `和` vehicle_local_position `的日志。 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`. Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame). If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
 
-如果在 <LT> LTEST_MODE </code> 设置为静止的情况下进行精准着陆时观察到飞行器缓慢侧向振荡，则信标测量可能会缩放得太高，您应该减小相关方向上的缩放参数。
+If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
 
 ## 精准降落模式
 
-精确着陆可以配置为“必需的”或“随机的”。 模式的选择会影响精准着陆的执行方式。
+A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
 
 ### 必须的模式
 
-在 *必须的模式* 中，如果在启动着陆时信标不可见，则飞行器将搜索信标。 如果找到信标，飞行器将执行精准着陆。
+In *Required Mode* the vehicle will search for a beacon if none is visible when landing is initiated. The vehicle will perform a precision landing if a beacon is located.
 
-搜索过程包括爬到搜索高度（[ PLD_SRCH_ALT ](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)）。 如果信标在搜索高度仍然不可见并且在搜索超时（[ PLD_SRCH_TOUT ](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)）之后，则在当前位置启动正常着陆。
+The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the beacon is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
 
 ### 随机的模式
 
-在 *随机的模式* 中，*如果*（并且仅当）在启动着陆时信标可见，则飞行器将使用精准着陆<0>。 如果此时不可见，则飞行器立即在当前位置执行正常着陆。
+In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
 ## 执行精准着陆
 
-> **Note**由于位置控制器的当前实施方式的限制，只有具有有效的全局位置时才能实现精准着陆。
+:::note
+Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+:::
 
 ### 通过命令
 
-精准着陆可以通过命令行接口启动：
+Precision landing can be initiated through the command line interface with
 
     commander mode auto:precland
     
 
-在这种情况下，精准着陆始终被视为“必需的”。
+In this case, the precision landing is always considered "required".
 
-### 在任务中 {#mission}
+<span id="mission"></span>
 
-精准着陆可以作为 [任务](../flying/missions.md) 的一部分启动，使用 [ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 并适当设置 ` param2 ` ：
+### 在任务中
+
+Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
 - `param2` = 0: 正常着陆而不使用信标。
 - ` param2 ` = 1：*随机的* 精准着陆。
@@ -73,32 +79,32 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ## 仿真
 
-可以在 [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html) 中使用 IR-LOCK 传感器和信标进行精准着陆仿真。
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
 
-可以运行下列命令来开启拥有 IR-LOCK 信标，带测距传感器的飞行器，IR-LOCK 摄像头的仿真世界：
+To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 
     make px4_sitl gazebo_iris_irlock
     
 
-你可以通过在 Gazebo GUI 中移动信标或通过改变在 [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42) 中的位置来改变信标的位置。
+You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 ## 工作原理
 
 ### 着陆目标估计器
 
-`landing_target_estimator` 从 ` irlock ` 驱动中获取测量结果以及估计的地形高度，来估计信标相对于飞行器的位置。
+The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
 
-`irlock_report ` 中的测量值包含从图像中心到信标的角度的正切值。 换句话说，测量值是指向信标的矢量的 x 和 y 分量，其中 z 分量具有长度“1”。 这意味着将测量结果缩放从摄像头到信标的距离这么多倍，将得到从摄像头到信标的（方向）矢量。 然后根据飞机的姿态估计将相对位置旋转到北对齐，机身水平的坐标系中。 相对位置测量的 x 和 y 分量都在单独的卡尔曼滤波器中滤波，卡尔曼滤波器用作简单的低通滤波器，其也产生速度估计并允许异常值剔除。
+The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
 
-每当新的` irlock_report `融合到估计中时，` landing_target_estimator `就发布估计的相对位置和速度。 如果未看到信标或信标测量结果被拒绝，则不会发布任何内容。 着陆目标估计发布在` landing_target_pose ` uORB 消息中。
+The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
 
 ### 改进的飞行器位置估计
 
-如果使用参数` LTEST_MODE `将信标指定为静止，则可以借助信标测量来改善飞行器的位置/速度估计。 这是通过融合信标的速度为飞行器负速度的测量来完成的。
+If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements. This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
 
 ### 精准着陆过程
 
-精准着陆由三个阶段组成：
+The precision land procedure consists of three phases:
 
 1. **水平接近：**飞行器在保持其当前高度的同时水平接近信标。 一旦信标相对于车辆的位置差异低于阈值（[ PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)），就进入下一阶段。 如果信标在此阶段丢失（不可见超过时长[ PLD_BTOUT ](../advanced_config/parameter_reference.md#PLD_BTOUT)），则启动搜索程序（在必须的精准降落模式）或飞行器正常着陆（在随机的精准降落模式）。
 
@@ -106,6 +112,6 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 3. **最终接近：**当飞行器接近地面（高度小于[ PLD_FAPPR_ALT ](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)）时，飞行器会下降，同时保持在信标中心上方。 如果信标在此阶段丢失，则会继续下降，与精准着陆的类型无关。
 
-在步骤 1. 和步骤 2.中 搜索次数最多达 [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) 次。
+Search procedures are initiated in 1. and 2. a maximum of [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times.
 
-![精准着陆流程图](../../assets/precision_land/precland-flow-diagram.png)
+![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)

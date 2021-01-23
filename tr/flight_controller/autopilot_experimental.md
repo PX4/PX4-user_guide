@@ -2,7 +2,9 @@
 
 This category is for experimental and discontinued autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::tip
+For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
+:::
 
 Boards in this category must work with at least one PX4 release for a defined vehicle type. They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.
 
@@ -12,7 +14,10 @@ Experimental:
 - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) (Complete Vehicle)
+- [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
+- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
 
 Discontinued:
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)

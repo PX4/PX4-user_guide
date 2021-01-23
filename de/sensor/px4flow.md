@@ -12,7 +12,7 @@ Unlike many mouse sensors, it also works indoors and in low outdoor light condit
 - Size 45.5 mm x 35mm
 - Power consumption 115mA / 5V
 
-{% youtube %} https://youtu.be/0Jpq6DU_HVg {% endyoutube %}
+@[youtube](https://youtu.be/0Jpq6DU_HVg)
 
 ## Where to Buy
 
@@ -40,7 +40,8 @@ Order this module from:
 
 In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
-> **Warning** PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/Firmware versions should work.
+:::warning PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
+:::
 
 The steps are:
 
@@ -51,7 +52,9 @@ The steps are:
 
 Once enabled, the module will be detected on boot. Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. Flow data is transmitted over wireless channels at a lower rate.
 
-### Mounting/Orientation {#mounting}
+<span id="mounting"></span>
+
+### Mounting/Orientation
 
 The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
@@ -59,11 +62,14 @@ The recommended mounting orientation is defined as Y on flow board pointing towa
 
 On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the default).
 
-Make sure the the PX4Flow board is well dampened.
+Make sure the PX4Flow board is well dampened.
 
-> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::warning PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::
 
-## PX4 Configuration {#px4_configuration}
+<span id="px4_configuration"></span>
+
+## PX4 Configuration
 
 The PX4Flow parameters that you may need to configure are listed below.
 
@@ -96,7 +102,9 @@ The address range for the 8 possible choices is: 0x42 - 0x49.
 | :                            | :     | :     | :     |
 | 7 Bit Address 0x49           | 1     | 1     | 1     |
 
-> **Tip** There are different I2C readouts available. Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+:::tip
+There are different I2C readouts available. Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+:::
 
 If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver with the correct address:
 
@@ -109,7 +117,9 @@ If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver 
 
 In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*. Under the settings menu, select the PX4Flow and you should see a camera image. Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
-> **Note** If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+:::note
+If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+:::
 
 ![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
 
@@ -224,9 +234,12 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 - Check that the image is sharp at the operating distance (the typical flight altitude)
   
-  > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+  :::tip [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+:::
 
-# PX4FLOW Developer Guide {#developer_guide}
+<span id="developer_guide"></span>
+
+# PX4FLOW Developer Guide
 
 ## Hardware Setup
 
@@ -242,11 +255,12 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - PC with *QGroundControl* installed
 - PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-> **Note** PX4 *driver* code can be found here: [PX4/Firmware/src/drivers/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
+:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::
 
 ## Build
 
-Install the [PX4 toolchain](https://dev.px4.io/master/en/setup/dev_env.html) (PX4 Developer Guide). Then and clone the sources from https://github.com/PX4/Flow using *git*.
+Install the [PX4 toolchain](../dev_setup/dev_env.md). Then and clone the sources from https://github.com/PX4/Flow using *git*.
 
 ```bash
 cd flow
@@ -311,7 +325,9 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Warning** Parameters are currently not written to ROM (they reset at power loss). To change them permanently build your own version of firmware using instructions in the [PX4FLOW Developer Guide](#developer_guide) above. Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
+:::warning
+Parameters are currently not written to ROM (they reset at power loss). To change them permanently build your own version of firmware using instructions in the [PX4FLOW Developer Guide](#developer_guide) above. Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
+:::
 
 ### BFLOW_F_THRD
 
@@ -375,7 +391,9 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 
 ## Modes
 
-### VIDEO ONLY Mode {#VIDEO_ONLY}
+<span id="VIDEO_ONLY"></span>
+
+### VIDEO ONLY Mode
 
 Set `VIDEO_ONLY` to 1 for high resolution mode. In this mode the camera image is transmitted at a higher resolution to ease the lens focus process. No flow values are calculated in this mode.
 

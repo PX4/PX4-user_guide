@@ -1,11 +1,18 @@
 # Kakute F7
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
+
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Key Features
 
@@ -29,8 +36,9 @@ The board can be bought from one of the following shops (for example):
 - [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
-> **Tip** The *Kakute F7* is designed to work with the *Tekko32* 4-in-1 ESC and
-> they can be bought in combination.
+:::tip
+The *Kakute F7* is designed to work with the *Tekko32* 4-in-1 ESC and they can be bought in combination.
+:::
 
 ## Connectors and Pins
 
@@ -62,7 +70,8 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | Boot | Bootloader button | |
 
 
-## PX4 Bootloader Update {#bootloader}
+<span id="bootloader"></span>
+## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
@@ -70,7 +79,7 @@ Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_kakutef7_default
 ```
@@ -112,11 +121,11 @@ UART7 | /dev/ttyS5 | ESC telemetry (DShot)
 
 ### System Console
 
-UART3 RX and TX are configured for use as the [System Console](https://dev.px4.io/master/en/debug/system_console.html).
+UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
 ### SWD
 
-The  [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) pins are:
+The  [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 - `SWCLK`: Test Point 2 (Pin 72 on the CPU)
 - `SWDIO`: Test Point 3 (Pin 76 on CPU)
 - `GND`: As marked on board

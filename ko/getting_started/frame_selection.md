@@ -1,16 +1,16 @@
 # 프레임 선택
 
-## 기체
+## 항공 기체
 
-If you plan using PX4 for flying aircraft the most important question you should answer is, what will be the application. Is it for fun or for work, what is the planned flight times and coverage.
+사용 목적에 적절한 기체를 선택하여야 합니다. 취미용이냐 업무용에 따라서 또한 원하는 비행시간과 비행 거리에 따라서 선택되어지는 기체는 달라집니다.
 
-- If you need precision hovering and you don't mind shorter flight times then focus on **Multicopters**.
-- For longer flights and larger areas of coverage you will need fixed wing aircraft i.e. **Airplanes**.
-- There is even mixed type of aircraft called **VTOL** - Vertical Takeoff and Landing aircraft. It can take off in vertical mode like Multicopter and then transition in forward flight like Airplane.
+- 정밀한 호버링과 장시간 비행이 반드시 필요한 경우가 아니면, **멀티콥터**을 선택하는 것이 좋습니다.
+- 장거리 장시간 비행에는 고정익이 적절합니다.(예: **비행기**.)
+- **VTOL** - 수직 이착륙인 가능한 혼합 유형의 비행기도 있습니다. 멀티콥터와 같이 수직 이착륙이 가능하고, 고정익처럼 전방 비행도 가능합니다.
 
-The [airframe reference](../airframes/airframe_reference.md) lists frames that have been tuned for perfect flight with PX4.
+[기체 정의](../airframes/airframe_reference.md)에서 PX4와 연동 가능한 프레임들을 참고할 수 있습니다.
 
-Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
+기체를 선택/구입/조립하면, [초기 설정 과정](../config/README.md)중에 QGroundControl에서 템플릿으로 미리 설정해야 할 것입니다.
 
 ![프레임 선택](../../assets/qgc/setup/airframe/frame_selection.png)
 

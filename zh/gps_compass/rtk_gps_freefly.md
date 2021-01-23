@@ -3,16 +3,18 @@
 The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/freefly-rtk-gps) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation. The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
 
 Main features include:
-- Multiband (L1/L2) receiver (Ublox ZED-F9P)
+- Multiband (L1/L2) receiver (u-blox ZED-F9P)
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
 
-> **Note** This module can be used with PX4 v1.9 or above (support for the UBlox ZED-F9P was added in PX4 v1.9).
+:::note
+This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
+:::
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## Purchase
+## 购买
 
 * [Freefly Store](https://store.freeflysystems.com/products/freefly-rtk-gps)
 
@@ -25,34 +27,34 @@ An RTK GPS kit includes:
 - Screws to mount onto a Freefly AltaX
 
 
-## Configuration
+## 配置
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 
-## Wiring and Connections
+## 接线和连接
 
 The Freefly RTK GPS comes with an 8 pin JST-GH connector that can be plugged into a PixHawk autopilot. For use as a base station, the module has a USB-C connector
 
-### Pinout
+### 针脚定义
 
 The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cube](../flight_controller/pixhawk-2.md) and [PixRacer](../flight_controller/pixracer.md), all that is needed is a 1-1 8-pin JST-GH cable.
 
-| Pin | Freefly GPS |
-| --- | ----------- |
-| 1   | VCC_5V      |
-| 2   | GPS_RX      |
-| 3   | GPS_TX      |
-| 4   | I2C_SCL     |
-| 5   | I2C_SDA     |
-| 6   | BUTTON      |
-| 7   | BUTTON_LED  |
-| 8   | GND         |
+| 针脚 | Freefly GPS |
+| -- | ----------- |
+| 1  | VCC_5V      |
+| 2  | GPS_RX      |
+| 0  | GPS_TX      |
+| 4  | I2C_SCL     |
+| 5  | I2C_SDA     |
+| 6  | BUTTON      |
+| 7  | BUTTON_LED  |
+| 8  | GND         |
 
-## Specification
+## 技术规范
 
-- Ublox ZED-F9P GPS Receiver
+- u-blox ZED-F9P GPS Receiver
   - Ultracap backup power for fast (hot-start) restarts
   - EMI shield over receiver for improved EMI immunity
 - IST8310 Magnetometer
@@ -64,7 +66,7 @@ The Freefly GPS pinout is provided below. For some autopilots, like the [Hex Cub
   - SMA connector
 - STM32 MCU for future CAN-based communication
   - FW updates through USB connector
-- Connectivity:
+- 连接性:
   - USB-C
   - 2-way USB Switch to MCU and F9P
   - SMA for active antenna (20mA max)

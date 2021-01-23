@@ -10,11 +10,13 @@
 - 确保100米/300 英尺内没有人。
 - Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
 
-> **Note** 100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
+:::note
+100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
+:::
 
 ## 带一个专家
 
-在您的第一次飞行时，带一个有经验的人。 Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
 
 ## Plan the Flight
 
@@ -28,4 +30,6 @@ The UAV should always be manually flown within a safe zone where there are no ob
 
 If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
 
-> **Note** It can be useful to [set a safety switch on your transmitter](../config/safety.md#safety_switch). This allows you to immediately return or crash your drone if necessary.
+:::note
+It can be useful to [set a safety switch on your transmitter](../config/safety.md#safety_switch). This allows you to immediately return or crash your drone if necessary.
+:::

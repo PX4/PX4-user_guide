@@ -29,11 +29,11 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
   * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)).
     This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
 
-
-> **Note**
->  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
->  * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy. 
-
+:::note
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions.
+  Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy. 
+:::
 
 ## Parameters
 
@@ -56,4 +56,3 @@ FW position controller is basically 2 independent pieces
 * TECS is for speed and height control - determines throttle and elevator position needed to achieve the commanded altitude and airspeed
 Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle which is sent off to the attitude controller
 -->
-

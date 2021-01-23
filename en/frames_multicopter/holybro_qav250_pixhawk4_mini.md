@@ -22,7 +22,7 @@ Key information
 
 The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Micro FPV Radio telemetry set](https://shop.holybro.com/micro-transceiver-telemetry-radio-set_p1025.html)
+* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
 * Power module holybro
 * Fully assembled Power Management Board with ESCs
 * Motors - DR2205 KV2300
@@ -71,7 +71,7 @@ Holybro power module   |  1
 Fr-sky D4R-II receiver |  1
 Pixhawk 4 mini         |  1
 Holybro GPS Neo-M8N    |  1
-Holybro [Micro FPV Radio telemetry set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/) | 1
+Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1
 Battery lumenier 1300 mAh 4S 14.8V |  1
 Vtx 5.8gHz             |  1
 FPV camera (Complete Kit - only) |  1
@@ -128,7 +128,9 @@ The following tools are used in this assembly:
 
    Connect the motors on the ESC’s, make sure the motors turns to the correct side, if the motor turns of the opposite side change the cable A to the pad C and C to the pad A of the ESC.
    
-   > **Warning** Test motor directions with propellers removed.
+   :::warning
+   Test motor directions with propellers removed.
+   :::
    
    ![QAV250 Connect ESCs to Power](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11b_escs.jpg)
 1. Connect the signal ESC cables to the PWM outputs of the Pixhawk in the correct order (see previous image)
@@ -183,25 +185,31 @@ The steps to install the kit are:
      The wires are: yellow=video out, black=ground, red=+voltage.
 1. Secure the Video Transmitter and OSD board to the frame using tape.
 
-> **Note** If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
-  ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::note
+If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
+![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::
 
-
-## Install/Configure PX4 {#configure}
+<span id="configure"></span>
+## Install/Configure PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame.
 [Download and install](http://qgroundcontrol.com/downloads/) 
 *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
-  > **Note** You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+  
+  :::note
+  You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
-   ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
-
+  ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
+  :::
 Then perform the mandatory setup/calibration:
 * [Sensor Orientation](../config/flight_controller_orientation.md)
 * [Compass](../config/compass.md)
@@ -229,5 +237,3 @@ For general information on tuning see: [Multicopter PID Tuning Guide](../config_
 ## Acknowledgements
 
 This build log was provided by the PX4 Test Team.
-
-

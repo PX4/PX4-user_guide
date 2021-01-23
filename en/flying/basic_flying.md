@@ -2,10 +2,12 @@
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
-> **Note** Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+:::note
+Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+:::
 
-
-## Arm the Vehicle {#arm}
+<span id="arm"></span>
+## Arm the Vehicle
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming).
 This will power all motors and actuators; on a multicopter it will start propellers turning.
@@ -16,15 +18,19 @@ To arm the drone:
   - Alternatively configure an [arm/disarm switch](../config/safety.md#arming_switch).
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
-> **Tip** The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock.
-  [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
+:::tip
+The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock.
+[Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
+:::
 
-<span></span>
-> **Note** The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off!
-  This is a safety measure to ensure that vehicles return to a safe state when not in use.
+:::note
+The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off!
+This is a safety measure to ensure that vehicles return to a safe state when not in use.
+:::
 
-<span></span>
-> **Note** A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+:::note
+A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+:::
 
 <span id="takeoff-and-landing"></span>
 ## Takeoff
@@ -35,13 +41,17 @@ Usually this is triggered from an [RC switch](../config/flight_mode.md) or groun
 Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%.
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
-> **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
+:::tip
+The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
+:::
 
-<span></span>
-> **Note** The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
+:::note
+The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
+:::
 
-<span></span>
-> **Note** The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::note
+The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+:::
 
 
 ## Landing
@@ -54,11 +64,13 @@ Note that vehicles automatically disarm on landing by default:
 - Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
-> **Note** If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+:::note
+If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+:::
 
-<span></span>
-> **Tip** Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
-
+:::tip
+Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+:::
 
 
 ## Flight Controls/Commands
@@ -92,10 +104,10 @@ Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement
 - Yaw => Left/right tail rotation and turn.
 - Throttle => Changed forward speed.
 
-
-> **Note** The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time.
-  This maneuver requires experience!
-
+:::note
+The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time.
+This maneuver requires experience!
+:::
 
 ## Assisted Flight
 
@@ -108,5 +120,6 @@ The following three modes are highly recommended for new users:
 * Altitude - Climb and drop are controlled to have a maximum rate.
 * Position - When sticks are released the vehicle will stop (and hold position against wind drift)
 
-> **Tip** You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
-
+:::note
+You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
+:::

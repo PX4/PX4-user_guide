@@ -5,7 +5,9 @@ If the board or an external compass are mounted in any other orientation then yo
 
 ## Calculating Orientation
 
-ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward, right, down axes.
+ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward (x), right (y), down (z) axes.
+
+![Frame Heading](../../assets/concepts/frame_heading.png)
 
 The axes to rotate around stay the same from one rotation step to the next one.
 So the frame to perform the rotation in stays fixed.
@@ -13,9 +15,16 @@ This is also known as *extrinsic rotation*.
 
 <img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;"/>
 
-For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+For example, the vehicles shown below have rotations around the z-axis (i.e. yaw only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
 ![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
+
+:::note
+For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor configuration (i.e. relative to the vehicle during, takeoff, hovering, landing) for all sensor calibrations.
+
+The axis are normally relative to the orientation of the vehicle during steady forward flight. 
+For more information see [Basic Concepts](../getting_started/px4_basic_concepts.md#heading-and-directions).
+:::
 
 ## Setting the Orientation
 

@@ -1,17 +1,24 @@
 # Holybro Pix32 v5
 
-[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
+
+[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>.
 It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers.
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 It can be regarded as a variant version of Pixhawk4.
 
-The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector.
-It is designed for those pilots who need a high power, flexible and customisable flight control system.
-This design allows users to either use the carrier board made by Holybro or customize their own.
+The Pix32 v5 is designed for pilots who need a high power, flexible and customisable flight control system.
+It is comprised of a separate flight controller and carrier (base) board, which are connected by a 100pin connector.
+This design allows users to either select a base board made by Holybro, or customize their own.
 
-![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/IMG_3112.jpg) ![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.jpg)
+![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
@@ -24,7 +31,7 @@ This design allows users to either use the carrier board made by Holybro or cust
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces:
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
@@ -72,9 +79,14 @@ Order from [Holybro website](https://shop.holybro.com/pix32-v5_p1218.html).
 
 The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
+## Base Board Layouts
+![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_base_boards_layout.jpg)
+
 ## Pinouts
 
-Download *pix32 v5* pinouts from [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+Download pinouts here:
+- [*pix32 v5* baseboard](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) 
+- [*pix32 v5* mini baseboard](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
 ## Dimensions
 
@@ -85,8 +97,10 @@ Download *pix32 v5* pinouts from [here](http://www.holybro.com/manual/Holybro_PI
 *Pix32 v5* can be triple-redundant on the power supply if three power sources are supplied.
 The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -103,25 +117,27 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_pix32v5_default
 ```
 
 ## Debug Port
 
-The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port
+The system's [serial console](../debug/system_console.md) and SWD interface runs on the **FMU Debug** port
 
 <!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
-![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Diagram.jpg) ![FMU Debug port table](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Table.jpg)
+![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
 
 The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 For wiring information see:
-- [System Console > Pixhawk Debug Port](https://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (PX4 Developer Guide)
+- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port).
 
 
 ## Peripherals
@@ -141,6 +157,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 - [Pix32 v5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
 - [Pix32 v5 Pinouts](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
-- [Pix32 v5 Base Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
-- [Pix32 v5 Base Components Layout](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
+- [Pix32 v5 Base Board Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
+- [Pix32 v5 Mini Base Board Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-Base-Mini-Board_Schematic_diagram.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).

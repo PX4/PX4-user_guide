@@ -2,7 +2,8 @@
 
 The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller.
 
-> **Tip** ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::tip ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::
 
 ## Where to Buy
 
@@ -46,7 +47,8 @@ Where:
 
 ### Wiring for Flashing the Firmware
 
-> **Warning** ESP8266 must be powered with 3.3 volts only.
+:::warning ESP8266 must be powered with 3.3 volts only.
+:::
 
 There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
 
@@ -62,9 +64,13 @@ I built a cable where RX, TX, VCC, and GND are properly wired directly from the 
 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
-## Pixhawk/PX4 Setup & Configuration {#px4_config}
+<span id="px4_config"></span>
 
-> **Tip** If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter). The following instructions assume you are using PX4 versions after 1.8.2
+## Pixhawk/PX4 Setup & Configuration
+
+:::tip
+If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter). The following instructions assume you are using PX4 versions after 1.8.2
+:::
 
 Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
 
@@ -94,4 +100,6 @@ You should now see HUD movement on your QGC computer via wireless link and be ab
 
 ![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
 
-> **Tip** If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
+:::tip
+If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
+:::

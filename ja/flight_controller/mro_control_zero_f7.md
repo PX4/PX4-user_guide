@@ -1,5 +1,8 @@
 # mRo Control Zero F7 Flight Controller
 
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::
+
 The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7.jpg)
@@ -7,7 +10,9 @@ The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
 It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
 
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Key Features
@@ -56,9 +61,11 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make mro_ctrl-zero-f7
 ```
@@ -68,7 +75,7 @@ make mro_ctrl-zero-f7
 
 ### Console Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on `USART7` using the pins listed below. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+The [PX4 System Console](../debug/system_console.md) runs on `USART7` using the pins listed below. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
 | mRo control zero f7 |             | FTDI                 |
 | ------------------- | ----------- | -------------------- |
@@ -79,7 +86,7 @@ The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html)
 
 ### SWD Port
 
-The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU debugging is a TC2030 debug connector, as shown below.
+The [SWD port](../debug/swd_debug.md) (JTAG) for FMU debugging is a TC2030 debug connector, as shown below.
 
 ![mro swd port](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7_swd.jpg)
 
@@ -107,7 +114,7 @@ There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connec
 
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/Firmware/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
 
 
 

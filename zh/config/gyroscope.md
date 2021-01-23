@@ -2,9 +2,9 @@
 
 *QGroundControl* will guide you to place the vehicle on a flat surface and keep it still.
 
-## Performing the Calibration
+## 执行校准
 
-The calibration steps are:
+标定步骤如下：
 
 1. Click the **Gyroscope** sensor button
     
@@ -20,8 +20,10 @@ The calibration steps are:
 
 4. When finished, *QGroundControl* will display a progress bar *Calibration complete* ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.jpg)
 
-> **Note** If you move the vehicle *QGroundControl* will automatically restart the gyroscope calibration.
+:::note
+If you move the vehicle *QGroundControl* will automatically restart the gyroscope calibration.
+:::
 
-## Further Information
+## 更多信息：
 
 * [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope)

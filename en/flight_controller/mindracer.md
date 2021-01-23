@@ -1,11 +1,18 @@
 # MindRacer Hardware
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::
+
 The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs.
 The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## Quick Summary
 
@@ -16,7 +23,9 @@ MindRacer is a *platform* rather than a flight controller.
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts.
 Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
-> **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+:::note
+The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
+:::
 
 - Ultra mini size, weight ~6g
 - High performance STM32F427 168MHz floating point processor, super fast throttle response
@@ -50,10 +59,12 @@ Before SEP and WEP, soldering and wiring are always the major pain and efficienc
 
 ### How to Build
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make airmind_mindpx-v2_default
 ```
@@ -71,7 +82,9 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ### User Guide
 
-> **Note** The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+:::note
+The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+:::
 
 ## Where to Buy
 

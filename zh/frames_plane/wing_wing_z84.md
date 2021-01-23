@@ -9,7 +9,7 @@ Key information:
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Parts List
+## 配件列表
 
 ### Z-84 Plug n' Fly (PNF/PNP) or Kit
 
@@ -18,7 +18,9 @@ One of these:
 - [Banggood](https://www.banggood.com/Wing-Wing-Z-84-Z84-EPO-845mm-Wingspan-Flying-Wing-PNP-p-973125.html)
 - [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
-> **Tip** PNF (or "PNP") versions include motor, propeller and electronic speed controller. The "kit" version does not include these components, which must be purchased separately.
+:::tip PNF
+(or "PNP") versions include motor, propeller and electronic speed controller. The "kit" version does not include these components, which must be purchased separately.
+:::
 
 ### Electronic Speed Controller (ESC)
 
@@ -49,8 +51,8 @@ The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not th
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                |
 | MAIN 2 | Right Aileron               |
-| MAIN 3 | Empty                       |
-| MAIN 4 | Throttle                    |
+| MAIN 3 | 空白                          |
+| MAIN 4 | 油门                          |
 
 ## Build Log
 

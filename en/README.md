@@ -1,16 +1,20 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide ({{ book.px4_version }})
+# PX4 Autopilot User Guide ({{ $themeConfig.px4_version }})
 
-[![Releases](https://img.shields.io/badge/release-{{ book.px4_version }}-blue.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
+[![Releases](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
 
 PX4 is the *Professional Autopilot*. 
 Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
-> **Tip** This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+:::tip
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+:::
 
-<span></span>
-> **Note** This guide is still a work in progress! It does not yet cover all of PX4.
+:::note
+This guide is still a work in progress!
+It does not yet cover all of PX4.
+:::
 
 ## How Do I Get Started?
 
@@ -29,8 +33,10 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
 **I want to build a drone with PX4 from scratch:**
 
-> **Tip** The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). 
-  These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. 
+:::tip
+The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). 
+These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. 
+:::
 
 If you want to build a vehicle from scratch:
 
@@ -55,38 +61,63 @@ In order to use new sensors, or if you have made changes that significantly affe
 
 **I want to run PX4 on new hardware and extend the platform:**
 
-- [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+- [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 
-## Forums and Chat {#support}
+## Getting Help
 
-The core development team and community are active on the following forums and chat channels:
+The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
-* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-* [Slack](http://slack.px4.io) (sign up)
+Among other things it covers:
+- [Forums where you can get help](contribute/support.md#forums-and-chat)
+- [Diagnosing issues](contribute/support.md#diagnosing-problems)
+- [How to report bugs](contribute/support.md#issue-bug-reporting)
+- [Weekly dev call](contribute/support.md#weekly-dev-call)
 
 
 ## Reporting Bugs & Issues
 
-If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). 
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). 
 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 
 ## Contributing
 
-Information on how to contribute to code and documentation can be found in the Developer Guide:
-- [Code](https://dev.px4.io/master/en/contribute/)
-- [Documentation](https://dev.px4.io/master/en/contribute/docs.html)
-- [Translation](https://dev.px4.io/master/en/contribute/docs.html)
+Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+- [Code](contribute/README.md)
+- [Documentation](contribute/docs.md)
+- [Translation](contribute/translation.md)
+
+## Translations
+
+There are several [translations](contribute/translation.md) of this guide.
+You can access these from the Languages menu (top right):
+
+![Language Selector](../assets/vuepress/language_selector.png)
 
 ## License
 
 PX4 code is free to use and modify under the terms of the permissive 
 [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 
 This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
-For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
+For more information see: [Licences](contribute/licenses.md).
+
+
+## Calendar & Events
+
+The *Dronecode Calendar* shows important community events for platform users and developers. 
+Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+
+:::tip 
+Calendar defaults to CET.
+:::
+
+<iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 
 ### Icons

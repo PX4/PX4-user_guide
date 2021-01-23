@@ -1,6 +1,13 @@
 # Raspberry Pi 2/3 Navio2 Autopilot
 
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
+:::
+
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
@@ -11,8 +18,10 @@
 Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/).
 The default image will have most of the setup procedures shown below already done.
 
-> **Warning** Make sure not to upgrade the system (more specifically the kernel).
-  By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
+:::warning
+Make sure not to upgrade the system (more specifically the kernel).
+By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
+:::
 
 ### Setting up Access
 
@@ -104,8 +113,9 @@ sudo /etc/init.d/avahi-daemon restart
 And that's it.
 You should be able to access your Pi directly by its hostname from any computer on the network.
 
-
-> **Tip** You might have to add .local to the hostname to discover it.
+:::tip
+You might have to add .local to the hostname to discover it.
+:::
 
 ### Configuring a SSH Public-Key
 
@@ -182,4 +192,4 @@ Then clone the Firmware directly onto the Pi.
 
 ### Building the Code
 
-Continue with our [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
+Continue with our [standard build system installation](../dev_setup/dev_env_linux.md).

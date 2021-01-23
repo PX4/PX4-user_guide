@@ -1,7 +1,14 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
-  You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the manufacturer for support or compliance issues.
+:::
+
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+:::
 
 The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 
 It runs PX4 on the [NuttX](http://nuttx.org) OS.
@@ -21,7 +28,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
   * CPU: 24 MHz ARM Cortex M3
   * RAM: 8 KB SRAM
 * Wifi: ESP8266 external
-* GPS: U-Blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / U-Blox 6 (3D Robotics)
+* GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
 * Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
 * Redundant power supply inputs and automatic failover
 * External safety switch
@@ -83,9 +90,7 @@ Order mRo Pixhawk from:
 * 3.3 and 6.6V ADC inputs
 * Internal microUSB port and external microUSB port extension
 
-{% youtube %}
-https://youtu.be/gCCC5A-Bvv4
-{% endyoutube %}
+@[youtube](https://youtu.be/gCCC5A-Bvv4)
 
 
 ### Power System and Protection
@@ -119,11 +124,15 @@ Under these conditions the system will not draw any power (will not be operation
 
 [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
-> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+:::note
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+:::
 
 ## Connectors
 
-> **Tip** The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+:::tip
+The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+:::
 
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
@@ -247,12 +256,14 @@ UART8 | SERIAL4
 
 ### Console Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on the port labeled [SERIAL4/5](#serial-45-port).
+The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-45-port).
 
-> **Tip** A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. 
->  Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port .
->
->  ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
+:::tip
+A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. 
+Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port.
+
+![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
+:::
 
 The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
@@ -273,13 +284,14 @@ The complete wiring is shown below.
 
 ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
-
->> **Note** For information on how to *use* the console see: [System Console](https://dev.px4.io/master/en/debug/system_console.html) (PX4 Developer Guide)
+:::note
+For information on how to *use* the console see: [System Console](../debug/system_console.md).
+:::
 
 
 ### SWD Port
 
-The [SWD](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
+The [SWD](../debug/swd_debug.md) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
 There are separate ports for FMU and IO, as highlighted below.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
@@ -291,15 +303,18 @@ The pinout for the ports is shown below (the square markers in the corners above
 
 <!-- For more information on SWD debugging see devguide [link to follow] -->
 
-> **Note** All Pixhawk FMUv2 boards have a similar SWD port. 
-
+:::note
+All Pixhawk FMUv2 boards have a similar SWD port. 
+:::
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v2_default
 ```

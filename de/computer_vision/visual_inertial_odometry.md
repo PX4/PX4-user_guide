@@ -6,17 +6,19 @@ VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to est
 
 This topic shows how to set up PX4 and a companion computer to use the *supported* VIO setup.
 
-{% youtube %}
-https://youtu.be/gWtrka2mK7U
-{% endyoutube %}
+<iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
+<!-- https://youtu.be/gWtrka2mK7U -->
 
-> **Tip** The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+:::tip
+The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+:::
 
-<span></span>
-> **Note** This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](https://dev.px4.io/master/en/ros/external_position_estimation.html#px4-mavlink-integration).
+:::note
+This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+:::
 
-
-## Supported Setup {#supported_setup}
+<span id="supported_setup"></span>
+## Supported Setup
 
 The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
 
@@ -34,7 +36,7 @@ Attach the camera to the companion computer and mount it to the frame:
 ### ROS/VIO Setup
 
 To setup the Bridge, ROS and PX4:
-- On the companion computer, install and configure [MAVROS](https://dev.px4.io/master/en/ros/mavros_installation.html).
+- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
 - Get the Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge):
   - Clone this repository in your catkin workspace.
     ```
@@ -69,12 +71,12 @@ To setup the Bridge, ROS and PX4:
   - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):Use for simulation (starts bridge, MAVROS, SITL)
 - Verify the connection to the flight controller.
 
-  > **Tip** You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+  :::tip You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+:::
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
-
-
-### PX4 Tuning {#ekf2_tuning}
+<span id="ekf2_tuning"></span>
+### PX4 Tuning
 
 The following parameters must be set to use external position information with EKF2.
 
@@ -89,9 +91,8 @@ These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (re
 
 For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
-
-
-#### Tuning EKF2_EV_DELAY {#tuning-EKF2_EV_DELAY}
+<span id="tuning-EKF2_EV_DELAY"></span>
+#### Tuning EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
@@ -101,12 +102,14 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-> **Note** A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::note
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+:::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
-
-## Check/Verify VIO Estimate {#verify_estimate}
+<span id="verify_estimate"></span>
+## Check/Verify VIO Estimate
 
 Perform the following checks to verify that VIO is working properly *before* your first flight:
 
@@ -146,7 +149,7 @@ If it is connecting properly common problems/solutions are:
 
 ## Developer Information
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](https://dev.px4.io/master/en/ros/external_position_estimation.html) (PX4 Developer Guide).
+Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
 
 This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
 

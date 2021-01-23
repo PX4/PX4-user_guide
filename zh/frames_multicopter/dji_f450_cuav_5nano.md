@@ -31,13 +31,13 @@ The image below shows both frame and electronic components.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
-## Hardware
+## 硬件
 
-### Frame
+### 框架
 
 This section lists all hardware for the frame.
 
-| Description                                       | Quantity |
+| 参数描述                                              | Quantity |
 | ------------------------------------------------- | -------- |
 | DJI F450 Bottom plate                             | 1        |
 | DJI F450 Top plate                                | 1        |
@@ -54,7 +54,7 @@ This section lists all hardware for the frame.
 
 This section lists the components in the CUAV v5 nano package.
 
-| Description               | Quantity (Default Package) | Quantity (+GPS Package) |
+| 参数描述                      | Quantity (Default Package) | Quantity (+GPS Package) |
 | ------------------------- | -------------------------- | ----------------------- |
 | V5 nano flight controller | 1                          | 1                       |
 | DuPont Cable              | 2                          | 2                       |
@@ -78,7 +78,7 @@ This section lists the components in the CUAV v5 nano package.
 
 ### Electronics
 
-| Description                                           | Quantity |
+| 参数描述                                                  | Quantity |
 | ----------------------------------------------------- | -------- |
 | CUAV V5 nano                                          | 1        |
 | CUAV NEO V2 GPS                                       | 1        |
@@ -102,7 +102,7 @@ The following tools are used in this assembly:
 
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
 
-## Assembly
+## 组装
 
 Estimated time to assemble is approximately 90 minutes (about 45 minutes for the frame and 45 minutes installing the autopilot and configuring the airframe.
 
@@ -148,43 +148,50 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
 11. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
   
-  > **Note** The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+    :::note The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+:::
 
-That's it! The final build is shown below:
+设置完成！ The final build is shown below:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
-## Vehicle Configuration/Calibration {#configure}
+<span id="configure"></span>
+
+## Vehicle Configuration/Calibration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [固件](../config/firmware.md)
+* [Airframe](../config/airframe.md) :::note You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
   
-  > **Note** You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
-  
-    ![QGroundControl - Select Generic Quadrotor X airframee](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
+    ![QGroundControl - Select Generic Quadrotor X airframe](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
+:::
 
 Then perform the mandatory setup/calibration:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md) > **Note** For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+* [传感器方向](../config/flight_controller_orientation.md)
+* [罗盘](../config/compass.md)
+* [加速度计 Accelerometer](../config/accelerometer.md)
+* [水平平面校准](../config/level_horizon_calibration.md)
+* [无线电系统设置](../config/radio.md)
+* [Flight Modes](../config/flight_mode.md)
+  
+    :::note For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+:::
 
 Ideally you should also do:
 
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+* [电调（ESC）校准](../advanced_config/esc_calibration.md)
+* [电池](../config/battery.md)
+* [安全](../config/safety.md)
 
-## Tuning
+## 调试
 
 Firmware installation sets *default* autopilot parameters that have been configured for the selected frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
@@ -195,9 +202,9 @@ These were generated by flight testing.
 
 -->
 
-## Video
+## 视频
 
-{% youtube %} https://youtu.be/b0bKNdDqVHw {% endyoutube %}
+@[youtube](https://youtu.be/b0bKNdDqVHw)
 
 ## Acknowledgments
 

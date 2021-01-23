@@ -8,7 +8,9 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. 
 If the wind blows the aircraft will drift in the direction of the wind.
 
-> **Tip** *Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode but additionally locks the vehicle altitude when the sticks are released.
+:::tip
+*Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode but additionally locks the vehicle altitude when the sticks are released.
+:::
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
@@ -28,10 +30,11 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_m
 * Takeoff:
   * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
 
-> **Note**
->  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
->  * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
-
+:::note
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions.
+  Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+:::
 
 ## Parameters
 

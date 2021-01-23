@@ -14,13 +14,15 @@ Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sen
 
 Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the *LidarLite v3* has been found to work well).
 
-> **Note** Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
-  Refer to the IR-LOCK guide for other compatible sensors.
+:::note
+Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon.
+Refer to the IR-LOCK guide for other compatible sensors.
+:::
 
 ### Firmware Configuration
 
 Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default.
-They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [Firmware/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)):
+They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)):
 
 ```
 drivers/irlock
@@ -28,7 +30,7 @@ modules/landing_target_estimator
 ```
 
 The two modules should also be started on system boot.
-For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
+For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
 
 
 ## Software Configuration (Parameters)
@@ -44,7 +46,7 @@ The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_S
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
 Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/master/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`.
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`.
 Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame).
 If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
 
@@ -52,7 +54,8 @@ If you observe slow sideways oscillations of the vehicle while doing a precision
 
 ## Precision Land Modes
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+A precision landing can be configured to either be "required" or "opportunistic".
+The choice of mode affects how a precision landing is performed.
 
 ### Required Mode
 
@@ -68,7 +71,10 @@ In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if
 If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
 ## Performing a Precision Landing
-> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+
+:::note
+Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+:::
 
 ### Via Command
 
@@ -78,7 +84,8 @@ commander mode auto:precland
 ```
 In this case, the precision landing is always considered "required".
 
-### In a Mission {#mission}
+<span id="mission"></span>
+### In a Mission
 
 Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
@@ -89,7 +96,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ## Simulation
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 ```

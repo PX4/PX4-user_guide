@@ -6,23 +6,20 @@ This section contains build logs/instructions for assembling and configuring a n
 
 ## Videos
 
-{% youtube %}https://www.youtube.com/watch?v=LnUmYgAINBc&vq=hd720{% endyoutube %}
-
+@[youtube](https://www.youtube.com/watch?v=LnUmYgAINBc&vq=hd720)
 
 DJI Flame Wheel 450 with Distance Sensor and RTK GPS (Pixhawk 3 Pro)
 
-{% youtube %}https://www.youtube.com/watch?v=JovSwzoTepU{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=JovSwzoTepU)
 
 Lumenier QAV250 Pixhawk Mini Build
 
-{% youtube %}
-http://www.youtube.com/watch?v=MZzo4DMNkug
-{% endyoutube %}
+@[youtube](http://www.youtube.com/watch?v=MZzo4DMNkug)
 
 DJI Matrice 100 (Pixhawk 1)
 
-{% youtube %}https://www.youtube.com/watch?v=3OGs0ONemGc{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=3OGs0ONemGc)
 
 QAV-R 5" KISS ESC Racer (Pixracer)
 
-{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
+@[youtube](https://youtu.be/wMYgqvsNEwQ)

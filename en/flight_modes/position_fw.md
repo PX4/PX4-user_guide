@@ -6,7 +6,9 @@
 
 The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
 
-> **Tip** Position mode is the safest fixed-wing manual mode for new fliers.
+:::tip
+Position mode is the safest fixed-wing manual mode for new fliers.
+:::
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 

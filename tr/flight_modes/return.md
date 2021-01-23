@@ -8,9 +8,17 @@ PX4 provides several mechanisms for choosing a safe return path, destination and
 
 The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
 
-> **Note** * This mode requires GPS. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::note
 
-## Return Types (RTL_TYPE) {#return_types}
+- This mode requires GPS.
+- This mode is automatic - no user intervention is *required* to control the vehicle.
+- RC control switches can be used to change flight modes on any vehicle.
+- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+:::
+
+<span id="return_types"></span>
+
+## Return Types (RTL_TYPE)
 
 PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an unobstructed path to a safe destination and/or landing:
 
@@ -21,7 +29,9 @@ PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an 
 
 More detailed explanations for each of the types are provided in the following sections.
 
-### Home/Rally Point Return Type (RTL_TYPE=0) {#home_return}
+<span id="home_return"></span>
+
+### Home/Rally Point Return Type (RTL_TYPE=0)
 
 In this return type the vehicle:
 
@@ -29,9 +39,13 @@ In this return type the vehicle:
 - Flies via direct path to the home position or a rally point (whichever is closest)
 - [Land or waits](#arrival) at descent altitude (depending on landing parameters).
 
-> **Note** If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
+:::note
+If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
+:::
 
-### Mission Landing/Rally Point Return Type (RTL_TYPE=1) {#mission_landing_return}
+<span id="mission_landing_return"></span>
+
+### Mission Landing/Rally Point Return Type (RTL_TYPE=1)
 
 In this return type the vehicle:
 
@@ -41,18 +55,23 @@ In this return type the vehicle:
 - If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
 
 <span id="mission_landing_pattern"></span>
+:::note
+A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+:::
 
-> **Note** A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+:::warning
+When this type is set PX4 will reject any mission without a valid landing pattern.
+:::
 
-<span></span>
+<span id="mission_path_return"></span>
 
-> **Warning** When this type is set PX4 will reject any mission without a valid landing pattern.
-
-### Mission Path Return Type (RTL_TYPE=2) {#mission_path_return}
+### Mission Path Return Type (RTL_TYPE=2)
 
 This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. Rally points, if any, are ignored.
 
-> **Note** The behaviour is fairly complex because it depends on the flight mode, and whether a mission and mission landing are defined.
+:::note
+The behaviour is fairly complex because it depends on the flight mode, and whether a mission and mission landing are defined.
+:::
 
 Mission *with* landing pattern:
 
@@ -82,7 +101,9 @@ If no mission is defined PX4 will fly directly to home location and land (rally 
 
 If the mission changes during return mode, then the behaviour is re-evaluated based on the new mission following the same rules as above (e.g. if the new mission has no landing sequence and you're in a mission, the mission is reversed).
 
-### Closest Safe Destination Return Type (RTL_TYPE=3) {#safety_point_return}
+<span id="safety_point_return"></span>
+
+### Closest Safe Destination Return Type (RTL_TYPE=3)
 
 In this return type the vehicle:
 
@@ -91,11 +112,15 @@ In this return type the vehicle:
 - If the destination is a mission landing pattern the vehicle will follow the pattern to land
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
 
-## Return Altitude {#return_altitude}
+<span id="return_altitude"></span>
+
+## Return Altitude
 
 A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
 
-> **Note** This is true for most [return types](#return_types). The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
+:::note
+This is true for most [return types](#return_types). The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
+:::
 
 The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
 
@@ -119,13 +144,17 @@ Note:
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 90 degrees the vehicle will return at the greater of `RTL_DESCEND_ALT` and the current altitude.
 - The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
 
-## Hover/Landing at Destination {#arrival}
+<span id="arrival"></span>
+
+## Hover/Landing at Destination
 
 Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 
 The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) and then land. If [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) it will loiter indefinitely.
 
-## Vehicle Default Behaviour {#default_configuration}
+<span id="default_configuration"></span>
+
+## Vehicle Default Behaviour
 
 The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
@@ -158,15 +187,18 @@ RC stick movement is ignored.
 VTOL aircraft use a [mission landing return type](#mission_landing_return) by default:
 
 - If a mission landing is defined, fly direct to the mission landing start point and then land.
-- Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter. > **Note** If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+- Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter.
+  
+  :::note If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+:::
 
 ## Parameters
 
 The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RTL_TYPE"></span>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                 | Return mechanism (path and destination).  
+| Parameter                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="RTL_TYPE"></span>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                  | Return mechanism (path and destination).  
 `0`: Return to a rally point or home (whichever is closest) via direct path.  
 `1`: Return to a rally point or the mission landing pattern start point (whichever is closest), via direct path. If neither mission landing or rally points are defined return home via a direct path. If the destination is a mission landing pattern, follow the pattern to land.  
 `2`: Use mission path fast-forward to landing if a landing pattern is defined, otherwise fast-reverse to home. Ignore rally points. Fly direct to home if no mission plan is defined.  

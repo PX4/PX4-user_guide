@@ -1,6 +1,6 @@
 # Prearm, Arm, Disarm Configuration
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+机体是有可移动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！
 
 To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
 
@@ -8,17 +8,33 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
 - **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
 - **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-> **Note** Ground stations may display *disarmed* for both disarmed and pre-armed states. While not technically correct for pre-armed vehicles, it is "safe".
+:::note
+Ground stations may display *disarmed* for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+:::
 
-A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if available) is used as a precondition for arming the vehicle, and may also be used to enable the pre-armed state.
+Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
 
-When permitted, arming is enabled using an [arming gesture](#arm_disarm_gestures), [arming switch](#arm_disarm_switch) or MAVLink command.
+- A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+  
+    :::warning A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::
+
+- An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
+
+- An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
+- MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
+
+PX4 will also automatically disarm the vehicle if it does not takeoff within a certain amount of time after arming, and if it is not manually disarmed after landing. This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
 
 PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
-> **Note** Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_` and `COM_DISARM_*`).
+:::tip
+Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
+:::
 
-## Arming Gesture {#arm_disarm_gestures}
+<span id="arm_disarm_gestures"></span>
+
+## Arming Gesture
 
 By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 
@@ -36,22 +52,25 @@ RC controllers will have different gestures [based on their mode](../getting_sta
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
-| Parameter                                                                                               | Description                                                                                                |
+| 参数                                                                                                      | 描述                                                                                                         |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
 
+<span id="arm_disarm_switch"></span>
 
-## Arming Button/Switch {#arm_disarm_switch}
+## Arming Button/Switch
 
 An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
 A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
 
-> **Tip** Two-position arming switches are primarily used in/recommended for racing drones.
+:::tip
+Two-position arming switches are primarily used in/recommended for racing drones.
+:::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                                     |
+| 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture.   
 **Note:**  
@@ -62,15 +81,17 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 -`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                         |
 
 
-> **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::note
+The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+:::
 
-## Auto-Disarming
+## 自动上锁
 
 By default vehicles will automatically disarm on landing, or if you take too long to take off after arming. The feature is configured using the following timeouts.
 
-| Parameter                                                                                                 | Description                                                                     |
+| 参数                                                                                                        | 描述                                                                              |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Time-out for auto disarm after landing. Default: 2s (-1 to disable).            |
+| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动锁定超时时间. Default: 2s (-1 to disable).                                       |
 | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable). |
 
 
@@ -161,15 +182,15 @@ The startup sequence is:
    - The system is armed.
    - All motors and actuators can move.
 
-### Parameters
+### 参数
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                        |
+| 参数                                                                                                      | 参数描述                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="COM_PREARM_MODE"></span>[COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) | Condition to enter prearmed mode. `0`: Disabled, `1`: Safety switch (prearm mode enabled by safety switch; if no switch present cannot be enabled), `2`: Always (prearm mode enabled from power up). Default: `1` (safety button). |
 | <span id="CBRK_IO_SAFETY"></span>[CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY)   | Circuit breaker for IO safety.                                                                                                                                                                                                     |
 
 
 <!-- Discussion:
-https://github.com/PX4/Firmware/pull/12806#discussion_r318337567 
+https://github.com/PX4/PX4-Autopilot/pull/12806#discussion_r318337567 
 https://github.com/PX4/px4_user_guide/issues/567#issue-486653048
 -->

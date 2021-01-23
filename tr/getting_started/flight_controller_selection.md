@@ -2,7 +2,7 @@
 
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A subset of the available options are listed below.
+PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware)). A subset of the available options are listed below.
 
 ## Pixhawk Series
 
@@ -25,9 +25,10 @@ Also consider: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer
 
 These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
-| Controller                                                             | Description                                                              |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer. |
+| Controller                                                                 | Description                                                              |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)     | RasPi can be connected to an autopilot and used as a companion computer. |
+| [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | Fly your Pi :)                                                           |
 
 ## Commercial UAVs that can run PX4
 

@@ -1,12 +1,14 @@
 # Intel Aero Ready to Fly Drone
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## 简介
 
 The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
@@ -81,7 +83,7 @@ Next install ROS, by following the [instructions here](https://github.com/intel-
         roslaunch realsense2_camera rs_camera.launch
         
 
-### Obstacle Avoidance
+### 自主避障
 
 To run the PX4 obstacle avoidance software, install catkin first:
 
@@ -100,7 +102,7 @@ Create a catkin workspace and initialize it. Then clone the avoidance repository
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
 1. Do a full update of all software on the vehicle (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
-2. Grab the [Firmware](https://github.com/PX4/Firmware)
+2. Grab the [Firmware](https://github.com/PX4/PX4-Autopilot)
 3. Compile with `make intel_aerofc-v1_default`
 4. Configure the target hostname
     
@@ -125,26 +127,32 @@ After setting up the PX4 development environment, follow these steps update the 
 1. Make sure you are connected to the board with WiFi or USB Network
 2. SSH to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
 3. Start *QGroundControl* and it should automatically connect.
-4. Instead of starting *QGroundControl*, you can open a [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html) using the script: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
+4. Instead of starting *QGroundControl*, you can open a [MAVLink shell](../debug/mavlink_shell.md) using the script: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
 
-## Connecting LeddarOne Range Finder {#leddarone}
+<span id="leddarone"></span>
+
+## Connecting LeddarOne Range Finder
 
 Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port (TELEM1) are as follows.
 
-| Pin | Aerofc TELEMETRY | LeddarOne |
-| --- | ---------------- | --------- |
-| 1   | VCC              | GND       |
-| 2   | TX               | -         |
-| 3   | RX               | VCC       |
-| 4   | SCL              | RX        |
-| 5   | SDA              | TX        |
-| 6   | GND              | -         |
+| 针脚 | Aerofc TELEMETRY | LeddarOne |
+| -- | ---------------- | --------- |
+| 1  | VCC              | GND       |
+| 2  | TX               | -         |
+| 0  | RX               | VCC       |
+| 4  | SCL              | RX        |
+| 5  | SDA              | TX        |
+| 6  | GND              | -         |
 
 To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) parameter to TELEM1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
-## Connecting Lidar Lite Range Finder {#lidar_lite}
+<span id="lidar_lite"></span>
 
-> **Warning** The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
+## Connecting Lidar Lite Range Finder
+
+:::warning
+The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
+:::
 
 The following instructions are for a [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
 
@@ -152,23 +160,23 @@ In addition it is recommended to use a electrolytic capacitor for the Lidar Lite
 
 The pinout for the Lidar Lite V3 and Aero telemetry port are as follows
 
-| Pin | Aerofc TELEMETRY | Lidar Lite V3 |
-| --- | ---------------- | ------------- |
-| 1   | VCC              | VCC           |
-| 2   | TX               | -             |
-| 3   | RX               | -             |
-| 4   | SCL              | SCL           |
-| 5   | SDA              | SDA           |
-| 6   | GND              | GND           |
+| 针脚 | Aerofc TELEMETRY | Lidar Lite V3 |
+| -- | ---------------- | ------------- |
+| 1  | VCC              | VCC           |
+| 2  | TX               | -             |
+| 3  | RX               | -             |
+| 4  | SCL              | SCL           |
+| 5  | SDA              | SDA           |
+| 6  | GND              | GND           |
 
-| pin | Aerofc COMPASS | Lidar Lite V3 |
-| --- | -------------- | ------------- |
-| 1   | VCC            | VCC           |
-| 2   | SCL            | -             |
-| 3   | SDA            | -             |
-| 4   | GND            | SCL           |
-| 5   | -              | SDA           |
-| 6   | -              | GND           |
+| 引脚 | Aerofc COMPASS | Lidar Lite V3 |
+| -- | -------------- | ------------- |
+| 1  | VCC            | VCC           |
+| 2  | SCL            | -             |
+| 3  | SDA            | -             |
+| 4  | GND            | SCL           |
+| 5  | -              | SDA           |
+| 6  | -              | GND           |
 
 ![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
@@ -190,7 +198,7 @@ If you want to start the optical flow binary at boot, use
 
 In addition, the following parameter values should be set in the flight controller.
 
-| Parameter                                                                  | Value |
-| -------------------------------------------------------------------------- | ----- |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2     |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2     |
+| 参数                                                                         | 值 |
+| -------------------------------------------------------------------------- | - |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2 |
+| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2 |

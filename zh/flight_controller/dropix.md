@@ -1,12 +1,17 @@
 # DroPix Flight Controller
 
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
+:::
+
 The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
 The DroPix system includes integrated multithreading, a Unix/Linux-like programming environment, completely new autopilot functions such as Lua scripting of missions and flight behavior, and a custom PX4 driver layer ensuring tight timing across all processes.
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 主要特性
 
@@ -20,11 +25,11 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 * Multicolor LED indicator
 * High-power, multi-tone piezo audio indicator
 * microSD card for long-time high-rate logging
-* Sensors 
+* 传感器 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
+  * MEAS MS5611 气压计
 * Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
 * 尺寸 
   * Size: 67*50*6 mm
@@ -34,11 +39,11 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 [DroPix Autopilots & Accessories](https://store.drotek.com/dropix-autopilots)
 
-## Documentation
+## 文档
 
 [DroPix User's Guide](https://drotek.gitbook.io/dropix-user-guide/)
 
-## Wiring Guides
+## 接线指南
 
 The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbook.io/dropix-user-guide/)).
 
@@ -48,16 +53,18 @@ The following diagrams show the Dropix connector information (for more informati
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v2_default
     
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | IO debug              |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |

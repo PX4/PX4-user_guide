@@ -9,14 +9,17 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
 
-## GPS & Compass {#gps_compass}
+<span id="gps_compass"></span>
+## GPS & Compass
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). 
 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
-> **Tip** [Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. 
-  This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
-  On small vehicles an external compass is almost always required.
+:::note
+[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. 
+This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
+On small vehicles an external compass is almost always required.
+:::
 
 We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
@@ -55,18 +58,19 @@ For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
 ## Optical Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor.
+[Optical Flow](../sensor/optical_flow.md) sensors use a downward facing camera and a downward facing distance sensor for velocity estimation.
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
 
 Some options include:
-* [3DR PX4Flow Smart Camera (Optical Flow Sensor)](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (unmannedtechshop)
-* [HK Pilot32 Optical Flow Kit With Sonar](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (Hobbyking) - Software-compatible, but not connector-compatible.
+- [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
+- [PMW3901](../sensor/pmw3901.md)  based flow sensors, which have a sensor much like in an optical mouse trackpad.
 
 
-## Sensor Wiring {#wiring}
+<span id="wiring"></span>
+## Sensor Wiring
 
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 

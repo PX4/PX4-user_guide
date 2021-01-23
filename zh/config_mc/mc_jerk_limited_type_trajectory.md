@@ -4,14 +4,16 @@
 
 此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 若要在[定点模式](../flight_modes/position_mc.md)启用，请设置参数：[MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE)。
 
-> **Note** 在位置模式下，默认使用加加速度限制型轨迹。 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
+:::note
+在位置模式下，默认使用加加速度限制型轨迹。 但它可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
+:::
 
 ## 轨迹生成器
 
 下图显示了具有如下约束的典型加加速度限制剖面：
 
 - `jMax`：最大抖动
-- `jMax`：初始加速度 
+- `a0`：初始加速度 
 - `aMax`：最大加速度
 - `a3`：最终加速度（始终为 0）
 - `v0`：初始速度
@@ -25,7 +27,7 @@
 
 ## 手动模式
 
-在手动定点模式下，通过摇杆控制速度，在这种情况下，通过参数 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) 定义完整的摇杆挠度。
+在手动定点模式下，通过摇杆控制速度，摇杆的最大行程对应 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) 定义的最大速度。
 
 ### 约束
 

@@ -1,14 +1,21 @@
 # MindPX Hardware
 
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::
+
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
-> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 ## 总览
 
-> **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+:::note
+The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
+:::
 
 MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
 
@@ -22,7 +29,7 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
   * RAM: 256 KB SRAM
   * 2MB Flash
   * ST Micro LSM303D 14 bit accelerometer/magnetometer
-  * MEAS MS5611 barometer
+  * MEAS MS5611 气压计
   * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
 * Highlighted features:
@@ -69,9 +76,11 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make airmind_mindpx-v2_default
     
@@ -84,15 +93,17 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## User Guide
 
-> **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+:::note
+The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+:::
 
-## Where to Buy
+## 在哪里买
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port          |
+| UART   | 设备         | Port          |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | RC            |
 | USART2 | /dev/ttyS1 | TELEM1        |
@@ -102,6 +113,6 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
 
-## Support
+## 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.

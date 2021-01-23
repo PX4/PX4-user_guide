@@ -1,5 +1,10 @@
 # NXP RDDRONE-FMUK66 FMU
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::
+
 RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD).
 NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
 
@@ -11,7 +16,9 @@ This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
 The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives.
 
-> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Quick Summary
@@ -26,7 +33,7 @@ The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs
   - Barometer: ML3115A2
   - Barometer: BMP280
 - **GPS:**
-  - ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  - u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers.
@@ -48,9 +55,9 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
   - [HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433)
   - [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)
 
-
-> **Note** *RDDRONE-FMUK66* FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
-
+:::note
+*RDDRONE-FMUK66* FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
+:::
 
 <!--
 ## Connectors
@@ -73,10 +80,12 @@ https://nxp.gitbook.io/hovergames
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make nxp_fmuk66-v3_default
 ```
@@ -84,7 +93,7 @@ make nxp_fmuk66-v3_default
 
 ## Debug Port
 
-The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and the [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the [DCD-LZ FMU Debug](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) port.
+The [PX4 System Console](../debug/system_console.md) and the [SWD interface](../debug/swd_debug.md) run on the [DCD-LZ FMU Debug](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) port.
 
 NXP's DCD-LZ is a 7 pin JST-GH connector and adds the nRST/MCU_RESET pin to the [Pixhawk 6-Pin standard debug port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 
@@ -105,8 +114,10 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ![HoverGames Drone Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_001.jpg)
 
-> **Tip** The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter.
-  You only need to supply the 3S/4S LiPo battery.
+:::tip
+The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter.
+You only need to supply the 3S/4S LiPo battery.
+:::
 
 ## Further info
 

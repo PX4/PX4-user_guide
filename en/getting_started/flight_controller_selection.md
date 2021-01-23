@@ -2,7 +2,7 @@
 
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)).
+PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware)).
 A subset of the available options are listed below.
 
 ## Pixhawk Series
@@ -30,6 +30,7 @@ These flight controllers (and development platforms) offer on-vehicle "companion
 Controller | Description
 --- | ---
 [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer.
+[Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | Fly your Pi :) 
 
 
 ## Commercial UAVs that can run PX4

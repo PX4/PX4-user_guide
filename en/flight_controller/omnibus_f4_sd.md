@@ -1,5 +1,10 @@
 # Omnibus F4 SD
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the manufacturer for support or compliance issues.
+:::
+
 The *Omnibus F4 SD* is a controller board designed for racers. 
 In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
@@ -14,10 +19,13 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 - Same board dimensions as a *Pixracer*, but slightly smaller form factor (because it has less connectors)
 - Integrated OSD (not yet implemented in software)
 
-> **Tip** All the usual PX4 features can still be used for your racer!
+:::tip
+All the usual PX4 features can still be used for your racer!
+:::
 
-<span></span>
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Key Features
@@ -40,14 +48,19 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
 
-> **Tip** PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::tip
+PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::
 
-<span></span>
-> **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+:::tip
+Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+:::
 
 These are the boards tested and known to work:
-- [Hobbywing XRotor Flight Controller F4](http://a.hobbywing.com/goods.php?id=636) 
-   > **Note** This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+- [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636) 
+   :::note
+   This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+   :::
    
    Purchase from:
   * [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
@@ -90,8 +103,9 @@ RC is connected to one of the following ports:
 - UART1
 - SBUS/PPM port (via inverter, internally goes to UART1)
 
-> **Note** Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
-
+:::note
+Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+:::
 
 ### UARTs
 
@@ -122,8 +136,10 @@ There is one I2C port available via:
 - SCL: MCU pin PB10 (might be labeled as TX3)
 - SDA: MCU pin PB11 (might be labeled as RX3)
 
-> **Note** You will need external pullups on both signals (clock and data).
-> You can use 2.2k pullups for example to attach an external mag.
+:::note
+You will need external pullups on both signals (clock and data).
+You can use 2.2k pullups for example to attach an external mag.
+:::
 
   - Airbot Omnibus F4 SD Pinout is on Port J10 (SCL [clock] / SCA [data]):
 <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
@@ -147,7 +163,8 @@ USART6 | /dev/ttyS2 | GPS
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
 
 
-### CRSF Crossfire Telemetry {#crsf_telemetry}
+<span id="crsf_telemetry"></span>
+### CRSF Crossfire Telemetry
 
 TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
 
@@ -162,7 +179,9 @@ For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/
 On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing).
 This can be plugged into the back of the RC controller.
 
-> **Note** The referenced links above contains the documentation for the TX/RX modules.
+:::note
+The referenced links above contains the documentation for the TX/RX modules.
+:::
 
 #### Setup
 
@@ -182,7 +201,8 @@ Instructions for this are provided in the [TBS Crossfire Manual](https://www.tea
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## PX4 Bootloader Update {#bootloader}
+<span id="bootloader"></span>
+## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
@@ -190,7 +210,7 @@ Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/mast
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make omnibus_f4sd_default
 ```

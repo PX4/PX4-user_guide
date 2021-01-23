@@ -22,12 +22,17 @@ RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中�
 
 ![特技模式 - 默认输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_superexpo_default.png)
 
-可以使用[MC_ACRO_EXPO](#MC_ACRO_EXPO)和[MC_ACRO_SUPEXPO](#MC_ACRO_SUPEXPO)“指数”参数调整滚转和俯仰轴杆输入响应，同时使用[MC_ACRO_EXPO_Y](#MC_ACRO_EXPO_Y)和[MC_ACRO_SUPEXPOY](#MC_ACRO_SUPEXPOY)调整偏航轴杆输入响应 。 ` MC_ACRO_EXPO </ 0>和<code> MC_ACRO_EXPO_Y </ 0>参数用于调整线性曲线和三次曲线之间的曲线，如下所示。 
-<code>MC_ACRO_SUPEXPO`和`MC_ACRO_SUPEXPOY`允许进一步调整曲线形状，修改低灵敏度区域的宽度。
+可以使用[MC_ACRO_EXPO](#MC_ACRO_EXPO)和[MC_ACRO_SUPEXPO](#MC_ACRO_SUPEXPO)“指数”参数调整滚转和俯仰轴杆输入响应，同时使用[MC_ACRO_EXPO_Y](#MC_ACRO_EXPO_Y)和[MC_ACRO_SUPEXPOY](#MC_ACRO_SUPEXPOY)调整偏航轴杆输入响应 。 ` MC_ACRO_EXPO `和` MC_ACRO_EXPO_Y `参数用于调整线性曲线和三次曲线之间的曲线，如下所示。 `MC_ACRO_SUPEXPO`和`MC_ACRO_SUPEXPOY`允许进一步调整曲线形状，修改低灵敏度区域的宽度。
 
 ![特技模式 - 指数- 纯线性输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_linear.png) ![特技模式 - 指数- 纯三次输入曲线](../../assets/flight_modes/acro_mc_input_curve_expo_cubic.png)
 
-> **注**数学关系式为：$$\mathrm{y} =r(x^3 + x(1-f))(1-g)/(1-g |x|)$$ ，其中`f =MC_ACRO_EXPO`或`MC_ACRO_EXPO_Y`，`g=MC_ACRO_SUPEXPO`或 `MC_ACRO_SUPEXPOY`，且`r`是最大速率。 您可以使用[此](https://www.desmos.com/calculator/yty5kgurmc)关系式进行试验
+:::note
+数学关系是：
+
+$$\maintm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO` 或 `MC_ACRO_EXPO_Y`，`g = MC_ACRO_SUPEXPO` 或 `MC_ACRO_SUPEXPOY` 和 `r` 为最大速率。
+
+您可以在[此处](https://www.desmos.com/calculator/yty5kgurmc)进行试验。
+:::
 
 ## 参数
 

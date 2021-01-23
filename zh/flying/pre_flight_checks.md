@@ -2,15 +2,17 @@
 
 PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有足够好的位置估计来解锁和驾驶飞行器（这些检查由 [COM_*ARM_*](../advanced_config/parameter_reference.md#commander) 参数控制）。
 
-> **Tip**任何飞行前错误都会在*QGroundControl*中报告为`PREFLIGHT FAIL`消息。 [在日志中](../getting_started/flight_reporting.md)的`estimator_status.gps_check_fail_flags`消息还显示了 GPS 质量检查失败。
+:::tip
+Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) also shows which GPS quality checks are failing.
+:::
 
-以下部分列出了错误，可能的原因和解决方案，以及影响飞行前检查运行方式的所有参数。
+The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run.
 
 ## EKF 飞行前检查 / 错误
 
-The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/master/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
+The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
 
-`PREFLIGHT FAIL: EKF HGT ERROR`：
+`PREFLIGHT FAIL: EKF HGT ERROR`:
 
 - 当 IMU 和高度测量数据不一致时会产生此错误。
 - 执行加速度计和陀螺仪校准并重新启动飞行器。 如果错误仍然存在，请检查高度传感器数据是否存在问题。
@@ -34,7 +36,7 @@ The following errors (with associated checks and parameters) are reported by the
 - 检查 IMU 数据是否存在较大的偏航率漂洗，并检查磁力计的对准和校准。
 - The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
 - The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
-- It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
+- 如果偏航陀螺仪有较大的偏移量，或者飞行器在存在磁干扰或者磁力计校准的情况下移动或者旋转，则可能会校准失败。
 
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 
@@ -67,12 +69,12 @@ The following errors (with associated checks and parameters) are reported by the
 
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 
-- This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
-- Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. Common problems/solutions include: 
-    - IMU drift on warmup. May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
-    - Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
-    - Bad magnetometer calibration combined with vehicle movement. Resolve by recalibrating.
-    - Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
+- 如果水平 GPS 速度、偏航角、垂直 GPS 速度或者垂直位置传感器（气压计默认情况下可以使测距仪或 GPS ，如果使用非标准参数）其中之一新息过多，会产生此错误消息。 新息指的是惯性导航计算预测值与传感器测量值之间的差异。
+- 用户应检查日志文件中新息级别以确定原因。 这些可以在`ekf2_innovations`消息下找到。 常见问题 / 解决方案包括： 
+    - IMU 启动时漂移。 可以通过重启自驾仪来解决。 可能需要 IMU 加速度计和陀螺仪校准。
+    - 相邻磁干扰在飞行器运动中。 通过等待或者重新上电解决。
+    - 磁力计校准不良在飞行器运动中。。 通过重新校准解决。
+    - 启动时的初始冲击或快速移动导致惯性导航失败。 通过重新启动飞行器并在前 5 秒内最大限度地减少移动来解决此问题。
 
 ## 其他参数
 
@@ -82,5 +84,5 @@ The following parameters also affect preflight checks.
 
 The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
 
-- `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
-- `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
+- `1`( 默认)：*仅*对处于不需要获取位置信息的飞行模式时，即便没有位置估计也可以解锁。
+- </code>0</0>：只有当 EKF 提供全球位置估计并且 EKF GPS 质量检查正在通过时，才允许解锁。

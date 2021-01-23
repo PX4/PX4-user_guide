@@ -4,11 +4,13 @@ This page describes how to setup and configure a racer for optimal performance (
 
 Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
 
-> **Tip** Many things described here can also be applied to improve the flight performance of other types of multicopters.
+:::tip
+Many things described here can also be applied to improve the flight performance of other types of multicopters.
+:::
 
-<span></span>
-
-> **Note** A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+:::note
+A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+:::
 
 ## Build Options
 
@@ -16,7 +18,9 @@ A racer usually omits some sensors.
 
 The minimal configuration is to use only a gyro and accelerometer sensor.
 
-> **Note** If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+:::note
+If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+:::
 
 Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
 
@@ -27,7 +31,9 @@ There are however some benefits in adding GPS, particularly for beginners:
 - You will have the last position when it crashes.
 - The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
 
-> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
+:::note
+During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
+:::
 
 ## Hardware Setup
 
@@ -45,7 +51,9 @@ Make sure to use **balanced props**.
 
 Make sure that the center of gravity is as close as possible to the center of thrust. Left-right balance is usually not a problem, but front-back balance may be. You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
 
-> **Note** The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
+:::note
+The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
+:::
 
 ### Motor Ordering
 
@@ -80,17 +88,23 @@ Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [armi
 
 ### PID Tuning
 
-> **Note** Make sure to calibrate the ESCs before doing any tuning.
+:::note
+Make sure to calibrate the ESCs before doing any tuning.
+:::
 
 At this point you should be ready for a first test flight.
 
 If it goes well, do a first pass of [PID tuning](../config_mc/pid_tuning_guide_multicopter.md) (ignore the thrust curve settings). The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). This is important for the [filter](#filters) tuning. There will be a second PID tuning round later.
 
-### Control Latency {#control_latency}
+<span id="control_latency"></span>
+
+### Control Latency
 
 The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
-> **Tip** It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+:::tip
+It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+:::
 
 These are the factors that affect the latency:
 
@@ -100,7 +114,9 @@ These are the factors that affect the latency:
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
 
-### Filters {#filters}
+<span id="filters"></span>
+
+### Filters
 
 <!-- TODO: this probably should be documented somewhere else --> As mentioned in the previous section, filters affect the control latency.
 
@@ -123,7 +139,9 @@ The best filter settings depend on the vehicle. The defaults are set conservativ
 
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
-> **Warning** Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
+:::warning
+Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
+:::
 
 Filter tuning is best done by reviewing flight logs. You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
 
@@ -134,7 +152,9 @@ Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* p
 
 Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
-> **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration though.
+:::note
+The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration though.
+:::
 
 ### PID Tuning (Second Round)
 
@@ -142,6 +162,6 @@ Now do a second round of PID tuning, this time as tight as possible, and also tu
 
 ### Airmode
 
-After you verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
+After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
 
 Happy flipping :)

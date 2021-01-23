@@ -1,14 +1,20 @@
 # Crazyflie 2.0
 
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
+:::
+
+:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 간단한 요약 설명
 
-> **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::note
+The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+:::
 
 * Main System-on-Chip: STM32F405RG 
   * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
@@ -48,14 +54,25 @@ After setting up the PX4 development environment, follow these steps to install 
 
 5. Flash bootloader using *dfu-util* and unplug Crazyflie 2.0 when done: ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` When powering on the Crazyflie 2.0 the yellow LED should blink.
 
-6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/Firmware.git```
+6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/PX4-Autopilot.git```
 
 7. Navigate into the top directory of the source code and compile it using: ```make bitcraze_crazyflie_default upload```
 8. When prompted to plug in device, plug in Crazyflie 2.0. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
 9. Wait for completion.
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
 
-> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*: ```make bitcraze_crazyflie_default menuconfig``` or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI): ```make bitcraze_crazyflie_default qconfig```
+:::note
+If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*:
+
+    make bitcraze_crazyflie_default menuconfig
+    
+
+or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI):
+
+    make bitcraze_crazyflie_default qconfig
+    
+
+:::
 
 ## Wireless Setup Instructions
 
@@ -73,12 +90,11 @@ Using the official Bitcraze **Crazyflie phone app**:
 Connecting via **MAVLink**:
 
 * Use a Crazyradio PA alongside a compatible GCS.
+* Download the *crazyflie-lib-python* source code: ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
 
-* Download the *crazyflie-lib-python* source code:
-  
-      git clone https://github.com/bitcraze/crazyflie-lib-python.git
-
-> **Note** We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+:::note
+We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+:::
 
 * Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 * Connect a Crazyradio PA via USB.
@@ -94,15 +110,26 @@ To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these
 * Navigate to the crazyflie-lib-python folder.
 * Activate the environment: ```source venv-cflib/bin/activate```
 * Navigate to the examples folder: ```cd examples```
-* Launch cfbridge: ```python cfbridge.py``` > **Note** *Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+* Launch cfbridge: ```python cfbridge.py```
+  
+  :::note *Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+:::
+
 * Open QGroundControl.
+
 * After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
 
-> **Tip** If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and run the script below to rebuild cflib. ```make venv```
+:::tip
+If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and run the script below to rebuild cflib.
 
-<span></span>
+    make venv
+    
 
-> **Note** To use Joystick, set COM_RC_IN_MODE in QGroundControl to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended). To be able to set the frequency, the advanced option should be enabled. This is the rate at which Joystick commands are sent from QGroundControl to Crazyflie 2.0. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGroundControl source code (master) and build it.)
+:::
+
+:::note
+To use Joystick, set `COM_RC_IN_MODE` in QGroundControl to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended). To be able to set the frequency, the advanced option should be enabled. This is the rate at which Joystick commands are sent from QGroundControl to Crazyflie 2.0 (to do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGroundControl source code (master) and build it).
+:::
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
@@ -131,17 +158,21 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 
 Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck). According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
 
-> **Tip** If the Crazyflie 2.0 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).
+:::tip
+If the Crazyflie 2.0 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
+:::
 
-<span></span>
-
-> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
+:::note
+Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
+:::
 
 ## Position Control
 
 With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in *Position mode*. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in *Position mode*.
 
-> **Note** A ulog for flight in *Position* mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45). This can be used as a reference to compare your flight performance.
+:::note
+A ulog for flight in *Position* mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45). This can be used as a reference to compare your flight performance.
+:::
 
 ## Using FrSky Taranis RC Transmitter as Joystick
 
@@ -185,4 +216,4 @@ To connect to Crazyflie 2.0 via MAVROS:
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
+@[youtube](https://youtu.be/2Bcy3k1h5uc)

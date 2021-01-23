@@ -16,12 +16,12 @@
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
-> **请注意：**该安装在将当前版本的*QGroundControl* 部署到Ubuntu 14.04 和 16.04上时测试通过。
+:::note
+The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
 
-    或许可以在其他地面站和操作系统上运行该系统， 但尚未对此进行测试（而且无法保证工作）。
-    -也可以使用 [RockBlock MK2]（http://www.rock7mobile.com/products-rockblock）模块。 
-      推荐使用RockBlock 9603模块，因为它不但功能相同，而且更小更轻。
-    
+* It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
+* The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+:::
 
 ## Costs
 
@@ -54,7 +54,13 @@ The module is now ready to be used with PX4.
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/iridiumsbd```
+:::note
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+
+    drivers/telemetry/iridiumsbd
+    
+
+:::
 
 ## RockBlock Setup
 
@@ -118,7 +124,7 @@ To setup the ground station:
     
     ![High Latency Link Settings](../../assets/satcom/linksettings.png)
 
-### Verification
+### 验证
 
 1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: ```./udp2rabbit.py```
 
@@ -130,7 +136,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 ## Running the System
 
-1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
+1. 开启 *QGroundControl*。 Manually connect the high latency link first, then the regular telemetry link:
   
   ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
@@ -168,4 +174,4 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 * A first message is received on the ground but as soon as the vehicle is flying no message can be transmitted or the latency is significantly larger (in the order of minutes)
   
-  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is is not damaged.
+  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is not damaged.

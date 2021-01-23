@@ -6,29 +6,35 @@
 
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 发射机和接收机对频的方法各有不同（请参照您使用的遥控器的说明书） 提醒：如果您使用的是 Spektrum 的接收机， 提醒：如果您使用的是 FrSky 的接收机，您可以在发射机上进行绑定（对频），下面是介绍。
 
-> **提醒** 如果您使用的是 *Spektrum* 接收机,，你可以使用 * QGroundControl * 将它设置在绑定（对频）模式,，如[下面所示](#spektrum_bind)。
+:::note
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spektrum_bind).
+:::
 
-<span></span>
+:::note
+If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
+:::
 
-> **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
+<span id="rc_loss_detection"></span>
 
-## RC Loss Detection {#rc_loss_detection}
+## RC Loss Detection
 
 PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc_loss_failsafe).
 
 RC receivers have different ways of indicating signal loss:
 
 * Output nothing (automatically detected by PX4)
-* Output a low throttle value value (you can configure PX4 to detect this).
+* Output a low throttle value (you can configure PX4 to detect this).
 * Output the last received signal (*cannot be detected by PX4* as it looks like valid input).
 
 If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
 
 The way to do this is to set the RC controller trim and throttle stick as low as possible, and use the resulting output PWM value in both PX4 and the receiver (read your receiver manual to determine how to set the RC loss value). Then reset the throttle stick trim back to its normal position. This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
 
-> **Note** Do not use a receiver that cannot support one of the two supported RC loss detection methods!
+:::note
+Do not use a receiver that cannot support one of the two supported RC loss detection methods!
+:::
 
-## Performing the Calibration
+## 执行校准
 
 The calibration process is straightforward - you will be asked to move the sticks in a specific pattern that is shown on the transmitter diagram on the top right of the screen.
 
@@ -53,7 +59,7 @@ To calibrate the radio:
 
 Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
 
-## Additional Radio Setup
+## 其他的遥控器设置
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
@@ -79,7 +85,9 @@ To bind a Spektrum transmitter/receiver:
 
 This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
-> **Note** Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+:::note
+Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+:::
 
 To copy the trims:
 
@@ -108,7 +116,9 @@ The flight controller will pass through the unmodified values from the specified
 
 Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter).
 
-> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+:::tip
+This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+:::
 
 The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
 
@@ -133,10 +143,12 @@ To map a PARAM tuning channel to a parameter:
 6. 点击 **OK** 定关闭对话框。
 7. 点击 **保存** 保存修改，关闭*参数编辑器*。
 
-> **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
+:::tip
+You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
+:::
 
-## Further Information
+## 更多信息
 
-* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
-* [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
-* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
+* [QGroundControl > 远程控制](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
+* [遥控系统选择](../getting_started/rc_transmitter_receiver.md) - 选择一个兼容的遥控系统。

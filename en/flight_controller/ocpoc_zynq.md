@@ -1,6 +1,13 @@
 # Aerotenna OcPoC-Zynq Mini Flight Controller
 
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://ainstein.ai/) for hardware support or compliance issues.
+:::
+
+:::warning
+PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::
 
 The [OcPoC-Zynq Mini](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) is a FPGA+ARM SoC based flight control platform.
 
@@ -43,14 +50,16 @@ Pinouts for the default OcPoC-Zynq configuration and full step-by-step instructi
 
 ## Building PX4 for OcPoC-Zynq
 
-After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/Firmware), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
+After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/PX4-Autopilot), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
 ```
 make aerotenna_ocpoc_ubuntu
 ```
 
 See the user hub page [PX4 on OcPoC Zynq Mini](https://aerotenna.readme.io/docs/px4-setup) for full step-by-step instructions for first time setup of PX4 on OcPoC-Zynq.
  
-> **Note** At the present time PX4 firmware must be built from source as no pre-built binaries for OcPoC-Zynq are supplied through QGroundControl.
+:::note
+At the present time PX4 firmware must be built from source as no pre-built binaries for OcPoC-Zynq are supplied through QGroundControl.
+:::
 
 <!-- 
 ## Serial Port Mapping

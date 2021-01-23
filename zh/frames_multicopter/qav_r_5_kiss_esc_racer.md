@@ -7,11 +7,11 @@ Key information:
 - **Frame:** Lumenier QAV-R 5"
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
-{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
+@[youtube](https://youtu.be/wMYgqvsNEwQ)
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
-## Parts List
+## 配件列表
 
 ### Vehicle (needed for flying)
 
@@ -34,7 +34,9 @@ Key information:
 - Video Antennas: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
 - FPV voltage source plug: [Male JST Battery Pigtail](http://www.getfpv.com/male-jst-battery-pigtail-10cm-10pcs-bag.html)
 
-> **Info** These parts cover the sending side for standard FPV 5.8GHz analog FM video. You need to have a compatible receiver and display device to actually consume the live video stream.
+:::note
+These parts cover the sending side for standard FPV 5.8GHz analog FM video. You need to have a compatible receiver and display device to actually consume the live video stream.
+:::
 
 ## Assembling the Basic Frame
 
@@ -55,15 +57,17 @@ The KISS ESCs are known for their good performance but they also come with two d
 
 This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
 
-> **Tip** Always tin both sides you want to connect with solder before actually soldering them together. This will make it a lot easier and it will be less likely to have cold soldering joints.
+:::tip
+Always tin both sides you want to connect with solder before actually soldering them together. This will make it a lot easier and it will be less likely to have cold soldering joints.
+:::
 
-<span></span>
+:::tip
+Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors. All signal cables can be very thin in comparison.
+:::
 
-> **Tip** Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors. All signal cables can be very thin in comparison.
-
-<span></span>
-
-> **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
+:::tip
+Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
+:::
 
 ### 电机
 
@@ -79,7 +83,9 @@ First I soldered the XT60 connector which comes with the frame to the labeled ba
 
 Now comes the tricky part. I soldered all four ESC voltage source + and - ports to the corresponding pad on the labeled ESC output side of the power module. Make sure to not have any cold solder joint here because the quad will not end up well with a loose connection in flight. Using the additional power distribution board of the frame would make the job a lot easier but also takes too much space on such a small frame...
 
-> **Tip** If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
+:::tip
+If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
+:::
 
 ![Power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
 
@@ -93,15 +99,21 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 
 ![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
-## Connecting & Mounting Electronics {#mounting}
+<span id="mounting"></span>
 
-> **Tip** Double check the pin assignment of every component you connect. Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
+## Connecting & Mounting Electronics
+
+:::tip
+Double check the pin assignment of every component you connect. Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
+:::
 
 You'll need the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) for this step to find all needed connectors. I tried to route all the cables under the Pixracer board to have a clean build and save space for FPV camera and transmitter in the future.
 
 I mounted the Pixracer using the nylon spacers and screws that get shipped with the QAV-R frame but **put some small O-rings** between the board and the spacers to add a bit of vibration dampening. Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension. The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
 
-> **Warning** This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+:::warning
+This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+:::
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
@@ -150,14 +162,14 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| 针脚      | Assignment | Connect to Pixracer Pin |
-| ------- | ---------- | ----------------------- |
-| 1 (red) | SCL        | 3                       |
-| 2       | SDA        | 2                       |
-| 3       | VCC 5V     | 6                       |
-| 4       | RX         | 5                       |
-| 5       | TX         | 4                       |
-| 6       | GND        | 1                       |
+| 针脚   | Assignment | Connect to Pixracer Pin |
+| ---- | ---------- | ----------------------- |
+| 1（红） | SCL        | 3                       |
+| 2    | SDA        | 2                       |
+| 3    | VCC 5V     | 6                       |
+| 4    | RX         | 5                       |
+| 5    | TX         | 4                       |
+| 6    | GND        | 1                       |
 
 I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
 
@@ -177,9 +189,11 @@ The magnificent FPV camera set in the part list comes not only with the best FPV
 
 ![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## Software Configuration
+## 软件配置
 
-> **Warning** Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
+:::warning
+Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
+:::
 
 For general configuration instruction please see [Basic Configuration](../config/README.md).
 
@@ -192,7 +206,7 @@ For this build I pulled the latest PX4 master because it supports the "FMU as ta
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
 - You can also set up an arming switch.
 
-### Tuning
+### 调试
 
 Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
 

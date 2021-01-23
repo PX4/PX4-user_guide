@@ -8,7 +8,9 @@ Optical Flow based navigation is enabled by the estimators: EKF2 and LPE (deprec
 An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
 These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
-> **Note** If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+:::note
+If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+:::
 
 The output of the flow when moving in different directions must be as follows:
 
@@ -25,12 +27,15 @@ An popular setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sens
 
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
+Sensor data from the optical flow device is fused with other velocity data sources.
+The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators). 
+
 
 ## Flow Sensors/Cameras
 
 ### PX4Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and and in low outdoor light conditions without the need for an illumination LED.
+[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED.
 It is one of the easiest and most established ways to calculate the optical flow.
 
 ### PMW3901-Based Sensors
@@ -52,7 +57,16 @@ However we recommend using LIDAR rather than sonar sensors, because of their rob
 
 ## Estimators
 
-### Extended Kalman Filter (EKF2) {#ekf2}
+Estimators fuse data from the optical flow sensor and other sources.
+The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
+
+The offsets are calculated relative to the vehicle orientation and center as shown below:
+ 
+![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
+
+
+<span id="ekf2"></span>
+### Extended Kalman Filter (EKF2)
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
 
@@ -65,4 +79,6 @@ Parameter | Description
 <span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m).
 <span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m).
 <span id="EKF2_OF_POS_Z"></span>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m).
+
+
 

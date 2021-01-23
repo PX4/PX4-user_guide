@@ -2,22 +2,43 @@
 
 [PX4 부트로더](https://github.com/PX4/Bootloader)는 픽스호크 보드(PX4FMU, PX4IO)와 PX4FLOW에 펌웨어를 불러오는 데 사용됩니다.
 
-이 섹션에서는 픽스호크 부트로더를 업데이트하는 여러 방법에 대해 설명합니다.
+이 절에서는 픽스호크 부트로더를 업데이트하는 여러가지 방법을 설명합니다.
 
-> **Note** 하드웨어에는 보통 적정 버전의 부트로더가 미리 설치되어 제공됩니다. FMUv2 펌웨어가 설치된 최신 버전의 픽스호크 보드를 업데이트해야 하는 경우에는 다음을 참고하십시오: [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)
+:::note
+Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+:::
 
-## QGroundControl 부트로더 업데이트 {#qgc_bootloader_update}
+## Building the new PX4 bootloader yourself
 
-*Qgroundcontrol*을 사용해 적절한/최신 버전의 펌웨어를 설치하는 것이 가장 쉬운 방법입니다. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 설정하여 다음 재시작시 부트로더 업데이트를 시작할 수 있습니다.
+Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
 
-> **Note** 이 방법은 펌웨어에 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 있을 때만 사용할 수 있습니다. ( 현재는 FMUv2와 일부 커스텀 펌웨어에서만 사용 가능합니다.)
+Build the new bootloader in the PX4-Autopilot folder with:
 
-단계는 다음과 같습니다:
+    make px4_fmu-v6x_bootloader
+    
+
+Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+
+If you need a HEX file instead of an ELF file, use objcopy:
+
+    arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
+    
+
+<span id="qgc_bootloader_update"></span>
+
+## QGroundControl Bootloader Update
+
+The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+
+:::note
+This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+:::
+
+The steps are:
 
 1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
-2. 적절한 부트로더를 포함하는 이미지를 사용하여 [펌웨어를 업데이트](../config/firmware.md#custom)합니다.
-    
-    > **팁** 업데이트된 부트로더는 커스텀 펌웨어 (예 - 개발 팀 펌웨어)나 최신 마스터 버전일 수 있습니다.
+2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader. :::note The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+:::
     
     ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
@@ -26,20 +47,22 @@
 4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
 5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
 
-일반적으로 이 단계에서 올바른/새 부트로더를 사용하여 다시 [펌웨어를 업데이트](../config/firmware.md) 할 수 있습니다.
+Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
-### Dronecode Probe 부트로더 업데이트 {#dronecode_probe}
+<span id="dronecode_probe"></span>
 
-아래 단계는 dronecode probe를 사용하여 수동으로 부트로더를 업데이트 하는 방법을 설명합니다:
+### Dronecode Probe Bootloader Update
+
+The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 
 1. 부트로더를 포함한 바이너리를 만드십시오 (개발자 팀에서 다운받거나, 직접 소스를 빌드하십시오).
 2. USB로 컴퓨터와 Dronecode probe를 연결하십시오. 
 3. 바이너리가 들어 있는 디렉토리에서 아래 커맨드를 터미널에 입력하십시오. 
-        cmd
+        bash
         arm-none-eabi-gdb px4fmuv5_bl.elf
 
 4. *gdb terminal*이 나타나고, 아래와 같은 결과를 출력합니다. 
-        cmd
+        bash
         GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
         Copyright (C) 2017 Free Software Foundation, Inc.
         License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -60,7 +83,8 @@
 6. 아래 커맨드로 Dronecode probe에 연결하십시오: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. Pixhawk를 다른 USB 케이블로 전원을 넣고, FMU-DEBUG 포트로 Dronecode probe에 연결하십시오.
     
-    > **참고** FMU-DEBUG 포트로 Dronecode probe에 연결하려면, 하우징 케이스를 제거해야 할 수도 있습니다 (예. Pixhawk4의 경우 %t Torx 스크류 드라이버를 사용할 수 있습니다).
+    :::note To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+:::
 
 8. 아래 커맨드로 Pixhawk의 swd를 스캔하고 연결하십시오:
     
@@ -70,10 +94,10 @@
 
 9. 이제 바이너리를 픽스호크에 로드하십시오: ```(gdb) load```
 
-부트로더가 업데이트된 후 이제 *Qgroundcontrol*을 통해 [PX4 펌웨어를 불러올 수 있습니다](../config/firmware.md).
+After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
-## 다른 보드 (Non-Pixhawk) {#non-pixhawk}
+## Other Boards (Non-Pixhawk)
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md)에 포함되지 않은 보드들은 고유의 부트로더 업데이트 메커니즘을 가질 수 있습니다.
+Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 
-Betaflight 로 미리 플래쉬 되어 있는 보드의 경우, [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md)을 확인하십시오.
+For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).

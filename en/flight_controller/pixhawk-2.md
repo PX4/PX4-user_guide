@@ -1,11 +1,14 @@
 # Hex Cube Black Flight Controller
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::
+
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
-
-> **Tip** The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 
 The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, 
@@ -13,7 +16,13 @@ while a carrier board for a racer could includes ESCs form the frame of the vehi
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::note
+The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
+:::
+
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 
 ## Key Features
@@ -34,7 +43,8 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * microSD card for high-rate logging over extended periods of time
 
 
-## Where to Buy {#stores}
+<span id="stores"></span>
+## Where to Buy
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
@@ -108,7 +118,8 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-### Serial Port Mapping {#serial_ports}
+<span id="serial_ports"></span>
+### Serial Port Mapping
 
 UART | Device | Port
 --- | --- | ---
@@ -121,7 +132,7 @@ UART7  | /dev/ttyS5 | CONSOLE
 UART8  | /dev/ttyS6 | <!-- unknown -->
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART): > **Note** `TEL4` is labeled as `GPS2` on Cube." -->
+<!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
 
 ### Debug Ports
@@ -135,10 +146,12 @@ UART8  | /dev/ttyS6 | <!-- unknown -->
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v3_default
 ```

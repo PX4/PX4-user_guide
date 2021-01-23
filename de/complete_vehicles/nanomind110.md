@@ -15,11 +15,13 @@ Nano size (110mm diagonal) ready-to-fly quad copter for indoor flight/racing. Na
 
 ### User Guide
 
-> **Note** The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf).
+:::note
+The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf).
+:::
 
 ### Flight video
 
-{% youtube %}https://www.youtube.com/watch?v=bLtKa--Buic{% endyoutube %}
+@[youtube](https://youtu.be/bLtKa--Buic)
 
 ### Where to buy
 

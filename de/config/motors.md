@@ -7,11 +7,12 @@ Note the following PX4-specific behaviour:
 - The kill-switch can still be used to stop motors immediately.
 - The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable motor testing.
 - On boards with an IO, only the MAIN pins can be tested.
-- On the shell, [motor_test](https://dev.px4.io/master/en/middleware/modules_command.html#motortest) can be used as well, which has additional options.
+- On the shell, [motor_test](../modules/modules_command.md#motortest) can be used as well, which has additional options.
 
 If one or more of the motors do not turn in the correct direction according to the configured [airframe](../airframes/airframe_reference.md), they must be reversed. There are several options:
 - If using ESCs that support [DShot](../peripherals/dshot.md) you can reverse the direction via [DShot commands](../peripherals/dshot.md#commands).
-- Swap 2 of the 3 motor cables (it does not matter which ones). > **Note** If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+- Swap 2 of the 3 motor cables (it does not matter which ones). :::note If motors are not connected via bullet-connectors, re-soldering is required (this is a reason, among others, to prefer DShot ESCs).
+:::
 
 The following additional checks should be performed to validate that the vehicle is setup correctly:
 1. With propellers still removed, switch to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) (Multicopter) or [Manual mode](../flight_modes/manual_fw.md) (Fixed Wing) and arm the vehicle.

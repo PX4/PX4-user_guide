@@ -2,7 +2,9 @@
 
 *QGroundControl* is used to install [firmware](../config/firmware.md) onto the flight controller hardware, specify an [airframe](../config/airframe.md), and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.).
 
-> **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+:::tip
+Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+:::
 
 This section contains *essential* configuration topics:
 
@@ -21,13 +23,15 @@ This section contains *essential* configuration topics:
 * [Safety](../config/safety.md) (optional)
 * [Motors/Servos](../config/motors.md)
 
-> **Note** For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
+:::note
+For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
+:::
 
 ## Video Guide
 
 The video below shows the calibration process in detail.
 
-{% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
+@[youtube](https://youtu.be/91VGmdSlbo4)
 
 ## Support
 

@@ -17,7 +17,8 @@ Features that are common to many plots:
 - Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
 - Mouse scrolling inside the plot zooms both axes.
 
-## PID Tracking Performance {#tracking}
+<span id="tracking"></span>
+## PID Tracking Performance
 
 Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
 
@@ -26,8 +27,9 @@ If they do not, in most cases the PID gains of that controller need to be tuned.
 
 The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) contains example plots and information about analysing tracking performance.
 
-> **Tip** For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
-
+:::tip
+For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
+:::
 
 ## Vibration
 
@@ -48,12 +50,15 @@ This range depends on a number of factors, including vehicle size - as larger ve
 
 The following paragraphs and sections provide information about what plots to use for checking vibration levels, and how to analyse them.
 
-> **Tip** It is worth looking at multiple charts when analyzing vibration (different charts can better highlight some issues).
-
+:::tip
+It is worth looking at multiple charts when analyzing vibration (different charts can better highlight some issues).
+:::
 
 ### Actuator Controls FFT
 
-> **Note** You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
+:::note
+You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
+:::
 
 This graph shows a frequency plot for the roll, pitch and yaw axis based on the actuator controls signal (the PID output from the rate controller). 
 It helps to identify frequency peaks and configuring the software filters.
@@ -67,7 +72,9 @@ Note that the y-axis scaling is different for different vehicles, but logs from 
 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-> **Note** The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/racer_setup.md#filters) (reducing control latency).
+:::note
+The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/racer_setup.md#filters) (reducing control latency).
+:::
 
 DJI F450 frame (good vibration).
 
@@ -77,8 +84,10 @@ S500 frame:
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-> **Note** While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y.
-  This is a good example of why it is worth checking several graphs!
+:::note
+While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y.
+This is a good example of why it is worth checking several graphs!
+:::
 
 #### Examples: Bad Vibration
 
@@ -105,7 +114,9 @@ Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly gr
 DJI F450 frame (good vibration).
 ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-> **Note** Above you can see the blade passing frequency of the propellers at around 100 Hz.
+:::note
+Above you can see the blade passing frequency of the propellers at around 100 Hz.
+:::
 
 S500 frame:
 ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
@@ -119,15 +130,19 @@ The strong yellow lines at around 100Hz indicate a potential issue that requires
 
 This plot below shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
 
-> **Tip** This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics.
-  With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
+:::tip
+This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics.
+With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
+:::
 
 ![Vibrations in landing gear - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
 
 Extremely high (unsafe) vibration! Note that the graph is almost completely yellow.
 
-> **Warning** You should not fly with such high vibration levels.
+:::warning
+You should not fly with such high vibration levels.
+:::
 
 ![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
@@ -139,8 +154,9 @@ Ideally each line is thin and clearly shows the vehicle's accelerations.
 
 As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hover or slow flight, the vibration levels are too high. 
 
-> **Tip** The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
-
+:::tip
+The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
+:::
 
 #### Examples: Good Vibration
 
@@ -175,23 +191,29 @@ Vibration levels are too high. Note how the graph of the z-axis overlaps with th
 
 Very high (unsafe) vibration levels. 
 
-> **Warning** You should not fly with such high vibration levels.
+:::warning
+You should not fly with such high vibration levels.
+:::
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 
-### Raw High-rate IMU Data Plots {#fifo_logging}
+<span id="fifo_logging"></span>
+### Raw High-rate IMU Data Plots
 
 For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU).
 This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
 
 To use it, some parameters need to be changed:
 - Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400.
-  This ensures that the raw sensor data is is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). 
+  This ensures that the raw sensor data is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). 
   <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
   Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
 - Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
-  > **Tip** See [Logging > SD Cards](https://dev.px4.io/master/en/log/logging.html#sd-cards) for a comparison of popular SD card.
+  
+  :::tip
+  See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+  :::
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries.
   If you are using a really good SD card (seeing few/no dropouts), you can:
   - either enable both accel and gyro profiles
@@ -201,13 +223,17 @@ Example plot:
 
 ![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
-> **Note** Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
-> This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
+:::note
+Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
+This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
+:::
 
-<span></span>
-> **Note** Do not forget to restore the parameters after testing.
+:::note
+Do not forget to restore the parameters after testing.
+:::
 
-### Fixing Vibration Problems {#solutions}
+<span id="solutions"></span>
+### Fixing Vibration Problems
 
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
@@ -259,7 +285,9 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming.
 The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
 
-> **Tip** USB 3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+:::tip
+USB 3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+:::
 
 The **jamming indicator** should be around or below 40. 
 Values around 80 or higher are too high and the setup must be inspected.
@@ -317,7 +345,9 @@ The sampling regularity plot provides insights into problems with the logging sy
 
 The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
 
-> **Note** Occasional dropouts can be expected on medium quality cards.
+:::note
+Occasional dropouts can be expected on medium quality cards.
+:::
 
 The **delta t** shows the time difference between two logged IMU samples.
 It should be close to 4 ms because the data publishing rate is 250Hz.
@@ -333,7 +363,7 @@ This is a good example:
 ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
 The following example contains too many dropouts, the quality of the used SD card was too low in that case
-(see [here](http://dev.px4.io/en/log/logging.html#sd-cards) for good SD cards):
+(see [here](../dev_log/logging.md#sd-cards) for good SD cards):
 
 ![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 

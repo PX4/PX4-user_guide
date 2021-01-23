@@ -21,7 +21,7 @@ Key information
 The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
 
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Micro FPV Radio telemetry set](https://shop.holybro.com/micro-transceiver-telemetry-radio-set_p1025.html)
+* [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
 * Power module holybro
 * Fully assembled Power Management Board with ESCs
 * Motors - DR2205 KV2300
@@ -35,13 +35,13 @@ Additionally you will need a battery and receiver (+compatible transmitter). Thi
 * Receiver: [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
 * Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## 硬件
 
 This section lists all hardware for the frame and the autopilot installation.
 
 ### Frame QAV250
 
-| Description                   | Quantity |
+| 参数描述                          | Quantity |
 | ----------------------------- | -------- |
 | Unibody frame plate           | 1        |
 | Flight controller cover plate | 1        |
@@ -60,24 +60,24 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Description                                                                                                    | Quantity |
-| -------------------------------------------------------------------------------------------------------------- | -------- |
-| Motors - DR2205 KV2300                                                                                         | 4        |
-| Fully assembled Power Management Board with ESCs                                                               | 4        |
-| Holybro power module                                                                                           | 1        |
-| Fr-sky D4R-II receiver                                                                                         | 1        |
-| Pixhawk 4 mini                                                                                                 | 1        |
-| Holybro GPS Neo-M8N                                                                                            | 1        |
-| Holybro [Micro FPV Radio telemetry set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/) | 1        |
-| Battery lumenier 1300 mAh 4S 14.8V                                                                             | 1        |
-| Vtx 5.8gHz                                                                                                     | 1        |
-| FPV camera (Complete Kit - only)                                                                               | 1        |
+| 参数描述                                                                                                     | Quantity |
+| -------------------------------------------------------------------------------------------------------- | -------- |
+| Motors - DR2205 KV2300                                                                                   | 4        |
+| Fully assembled Power Management Board with ESCs                                                         | 4        |
+| Holybro power module                                                                                     | 1        |
+| Fr-sky D4R-II receiver                                                                                   | 1        |
+| Pixhawk 4 mini                                                                                           | 1        |
+| Holybro GPS Neo-M8N                                                                                      | 1        |
+| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1        |
+| Battery lumenier 1300 mAh 4S 14.8V                                                                       | 1        |
+| Vtx 5.8gHz                                                                                               | 1        |
+| FPV camera (Complete Kit - only)                                                                         | 1        |
 
 The image below shows both frame and electronic components.
 
 ![QAV250 Frame/Pixhawk 4 Mini Electronics before assembly](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
 
-## Assembly
+## 组装
 
 Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
 
@@ -116,7 +116,8 @@ The following tools are used in this assembly:
     
     Connect the motors on the ESC’s, make sure the motors turns to the correct side, if the motor turns of the opposite side change the cable A to the pad C and C to the pad A of the ESC.
     
-    > **Warning** Test motor directions with propellers removed.
+    :::warning Test motor directions with propellers removed.
+:::
     
     ![QAV250 Connect ESCs to Power](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11b_escs.jpg)
 
@@ -162,33 +163,38 @@ The "Complete" version of the kit additionally comes with an FPV system, which i
 
 The steps to install the kit are:
 
-1. Install the camera bracket on the frame ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
+1. Install the camera bracket on the frame ![相机连接](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
 2. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
 3. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg) 
     * Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
     * Connect the Video Transmitter (VTX) connector ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) The wires are: yellow=video out, black=ground, red=+voltage.
 4. Secure the Video Transmitter and OSD board to the frame using tape.
 
-> **Note** If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::note
+If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+:::
 
-## Install/Configure PX4 {#configure}
+<span id="configure"></span>
+
+## Install/Configure PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [固件](../config/firmware.md)
+* [机架](../config/airframe.md)
     
-    > **Note** You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+    :::note You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
     
-    ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
-
-Then perform the mandatory setup/calibration:
+    ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: Then perform the mandatory setup/calibration:
 
 * [Sensor Orientation](../config/flight_controller_orientation.md)
+
 * [Compass](../config/compass.md)
 * [Accelerometer](../config/accelerometer.md)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
@@ -201,7 +207,7 @@ Ideally you should also do:
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
 
-## Tuning
+## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 

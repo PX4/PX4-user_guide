@@ -6,7 +6,7 @@ Digital Power Module with high resolution current integration, 5V/2A supply with
 
 Detailed setup, configuration, and troubleshooting information can be found on the [manufacturer's device home page](https://p-systems.io/product/power_module).
 
-## Specifications
+## 产品规格
 
  - **Input Voltage:** 6-26V \(2-6S\)
  - **Max Continuous Current:**
@@ -30,9 +30,9 @@ Detailed setup, configuration, and troubleshooting information can be found on t
    - **With XT60PW Connectors:** 16g
 
 
- ![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
+ ![尺寸](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
-## Configuration
+## 配置
 
  1. Enable UAVCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
  2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html):

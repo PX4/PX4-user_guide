@@ -7,6 +7,9 @@ node_modules
 # Book build output
 _book
 
+# Vuepress build output
+.vuepress/dist
+
 # eBook build output
 *.epub
 *.mobi

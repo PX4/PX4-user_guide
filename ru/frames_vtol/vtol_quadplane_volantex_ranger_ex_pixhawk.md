@@ -50,9 +50,11 @@ The image below depicts the parts required for one wing.
 
 A full build log is provided in the following video.
 
-> **Success** Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
+:::note
+Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
+:::
 
-{% youtube %} https://www.youtube.com/embed/l_ppJ_HhAUQ {% endyoutube %}
+@[youtube](https://youtu.be/l_ppJ_HhAUQ)
 
 Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
@@ -86,7 +88,9 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | AUX 4  | Rudder                 |
 | AUX 5  | Throttle               |
 
-> **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
+:::note
+The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
+:::
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
 

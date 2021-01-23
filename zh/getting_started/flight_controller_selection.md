@@ -2,7 +2,7 @@
 
 在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及必不可少的成本。
 
-PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controller/README.md)，或 [Github](https://github.com/PX4/Firmware/#supported-hardware) 上的受支持的飞控板列表）。 下文列出了一部分可供选择的飞控。
+PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controller/README.md)，或 [Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 上的受支持的飞控板列表）。 下文列出了一部分可供选择的飞控。
 
 ## Pixhawk 系列
 
@@ -19,9 +19,10 @@ PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controll
 
 这些飞行控制器（和开发平台）提供机载“协同计算”，以实现计算机视觉和其他计算密集型任务。
 
-| 控制器                                                                    | 描述                                                                       |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer. |
+| 控制器                                                                        | 描述                     |
+| -------------------------------------------------------------------------- | ---------------------- |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)     | 树莓派可以连接到自动驾驶仪并用作机载计算机。 |
+| [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | 让Pi飞起来 :)              |
 
 ## 可运行 PX4 的商业无人机
 

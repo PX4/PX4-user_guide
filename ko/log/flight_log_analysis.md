@@ -13,7 +13,7 @@ Before analyzing a flight log it is important to establish its context:
 * If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
 * Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
 * Does the sensor data look valid? Was there very strong vibration \(a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s\).
-* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/px4/firmware/issues/new).
+* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
 ## Ruling Out Power Failures
 
@@ -25,7 +25,7 @@ On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/
 
 ### Flight Review (Online Tool)
 
-[Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. It is used in combination with the new [ULog](http://dev.px4.io/en/log/ulog_file_format.html) logging format.
+[Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
 
 Key features:
 
@@ -109,7 +109,9 @@ Key features:
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-### FlightPlot {#flightplot}
+<span id="flightplot"></span>
+
+### FlightPlot
 
 [FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 

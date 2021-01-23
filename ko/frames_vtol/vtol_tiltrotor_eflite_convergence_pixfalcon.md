@@ -2,7 +2,7 @@
 
 The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
 
-{% youtube %} http://www.youtube.com/watch?v=E61P2f2WPNU {% endyoutube %}
+@[youtube](https://youtu.be/E61P2f2WPNU)
 
 ## Hardware Setup
 
@@ -27,7 +27,7 @@ Pixfalcon은 원래 자동 조종 장치가 있던 동일한 장소에 장착 �
 
 ![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-GPS를 위해 우리는 "조종실"내부의 거품 섹션을 잘라 냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
+GPS를 넣기 위해 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 

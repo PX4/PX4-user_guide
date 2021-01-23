@@ -1,14 +1,19 @@
 # Pixhawk 3 Pro
 
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::
+
 The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
-> **Note** The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+:::note
+The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+:::
 
-<span></span>
-
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::tip
+This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+:::
 
 ## Quick Summary
 
@@ -39,9 +44,11 @@ From [readymaderc](https://www.readymaderc.com) (USA) :
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v4pro_default
     
@@ -65,8 +72,8 @@ The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://
 
 For information about wiring and using this port see:
 
-- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
-- [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html)
+- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
 
 ## Serial Port Mapping
 

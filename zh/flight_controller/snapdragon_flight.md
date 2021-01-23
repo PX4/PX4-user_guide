@@ -1,6 +1,11 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
+:::
+
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
 
@@ -23,7 +28,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
 * BT/WiFi: BT 4.0 and 2G/5G WiFi via QCA6234 
   * 802.11n, 2×2 MIMO with 2 uCOAX connectors on-board for connection to external antenna
-* GPS: Telit Jupiter SE868 V2 module (use of an external u-Blox module is recommended by PX4 instead) 
+* GPS: Telit Jupiter SE868 V2 module (use of an external u-blox module is recommended by PX4 instead) 
   * uCOAX connector on-board for connection to external GPS patch antenna
   * CSR SiRFstarV @ 5Hz via UART
 * Accelerometer / Gyro / Mag: Invensense MPU-9250 9-Axis Sensor, 3x3mm QFN, on bus SPI1
@@ -31,7 +36,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Power: 5VDC via external 2S-6S battery regulated down to 5V via APM adapter
 * Availability: *No longer available*
 
-## Connectivity
+## 连接
 
 * One USB 3.0 OTG port (micro-A/B)
 * Micro SD card slot
@@ -42,13 +47,15 @@ More information about the Snapdragon Flight platform is in the official [Qualco
   * 2x BLSP ([BAM Low Speed Peripheral](http://www.inforcecomputing.com/public_docs/BLSPs_on_Inforce_6540_6501_Snapdragon_805.pdf))
   * USB
 
-## Recommended Wiring
+## 推荐接线
 
 ![Snapdragon wiring](../../assets/hardware/snapdragon/snapdragon_wiring.jpg)
 
 ## 针脚定义
 
-> **Warning** Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::warning
+Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::
 
 Detailed pinout information can be found here: [Qualcomm Developer Network](https://developer.qualcomm.com/hardware/snapdragon-flight/board-pin-outs).
 
@@ -63,7 +70,7 @@ The default mapping of the serial ports is as follows:
 <table>
   <tr>
     <th>
-      Device
+      设备
     </th>
     
     <th>
@@ -158,19 +165,19 @@ This will cause a problem for any other type of I/O on the same connector, since
 
 #### J14 / Power
 
-| 针脚 | 信号       | Comment     |
-| -- | -------- | ----------- |
-| 1  | 5V DC    | Power input |
-| 2  | GND      |             |
-| 3  | I2C3_SCL | (5V)        |
-| 4  | I2C3_SDA | (5V)        |
+| 针脚 | 信号       | Comment |
+| -- | -------- | ------- |
+| 1  | 5V DC    | 电源输入    |
+| 2  | GND      |         |
+| 3  | I2C3_SCL | (5V)    |
+| 4  | I2C3_SDA | (5V)    |
 
 #### J15 / Radio Receiver / Sensors
 
 | 针脚 | 2-wire UART + I2C | 4-wire UART | SPI       | Comment |
 | -- | ----------------- | ----------- | --------- | ------- |
 | 1  | 3.3V              | 3.3V        | 3.3V      |         |
-| 2  | UART9_TX          | UART9_TX    | SPI9_MOSI | Output  |
+| 2  | UART9_TX          | UART9_TX    | SPI9_MOSI | 输出      |
 | 3  | UART9_RX          | UART9_RX    | SPI9_MISO | Input   |
 | 4  | I2C9_SDA          | UART9_RTS   | SPI9_CS   |         |
 | 5  | GND               | GND         | GND       |         |

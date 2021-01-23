@@ -6,10 +6,11 @@ The board itself does not include the actual sensor, but can be used with a numb
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-> **Note** The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)). It is based on the [PCF8583 counter](https://www.nxp.com/docs/en/data-sheet/PCF8583.pdf).
+:::note
+The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)). It is based on the [PCF8583 counter](https://www.nxp.com/docs/en/data-sheet/PCF8583.pdf).
+:::
 
-
-## Hardware Setup
+## 硬件连接
 
 The board is equipped with a (two troughpass) I²C connectors for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
 - TFRPM01 may be connected to any I²C port.
@@ -46,10 +47,9 @@ If needed, the following parameters may be used:
 * [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
-
-> **Note** If the configuration parameters is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): 
-> 
->
-  ```
-  drivers/rpm/pcf8583
-  ```
+:::note
+If the configuration parameters is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+```
+drivers/rpm/pcf8583
+```
+:::

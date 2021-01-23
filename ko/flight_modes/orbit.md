@@ -10,7 +10,9 @@ The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in m
 
 Instructions for how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
 
-> **Note** The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+:::note
+The use of an RC control is *optional*. If no RC control is present the orbit will proceed as described above. RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+:::
 
 RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
 

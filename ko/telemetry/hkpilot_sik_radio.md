@@ -1,6 +1,6 @@
 # HK 텔레프레전
 
-HKPilot에는 PX4와 함께 사용할 수 있으며 915MHz(USA) 및 433MHz(유럽) 버전으로 제공되는 [SiK 라디오 ](../telemetry/sik_radio.md) 호환 원격측정 세트가 있습니다
+HKPilot에는 PX4와 함께 사용할 수 있으며 915MHz(USA) 및 433MHz(유럽) 버전으로 제공하는 [SiK 무선 통신](../telemetry/sik_radio.md) 호환 텔레메트리 세트가 있습니다
 
 ![HKPilot SiK Radio
 ](../../assets/hardware/telemetry/hkpilot_telemetry_radio_v2.jpg)

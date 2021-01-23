@@ -4,7 +4,9 @@ Power modules provide a regulated power supply for the flight controller, along 
 
 The PX4 battery/power module configuration (via the ADC interface) is covered in: [Power Module Setup](../config/battery.md).
 
-> **Note** Power distribution boards are also covered by this topic. These include a power module, and additionally have wiring to supply power to motors. They may also include a BEC to supply power to servos and other actuators.
+:::note
+Power distribution boards are also covered by this topic. These include a power module, and additionally have wiring to supply power to motors. They may also include a BEC to supply power to servos and other actuators.
+:::
 
 This section provides links/information about supported power modules and power distribution boards:
 

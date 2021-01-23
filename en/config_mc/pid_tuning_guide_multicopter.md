@@ -6,17 +6,18 @@ Generally if you're using a [supported specific configuration](../airframes/airf
 To get the very best performance it is usually good to tune a new vehicle.
 For example, different ESCs or motors require different tuning gains for optimal flight.
 
-> **Warning** This guide is for advanced users.
-  Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
-  Make sure to have a Kill-switch assigned.
-
+:::warning
+This guide is for advanced users.
+Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
+Make sure to have a Kill-switch assigned.
+:::
 
 ## Introduction
 
 PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
 
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller.
-The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
+The lowest-level controller is the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
 The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
 
 
@@ -35,26 +36,32 @@ The PID tuning needs to be done in the same order, starting with the rate contro
   - Check that no motors turn off
 - Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
 
-> **Warning** Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
-
+:::warning
+Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+:::
 
 ## Tuning Steps
 
-> **Note** For safety reasons, the default gains are set to low values.
-> You must increase the gains before you can expect good control responses. 
+:::note
+For safety reasons, the default gains are set to low values.
+You must increase the gains before you can expect good control responses.
+:::
 
 Here are some general points to follow when tuning:
 - All gains should be increased very slowly as large gains may cause dangerous oscillations!
   Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
-- Land before changing a parameter. Slowly increase the throttle and check for oscillations.
+- Land before changing a parameter.
+  Slowly increase the throttle and check for oscillations.
 - Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
 
 ### Rate Controller
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
-> **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
-  A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::note
+A well-tuned rate controller is very important as it affects *all* flight modes.
+A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+:::
 
 #### Rate Controller Architecture/Form
 
@@ -73,23 +80,26 @@ Users can select the form that is used by setting the proportional gain for the 
 
 The two forms are described below.
 
+:::note
+The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::
 
-> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+:::tip
+For more information see:
+- [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
+- [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+:::
 
-<span></span>
-> **Tip** For more information see:
-  - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
-  - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
-
-
-##### Parallel Form {#parallel_form}
+<span id="parallel_form"></span>
+##### Parallel Form
 
 The *parallel form* is the simplest form, and is (hence) commonly used in textbooks.
 In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-##### Standard Form {#standard_form}
+<span id="standard_form"></span>
+##### Standard Form
 
 This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains.
 This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
@@ -164,9 +174,9 @@ It should immediately follow the command, and neither oscillate, nor overshoot (
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-> **Note** A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side,
-> but keeps the attitude for tens of seconds even without any corrections.
-
+:::note
+A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+:::
 
 #### Logs
 
@@ -185,7 +195,7 @@ You can see that the vehicle overshoots only by a very small amount:
 
 This controls the orientation and outputs desired body rates with the following tuning parameters:
 - Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
+- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
 - Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
 The attitude controller is much easier to tune.
@@ -196,29 +206,55 @@ If you start to see oscillations or overshoots, the gains are too high.
 
 The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
 - Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
+- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 
-### Thrust Curve {#thrust_curve}
+<span id="thrust_curve"></span>
+### Thrust Curve
 
 The tuning above optimises performance around the hover throttle.
-But it can be that you start to see oscillations when going towards full throttle.
+But you may start to see oscillations when going towards full throttle.
 
-To counteract that adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
+To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-> **Note** The rate controller might need to be re-tuned if you change this parameter.
+:::note
+The rate controller might need to be re-tuned if you change this parameter.
+:::
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
 Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust),
-you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
-[This Notebook][THR_MDL_FAC_Calculation] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data.
+The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. 
+[This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data.
+The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
+In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
-> **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+:::note
+The mapping between PWM and static thrust depends highly on the battery voltage.
+:::
+
+An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter.
+An example of that graph is shown here:
+
+![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+
+If raw motor command and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
+
+*normalized_value = ( raw_value - min (raw_value) ) / ( max ( raw_value ) - min ( raw_value ) )*
+
+After you have a scatter plot of the normalized values, you can try and make the curve match by plotting the equation 
+
+*rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
+
+over a linear range of normalized motor command values between 0 and 1.
+Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference.
+Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
+
+In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7. 
 
 [THR_MDL_FAC_Calculation]: https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb
 
@@ -242,7 +278,8 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
  -->
 
 
-### Airmode & Mixer Saturation {#airmode}
+<span id="airmode"></span>
+### Airmode & Mixer Saturation
 
 The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands.
 This step is called mixing.
@@ -275,4 +312,3 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
-

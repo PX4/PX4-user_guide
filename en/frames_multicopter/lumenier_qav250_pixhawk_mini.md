@@ -18,7 +18,7 @@ Key information
 The components used in this build are listed below (along with links to where they can be purchased).
 In general we used hardware recommended by the manufacturers for the flight controller and frame.
 
-- **Flight controller:** [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
+- **Flight controller:** [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
 - **Power module:** 3DR 10s Power Module (Discontinued)
 - **ESC:** Lumenier f390 with Blheli ([getfpv.com](http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html)). These come with the motors.
 - **Motors:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
@@ -86,8 +86,10 @@ the fly, and tune in the vehicle during flight.
 PX4/Pixhawk Mini support many different telemetry radios. The radio used
 in this build is the (highly recommended) *3DR Telemetry Radio (915MHz)* (Discontinued).
 
-> **Note** Telemetry radios use different frequency bands in order to comply with local regulations. 
-  Select a version appropriate for your region: USA - 915 MHz, Europe/Australia - 433MHz
+:::note
+Telemetry radios use different frequency bands in order to comply with local regulations. 
+Select a version appropriate for your region: USA - 915 MHz, Europe/Australia - 433MHz
+:::
 
 The telemetry kit includes:
 
@@ -119,15 +121,19 @@ This information can be used for reference if the on-the-frame screenshots are n
 
 The image below shows the *standard* multicopter wiring for *Pixhawk Mini*. It uses the *Quad Power Distribution Board* to power the ESCs, Pixhawk and Pixhawk power rail (the board includes an integrated power module that supports batteries up to 4S).
 
-> **Note** For this QAV250 build we instead use the separate 10S Power module to power the ESCs and Pixhawk, and we don't use the optional external switch.
-  The wiring is otherwise similar!
+:::note
+For this QAV250 build we instead use the separate 10S Power module to power the ESCs and Pixhawk, and we don't use the optional external switch.
+The wiring is otherwise similar!
+:::
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
 ### Frame-only assembly
 
-> **Note** This section shows how the frame is assembled without the complication of the electronics.
-  It is referenced in the full assembly documentation below.
+:::note
+This section shows how the frame is assembled without the complication of the electronics.
+It is referenced in the full assembly documentation below.
+:::
 
 To assemble the frame:
 
@@ -140,10 +146,11 @@ shown in the picture.
 
 ![Place frame on top of standoffs (on top of PDB)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_frame_with_pdb_no_standoffs.jpg)
 
-> **Note** Ensure that you have the frame-plate mounted the
-  correct way. This cut indicated below shows the bottom of the frame.
-  ![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg)
-  
+:::note
+Ensure that you have the frame-plate mounted the correct way.
+The cut indicated below shows the bottom of the frame.
+![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg)
+:::
 
 **Step 3:** Put the 35mm standoffs on the screws (you will need 2.0mm Hex screwdriver).
 
@@ -202,9 +209,10 @@ cables A and C on the ESC.
 
 ![Solder motors to ESC.](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_motors_to_esc.jpg)
 
-> **Note** Once the cables are soldered in the correct order,
-  cover the pads with electrical tape or tubing.
-  ![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg)
+:::note
+Once the cables are soldered in the correct order, cover the pads with electrical tape or tubing.
+![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg)
+:::
 
 **Step 6:** Attach the PDB to the frame
 
@@ -216,11 +224,10 @@ Follow the steps described in the Frame assembly section.
 
 ![Attach LEDS to frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_attach_LEDs_to_frame.jpg)
 
-> **Warning** The carbon fiber is conductive use silicon to
-  avoid the contact with the weld in the frame.
- 
-  ![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg)
-
+:::warning
+The carbon fiber is conductive use silicon to avoid the contact with the weld in the frame.
+![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg)
+:::
 
 **Step 8:** Attach vibration damping foam to the frame as shown (the foam is included in the *Pixhawk Mini* kit).
 
@@ -256,20 +263,17 @@ Connect the *FRSky D4-R* receiver channel 1 to the **RCIN** port on the *Pixha
 
 ![Connect FRSKY](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_frsky_rc_reciever.jpg)
 
-> **Note** Notes on receivers:
-  - The *Pixhawk Mini* **RCIN** port accepts PPM input (i.e. multiplexed
-    channels). You can use a PWM receiver (with individual cables for
-    each channel) but you will have to connect via PPM encoder [like
-    this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
-  - You can also use a Spektrum receiver. These are connected to the
-    **SPKT/DSM** input next to **RCIN** on the *Pixhawk Mini*.
-  - For more information see: Pixhawk Mini Receiver Compatibility <FIX
-    LINK>
+
+:::note Notes on receivers:
+- The *Pixhawk Mini* **RCIN** port accepts PPM input (i.e. multiplexed channels).
+  You can use a PWM receiver (with individual cables for each channel) but you will have to connect via PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
+- You can also use a Spektrum receiver. These are connected to the **SPKT/DSM** input next to **RCIN** on the *Pixhawk Mini*.
+- For more information see: [Pixhawk Mini Receiver Compatibility](../flight_controller/pixhawk_mini.md#rc-radio)
+:::
 
 **Step 13:** Connect the GPS/COMPASS module
 
-Connect the GPS/COMPASS module to the *Pixhawk Mini*'s **GPS&I2C** port
-as shown below.
+Connect the GPS/COMPASS module to the *Pixhawk Mini*'s **GPS&I2C** port as shown below.
 
 ![Connect GPS to Pixhawk Mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_gps_to_pixhawk_mini.jpg)
 
@@ -314,17 +318,16 @@ This section explains how you can use
 [QGroundControl](http://qgroundcontrol.com/) to install the PX4
 autopilot and configure/tune it for the QAV250 frame.
 
-> **Note** *QGroundControl* can be used to install and
-  configure your autopilot, and also to plan missions and control your
-  vehicle remotely.
+:::note
+*QGroundControl* can be used to install and configure your autopilot, and also to plan missions and control your vehicle remotely.
+:::
 
 [Download and install](http://qgroundcontrol.com/downloads/) 
 *QGroundControl* for your platform.
 
 ### Firmware update
 
-Update the *Pixhawk Mini* with the PX4 firmware, configured for the
-Lumenier QAV250.
+Update the *Pixhawk Mini* with the PX4 firmware, configured for the Lumenier QAV250.
 
 **Step 1:** Start *QGroundControl* and select **Firmware** from the sidebar.
 Connect your vehicle to the USB port
@@ -337,10 +340,12 @@ Then click **Apply and Restart**.
 
 ![QGroundControl - Select firmware to update](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
 
-> **Note** For additional information see:
-  - [Autopilot Configuration](../config/README.md)
-  - [Firmware setup](../config/firmware.md)
-  
+:::note
+For additional information see:
+- [Autopilot Configuration](../config/README.md)
+- [Firmware setup](../config/firmware.md)
+:::
+
 ### Vehicle calibration/setup
 
 Vehicle calibration/setup is typically similar for all vehicles.
@@ -388,8 +393,10 @@ For more information see:
 **Step 6:** Calibrate ESC
 
 1. Remove propellers.
-
-   > **Warning** Propellers must be removed from vehicle prior to performing ESC calibration!
+   
+   :::warning
+   Propellers must be removed from vehicle prior to performing ESC calibration!
+   :::
 2. Select **Power **in the left-sidebar.
 3. Select the **Calibrate **button and then follow the on-screen instructions (Connect your battery.
    When the tones stop, press OK and unplug battery).
@@ -414,9 +421,7 @@ For general information on tuning see: [Multicopter PID Tuning Guide](../config_
 
 The video below shows this QAV250 on a test flight.
 
-{% youtube %}
-http://www.youtube.com/watch?v=MZzo4DMNkug
-{% endyoutube %}
+@[youtube](https://youtu.be/MZzo4DMNkug)
 
 
 ## Acknowledgements
@@ -425,4 +430,3 @@ This build log was provided by: *Abimael Suarez, 3DRobotics*.
 Video was provided by *Santiago Escala*, *3DRobotics*.
 
 <!-- Open Questions/ACTIONS - Need to update with cross links to other PX4 docs. At moment many of these do not exist: Pixhawk wiring overviews, receivers, gps etc, flight modes. -Tidy up some of the diagrams do remove unnecessary complication (e.g. remove OS footer from QGroundControl screens) -->
-

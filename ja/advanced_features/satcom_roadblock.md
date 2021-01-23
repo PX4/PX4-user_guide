@@ -16,12 +16,12 @@ The full system architecture is shown below:
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
-> **Note** The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
+:::note
+The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
 
-    - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-    - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
-      The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
-    
+* It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
+* The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+:::
 
 ## Costs
 
@@ -54,7 +54,13 @@ The module is now ready to be used with PX4.
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/iridiumsbd```
+:::note
+If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+
+    drivers/telemetry/iridiumsbd
+    
+
+:::
 
 ## RockBlock Setup
 
@@ -168,4 +174,4 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 * A first message is received on the ground but as soon as the vehicle is flying no message can be transmitted or the latency is significantly larger (in the order of minutes)
   
-  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is is not damaged.
+  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is not damaged.

@@ -1,5 +1,10 @@
 # Holybro Durandal
 
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::
+
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. 
 It was designed and developed by Holybro.
 
@@ -15,7 +20,9 @@ At high level, some of the key features are:
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
-> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::note
+This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+:::
 
 
 ## Quick Summary
@@ -30,7 +37,7 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
   - Accel/Gyro: BMI088
   - Mag: IST8310
   - Barometer: MS5611
-- GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 #### Interfaces
@@ -75,12 +82,14 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
 
 For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
 
-## Purchase {#purchase}
+<span id="purchase"></span>
+## Purchase
 
 Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
 
-## Connections {#connections}
+<span id="connections"></span>
+## Connections
 
 The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
@@ -112,7 +121,10 @@ All dimensions are in millimeters.
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::note
+The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+:::
 
 **Normal Operation Maximum Ratings**
 
@@ -138,10 +150,12 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 
 ## Building Firmware
 
-> **Tip** Most users will not need to build this firmware!
-  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware!
+It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+:::
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_durandal-v1_default
 ```
@@ -159,20 +173,23 @@ UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
 
-## Debug Port {#debug_port}
+<span id="debug_port"></span>
+## Debug Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the *Debug Port*.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
 The pinout uses the standard Dronecode debug connector pinout.
-Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
-> **Note** No Debug port is exposed for the I/O board.
+:::note
+No Debug port is exposed for the I/O board.
+:::
 
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
@@ -233,7 +250,8 @@ Pin | Signal | Volt
 4 (black) | GND | GND
 
 
-#### GPS port {#gps}
+<span id="gps"></span>
+#### GPS port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -248,7 +266,8 @@ Pin | Signal | Volt
 9 (black) | BUZZER | +5V
 10 (black) | GND | GND
 
-#### TELEM4 I2CB ports {#telem4_i2cb}
+<span id="telem4_i2cb"></span>
+#### TELEM4 I2CB ports
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -259,7 +278,8 @@ Pin | Signal | Volt
 5 (black) | SDA2 | +3.3V
 6 (black) | GND | GND
 
-#### TELEM3, TELEM2, TELEM1 port {#telem1_2_3}
+<span id="telem1_2_3"></span>
+#### TELEM3, TELEM2, TELEM1 port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -270,7 +290,8 @@ Pin | Signal | Volt
 5 (black) | RTS (out) | +3.3V
 6 (black) | GND | GND
 
-#### POWER port {#power}
+<span id="power"></span>
+#### POWER port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -349,13 +370,17 @@ Pin | Signal | Volt
 10 (black) | GND | GND
 
 <span id="warn_sensor"></span>
-> **Warning** \++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+
+:::warning
+\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+:::
 
 ### Left-side Pinouts
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-#### DEBUG port {#debug_port}
+<span id="debug_port"></span>
+#### DEBUG port
 
 Pin | Signal | Volt
 --- | --- | ---

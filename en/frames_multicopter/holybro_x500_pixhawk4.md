@@ -257,19 +257,24 @@ Plugin Telemetry and GPS module to the flight controller as seen in Figure 20; p
 
 (Fully assembled X500 Kit)
 
-## Install/Configure PX4 {#configure}
+<span id="configure"></span>
+## Install/Configure PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame.
 [Download and install](http://qgroundcontrol.com/downloads/)
 *QGroundControl* for your platform.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip
+Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::
 
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
-  
-> **Note** You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+
+:::note
+You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+:::
 
 ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 

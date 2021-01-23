@@ -6,8 +6,9 @@ The modes provide different types/levels of autopilot assistance to the user (pi
 
 This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
-> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
-
+:::tip
+More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+:::
 
 ## Switching Between Modes
 
@@ -21,13 +22,16 @@ PX4 will not allow transitions to those modes until the right conditions are met
 Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
   
 
-## Autonomous and Manual Modes {#categories}
+<span id="categories"></span>
+## Autonomous and Manual Modes
 
 Flight Modes are, generally speaking, either *manual* or *autonomous*. 
 Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
 
-> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight.
-  For example, most modes will level out the vehicle when the RC sticks are centered.
+:::tip
+Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight.
+For example, most modes will level out the vehicle when the RC sticks are centered.
+:::
 
 Manual modes may further be divided into "easy" and "acrobatic" modes.
 In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively).
@@ -60,22 +64,26 @@ Icon | Description
 <span id="key_difficulty">[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty) | Flight mode difficulty (Easy to Hard)
 
 
+<span id="mc_flight_modes"></span>
+## Multicopter
 
-## Multicopter {#mc_flight_modes}
-
-### Position Mode {#position_mc}
+<span id="position_mc"></span>
+### Position Mode
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Position mode](../flight_modes/position_mc.md) is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
 
-> **Tip** Position mode is the safest manual mode for new fliers. Unlike [Altitude](#altitude_mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
+:::tip
+Position mode is the safest manual mode for new fliers. Unlike [Altitude](#altitude_mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
+:::
 
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 
-### Altitude Mode {#altitude_mc}
+<span id="altitude_mc"></span>
+### Altitude Mode
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](#altitude_only)
 
@@ -86,19 +94,24 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance.
 If the wind blows the aircraft will drift in the direction of the wind.
 
-> **Tip** *Attitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
+:::tip
+*Attitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
+:::
 
 ![MC Altitude Mode](../../assets/flight_modes/altitude_MC.png)
 
 
-### Manual/Stabilized Mode {#manual_stabilized_mc}
+<span id="manual_stabilized_mc"></span>
+### Manual/Stabilized Mode
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 The [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode stabilizes the multicopter when the RC control sticks are centered.
 To manually move/fly the vehicle you move the sticks outside of the center.
 
-> **Note** This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes for an MC vehicle.
+:::note
+This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes for an MC vehicle.
+:::
 
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 
@@ -110,7 +123,8 @@ The craft will drift in the direction of any wind and you have to control the th
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
 
 
-### Rattitude {#rattitude_mc}
+<span id="rattitude_mc"></span>
+### Rattitude
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
@@ -122,7 +136,8 @@ When the sticks are centered the multicopter will level out (but will still drif
 <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
 
 
-### Acro Mode {#acro_mc}
+<span id="acro_mc"></span>
+### Acro Mode
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
@@ -136,7 +151,8 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
 
 
-### Orbit Mode {#orbit_mc}
+<span id="orbit_mc"></span>
+### Orbit Mode
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -149,7 +165,8 @@ RC control is optional, and can be used to change the orbit altitude, radius, sp
 ![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
 
 
-### Hold Mode {#hold_mc}
+<span id="hold_mc"></span>
+### Hold Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -158,7 +175,8 @@ The mode can be used to pause a mission or to help regain control of a vehicle i
 It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
 
 
-### Return Mode {#return_mc}
+<span id="return_mc"></span>
+### Return Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -169,49 +187,59 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land. 
 
 
-### Mission Mode {#mission_mc}
+<span id="mission_mc"></span>
+### Mission Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
 
-> **Tip** The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::tip
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/).
+*QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::
 
-
-### Takeoff Mode {#takeoff_mc}
+<span id="takeoff_mc"></span>
+### Takeoff Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Takeoff](../flight_modes/takeoff.md) mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
 
 
-### Land Mode {#land_mc}
+<span id="land_mc"></span>
+### Land Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Land mode](../flight_modes/land.md) causes the multicopter to land at the location at which the mode was engaged.
 
 
-### Follow Me Mode {#followme_mc}
+<span id="followme_mc"></span>
+### Follow Me Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Follow Me mode](../flight_modes/follow_me.md) causes a multicopter to autonomously follow and track a user providing their current position setpoint.
 Position setpoints might come from an Android phone/tablet running *QGroundControl* or from a MAVSDK app.
 
-### Offboard Mode {#offboard_mc}
+<span id="offboard_mc"></span>
+### Offboard Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Offboard mode](../flight_modes/offboard.md) causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink. 
 
-> **Note** This mode is intended for companion computers and ground stations!
-
+:::note
+This mode is intended for companion computers and ground stations!
+:::
  
-## Fixed-Wing {#fw_flight_modes}
+<span id="fw_flight_modes"></span>
+## Fixed-Wing
 
-### Position Mode {#position_fw}
+<span id="position_fw"></span>
+### Position Mode
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -220,12 +248,15 @@ Position setpoints might come from an Android phone/tablet running *QGroundContr
 The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed).
 Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
 
-> **Tip** Position mode is the safest fixed-wing manual mode for new fliers.
+:::tip
+Position mode is the safest fixed-wing manual mode for new fliers.
+:::
 
 ![FW Position Mode](../../assets/flight_modes/position_FW.png)
 
 
-### Altitude Mode {#altitude_fw}
+<span id="altitude_fw"></span>
+### Altitude Mode
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" />](#altitude_only)
 
@@ -238,22 +269,27 @@ Roll and pitch are angle-controlled (so it is impossible to roll over or loop th
 
 When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
 
-> **Tip** *Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly.
-  It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+:::tip
+*Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly.
+It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+:::
 
 ![FW Altitude Mode](../../assets/flight_modes/altitude_FW.png)
 
 
-### Stabilized Mode {#stabilized_fw}
+<span id="stabilized_fw"></span>
+### Stabilized Mode
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Stabilized mode](../flight_modes/stabilized_fw.md) mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+[Stabilized mode](../flight_modes/stabilized_fw.md) puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
 
 The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero.
 Roll and pitch are angle controlled (you can't roll upside down or loop).
 
-> **Tip** *Stabilized mode* is much easier to fly than [Manual mode](#manual_fw) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+:::tip
+*Stabilized mode* is much easier to fly than [Manual mode](#manual_fw) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+:::
 
 The vehicle will glide if the throttle is lowered to 0% (motor stops).
 In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
@@ -261,7 +297,8 @@ In order to perform a turn the command must beheld throughout the maneuver becau
 ![FW Manual Flight](../../assets/flight_modes/manual_stabilized_FW.png)
 
 
-### Acro Mode {#acro_fw}
+<span id="acro_fw"></span>
+### Acro Mode
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
@@ -273,21 +310,25 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 ![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
 
 
-### Manual Mode {#manual_fw}
+<span id="manual_fw"></span>
+### Manual Mode
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to the output mixer for "fully" manual control.
 
-> **Tip** This is the hardest mode to fly, because nothing is stabilised.
-  Unlike [Acro Mode](#acro_fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+:::tip
+This is the hardest mode to fly, because nothing is stabilised.
+Unlike [Acro Mode](#acro_fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+:::
 
-<span></span>
-> **Note** This is the only mode that overrides the FMU (commands are sent via the safety coprocessor).
-  It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+:::note
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor).
+It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+:::
 
-
-### Hold Mode {#hold_fw}
+<span id="hold_fw"></span>
+### Hold Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -296,7 +337,8 @@ The mode can be used to pause a mission or to help regain control of a vehicle i
 It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
 
 
-### Return Mode {#return_fw}
+<span id="return_fw"></span>
+### Return Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
@@ -307,38 +349,45 @@ The return behaviour depends on parameter settings, and may follow a mission pat
 By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle. 
 
 
-### Mission Mode {#mission_fw}
+<span id="mission_fw"></span>
+### Mission Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller.
 The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
-> **Tip** The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
 
+:::tip
+The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::
 
-### Takeoff Mode {#takeoff_fw}
+<span id="takeoff_fw"></span>
+### Takeoff Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
-[Takeoff](../flight_modes/takeoff.md#fixed_wing) mode initiates the vehicle takeoff sequence.
+[Takeoff mode](../flight_modes/takeoff.md#fixed_wing) initiates the vehicle takeoff sequence.
 The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
 
 
-### Land Mode {#land_fw}
+<span id="land_fw"></span>
+### Land Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
 [Land mode](../flight_modes/land.md) causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
 
-### Offboard Mode {#offboard_fw}
+<span id="offboard_fw"></span>
+### Offboard Mode
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Offboard mode](../flight_modes/offboard.md) causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink. 
 
-> **Note** This mode is intended for companion computers and ground stations!
-
+:::note
+This mode is intended for companion computers and ground stations!
+:::
 
 ## Vertical Take Off and Landing (VTOL)
 

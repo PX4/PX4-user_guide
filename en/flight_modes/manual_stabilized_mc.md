@@ -4,7 +4,9 @@
 
 The *Manual/Stabilized* mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
-> **Note** This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+:::note
+This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+:::
 
 When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 
@@ -18,10 +20,12 @@ The vehicle will then hover in place/maintain altitude - provided it is properly
 
 The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
 
-> **Note**
->  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+:::note
+* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+:::
 
-## Parameters {#params}
+<span id="params"></span>
+## Parameters
 
 Parameter | Description
 --- | ---

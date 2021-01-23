@@ -5,7 +5,9 @@ This improves stability (reducing the chance that wind from the side will pick-u
 
 The feature is [enabled by default](#configuration) on VTOL hybrid vehicles flying in multicopter mode.
 
-> **Note** Weather vane functionality is not supported on pure multirotors.
+:::note
+Weather vane functionality is not supported on pure multirotors.
+:::
 
 ## Manual Mode Behaviour
 
@@ -19,7 +21,8 @@ The target yaw rate is the sum of weather vane yaw rate and user commanded yaw r
 In [Mission mode](../flight_modes/mission.md) the weather vane feature will always be active when the parameter is enabled.
 Any yaw angle commanded in a mission will be ignored.
 
-## Configuration {#configuration}
+<span id="configuration"></span>
+## Configuration
 
 This functionality is configured using the [WV_* parameters](../advanced_config/parameter_reference.md#WV_EN).
 

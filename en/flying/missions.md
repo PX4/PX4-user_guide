@@ -12,7 +12,9 @@ Manually planning missions is straightforward:
 
 You can also use the *Pattern* tool to automate creation of survey grids.
 
-> **Tip** For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
+:::tip
+For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
+:::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 

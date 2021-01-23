@@ -12,7 +12,7 @@ Key information:
 
 ![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_back.jpg)
 
-## Parts List
+## 配件列表
 
 - Autopilot: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 - Frame: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
@@ -48,7 +48,7 @@ The 3DR Telemetry does not come with a JST GH connector which the *Pixhawk 3 Pro
 | 2  | TX                    | RX            |
 | 3  | RX                    | TX            |
 | 4  | CTS                   | CTS           |
-| 5  | RTS                   | RTS           |
+| 5  | RTS:                  | RTS:          |
 | 6  | GND                   | GND           |
 
 ### Lidar-Lite V3
@@ -103,7 +103,9 @@ This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.co
 
 ![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 
-> **Note** After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
+:::note
+After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
+:::
 
 ### Others
 
@@ -114,6 +116,6 @@ Set the following parameters as well:
 - `CBRK_IO_SAFETY=22027`: disable the safety button
 - `EKF2_GPS_POS_X`, `EKF2_GPS_POS_Y`, `EKF2_GPS_POS_Z`: set the GPS device offset with respect to the board (NED coordinates).
 
-## Video
+## 视频
 
-{% youtube %}https://www.youtube.com/watch?v=JovSwzoTepU{% endyoutube %}
+@[youtube](https://youtu.be/JovSwzoTepU)

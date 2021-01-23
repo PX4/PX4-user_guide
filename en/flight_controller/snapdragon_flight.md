@@ -1,6 +1,13 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::warning
+PX4 does not manufacture this (or any) autopilot.
+Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
+:::
+
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+:::
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. 
 In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
@@ -24,7 +31,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
 * BT/WiFi: BT 4.0 and 2G/5G WiFi via QCA6234
   * 802.11n, 2×2 MIMO with 2 uCOAX connectors on-board for connection to external antenna
-* GPS: Telit Jupiter SE868 V2 module (use of an external u-Blox module is recommended by PX4 instead)
+* GPS: Telit Jupiter SE868 V2 module (use of an external u-blox module is recommended by PX4 instead)
   * uCOAX connector on-board for connection to external GPS patch antenna
   * CSR SiRFstarV @ 5Hz via UART
 * Accelerometer / Gyro / Mag: Invensense MPU-9250 9-Axis Sensor, 3x3mm QFN, on bus SPI1
@@ -50,7 +57,9 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 
 ## Pinouts
 
-> **Warning** Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::warning
+Although the Snapdragon uses DF13 connectors, the pinout is different from Pixhawk.
+:::
 
 Detailed pinout information can be found here: [Qualcomm Developer Network](https://developer.qualcomm.com/hardware/snapdragon-flight/board-pin-outs).
 

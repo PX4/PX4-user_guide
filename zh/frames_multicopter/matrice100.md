@@ -9,7 +9,7 @@ Key information:
 
 ![DJI Matrice 100](../../assets/airframes/multicopter/matrice100/Matrice100.jpg)
 
-## Parts List
+## 配件列表
 
     * [DJI Matrice 100](http://store.dji.com/product/matrice-100) Just ESCs motors, and frame.
     
@@ -46,15 +46,15 @@ See the [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md) for auto
 The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](../airframes/airframe_reference.md#copter_quadrotor_x_dji_matrice_100)) (or more specifically, in the [quadrotor-x configuration section](../airframes/airframe_reference.md#quadrotor-x). 
 -->
 
-| Output | Rate   | Actuator         |
-| ------ | ------ | ---------------- |
-| MAIN1  | 400 Hz | Front right, CCW |
-| MAIN2  | 400 Hz | Back left, CCW   |
-| MAIN3  | 400 Hz | Front left, CW   |
-| MAIN4  | 400 Hz | Back right, CW   |
-| AUX1   | 50 Hz  | RC AUX1          |
-| AUX2   | 50 Hz  | RC AUX2          |
-| AUX3   | 50 Hz  | RC AUX3          |
+| 输出    | 频率     | 执行器              |
+| ----- | ------ | ---------------- |
+| MAIN1 | 400 Hz | Front right, CCW |
+| MAIN2 | 400 Hz | Back left, CCW   |
+| MAIN3 | 400 Hz | Front left, CW   |
+| MAIN4 | 400 Hz | Back right, CW   |
+| AUX1  | 50 Hz  | RC AUX1          |
+| AUX2  | 50 Hz  | RC AUX2          |
+| AUX3  | 50 Hz  | RC AUX3          |
 
 ## 参数
 
@@ -64,6 +64,6 @@ The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](..
 * The battery has 6 cells instead of the default 3 
   * BAT_N_CELLS: 6
 
-## Video
+## 视频
 
-{% youtube %}https://www.youtube.com/watch?v=3OGs0ONemGc{% endyoutube %}
+@[youtube](https://youtu.be/3OGs0ONemGc)

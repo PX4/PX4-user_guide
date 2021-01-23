@@ -4,11 +4,13 @@
 
 下面列出一组标准蜂鸣器声音。
 
-> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](https://dev.px4.io/master/en/middleware/modules_system.html#tunecontrol) module.
+:::note
+**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](../modules/modules_system.md#tunecontrol) module.
+:::
 
 ## 启动
 
-在启动场景播放如下音乐。 <!-- https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
+These tunes are played during the boot sequence. <!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
 
 #### 启动声音<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
@@ -48,9 +50,11 @@
 
 ## 操作过程中
 
-在正常操作期间发出如下声音。
+These tones/tunes are emitted during normal operation.
 
-#### 错误声音 {#error_tune_operational}<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+<span id="error_tune_operational"></span>
+
+#### 错误声音<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 - 遥控丢失
 

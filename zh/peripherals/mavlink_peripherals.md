@@ -8,7 +8,9 @@ In order to assign a particular peripheral to a serial port we use the (abstract
 
 Each instance can represent a particular set of streamed messages (see [MAV_X_MODE](#MAV_X_MODE) below); parameters are used to define the set of messages, the port used, data rate, etc.
 
-> **Note** At time of writing three MAVLink *instances* are defined, which correspond to the 0, 1, 2 in the parameters listed below.
+:::note
+At time of writing three MAVLink *instances* are defined, which correspond to the 0, 1, 2 in the parameters listed below.
+:::
 
 The parameters for each instance are:
 
@@ -24,11 +26,11 @@ The parameters for each instance are:
   - *ExtVision* or *ExtVisionMin*: Messages for offboard vision systems (ExtVision needed for VIO).
   - *Iridium*: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
   
-  > **Note** If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_main.cpp).
+  :::note If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
+:::
   
-  <span></span>
-  
-  > **Tip** The mode defines the *default* messages and rates. A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
+  :::tip The mode defines the *default* messages and rates. A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
+:::
 
 - [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the maximum *data rate* for this instance (bytes/second).
   
@@ -39,11 +41,15 @@ The parameters for each instance are:
 
 Next you need to set the baud rate for the serial port you assigned above (in `MAV_X_CONFIG`).
 
-> **Tip** You will need to reboot PX4 to make the parameter available (i.e. in QGroundControl).
+:::tip
+You will need to reboot PX4 to make the parameter available (i.e. in QGroundControl).
+:::
 
 The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
 
-## Default MAVLink Ports {#default_ports}
+<span id="default_ports"></span>
+
+## Default MAVLink Ports
 
 The `TELEM 1` port is almost always used for the GCS telemetry stream.
 
@@ -55,12 +61,13 @@ To support this there is a [default serial port mapping](../peripherals/serial_c
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
-## Example
+## 示例
 
 For example, to use a companion computer on `TELEM 2` you might set parameters as shown:
 
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
 - [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
-- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s > **Tip** This value might have to be tuned/reduced in the event of message losses.
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s :::tip This value might have to be tuned/reduced in the event of message losses.
+:::
 - [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) = `True`
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` baud

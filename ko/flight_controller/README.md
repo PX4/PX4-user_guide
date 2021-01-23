@@ -2,7 +2,9 @@
 
 This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
 
-> **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+:::tip
+You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+:::
 
 - [Pixhawk Series](../flight_controller/pixhawk_series.md) 
   - [Silicon Errata](../flight_controller/silicon_errata.md)
@@ -19,6 +21,8 @@ This section lists the autopilot hardware documented in this library (that can b
 - [Manufacturer-Supported Autopilots](../flight_controller/autopilot_manufacturer_supported.md) 
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
+  - [CUAV X7](../flight_controller/cuav_x7.md)
+  - [CUAV Nora](../flight_controller/cuav_nora.md)
   - [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md)
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
   - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
@@ -28,6 +32,7 @@ This section lists the autopilot hardware documented in this library (that can b
   - [Holybro Durandal](../flight_controller/durandal.md)
   - [Holybro Pix32 v5](../flight_controller/holybro_pix32_v5.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
+  - [ModalAI VOXL Flight](../flight_controller/modalai_voxl_flight.md)
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
@@ -44,3 +49,4 @@ This section lists the autopilot hardware documented in this library (that can b
   - [mRo AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md)
   - [Qualcomm Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
   - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+  - [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)

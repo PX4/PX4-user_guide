@@ -4,25 +4,33 @@ PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 �
 
 *QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
 
-> **참고** 일반적으로 사용되는 대부분의 파라미터는 [기본 설정](../config/README.md) 에서 설명한 설정 전용 화면을 이용하면 더 편하게 설정할 수 있습니다. *파라미터* 화면은 새 기체를 튜닝한다거나 하는 덜 일반적인 파라미터를 수정할 때 사용됩니다.
+:::note
+Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+:::
 
-<span></span>
+:::warning
+While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+:::
 
-> **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
+<span id="finding"></span>
 
-## 파라미터 찾기 {#finding}
+## Finding a Parameter
 
-*검색* 필드에 용어를 입력하여 파라미터를 검색 할 수 있습니다. 검색은 입력된 하위 문자열을 포함하는 모든 파라미터 이름 및 설명을 나열합니다 (검색을 초기화하려면 **지우기**를 누릅니다).
+You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
 
-![파라미터 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
-왼쪽 버튼을 클릭하여 그룹별로 파라미터를 탐색할 수 있습니다 (*Battery Calibration* 그룹 아래의 이미지가 선택됨).
+You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
 
-![파라미터 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
-> **Tip** If you can't find an expected parameter, see the [next section](#missing).
+:::tip
+If you can't find an expected parameter, see the [next section](#missing).
+:::
 
-## Missing Parameters {#missing}
+<span id="missing"></span>
+
+## Missing Parameters
 
 Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
 
@@ -41,23 +49,26 @@ New parameters are added in each PX4 version, and existing parameters are someti
 The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 
 - Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](https://dev.px4.io/master/en/setup/building_px4.html) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake): 
+- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake): 
         DRIVERS
             adc
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture > 
-    
-    **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+:::
 
-## Changing a Parameter {#changing}
+<span id="changing"></span>
+
+## Changing a Parameter
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
-> **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::note
+When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+:::
 
 ## Tools
 

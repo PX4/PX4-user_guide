@@ -20,7 +20,7 @@ Before you attempt your first transition to fixed wing flight you need to make a
 
 If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
-Follow the the respective tuning guides on how to tune multirotors and fixed wings.
+Follow the respective tuning guides on how to tune multirotors and fixed wings.
 
 ### 전환 조정
 
@@ -28,7 +28,9 @@ While it might seem that you are dealing with a vehicle that can fly in two mode
 
 Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
 
-#### Transition Throttle {#transition_throttle}
+<span id="transition_throttle"></span>
+
+#### Transition Throttle
 
 Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
@@ -70,7 +72,9 @@ Activating permanent stabilisation will result in fixed wing flight being stabil
 
 Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
 
-### 전환 팁 {#transitioning_tips}
+<span id="transitioning_tips"></span>
+
+### Transitioning Tips
 
 As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
 
@@ -92,7 +96,9 @@ Start your transition. It should transition within 50 – 100 meters. If it does
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
-> **Caution** The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+:::caution
+The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+:::
 
 #### Transition: Fixed Wing to Multirotor (Back-transition)
 
@@ -102,7 +108,9 @@ Consider that the throttle value you have when you transition will command the a
 
 For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
-#### 전환 중단 {#aborting_a_transition}
+<span id="aborting_a_transition"></span>
+
+#### Aborting a Transition
 
 It’s important to know what to expect when you revert a transition command *during* a transition.
 

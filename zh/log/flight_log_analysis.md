@@ -13,7 +13,7 @@
 * 如果分析是在故障发生之后进行的，那么日志是捕捉到了这次故障还是在半空中停止了记录呢？
 * 所有的控制器都跟踪到了它的设定值吗？ 最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
 * 传感器数据看起来有效吗？ 是否有非常强的震动（一个合理的判断强烈震动的阈值是所有的峰峰值是否超过 2-3m/s/s）。
-* 如果根本原因不针对于特定车辆，请确保在 [PX4问题跟踪器](https://github.com/px4/firmware/issues/new) 的报告中有日志文件的链接（以及视频如果有的话）。
+* 如果根本原因不针对于特定车辆，请确保在 [PX4问题跟踪器](https://github.com/PX4/PX4-Autopilot/issues/new) 的报告中有日志文件的链接（以及视频如果有的话）。
 
 ## 排除电力故障
 
@@ -25,7 +25,7 @@
 
 ### Flight Review（在线工具）
 
-[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 他能与新的 [ULog](http://dev.px4.io/en/log/ulog_file_format.html) 日志格式结合使用。
+[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 他能与新的 [ULog](../dev_log/ulog_file_format.md) 日志格式结合使用。
 
 主要特性：
 
@@ -109,7 +109,9 @@
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-### FlightPlot {#flightplot}
+<span id="flightplot"></span>
+
+### FlightPlot
 
 [FlightPlot](https://github.com/PX4/FlightPlot) 是一个基于桌面的日志分析工具。 可以从 [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows) 下载。
 
@@ -167,7 +169,7 @@
 
 源代码和下载在 [Github](https://github.com/facontidavide/PlotJuggler)上。
 
-![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
+![PlotJugler](../../assets/flight_log_analysis/plotjuggler.png)
 
 ### Data Comets
 

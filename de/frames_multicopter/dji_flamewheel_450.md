@@ -103,7 +103,9 @@ This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.co
 
 ![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 
-> **Note** After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
+:::note
+After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
+:::
 
 ### Others
 
@@ -116,4 +118,4 @@ Set the following parameters as well:
 
 ## Video
 
-{% youtube %}https://www.youtube.com/watch?v=JovSwzoTepU{% endyoutube %}
+@[youtube](https://youtu.be/JovSwzoTepU)

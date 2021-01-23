@@ -5,17 +5,21 @@
 * The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
 * The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC. They indicate power, bootloader mode and activity, and errors.
 
-## UI LED {#ui_led}
+<span id="ui_led"></span>
+
+## UI LED
 
 The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
 
 The image below shows the relationship between LED and vehicle status.
 
-> **Warning** It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+:::warning
+It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+:::
 
-<span></span>
-
-> **Tip** In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+:::tip
+In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+:::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
@@ -33,7 +37,9 @@ The image below shows the relationship between LED and vehicle status.
 
 * **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
-## Status LED {#status_led}
+<span id="status_led"></span>
+
+## Status LED
 
 Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
 
@@ -47,7 +53,9 @@ From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the
 | Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
 | Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
 
-> **Note** The LED labels shown above are commonly used, but might differ on some boards.
+:::note
+The LED labels shown above are commonly used, but might differ on some boards.
+:::
 
 More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
 
