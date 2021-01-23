@@ -14,7 +14,7 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 ## なにから始めればいいの？
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+始めには全てのユーザーが読む必要がある It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
