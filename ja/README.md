@@ -27,40 +27,40 @@ PX4が使える既成機（RTF）を持っている人
 
 **PX4を使ってゼロからドローンを作りたい人**
 
-PX4が使える乗り物は機体の参照の項に一覧で示してある。 These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+PX4が使える乗り物は機体の参照の項に一覧で示してある。 それらは試験済、調整済のビークルでQGroundControlを使ってダウンロードできる。
 :::
 
-If you want to build a vehicle from scratch:
+ゼロからビークルを作り上げたいときは：
 
 * フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
 * フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
 * [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
 * [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+ビークルを飛ばす準備が出来たら飛行の項を見ること
 
-**I am modifying a supported vehicle:**
+**PX4が使えるビークルを改造したい人は：**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+フライトコントローラーと基本センサーの変更については上で述べられている。 新しいセンサーを使用する場合、または飛行特性に大きな影響を与える変更を加えた場合:
 
 * [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
 * [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
 * [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
-**I want to run PX4 on new hardware and extend the platform:**
+**PX4を新しいハードウェアで実行し、プラットフォームを拡張したい：**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [開発](development/development.md) では、新しい機体と車両の種類をサポートする方法を説明し、飛行アルゴリズムを変更します。 新しいモードの追加、新しいハードウェアの統合、PX4との通信、PX4に貢献します。
 
-## Getting Help
+## ヘルプの参照
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[サポート](contribute/support.md) ページでは、コア開発チームとより広いコミュニティからヘルプを得る方法について説明します。
 
-Among other things it covers:
+その他以下のものをカバー:
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [フォーラムでヘルプが使えます](contribute/support.md#forums-and-chat)
+* [診断に関する事項](contribute/support.md#diagnosing-problems)
+* [バグを報告する方法](contribute/support.md#issue-bug-reporting)
+* [毎週の開発者通話](contribute/support.md#weekly-dev-call)
 
 ## バグ & 問題提起
 
