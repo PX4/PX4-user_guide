@@ -14,9 +14,9 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 ## なにから始めればいいの？
 
-始めには全てのユーザーが読む必要がある It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+始めには全てのユーザーが読む必要がある それにはPX4の概要、即ち(飛行モードや安全対策等の）ソフトウエアの機能と、（フライトコントローラー、車両、機体、テレメトリーシステム、ラジコン送受信機等の）ハードウエアについて述べられています。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+貴方の行いたいことに応じて、以下のヒントがこの解説書を探索するのに役に立つことでしょう。
 
 **I already have a drone and I just want to fly:**
 
