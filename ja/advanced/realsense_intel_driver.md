@@ -4,7 +4,7 @@
 
 ![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box  and the guest system are given below:
+ドライバーのインストールは、VirtualBox内のゲストOSとして動作するUbuntuオペレーションシステム(OS)上で実行されます。 The specifications of the host computer where the Virtual Box is running, the Virtual Box  and the guest system are given below:
 
 - Host Operation System: Windows 8
 - Processor: Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
