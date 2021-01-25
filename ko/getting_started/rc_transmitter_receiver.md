@@ -1,17 +1,17 @@
-# Radio Control Systems
+# 무선 제어 시스템(RC)
 
-A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
+핸드 헬드 송신기로 차량을 * 수동으로 * 제어하려면 무선 제어 (RC) 시스템이 필요합니다. RC가 작동 방식, 차량에 적합한 무선 시스템 선택법 및 비행 제어기 연결법에 대해 설명합니다.
 
-:::tip PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::note PX4는 자율 비행 모드에 대해 원격 제어 시스템이 필요하지 않습니다. [ 매개 변수 ](../advanced_config/parameters.md) : [ COM_RC_IN_MODE ](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 1로 설정하여 RC 검사를 비활성화 할 수 있습니다.
 :::
 
-## How do RC Systems Work?
+## RC 시스템은 어떻게 작동합니까?
 
-An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.). On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
+* RC 시스템 *에는 운전자가 차량을 명령하는 데 사용하는 지상 기반 * 원격 제어 장치 *가 있습니다. 리모컨에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하고 자동 조종 [ 비행 모드 ](../flight_modes/README.md) (예 : 이륙, 착륙, 복귀)를 활성화하는 데 사용할 수있는 물리적 제어 기능이 있습니다. 착륙, 임무 등). * 원격 측정이 가능한 * RC 시스템에서 원격 제어 장치는 차량으로부터 정보를 수신하고 표시할 수 있습니다 (예 : 배터리 잔량, 비행 모드).
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+원격 제어 장치에는 차량의 (호환되는) 통신용 무선 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 제어기에 연결됩니다. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
 <!-- image showing the different parts here would be nice -->
 
