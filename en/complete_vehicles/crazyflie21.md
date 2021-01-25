@@ -9,6 +9,10 @@ Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or com
 PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
+:::warning
+Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md).
+:::
+
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
