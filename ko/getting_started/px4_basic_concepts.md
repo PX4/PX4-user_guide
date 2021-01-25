@@ -161,35 +161,35 @@ PX4는 직렬 케이블 또는 무선랜으로 기체에 장착한 보조 컴퓨
 
 PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하고 비행 임무를 수행할 때 반드시 필요합니다.
 
-기본적으로, PX4는 부팅시에 SD 카드가 없으면 [포맷 실패 (2-beep)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 기타 기본적인 기능들은 동작하지 않습니다.
+기본적으로, PX4는 부팅 과정에 SD 카드가 없으면 [포맷 실패 (삑소리 2회)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다(그리고, 상기 다수의 기능은 동작하지 않음).
 
 :::tip
-Pixhawk 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 적극적으로 [추천합니다](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
 SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들이 포함되어야 합니다.
 
-- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 변수를 미사용으로 설정하여 경고음이 울리지 않도록 하여야 합니다.
-- [로그](../dev_log/logging.md#log-streaming)를 다른 장치에 기록하여야 합니다.
-- 비행 임무를 희발성 RAM에 저장하고 있어야 합니다.<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 끔.
+- [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 (보조)장치에 기록.
+- 비행 임무를 RAM/플래시에 저장. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 <span id="arming"></span>
 
-## 시동 걸고 꺼기
+## 시동 걸고 해제하기
 
-기체에 전원을 켜면 안전 사고를 유발할 수 있는 부품들이 있습니다. 그 대표적인 것인 모터와 프로펠러입니다!
+기체에 전원을 켜면 안전 사고를 유발할 수 있는 여러 부품이 있습니다(그 대표적인 부분이 바로 모터와 프로펠러입니다)!
 
-사고 발생을 줄이기 위해서는 다음의 사항을 유념하여야 합니다.
+사고 발생 가능성을 줄이려면:
 
-- PX4 비행체는 비행중이 아날 때는 *시동이 껴져 있고*, 비행을 위해서는 *시동*이 걸려야 한다.
-- 비행체는 보통 [안전 스위치](#safety_switch)를 사용하여 시동을 켜거나 끌 수 있읍니다. GPS 수신기에 안전 스위치가 같이 포함되어 있는 경우가 많습니다.
-- 기체가 정상 상태가 아니면, 시동은 걸리지 않습니다.
-- 수직이착륙기가 고정익 모드이면 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- 비행기가 착륙하거나 적절한 시간내에 이륙하지 못하면 시동은 자동으로 꺼집니다.
+- PX4 기체는 비행 중이 아닐 때는 *시동을 해제하고* (전원 차단), 이륙 전에는 제대로 *시동을 켜야*함.
+- 일부 기체에는 시동 성공 전에 제거해야 하는 [안전 스위치](#safety_switch)가 붙어있음(보통 GPS 수신기의 일부임).
+- 기체가 "정상" 상태가 아니면, 시동은 걸리지 않음.
+- 수직이착륙기를 고정익 모드로 설정하면 시동이 걸리지 않음([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- 기체 착륙 후 또는 충분히 빨리 이륙하지 않았을 경우, 보통 시동 끔 상태로 전환하기도 함.
 
-Mode 2 상태의 RC의 throttle/yaw 스틱을 *오른 쪽 아래*방항으로 2~3초 정도 누르고 있으면 시동이 걸리고, 왼쪽 아래 방향으로 2~3초 정도 누르고 있으면 시동이 꺼진다. PX4에서는 RC 스위치 버튼을 시동 버튼으로 설정할 수 있다. 이때, 시동 MAVLink 명령어는 지상제어 프로그램으로 전송된다.
+(모드 2 수신기의 경우) 추진력/방위각 조절 스틱을 *우측 하단*에 두어 1초 정도 유지하면 시동이 걸립니다(시동을 해제하려면, 좌측 하단으로 둠). PX4에서 무선 조종 스위치 또는 단추로 시동을 걸게끔 대신 설정할 수도 있습니다(그리고 MAVLink 시동 명령을 지상 통제 장치에서 보낼 수도 있음).
 
-시동에 관한 더 자세한 내용은 [시동 준비, 시동, 비시동 설정](../advanced_config/prearm_arm_disarm.md)에 기술되어 있습니다.
+시동을 걸고 해제하는 방식 설정의 구체적인 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)에 있습니다.
 
 <span id="flight_modes"></span>
 
