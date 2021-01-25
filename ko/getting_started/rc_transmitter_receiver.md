@@ -11,17 +11,17 @@
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-원격 제어 장치에는 차량의 (호환되는) 통신용 무선 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 제어기에 연결됩니다. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+원격 제어 장치에는 차량의 (호환되는) 통신용 무선 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 제어기에 연결됩니다. 비행 제어기는 현재의 자동 조종 비행 모드와 차량 상태를 기준으로 명령을 해석하는 방법을 결정하고 차량 모터와 액추에이터를 구동합니다.
 
 <!-- image showing the different parts here would be nice -->
 
 :::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The remote control unit and it's included radio module are also referred to as a "transmitter".
+지상 및 차량 기반 무선 모듈을 각각 송신기 및 수신기라고하며 (양방향 통신을 지원하더라도) 총칭하여 * 송신기 / 수신기 한쌍 *이라고합니다. 원격 제어 장치 및 포함 된 라디오 모듈을 "송신기"라고도 합니다.
 :::
 
-An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
+RC 시스템의 중요한 품질중 하나는 지원하는 "채널"수 입니다. 채널 수는 차량에 명령을 보내는 데 사용할 수있는 리모컨의 물리적 컨트롤 수를 정의합니다 (예 : 실제로 사용할 수있는 스위치, 다이얼, 컨트롤 스틱 수).
 
-An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
+항공기는 최소 4 개 채널 (롤, 피치, 요, 추력)을 지원하는 RC를 사용해야합니다. 지상 차량에는 최소 2 개의 채널 (조향 + 스로틀)이 필요합니다. 8 또는 16 채널 송신기는 다른 메커니즘을 제어하거나 자동 조종 장치에서 제공하는 다른 [ 비행 모드 ](../flight_modes/README.md)를 활성화하는 데 사용할 수있는 추가 채널을 제공합니다.
 
 ## Types of Remote Controls
 
