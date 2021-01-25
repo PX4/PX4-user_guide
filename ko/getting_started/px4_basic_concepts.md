@@ -1,17 +1,17 @@
 # 기본 개념
 
-무인 항공기에 대한 소개와 PX4 사용법에 대해 설명합니다. 이 자료는 초보자 뿐만 아니라 전문가에게도 유익한 자료들이 있습니다.
+이 주제에서는 무인 항공기 기본 개념을 소개하고 PX4 사용법을 설명합니다(초보자 뿐만 아니라 전문가에게도 유익한 자료들이 있습니다).
 
-기본 개념에 이미 숙지하셨다면, [기본 조립](../assembly/README.md)편에서 비행 제어기 조립에 관해서 공부하실 수 있습니다. *QGroundControl*을 사용하여 PX4 펌웨어를 설치하고 기체를 설정하는 방법은 [기본 설정](../config/README.md)편을 참조하십시오.
+기본 개념에 이미 익숙하다면, [기본 조립](../assembly/README.md)편으로 넘어가서 비행 제어 장치 연결 방법을 공부하실 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 불러오고 설치하려면 [기본 설정](../config/README.md)편을 참조하십시오.
 
 ## 드론이란?
 
-드론은 수동이나 자동으로 조종 가능한 무인 로봇입니다.
+드론은 원격 또는 자동으로 조종할 수 있는 무인 "로봇" 기체입니다.
 
-드론은 [개인이, 산업체, 공공기관 및 국방 분야 등](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 사용되고 있습니다. 드론은 항공 측량, 화물 운송, 레이싱 및 수색 등의 다양한 분야에서 응용되고 있습니다.
+드론은 [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 활용하고 있습니다. 또한 항공 사진/영상, 화물 운송, 경주, 수색 및 탐사 등 (간략한) 분야에서도 활용합니다.
 
 :::tip
-드론은 항공, 지상, 해양 등의 다양한 영역에서 사용되고 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+드론은 항공, 지상, 해양, 수중 용도가 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
 자율비행 프로그램은 드론을 움직이는 두되에 해당합니다. 자율 비행 프로그램은 비행 제어기에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
