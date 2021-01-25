@@ -34,17 +34,17 @@ PX4는 [QGroundControl](#qgc) 지상 관제 프로그램, [픽스호크 하드�
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [비행 제어 장치 하드웨어](flight_controller_selection.md)에 적재(플래싱)하고, 기체를 설정하고, 다양한 매개변수 값을 바꾸며, 실시간 비행 정보를 가져오고, 완전 자동 임무 비행을 실행할 수 있습니다.
+드론코드에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [비행 제어 장치 하드웨어](flight_controller_selection.md)에 적재(플래싱)하고, 기체를 설정하고, 다양한 매개변수 값을 바꾸며, 실시간 비행 정보를 가져오고, 완전 자동 임무 비행을 수행할 수 있습니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드할 수 있습니다.
+*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
 
 ![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## 비행 제어기 보드
+## 기체/비행 제어 장치 보드
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되었으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행되어집니다. 기체의 물리적인 조건과 비행의 목적과 비용에 적절한 하드웨어를 선택해야 합니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 제어 장치에서만 실행하도록 설계했으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행할 수 있습니다. 기체의 물리적 조건, 원하는 동작은 물론이거니와 비용면으로도 고려하여 적절한 보드를 선택해야 합니다.
 
 자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참조하십시오.
 
