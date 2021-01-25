@@ -79,9 +79,9 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은
 
 보틍, `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비류의 보조 장치를 제어합니다(때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용으로 사용하기도 합니다). 예를 들면, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4을 모터 제어용으로 사용하며, 나머지 `MAIN` 포트 `AUX` 포트는 RC 제어용으로 사용합니다.
 
-[비행 제어 장치](#vehicle_controller)의 실제 출력용 포트, 버스는 하드웨어와 PX4 설정에 따라 활용합니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
+[비행 제어 장치](#vehicle_controller)의 실제 출력용 포트, 버스는 하드웨어와 PX4 설정에 따라 활용합니다. *일반적으로* PWM 출력용 포트는 위에 언급된 내용대로 활용하며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 나타납니다.
 
-출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드가 *있을 수 있습니다.* 별도의 IO 보드에는 `AUX` 포트들은 FMU 보드에 연결되어 있고, `MAIN` 포트들은 IO 보드에 연결되어 있습니다. 그렇지 않으면 `MAIN` 포트들은 FMU 보드에 연결되어 있고, `AUX` 포트가 없을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. 이것들은 높은 성능이 필요한 레이싱 드론 등과 같은 기체에 적합합니다.
+또한 `FMU PWM OUT`, `IO PWM Out` (이런식으로) 처럼 표시를 해두기도 합니다. 픽스호크 제어 장치는 "주" FMU 보드가 있고, 별도의 입출력용 보드를 연결할 수*도* 있습니다. 별도의 입출력 보드가 있을 경우, `AUX` 포트는 FMU 보드에 바로 연결하고, `MAIN` 포트는 입출력 보드에 연결합니다. 다른 경우로는 `MAIN` 포트를 FMU 보드에 연결하고, `AUX` 포트를 두지 않을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. 이것들은 높은 성능이 필요한 레이싱 드론 등과 같은 기체에 적합합니다.
 
 출력 포트는 UAVCAN 노드에 연결될 수 있습니다(예: UAVCAN [모터 제어기](../peripherals/uavcan_escs.md)). 이 경우에는 출력 포트 매핑과 동일한 매핑 방식으로 UAVCAN 노드에 연결합니다.
 
