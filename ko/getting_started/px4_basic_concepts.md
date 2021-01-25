@@ -70,16 +70,16 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은
 출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누며, 각각의 장치들은 번호로 구분합니다(예: `MAINn` 과 `AUXn`, `n`에는 1부터 6 또는 1부터 8까지의 번호가 들어감).
 
 :::tip
-각각의 출력장치들은 기체별로 정해진 기능이 부여되어 있습니다. 기체별로 출력장치의 연결 방법은 [기체 설명](../airframes/airframe_reference.md)편에 자세히 기술되어 있습니다.
+각각의 출력장치에는 기체별로 정한 기능을 고정 부여했습니다. 모든 기체에 대한 출력 연결은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
 :::
 
 :::warning
-어떤 기체 제어기에는 `MAIN` 출력 장치들만 있을 수 있으며 (예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치들입니다. 적용하고자하는 [기체](../airframes/airframe_reference.md)에 적합한 출력 포트가 있는 제어기를 선택하여야 합니다..
+어떤 기체 제어기에는 `MAIN` 출력 장치만 있을 수 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 적용할 [기체](../airframes/airframe_reference.md)에 적절한 출력 포트가 붙은 제어 장치를 선택했는지 확인하십시오.
 :::
 
-보틍, `MAIN` 포트는 비행 제어용으로 사용되며, `AUX` 포트는 액튜에이터나 페이로드와 같이 보조 장치를 제어합니다. (때로는, 수직 이착륙리와 같이 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용오로 사용하기도 합니다). 예를 들면, [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4 은 모터 제어용로 사용하며, 나머지 `MAIN` 포트들과 `AUX` 포트들은 RC 제어용으로 사용됩니다.
+보틍, `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비류의 보조 장치를 제어합니다(때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용으로 사용하기도 합니다). 예를 들면, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4을 모터 제어용으로 사용하며, 나머지 `MAIN` 포트 `AUX` 포트는 RC 제어용으로 사용합니다.
 
-[비행 제어기](#vehicle_controller)의 출력 포트는 하드웨어와 PX4 설정에 의해서 결정되어집니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
+[비행 제어 장치](#vehicle_controller)의 실제 출력용 포트, 버스는 하드웨어와 PX4 설정에 따라 활용합니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
 
 출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드가 *있을 수 있습니다.* 별도의 IO 보드에는 `AUX` 포트들은 FMU 보드에 연결되어 있고, `MAIN` 포트들은 IO 보드에 연결되어 있습니다. 그렇지 않으면 `MAIN` 포트들은 FMU 보드에 연결되어 있고, `AUX` 포트가 없을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. 이것들은 높은 성능이 필요한 레이싱 드론 등과 같은 기체에 적합합니다.
 
