@@ -144,22 +144,22 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 데이터/텔레메트리 무선 통신
 
-[데이터/텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 기체간 MAVLink 무선 연결 수단을 제공합니다. 기체가 비행 중일 때 매개변수를 조정, 실시간으로 데이터 원격 측정 및 확인, 비행 중 임무를 변경등의 작업을 수행할 수 있습니다.
+[데이터/텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 기체간 MAVLink 무선 연결 수단을 제공합니다. 기체가 비행 중일 때 매개변수 값을 조정, 실시간으로 데이터 원격 측정 확인, 비행 중 임무 변경등의 동작을 수행할 수 있습니다.
 
 ## 외부 보조 컴퓨터
 
-외부 보조 컴퓨터에서 직렬 케이블이나 와이파이를 통해 PX를 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
+PX4는 직렬 케이블 또는 무선랜으로 기체에 장착한 보조 컴퓨터로 별개 제어할 수 있습니다. 보조 컴퓨터는 대개 MAVSDK 또는 MAVROS와 같은 MAVLink API로 통신합니다.
 
-이와 관련된 추가 정보는 아래와 같습니다.
+관련 주제는 다음과 같습니다.
 
-- [Offboard 모드](../flight_modes/offboard.md) - 지상제어 프로그램 또는 보조 컴퓨터와 같은 PX4의 외부에서 제어를 위한 비행 모드입니다. 
-- [로봇 API](../robotics/README.md)
+- [외부 모드](../flight_modes/offboard.md) - PX4의 외부에서 지상 통제 장치 또는 보조 컴퓨터로 제어하는 비행 모드. 
+- [로보틱스 API](../robotics/README.md)
 
 <span id="sd_cards"></span>
 
 ## SD 카드(휴대용 저장 장치)
 
-PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하거나 비행 미션을 수행에 반드시 필요합니다.
+PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하고 비행 임무를 수행할 때 반드시 필요합니다.
 
 기본적으로, PX4는 부팅시에 SD 카드가 없으면 [포맷 실패 (2-beep)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 기타 기본적인 기능들은 동작하지 않습니다.
 
