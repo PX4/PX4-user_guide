@@ -93,13 +93,13 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은
 
 ## 전자변속기(ESC)와 모터
 
-대대수의 PX4 드론은 전자 속도 제어기(Electronic Speed Controller, ESC)를 사용하여 브러시리스 모터를 사용합니다. ESC는 비행 컨트롤러의 신호를 모터의 적절한 전력으로 변환합니다.
+대대수의 PX4 드론은 비행 제어장치가 전자변속기(ESC)를 통해 제어하는 브러시리스 모터를 사용합니다(전자변속기는 비행 제어 장치의 신호를 모터에 적절한 전력으로 변환합니다).
 
-PX4가 지원하는 ESC/모터에 관한 정보는 여기를 참조하십시오.
+PX4가 지원하는 전자변속기/모터 정보는 여기를 참조하십시오.
 
-- [ESC와 모터](../peripherals/esc_motors.md)
-- [ESC 보정](../advanced_config/esc_calibration.md)
-- [ESC 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
+- [전자변속기와 모터](../peripherals/esc_motors.md)
+- [전자변속기 보정](../advanced_config/esc_calibration.md)
+- [전자변속기 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
 ## 배터리와 전원
 
