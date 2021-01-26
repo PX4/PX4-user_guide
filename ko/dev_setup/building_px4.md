@@ -77,7 +77,10 @@ kk
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The command below builds the target for [Raspberry Pi 2/3 Navio2](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html).
+:::note
+The following list shows the build commands for Pixhawk standard boards - the list of supported boards is much longer, please check out the documentation for the individual board for build instructions.
+:::
+
 * On OS X, hit ⌘-space and search for 'terminal'.
 * On Ubuntu, click the launch bar and search for 'terminal'.
 * On Windows, find the PX4 folder in the start menu and click on 'PX4 Console'.
@@ -87,16 +90,9 @@ The command below builds the target for [Raspberry Pi 2/3 Navio2](https://docs.p
 * [Pixhawk 3 Pro](https://docs.px4.io/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
 * [Pixhawk Mini](https://docs.px4.io/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
 * [Pixhawk 2](https://docs.px4.io/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
-* Cube Yellow: `make hex_cube-yellow`
-* Cube Orange: `make hex_cube-orange`
+* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [mRo Pixhawk](https://docs.px4.io/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [Pixfalcon](https://docs.px4.io/en/flight_controller/pixfalcon.html): `make px4_fmu-v2_default`
-* [Dropix](https://docs.px4.io/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
-* [MindPX](https://docs.px4.io/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
-* [mRo X-2.1](https://docs.px4.io/en/flight_controller/mro_x2.1.html): `make auav_x21_default`
-* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
-* [Crazyflie 2.0](../complete_vehicles/crazyflie2.md): `make bitcraze_crazyflie_default`
-* This section shows how to build for the [Qualcomm Snapdragon Flight](https://docs.px4.io/en/flight_controller/snapdragon_flight.html).
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
