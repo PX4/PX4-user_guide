@@ -87,10 +87,8 @@ A successful run will end with similar output to:
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-:::note
-The following list shows the build commands for Pixhawk standard boards - the list of supported boards is much longer, please check out the documentation for the individual board for build instructions.
-:::
-
+Build instructions are given in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+The following list shows the build commands for just the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 * [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
 * [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
