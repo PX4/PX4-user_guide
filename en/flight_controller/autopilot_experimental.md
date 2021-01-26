@@ -15,6 +15,7 @@ Experimental:
 - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) (Complete Vehicle)
+- [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) (Complete Vehicle)
 - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
