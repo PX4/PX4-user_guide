@@ -7,14 +7,14 @@ UAVCAN ESCs have a number of advantages over [PWM ESCs](../peripherals/pwm_escs_
   It enables safe use of ESCs on bigger vehicles and communication redundancy.
 - The bus is bi-directional, enabling health monitoring and diagnostics.
 - Wiring is less complicated as you can have a single bus for connecting all your ESCs and other UAVCAN peripherals.
-- Setup is easier as you configure ESC numbering by manually spinning each motor (in most cases).
+- Setup is easier as you configure ESC numbering by manually spinning each motor (for most types of UAVCAN ESCs).
 
 ## PX4 Supported ESC
 
 PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
 
 :::note
-At the time of writing PX4 supports UAVCAN v0 (not v1.0).
+At time of writing PX4 supports UAVCAN v0 (not v1.0).
 :::
 
 The only difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different. 
