@@ -33,12 +33,12 @@ UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래�
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-조종 스틱, 스위치의 배치 방식은 다양합니다. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
+조종 스틱, 스위치의 배치 방식은 다양합니다. 통상적으로 많이 쓰이는 레이아웃을 가리키는 "모드"번호가 있습니다. *모드 1* 및 * 모드 2 * (아래 참조)는 스로틀의 배치 만 다릅니다. 
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
 :::note
-The choice of mode is largely one of taste (*Mode 2* is more popular).
+취향에 따라 선택을 하면 됩니다.(* 모드 2 *가 더 많이 사용됨).
 :::
 
 ## Remote Control Units for Ground Vehicles
