@@ -9874,14 +9874,14 @@ default 1.5 turns per second    </td>
  <td><strong id="RC_RSSI_PWM_MAX">RC_RSSI_PWM_MAX</strong> (INT32)</td>
  <td>Max input value for RSSI reading <p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>   </td>
  <td>0 > 2000 </td>
- <td>1000</td>
+ <td>2000</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="RC_RSSI_PWM_MIN">RC_RSSI_PWM_MIN</strong> (INT32)</td>
  <td>Min input value for RSSI reading <p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>   </td>
  <td>0 > 2000 </td>
- <td>2000</td>
+ <td>1000</td>
  <td></td>
 </tr>
 <tr>
