@@ -87,26 +87,22 @@ A successful run will end with similar output to:
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The following list shows the build commands for common boards:
+:::note
+The following list shows the build commands for Pixhawk standard boards - the list of supported boards is much longer, please check out the documentation for the individual board for build instructions.
+:::
+
 * [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
 * [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
 * [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
-* [Holybro Kakute F7](../flight_controller/kakutef7.md): `make holybro_kakutef7_default`
 * [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
 * [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
-* [Cube Black](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
-* Cube Yellow: `make hex_cube-yellow`
-* Cube Orange: `make hex_cube-orange`
+* [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
 * [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
-* [MindPX](../flight_controller/mindpx.md)/[MindRacer](../flight_controller/mindracer.md): `make airmind_mindpx-v2_default`
-* [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default` 
-* [Crazyflie 2.0](../complete_vehicles/crazyflie2.md): `make bitcraze_crazyflie_default`
-* [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md): `make intel_aerofc-v1_default`
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
   :::warning
   You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
