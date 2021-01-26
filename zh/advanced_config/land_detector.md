@@ -49,7 +49,7 @@ This state is reached if following conditions are true for 0.35 seconds:
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- 油门低于[ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN) +（[ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN)）* [ LNDMC_LOW_T_THR ](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR)，或者速度设定值是地面速度的 0.9 倍，同时飞行器没有垂直运动。
+- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
 
 If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 

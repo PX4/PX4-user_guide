@@ -77,7 +77,10 @@ make px4_fmu-v4_default upload
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-以下是 [Raspberry Pi 2/3 Navio2](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html) 构建目标的命令。
+:::note
+The following list shows the build commands for Pixhawk standard boards - the list of supported boards is much longer, please check out the documentation for the individual board for build instructions.
+:::
+
 * 在 OS X 上，点击 ⌘-space 并搜索 “terminal” 。
 * 在 Ubuntu 上，单击运行栏并搜索 “terminal”。
 * 在 Windows 上，在“开始”菜单中找到 PX4 文件夹，然后单击 "PX4 Console"。
@@ -87,19 +90,12 @@ make px4_fmu-v4_default upload
 * [Pixhawk 3 Pro](https://docs.px4.io/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
 * [Pixhawk Mini](https://docs.px4.io/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
 * [Pixhawk 2](https://docs.px4.io/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
-* Cube Yellow: `make hex_cube-yellow`
-* Cube Orange: `make hex_cube-orange`
+* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
+* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [mRo Pixhawk](https://docs.px4.io/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default`（支持 2MB 闪存）
-* [Pixfalcon](https://docs.px4.io/en/flight_controller/pixfalcon.html): `make px4_fmu-v2_default`
-* [Dropix](https://docs.px4.io/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
-* [MindPX](https://docs.px4.io/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
-* [mRo X-2.1](https://docs.px4.io/en/flight_controller/mro_x2.1.html): `make auav_x21_default`
-* [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default`
-* **Note** 通常，`_default` 后缀是可选的（即，您也可以使用 `make px4_fmu-v4`、`make bitcraze_crazyflie` 等）生成。
-* [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md): `make intel_aerofc-v1_default`
 * [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 :::
-* **Tip** 这有助于分析（可能）导致 `px4_fmu-v2_default` 达到1MB 闪存限制的更改。
+* Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 "PX4" 可执行文件位于目录 **build/emlid_navio2_cross/** 中。 请确保您可以通过 ssh 连接到 RPi，请参阅 [介绍如何访问您的 RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start)。
 

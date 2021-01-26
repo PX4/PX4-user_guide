@@ -1,58 +1,58 @@
 # 기본 개념
 
-무인 항공기에 대한 소개와 PX4 사용법에 대해 설명합니다. 이 자료는 초보자 뿐만 아니라 전문가에게도 유익한 자료들이 있습니다.
+이 주제에서는 무인 항공기 기본 개념을 소개하고 PX4 사용법을 설명합니다. 초보자 뿐만 아니라 전문가에게도 유익한 자료들이 많이 있습니다.
 
-기본 개념에 이미 숙지하셨다면, [기본 조립](../assembly/README.md)편에서 비행 제어기 조립에 관해서 공부하실 수 있습니다. *QGroundControl*을 사용하여 PX4 펌웨어를 설치하고 기체를 설정하는 방법은 [기본 설정](../config/README.md)편을 참조하십시오.
+기본 개념에 이미 익숙하다면, [기본 조립](../assembly/README.md)편으로 넘어가서 비행 제어 장치 연결 방법을 공부하실 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 불러오고 설치하려면 [기본 설정](../config/README.md)편을 참조하십시오.
 
 ## 드론이란?
 
-드론은 수동이나 자동으로 조종 가능한 무인 로봇입니다.
+드론은 원격 또는 자동으로 조종할 수 있는 무인 "로봇" 기체입니다.
 
-드론은 [개인이, 산업체, 공공기관 및 국방 분야 등](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 사용되고 있습니다. 드론은 항공 측량, 화물 운송, 레이싱 및 수색 등의 다양한 분야에서 응용되고 있습니다.
+드론은 [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)에서 다양하게 활용하고 있습니다. 또한 항공 사진/영상, 화물 운송, 경주, 수색 및 탐사 등 (간략한) 분야에서도 활용합니다.
 
 :::tip
-드론은 항공, 지상, 해양 등의 다양한 영역에서 사용되고 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+드론은 항공, 지상, 해양, 수중 용도가 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-자율비행 프로그램은 드론을 움직이는 두되에 해당합니다. 자율 비행 프로그램은 비행 제어기에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
+드론의 "뇌"를 오토파일럿 장치라고 합니다. 자율 비행 프로그램은 비행 제어 장치에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
 
 <span id="autopilot"></span>
 
-## PX4 자율비행 프로그램
+## PX4 오토파일럿 장치
 
-[PX4](http://px4.io/) 는 다양한 기능을 가진 오픈 소스 자율 비행 프로그램입니다. 
+[PX4](http://px4.io/)는 강력한 기능을 가진 오픈 소스 오토파일럿 *비행 스택*입니다.
 
-PX의 주요기능
+PX4의 일부 주요 기능은 다음과 같습니다:
 
-- 항공기 (멀티콥터, 고정익 및 수직이착륙기), 지상 운송체및 잠수함을 포함하여 [ 다양한 기체 유형](../airframes/airframe_reference.md)을 제어 
-- [운송체 컨트롤러](#vehicle_controller), 센서 및 다양한 주변 장치 지원
-- 강력한 [비행 기능](#flight_modes) 및 [안전 기능](#safety)
+- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상 운송 수단 및 잠수정 등 [굉장히 다양한 기체 프레임/형식](../airframes/airframe_reference.md)을 제어함 
+- [기체 제어장치](#vehicle_controller), 센서 및 다양한 주변 장치에 있어 하드웨어 관점에서 탁월한 선택임
+- 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원함
 
-PX4는 [QGroundControl](#qgc) 지상 제어 프로그램, [Pixhawk 하드웨어](https://pixhawk.org/) 그리고 보조 컴퓨터, 카메라 및 하드웨어(MAVLink 프로토콜을 지원)를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 플랫폼 중에서 핵심적인 요소입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
+PX4는 [QGroundControl](#qgc) 지상 관제 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터를 붙이는 [MAVSDK](http://mavsdk.mavlink.io), 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어가 어우러진 방대한 드론 플랫폼의 핵심 부분입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
 <span id="qgc"></span>
 
 ## QGroundControl
 
-Dronecode에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [비행 제어기](flight_controller_selection.md)에 업로드할 수 있으며, 해당 기체 비행에 필요한 각종 변수를 설정하고, 자율 비행의 실시간 정보를 조회할 수 있습니다.
+드론코드에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [비행 제어 장치 하드웨어](flight_controller_selection.md)에 적재(플래싱)하고, 기체를 설정하고, 다양한 매개변수 값을 바꾸며, 실시간 비행 정보를 가져오고, 완전 자동 임무 비행을 수행할 수 있습니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 필요한 프로그램을 다운로드할 수 있습니다.
+*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
 
 ![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## 비행 제어기 보드
+## 기체/비행 제어 장치 보드
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되었으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행되어집니다. 기체의 물리적인 조건과 비행의 목적과 비용에 적절한 하드웨어를 선택해야 합니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 제어 장치에서만 실행하도록 설계했으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행할 수 있습니다. 기체의 물리적 조건, 원하는 동작은 물론이거니와 비용면으로도 고려하여 적절한 보드를 선택해야 합니다.
 
 자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참조하십시오.
 
 ## 센서
 
-PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기체 안정화에 필수적인 과정)합니다. 자이로스코프 센서, 가속도 센서, 지자기 센서 및 기압 센서는 * 시스템 구동을 위한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서가 반드시 추가되어야 합니다.
+PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기체 안정화에 필수적인 과정)합니다. 시스템 구동시 각속도 센서, 가속도 센서, 지자기 센서(나침반) 및 기압 센서를 *최소한으로 요구* 합니다. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서를 반드시 붙여야 합니다(강력 추천).
 
-더 자세한 정보는 다음을 참고하세요.
+더 자세한 정보는 다음을 참고하십시오.
 
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
@@ -61,74 +61,74 @@ PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기�
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
-PX4에서 사용하는 *출력 장치*에는 모터(예 : [ ESC](#esc_and_motors)를 통해), 에일러론 및 플랩과 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 여러 가지 페이로드 등이 있습니다.
+PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 여러 가지 적재 장비 등을 제어하는 *출력* 수단을 활용합니다.
 
 아래의 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 나타냅니다.
 
 ![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
-출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누어지며, 각각의 장치들은 번호로 구분됩니다. (예: `MAINn` and `AUXn`, 여기서 `n` 1부터 6또는 8까지의 번호).
+출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누며, 각각의 장치는 번호로 구분합니다(예: `MAINn` 과 `AUXn`, `n`에는 1부터 6 또는 1부터 8까지의 번호가 들어감).
 
 :::tip
-각각의 출력장치들은 기체별로 정해진 기능이 부여되어 있습니다. 기체별로 출력장치의 연결 방법은 [기체 설명](../airframes/airframe_reference.md)편에 자세히 기술되어 있습니다.
+각각의 출력장치에는 기체별로 정한 기능을 고정 부여했습니다. 모든 기체에 대한 출력 연결은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
 :::
 
 :::warning
-어떤 기체 제어기에는 `MAIN` 출력 장치들만 있을 수 있으며 (예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치들입니다. 적용하고자하는 [기체](../airframes/airframe_reference.md)에 적합한 출력 포트가 있는 제어기를 선택하여야 합니다..
+어떤 기체 제어기에는 `MAIN` 출력 장치만 있을 수 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 적용할 [기체](../airframes/airframe_reference.md)에 적절한 출력 포트가 붙은 제어 장치를 선택했는지 확인하십시오.
 :::
 
-보틍, `MAIN` 포트는 비행 제어용으로 사용되며, `AUX` 포트는 액튜에이터나 페이로드와 같이 보조 장치를 제어합니다. (때로는, 수직 이착륙리와 같이 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용오로 사용하기도 합니다). 예를 들면, [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4 은 모터 제어용로 사용하며, 나머지 `MAIN` 포트들과 `AUX` 포트들은 RC 제어용으로 사용됩니다.
+보틍, `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비류의 보조 장치를 제어합니다(때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용으로 사용하기도 합니다). 예를 들면, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4을 모터 제어용으로 사용하며, 나머지 `MAIN` 포트 `AUX` 포트는 RC 제어용으로 사용합니다.
 
-[비행 제어기](#vehicle_controller)의 출력 포트는 하드웨어와 PX4 설정에 의해서 결정되어집니다. *일반적으로* PWM 출력용 포트는 위에 언급된 것과 같으며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 표시되어 있다.
+[비행 제어 장치](#vehicle_controller)의 실제 출력용 포트, 버스는 하드웨어와 PX4 설정에 따라 활용합니다. *일반적으로* PWM 출력용 포트는 위에 언급된 내용대로 활용하며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 나타납니다.
 
-출력용 포트들은 `FMU PWM OUT` 이나 `IO PWM Out` 또는 이와 유사하게 표시되어 있다. Pixhawk 제어기는 주 FMU 보드가 있고, 이와 별도의 IO 보드가 *있을 수 있습니다.* 별도의 IO 보드에는 `AUX` 포트들은 FMU 보드에 연결되어 있고, `MAIN` 포트들은 IO 보드에 연결되어 있습니다. 그렇지 않으면 `MAIN` 포트들은 FMU 보드에 연결되어 있고, `AUX` 포트가 없을 수도 있습니다. FMU 포트들은 지연 시간일 짧은 [D-shot](../peripherals/dshot.md), *One-shot* 또는 PWM 프로토콜을 사용합니다. 이것들은 높은 성능이 필요한 레이싱 드론 등과 같은 기체에 적합합니다.
+또한 `FMU PWM OUT`, `IO PWM Out` (이런식으로) 처럼 표시를 해두기도 합니다. 픽스호크 제어 장치는 "주" FMU 보드가 있고, 별도의 입출력용 보드를 연결할 수*도* 있습니다. 별도의 입출력 보드가 있을 경우, `AUX` 포트는 FMU 보드에 바로 연결하고, `MAIN` 포트는 입출력 보드에 연결합니다. 다른 경우로는 `MAIN` 포트를 FMU 보드에 연결하고, `AUX` 포트를 두지 않을 수도 있습니다. FMU 출력 포트는 짧은 지연 시간 동작을 수행하는 [D-shot](../peripherals/dshot.md), *One-shot* 프로토콜을 채용하여 (PWM 처럼) 활용할 수 있습니다. 이는 경주용 드론과 높은 성능이 필요한 기체에 쓸만합니다.
 
-출력 포트는 UAVCAN 노드에 연결될 수 있습니다(예: UAVCAN [모터 제어기](../peripherals/uavcan_escs.md)). 이 경우에는 출력 포트 매핑과 동일한 매핑 방식으로 UAVCAN 노드에 연결합니다.
+출력 포트는 UAVCAN 노드로 연결할 수 있습니다(예: UAVCAN [모터 제어 장치](../peripherals/uavcan_escs.md)). 이 경우에는 (동일한) 에어프레임 출력 연결 방식을 노드에 적용합니다.
 
-**Notes:**
+**참고:**
 
-- `MAIN` 포트나 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분한 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드 bus에서 더 많은 갯수의 출력용 포트를 제공할 수 있습니다. 특히, UAVCAN bus는 이러한 제한들 받지 않습니다.
+- `MAIN` 포트와 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분하도록 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드 버스에서 더 많은 출력 포트를 제공할 수 있습니다(UAVCAN 버스는 이러한 제한을 받지 않습니다).
 
 <span id="esc_and_motors"></span>
 
-## 속도제어기(ESC)와 모터
+## 전자변속기(ESC)와 모터
 
-대대수의 PX4 드론은 전자 속도 제어기(Electronic Speed Controller, ESC)를 사용하여 브러시리스 모터를 사용합니다. ESC는 비행 컨트롤러의 신호를 모터의 적절한 전력으로 변환합니다.
+대대수의 PX4 드론은 비행 제어장치가 전자변속기(ESC)를 통해 제어하는 브러시리스 모터를 사용합니다(전자변속기는 비행 제어 장치의 신호를 모터에 적절한 전력으로 변환합니다).
 
-PX4가 지원하는 ESC/모터에 관한 정보는 여기를 참조하십시오.
+PX4가 지원하는 전자변속기/모터 정보는 여기를 참조하십시오.
 
-- [ESC와 모터](../peripherals/esc_motors.md)
-- [ESC 보정](../advanced_config/esc_calibration.md)
-- [ESC 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
+- [전자변속기와 모터](../peripherals/esc_motors.md)
+- [전자변속기 보정](../advanced_config/esc_calibration.md)
+- [전자변속기 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
 ## 배터리와 전원
 
-PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
+PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다. 배터리는 일반적으로 비행 제어 장치 및 전자변속기(모터용)에 별도의 전원을 제공하는 *전원 모듈* 또는 *전원 관리 보드*를 통해 시스템에 연결합니다.
 
-배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 조립](../assembly/README.md) (예: [Pixhawk 4 배선 퀵 스타트> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 설명서를 참조하십시오.
+배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 조립](../assembly/README.md) (예: [픽스호크 4 배선 빠른 시작 > 전원](../assembly/quick_start_pixhawk4.md#power))안내서에서 찾아볼 수 있습니다.
 
 <span id="rc_systems"></span>
 
 ## 무선 조종(RC)
 
-[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 드론을 *수동으로* 조종할 수 있습니다. RC는 신호 수신기와 송신기로 구성됩니다. 수신기는 기체의 장착되고, 송신기는 RC 스틱의 위치 데이터를 전송합니다. 일부 RC는 비행 제어기의 텔레메트리 정보를 송수신할 수 있습니다.
+[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)시스템은 기체를 *수동으로* 조종할 때 사용합니다. 고정/제어 위치에서 통신하는 송신기가 붙은 무선 조종기와 기체에 붙어있는 수신기로 이루어져있습니다. 일부 무선 조종 시스템은 오토파일럿이 송신하는 무선 측정 정보를 되받아오기도 합니다.
 
-:::note PX4에는 자율 비행 모드에서는 RC가 반드시 필요하지는 않습니다.
+:::note PX4는 자율 비행 모드에 대해 원격 제어 시스템이 필요하지 않습니다.
 :::
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC 선택](../getting_started/rc_transmitter_receiver.md)은 무선 조종기를 선택에 필요한 정보뿐만 아니라, 다음과 같은 정보도 포함되어 있습니다.
+[원격 조종 시스템 선택](../getting_started/rc_transmitter_receiver.md)편에서는 원격 조종 시스템을 선택하는 방법을 설명합니다. 다음과 같은 기타 관련 주제도 있습니다:
 
-- [ RC 설정](../config/radio.md) - *QGroundControl*의 RC 설정.
-- [비행 첫걸음](../flying/basic_flying.md) - RC로 수동 비행법.
-- [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 기체의 비행정보를 실시간으로 수신하도록 RC 송신기를 설정하는 방법.
+- [무선/원격 조종 설정](../config/radio.md) - *QGroundControl*에서의 원격 조종 설정.
+- [비행 첫걸음](../flying/basic_flying.md) - 원격 조종으로 비행하는 방법을 배웁니다.
+- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 나오는 텔레메트리 정보 또는 상태 업데이트 정보를 수신할 무선 조종 송신기를 설정합니다.
 
 <span id="joystick"></span>
 
-## 지상제어 조이스틱
+## 지상 통제 장치의 조이스틱 제어장치
 
-*QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있다. 지상제어프로그램은 조이스틱의 신호를 MAVLink 메시지로 변환하여 텔레메트리로 전송한다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/)와 *UAVComponents*, [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용된다. 조이스틱은 비행 시뮬레이션에서도 많이 사용되어진다.
+*QGroundControl*에서 [컴퓨터 조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수도 있습니다. (QGroundControl은 조이스틱의 움직임을 MAVLink 메시지로 변환하여 텔레메트리로 전송함). 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*, [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용합니다. 조이스틱은 보통 기체 모의 시험 프로그램에서도 사용합니다.
 
 ![MicroNav와 지상제어프로그램에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
@@ -136,60 +136,60 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 안전 스위치
 
-운송체에는 *안전 스위치*가 있으며, 안전 스위치는 켜야만 운송체의 시동을 걸 수 있습니다. 운송체의 시동이 걸려야만 모터와 프로펠러가 동작할 수 있습니다. 보통 안전 스위치는 GPS 장치에 붙어있으나, 별도의 부품으로 장착되기도 합니다.
+기체에는 *안전 스위치*가 있으며, 안전 스위치를 켜야만 기체의 [시동](#arming)을 걸 수 있습니다(기체의 시동이 걸려야만 모터와 프로펠러가 동작할 수 있음). 보통 안전 스위치는 GPS 장치에 붙어있으나, 별도의 부품으로 장착하기도 합니다.
 
 :::warning
-일단 기체에 시동이 걸리면 사고가 발생할 수 있으니, 안전 사고에 유의하여야 합니다. 안전 스위치는 갑자기 시동이 걸려 사고가 발생하는 것을 방지합니다.
+시동이 걸린 기체는 잠재적인 위험성을 지니고 있습니다. 안전 스위치는 갑자기 시동이 걸려 발생하는 사고를 방치하는 추가 대책입니다.
 :::
 
-## 텔레메트리 무선 조종
+## 데이터/텔레메트리 무선 통신
 
-[텔레메트리](../telemetry/README.md)는 *QGroundControl*과 같은 지상국과 PX4를 실행하는 기체 사이에 MAVLink 무선 통신을 제공합니다. 기체가 비행 중일 때 매개변수를 조정, 실시간으로 데이터 원격 측정 및 확인, 비행 중 임무를 변경등의 작업을 수행할 수 있습니다.
+[데이터/텔레메트리 무선 통신](../telemetry/README.md)은 *QGroundControl*과 같은 지상 통제국과 PX4를 구동하는 기체간 MAVLink 무선 연결 수단을 제공합니다. 기체가 비행 중일 때 매개변수 값을 조정, 실시간으로 데이터 원격 측정 확인, 비행 중 임무 변경등의 동작을 수행할 수 있습니다.
 
 ## 외부 보조 컴퓨터
 
-외부 보조 컴퓨터에서 직렬 케이블이나 와이파이를 통해 PX를 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
+PX4는 직렬 케이블 또는 무선랜으로 기체에 장착한 보조 컴퓨터로 별개 제어할 수 있습니다. 보조 컴퓨터는 대개 MAVSDK 또는 MAVROS와 같은 MAVLink API로 통신합니다.
 
-이와 관련된 추가 정보는 아래와 같습니다.
+관련 주제는 다음과 같습니다.
 
-- [Offboard 모드](../flight_modes/offboard.md) - 지상제어 프로그램 또는 보조 컴퓨터와 같은 PX4의 외부에서 제어를 위한 비행 모드입니다. 
-- [로봇 API](../robotics/README.md)
+- [외부 모드](../flight_modes/offboard.md) - PX4의 외부에서 지상 통제 장치 또는 보조 컴퓨터로 제어하는 비행 모드. 
+- [로보틱스 API](../robotics/README.md)
 
 <span id="sd_cards"></span>
 
 ## SD 카드(휴대용 저장 장치)
 
-PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하거나 비행 미션을 수행에 반드시 필요합니다.
+PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하고 비행 임무를 수행할 때 반드시 필요합니다.
 
-기본적으로, PX4는 부팅시에 SD 카드가 없으면 [포맷 실패 (2-beep)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 기타 기본적인 기능들은 동작하지 않습니다.
+기본적으로, PX4는 부팅 과정에 SD 카드가 없으면 [포맷 실패 (삑소리 2회)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다(그리고, 상기 다수의 기능은 동작하지 않음).
 
 :::tip
-Pixhawk 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 적극적으로 [추천합니다](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
 SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들이 포함되어야 합니다.
 
-- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 변수를 미사용으로 설정하여 경고음이 울리지 않도록 하여야 합니다.
-- [로그](../dev_log/logging.md#log-streaming)를 다른 장치에 기록하여야 합니다.
-- 비행 임무를 희발성 RAM에 저장하고 있어야 합니다.<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 끔.
+- [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 (보조)장치에 기록.
+- 비행 임무를 RAM/플래시에 저장. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 <span id="arming"></span>
 
-## 시동 걸고 꺼기
+## 시동 걸고 해제하기
 
-기체에 전원을 켜면 안전 사고를 유발할 수 있는 부품들이 있습니다. 그 대표적인 것인 모터와 프로펠러입니다!
+기체에 전원을 켜면 안전 사고를 유발할 수 있는 여러 부품이 있습니다(그 대표적인 부분이 바로 모터와 프로펠러입니다)!
 
-사고 발생을 줄이기 위해서는 다음의 사항을 유념하여야 합니다.
+사고 발생 가능성을 줄이려면:
 
-- PX4 비행체는 비행중이 아날 때는 *시동이 껴져 있고*, 비행을 위해서는 *시동*이 걸려야 한다.
-- 비행체는 보통 [안전 스위치](#safety_switch)를 사용하여 시동을 켜거나 끌 수 있읍니다. GPS 수신기에 안전 스위치가 같이 포함되어 있는 경우가 많습니다.
-- 기체가 정상 상태가 아니면, 시동은 걸리지 않습니다.
-- 수직이착륙기가 고정익 모드이면 시동이 걸리지 않습니다([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- 비행기가 착륙하거나 적절한 시간내에 이륙하지 못하면 시동은 자동으로 꺼집니다.
+- PX4 기체는 비행 중이 아닐 때는 *시동을 해제하고* (전원 차단), 이륙 전에는 제대로 *시동을 켜야*함.
+- 일부 기체에는 시동 성공 전에 제거해야 하는 [안전 스위치](#safety_switch)가 붙어있음(보통 GPS 수신기의 일부임).
+- 기체가 "정상" 상태가 아니면, 시동은 걸리지 않음.
+- 수직이착륙기를 고정익 모드로 설정하면 시동이 걸리지 않음([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- 기체 착륙 후 또는 충분히 빨리 이륙하지 않았을 경우, 보통 시동 끔 상태로 전환하기도 함.
 
-Mode 2 상태의 RC의 throttle/yaw 스틱을 *오른 쪽 아래*방항으로 2~3초 정도 누르고 있으면 시동이 걸리고, 왼쪽 아래 방향으로 2~3초 정도 누르고 있으면 시동이 꺼진다. PX4에서는 RC 스위치 버튼을 시동 버튼으로 설정할 수 있다. 이때, 시동 MAVLink 명령어는 지상제어 프로그램으로 전송된다.
+(모드 2 수신기의 경우) 추진력/방위각 조절 스틱을 *우측 하단*에 두어 1초 정도 유지하면 시동이 걸립니다(시동을 해제하려면, 좌측 하단으로 둠). PX4에서 무선 조종 스위치 또는 단추로 시동을 걸게끔 대신 설정할 수도 있습니다(그리고 MAVLink 시동 명령을 지상 통제 장치에서 보낼 수도 있음).
 
-시동에 관한 더 자세한 내용은 [시동 준비, 시동, 비시동 설정](../advanced_config/prearm_arm_disarm.md)에 기술되어 있습니다.
+시동을 걸고 해제하는 방식 설정의 구체적인 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)에 있습니다.
 
 <span id="flight_modes"></span>
 

@@ -1,44 +1,44 @@
-# Radio Control Systems
+# 무선 조종기(RC)
 
-A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
+핸드 헬드 송신기로 차량을 * 수동으로 * 제어하려면 무선조종기(RC)가 필요합니다. 무선 조종기의 작동 방식, 차량에 적합한 무선 시스템 선택법 및 비행 제어기에 연결하는 법에 대하여 설명합니다.
 
-:::tip PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::note PX4는 자율 비행 모드에 대해 무선 조종기가 필수 사항은 아닙니다. [ 매개 변수 ](../advanced_config/parameters.md) : [ COM_RC_IN_MODE ](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 1로 설정하여 무선 조종기 사용을 비활성화 할 수 있습니다.
 :::
 
-## How do RC Systems Work?
+## 무선 조종기는 어떻게 작동합니까?
 
-An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.). On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
+*무선 조종기*에는 운전자가 차량을 명령하는 데 사용하는 지상 기반 * 원격 제어 장치 *가 있습니다. 리모컨에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하고 자동 조종 [비행 모드 ](../flight_modes/README.md) (예 : 이륙, 착륙, 복귀)를 활성화하는 데 사용할 수있는 물리적 제어 기능이 있습니다. 착륙, 임무 등). *원격 측정이 가능한* 무선조종기는 차량에서 수신한 정보를 수신하고 표시할 수 있습니다 (예 : 배터리 잔량, 비행 모드).
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+무선 조종기에는 차량과 호환되는 통신용 무선 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 제어기에 연결됩니다. 비행 제어기는 현재의 자동 조종 비행 모드와 차량 상태를 기준으로 명령을 해석하는 방법을 결정하고 차량 모터와 액추에이터를 구동합니다.
 
 <!-- image showing the different parts here would be nice -->
 
 :::note
-The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The remote control unit and it's included radio module are also referred to as a "transmitter".
+지상 및 차량 기반 무선 모듈을 각각 송신기 및 수신기라고하며 (양방향 통신을 지원하더라도) 총칭하여 * 송신기 / 수신기 한쌍 *이라고합니다. 무선 제어기내의 라디오 모듈을 "송신기"라고도 합니다.
 :::
 
-An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
+무선 조종기의 중요한 품질중 하나는 지원하는 "채널"수 입니다. 채널 수는 차량에 명령을 보내는 데 사용할 수있는 리모컨의 물리적 컨트롤 수를 정의합니다 (예 : 실제로 사용할 수있는 스위치, 다이얼, 컨트롤 스틱 수).
 
-An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
+항공기는 최소 4 개 채널 (롤, 피치, 요, 추력)을 지원하는 무선 조종기를 사용해야합니다. 지상 차량에는 최소 2 개의 채널 (조향 + 스로틀)이 필요합니다. 8 또는 16 채널 송신기는 다른 메커니즘을 제어하거나 자동 조종 장치에서 제공하는 다른 [ 비행 모드 ](../flight_modes/README.md)를 활성화하는 데 사용할 수있는 추가 채널을 제공합니다.
 
-## Types of Remote Controls
+## 무선 조종기 종류
 
 <span id="transmitter_modes"></span>
 
-### Remote Control Units for Aircraft
+### 항공기 전용 무선 조종기 부품
 
-The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
+UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래와 같습니다. 롤/피치 및 스로틀/요를 제어하기위한 별도의 조종 스틱이 있습니다 (예 : 항공기에 최소 4 개의 채널이 필요함). </p> 
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
+조종 스틱, 스위치의 배치 방식은 다양합니다. 통상적으로 많이 쓰이는 레이아웃을 가리키는 "모드"번호가 있습니다. *모드 1* 및 * 모드 2 * (아래 참조)는 스로틀의 배치 만 다릅니다. 
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
 :::note
-The choice of mode is largely one of taste (*Mode 2* is more popular).
+취향에 따라 선택을 하면 됩니다.(* 모드 2 *가 더 많이 사용됨).
 :::
 
 ## Remote Control Units for Ground Vehicles
