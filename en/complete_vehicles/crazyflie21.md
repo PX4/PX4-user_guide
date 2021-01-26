@@ -13,7 +13,8 @@ PX4 support for this flight controller is [experimental](../flight_controller/au
 Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md).
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
+The Crazyflie line of micro quads was created by Bitcraze AB.
+An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
@@ -38,19 +39,19 @@ The main hardware documentation is [here](https://wiki.bitcraze.io/projects:craz
 
 ## Where to Buy
 
-* [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1).
-* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
-* [Flow deck v2](https://store.bitcraze.io/collections/decks/products/flow-deck-v2): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground.
-  This will be useful for precise altitude and position control.
-* [Z-ranger deck v2](https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2) has the same distance sensor as the Flow deck to measure the distance to the ground.
-  This will be useful for precise altitude control.
-* [Multi-ranger deck](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck) gives the Crazyflie 2.X the ability to detect objects around it.
-  This will be useful for precise altitude control.
-* [Buzzer deck](https://store.bitcraze.io/collections/decks/products/buzzer-deck) gives you audio feedback on system events, like low battery or charging completed.
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck) gives you the ability to test new hardware easily without soldering by using the breakout expansion board.
-* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
-* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad).
+The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
+
+Useful peripheral hardware includes:
+
+* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): Wireless communication between *QGroundControl* and Crazyflie 2.0
+* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): Breakout expansion board for connecting new peripherals.
+* [Flow deck v2](https://store.bitcraze.io/collections/decks/products/flow-deck-v2): Optical flow sensor and a distance sensor for altitude and position control.
+* [Z-ranger deck v2](https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2): Distance sensor for altitude control (same sensor as the Flow deck).
+* [Multi-ranger deck](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck) Multi-direction object detection
+* [Buzzer deck](https://store.bitcraze.io/collections/decks/products/buzzer-deck) Audio feedback on system events, like low battery or charging completed.
+* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): Expansion board that gives you the ability to test new hardware easily without soldering.
+* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): High speed onboard logging to a micro SD card
+* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad)
 
 ## Assemble Crazyflie 2.1
 
@@ -196,9 +197,9 @@ make venv
 
 :::note
 The Joystick menu in QGC, only appears after you connect the controller to the PC (for example a Playstation 3 controller).
-:::
 
-![](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
+![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
+:::
 
 ## Hardware Setup
 
