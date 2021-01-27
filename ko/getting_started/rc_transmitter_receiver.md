@@ -41,17 +41,17 @@ UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래�
 취향에 따라 선택을 하면 됩니다.(* 모드 2 *가 더 많이 사용됨).
 :::
 
-## Remote Control Units for Ground Vehicles
+## 지상 차량용 무선 조종기
 
-An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
+무인 지상 차량 (UGV) / 자동차는 조향 및 속도 값을 전송하기 위해 최소 2 채널의 송신기가 필요합니다. 일반적으로 송신기는 휠과 트리거, 2 개의 단일 축 컨트롤 스틱 또는 단일 이중 축 컨트롤 스틱을 사용하여 위의 값들을 설정합니다.
 
-There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
+더 많은 채널/제어 메커니즘을 사용 가능하며, 추가 액추에이터 및 자동 조종 모드를 사용하는 데 매우 유용합니다.
 
-## Choosing RC System Components
+## 무선 조종기 부품 선택
 
-You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
+서로 호환되는 송신기와 수신기를 구매하여야 합니다. 또한 수신기는 [ PX4 ](#compatible_receivers) 및 비행 제어기와 호환되어야 합니다.
 
-Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
+제어기와 호환되는 무선 조종기는 묶음으로 판매됩니다. 예를 들어 [ FrSky Taranis X9D 및 FrSky X8R ](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us)은 인기있는 조합입니다.
 
 ### Transmitter/Receiver Pairs
 
