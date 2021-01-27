@@ -34,6 +34,8 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
   
   ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
   :::
+  
+  <!-- source for image is https://github.com/PX4/PX4-Autopilot/blob/850d0bc588af79186286652af4c8293daafd2c4c/src/lib/mixer/MultirotorMixer/MultirotorMixer.cpp#L323-L326 -->
 
 ### Multicopter Attitude Controller
 
