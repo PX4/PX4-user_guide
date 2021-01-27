@@ -6,7 +6,7 @@
   * [기체/프레임](getting_started/frame_selection.md)
   * [비행 컨트롤러](getting_started/flight_controller_selection.md)
   * [센서](getting_started/sensor_selection.md)
-  * [무선 시스템](getting_started/rc_transmitter_receiver.md)
+  * [무선 조종기](getting_started/rc_transmitter_receiver.md)
   * [비행 모드](getting_started/flight_modes.md)
   * [기체 상태 알림](getting_started/vehicle_status.md) 
     * [LED 신호의 의미](getting_started/led_meanings.md)
