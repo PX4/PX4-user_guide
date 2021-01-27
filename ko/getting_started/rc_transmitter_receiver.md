@@ -53,34 +53,34 @@ UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래�
 
 제어기와 호환되는 무선 조종기는 묶음으로 판매됩니다. 예를 들어 [ FrSky Taranis X9D 및 FrSky X8R ](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us)은 인기있는 조합입니다.
 
-### Transmitter/Receiver Pairs
+### 송신기/수신기 조합
 
-One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
+인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 * FrSky X4R-SB * (S-BUS, 낮은 지연) 또는 * X4R * (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기 모듈이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
 
 :::note
-This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+이 원격 제어 장치는 [ FrSky ](../peripherals/frsky_telemetry.md) 무선 모듈과 함께 사용할 때 차량의 원격 정보를 표시 할 수 있습니다.
 :::
 
-Other popular transmitter/receiver pairs
+기타 인기 있는 송신기/수신기 조합 
 
-* Turnigy remote using, for example, the FrSky transmitter/receiver modules.
-* Futaba Transmitters and compatible Futaba S-Bus receivers.
-* Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
-* Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
+* 예를 들어 FrSky 송신기 / 수신기 모듈을 사용하는 Turnigy 원격.
+* Futaba 송신기 및 호환 가능한 Futaba S-Bus 수신기.
+* 장거리 ~ 900MHz, 낮은 대기 시간 : 호환되는 리모컨 (예 : Taranis)으로 설정된 "Team Black Sheep Crossfire"또는 "Crossfire Micro"
+* 장거리 ~ 433MHz : 호환 리모컨 (예 : Taranis)으로 설정된 ImmersionRC EzUHF
 
 <span id="compatible_receivers"></span>
 
-### PX4-Compatible Receivers
+### PX4 호환 수신기 
 
-In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
+송신기/수신기가 서로 호환되는 것 외에도 수신기는 PX4 및 비행 컨트롤러에도 호환되어야합니다.
 
-*PX4* and *Pixhawk* have been validated with:
+* PX4 * 및 * Pixhawk *는 다음으로 검증되었습니다.
 
-* All Spektrum DSM RC receivers
-* All Futaba S.BUS and S.BUS2 RC receivers
-* All FrSky PPM and S.Bus models
+* 모든 Spektrum DSM RC 수신기
+* 모든 Futaba S.BUS 및 S.BUS2 RC 수신기
+* 모든 FrSky PPM 및 S.Bus 모델
 * Graupner HoTT
-* All PPM models from other manufacturers
+* 다른 제조업체의 모든 PPM 모델
 
 ## Connecting Receivers
 
