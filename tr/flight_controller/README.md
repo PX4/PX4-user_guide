@@ -43,6 +43,7 @@ You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (co
   - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
   - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
   - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+  - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   - [CUAV v5 (FMUv5) (Discontinued)](../flight_controller/cuav_v5.md)
   - [Holybro Pixfalcon (FMUv2) (Discontinued)](../flight_controller/pixfalcon.md)
   - [Intel® Aero RTF Drone (Discontinued)](../complete_vehicles/intel_aero.md)

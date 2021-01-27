@@ -186,6 +186,7 @@
       * [Aerotenna OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
       * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
       * [Bitcraze Crazyflie 2.0](complete_vehicles/crazyflie2.md)
+      * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
       * [CUAV v5 (Discontinued)](flight_controller/cuav_v5.md)
       * [Cube Orange (CubePilot)](flight_controller/cubepilot_cube_orange.md)
       * [Cube Yellow (CubePilot)](flight_controller/cubepilot_cube_yellow.md)

@@ -77,10 +77,7 @@ make px4_fmu-v4_default upload
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-:::note
-The following list shows the build commands for Pixhawk standard boards - the list of supported boards is much longer, please check out the documentation for the individual board for build instructions.
-:::
-
+Build instructions are given in the documentation for the individual [flight controller boards](../flight_controller/README.md). The following list shows the build commands for just the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 * 在 OS X 上，点击 ⌘-space 并搜索 “terminal” 。
 * 在 Ubuntu 上，单击运行栏并搜索 “terminal”。
 * 在 Windows 上，在“开始”菜单中找到 PX4 文件夹，然后单击 "PX4 Console"。
