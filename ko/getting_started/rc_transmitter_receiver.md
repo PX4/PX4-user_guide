@@ -9,7 +9,7 @@
 
 *무선 조종기*에는 운전자가 차량을 명령하는 데 사용하는 지상 기반 * 원격 제어 장치 *가 있습니다. 리모컨에는 차량 이동 (예 : 속도, 방향, 스로틀, 요, 피치, 롤 등)을 지정하고 자동 조종 [비행 모드 ](../flight_modes/README.md) (예 : 이륙, 착륙, 복귀)를 활성화하는 데 사용할 수있는 물리적 제어 기능이 있습니다. 착륙, 임무 등). *원격 측정이 가능한* 무선조종기는 차량에서 수신한 정보를 수신하고 표시할 수 있습니다 (예 : 배터리 잔량, 비행 모드).
 
-![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 무선 조종기에는 차량과 호환되는 통신용 무선 모듈이 포함되어 있습니다. 차량 기반 장치는 비행 제어기에 연결됩니다. 비행 제어기는 현재의 자동 조종 비행 모드와 차량 상태를 기준으로 명령을 해석하는 방법을 결정하고 차량 모터와 액추에이터를 구동합니다.
 
@@ -31,11 +31,11 @@
 
 UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래와 같습니다. 롤/피치 및 스로틀/요를 제어하기위한 별도의 조종 스틱이 있습니다 (예 : 항공기에 최소 4 개의 채널이 필요함). </p> 
 
-![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
+![RC 기본 명령어](../../assets/flying/rc_basic_commands.png)
 
 조종 스틱, 스위치의 배치 방식은 다양합니다. 통상적으로 많이 쓰이는 레이아웃을 가리키는 "모드"번호가 있습니다. *모드 1* 및 * 모드 2 * (아래 참조)는 스로틀의 배치 만 다릅니다. 
 
-![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
+![모델1 - 모델2](../../assets/concepts/mode1_mode2.png)
 
 :::note
 취향에 따라 선택을 하면 됩니다.(* 모드 2 *가 더 많이 사용됨).
@@ -82,46 +82,46 @@ UAV 용 원격 제어 장치의 가장 인기있는 * 형태는</ 0>은 아래�
 * Graupner HoTT
 * 다른 제조업체의 모든 PPM 모델
 
-## Connecting Receivers
+## 수신기 연결
 
-As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
+일반적으로 수신기는 프로토콜에 적합한 포트를 사용하여 비행 제어기에 연결합니다.
 
-* Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
-* Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
-* PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-* PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+* Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결하여야 합니다.
+* Graupner HoTT 수신기 : SUMD 출력은 ** SPKT / DSM ** 포트에 연결되어야 합니다.
+* PPM-Sum 및 S.BUS 수신기는 ** RC ** 접지, 전원 및 신호 핀 (일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결해야합니다.
+* *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 **RCIN**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
-Instructions for connecting to specific flight controllers are given in the following quick-start guides:
+특정 비행 제어기에 연결하는 방법은 다음 빠른 시작 가이드에 나와 있습니다.
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
 :::tip
-See the manufacturer's flight controller setup guide for additional information.
+추가 정보는 제조업체의 비행 컨트롤러 설정 가이드를 참조하십시오.
 :::
 
 <span id="binding"></span>
 
-## Binding Transmitter/Receiver
+## 송신기 / 수신기 바인딩
 
-Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
+무선 시스템을 보정하여 사용하기 전에 수신기와 송신기를 * 바인딩 *하여 서로 만 통신하도록해야합니다. 송신기와 수신기 쌍을 바인딩하는 프로세스는 하드웨어에 따라 다릅니다 (지침은 설명서 참조).
 
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+* Spektrum * 수신기를 사용하는 경우 * QGroundControl * : [ Radio Setup> Spectrum Bind ](../config/radio.md#spektrum_bind)를 사용하여 바인딩 모드로 전환 할 수 있습니다.
 
-## Set Signal-Loss Behaviour
+## 신호 손실 동작 설정
 
-RC receivers have different ways of indicating signal loss:
+RC 수신기에는 신호 손실을 나타내는 다양한 방법이 있습니다.
 
-* Output nothing (automatically detected by PX4)
-* Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
-* Output the last received signal (PX4 cannot handle this case!)
+* 아무것도 출력하지 않음 (PX4에서 자동으로 감지 됨)
+* 낮은 스로틀 값을 출력합니다 ([이를 감지하도록 PX4를 구성 ](../config/radio.md#rc_loss_detection) 할 수 있음).
+* 마지막으로 수신된 신호를 출력합니다 (PX4는이 경우를 처리 할 수 없습니다!)
 
-Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).
+RC가 손실되었을 때 아무것도 방출하지 않는 수신기를 대부분 선택하지만 낮은 스로틀 값을 선택하기도 합니다. 이 동작은 수신기의 하드웨어 구성이 필요할 수 있습니다 (설명서 확인).
 
-For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+자세한 내용은 [ 무선 제어 설정> RC 손실 감지 ](../config/radio.md#rc_loss_detection)를 참조하십시오.
 
-## Related Topics
+## 관련 주제
 
-* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
-* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+* [ 무전기 설정 ](../config/radio.md) - PX4 무전기 조립법
+* [비행 첫걸음](../flying/basic_flying.md) - RC로 비행하는 법을 배웁니다.
