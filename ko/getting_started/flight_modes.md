@@ -41,14 +41,14 @@
 
 * 수동 간편 : [위치](#position_mc), [고도](#altitude_mc), [수동/안정화](#manual_stabilized_mc), [궤도](#orbit_mc)
 * 수동 곡예 : [Rattitude](#rattitude_mc), [ Acro ](#acro_mc)
-* Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
+* 자율 : [유지](#hold_mc), [복귀](#return_mc), [미션](#mission_mc), [이륙](#takeoff_mc), [착륙](#land_mc), [나를 따르나](#followme_mc)[오프 보드](#offboard_mc)
 
-## Key
+## 핵심
 
-The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
+아래 아이콘은 문서 내에서 사용됩니다.<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
 
 <td>
-  Manual mode. Remote control required.
+  수동 모드 원격 제어 필수.
 </td></tr> 
 
 <tr>
@@ -56,7 +56,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
     <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a></td> 
     
     <td>
-      Automatic mode. RC control is disabled by default except to change modes.
+      자동 모드. RC 제어는 모드 변경을 제외하고 기본적으로 비활성화되어 있습니다.
     </td></tr> 
     
     <tr>
@@ -64,7 +64,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
         <span id="key_position_fixed"><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a></td> 
         
         <td>
-          Position fix required (e.g. GPS, VIO, or some other positioning system).
+          위치 수정이 필요(예 : GPS, VIO 또는 기타 위치 확인 시스템).
         </td></tr> 
         
         <tr>
@@ -73,7 +73,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
           </td>
           
           <td>
-            Altitude required (e.g. from barometer, rangefinder).
+            필요한 고도 (예 : 기압계, 거리계).
           </td>
         </tr>
         
@@ -82,7 +82,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a></td> 
             
             <td>
-              Flight mode difficulty (Easy to Hard)
+              비행 모드 난이도 (초급 ~ 고급)
             </td></tr> </tbody> </table> 
             
             <p>
@@ -93,7 +93,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <h2>
-              Multicopter
+              멀티콥터
             </h2>
             
             <p>
@@ -104,7 +104,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <h3>
-              Position Mode
+              위치 모드
             </h3>
             
             <p>
