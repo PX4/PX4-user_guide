@@ -205,11 +205,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/rattitude_mc.md">Rattitude mode</a> allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired.
+                  <a href="../flight_modes/rattitude_mc.md">Rattitude 모드</a>를 사용하면 조종사가 대부분 <a href="#manual_stabilized_mc">수동 / 안정</a> 비행을 사용하여 비행 할 수 있지만 원하는 경우 <a href="#acro_mc">Acro 모드</a> 스타일의 플립과 트릭을 수행 할 수 있습니다.
                 </p>
                 
                 <p>
-                  The vehicle behaves as in <em>Manual/Stabilized mode</em> when the Roll/Pitch stick is moved within the central area and like <em>Acro mode</em> when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
+                  롤/피치 스틱이 중앙 영역 내에서 움직일 때 차량은 <em>수동/안정화 모드</em>에서와 같이 작동하고 스틱이 기본적으로 외주에서 움직일 때 <em>Acro 모드</em>처럼 작동합니다. 수동/안정화 모드는 약 80%를 차지합니다. 스틱이 중앙에 오면 멀티 콥터가 수평을 이룹니다 (하지만 바람의 방향과 기존의 모멘텀으로 계속 표류합니다).
                 </p>
                 
                 <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
@@ -222,7 +222,7 @@
                 </p>
                 
                 <h3>
-                  Acro Mode
+                  Acro 모드
                 </h3>
                 
                 <p>
@@ -230,11 +230,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/acro_mc.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
+                  <a href="../flight_modes/acro_mc.md"> 아크로 모드 </a>는 곡예 비행을 수행하기위한 RC 모드입니다. 롤, 플립, 노점 및 곡예 인물.
                 </p>
                 
                 <p>
-                  The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+                  롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
                 </p>
                 
                 <p>
@@ -251,7 +251,7 @@
                 </p>
                 
                 <h3>
-                  Orbit Mode
+                  궤도 모드
                 </h3>
                 
                 <p>
@@ -259,11 +259,11 @@
                 </p>
                 
                 <p>
-                  The <a href="../flight_modes/orbit.md">Orbit mode</a> allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
+                  <a href="../flight_modes/orbit.md">궤도 모드</a>를 사용하면 멀티 콥터 (또는 멀티 콥터 모드의 VTOL)가 원을 그리며 날아 가며 항상 중심을 향하도록 요잉할 수 있습니다.
                 </p>
                 
                 <p>
-                  A GCS is <em>required</em> to enable the mode, and to set the center position and initial radius of the orbit. By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction. RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
+                  이 모드를 활성화하고 궤도의 중심 위치와 초기 반경을 설정하려면 GCS(지상제어 프로그램)가 <em> 필요합니다 </em>. 기본적으로 차량은 시계 방향으로 중앙 위치 (1 m/s)를 중심으로 천천히 진행하는 궤도를 수행합니다. RC 제어는 선택 사항이며 궤도 고도, 반경, 속도 및 방향을 변경하는 데 사용할 수 있습니다.
                 </p>
                 
                 <p>
@@ -278,7 +278,7 @@
                 </p>
                 
                 <h3>
-                  Hold Mode
+                  유지 모드
                 </h3>
                 
                 <p>
@@ -286,7 +286,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/hold.md">Hold mode</a> causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+                  <a href="../flight_modes/hold.md"> 유지 모드 </a>는 멀티 콥터가 현재 위치와 고도에서 멈추고 호버링하도록합니다 (바람과 다른 힘에 대한 위치 유지). 유지 모드를 사용하여 임무를 일시 중지하거나 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍 된 RC 스위치 또는 <em> QGroundControl </em> <strong>일시 정지</strong> 버튼으로 활성화 할 수 있습니다.
                 </p>
                 
                 <p>
@@ -297,7 +297,7 @@
                 </p>
                 
                 <h3>
-                  Return Mode
+                  복귀 모드
                 </h3>
                 
                 <p>
@@ -305,11 +305,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+                  <a href="../flight_modes/return.md">복귀 모드</a>는 차량이 안전한 위치로 명확한 경로를 비행하도록합니다. 이 모드는 수동 (사전 프로그래밍 된 RC 스위치를 통해) 또는 자동 (즉, <a href="../config/safety.md">사고 방지</a>가 트리거되는 경우)으로 활성화 될 수 있습니다.
                 </p>
                 
                 <p>
-                  The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
+                  반환 동작은 매개 변수 설정에 따라 다르며 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다. 기본적으로 멀티 콥터는 안전한 높이로 상승하고 홈 위치로 날아간 다음 착륙합니다.
                 </p>
                 
                 <p>
@@ -320,7 +320,7 @@
                 </p>
                 
                 <h3>
-                  Mission Mode
+                  임무 모드
                 </h3>
                 
                 <p>
@@ -328,11 +328,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+                  <a href="../flight_modes/mission.md">임무 모드</a>는 비행 제어기에 업로드 된 사전 정의 된 자율 <a href="../flying/missions.md">임무</a> (비행 계획)을 실행합니다. 임무는 일반적으로 지상 관제소 (GCS) 애플리케이션으로 생성 및 업로드됩니다.
                 </p>
                 
                 <p>
-                  :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+                  :::tip PX4 GCS는 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl </a>이라고합니다. <em>QGroundControl</em>은 <a href="../config/README.md">PX4 구성</a>에 사용하는 것과 동일한 프로그램입니다.
 :::
                 </p>
                 
@@ -344,7 +344,7 @@
                 </p>
                 
                 <h3>
-                  Takeoff Mode
+                  이륙 모드
                 </h3>
                 
                 <p>
@@ -352,7 +352,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/takeoff.md">Takeoff</a> mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
+                  <a href="../flight_modes/takeoff.md">이륙</a> 모드는 멀티 콥터가 이륙 고도까지 수직으로 올라가 제자리에서 호버링합니다.
                 </p>
                 
                 <p>
@@ -363,7 +363,7 @@
                 </p>
                 
                 <h3>
-                  Land Mode
+                  착륙 모드
                 </h3>
                 
                 <p>
@@ -371,7 +371,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/land.md">Land mode</a> causes the multicopter to land at the location at which the mode was engaged.
+                  <a href="../flight_modes/land.md">착륙 모드</a>는 멀티 콥터가 모드가 작동 된 위치로 착륙하도록합니다.
                 </p>
                 
                 <p>
@@ -382,7 +382,7 @@
                 </p>
                 
                 <h3>
-                  Follow Me Mode
+                  추적 모드
                 </h3>
                 
                 <p>
@@ -390,7 +390,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/follow_me.md">Follow Me mode</a> causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a MAVSDK app.
+                  <a href="../flight_modes/follow_me.md">추적 모드 </a>는 멀티 콥터가 현재 위치 설정 값을 제공하는 사용자를 자율적으로 추적합니다. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a MAVSDK app.
                 </p>
                 
                 <p>
