@@ -604,7 +604,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/hold.md">유지</a>는 고정익이 현재 고도에서 현재 위치를 중심으로 선회합니다. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+                  <a href="../flight_modes/hold.md">유지</a>는 고정익이 현재 고도에서 현재 위치를 중심으로 선회합니다. 이 모드는 임무를 일시 중지하거나 긴급 상황에서 차량을 제어하는 데 사용할 수 있습니다. 사전 프로그래밍 된 RC 스위치 또는 <em>QGroundControl</em> <strong>일시 정지</strong> 버튼으로 활성화 할 수 있습니다.
                 </p>
                 
                 <p>
@@ -615,7 +615,7 @@
                 </p>
                 
                 <h3>
-                  Return Mode
+                  복귀 모드
                 </h3>
                 
                 <p>
@@ -623,11 +623,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+                  <a href="../flight_modes/return.md">복귀 모드</a>는 차량이 안전한 위치로 명확한 경로를 비행하도록합니다. 이 모드는 수동 (사전 프로그래밍 된 RC 스위치를 통해) 또는 자동 (즉, <a href="../config/safety.md">사고 방지</a>가 트리거되는 경우)으로 활성화 될 수 있습니다.
                 </p>
                 
                 <p>
-                  The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
+                  반환 동작은 매개 변수 설정에 따라 다르며 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다. 기본적으로 고정익은 안전한 높이로 상승하고 미션 착륙 패턴이 있으면 이를 수행합니다. 그렇지 않으면 홈 위치로 돌아와 원주 비행을 합니다.
                 </p>
                 
                 <p>
@@ -638,7 +638,7 @@
                 </p>
                 
                 <h3>
-                  Mission Mode
+                  임무 모드
                 </h3>
                 
                 <p>
@@ -646,11 +646,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+                  <a href="../flight_modes/mission.md">임무 모드</a>는 비행 제어기에 업로드 된 사전 정의 된 자율 <a href="../flying/missions.md">임무</a> (비행 계획)을 실행합니다. 임무는 일반적으로 지상 관제소 (GCS) 애플리케이션으로 생성 및 업로드됩니다.
                 </p>
                 
                 <p>
-                  :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+                  :::tip PX4 GCS는 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl </a>이라고합니다. <em>QGroundControl</em>은 <a href="../config/README.md">PX4 구성</a>에 사용하는 것과 동일한 프로그램입니다.
 :::
                 </p>
                 
@@ -662,7 +662,7 @@
                 </p>
                 
                 <h3>
-                  Takeoff Mode
+                  이륙 모드
                 </h3>
                 
                 <p>
@@ -670,7 +670,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff mode</a> initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+                  <a href="../flight_modes/takeoff.md#fixed_wing">이륙 모드</a>는 기체 이륙에 필요한 일련의 작업들을 수행합니다. 구체적인 발사 동작은 구성된 이륙 모드 (투석기/수동 발사 모드 또는 활주로 이륙 모드)에 따라 다릅니다.
                 </p>
                 
                 <p>
@@ -681,7 +681,7 @@
                 </p>
                 
                 <h3>
-                  Land Mode
+                  착륙 모드
                 </h3>
                 
                 <p>
@@ -689,7 +689,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
+                  <a href="../flight_modes/land.md">착륙 모드</a>는 멀티 콥터가 모드가 이륙한 위치에 착륙합니다. 고정익의 착륙 원리와 설정 매개변수는 다음 항목에서 설명합니다.
                 </p>
                 
                 <p>
@@ -700,7 +700,7 @@
                 </p>
                 
                 <h3>
-                  Offboard Mode
+                  오프보드 모드
                 </h3>
                 
                 <p>
@@ -708,49 +708,48 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/offboard.md">Offboard mode</a> causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink.
+                  <a href="../flight_modes/offboard.md">오프 보드 모드</a>는 멀티 콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록합니다.
                 </p>
                 
                 <p>
-                  :::note This mode is intended for companion computers and ground stations!
+                  :::note 이 모드는 보조 컴퓨터와 지상관제소 프로그램을 위한 것입니다!
 :::
                 </p>
                 
                 <h2>
-                  Vertical Take Off and Landing (VTOL)
+                  수직이착륙기(VTOL)
                 </h2>
                 
                 <p>
-                  A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+                  VTOL 항공기는 멀티 콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티 콥터 모드는 주로 이착륙에 사용되는 반면 고정 날개 모드는 효율적인 이동 및 임무 수행을 위해 사용됩니다.
                 </p>
                 
                 <p>
-                  Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
+                  일반적으로 VTOL 차량의 비행 모드는 MC 모드에서 비행 할 때 <a href="#mc_flight_modes">멀티 콥터</a>와 FW 모드에서 비행 할 때 <a href="#fw_flight_modes">고정 날개</a>와 동일합니다.
                 </p>
                 
                 <p>
-                  The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+                  모드 전환은 RC 스위치를 사용하는 파일럿에 의해 시작되거나 자동 모드에서 필요할 때 PX4에 의해 자동으로 시작됩니다.
                 </p>
                 
                 <p>
-                  A few notes:
+                  몇 가지 참고 사항 :
                 </p>
                 
                 <ul>
                   <li>
-                    VTOL <a href="../flight_modes/return.md">Return mode</a> uses a mission landing by default, if defined.
+                    VTOL <a href="../flight_modes/return.md">귀환 모드</a>는 정의된 경우 기본적으로 미션 착륙을 사용합니다.
                   </li>
                 </ul>
                 
                 <h2>
-                  Further Information
+                  추가 정보
                 </h2>
                 
                 <ul>
                   <li>
-                    <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
-                  </li>
-                  <li>
-                    <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
-                  </li>
-                </ul>
+                    <a href="../flight_modes/README.md">비행> 비행 모드< 0> - 모든 모드에 대한 자세한 기술 설명</li> 
+                    
+                    <li>
+                      <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
+                    </li></ul>
