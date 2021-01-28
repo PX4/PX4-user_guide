@@ -444,7 +444,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/position_fw.md">포지션 모드</a>는 스틱을 놓거나 중앙에 놓을 때 비해기가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
+                  <a href="../flight_modes/position_fw.md">포지션 모드</a>는 스틱을 놓거나 중앙에 놓을 때 기체가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
                 </p>
                 
                 <p>
@@ -476,19 +476,19 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/altitude_fw.md">Altitude mode</a> makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+                  <a href="../flight_modes/altitude_fw.md">고도</a> 비행모드는 사용자가 기체의 고도를 제어 및 특정 고도를 유지가 용이합니다. 이 모드에서는 바람이 불 때는 기체는 방향을 유지하지 않습니다.
                 </p>
                 
                 <p>
-                  The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+                  기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어합니다. 일단 중앙에 위치하면 자동 조종 장치가 현재 고도에 고정되고 요/롤 및 모든 대기 속도에서이를 유지합니다. 스로틀 입력은 대기 속도를 제어합니다. 롤과 피치는 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없습니다).
                 </p>
                 
                 <p>
-                  When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+                  모든 원격 제어 입력이 중앙에있을 때 (롤, 피치, 요 및 ~ 50 % 스로틀 없음) 기체는 직선, 수평 비행 (바람에 따라)으로 돌아가 현재 고도를 유지합니다.
                 </p>
                 
                 <p>
-                  :::tip <em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+                  :::tip <em>고도 모드</em>는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 가이드 모드입니다. <a href="#manual_fw">수동</a> 모드와 비슷하지만 피치 스틱을 놓으면 차량 고도가 추가로 안정화됩니다.
 :::
                 </p>
                 
@@ -504,7 +504,7 @@
                 </p>
                 
                 <h3>
-                  Stabilized Mode
+                  안정화 모드
                 </h3>
                 
                 <p>
@@ -512,20 +512,20 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+                  <a href="../flight_modes/stabilized_fw.md"> 안정화 모드 </a>는 RC 스틱이 중앙에있을 때 차량을 똑바로 수평 비행으로 전환하여 바람에 대한 수평 자세를 유지합니다 (차량 방향 및 고도 제외).
                 </p>
                 
                 <p>
-                  The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+                  기체는 피치 입력을 기반으로 상승/하강하며, 롤/피치 스틱이 0이 아닌 경우 회전합니다. 롤과 피치는 각도가 제어됩니다 (거꾸로 굴리거나 반복 할 수 없음).
                 </p>
                 
                 <p>
-                  :::tip <em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+                  :::tip <em>안정화 모드</em>는 굴리거나 뒤집을 수 없기 때문에 <a href="#manual_fw">수동 모드</a>보다 비행하기 훨씬 쉽고 조종 스틱을 중앙에 배치하여 차량의 수평을 맞추기가 쉽습니다.
 :::
                 </p>
                 
                 <p>
-                  The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+                  스로틀을 0%로 낮추면 기체가 미끄러집니다 (모터 정지). 회전을 수행하기 위해 명령은 기동 내내 지켜 져야합니다. 롤이 풀리면 비행기는 회전을 멈추고 스스로 수평을 맞출 것입니다 (피치 및 요 명령도 마찬가지입니다).
                 </p>
                 
                 <p>
@@ -540,7 +540,7 @@
                 </p>
                 
                 <h3>
-                  Acro Mode
+                  Acro 모드
                 </h3>
                 
                 <p>
@@ -548,11 +548,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/acro_fw.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+                  <a href="../flight_modes/acro_fw.md"> 아크로 모드 </a>는 곡예 비행을 수행하기위한 RC 모드입니다. 롤, 플립, 노점 및 곡예 인물.
                 </p>
                 
                 <p>
-                  The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+                  롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등)과 현재 모멘텀에 따라 움직입니다.
                 </p>
                 
                 <p>
@@ -567,7 +567,7 @@
                 </p>
                 
                 <h3>
-                  Manual Mode
+                  수동 모드
                 </h3>
                 
                 <p>
@@ -575,16 +575,16 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/manual_fw.md">Manual mode</a> sends RC stick input directly to the output mixer for "fully" manual control.
+                  <a href="../flight_modes/manual_fw.md">수동 모드</a>은 RC 스틱 입력을 출력 믹서에 직접 전송하여 수동 제어를 제공합니다
                 </p>
                 
                 <p>
-                  :::tip This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+                  :::tip 이 모드는 안정되는 것이 없기 때문에 가장 어려운 모드입니다 <a href="#acro_fw">Acro 모드</a>와 달리, RP 스틱이 중심일 경우 기체가 축 주위에서 자동으로 회전을 멈추지 않습니다. 조종사는 실제로 스틱을 이동하여 다른 방향으로 힘을 가해야 합니다.
 :::
                 </p>
                 
                 <p>
-                  :::note This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+                  :::note 이 모드는 FMU를 재정의하는 유일한 모드입니다(명령어는 코프로세서를 통해 전송됩니다). FMU 펌웨어 오작동시 RC를 통해 스로틀, 엘리베이터, 에일러론 및 방향타를 완전히 제어 할 수있는 안전 메커니즘을 제공합니다.
 :::
                 </p>
                 
@@ -596,7 +596,7 @@
                 </p>
                 
                 <h3>
-                  Hold Mode
+                  유지 모드
                 </h3>
                 
                 <p>
@@ -604,7 +604,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+                  <a href="../flight_modes/hold.md">유지</a>는 고정익이 현재 고도에서 현재 위치를 중심으로 선회합니다. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
                 </p>
                 
                 <p>
