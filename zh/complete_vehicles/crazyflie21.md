@@ -55,6 +55,10 @@ Useful peripheral hardware includes:
 
 ## Flashing PX4
 
+:::note
+These instructions have only been tested on Ubuntu.
+:::
+
 After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.1:
 
 1. Download the source code of the PX4 Bootloader:
