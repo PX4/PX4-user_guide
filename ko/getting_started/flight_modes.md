@@ -390,7 +390,7 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/follow_me.md">추적 모드 </a>는 멀티 콥터가 현재 위치 설정 값을 제공하는 사용자를 자율적으로 추적합니다. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a MAVSDK app.
+                  <a href="../flight_modes/follow_me.md">추적 모드 </a>는 멀티 콥터가 현재 위치 설정 값을 제공하는 사용자를 자율적으로 추적합니다. 위치 설정 값은 <em>QGroundControl</em>을 실행하는 Android 휴대 전화/태블릿 또는 MAVSDK 앱에서 가져올 수 있습니다.
                 </p>
                 
                 <p>
@@ -401,7 +401,7 @@
                 </p>
                 
                 <h3>
-                  Offboard Mode
+                  오프보드(Offboard) 모드
                 </h3>
                 
                 <p>
@@ -409,11 +409,11 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/offboard.md">Offboard mode</a> causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink.
+                  <a href="../flight_modes/offboard.md">오프 보드 모드</a>는 멀티 콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록합니다.
                 </p>
                 
                 <p>
-                  :::note This mode is intended for companion computers and ground stations!
+                  :::note 이 모드는 보조 컴퓨터와 지상관제소 픅로그램을 위한 것입니다!
 :::
                 </p>
                 
@@ -425,7 +425,7 @@
                 </p>
                 
                 <h2>
-                  Fixed-Wing
+                  고정익
                 </h2>
                 
                 <p>
@@ -436,7 +436,7 @@
                 </p>
                 
                 <h3>
-                  Position Mode
+                  위치 모드
                 </h3>
                 
                 <p>
