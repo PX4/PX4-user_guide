@@ -45,7 +45,7 @@
 
 ## 핵심
 
-아래 아이콘은 문서 내에서 사용됩니다.<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
+아래 아이콘은 문서 내에서 사용됩니다.<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a></td> 
 
 <td>
   수동 모드 원격 제어 필수.
@@ -53,7 +53,7 @@
 
 <tr>
   <td>
-    <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a></td> 
+    <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a></td> 
     
     <td>
       자동 모드. RC 제어는 모드 변경을 제외하고 기본적으로 비활성화되어 있습니다.
@@ -61,7 +61,7 @@
     
     <tr>
       <td>
-        <span id="key_position_fixed"><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a></td> 
+        <span id="key_position_fixed"><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a></td> 
         
         <td>
           위치 수정이 필요(예 : GPS, VIO 또는 기타 위치 확인 시스템).
@@ -69,7 +69,7 @@
         
         <tr>
           <td>
-            <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="Altitude fix required (e.g. barometer, rangefinder)" width="30px" />
+            <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />
           </td>
           
           <td>
@@ -79,7 +79,7 @@
         
         <tr>
           <td>
-            <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a></td> 
+            <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" /></a></td> 
             
             <td>
               비행 모드 난이도 (초급 ~ 고급)
@@ -108,7 +108,7 @@
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -121,7 +121,7 @@
             </p>
             
             <p>
-              <img src="../../assets/flight_modes/position_MC.png" alt="MC Position Mode" />
+              <img src="../../assets/flight_modes/position_MC.png" alt="위치 모드" />
             </p>
             
             <p>
@@ -136,7 +136,7 @@
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" /></a>
             </p>
             
             <p>
@@ -150,7 +150,7 @@
                 :::tip <em>자세 모드< 0>는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다. <a href="#manual_stabilized_mc">수동 / 안정화</a> 모드와 비슷하지만 스틱을 놓으면 차량 고도가 추가로 안정화됩니다. :::</p> 
                 
                 <p>
-                  <img src="../../assets/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
+                  <img src="../../assets/flight_modes/altitude_MC.png" alt="고도 모드" />
                 </p>
                 
                 <p>
@@ -165,7 +165,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -186,7 +186,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
+                  <img src="../../assets/flight_modes/manual_stabilized_MC.png" alt="MC 수동 비행" />
                 </p>
                 
                 <p>
@@ -201,7 +201,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -226,7 +226,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -238,7 +238,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/manual_acrobatic_MC.png" alt="MC Manual Acrobatic Flight" />
+                  <img src="../../assets/flight_modes/manual_acrobatic_MC.png" alt="수동 곡예 비행" />
                 </p>
                 
                 <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
@@ -255,7 +255,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -267,7 +267,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
+                  <img src="../../assets/flight_modes/orbit_MC.png" alt="궤도 모드 - MC" />
                 </p>
                 
                 <p>
@@ -282,7 +282,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -751,5 +751,5 @@
                     <a href="../flight_modes/README.md">비행> 비행 모드< 0> - 모든 모드에 대한 자세한 기술 설명</li> 
                     
                     <li>
-                      <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
+                      <a href="../config/flight_mode.md">기본 구성> 비행 모드</a> - RC 제어 스위치를 특정 비행 모드에 매핑하는 방법
                     </li></ul>
