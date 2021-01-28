@@ -444,15 +444,15 @@
                 </p>
                 
                 <p>
-                  <a href="../flight_modes/position_fw.md">Position mode</a> is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
+                  <a href="../flight_modes/position_fw.md">포지션 모드</a>는 스틱을 놓거나 중앙에 놓을 때 비해기가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
                 </p>
                 
                 <p>
-                  The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+                  스로틀은 대기 속도를 결정합니다 (스로틀 50 %에서 기체는 사전 설정된 순항 속도로 현재 고도를 유지합니다). 피치는 상승/하강하는 데 사용됩니다. 롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).
                 </p>
                 
                 <p>
-                  :::tip Position mode is the safest fixed-wing manual mode for new fliers.
+                  :::tip 자세 모드< 0>는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다.
 :::
                 </p>
                 
@@ -468,7 +468,7 @@
                 </p>
                 
                 <h3>
-                  Altitude Mode
+                  고도 모드
                 </h3>
                 
                 <p>
