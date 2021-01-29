@@ -4,7 +4,7 @@
 
 이 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화에서 다시 수평 비행을 하기 쉽도록 고정된 경로 또는 위치로 기체를 유지하는 메커니즘에 이르기까지 사용자(조종사)에게 다양한 유형/수준의 자동 조종을 도와줍니다.
 
-이 항목에서는 비행 모드에 대한 개요와 MC(multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소함)을 설명합니다.
+이 항목에서는 비행 모드에 대한 개요와 MC(Multi-Copter), FW (Fixed-Wing) 및 VTOL(Vertical Take-Off and Landing) 간의 차이점(대부분 사소함)에 대하여 설명합니다.
 
 :::tip
 특정 비행 모드에 대한 자세한 정보는 [비행 > 비행 모드](../flight_modes/README.md)에서 확인할 수 있습니다.
@@ -35,7 +35,7 @@
 
 * 수동 간편 : [위치](#position_fw), [고도](#altitude_fw), [안정화](#stabilized_fw), [수동](#manual_fw)
 * 수동 곡예 : [곡예](#acro_fw)
-* 자율 : [Hold](#hold_fw), [복귀](#return_fw), [미션](#mission_fw), [이륙](#takeoff_fw), [착륙](#land_fw), [오프 보드 ](#offboard_fw)
+* 자율 : [유지](#hold_fw), [복귀](#return_fw), [미션](#mission_fw), [이륙](#takeoff_fw), [착륙](#land_fw), [오프보드](#offboard_fw)
 
 멀티콥터:
 
