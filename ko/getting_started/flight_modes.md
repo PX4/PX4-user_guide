@@ -301,7 +301,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -324,7 +324,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -332,7 +332,7 @@
                 </p>
                 
                 <p>
-                  :::tip PX4 GCS는 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl </a>이라고합니다. <em>QGroundControl</em>은 <a href="../config/README.md">PX4 구성</a>에 사용하는 것과 동일한 프로그램입니다.
+                  :::tip PX4의 GCS는 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl </a>입니다. <em>QGroundControl</em>은 <a href="../config/README.md">PX4 설정</a>에 사용하는 것과 동일한 프로그램입니다.
 :::
                 </p>
                 
@@ -348,7 +348,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -367,7 +367,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -386,7 +386,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -405,7 +405,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -440,7 +440,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -457,7 +457,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/position_FW.png" alt="FW Position Mode" />
+                  <img src="../../assets/flight_modes/position_FW.png" alt="고정익 위치 모드" />
                 </p>
                 
                 <p>
@@ -472,7 +472,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" /></a>
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="간편 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="최소 고도 (예 : 기압계, 거리계)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -493,7 +493,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
+                  <img src="../../assets/flight_modes/altitude_FW.png" alt="고정익 고도 모드" />
                 </p>
                 
                 <p>
@@ -508,7 +508,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="중급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -529,7 +529,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
+                  <img src="../../assets/flight_modes/manual_stabilized_FW.png" alt="고정익 수동 비행" />
                 </p>
                 
                 <p>
@@ -544,7 +544,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -556,7 +556,7 @@
                 </p>
                 
                 <p>
-                  <img src="../../assets/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
+                  <img src="../../assets/flight_modes/manual_acrobatic_FW.png" alt="고정익 수동 곡예 비행" />
                 </p>
                 
                 <p>
@@ -571,7 +571,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+                  <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="고급 비행" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -600,7 +600,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -619,7 +619,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -642,7 +642,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
@@ -666,7 +666,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -685,7 +685,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;
                 </p>
                 
                 <p>
@@ -704,7 +704,7 @@
                 </h3>
                 
                 <p>
-                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="위치 수정 필요(예: GPS)" width="30px" /></a>
                 </p>
                 
                 <p>
