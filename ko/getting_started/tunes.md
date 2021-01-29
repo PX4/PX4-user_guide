@@ -1,32 +1,32 @@
 # 소리 설명 (Pixhawk 시리즈)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+ Pixhawk 비행 컨트롤러 시리즈</ 0>는 가청 톤 / 튜닝 및 [ LED ](../getting_started/led_meanings.md)를 사용하여 차량 상태 및 이벤트 (예 : 무장 성공 및 실패, 배터리 부족 경고)를 나타냅니다.</p> 
 
-The set of standard sounds are listed below.
+표준 사운드 세트는 다음과 같습니다.
 
 :::note
-**Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](../modules/modules_system.md#tunecontrol) module.
+** 개발자 : ** 곡은 [ /lib/tunes/tune_definition.desc ](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 정의되어 있으며 [ tune_control ](../modules/modules_system.md#tunecontrol) 모듈을 사용하여 테스트 할 수 있습니다.
 :::
 
-## Boot/Startup
+## 부팅 / 시작
 
-These tunes are played during the boot sequence. <!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
+이러한 곡은 부팅 과정에에 재생됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
 
-#### Startup Tone<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 시작 톤<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- microSD card successfully mounted (during boot).
+- MicroSD 카드가 마운트되었습니다 (부팅 중).
 
-#### Error Tune<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 에러 톤<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Hard fault has caused a system reboot.
-- System set to use PX4IO but no IO present.
-- UAVCAN is enabled but driver can't start.
-- SITL/HITL enabled but *pwm_out_sim* driver can't start.
-- FMU startup failed.
+- 중대 결함으로 인하여 시스템이 재부팅되었습니다.
+- PX4IO를 사용하도록 시스템이 설정되었지만 IO가 없습니다.
+- UAVCAN이 활성화되었지만 드라이버를 시작할 수 없습니다.
+- SITL / HITL이 활성화되었지만 * pwm_out_sim * 드라이버를 시작할 수 없습니다.
+- FMU 시작에 실패했습니다.
 
-#### Make File System<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 파일 시스템 만들기<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Formatting microSD card. 
+- SD 카드 포맷하기 
 - Mounting failed (if formatting succeeds boot sequence will try to mount again).
 - No microSD card.
 
