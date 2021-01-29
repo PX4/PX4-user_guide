@@ -71,47 +71,47 @@
 - 대기 속도 보정 : 더 많은 공기 압력을 공급하거나 보정이 완료되었습니다.
 - 안전 스위치 켜짐 / 꺼짐 (안전하게 차량 접근 가능).
 
-#### Notify Negative Tone<audio controls> <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 부정 톤 알림<audio controls> <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Calibration failed.
-- Calibration already completed.
-- Mission is invalid.
-- Command denied, failed, temporarily rejected (e.g. from MAVLink command protocol).
-- Arming/disarming transition denied (e.g. pre-flight checks failed, safety not disabled, system not in manual mode).
-- Reject mode transition.
+- 보정 실패
+- 보정 이미 완료
+- 임무가 완전하지 않음.
+- 명령이 거부, 실패, 일시적으로 거부되었습니다 (예 : MAVLink 명령 프로토콜에서).
+- 무장 / 무장 해제 전환이 거부되었습니다 (예 : 비행 전 점검 실패, 안전이 비활성화되지 않음, 시스템이 수동 모드가 아님).
+- 거부 모드 전환.
 
-#### Arming Warning<audio controls> <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 시동 경고<audio controls> <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Vehicle is now armed.
+- 기체의 시동이 완료되었습니다.
 
-#### Arming Failure Tune<audio controls> <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 시동 실패음<audio controls> <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-#### Battery Warning Slow<audio controls> <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 배터리 경고음<audio controls> <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 배터리 부족 경고 ([ 사고 방지 ](../config/safety.md#low-battery-failsafe)).
 
-#### Battery Warning Fast<audio controls> <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 배터리 심각 경고음<audio controls> <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 배터리가 심각하게 부족함. ([사고 방지](../config/safety.md#low-battery-failsafe))
 
-#### GPS Warning Slow<audio controls> <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 느린 GPS 경고<audio controls> <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-#### Parachute Release<audio controls> <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 낙하산 방출<audio controls> <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 <!-- Does not appear to be used: TONE_PARACHUTE_RELEASE_TUNE -->
 
-#### EKF Warning<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### EKF 경고<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 <!-- Does not appear to be used: TONE_EKF_WARNING_TUNE -->
 
-#### Baro Warning<audio controls> <source src="../../assets/tunes/13_baro_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 기압계 경고<audio controls> <source src="../../assets/tunes/13_baro_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 <!-- Does not appear to be used: TONE_BARO_WARNING_TUNE -->
 
-#### Single Beep<audio controls> <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 단일 경고음<audio controls> <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Magnetometer/Compass calibration: Notify user to start rotating vehicle.
+- 자력계 / 나침반 보정 : 차량 회전을 시작하도록 사용자에게 알립니다.
 
-#### Home Set Tune<audio controls> <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 홈 지정 음<audio controls> <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Home position initialised (first time only).
+- 홈 위치가 초기화되었습니다 (처음에만).
