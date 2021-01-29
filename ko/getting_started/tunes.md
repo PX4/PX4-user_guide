@@ -27,49 +27,49 @@
 #### 파일 시스템 만들기<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 - SD 카드 포맷하기 
-- Mounting failed (if formatting succeeds boot sequence will try to mount again).
-- No microSD card.
+- 마운트 실패 (포맷이 성공하면 부팅 시퀀스가 다시 마운트를 시도합니다).
+- MicroSD 카드가 없습니다.
 
-#### Format Failed<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 포맷 실패<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Formatting microSD card failed (following previous attempt to mount card).
+- MicroSD 카드 포맷에 실패했습니다 (이전 카드 마운트 시도 후).
 
-#### Program PX4IO<audio controls> <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 프로그램 PX4IO<audio controls> <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Starting to program PX4IO.
+- PX4IO 프로그래밍을 시작합니다.
 
-#### Program PX4IO Success<audio controls> <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 프로그램 PX4IO 성공<audio controls> <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- PX4IO programming succeeded.
+- PX4IO 프로그래밍이 성공했습니다.
 
-#### Program PX4IO Fail<audio controls> <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 프로그램 PX4IO 실패<audio controls> <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- PX4IO programming failed.
-- PX4IO couldn't start.
-- AUX Mixer not found.
+- PX4IO 프로그래밍에 실패했습니다.
+- PX4IO를 시작할 수 없습니다.
+- AUX 믹서를 찾을 수 없습니다.
 
-## Operational
+## 운영
 
-These tones/tunes are emitted during normal operation.
+이러한 톤/음향은 정상 작동시에 발생합니다.
 
 <span id="error_tune_operational"></span>
 
-#### Error Tune<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 에러 톤<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- RC Loss
+- 원격 조종기 연결 유실
 
-#### Notify Positive Tone<audio controls> <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 긍정 음향 알림<audio controls> <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Calibration succeeded.
-- Successful mode change.
-- Command accepted (e.g. from MAVLink command protocol).
-- Safety switch off (vehicle can be armed).
+- 보정 성공.
+- 모드 변경 성공
+- 명령이 접수되었습니다 (예 : MAVLink 명령 프로토콜에서).
+- 안전 스위치를 끕니다 (차량 시동 가능).
 
-#### Notify Neutral Tone<audio controls> <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 중립 톤 알림<audio controls> <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
-- Mission is valid and has no warnings.
-- Airspeed calibration: supply more air pressure, or calibration complete.
-- Safety switch turned on/disarmed (safe to approach vehicle).
+- 임무가 유효하며 경고는 없습니다.
+- 대기 속도 보정 : 더 많은 공기 압력을 공급하거나 보정이 완료되었습니다.
+- 안전 스위치 켜짐 / 꺼짐 (안전하게 차량 접근 가능).
 
 #### Notify Negative Tone<audio controls> <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
