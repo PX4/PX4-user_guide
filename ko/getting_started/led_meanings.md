@@ -30,27 +30,27 @@ RGB *UI LED*는 차량의 현재 *비행 준비* 상태를 나타냅니다. 이�
 
 * ** [녹색 깜박임] 무장 해제, GPS 잠금 : ** 위와 유사하지만 차량의 시동이 꺼져있습니다. 즉, 모터는 제어 할 수 없지만, GPS 위치 잠금을 포함한 다른 하위 시스템들은 작동합니다.
 
-* ** [진한 보라색] 사고 방지 모드 : **이 모드는 비행중 기체에 문제가 발생할 때 활성화됩니다. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* ** [진한 보라색] 사고 방지 모드 : **이 모드는 비행중 기체에 문제가 발생할 때 활성화됩니다. 사고 방지 모드에서는 기체는 이륙 위치로 복귀하거나, 그냥 현 위치에 착륙할 수 있습니다.
 
-* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
+* ** [주황색 고정] 배터리 부족 경고 : ** 기체 배터리가 부족하여 위험한 상태를 표시합니다. 특정 시점이 지나면 차량은 안전 방지 모드로 들어갑니다. 그러나이 모드는 종료할 때가 되었음을 경고 메시지로 나타냅니다.
 
-* **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
+* ** [빨간색 깜박임] 오류 / 설정 필요 : ** 비행 전에 자동 조종 장치를 구성하거나 보정해야 함을 나타냅니다. 자동 조종 장치를 지상관제프로그램에 연결하여 문제가 무엇인지 확인하십시오. 설정 프로세스를 완료시에도, 자동 조종 장치가 여전히 빨간색으로 깜박이면 다른 오류가 있을 수 있습니다.
 
 <span id="status_led"></span>
 
-## Status LED
+## LED 상태
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+3 개의 * 상태 LED *는 FMU SoC에 대한 상태를 제공하고 3 개는 PX4IO (있는 경우)에 대한 상태를 제공합니다. 전원, 부트 로더 모드, 활동 및 오류를 나타냅니다.
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+전원이 켜지면 FMU 및 PX4IO CPU는 먼저 부트 로더(BL)를 실행 한 다음 응용 프로그램 (APP)을 실행합니다. 아래 표는 부트 로더와 앱이 LED를 상태를 표시 방법을 나타냅니다.
 
-| Color     | Label                       | Bootloader usage                               | APP usage               |
-| --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
-| Blue      | ACT (Activity)              | Flutters when the bootloader is receiving data | Indication of ARM state |
-| Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
-| Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
+| 색상       | 라벨                          | 부트로더 사용법               | 앱 사용법                   |
+| -------- | --------------------------- | ---------------------- | ----------------------- |
+| 청색       | ACT (Activity)              | 부트 로더가 데이터를 수신 할 때 깜빡임 | 시동 상태 표시                |
+| 빨간색 / 황색 | B/E (In Bootloader / Error) | 부트 로더에서 깜빡임            | 에러 표시                   |
+| 녹색       | PWR (Power)                 | Not used by bootloader | Indication of ARM state |
 
 :::note
 The LED labels shown above are commonly used, but might differ on some boards.
