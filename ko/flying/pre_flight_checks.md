@@ -1,14 +1,14 @@
-# Preflight Sensor/Estimator Checks
+# 센서/에스티메이터 비행 사전 점검
 
-PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM*ARM*](../advanced_config/parameter_reference.md#commander) parameters).
+PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차량을 무장하고 비행하기에 충분한 위치 추정치가 있는지 확인합니다 (이러한 검사는 [ COM \ * ARM \ * ](../advanced_config/parameter_reference.md#commander) 매개 변수)
 
 :::tip
-Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../getting_started/flight_reporting.md) also shows which GPS quality checks are failing.
+모든 비행전 오류는 * QGroundControl *에 ` PREFLIGHT FAIL ` 메시지로보고 됩니다. [ 로그의 ](../getting_started/flight_reporting.md) ` estimator_status.gps_check_fail_flags ` 메시지는 정확하지 않은 GPS 데이터를 나타냅니다.
 :::
 
-The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run.
+아래 섹션에는 오류, 가능한 원인 및 해결 방법, 비행 사전 검사 실행 방법에 영향을주는 매개 변수가 나열되어 있습니다.
 
-## EKF Preflight Checks/Errors
+## EKF 비행 사전 검사 / 오류
 
 The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
 
