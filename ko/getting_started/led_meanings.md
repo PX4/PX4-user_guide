@@ -1,17 +1,17 @@
-# LED Meanings (Pixhawk Series)
+# LED 신호의 의미(Pixhawk 시리즈)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.
+Pixhawk 비행 컨트롤러 시리즈</ 0>는 LED에 기체의 현 상태를 표출합니다.</p> 
 
-* The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
-* The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC. They indicate power, bootloader mode and activity, and errors.
+* [UI LED](#ui_led)는 *비행 준비*와 관련된 사용자에게 필요한 상태 정보를 제공합니다.
+* [상태 LED](#status_led)는 PX4IO 및 FMU SoC에 대한 상태를 제공합니다. 전원, 부트 로더 모드, 활동 및 오류를 나타냅니다.
 
 <span id="ui_led"></span>
 
 ## UI LED
 
-The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
+RGB *UI LED*는 차량의 현재 *비행 준비* 상태를 나타냅니다. 이것은 일반적으로 비행 컨트롤러 보드에 장착되거나 장착되지 않을 수있는 초 고휘도 I2C 주변 장치입니다 (예 : FMUv4에는 보드에 하나가없고 일반적으로 GPS에 장착 된 LED를 사용함).
 
-The image below shows the relationship between LED and vehicle status.
+아래 이미지는 LED와 차량 상태 간의 관계를 보여줍니다.
 
 :::warning
 It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
