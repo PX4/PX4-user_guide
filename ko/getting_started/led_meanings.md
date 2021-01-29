@@ -13,25 +13,24 @@ RGB *UI LED*는 차량의 현재 *비행 준비* 상태를 나타냅니다. 이�
 
 아래 이미지는 LED와 차량 상태 간의 관계를 보여줍니다.
 
-:::warning
-It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+:::warning PX4가 아직 [비행 사전 점검을 통과](../flying/pre_flight_checks.md) 하지 않았기 때문에 GPS 잠금 장치 (녹색 LED)가 있어도 기체에 시동을 걸 수 없습니다. **이륙하려면 유효한 전역 위치 추정치가 필요합니다! **
 :::
 
 :::tip
-In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+오류 (빨간색 깜박임) 또는 차량이 GPS 잠금을 달성 할 수없는 경우 (파란색에서 녹색으로 변경) 보정 상태 및 오류를 포함하여 *QGroundControl*에서 더 자세한 상태 정보를 확인하십시오. [프리 플라이트 확인 (내부)](../flying/pre_flight_checks.md)에서보고 한 메시지입니다. 또한 GPS 모듈이 제대로 연결되어 있는지, Pixhawk가 GPS를 제대로 읽고 있는지, GPS가 적절한 GPS 위치를 전송하는지 확인하십시오.
 :::
 
 ![LED meanings](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
-* **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. Vehicle cannot perform guided missions in this mode.
+* ** [파란색 단색] 무장, GPS 잠금 없음 : ** 차량이 무장되었으며 GPS 장치에서 위치 잠금이 없음을 나타냅니다. 기체의 시동이 걸리면 PX4는 모터를 제어하여 드론을 조종할 수 있습니다. 큰 프로펠러는 고속의 회전으로 인하여 위험하므로 시동시에 항상 조심하여야 합니다. 이 모드에서는 차량이 안내 임무를 수행 할 수 없습니다.
 
-* **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems are working.
+* ** [파란색으로 깜박임] 무장 해제, GPS 잠금 없음 : ** 위와 유사하지만 기체의 시동이 꺼졌습니다. 이는 모터를 제어 할 수 없지만, 다른 하위 시스템들은 작동한다는 것을 의미합니다.
 
-* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
+* ** [녹색으로 켜짐] 무장 됨, GPS 잠금 : ** 차량의 시동이 걸렸으며, GPS 장치에서 유효한 위치 정보를 획득하였음을 의미합니다. 기체에 시동이 걸리면, PX4는 모터를 제어하여 드론을 조종 할 수 있습니다. 큰 프로펠러는 고속의 회전으로 인하여 위험하므로 시동시에 항상 조심하여야 합니다. 이 모드에서 기체는 안내 임무를 수행 할 수 있습니다.
 
-* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems including GPS position lock are working.
+* ** [녹색 깜박임] 무장 해제, GPS 잠금 : ** 위와 유사하지만 차량의 시동이 꺼져있습니다. 즉, 모터는 제어 할 수 없지만, GPS 위치 잠금을 포함한 다른 하위 시스템들은 작동합니다.
 
-* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* ** [진한 보라색] 사고 방지 모드 : **이 모드는 비행중 기체에 문제가 발생할 때 활성화됩니다. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
 
 * **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
 
