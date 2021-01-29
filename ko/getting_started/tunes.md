@@ -1,4 +1,4 @@
-# Tune Meanings (Pixhawk Series)
+# 소리 설명 (Pixhawk 시리즈)
 
 [Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
