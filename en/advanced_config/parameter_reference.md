@@ -14065,6 +14065,13 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_GPS_PRIME">SENS_GPS_PRIME</strong> (INT32)</td>
+ <td>Multi GPS primary instance <p><strong>Comment:</strong> When no blending is active, this defines the preferred GPS receiver instance. The GPS selection logic waits until the primary receiver is available to send data to the EKF even if a secondary instance is already available. The secondary instance is then only used if the primary one times out. To have an equal priority of all the instances, set this parameter to -1 and the best receiver will be used. This parameter has no effect if blending is active.</p>   </td>
+ <td>-1 > 1 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_GPS_TAU">SENS_GPS_TAU</strong> (FLOAT)</td>
  <td>Multi GPS Blending Time Constant <p><strong>Comment:</strong> Sets the longest time constant that will be applied to the calculation of GPS position and height offsets used to correct data from multiple GPS data for steady state position differences.</p>   </td>
  <td>1.0 > 100.0 </td>

@@ -76,6 +76,27 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+## Balloon
+
+### Balloon
+
+<div>
+<img src="../../assets/airframes/types/Balloon.svg" width="29%" style="max-height: 180px;"/>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="balloon_balloon_thunderfly_balloon_tf-b1">
+ <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
+ <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o.</p><p><code>SYS_AUTOSTART</code> = 18001</p></td>
+
+</tr>
+</tbody></table>
+
 ## Copter
 
 ### Coaxial Helicopter
