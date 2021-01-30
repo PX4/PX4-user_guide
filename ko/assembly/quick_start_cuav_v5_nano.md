@@ -1,24 +1,24 @@
-# CUAV V5 nano Wiring Quick Start
+# CUAV V5 nano 배선 빠른 시작
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.cuav.net/)와 상담하십시오.
 :::
 
-This quick start guide shows how to power the [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) flight controller and connect its most important peripherals.
+이 퀵 스타트 설명서는 [ CUAV V5 nano](../flight_controller/cuav_v5_nano.md) 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
-## Wiring Chart Overview
+## 배선 개요
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+아래의 이미지는 가장 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결하는 방법을 나타냅니다. 다음 섹션에서 각각의 장치에 대해 자세히 설명합니다.
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_02.png)
 
-| Main interface  | Function                                                                                                                                                                                           |
+| 주요 인터페이스        | 기능                                                                                                                                                                                                 |
 |:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power           | Connect Power module; Provides Power and ANALOG voltage and current measurements.                                                                                                                  |
-| PM2             | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                                                                                                      |
-| TF CARD         | SD card for log storage (comes with card)                                                                                                                                                          |
-| M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| 전원              | 전원 모듈을 연결하십시오. 전력 및 ANALOG 전압 및 전류 측정을 제공합니다.                                                                                                                                                      |
+| PM2             | [PX4와 함께 사용하지 마십시오.](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                                                                                                       |
+| TF CARD         | 로그 저장용 SD 카드 (카드와 함께 제공)                                                                                                                                                                           |
+| M1~M8           | PWM 출력 모터와 서보 콘트롤합니다.                                                                                                                                                                              |
 | A1~A3           | Capture pins (not *currently* supported on PX4).                                                                                                                                                   |
 | nARMED          | Indicates the FMU armed state. It is active low (low when armed).                                                                                                                                  |
 | DSU7            | Used for FMU debug, reading debug information.                                                                                                                                                     |
