@@ -31,7 +31,7 @@
 
 
 :::note
-자세한 인터페이스 정보는 [ V5 + 매뉴얼 ](http://manual.cuav.net/V5-Plus.pdf)을 참조하십시오.
+자세한 인터페이스 정보는 [V5 + 매뉴얼](http://manual.cuav.net/V5-Plus.pdf)을 참조하십시오.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
@@ -45,10 +45,10 @@
 권장되는 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저, LED 상태 표시등이 포함된 * Neo v2 GPS *입니다.
 
 :::note
-다른 GPS 모듈은 작동하지 않을 수 있습니다 ([이 호환성 문제 ](../flight_controller/cuav_v5_nano.md#compatibility_gps) \ 참조).
+다른 GPS 모듈은 작동하지 않을 수 있습니다 ([이 호환성 문제 ](../flight_controller/cuav_v5_nano.md#compatibility_gps) 참조).
 :::
 
-GPS/나침반 모듈은 차량 앞쪽을 향하는 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (* Neo v2 GPS * 화살표는 비행과 같은 방향에 있음). 컨트롤 화살표). 케이블을 사용하여 비행 제어 GPS 인터페이스에 연결합니다.
+GPS/나침반 모듈은 차량 앞쪽을 향하는 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (* Neo v2 GPS * 화살표는 비행과 같은 방향에 있음. 컨트롤 화살표). 케이블을 사용하여 비행 제어 GPS 인터페이스에 연결합니다.
 
 :::note
 [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable)를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
@@ -83,7 +83,7 @@ V5+에는 전용 DSM 케이블이 있습니다. Spektrum 위성 수신기를 사
 V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함되어 있습니다. *HW\_PM* 모듈의 6 핀 커넥터를 비행 제어 `Power1` 인터페이스에 연결합니다.
 
 :::warning
-제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **꺼야**해야합니다.
+제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **반드시** 꺼야 합니다.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
