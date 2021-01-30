@@ -41,9 +41,9 @@
 
 * 수동 간편 : [위치](#position_mc), [고도](#altitude_mc), [수동/안정화](#manual_stabilized_mc), [궤도](#orbit_mc)
 * 수동 곡예 : [Rattitude](#rattitude_mc), [ Acro ](#acro_mc)
-* 자율 : [유지](#hold_mc), [복귀](#return_mc), [미션](#mission_mc), [이륙](#takeoff_mc), [착륙](#land_mc), [나를 따르나](#followme_mc)[오프 보드](#offboard_mc)
+* 자율 : [유지](#hold_mc), [복귀](#return_mc), [미션](#mission_mc), [이륙](#takeoff_mc), [착륙](#land_mc), [나를 따르나](#followme_mc), [오프 보드](#offboard_mc)
 
-## 핵심
+## 요점
 
 아래 아이콘은 문서 내에서 사용됩니다.<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a></td> 
 
