@@ -1,18 +1,18 @@
-# Flight Reporting
+# 비행 리포트
 
-PX4 logs detailed aircraft state and sensor data, which can be used to analyze performance issues. This topic explains how you can download and analyse logs, and share them with the development team for review.
+PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이터를 자세하게 기록합니다. 이 항목에서는 로그를 다운로드 및 분석하고 검토를 위해 개발 팀과 공유하는 방법을 설명합니다.
 
 :::tip
-Keeping flight logs is a legal requirement in some jurisdictions.
+비행 기록을 보관하는 것은 일부 지역에서는 법적인 요구 사항일 수도 있습니다.
 :::
 
-## Downloading Logs from the Flight Controller
+## 비행 컨트롤러에서 로그 다운로드
 
-Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
+로그는 [ QGroundControl ](http://qgroundcontrol.com/) : **[ 분석보기> 로그 다운로드 ](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**를 사용하여 다운로드 할 수 있습니다.
 
 ![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
-## Analyzing the Logs
+## 로그 분석
 
 Upload the log file to the online [Flight Review](http://logs.px4.io) tool. After upload you'll emailed a link to the analysis page for the log.
 
