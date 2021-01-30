@@ -1,6 +1,6 @@
-# CUAV V5+ 배선 빠른 시작
+# CUAV V5+ 배선 개요
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.cuav.net/)와 상담하십시오.
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.cuav.net/)와 상담하십시오.
 :::
 
 이 퀵 스타트 설명서는 [ CUAV V5+ ](../flight_controller/cuav_v5_plus.md) 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
@@ -13,58 +13,58 @@
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-| 주요 인터페이스        | 기능                                                                                                                                                                                                 |
-|:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power1          | 전원 연결 * 아날로그 * 전압 및 전류 감지 기능이있는 전원 입력. 이 커넥터에 Digital PM을 사용하지 마십시오!                                                                                                                               |
-| Power2          | i2c 스마트 배터리를 연결합니다.                                                                                                                                                                                |
-| TF CARD         | 로그 저장용 SD 카드 (카드는 공장에서 미리 삽입됨).                                                                                                                                                                    |
-| M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| A1~A6           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| DSU7            | Used for FMU debug, reading debug information.                                                                                                                                                     |
-| I2C1/I2C2       | Connect an I2C device such as an external compass.                                                                                                                                                 |
-| CAN1/CAN2       | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
-| TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware.                                                                                  |
-| SBUS OUT        | Connect SBUS devices (e.g. camera gimbals).                                                                                                                                                        |
-| GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
-| TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
-| DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
+| 주요 인터페이스        | 기능                                                                                                                  |
+|:--------------- |:------------------------------------------------------------------------------------------------------------------- |
+| Power1          | 전원 연결 * 아날로그 * 전압 및 전류 감지 기능이있는 전원 입력. 이 커넥터에 Digital PM을 사용하지 마십시오!                                                |
+| Power2          | i2c 스마트 배터리를 연결합니다.                                                                                                 |
+| TF CARD         | 로그 저장용 SD 카드 (카드는 공장에서 미리 삽입됨).                                                                                     |
+| M1~M8           | PWM 출력 모터와 서보 콘트롤합니다.                                                                                               |
+| A1~A6           | PWM 출력 모터와 서보 콘트롤합니다.                                                                                               |
+| DSU7            | FMU 디버그에 사용되며 디버그 정보를 읽습니다.                                                                                         |
+| I2C1/I2C2       | 외부 나침반과 같은 I2C 장치를 연결합니다.                                                                                           |
+| CAN1/CAN2       | CAN GPS와 같은 UAVCAN 장치를 연결합니다.                                                                                       |
+| TYPE-C\(USB\) | 펌웨어로드와 같은 비행 컨트롤러와 컴퓨터간의 통신을 위해 컴퓨터에 연결합니다.                                                                         |
+| SBUS OUT        | SBUS 장치(예 : 카메라 짐벌)를 연결합니다.                                                                                         |
+| GPS & SAFETY    | GPS, 안전 스위치, 부저 인터페이스가 포함된 Neo GPS에 연결합니다.                                                                          |
+| TELEM1/TELEM2   | 원격 측정 시스템에 연결합니다.                                                                                                   |
+| DSM/SBUS/RSSI   | DSM, SBUS, RSSI 신호 입력 인터페이스, DSM 인터페이스는 DSM 위성 수신기에 연결 가능, SBUS 인터페이스는 SBUS 원격 제어 수신기에 연결 가능, 신호 강도 반환 모듈용 RSSI 포함. |
 
 
 :::note
-For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+자세한 인터페이스 정보는 [ V5 + 매뉴얼 ](http://manual.cuav.net/V5-Plus.pdf)을 참조하십시오.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+컨트롤러를 권장/기본 방향으로 장착 할 수없는 경우 (예 : 공간 제약으로 인해) 실제로 사용한 방향으로 자동 조종 소프트웨어를 구성해야합니다 : [ Flight Controller Orientation ](../advanced_features/rtk-gps.md).
 :::
 
-## GPS + Compass + Safety Switch + LED
+## GPS + 나침반 + 안전 스위치 + LED
 
-The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
+권장되는 GPS 모듈은 GPS, 나침반, 안전 스위치, 부저, LED 상태 표시등이 포함된 * Neo v2 GPS *입니다.
 
 :::note
-Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
+다른 GPS 모듈은 작동하지 않을 수 있습니다 ([이 호환성 문제 ](../flight_controller/cuav_v5_nano.md#compatibility_gps) \ 참조).
 :::
 
-The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
+GPS/나침반 모듈은 차량 앞쪽을 향하는 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (* Neo v2 GPS * 화살표는 비행과 같은 방향에 있음). 컨트롤 화살표). 케이블을 사용하여 비행 제어 GPS 인터페이스에 연결합니다.
 
 :::note
-If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
+[NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable)를 사용하는 경우 케이블을 사용하여 비행 제어 CAN 인터페이스에 연결하십시오.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
-## Safety Switch
+## 안전 스위치
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo V2 GPS* (which has an inbuilt safety switch).
+V5+에 제공되는 전용 안전 스위치는 권장되는 *Neo V2 GPS* (내장 안전 스위치가 있음)를 사용하지 않는 경우에만 필요합니다.
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (if you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
+GPS없이 비행하는 경우 차량을 무장하고 비행 할 수 있도록 스위치를 `GPS1` 포트에 직접 연결해야합니다 (이전 6 핀 GPS를 사용하는 경우 정의를 읽으십시오. 라인을 변경하는 하단 인터페이스의).
 
-## Buzzer
+## 부저
 
-If you do not use the recommended GPS, the buzzer may not work.
+권장 GPS를 사용하지 않는 경우에는 부저가 작동하지 않을 수 있습니다.
 
 ## Radio Control
 
