@@ -1,23 +1,23 @@
-# CUAV V5+ Wiring Quick Start
+# CUAV V5+ 배선 빠른 시작
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.cuav.net/)와 상담하십시오.
 :::
 
-This quick start guide shows how to power the [CUAV V5+](../flight_controller/cuav_v5_plus.md) flight controller and connect its most important peripherals.
+이 퀵 스타트 설명서는 [ CUAV V5+ ](../flight_controller/cuav_v5_plus.md) 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
-## Wiring Chart Overview
+## 배선 개요
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+아래의 이미지는 가장 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결하는 방법을 나타냅니다. 다음 섹션에서 각각의 장치에 대해 자세히 설명합니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-| Main interface  | Function                                                                                                                                                                                           |
+| 주요 인터페이스        | 기능                                                                                                                                                                                                 |
 |:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power1          | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector!                                                                          |
-| Power2          | Connect i2c smart battery.                                                                                                                                                                         |
-| TF CARD         | SD card for log storage (card pre-inserted in factory).                                                                                                                                            |
+| Power1          | 전원 연결 * 아날로그 * 전압 및 전류 감지 기능이있는 전원 입력. 이 커넥터에 Digital PM을 사용하지 마십시오!                                                                                                                               |
+| Power2          | i2c 스마트 배터리를 연결합니다.                                                                                                                                                                                |
+| TF CARD         | 로그 저장용 SD 카드 (카드는 공장에서 미리 삽입됨).                                                                                                                                                                    |
 | M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
 | A1~A6           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
 | DSU7            | Used for FMU debug, reading debug information.                                                                                                                                                     |
