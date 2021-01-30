@@ -10,7 +10,7 @@ PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이�
 
 로그는 [ QGroundControl ](http://qgroundcontrol.com/) : **[ 분석보기> 로그 다운로드 ](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**를 사용하여 다운로드 할 수 있습니다.
 
-![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
+![비행 로그 다운로드](../../assets/qgc/analyze/log_download.jpg)
 
 ## 로그 분석
 
@@ -48,5 +48,5 @@ PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이�
 ## 주요 링크
 
 - [비행 검토](http://logs.px4.io)
-- [Log Analysis using Flight Review](../log/flight_review.md)
-- [Flight Log Analysis](../dev_log/flight_log_analysis.md)
+- [비행 검토 기록을 이용한 로그 분석](../log/flight_review.md)
+- [비행 로그 분석](../dev_log/flight_log_analysis.md)
