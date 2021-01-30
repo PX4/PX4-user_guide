@@ -40,49 +40,49 @@ PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차�
 
 ` 사전 확인 실패 : EKF 높은 IMU 액셀 바이어스 ` :
 
-- This error is produced when the IMU accelerometer bias estimated by the EKF is excessive. 
-- The check is controlled by the [COM_ARM_EKF_AB](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB) parameter.
+- 이 오류는 EKF에서 추정 한 IMU 가속도계 바이어스가 과도 할 때 발생합니다. 
+- 검사는 [ COM_ARM_EKF_AB ](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS`:
+` 사전 실패 : EKF 높은 IMU 자이로 바이어스 ` :
 
-- This error is produced when the IMU gyro bias estimated by the EKF is excessive.
-- The check is controlled by the [COM_ARM_EKF_GB](../advanced_config/parameter_reference.md#COM_ARM_EKF_GB) parameter.
+- 이 오류는 EKF에 의해 추정 된 IMU 자이로 바이어스가 과도 할 때 발생합니다.
+- 검사는 [ COM_ARM_EKF_GB ](../advanced_config/parameter_reference.md#COM_ARM_EKF_GB) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: ACCEL SENSORS INCONSISTENT - CHECK CALIBRATION`:
+` 사전 확인 실패 : ACCEL 센서 불일치-보정 확인 ` :
 
-- This error message is produced when the acceleration measurements from different IMU units are inconsistent.
-- This check only applies to boards with more than one IMU.
-- The check is controlled by the [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC) parameter.
+- 이 오류 메시지는 다른 IMU 장치의 가속 측정 값이 일치하지 않을 때 발생합니다.
+- 이 검사는 IMU가 두 개 이상인 보드에만 적용됩니다.
+- 검사는 [ COM_ARM_IMU_ACC ](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: GYRO SENSORS INCONSISTENT - CHECK CALIBRATION`:
+` 사전 설정 실패 : 자이로 센서 불일치-보정 확인 ` :
 
-- This error message is produced when the angular rate measurements from different IMU units are inconsistent.
-- This check only applies to boards with more than one IMU.
-- The check is controlled by the [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR) parameter.
+- 이 오류 메시지는 다른 IMU 장치의 각도 속도 측정 값이 일치하지 않을 때 발생합니다.
+- 이 검사는 IMU가 두 개 이상인 보드에만 적용됩니다.
+- 검사는 [ COM_ARM_IMU_GYR ](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: COMPASS SENSORS INCONSISTENT - CHECK CALIBRATION`:
+` 사전 확인 실패 : 나침반 센서 불일치-보정 확인 ` :
 
-- This error message is produced when the difference in measurements from different compass sensors is too great.
-- It indicates bad calibration, orientation or magnetic interference.
-- This check only applies to when more than one compass/magnetometer is connected.
-- The check is controlled by the [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) parameter.
+- 이 오류 메시지는 다른 나침반 센서의 측정 차이가 너무 클 때 생성됩니다.
+- 잘못된 교정, 방향 또는 자기 간섭을 나타냅니다.
+- 이 검사는 두 개 이상의 나침반 / 자기 계가 연결된 경우에만 적용됩니다.
+- 검사는 [ COM_ARM_MAG_ANG ](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
+` 사전 확인 실패 : EKF 내부 점검 ` :
 
-- This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
-- Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. Common problems/solutions include: 
-    - IMU drift on warmup. May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
-    - Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
-    - Bad magnetometer calibration combined with vehicle movement. Resolve by recalibrating.
-    - Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
+- 이 오류 메시지는 수평 GPS 속도, 자기 편 요각, 수직 GPS 속도 또는 수직 위치 센서 (기본적으로 Baro이지만 비표준 매개 변수가 사용되는 경우 거리 측정기 또는 GPS 일 수 있음)의 혁신 크기가 과도한 경우 발생합니다. 혁신은 관성 항법 계산에 의해 예측 된 값과 센서에 의해 측정 된 값의 차이입니다.
+- 사용자는 로그 파일에서 혁신 수준을 확인하여 원인을 파악해야합니다. ` ekf2_innovations ` 메시지에서 찾을 수 있습니다. 일반적으로 많이 일어나는 문제들은 아래와 같습니다. 
+    - 워밍업시 IMU 드리프트. 자동 조종 장치를 다시 시작하면 문제를 해결할 수 있습니다. IMU 가속 및 자이로 보정이 필요할 수 있습니다.
+    - 차량 움직임과 관련된 인접 자기 간섭. 이동중인 차량을 해결하고 대기 중이거나 전원을 다시 켜십시오.
+    - 차량 움직임과 관련된 잘못된 자력계 보정. 재보정으로 문제를 해결하십시오.
+    - 시작시 초기 충격 또는 빠른 움직임으로 인해 관성 탐색 솔루션이 잘못되었습니다. 차량을 다시 시작하고 처음 5 초 동안 움직임을 최소화하여 문제를 해결하십시오.
 
-## Other Parameters
+## 기타 매개 변수:
 
-The following parameters also affect preflight checks.
+다음의 매개 변수들은 비행 사전 검사에 관련되어 있습니다.
 
 ### COM_ARM_WO_GPS
 
-The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
+[ COM_ARM_WO_GPS ](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) 매개 변수는 전역 위치 추정없이 준비가 허용되는지 여부를 제어합니다.
 
-- `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
-- `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
+- ` 1 ` (기본값) : 위치 정보가 필요하지 않은 비행 모드에 대한 위치 추정없이 준비가 * 허용됩니다 *.
+- ` 0 ` : EKF가 글로벌 위치 추정치를 제공하고 EFK GPS 품질 검사를 통과 한 경우에만 준비가 허용됩니다.
