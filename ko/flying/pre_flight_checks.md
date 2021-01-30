@@ -8,37 +8,37 @@ PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차�
 
 아래 섹션에는 오류, 가능한 원인 및 해결 방법, 비행 사전 검사 실행 방법에 영향을주는 매개 변수가 나열되어 있습니다.
 
-## EKF 비행 사전 검사 / 오류
+## EKF 비행 사전 검사와 오류 메시지
 
-The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
+다음 오류 (관련 검사 및 매개 변수 포함)는 [ EKF ](../advanced_config/tuning_the_ecl_ekf.md)에 의해보고됩니다 (그리고 * QGroundControl *에 전파됨).
 
-`PREFLIGHT FAIL: EKF HGT ERROR`:
+` 사전 확인 실패 : EKF HGT 오류 ` :
 
-- This error is produced when the IMU and height measurement data are inconsistent.
-- Perform an accel and gyro calibration and restart the vehicle. If the error persists, check the height sensor data for problems.
-- The check is controlled by the [COM_ARM_EKF_HGT](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT) parameter.
+- 이 오류는 IMU와 높이 측정 데이터가 일치하지 않을 때 발생합니다.
+- 가속 및 자이로 보정을 수행하고 기체를 재부팅하세요. 오류가 계속 발생하면 높이 센서 데이터에서 문제가 있는 지 확인하십시오.
+- 검사는 [ COM_ARM_EKF_HGT ](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: EKF VEL ERROR`:
+` 사전 확인 실패 : EKF VEL 오류 ` :
 
-- This error is produced when the IMU and GPS velocity measurement data are inconsistent. 
-- Check the GPS velocity data for un-realistic data jumps. If GPS quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-- The check is controlled by the [COM_ARM_EKF_VEL](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL) parameter.
+- 이 오류는 IMU와 GPS 속도 측정 데이터가 일치하지 않을 때 발생합니다. 
+- 비현실적인 데이터 점프에 대한 GPS 속도 데이터를 확인합니다. GPS 품질이 정상이면 가속 센서와 자이로 보정을 수행하고 차량을 재부팅하세요.
+- 검사는 [ COM_ARM_EKF_VEL ](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: EKF HORIZ POS ERROR`:
+` 사전 확인 실패 : EKF 수평 위치 오류 ` :
 
-- This error is produced when the IMU and position measurement data (either GPS or external vision) are inconsistent. 
-- Check the position sensor data for un-realistic data jumps. If data quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-- The check is controlled by the [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) parameter.
+- 이 오류는 IMU와 위치 측정 데이터 (GPS 또는 외부 비전)가 일치하지 않을 때 발생합니다. 
+- 비현실적인 데이터 점프에 대한 위치 센서 데이터를 확인하십시오. 데이터 품질이 정상이면 가속 센서 및 자이로 보정을 수행하고 차량을 재부팅하세요.
+- 검사는 [ COM_ARM_EKF_POS ](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) 매개 변수에 의해 제어됩니다.
 
-`PREFLIGHT FAIL: EKF YAW ERROR`:
+` 프리 플라이트 실패 : EKF YAW 오류 ` :
 
-- This error is produced when the yaw angle estimated using gyro data and the yaw angle from the magnetometer or external vision system are inconsistent.
-- Check the IMU data for large yaw rate offsets and check the magnetometer alignment and calibration.
-- The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
-- The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
-- It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
+- 이 오류는 자이로 데이터를 사용하여 추정 된 요 각도와 자력계 또는 외부 비전 시스템의 요 각도가 일치하지 않을 때 발생합니다.
+- IMU 데이터에서 큰 요율 오프셋을 확인하고 자력계 정렬 및 교정을 확인하십시오.
+- 검사는 [ COM_ARM_EKF_YAW ](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) 매개 변수에 의해 제어됩니다.
+- 기본값 0.5는 내비게이션 편 요각과 자기 편 요각 (자 기계 또는 외부 비전) 간의 차이가 EKF에서 허용하는 최대 값의 50 %를 넘지 않도록 허용하고 비행이 시작될 때 오류 증가에 대한 약간의 여유를 제공합니다.
+- 요 자이로의 오프셋이 크거나 자기 간섭 또는 자력계 보정이 불량한 상태에서 차량을 이동하거나 회전하면 실패 할 수 있습니다.
 
-`PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
+` 사전 확인 실패 : EKF 높은 IMU 액셀 바이어스 ` :
 
 - This error is produced when the IMU accelerometer bias estimated by the EKF is excessive. 
 - The check is controlled by the [COM_ARM_EKF_AB](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB) parameter.
