@@ -66,53 +66,53 @@ GPS없이 비행하는 경우 차량을 무장하고 비행 할 수 있도록 �
 
 권장 GPS를 사용하지 않는 경우에는 부저가 작동하지 않을 수 있습니다.
 
-## Radio Control
+## 무선 조종
 
-A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+차량을 수동으로 제어하려면 원격 제어(RC) 무선 시스템이 필요합니다 (PX4는 자율 비행 모드용 무선조종기가 필수 사항은 아닙니다.). 기체와 조종자가 서로 통신하기 위해 호환되는 송신기/수신기를 선택하고, 송신기와 수신기를 바인드해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
-The figure below shows how you can access your remote receiver (please find the SBUS cable in the kit).
+아래 그림은 원격 수신기에 액세스하는 방법을 보여줍니다 (키트에서 SBUS 케이블을 찾으십시오).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_04.png)
 
-## Spektrum Satellite Receivers
+## Spektrum Satellite 수신기
 
-The V5+ has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
+V5+에는 전용 DSM 케이블이 있습니다. Spektrum 위성 수신기를 사용하는 경우 비행 컨트롤러 DSM/SBUS/RSSI 인터페이스에 연결해야합니다.
 
-## Power
+## 전원
 
-The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
+V5+ 키트에는 2~14S LiPo 배터리를 지원하는 *HV\ _PM* 모듈이 포함되어 있습니다. *HW\_PM* 모듈의 6 핀 커넥터를 비행 제어 `Power1` 인터페이스에 연결합니다.
 
 :::warning
-The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
+제공된 전원 모듈은 퓨즈가 없습니다. 주변 장치를 연결하는 동안 전원을 **꺼야**해야합니다.
 :::
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 :::note
-The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
+전원 모듈은 PWM 출력에 연결된 주변 장치의 전원이 아닙니다. 서보/액추에이터를 연결하는 경우에는 BEC를 사용하여 별도로 전원을 공급해야합니다.
 :::
 
-## Telemetry System (Optional)
+## 텔레메트리 시스템 (선택 사항)
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+텔레메트리 시스템은 지상국과 비행 중인 기체와 통신, 모니터링, 제어할 수 있도록 합니다 (예: 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to either the `TELEM1` or `TELEM2` port (if connected to these ports, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+통신 채널은 Telemetry Radios를 통해 이루어집니다. 차량 기반 라디오는 `TELEM1` 또는 `TELEM2` 포트에 연결해야합니다 (이 포트에 연결되어있는 경우 추가 구성이 필요하지 않음). 다른 라디오는 지상국 컴퓨터 또는 모바일 장치 (일반적으로 USB를 통해)에 연결됩니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
 <span id="sd_card"></span>
 
-## SD Card (Optional)
+## SD 카드 (선택 사항)
 
-An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
+[SD 카드](../getting_started/px4_basic_concepts.md#sd_cards)가 제조 공장에서 삽입되어 있습니다 (아무 것도 할 필요가 없습니다).
 
-## Motors
+## 모터
 
-Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
+모터/서보는 [ Airframes Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 MAIN 및 AUX 포트에 연결됩니다.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
-## Pinouts
+## 핀아웃
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
