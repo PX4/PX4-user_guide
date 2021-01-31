@@ -363,42 +363,44 @@ logger <command> [arguments...]
 
    status        print status info
 ```
-## pwm_input
-Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)
+## netman
+Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
 
+
+  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+
+  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+
+  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+
+<a id="netman_usage"></a>
 
 ### 参数描述
-Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
-
-<a id="pwm_input_usage"></a>
-
-### 用法
 ```
-pwm_input <command> [arguments...]
+netman <command> [arguments...]
  Commands:
-   start
-
-   test          prints PWM capture info.
+   show          Display the current persistent network settings to the console.
 
    stop          停止设备
 
    status        打印状态信息
+
+   save          Save the current network parameters to the SD card.
+     [-i <val>]  Set the interface name
+                 default: eth0
 ```
-## rc_update
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+## pwm_input
+Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)
 
-
-### 参数描述
-Do RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches, low-pass filter, and then publish as `rc_channels` and `manual_control_setpoint`.
-
-### 实现
-To reduce control latency, the module is scheduled on input_rc publications.
-
-<a id="rc_update_usage"></a>
 
 ### 用法
+源码： [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
+
+<a id="pwm_input_usage"></a>
+
+### 参数描述
 ```
-rc_update <command> [arguments...]
+pwm_input <command> [arguments...]
  wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
@@ -406,27 +408,26 @@ rc_update <command> [arguments...]
    stop
 
    status        打印状态信息
+
+   stop
+
+   status        print status info
 ```
 ## replay
-源码： [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
-
-
-### 参数描述
 此模块用于回放 ULog 文件。
 
-共有两个需要进行配置的环境变量： `replay` ，必须被设置为 ULog 文件名 - 也就是需要进行回放的日志文件。 第二个则是通过 `replay_mode` 变量对回放模式进行设定：
-- `replay_mode=ekf2`: 指定 EKF2 回放模式。 `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
-- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
 
-该模块通常与 uORB 发布者规则配合使用以指定需要进行回放的消息。 都则的话回放模块将直接发布所有在日志中找到的消息。 这也适用于在日志文件爱你中记录的各参数。
-
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
-
-<a id="replay_usage"></a>
+### 实现
+The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
 
 ### 用法
+To reduce control latency, the module is scheduled on input_rc publications.
+
+<a id="rc_update_usage"></a>
+
+### 参数描述
 ```
-replay <command> [arguments...]
+rc_update <command> [arguments...]
  replay <command> [arguments...]
  Commands:
    start         Start replay, using log file from ENV variable 'replay'
@@ -440,19 +441,25 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-源码： [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
 
-
-### 参数描述
-此模块将以后台进程形式在 LP 工作列队中周期性运行，以执行内部管理任务。 Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for temperature calibration and tone alarm on RC Loss.
-
-这些任务可以通过 CLI 命令行或者 uORB 话题（例如，来自 MAVLink 的 vehicle_command）进行启动。
-
-<a id="send_event_usage"></a>
 
 ### 用法
+源码： [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
+
+此模块将以后台进程形式在 LP 工作列队中周期性运行，以执行内部管理任务。 Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for temperature calibration and tone alarm on RC Loss.
+- `replay_mode=ekf2`: 指定 EKF2 回放模式。 `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
+- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
+
+The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+
+源码： [modules/sensors](https://github.com/PX4/Firmware/tree/master/src/modules/sensors)
+
+<a id="replay_usage"></a>
+
+### 参数描述
 ```
-send_event <command> [arguments...]
+replay <command> [arguments...]
  load_mon <command> [arguments...]
  Commands:
    start         启动后台任务
@@ -462,25 +469,19 @@ send_event <command> [arguments...]
    status        打印状态信息
 ```
 ## sensors
-源码： [modules/sensors](https://github.com/PX4/Firmware/tree/master/src/modules/sensors)
+Source: [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules/events)
 
-
-### 参数描述
-Sensors 模块是整个系统的核心。 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
-
-模块提供的功能包括：
-- 读取传感器驱动的输出 (例如，`sensor_gyro` 等)。 如果存在多个同类型传感器，那个模块将进行投票和容错处理。 然后应用飞控板的旋转和温度校正（如果被启用）。 最终发布传感器数据：其中名为 `sensor_combined` 的主题被系统的许多部件所使用。
-- Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
-- Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
-
-### 实现
-模块运行在它自己的线程中，并轮询当前选定的陀螺仪主题。
-
-<a id="sensors_usage"></a>
 
 ### 用法
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+
+模块运行在它自己的线程中，并轮询当前选定的陀螺仪主题。
+
+<a id="send_event_usage"></a>
+
+### 参数描述
 ```
-sensors <command> [arguments...]
+send_event <command> [arguments...]
  sensors <command> [arguments...]
  Commands:
    start
@@ -490,18 +491,26 @@ sensors <command> [arguments...]
 
    status        打印状态信息
 ```
-## temperature_compensation
-Source: [modules/temperature_compensation](https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation)
+## sensors
+Source: [modules/sensors](https://github.com/PX4/Firmware/tree/master/src/modules/sensors)
 
 
-### 参数描述
-The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+### 实现
+The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
-<a id="temperature_compensation_usage"></a>
+源码：[systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+- 读取传感器驱动的输出 (例如，`sensor_gyro` 等)。 如果存在多个同类型传感器，那个模块将进行投票和容错处理。 然后应用飞控板的旋转和温度校正（如果被启用）。 最终发布传感器数据：其中名为 `sensor_combined` 的主题被系统的许多部件所使用。
+- Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started. 传感器驱动使用 ioctl 接口获取参数更新。 为了使这一功能正常运行，当 `sensors` 模块启动时传感器驱动必须已经处于运行状态。
+- Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
 
 ### 用法
+控制 & 测试（外置）蜂鸣器的命令行工具。
+
+<a id="sensors_usage"></a>
+
+### 参数描述
 ```
-temperature_compensation <command> [arguments...]
+sensors <command> [arguments...]
  send_event <command> [arguments...]
  Commands:
    start         Start the background task
@@ -517,41 +526,68 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-源码：[systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [modules/temperature_compensation](https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation)
 
+
+### 用法
+The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+
+<a id="temperature_compensation_usage"></a>
 
 ### 参数描述
+```
+temperature_compensation <command> [arguments...]
+ Commands:
+   start         Start the module, which monitors the sensors and updates the
+                 sensor_correction topic
 
-控制 & 测试（外置）蜂鸣器的命令行工具。
+   calibrate     Run temperature calibration process
+     [-g]        calibrate the gyro
+     [-a]        calibrate the accel
+     [-b]        calibrate the baro (if none of these is given, all will be
+                 calibrated)
 
-蜂鸣器被用于提供听觉通知和警告（例如，系统解锁、位置锁定等）。 本工具要求一个可处理 tune_control uorb 主题的驱动处于运行状态。
+   stop
 
-有关音调格式和预定义的系统蜂鸣声音可以参阅： https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+   status        print status info
+```
+## work_queue
+播放系统蜂鸣声 #2 ：
+
 
 ### 示例
 
-播放系统蜂鸣声 #2 ：
+Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
+
+Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
+
+Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+
+### 用法
+
+Play system tune #2:
 ```
 tune_control play -t 2
 ```
 
 <a id="tune_control_usage"></a>
 
-### 用法
+### 参数描述
 ```
 tune_control <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
-   play          Play system tune or single note.
-     tune_control <command> [arguments...]
- Commands:
-   play          Play system tune, tone, or melody
+   start
+
+   stop
+
+   status        打印状态信息
+     error       Play error tune
      [-t <val>]  Play predefined system tune
                  default: 1
-     [-f <val>]  Frequency of tone in Hz (0-22kHz)
-                 default: 0
-     [-d <val>]  Duration of tone in us
-                 default: 1
-     [-s <val>]  Strength of tone (0-100)
+     [-f <val>]  Frequency of note in Hz (0-22kHz)
+     [-d <val>]  Duration of note in us
+     [-s <val>]  Volume level (loudness) of the note (0-100)
                  default: 40
      [-m <val>]  Melody in string form
                  values: <string> - e.g. "MFT200e8a8a"
@@ -564,20 +600,19 @@ tune_control <command> [arguments...]
 Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
 
 
-### 参数描述
+### 用法
 
-用于显示工作队列状态的命令行工具。
+Command-line tool to show work queue status.
 
 <a id="work_queue_usage"></a>
 
-### 用法
+### Usage
 ```
 work_queue <command> [arguments...]
- wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
