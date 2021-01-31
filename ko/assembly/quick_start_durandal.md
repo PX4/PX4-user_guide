@@ -86,11 +86,11 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
   - 6 핀 GH 케이블 (1)
 
 :::note
-See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+[ PM02v3 전원 모듈 설명서 ](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)도 참조하십시오.
 :::
 
 <span id="pm07"></span>
-### Pixhawk 4 Power Module (PM07)
+### Pixhawk 4 전원 모듈 (PM07)
 
 The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
 
