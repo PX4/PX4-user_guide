@@ -39,51 +39,51 @@ Durandal은 전원 모듈 (* PM02 V3 *, * PM07 * 및 * Pixhawk 4 GPS / Compass *
 
 ## GPS + 나침반 + 부저 + 안전 스위치 + LED
 
-Durandal is designed to work well with the *Pixhawk 4 GPS module*, which has an integrated compass, safety switch, buzzer and LED. It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
+Durandal은 나침반, 안전 스위치, 부저 및 LED가 통합된 *Pixhawk 4 GPS 모듈*에 최적화되도록 설계되었습니다. 10 핀 케이블을 사용하여 [GPS 포트](../flight_controller/durandal.md#gps)에 직접 연결합니다.
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
-:::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::note GPS
+모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
 :::
 
-## Power
+## 전원
 
-You can use a power module or power distribution board to power motors/servos and measure power consumption. The recommended power modules are shown below.
+전원 모듈 또는 배전 보드를 사용하여 모터/서보에 전원을 공급하고 전력 소비를 측정 할 수 있습니다. 권장되는 전원 모듈은 다음과 같습니다.
 
 <span id="pm02_v3"></span>
-### PM02 v3 Power Module
+### PM02 v3 전원 모듈
 
-The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *Durandal*. It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+[ 전원 모듈 (PM02 v3) ](https://shop.holybro.com/power-modulepm02-v3_p1185.html)은 * Durandal *과 함께 번들로 제공 될 수 있습니다. 비행 컨트롤러에 전력을 공급하고 배터리 전압/전류를 비행 컨트롤러에 보냅니다.
 
-Connect the output of the *Power Module* as shown.
+그림과 같이 * 전원 모듈 *의 출력을 연결합니다.
 
 ![Durandal PM02v3 Power connections](../../assets/flight_controller/durandal/connection_power.jpg)
 
 
-- PM voltage/current port: connect to [POWER1](../flight_controller/durandal.md#power) port (or `POWER2`) using the 6-wire GH cable supplied.
-- PM input (XT60 male connector): connect to the LiPo battery (2~12S).
-- PM power output (XT60 female connector): wire out to any motor ESCs.
+- PM 전압/전류 포트 : 제공된 6선 GH 케이블을 사용하여 [ POWER1 ](../flight_controller/durandal.md#power) 포트 (또는 ` POWER2 `)에 연결합니다.
+- PM 입력 (XT60 수 커넥터) : LiPo 배터리 (2 ~ 12S)에 연결합니다.
+- PM 전원 출력 (XT60 암 커넥터) : 모든 모터 ESC에 배선합니다.
 
 :::tip
-As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+이 전원 모듈에는 배전 배선이 포함되어 있지 않으므로 일반적으로 모든 ESC를 전원 모듈 출력에 병렬로 연결합니다 (ESC는 제공된 전압 레벨에 적합해야 함).
 :::
 
 :::tip
-The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+** MAIN / AUX **의 8 핀 전원 (+) 레일은 비행 컨트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우, 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리에 연결해야합니다. 사용하는 서보의 전압이 적절한 지 확인하십시오.
 :::
 
-The power module has the following characteristics/limits:
-- Max input voltage: 60V
-- Max current sensing: 120A Voltage
-- Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
-- Weight: 20g
-- Package includes:
-  - PM02 board
-  - 6pin MLX cable (1)
-  - 6pin GH cable (1)
+전원 모듈에는 다음과 같은 특성/제한이 있습니다.
+- 최대 입력 전압 : 60V
+- 최대 전류 감지 : 120A 전압
+- SV ADC 스위칭 레귤레이터 출력에 대해 구성된 전류 측정은 최대 5.2V 및 3A를 출력합니다.
+- 무게 : 20g
+- 패키지 내용물 :
+  - PM02 보드
+  - 6 핀 MLX 케이블 (1)
+  - 6 핀 GH 케이블 (1)
 
 :::note
 See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
