@@ -23,7 +23,10 @@ User-facing flight mode documentation can be found in:
 "Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick).
 Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
 
-* **Fixed wing aircraft/ rovers / boats:** 
+* **Rovers / Boats:** 
+  * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
+
+* **Fixed wing aircraft:** 
   * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
   * **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control).
     If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances.
