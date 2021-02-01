@@ -92,39 +92,39 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 <span id="pm07"></span>
 ### Pixhawk 4 전원 모듈 (PM07)
 
-The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
+[Pixhawk 4 전원 모듈 (PM07) ](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)은 * Durandal *과 함께 번들로 제공되기도 합니다. 전원 모듈 및 배전 보드 역할을 모두 수행하여 조정 된 전원을 비행 컨트롤러와 ESC에 제공하고 배터리 전압/전류를 비행 컨트롤러에 보냅니다.
 
-This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
+이것은 [ Pixhawk 4 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power) 문서에 설명된 것과 같은 방식으로 연결됩니다.
 
-It has the following characteristics/limits:
-- PCB Current: total 120A outputs (MAX)
-- UBEC 5V output current: 3A
-- UBEC input voltage : 7~51v (2~12s LiPo)
-- Dimensions: 68*50*8 mm
-- Mounting Holes: 45*45mm
-- Weight: 36g
-- Package includes:
-  - PM07 board (1)
-  - 80mm XT60 connector wire (1)
+전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
+- PCB 전류 : 총 120A 출력 (최대)
+- UBEC 5V 출력 전류 : 3A
+- UBEC 입력 전압 : 7 ~ 51v (2 ~ 12s LiPo)
+- 크기 : 68 * 50 * 8 mm
+- 장착 구멍 : 45 * 45mm
+- 중량: 36g
+- 패키지 내용물 :
+  - PM07 보드 (1)
+  - 80mm XT60 커넥터 와이어 (1)
 
 :::note
-See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+[ PM07 빠른 시작 안내서 ](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)도 참조하십시오.
 :::
 
-### Battery Configuration
+### 배터리 설정
 
-The battery/power setup must be configured in [Power Settings](../config/battery.md). For either Power Module you will need to configure the *Number of Cells*.
+배터리 전원 설정은 [ 전원 설정 ](../config/battery.md)에서 구성해야 합니다. 두 전원 모듈에 대해 * 셀 수 *를 구성해야 합니다.
 
-You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
+다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 * 전압 분배기 *를 업데이트 할 필요가 없습니다.
 
 
-## Radio Control
+## 무선 조종
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동*으로 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
-The instructions below show how to connect the different types of receivers to *Durandal*:
+아래 지침은 다양한 유형의 수신기를 * Durandal *에 연결하는 방법을 보여줍니다.
 
 
 - Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/durandal.md#dsm-rc-port) input.
