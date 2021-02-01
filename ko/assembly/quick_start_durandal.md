@@ -92,14 +92,14 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 <span id="pm07"></span>
 ### Pixhawk 4 전원 모듈 (PM07)
 
-The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*. It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller.
+[Pixhawk 4 전원 모듈 (PM07) ](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)은 * Durandal *과 함께 번들로 제공되기도 합니다. 전원 모듈 및 배전 보드 역할을 모두 수행하여 조정 된 전원을 비행 컨트롤러와 ESC에 제공하고 배터리 전압/전류를 비행 컨트롤러에 보냅니다.
 
-This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
+이것은 [ Pixhawk 4 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power) 문서에 설명된 것과 같은 방식으로 연결됩니다.
 
-It has the following characteristics/limits:
-- PCB Current: total 120A outputs (MAX)
-- UBEC 5V output current: 3A
-- UBEC input voltage : 7~51v (2~12s LiPo)
+전원 모듈에는 다음과 같은 특성과 제약 사항이 있습니다.
+- PCB 전류 : 총 120A 출력 (최대)
+- UBEC 5V 출력 전류 : 3A
+- UBEC 입력 전압 : 7 ~ 51v (2 ~ 12s LiPo)
 - Dimensions: 68*50*8 mm
 - Mounting Holes: 45*45mm
 - Weight: 36g
