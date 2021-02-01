@@ -4885,7 +4885,7 @@ but also ignore less noise    </td>
 </ul>
   </td>
  <td>0 > 5 </td>
- <td>1</td>
+ <td>2</td>
  <td></td>
 </tr>
 <tr>
@@ -7137,7 +7137,7 @@ default 1.5 turns per second    </td>
  <td>us</td>
 </tr>
 <tr>
- <td><strong id="PWM_AUX_DISARMED">PWM_AUX_DISARMED</strong> (INT32)</td>
+ <td><strong id="PWM_AUX_DISARM">PWM_AUX_DISARM</strong> (INT32)</td>
  <td>PWM aux disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
  <td>0 > 2200 </td>
  <td>1500</td>
@@ -7450,13 +7450,6 @@ default 1.5 turns per second    </td>
  <td>-0.2 > 0.2 </td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_DISARMED">PWM_DISARMED</strong> (INT32)</td>
- <td>PWM main disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
- <td>0 > 2200 </td>
- <td>900</td>
- <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_EXTRA_DIS1">PWM_EXTRA_DIS1</strong> (INT32)</td>
@@ -7928,6 +7921,13 @@ default 1.5 turns per second    </td>
  <td>us</td>
 </tr>
 <tr>
+ <td><strong id="PWM_MAIN_DISARM">PWM_MAIN_DISARM</strong> (INT32)</td>
+ <td>PWM main disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   </td>
+ <td>0 > 2200 </td>
+ <td>900</td>
+ <td>us</td>
+</tr>
+<tr>
  <td><strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)</td>
  <td>PWM main 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
  <td>0 > 2150 </td>
@@ -8236,6 +8236,13 @@ default 1.5 turns per second    </td>
  <td>us</td>
 </tr>
 <tr>
+ <td><strong id="PWM_MAIN_RATE">PWM_MAIN_RATE</strong> (INT32)</td>
+ <td>PWM main output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
+ <td>-1 > 2000 </td>
+ <td>400</td>
+ <td>Hz</td>
+</tr>
+<tr>
  <td><strong id="PWM_MAIN_RATE1">PWM_MAIN_RATE1</strong> (INT32)</td>
  <td>PWM main 1 rate <p><strong>Comment:</strong> Set the default PWM output frequency for the main outputs</p>   </td>
  <td>0 > 400 </td>
@@ -8437,13 +8444,6 @@ default 1.5 turns per second    </td>
  <td>-0.2 > 0.2 </td>
  <td>0</td>
  <td></td>
-</tr>
-<tr>
- <td><strong id="PWM_RATE">PWM_RATE</strong> (INT32)</td>
- <td>PWM main output frequency <p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   </td>
- <td>-1 > 2000 </td>
- <td>400</td>
- <td>Hz</td>
 </tr>
 <tr>
  <td><strong id="PWM_SBUS_MODE">PWM_SBUS_MODE</strong> (INT32)</td>
