@@ -45,7 +45,7 @@
 
 ## 요점
 
-아래 아이콘은 문서 내에서 사용됩니다.<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a></td> 
+아래 아이콘은 문서 내에서 사용됩니다:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" /></a></td> 
 
 <td>
   수동 모드 원격 제어 필수.

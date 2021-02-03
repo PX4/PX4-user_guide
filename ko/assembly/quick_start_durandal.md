@@ -13,13 +13,13 @@ Durandal은 전원 모듈 (* PM02 V3 *, * PM07 * 및 * Pixhawk 4 GPS / Compass *
 
 *PM02 V3* 전원 모듈이있는 상자의 내용물은 아래에 나와 있습니다 (상자에는 핀 배치 가이드 및 전원 모듈 지침도 포함되어 있음).
 
-![Durandal Box](../../assets/flight_controller/durandal/durandal_unboxing_schematics.jpg)
+![Durandal 상자](../../assets/flight_controller/durandal/durandal_unboxing_schematics.jpg)
 
 ## 배선 개요
 
 아래의 이미지는 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결법을 나타냅니다. 다음 섹션에서 각각의 장치에 대해 자세히 설명합니다.
 
-![Durandal Wiring Overview](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
+![큐브 - 배선 개요](../../assets/flight_controller/durandal/durandal_wiring_overview.jpg)
 
 :::tip
 사용 가능한 포트에 대한 자세한 내용은 [ Durandal> 핀아웃 ](../flight_controller/durandal.md#pinouts)에서 찾을 수 있습니다.
@@ -29,7 +29,7 @@ Durandal은 전원 모듈 (* PM02 V3 *, * PM07 * 및 * Pixhawk 4 GPS / Compass *
 
 *Duranda *은 차량의 무게 중심에 최대한 가깝게 배치 된 프레임에 장착해야하며 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
-![Mounting/Orientation](../../assets/flight_controller/durandal/orientation.jpg)
+![장착 및 방향](../../assets/flight_controller/durandal/orientation.jpg)
 
 컨트롤러를 공간의 제약등으로 인하여 권장하는 방향으로 장착 할 수없는 경우에는 실제 장착한 방향을 소프트웨어에서 설정하여야 합니다. : [비행 콘트롤러 방향 ](../config/flight_controller_orientation.md).
 
@@ -43,7 +43,7 @@ Durandal은 나침반, 안전 스위치, 부저 및 LED가 통합된 *Pixhawk 4 
 
 GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
-![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
+![Durandal에 나침반 / GPS 연결](../../assets/flight_controller/durandal/connection_gps_compass.jpg)
 
 :::note GPS
 모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
@@ -60,7 +60,7 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 
 그림과 같이 * 전원 모듈 *의 출력을 연결합니다.
 
-![Durandal PM02v3 Power connections](../../assets/flight_controller/durandal/connection_power.jpg)
+![Durandal PM02v3 전원 연결](../../assets/flight_controller/durandal/connection_power.jpg)
 
 
 - PM 전압/전류 포트 : 제공된 6선 GH 케이블을 사용하여 [ POWER1 ](../flight_controller/durandal.md#power) 포트 (또는 ` POWER2 `)에 연결합니다.
@@ -127,80 +127,80 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 아래 지침은 다양한 유형의 수신기를 * Durandal *에 연결하는 방법을 보여줍니다.
 
 
-- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/durandal.md#dsm-rc-port) input.
+- Spektrum/DSM 수신기는 [ DSM RC ](../flight_controller/durandal.md#dsm-rc-port) 입력에 연결됩니다.
 
   ![Durandal - DSM](../../assets/flight_controller/durandal/dsm.jpg)
 
-- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/durandal.md#rc-in) input port (marked as RC IN, next to the MAIN/AUX inputs).
+- PPM과 S.Bus 방식의 수신기는 [ SBUS_IN / PPM_IN ](../flight_controller/durandal.md#rc-in) 입력 포트 (MAIN/AUX 입력 옆에 RC IN으로 표시됨)에 연결됩니다.
 
-  ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+  ![Durandal - 백 핀아웃 (개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
-
-
-## Telemetry Radios (Optional)
-
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
-
-The vehicle-based radio should be connected to the [TELEM1](../flight_controller/durandal.md#telem1_2_3) port as shown below using one of the 6-pos connectors (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
-
-![Durandal/Telemetry Radio](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
+무선 시스템 선택, 수신기 호환성 및 송신기 / 수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
 
 
-## SD Card (Optional)
+## 무선 텔레메트리(선택 사항)
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert an SD card into the *Durandal* where indicated below.
+무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
-![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
+차량 기반 무선 장치는 6 핀 커넥터 중 하나를 사용하여 아래와 같이 [TELEM1](../flight_controller/durandal.md#telem1_2_3) 포트에 연결해야합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+
+![Durandal / 무선 텔레메트리](../../assets/flight_controller/durandal/holybro_telemetry_radio.jpg)
+
+
+## SD 카드 (선택 사항)
+
+SD 카드는 [ 비행 세부 정보를 기록 및 분석 ](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. 아래 표시된 곳에 SD 카드를 * Durandal *에 삽입합니다.
+
+![Durandal SD 카드](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
 :::tip
-For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
+자세한 내용은 [ 기본 개념> SD 카드 (이동식 메모리) ](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
 :::
 
-## Motors
+## 모터
 
-Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+모터 / 서보 제어 신호는 ** I / O PWM OUT ** (** MAIN OUT **) 및 ** FMU PWM OUT ** (** AUX **)에 연결됩니다. ) 포트는 [ Airframe Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서로 지정됩니다.
 
-![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - 백 핀아웃 (개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-The motors must be separately [powered](#power).
+모터는 별도로 [ 전원을 공급 ](#power)핟여야 합니다.
 
 :::note
-If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
+프레임이 기체 참조 목록에 없으면, 올바른 유형의 "일반"기체를 사용하십시오.
 :::
 
 :::tip
-*Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
+* Durandal *에는 5 개의 AUX 포트가 있으므로 AUX6, AUX7, AUX8을 모터 또는 기타 중요한 비행 제어 장치에 매핑하는 기체에는 사용할 수 없습니다.
 :::
 
-## Other Peripherals
+## 기타 주변 장치
 
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
 
-## Pinouts
+## 핀아웃
 
-[Durandal > Pinouts](../flight_controller/durandal.md#pinouts)
+[Durandal > 핀아웃](../flight_controller/durandal.md#pinouts)
 
 <span id="configuration"></span>
-## PX4 Configuration
+## PX4 설정
 
-First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.
+먼저 * QGroundControl *을 사용하여 컨트롤러에 [ PX4 "마스터"펌웨어 ](../config/firmware.md#custom)를 설치하여야 합니다.
 
 :::note
-Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
+Durandal 지원은 PX4 v1.10 이후의 * 안정 * PX4 릴리스에서 지원됩니다.
 :::
 
-Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
+더 자세한 일반 구성 정보는 [ Autopilot 구성 ](../config/README.md)에서 다룹니다.
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
 
 
-## Further information
+## 추가 정보
 
-- [Durandal Overview](../flight_controller/durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
-- [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
-- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)
+- [Durandal 개요](../flight_controller/durandal.md)
+- [ Durandal 기술 데이터 시트 ](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
+- [ Durandal 핀아웃 ](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [ Durandal_MB_H743sch.pdf ](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal 회로도)
+- [ STM32H743IIK_pinout.pdf ](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)

@@ -8,7 +8,8 @@
 
 ![콘트롤러 방향](../../assets/qgc/setup/sensor/fc_orientation_1.png)
 
-::note 콘트롤러가 물리적인 제약으로 인하여 추천하는 기본적인 위치에 장착할 수 없으면, 자율비행 S/W에서 실제 장착된 방향을 설정하여 합니다. [비행 제어기 방향](../config/flight_controller_orientation.md).
+:::note
+콘트롤러가 물리적인 제약으로 인하여 추천하는 기본적인 위치에 장착할 수 없으면, 자율비행 S/W에서 실제 장착된 방향을 설정하여 합니다. [비행 제어기 방향](../config/flight_controller_orientation.md).
 :::
 
 ## 진동 방지
@@ -19,5 +20,6 @@
 
 콘트롤러 문서에서 추천하는 방법으로 장착하는 것이 제일 좋습니다.
 
-::::tip [비행 리뷰 로그 분석 > 진동](../log/flight_review.md#vibration) 은 적절한 진동 범위를 분석하는 방법에 대하여 설명합니다.[진동 방지](../assembly/vibration_isolation.md) 문제가 되는 진동을 해결하는 방법을 제시합니다.
+:::tip
+[비행 리뷰 로그 분석 > 진동](../log/flight_review.md#vibration) 은 적절한 진동 범위를 분석하는 방법에 대하여 설명합니다.[진동 방지](../assembly/vibration_isolation.md) 문제가 되는 진동을 해결하는 방법을 제시합니다.
 :::
