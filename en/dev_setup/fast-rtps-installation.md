@@ -3,12 +3,17 @@
 <img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;"/> [eProsima Fast RTPS](http://eprosima-fast-rtps.readthedocs.io/en/latest/) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol, which provides publisher-subscriber communications over unreliable transports such as UDP, as defined and maintained by the Object Management Group (OMG) consortium.
 RTPS is also the wire interoperability protocol defined for the Data Distribution Service (DDS) standard, again by the OMG.
 
-Fast RTPS is used by PX4 to enable an RTPS interface allowing PX4 uORB topics to be shared with offboard components, including robotics and simulator tools.
+Fast RTPS is used by PX4 to enable an RTPS/DDS interface allowing PX4 uORB topics to be shared with offboard components, including robotics and simulator tools.
 RTPS is the underlying protocol of DDS, a standard from the OMG (Object Management Group) providing a real-time publish/subscribe middleware that is widely used in aerospace, defense and IoT applications. It has also been adopted as the middleware for the ROS2 robotics toolkit.
-For more information see: [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+For more information see: [RTPS/DDS Interface: PX4-FastRTPS(DDS) Bridge](../middleware/micrortps.md).
+
+:::note
+Since version 2.0.0, Fast RTPS changed is name to Fast DDS, since it now has a full DDS implementation, rather than just the RTPS wire protocol.
+:::
 
 :::tip
-For Ubuntu, at time of writing, you will need to install Fast-RTPS 1.8.2 *from source*.
+- For Ubuntu 18.04, at time of writing, you will need to install Fast RTPS 1.8.2 and FastRTPSGen 1.0.4 or higher *from source*.
+- For Ubuntu 20.04, at time of writing, you will need to install Fast DDS 2.0.0 and FastRTPSGen 1.0.4  higher *from source*.
 :::
 
 :::note
@@ -46,13 +51,13 @@ The installer gives you the option of downloading and installing them.
 
 ## Installation from Sources
 
-### Fast-RTPS
+### Fast-RTPS(DDS)
 
 Clone the project from Github:
 
 ```sh
-$ git clone --recursive https://github.com/eProsima/Fast-RTPS.git -b 1.8.x ~/FastRTPS-1.8.2
-$ cd ~/FastRTPS-1.8.2
+$ git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.0 ~/FastDDS-2.0.0
+$ cd ~/FastDDS-2.0.0
 $ mkdir build && cd build
 ```
 
@@ -65,7 +70,7 @@ If you are on Linux, execute:
 
 ```sh
 $ cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
-$ make
+$ make -j$(nproc --all)
 $ sudo make install
 ```
 
@@ -87,12 +92,12 @@ If you want to compile the performance tests, you will need to add the argument 
 
 ### Fast-RTPS-Gen
 
-*Fast-RTPS-Gen* is the Fast RTPS IDL code generator tool. It should be installed after Fast RTPS and made sure the `fastrtpsgen` application is in your `PATH`.
+*Fast-RTPS-Gen* is the Fast RTPS (DDS) IDL code generator tool. It should be installed after Fast RTPS (DDS) and made sure the `fastrtpsgen` application is in your `PATH`.
 You can check with `which fastrtpsgen`.
 
 Then install Fast-RTPS-Gen 1.0.4 (Gradle is required for this):
 ```
-git clone --recursive https://github.com/eProsima/Fast-RTPS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
+git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
     && cd ~/Fast-RTPS-Gen \
     && ./gradlew assemble \
     && sudo ./gradlew install
