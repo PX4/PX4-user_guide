@@ -84,7 +84,6 @@ Only the master branch is needed for ROS2 (both are needed to target ROS).
 This install and build guide covers ROS2 Foxy in Ubuntu 20.04.
 :::
 
-In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubuntu 18.04 machine, follow the links below, respectively:
 1. [Install ROS2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
 1. The install process should also install the *colcon* build tools, but in case that doesn't happen, you can install the tools manually:
 
@@ -98,10 +97,10 @@ In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubu
    sudo apt install ros-dashing-eigen3-cmake-module
    ```
 
-1. *setuptools* must also be installed (using *pip* or *apt*):
+1. Some Python dependencies must also be installed (using *pip* or *apt*):
 
    ```sh
-   sudo pip3 install -U setuptools
+   sudo pip3 install -U empy pyros-genmsg setuptools
    ```
 
    :::caution
@@ -397,10 +396,12 @@ The creation of ROS nodes is a well known and documented process.
 An example of a ROS listener for `sensor_combined` messages can be found in the `ros1` branch repo, under `px4_ros_com/src/listeners`.
 
 
-## Offboard example
+## Offboard control
+
+Please check the [Offboard control page](../ros/offboard_control.md).
 
 
-## Testing the PX4-FastRPTS bridge
+## Quick-start testing the bridge with PX4 SITL
 
 To quickly test the package (using PX4 SITL with Gazebo):
 
@@ -493,7 +494,7 @@ You can also verify the rate of the message using `rostopic hz`.
 
 1. You can also test the `sensor_combined` ROS2 listener by launching the example launch file in the terminal:
    ```sh
-   $ source ~/px4_ros_com_ros2/install/local_setup.bash
+   $ source ~/px4_ros_com_ros2/install/setup.bash
    $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
@@ -502,3 +503,7 @@ And it should also get data being printed to the console output.
 :::note
 If ones uses the `build_all.bash` script, it automatically open and source all the required terminals so one just has to run the respective apps in each terminal.
 :::
+
+## Setting up the bridge with real hardware
+
+This section is work-in-progress
