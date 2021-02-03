@@ -398,7 +398,7 @@ An example of a ROS listener for `sensor_combined` messages can be found in the 
 
 ## Offboard control
 
-Please check the [Offboard control page](../ros/offboard_control.md).
+Please check the [ROS 2 Offboard control example](../ros/ros2_offboard_control.md) section.
 
 
 ## Quick-start testing the bridge with PX4 SITL
