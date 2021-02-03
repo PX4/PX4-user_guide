@@ -296,19 +296,13 @@ baro_temp_celcius: 43.93
 If the *Listener application* does not print anything, make sure the *Client* is running.
 :::
 
-## Examples/tests of ROS-independent apps
-
-The following examples provide additional real-world demonstrations of how to use the features described in this topic.
-
-* [Throughput test](../middleware/micrortps_throughput_test.md): A simple test to measure the throughput of the bridge.
-
 
 ## Troubleshooting
 
 ### Client reports that selected UART port is busy
 
 If the selected UART port is busy, it's possible that the MAVLink application is already being used.
-If both MAVLink and RTPS connections are required you will have to either move the connection to use another port or configure the port so that it can be shared.
+If both MAVLink and RTPS connections are required you will have to either move the connection to use another port or using the available protocol splitter for PX4 and companion computers.
 
 :::tip
 A quick/temporary fix to allow bridge testing during development is to stop MAVLink from *NuttShell*:
@@ -333,9 +327,9 @@ export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 This should not be a problem if [Fast RTPS is installed in the default location](../dev_setup/fast-rtps-installation.md).
 :::
 
-### Enable UART on an OBC (onboard computer)
+### Enable UART on a companion computer
 
-For UART transport on a Raspberry Pi or any other OBC you will have to enable the serial port:
+For UART transport on a Raspberry Pi or any other companion computer you will have to enable the serial port:
 
 1. Make sure the `userid` (default is pi on a Raspberry Pi) is a member of the `dialout` group:
 
