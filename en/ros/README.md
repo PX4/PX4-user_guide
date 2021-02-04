@@ -11,19 +11,20 @@ ROS is only officially supported on Linux platforms.
 
 # Robotics using ROS 2
 
-[ROS 2](https://index.ros.org/doc/ros2/) is the newest version of ROS 2, adapting most of the changes that occurred in ROS (1) over the last years and bringing the best of ROS (1),
-while at the same time improving some things that weren't so go good.
+[ROS 2](https://index.ros.org/doc/ros2/) is the newest version of ROS.
+It captures most of the learnings and recently added features of ROS (1), improving a number of flaws of theearlier version.
 
-The interface between ROS 2 and PX4 is possible through the [*microRTPS* bridge](../middleware/micrortps.md), a bridge established between the PX4 internals, using the uORB Pub/Sub
-architecture, and correspondent IDL types, that are used to generate, not only serialization and deserialization code, but also the ROS 2 messages and typesupport, required to use
-the equivalents of the uORB messages in the ROS 2 development workflows and nodes.
+The translation layer between ROS 2 and PX4 is software known as the [*microRTPS* bridge](../middleware/micrortps.md).
+This provides a bridge between PX4 UORB messages and ROS 2 messages and types, effectively allowing direct access to PX4 from ROS2 workflows and nodes.
+The bridge uses UORB message definitions and correspondent IDL types to generate code to serialise and deserialise the messages heading in and out of PX4.
 
-:::note
-The usage of the *microRTPS* bridge to interface with PX4 using ROS 2 requires that the user/developer has enough understanding of the PX4 internals in order to be able to interact
-with PX4 properly. In contrast, ROS (1) (with MAVROS) offers a layer of abstraction on top of MAVLink, which by itself has already its own micro-services, simplifying the interface.
-That layer of abstraction does not exist within this bridge, besides some helper functions to do frame transformations and unit conversions, which is why a deeper understanding of
-the PX4 internal functionality is required. This will be made more accessible as soon as it is made available some ROS 2 API and examples that allow interaction with the PX4 internals
-(currently not available, but on the plans of the PX4 development team).
+:::tip
+To use the *microRTPS* bridge effectively you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions.
+
+This contrasts with ROS (1), which communicates with PX4 via MAVROS/MAVLink, hiding PX4's internal architecture and many of its conventions (e.g. frame and unit conversions).
+
+ROS2 (and the bridge) will become easier to use as the development team provide ROS2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
+These are planned in the near-term PX4 roadmap.
 :::
 
 For an explanation on how the bridge works, and for some examples, please check [this section](../ros/ros2_comm.md).
