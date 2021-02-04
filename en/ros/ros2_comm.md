@@ -1,6 +1,7 @@
 # PX4-ROS2 bridge
 
-This section of the guide focus on the bridge between PX4 and ROS 2, made available through the *microRTPS* bridge and resulting products to interface with ROS 2, *px4_ros_com* and *px4_msgs* ROS 2 packages.
+This section of the guide focusses on the bridge between PX4 and ROS 2, made available through the *microRTPS* bridge and resulting products to interface with ROS 2, *px4_ros_com* and *px4_msgs* ROS 2 packages.
+
 It also provides information in how to:
 1. Connect ROS 2 nodes with PX4 (via the *microRTPS* Bridge, and using the `px4_ros_com` package)
 1. Connect ROS (ROS "version 1") nodes with PX4 by additionally using the `ros1_bridge` package to bridge ROS2 and ROS (1).
@@ -10,7 +11,7 @@ For more details on the *microRTPS* bridge without using ROS 2, please check the
 :::
 
 :::note
-For a more detailed and visual explanation of the bridge with ROS 2, check the following talks/presentation videos:
+For a more detailed and visual explanation of the bridge with ROS 2, see the following talks/presentation videos:
 1. [PX4 Dev Summit 2019 - "ROS2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 :::
@@ -70,8 +71,7 @@ Check the **Building the `px4_ros_com` package** for details about the build str
 
 ## Building the `px4_ros_com` and `px4_msgs` package
 
-Install and setup both ROS2 and ROS environments on your development machine
-and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
+Install and setup both ROS2 and ROS environments on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
 
 :::note
 Only the master branch is needed for ROS2 (both are needed to target ROS).
@@ -103,9 +103,10 @@ This install and build guide covers ROS2 Foxy in Ubuntu 20.04.
    sudo pip3 install -U empy pyros-genmsg setuptools
    ```
 
-   :::caution
+   :::warning
    If you want to use ROS 1 topics, in communication with ROS 2, you need to build the `ros1_bridge` from source,
-   and setup a separate workspace. Check the Setting up the workspaces -> ROS 1 workspace section.
+   and setup a separate workspace.
+   Check the section: **Setting up the workspaces > ROS 1 workspace**.
    :::
 
 ### Setting up the workspaces
@@ -116,28 +117,29 @@ As an example:
 
 #### ROS 2 workspace
 
-   For ROS2, create a workspace using:
-   ```sh
-   mkdir -p ~/px4_ros_com_ros2/src
-   ```
+For ROS2, create a workspace using:
+```sh
+mkdir -p ~/px4_ros_com_ros2/src
+```
 
-   Then, clone the respective ROS2 (`master`) branch to the `/src` directory:
-   ```sh
-   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com # clones the master branch
-   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
-   ```
+Then, clone the respective ROS2 (`master`) branch to the `/src` directory:
+```sh
+$ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com # clones the master branch
+$ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
+```
 
 #### ROS (1) workspace
-   For ROS, follow exactly the same process, but create a different directory and clone a different branch:
-   ```sh
-   mkdir -p ~/px4_ros_com_ros1/src
-   ```
 
-   Then, clone the respective ROS2 (`ros1`) branch to the `/src` directory:
-   ```sh
-   $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
-   $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
-   ```
+For ROS, follow exactly the same process, but create a different directory and clone a different branch:
+```sh
+mkdir -p ~/px4_ros_com_ros1/src
+```
+
+Then, clone the respective ROS2 (`ros1`) branch to the `/src` directory:
+```sh
+$ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
+$ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
+```
 
 ### Building the workspaces
 
@@ -501,7 +503,7 @@ You can also verify the rate of the message using `rostopic hz`.
 And it should also get data being printed to the console output.
 
 :::note
-If ones uses the `build_all.bash` script, it automatically open and source all the required terminals so one just has to run the respective apps in each terminal.
+If ones uses the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
 :::
 
 ## Setting up the bridge with real hardware
