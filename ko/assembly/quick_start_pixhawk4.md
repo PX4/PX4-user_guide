@@ -1,9 +1,9 @@
-# Pixhawk 4 Wiring Quick Start
+# Pixhawk 4 배선 개요
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
 :::
 
-This quick start guide shows how to power the [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+이 퀵 스타트 설명서는 [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> 비행 컨트롤러의 전원을 공급방법과 주변 장치를 연결하는 방법을 설명합니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
