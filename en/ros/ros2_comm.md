@@ -69,6 +69,54 @@ Since it is also installed using the [`colcon`](http://design.ros2.org/articles/
 Check the **Building the `px4_ros_com` package** for details about the build structure.
 
 
+## Supported uORB messages
+
+The generated bridge code will enable a specified subset of uORB topics to be published/subscribed via RTPS.
+This is true for both ROS or non-ROS applications.
+
+For *automatic code generation* there's a *yaml* definition file in the PX4 **PX4-Autopilot/msg/tools/** directory called **uorb_rtps_message_ids.yaml**.
+This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in ROS 2 middleware.
+
+:::note
+An RTPS ID must be set for all messages.
+:::
+
+:::note
+An API change in ROS 2 Dashing means that we now use the `rosidl_generate_interfaces()` CMake module (in `px4_msgs`) to generate the IDL files that we require for microRTPS agent generation (in `px4_ros_com`).
+PX4-Autopilot includes a template for the IDL file generation, which is only used during the PX4 build process.
+
+The `px4_msgs` build generates *slightly different* IDL files for use with ROS 2/ROS (than are built for PX4 firmware).
+The **uorb_rtps_message_ids.yaml** is transformed in a way that the message names become *PascalCased* (the name change is irrelevant to the client-agent communication, but is critical for ROS 2, since the message naming must follow the PascalCase convention).
+The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
+:::
+
+
+```yaml
+rtps:
+  - msg: ActuatorArmed
+    id: 0
+  - msg: ActuatorControl
+    id: 1
+  - ...
+  - msg: Airspeed
+    id: 5
+    send: true
+  - msg: BatteryStatus
+    id: 6
+    send: true
+  - msg: CameraCapture
+    id: 7
+  - msg: CameraTrigger
+    id: 8
+    receive: true
+  - ...
+  - msg: SensorBaro
+    id: 63
+    receive: true
+    send: true
+```
+
+
 ## Building the `px4_ros_com` and `px4_msgs` package
 
 Install and setup both ROS2 and ROS environments on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
@@ -506,6 +554,7 @@ And it should also get data being printed to the console output.
 If ones uses the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
 :::
 
-## Setting up the bridge with real hardware
 
-This section is work-in-progress
+## Additional information
+
+* [DDS and ROS middleware implementations](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)

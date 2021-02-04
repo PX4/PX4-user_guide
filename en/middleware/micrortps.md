@@ -34,6 +34,7 @@ MAVLink remains the most appropriate protocol for communicating with ground stat
 RTPS can be used over slower links (e.g. radio telemetry), but care should be taken not to overload the channel.
 :::
 
+
 ## Architectural overview
 
 ### microRTPS Bridge
@@ -55,11 +56,13 @@ The main elements of the architecture are the client and agent processes shown i
 - The *Agent* and any *Fast RTPS* applications are connected via UDP, and may be on the same or another device.
   In a typical configuration they will both be on the same system (e.g. a development computer, Linux companion computer or compute board), connected to the *Client* over a Wifi link or via USB.
 
+
 ## Code generation
 
 :::note
 [Fast RTPS(DDS) 2.0.0 and FastRTPSGen 1.0.4 or later must be installed](../dev_setup/fast-rtps-installation.md) in order to generate the required code!
 :::
+
 
 ### ROS-independent applications
 
@@ -111,14 +114,6 @@ rtps:
     send: true
 ```
 
-:::note
-An API change in ROS2 Dashing means that we now use the `rosidl_generate_interfaces()` CMake module (in `px4_msgs`) to generate the IDL files that we require for microRTPS agent generation (in `px4_ros_com`).
-PX4-Autopilot includes a template for the IDL file generation, which is only used during the PX4 build process.
-
-The `px4_msgs` build generates *slightly different* IDL files for use with ROS2/ROS (than are built for PX4 firmware).
-The **uorb_rtps_message_ids.yaml** is transformed in a way that the message names become *PascalCased* (the name change is irrelevant to the client-agent communication, but is critical for ROS2, since the message naming must follow the PascalCase convention).
-The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
-:::
 
 <a id="client_firmware"></a>
 ## Client (PX4/PX4-Autopilot)
@@ -163,6 +158,7 @@ For example, in order to run the *Client* daemon with SITL connecting to the Age
 micrortps_client start -t UDP
 ```
 
+
 ## Agent in a ROS-independent Offboard Fast RTPS interface
 
 The *Agent* code is automatically *generated* when you build the associated PX4 firmware.
@@ -201,6 +197,7 @@ As an example, to start the *micrortps_agent* with connection through UDP, issue
 ```sh
 ./micrortps_agent -t UDP
 ```
+
 
 ## Creating a Fast RTPS Listener application
 
@@ -297,6 +294,11 @@ If the *Listener application* does not print anything, make sure the *Client* is
 :::
 
 
+## Setting up the bridge with real hardware
+
+This section is work-in-progress.
+
+
 ## Troubleshooting
 
 ### Client reports that selected UART port is busy
@@ -310,6 +312,7 @@ A quick/temporary fix to allow bridge testing during development is to stop MAVL
 mavlink stop-all
 ```
 :::
+
 
 ### Agent not built/fastrtpsgen is not found
 
@@ -326,6 +329,7 @@ export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 :::note
 This should not be a problem if [Fast RTPS is installed in the default location](../dev_setup/fast-rtps-installation.md).
 :::
+
 
 ### Enable UART on a companion computer
 
@@ -356,8 +360,8 @@ For UART transport on a Raspberry Pi or any other companion computer you will ha
     enable_uart=1
    ```
 
+
 ## Additional information
 
 * [Fast RTPS Installation](../dev_setup/fast-rtps-installation.md)
 * [Manually Generate Client and Agent Code](micrortps_manual_code_generation.md)
-* [DDS and ROS middleware implementations](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)
