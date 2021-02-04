@@ -269,6 +269,7 @@
         * [Virtual Machine Toolchain](dev_setup/dev_env_windows_vm.md)
         * [Bash on Windows Toolchain](dev_setup/dev_env_windows_bash_on_win.md)
       * [Visual Studio Code IDE](dev_setup/vscode.md)
+      * [Qt Creator IDE](dev_setup/qtcreator.md)
       * [Fast RTPS installation](dev_setup/fast-rtps-installation.md)
       * [Additional Tools](dev_setup/generic_dev_tools.md)
     * [Building the Code](dev_setup/building_px4.md)
