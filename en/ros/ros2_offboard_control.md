@@ -58,7 +58,7 @@ The source code of the offboard control example can be found in [offboard_contro
 
 Here are some details about the implementation:
 
-```c++
+```cpp
 timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_PubSubTopic",
     10,
     [this](const px4_msgs::msg::Timesync::UniquePtr msg) {
@@ -68,7 +68,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_Pub
 
 The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `position_setpoint_triplet` messages.
 
-```c++
+```cpp
         auto timer_callback = [this]() -> void {
         if (offboard_setpoint_counter_ == 100) {
                 // Change to Offboard mode after 100 setpoints
@@ -94,7 +94,7 @@ The above is the main loop spining on the ROS 2 node.
 It first sends 100 setpoint messages before sending the command to change to offboard mode
 At the same time, both `offboard_control_mode` and `position_setpoint_triplet` messages are sent to the flight controller.
 
-```c++
+```cpp
 /**
  * @brief Publish the offboard control mode.
  *        For this example, only position and altitude controls are active.
@@ -145,7 +145,7 @@ Also, in this case, `x`, `y` and `z` fields are hardcoded to certain values, but
 The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
 :::
 
-```c++
+```cpp
 /**
  * @brief Publish vehicle commands
  * @param command   Command code (matches VehicleCommand and MAVLink MAV_CMD codes)
@@ -186,5 +186,4 @@ $ ros2 run px4_ros_com offboard_control
 
 ## Demo with PX4 SITL and Gazebo
 
-<video class="video-stream html5-main-video" controls="controls" src="blob:https://www.youtube.com/db7723cd-2b7e-4612-92cc-02fa710abde9">
-</video>
+@[youtube](https://youtu.be/Nbc7fzxFlYo)
