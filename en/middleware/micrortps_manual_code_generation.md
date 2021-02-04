@@ -181,4 +181,4 @@ You must first [disable automatic bridge code generation](#disable-automatic-bri
 :::
 
 The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface).
-The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong><emphasis>build/BUILDPLATFORM</emphasis></strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
+The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
