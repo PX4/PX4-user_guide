@@ -64,63 +64,63 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 
 ![Pix32 v5 With Power Module](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.jpg)
 
-- PM voltage/current port: connect to POWER1 port (or `POWER2`) using the 6-wire GH cable supplied.
-- PM input (XT60 male connector): connect to the LiPo battery (2~12S).
-- PM power output (XT60 female connector): wire out to any motor ESCs.
+- PM 전압/전류 포트 : 제공된 6선 GH 케이블을 사용하여 POWER1 포트 (또는  `POWER2` )에 연결합니다.
+- PM 입력 (XT60 수 커넥터) : LiPo 배터리 (2 ~ 12S)에 연결합니다.
+- PM 전원 출력 (XT60 암 커넥터) : 모든 모터 ESC에 배선합니다.
 
-:::note
-As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
+:::tip
+이 전원 모듈에는 배전 배선이 포함되어 있지 않으므로 일반적으로 모든 ESC를 전원 모듈 출력에 병렬로 연결합니다 (ESC는 제공된 전압 레벨에 적합해야 함).
 :::
 
-:::note
-The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller. If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate.
+:::tip
+** MAIN / AUX **의 8 핀 전원 (+) 레일은 비행 컨트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하기 위해 별도로 전원을 공급해야하는 경우, 파워 레일을 BEC 장착 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리에 연결해야합니다. 사용하는 서보의 전압이 적절한 지 확인하십시오.
 :::
 
-The power module has the following characteristics/limits:
-- Max input voltage: 60V
-- Max current sensing: 120A Voltage
-- Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max
-- Weight: 20g
-- Package includes:
-  - PM02 board
-  - 6pin MLX cable (1)
-  - 6pin GH cable (1)
+전원 모듈에는 다음과 같은 특성/제한이 있습니다.
+- 최대 입력 전압 : 60V
+- 최대 전류 감지 : 120A 전압
+- SV ADC 스위칭 레귤레이터 출력에 대해 구성된 전류 측정은 최대 5.2V 및 3A를 출력합니다.
+- 무게 : 20g
+- 패키지 내용물 :
+  - PM02 보드
+  - 6 핀 MLX 케이블 (1)
+  - 6 핀 GH 케이블 (1)
 
 :::note
-See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
+[ PM02v3 전원 모듈 설명서 ](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro)도 참조하십시오.
 :::
 
-### Battery Configuration
+### 배터리 설정
 
-The battery/power setup must be configured in [Power Settings](../config/battery.md). For either Power Module you will need to configure the *Number of Cells*.
+배터리 전원 설정은 [ 전원 설정 ](../config/battery.md)에서 구성해야 합니다. 두 전원 모듈에 대해 * 셀 수 *를 구성해야 합니다.
 
-You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
+다른 전원 모듈(예 : Pixracer의 모듈)을 사용하지 않으면 * 전압 분배기 *를 업데이트 할 필요가 없습니다.
 
-## Radio Control
+## 무선 조종
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동*으로 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
-The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
+아래 지침은 다양한 유형의 수신기를 *Pix32 v5*에 연결하는 방법을 보여줍니다.
 
-- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md#dsm-rc-port) input.
+- Spektrum/DSM 수신기는 [ DSM RC ](../flight_controller/holybro_pix32_v5.md#dsm-rc-port) 입력에 연결됩니다.
 
   ![Pix32v5 rc receivers](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
 
-- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/holybro_pix32_v5.md#rc-in) input port (marked as RC IN)
+- PPM 방식 과 S 버스 방식의 수신기는 [ SBUS_IN / PPM_IN ](../flight_controller/holybro_pix32_v5.md#rc-in) 입력 포트 (RC IN으로 표시됨)에 연결됩니다.
 
   ![Pinouts](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기/수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
 
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+무선 텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
 
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
 
