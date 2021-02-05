@@ -15,7 +15,7 @@ ROS is only officially supported on Linux platforms.
 It captures most of the learnings and recently added features of ROS (1), improving a number of flaws of theearlier version.
 
 The translation layer between ROS 2 and PX4 is software known as the [*microRTPS* bridge](../middleware/micrortps.md).
-This provides a bridge between PX4 UORB messages and ROS 2 messages and types, effectively allowing direct access to PX4 from ROS2 workflows and nodes.
+This provides a bridge between PX4 UORB messages and ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes.
 The bridge uses UORB message definitions and correspondent IDL types to generate code to serialise and deserialise the messages heading in and out of PX4.
 
 :::tip
@@ -23,7 +23,7 @@ To use the *microRTPS* bridge effectively you must (at time of writing) have a r
 
 This contrasts with ROS (1), which communicates with PX4 via MAVROS/MAVLink, hiding PX4's internal architecture and many of its conventions (e.g. frame and unit conversions).
 
-ROS2 (and the bridge) will become easier to use as the development team provide ROS2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
+ROS 2 (and the bridge) will become easier to use as the development team provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use.
 These are planned in the near-term PX4 roadmap.
 :::
 

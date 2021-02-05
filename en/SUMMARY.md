@@ -352,7 +352,7 @@
       * [ROS Installation on RPi](ros/raspberrypi_installation.md)
       * [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
       * [Sending Custom Messages from MAVROS](ros/mavros_custom_messages.md)
-      * [PX4-ROS2 bridge](ros/ros2_comm.md)
+      * [PX4-ROS 2 bridge](ros/ros2_comm.md)
       * [ROS 2 Offboard Control Example](ros/ros2_offboard_control.md)
     * [DroneKit](robotics/dronekit.md)
   * [Debugging/Logging](debug/README.md)

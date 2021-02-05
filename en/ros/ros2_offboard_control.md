@@ -20,7 +20,7 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
 Besides that:
 
 1. The user already has their ROS 2 environment properly configured
-   Check the [PX4-ROS2 bridge](../ros/ros2_comm.md) document for details on how to do it.
+   Check the [PX4-ROS 2 bridge](../ros/ros2_comm.md) document for details on how to do it.
 1. `px4_msgs` and `px4_ros_com` should be already on your colcon workspace.
    See the link in the previous point for details.
 1. `offboard_control_mode` and `position_setpoint_triplet` messages are configured in the `uorb_rtps_message_ids.yaml` file both in the PX4-Autopilot and
@@ -142,7 +142,7 @@ Notice that the above example is applicable for offboard position control, where
 Also, in this case, `x`, `y` and `z` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
 
 :::tip
-The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
+The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS 2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
 :::
 
 ```cpp

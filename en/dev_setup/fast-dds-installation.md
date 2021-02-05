@@ -7,7 +7,7 @@ RTPS is the underlying protocol of DDS, a standard from the OMG (Object Manageme
 
 For more information check:
 - [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md)
-- [PX4-ROS2 bridge](../ros/ros2_comm.md)
+- [PX4-ROS 2 bridge](../ros/ros2_comm.md)
 
 :::note
 Since version 2.0.0, Fast RTPS changed is name to Fast DDS, since it now has a full DDS implementation, rather than just the RTPS wire protocol.

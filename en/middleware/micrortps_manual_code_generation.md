@@ -68,8 +68,8 @@ optional arguments:
                         directory(ies) to add to preprocessor include paths of
                         fastrtpsgen, by default empty
   -r [ROS2_DISTRO], --ros2-distro [ROS2_DISTRO]
-                        ROS2 distro, only required if generating the agent for
-                        usage with ROS2 nodes, by default empty
+                        ROS 2 distro, only required if generating the agent for
+                        usage with ROS 2 nodes, by default empty
   --delete-tree         Delete dir tree output dir(s)
 ```
 
