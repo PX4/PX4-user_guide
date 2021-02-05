@@ -1,23 +1,25 @@
-# Fast RTPS Installation
+# Fast DDS Installation
 
-<img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;"/> [eProsima Fast RTPS](http://eprosima-fast-rtps.readthedocs.io/en/latest/) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol, which provides publisher-subscriber communications over unreliable transports such as UDP, as defined and maintained by the Object Management Group (OMG) consortium.
-RTPS is also the wire interoperability protocol defined for the Data Distribution Service (DDS) standard, again by the OMG.
+<img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;"/> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the DDS (Data Distribution Service) Specification, a protocol defined by the Object Management Group (OMG). It also implements the RTPS (Real Time Publish Subscribe) protocol, the wire interoperability protocol defined for the DDS standard, which provides publisher-subscriber communications over unreliable transports such as UDP, also as defined and maintained by the OMG consortium.
 
-Fast RTPS is used by PX4 to enable an RTPS/DDS interface allowing PX4 uORB topics to be shared with offboard components, including robotics and simulator tools.
-RTPS is the underlying protocol of DDS, a standard from the OMG (Object Management Group) providing a real-time publish/subscribe middleware that is widely used in aerospace, defense and IoT applications. It has also been adopted as the middleware for the ROS2 robotics toolkit.
-For more information see: [RTPS/DDS Interface: PX4-FastRTPS(DDS) Bridge](../middleware/micrortps.md).
+Fast DDS is used by PX4 to enable an RTPS/DDS interface allowing PX4 uORB topics to be shared with offboard components, including robotics and simulator tools, that participate in same DDS domain.
+RTPS is the underlying protocol of DDS, a standard from the OMG (Object Management Group) providing a real-time publish/subscribe middleware that is widely used in aerospace, defense and IoT applications. Fast DDS is today a Tier 1 middleware implementation of the Robot Operating System 2 (ROS 2), being its default middleware.
+
+For more information check:
+- [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md)
+- [PX4-ROS2 bridge](../ros/ros2_comm.md)
 
 :::note
 Since version 2.0.0, Fast RTPS changed is name to Fast DDS, since it now has a full DDS implementation, rather than just the RTPS wire protocol.
 :::
 
 :::tip
-- For Ubuntu 18.04, at time of writing, you will need to install Fast RTPS 1.8.2 and FastRTPSGen 1.0.4 or higher *from source*.
-- For Ubuntu 20.04, at time of writing, you will need to install Fast DDS 2.0.0 and FastRTPSGen 1.0.4  higher *from source*.
+- For Ubuntu 18.04, at time of writing, you will need to install Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 or higher *from source*.
+- For Ubuntu 20.04, at time of writing, you will need to install Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4  higher *from source*.
 :::
 
 :::note
-This topic is derived from the official [*eProsima Fast RTPS* documentation](http://eprosima-fast-rtps.readthedocs.io/en/latest/).
+This topic is derived from the official [*eProsima Fast DDS* documentation](https://fast-dds.docs.eprosima.com/en/latest/).
 
 For more information see:
 - Installation from Sources
@@ -30,7 +32,7 @@ For more information see:
 
 ## Requirements
 
-*eProsima Fast RTPS* requires the following packages to work.
+*eProsima Fast DDS* requires the following packages to work.
 
 
 ### Run Dependencies
@@ -44,7 +46,7 @@ Java is required to use our built-in code generation tool - *fastrtpsgen*.
 
 #### Visual C++ 2013 or 2015 Redistributable Package
 
-*eProsima Fast RTPS* requires the Visual C++ Redistributable packages for the Visual Studio version you chose during the installation or compilation.
+*eProsima Fast DDS* requires the Visual C++ Redistributable packages for the Visual Studio version you chose during the installation or compilation.
 The installer gives you the option of downloading and installing them.
 
 
@@ -74,7 +76,7 @@ $ make -j$(nproc --all)
 $ sudo make install
 ```
 
-This will install Fast RTPS to `/usr/local`, with secure communications support.
+This will install Fast DDS to `/usr/local`, with secure communications support.
 You can use `-DCMAKE_INSTALL_PREFIX=<path>` to install to a custom location.
 
 If you are on Windows, choose your version of *Visual Studio*:
@@ -109,9 +111,9 @@ git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/F
 Although the binaries are available, we recommend to build and install the code from source, given that the binaries may not come with required components and dependencies in place.
 :::
 
-You can always download the latest binary release of *eProsima Fast RTPS* from the [company website](http://www.eprosima.com/).
+You can always download the latest binary release of *eProsima Fast DDS* from the [company website](http://www.eprosima.com/).
 
-Documentation on how to do this can be found here: [Installation from Binaries on Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html) and [Installation from Binaries on Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html) (*eProsima Fast RTPS* official documentation)
+Documentation on how to do this can be found here: [Installation from Binaries on Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html) and [Installation from Binaries on Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html) (*eProsima Fast DDS* official documentation)
 
 
 ### Windows 7 32-bit and 64-bit
@@ -120,10 +122,10 @@ Execute the installer and follow the instructions, choosing your preferred *Visu
 
 #### Environmental Variables
 
-*eProsima Fast RTPS* requires the following environmental variable setup in order to function properly
+*eProsima Fast DDS* requires the following environmental variable setup in order to function properly
 
-* `FASTRTPSHOME`: Root folder where *eProsima Fast RTPS* is installed.
-* `FASTRTPSGEN_DIR`: Root folder where *eProsima FastRTPSGen* is installed.
+* `FASTRTPSHOME`: Root folder where *eProsima Fast DDS* is installed.
+* `FASTRTPSGEN_DIR`: Root folder where *eProsima Fast-RTPS-Gen* is installed.
 * Additions to the `PATH`: the **/bin** folder and the subfolder for your Visual Studio version of choice should be appended to the PATH.
 
 These variables are set automatically by checking the corresponding box during the installation process.
@@ -132,7 +134,7 @@ These variables are set automatically by checking the corresponding box during t
 ### Linux
 
 Extract the contents of the package.
-It will contain both *eProsima Fast RTPS* and its required package *eProsima Fast CDR*. You will have follow the same procedure for both packages, starting with *Fast CDR*.
+It will contain both *eProsima Fast DDS* and its required package *eProsima Fast CDR*. You will have follow the same procedure for both packages, starting with *Fast CDR*.
 
 Configure the compilation:
 
@@ -154,5 +156,5 @@ $ sudo make install
 
 #### Environmental Variables
 
-* `FASTRTPSGEN_DIR`: Root folder where *eProsima FastRTPSGen* is installed, usually set to `/usr/local`, which is the default installation directory.
+* `FASTRTPSGEN_DIR`: Root folder where *eProsima Fast-RTPS-Gen* is installed, usually set to `/usr/local`, which is the default installation directory.
   If the user sets a different install directory in the `gradle install` step, it must set it here as well.

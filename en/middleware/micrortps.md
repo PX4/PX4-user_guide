@@ -1,6 +1,6 @@
-# RTPS/DDS Interface: PX4-FastRTPS(DDS) Bridge
+# RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
-The *PX4-FastRTPS Bridge* adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast RTPS* (now called *Fast DDS*) applications (including those built using the ROS2 frameworks).
+The *PX4-Fast RTPS(DDS) Bridge* adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast RTPS* (now called *Fast DDS*) applications (including those built using the ROS2 frameworks).
 
 :::note
 RTPS is the underlying protocol of the Object Management Group's (OMG) Data Distribution Service (DDS) standard.
@@ -9,7 +9,7 @@ It aims to enable scalable, real-time, dependable, high-performance and inter-op
 :::
 
 RTPS has been adopted as the middleware for the ROS2 (Robot Operating System).
-The *Fast RTPS bridge* allows us to better integrate with applications running and linked in DDS domains, like ROS 2 nodes, making it easy to share sensor data, commands, and other vehicle information.
+The *Fast DDS bridge* allows us to better integrate with applications running and linked in DDS domains, like ROS 2 nodes, making it easy to share sensor data, commands, and other vehicle information.
 
 This topic describes the RTPS/DDS bridge architecture. It also shows how to compile needed code to write a simple *Fast DDS* application to subscribe to PX4 changes.
 
@@ -26,8 +26,8 @@ In particular it is useful in cases where off-board software needs to become a *
 Possible use cases include communicating with robotics libraries for computer vision, and other use cases where real time data to/from actuators and sensors is essential for vehicle control.
 
 :::note
-*Fast RTPS* is not intended as a replacement for MAVLink.
-MAVLink remains the most appropriate protocol for communicating with ground stations, gimbals, cameras, and other offboard components (although *Fast RTPS* may open other opportunities for working with some peripherals).
+*Fast DDS* is not intended as a replacement for MAVLink.
+MAVLink remains the most appropriate protocol for communicating with ground stations, gimbals, cameras, and other offboard components (although *Fast DDS* may open other opportunities for working with some peripherals).
 :::
 
 :::tip
@@ -50,17 +50,17 @@ The main elements of the architecture are the client and agent processes shown i
   It also receives messages from the *Agent* and publishes them as uORB message on PX4.
 - The *Agent* runs as a daemon process on an offboard computer.
   It watches for uORB update messages from the *Client* and (re)publishes them over RTPS.
-  It also subscribes to "uORB" RTPS messages from other DDS-participant applications and forwards them to the *Client*.
+  It also subscribes to "uORB" RTPS/DDS messages from other DDS-participant applications and forwards them to the *Client*.
 - The *Agent* and *Client* are connected via a serial link (UART) or UDP network.
   The uORB information is [CDR serialized](https://en.wikipedia.org/wiki/Common_Data_Representation) for sending (*CDR serialization* provides a common format for exchanging serial data between different platforms).
-- The *Agent* and any *Fast RTPS* applications are connected via UDP, and may be on the same or another device.
+- The *Agent* and any *Fast DDS* applications are connected via UDP, and may be on the same or another device.
   In a typical configuration they will both be on the same system (e.g. a development computer, Linux companion computer or compute board), connected to the *Client* over a Wifi link or via USB.
 
 
 ## Code generation
 
 :::note
-[Fast RTPS(DDS) 2.0.0 and FastRTPSGen 1.0.4 or later must be installed](../dev_setup/fast-rtps-installation.md) in order to generate the required code!
+[Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed](../dev_setup/fast-dds-installation.md) in order to generate the required code!
 :::
 
 
@@ -159,7 +159,7 @@ micrortps_client start -t UDP
 ```
 
 
-## Agent in a ROS-independent Offboard Fast RTPS interface
+## Agent in a ROS-independent Offboard Fast DDS interface
 
 The *Agent* code is automatically *generated* when you build the associated PX4 firmware.
 You can find the source here: **build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent/**.
@@ -199,11 +199,11 @@ As an example, to start the *micrortps_agent* with connection through UDP, issue
 ```
 
 
-## Creating a Fast RTPS Listener application
+## Creating a Fast DDS Listener application
 
-Once the *Client* (on the flight controller) and the *Agent* (on an offboard computer) are running and connected, *Fast RTPS* applications can publish and subscribe to uORB topics on PX4 using RTPS.
+Once the *Client* (on the flight controller) and the *Agent* (on an offboard computer) are running and connected, *Fast DDS* applications can publish and subscribe to uORB topics on PX4 using RTPS.
 
-This example shows how to create a *Fast RTPS* "listener" application that subscribes to the `sensor_combined` topic and prints out updates (from PX4).
+This example shows how to create a *Fast DDS* "listener" application that subscribes to the `sensor_combined` topic and prints out updates (from PX4).
 A connected RTPS application can run on any computer on the same network as the *Agent*.
 For this example the *Agent* and *Listener application* will be on the same computer.
 
@@ -212,7 +212,7 @@ The *fastrtpsgen* script can be used to generate a simple RTPS application from 
 :::note
 RTPS messages are defined in IDL files and compiled to C++ using *fastrtpsgen*.
 As part of building the bridge code, IDL files are generated for the uORB message files that may be sent/received (see **build/BUILDPLATFORM/src/modules/micrortps_bridge/micrortps_agent/idl/*.idl**).
-These IDL files are needed when you create a *Fast RTPS* application to communicate with PX4.
+These IDL files are needed when you create a *Fast DDS* application to communicate with PX4.
 :::
 
 Enter the following commands to create the application:
@@ -316,9 +316,9 @@ mavlink stop-all
 
 ### Agent not built/fastrtpsgen is not found
 
-The *Agent* code is generated using a *Fast RTPS* tool called *fastrtpsgen*.
+The *Agent* code is generated using a *Fast DDS* tool called *fastrtpsgen*.
 
-If you haven't installed Fast RTPS in the default path then you must specify its installation directory by setting the `FASTRTPSGEN_DIR` environment variable before executing *make*.
+If you haven't installed Fast DDS in the default path then you must specify its installation directory by setting the `FASTRTPSGEN_DIR` environment variable before executing *make*.
 
 On Linux/Mac this is done as shown below:
 
@@ -327,7 +327,7 @@ export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 
 :::note
-This should not be a problem if [Fast RTPS is installed in the default location](../dev_setup/fast-rtps-installation.md).
+This should not be a problem if [Fast DDS is installed in the default location](../dev_setup/fast-dds-installation.md).
 :::
 
 
@@ -363,5 +363,5 @@ For UART transport on a Raspberry Pi or any other companion computer you will ha
 
 ## Additional information
 
-* [Fast RTPS Installation](../dev_setup/fast-rtps-installation.md)
+* [Fast DDS Installation](../dev_setup/fast-dds-installation.md)
 * [Manually Generate Client and Agent Code](micrortps_manual_code_generation.md)

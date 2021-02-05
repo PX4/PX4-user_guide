@@ -1,6 +1,6 @@
 # Manually Generate Client and Agent Code
 
-This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 Firmware is compiled).
+This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).
 
 The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.
 
@@ -80,7 +80,7 @@ Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the 
 - The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages.
 - The output appears in `CLIENTDIR` (`-o src/modules/micrortps_bridge/micrortps_client`, by default) and in the `AGENTDIR` (`-u src/modules/micrortps_bridge/micrortps_agent`, by default).
 - If no flag `-a` or `-c` is specified, both the client and the agent will be generated and installed.
-- The `-f` option may be needed if *Fast RTPS* was not installed in the default location (`-f /path/to/fastrtps/installation/bin`).
+- The `-f` option may be needed if *Fast DDS* was not installed in the default location (`-f /path/to/fastdds/installation/bin`).
 
 The example below shows how you can generate bridge code to publish/subscribe just the `sensor_baro` single uORB topic.
 
@@ -112,7 +112,7 @@ void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, 
 
 IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
 
-*Fast RTPS* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast RTPS* applications that need to publish/subscribe to uORB topics.
+*Fast DDS* uses IDL files to define the structure of RTPS/DDS messages (in this case, RTPS/DDS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
 
 :::note
 IDL files are compiled to C++ by the *fastrtpsgen* tool.

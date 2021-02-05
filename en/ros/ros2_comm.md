@@ -20,7 +20,7 @@ For a more detailed and visual explanation of the bridge with ROS 2, see the fol
 ## Code generation
 
 :::note
-[Fast RTPS(DDS) 2.0.0 and FastRTPSGen 1.0.4 or later must be installed](../dev_setup/fast-rtps-installation.md) in order to generate the required code!
+[Fast RTPS(DDS) 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed](../dev_setup/fast-dds-installation.md) in order to generate the required code!
 :::
 
 
