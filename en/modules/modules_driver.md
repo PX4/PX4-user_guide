@@ -84,7 +84,7 @@ Source: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/dri
 
 
 ### Description
-Smart battery driver for the BQ40Z50 fuel gauge IC.
+Generic driver for smbus smart-batteries, with additional support for Rotoye Batmon & BQ40z80/50
 
 ### Examples
 To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
@@ -111,16 +111,16 @@ batt_smbus <command> [arguments...]
    man_info      Prints manufacturer info.
 
    unseal        Unseals the devices flash memory to enable write_flash
-                 commands.
+                 commands (if applicable).
 
-   seal          Seals the devices flash memory to disbale write_flash commands.
+   seal          Seals the devices flash memory to disbale write_flash commands (if applicable).
 
    suspend       Suspends the driver from rescheduling the cycle.
 
    resume        Resumes the driver from suspension.
 
    write_flash   Writes to flash. The device must first be unsealed with the
-                 unseal command.
+                 unseal command (if applicable).
      [address]   The address to start writing.
      [number of bytes] Number of bytes to send.
      [data[0]...data[n]] One byte of data at a time separated by spaces.
