@@ -112,7 +112,7 @@ PMB (Power Management Board)는 배전 보드뿐만 아니라 전원 모듈의 �
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. 아래 그림과 같이 카드(키트에 포함됨)를 *Pixhawk 4 Mini*에 삽입합니다.
 
-![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
+![Pixhawk 4 Mini SD 카드](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 
 :::tip
 자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
