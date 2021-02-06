@@ -7,41 +7,41 @@
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
-## Wiring Chart Overview
+## 배선 개요
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+아래의 이미지는 가장 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결하는 방법을 나타냅니다. 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
 
 ![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
 :::tip
-More information about available ports can be found here: [Pixhawk 4 > Connections](../flight_controller/pixhawk4.md#connectors).
+사용 가능한 포트에 대한 자세한 내용은 [ Pixhawk 4 > 연결방법 ](../flight_controller/pixhawk4.md#connectors)에서 찾을 수 있습니다.
 :::
 
-## Mount and Orient Controller
+## 콘트롤러 장착 및 장착 방향
 
-*Pixhawk 4* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+*Pixhawk 4*는 진동 방지 폼 패드(키트에 포함)를 프레임에 장착해야 합니다. 차량의 무게 중심에 최대한 가깝게 배치 된 프레임에 장착해야하며 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center" />
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+컨트롤러를 권장/기본 방향으로 장착하기 어려운 경우에는 (예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에 설정하여야 합니다 ( [기체 콘트롤러 방향 ](../config/flight_controller_orientation.md) 참고).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + 나침반 + 부저 + 안전 스위치 + LED
 
-Attach the provided GPS with integrated compass, safety switch, buzzer and LED to the **GPS MODULE** port.
+나침반, 안전 스위치, 부저 및 LED 통합 GPS를 **GPS MODULE** 포트에 연결합니다.
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-:::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::note GPS
+모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
 :::
 
-## Power
+## 전원
 
-Connect the output of the *Power Management Board* (PM board) that comes with the kit to one of the **POWER** bricks of *Pixhawk 4* using a 6-wire cable. The PM input **2~12S** will be connected to your LiPo battery. The connections of Power Management Board, including power supply and signal connections to the ESCs and servos, are explained in the table below. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
+키트와 함께 제공되는 * 전원 관리 보드 * (PM 보드)의 6개의 케이블을 사용하여 * Pixhawk 4 *의 ** POWER ** 브릭중 하나에 연결합니다. PM 입력 **2 ~ 12S **는 LiPo 배터리에 연결됩니다. ESC 및 서보에 대한 전원 공급 및 신호 연결을 포함한 전원 관리 보드의 연결은 아래 표에 설명되어 있습니다. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
 
 The image below shows the power management board provided with *Pixhawk 4*.
 
