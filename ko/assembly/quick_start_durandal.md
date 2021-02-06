@@ -1,9 +1,9 @@
-# Durandal 배선 빠른 시작
+# Durandal 배선 개요
 
 :::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
 :::
 
-이 퀵 스타트 설명서는 [Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 컨트롤러에 전원 공급 방법과 가장 중요한 주변 장치 연결법을 설명합니다.
+이 설명서는 [Drundal](../flight_controller/durandal.md)<sup>&reg;</sup> 비행 컨트롤러에 전원 공급 방법과 가장 중요한 주변 장치 연결법을 설명합니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
