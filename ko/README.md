@@ -2,7 +2,7 @@
 
 # PX4 자율 비행 프로그램 안내서 ({{ $themeConfig.px4_version }})
 
-[![릴리즈](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 PX4는 *자율비행 프로그램*입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활발하게 활동중인 단체들의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박등의 다양한 운송체에 적용할 수 있습니다.
 
@@ -104,13 +104,13 @@ PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-
 
 이 라이브러리에서 사용하는 다음 아이콘은 별도의 라이선스를 적용합니다 (아래 그림 참조).
 
-<img src="../assets/site/position_fixed.svg" title="필요한 위치 수정(예: GPS)" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>가 만든 <em>placeholder</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
+<img src="../assets/site/position_fixed.svg" title="필수 위치 수정(예: GPS)" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>가 만든 <em>placeholder</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
 
 <img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 사이트의 <a href="http://www.freepik.com" title="Freepik">Freepik</a>이 만든 <em>camera-automatic-mode</em> 아이콘은 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">크리에이티브 커먼즈 저작자 표시 3.0</a> 라이선스를 따릅니다.
 
 ## 운영 방식
 
-PX4 플라이트 기술 스택은 [드론코드 프로젝트](https://www.dronecode.org/) 운영 지침 아래 제공되어 집니다.
+PX4 비행 스택은 [드론코드 프로젝트](https://www.dronecode.org/) 지침을 준수하여 제공됩니다.
 
 <a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
