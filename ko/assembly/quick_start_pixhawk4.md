@@ -3,7 +3,7 @@
 :::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
 :::
 
-이 퀵 스타트 설명서는 [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> 비행 컨트롤러의 전원을 공급방법과 주변 장치를 연결하는 방법을 설명합니다.
+이 설명서는 [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> 비행 컨트롤러의 전원을 공급방법과 주변 장치를 연결하는 방법을 설명합니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 이미지" />
 
@@ -136,7 +136,7 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 
 SD 카드는 [ 비행 세부 정보를 기록 및 분석 ](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. 아래 그림과 같이 카드 (Pixhawk 4 키트에 포함됨)를 *Pixhawk 4*에 삽입합니다.
 
-![hawk 4/SD 카드](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
+![Pixhawk 4/SD 카드](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
 :::tip
 자세한 내용은 [ 기본 개념> SD 카드 (이동식 메모리) ](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
