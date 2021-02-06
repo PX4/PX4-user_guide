@@ -3,64 +3,64 @@
 :::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://shop.holybro.com/)와 상담하십시오.
 :::
 
-This quick start guide shows how to power the [*Pixhawk<sup>&reg;</sup> 4 Mini*](../flight_controller/pixhawk4_mini.md) flight controller and connect its most important peripherals.
+이 설명서는 [*Pixhawk 4<sup>&reg;</sup> Mini*](../flight_controller/pixhawk4_mini.md) 비행 컨트롤러의 전원을 공급방법과 주변 장치를 연결하는 방법을 설명합니다.
 
 ![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
-## Wiring Chart Overview
+## 배선 개요
 
-The image below shows where to connect the most important sensors and peripherals (except for motors and servos).
+아래의 이미지는 가장 중요한 센서 및 주변 장치 (모터 및 서보 출력 제외)를 연결하는 방법을 나타냅니다.
 
 ![*Pixhawk 4 Mini* Wiring Overview](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
 
 :::tip
-More information about available ports can be found here: [*Pixhawk 4 Mini* > Interfaces](../flight_controller/pixhawk4_mini.md#interfaces).
+사용 가능한 포트에 대한 자세한 내용은 [*Pixhawk 4 Mini * > 인터페이스](../flight_controller/pixhawk4_mini.md#interfaces)에서 찾을 수 있습니다.
 :::
 
-## Mount and Orient Controller
+## 콘트롤러 장착 및 장착 방향
 
-*Pixhawk 4 Mini* should be mounted on your frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+*Pixhawk 4 Mini*는 진동 방지 폼 패드(키트에 포함)를 프레임에 장착해야 합니다. 차량의 무게 중심에 최대한 가깝게 배치 된 프레임에 장착해야하며 화살표가 차량의 앞쪽과 위쪽을 향하도록 하여야 합니다.
 
 ![*Pixhawk 4 Mini* Orientation](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+컨트롤러를 권장/기본 방향으로 장착하기 어려운 경우에는 (예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에 설정하여야 합니다 ( [기체 콘트롤러 방향 ](../config/flight_controller_orientation.md) 참고).
 :::
 
-## GPS + Compass + Buzzer + Safety Switch + LED
+## GPS + 나침반 + 부저 + 안전 스위치 + LED
 
-Attach the provided GPS with integrated compass, safety switch, buzzer, and LED to the **GPS MODULE** port. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+나침반, 안전 스위치, 부저 및 LED 통합 GPS를 **GPS MODULE** 포트에 연결합니다. GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
-:::note
-The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+:::note GPS
+모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
 :::
 
-## Power
+## 전원
 
-The Power Management Board (PMB) serves the purpose of a power module as well as a power distribution board. In addition to providing regulated power to *Pixhawk 4 Mini* and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
+PMB (Power Management Board)는 배전 보드뿐만 아니라 전원 모듈의 용도로 사용됩니다. *Pixhawk 4 Mini* 및 ESC에 조정 된 전력을 제공하는 것 외에도 배터리의 전압 및 전류 소모에 대한 정보를 자동 조종 장치로 보냅니다.
 
-Connect the output of the PMB that comes with the kit to the **POWER** port of the *Pixhawk 4 Mini* using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
+6 선 케이블을 사용하여 키트와 함께 제공되는 PMB의 출력을 *Pixhawk 4 Mini*의 **POWER** 포트에 연결합니다. ESC 및 서보에 대한 전원 공급 및 신호 연결을 포함한 전원 관리 보드의 연결 방법은 아래의 이미지에 설명되어 있습니다.
 
 ![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
 :::note
-The image above only shows the connection of a single ESC and a single servo. Connect the remaining ESCs and servos similarly.
+위의 이미지는 단일 ESC와 단일 서보의 연결만을 보여줍니다. 나머지 ESC와 서보를 비슷하게 연결합니다.
 :::
 
-| Pin(s) or Connector | Function                                                                 |
-| ------------------- | ------------------------------------------------------------------------ |
-| B+                  | Connect to ESC B+ to power the ESC                                       |
-| GND                 | Connect to ESC Ground                                                    |
-| PWR                 | JST-GH 6-pin Connector, 5V 3A output  
-connect to *Pixhawk 4 Mini* POWER |
-| BAT                 | Power Input, connect to 2~12s LiPo Battery                               |
+| 핀 또는 커넥터 | 기능                                                        |
+| -------- | --------------------------------------------------------- |
+| B+       | ESC에 전원을 공급하기 위해 ESC B +에 연결                              |
+| GND      | ESC 접지에 연결                                                |
+| PWR      | JST-GH 6 핀 커넥터, 5V 3A 출력   
+을 *Pixhawk 4 Min * 전원에 연결</0> |
+| BAT      | 전원 입력, 2 ~ 12S LiPo 배터리에 연결                               |
 
 
-The pinout of the *Pixhawk 4 Mini* **POWER** port is shown below. The `CURRENT` signal should carry an analog voltage from 0-3.3V for 0-120A as default. The `VOLTAGE` signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+*Pixhawk 4 Mini* **POWER** 포트의 핀아웃은 아래와 같습니다. 전류 신호는 기본적으로 0-120A에 대하여 0-3.3V의 아날로그 전압을 전달하여야 합니다. 전압 신호는 기본적으로 0-60V에 대하여 0-3.3V의 아날로그 전압을 전달하여야 합니다. VCC 라인은 최소 3A 연속을 제공해야하며 기본적으로 5.1V로 설정되어야 합니다. 5V 보다 낮은 전압은 허용되지만 권장되지는 않습니다.
 
-| Pin      | Signal  | Volt  |
+| 핀        | 신호      | Volt  |
 | -------- | ------- | ----- |
 | 1(red)   | VCC     | +5V   |
 | 2(black) | VCC     | +5V   |
