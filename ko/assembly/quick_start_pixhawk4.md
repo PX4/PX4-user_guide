@@ -41,39 +41,39 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 
 ## 전원
 
-키트와 함께 제공되는 * 전원 관리 보드 * (PM 보드)의 6개의 케이블을 사용하여 * Pixhawk 4 *의 ** POWER ** 브릭중 하나에 연결합니다. PM 입력 **2 ~ 12S **는 LiPo 배터리에 연결됩니다. ESC 및 서보에 대한 전원 공급 및 신호 연결을 포함한 전원 관리 보드의 연결은 아래 표에 설명되어 있습니다. Note that the PM board does not supply power to the servos via + and - pins of **FMU PWM-OUT**.
+키트와 함께 제공되는 * 전원 관리 보드 * (PM 보드)의 6개의 케이블을 사용하여 * Pixhawk 4 *의 ** POWER ** 브릭중 하나에 연결합니다. PM 입력 **2 ~ 12S **는 LiPo 배터리에 연결됩니다. ESC 및 서보에 대한 전원 공급 및 신호 연결을 포함한 전원 관리 보드의 연결은 아래 표에 설명되어 있습니다. PM 보드는 **FMU PWM-OUT**의 + 및 -핀을 통하여 서보에 전원을 공급하지 않습니다.
 
-The image below shows the power management board provided with *Pixhawk 4*.
+아래의 이미지는 *Pixhawk 4*와 함께 제공되는 전원 관리 보드입니다.
 
 ![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
 :::note
-If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+고정익 또는 자동차로 사용하는 경우 **FMU PWM-OUT**의 8 핀 전원 (+) 레일에 러더, 엘레 본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다. 전원 레일을 BEC가 장착 된 ESC 또는 독립형 5V BEC 또는 2S LiPo 배터리에 연결하여야 합니다. 서보의 전압에주의하십시오.
 :::
 
-| PIN&Connector | Function                                                                                                    |
-| ------------- | ----------------------------------------------------------------------------------------------------------- |
-| I/O PWM-IN    | See note below for connection to *Pixhawk 4*                                                                |
-| M1            | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
-| M2            | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
-| M3            | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
-| M4            | I/O PWM OUT 4: connect signal wire to ESC of motor 4 here                                                   |
-| M5            | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here                                                   |
-| M6            | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here                                                   |
-| M7            | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here                                                   |
-| M8            | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here                                                   |
-| FMU PWM-IN    | See note below for connection to *Pixhawk 4*                                                                |
-| FMU PWM-OUT   | If FMU PWM-IN is connected to *Pixhawk 4*, connect signal wires to ESC or signal, +, - wires to servos here |
-| CAP&ADC-OUT   | connect to CAP & ADC IN port of *Pixhawk 4*                                                                 |
-| CAP&ADC-IN    | CAP&ADC input: Pinouts are printed on the back side of the board                                            |
-| B+            | connect to ESC B+ to power the ESC                                                                          |
-| GND           | connect to ESC Ground                                                                                       |
-| PWR1          | 5v output 3A, connect to *Pixhawk 4* POWER 1                                                                |
-| PWR2          | 5v output 3A, connect to *Pixhawk 4* POWER 2                                                                |
-| 2~12S         | Power Input, connect to 12S LiPo Battery                                                                    |
+| 핀 & 커넥터     | 기능                                                                      |
+| ----------- | ----------------------------------------------------------------------- |
+| I/O PWM-IN  | *Pixhawk 4*에 연결하려면 아래를 참조하십시오.                                          |
+| M1          | I/O PWM OUT 1 : 신호선을 모터 1의 ESC에 연결합니다.                                  |
+| M2          | I/O PWM OUT 2 : 신호선을 모터 2의 ESC에 연결합니다.                                  |
+| M3          | I/O PWM OUT 3 : 신호선을 모터 3의 ESC에 연결합니다.                                  |
+| M4          | I/O PWM OUT 4 : 신호선을 모터 4의 ESC에 연결합니다.                                  |
+| M5          | I/O PWM OUT 5 : 신호선을 모터 5의 ESC에 연결합니다.                                  |
+| M6          | I/O PWM OUT 6 : 신호선을 모터 6의 ESC에 연결합니다.                                  |
+| M7          | I/O PWM OUT 7 : 신호선을 모터 7의 ESC에 연결합니다.                                  |
+| M8          | I/O PWM OUT 8 : 신호선을 모터 8의 ESC에 연결합니다.                                  |
+| FMU PWM-IN  | *Pixhawk 4*에 연결하려면 아래를 참조하십시오.                                          |
+| FMU PWM-OUT | FMU PWM-IN이 *Pixhawk 4*에 연결된 경우 신호선을 ESC 또는 신호에 연결하고 +, - 선을 서보에 연결합니다. |
+| CAP&ADC-OUT | CAP에 연결 & amp; *Pixhawk 4*의 ADC IN 포트                                   |
+| CAP&ADC-OUT | CAP & amp; ADC 입력 : 보드 뒷면에 핀아웃이 인쇄되어 있습니다.                              |
+| B+          | ESC에 전원을 공급하기 위해 ESC B +에 연결                                            |
+| GND         | ESC 접지에 연결                                                              |
+| PWR1        | 5v 출력 3A, *Pixhawk 4* POWER 1에 연결                                       |
+| PWR2        | 5v 출력 3A, *Pixhawk 4* POWER 2에 연결                                       |
+| 2~12S       | 전원 입력, 12S LiPo 배터리에 연결                                                 |
 
 :::note
-Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of *Pixhawk 4* to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 4* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 4*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).
+기체 유형에 따라 [기체 정의서](../airframes/airframe_reference.md)를 참조하여 *Pixhawk 4*의 **I/O PWM OUT ** 및 ** FMU PWM OUT ** 포트를 PM 보드에 연결하십시오. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 4* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 4*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).
 :::
 
 The following table summarizes how to connect *Pixhawk 4*'s PWM OUT ports to PM board's PWM-IN ports, depending on the Airframe Reference.
