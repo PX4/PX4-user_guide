@@ -1,12 +1,12 @@
-# 펌웨어 로드
+# 펌웨어 설치 및 업데이트
 
-*QGroundControl* **데스크톱** 버전 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러 보드 PX4 펌웨어 설치를 사용할 수 있습니다.
+*QGroundControl* **데스크톱** 버전을 사용하여 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러 보드에 PX4 펌웨어를 설치할 수 있습니다.
 
 :::caution
-**Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). The vehicle must *not be* powered by a battery.
+**펌웨어 설치 시작전에 **차량의 모든 USB* 연결을 해제 *하여야 합니다 (직접 또는 원격 측정 라디오를 통해). 기체에 배터리로 전원 연결을 *중지*하여야 합니다.
 :::
 
-## Install Stable PX4
+## PX4 안정 버전 설치
 
 Generally you should use the most recent *released* version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
 
@@ -22,7 +22,8 @@ To install PX4:
     
     * USB를 통해 비행 컨트롤러를 컴퓨터에 직접 연결합니다.
         
-        :::note Connect directly to a powered USB port on your machine (do not connect through a USB hub).
+:::note
+Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 :::
     
     * Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
@@ -37,7 +38,8 @@ To install PX4:
         
         Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
         
-        :::tip If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller. :::</ol> 
+:::tip
+If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller. :::</ol> 
     
     Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
     
@@ -68,7 +70,8 @@ To install PX4:
     
     If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
     
-    :::note Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+:::note
+Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
 :::
     
     To update the bootloader:
@@ -87,10 +90,12 @@ To install PX4:
         
         ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
         
-        :::note If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+:::note
+If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
 :::
     
-    :::tip For more information see [Bootloader Update](../advanced_config/bootloader_update.md).
+:::tip
+For more information see [Bootloader Update](../advanced_config/bootloader_update.md).
 :::
     
     ## Further Information
