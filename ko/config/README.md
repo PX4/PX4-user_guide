@@ -14,30 +14,30 @@
 * [나침반](../config/compass.md)
 * [자이로스코프](../config/gyroscope.md)
 * [가속도 센서](../config/accelerometer.md)
-* [Airspeed](../config/airspeed.md) (fixed-wing/VTOL)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Joystick Setup](../config/joystick.md)
-* [Flight Modes](../config/flight_mode.md) (Optional)
-* [Battery](../config/battery.md) (optional)
-* [Safety](../config/safety.md) (optional)
-* [Motors/Servos](../config/motors.md)
+* [대기 속도 센서](../config/airspeed.md) (고정익/VTOL)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [무선 설정](../config/radio.md)
+* [조이스틱 설정](../config/joystick.md)
+* [비행 모드](../config/flight_mode.md)(선택 사항)
+* [배터리](../config/battery.md)(선택 사항)
+* [안전](../config/safety.md)(선택 사항)
+* [모터/서보](../config/motors.md)
 
 :::note
-For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
+[지원되는 기체](../config/airframe.md)에서는 이 기본 구성만 필요합니다. 새로운 기체를 개발하는 경우에는 튜닝 작업이 필요합니다([고급 설정](../advanced_config/README.md) 참고) .
 :::
 
 ## 영상 가이드
 
-The video below shows the calibration process in detail.
+아래 비디오는 보정법을 자세하게 설명합니다.
 
-@[youtube](https://youtu.be/91VGmdSlbo4)
+@[유투브](https://youtu.be/91VGmdSlbo4)
 
 ## 지원
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
+구성에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
 
 ## 추가 정보
 
 * [QGroundControl > 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-* [Advanced Configuration](../advanced_config/README.md) (세부적인 설정 방법: 기타 센서 및 주변기기 연동, 튜닝 방법).
+* [고급 설정](../advanced_config/README.md) (세부적인 설정 방법: 기타 센서 및 주변기기 연동, 튜닝 방법).
