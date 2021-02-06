@@ -1403,6 +1403,20 @@ Set -1 to disable the check    </td>
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
+ <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Warning only</li> 
+
+<li><strong>2:</strong> Enforce SD card presence</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_ARM_SWISBTN">COM_ARM_SWISBTN</strong> (INT32)</td>
  <td>Arm switch is only a button <p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p>   </td>
  <td></td>
@@ -6730,6 +6744,13 @@ the setpoint will be capped to MPC_XY_VEL_MAX    </td>
  <td>3.0 > 20.0 (1)</td>
  <td>5.0</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_XY_ERR_MAX">MPC_XY_ERR_MAX</strong> (FLOAT)</td>
+ <td>Maximum horizontal error allowed by the trajectory generator <p><strong>Comment:</strong> The integration speed of the trajectory setpoint is linearly reduced with the horizontal position tracking error. When the error is above this parameter, the integration of the trajectory is stopped to wait for the drone. This value can be adjusted depending on the tracking capabilities of the vehicle.</p>   </td>
+ <td>0.1 > 10.0 </td>
+ <td>2.0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
