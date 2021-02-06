@@ -73,56 +73,56 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 | 2~12S       | 전원 입력, 12S LiPo 배터리에 연결                                                 |
 
 :::note
-기체 유형에 따라 [기체 정의서](../airframes/airframe_reference.md)를 참조하여 *Pixhawk 4*의 **I/O PWM OUT ** 및 ** FMU PWM OUT ** 포트를 PM 보드에 연결하십시오. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 4* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 4*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).
+기체 유형에 따라 [기체 정의서](../airframes/airframe_reference.md)를 참조하여 *Pixhawk 4*의 **I/O PWM OUT ** 및 ** FMU PWM OUT ** 포트를 PM 보드에 연결하십시오. PX4 펌웨어의 **MAIN ** 출력은 *Pixhawk 4*의 **I/O PWM OUT** 포트에 매핑되는 반면 **AUX 출력**은 *Pixhawk 4*의 ** FMU PWM OUT **에 매핑됩니다. 예를 들어 **MAIN1**은 **I/O PWM OUT**의 IO_CH1 핀에 매핑되고 **AUX1**은 **FMU PWM OUT**의 FMU_CH1 핀에 매핑됩니다. PM 보드의 **FMU PWM-IN**은 내부적으로 서보를 구동하는 데 사용되는 **FMU PWM-OUT**에 연결됩니다 (예 : 에일러론, 엘리베이터, 방향타, 엘레 본, 기어, 플랩, 짐벌, 스티어링). PM 보드의 **I/O PWM-IN**은 모터 구동에 사용되는 **M1-8**에 내부적으로 연결됩니다 (예 : 평면, VTOL 및 로버의 스로틀).
 :::
 
-The following table summarizes how to connect *Pixhawk 4*'s PWM OUT ports to PM board's PWM-IN ports, depending on the Airframe Reference.
+아래의 표는 기체 기준에 따라 *Pixhawk 4*의 PWM OUT 포트를 PM 보드의 PWM-IN 포트에 연결하는 방법을 요약한 것입니다.
 
-| Airframe Reference | Connection between *Pixhawk 4* --> PM board |
-| ------------------ | ------------------------------------------- |
-| **MAIN**: motor    | I/O PWM OUT --> I/O PWM IN                  |
-| **MAIN**: servo    | I/O PWM OUT --> FMU PWM IN                  |
-| **AUX**: motor     | FMU PWM OUT --> I/O PWM IN                  |
-| **AUX**: servo     | FMU PWM OUT --> FMU PWM IN                  |
+| 기체 참고        | *Pixhawk 4* -> PM 보드간 연결   |
+| ------------ | -------------------------- |
+| **MAIN**: 모터 | I/O PWM OUT --> I/O PWM IN |
+| **MAIN**: 서보 | I/O PWM OUT --> FMU PWM IN |
+| **AUX**: 모터  | FMU PWM OUT --> I/O PWM IN |
+| **AUX**: 서보  | FMU PWM OUT --> FMU PWM IN |
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-The pinout of *Pixhawk 4*’s power ports is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+*Pixhawk 4* 전원 포트의 핀아웃은 다음과 같습니다. 전류 신호는 기본적으로 0-120A에 대하여 0-3.3V의 아날로그 전압을 전달하여야 합니다. 전압 신호는 기본적으로 0-60V에 대하여 0-3.3V의 아날로그 전압을 전달하여야 합니다. VCC 라인은 최소 3A 연속을 제공해야하며 기본적으로 5.1V로 설정되어야 합니다. 5V의 더 낮은 전압은 여전히 허용되지만 권장되지 않습니다.
 
-| Pin      | Signal  | Volt  |
-| -------- | ------- | ----- |
-| 1(red)   | VCC     | +5V   |
-| 2(black) | VCC     | +5V   |
-| 3(black) | CURRENT | +3.3V |
-| 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| 핀        | 신호  | 전압    |
+| -------- | --- | ----- |
+| 1(red)   | VCC | +5V   |
+| 2(black) | VCC | +5V   |
+| 3(black) | 전류  | +3.3V |
+| 4(black) | 전압  | +3.3V |
+| 5(black) | 접지  | GND   |
+| 6(black) | 접지  | GND   |
 
 :::note
-Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. You will have to update the *voltage divider* if you are using any other power module (e.g. the one from the Pixracer).
+키트와 함께 제공되는 전원 모듈을 사용하면 [전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html)에서 *셀 수*를 구성해야하지만 *전압 분배기를 보정 할 필요가 없습니다. *. 다른 전원 모듈 (예 : Pixracer의 모듈)을 사용하는 경우 *전압 분배기*를 업데이트하여야 합니다.
 :::
 
-## Radio Control
+## 무선 조종
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+리모트 컨트롤(RC) 라디오 시스템은 기체를 *수동*으로 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
-The instructions below show how to connect the different types of receivers to *Pixhawk 4*:
+아래 지침은 다양한 유형의 수신기의 * Pixhawk 4* 연결법을 설명합니다.
 
-- Spektrum/DSM or S.BUS receivers connect to the **DSM/SBUS RC** input.
+- Spektrum/DSM 수신기는 **DSM/SBUS RC** 입력에 연결됩니다.
     
     ![Pixhawk 4 - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 
-- PPM receivers connect to the **PPM RC** input port.
+- PPM 수신기는 **PPM RC** 입력 포트에 연결됩니다.
     
     ![Pixhawk 4 - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4/pixhawk_4_receiver_ppm.png)
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기 / 수신기 쌍 바인딩에 대한 자세한 내용은 다음을 참조하십시오. [ 원격 제어 송신기 & amp; 수신자 ](../getting_started/rc_transmitter_receiver.md).
 
-## Telemetry Radios (Optional)
+## 무선 텔레메트리(선택 사항)
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
