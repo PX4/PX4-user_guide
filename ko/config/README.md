@@ -1,19 +1,19 @@
 # 기본 설정
 
-*QGroundControl*은 PX4 Controller에 [firmware](../config/firmware.md)를 설치하고 [airframe]](../config/airframe.md)을 설정합니다. 이는 PX4 기기에 반드시 있어야 하는 주요 센서를(GPS, 나침반, 자이로 등) 구성하는데 사용됩니다.
+*QGroundControl*은 PX4 Controller에 [펌웨어](../config/firmware.md)를 설치하고 [기체](../config/airframe.md)를 설정합니다. 이는 PX4 기기에 반드시 있어야 하는 주요 센서를(GPS, 나침반, 자이로 등) 구성하는데 사용됩니다.
 
 :::tip
-Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+이 섹션을 시작하기 전에 [QGroundControl을 다운로드 ](http://qgroundcontrol.com/downloads/)하여 **PC**에 설치하여야 합니다 (모바일 *QGroundControl *에서는 설정 기능은 제공되지 않습니다. 비행은 가능.).
 :::
 
-This section contains *essential* configuration topics:
+이 절에서는 *필수* 설정에 관하여 설명합니다.
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Gyroscope](../config/gyroscope.md)
-* [Accelerometer](../config/accelerometer.md)
+* [펌웨어](../config/firmware.md)
+* [기체](../config/airframe.md)
+* [센서 방향](../config/flight_controller_orientation.md)
+* [나침반](../config/compass.md)
+* [자이로스코프](../config/gyroscope.md)
+* [가속도 센서](../config/accelerometer.md)
 * [Airspeed](../config/airspeed.md) (fixed-wing/VTOL)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
 * [Radio Setup](../config/radio.md)
