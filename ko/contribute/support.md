@@ -1,11 +1,11 @@
-# Support
+# 지원 방법
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/support.html">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/contribute/support.html">여기</a>를 참고하십시오.</p>
   </div>
 </div>
 
-This section shows how you can get help from the core dev team and the wider community.
+이 절에서는 핵심 개발팀과 커뮤니티의 지원을 받는 방법을 알려드립니다.
 
 <a id="support"></a>
 
