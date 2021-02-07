@@ -33,7 +33,7 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
 * 사용자는 보고서를 업로드하고 다른 사람과 공유 할 수 있습니다.
 * 대화형 플롯.
 
-![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
+![비행 검토 차트](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
 
 입분용 [비행 검토를 사용한 로그 분석 ](flight_review.md)을 참조하세요.
 
@@ -122,7 +122,7 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
 * 신규 및 기존 PX4 로그 형식 (.ulg, .px4log, .bin) 모두 지원
 * 그래프를 이미지로 저장할 수 있습니다.
 
-![FlightPlot Charts](../../assets/flight_log_analysis/flightplot_0.2.16.png)
+![FlightPlot 챠트](../../assets/flight_log_analysis/flightplot_0.2.16.png)
 
 ### PX4Tools
 
@@ -135,7 +135,7 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
 * iPython/jupyter 노트북을 사용하여 분석과 공유가 편리합니다.
 * 상세한 분석이 가능한 고급 플로팅 기능
 
-![PX4Tools-based analysis](../../assets/flight_log_analysis/px4tools.png)
+![PX4Tools 기반 분석](../../assets/flight_log_analysis/px4tools.png)
 
 ### MAVGCL
 
@@ -150,31 +150,31 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
 * MAVLink 검사기 (원시 MAVLink 메시지 보고)
 * 오프라인 모드 : PX4Log / ULog에서 키 그림 가져오기 (WiFi를 통해 장치에서 파일 또는 마지막 로그)
 * Java 기반. macOS 및 Ubuntu에서 작동하는 것으로 알려져 있습니다.
-* And many more ...
+* 그리고 더 많은 기능들 ...
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
 
 ### PlotJuggler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler)는 Qt5 데스크톱 애플리케이션입니다. 사용자가 시계열 형태로 표현 된 데이터를 쉽게 시각화하고 분석할 수 있습니다.
 
-It supports **ULog files** (.ulg) since version 2.1.4.
+2.1.4 버전부터 **ULog 파일** (. ulg)을 지원합니다.
 
-Key features:
+주요 기능:
 
-* Intuitive drag&drop interface.
-* Arrange your data in multiple plots, tabs or windows.
-* Once you arranged your data, save it into a "Layout" file and reload it multiple times.
-* Process your data inside PlotJuggler itself, using custom "data transformations".
+* 직관적 인 드래그 앤 드롭 인터페이스.
+* 여러 플롯, 탭 또는 창에 데이터를 정렬합니다.
+* 데이터를 정렬 한 후 "레이아웃"파일에 저장하고 여러 번 다시로드합니다.
+* 사용자 지정 "데이터 변환"을 사용하여 PlotJuggler 자체 내에서 데이터를 처리합니다.
 
-Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
+소스 코드 및 다운로드는 [Github](https://github.com/facontidavide/PlotJuggler)에서 제공합니다.
 
 ![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
 
 ### Data Comets
 
-[Data Comets](https://github.com/dsaffo/DataComets) is a interactive PX4 flight log analysis tool that allows you to encode flight data onto the flight path, filter and brush the data by time - and much more!
+[Data Comets](https://github.com/dsaffo/DataComets)는 비행 데이터를 비행 경로에 인코딩하고 시간별로 데이터를 필터링 및 브러싱 할 수있는 대화형 PX4 비행 로그 분석 도구입니다.
 
-You can use the online version of the tool for small log files (< 32Mb), or run it locally in order to analyze longer flights.
+작은 로그 파일 (<32Mb)에 대한 도구의 온라인 버전을 사용하거나 더 긴 비행을 분석하기 위해 로컬에서 실행할 수 있습니다.
 
 ![Data Comets](../../assets/flight_log_analysis/data_comets/data_comets_overview.gif)
