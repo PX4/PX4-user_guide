@@ -2,13 +2,13 @@
 
 이 항목에서는 PX4 비행 로그를 분석하는 데 사용할 수있는 접근 방식 및 소프트웨어 패키지에 대해 설명합니다.
 
-## 비행 신고
+## 비행 보고서
 
-[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
+[비행 보고서](../getting_started/flight_reporting.md)에서는 로그를 다운로드하여 개발팀과 함께 비행 문제를 보고/토론하는 방법을 설명합니다.
 
-## Structured Analysis
+## 구조 분석
 
-Before analyzing a flight log it is important to establish its context:
+비행 로그를 분석하기 전에 컨텍스트를 설정하는 것이 중요합니다.
 
 * If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
 * Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
