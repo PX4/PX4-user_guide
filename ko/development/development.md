@@ -1,16 +1,16 @@
-# PX4 Development
+# PX4 개발
 
-This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
+신규 기체 개발 및 변경 방법, 비행 알고리즘을 수정, 새 모드를 추가, 새 하드웨어를 통합, 및 비행 컨트롤러 외부에서 PX4와 통신하는 방법을 설명합니다.
 
 ::: tip
-This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle.
+이 섹션은 소프트웨어 개발자와 (신규) 하드웨어 통합자를위한 것입니다. 기존 기체를 구축하거나 PX4 차량을 사용하여 비행하는 경우에는 필요하지 않습니다.
 :::
 
-It explains how to:
+다음 방법을 설명합니다.
 
-* Get a [minimum developer setup](../dev_setup/config_initial.md), [build PX4 from source](../dev_setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
-* Understand the [PX4 System Architecture](../concept/architecture.md) and other core concepts.
-* Learn how to modify the flight stack and middleware:
+* <0개발자 최소 설정</a>, [PX4 소스 코드 빌드](../dev_setup/building_px4.md), [다양한 오토파일럿](../flight_controller/README.md) 펌웨어 배포 방법을 배웁니다.
+* [PX4 시스템 구조](../concept/architecture.md)와 핵심 개념을 이해합니다.
+* 플라이트 스택과 미들웨어 수정 방법을 배웁니다:
   - Modify flight algorithms and add new [flight modes](../concept/flight_modes.md).
   - Support new [airframes](../dev_airframes/README.md).
 * Learn how to integrate PX4 with new hardware:
