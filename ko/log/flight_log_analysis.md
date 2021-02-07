@@ -1,6 +1,6 @@
 # 비행 로그 분석
 
-이 항목에서는 PX4 비행 로그를 분석하는 데 사용할 수있는 접근 방식 및 소프트웨어 패키지에 대해 설명합니다.
+PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니다.
 
 ## 비행 보고서
 
@@ -8,16 +8,16 @@
 
 ## 구조 분석
 
-비행 로그를 분석하기 전에 컨텍스트를 설정하는 것이 중요합니다.
+비행 로그를 분석하기 전에 상황 파악이 더 중요합니다.
 
-* If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
-* Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
-* Does the sensor data look valid? Was there very strong vibration \(a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s\).
-* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
+* 오작동 후 분석이 수행되면 로그에 충돌이 캡처 되었습니까 아니면 공중에서 중지 되었습니까?
+* 모든 컨트롤러가 사건들을 추적 했습니까? 이를 설정하는 가장 쉬운 방법은 자세의 롤 및 피치 속도를 설정 포인트와 비교하는 것입니다.
+* 센서 데이터가 유효합니까? 매우 강한 진동이 있었습니까? (강한 진동에 대한 합리적인 임계 값은 피크 대 피크가 2-3m/s/ s 이상인 모든 것입니다.)
+* 근본 원인이 차량에 국한되지 않은 경우 [PX4 문제 추적기 ](https://github.com/PX4/PX4-Autopilot/issues/new)의 로그 파일 \ (존재하는 경우 동영상 포함)\에 대한 링크와 함께 보고해야합니다.
 
-## Ruling Out Power Failures
+## 정전 방지
 
-If a log file ends mid-air, two main causes are possible: a power failure *or* a hard fault of the operating system.
+로그 파일이 비행중에 중단되는 경우는 두 가지 주요 원인일 수 있습니다. 정전 *또는* 운영 체제의 심각한 오류입니다.
 
 On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults of the operating system are logged to the SD card. These are located on the top level of the SD card and named *fault\_date.log*, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. Please always check for the presence of this file if a flight log ends abruptly.
 
