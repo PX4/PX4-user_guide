@@ -1,9 +1,9 @@
-# UAVCAN Introduction
+# 고급 설정 
 
-이 절에서는 기체별 설정, 일반적으로 활용하지 않는 센서 주변 기기용 고급 설정 제를 다룹니다.
+기체별 설정, 일반적으로 활용하지 않는 주변 센서, 장치 및 고급 설정 방법에 관하여 설명합니다.
 
 :::tip
-The topics are useful if you are creating a new airframe type or significantly modifying a supported frame. Generally if you're using a [supported airframe](../airframes/airframe_reference.md#copter) (e.g. from [QGroundControl > Airframe](../config/airframe.md)) the default tuning and configuration should be acceptable.
+이 항목은 새로운 기체 유형을 만들거나 표준 프레임을 수정하는 경우에 유용합니다. 일반적으로 [지원되는 기체 프레임](../airframes/airframe_reference.md#copter)를 사용하는 경우 (예: [QGroundControl> 기체 프레임](../config/airframe.md)), 기본적인 튜닝 및 설정은 해당 프레임이 허용할 수 있는 범위여야 합니다.
 :::
 
-For the standard configuration appropriate to every vehicle see: [Basic Configuration](../config/README.md).
+모든 차량에 적합한 표준 구성은 [기본 구성](../config/README.md)편을 참조하십시오.

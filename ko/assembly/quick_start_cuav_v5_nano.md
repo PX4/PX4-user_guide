@@ -3,7 +3,7 @@
 :::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.cuav.net/)와 상담하십시오.
 :::
 
-이 퀵 스타트 설명서는 [ CUAV V5 nano](../flight_controller/cuav_v5_nano.md) 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
+이 설명서는 [ CUAV V5 nano](../flight_controller/cuav_v5_nano.md) 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
 ![Nano Hero Image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 

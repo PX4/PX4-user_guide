@@ -1,21 +1,21 @@
-# Flying
+# 비행
 
-이 절에서는 (완전 구성) 자동 항법 장치로 제어하는 기체의 비행을 다룹니다. 완전 자율 비행을위한 수동 비행과 임무 계획 모두를 다루고 있습니다.
+자동 항법 장치에 의한 기체 비행법을 설명합니다. 자동 비행을위한 수동 비행 방법과 자율 비행 방법을 설명합니다.
 
 [첫 비행 지침](../flying/first_flight_guidelines.md) - 첫 비행을 즐겁고, 교육적이며, 안전하도록하는 지침.
 
-[Flying 101](../flying/basic_flying.md) — How to fly a vehicle manually, using an RC Transmitter.
+[Flying 101](../flying/basic_flying.md) - RC 조정기를 사용하여 기체를 수동으로 조종하는 법.
 
-[Missions](../flying/missions.md) — How to fly an autonomous mission.
+[미션](../flying/missions.md) - 자율 비행 방법.
 
-[GeoFence](../flying/geofence.md) — How to set a geofence.
+[GeoFence](../flying/geofence.md) — 지오 펜스 설정 방법.
 
-[Rally Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
+[랠리 포인트](../flying/plan_safety_points.md) — 안전 복귀 착륙 포인트 (랠리 포인트)를 계획하는 방법.
 
-[Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
+[비행 모드](../flight_modes/README.md) - 요약 표 + 비행 모드에 대한 자세한 정보.
 
-[Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
+ 지형 추적 / 홀드 & amp; Range Assistance </ 0> — 지형 추적 활성화 방법.</p> 
 
 :::tip
-[Vehicle Status Notifications](../getting_started/vehicle_status.md) can help you work out when your vehicle is ready to fly (and if not, why not).
+[차량 상태 알림](../getting_started/vehicle_status.md)은 차량이 비행 할 준비가 되었는지 확인하는 데 도움이 될 수 있습니다. 비행 준비가 미비한 경우에는 그 이유를 알려줍니다.
 :::
