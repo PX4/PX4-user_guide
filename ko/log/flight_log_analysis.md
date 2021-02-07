@@ -19,52 +19,52 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
 
 로그 파일이 비행중에 중단되는 경우는 두 가지 주요 원인일 수 있습니다. 정전 *또는* 운영 체제의 심각한 오류입니다.
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults of the operating system are logged to the SD card. These are located on the top level of the SD card and named *fault\_date.log*, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. Please always check for the presence of this file if a flight log ends abruptly.
+[STM32 시리즈](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169) 기반 자동 조종 장치에서는 운영 체제의 하드 오류가 SD 카드에 기록됩니다. 이러한 파일은 SD 카드의 최상위 수준에 있으며 *fault\_date.log*로 이름이 지정됩니다 (예 : **오류\_2017\_04\_03\_00\_26\_05.log**. 비행 로그가 갑자기 종료되는 경우 항상이 파일이 있는지 확인하십시오.
 
-## Analysis Tools
+## 분석 도구
 
-### Flight Review (Online Tool)
+### Flight Review (온라인 도구)
 
-[Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
+[Flight Review](http://logs.px4.io)는 *Log Muncher*의 후속 제품입니다. 새로운 [ULog](../dev_log/ulog_file_format.md) 로깅 형식과 함께 사용됩니다.
 
-Key features:
+주요 기능:
 
-* Web based, great for end-users.
-* User can upload, load and then share report with others.
-* Interactive plots.
+* 웹 기반으로 되어 있어며, 일반 사용자에게 적합합니다.
+* 사용자는 보고서를 업로드하고 다른 사람과 공유 할 수 있습니다.
+* 대화형 플롯.
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
 
-See [Log Analysis using Flight Review](flight_review.md) for an introduction.
+입분용 [비행 검토를 사용한 로그 분석 ](flight_review.md)을 참조하세요.
 
 ### pyulog
 
-[pyulog](https://github.com/PX4/pyulog) is a python package to parse ULog files, along with a set of command-line scripts to extract/display ULog information and convert them to other file formats.
+[pyulog](https://github.com/PX4/pyulog)는 ULog 정보를 추출/표시하고 다른 파일 형식으로 변환하는 일련의 명령 줄 스크립트와 함께 ULog 파일을 구문 분석하는 Python 패키지입니다.
 
-Key features:
+주요 기능:
 
-* Python library for parsing ULog files. Base library used by a number of other ULog analysis and visualisation tools.
-* Scripts to extract/display ULog information: 
-  * *ulog_info*: display information from an ULog file.
-  * *ulog_messages*: display logged messages from an ULog file.
-  * *ulog_params*: extract parameters from an ULog file.
-* Scripts to convert ULog files to other formats: 
-  * *ulog2csv*: convert ULog to (several) CSV files.
-  * *ulog2kml*: convert ULog to (several) KML files.
+* ULog 파일을 구문 분석하기위한 Python 라이브러리입니다. 다른 여러 ULog 분석 및 시각화 도구에서 사용하는 기본 라이브러리입니다.
+* ULog 정보를 추출/표시하는 스크립트 : 
+  * *ulog_info* : ULog 파일의 정보를 표시합니다.
+  * *ulog_messages* : ULog 파일에서 기록된 메시지를 표시합니다.
+  * *ulog_params* : ULog 파일에서 매개 변수를 추출합니다.
+* ULog 파일을 다른 포맷으로 변환하는 스크립트 : 
+  * *ulog2csv* : ULog를 (여러) CSV 파일로 변환합니다.
+  * *ulog2kml* : ULog를 (여러) KML 파일로 변환합니다.
 
-All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. For example:
+모든 스크립트는 시스템 전체 애플리케이션으로 설치되며 (즉, Python이 설치된 경우 명령 줄에서 호출 됨) 도움말을 `-h` 옵션을 사용하여 볼 수 있습니다. 예:
 
     $ ulog_info -h
     usage: ulog_info [-h] [-v] file.ulg
     
-    Display information from an ULog file
+    ULog 파일의 정보 표시
     
-    positional arguments:
+    위치 인수 :
       file.ulg       ULog input file
     
-    optional arguments:
-      -h, --help     show this help message and exit
-      -v, --verbose  Verbose output
+    선택적 인수 :
+      -h, --help    이 도움말 메시지를 표시하고 종료
+      -v, --verbose 자세한 출력
     
 
 Below we see the kind of information exported from a sample file using *ulog_info*.
