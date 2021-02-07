@@ -1,8 +1,8 @@
-# Flight Log Analysis
+# 비행 로그 분석
 
-This topic outlines approaches and software packages that can be used to analyze PX4 flight logs.
+이 항목에서는 PX4 비행 로그를 분석하는 데 사용할 수있는 접근 방식 및 소프트웨어 패키지에 대해 설명합니다.
 
-## Reporting Flights
+## 비행 신고
 
 [Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 
