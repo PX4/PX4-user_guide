@@ -9,12 +9,12 @@
 
 <a id="support"></a>
 
-## Forums and Chat
+## 포럼 및 채팅
 
-The core development team and community are active on the following forums and chat channels.
+핵심 개발 팀과 커뮤니티는 다음 포럼과 대화 채널에서 활동합니다.
 
-* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-* [Slack](http://slack.px4.io) (sign up)
+* [PX4 토론](http://discuss.px4.io/) (*권장*)
+* [Slack](http://slack.px4.io) (회원가입 필요)
 
 :::tip
 Post on [PX4 Discuss](http://discuss.px4.io/) first! If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
