@@ -17,7 +17,7 @@
 * [Slack](http://slack.px4.io) (회원가입 필요)
 
 :::tip
-Post on [PX4 Discuss](http://discuss.px4.io/) first! If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
+먼저 [PX4 토론](http://discuss.px4.io/)에 게시하세요! 며칠 내에 답변을받지 못하면 Slack에서 질문에 대한 링크 (토론 중)를 사용하여 저희에게 알려주십시오.
 
 Discuss is better than slack in the first instance because questions and answers are permanent.
 :::
