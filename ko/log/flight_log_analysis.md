@@ -67,7 +67,7 @@ PX4 비행 로그를 분석 방법과 소프트웨어에 대하여 설명합니�
       -v, --verbose 자세한 출력
     
 
-Below we see the kind of information exported from a sample file using *ulog_info*.
+다음은 *ulog_info*를 사용하여 샘플 파일에서 내보내기한 정보의 종류입니다.
 
     $ ulog_info sample.ulg
     Logging start time: 0:01:52, duration: 0:01:08
@@ -93,19 +93,19 @@ Below we see the kind of information exported from a sample file using *ulog_inf
      vehicle_attitude_setpoint (0, 55)           3272     179960
      vehicle_local_position (0, 123)              678      83394
      vehicle_rates_setpoint (0, 24)              6448     154752
-     vehicle_status (0, 45)                       294      13230
+     vehicle_status (0, 45)                       294      13230 
     
 
 ### pyFlightAnalysis
 
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](#flightplot).
+[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis)는 [FlightPlot](#flightplot)에서 영감을 얻은 크로스 플랫폼 PX4 비행 로그 (ULog) 비쥬얼 분석 도구입니다.
 
-Key features:
+주요 기능:
 
-* Dynamic filter for displaying data
-* 3D visualization for attitude and position of drone
-* Easily replay with pyqtgraph's ROI (Region Of Interest)
-* Python based, cross-platform.
+* 데이터 표시를위한 동적 필터
+* 드론의 자세와 위치에 대한 3D 시각화
+* pyqtgraph의 ROI (관심 지역)로 쉽게 재생
+* Python 기반, 다양한 플랫폼 지원.
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
@@ -113,43 +113,43 @@ Key features:
 
 ### FlightPlot
 
-[FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
+[FlightPlot](https://github.com/PX4/FlightPlot)은 로그 분석을위한 데스크톱 기반 도구입니다. [FlightPlot 다운로드](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows)에서 다운로드 할 수 있습니다.
 
-Key features:
+주요 기능:
 
-* Java based, cross-platform.
-* Intuitive GUI, no programming knowledge required.
-* Supports both new and old PX4 log formats (.ulg, .px4log, .bin)
-* Allows saving plots as images.
+* Java 기반, 다양한 플랫폼 지원.
+* 직관적인 GUI, 프로그래밍 지식이 필요하지 않습니다.
+* 신규 및 기존 PX4 로그 형식 (.ulg, .px4log, .bin) 모두 지원
+* 그래프를 이미지로 저장할 수 있습니다.
 
 ![FlightPlot Charts](../../assets/flight_log_analysis/flightplot_0.2.16.png)
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools)는 Python으로 작성된 PX4 자동 조종 장치 로그 분석도구입니다. 권장되는 설치 절차는 [anaconda3](https://conda.io/docs/index.html)를 사용하는 것입니다. 자세한 내용은 [px4tools github 페이지](https://github.com/dronecrew/px4tools)를 참조하세요.
 
-Key features:
+주요 기능:
 
-* Easy to share, users can view notebooks on Github \(e.g. [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb)\)
-* Python based, cross platform, works witn anaconda 2 and anaconda3
-* iPython/ jupyter notebooks can be used to share analysis easily
-* Advanced plotting capabilities to allow detailed analysis
+* 공유가 용이하며, Github \ (예 : [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb ](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb)\)에서 샘플 쥬피터 노트북이 제공됩니다.
+* Python 기반, 다중 플랫폼, anaconda2 및 anaconda3에서 작동
+* iPython/jupyter 노트북을 사용하여 분석과 공유가 편리합니다.
+* 상세한 분석이 가능한 고급 플로팅 기능
 
 ![PX4Tools-based analysis](../../assets/flight_log_analysis/px4tools.png)
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[MAVGC ](https://github.com/ecmnet/MAVGCL)은 PX4 용 기내 로그 분석기입니다. 다운로드 한 uLog 파일로 오프라인 모드에서도 사용할 수 있습니다.
 
-Key features:
+주요 기능:
 
-* Realtime data acquisition (50ms sampling, 100ms rolling display) based on MAVLink messages or ULOG data over MAVLink
-* Timechart annotated by messages (MAVLink and ULog) and parameter changes (MAVLink only)
-* XY Analysis for selected key-figures
-* 3D View (vehicle and observer perspective)
-* MAVLink inspector (reporting raw MAVLink messages)
-* Offline-mode: Import of key-figures from PX4Log/ULog (file or last log from device via WiFi)
-* Java based. Known to work on macOS and Ubuntu.
+* MAVLink 메시지 또는 MAVLink를 통한 ULOG 데이터에 기반한 실시간 데이터 수집 (50ms 샘플링, 100ms 롤링 디스플레이)
+* 메시지 (MAVLink 및 ULog) 및 매개 변수 변경 (MAVLink 전용)으로 주석이 추가 된 타임 차트
+* 선택한 주요 수치에 대한 XY 분석
+* 3D보기(차량 및 관찰자 관점)
+* MAVLink 검사기 (원시 MAVLink 메시지 보고)
+* 오프라인 모드 : PX4Log / ULog에서 키 그림 가져오기 (WiFi를 통해 장치에서 파일 또는 마지막 로그)
+* Java 기반. macOS 및 Ubuntu에서 작동하는 것으로 알려져 있습니다.
 * And many more ...
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
