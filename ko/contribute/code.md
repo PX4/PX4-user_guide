@@ -1,14 +1,14 @@
 # 소스 코드 관리
 
-## 분기 모델
+## 브랜치 정책
 
-PX4 프로젝트는 분기를 셋으로 나누는 git 분기 모델을 활용합니다:
+PX4 프로젝트는 분기를 셋으로 나누는 git Branch를 만듭니다.
 
 * [master](https://github.com/PX4/PX4-Autopilot/tree/master)는 기본 브랜치이며, 비교적 불안정하고 빠른 개발 속도를 보여줍니다.
-* [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저하게 시험한 코드의 브랜치입니다. 비행체 시험자들이 활용하도록 만들었습니다.
+* [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저하게 시험한 코드의 브랜치입니다. 비행체를 실험하시는 분들이 사용하도록 만들었습니다.
 * [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 가리킵니다.
 
-[리베이스를 통한 선형 기록](https://www.atlassian.com/git/tutorials/rewriting-history)을 유지하며 [Github 흐름](https://guides.github.com/introduction/flow/)을 배제합니다. 그러나, 전세계의 팀과 역동적인 개발로 인해 그때그때 최종적으로 병합을 진행합니다.
+[리베이스를 통한 기록](https://www.atlassian.com/git/tutorials/rewriting-history)을 유지하며 [Github 흐름](https://guides.github.com/introduction/flow/)을 배제합니다. 그러나, 전세계의 팀과 역동적인 개발로 인해 그때그때 최종적으로 병합을 진행합니다.
 
 새 기능을 추가하려면,  [Github에 가입](https://help.github.com/articles/signing-up-for-a-new-github-account/)하고, 저장소를 [포킹](https://help.github.com/articles/fork-a-repo/)한 후, [새 브랜치를 만들어](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), 코드를 바꾸어넣은 다음, 마지막으로 [풀 리퀘스트를 보냅니다](https://help.github.com/articles/using-pull-requests/). [지속 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과하고 나면, 바뀐 코드를 병합할 예정입니다.
 
@@ -37,7 +37,8 @@ Currently we have two types of source-based documentation:
   - 바람직한 활용 예시로 [프로그램/모듈 템플릿](../apps/module_template.md)과 모듈 참조에서 연결한 파일을 들 수 있습니다.
 * *값을 추가하였고, 내용의 반복이 없는 코드에 대해* 소스코드 내 문서 작성을 권장합니다.
 
-  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::tip
+Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
   - C++ 항목 이름으로 분명하게 추정할 수 있는 문서는 추가하지 마십시오.
