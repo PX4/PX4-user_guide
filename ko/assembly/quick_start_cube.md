@@ -138,13 +138,13 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 통신 채널은 [무선 텔레메트리](../telemetry/README.md)를 사용합니다. 기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 무선 장치들은 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
 
-![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![무선 텔레메트리](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 카드 (선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다.
 
-![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 :::tip
 자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
@@ -154,7 +154,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 모터/서보는 [Airframe Reference](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 **MAIN** 및 **AUX** 포트에 연결됩니다.
 
-![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 :::note
 이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
@@ -178,7 +178,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 *QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어 장치를 컴퓨터에 연결합니다.
 
-![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
 더 자세한 일반 구성 정보는 [Autopilot 구성](../config/README.md)에서 다룹니다.
 
