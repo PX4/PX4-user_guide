@@ -37,7 +37,7 @@ In order to use the correct max/min values the appropriate model of the Evo sens
 :::
 
 :::tip
-The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
+The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`distance_sensor/teraranger`) to the board configuration.
 :::
 
 ## Further Information
