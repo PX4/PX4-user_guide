@@ -3,12 +3,12 @@
 :::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://store.mrobotics.io/)와 상담하십시오.
 :::
 
-This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
+이 설명서는 *3DR Pixhawk * 비행 컨트롤러의 전원 공급 방법과 주변 장치 연결 방법을 설명합니다.
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
 :::note
-The [3DR Pixhawk](../flight_controller/pixhawk.md) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
+[3DR Pixhawk](../flight_controller/pixhawk.md)는 더 이상 3DR에서 사용할 수 없습니다. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 :::
 
 ## Wiring Chart Overview
