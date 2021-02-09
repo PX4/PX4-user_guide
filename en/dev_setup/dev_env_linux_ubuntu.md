@@ -177,6 +177,7 @@ Setup instructions for *Snapdragon Flight* are provided in the flight controller
 
 
 <a id="fast_dds"></a>
+<a id="fast_rtps"></a>
 ## Fast DDS installation
 
 [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the DDS (Data Distribution Service) Specification, a protocol defined by the Object Management Group (OMG).
