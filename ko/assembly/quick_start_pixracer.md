@@ -9,7 +9,7 @@
 
 이 설명서는 [Pixracer](../flight_controller/pixracer.md) 비행 컨트롤러에 전원을 공급하고 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
-<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
+<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 회색" />
 
 ## 배선 설명서
 
