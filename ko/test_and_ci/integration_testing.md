@@ -19,7 +19,7 @@ cd <PX4-Autopilot_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 rostest px4 mavros_posix_tests_iris.launch
 ```
-test_target is one of the Makefile targets. The available ones are: *tests_mission*, *tests_mission_coverage*, *tests_offboard* and *tests_avoidance*.
+test_target is one of the Makefile targets. 사용 가능한 항목은 다음과 같습니다. *tests_mission*, *tests_mission_coverage*, *tests_offboard* 및 *tests_avoidance*.
 
 Test can also be executed directly by running the test scripts, located under `test/`:
 ```sh
