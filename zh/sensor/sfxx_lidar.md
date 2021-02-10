@@ -73,4 +73,4 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 ## 更多信息
 
-- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx) (PX4 Dev Guide)
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx)
