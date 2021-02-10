@@ -20,7 +20,7 @@
 3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **센서**를 선택하십시오.
 4. **Compass** 센서 버튼을 클릭합니다.
     
-    ![Select Compass calibration PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
+    ![Compass calibration PX4를 선택합니다.](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
     
 :::note
 이 작업 이전에 [비행 컨트롤러 방향](../config/flight_controller_orientation.md)을 미리 설정하여야 합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다.
@@ -28,16 +28,16 @@
 
 5. **확인**을 눌러 보정작업을 시작하십시오.
 
-6. Place the vehicle in any of the orientations shown in red (incomplete) and hold it still. Once prompted (the orientation-image turns yellow) rotate the vehicle around the specified axis in either/both directions. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
+6. 기체를 아래에 표시된 자세로 놓고 그대로 유지해주십시오 메시지가 표시되면(방향 이미지가 노란색으로 변함) 기체를 지정된 축을 기준으로 한 방향으로 회전시킵니다. 현재 방향에 대해 캘리브레이션이 완료되면 화면의 그림이 녹색으로 바뀝니다.
     
-    ![Compass calibration steps on PX4](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
+    ![PX4의 나침반 보정 단계](../../assets/qgc/setup/sensor/sensor_compass_calibrate_px4.jpg)
 
-7. Repeat the calibration process for all vehicle orientations.
+7. 드론의 모든 방향에 대해 캘리브레이션 과정을 반복합니다. 
 
-Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+모든 방향에서 가속도 센서 캘리브레이션이 끝난다면, *QGroundControl*에서 *Calibration complete* 메시지를 표시할 것입니다 (모든 이미지는 녹색으로 표시되고 프로그레스 바는 끝까지 채워질 것입니다). 이제 다음 센서로 이동할 수 있습니다.
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
 * [PX4 설정 비디오 - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (유튜브)
-* [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)
+* [나침반 전력 보정](../advanced_config/compass_power_compensation.md) (고급 설정)
