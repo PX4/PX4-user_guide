@@ -54,6 +54,10 @@ To build:
 1. Select your build target ("cmake build config"):
    - The current *cmake build target* is shown on the blue *config* bar at the bottom (if this is already your desired target, skip to next step).
      ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
+     
+     :::note
+     The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+     :::
    - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).
    - *Cmake* will then configure your project (see notification in bottom right).
      ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
@@ -90,6 +94,10 @@ While debugging you can set breakpoints, step over code, and otherwise develop a
 The instructions in [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.html) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
 
 After connecting to the SWD interface, hardware debugging in VSCode is then the same as for [SITL Debugging](#debugging_sitl) except that you select a debug target appropriate for your debugger type (and firmware) - e.g. `jlink (px4_fmu-v5)`.
+
+:::tip
+To see the `jlink` option you must have selected a [cmake target for building firmware](#building-px4).
+:::
 
 ![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
 
