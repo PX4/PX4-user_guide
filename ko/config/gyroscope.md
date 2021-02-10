@@ -1,4 +1,4 @@
-# Gyroscope Calibration
+# 자이로스코프 보정
 
 *QGroundControl* will guide you to place the vehicle on a flat surface and keep it still.
 
