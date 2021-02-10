@@ -51,7 +51,9 @@ For example, below you can see that the docker container with nuttx build tools 
     - px4io/px4-dev-ros2-foxy
 
 
-The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx:latest` (available tags are listed for each container on *hub.docker.com*. For example, the *px4-dev-ros* tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx/tags)).
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest`
+(available tags are listed for each container on *hub.docker.com*.
+For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
 
 :::tip
 Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
