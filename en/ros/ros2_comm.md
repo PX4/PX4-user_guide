@@ -1,19 +1,38 @@
-# PX4-ROS 2 bridge
+# PX4-ROS 2 Bridge
 
-This section of the guide focusses on the bridge between PX4 and ROS 2, made available through the *microRTPS* bridge and resulting products to interface with ROS 2, *px4_ros_com* and *px4_msgs* ROS 2 packages.
+This section of the guide focusses on the bridge between PX4 and ROS 2, made available through the *PX4-Fast RTPS(DDS) Bridge* and resulting products to interface with ROS 2, *px4_ros_com* and *px4_msgs* ROS 2 packages.
 
 It also provides information in how to:
 1. Connect ROS 2 nodes with PX4 (via the *microRTPS* Bridge, and using the `px4_ros_com` package)
 1. Connect ROS (ROS "version 1") nodes with PX4 by additionally using the `ros1_bridge` package to bridge ROS 2 and ROS (1).
 
 :::note
-For more details on the *microRTPS* bridge without using ROS 2, please check the [RTPS/DDS Interface section](../middleware/micrortps.md).
+For information about using the *PX4-Fast RTPS(DDS) Bridge* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
 :::
 
 :::note
-For a more detailed and visual explanation of the bridge with ROS 2, see the following talks/presentation videos:
+For a more detailed and visual explanation of using the bridge with ROS 2, see the following talks/presentation videos:
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
+:::
+
+## Why Two Bridges (PX4/ROS2 vs PX4/FastDDS)?
+
+The [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
+- They both have a client running on PX4 that communicates with an agent running on a companion computer.
+- The PX4 firmware build process creates the client code.
+- The PX4 firmware build process creates IDL files matching a select set of UORB topics that will be shared over DDS.
+- These IDL files are then used by code generators to create the Agent source code, which can then be compiled for the companion. 
+
+The difference is that ROS 2 uses slightly different DDS types than "raw" RTPS/DDS applications.
+These types require slighty different agent code, generated from slightly different IDL files.
+The client-side code is the same in both cases.
+
+The PX4 build process automatically generates the IDL file-format required for ROS 2 and publishes them to `px4_msgs`.
+The `px4_msgs` are then processed by the agent code generator in `px4_ros_com` to create the agent source code.
+
+:::note 
+This means that you must use a version of `px4_msgs` that matches your firmware!
 :::
 
 
@@ -47,7 +66,7 @@ This is needed because the first version of ROS does not support RTPS.
 
 ### ROS 2/ROS applications
 
-The [px4_ros_com](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access PX4 uORB messages from a ROS 2 node (for ROS you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)).
+The [px4_ros_com](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access PX4 uORB messages from a ROS 2 node (for ROS (1) you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)).
 This includes all the required components of the *PX4 RTPS bridge*, including the `micrortps_agent` and the IDL files (required by the `micrortps_agent`).
 
 The ROS and ROS 2 message definition headers and interfaces are generated from the [px4_msgs](https://github.com/PX4/px4_msgs) package, which match the uORB messages counterparts under PX4-Autopilot.
@@ -117,7 +136,7 @@ rtps:
 ```
 
 
-## Building the `px4_ros_com` and `px4_msgs` package
+## Building the `px4_ros_com` and `px4_msgs` packages
 
 Install and setup both ROS 2 and ROS environments on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
 
@@ -126,7 +145,7 @@ Only the master branch is needed for ROS 2 (both are needed to target ROS).
 :::
 
 
-### Installing ROS 2 and respective dependencies
+### Installing ROS 2 and Respective Dependencies
 
 :::note
 This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
@@ -300,7 +319,7 @@ $ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 
 ## Creating a ROS 2 listener
 
-With the `px4_ros_com` built successfully, one can now take advantage of the generated *microRTPS* agent app and also from the generated sources and headers of the ROS 2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts.
+With the `px4_ros_com` built successfully, one can now take advantage of the generated *microRTPS* agent app and also from the generated sources and headers of the ROS 2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts. 
 
 To create a listener node on ROS 2, lets take as an example the `sensor_combined_listener.cpp` node under `px4_ros_com/src/examples/listeners`:
 
