@@ -1,29 +1,31 @@
 # RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
-The *PX4-Fast RTPS(DDS) Bridge* adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast RTPS* (now called *Fast DDS*) applications (including those built using the ROS 2 frameworks).
+The *PX4-Fast RTPS(DDS) Bridge* adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast DDS* applications.
+This allows us to better integrate with applications running and linked in DDS domains (including ROS nodes), making it easy to share sensor data, commands, and other vehicle information.
+
+This topic describes the RTPS/DDS bridge architecture, and shows how to write a simple *Fast DDS* application to subscribe to PX4 changes.
 
 :::note
 RTPS is the underlying protocol of the Object Management Group's (OMG) Data Distribution Service (DDS) standard.
 It aims to enable scalable, real-time, dependable, high-performance and inter-operable data communication using the publish/subscribe pattern.
+
 *Fast DDS* is a very lightweight cross-platform implementation of the latest version of the RTPS protocol / DDS middleware.
+It was previously named *Fast RTPS*.
 :::
 
-RTPS has been adopted as the middleware for the ROS 2 (Robot Operating System).
-The *Fast DDS bridge* allows us to better integrate with applications running and linked in DDS domains, like ROS 2 nodes, making it easy to share sensor data, commands, and other vehicle information.
-
-This topic describes the RTPS/DDS bridge architecture. It also shows how to compile needed code to write a simple *Fast DDS* application to subscribe to PX4 changes.
-
 :::note
-For details on how it is used within the ROS 2 applications and development workflows, please [check this section](../ros/ros2_comm.md).
+RTPS has been adopted as the middleware for the ROS 2 (Robot Operating System).
+
+For information about how to use this interface within the ROS 2 applications and development workflows, see [PX4-ROS 2 bridge](../ros/ros2_comm.md).
 :::
 
 
 ## When should RTPS be used?
 
-RTPS should be used when you need to reliably share time-critical/real-time information between the flight controller and off board components.
-In particular it is useful in cases where off-board software needs to become a *peer* of software components running in PX4 (by sending and receiving uORB topics).
+RTPS should be used when you need to reliably share time-critical/real-time information between the flight controller and offboard components.
+In particular it is useful in cases where offboard software needs to become a *peer* of software components running in PX4 (by sending and receiving uORB topics).
 
-Possible use cases include communicating with robotics libraries for computer vision, and other use cases where real time data to/from actuators and sensors is essential for vehicle control.
+Possible use cases include communicating with robotics libraries for computer vision, and other use cases where real-time data to/from actuators and sensors is essential for vehicle control.
 
 :::note
 *Fast DDS* is not intended as a replacement for MAVLink.
@@ -162,7 +164,7 @@ micrortps_client start -t UDP
 ## Agent in a ROS-independent Offboard Fast DDS interface
 
 The *Agent* code is automatically *generated* when you build the associated PX4 firmware.
-You can find the source here: **build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent/**.
+You can find the source here: `build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent/`.
 
 To build the *Agent* application, compile the code:
 
