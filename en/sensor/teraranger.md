@@ -42,4 +42,4 @@ The driver for this rangefinder is usually present in firmware. If missing, you 
 
 ## Further Information
 
-* [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger) (PX4 Dev Guide)
+* [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger)
