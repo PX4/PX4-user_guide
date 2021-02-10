@@ -1,10 +1,15 @@
 # Rotoye Batmon
 
-Rotoye Batmon is a smartification kit for off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or factory-assembled into a smart-battery.
+[Rotoye Batmon](https://rotoye.com/batmon/) is a kit for adding smart battery functionality to off-the-shelf Lithium-Ion and LiPo batteries. It can be purchased as a standalone unit or as part of a factory-assembled smart-battery.
 
-<img src="../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpeg" alt="Pack" width="480" />
-<br/><br/>
-<img src="../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye.jpg" alt="Board" width="480" />
+:::note
+At time of writing you can only use Batmon by [building a custom branch of PX4](#build-px4-firmware). Support in the codeline is pending [PR approval](https://github.com/PX4/PX4-Autopilot/pull/16723).
+:::
+
+
+![Rotoye Batmon Board](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye.jpg)
+
+![Pre-assembled Rotoye smart battery](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-pack.jpg)
 
 
 ## Purchase
@@ -14,11 +19,42 @@ Rotoye Batmon is a smartification kit for off-the-shelf Lithium-Ion and LiPo bat
 
 ## Wiring/Connections
 
-The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, & an opti-isolator board to transmit data
+The Rotoye Batmon system uses an XT-90 battery connector with I2C pins, and an opti-isolator board to transmit data.
 
-<img src="../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png" alt="Board" width="480" />
+![Board connections](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png)
 
 More details can be found [here](https://github.com/rotoye/batmon_reader)
+
+
+## Software Setup
+
+### Build PX4 Firmware
+
+1. Clone or download [Rotoye's fork of PX4:](https://github.com/rotoye/PX4-Autopilot/tree/batmon_4.03)
+   ```bash
+   git clone https://github.com/rotoye/PX4-Autopilot.git
+   cd PX4-Autopilot
+   ```
+1. Checkout the *batmon_4.03* branch
+   ```bash
+   git fetch origin batmon_4.03
+   git checkout batmon_4.03
+   ```
+1. [Build and upload the firmware](../dev_setup/building_px4.md) for your target board
+
+### Configure Parmeters
+
+In *QGroundControl*:
+1. Set the following [parameters](../advanced_config/parameters.md):
+   - `BATx_SOURCE` to `External`,
+   - `SENS_EN_BAT` to `true`,
+   - `BAT_SMBUS_MODEL` to `3:Rotoye`
+1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
+1. Start the [batt_smbus driver](../modules/modules_driver.html) in the console. For example, to run two BatMons on the same bus:
+   ```sh 
+   batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  
+   batt_smbus start -X -b 1 -a 12 # External bus 1, address 0x0c
+   ```
 
 ## Further Information
 
