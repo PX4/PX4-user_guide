@@ -21,50 +21,44 @@ rostest px4 mavros_posix_tests_iris.launch
 ```
 test_target is one of the Makefile targets. 사용 가능한 항목은 다음과 같습니다. *tests_mission*, *tests_mission_coverage*, *tests_offboard* 및 *tests_avoidance*.
 
-Test can also be executed directly by running the test scripts, located under `test/`:
+`test /` 아래에있는 테스트 스크립트를 실행하여 테스트를 직접 실행할 수도 있습니다.
 ```sh
-rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
+소스 <catkin_ws> /devel/setup.bash
+cd <PX4-Autopilot_clone>
+px4_sitl_default sitl_gazebo 만들기
+./test/ <test_bash_script> <test_launch_file>
 ```
 
-Example:
+예:
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
 ```
 
-`launch/mavros_posix_tests_irisl.launch`의 시험 그룹에 새 항목을 추가하십시오:
+또는 GUI로 무슨 일이 일어나고 있는지 확인하십시오.
 
 ```sh
-# Start simulation
-cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-roslaunch px4 mavros_posix_sitl.launch
-
-# Run test (in a new shell):
-cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-rosrun px4 mavros_new_test.py
+./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test gui:=true headless:=false
 ```
 
-위에서 보여드린 바와 같이 완전한 시험 모음을 실행하십시오.
+.test 파일은 `integrationtests/python_src/px4_it/mavros/`에 정의된 해당 Python 테스트를 시작합니다.
 
 
-### 새 MAVROS 시험 작성 (파이썬)
+### 새 MAVROS 시험 프로그램 작성(파이썬)
 
 :::note
-Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
+현재 초기 단계에서 테스트 (도우미 클래스/메서드 등)에 대하여 좀 더 편리한 지원이 제공될 예정입니다.
 :::
 
 #### 1.) 새 시험 스크립트 작성
 
-Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
+시험 스크립트는 `integrationtests/python_src/px4_it/mavros/`에 있습니다. 다른 예제는 기존 스크립트를 살펴보십시오. [unittest](http://wiki.ros.org/unittest) 활용법은 공식 ROS 문서를 참고하십시오.
 
 
-Empty test skeleton:
+빈 시험 양식은 다음과 같습니다:
 
 ```python
-<group ns="$(arg ns)">
-        [...] <test test-name="mavros_new_test" pkg="px4" type="mavros_new_test.py" />
-    </group>
+#!/usr/bin/env python
+# [... LICENSE ...]
 
 #
 # @author Example Author <author@example.com>
@@ -129,17 +123,17 @@ rosrun px4 mavros_new_test.py
 
 #### 3.) 파일을 실행할 새 시험 노드 추가
 
-In `test/` create a new `<test_name>.test` ROS launch file. Call the test file using one of the base scripts *rostest_px4_run.sh* or *rostest_avoidance_run.sh*
+`test/`에서 새 `.test ` ROS 시작 파일을 만듭니다. 기본 스크립트 *rostest_px4_run.sh* 또는 *rostest_avoidance_run.sh * 중 하나를 사용하여 테스트 파일을 호출합니다.
 
-#### 4.) (Optional) Create a new target in the Makefile
-1. Open the Makefile
-2. Search the *Testing* section
-3. Add a new target name and call the test
+#### 4.) (선택 사항) Makefile에 새 대상 만들기
+1. Makefile을 여십시오
+2. *테스트* 섹션 검색
+3. 새 대상 이름을 추가하고 테스트를 호출합니다.
 
-Example:
+예:
 ```sh
 tests_<new_test_target_name>: rostest
     @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
 ```
 
-Run the tests as described above.
+위에서 설명한대로 테스트를 실행합니다.
