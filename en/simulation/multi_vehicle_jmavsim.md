@@ -9,9 +9,6 @@ It is suitable for testing multi-vehicle support in *QGroundControl* (or the [MA
 [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
 :::
 
-:::note
-JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
-:::
 
 ## How to Start Multiple Instances
 
@@ -37,7 +34,7 @@ To start multiple instances (on separate ports):
 
 Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
 
-Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on.
+Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on. 
 
 ## Additional Resources
 

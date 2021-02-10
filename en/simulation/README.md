@@ -87,10 +87,14 @@ The different parts of the system connect via UDP, and can be run on either the 
 * PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560.
   Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above.
   PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
+  :::note
+  Simulators can also use the [PX4-FastRTPS Bridge](../middleware/micrortps.md) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).
+  This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps).
+  :::
 * PX4 uses the normal MAVLink module to connect to ground stations (which listen on port 14550) and external developer APIs like MAVSDK or ROS (which listen on port 14540).
-* A serial connection is used to connect Joystick/Gamepad hardware via *QGroundControl*.
+* A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via *QGroundControl*.
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
+![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
 If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured.
 You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
