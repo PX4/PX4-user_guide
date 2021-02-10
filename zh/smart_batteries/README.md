@@ -1,10 +1,12 @@
 # Smart Batteries
 
-Smart Batteries keep track of the state of the battery, including its exact state of charge, cell voltages, time-to-empty, and temperature readings. This allows for easier flight planning and more accurate prediction of failure conditions: [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
+Smart Batteries provide more accurate (and often more detailed) information about the state of a battery than an autopilot can estimate for "dumb" batteries. This allows for more more reliable flight planning notification of failure conditions. The information may include some of: remaining charge, time-to-empty (estimated), cell voltages (rated max/min, current voltage, etc.), temperature, currents, fault information, battery vendor, chemistry, etc.
 
-
-This section provides links/information about supported smart battery hardware:
-* [Rotoye Batmon](./rotoye_batmon.md)
+PX4 supports (at least) following smart batteries:
+* [Rotoye Batmon](../smart_batteries/rotoye_batmon.md)
 
 ### Further Information
-[batt_smbus](../modules/modules_driver.md)- PX4 SMBus Battery Driver docs [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
+
+- [Mavlink Battery Protocol](https://mavlink.io/en/services/battery.html)
+- [batt_smbus](../modules/modules_driver.md) - PX4 SMBus Battery Driver docs
+- [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
