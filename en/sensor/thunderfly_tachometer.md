@@ -70,7 +70,10 @@ When using CUAV V5+ or CUAV Nano:
 
 
 ### Function validation
-You can verify functionality in multiple ways:
+You can verify functionality in multiple ways.
+
+
+#### Pomocí PX4 (NuttX) konzole
 
 With [`listener`](../middleware/modules_command.html#listener) command you can monitor RPM messages from the driver. 
 ```
@@ -78,7 +81,13 @@ listener rpm
 ```
 Now, you should see uOrb messages containing data from the sensor. For periodic display, you can add `-n 50` parametr after the command, which prints next 50 messages.
 
-You can also see the data in the QGroundControl in the [MavlinkInspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) section. You should see an RPM messages here.
+#### Check by QGroundControl
+
+In QGC select [MavlinkInspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) from  `menu` > `Analyze tools` > `Mavlink Inspector`.
+
+Then you should see the data and its update rate in the list. You should see an `raw_rpm` messages here. If there the `raw_rpm` message missig, you should check that driver is running. 
+In the case the message exists, click on it. In the right side of QGC window you should see the live sensor data. 
+
 
 ### Parameter Setup
 Usually sensors can be used without configuration.
