@@ -33,9 +33,9 @@ If using auto-detect for Evo sensors the minimum and maximum values for the rang
 :::
 
 :::tip
-The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
+The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`distance_sensor/teraranger`) to the board configuration.
 :::
 
 ## 更多信息
 
-* [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger) (PX4 Dev Guide)
+* [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger)

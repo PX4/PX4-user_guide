@@ -1,9 +1,9 @@
-# 가속도 센서
+# 가속도계 
 
-첫 번째로 사용하거나, PX4 Controller의 방향이 변경된 경우 가속도 센서를 교정해야 합니다. 그렇지 않고 기존에 사용하고 있던 경우 가속도 센서를 수정할 필요가 없습니다. (온도가 낮아지는 겨울철이나, 제조단계에서 [별도의 열 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)는 교정해야되는 상황이 생길 수 있습니다.)
+처음 PX4 사용시나, PX4 콘트롤러 방향이 바뀐 경우에는 가속도계를 교정해야 합니다. 그렇지 않은 경우에는, 기존에 사용하고 있던 경우 보정하지 않아도 됩니다. (온도가 낮아지는 겨울철이나, 제조단계에서 [별도의 열 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)는 교정해야되는 상황이 생길 수 있습니다.)
 
 :::note
-Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+잘못된 가속도 센서 캘리브레이션은 사전비행 단계 혹은 시동 거부 메시지에 의해 확인됩니다. (QGC 경고는 일반적으로 "높은 가속도 값"이나 "일관성 검사 실패"를 의미합니다.)
 :::
 
 *QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
@@ -26,7 +26,8 @@ The calibration steps are:
     
     ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
-    :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::note
+You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
 
 4. 캘리브레이션을 시작하려면 **확인**을 클릭하십시오.
