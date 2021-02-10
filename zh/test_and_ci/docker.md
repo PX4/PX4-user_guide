@@ -35,29 +35,26 @@ sudo usermod -aG docker $ USER
 
 ## 本地编辑层次结构
 
-The available containers are listed below (from [Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)):
+The available containers are on [Github here](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy).
 
-| 容器                              | 描述                             |
-| ------------------------------- | ------------------------------ |
-| px4-dev-base                    | 所有本地共有的基本设置                    |
-| &emsp;px4-dev-nuttx             | NuttX 工具链                      |
-| &emsp;px4-dev-simulation        | NuttX 工具链 + 仿真（jMAVSim，Gazebo） |
-| &emsp;&emsp;px4-dev-ros         | NuttX 工具链，仿真 + ROS（包括 MAVROS）  |
-| &emsp;px4-dev-raspi             | 树莓派工具链                         |
-| &emsp;px4-dev-snapdragon        | 高通 Snapdragon Flight 工具链       |
-| &emsp;px4-dev-clang             | C 语言工具                         |
-| &emsp;&emsp;px4-dev-nuttx-clang | C 语言与 NuttX 工具                 |
+使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 此脚本将 PX4 构建命令作为参数（例如 `make tests`）。 For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+
+- px4io/px4-dev-base-focal
+  - px4io/px4-dev-nuttx-focal
+  - px4io/px4-dev-simulation-focal
+    - px4io/px4-dev-ros-noetic
+    - px4io/px4-dev-ros2-foxy
 
 
-使用容器的最简单方法是通过 [docker_run.sh](https://github.com/PX4/Firmware/blob/master/Tools/docker_run.sh) 帮助程序脚本。 此脚本将 PX4 构建命令作为参数（例如 `make tests`）。
+The most recent version can be accessed using the `latest` tag: `px4io/px4-dev-nuttx-bionic:latest` (available tags are listed for each container on *hub.docker.com*. For example, the `px4io/px4-dev-nuttx-bionic` tags can be found [here](https://hub.docker.com/r/px4io/px4-dev-nuttx-bionic/tags?page=1&ordering=last_updated)).
 
 :::tip
-Typically you should use a recent container, but not necessarily the latest (as this changes too often).
+Typically you should use a recent container, but not necessarily the `latest` (as this changes too often).
 :::
 
 ## 使用 Docker 容器
 
-The following instructions show how to build PX4 source code on the host computer using a toolchain running in a docker container. The information assumes that you have already downloaded the PX4 source code to **src/PX4-Autopilot**, as shown:
+典型命令的语法如下所示。 这将运行一个支持 X 指令的 Docker 容器（使容器内部的模拟 GUI 可用）。
 
 ```sh
 mkdir src
@@ -68,26 +65,26 @@ cd Firmware
 
 ### 助手脚本（docker_run.sh）
 
-典型命令的语法如下所示。 这将运行一个支持 X 指令的 Docker 容器（使容器内部的模拟 GUI 可用）。 它将目录 `&lt;host_src&gt;`from your computer to`&lt;container_src&gt;` 容器内，并转发连接 *QGroundControl* 所需的 UDP 端口。
+The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
 
-位置：
+下面的具体示例显示了如何打开 bash shell 并在主机上共享目录 **〜/src/Firmware**。
 
 ```sh
 sudo ./Tools/docker_run.sh 'make px4_sitl_default'
 ```
-下面的具体示例显示了如何打开 bash shell 并在主机上共享目录 **〜/src/Firmware**。
+Or to start a bash session using the NuttX toolchain:
 ```
 sudo ./Tools/docker_run.sh 'bash'
 ```
 
-如果一切顺利，你现在应该在一个新的 bash shell 中。 通过运行验证一切是否正常，例如，SITL： The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
+`docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作： The manual approach discussed in the [section below](#manual_start) is more flexible and should be used if you have any problems with the script.
 :::
 
 <a id="manual_start"></a>
 
 ### 手动调用 Docker
 
-`docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作： It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect *QGroundControl*. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect *QGroundControl*. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
 ```sh
 # enable access to xhost from the container
@@ -102,12 +99,12 @@ docker run -it --privileged \
     -p 14556:14556/udp \
     --name=&lt;local_container_name&gt; &lt;container&gt;:&lt;tag&gt; &lt;build_command&gt;
 ```
-如果需要连接到容器的多个 shell，只需打开一个新 shell 并再次执行最后一个命令。
-* `&lt;host_src&gt;`：要映射到容器中的 `&lt;container_src&gt;` 的主计算机目录。 这通常应该是 **Firmware** 目录。
-* `&lt;container_src&gt;`：容器内的共享（源）目录的位置。
-* `docker run` 命令只能用于创建新容器。 要重新进入此容器（将保留您的更改），只需执行以下操作：
-* `&lt;container&gt;：&lt;tag&gt;`：具有版本标签的容器 - 例如：`px4io/px4-dev-ros：2017-10-23`。
-* `&lt;build_command&gt;`：要在新容器上调用的命令。 例如 例如. `bash` 用于打开容器中的 bash shell。
+Where,
+* `<host_src>`: The host computer directory to be mapped to `<container_src>` in the container. This should normally be the **PX4-Autopilot** directory.
+* `<container_src>`: The location of the shared (source) directory when inside the container.
+* `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
+* `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
+* `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
 
 The concrete example below shows how to open a bash shell and share the directory **~/src/PX4-Autopilot** on the host computer.
 ```sh
@@ -124,7 +121,7 @@ sudo docker run -it --privileged \
 --name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
 ```
 
-If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:
+运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
 
 ```sh
 cd src/firmware    #This is &lt;container_src&gt;
@@ -134,7 +131,7 @@ make px4_sitl_default gazebo
 
 ### 重新进入容器
 
-运行模拟实例时，例如在 docker 容器内的 SITL 并通过 *QGroundControl* 从主机控制它，必须手动设置通信链接。 *QGroundControl* 的自动连接功能在此处不起作用。
+The `docker run` command can only be used to create a new container. To get back into this container (which will retain your changes) simply do:
 
 ```sh
 # start the container
@@ -147,7 +144,7 @@ If you need multiple shells connected to the container, just open a new shell an
 
 ### 清理容器
 
-容器根据需要使用默认用户创建文件-通常为“root”。 这可能导致权限错误，其中主机上的用户无法访问容器创建的文件。
+Sometimes you may need to clear a container altogether. You can do so using its name:
 ```sh
 $ sudo docker rm mycontainer
 ```
@@ -160,9 +157,9 @@ $ sudo docker rm 45eeb98f1dd9
 
 ### QGroundControl
 
-When running a simulation instance e.g. SITL inside the docker container and controlling it via *QGroundControl* from the host, the communication link has to be set up manually. The autoconnect feature of *QGroundControl* does not work here.
+在这种情况下，必须安装主机系统的本机图形驱动程序。 下载正确的驱动程序并将其安装在容器中。
 
-在这种情况下，必须安装主机系统的本机图形驱动程序。 下载正确的驱动程序并将其安装在容器中。 对于 Nvidia 驱动程序，应使用以下命令（否则安装程序将从主机中看到已加载的模块并拒绝继续）： The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+In *QGroundControl*, navigate to [Settings](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html) and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
 
 ```sh
 <code>&lt;local_container_name&gt;</code>：正在创建的 docker 容器的名称 如果我们需要再次引用容器，以后可以使用它。
@@ -197,21 +194,21 @@ In that case the native graphics driver for your host system must be installed. 
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-More information on this can be found [here](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/).
+如果编译失败，则出现以下错误：
 
 <a id="virtual_machine"></a>
 
 ## 虚拟机支持
 
-如果编译失败，则出现以下错误：
-
 尝试禁用并行构建。
 
-  * OS X 与 VMWare Fusion 和 Ubuntu 14.04（Parallels 上支持 GUI 的 Docker 容器使 X-Server 崩溃）。
+The following configuration is tested:
 
-**允许从 VM 主机控制 Docker**
+  * OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
 
-编辑 `/etc/defaults/docker` 并添加以下行：
+**Memory**
+
+Use at least 4GB memory for the virtual machine.
 
 **Compilation problems**
 
