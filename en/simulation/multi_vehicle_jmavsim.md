@@ -25,7 +25,7 @@ To start multiple instances (on separate ports):
 1. Start the first instance:
    ```
    ./Tools/jmavsim_run.sh -l
-  ```
+   ```
 1. Start subsequent instances, specifying the *simulation* TCP port for the instance:
    ```
    ./Tools/jmavsim_run.sh -p 4561 -l
