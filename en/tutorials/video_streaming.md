@@ -9,24 +9,7 @@ To support streaming use cases you will need to install GStreamer development pa
 
 ## Companion Computer Setup
 
-General instructions for installing GStreamer and starting the stream on your companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
-
-If you cannot start the stream with the uvch264s plugin, you can also try to start it with the v4l2src plugin:
-
-```sh
-gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-h264,width=1920,height=1080,framerate=24/1 ! h264parse ! rtph264pay ! udpsink host=xxx.xxx.xxx.xxx port=5000
-```
-Where `xxx.xxx.xxx.xxx` is the IP address where QGC is running.
-
-:::tip
-If you get the system error: `Permission denied`, you might need to prepend `sudo` to the command above.
-:::
-
-Alternatively add the current user to the `video` group as shown below (and then logout/login): 
-
-```sh
-sudo usermod -aG video $USER
-```
+General instructions for installing *GStreamer* and starting the stream on your companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
 
 ##  QGC Setup
 
