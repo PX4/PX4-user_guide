@@ -30,7 +30,7 @@
   * [기체](config/airframe.md)
   * [센서 방향](config/flight_controller_orientation.md)
   * [나침반](config/compass.md)
-  * [각속도계](config/gyroscope.md)
+  * [자이로스코프 ](config/gyroscope.md)
   * [가속도계](config/accelerometer.md)
   * [항속 센서](config/airspeed.md)
   * [레벨 수평 보정](config/level_horizon_calibration.md)
