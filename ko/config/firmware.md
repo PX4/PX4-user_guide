@@ -52,21 +52,21 @@ PX4 설치
     
     다른 버전의 PX4 설치
     
-    1. Connect the vehicle as above, and select **PX4 Flight Stack vX.x.x Stable Release** ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
-    2. Check **Advanced settings** and select the version from the dropdown list: 
-        * **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
-        * **Beta Testing (beta):** A beta/candidate release. Only available when a new release is being prepared.
-        * **Developer Build (master):** The latest build of PX4/PX4-Autopilot.
-        * **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally). If you select this you will have to choose the custom firmware from the file system in the next step.
+    1. 위와 같이 기체를 연결하고 **PX4 Flight Stack vX.x.x Stable Release**를 선택합니다. ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
+    2. **고급 설정**을 선택하고 드롭 다운 목록에서 설치할 버전을 선택합니다. 
+        * **표준 버전 (안정) :** 기본 버전 (즉, 설치를 위해 고급 설정을 사용할 필요가 없습니다!)
+        * **베타 테스트 (베타):** 베타/후보 버전입니다. 신규 버전 출시 이전에 테스트 할 경우에만 사용할 수 있습니다.
+        * **개발자 빌드 (마스터) :** PX4 / PX4-Autopilot의 최신 빌드입니다.
+        * **사용자 지정 펌웨어 파일 ... :** 사용자 지정 펌웨어 파일 (예 : 로컬에서 빌드 한 파일). 사용자 정의 펌웨어 파일을 선택한 경우 다음 단계에서 파일 시스템에서 사용자 정의 펌웨어를 선택하여야 합니다.
     
-    Firmware update then continues as before.
+    그러면 펌웨어 업데이트가 이전과 같이 계속됩니다.
     
     
 
 <span id="bootloader"></span>
 
     
-    ## FMUv2 Bootloader Update
+    ## FMUv2 부트로더 업데이트
     
     If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
     
