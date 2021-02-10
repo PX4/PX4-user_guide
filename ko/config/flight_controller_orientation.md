@@ -6,7 +6,7 @@
 
 비행 컨트롤러의 ROLL, PITCH 및 YAW 오프셋은 기체의 전진 (x), 오른쪽 (y), 아래 (z) 축을 중심을 기준으로 계산됩니다.
 
-![Frame Heading](../../assets/concepts/frame_heading.png)
+![기체 전진 방향](../../assets/concepts/frame_heading.png)
 
 회전 축은 한 회전 단계에서 다음 단계까지 동일하게 유지됩니다. 따라서 회전을 수행하는 프레임은 고정되어 있습니다. 이를 *외부 회전*이라고도합니다.
 
@@ -14,7 +14,7 @@
 
 예를 들어, 아래에 표시된 기체는 z축을 중심으로 각각 다음과 같이 회전합니다: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
+![Yaw 회전](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
 :::note VTOL
 Tailsitter 기체의 경우 모든 센서 보정에 대해 멀티 로터 구성 (즉, 차량에 대한 상대적인 이륙, 이륙, 호버링, 착륙)에 따라 차량 방향을 설정합니다.
@@ -43,5 +43,5 @@ Tailsitter 기체의 경우 모든 센서 보정에 대해 멀티 로터 구성 
 
 ## 추가 정보
 
-* [고급 방향 조정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
+* [고급 방향 튜닝](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
 * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
