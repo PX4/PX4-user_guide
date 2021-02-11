@@ -14,7 +14,8 @@ This topic explains how the feature is set up and enabled in both modes.
 
 - The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
   
-  :::note Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+:::note
+Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 :::
 
 <span id="offboard_mode"></span>
