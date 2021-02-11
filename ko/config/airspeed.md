@@ -14,7 +14,7 @@
 2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
 3. **대기속도** 센서 버튼을 클릭합니다.
     
-    ![대기속도 캘리브레이션](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
+    ![대기속도 보정](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
 4. 센서로 부는 바람을 막으십시오 (예: 손을 컵 모양으로 감쌀 수 있습니다). 피톳 튜브의 구멍을 막지 않도록 주의하십시오.
 
@@ -25,11 +25,11 @@
 튜브에 분사하는 것은 동적 및 정적 포트가 올바르게 설치되었는지 확인하는 기본 검사이기도합니다. 교체한 센서는 튜브에 바람을 불어 넣을 때 큰 음의 차압을 판독하고 보정이 오류와 함께 중단됩니다.
 :::
 
-7. 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 캘리브레이션이 자동으로 완료됩니다).
+7. 덮개를 제거하기 전에 2-3 초간 기다립니다(몇 초 후 캘리브레이션이 자동으로 완료됩니다).
 
 ## 시험
 
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
+보정 작업후 손가락을 피톳 튜브 끝에 대고 잡아 간단히 테스트해볼 수 있습니다. 놓을 때까지 시스템이 양의 속도 값을 나타내는 지 확인하여야 합니다.
 
 ## 추가 정보
 
