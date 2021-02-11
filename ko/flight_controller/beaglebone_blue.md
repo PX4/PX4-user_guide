@@ -97,14 +97,16 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
             
             ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
             
-            :::tip GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+:::tip GCC
+in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
 :::
             
             Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
             
             Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
             
-            :::tip The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+:::tip
+The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
 :::
             
             General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
@@ -115,7 +117,8 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
             export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
             ```
             
-            :::note Logout and Login to apply the change, or execute the same line on your current shell.
+:::note
+Logout and Login to apply the change, or execute the same line on your current shell.
 :::
             
             Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
