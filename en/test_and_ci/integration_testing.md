@@ -1,14 +1,15 @@
 # Integration Testing
 
-This is about end to end integration testing. Tests are executed automatically ([Jenkins CI](../test_and_ci/jenkins_ci.md))
+This is about end to end integration testing.
+Tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md)
 
 ## ROS / MAVROS Tests
 
 Prerequisites:
 
-  * [jMAVSim Simulator](../simulation/jmavsim.md)
-  * [Gazebo Simulator](../simulation/gazebo.md)
-  * [ROS and MAVROS](../simulation/ros_interface.md)
+* [jMAVSim Simulator](../simulation/jmavsim.md)
+* [Gazebo Simulator](../simulation/gazebo.md)
+* [ROS and MAVROS](../simulation/ros_interface.md)
 
 ### Execute Tests
 
@@ -53,7 +54,8 @@ Currently in early stages, more streamlined support for testing (helper classes/
 
 ####1.) Create a new test script
 
-Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
+Test scripts are located in `integrationtests/python_src/px4_it/mavros/`.
+See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
 
 
 Empty test skeleton:

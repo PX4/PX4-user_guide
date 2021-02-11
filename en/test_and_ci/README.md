@@ -6,7 +6,6 @@ This page provides an overview.
 * [Test Flights](../test_and_ci/test_flights.md)
 * [Unit Tests](../test_and_ci/unit_tests.md)
 * [Continuous Integration (CI)](../test_and_ci/continous_integration.md)
-* [Jenkins CI](../test_and_ci/jenkins_ci.md)
 * [ROS Integration Testing](../test_and_ci/integration_testing.md)
 * [MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md)
 * [Docker](../test_and_ci/docker.md)

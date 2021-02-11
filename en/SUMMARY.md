@@ -394,7 +394,6 @@
       * [Test MC_05 - Indoor Flight (Manual Modes)](test_cards/mc_05_indoor_flight_manual_modes.md)
     * [Unit Tests](test_and_ci/unit_tests.md)
     * [Continuous Integration](test_and_ci/continous_integration.md)
-    * [Jenkins Continuous Integration](test_and_ci/jenkins_ci.md)
     * [ROS Integration Testing](test_and_ci/integration_testing.md)
     * [MAVSDK Integration Testing](test_and_ci/integration_testing_mavsdk.md)
     * [Docker Containers](test_and_ci/docker.md)
@@ -408,4 +407,3 @@
   * [Translation](contribute/translation.md)
   * [Terminology/Notation](contribute/notation.md)
   * [Licenses](contribute/licenses.md)
-
