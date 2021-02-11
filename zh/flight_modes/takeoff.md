@@ -60,7 +60,8 @@
 起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
 <p>
-  :::note 起飞时，无人机时钟遵循正常的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>）。
+:::note
+起飞时，无人机时钟遵循正常的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>）。
 :::
 </p>
 
