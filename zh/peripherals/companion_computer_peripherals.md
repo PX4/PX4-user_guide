@@ -1,6 +1,6 @@
 # 机载计算机外设
 
-本节包含有关用于连接 Pixhawk(PX4) 到机载计算机的外设的信息，以及可能连接到此类机载计算机(并可能由 PX4 触发/访问) 的外设的信息。
+This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
 ## Companion/Pixhawk Communication
 
