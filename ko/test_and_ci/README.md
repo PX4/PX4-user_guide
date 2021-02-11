@@ -9,5 +9,4 @@ PX4에는 확장 기능 시험 코드와 시험 수단을 제공하는데, 지�
 * [ROS 통합 테스트](../test_and_ci/integration_testing.md)
 * [MAVSDK 통합 테스트](../test_and_ci/integration_testing_mavsdk.md)
 * [도커](../test_and_ci/docker.md)
-* [유지보수](../test_and_ci/maintenance.md)
 
