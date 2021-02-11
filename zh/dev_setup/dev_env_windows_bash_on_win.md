@@ -35,7 +35,8 @@ JMAVSim 运行流程：
    ```
    成功完成编译后可以在 `Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4` 文件夹下找到编译好的固件。
 
-   :::note The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+:::note
+The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 :::
 
 1. 在 Windows 平台上无法直接在 bash shell 中使用 `upload` 命令完成固件的烧写，你可以使用 *QGroundControl* 或者 *Mission Planner* 烧写自定义的固件。
@@ -55,7 +56,8 @@ Bash on Windows does not include support for UI libraries. In order to display t
   make px4_sitl gazebo
    ```
 
-   :::tip Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+:::tip
+Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
 :::
 1. 在 bash shell 界面中启动 px4 和 jmavsim：
    ```sh
