@@ -26,7 +26,8 @@ The calibration steps are:
     
     ![加速度计校准](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
-    :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::note
+You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
 
 4. 点击**确定**开始校准。
