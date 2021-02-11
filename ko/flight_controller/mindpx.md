@@ -285,7 +285,8 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
       </h3>
       
       <p>
-        :::tip Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
 :::
       </p>
       
@@ -313,7 +314,8 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
       </h2>
       
       <p>
-        :::note The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
+:::note
+The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
 :::
       </p>
       
