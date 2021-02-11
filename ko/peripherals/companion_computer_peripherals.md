@@ -1,6 +1,6 @@
 # 보조 컴퓨터 주변 장치
 
-이 절에서는 픽스호트(PX4)를 보조 컴퓨터에 연결하고 여러 주변 장치를 보조 컴퓨터로 연결(하고 PX4에서 잠재적으로 실행/접근)하는 내용을 다룹니다.
+This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
 ## 보조 컴퓨터/픽스호크 통신
 
