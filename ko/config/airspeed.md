@@ -21,7 +21,8 @@ To calibrate the airspeed sensor:
 5. **확인**을 눌러 캘리브레이션을 시작하십시오.
 6. 피톳 튜브의 끝에 입으로 바람을 불어 캘리브레이션 완료 신호를 보내십시오.
     
-    :::tip Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+:::tip
+Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
 :::
 
 7. 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 캘리브레이션이 자동으로 완료됩니다).
