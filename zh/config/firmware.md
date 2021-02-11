@@ -22,7 +22,8 @@ To install PX4:
 
 2. 通过 USB 将飞行控制器直接连接到您的计算机。
     
-    :::note Connect directly to a powered USB port on your machine (do not connect through a USB hub).
+:::note
+Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 :::
 
 3. 选择 **PX4 飞行栈 X.x.x Release** *为您的硬件*（自动检测）安装最新版的PX4。
@@ -37,7 +38,8 @@ To install PX4:
     
     一旦固件完成加载，设备/飞行器将重新启动和重新连接。
     
-    :::tip If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
+:::tip
+If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
 :::
 
 Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
@@ -83,7 +85,8 @@ To update the bootloader:
     
     ![FMUv3 更新](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
     
-    :::note If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+:::note
+If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
 :::
 
 :::tip
