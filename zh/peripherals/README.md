@@ -1,3 +1,3 @@
 # 外部设备
 
-本部分包括可用于 PX4 的外部传感器和其他可选的外设硬件。
+This section contains topics related to external sensors and other optional peripheral hardware that can be *connected to a flight controller*.
