@@ -249,7 +249,8 @@ If the airframe is for a **new group** you additionally need to:
         <file alias="Airframe/FlyingWing">src/AutoPilotPlugins/Common/Images/FlyingWing.svg</file>
         ...
      ```
-   :::note The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+:::note
+The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
 :::
 
 

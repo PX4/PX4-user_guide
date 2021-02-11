@@ -189,7 +189,8 @@ VTOL aircraft use a [mission landing return type](#mission_landing_return) by de
 - If a mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter.
   
-  :::note If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+:::note
+If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
 :::
 
 ## Parameters

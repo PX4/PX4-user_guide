@@ -174,7 +174,8 @@ To enable this feature:
 
 1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries).
   
-  :::tip There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+:::tip
+There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 :::
 
 2. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
@@ -207,12 +208,14 @@ To enable this feature:
 
 1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
   
-  :::tip Including calibrating the [Amps per volt divider](#current_divider) setting.
+:::tip
+Including calibrating the [Amps per volt divider](#current_divider) setting.
 :::
 
 2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
   
-  :::note Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+:::note
+Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
 :::
 
 * * *

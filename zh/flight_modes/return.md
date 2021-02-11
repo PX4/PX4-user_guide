@@ -189,7 +189,8 @@ VTOL 默认使用[任务降落返航](#mission_landing_return):
 - 如果定义了任务降落，直接飞往任务降落起点，然后着陆。
 - 否则直接飞向起始位置，切换到多旋翼模式，然后像多旋翼一样着陆。
   
-  :::note 如果不在任务降落中，VTOL 在固定翼模式下将*始终*在着陆前切换回多旋翼模式（忽略 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)）。
+:::note
+如果不在任务降落中，VTOL 在固定翼模式下将*始终*在着陆前切换回多旋翼模式（忽略 [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)）。
 :::
 
 ## 参数

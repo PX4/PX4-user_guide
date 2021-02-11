@@ -35,7 +35,8 @@ To build the firmware (i.e. for px4_fmu-v4):
    ```
    On successful completion you'll find the firmware here: `PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4`
 
-   :::note The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+:::note
+The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 :::
 
 1. You can flash the custom firmware on Windows using *QGroundControl* or *Mission Planner* (it is not possible to directly flash the firmware from within the bash shell using the `upload` command).
@@ -52,7 +53,8 @@ To run JMAVSim:
    export DISPLAY=:0
    ```
 
-   :::tip Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+:::tip
+Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
 :::
 1. Start PX4 and jMAVSim in the bash shell:
    ```sh

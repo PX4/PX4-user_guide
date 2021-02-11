@@ -6,9 +6,9 @@
 
 준비 요건:
 
-  * [jMAVSim 모의 시험 환경](../simulation/jmavsim.md)
-  * [가제보 모의 시험 환경](../simulation/gazebo.md)
-  * [ROS와 MAVROS](../simulation/ros_interface.md)
+* [jMAVSim 모의 시험 환경](../simulation/jmavsim.md)
+* [가제보 모의 시험 환경](../simulation/gazebo.md)
+* [ROS와 MAVROS](../simulation/ros_interface.md)
 
 ### 실행 시험
 

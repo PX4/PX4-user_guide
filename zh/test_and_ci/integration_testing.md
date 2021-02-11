@@ -6,9 +6,9 @@
 
 系统必备组件:
 
-  * [jMAVSim 仿真模拟](../simulation/jmavsim.md)
-  * [Gazebo 仿真模拟](../simulation/gazebo.md)
-  * [ROS 和 MAVROS](../simulation/ros_interface.md)
+* [jMAVSim 仿真模拟](../simulation/jmavsim.md)
+* [Gazebo 仿真模拟](../simulation/gazebo.md)
+* [ROS 和 MAVROS](../simulation/ros_interface.md)
 
 ### 执行测试
 

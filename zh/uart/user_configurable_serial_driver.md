@@ -23,7 +23,8 @@
      ```
      command: ulanding_radar start -d ${SERIAL_DEV} -b p:${BAUD_PARAM} port_config_param: name: SENS_ULAND_CFG group: Sensors ``` &#062; <strong x-id="1">Note</strong> The full documentation of the module configuration file can be found in the <a href="https://github.com/PX4/Firmware/blob/master/validation/module_schema.yaml">validation/module_schema.yaml</a> file. This is also used to validate all configuration files in CI.
      ```
-   :::note The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file. This is also used to validate all configuration files in CI.
+:::note
+The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file. This is also used to validate all configuration files in CI.
 :::
 1. 将模块配置添加到名为**CMakeLists.txt**的驱动模块文件中: px4_add_module( MODULE drivers__ulanding MAIN ulanding_radar SRCS ulanding.cpp MODULE_CONFIG module.yaml )
    ```

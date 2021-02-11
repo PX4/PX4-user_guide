@@ -14,7 +14,8 @@ Below are a few notes about using parachutes:
 
 - Having a parachute does not guarantee that the vehicle will not be destroyed or cause harm!
     
-    :::warning You must always fly with safety in mind.
+:::warning
+You must always fly with safety in mind.
 :::
 
 - Parachutes require careful usage to be effective - for example, they must be folded correctly.
@@ -41,7 +42,8 @@ Enable flight termination:
 - Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger
 - Set [Failure Detector](../config/safety.md#failure_detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
     
-    :::note You can also configure an [external ATS](../config/safety.md#external_ats) for failure detection.
+:::note
+You can also configure an [external ATS](../config/safety.md#external_ats) for failure detection.
 :::
 
 Parachute settings

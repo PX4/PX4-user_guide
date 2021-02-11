@@ -16,7 +16,8 @@ Users can control progression though these states using a [safety switch](../get
 
 - A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
   
-    :::warning A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::warning
+A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 :::
 
 - An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).

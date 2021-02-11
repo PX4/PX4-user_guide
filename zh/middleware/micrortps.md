@@ -259,7 +259,8 @@ Only the master branch is needed for ROS2 (both are needed to target ROS).
    sudo pip3 install -U setuptools
    ```
 
-   :::caution Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
+:::caution
+Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
 :::
 
 ### 配置工作空间
@@ -328,7 +329,8 @@ One can also use the following individual scripts in order to build the individu
    colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
    ```
 
-   :::note `--event-handlers console_direct+` only serves the purpose of adding verbosity to the `colcon` build process and can be removed if one wants a more "quiet" build.
+:::note
+`--event-handlers console_direct+` only serves the purpose of adding verbosity to the `colcon` build process and can be removed if one wants a more "quiet" build.
 :::
 
 1. 然后，按照 ROS(1) 程序包的构建流程进行编译。 为此，您必须先 source 一下环境变量，使 `ros1_bridge` 在构建过程中能够在 PATH 变量下找到 ROS1 和 ROS2 所设置的路径：

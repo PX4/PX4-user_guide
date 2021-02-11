@@ -252,7 +252,8 @@ In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubu
    sudo pip3 install -U setuptools
    ```
 
-   :::caution Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
+:::caution
+Do not install the `ros1_bridge` package through the deb repository. The package must be built from source.
 :::
 
 ### Setting up the workspaces
@@ -325,7 +326,8 @@ The steps below show how to *manually* build the packages (provided for your inf
    colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
    ```
 
-   :::note `--event-handlers console_direct+` only serves the purpose of adding verbosity to the `colcon` build process and can be removed if one wants a more "quiet" build.
+:::note
+`--event-handlers console_direct+` only serves the purpose of adding verbosity to the `colcon` build process and can be removed if one wants a more "quiet" build.
 :::
 
 1. Then, follows the process of building the ROS(1) packages side. For that, one requires to open a new terminal window and source the ROS(1) environment that has installed on the system:

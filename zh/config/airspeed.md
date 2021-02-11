@@ -21,7 +21,8 @@ To calibrate the airspeed sensor:
 5. 点击**确定**开始校准。
 6. 向皮托管的尖端内吹气以指示校准结束。
     
-    :::tip Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+:::tip
+Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
 :::
 
 7. 等待 2-3秒钟, 然后取出覆盖物 (几秒钟后, 校准以静默方式完成)
