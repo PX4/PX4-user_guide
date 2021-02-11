@@ -39,7 +39,8 @@ These instructions were tested on Ubuntu 18.04
    ```
    This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
 
-   :::tip For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+:::tip
+For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
 :::
 
 1. Check that you are able to run FlightGear:
