@@ -1,12 +1,12 @@
 # 가속도계 
 
-처음 PX4 사용시나, PX4 콘트롤러 방향이 바뀐 경우에는 가속도계를 교정해야 합니다. 그렇지 않은 경우에는, 기존에 사용하고 있던 경우 보정하지 않아도 됩니다. (온도가 낮아지는 겨울철이나, 제조단계에서 [별도의 열 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)는 교정해야되는 상황이 생길 수 있습니다.)
+처음 PX4 사용하는 경우나, PX4 콘트롤러 방향이 바뀐 경우에는 가속도계를 교정해야 합니다. 그렇지 않고, 기존에 사용하던 장비를 계속 사용하는 경우에는 보정 작업을 하지 않아도 됩니다. (온도가 낮은 겨울철이나, 제조단계에서 [별도의 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)에는 교정해야되는 상황이 생길 수 있습니다.)
 
 :::note
-잘못된 가속도 센서 캘리브레이션은 사전비행 단계 혹은 시동 거부 메시지에 의해 확인됩니다. (QGC 경고는 일반적으로 "높은 가속도 값"이나 "일관성 검사 실패"를 의미합니다.)
+가속도 보정을 잘못하면 사전비행 단계 혹은 시동 거부 메시지에 의해 확인됩니다. (QGC 경고는 일반적으로 "높은 가속도 값"이나 "일관성 검사 실패"를 의미합니다.)
 :::
 
-*QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
+*QGroundControl*은 차량을 다양한 방향으로 배치하고 유지하도록 안내합니다 (위치간에 이동할 때 메시지가 표시됨).
 
 :::tip
 This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
