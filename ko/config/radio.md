@@ -45,11 +45,11 @@ RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 
 3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **무선 조종기**를 선택하십시오.
 4. **확인**을 눌러 보정작업을 시작하십시오.
     
-    ![Radio setup - before starting](../../assets/qgc/setup/radio/radio_start_setup.jpg)
+    ![무선 조종기 설정-시작하기 전에](../../assets/qgc/setup/radio/radio_start_setup.jpg)
 
 5. 트랜스미터와 일치하는 [송신기 모드](../getting_started/rc_transmitter_receiver.md#transmitter_modes) 라디오 버튼을 설정합니다 (이렇게하면 *QGroundControl*이 교정 중에 따라야 할 올바른 스틱 위치를 표시함).
     
-    ![Radio setup - move sticks](../../assets/qgc/setup/radio/radio_sticks_throttle.jpg)
+    ![ 무선 조종기 설정-스틱 이동](../../assets/qgc/setup/radio/radio_sticks_throttle.jpg)
 
 6. 스틱을 텍스트(및 송신기 이미지)에 표시된 위치로 이동합니다. 스틱이 제자리에 있으면 **다음**을 누르십시오. 모든 위치에 대해 반복하십시오.
 
@@ -63,7 +63,7 @@ RC 수신기가 RC 손실시 신호 출력을 지원하지 않는 경우 대신 
 
 조종 스틱 및 기타 송신기 컨트롤을 보정하는 것 외에도이 화면에서 유용 할 수있는 여러 추가 무선 설정 옵션이 있습니다.
 
-<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="무선 조종기 설정 - 추가 설정" width="300px" />
 
 <span id="spektrum_bind"></span>
 
@@ -77,7 +77,7 @@ Spektrum 송신기/수신기 바인딩 절차
 2. 수신기의 라디오 버튼을 선택하십시오.
 3. **확인**을 누릅니다
     
-    ![Spektrum Bind](../../assets/qgc/setup/radio/radio_additional_setup_spectrum_bind_select_channels.jpg)
+    ![Spektrum 바인드](../../assets/qgc/setup/radio/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
 4. 바인드 버튼을 누른 상태에서 Spektrum 송신기의 전원을 켭니다.
 
@@ -95,7 +95,7 @@ Spektrum 송신기/수신기 바인딩 절차
 2. 스틱을 중앙에 놓고 스로틀을 끝까지 내립니다. 
 3. **확인**을 누릅니다.
     
-    ![Copy Trims](../../assets/qgc/setup/radio/radio_additional_radio_setup_copy_trims.jpg)
+    ![트림 복사](../../assets/qgc/setup/radio/radio_additional_radio_setup_copy_trims.jpg)
 
 4. 송신기의 트림을 다시 0으로 재설정하십시오.
 
@@ -108,7 +108,7 @@ AUX 패스 스루 채널 설정 절차
 1. 최대 2 개의 송신기 컨트롤을 별도의 채널에 매핑합니다. 
 2. 아래에 표시된 것처럼 이러한 채널을 지정하여 AUX1 및 AUX2 포트에 각각 매핑합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
-    ![AUX1 and AUX2 RC passthrough channels](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
+    ![AUX1 및 AUX2 RC 패스 스루 채널](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
 비행 컨트롤러는 AUX1/AUX2의 지정된 채널에서 수정되지 않은 값을 통해 하드웨어를 구동하는 연결된 서보/릴레이로 전달합니다.
 
@@ -127,28 +127,28 @@ AUX 패스 스루 채널 설정 절차
 1. 최대 3 개의 송신기 컨트롤 (다이얼 또는 슬라이더)을 개별 채널에 매핑합니다.
 2. 선택 목록을 사용하여 라디오 채널에 대한 *PARAM Tuning Id* 매핑을 선택합니다. 값은 설정되는 즉시 차량에 저장됩니다.
     
-    ![Map radio channels to tuning channels](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
+    ![라디오 채널을 튜닝 채널에 매핑](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
 
-To map a PARAM tuning channel to a parameter:
+PARAM 튜닝 채널을 매개 변수에 매핑 절차
 
-1. Open the **Parameters** sidebar. 
-2. Select the parameter to map to your transmitter (this will open the *Parameter Editor*).
-3. Check the **Advanced Settings** checkbox.
-4. Click the **Set RC to Param...** button (this will pop-up the foreground dialog displayed below)
+1. **매개 변수** 사이드 바를 엽니 다. 
+2. 송신기에 매핑 할 매개 변수를 선택합니다 (이렇게하면 *매개 변수 편집기*가 열립니다).
+3. **고급 설정** 확인란을 선택합니다.
+4. **RC를 Param으로 설정 ...** 버튼을 클릭합니다 (아래에 표시된 전경 대화 상자가 팝업됩니다).
     
-    ![Map tuning channels to parameters](../../assets/qgc/setup/radio/parameters_radio_channel_mapping.jpg)
+    ![매개 변수에 튜닝 채널 매핑](../../assets/qgc/setup/radio/parameters_radio_channel_mapping.jpg)
 
-5. Select the tuning channel to map (1, 2 or 3) from the *Parameter Tuning ID* selection list.
+5. *Parameter Tuning ID* 선택 목록에서 매핑 할 튜닝 채널 (1, 2 또는 3)을 선택합니다.
 
-6. Press **OK** to close the dialog.
-7. Press **Save** to save all changes and close the *Parameter Editor*.
+6. 대화 상자를 닫으려면 **확인**을 누르십시오.
+7. **저장**을 눌러 모든 변경 사항을 저장하고 *매개 변수 편집기*를 닫습니다.
 
 :::tip
-You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
+*Parameters* 화면의 오른쪽 상단에있는 메뉴 **Tools> Clear RC to Param**을 선택하여 모든 매개 변수/튜닝 채널 매핑을 지울 수 있습니다.
 :::
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
-* [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
-* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
+* [QGroundControl > 무선 조종기](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [PX4 설정 비디오 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (유튜브)
+* [RC 시스템 선택](../getting_started/rc_transmitter_receiver.md) -호환되는 RC 시스템을 선택합니다.
