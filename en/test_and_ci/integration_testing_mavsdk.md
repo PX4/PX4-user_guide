@@ -2,8 +2,8 @@
 
 PX4 can be tested end to end to using integration tests based on [MAVSDK](https://mavsdk.mavlink.io).
 
-The tests are primarily developed against SITL for now and run in continuous integration (CI).
-However, they are meant to generalize to real tests eventually.
+The tests are primarily developed against SITL and run in continuous integration (CI).
+However, the intent is to generalise them for any platform/hardware in future.
 
 ## Install the MAVSDK C++ Library
 
@@ -15,10 +15,10 @@ Install either from binaries or source:
 
 ## Prepare PX4 Code
 
-To build the PX4 code, use:
+To build PX4 source code for simulator testing, use:
 
 ```sh
-DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
+DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
 ```
 
 ### Run All PX4 Tests
@@ -58,10 +58,10 @@ optional arguments:
 
 ## Notes on implementation
 
-
 - The tests are invoked from the test runner script [mavsdk_test_runner.py](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/mavsdk_test_runner.py), which is written in Python.
   This runner also starts `px4` as well as Gazebo for SITL tests, and collects the logs of these processes.
-- The test runner is a C++ binary
+- The test runner is a C++ binary.
+
   It contains:
   - The [main](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/test_main.cpp) function to parse the arguments.
   - An abstraction around MAVSDK called [autopilot_tester](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.h).
