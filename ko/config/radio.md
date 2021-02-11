@@ -1,4 +1,4 @@
-# Radio (Remote Control) Setup
+# 무선 조종기 설정
 
 The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
