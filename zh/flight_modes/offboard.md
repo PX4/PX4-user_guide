@@ -51,7 +51,8 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
     * 速度设定值（仅`vx`，`yy`，`vz`）
     * *推力*设定值（仅`afx`，`afy`，`afz`）
     
-    :::note 映射加速度设定值以创建正常的推力设定值（即不支持加速度设定值）。
+:::note
+映射加速度设定值以创建正常的推力设定值（即不支持加速度设定值）。
 :::
     
     * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
@@ -95,7 +96,8 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
       
       * 在`type_mask`中指定设定值的*type*（如果未设置这些位，无人机将以花朵状飞行）：
         
-        :::note 下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
+:::note
+下面的某些*设置点类型*值不是 MAVLink ` type_mask `字段标准的部分。
 :::
         
         值为：
@@ -129,7 +131,8 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
       
       * 在 `type_mask` 中指定 *类型* 的设置点类型：
       
-      :::note 下面的 *设置点类型* 值不是 `type_mask` 字段的 MAVLink 标准的一部分。 ::
+:::note
+下面的 *设置点类型* 值不是 `type_mask` 字段的 MAVLink 标准的一部分。 ::
       
           值为：
           
