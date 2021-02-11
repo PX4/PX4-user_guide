@@ -1,14 +1,14 @@
 # Integration Testing
 
-This is about end to end integration testing. Tests are executed automatically ([Jenkins CI](../test_and_ci/jenkins_ci.md))
+This is about end to end integration testing. Tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md)
 
 ## ROS / MAVROS Tests
 
 Prerequisites:
 
-  * [jMAVSim Simulator](../simulation/jmavsim.md)
-  * [Gazebo Simulator](../simulation/gazebo.md)
-  * [ROS and MAVROS](../simulation/ros_interface.md)
+* [jMAVSim Simulator](../simulation/jmavsim.md)
+* [Gazebo Simulator](../simulation/gazebo.md)
+* [ROS and MAVROS](../simulation/ros_interface.md)
 
 ### Execute Tests
 
