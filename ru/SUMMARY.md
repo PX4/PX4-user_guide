@@ -254,6 +254,8 @@
     * [Camera](peripherals/camera.md)
     * [Parachute](peripherals/parachute.md)
     * [ADSB/FLARM (Traffic Avoidance)](peripherals/adsb_flarm.md)
+    * [Smart Batteries](smart_batteries/README.md) 
+      * [Rotoye Batmon Battery Smartification Kit](smart_batteries/rotoye_batmon.md)
   * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Development](development/development.md) 
   * [Getting Started](dev_setup/getting_started.md) 
