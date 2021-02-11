@@ -37,7 +37,7 @@ For example, a [5100 Miniature Flange Mounting Proximity Sensor](https://m.litte
 
 ### Optical Sensor Probe
 
-An optical sensor can also be used (and maybe a better fit, depending on the measurement requirements).
+An optical sensor can also be used (and may be a better fit, depending on the measurement requirements).
 Both transmissive and reflective sensor types may be used for pulse generation.
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
@@ -46,56 +46,63 @@ Both transmissive and reflective sensor types may be used for pulse generation.
 
 ### Starting driver
 
-The driver does not start automatically in any airframes. You can start it manually from the console or add it to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on SD card.
+The driver is not started automatically (in any airframe).
+You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
 
 #### Start driver from console
 
-Start driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) with the command:
+Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) using the command:
 ```
 pcf8583 start -X -b <bus number>
 ```
-instead of `<bus number>` you must specify the bus number to which the device is connected. `-X` means that it is an external bus.
+where:
+- `-X` means that it is an external bus.
+- `<bus number>` is the bus number to which the device is connected 
 
 :::note
-Bus number `-b <bus number>` does not match the bus numbering on the autopilot. After running the command, the driver shows the bus number corresponding to the label on the box.
+Bus number `-b <bus number>` does not match the bus numbering on the autopilot.
+After running the command, the driver shows the bus number corresponding to the label on the box.
 
 When using CUAV V5+ or CUAV Nano:
 
-| bus label | -b number |
-|-----------|-----------|
-| 1    |  -X -b 4  |
-| 2    |  -X -b 2  |
-| 3    |  -X -b 1  |
-
+bus label | -b number
+--- | ---
+1 | -X -b 4  |
+2 | -X -b 2  |
+3 | -X -b 1  |
 :::
 
+### Testing
 
-### Function validation
-You can verify functionality in multiple ways.
+You can verify the counter is working using several methods
 
-#### Use of the PX4 (NuttX) MAVLink console
+#### PX4 (NuttX) MAVLink Console
 
-The status of the TFRPM01 driver could be checked by the following command: 
+The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputing. 
+
+To check the status of the TFRPM01 driver run the command: 
 ```
 pcf8583 status
 ```
-If the driver is running, the I²C port will be printed along with other basic parameters of the running instance. In the case the driver is not running the driver should be started according to the procedure described above. 
+If the driver is running, the I²C port will be printed along with other basic parameters of the running instance.
+If the driver is not running it can be started started using theprocedure described above. 
 
-With [`listener`](../middleware/modules_command.html#listener) command you can monitor RPM messages from the running driver. 
+The [listener](../middleware/modules_command.html#listener) command allows you to monitor RPM UORB messages from the running driver. 
 ```
 listener rpm
 ```
-Now, you should see uOrb messages containing data from the sensor. For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
+For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
 
-#### Check by QGroundControl
+#### QGroundControl MAVLink Inspector
 
-In QGC select [MavlinkInspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) from  `menu` > `Analyze tools` > `Mavlink Inspector`.
+The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
 
-Then you should see the data and its update rate in the list. You should see a `raw_rpm` message here. If there the `raw_rpm` message missing, you should check that driver is running in PX4. 
-In the case the message exists, click on it. On the right side of the QGC window, you should see the live sensor data. 
+1. Start the inspector from the QGC menu: **Analyze tools > Mavlink Inspector**
+1. Check that `RAW_RPM` is present in the list of messages (if it is missing, check that the driver is running).
 
 
 ### Parameter Setup
+
 Usually, sensors can be used without configuration, but the RPM values should correspond to multiples of real RPM.  It is because the `PCF8583_MAGNET` parameter needs to correspond to the real number of pulses per single revolution of the sensed rotor. 
 If needed, the following parameters should be tweaked:
 
@@ -105,7 +112,10 @@ If needed, the following parameters should be tweaked:
 * [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
 
 :::note
-The parameters in QGC appear after the first start of the driver and subsequent restart of QGC. If still, the configuration parameters is not available in [*QGroundControl*](../qgc/#setting-parameters) then you should check if [the driver](../peripherals/serial_configuration.md#parameter_not_in_firmware)  is added to the firmware:
+The parameters above appear in QGC after the driver/PX4 are restarted.
+
+If the configuration parameters are not available after restart then you should check that the driver has started.
+It may be that the [driver is not present in the firmware](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol), in which case it must be added to the board configuration:
 ```
 drivers/rpm/pcf8583
 ```
