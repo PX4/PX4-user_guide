@@ -83,7 +83,8 @@ The following steps explain how you can "manually" update the bootloader using t
 6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
     
-    :::note To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+:::note
+To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
 :::
 
 8. Use the following command to scan for the Pixhawk’s swd and connect to it:
