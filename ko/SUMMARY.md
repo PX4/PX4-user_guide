@@ -254,6 +254,8 @@
     * [카메라](peripherals/camera.md)
     * [낙하산](peripherals/parachute.md)
     * [ADSB/FLARM (트래픽 회피)](peripherals/adsb_flarm.md)
+    * [Smart Batteries](smart_batteries/README.md) 
+      * [Rotoye Batmon Battery Smartification Kit](smart_batteries/rotoye_batmon.md)
   * [보조 컴퓨터 주변 기기](peripherals/companion_computer_peripherals.md)
 * [개발](development/development.md) 
   * [시작하기](dev_setup/getting_started.md) 
