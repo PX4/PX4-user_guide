@@ -9,36 +9,36 @@
 *QGroundControl*은 차량을 다양한 방향으로 배치하고 유지하도록 안내합니다 (위치간에 이동할 때 메시지가 표시됨).
 
 :::tip
-This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
+차량을 회전하지 않고 고정한다는 점을 빼면, [나침반 보정](../config/compass.md)작업과 매우 유사합니다.
 :::
 
 :::note
-The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations. Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+보정은 "완벽한" 90도 방향을 필요로하지 않는 최소 제곱 '적합' 알고리즘을 사용합니다. 각 축이 보정 시퀀스에서 어느 시점에 대부분 위아래를 가리키고, 차량이 고정되어 있으면 정확한 방향은 중요하지 않습니다.
 :::
 
 ## 캘리브레이션 수행
 
-The calibration steps are:
+보정 절차는 다음과 같습니다:
 
 1. *QGroundControl*을 시작하고 드론에 연결합니다.
 2. 상단 툴바에서 **기어** 아이콘 (기체 설정) 을 선택한 다음, 사이드 바에서 **센서**를 선택하십시오.
-3. **가속도 센서** 버튼을 클릭하십시오.
+3. **가속도계** 버튼을 클릭하십시오.
     
-    ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer.jpg)
+    ![가속도계 캘리브레이션 ](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
 :::note
-You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+이 작업 이전에 [비행 컨트롤러 방향](../config/flight_controller_orientation.md)을 미리 설정하여야 합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다.
 :::
 
 4. 캘리브레이션을 시작하려면 **확인**을 클릭하십시오.
 
-5. 화면에 표시된 *이미지대로* 드론을 배치하십시오. 드론을 움직이고 나면 (드론의 방향과 일치하는 이미지가 노란색으로 바뀝니다) 드론을 그 상태로 유지하십시오. 현재 방향에 대해 캘리브레이션이 완료되면 화면의 그림이 녹색으로 바뀝니다.
+5. 화면에 표시된 *이미지대로* 드론을 배치하십시오. 드론을 움직이고 나면 (드론의 방향과 일치하는 이미지가 노란색으로 바뀝니다) 드론을 그 상태로 유지하십시오. 현재 방향에 대해 보정이 완료되면 화면의 그림이 녹색으로 바뀝니다.
     
-    ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
+    ![가속도계 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
 
-6. 드론의 모든 방향에 대해 캘리브레이션 과정을 반복합니다. 
+6. 드론의 모든 방향에 대해 보정 작업을 반복합니다. 
 
-Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+모든 위치에서 차량을 보정을 마치게 되면 *QGroundControl *에서 *캘리브레이션 완료 * 메시지를 표시합니다 (모든 방향 이미지가 녹색으로 표시되고 진행 표시 줄이 완전히 채워집니다). 그런 다음 다음 센서로 진행할 수 있습니다.
 
 ## 추가 정보
 
