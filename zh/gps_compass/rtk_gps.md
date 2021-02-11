@@ -75,7 +75,8 @@ The RTK GPS connection is essentially plug and play:
 1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。
 2. 启动飞机，确保飞机连接上*QGroundControl*地面站。
     
-    :::tip *QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+:::tip
+*QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
 :::
 
 3. 然后 *QGroundControl* 开始设置 RTK (称为 "测量")。
