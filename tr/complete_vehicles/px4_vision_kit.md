@@ -124,13 +124,15 @@ In addition, users will need ground station hardware/software:
    - **SSID:** pixhawk4
    - **Password:** pixhawk4
 
-   :::tip WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+:::tip
+WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
 :::
 
 1. Start *QGroundControl* on the ground station.
 1. [Configure/calibrate](../config/README.md) the vehicle:
 
-   :::note The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+:::note
+The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
 :::
 
    - [Calibrate the Radio System](../config/radio.md)
@@ -139,7 +141,8 @@ In addition, users will need ground station hardware/software:
 
 1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
 
-   :::note Modes can also be changed using *QGroundControl*
+:::note
+Modes can also be changed using *QGroundControl*
 :::
 
    We recommend RC controller switches are define for:
@@ -169,7 +172,8 @@ When the vehicle setup described above is complete:
 
 1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
 
-   :::tip The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+:::tip
+The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
 :::
 
 1. Check that the avoidance system has started properly:
@@ -225,7 +229,8 @@ To flash the USB image to the *UP Core*:
    sudo ./flash_emmc.sh
    ```
 
-   :::note All information saved in the *UP Core* computer will be removed when executing this script.
+:::note
+All information saved in the *UP Core* computer will be removed when executing this script.
 :::
 
 1. Pull out the USB stick.
