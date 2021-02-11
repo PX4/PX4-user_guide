@@ -36,14 +36,16 @@ Performing this power compensation is advisable only if all the following statem
    - 慢慢将油门降到0
    - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
 
-   :::note Perform the test carefully and closely monitor the vibrations.
+:::note
+Perform the test carefully and closely monitor the vibrations.
 :::
 1. 获取ulog文件，并用python脚本[mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)来确定补偿参数。
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   :::note If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+:::note
+If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
 :::
 1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 脚本弹出的数值显示了每个罗盘匹配的程度，以及使用了建议的补偿值后数据将是什么样的。 如果有电流测数，那么依据电流补偿通常可以获得更好的结果。 这里是一个日志的例子，电流匹配得很好，然而因为不是线性关系推力参数则完全不可用。 ![线性匹配](../../assets/advanced_config/line_fit.png)
 
