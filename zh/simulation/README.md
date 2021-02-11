@@ -197,7 +197,8 @@ The simulated camera is a gazebo plugin that implements the [MAVLink Camera Prot
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-   :::note More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+:::note
+More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 :::
 
 The same approach can be used by other simulators to implement camera support.
