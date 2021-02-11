@@ -1,8 +1,8 @@
 # 무선 조종기 설정
 
-The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
+*무선 조종기 설정* 화면은 송신기 제어/RC 채널용 리모컨 장치의 기본 자세 제어 스틱 (롤, 피치, 요, 스로틀)을 채널에 매핑하고 최소, 최대, 트림 및 리버스 설정을 보정하는 데 사용됩니다. 
 
-## Binding the Receiver
+## 수신기 바인딩
 
 Before you can calibrate the radio system the receiver and transmitter must be connected/bound. The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
 
