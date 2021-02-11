@@ -28,7 +28,8 @@ To make driver configurable:
              name: SENS_ULAND_CFG
              group: Sensors
      ```
-   :::note The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file. This is also used to validate all configuration files in CI.
+:::note
+The full documentation of the module configuration file can be found in the [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) file. This is also used to validate all configuration files in CI.
 :::
 1. Add the module configuration to the **CMakeLists.txt** file for the driver module:
    ```
