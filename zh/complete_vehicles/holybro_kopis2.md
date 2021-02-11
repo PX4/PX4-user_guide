@@ -17,7 +17,8 @@ The *Kopis 2* can be bought from a number of vendors, including:
 - LiPo battery and charger.
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/). You can also use DJI FPV goggles if you have the HDV verison of the Kopis 2.
     
-    :::note FPV support is completely independent of PX4/flight controller.
+:::note FPV
+support is completely independent of PX4/flight controller.
 :::
 
 ## 刷写 Bootloader
