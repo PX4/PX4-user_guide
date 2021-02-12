@@ -24,49 +24,49 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
 
 * [복귀](../flight_modes/return.md) - 차량을 안전한 높이로 상승한 다음에 이륙 위치로 되돌아갑니다.
 * [미션](../flight_modes/mission.md) - 지상관제소에서 보낸 사전 프로그래밍된 미션을 실행합니다.
-* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
+* <span id="kill_switch"></span> [킬 스위치](../config/safety.md#kill_switch) - 모든 모터 출력을 즉시 중지합니다. 기체가 충돌하는 상황에서는 계속 비행하는 것보다 사고를 방지할 수 있습니다.
 
-## Multi Channel vs Single Channel Mode Selection
+## 다중 채널과 단일 채널 모드 선택
 
-*PX4* (*QGroundControl*) supports two modes for mapping flight modes to transmitter switches/dials:
+*PX4* (*QGroundControl*)은 비행 모드를 송신기 스위치/다이얼에 매핑하는 두 가지 모드를 지원합니다.
 
-* **Single Channel Mode Selection:** Assign up to 6 flight modes to switch positions encoded in a single channel.
-* **Multi Channel Mode Selection:** Assign modes to switch positions encoded in one or more channels. Some modes are hard coded to share channels, or are defined/set automatically based on other mode selections (the behaviour of multi-channel mode selection can sometimes be confusing). 
+* **단일 채널 모드 선택 :** 최대 6 개의 비행 모드를 할당하여 단일 채널에 인코딩 된 위치를 전환합니다.
+* **다중 채널 모드 선택 :** 하나 이상의 채널에서 인코딩된 위치를 전환하는 모드를 할당합니다. 일부 모드는 채널을 공유하도록 하드 코딩되거나 다른 모드 선택에 따라 자동으로 설정됩니다 (다중 채널 모드 선택의 동작이 때때로 혼동 될 수 있음). 
 
 :::tip
-The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure.
+권장되는 접근 방식은 이해와 구성이 쉽기 때문에 *단일 채널 모드 선택*입니다.
 :::
 
 <span id="single_channel"></span>
 
-## Single-Channel Flight Mode Selection
+## 단일 채널 비행 모드 선택
 
-The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
+단일 채널 선택 모드를 사용하면 "모드"채널을 지정하고 채널의 PWM 값에 따라 활성화되는 최대 6 개의 비행 모드를 선택할 수 있습니다. 킬 스위치 매핑, 시작 모드로 돌아 가기 및 오프 보드 모드를위한 채널을 별도로 지정할 수도 있습니다.
 
 :::note
-In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
+이 접근 방식을 사용하려면 먼저 모드 스위치의 물리적 위치를 단일 채널로 인코딩하도록 *송신기*를 구성하여야 합니다. 많이 사용하는 *Taranis* 송신기에 대한 비디오 가이드를 [아래](#taranis_setup)에서 제공합니다 (다른 송신기를 사용하는 경우 문서를 확인하십시오).
 :::
 
-To configure single-channel flight mode selection:
+단일 채널 비행 모드 선택을 구성 방법
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Turn on your RC transmitter.
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
+1. *QGroundControl*을 시작하고 기체를 연결합니다.
+2. RC 송신기를 켭니다.
+3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **비행 모드**를 선택하십시오.
     
     ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
 :::tip
-If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+화면이 *다중 채널 모드*로 열리면 **단일 채널 모드 선택 사용** 버튼을 클릭하여 화면을 변경합니다.
 :::
 
-4. Specify *Flight Mode Settings*:
+4. *비행 모드 설정* 지정
     
-    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration). 
-    * Select up to six **Flight Modes**.
-5. Specify *Switch Settings*: 
-    * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
-6. Test that the modes are mapped to the right transmitter switches: 
-    * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
+    * **모드 채널**을 선택합니다 (위에 채널 5로 표시되지만 송신기 구성에 따라 다름). 
+    * 최대 6 개의 **비행 모드**를 선택합니다.
+5. *스위치 설정* 지정 
+    * 특정 작업에 매핑 할 채널을 선택합니다 (예 : *복귀(Return)* 모드, *Kill 스위치*, *오프 보드* 모드 등). (송신기에 여분의 스위치와 채널이있는 경우).
+6. 모드가 올바른 송신기 스위치에 매핑되었는 지 테스트합니다. 
+    * *채널 모니터*를 확인하여 예상 채널이 각 스위치에 의해 변경되는 지 확인하십시오.
     * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
 
 All values are automatically saved as they are changed.
