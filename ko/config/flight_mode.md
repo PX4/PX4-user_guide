@@ -102,13 +102,13 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
 
 그런 다음 *QGroundControl*의 단일 채널 모드 선택 옵션에서 채널과 비행 모드를 선택할 수 있습니다.
 
-![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
+![QGC - 모드 채널 설정](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
 
 [라디오 스위치](../advanced_config/parameter_reference.md#radio-switches) 매개 변수는 특정 기능을 채널에 매핑합니다. 송신기에서 이미 채널을 매핑하였으면, [파라미터를 설정](../advanced_config/parameters.md)하여 채널을 할당 할 수 있습니다.
 
 예를 들어 아래에서 채널 6을 *QGroundControl*의 [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) 매개 변수에 매핑합니다.
 
-![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
+![QGC - ARM 스위치 채널 매핑](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
 
 <span id="multi_channel"></span>
 
@@ -126,7 +126,7 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
 2. *QGroundControl*을 시작하고 기체를 연결합니다.
 3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **비행 모드**를 선택하십시오.
     
-    ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
+    ![비행 모드 다중 채널](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
 :::tip
 화면이 *단일 채널 모드*로 열리면 **다중 채널 모드 선택** 버튼을 클릭하여 화면을 변경합니다.
