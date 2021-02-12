@@ -149,16 +149,16 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 ## 부하 보상을 통한 전압 기반 추정
 
 :::note
-With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+부하 보상값을 적절하게 설정하면 배터리 용량 추정의 전압이 훨씬 더 안정적이며 상하강 비행시 값의 변화가 적습니다.
 :::
 
-Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
+부하 보상은 [기본 구성](#basic_settings)을 사용할 때 발생하는 부하시 측정 된 전압/예상 용량의 변동에 대응하려고 합니다. 이는 *무부하* 배터리의 전압을 추정하고 남은 용량을 추정하기 위해 해당 전압 (측정 된 전압 대신)을 사용하여 작동합니다.
 
 :::note
-To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+부하 보상을 사용하려면 [기본 구성](#basic_settings)을 설정하여야 합니다. *빈 전압* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY))은 보상 된 전압이 추정에 사용되기 때문에 (보상없는 경우보다) 더 높게 설정해야합니다 (일반적으로 다음 경우에 예상되는 나머지 셀 전압보다 약간 낮은 값으로 설정).
 :::
 
-PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
+PX4는 아래 두 매개 변수 중 하나를 [설정](../advanced_config/parameters.md)하여 활성화되는 두 가지 부하 보상 방법을 지원합니다.
 
 - [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
 - [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
