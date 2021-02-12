@@ -9,29 +9,23 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ## 사고방지 기능
 
-각각의 안전장치들은 여러가지 동작들로 조합됩니다. 보다 일반적인 안전 조치는 다음과 같습니다.
+각각의 안전장치들은 여러가지 동작들로 조합됩니다. 보다 일반적인 안전 조치는 다음과 같습니다.<span id="action_flight_termination"></span>비행 종료</ 0></td> 
 
-| 동작                                                                                      | 설명                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="action_none"></span>없음/비활성화                                                        | 조치 없음(안전 장치는 무시됩니다).                                                                                                                                                                                                                                                                                                                                                                                                          |
-| <span id="action_warning"></span>경고                                                             | 경고 메시지가 *QGroundControl*으로 전송됩니다.                                                                                                                                                                                                                                                                                                                                                                                             |
-| <span id="action_hold"></span>[대기 모드](../flight_modes/hold.md)                               | 기체는 *대기 모드*로 들어갑니다. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.                                                                                                                                                                                                                                                                                                         |
-| <span id="action_return"></span>[Return mode](../flight_modes/return.md)                       | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).                                                                                                                                                                                                                                                                                                    |
-| <span id="action_land"></span>[Land mode](../flight_modes/land.md)                           | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                                                                                                                                                                                                                                    |
-| <span id="action_flight_termination"></span>[Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety. |
-| <span id="action_lockdown"></span>Lockdown                                                       | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).                                                                                                                                                                                                                                                                                                                          |
+</tr> 
+
+</tbody> </table> 
 
 :::note
-It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
+모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구 할 수 있습니다. 예를 들어, RC 손실 안전 장치로 인해 차량이 *복귀 모드*로 들어가는 경우 RC가 복구되면, *위치 모드*로 변경하여 비행을 계속할 수 있습니다.
 :::
 
 :::note
-If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored. Instead the action is determined by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+차량이 다른 안전 장치에 응답하는 동안 안전 장치가 발생하면 (예 : RC 손실로 인해 반환 모드에있는 동안 배터리 부족), 두 번째 트리거에 대해 지정된 안전 장치 동작이 무시됩니다. 대신 작업은 별도의 시스템 수준과 기체별 코드에 의해 결정됩니다. 이로 인하여 기체 비행은 수동 모드로 변경되어 사용자가 직접 복구할 수 있습니다.
 :::
 
 <span id="qgc_safety_setup"></span>
 
-## QGroundControl Safety Setup
+## QGroundControl 안전 설정
 
 The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
 
