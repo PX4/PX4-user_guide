@@ -9,31 +9,31 @@
 
 전원 설정의 목표는 배터리 잔량 비율 및 용량을 정확하게 추정하여 기체의 전원이 부족하여 충돌 사고가 발생하지 않도록 하는 것입니다 (또는 배터리가 과방 전으로 인해 손상되는 경우).
 
-PX4는 여러가지 효율적인 용량 추정 방법을 제공합니다.
+PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
-1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
-2. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
-3. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
+1. [기본 배터리 설정](#basic_settings) (기본값) : 측정 원시 전압이 "최저" 전압과 "최고"전압의 범위와 비교됩니다. 측정 전압 (및 해당 용량)은 부하시 변동으로 인하여 대략적인 추정치입니다.
+2. [부하 보상을 통한 전압 기반 추정](#load_compensation) : 부하가 용량 계산에 미치는 영향을 고려합니다.
+3. [전류 통합을 사용한 전압 기반 추정](#current_integration) : 사용 가능한 용량에 대한 부하 보상 전압 기반 추정값을 소비된 충전의 전류 기반 추정과 융합합니다. 그 결과 스마트 배터리와 비슷한 용량 추정치를 얻을 수 있습니다.
 
-Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
+기타 다른 방법들은 이 방법들을 응용한 것입니다. 사용하는 접근 방식은 차량의 전원 모듈이 전류를 측정 가능 여부에 따라 다릅니다.
 
 :::note
-The instructions below refer to battery 1 calibration parameters: `BAT1_*`. Other batteries use the `BATx_*` parameters, where `x` is the battery number. All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+아래 지침은 배터리 1 보정 매개 변수를 참조합니다 : `BAT1 _*`. 다른 배터리는 `BATx_*` 매개 변수를 사용합니다. 여기서 `x`는 배터리 번호입니다. 모든 배터리 보정 매개 변수가 [여기에](../advanced_config/parameter_reference.md#battery-calibration) 나열됩니다.
 :::
 
 :::tip
-In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage. This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+여기에서 설명하는 PX4 구성 외에도 ESC의 저전압 차단이 비활성화되거나 예상 최소 전압 아래로 설정되어 있는지 확인하여야 합니다. 이렇게하면 PX4에서 배터리 오류 안전 동작을 관리하고 배터리가 충전되어있는 동안 ESC가 차단되지 않도록합니다 (선택한 "빈 배터리"설정에 따라).
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+아래의 [배터리 유형 비교](#battery-type-comparison)는 기본 배터리 유형 간의 차이점과 배터리 설정에 미치는 영향을 설명합니다.
 :::
 
 <span id="basic_settings"></span>
 
-## Basic Battery Settings (default)
+## 기본 배터리 설정 (기본값)
 
-The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
+기본 배터리 설정은 용량 추정 기본 방법을 사용하도록 PX4를 구성합니다. 이 방법은 측정 된 원시 배터리 전압을 "빈"셀과 "충전"셀 (셀 수에 따라 조정 됨)에 대한 셀 전압 범위와 비교합니다.
 
 :::note
 This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
