@@ -1,8 +1,8 @@
-# Safety Configuration (Failsafes)
+# 안전 설정(사고 방지)
 
-PX4 has a number of safety features to protect and recover your vehicle if something goes wrong:
+PX4에는 문제 발생시 기체를 보호하고 복구하는 여러 가지 안전 기능이 있습니다.
 
-* *Failsafes* allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe_actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point). The most important failsafe settings are configured in the *QGroundControl* [Safety Setup](#qgc_safety_setup) page. Others must be configured via [parameters](#failsafe_other).
+* *사고 방지* 기능을 사용하여 안전 비행 지역, 사고 방지 조건 및 사고방지 기능 작동시수행할 [작업](#failsafe_actions)(예: 착륙, 현 위치 유지)을 지정할 수 있습니다. 가장 중요한 사고방지 기능은 *QGroundControl*의 [안전 설정](#qgc_safety_setup) 화면에서 설정합니다. Others must be configured via [parameters](#failsafe_other).
 * [Safety switches](#safety_switch) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
 
 <span id="failsafe_actions"></span>
