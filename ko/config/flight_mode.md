@@ -2,28 +2,28 @@
 
 [비행 모드](../flight_modes/README.md)는 임무 또는 기내 (보조 컴퓨터) 제어를 통해 다양한 유형의 *자동 조종 장치 지원 비행*과 *완전 자율 비행*을 제공합니다. 다양한 비행 모드를 통해 사용자는 기본 RC 비행 보다 더욱 편리한 플랫폼에서의 비행법을 배울 수 있습니다. 또한, 이륙, 착륙 및 출발지 복귀와 같은 작업을 자동화할 수 있습니다.
 
-PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 무선 조종기에서 비행 모드를 선택할 수 있습니다. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 무선 조종기에서 비행 모드를 선택할 수 있습니다. 무선 조종기와 태블릿이 모두 연결된 경우 두 시스템 중 하나가 모드를 변경하여 이전 설정을 변경하게 됩니다.
 
-This topic explains how to map flight modes to the switches on your radio control transmitter.
+무선 제어 송신기의 스위치에서 비행 모드를 매핑하는 방법을 설명합니다.
 
 :::tip
-You must already have [configured your radio](../config/radio.md) in order to set flight modes.
+비행 모드를 설정하려면 이전에 [무선 조종기 설정](../config/radio.md)을 하여야 합니다.
 :::
 
-## What Flight Modes Should I Set?
+## 어떤 비행 모드를 설정해야 합니까?
 
-You can set any (or none) of the flight modes [described here](../flight_modes/README.md).
+[여기에 설명된](../flight_modes/README.md) 비행 모드를 설정하거나 설정하지 않을 수 있습니다.
 
-New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
+초보 사용자는 편리한 비행을 위하여 다음 모드 중 하나를 설정하는 것이 좋습니다.
 
-* **Stabilized** - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position).
-* **Position** - When sticks are released the vehicle will stop (and hold position against wind drift).
-* **Altitude** - Climb and drop are controlled to have a maximum rate.
+* **Stabilized** - 뒤집히기 어려운 기체에서 스틱이 풀린 상태에서도 수평을 유지합니다 (그러나 위치를 고정할 수는 없습니다).
+* **포지션** - 스틱을 놓으면 기체가 그 위치에서 멈춥니다(그리고 부는 바람에 대한 위치를 유지함).
+* **고도** - 상승 및 하강이 최대 속도로 제어됩니다.
 
-It is also common to map switches to:
+스위치를 아래와 같이 일반적으로 매핑합니다.
 
-* [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
-* [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+* [복귀](../flight_modes/return.md) - 차량을 안전한 높이로 상승한 다음에 이륙 위치로 되돌아갑니다.
+* [미션](../flight_modes/mission.md) - 지상관제소에서 보낸 사전 프로그래밍된 미션을 실행합니다.
 * <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 ## Multi Channel vs Single Channel Mode Selection
