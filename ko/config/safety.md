@@ -2,16 +2,16 @@
 
 PX4에는 문제 발생시 기체를 보호하고 복구하는 여러 가지 안전 기능이 있습니다.
 
-* *사고 방지* 기능을 사용하여 안전 비행 지역, 사고 방지 조건 및 사고방지 기능 작동시수행할 [작업](#failsafe_actions)(예: 착륙, 현 위치 유지)을 지정할 수 있습니다. 가장 중요한 사고방지 기능은 *QGroundControl*의 [안전 설정](#qgc_safety_setup) 화면에서 설정합니다. Others must be configured via [parameters](#failsafe_other).
-* [Safety switches](#safety_switch) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem.
+* *사고 방지* 기능을 사용하여 안전 비행 지역, 사고 방지 조건 및 사고방지 기능 작동시수행할 [작업](#failsafe_actions)(예: 착륙, 현 위치 유지)을 지정할 수 있습니다. 가장 중요한 사고방지 기능은 *QGroundControl*의 [안전 설정](#qgc_safety_setup) 화면에서 설정합니다. 기타는 [매개 변수](#failsafe_other)를 통하여 설정합니다.
+* 리모콘의 [안전 스위치](#safety_switch)를 사용하여 문제 발생시 즉시 모터를 중지하거나 기체를 원위치로 복귀시킬 수 있습니다.
 
 <span id="failsafe_actions"></span>
 
-## Failsafe Actions
+## 사고방지 기능
 
-Each failsafe defines its own set of actions. Some of the more common failsafe actions are:
+각각의 사고방지 기능들은 여러가지 동작들로 이루어집니다. 보다 일반적인 안전 조치는 다음과 같습니다.
 
-| Action                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 동작                                                                                      | 설명                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="action_none"></span>None/Disabled                                                  | No action (the failsafe will be ignored).                                                                                                                                                                                                                                                                                                                                                                                     |
 | <span id="action_warning"></span>Warning                                                        | A warning message will be sent to *QGroundControl*.                                                                                                                                                                                                                                                                                                                                                                           |
