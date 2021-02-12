@@ -67,64 +67,64 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
     * 특정 작업에 매핑 할 채널을 선택합니다 (예 : *복귀(Return)* 모드, *Kill 스위치*, *오프 보드* 모드 등). (송신기에 여분의 스위치와 채널이있는 경우).
 6. 모드가 올바른 송신기 스위치에 매핑되었는 지 테스트합니다. 
     * *채널 모니터*를 확인하여 예상 채널이 각 스위치에 의해 변경되는 지 확인하십시오.
-    * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
+    * 송신기의 각 모드 스위치를 차례로 선택하고 원하는 비행 모드가 활성화되었는 지 확인합니다 (활성 모드의 *QGroundControl*에서 텍스트가 노란색으로 바뀜).
 
-All values are automatically saved as they are changed.
+모든 값은 변경시에 자동으로 저장됩니다.
 
 <span id="taranis_setup"></span>
 
-### Single-Channel Setup Video Example (including Transmitter Setup)
+### 단일 채널 설정 비디오 예 (송신기 설정 포함)
 
-It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel.
+일반적으로 송신기의 2 및 3 위치 스위치 위치를 사용하여 6 개의 비행 모드를 나타내고 각 스위치 조합을 단일 채널에서 전송되는 모드에 대한 특정 PWM 값으로 인코딩합니다.
 
-The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
+아래 비디오는 *FrSky Taranis* 송신기 (매우 인기 있고 강력하게 권장되는 RC 송신기)로 어떻게 수행되는지 보여줍니다. 이 프로세스에는 두 개의 실제 스위치 위치의 각 조합에 "논리적 스위치"를 할당하는 작업이 포함됩니다. 그런 다음 각 논리적 스위치는 동일한 채널에서 다른 PWM 값에 할당됩니다.
 
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots".
+그런 다음 비디오는 <0 QGroundControl</em>을 사용하여 모드 채널을 지정하고 모드를 6 개의 "슬롯"에 각각 매핑하는 방법을 보여줍니다.
 
-@[youtube](https://youtu.be/scqO7vbH2jo)
+@[유투브](https://youtu.be/scqO7vbH2jo)
 
-### Single-Channel Setup Instructional Example
+### 단일 채널 설정 지침 예
 
-This example shows how you can configure a transmitter and PX4 with:
+이 예는 무선 송신기와 PX4를 설정법을 보여줍니다.
 
-* A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
-* A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
+* 단일 채널 모드 설정 방식 (수동, 고도, 아크로)을 사용하여 비행 모드를 선택할 수있는 3 방향 스위치.
+* 일부 기능 (시동/시동 해제)을 호출하는 양방향 스위치 ([무선조종기 스위치](../advanced_config/parameter_reference.md#radio-switches) 매개 변수를 통해).
 
 :::note
-This example shows how to set up the popular *FrSky Taranis* transmitter. Configuration will be slightly different for other transmitters.
+이 예는 인기있는 *FrSky Taranis* 송신기 설정법을 보여줍니다. 다른 송신기의 구성은 약간씩 다를 수 있습니다.
 :::
 
-First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
+먼저 송신기를 설정하십시오. 아래에서는 Taranis "SD"스위치를 채널 5에 매핑하는 방법을 보여줍니다. 아래와 같이 Taranis UI '믹서' 페이지에서 수행됩니다.
 
 ![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
 ![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
-You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*:
+그런 다음 *QGroundControl*의 단일 채널 모드 선택 옵션에서 채널과 비행 모드를 선택할 수 있습니다.
 
 ![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
 
-The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+[라디오 스위치](../advanced_config/parameter_reference.md#radio-switches) 매개 변수는 특정 기능을 채널에 매핑합니다. 송신기에서 이미 채널을 매핑하였으면, [파라미터를 설정](../advanced_config/parameters.md)하여 채널을 할당 할 수 있습니다.
 
-For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*.
+예를 들어 아래에서 채널 6을 *QGroundControl*의 [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) 매개 변수에 매핑합니다.
 
 ![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
 
 <span id="multi_channel"></span>
 
-## Multi-Channel Flight Mode Selection
+## 다중 채널 비행 모드 선택
 
 :::tip
-We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection.
+다중 채널 선택 사용자 인터페이스가 어렵기 때문에, [단일 채널 비행 모드](#single_channel) 선택을 사용하는 것이 좋습니다. 이 방법을 선택한 경우 가장 좋은 방법은 채널 할당한 다음에 *QGroundControl*에서 표시하는 정보를 기록하는 것입니다.
 :::
 
-The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
+다중 채널 선택 사용자 인터페이스를 사용하면 하나 이상의 모드를 하나 이상의 채널에 매핑할 수 있습니다. 항상 정의해야하는 일부 모드 (따라서 스위치)와 이를 할당해야하는 채널이 있습니다.
 
-To configure flight modes using the multi-channel UI:
+다중 채널 UI를 사용하여 비행 모드 설정 방법
 
-1. Turn on your RC transmitter.
-2. Start *QGroundControl* and connect the vehicle.
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
+1. RC 송신기를 켭니다.
+2. *QGroundControl*을 시작하고 기체를 연결합니다.
+3. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **비행 모드**를 선택하십시오.
     
     ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
