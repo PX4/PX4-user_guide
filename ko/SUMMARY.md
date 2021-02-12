@@ -36,7 +36,7 @@
   * [수평 보정](config/level_horizon_calibration.md)
   * [무선 조종기 설정](config/radio.md)
   * [조이스틱 설정](config/joystick.md)
-  * [비행 모드](config/flight_mode.md)
+  * [비행 모드 설정](config/flight_mode.md)
   * [배터리](config/battery.md)
   * [안전 설정](config/safety.md)
   * [모터/서보](config/motors.md)
