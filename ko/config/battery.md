@@ -1,16 +1,15 @@
-# Battery and Power Module Setup
+# 배터리 파워 모듈 설정
 
-This topic explains how to configure power settings.
+전원 설정 방법에 대하여 설명합니다.
 
-:::note
-The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+:::note PX4의 배터리 모니터링은 호환되는 하드웨어에서 사용할 수 있습니다. 대부분의 경우 배터리 전압을 측정하는 전원 모듈을 의미하며, 배터리와 차량 사이의 전류도 측정 할 수 있습니다.
 :::
 
 ## 개요
 
-The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+전원 설정의 목표는 배터리 잔량 비율 및 용량을 정확하게 추정하여 기체의 전원이 부족하여 충돌 사고가 발생하지 않도록 하는 것입니다 (또는 배터리가 과방 전으로 인해 손상되는 경우).
 
-PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
+PX4는 여러가지 효율적인 용량 추정 방법을 제공합니다.
 
 1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
 2. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
