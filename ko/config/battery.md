@@ -46,7 +46,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 배터리 특성을 나타내는 기본 설정이 제공됩니다. 아래 섹션에서는 각 필드에 대해 설정할 값들을 설명합니다.
 
-![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC 전원 설정](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 :::note
 *QGroundControl*을 설정시에 이 보기에서 배터리 1에 대한 값만을 설정할 수 있습니다. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
@@ -289,13 +289,13 @@ Li-Ion
   - 예를 들어, 방전율이 10C 인 2000mAh 배터리 (전압에 관계없이)는 20A의 전류 (2000 / 1000 = 2Ah x 10C = 20A)를 안전하고 지속적으로 방전할 수 있습니다.
 - C 등급은 항상 제조업체에서 제공합니다 (종종 배터리 팩 외부에 있음). 정확한 값을 계산할 수 있지만 추가 정보가 필요하고 베터리 셀의 내부 저항을 측정해야합니다.
 - LiPo 배터리는 항상 리튬이온 배터리보다 높은 C 등급을 갖습니다. 이는 화학적 성질과 셀당 내부 저항으로 인하여 LiPo 배터리의 방전 속도가 더 높습니다.
-- Following manufacturer guidelines for both charge and discharge C ratings is very important for the health of your battery and to operate your vehicle safely (i.e. reduce fires, “puffing” packs and other suboptimal states during charging and discharging).
+- C 등급의 충전 및 방전에 대한 제조업체 지침을 준수하는 것은 배터리의 상태와 기체를 안전하게 작동하는 데 매우 중요합니다 (예 : 충전 및 방전 중 화재, "퍼핑"팩 및 기타 차선 상태).
 
-### Energy Density
+### 에너지 밀도
 
-- Energy density is how much energy is able to be stored relative to battery weight. It is generally measured and compared in Watt Hour per Kilogram (Wh/Kg). 
-  - Watt-hours are simply calculated by taking the nominal (i.e. not the fully charged voltage) multiplied by the capacity, e.g. 3.7v X 5 Ah = 18.5Wh. If you had a 3 cell battery pack your pack would be 18.5Wh X 3 = 55 Wh of stored energy.
-- When you take battery weight into account you calculate energy density by taking the watt-hours and dividing them by weight. 
-  - E.g. 55 Wh divided by (battery weight in grams divided by 1000). Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
-- This number 185 Wh/Kg would be on the very high-end for a LiPo battery. A Li-Ion battery on the other hand can reach 260 Wh/Kg, meaning per kilogram of battery onboard you can carry 75 more watt-hours. 
-  - If you know how many watts your vehicle takes to fly (which a battery current module can show you), you can equate this increased storage at no additional weight into increased flight time.
+- 에너지 밀도는 배터리 중량당 저장할 수 있는 에너지의 양입니다. 일반적으로 킬로그램 당 와트시(Wh/Kg)로 측정/비교 됩니다. 
+  - 와트시는 공칭(완전 충전 된 전압이 아님)에 용량을 곱한 값으로 간단히 계산됩니다. 3.7v X 5 Ah = 18.5Wh. 3 셀 배터리 팩이있는 경우 팩은 18.5Wh X 3 = 55Wh의 저장 에너지가 됩니다.
+- 배터리 무게를 고려하면 와트시를 무게로 나누어 에너지 밀도를 계산합니다. 
+  - 예 : 55Wh 나눈 값 (그램 단위의 배터리 무게를 1000으로 나눈 값). 이 배터리의 무게가 300g이고 55/(300/1000)=185 Wh/Kg라고 가정합니다.
+- 이 숫자 185 Wh/Kg는 최고급 LiPo 배터리의 수치입니다. 반면에 리튬 이온 배터리는 260Wh/Kg에 달할 수 있습니다. 즉, 온보드 배터리 1kg 당 75 와트시를 더 사용가능합니다. 
+  - 차량이 비행하는 데 걸리는 와트 (배터리 전류 모듈이 표시 할 수 있음)를 알고 있다면, 이 증가 된 저장 용량을 추가 중량없이 비행 시간 증가와 동일시 할 수 있습니다.
