@@ -267,28 +267,28 @@ Li-Ion
 LiPo
 
 - 낮은 에너지 밀도(상대적임) 
-- Quality can vary given abundance of suppliers
+- 공급 업체가 많아지면 품질이 높아질 것입니다.
 
 Li-Ion
 
-- Not as common
-- Much more expensive
-- Not as widely available in large sizes and configurations
-- All cells are relatively small so larger packs are made up of many cells tied in series and parallel to create the required voltage and capacity
-- Lower discharge rates relative to battery size (C rating)
-- More difficult to adapt to vehicles that require high currents
-- Lower charging rates (relative to capacity)
-- Requires more stringent temperature monitoring during charge and discharge
-- Requires settings changes on the ESC to utilize max capacity ("standard" ESC low voltage settings are too high).
-- At close-to-empty the voltage of the battery is such that a ~3V difference is possible between a Lipo to Li-ion (while using a 6S battery). This could have implications on thrust expectations. 
+- 일반적으로 사용되지 않음.
+- 가격이 비쌈.
+- 대형 기체에서는 널리 사용되지 않음
+- 모든 셀은 상대적으로 작기 때문에 더 큰 팩은 필요한 전압과 용량을 생성하기 위해 직렬 및 병렬로 연결된 많은 셀로 구성됩니다.
+- 배터리 크기에 비해 낮은 방전율 (C 등급)
+- 고전류가 필요한 차량에 적용하기 어렵습니다.
+- 낮은 충전 속도 (용량 대비)
+- 충전과 방전시에 면밀한 온도 모니터링이 필요합니다.
+- 최대 용량을 사용하려면 ESC에서 설정을 변경해야합니다 ( "표준"ESC 저전압 설정이 너무 높음).
+- 거의 비었을 때 배터리의 전압은 Lipo와 Li-ion 사이에 ~ 3V 차이가있을 수 있습니다 (6S 배터리 사용시). 추력 기대치에 영향을 미칠 수 있습니다. 
 
-### C Ratings
+### C 등급
 
-- A C rating is simply a multiple of the stated capacity of any battery type.
-- A C rating is relevant (and differs) for both charge and discharge rates. 
-  - For example, a 2000 mAh battery (irrespective of voltage) with a 10C discharge rate can safely and continuously discharge 20 amps of current (2000/1000=2Ah x 10C = 20 amps).
-- C Ratings are always given by the manufacturer (often on the outside of the battery pack). While they can actually be calculated, you need several pieces of information, and to measure the internal resistance of the cells.
-- LiPo batteries will always have a higher C rating than a Li-Ion battery. This is due to chemistry type but also to the internal resistance per cell (which is due to the chemistry type) leading to higher discharge rates for LiPo batteries.
+- C 등급은 단순히 모든 배터리 유형의 명시된 용량의 배수입니다.
+- C 등급은 충전 및 방전 속도와 관련이 있으며 다릅니다. 
+  - 예를 들어, 방전율이 10C 인 2000mAh 배터리 (전압에 관계없이)는 20A의 전류 (2000 / 1000 = 2Ah x 10C = 20A)를 안전하고 지속적으로 방전할 수 있습니다.
+- C 등급은 항상 제조업체에서 제공합니다 (종종 배터리 팩 외부에 있음). 정확한 값을 계산할 수 있지만 추가 정보가 필요하고 베터리 셀의 내부 저항을 측정해야합니다.
+- LiPo 배터리는 항상 리튬이온 배터리보다 높은 C 등급을 갖습니다. 이는 화학적 성질과 셀당 내부 저항으로 인하여 LiPo 배터리의 방전 속도가 더 높습니다.
 - Following manufacturer guidelines for both charge and discharge C ratings is very important for the health of your battery and to operate your vehicle safely (i.e. reduce fires, “puffing” packs and other suboptimal states during charging and discharging).
 
 ### Energy Density
