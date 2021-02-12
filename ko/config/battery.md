@@ -75,7 +75,7 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) 및 [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)에 해당합니다.
 :::
 
-### 전체 전압 (셀당)
+### 충전 완료 전압 (셀당)
 
 이렇게하면 각 셀의 *공칭* 최대 전압(셀이 "최대"로 간주되는 최저 전압)이 설정됩니다.
 
@@ -94,51 +94,51 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) 및 [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED)에 해당합니다.
 :::
 
-### Empty Voltage (per cell)
+### 방전 전압 (셀 당)
 
-This sets the nominal minimum safe voltage of each cell (using below this voltage may damage the battery).
+이는 각 셀의 공칭 최소 안전 전압을 설정합니다(이 전압 미만을 사용하면 배터리가 손상 될 수 있음).
 
 :::note
-There is no single value at which a battery is said to be empty. If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash). If you choose a value that is too high you may unnecessarily curtail your flight.
+배터리가 비어있을을 설정하는 단일 값은 없습니다. 너무 낮은 값을 선택하면 과방전으로 인해 배터리가 손상될 수 있습니다 (그리고, 기체 충돌이 발생할 수 있습니다). 너무 높은 값을 선택하면 비행 시간이 줄어들게 됩니다.
 :::
 
-A rule of thumb for minimum per-cell voltages:
+최소 셀당 전압에 대한 경험 규칙
 
-| Level                                           | LiPo (V) | LiIon (V) |
-| ----------------------------------------------- | -------- | --------- |
-| Conservative (voltage under no-load)            | 3.7      | 3         |
-| "Real" minimum (voltage under load/while flying | 3.5      | 2.7       |
-| Damage battery (voltage under load)             | 3.0      | 2.5       |
+| 단계                   | LiPo (V) | LiIon (V) |
+| -------------------- | -------- | --------- |
+| 보수적 (무부하 전압)         | 3.7      | 3         |
+| "실제"최소값 (부하/비행 중 전압) | 3.5      | 2.7       |
+| 배터리 손상 (부하 전압)       | 3.0      | 2.5       |
 
 :::tip
-Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
+안전을 위하여 배터리를 빨리 재충전할수록 더 좋습니다. 배터리를 오랜 기간 사용할 수 있습니다.
 :::
 
 :::note
-This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY).
+이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) 및 [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY)에 해당합니다.
 :::
 
-### Voltage Divider
+### 전압 분배기
 
-If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+전원 모듈과 비행 컨트롤러의 ADC를 통해 전압을 측정하는 차량이있는 경우 보드 당 한 번씩 측정을 확인하고 보정하여야 합니다. 보정 작업에는 멀티 미터가 필요합니다.
 
-The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+분배기를 보정하는 가장 쉬운 방법은 *QGroundControl*을 사용하고 [설정 > 전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl 사용 설명서)에 대한 단계별 가이드를 따르는 것입니다.
 
 :::note
-This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
+이 설정은 [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) 및 [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV) 매개 변수에 해당합니다.
 :::
 
 <span id="current_divider"></span>
 
-### Amps per volt
+### 볼트 당 암페어
 
 :::tip
-This setting is not needed if you are using the basic configuration (without load compensation etc.)
+기본 구성 (부하 보상 없음 등)을 사용하는 경우에는이 설정이 필요하지 않습니다.
 :::
 
-If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+[전류 기반 부하 보상](#current_based_load_compensation) 또는 [전류 통합](#current_integration)을 사용하는 경우 전압 분배기 당 암페어를 보정하여야 합니다.
 
-The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+분배기를 보정하는 가장 쉬운 방법은 *QGroundControl*을 사용하고 [설정 > 전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl 사용 설명서)에 대한 단계별 가이드를 따르는 것입니다.
 
 :::note
 This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
