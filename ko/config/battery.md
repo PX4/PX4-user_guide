@@ -141,12 +141,12 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 분배기를 보정하는 가장 쉬운 방법은 *QGroundControl*을 사용하고 [설정 > 전원 설정](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl 사용 설명서)에 대한 단계별 가이드를 따르는 것입니다.
 
 :::note
-This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
+이 설정은 [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) 및 [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V) 매개 변수에 해당합니다.
 :::
 
 <span id="load_compensation"></span>
 
-## Voltage-based Estimation with Load Compensation
+## 부하 보상을 통한 전압 기반 추정
 
 :::note
 With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
