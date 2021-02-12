@@ -1,8 +1,8 @@
 # 비행 모드 설정
 
-[Flight Modes](../flight_modes/README.md) provide different types of *autopilot-assisted flight*, and *fully autonomous flight* via missions or offboard (companion computer) control. Different flight modes allow new users to learn flying with a more forgiving platform than provided by basic RC control alone. They also enable automation of common tasks like taking off, landing and returning to the original launch position.
+[비행 모드](../flight_modes/README.md)는 임무 또는 기내 (보조 컴퓨터) 제어를 통해 다양한 유형의 *자동 조종 장치 지원 비행*과 *완전 자율 비행*을 제공합니다. 다양한 비행 모드를 통해 사용자는 기본 RC 비행 보다 더욱 편리한 플랫폼에서의 비행법을 배울 수 있습니다. 또한, 이륙, 착륙 및 출발지 복귀와 같은 작업을 자동화할 수 있습니다.
 
-PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 무선 조종기에서 비행 모드를 선택할 수 있습니다. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
 
 This topic explains how to map flight modes to the switches on your radio control transmitter.
 
