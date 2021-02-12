@@ -20,7 +20,7 @@
 * [조이스틱 설정](../config/joystick.md)
 * [비행 모드](../config/flight_mode.md)(선택 사항)
 * [배터리](../config/battery.md)(선택 사항)
-* [안전](../config/safety.md)(선택 사항)
+* [안전 설정](../config/safety.md)(선택 사항)
 * [모터/서보](../config/motors.md)
 
 :::note
