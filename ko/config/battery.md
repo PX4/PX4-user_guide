@@ -160,55 +160,55 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 
 PX4는 아래 두 매개 변수 중 하나를 [설정](../advanced_config/parameters.md)하여 활성화되는 두 가지 부하 보상 방법을 지원합니다.
 
-- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
-- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
+- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [전류 기반 부하 보상](#current_based_load_compensation) (권장).
+- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [추력 기반 부하 보상](#thrust_based_load_compensation).
 
 <span id="current_based_load_compensation"></span>
 
-### Current-based Load Compensation (recommended)
+### 전류 기반 부하 보상 (권장되는 방식)
 
-This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
+이 부하 보상 방법은 부하를 결정하기 위해 전류를 측정합니다. [추력 기반 부하 보상](#thrust_based_load_compensation)보다 훨씬 정확하지만 전류 센서가 필요합니다.
 
-To enable this feature:
+이 기능을 활성화하려면
 
-1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries).
+1. 매개 변수 [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL)을 배터리 1의 내부 저항으로 설정합니다 (다른 배터리에 대해서도 반복).
   
 :::tip
-There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+배터리의 내부 저항을 측정 할 수있는 LiPo 충전기가 있습니다. 일반적인 값은 셀당 5mΩ이지만 방전 전류 등급, 수명 및 셀 상태에 따라 달라질 수 있습니다.
 :::
 
-2. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
+2. 기본 설정 화면에서 [전압 분배기당 전류값](#current_divider)을 보정해야합니다.
 
 <span id="thrust_based_load_compensation"></span>
 
-### Thrust-based Load Compensation
+### 추력 기반 부하 보상
 
-This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
+이 부하 보상 방법은 모터에 할당된 총 추력을 기준으로 부하를 추정합니다.
 
 :::caution
-This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+이 방법은 추력 명령과 전류 사이에 지연이 있고 추력이 전류에 선형 적으로 비례하지 않기 때문에 정확하지 않습니다. 차량에 전류 센서가있는 경우에는 [전류 기반 부하 보상](#current_based_load_compensation) 방법을 사용하십시오.
 :::
 
-To enable this feature:
+이 기능을 활성화하려면
 
-1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
+1. 매개 변수 [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP)를 최대 추력 부하에서 셀에 표시되는 전압 강하량으로 설정합니다.
 
 <span id="current_integration"></span>
 
-## Voltage-based Estimation Fused with Current Integration
+## 전류 통합과 융합된 전압 기반 추정
 
 :::note
-This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
+이것은 상대적 배터리 소모량을 측정하는 가장 정확한 방법입니다. 부팅시마다 새로 충전한 배터리를 정확하게 설정하면 추정 품질이 스마트 배터리의 품질과 비슷해질 것입니다 (이론적으로 정확한 남은 비행 시간 추정이 가능합니다).
 :::
 
-This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. It requires hardware that can accurately measure current.
+이 방법은 사용 가능한 용량에 대한 전압 기반 추정치를 소비 된 충전의 전류 기반 추정치와 *융합*하여 남은 배터리 용량을 평가합니다. 전류를 정확하게 측정할 수있는 하드웨어가 필요합니다.
 
-To enable this feature:
+이 기능을 활성화하려면
 
-1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+1. 먼저 [전류 기반 부하 보상](#current_based_load_compensation)을 사용하여 정확한 전압 추정을 설정합니다.
   
 :::tip
-Including calibrating the [Amps per volt divider](#current_divider) setting.
+[전압 분배기 당 전류](#current_divider) 설정 보정 포함.
 :::
 
 2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
