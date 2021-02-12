@@ -36,62 +36,62 @@ PX4는 여러가지 효과적인 용량 추정 방법을 제공합니다.
 기본 배터리 설정은 용량 추정 기본 방법을 사용하도록 PX4를 구성합니다. 이 방법은 측정 된 원시 배터리 전압을 "빈"셀과 "충전"셀 (셀 수에 따라 조정 됨)에 대한 셀 전압 범위와 비교합니다.
 
 :::note
-This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+이 접근 방식은 측정 전압이 부하 상태에서 변함에 따라 추정된 전하의 변동으로 인하여 상대적으로 대략적인 추정치를 계산합니다.
 :::
 
-To configure the basic settings for battery 1:
+배터리 1의 기본 설정 방법
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+1. *QGroundControl*을 시작하고 기체를 연결합니다.
+2. 상단 도구 모음에서 **톱니 바퀴** 아이콘(기체 설정)을 선택한 다음 가장자리 표시줄에서 **파워**를 선택하십시오.
 
-You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
+배터리 특성을 나타내는 기본 설정이 제공됩니다. 아래 섹션에서는 각 필드에 대해 설정할 값들을 설명합니다.
 
 ![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 :::note
-At time of writing *QGroundControl* only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
+*QGroundControl*을 설정시에 이 보기에서 배터리 1에 대한 값만을 설정할 수 있습니다. 배터리가 여러 개인 경우에는 다음 섹션에 설명 된대로 배터리 2 (`BAT2_*`)에 대한 [매개 변수를 직접 설정](../advanced_config/parameters.md) 하여야 합니다.
 :::
 
-### Number of Cells (in Series)
+### 셀의 갯수(직렬 연결)
 
-This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
+이것은 배터리에 직렬로 연결된 셀 수를 설정합니다. 일반적으로 배터리에 "S"앞에 숫자로 표시합니다 (예 : "3S", "5S").
 
 :::note
-The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*. The battery voltage at the terminals is then a multiple of the cell voltage.
+단일 갈바닉 배터리 셀의 전압은 배터리 유형의 화학적 특성에 따라 달라집니다. 리튬 폴리머(LiPo) 배터리와 리튬 이온 배터리는 모두 3.7V의 동일한 *이름의* 셀 전압을 갖습니다. 더 높은 전압(기체에 효율적인 전력을 공급함)을 공급하기 위하여 여러개의 셀이 *직렬로*로 연결됩니다. 터미널의 배터리 전압은 셀 전압의 배수입니다.
 :::
 
-If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for these batteries:
+셀 개수가 제공되지 않은 경우 배터리 전압을 단일 셀의 공칭 전압으로 나누어 계산할 수 있습니다. 아래의 표는 배터리의 전압-셀 관계를 나타냅니다.
 
-| Cells | LiPo (V) | LiIon (V) |
-| ----- | -------- | --------- |
-| 1S    | 3.7      | 3.7       |
-| 2S    | 7.4      | 7.4       |
-| 3S    | 11.1     | 11.1      |
-| 4S    | 14.8     | 14.8      |
-| 5S    | 18.5     | 18.5      |
-| 6S    | 22.2     | 22.2      |
+| 셀  | LiPo (V) | LiIon (V) |
+| -- | -------- | --------- |
+| 1S | 3.7      | 3.7       |
+| 2S | 7.4      | 7.4       |
+| 3S | 11.1     | 11.1      |
+| 4S | 14.8     | 14.8      |
+| 5S | 18.5     | 18.5      |
+| 6S | 22.2     | 22.2      |
 
 :::note
-This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS).
+이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) 및 [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)에 해당합니다.
 :::
 
-### Full Voltage (per cell)
+### 전체 전압 (셀당)
 
-This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
+이렇게하면 각 셀의 *공칭* 최대 전압(셀이 "최대"로 간주되는 최저 전압)이 설정됩니다.
 
-The value should be set slightly lower that the nominal maximum cell voltage for the battery, but not so low that the estimated capacity is still 100% after a few minutes of flight.
+이 값은 배터리의 공칭 최대 셀 전압보다 약간 낮게 설정해야하지만, 비행 몇 분 후에도 예상 용량이 100 %가 될 정도로 낮지 않아야 합니다.
 
-Appropriate values to use are:
+사용할 적절한 값은 다음과 같습니다.
 
-- **LiPo:** 4.05V (default in *QGroundControl*)
+- **LiPo:** 4.05V (*QGroundControl*의 기본값)
 - **LiIon:** 4.05V
 
 :::note
-The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
+전체 배터리의 전압은 충전 후 시간이 지남에 따라 약간 떨어질 수 있습니다. 최대 값보다 약간 낮게 설정하여 이 하락값을 보정합니다.
 :::
 
 :::note
-This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) and [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED).
+이 설정은 [매개 변수](../advanced_config/parameters.md) : [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) 및 [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED)에 해당합니다.
 :::
 
 ### Empty Voltage (per cell)
