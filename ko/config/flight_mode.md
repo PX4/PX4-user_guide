@@ -96,9 +96,9 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
 
 먼저 송신기를 설정하십시오. 아래에서는 Taranis "SD"스위치를 채널 5에 매핑하는 방법을 보여줍니다. 아래와 같이 Taranis UI '믹서' 페이지에서 수행됩니다.
 
-![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
+![Taranis - 전환 채널 매핑](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
-![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
+![Taranis - 채널 구성](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
 그런 다음 *QGroundControl*의 단일 채널 모드 선택 옵션에서 채널과 비행 모드를 선택할 수 있습니다.
 
@@ -129,26 +129,26 @@ PX4를 사용하면 지상국(태블릿 또는 데스크톱) 프로그램이나 
     ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
 :::tip
-If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
+화면이 *단일 채널 모드*로 열리면 **다중 채널 모드 선택** 버튼을 클릭하여 화면을 변경합니다.
 :::
 
-4. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel). There are a number of complications on the mode to channel assignments:
+4. 스위치에 할당할 모드를 선택하고 관련 채널을 선택합니다 (선택된 모드는 사용자 인터페이스에서 *이동*되어 채널별로 그룹화됩니다). 채널 할당 모드에는 여러 가지 복잡한 문제가 있습니다.
     
-    * Some modes cannot be manually edited (are grayed out) because their channel and threshold level are automatically defined based on the values of other mode settings. For example: 
-        * *Mission* mode - is automatically assigned the same channel number as *Hold* (if the channel for *Hold* is defined by the user). If the channel for *Hold* is not defined, *Mission* mode is automatically assigned the same channel as *Stabilized/Main* mode. This, for example, prevents the user from defining *Stabilized/Main* and *Mission* mode on different channels, to ensure that the user cannot switch both modes ON at the same time. 
-        * *Altitude* mode - is automatically assigned the same channel number as *Position Control* (if it is defined), or otherwise the same channel as *Stabilized/Main* mode.
-    * *Assist* mode - This mode is added to the same channel as *Stabilized/Main* mode if (and only if) *Position Control* is enabled and defined on a different channel than *Stabilized/Main*.
-5. Click the **Generate Thresholds** button. 
-    * This will automatically create threshold values for all modes, spread evenly across each channel for its assigned modes. For example, in the mode assignment shown above, most modes are assigned to mode 5, and you can see that the channel thresholds for each mode are spread evenly across the channel. 
+    * 일부 모드는 다른 모드 설정 값에 따라 채널 및 임계 값 레벨이 자동으로 정의되기 때문에 수동으로 편집할 수 없습니다 (회색으로 표시됨). 예: 
+        * *미션* 모드 - *보류*와 동일한 채널 번호가 자동으로 할당됩니다 (*보류*에 대한 채널이 사용자에 의해 정의 된 경우). *Hold*에 대한 채널이 정의되어 있지 않으면, *Mission* 모드는 *Stabilized/Main* 모드와 동일한 채널이 자동으로 할당됩니다. 예를 들어 사용자가 다른 채널에서 *Stabilized/Main* 및 *Mission* 모드를 정의하지 못하도록하여 사용자가 동시에 두 모드를 모두 켤 수 없도록합니다. 
+        * *고도* 모드 - *위치 제어* (정의 된 경우)와 동일한 채널 번호가 자동으로 할당되거나 그렇지 않으면, *안정화/메인*과 동일한 채널이 자동으로 할당됩니다.
+    * *Assist* 모드 - 이 모드는 *위치 제어*가 활성화되고 정의 된 경우 *안정화/메인* 모드와 동일한 채널에 추가됩니다. *안정화/기본*과 다른 채널입니다.
+5. **임계치 생성** 버튼을 클릭합니다. 
+    * 모든 모드에 대한 임계 값이 자동으로 생성되고 할당 모드에 대해 각 채널에 균등하게 분배됩니다. 예를 들어, 위에 표시된 모드 할당에서 대부분의 모드는 모드 5에 할당되며 각 모드의 채널 임계 값이 채널 전체에 고르게 분포되어 있음을 알 수 있습니다. 
 
-This mode is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=6m53s) (youtube).
+이 모드에 대한 시연은 [자동 조종 장치 설정 동영상](https://youtu.be/91VGmdSlbo4?t=6m53s) (유투브)에서 볼 수 있습니다.
 
 :::note
-This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](../concept/flight_modes.md#flight-mode-evaluation-diagram).
+이 비행 모드 선택 메커니즘은 PX4가 어떤 모드를 선택해야하는지 결정하는 방식으로 인해 비교적 복잡합니다. 이 [순서도](../concept/flight_modes.md#flight-mode-evaluation-diagram)를 참고하십시오.
 :::
 
-## Further Information
+## 추가 정보
 
-* [Flight Modes Overview](../flight_modes/README.md)
-* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
-* [PX4 Setup Video - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (Youtube)
+* [PX4 비행 모드 개요](../flight_modes/README.md)
+* [QGroundControl > 비행 모드](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+* [PX4 설정 비디오 - @6m53s](https://youtu.be/91VGmdSlbo4?t=6m53s) (유튜브)
