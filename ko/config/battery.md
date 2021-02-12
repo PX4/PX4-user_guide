@@ -211,62 +211,62 @@ PX4는 아래 두 매개 변수 중 하나를 [설정](../advanced_config/parame
 [전압 분배기 당 전류](#current_divider) 설정 보정 포함.
 :::
 
-2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+2. 매개 변수 [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY)를 라벨에 인쇄된 배터리 용량의 약 90 %로 설정합니다.
   
 :::note
-Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+이 값을 너무 높게 설정하지 마십시오. 예상치가 잘못되거나 예상 용량이 갑자기 떨어질 수 있습니다.
 :::
 
 * * *
 
-**Additional information**
+**추가 정보**
 
-The estimate of the charge that has been consumed over time is produced by mathematically integrating the measured current (this approach provides very accurate energy consumption estimates).
+시간이 지남에 따라 소비된 전하의 추정치는 측정된 전류를 수학적으로 통합하여 생성됩니다 (이 접근법은 매우 정확한 소비 에너지의 추정치를 제공합니다).
 
-At system startup PX4 first uses a voltage-based estimate to determine the initial battery charge. This estimate is then fused with the value from current integration to provide a combined better estimate. The relative value placed on each estimate in the fused result depends on the battery state. The emptier the battery gets, the more of the voltage based estimate gets fused in. This prevents deep discharge (e.g. because it was configured with the wrong capacity or the start value was wrong).
+시스템 시작시 PX4는 먼저 전압 기반 추정치를 사용하여 초기 배터리 충전량을 결정합니다. 그런 다음이 추정치를 현재 통합의 값과 융합하여 더 나은 추정치를 제공합니다. 융합된 각 추정치에 배치된 상대값은 배터리 상태에 따라 달라집니다. 배터리가 비워 질수록 전압 기반 추정치가 더 많이 융합됩니다. 이는 과방전을 방지합니다 (예 : 잘못된 용량으로 구성되었거나, 초기치가 잘못 되었기 때문).
 
-If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
+항상 정상적인 전체 배터리로 시작하는 경우이 방법은 스마트 배터리에서 사용하는 방법과 유사합니다.
 
 :::note
-Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+전류 통합은 *초기* 용량을 결정할 수있는 방법이 없기 때문에 자체적으로 (전압 기반 추정없이) 사용할 수 없습니다. 전압 추정을 사용하면 초기 용량을 추정하고 가능한 오류에 대한 지속적인 피드백을 제공할 수 있습니다 (예 : 배터리에 결함이 있거나 다른 방법을 사용하여 계산 된 용량간에 불일치가있는 경우).
 :::
 
-## Parameter Migration Notes
+## 매개 변수 마이그레이션 참고 사항
 
-Multiple battery support was added after PX4 v1.10, resulting in the creation of new parameters with prefix `BAT1_` corresponding to all the old parameters with prefix `BAT_`. Changes to `BAT_` and `BAT1_` are currently synchronised:
+PX4 v1.10 이후 다중 배터리 지원이 추가되어 `BAT_` 접두사가있는 모든 이전 매개 변수에 해당하는 접두사 `BAT1_`이있는 새 매개 변수가 생성되었습니다. `BAT_` 및 `BAT1_`에 대한 변경 사항은 현재 동기화되어 있습니다.
 
-- If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
-- If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.
+- 이전 매개 변수 또는 새 매개 변수가 변경되면 값이 다른 매개 변수에 복사됩니다 (양방향으로 동기화 된 상태로 유지됨).
+- 부팅시 이전 새 매개 변수가 다른 경우 이전 `BAT_` 매개 변수의 값이 새 `BAT1_` 매개 변수에 복사됩니다.
 
-## Battery-Type Comparison
+## 배터리 유형 비교
 
-This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
+이 섹션에서는 여러가지 유형의 배터리(특히 LiPo 및 Li-Ion)를 개략적으로 비교합니다.
 
-### Overview
+### 개요
 
-- Li-Ion batteries have a higher energy density than Lipo battery packs but that comes at the expense of lower discharge rates and increased battery cost.
-- LiPo batteries are readily available and can withstand higher discharge rates that are common in multi-rotor aircraft.
-- The choice needs to be made based on the vehicle and the mission being flown. If absolute endurance is the aim then there is more of a benefit to flying to a Li-Ion battery but similarly, more caution needs to be taken. As such, the decision should be made based on the factors surrounding the flight.
+- Li-Ion 배터리는 LiPo 배터리 팩보다 에너지 밀도가 높지만, 방전율이 낮아지고 배터리 비용이 비쌉니다.
+- LiPo 배터리는 쉽게 구할 수 있으며, 다중 로터 항공기에서 흔히 볼 수 있는 높은 방전율을 견딜수 있습니다.
+- 비행기의 종류와 임무에 따라 선택하여야 합니다. 리튬이온 배터리가 내구성에 이점이 많지만, 조심하여 사용하여야 합니다. 따라서 비행 목적과 상황에 따라 결정하여야합니다.
 
-### Advantages
+### 장점
 
 LiPo
 
-- Very common
-- Wide range of sizes, capacities and voltages
-- Inexpensive
-- High discharge rates relative to capacity (high C ratings)
-- Higher charge rates
+- 보편적으로 사용됨.
+- 다양한 크기, 용량 및 전압
+- 저렴한 가격
+- 용량 대비 높은 방전율 (높은 C 등급)
+- 높은 충전율
 
 Li-Ion
 
-- Much higher energy density (up to 60% higher)
+- 높은 에너지 밀도 (최대 60 % 더 높음)
 
-### Disadvantages:
+### 단점:
 
 LiPo
 
-- Low (relative) energy density 
+- 낮은 에너지 밀도(상대적임) 
 - Quality can vary given abundance of suppliers
 
 Li-Ion
