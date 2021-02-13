@@ -186,39 +186,39 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 관련 매개 변수는 다음과 같습니다.
 
-| 매개변수                                                                         | 설명                                                                                                                |
-| ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | 오프 보드 단락이후 안전장치 동작 지연 여부 설정.                                                                                      |
-| [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.                                         |
-| [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode. |
+| 매개변수                                                                         | 설명                                                                 |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | 오프 보드 단락이후 안전장치 동작 지연 여부 설정.                                       |
+| [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | RC를 사용할 수 없는 경우 비상 안전조치 : 착륙 모드, 대기 모드, 귀환 모드.                     |
+| [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | RC를 사용할 수있는 경우 비상 안전조치 : 위치 모드, 고도 모드, 수동 모드, 귀환 모드, 착륙 모드, 대기 모드. |
 
-### Mission Failsafe
+### 임수 실패 안전 장치
 
-The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great). The failsafe action is that the mission will not be run.
+임무 실패 안전 장치는 설정된 미션이 새로운 이륙 위치에서 시작되거나 웨이포인트 거리가 너무 큰 경우를 방지합니다. 안전조치는 임무가 실행되지 않는 것입니다.
 
-The relevant parameters are shown below:
+관련 매개 변수는 다음과 같습니다.
 
-| Parameter                                                                | Description                                                                                                                                     |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less. |
-| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value.                                    |
+| 매개변수                                                                     | 설명                                                            |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | 현재 웨이포인트가 홈 위치에서 멀리 떨어진 경우 임무가 시작되지 않습니다. 값이 0 이하이면 비활성화 됩니다. |
+| [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | 두 개의 웨이포인트 사이의 거리가 크면 임무가 시작되지 않습니다.                          |
 
-### Traffic Avoidance Failsafe
+### 교통 회피 안전장치
 
-The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from [ADSB transponders](../advanced_features/traffic_avoidance_adsb.md)) during missions.
+교통 회피 안전장치를 사용하면 PX4가 미션 중에 transponders 데이터 (예 : [ADSB transponder](../advanced_features/traffic_avoidance_adsb.md)에서)에 응답할 수 있습니다.
 
-The relevant parameters are shown below:
+관련 매개 변수는 다음과 같습니다.
 
-| Parameter                                                                      | Description                                                      |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
+| 매개변수                                                                           | 설명                                       |
+| ------------------------------------------------------------------------------ | ---------------------------------------- |
+| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | 비상 안전조치를 설정합니다 : 비활성화, 경고, 귀환 모드, 착륙 모드. |
 
-### Adaptive QuadChute Failsafe
+### 적응형 QuadChute 안전장치
 
-Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode. If triggered, the vehicle will transition to multicopter mode and enter failsafe [Return mode](../flight_modes/return.md).
+푸셔 모터 (또는 대기 속도 센서)가 고장나거나, 고정익이 더 이상 고정익 모드에서 원하는 고도 설정 값에 도달할 수 없는 경우를위한 안전 장치입니다. 동작시에 수직이착륙기는 멀티 콥터 모드로 전환되고 안전 장치는 [반환 모드](../flight_modes/return.md)로 설정됩니다.
 
 :::note
-You can pause *Return mode* and transition back to fixed wing if desired. Note that if the condition that caused the failsafe still exists, it may trigger again!
+필요한 경우 *귀환 모드*를 일시 중지하고 고정익 비행으로 전환할 수 있습니다. Note that if the condition that caused the failsafe still exists, it may trigger again!
 :::
 
 The relevant parameters are shown below:
