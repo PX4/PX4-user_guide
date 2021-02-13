@@ -278,37 +278,37 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 ## 비상 스위치
 
-Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
+원격 제어 스위치를 구성하여 (*QGroundControl* [비행 모드 설정](../config/flight_mode.md)의 일부) 문제 또는 긴급 상황 발생시 신속한 수정 조치를 취할 수 있습니다. 예를 들어 모든 모터를 중지하거나 [귀환 모드](#return_switch)를 활성화합니다.
 
-This section lists the available emergency switches.
+이 섹션에는 사용 가능한 비상 스위치를 나열합니다.
 
 <span id="kill_switch"></span>
 
-### Kill Switch
+### 중지 스위치
 
-A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
+중지 스위치는 즉시 모든 모터 출력을 중지합니다 (비행시 차량이 떨어지기 시작합니다)! 5 초 이내에 스위치를 되돌리면 모터가 재작동합니다. 5 초 후 기체의 시동은 꺼집니다. 모터를 재작동하려면 재시동하여야 합니다.
 
 <span id="arming_switch"></span>
 
-### Arm/Disarm Switch
+### 시동/비시동 스위치
 
-The arm/disarm switch is a *direct replacement* for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+시동/비소동 스위치는 기본 스틱 기반 무장/무장 해제 메커니즘의 *직접 교체*입니다 (동일한 목적 : 모터 시작/정지 전에 의도적 인 단계가 있는지 확인). 다음과 같은 이유로 기본 메커니즘보다 우선적으로 사용될 수 있습니다.
 
-* Of a preference of a switch over a stick motion.
-* It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
-* There is no delay (it reacts immediately).
+* 스틱 동작보다 스위치를 선호합니다.
+* 특정 스틱 동작으로 공중에서 실수로 시동/비시동 하는 것을 방지합니다.
+* 지연 시간이 없습니다 (즉시 동작합니다).
 
-The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight*. This includes:
+시동/비시동 스위치는 *비행중 비시동을 지원*하는 [비행 모드](../getting_started/flight_modes.md)의 모터를 즉시 해제 (정지)합니다. 여기에는 다음이 포함됩니다.
 
-* *Manual mode*
-* *Acro mode*
-* *Stabilized*
+* *수동 모드*
+* *Acro 모드*
+* *안정 모드*
 * *Rattitude*
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+비행중 비시동을 지원하지 않는 모드의 경우 비행 중 스위치가 무시되지만 착륙후에는 사용할 수 있습니다. 여기에는 *위치 모드* 및 자율 모드 (예 : *미션*, *착륙* 등)가 포함됩니다.
 
 :::note
-[Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
+[자동 비시동 시간 제한](#auto-disarming-timeouts) (예 : [COM_DISARM_LAND](#COM_DISARM_LAND)을 통해)은 설정/해제 스위치와 독립적입니다. 즉, 스위치가 설정되어 있어도 시간 제한이 계속 작동합니다.
 :::
 
 <!--
@@ -318,9 +318,9 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 <span id="return_switch"></span>
 
-### Return Switch
+### 귀환 스위치
 
-A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)를 활성화할 수 있습니다.
 
 ## Other Safety Settings
 
