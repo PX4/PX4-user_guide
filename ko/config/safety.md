@@ -161,34 +161,34 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 * `0` : 원격 제어 가능. 고도 추정치를 사용할 수 있으면 *고도 모드*로 전환하고, 그렇지 않으면 *안정 모드*로 전환됩니다.
 * `1` : 원격 제어 *불가*. 고도값을 사용할 수있는 경우 *착륙 모드*로 전환하고, 그렇지 않으면 비행 종료를 입력합니다.
 
-Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land.
+고정익에는 위치 손실시 착륙이전의 선회 비행 시간을 정의하는 매개 변수가 [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) 있습니다.
 
-The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
+아래 표시된 모든 차량에 대한 관련 매개 변수 ([GPS 장애 내비게이션 매개 변수](../advanced_config/parameter_reference.md#gps-failure-navigation) 참조) :
 
-| Parameter                                                                        | Description                                                                                               |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.                                            |
-| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC. |
-| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | Circuit breaker for position error check (disables error checks in all modes).                            |
+| 매개변수                                                                             | 설명                                                   |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 위치 손실 후 안전 장치 동작 지연 여부 설정                            |
+| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 임무 중 위치 제어 탐색 손실 응답. 값 : 0 - RC 사용 가정, 1 - RC 없음 가정. |
+| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 위치 오류 검사를위한 회로 차단기 (모든 모드에서 오류 검사 비활성화).             |
 
-Parameters that only affect Fixed Wing vehicles:
+고정익 전용 매개 변수:
 
-| Parameter                                                              | Description                                                                                         |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable. |
-| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | Fixed pitch angle while circling.                                                                   |
-| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | Fixed roll/bank angle while circling.                                                               |
-| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.                                                                              |
+| 매개변수                                                                   | 설명                                                 |
+| ---------------------------------------------------------------------- | -------------------------------------------------- |
+| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | 선회 비행 시간 (비행 종료 전 GPS 복구 대기). 비활성화 하려면 0으로 설정하십시오. |
+| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 선회 비행시 고정 피치 각도.                                   |
+| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                 |
+| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                           |
 
-### Offboard Loss Failsafe
+### 오프 보드 안전장치
 
-The *Offboard Loss Failsafe* is triggered if the offboard link is lost while under Offboard control. Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
+오프 보드 제어시에 오프 보드 링크가 손실되면 *오프 보드 안전장치</ 0>가 동작합니다. RC 연결을 사용할 수 있는지 여부에 따라 다른 안전장치 동작을 지정할 수 있습니다.</p> 
 
-The relevant parameters are shown below:
+관련 매개 변수는 다음과 같습니다.
 
-| Parameter                                                                    | Description                                                                                                       |
+| 매개변수                                                                         | 설명                                                                                                                |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Delay after loss of offboard connection before the failsafe is triggered.                                         |
+| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | 오프 보드 단락이후 안전장치 동작 지연 여부 설정.                                                                                      |
 | [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.                                         |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode. |
 
