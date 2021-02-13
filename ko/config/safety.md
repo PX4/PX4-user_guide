@@ -7,9 +7,9 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 <span id="failsafe_actions"></span>
 
-## 사고방지 기능
+## 안전장치 기능
 
-각각의 안전장치들은 여러가지 동작들로 조합됩니다. 보다 일반적인 안전 조치는 다음과 같습니다.<span id="action_flight_termination"></span>비행 종료</ 0></td> 
+안전장치 기능들은 여러가지 동작들로 조합됩니다. 일반적인 안전장치 기능들은 아래와 같습니다.<span id="action_flight_termination"></span>비행 종료</ 0></td> 
 
 </tr> 
 
