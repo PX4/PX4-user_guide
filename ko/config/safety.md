@@ -218,18 +218,18 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 푸셔 모터 (또는 대기 속도 센서)가 고장나거나, 고정익이 더 이상 고정익 모드에서 원하는 고도 설정 값에 도달할 수 없는 경우를위한 안전 장치입니다. 동작시에 수직이착륙기는 멀티 콥터 모드로 전환되고 안전 장치는 [반환 모드](../flight_modes/return.md)로 설정됩니다.
 
 :::note
-필요한 경우 *귀환 모드*를 일시 중지하고 고정익 비행으로 전환할 수 있습니다. Note that if the condition that caused the failsafe still exists, it may trigger again!
+필요한 경우 *귀환 모드*를 일시 중지하고 고정익 비행으로 전환할 수 있습니다. 안전장치가 동작할 조건이 되면, 다시 작동하게 됩니다.
 :::
 
-The relevant parameters are shown below:
+관련 매개 변수는 다음과 같습니다.
 
-| Parameter                                                                  | Description                                                                                                                                                                                       |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL. |
+| 매개변수                                                                       | 설명                                                                               |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | 고정익 비행에 대한 고도 오류 음수의 최대 절대값 고도가 설정치 이하가 되면, 기체는 MC 모드로 다시 전환되고 안전 장치 RTL로 전환됩니다. |
 
 <span id="failure_detector"></span>
 
-## Failure Detector
+## 고장 감지기
 
 The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips, or if it is notified by an external failure detection system.
 
