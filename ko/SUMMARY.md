@@ -41,7 +41,7 @@
   * [안전 설정](config/safety.md)
   * [모터/서보](config/motors.md)
 * [기체 제작](airframes/README.md) 
-  * [기체 프레임 참고](airframes/airframe_reference.md)
+  * [기체 프레임 정의서](airframes/airframe_reference.md)
   * [오토자이로](frames_autogyro/README.md) 
     * [선더플라이 Auto-G2 (홀리브로 픽스32)](frames_autogyro/thunderfly_auto_g2.md)
   * [멀티콥터](frames_multicopter/README.md) 
