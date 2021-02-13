@@ -27,7 +27,7 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ## QGroundControl 안전 설정
 
-*QGroundControl*의 안전 설정 페이지는 *QGroundControl* **기어** 아이콘 (차량 설정 - 상단 도구 모음)을 클릭한 다음 사이드바의 **안전**을 클릭하여 오픈합니다.). 여기에는 가장 중요한 안전장치 설정 (배터리, RC 손실 등)과 복귀 작업(*복귀* 및 *착륙 *)에 관한 설정이 포함됩니다.
+*QGroundControl*의 안전 설정 페이지는 *QGroundControl* **기어** 아이콘 (차량 설정 - 상단 도구 모음)을 클릭한 다음 사이드바의 **안전**을 클릭하여 오픈합니다.). 여기에는 가장 중요한 안전장치 설정 (배터리, RC 손실 등)과 귀환 작업(*귀환* 및 *착륙 *)에 관한 설정이 포함됩니다.
 
 ![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
@@ -37,17 +37,17 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
-가장 일반적인 설정은 위와 같이 값과 작업을 설정하는 것입니다 (`경고 > 페일 세이프 > 긴급` 사용). 이 구성을 사용하면 안전 장치가 경고를 표시한 다음 원위치로 복귀하며, 용량이 일정 수준 아래로 떨어지면 최종적으로 착륙합니다.
+가장 일반적인 설정은 위와 같이 값과 작업을 설정하는 것입니다 (`경고 > 페일 세이프 > 긴급` 사용). 이 구성을 사용하면 안전 장치가 경고를 표시한 다음 원위치로 귀환하며, 용량이 일정 수준 아래로 떨어지면 최종적으로 착륙합니다.
 
-[배터리 페일 세이프 레벨](#BAT_CRIT_THR) 안전장치 동작 레벨에 도달하면 경고, 복귀 또는 착륙하도록 *안전장치 조치*를 설정할 수 있습니다.
+[배터리 페일 세이프 레벨](#BAT_CRIT_THR) 안전장치 동작 레벨에 도달하면 경고, 귀환 또는 착륙하도록 *안전장치 조치*를 설정할 수 있습니다.
 
 설정과 기본 매개 변수는 다음과 같습니다.
 
 | 설정                                   | 매개변수                                                                           | 설명                                                                                           |
 | ------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| 안전장치 기능                              | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 용량이 [배터리 안전장치 동작 수준](#BAT_CRIT_THR) 아래로 내려가면 경고, 보귀 또는 착륙, 또는 경고, 반환, 아래의 각 수준 설정에 따라 착륙합니다. |
+| 안전장치 기능                              | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 용량이 [배터리 안전장치 동작 수준](#BAT_CRIT_THR) 아래로 내려가면 경고, 귀환 또는 착륙, 또는 경고, 귀환, 아래의 각 수준 설정에 따라 착륙합니다. |
 | 배터리 경고 수준                            | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 경고 (또는 기타 조치)에 대한 백분율 용량입니다.                                                                 |
-| <span id="BAT_CRIT_THR"></span>배터리 안정장치 수준 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 복귀 조치 (또는 단일 조치가 선택된 경우 다른 조치)에 대한 용량 백분율.                                                   |
+| <span id="BAT_CRIT_THR"></span>배터리 안정장치 수준 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 귀환 조치 (또는 단일 조치가 선택된 경우 다른 조치)에 대한 용량 백분율.                                                   |
 | 배터리 비상 수준                            | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 즉시 착륙시의 용량의 백분율.                                                                             |
 
 <span id="rc_loss_failsafe"></span>
@@ -67,7 +67,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 | 설정            | 매개변수                                                                       | 설명                                   |
 | ------------- | -------------------------------------------------------------------------- | ------------------------------------ |
 | RC 연결불량 시간 초과 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | RC 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
-| 안전장치 동작       | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 비활성화, 배회, 복귀, 착륙, 종료, 봉쇄.            |
+| 안전장치 동작       | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 비활성화, 배회, 귀환, 착륙, 종료, 봉쇄.            |
 
 ### 데이터 연결불량 안전장치
 
@@ -80,7 +80,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 | 설정             | 매개변수                                                                       | 설명                                    |
 | -------------- | -------------------------------------------------------------------------- | ------------------------------------- |
 | 데이터 연결불량 시간 초과 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 데이터 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
-| 안전장치 동작        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 비활성화, 배회 모드, 복귀 모드, 착륙 모드, 종료, 봉쇄.    |
+| 안전장치 동작        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 비활성화, 배회 모드, 귀환 모드, 착륙 모드, 종료, 봉쇄.    |
 
 ### Geofence 안전장치
 
@@ -100,34 +100,34 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 | 최대 고도  | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 지오펜스 실린더의 높이. 0 인 경우 지오펜스가 비활성화됩니다.    |
 
 :::note
-`GF_ACTION`을 종료하도록 설정하면 지오펜스 위반시 기체의 동작이 정지하게 됩니다. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
+`GF_ACTION`을 종료하도록 설정하면 지오펜스 위반시 기체의 동작이 정지하게 됩니다. 이 기능은 위험성이 높으므로 [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM)을 사용하여 비활성화되며, 시스템을 실제로 종료하려면 0으로 재설정해야합니다.
 :::
 
-The following settings also apply, but are not displayed in the QGC UI.
+다음 설정도가능하지만 QGC UI에 표시되지 않습니다.
 
-| Setting                                                          | Parameter                                                                    | Description                                                                                                           |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Geofence altitude mode                                           | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | Altitude reference used: 0 = WGS84, 1 = AMSL.                                                                         |
-| Geofence counter limit                                           | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered. |
-| Geofence source                                                  | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | Set whether position source is estimated global position or direct from the GPS device.                               |
-| <span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).                                                     |
+| 설정                                      | 매개변수                                                                         | 설명                                               |
+| --------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------ |
+| 지오펜스 고도 모드                              | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 사용 된 고도 기준: 0 = WGS84, 1 = AMSL.                 |
+| 지오펜스 카운터 제한                             | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 지오펜스 위반이 트리거되기 전에 펜스 외부에서 필요한 후속 위치 측정 수를 설정합니다. |
+| 지오펜스 소스                                 | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 위치 소스가 글로벌 위치인지 또는 GPS 장치에서 직접 가져 오는 지를 설정합니다.   |
+| <span id="CBRK_FLIGHTTERM"></span>비행 종료용 회로 차단기 | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 작업을 활성화/비활성화합니다 (기본적으로 비활성화 됨).            |
 
 <span id="return_settings"></span>
 
-### Return Mode Settings
+### 귀환 설정
 
-*Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
+*귀환*는 [귀환 모드](../flight_modes/return.md)를 사용하여 차량을 홈 위치로 돌아오게하는 [안전장치](#failsafe_actions)입니다. 이 섹션에서는 귀환 후 착륙/배회 동작을 설정법을 설명합니다.
 
 ![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
 
-The settings and underlying parameters are shown below:
+설정과 기본 매개 변수는 다음과 같습니다:
 
-| Setting           | Parameter                                                                      | Description                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Vehicle ascend to this minimum height (if below it) for the return flight.                             |
-| Return behaviour  |                                                                                | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time. |
-| Loiter Altitude   | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.         |
-| Loiter Time       | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | If return with loiter then land is selected you can also specify how long the vehicle will hold.       |
+| 설정              | 매개변수                                                                           | 설명                                                                                               |
+| --------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| 고도 상승           | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.                                                            |
+| 기본 동작           |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙                                                        |
+| Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.   |
+| Loiter Time     | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | If return with loiter then land is selected you can also specify how long the vehicle will hold. |
 
 :::note
 The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
