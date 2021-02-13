@@ -27,25 +27,25 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ## QGroundControl 안전 설정
 
-The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
+*QGroundControl*의 안전 설정 페이지는 *QGroundControl* **기어** 아이콘 (차량 설정 - 상단 도구 모음)을 클릭한 다음 사이드바의 **안전**을 클릭하여 오픈합니다.). 여기에는 가장 중요한 안전장치 설정 (배터리, RC 손실 등)과 복귀 작업(*복귀* 및 *착륙 *)에 관한 설정이 포함됩니다.
 
 ![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
-### Low Battery Failsafe
+### 배터리 부족 안전장치
 
-The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
+배터리 용량이 하나 (또는 그 이상의 경고) 레벨값 아래로 떨어지면 배터리 부족 안전 장치가 작동합니다.
 
 ![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
-The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
+가장 일반적인 설정은 위와 같이 값과 작업을 설정하는 것입니다 (`경고 > 페일 세이프 > 긴급` 사용). 이 구성을 사용하면 안전 장치가 경고를 표시한 다음 원위치로 복귀하며, 용량이 일정 수준 아래로 떨어지면 최종적으로 착륙합니다.
 
-It is also possible to set the *Failsafe Action* to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
+[배터리 페일 세이프 레벨](#BAT_CRIT_THR) 안전장치 동작 레벨에 도달하면 경고, 복귀 또는 착륙하도록 *안전장치 조치*를 설정할 수 있습니다.
 
-The settings and underlying parameters are shown below.
+설정과 기본 매개 변수는 다음과 같습니다.
 
-| Setting                                         | Parameter                                                                      | Description                                                                                                                                                               |
+| 설정                                              | 매개변수                                                                           | 설명                                                                                                                                                                        |
 | ----------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Failsafe Action                                 | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
+| 안전장치 기능                                         | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
 | Battery Warn Level                              | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | Percentage capacity for warnings (or other actions).                                                                                                                      |
 | <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
 | Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
