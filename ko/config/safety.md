@@ -77,30 +77,30 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 설정과 기본 매개 변수는 다음과 같습니다.
 
-| 설정                     | 매개변수                                                                       | 설명                                                                                |
-| ---------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger. |
-| Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.                 |
+| 설정             | 매개변수                                                                       | 설명                                    |
+| -------------- | -------------------------------------------------------------------------- | ------------------------------------- |
+| 데이터 연결불량 시간 초과 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 데이터 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
+| 안전장치 동작        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 비활성화, 배회 모드, 복귀 모드, 착륙 모드, 종료, 봉쇄.    |
 
-### Geofence Failsafe
+### Geofence 안전장치
 
-The *Geofence Failsafe* is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
+*Geofence 안전장치*는 홈 위치가 중심 좌표인 "가상" 실린더입니다. 차량이 반경을 벗어나거나 고도 이상으로 이동하면 지정된 *안전장치 조치*가 동작합니다.
 
 ![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
-:::tip PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+:::tip PX4는 여러 임의의 다각형 및 원형 포함 및 제외 영역 ([Flying > GeoFence](../flying/geofence.md))이 있는 GeoFence를 지원합니다.
 :::
 
-The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
+설정 및 기본 [지오 펜스 매개 변수](../advanced_config/parameter_reference.md#geofence)는 다음과 같습니다.
 
-| Setting          | Parameter                                                                      | Description                                                     |
-| ---------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------- |
-| Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | None, Warning, Hold mode, Return mode, Terminate, Land.         |
-| Max Radius       | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0. |
-| Max Altitude     | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.            |
+| 설정     | 매개변수                                                                           | 설명                                     |
+| ------ | ------------------------------------------------------------------------------ | -------------------------------------- |
+| 위반시 조치 | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | 없음, 경고, 보류 모드, 반환 모드, 종료, 착륙.          |
+| 최대 반경  | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 지오펜스 실린더의 수평 반경. 0 인 경우 지오펜스가 비활성화됩니다. |
+| 최대 고도  | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 지오펜스 실린더의 높이. 0 인 경우 지오펜스가 비활성화됩니다.    |
 
 :::note
-Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
+`GF_ACTION`을 종료하도록 설정하면 지오펜스 위반시 기체의 동작이 정지하게 됩니다. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
 :::
 
 The following settings also apply, but are not displayed in the QGC UI.
