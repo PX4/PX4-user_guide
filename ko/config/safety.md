@@ -241,42 +241,42 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 **이륙**중에 차량이 뒤집히면 고장 감지기 [자세 트리거](#attitude_trigger)가 [잠금 동작](#action_lockdown)을 호출합니다(잠금은 모터를 정지시키지만, 비행 종료와 달리 낙하산을 펼치거나 기타 실패 조치 수행하지 않음). 이 확인은 `CBRK_FLIGHTTERM` 매개 변수에 관계없이 *이륙시 항상 사용*합니다.
 
-The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), [Rattitude](../flight_modes/rattitude_mc.md) and [Manual (FW)](../flight_modes/manual_fw.md)).
+고장 감지기는 기체의 뒤집히는 것이 *예상*되는 경우를 제외하고, 모든 기체 유형 및 모드에서 활성화됩니다 (예 : [Acro 모드(MC)](../flight_modes/altitude_mc.md), [Acro 모드 (FW)](../flight_modes/altitude_fw.md), [Rattitude](../flight_modes/rattitude_mc.md) 및 [수동 (FW)](../flight_modes/manual_fw.md)).
 
 <span id="attitude_trigger"></span>
 
-### Attitude Trigger
+### 자세 감지기
 
-The failure detector can be configured to trigger if the vehicle attitude exceeds predefined pitch and roll values for longer than a specified time.
+차량 자세가 지정된 시간보다 오랫동안 사전 정의 된 피치 및 롤 값을 초과하는 경우 동작하도록 고장 감지기를 구성할 수 있습니다.
 
-The relevant parameters are shown below:
+관련 매개 변수는 다음과 같습니다.
 
-| Parameter                                                                                              | Description                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Flight termination circuit breaker. Unset from 121212 (default) to enable flight termination due to FailureDetector or FMU loss. |
-| <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | Maximum allowed pitch (in degrees).                                                                                              |
-| <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | Maximum allowed roll (in degrees).                                                                                               |
-| <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | Time to exceed [FD_FAIL_P](#FD_FAIL_P) for failure detection (default 0.3s).                                                   |
-| <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).                                                   |
+| 매개변수                                                                                                   | 설명                                                                       |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| <span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 비행 종료 회로 차단기. 실패감지기 또는 FMU 손실로 인한 비행 종료를 활성화하려면 121212 (기본값)에서 설정 해제합니다. |
+| <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | 최대 허용 피치 (도 단위).                                                         |
+| <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | 최대 허용 롤 (도 단위).                                                          |
+| <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | 실패 감지를 위해 [FD_FAIL_P](#FD_FAIL_P)를 초과하는 시간 (기본값 0.3 초).                |
+| <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | 실패 감지를 위해 [FD_FAIL_R](#FD_FAIL_R)을 초과하는 시간 (기본값 0.3 초).                |
 
 <span id="external_ats"></span>
 
-### External Automatic Trigger System (ATS)
+### 외부 자동 동작 시스템 (ATS)
 
-The [failure detector](#failure_detector), if [enabled](#CBRK_FLIGHTTERM), can also be triggered by an external ATS system. The external trigger system must be connected to flight controller port AUX5 (or MAIN5 on boards that do not have AUX ports), and is configured using the parameters below.
+[활성화](#CBRK_FLIGHTTERM) 인 경우 [고장 감지기](#failure_detector)는 외부 ATS 시스템에 의해 작동될 수 있습니다. 외부 동작 시스템은 비행 컨트롤러 포트 AUX5 (또는 AUX 포트가없는 보드의 MAIN5)에 연결되어야 하며 아래 매개 변수를 사용하여 구성됩니다.
 
 :::note
-External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
+외부 ATS는 [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218)에 필요합니다. ATS 장치의 한가지 예는 [FruityChutes Sentinel 자동 트리거 시스템](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm)입니다.
 :::
 
-| Parameter                                                                                                | Description                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS). Default: Disabled. |
-| <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | The PWM threshold from external automatic trigger system for engaging failsafe. Default: 1900 ms.                                                |
+| 매개변수                                                                                                     | 설명                                                                                          |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | AUX5 또는 MAIN5 (보드에 따라 다름)에서 PWM 입력을 활성화하여 외부 자동 트리거 시스템 (ATS)에서 안전 장치를 연결합니다. 기본값 : 비활성화 됨. |
+| <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | 안전장치 연결을 위한 외부 자동 동작 시스템의 PWM 임계치입니다. 기본값: 1900 ms.                                         |
 
 <span id="safety_switch"></span>
 
-## Emergency Switches
+## 비상 스위치
 
 Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
 
