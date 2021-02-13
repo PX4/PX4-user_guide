@@ -29,13 +29,13 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 *QGroundControl*의 안전 설정 페이지는 *QGroundControl* **기어** 아이콘 (차량 설정 - 상단 도구 모음)을 클릭한 다음 사이드바의 **안전**을 클릭하여 오픈합니다.). 여기에는 가장 중요한 안전장치 설정 (배터리, RC 손실 등)과 귀환 작업(*귀환* 및 *착륙 *)에 관한 설정이 포함됩니다.
 
-![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
+![안전 설정(QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### 배터리 부족 안전장치
 
 배터리 용량이 하나 (또는 그 이상의 경고) 레벨값 아래로 떨어지면 배터리 부족 안전 장치가 작동합니다.
 
-![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
+![안전 - 배터리 (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
 가장 일반적인 설정은 위와 같이 값과 작업을 설정하는 것입니다 (`경고 > 페일 세이프 > 긴급` 사용). 이 구성을 사용하면 안전 장치가 경고를 표시한 다음 원위치로 귀환하며, 용량이 일정 수준 아래로 떨어지면 최종적으로 착륙합니다.
 
@@ -56,7 +56,7 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무선 조종기의 신호 연결이 약할 경우에 동작합니다.(RC 연결불량 안전장치는 자동 모드 (예 : 임무 중)에는 동작하지 않습니다.).
 
-![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
+![안전 - RC 손실 (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
 :::note
 *RC 연결불량 감지*를 위해 PX4와 수신기를 구성해야 할 수도 있습니다. [라디오 설정 > RC 손실 감지](../config/radio.md#rc_loss_detection).
@@ -73,7 +73,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 데이터 연결불량 안전 장치는 [미션](../flying/missions.md) 비행시, 원격 측정 링크 (지상국에 연결)가 끊어지면 동작합니다.
 
-![Safety - Data Link Loss (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
+![안전 - 데이터 링크 손실 (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
 설정과 기본 매개 변수는 다음과 같습니다.
 
@@ -86,7 +86,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 *Geofence 안전장치*는 홈 위치가 중심 좌표인 "가상" 실린더입니다. 차량이 반경을 벗어나거나 고도 이상으로 이동하면 지정된 *안전장치 조치*가 동작합니다.
 
-![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
+![안전 - 지오펜스 (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
 :::tip PX4는 여러 임의의 다각형 및 원형 포함 및 제외 영역 ([Flying > GeoFence](../flying/geofence.md))이 있는 GeoFence를 지원합니다.
 :::
@@ -118,7 +118,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 *귀환*는 [귀환 모드](../flight_modes/return.md)를 사용하여 차량을 홈 위치로 돌아오게하는 [안전장치](#failsafe_actions)입니다. 이 섹션에서는 귀환 후 착륙/배회 동작을 설정법을 설명합니다.
 
-![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
+![안전 - 귀한 설정 (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
 
 설정과 기본 매개 변수는 다음과 같습니다:
 
@@ -137,7 +137,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 *현재 위치의 착륙*는 [착륙 모드](../flight_modes/land.md)를 실행하는 일반적인 [안전 조치](#failsafe_actions)입니다. 이 섹션에서는 착륙 후 차량이 자동으로 시동을 꺼는 방법과 시점을 설정법을 설명합니다. Multicopters에서만 하강 속도를 추가로 설정 가능합니다.
 
-![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
+![안전 - 착륙 모드 설정(QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
 설정과 기본 매개 변수는 다음과 같습니다:
 
@@ -322,21 +322,21 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 귀환 스위치를 사용하여 즉시 [귀환 모드](../flight_modes/return.md)를 활성화할 수 있습니다.
 
-## Other Safety Settings
+## 기타 안전 설정
 
 <span id="auto-disarming-timeouts"></span>
 
-### Auto-disarming Timeouts
+### 자동 비시동 제한 시간
 
-You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+이륙 속도가 너무 느리거나 착륙 후 차량을 자동으로 시동을 꺼기 위하여 시간 제한을 설정할 수 있습니다 (기체의 시동을 꺼면 모터의 전원이 제거되므로 프로펠러가 회전하지 않습니다).
 
-The [relevant parameters](../advanced_config/parameters.md) are shown below:
+[관련 매개 변수](../advanced_config/parameters.md)는 다음과 같습니다.
 
-| Parameter                                                                                                  | Description                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Timeout for auto-disarm after landing.                     |
-| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
+| 매개변수                                                                                                       | 설명                               |
+| ---------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 꺼기를 위한 대기 시간           |
+| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 기체가 이륙하기에 너무 느린 경우 자동 시동꺼리 대기 시간 |
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+* [QGroundControl 사용 설명서 > 안전 설정](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
