@@ -37,7 +37,7 @@
 <tbody>
 <tr id="airship_airship_cloudship">
  <td style="vertical-align: top;">구름선</td>
- <td style="vertical-align: top;"><p>Maintainer: &lt;john@example.com&gt;John Doe</0></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;john@example.com&gt;John Doe</0></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
 
 </tr>
 </tbody></table>
@@ -72,12 +72,12 @@
   </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>유지관리자:&lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak </0></p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 보조 방향타 (선택 사항)</li><li><b>MAIN6</b>: 추진기</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak </0></p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 보조 방향타 (선택 사항)</li><li><b>MAIN6</b>: 추진기</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
 
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td style="vertical-align: top;"><p>유지관리자: &lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak </0></p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 추진기</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak</0></p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 추진기</li></ul></p></td>
 
 </tr>
 </table>
@@ -102,7 +102,7 @@
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
- <td style="vertical-align: top;"><p>유지관리자: ThunderFly s.r.o.</p><p><code>SYS_AUTOSTART</code> = 18001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o.</p><p><code>SYS_AUTOSTART</code> = 18001</p></td>
 
 </tr>
 </tbody></table>
@@ -138,7 +138,7 @@
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td style="vertical-align: top;">Esky (Big) Lama v4</td>
- <td style="vertical-align: top;"><p>유지관리자: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
@@ -155,7 +155,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -171,13 +171,13 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: William Peale &lt;develop707@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;">일반 도데카로터 콕스 기하 구조</td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;develop707@gmail.com&gt;William Peale </0></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
 
-### Helicopter
+### 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;" /> 
