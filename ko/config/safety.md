@@ -43,40 +43,41 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 설정과 기본 매개 변수는 다음과 같습니다.
 
-| 설정                                              | 매개변수                                                                           | 설명                                                                                                                                                                        |
-| ----------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 안전장치 기능                                         | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
-| Battery Warn Level                              | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | Percentage capacity for warnings (or other actions).                                                                                                                      |
-| <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
-| Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
+| 설정                                   | 매개변수                                                                           | 설명                                                                                           |
+| ------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| 안전장치 기능                              | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 용량이 [배터리 안전장치 동작 수준](#BAT_CRIT_THR) 아래로 내려가면 경고, 보귀 또는 착륙, 또는 경고, 반환, 아래의 각 수준 설정에 따라 착륙합니다. |
+| 배터리 경고 수준                            | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 경고 (또는 기타 조치)에 대한 백분율 용량입니다.                                                                 |
+| <span id="BAT_CRIT_THR"></span>배터리 안정장치 수준 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 복귀 조치 (또는 단일 조치가 선택된 경우 다른 조치)에 대한 용량 백분율.                                                   |
+| 배터리 비상 수준                            | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 즉시 착륙시의 용량의 백분율.                                                                             |
 
 <span id="rc_loss_failsafe"></span>
 
-### RC Loss Failsafe
+### RC 연결불안정 안전장치
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
+RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무선 조종기의 신호 연결이 약할 경우에 동작합니다.(RC 연결불량 안전장치는 자동 모드 (예 : 임무 중)에는 동작하지 않습니다.).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
-:::note PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+:::note
+*RC 연결불량 감지*를 위해 PX4와 수신기를 구성해야 할 수도 있습니다. [라디오 설정 > RC 손실 감지](../config/radio.md#rc_loss_detection).
 :::
 
-The settings and underlying parameters are shown below.
+설정과 기본 매개 변수는 다음과 같습니다.
 
-| Setting         | Parameter                                                                  | Description                                                                     |
-| --------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger. |
-| Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | Disabled, Loiter, Return, Land, Terminate, Lockdown.                            |
+| 설정            | 매개변수                                                                       | 설명                                   |
+| ------------- | -------------------------------------------------------------------------- | ------------------------------------ |
+| RC 연결불량 시간 초과 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | RC 연결이 끊어진 후 안전 장치가 동작하기 전까지의 시간입니다. |
+| 안전장치 동작       | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 비활성화, 배회, 복귀, 착륙, 종료, 봉쇄.            |
 
-### Data Link Loss Failsafe
+### 데이터 연결불량 안전장치
 
-The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
+데이터 연결불량 안전 장치는 [미션](../flying/missions.md) 비행시, 원격 측정 링크 (지상국에 연결)가 끊어지면 동작합니다.
 
 ![Safety - Data Link Loss (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
-The settings and underlying parameters are shown below.
+설정과 기본 매개 변수는 다음과 같습니다.
 
-| Setting                | Parameter                                                                  | Description                                                                       |
+| 설정                     | 매개변수                                                                       | 설명                                                                                |
 | ---------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger. |
 | Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.                 |
