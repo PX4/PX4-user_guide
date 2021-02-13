@@ -150,9 +150,9 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 ## 기타 안전장치 설정
 
-This section contains information about failsafe settings that cannot be configured through the *QGroundControl* [Safety Setup](#qgc_safety_setup) page.
+이 섹션에는 *QGroundControl*의 [안전 설정](#qgc_safety_setup) 페이지에서 설정할 수 없는 안전장치 설정에 관하여 설명합니다.
 
-### Position (GPS) Loss Failsafe
+### 위치 (GPS) 손실 안전장치
 
 The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
 
