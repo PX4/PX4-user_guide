@@ -538,12 +538,12 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">일반 10" 옥토 동축 </td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
 
-### Octorotor x
+### 옥토로터 X형 
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -551,12 +551,49 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 모터 1
+          </li>
+          <li>
+            <b>MAIN2</b>: 모터 2
+          </li>
+          <li>
+            <b>MAIN3</b>: 모터 3
+          </li>
+          <li>
+            <b>MAIN4</b>: 모터 4
+          </li>
+          <li>
+            <b>MAIN5</b>: 모터 5
+          </li>
+          <li>
+            <b>MAIN6</b>: 모터 6
+          </li>
+          <li>
+            <b>MAIN7</b>: 모터 7
+          </li>
+          <li>
+            <b>MAIN8</b>: 모터 8
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -571,13 +608,13 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
- <td style="vertical-align: top;">Generic Octocopter X geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;">일반 옥타콥터 X </td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor +
+### 쿼드로터 + 형
 
 <div>
   <img src="../../assets/airframes/types/QuadRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -585,12 +622,46 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 모터 1
+          </li>
+          <li>
+            <b>MAIN2</b>: 모터 2
+          </li>
+          <li>
+            <b>MAIN3</b>: 모터 3
+          </li>
+          <li>
+            <b>MAIN4</b>: 모터 4
+          </li>
+          <li>
+            <b>MAIN5</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>MAIN6</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+          <li>
+            <b>AUX4</b>: RC FLAPS 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
