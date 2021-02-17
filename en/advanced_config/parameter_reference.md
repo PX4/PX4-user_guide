@@ -5561,6 +5561,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5641,6 +5643,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5721,6 +5725,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -6172,9 +6178,17 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <tr>
  <td><strong id="MNT_DO_STAB">MNT_DO_STAB</strong> (INT32)</td>
  <td>Stabilize the mount (set to true for servo gimbal, false for passthrough).
-Does not affect MAVLINK_ROI input    </td>
- <td></td>
- <td>Disabled (0)</td>
+(This is required for a gimbal which is not capable of stabilizing itself
+and relies on the IMU's attitude estimation.)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Stabilize all axis</li> 
+
+<li><strong>2:</strong> Stabilize yaw for absolute/lock mode.</li> 
+</ul>
+  </td>
+ <td>0 > 2 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -6245,14 +6259,14 @@ Does not affect MAVLINK_ROI input    </td>
 </tr>
 <tr>
  <td><strong id="MNT_MAV_COMPID">MNT_MAV_COMPID</strong> (INT32)</td>
- <td>Mavlink Component ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLINK, mount configure/control commands will be sent with this component ID.</p>   </td>
+ <td>Mavlink Component ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLink protocol v2, mount configure/control commands will be sent with this component ID.</p>   </td>
  <td></td>
  <td>154</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_MAV_SYSID">MNT_MAV_SYSID</strong> (INT32)</td>
- <td>Mavlink System ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLINK, mount configure/control commands will be sent with this target ID.</p>   </td>
+ <td>Mavlink System ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLink gimbal protocol v1, mount configure/control commands will be sent with this target ID.</p>   </td>
  <td></td>
  <td>1</td>
  <td></td>
@@ -6266,9 +6280,11 @@ Does not affect MAVLINK_ROI input    </td>
 
 <li><strong>1:</strong> RC</li> 
 
-<li><strong>2:</strong> MAVLINK_ROI</li> 
+<li><strong>2:</strong> MAVLINK_ROI (protocol v1)</li> 
 
-<li><strong>3:</strong> MAVLINK_DO_MOUNT</li> 
+<li><strong>3:</strong> MAVLINK_DO_MOUNT (protocol v1)</li> 
+
+<li><strong>4:</strong> MAVlink gimbal protocol v2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -6281,10 +6297,12 @@ Does not affect MAVLINK_ROI input    </td>
  <td>Mount output mode <p><strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> AUX</li> 
 
-<li><strong>1:</strong> MAVLINK</li> 
+<li><strong>1:</strong> MAVLink gimbal protocol v1</li> 
+
+<li><strong>2:</strong> MAVLink gimbal protocol v2</li> 
 </ul>
   </td>
- <td>0 > 1 </td>
+ <td>0 > 2 </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -6344,6 +6362,22 @@ if required by the gimbal (only in AUX output mode)    </td>
  <td>Range of yaw channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>360.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
+ <td>Angular pitch rate for manual input in degrees/second.
+Full stick input [-1..1] translats to [-pitch rate..pitch rate]    </td>
+ <td>1.0 > 90.0 </td>
+ <td>30.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
+ <td>Angular yaw rate for manual input in degrees/second.
+Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
+ <td>1.0 > 90.0 </td>
+ <td>30.0</td>
  <td></td>
 </tr>
 </tbody></table>
