@@ -139,20 +139,16 @@ micrortps_client <command> [arguments...]
    status
 ```
 ## uorb
-Source: [modules/uORB](https://github.com/PX4/Firmware/tree/master/src/modules/uORB)
+Source: [systemcmds/uorb](https://github.com/PX4/Firmware/tree/master/src/systemcmds/uorb)
 
 
 ### Description
 uORB is the internal pub-sub messaging system, used for communication between modules.
 
-It is typically started as one of the very first modules and most other modules depend on it.
-
 ### Implementation
-No thread or work queue is needed, the module start only makes sure to initialize the shared global state. Communication is done via shared memory. The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber.
+The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber.
 
 The code is optimized to minimize the memory footprint and the latency to exchange messages.
-
-The interface is based on file descriptors: internally it uses `read`, `write` and `ioctl`. Except for the publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
 
 Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
 
@@ -170,8 +166,6 @@ uorb top
 ```
 uorb <command> [arguments...]
  Commands:
-   start
-
    status        Print topic statistics
 
    top           Monitor topic publication rates
