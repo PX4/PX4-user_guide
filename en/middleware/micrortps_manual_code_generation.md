@@ -4,6 +4,9 @@ This topic shows how to manually generate the code for the client and the agent 
 
 The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.
 
+:::note
+This method should only be used for debugging purposes when creating new messages or if you just want to consume the generated code outside of the PX4 domain. Otherwise please use the *normal* method explained in [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which uses the PX4-Autopilot build system.
+:::
 
 ## Disable automatic bridge code generation
 
