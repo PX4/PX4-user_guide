@@ -5,15 +5,24 @@ PX4 can be tested end to end to using integration tests based on [MAVSDK](https:
 The tests are primarily developed against SITL and run in continuous integration (CI).
 However, the intent is to generalise them for any platform/hardware in future.
 
-## Install the MAVSDK C++ Library
+The instructions below explain how to locally setup and run the MAVSDK integration tests.
 
-The tests need the MAVSDK C++ library installed system-wide (e.g. in `/usr/lib` or `/usr/local/lib`).
+## Prerequisites
 
-Install either from binaries or source:
-- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
-- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+### Setup Developer Environment
 
-## Prepare PX4 Code
+If you haven't done so already:
+- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported).
+  Gazebo is required, and should be installed by default.
+- [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
+
+  ```sh
+  git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+  cd PX4-Autopilot
+  ```
+
+
+### Build PX4 for Testing
 
 To build PX4 source code for simulator testing, use:
 
@@ -21,7 +30,15 @@ To build PX4 source code for simulator testing, use:
 DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
 ```
 
-### Run All PX4 Tests
+### Install the MAVSDK C++ Library
+
+The tests need the MAVSDK C++ library installed system-wide (e.g. in `/usr/lib` or `/usr/local/lib`).
+
+Install either from binaries or source:
+- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
+- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+
+## Run All PX4 Tests
 
 To run all SITL tests as defined in [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json), do:
 
