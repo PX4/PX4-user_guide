@@ -6,7 +6,7 @@ If you are operating on a real vehicle be sure to have a way of gaining back man
 :::
 
 :::warning
-ROS 2 interaction with PX4 through the *microRTPS* bridge requires that the user understands how the PX4 internals work!
+ROS 2 interaction with PX4 through the [*microRTPS* bridge](../middleware/micrortps.md) requires that the user understands how the PX4 internals work!
 The same understanding is required for PX4 offboard control via ROS 2, where the user publishes directly to the required uORB topics (without any level of abstraction between ROS and PX4 data formats/conventions).
 
 If you are unsure of PX4 internals work, we recommend that you instead use a workflow that depends on the MAVLink microservices and abstraction layer to execute offboard control or any other kind of interaction through the *microRTPS* bridge.

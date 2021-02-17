@@ -1,6 +1,6 @@
 # RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
 
-The *PX4-Fast RTPS(DDS) Bridge* adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast DDS* applications.
+The *PX4-Fast RTPS(DDS) Bridge*, which is also referred to as as the *microRTPS Bridge*, adds a Real Time Publish Subscribe (RTPS) interface to PX4, enabling the exchange of [uORB messages](../middleware/uorb.md) between PX4 components and (offboard) *Fast DDS* applications.
 This allows us to better integrate with applications running and linked in DDS domains (including ROS nodes), making it easy to share sensor data, commands, and other vehicle information.
 
 This topic describes the RTPS/DDS bridge architecture, and shows how to write a simple *Fast DDS* application to subscribe to PX4 changes.
