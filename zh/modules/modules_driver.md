@@ -239,6 +239,10 @@ dshot <command> [arguments...]
 
    mode_pwm      Select all available pins as PWM
 
+   mode_pwm14
+
+   mode_pwm12
+
    mode_pwm8
 
    mode_pwm6
@@ -710,6 +714,8 @@ pwm_out <command> [arguments...]
    mode_pwm      Select all available pins as PWM
 
    mode_pwm14
+
+   mode_pwm12
 
    mode_pwm8
 
