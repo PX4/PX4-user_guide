@@ -172,7 +172,7 @@
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
  <td style="vertical-align: top;">일반 도데카로터 콕스 기하 구조</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;develop707@gmail.com&gt;William Peale </0></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: &lt;develop707@gmail.com&gt;William Peale</0></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
