@@ -5,7 +5,7 @@ These allow you to build for the [most PX4 targets](../dev_setup/dev_env.md#supp
 
 Bash scripts are provided to help make it easy to install development environment for different target platforms:
 - **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**: Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.
-  Does not include dependencies for [FastRTPS](#fast_rtps). <!-- NEED px4_version -->
+  Does not include dependencies for [Fast DDS](#fast_dds). <!-- NEED px4_version -->
 - **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)**: Installs [ROS "Melodic"](#rosgazebo) and PX4.
   > **Note:** ROS Melodic only works on Ubuntu 18.04 LTS (do not run this script on Ubuntu 20.04 or later).
 
@@ -140,7 +140,7 @@ make
 
 ### Detailed Information
 
-Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here: 
+Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
 
 - [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
@@ -176,13 +176,14 @@ Setup instructions for *Snapdragon Flight* are provided in the flight controller
 * [Configuration](../flight_controller/snapdragon_flight_configuration.md)
 
 
+<a id="fast_dds"></a>
 <a id="fast_rtps"></a>
-## Fast RTPS installation
+## Fast DDS installation
 
-[eProsima Fast RTPS](http://eprosima-fast-rtps.readthedocs.io/en/latest/) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol.
-FastRTPS is used, via the [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components.
+[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the DDS (Data Distribution Service) Specification, a protocol defined by the Object Management Group (OMG).
+Fast DDS is used, via the [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components in a DDS domain.
 
-Follow the instructions in [Fast RTPS Installation](../dev_setup/fast-rtps-installation.md) to install it.
+Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
 
 ## Additional Tools
