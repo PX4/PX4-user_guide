@@ -49,14 +49,14 @@ The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255
 
 @[youtube](https://youtu.be/lAjjTFFZebI)
 
-<a id="with_rtps"></a>
+<a id="with_dds"></a>
 
-### Build and Test (RTPS)
+### Build and Test (RTPS/DDS)
 
-To simulate multiple vehicles based on RTPS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with  PX4 rather than the MAVLink Simulation API. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
+To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
 
 :::note
-You will need to have installed RTPS and the `micrortps_agent` should be run in the different terminal for each vehicle. For more information see: [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
 :::
 
 To build an example setup, follow the steps below:
@@ -68,9 +68,9 @@ To build an example setup, follow the steps below:
    DONT_RUN=1 make px4_sitl_rtps gazebo
    ```
 
-1. build `micrortps_agent`
-   * To use agent in ROS-independent RTPS, follow the [installation instructions here](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface)
-   * To use the agent in ROS2, follow the [instructions here](../middleware/micrortps.md#agent-interfacing-with-a-ros2-middleware)
+1. Build the `micrortps_agent`
+   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface)
+   * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
 1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
 
