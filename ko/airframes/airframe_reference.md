@@ -37,7 +37,7 @@
 <tbody>
 <tr id="airship_airship_cloudship">
  <td style="vertical-align: top;">구름선</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;john@example.com&gt;John Doe</0></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td style="vertical-align: top;"><p>유지보수: John Doe &lt;john@example.com&gt;</p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
 
 </tr>
 </tbody></table>
@@ -72,12 +72,12 @@
   </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>유지보수: &lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak </0></p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 보조 방향타 (선택 사항)</li><li><b>MAIN6</b>: 추진기</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 보조 방향타 (선택 사항)</li><li><b>MAIN6</b>: 추진기</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
 
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td style="vertical-align: top;"><p>유지보수: &lt;dvorakroman@thunderfly.cz&gt;ThunderFly s.r.o., Roman Dvorak</0></p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 추진기</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 추진기</li></ul></p></td>
 
 </tr>
 </table>
@@ -172,7 +172,7 @@
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
  <td style="vertical-align: top;">일반 도데카로터 콕스 기하 구조</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;develop707@gmail.com&gt;William Peale</0></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: William Peale &lt;develop707@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
@@ -206,7 +206,7 @@
 <tbody>
 <tr id="copter_helicopter_blade_130x">
  <td style="vertical-align: top;">Blade 130X</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;bartslinger@gmail.com&gt;Bart Slinger</0></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Bart Slinger &lt;bartslinger@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
@@ -240,7 +240,7 @@
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
  <td style="vertical-align: top;">Generic Hexarotor + geometry</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier </0></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
 </tbody></table>
@@ -305,7 +305,7 @@
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">일반 동축  헥사로터 </td>
- <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier </0></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
@@ -344,7 +344,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0>
+        유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;
       </p>
       
       <p>
@@ -376,7 +376,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지보수: &lt;lim@uvify.com&gt;Hyon Lim </0>
+        유지보수: Hyon Lim &lt;lim@uvify.com&gt;
       </p>
       
       <p>
@@ -433,7 +433,7 @@
 <tbody>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td style="vertical-align: top;">Steadidrone MAVRIK</td>
- <td style="vertical-align: top;"><p>유지보수: &lt;simon@uaventure.com&gt;Simon Wilks</0></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
 
 </tr>
 </tbody></table>
@@ -504,7 +504,7 @@
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">일반 옥토콥터 + </td>
- <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
@@ -538,7 +538,7 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">일반 10" 옥토 동축 </td>
- <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -609,7 +609,7 @@
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">일반 옥타콥터 X </td>
- <td style="vertical-align: top;"><p>유지보수: &lt;lorenz@px4.io&gt;Lorenz Meier</0></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -676,13 +676,13 @@
   </tr>
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
- <td style="vertical-align: top;">Generic 10" Quad + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td style="vertical-align: top;">일반 10" 쿼드 +  </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor H
+### 쿼드로터 H
 
 <div>
 <img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;"/>
