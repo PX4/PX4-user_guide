@@ -55,10 +55,6 @@ This section explains how to write a new python test using ROS(1)/MAVROS, test i
 We recommend you review the existing tests as examples/inspiration (**integrationtests/python_src/px4_it/mavros/**).
 The official ROS documentation also contains information on how to use [unittest](http://wiki.ros.org/unittest) (on which this test suite is based).
 
-:::note
-More streamlined support for testing is planned (helper classes/methods etc.).
-:::
-
 To write a new test:
 
 1. Create a new test script by copying the empty test skeleton below:
