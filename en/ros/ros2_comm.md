@@ -33,6 +33,12 @@ The `px4_msgs` are then processed by the agent code generator in `px4_ros_com` t
 
 :::note 
 This means that you must use a version of `px4_msgs` that matches your firmware!
+
+Note that by the time of writing there are no PX4 firmware release compatible
+`px4_ros_com` or `px4_msgs` (unless one looks for the commit hashes that
+match these repos with the PX4 firmware releases). It is in the plan of the 
+development team to have this automated, in the sense that these repos will
+have branches which will be compatible with the respective PX4-Autopilot releases.
 :::
 
 
