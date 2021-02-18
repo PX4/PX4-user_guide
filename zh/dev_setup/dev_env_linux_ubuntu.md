@@ -163,13 +163,14 @@ sudo apt-get install ros-kinetic-desktop-full -y
 * [软件安装](../flight_controller/snapdragon_flight_software_installation.md)
 * [配置](../flight_controller/snapdragon_flight_configuration.md)
 
+<a id="fast_dds"></a>
 <a id="fast_rtps"></a>
 
 ## FastRTPS 安装
 
-[eProsima Fast RTPS](http://eprosima-fast-rtps.readthedocs.io/en/latest/) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol. FastRTPS is used, via the [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components.
+[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the DDS (Data Distribution Service) Specification, a protocol defined by the Object Management Group (OMG). Fast DDS is used, via the [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components in a DDS domain.
 
-Follow the instructions in [Fast RTPS Installation](../dev_setup/fast-rtps-installation.md) to install it.
+Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
 
 ## 模拟器依赖

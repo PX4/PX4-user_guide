@@ -272,6 +272,36 @@ uuv_att_control <command> [arguments...]
 
    status        print status info
 ```
+## uuv_pos_control
+Source: [modules/uuv_pos_control](https://github.com/PX4/Firmware/tree/master/src/modules/uuv_pos_control)
+
+
+### Description
+Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `actuator_controls_0` messages at a constant 250Hz.
+### Implementation
+Currently, this implementation supports only a few modes:
+ * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
+ * Auto mission: The uuv runs missions
+### Examples
+CLI usage example:
+```
+uuv_pos_control start
+uuv_pos_control status
+uuv_pos_control stop
+```
+
+<a id="uuv_pos_control_usage"></a>
+
+### Usage
+```
+uuv_pos_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## vtol_att_control
 Source: [modules/vtol_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/vtol_att_control)
 

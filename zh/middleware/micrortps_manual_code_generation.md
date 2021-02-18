@@ -4,10 +4,12 @@
 
 代码是使用 python 脚本生成的：**/Tools/generate_microRTPS_bridge.py**。
 
+首先禁用桥接代码的自动生成。 First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
+:::
 
 ## 禁用自动桥接代码生成
 
-首先禁用桥接代码的自动生成。 First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
+First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
 
 ```sh
 set(GENERATE_RTPS_BRIDGE off)
@@ -15,50 +17,62 @@ set(GENERATE_RTPS_BRIDGE off)
 
 ## 使用 generate_microRTPS_bridge. py
 
-*generate_microRTPS_bridge* 工具的命令语法如下所示:
+The *generate_microRTPS_bridge* tool's command syntax is shown below:
 
 ```sh
-$ cd /path/to/PX4/Firmware/msg/tools
+$ cd /path/to/PX4/PX4-Autopilot/msg/tools
 $ python generate_microRTPS_bridge.py -h
-usage: generate_microRTPS_bridge.py [-h] [-s *.msg [*.msg ...]]
-                                    [-r *.msg [*.msg ...]] [-a] [-c]
-                                    [-t MSGDIR] [-o AGENTDIR] [-u CLIENTDIR]
-                                    [-f FASTRTPSGEN]
-
-optional arguments:
-  -h, --help            显示这个帮助信息并退出
-  -s *.msg [*.msg ...], --send *.msg [*.msg ...]
-                        要发送的 Topic
-  -r *.msg [*.msg ...], --receive *.msg [*.msg ...]
-                        要接收的 Topic
-  -a, --agent           生成 agent 的参数。
-                                    [-r *.msg [*.msg ...]] [-a] [-c]
-                                    [-t MSGDIR] [-o AGENTDIR] [-u CLIENTDIR]
-                                    [-f FASTRTPSGEN]
+usage: generate_microRTPS_bridge.py [-h] [-a] [-c] [-i] [-j IDL_DIR] [-m] [-l]
+                                    [-t MSGDIR] [-b UORB_TEMPLATES]
+                                    [-q URTPS_TEMPLATES] [-y YAML_FILE]
+                                    [-p PACKAGE] [-o AGENTDIR] [-u CLIENTDIR]
+                                    [-f [FASTRTPSGEN]]
+                                    [-g FASTRTPSGEN_INCLUDE]
+                                    [-r [ROS2_DISTRO]] [--delete-tree]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -s *.msg [*.msg ...], --send *.msg [*.msg ...]
-                        Topics to be sent
-  -r *.msg [*.msg ...], --receive *.msg [*.msg ...]
-                        Topics to be received
-  -a, --agent           Flag to generate the agent. 默认值为 true。
-  -c, --client          Flag to generate the client. 默认值为 true。 默认值为 true。
+  -a, --agent           Flag for generate the agent, by default is true if -c
+                        is not specified
+  -c, --client          Flag for generate the client, by default is true if -a
+                        is not specified
+  -i, --generate-idl    Flag for generate idl files for each msg
+  -j IDL_DIR, --idl-dir IDL_DIR
+                        IDL files dir
+  -m, --mkdir-build     Flag to create 'build' dir
+  -l, --generate-cmakelists
+                        Flag to generate a CMakeLists.txt file for the micro-
+                        RTPS agent
   -t MSGDIR, --topic-msg-dir MSGDIR
-                        主题消息目录。 -t MSGDIR, --topic-msg-dir MSGDIR
-                        Topics message dir. 默认为： msg/
+                        Topics message, by default using relative path 'msg/'
+  -b UORB_TEMPLATES, --uorb-templates-dir UORB_TEMPLATES
+                        uORB templates, by default using relative path to
+                        msgdir 'templates/uorb_microcdr'
+  -q URTPS_TEMPLATES, --urtps-templates-dir URTPS_TEMPLATES
+                        uRTPS templates, by default using relative path to
+                        msgdir 'templates/urtps'
+  -y YAML_FILE, --rtps-ids-file YAML_FILE
+                        RTPS msg IDs definition path, by default using
+                        relative path to msgdir
+                        'tools/uorb_rtps_message_ids.yaml'
+  -p PACKAGE, --package PACKAGE
+                        Msg package naming, by default px4
   -o AGENTDIR, --agent-outdir AGENTDIR
-                        Agent 输出目录。 Src/modules/micrortps_bridge/micrortps_agent
+                        Agent output dir, by default using relative path
+                        'src/modules/micrortps_bridge/micrortps_agent'
   -u CLIENTDIR, --client-outdir CLIENTDIR
-                        客户端输出目录。 Default is:
-                        src/modules/micrortps_bridge/micrortps_agent
-  -u CLIENTDIR, --client-outdir CLIENTDIR
-                        Client output dir. Default is:
-                        src/modules/micrortps_bridge/micrortps_client
-  -f FASTRTPSGEN, --fastrtpsgen-dir FASTRTPSGEN
-                        fastrtpsgen installation dir. Default is: /bin
-  --delete-tree         Delete dir tree output dir(s) 默认是： /bin
-  --delete-tree         删除目录树
+                        Client output dir, by default using relative path
+                        'src/modules/micrortps_bridge/micrortps_client'
+  -f [FASTRTPSGEN], --fastrtpsgen-dir [FASTRTPSGEN]
+                        fastrtpsgen installation dir, only needed if
+                        fastrtpsgen is not in PATH, by default empty
+  -g FASTRTPSGEN_INCLUDE, --fastrtpsgen-include FASTRTPSGEN_INCLUDE
+                        directory(ies) to add to preprocessor include paths of
+                        fastrtpsgen, by default empty
+  -r [ROS2_DISTRO], --ros2-distro [ROS2_DISTRO]
+                        ROS 2 distro, only required if generating the agent for
+                        usage with ROS 2 nodes, by default empty
+  --delete-tree         Delete dir tree output dir(s)
 ```
 
 :::caution
@@ -70,7 +84,7 @@ Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the 
 <li>如果未指定标志 <code>-a` 或 `-c`，则将生成并安装客户端和代理。
 - 如果未在默认位置（`-f /path/to/fastrtps/installation/bin`）安装 *Fast rtps*，则可能需要 `-f` 选项。
 
-为 *Client*、*Agent*、*CDR serialization/deserialization* 的 uORB 消息以及关联的 RTPS 报文 (IDL 文件) 的定义生成代码。
+可以在此处找到网桥的手动生成的代码（默认情况下）：
 
 ```sh
 $ cd /path/to/PX4/Firmware
@@ -79,7 +93,7 @@ $ python Tools/generate_microRTPS_bridge.py -s msg/sensor_baro.msg -r msg/sensor
 
 ## 生成代码
 
-可以在此处找到网桥的手动生成的代码（默认情况下）：
+Code is generated for the *Client*, *Agent*, *CDR serialization/deserialization* of uORB messages, and the definition of the associated RTPS messages (IDL files).
 
 Manually generated code for the bridge can be found here (by default):
 
@@ -89,7 +103,7 @@ Manually generated code for the bridge can be found here (by default):
 
 ### uORB 序列化代码
 
-IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/** 这些可以在 **src/modules/micrortps_bridge/micrortps_agent/idl/** 中找到。
+*FastRTSP* 使用 IDL 文件来定义 RTPS 消息的结构（在本例中，映射到 uORB 主题的 RTPS 消息）。 *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
 
 ```sh
 void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
@@ -98,9 +112,9 @@ void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, 
 
 ### RTPS 报文 IDL 文件
 
-*FastRTSP* 使用 IDL 文件来定义 RTPS 消息的结构（在本例中，映射到 uORB 主题的 RTPS 消息）。 *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
+IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
 
-*FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
+*Fast DDS* uses IDL files to define the structure of RTPS/DDS messages (in this case, RTPS/DDS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
 
 :::note IDL
 files are compiled to C++ by the *fastrtpsgen* tool.
@@ -108,9 +122,9 @@ files are compiled to C++ by the *fastrtpsgen* tool.
 
 ## 代码生成验证
 
-客户端目录：
-
 The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client-px4-firmware).
+
+Agent directory:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_agent
 src/modules/micrortps_bridge/micrortps_agent
@@ -156,7 +170,7 @@ src/modules/micrortps_bridge/micrortps_client
 
 The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client_firmware).
 
-Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 firmware as part of the normal build process. For example, to compile the code and include it in firmware for NuttX/Pixhawk targets:
+Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 Firmware as part of the normal build process. For example, to compile the code and include it in Firmware for NuttX/Pixhawk targets:
 
 ```sh
 make px4_fmu-v4_default upload
@@ -166,4 +180,4 @@ make px4_fmu-v4_default upload
 You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
 :::
 
-The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong><emphasis>build/BUILDPLATFORM</emphasis></strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
+The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/**.

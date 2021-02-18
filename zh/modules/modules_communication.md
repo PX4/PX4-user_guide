@@ -145,21 +145,17 @@ micrortps_client <command> [arguments...]
 ### 描述
 uORB 是各模块之间进行通讯的基于 发布-订阅 机制的内部消息传递系统。
 
-uORB 模块通常作为第一个模块启动，并且绝大多数其它模块均依赖于它，
-
 ### 用法
-No thread or work queue is needed, the module start only makes sure to initialize the shared global state. Communication is done via shared memory. The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber. 通信是通过共享内存（shared memory）完成的。 The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. 这一特性是通过在发布者和订阅者之间建立单独的缓冲区来实现的。
+The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa. This is achieved by having a separate buffer between a publisher and a subscriber.
 
-我们对代码以最大限度地减少内存占用和交换消息的延迟为目标进行了优化。
+The code is optimized to minimize the memory footprint and the latency to exchange messages.
+
+Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
 
 该接口基于文件描述符（file descriptor）实现：它在内部使用 `read`、`write` 和 `ioctl`。 The interface is based on file descriptors: internally it uses `read`, `write` and `ioctl`. Except for the publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
 
-Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time. 在构建时它们会被转化为 C/C++ 代码。
-
-If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which modules are allowed to publish which topics. This is used for system-wide replay. 这可以用于全系统范围的回放。
-
 ### 示例
-监控主题发布速率。 Monitor topic publication rates. Besides `top`, this is an important command for general system inspection:
+Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time. 在构建时它们会被转化为 C/C++ 代码。
 ```
 uorb top
 ```
