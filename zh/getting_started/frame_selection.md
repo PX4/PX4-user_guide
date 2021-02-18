@@ -1,32 +1,19 @@
-# 机架选择
+# Vehicle Selection
 
-## 空中飞行器
+PX4 supports air, surface, and submersible vehicles. You can see a full list of the vehicle types and variants ("frames") that have been tested/tuned for use with PX4 here: [Airframe Reference](../airframes/airframe_reference.md).
 
-如果您计划使用 PX4 来飞行飞机，您应该回答的最重要的问题是，应用将会是什么。 是为了娱乐还是工作，计划的飞行时间和覆盖范围是多少。
+Select the frame based on what you need it for:
 
-- 如果你需要精确的悬停，并不介意更短的飞行时间，那么请关注 **多旋翼飞行器**。
-- 对于更长的飞行和更大的覆盖区域，您将需要固定翼飞机，即**Airplanes**。
-- 甚至还有混合型飞机，称为**VTOL** - 垂直起降飞行器。 它可以像多旋翼一样在垂直模式下起飞，然后在向前飞行时切换为固定翼飞机。
+- **Multicopters** offer precision hovering and verticle takeoff, at the cost of shorter and generally slower flight. PX4 has modes that make them easy to fly, and they are the most popular type of flying vehicle.
+- **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc. However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
+- **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc. They offer the best of both worlds: take off in vertical mode like a multicopter and then transition in forward flight like an airplane. They are often more expensive than either multicopters and fixed wing aircraft, and harder to build and tune.
+- **Airships/Balloons** are lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
+- **Rovers** are car-like ground vehicles. They are simple to control and often fun to use.
+- **Boats** are water-surface vehicles.
+- **Submersibles** are underwater vehicles.
 
-[机架参考](../airframes/airframe_reference.md) 列出了调试过， 可以在PX4上完美飞行的机型 。
+:::note
+The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
-选择并购买或组装您的机架后，您必须在 [初始设置过程 ](../config/README.md)中使用 QGroundControl 中选择相应机架模板预设机架类型。
-
-![机架选择](../../assets/qgc/setup/airframe/frame_selection.png)
-
-<!-- 
-### Types of VTOL
-
-Depending on the way the VTOL flies in copter mode or how it makes the transition there are three main types of VTOL aircraft.
-
-**Multicopter - Airplane** - Generic airplane with pusher/puller motor and separate motors for vertical thrust. The VTOL hovers with its vertical motors. The transition is done when the forward motors are enabled and after the plane reaches cruising speed the hover motors are disabled in horizontal flight.
-
-**Tail-sitter** - Airplane with two or more motors that sits on its tail while landed, then in vertical flight it balances in vertical frame orientation. The transition is made when the whole airplane changes its orientation from vertical to horizontal.
-
-**Tilt-rotor** - Airplane with two or more motors that mechanical swing around an Y axis. The transition is done when gradually the motors change the thrust vector from vertical to horizontal.
-
--->
-
-## 地面车辆
-
-## 海洋船只
+![Frame Selection](../../assets/qgc/setup/airframe/airframe_px4.jpg)
+:::
