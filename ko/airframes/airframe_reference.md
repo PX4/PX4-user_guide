@@ -454,37 +454,37 @@
       <td style="vertical-align: top;">
         <ul>
           <li>
-            <b>MAIN1</b>: 모터 1
+            <b>MAIN1</b> : 모터 1
           </li>
           <li>
-            <b>MAIN2</b>: 모터 2
+            <b>MAIN2</b> : 모터 2
           </li>
           <li>
-            <b>MAIN3</b>: 모터 3
+            <b>MAIN3</b> : 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: 모터 4
+            <b>MAIN4</b> : 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: 모터 5
+            <b>MAIN5</b> : 모터 5
           </li>
           <li>
-            <b>MAIN6</b>: 모터 6
+            <b>MAIN6</b> : 모터 6
           </li>
           <li>
-            <b>MAIN7</b>: 모터 7
+            <b>MAIN7</b> : 모터 7
           </li>
           <li>
-            <b>MAIN8</b>: 모터 8
+            <b>MAIN8</b> : 모터 8
           </li>
           <li>
-            <b>AUX1</b>: RC AUX1 채널의 입력
+            <b>AUX1</b> : RC AUX1 채널의 입력
           </li>
           <li>
-            <b>AUX2</b>: RC AUX2 채널의 입력
+            <b>AUX2</b> : RC AUX2 채널의 입력
           </li>
           <li>
-            <b>AUX3</b>: RC AUX3 채널의 입력
+            <b>AUX3</b> : RC AUX3 채널의 입력
           </li>
         </ul>
       </td>
@@ -725,16 +725,16 @@
       <td style="vertical-align: top;">
         <ul>
           <li>
-            <b>AUX1</b>: RC AUX1 채널의 입력
+            <b>AUX1</b> : RC AUX1 채널의 입력
           </li>
           <li>
-            <b>AUX2</b>: RC AUX2 채널의 입력
+            <b>AUX2</b> : RC AUX2 채널의 입력
           </li>
           <li>
-            <b>AUX3</b>: RC AUX3 채널의 입력
+            <b>AUX3</b> : RC AUX3 채널의 입력
           </li>
           <li>
-            <b>AUX4</b>: RC FLAPS 채널의 입력
+            <b>AUX4</b> : RC FLAPS 채널의 입력
           </li>
         </ul>
       </td>
@@ -846,7 +846,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지보수: James Goppert &lt;james.goppert@gmail.com&gt;
+        유지보수 : James Goppert &lt;james.goppert@gmail.com&gt;
       </p>
       
       <p>
@@ -981,7 +981,7 @@
 </tr>
 </table>
 
-### Simulation (Copter)
+### 시뮬레이션 (콥터)
 
 <div>
 <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
@@ -997,18 +997,18 @@
     </th>
   </tr>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
- <td style="vertical-align: top;">HIL Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td style="vertical-align: top;">힐 쿼드콥터 X</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
 
 </tr>
 <tr id="copter_simulation_(copter)_sih_quadcopter_x">
  <td style="vertical-align: top;">SIH Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
 
 </tr>
 </table>
 
-### Tilt-Quad
+### 틸트-쿼드
 
 <div>
   <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;" /> 
@@ -1020,7 +1020,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li><b>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li><b>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li><b>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1036,13 +1036,13 @@
   </tr>
 <tbody>
 <tr id="copter_tilt-quad_tilt-quadrotor">
- <td style="vertical-align: top;"><a href="http://www.alivaero.com/the-project.html">Tilt-Quadrotor</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Ricardo Marques &lt;marques.ricardo17@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
+ <td style="vertical-align: top;"><a href="http://www.alivaero.com/the-project.html">틸트-쿼드로터</a></td>
+ <td style="vertical-align: top;"><p>유지보수: Ricardo Marques &lt;marques.ricardo17@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
 
 </tr>
 </tbody></table>
 
-### Tricopter Y+
+### 트리콥터 Y+
 
 <div>
   <img src="../../assets/airframes/types/YPlus.svg" width="29%" style="max-height: 180px;" /> 
