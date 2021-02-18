@@ -1,11 +1,13 @@
 # Integration Testing using ROS
 
-This topic explains how to run PX4's ROS-based integration tests, and also how to extend them.
+This topic explains how to run (and extend) PX4's ROS-based integration tests.
 
 :::note
-The tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
-:::
+[MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests. 
+Use the ROS-based integration test framework for use cases that *require* ROS (e.g. object avoidance).
 
+All PX4 integraton tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
+:::
 
 ## Prerequisites:
 
@@ -52,7 +54,7 @@ The **.test** files launch the corresponding Python tests defined in `integratio
 
 This section explains how to write a new python test using ROS(1)/MAVROS, test it, and add it to the PX4 test suite.
 
-We recommend you review the existing tests as examples/inspiration (**integrationtests/python_src/px4_it/mavros/**).
+We recommend you review the existing tests as examples/inspiration ([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros)).
 The official ROS documentation also contains information on how to use [unittest](http://wiki.ros.org/unittest) (on which this test suite is based).
 
 To write a new test:
