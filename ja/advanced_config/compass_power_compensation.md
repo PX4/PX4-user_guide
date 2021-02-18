@@ -36,14 +36,16 @@ Performing this power compensation is advisable only if all the following statem
    - Slowly lower the throttle down to zero
    - Disarm the vehicle
 
-   :::note Perform the test carefully and closely monitor the vibrations.
+:::note
+Perform the test carefully and closely monitor the vibrations.
 :::
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/sensors/vehicle_magnetometer/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   :::note If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+:::note
+If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
 :::
 1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
 

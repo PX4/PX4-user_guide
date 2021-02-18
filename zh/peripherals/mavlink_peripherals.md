@@ -26,10 +26,12 @@ The parameters for each instance are:
   - *ExtVision* or *ExtVisionMin*: Messages for offboard vision systems (ExtVision needed for VIO).
   - *Iridium*: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
   
-  :::note If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
+:::note
+If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
 :::
   
-  :::tip The mode defines the *default* messages and rates. A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
+:::tip
+The mode defines the *default* messages and rates. A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
 :::
 
 - [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the maximum *data rate* for this instance (bytes/second).

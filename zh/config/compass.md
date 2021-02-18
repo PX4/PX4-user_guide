@@ -22,7 +22,8 @@ The calibration steps are:
     
     ![选择 Compass 校准 PX4](../../assets/qgc/setup/sensor/sensor_compass_select_px4.jpg)
     
-    :::note You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+:::note
+You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 :::
 
 5. 点击**确定**开始校准。

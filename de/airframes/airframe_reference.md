@@ -1283,6 +1283,11 @@ This page lists all supported airframes and types including the motor assignment
  <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
 
 </tr>
+<tr id="vtol_standard_vtol_generic_quadplane_vtol_(pwm14)">
+ <td style="vertical-align: top;">Generic Quadplane VTOL (PWM14)</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: Aileron 1</li><li><b>MAIN6</b>: Aileron 2</li><li><b>MAIN7</b>: Elevator</li><li><b>MAIN8</b>: Rudder</li><li><b>MAIN9</b>: Pusher motor</li></ul></p></td>
+
+</tr>
 </table>
 
 ### VTOL Duo Tailsitter

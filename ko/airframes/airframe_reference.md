@@ -1,10 +1,10 @@
 # 에어프레임 참조
 
-> **Note** **이 목록은 소스 코드에서 가져온 데이터로 [자동 생성](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) 했습니다**.
+> **Note** **이 목록은 소스 코드에서 가져온 데이터로 [자동 생성](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py)하였습니다**.
 > 
-> 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT**으로 레이블이 나타납니다.
+> 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT**으로 라벨이 있습니다.
 
-이 페이지에서는 지원하는 모든 기체 프레임과 형식을 나열하며, 모터 배정 상태와 번호 내용도 들어있습니다. **green** 모터는 시계 방향으로 돌며 **blue** 모터는 그 반대입니다.
+이 페이지는 모터 설정 및 번호 지정을 포함하여 지원되는 모든 기체 및 유형을 기술합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.
 
 ## 비행선
 
@@ -37,14 +37,14 @@
 <tbody>
 <tr id="airship_airship_cloudship">
  <td style="vertical-align: top;">구름선</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe &lt;john@example.com&gt;</p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td style="vertical-align: top;"><p>유지보수: John Doe &lt;john@example.com&gt;</p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
 
 </tr>
 </tbody></table>
 
-## Autogyro
+## 오토자이로 
 
-### Autogyro
+### 오토자이로
 
 <div>
   <img src="../../assets/airframes/types/Autogyro.svg" width="29%" style="max-height: 180px;" /> 
@@ -56,7 +56,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b> : 프리로테이터용 RC AUX1 채널 피드 스루 (선택 사항)</li><li><b>AUX2</b> : 릴리스 장치용 RC AUX2 채널 피드 스루 (선택 사항)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -72,19 +72,19 @@
   </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 4013</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 보조 방향타 (선택 사항)</li><li><b>MAIN6</b>: 추진기</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
 
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: rotor_head_L</li><li><b>MAIN3</b>: rotor_head_R</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;</p><p><code>SYS_AUTOSTART</code> = 17003</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 추진기</li></ul></p></td>
 
 </tr>
 </table>
 
-## Balloon
+## 풍선
 
-### Balloon
+### 풍선
 
 <div>
 <img src="../../assets/airframes/types/Balloon.svg" width="29%" style="max-height: 180px;"/>
@@ -102,14 +102,14 @@
 <tbody>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o.</p><p><code>SYS_AUTOSTART</code> = 18001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: ThunderFly s.r.o.</p><p><code>SYS_AUTOSTART</code> = 18001</p></td>
 
 </tr>
 </tbody></table>
 
-## Copter
+## 콥터
 
-### Coaxial Helicopter
+### 동축 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -121,7 +121,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: Left swashplate servomotor, pitch axis</li><li><b>MAIN2</b>: Right swashplate servomotor, roll axis</li><li><b>MAIN3</b>: Upper rotor (CCW)</li><li><b>MAIN4</b>: Lower rotor (CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 로터 (CCW)</li><li><b>MAIN4</b>: 하부 로터 (CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -138,7 +138,7 @@
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td style="vertical-align: top;">Esky (Big) Lama v4</td>
- <td style="vertical-align: top;"><p>Maintainer: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
@@ -155,7 +155,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -171,13 +171,13 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: William Peale &lt;develop707@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;">일반 도데카로터 콕스 기하 구조</td>
+ <td style="vertical-align: top;"><p>유지보수: William Peale &lt;develop707@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
 
-### Helicopter
+### 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;" /> 
@@ -206,12 +206,12 @@
 <tbody>
 <tr id="copter_helicopter_blade_130x">
  <td style="vertical-align: top;">Blade 130X</td>
- <td style="vertical-align: top;"><p>Maintainer: Bart Slinger &lt;bartslinger@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Bart Slinger &lt;bartslinger@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor +
+### 헥사로터 +
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -240,12 +240,12 @@
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
  <td style="vertical-align: top;">Generic Hexarotor + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor Coaxial
+### 동축 헥사로터
 
 <div>
   <img src="../../assets/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;" /> 
@@ -256,9 +256,40 @@
         공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 전면 우측 상단, CW; 각도:60; 방향:CW
+          </li>
+          <li>
+            <b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW
+          </li>
+          <li>
+            <b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW
+          </li>
+          <li>
+            <b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW
+          </li>
+          <li>
+            <b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW
+          </li>
+          <li>
+            <b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -273,13 +304,13 @@
   </tr>
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
- <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;">일반 동축  헥사로터 </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor x
+### X형 헥사로터
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -305,24 +336,75 @@
     <th>
     </th>
   </tr>
-<tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
- <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
-
-</tr>
-<tr id="copter_hexarotor_x_uvify_draco-r">
- <td style="vertical-align: top;">UVify Draco-R</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
-
-</tr>
+  
+  <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
+    <td style="vertical-align: top;">
+      일반 X형 헥사로터
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 6001
+      </p>
+      
+      <p>
+        <b>지정 출력:</b>
+        
+        <ul>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널 입력
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_hexarotor_x_uvify_draco-r">
+    <td style="vertical-align: top;">
+      UVify Draco-R
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        유지보수: Hyon Lim &lt;lim@uvify.com&gt;
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 6002
+      </p>
+      
+      <p>
+        <b>지정 출력:</b>
+        
+        <ul>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
 <tr id="copter_hexarotor_x_hex_x_with_control_allocation">
  <td style="vertical-align: top;">Hex X with control allocation</td>
- <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 6003</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 6003</p></td>
 
 </tr>
 </table>
 
-### Octo Coax Wide
+### 옥토 콕스 와이드
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -351,12 +433,12 @@
 <tbody>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td style="vertical-align: top;">Steadidrone MAVRIK</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
 
 </tr>
 </tbody></table>
 
-### Octorotor +
+### 옥토로터 +
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -367,9 +449,46 @@
         공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 모터 1
+          </li>
+          <li>
+            <b>MAIN2</b>: 모터 2
+          </li>
+          <li>
+            <b>MAIN3</b>: 모터 3
+          </li>
+          <li>
+            <b>MAIN4</b>: 모터 4
+          </li>
+          <li>
+            <b>MAIN5</b>: 모터 5
+          </li>
+          <li>
+            <b>MAIN6</b>: 모터 6
+          </li>
+          <li>
+            <b>MAIN7</b>: 모터 7
+          </li>
+          <li>
+            <b>MAIN8</b>: 모터 8
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -384,13 +503,13 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
- <td style="vertical-align: top;">Generic Octocopter + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td style="vertical-align: top;">일반 옥토콥터 + </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
 
-### Octorotor Coaxial
+### 옥토로터 동축
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -402,7 +521,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -418,13 +537,13 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
- <td style="vertical-align: top;">Generic 10" Octo coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;">일반 10" 옥토 동축 </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
 
-### Octorotor x
+### 옥토로터 X형 
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -432,12 +551,49 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 모터 1
+          </li>
+          <li>
+            <b>MAIN2</b>: 모터 2
+          </li>
+          <li>
+            <b>MAIN3</b>: 모터 3
+          </li>
+          <li>
+            <b>MAIN4</b>: 모터 4
+          </li>
+          <li>
+            <b>MAIN5</b>: 모터 5
+          </li>
+          <li>
+            <b>MAIN6</b>: 모터 6
+          </li>
+          <li>
+            <b>MAIN7</b>: 모터 7
+          </li>
+          <li>
+            <b>MAIN8</b>: 모터 8
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -452,13 +608,13 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
- <td style="vertical-align: top;">Generic Octocopter X geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;">일반 옥타콥터 X </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor +
+### 쿼드로터 + 형
 
 <div>
   <img src="../../assets/airframes/types/QuadRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -466,12 +622,46 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 모터 1
+          </li>
+          <li>
+            <b>MAIN2</b>: 모터 2
+          </li>
+          <li>
+            <b>MAIN3</b>: 모터 3
+          </li>
+          <li>
+            <b>MAIN4</b>: 모터 4
+          </li>
+          <li>
+            <b>MAIN5</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>MAIN6</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+          <li>
+            <b>AUX4</b>: RC FLAPS 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -486,13 +676,13 @@
   </tr>
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
- <td style="vertical-align: top;">Generic 10" Quad + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td style="vertical-align: top;">일반 10" 쿼드 +  </td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor H
+### 쿼드로터 H
 
 <div>
 <img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;"/>
@@ -508,18 +698,18 @@
     </th>
   </tr>
 <tr id="copter_quadrotor_h_reaper_500_quad">
- <td style="vertical-align: top;">Reaper 500 Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;">리퍼 500 쿼드</td>
+ <td style="vertical-align: top;"><p>유지관리: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p><p><b>지정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td style="vertical-align: top;">BetaFPV Beta75X 2S Brushless Whoop</td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4041</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4041</p><p><b>지정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 </table>
 
-### Quadrotor Wide
+### 쿼드로터 와이드
 
 <div>
   <img src="../../assets/airframes/types/QuadRotorWide.svg" width="29%" style="max-height: 180px;" /> 
@@ -530,9 +720,25 @@
         공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+          <li>
+            <b>AUX4</b>: RC FLAPS 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -547,27 +753,27 @@
   </tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery">
  <td style="vertical-align: top;">Team Blacksheep Discovery</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10015</p><p><b>지정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_3dr_iris_quadrotor">
  <td style="vertical-align: top;">3DR Iris Quadrotor</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10016</p><p><b>지정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_steadidrone_qu4d">
- <td style="vertical-align: top;">Steadidrone QU4D</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;">스테디드론 QU4D</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 10017</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery_endurance">
  <td style="vertical-align: top;">Team Blacksheep Discovery Endurance</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 10018</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 10018</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
 </table>
 
-### Quadrotor asymmetric
+### 비대칭 쿼드로터
 
 <div>
   <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;" /> 
@@ -575,11 +781,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1 (front right: CCW)</li><li><b>MAIN2</b>: motor2 (back left: CCW)</li><li><b>MAIN3</b>: motor3 (front left: CW)</li><li><b>MAIN4</b>: motor4 (back right: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1(전면 우측: CCW)</li><li><b>MAIN2</b>: 모터 2(후면 좌측: CCW)</li><li><b>MAIN3</b>: 모터 3(전면 좌측: CW)</li><li><b>MAIN4</b>: 모터 4(후면 우측: CW)</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></td>
 </tr>
   </table>
 </div>
@@ -596,12 +802,12 @@
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/frames_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor x
+### 쿼드로터 x
 
 <div>
   <img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -609,11 +815,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li><li><b>AUX3</b>: RC AUX3 채널의 입력</li><li><b>AUX4</b>: RC FLAPS 채널의 입력</li></ul></td>
 </tr>
   </table>
 </div>
@@ -628,8 +834,8 @@
     </th>
   </tr>
 <tr id="copter_quadrotor_x_generic_quadcopter">
- <td style="vertical-align: top;">Generic Quadcopter</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;">일반 쿼드콥터</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 입력</li><li><b>MAIN6</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
   
@@ -640,7 +846,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;
+        유지보수: James Goppert &lt;james.goppert@gmail.com&gt;
       </p>
       
       <p>
@@ -650,127 +856,127 @@
   </tr>
 <tr id="copter_quadrotor_x_lumenier_qav250">
  <td style="vertical-align: top;">Lumenier QAV250</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f330_w/_dji_escs">
- <td style="vertical-align: top;">DJI F330 w/ DJI ESCs</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
+ <td style="vertical-align: top;">DJI F330 w/ DJI 전동 변속기</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f450_w/_dji_escs">
- <td style="vertical-align: top;">DJI F450 w/ DJI ESCs</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
+ <td style="vertical-align: top;">DJI F450 w/ DJI 전동 변속기</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
  <td style="vertical-align: top;">S500 Generic</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td style="vertical-align: top;">Holybro S500</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4015</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_devkit_platform">
  <td style="vertical-align: top;">PX4 Vision DevKit Platform</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe &lt;john@example.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: John Doe &lt;john@example.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4016</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
  <td style="vertical-align: top;">NXP HoverGames</td>
- <td style="vertical-align: top;"><p>Maintainer: Iain Galloway &lt;iain.galloway@nxp.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Iain Galloway &lt;iain.galloway@nxp.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4017</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_with_control_allocation">
  <td style="vertical-align: top;">S500 with control allocation</td>
- <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 4018</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 4018</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
  <td style="vertical-align: top;">Hobbyking Micro PCB</td>
- <td style="vertical-align: top;"><p>Maintainer: Thomas Gubler &lt;thomas@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Thomas Gubler &lt;thomas@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_3dr_solo">
- <td style="vertical-align: top;">3DR Solo</td>
- <td style="vertical-align: top;"><p>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
+ <td style="vertical-align: top;">3DR 솔로</td>
+ <td style="vertical-align: top;"><p>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_3dr_diy_quad">
- <td style="vertical-align: top;">3DR DIY Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
+ <td style="vertical-align: top;">3DR DIY 쿼드</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
- <td style="vertical-align: top;">Generic 250 Racer</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td style="vertical-align: top;">일반 250 레이서</td>
+ <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4052</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4052</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td style="vertical-align: top;">Holybro Kopis 2</td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4053</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4053</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_matrice_100">
  <td style="vertical-align: top;">DJI Matrice 100</td>
- <td style="vertical-align: top;"><p>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
+ <td style="vertical-align: top;"><p>유지보수: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
  <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_draco">
  <td style="vertical-align: top;">UVify Draco</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
- <td style="vertical-align: top;">ZMR250 Racer</td>
- <td style="vertical-align: top;"><p>Maintainer: Anton Matosov &lt;anton.matosov@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4080</p></td>
+ <td style="vertical-align: top;">ZMR250 레이서</td>
+ <td style="vertical-align: top;"><p>유지보수: Anton Matosov &lt;anton.matosov@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4080</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_nanomind_110_quad">
- <td style="vertical-align: top;">NanoMind 110 Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Henry Zhang &lt;zhanghui629@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4090</p></td>
+ <td style="vertical-align: top;">나노마인드 110 쿼드</td>
+ <td style="vertical-align: top;"><p>유지보수: Henry Zhang &lt;zhanghui629@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4090</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_teal_one">
  <td style="vertical-align: top;">Teal One</td>
- <td style="vertical-align: top;"><p>Maintainer: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td style="vertical-align: top;">COEX Clover 4</td>
- <td style="vertical-align: top;"><p>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4500</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Oleg Kalachev &lt;okalachev@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4500</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
  <td style="vertical-align: top;">Crazyflie 2</td>
- <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td style="vertical-align: top;">Crazyflie 2.1</td>
- <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4901</p></td>
 
 </tr>
 </table>
@@ -1281,6 +1487,11 @@
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td style="vertical-align: top;">BabyShark VTOL</td>
  <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
+
+</tr>
+<tr id="vtol_standard_vtol_generic_quadplane_vtol_(pwm14)">
+ <td style="vertical-align: top;">Generic Quadplane VTOL (PWM14)</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: Aileron 1</li><li><b>MAIN6</b>: Aileron 2</li><li><b>MAIN7</b>: Elevator</li><li><b>MAIN8</b>: Rudder</li><li><b>MAIN9</b>: Pusher motor</li></ul></p></td>
 
 </tr>
 </table>

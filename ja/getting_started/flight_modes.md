@@ -117,7 +117,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip Position mode is the safest manual mode for new fliers. Unlike <a href="#altitude_mc">Altitude</a> and <a href="#manual_stabilized_mc">Manual/Stabilized</a> modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+:::tip
+Position mode is the safest manual mode for new fliers. Unlike <a href="#altitude_mc">Altitude</a> and <a href="#manual_stabilized_mc">Manual/Stabilized</a> modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
 :::
             </p>
             
@@ -149,7 +150,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip <em>Attitude mode</em> is the safest non-GPS manual mode for new fliers. It is just like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but additionally stabilizes the vehicle altitude when the sticks are released.
+:::tip
+<em>Attitude mode</em> is the safest non-GPS manual mode for new fliers. It is just like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but additionally stabilizes the vehicle altitude when the sticks are released.
 :::
             </p>
             
@@ -177,7 +179,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::note This multicopter mode is enabled if you set either <em>Manual</em> or <em>Stabilized</em> modes for an MC vehicle.
+:::note
+This multicopter mode is enabled if you set either <em>Manual</em> or <em>Stabilized</em> modes for an MC vehicle.
 :::
             </p>
             
@@ -336,7 +339,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+:::tip
+The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
 :::
             </p>
             
@@ -417,7 +421,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::note This mode is intended for companion computers and ground stations!
+:::note
+This mode is intended for companion computers and ground stations!
 :::
             </p>
             
@@ -456,7 +461,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip Position mode is the safest fixed-wing manual mode for new fliers.
+:::tip
+Position mode is the safest fixed-wing manual mode for new fliers.
 :::
             </p>
             
@@ -492,7 +498,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip <em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+:::tip
+<em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
 :::
             </p>
             
@@ -524,7 +531,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip <em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+:::tip
+<em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
 :::
             </p>
             
@@ -583,12 +591,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+:::tip
+This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
 :::
             </p>
             
             <p>
-              :::note This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+:::note
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
 :::
             </p>
             
@@ -654,7 +664,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+:::tip
+The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
 :::
             </p>
             
@@ -716,7 +727,8 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              :::note This mode is intended for companion computers and ground stations!
+:::note
+This mode is intended for companion computers and ground stations!
 :::
             </p>
             

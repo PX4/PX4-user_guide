@@ -148,7 +148,8 @@
 
 11. 비행컨트롤러의 각 포트에 맞게 텔레메트리는 (`TELEM1`) 에, GPS 모듈은 (`GPS/SAFETY`) 에, RC 수신기는 (`RC`) 에, 모든 4 ESC’s (`M1-M4`) 에, 그리고 전원 모듈은(`Power1`) 꽂습니다. ![비행 컨트롤러에 주변장치 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
   
-    :::note The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+:::note
+The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
 :::
 
 끝났습니다! 마지막 조립순서가 다음에 이어집니다:
@@ -182,7 +183,8 @@ Then perform the mandatory setup/calibration:
 * [무선 설정](../config/radio.md)
 * [Flight Modes](../config/flight_mode.md)
   
-    :::note For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+:::note
+For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
 :::
 
 Ideally you should also do:

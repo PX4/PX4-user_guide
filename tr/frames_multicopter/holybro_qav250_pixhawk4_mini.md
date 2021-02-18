@@ -116,7 +116,8 @@ The following tools are used in this assembly:
     
     Connect the motors on the ESC’s, make sure the motors turns to the correct side, if the motor turns of the opposite side change the cable A to the pad C and C to the pad A of the ESC.
     
-    :::warning Test motor directions with propellers removed.
+:::warning
+Test motor directions with propellers removed.
 :::
     
     ![QAV250 Connect ESCs to Power](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/11b_escs.jpg)
@@ -189,7 +190,8 @@ First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
     
-    :::note You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+:::note
+You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
     
     ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: Then perform the mandatory setup/calibration:
 

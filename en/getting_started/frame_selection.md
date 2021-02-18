@@ -1,37 +1,24 @@
-# Frame Selection
+# Vehicle Selection
 
-## Air Vehicles
+PX4 supports air, surface, and submersible vehicles.
+You can see a full list of the vehicle types and variants ("frames") that have been tested/tuned for use with PX4 here: [Airframe Reference](../airframes/airframe_reference.md).
 
-If you plan using PX4 for flying aircraft the most important question you should answer is, what will be the application.
-Is it for fun or for work, what is the planned flight times and coverage.
+Select the frame based on what you need it for:
+- **Multicopters** offer precision hovering and verticle takeoff, at the cost of shorter and generally slower flight.
+  PX4 has modes that make them easy to fly, and they are the most popular type of flying vehicle.
+- **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc.
+  However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
+- **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc.
+  They offer the best of both worlds: take off in vertical mode like a multicopter and then transition in forward flight like an airplane.
+  They are often more expensive than either multicopters and fixed wing aircraft, and harder to build and tune.
+- **Airships/Balloons** are lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
+- **Rovers** are car-like ground vehicles.
+  They are simple to control and often fun to use.
+- **Boats** are water-surface vehicles.
+- **Submersibles** are underwater vehicles.
 
-- If you need precision hovering and you don't mind shorter flight times then focus on **Multicopters**.
-- For longer flights and larger areas of coverage you will need fixed wing aircraft i.e. **Airplanes**.
-- There is even mixed type of aircraft called **VTOL** - Vertical Takeoff and Landing aircraft.
-  It can take off in vertical mode like Multicopter and then transition in forward flight like Airplane.
+:::note
+The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
 
-The [airframe reference](../airframes/airframe_reference.md) lists frames that have been tuned for perfect flight with PX4.
-
-Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
-
-![Frame Selection](../../assets/qgc/setup/airframe/frame_selection.png)
-
-<!-- 
-### Types of VTOL
-
-Depending on the way the VTOL flies in copter mode or how it makes the transition there are three main types of VTOL aircraft.
-
-**Multicopter - Airplane** - Generic airplane with pusher/puller motor and separate motors for vertical thrust. The VTOL hovers with its vertical motors. The transition is done when the forward motors are enabled and after the plane reaches cruising speed the hover motors are disabled in horizontal flight.
-
-**Tail-sitter** - Airplane with two or more motors that sits on its tail while landed, then in vertical flight it balances in vertical frame orientation. The transition is made when the whole airplane changes its orientation from vertical to horizontal.
-
-**Tilt-rotor** - Airplane with two or more motors that mechanical swing around an Y axis. The transition is done when gradually the motors change the thrust vector from vertical to horizontal.
-
--->
-
-
-## Ground Vehicles
-
-## Sea Vehicles
-
-
+![Frame Selection](../../assets/qgc/setup/airframe/airframe_px4.jpg)
+:::

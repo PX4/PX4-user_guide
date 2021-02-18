@@ -14,7 +14,8 @@ The following sections are split according to the operating system that PX4 runs
 On Posix, the system shell is used as script interpreter (e.g. /bin/sh, being symlinked to dash on Ubuntu). For that to work, a few things are required:
 - PX4 modules need to look like individual executables to the system. This is done via symbolic links. For each module a symbolic link `px4-<module> -> px4` is created in the `bin` directory of the build folder. When executed, the binary path is checked (`argv[0]`), and if it is a module (starts with `px4-`), it sends the command to the main px4 instance (see below).
 
-  :::tip The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+:::tip
+The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
 :::
 - The shell needs to know where to find the symbolic links. For that the `bin` directory with the symbolic links is added to the `PATH` variable right before executing the startup scripts.
 - The shell starts each module as a new (client) process. Each client process needs to communicate with the main instance of px4 (the server), where the actual modules are running as threads. This is done through a [UNIX socket](http://man7.org/linux/man-pages/man7/unix.7.html). The server listens on a socket, to which clients can connect and send a command. The server then sends the output and return code back to the client.

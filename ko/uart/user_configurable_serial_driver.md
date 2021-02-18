@@ -28,7 +28,8 @@
              name: SENS_ULAND_CFG
              group: Sensors
      ```
-   :::note 모듈 설정 파일에 대한 완전한 내용은 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 파일에서 찾아볼 수 있습니다. CI의 모든 설정 파일을 검증할 때도 활용합니다.
+:::note
+모듈 설정 파일에 대한 완전한 내용은 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 파일에서 찾아볼 수 있습니다. CI의 모든 설정 파일을 검증할 때도 활용합니다.
 :::
 1. 드라이버 모듈에 **CMakeLists.txt** 파일을 넣고 다음 모듈 설정 내용을 추가하십시오:
    ```

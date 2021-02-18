@@ -1,41 +1,41 @@
-# Weekly Dev Call
+# 주간 온라인 개발자 회의
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">This page may be out of date</p> <p>The latest version <a href="https://docs.px4.io/master/en/contribute/dev_call.html">can be found here</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래된 페이지입니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/contribute/dev_call.html">여기</a>를 참고하십시오.</p>
   </div>
 </div>
 
-The PX4 dev team syncs up on platform technical details and in-depth analysis. There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
+PX4 개발 팀은 플랫폼 기술 세부내역과 심층 분석 내역을 정리합니다. pull 요청, 주요 현안, 질답 요소를 의논할 의제 시간을 확보하기도 합니다.
 
 
-## Who should attend:
+## 참여 대상:
 
-* Core project maintainers
-* Component maintainers
-* Test team lead
-* Dronecode members
-* Community members
+* 핵심 프로젝트 관리자
+* 구성요소 관리자
+* 테스트 팀 관리자
+* 드론코드 회원
+* 커뮤니티 회원
 
 :::tip
-The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform.
+유선 개발 미팅은 (핵심 개발 팀만이 아닌) 관심있는 모든 개발자를 대상으로 열려있습니다. 개발팀과 플랫폼 개발에 기여할 수 있는 좋은 기회입니다.
 :::
 
-## What gets discussed?
+## 회의 목적
 
-The first/main part of the meeting runs for 45 minutes and provides a high-level forum to discuss where the project is going.
+회의 초반에는 45분간 진행하며 프로젝트를 어디서 진행 중인지 의논하는 고수준 포럼도 제공해드립니다.
 
-This is where we discuss *contributions*, including issues/PRs that have the [dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) label. We expect the proposer and the assigned reviewer to be on the call!
+[dev call](https://github.com/PX4/PX4-Autopilot/labels/devcall5) 레이블이 붙은 문제/PR을 포함, *기여* 방법을 토론하는 자리입니다. 온라인 미팅에서 새론운 것을 제안하고, 문제를 검토합니다.
 
 :::note
-The main call is designed to support rapid/focused decision making. We don't expect deep technical discussions and we will not spend extended amounts of time on feature requests. Proposals are welcome, but they need a sponsor (someone willing to *implement* the work)!
+온라인 미팅은 신속하게 결정을 내릴 수 있도록 도움을 주고자하는 자리입니다. 심도있는 기술적 토론을 기대하지 않으며, 기능 제안에 많은 시간을 할애하지 않습니다. 제안은 반갑습니다만, 지원자가 필요합니다(누군가가 해당 기능을 *구현*해야합니다)!
 :::
 
-The second part of the meeting is for in-depth technical discussions and open ended questions. The core team/subsystem maintainers will be available for up to 45 additional minutes.
+미팅 후반부는 고급 기술 토론과 끝나고 열려있는 질문을 다룹니다. 핵심 팀/하위시스템 관리자는 최대 45분동안 더 참여할 수 있습니다.
 
 
-## Schedule
-* TIME: Wednesday 17h00 CET, 12h00 EST, 09h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/))
-* **Join the call**: [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
+## 일정
+* 시간: 매주 수요일 유럽 표준시 시간대 17시, 미 동부 표준시 12시, 태평양 표준시 09시 \(캘린더에 가입하십시오)
+* **통화 참여** : [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
 
-* Agenda is published before the call on [PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)
-* To nominate Issues and PRs for the call you can use the [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) label to flag them for discussion.
+* 온라인 미팅 진행전에 [PX4 토론 - 주간 온라인 개발자 회의](http://discuss.px4.io/c/weekly-dev-call)에 의제를 게시할 예정입니다
+* 유선 미팅에서 문제나 PR을 다루려면 해당 내용에 [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) 레이블을 달아 의제로 표기할 수 있습니다.

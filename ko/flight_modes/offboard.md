@@ -51,7 +51,8 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * *Thrust* setpoint (only `afx`, `afy`, `afz`)
     
-    :::note Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+:::note
+Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
 :::
     
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
@@ -95,7 +96,8 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
       
       * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
         
-        :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+:::note
+The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
 :::
         
         The values are:
@@ -129,7 +131,8 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
       
       * Specify the *type* of the setpoint in `type_mask`:
       
-      :::note The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
+:::note
+The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field. ::
       
           The values are:
           

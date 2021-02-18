@@ -5,23 +5,25 @@ MacOS is a supported development platform for PX4. The following instructions se
 * jMAVSim Smulation
 * Gazebo 8 Simulation
 
-:::note
 To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
-:::
 
 :::tip
-A video tutorial can be found here: [Setting up your PX4 development environment on macOS](https://youtu.be/tMbMGiMs1cQ).
+If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+1. Locate the Terminal application within the Utilities folder (Finder > Go menu > Utilities)
+2. Select Terminal.app and right-click on it, then choose “Duplicate”
+3. Rename the duplicated Terminal app, e.g. `x86 Terminal`
+4. Now select the renamed `x86 Terminal` app and right-click and choose “Get Info”
+5. Check the box for “Open using Rosetta”, then close the window
+6. Run the `x86 Terminal` as usual, which will fully support the current PX4 toolchain
 :::
 
 ## Homebrew Installation
 
 The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
 
-## Earlier versions than Big Sur: Enable more open files (Handle "LD: too many open files" error)
+## Enable more open files (Handle "LD: too many open files" error)
 
-The PX4 toolchain requires the usage of the ZSH shell. If you are using the shell, add this line to your shell profile:
-
-Create this file or append it: `~/.zshenv` and add this line:
+Create the `~/.zshenv` file or append it (by running `open ~/.zshenv` on the terminal) and add this line:
 ```sh
 brew tap PX4/px4
 brew install px4-dev
@@ -29,32 +31,23 @@ brew install px4-dev
 brew install px4-sim
 ```
 
-## MacOS Big Sur: Enforce Python Version
+## Enforce Python Version
 
-Once you have finished setting up the environment, continue to the [build instructions](../setup/building_px4.md).
+If not already existing, create the file `~/.zshrc` and add these lines:
 
 ```sh
 brew cask install xquartz java
 ```
 
-## MacOS Catalina and earlier: Ensuring Python points to Homebrew
+## Common Tools
 
-If not already existing, create the file `~/.zshrc` and add these lines:
+Once you have finished setting up the environment, continue to the [build instructions](../setup/building_px4.md).
 
 ```sh
 sudo easy_install pip
 sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
 ```
-
-## Common Tools
-
-After installing Homebrew, run these commands in your shell to install the common tools:
-
-```sh
-brew tap PX4/px4
-brew install px4-dev
-```
-After setting up the build/simulation toolchain, see [Additional Tools](../setup/generic_dev_tools.md) for information about other useful tools.
+Install the required Python packages
 
 ```sh
 # install required packages using pip3

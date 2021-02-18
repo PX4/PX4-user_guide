@@ -57,22 +57,32 @@ The messages are described below (see links for specific detail).
 
 By default, PX4 uses commonly established UDP ports for MAVLink communication with ground control stations (e.g. *QGroundControl*), Offboard APIs (e.g. MAVSDK, MAVROS) and simulator APIs (e.g. Gazebo). These ports are:
 
-* UDP Port **14540** is used for communication with offboard APIs. 期望外接 APIs 监听此端口上的连接。
-* UDP Port **14550** is used for communication with ground control stations. 期望 GCS 将侦听此端口上的连接。 *QGroundControl*默认侦听此端口。
+* PX4's remote UDP Port **14550** is used for communication with ground control stations. 期望外接 APIs 监听此端口上的连接。 *QGroundControl* listens to this port by default.
+* PX4's remote UDP Port **14540** is used for communication with offboard APIs. 期望 GCS 将侦听此端口上的连接。 *QGroundControl*默认侦听此端口。
+:::
 * The simulator's local TCP Port **4560** is used for communication with PX4. PX4 侦听此端口，仿真器应通过向该端口广播数据来启动通信。
 
 如果使用正常的生成系统 SITL `make` 配置目标 （请参阅下一节），则 SITL 和模拟器都将在同一台计算机上启动，并自动配置上述端口。 您可以配置其他 MAVLink UDP 连接，并以其他方式修改生成配置和初始化文件中的模拟环境。
 
 
+<!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 --> 
+
+
 ## SITL 仿真环境
 
-构建系统使在 SITL 上构建和启动 PX4、启动模拟器并连接它们变得非常容易。 语法 （简化）如下所示：
+The diagram below shows a typical SITL simulation environment for any of the supported simulators.
 
-* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。
-* PX4 uses the normal MAVLink module to connect to ground stations (which listen on port 14550) and external developer APIs like MAVSDK or ROS (which listen on port 14540).
-* 通过串口将操纵杆/游戏手柄通过 *QGroundControl* 连接至仿真回路中。
+![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
+The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
+
+* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。 :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps).
+:::
+* PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
+  - Ground stations listen to PX4's remote UDP port: `14550`
+  - External developer APIs listen to PX4's remote UDP port: `14540`. For multi-vehicle simulations, PX4 sequentially allocates a separate remote port for each instance from `14540` to `14549` (additional instances all use port `14549`).
+* PX4 defines a number of *local* UDP ports (`14580`,`18570`), which are sometimes used when networking with PX4 running in a container or virtual machine. These are not recommended for "general" use and may change in future.
+* A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via *QGroundControl*.
 
 If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
 
@@ -83,9 +93,9 @@ The build system makes it very easy to build and start PX4 on SITL, launch a sim
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../simulation/gazebo.md) supports many different types).
-
 使用 jMAVSim 或者 Gazebo 进行 SITL 仿真时，我们可以以比实际时间流速更快或者更慢的时间流速运行仿真。
+
+A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
 
 ```sh
 # 启动固定翼机型的 Gazebo
@@ -107,7 +117,7 @@ The syntax described here is simplified, and there are many other options that y
 
 ### 以比实际时间更快的流速运行仿真
 
-你也可以在当前会话（session）中使用 `EXPORT` 来将该因子应用于所有 SITL 仿真：
+SITL can be run faster or slower than realtime when using jMAVSim or Gazebo.
 
 The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`. For example, to run the jMAVSim simulation at 2 times the real time speed:
 ```
@@ -153,32 +163,32 @@ The lockstep simulation can be disabled if, for example, SITL is to be used with
 
 To disable lockstep in PX4, use `set(ENABLE_LOCKSTEP_SCHEDULER no)` in the [SITL board config](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104).
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>` (or for Iris edit the [xacro file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22).
-
 有关设置信息，请参阅 *QGroundControl 用户指南 *：
+
+To disable lockstep in jMAVSim, remove `-l` in [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75), or make sure otherwise that the java binary is started without the `-lockstep` flag.
 
 
 ### 启动脚本
 
-PX4 支持在 [Gazebo](../simulation/gazebo.md) 模拟环境中捕获静止图像和视频。 They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. See [System Startup](../concept/system_startup.md) for more information.
+Scripts are used to control which parameter settings to use or which modules to start. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. See [System Startup](../concept/system_startup.md) for more information.
 
 ### Simulating Failsafes and Sensor/Hardware Failure
 
-The [SITL parameters](../advanced_config/parameter_reference.md#sitl) can also be used to simulate common sensor failure cases, including low battery, loss of GPS or barometer, gyro failure, increased GPS noise etc.  (e.g. [SIM_GPS_BLOCK](../advanced_config/parameter_reference.md#SIM_GPS_BLOCK) can be set to simulate GPS failure).
-
 其他模拟器可以使用相同的方法来实现相机支持。
+
+Additionally (and with some overlap), [Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes.
 
 
 ## HITL 仿真环境
 
-可以在一台计算机上运行模拟器，并从同一网络 (或具有适当路由的另一台网络) 上的另一台计算机访问模拟器。 例如，如果要测试在模拟车辆上运行的真实配套计算机硬件上运行的无人机应用程序，这可能很有用。
+这不是 "开箱即用" 的，因为 PX4 在默认情况下不会将数据包路由到外部接口 (以避免垃圾邮件和不同的模拟相互干扰)。 相反，它将数据包路由到 "本地主机"。
 
 
 ## 操纵杆／手柄集成
 
-这不是 "开箱即用" 的，因为 PX4 在默认情况下不会将数据包路由到外部接口 (以避免垃圾邮件和不同的模拟相互干扰)。 相反，它将数据包路由到 "本地主机"。 If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+*QGroundControl* desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
 
-有多种方法可以使 UDP 数据包在外部接口上可用，如下所述。
+For setup information see the *QGroundControl User Guide*:
 * [操纵杆设置](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
 * [虚拟操纵杆](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
 
@@ -197,7 +207,8 @@ The simulated camera is a gazebo plugin that implements the [MAVLink Camera Prot
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
-   :::note More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+:::note
+More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
 :::
 
 The same approach can be used by other simulators to implement camera support.
@@ -208,12 +219,12 @@ It is possible to run the simulator on one computer, and access it from another 
 
 This does not work "out of the box" because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to "localhost".
 
-There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
+ssh 是一个灵活的选项，因为模拟计算机和使用它的系统不需要在同一网络上。
 
 
 ### 启用 MAV_BROADCAST
 
-ssh 是一个灵活的选项，因为模拟计算机和使用它的系统不需要在同一网络上。
+Enable [MAV_BROADCAST](../advanced_config/parameter_reference.md#MAV_BROADCAST) to broadcast heartbeats on the local network.
 
 A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 
@@ -248,7 +259,7 @@ More information about *mavlink-router* configuration can be found [here](https:
 
 ### 修改外部广播的配置
 
-端口号 `14550` 可以用于 QGroundControl 与其他的 GCS 连接，但应根据其他端点进行调整（比如开发者 API 等）。
+The [mavlink](../modules/modules_communication.md#mavlink_usage) module routes to *localhost* by default, but you can specify an external IP address to broadcast to using its `-t` option.
 
 This should be done in various configuration files where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 

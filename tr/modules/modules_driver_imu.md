@@ -1,6 +1,6 @@
 # Modules Reference: Imu (Driver)
 ## adis16448
-Source: [drivers/imu/adis16448](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/adis16448)
+Source: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/analog_devices/adis16448)
 
 <a id="adis16448_usage"></a>
 

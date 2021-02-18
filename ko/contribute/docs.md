@@ -62,7 +62,8 @@ The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change re
    git remote add upstream https://github.com/PX4/px4_user_guide.git
    ```
 
-   :::tip A "remote" is a handle to a particular repository. The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide. Above you create a new remote *upstream* that points to the PX4 project version of the documents.
+:::tip
+A "remote" is a handle to a particular repository. The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide. Above you create a new remote *upstream* that points to the PX4 project version of the documents.
 :::
 1. Create a branch for your changes:
    ```sh

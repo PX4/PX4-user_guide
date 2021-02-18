@@ -132,12 +132,12 @@ In addition, users will need ground station hardware/software:
 1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
    - **SSID:** pixhawk4
    - **Password:** pixhawk4
-   
+
    :::tip
    WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
    The baud rate must not be changed from 921600.
    :::
-   
+
 1. Start *QGroundControl* on the ground station.
 1. [Configure/calibrate](../config/README.md) the vehicle:
 
@@ -292,7 +292,7 @@ To login to the companion computer:
 
 ### Developing/Extending PX4 Avoidance
 
-The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2).
+The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS 2).
 You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
 
 The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner.

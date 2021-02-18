@@ -32,7 +32,8 @@ This is the only officially supported toolchain for building PX4 on Windows (i.e
 1. 运行**run-console.bat**(双击)启动Cygwin bash控制台
 1. 在控制台中运行克隆PX4 Firmware仓库命令
 
-   :::note Cloning only needs to be done once! Skip this step if you ticked the installer option to *clone the PX4 repository, build and run simulation with jMAVSim*.
+:::note
+Cloning only needs to be done once! Skip this step if you ticked the installer option to *clone the PX4 repository, build and run simulation with jMAVSim*.
 :::
 
    ```bash
@@ -183,10 +184,12 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Shells:bash-completion
    * Web:wget
 
-   :::note Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
+:::note
+Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
 :::
 
-   :::note That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
+:::note
+That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
 :::
 
 1. 下载 [**Apache Ant**](https://ant.apache.org/bindownload.cgi) zip 存档, 并将内容解压缩到文件夹 `C:\PX4\toolchain\apache-ant`。
@@ -202,12 +205,14 @@ The toolchain gets maintained and hence these instructions might not cover every
  pip2 install pyulog
    ```
 
-   :::note That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
+:::note
+That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
 :::
 
 1. 下载 [**ARM GCC 编译器**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) zip 存档，并将内容解压缩到文件夹 `C:\PX4\toolchain\gcc-arm`。
 
-   :::note This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
+:::note
+This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
 :::
 
 1. 安装 JDK
@@ -216,15 +221,18 @@ The toolchain gets maintained and hence these instructions might not cover every
    * 查找二进制文件并将其移动/复制到 ** C:\PX4\toolchain\jdk **。
    * 您可以再次从 Windows 系统中卸载该JDK工具包, 我们只需要工具链的二进制文件。
 
-   :::note This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
+:::note
+This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
 :::
 
 1. {\[--gt--]} ** 注意 **这就是工具链在 [ gcc-arm/install-apache-ant.bat \](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat) 脚本中所做的工作。
 
-   :::tip Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+:::tip
+Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
 :::
 
-   :::note This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
+:::note
+This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
 :::
 
 1. Download, build and add *genromfs* to the path:
@@ -242,7 +250,8 @@ The toolchain gets maintained and hence these instructions might not cover every
 
     * 将包含有生成的二进制 ** genromfs.exe ** 的文件夹复制到: ** C:\PX4\toolchain\genromfs **
 
-    :::note This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
+:::note
+This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
 :::
 
 1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).

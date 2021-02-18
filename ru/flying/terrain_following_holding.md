@@ -59,7 +59,8 @@ When using a distance sensor as the primary source of height, fliers should be a
 
 - Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator is relying purely on accelerometer estimates.
     
-    :::note This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.  
+:::note
+This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.  
     The ECL performs innovation consistency checks that take into account the error between measurement and current state as well as the estimated variance of the state and the variance of the measurement itself. If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer. After 5 seconds of inconsistent data the estimator resets the state (in this case height) to match the current distance sensor data. The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height. <!-- see discussion https://github.com/PX4/px4_user_guide/pull/457#pullrequestreview-221010392 -->
 :::
 

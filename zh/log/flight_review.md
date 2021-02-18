@@ -185,7 +185,8 @@ To use it, some parameters need to be changed:
 
 - Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
     
-    :::tip See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+:::tip
+See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
 :::
 
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:

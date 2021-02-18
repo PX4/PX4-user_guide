@@ -117,7 +117,8 @@ To enumerate the ESC:
 
 4. Manually turn each motor in the correct direction of its rotation, starting from the first motor and finishing with the last motor. Each time you turn a motor, you should hear a confirmation.
   
-    :::note Make sure to turn each of the motors in the correct direction, because the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+:::note
+Make sure to turn each of the motors in the correct direction, because the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
 :::
 
 5. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.

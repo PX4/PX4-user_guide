@@ -179,7 +179,8 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
                       </h2>
                       
                       <p>
-                        :::tip Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
 :::
                       </p>
                       

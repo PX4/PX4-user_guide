@@ -349,7 +349,8 @@ For more information see:
 
 1. 卸下螺旋桨.
     
-    :::warning Propellers must be removed from vehicle prior to performing ESC calibration!
+:::warning
+Propellers must be removed from vehicle prior to performing ESC calibration!
 :::
 
 2. Select **Power **in the left-sidebar.

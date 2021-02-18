@@ -45,7 +45,8 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
    - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - Click the **update all** button.
 
-     :::tip This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing packages that pop up.
+:::tip
+This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing packages that pop up.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)

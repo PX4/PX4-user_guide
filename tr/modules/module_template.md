@@ -33,7 +33,8 @@ The example shows how. In summary:
    }
    ```
 
-   :::note The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
+:::note
+The available work queues (`wq_configurations`) are listed in [WorkQueueManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49).
 :::
 
 1. Implement the `ScheduledWorkItem::Run()` method to perform "work".

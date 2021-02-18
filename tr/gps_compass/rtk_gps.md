@@ -75,7 +75,8 @@ The RTK GPS connection is essentially plug and play:
 1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
 2. Start the vehicle and make sure it is connected to *QGroundControl*.
     
-    :::tip *QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+:::tip
+*QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
 :::
 
 3. *QGroundControl* then starts the RTK setup process (known as "Survey-In").

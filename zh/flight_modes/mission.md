@@ -36,16 +36,19 @@
   
   * 您可以通过在 *QGroundControl* 中选择它来手动更改当前任务命令。
     
-    :::note 如果在任务中有一个*跳转到条目*命令，移动到另外一个条目将**不会**复位循环计数器。 也就意味着，如果将当前任务命令更改为 1，则不会“完全重启”任务。
+:::note
+如果在任务中有一个*跳转到条目*命令，移动到另外一个条目将**不会**复位循环计数器。 也就意味着，如果将当前任务命令更改为 1，则不会“完全重启”任务。
 :::
   
   * 该任务仅在飞机锁定或上传新任务时重置。
     
-    :::tip 要使无人机在降落后自动锁定，在 *QGroundControl* 地面站上打开 [Vehicle Setup （无人机设置） > Safety （安全） ](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)，导航栏找到 *Land Mode Settings （降落模式设置）* 并且勾选 *Disarm after（锁定后）*。 输入飞机降落后，锁定前的等待时间。 :::</ol> 
+:::tip
+要使无人机在降落后自动锁定，在 *QGroundControl* 地面站上打开 [Vehicle Setup （无人机设置） > Safety （安全） ](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)，导航栏找到 *Land Mode Settings （降落模式设置）* 并且勾选 *Disarm after（锁定后）*。 输入飞机降落后，锁定前的等待时间。 :::</ol> 
   
   可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 在任务模式下飞行时，如果决定中止任务，并且切换到了其他飞行模式，如位置模式，通过遥控器讲无人机飞到了其他地方，然后切换回任务模式，无人机将从当前位置继续执行任务，并会飞往下一个未访问的任务航点。
   
-  :::warning 在切换 RC 模式前确保遥控器油门摇杆不为零（否则会炸机）。建议在切换到其他模式前控制摇杆回中。
+:::warning
+在切换 RC 模式前确保遥控器油门摇杆不为零（否则会炸机）。建议在切换到其他模式前控制摇杆回中。
 :::
   
   有关任务规划的更多信息，请参阅：
@@ -132,7 +135,8 @@
   * 并非所有消息/命令都通过 *QGroundControl* 公开。
   * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 支持 [ /src/modules/mavlink/mavlink_mission.cpp ](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) 中的 ` MavlinkMissionManager::parse_mavlink_mission_item` （在this git changelist </ 2>中生成的列表）。</p> 
     
-    :::note 如果发现缺失或错误的消息，请添加 bug 修复或者 PR。 :::</li> </ul> 
+:::note
+如果发现缺失或错误的消息，请添加 bug 修复或者 PR。 :::</li> </ul> 
     
     ## 航点间轨迹
     

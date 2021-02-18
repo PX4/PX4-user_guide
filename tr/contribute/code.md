@@ -37,7 +37,8 @@ Currently we have two types of source-based documentation:
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
 * We encourage other in-source documentation *where it adds value/is not redundant*.
 
-  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::tip
+Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
   - Do not add documentation that can trivially be assumed from C++ entity names.

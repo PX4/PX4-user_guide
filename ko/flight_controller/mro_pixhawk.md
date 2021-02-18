@@ -143,7 +143,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
           </h2>
           
           <p>
-            :::tip Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
 :::
           </p>
           
@@ -283,6 +284,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
               <a href="https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF"> FMUv3 schematic </ 0> - 회로도 및 레이아웃</li> </ul> 
               
               <p>
-                :::note As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
+:::note
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
 :::
               </p>

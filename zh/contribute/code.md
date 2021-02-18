@@ -37,7 +37,8 @@ Currently we have two types of source-based documentation:
   - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
 * 我们鼓励其它源文档 *添加必要的值*。
 
-  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::tip
+Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
   - 不要添加可以从 C++ 实体名称零碎地推断出的文档。

@@ -439,6 +439,10 @@ param <command> [arguments...]
      <param_name> <value> Parameter name and value to set
      [fail]      If provided, let the command fail if param is not found
 
+   set-default   Set parameter default to a value
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
    compare       Compare a param with a value. Command will succeed if equal
      [-s]        If provided, silent errors if parameter doesn't exists
      <param_name> <value> Parameter name and value to compare

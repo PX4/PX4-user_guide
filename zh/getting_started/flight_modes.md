@@ -117,7 +117,8 @@
             </p>
             
             <p>
-              :::tip 位置模式对于新手是最安全的手动模式。 与 <a href="#altitude_mc">高度</a> 和 <a href="#manual_stabilized_mc">手动/自稳</a> 模式不同，当摇杆居中时，飞行器将会制动，而不是继续运动直到风阻使其减速。
+:::tip
+位置模式对于新手是最安全的手动模式。 与 <a href="#altitude_mc">高度</a> 和 <a href="#manual_stabilized_mc">手动/自稳</a> 模式不同，当摇杆居中时，飞行器将会制动，而不是继续运动直到风阻使其减速。
 :::
             </p>
             
@@ -149,7 +150,8 @@
             </p>
             
             <p>
-              :::tip <em>高度模式</em>是对新手来说最安全的无 GPS 手动模式。 它就像 <a href="#manual_stabilized_mc">手动/自稳</a> 模式，但在释放摇杆时还额外可以稳定飞行器高度。
+:::tip
+<em>高度模式</em>是对新手来说最安全的无 GPS 手动模式。 它就像 <a href="#manual_stabilized_mc">手动/自稳</a> 模式，但在释放摇杆时还额外可以稳定飞行器高度。
 :::
             </p>
             
@@ -177,7 +179,8 @@
             </p>
             
             <p>
-              :::note 如果为 MC 飞行器设置 <em>手动</em>　或 <em>自稳</em>　模式，则启用此多旋翼模式。
+:::note
+如果为 MC 飞行器设置 <em>手动</em>　或 <em>自稳</em>　模式，则启用此多旋翼模式。
 :::
             </p>
             
@@ -336,7 +339,8 @@
             </p>
             
             <p>
-              :::tip The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+:::tip
+The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
 :::
             </p>
             
@@ -417,7 +421,8 @@
             </p>
             
             <p>
-              :::note 此模式适用于机载计算机和地面站!
+:::note
+此模式适用于机载计算机和地面站!
 :::
             </p>
             
@@ -456,7 +461,8 @@
             </p>
             
             <p>
-              :::tip 位置模式对于新手是最安全的固定翼手动模式。
+:::tip
+位置模式对于新手是最安全的固定翼手动模式。
 :::
             </p>
             
@@ -492,7 +498,8 @@
             </p>
             
             <p>
-              :::tip <em>高度模式 </em>是最安全的非 GPS 引导模式，适合初学者学习如何飞行。 这就像 <a href="#manual_fw">手动</a>模式，但当俯仰摇杆被释放，额外稳定飞行器的高度。
+:::tip
+<em>高度模式 </em>是最安全的非 GPS 引导模式，适合初学者学习如何飞行。 这就像 <a href="#manual_fw">手动</a>模式，但当俯仰摇杆被释放，额外稳定飞行器的高度。
 :::
             </p>
             
@@ -524,7 +531,8 @@
             </p>
             
             <p>
-              :::tip <em>稳定模式</em>比<a href="#manual_fw">手动模式</a>更容易飞行，因为你不能滚动或翻转飞机，并且通过控制杆回中很容易使飞机保持水平。
+:::tip
+<em>稳定模式</em>比<a href="#manual_fw">手动模式</a>更容易飞行，因为你不能滚动或翻转飞机，并且通过控制杆回中很容易使飞机保持水平。
 :::
             </p>
             
@@ -583,12 +591,14 @@
             </p>
             
             <p>
-              :::tip 这是最难飞行的模式，因为什么都不稳定。 与<a href="#acro_fw">特技模式</a>不同，如果 RP 摇杆居中，飞行器将不会自动停止绕轴转动-飞行员实际上必须移动摇杆以向另一个方向施加力。
+:::tip
+这是最难飞行的模式，因为什么都不稳定。 与<a href="#acro_fw">特技模式</a>不同，如果 RP 摇杆居中，飞行器将不会自动停止绕轴转动-飞行员实际上必须移动摇杆以向另一个方向施加力。
 :::
             </p>
             
             <p>
-              :::note 这是唯一忽略 FMU（命令通过安全协处理器发送） 的飞行模式。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
+:::note
+这是唯一忽略 FMU（命令通过安全协处理器发送） 的飞行模式。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
 :::
             </p>
             
@@ -716,7 +726,8 @@
             </p>
             
             <p>
-              :::note 此模式适用于机载计算机和地面站!
+:::note
+此模式适用于机载计算机和地面站!
 :::
             </p>
             

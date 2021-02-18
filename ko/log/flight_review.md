@@ -1,4 +1,4 @@
-# Flight Review를 이용하여 로그 해석하기
+# Flight Review를 이용한 로그 분석
 
 [Flight Review](http://logs.px4.io) 는 기체의 상태를 점검하기 위해 사용할 수 있습니다
 
@@ -185,7 +185,8 @@ To use it, some parameters need to be changed:
 
 - Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
     
-    :::tip See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+:::tip
+See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
 :::
 
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:

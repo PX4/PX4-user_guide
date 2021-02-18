@@ -204,7 +204,8 @@ To enable/disable GPS noise:
    ```
    make px4_sitl gazebo_iris
    ```
-   :::tip The SDF files are not overwritten on subsequent builds.
+:::tip
+The SDF files are not overwritten on subsequent builds.
 :::
 
 2. 打开目标车辆的 SDF 文件（例如**./Tools/sitl_gazebo/models/iris/iris.sdf **）。

@@ -1233,7 +1233,7 @@ Set to 2 to use heading from motion capture  <strong>Values:</strong><ul>
  <td>Circuit breaker for IO safety <p><strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 22027 </td>
- <td>0</td>
+ <td>22027</td>
  <td></td>
 </tr>
 <tr>
@@ -1400,6 +1400,20 @@ Set -1 to disable the check    </td>
  <td>Require valid mission to arm <p><strong>Comment:</strong> The default allows to arm the vehicle without a valid mission.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="COM_ARM_SDCARD">COM_ARM_SDCARD</strong> (INT32)</td>
+ <td>Enable FMU SD card detection check <p><strong>Comment:</strong> This check detects if the FMU SD card is missing. Depending on the value of the parameter, the check can be disabled, warn only or deny arming.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Warning only</li> 
+
+<li><strong>2:</strong> Enforce SD card presence</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -1900,6 +1914,13 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_RCL_ACT_T">COM_RCL_ACT_T</strong> (FLOAT)</td>
+ <td>Delay between RC loss and configured reaction <p><strong>Comment:</strong> RC signal not updated -> still use data for COM_RC_LOSS_T seconds Consider RC signal lost -> wait COM_RCL_ACT_T seconds on the spot waiting to regain signal React with failsafe action NAV_RCL_ACT A zero value disables the delay.</p>   </td>
+ <td>0.0 > 25.0 </td>
+ <td>15.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)</td>
  <td>RC input arm/disarm command duration <p><strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.</p>   </td>
  <td>100 > 1500 </td>
@@ -1922,7 +1943,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
 </tr>
 <tr>
  <td><strong id="COM_RC_LOSS_T">COM_RC_LOSS_T</strong> (FLOAT)</td>
- <td>RC loss time threshold <p><strong>Comment:</strong> After this amount of seconds without RC connection the rc lost flag is set to true</p>   </td>
+ <td>RC loss time threshold <p><strong>Comment:</strong> After this amount of seconds without RC connection it's considered lost and not used anymore</p>   </td>
  <td>0 > 35 (0.1)</td>
  <td>0.5</td>
  <td>s</td>
@@ -3099,8 +3120,8 @@ Sets the number of standard deviations used by the innovation consistency test  
 </tr>
 <tr>
  <td><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
- <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li> 
-  <li><strong>1:</strong> Min PDOP (EKF2_REQ_PDOP)</li> 
+ <td>Integer bitmask controlling GPS checks <p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Maximum allowed PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li> 
+  <li><strong>1:</strong> Max PDOP (EKF2_REQ_PDOP)</li> 
   <li><strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)</li> 
   <li><strong>3:</strong> Max vertical position error (EKF2_REQ_EPV)</li> 
   <li><strong>4:</strong> Max speed error (EKF2_REQ_SACC)</li> 
@@ -3525,7 +3546,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td><strong id="EKF2_REQ_PDOP">EKF2_REQ_PDOP</strong> (FLOAT)</td>
- <td>Required PDOP to use GPS    </td>
+ <td>Maximum PDOP to use GPS    </td>
  <td>1.5 > 5.0 </td>
  <td>2.5</td>
  <td></td>
@@ -3967,7 +3988,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td><strong id="FW_PSP_OFF">FW_PSP_OFF</strong> (FLOAT)</td>
- <td>Pitch setpoint offset <p><strong>Comment:</strong> An airframe specific offset of the pitch setpoint in degrees, the value is added to the pitch setpoint and should correspond to the typical cruise speed of the airframe.</p>   </td>
+ <td>Pitch setpoint offset (pitch at level flight) <p><strong>Comment:</strong> An airframe specific offset of the pitch setpoint in degrees, the value is added to the pitch setpoint and should correspond to the pitch at typical cruise speed of the airframe.</p>   </td>
  <td>-90.0 > 90.0 (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
@@ -4034,13 +4055,6 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td>0.005 > 1.0 (0.005)</td>
  <td>0.05</td>
  <td>%/rad/s</td>
-</tr>
-<tr>
- <td><strong id="FW_RSP_OFF">FW_RSP_OFF</strong> (FLOAT)</td>
- <td>Roll setpoint offset <p><strong>Comment:</strong> An airframe specific offset of the roll setpoint in degrees, the value is added to the roll setpoint and should correspond to the typical cruise speed of the airframe.</p>   </td>
- <td>-90.0 > 90.0 (0.5)</td>
- <td>0.0</td>
- <td>deg</td>
 </tr>
 <tr>
  <td><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
@@ -4330,6 +4344,13 @@ Set to 0 to disable heading hold    </td>
  <td>0.0 > 1.0 </td>
  <td>0.0</td>
  <td></td>
+</tr>
+<tr>
+ <td><strong id="FW_TKO_PITCH_MIN">FW_TKO_PITCH_MIN</strong> (FLOAT)</td>
+ <td>Minimum pitch during takeoff    </td>
+ <td>-5.0 > 30.0 (0.5)</td>
+ <td>10.0</td>
+ <td>deg</td>
 </tr>
 </tbody></table>
 
@@ -5275,14 +5296,14 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
 </tr>
 <tr>
  <td><strong id="LPE_FUSION">LPE_FUSION</strong> (INT32)</td>
- <td>Integer bitmask controlling data fusion <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to fuse GPS data if available, also requires GPS for altitude init 1 : Set to true to fuse optical flow data if available 2 : Set to true to fuse vision position 3 : Set to true to enable landing target 4 : Set to true to fuse land detector 5 : Set to true to publish AGL as local position down component 6 : Set to true to enable flow gyro compensation 7 : Set to true to enable baro fusion default (145 - GPS, baro, land detector)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong>  fuse GPS, requires GPS for alt. init</li> 
-  <li><strong>1:</strong>  fuse optical flow</li> 
-  <li><strong>2:</strong>  fuse vision position</li> 
-  <li><strong>3:</strong>  fuse landing target</li> 
-  <li><strong>4:</strong>  fuse land detector</li> 
-  <li><strong>5:</strong>  pub agl as lpos down</li> 
-  <li><strong>6:</strong>  flow gyro compensation</li> 
-  <li><strong>7:</strong>  fuse baro</li> 
+ <td>Integer bitmask controlling data fusion <p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to fuse GPS data if available, also requires GPS for altitude init 1 : Set to true to fuse optical flow data if available 2 : Set to true to fuse vision position 3 : Set to true to enable landing target 4 : Set to true to fuse land detector 5 : Set to true to publish AGL as local position down component 6 : Set to true to enable flow gyro compensation 7 : Set to true to enable baro fusion default (145 - GPS, baro, land detector)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> fuse GPS, requires GPS for alt. init</li> 
+  <li><strong>1:</strong> fuse optical flow</li> 
+  <li><strong>2:</strong> fuse vision position</li> 
+  <li><strong>3:</strong> fuse landing target</li> 
+  <li><strong>4:</strong> fuse land detector</li> 
+  <li><strong>5:</strong> pub agl as lpos down</li> 
+  <li><strong>6:</strong> flow gyro compensation</li> 
+  <li><strong>7:</strong> fuse baro</li> 
 </ul>
  </td>
  <td>0 > 255 </td>
@@ -5540,6 +5561,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5620,6 +5643,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5700,6 +5725,8 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <li><strong>7:</strong> Minimal</li> 
 
 <li><strong>8:</strong> External Vision</li> 
+
+<li><strong>10:</strong> Gimbal</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5876,23 +5903,6 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <tr>
  <td><strong id="MAV_USEHILGPS">MAV_USEHILGPS</strong> (INT32)</td>
  <td>Use/Accept HIL GPS message even if not in HIL mode <p><strong>Comment:</strong> If set to 1 incoming HIL GPS messages are parsed.</p>   </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## MKBLCTRL Testmode
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="MKBLCTRL_TEST">MKBLCTRL_TEST</strong> (INT32)</td>
- <td>Test mode (Identify) of MKBLCTRL Driver    </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -6168,9 +6178,17 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <tr>
  <td><strong id="MNT_DO_STAB">MNT_DO_STAB</strong> (INT32)</td>
  <td>Stabilize the mount (set to true for servo gimbal, false for passthrough).
-Does not affect MAVLINK_ROI input    </td>
- <td></td>
- <td>Disabled (0)</td>
+(This is required for a gimbal which is not capable of stabilizing itself
+and relies on the IMU's attitude estimation.)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Stabilize all axis</li> 
+
+<li><strong>2:</strong> Stabilize yaw for absolute/lock mode.</li> 
+</ul>
+  </td>
+ <td>0 > 2 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -6241,14 +6259,14 @@ Does not affect MAVLINK_ROI input    </td>
 </tr>
 <tr>
  <td><strong id="MNT_MAV_COMPID">MNT_MAV_COMPID</strong> (INT32)</td>
- <td>Mavlink Component ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLINK, mount configure/control commands will be sent with this component ID.</p>   </td>
+ <td>Mavlink Component ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLink protocol v2, mount configure/control commands will be sent with this component ID.</p>   </td>
  <td></td>
  <td>154</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_MAV_SYSID">MNT_MAV_SYSID</strong> (INT32)</td>
- <td>Mavlink System ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLINK, mount configure/control commands will be sent with this target ID.</p>   </td>
+ <td>Mavlink System ID of the mount <p><strong>Comment:</strong> If MNT_MODE_OUT is MAVLink gimbal protocol v1, mount configure/control commands will be sent with this target ID.</p>   </td>
  <td></td>
  <td>1</td>
  <td></td>
@@ -6262,9 +6280,11 @@ Does not affect MAVLINK_ROI input    </td>
 
 <li><strong>1:</strong> RC</li> 
 
-<li><strong>2:</strong> MAVLINK_ROI</li> 
+<li><strong>2:</strong> MAVLINK_ROI (protocol v1)</li> 
 
-<li><strong>3:</strong> MAVLINK_DO_MOUNT</li> 
+<li><strong>3:</strong> MAVLINK_DO_MOUNT (protocol v1)</li> 
+
+<li><strong>4:</strong> MAVlink gimbal protocol v2</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -6277,10 +6297,12 @@ Does not affect MAVLINK_ROI input    </td>
  <td>Mount output mode <p><strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> AUX</li> 
 
-<li><strong>1:</strong> MAVLINK</li> 
+<li><strong>1:</strong> MAVLink gimbal protocol v1</li> 
+
+<li><strong>2:</strong> MAVLink gimbal protocol v2</li> 
 </ul>
   </td>
- <td>0 > 1 </td>
+ <td>0 > 2 </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -6340,6 +6362,22 @@ if required by the gimbal (only in AUX output mode)    </td>
  <td>Range of yaw channel output in degrees (only in AUX output mode)    </td>
  <td>1.0 > 720.0 </td>
  <td>360.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
+ <td>Angular pitch rate for manual input in degrees/second.
+Full stick input [-1..1] translats to [-pitch rate..pitch rate]    </td>
+ <td>1.0 > 90.0 </td>
+ <td>30.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
+ <td>Angular yaw rate for manual input in degrees/second.
+Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
+ <td>1.0 > 90.0 </td>
+ <td>30.0</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -6723,6 +6761,13 @@ the setpoint will be capped to MPC_XY_VEL_MAX    </td>
  <td>3.0 > 20.0 (1)</td>
  <td>5.0</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="MPC_XY_ERR_MAX">MPC_XY_ERR_MAX</strong> (FLOAT)</td>
+ <td>Maximum horizontal error allowed by the trajectory generator <p><strong>Comment:</strong> The integration speed of the trajectory setpoint is linearly reduced with the horizontal position tracking error. When the error is above this parameter, the integration of the trajectory is stopped to wait for the drone. This value can be adjusted depending on the tracking capabilities of the vehicle.</p>   </td>
+ <td>0.1 > 10.0 </td>
+ <td>2.0</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
@@ -11113,17 +11158,24 @@ default 1.5 turns per second    </td>
 </tr>
 <tr>
  <td><strong id="GND_L1_DIST">GND_L1_DIST</strong> (FLOAT)</td>
- <td>L1 distance <p><strong>Comment:</strong> This is the waypoint radius</p>   </td>
- <td>0.0 > 100.0 (0.1)</td>
- <td>5.0</td>
+ <td>L1 distance <p><strong>Comment:</strong> This is the distance at which the next waypoint is activated. This should be set to about 2-4x of GND_WHEEL_BASE and not smaller than one meter (due to GPS accuracy).</p>   </td>
+ <td>1.0 > 50.0 (0.1)</td>
+ <td>1.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="GND_L1_PERIOD">GND_L1_PERIOD</strong> (FLOAT)</td>
- <td>L1 period <p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Using values around 2-5 for a traxxas stampede. Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
- <td>0.0 > 50.0 (0.5)</td>
- <td>10.0</td>
+ <td>L1 period <p><strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Use values around 2-5m for a 0.3m wheel base. Tuning instructions: Shorten slowly during tuning until response is sharp without oscillation.</p>   </td>
+ <td>0.5 > 50.0 (0.5)</td>
+ <td>5.0</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="GND_MAN_Y_MAX">GND_MAN_Y_MAX</strong> (FLOAT)</td>
+ <td>Max manual yaw rate    </td>
+ <td>0.0 > 400 </td>
+ <td>150.0</td>
+ <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="GND_MAX_ANG">GND_MAX_ANG</strong> (FLOAT)</td>
@@ -11203,13 +11255,6 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians    </td
  <td>norm</td>
 </tr>
 <tr>
- <td><strong id="GND_THR_IDLE">GND_THR_IDLE</strong> (FLOAT)</td>
- <td>Idle throttle <p><strong>Comment:</strong> This is the minimum throttle while on the ground, it should be 0 for a rover</p>   </td>
- <td>0.0 > 0.4 (0.01)</td>
- <td>0.0</td>
- <td>norm</td>
-</tr>
-<tr>
  <td><strong id="GND_THR_MAX">GND_THR_MAX</strong> (FLOAT)</td>
  <td>Throttle limit max <p><strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
@@ -11225,9 +11270,9 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians    </td
 </tr>
 <tr>
  <td><strong id="GND_WHEEL_BASE">GND_WHEEL_BASE</strong> (FLOAT)</td>
- <td>Distance from front axle to rear axle    </td>
+ <td>Distance from front axle to rear axle <p><strong>Comment:</strong> A value of 0.31 is typical for 1/10 RC cars.</p>   </td>
  <td>0.0 > ? (0.01)</td>
- <td>2.0</td>
+ <td>0.31</td>
  <td>m</td>
 </tr>
 </tbody></table>
@@ -14271,6 +14316,13 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td>celcius</td>
 </tr>
 <tr>
+ <td><strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)</td>
+ <td>IMU heater controller feedforward value    </td>
+ <td>0 > 1.0 </td>
+ <td>0.05</td>
+ <td>%</td>
+</tr>
+<tr>
  <td><strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)</td>
  <td>IMU heater controller integrator gain value    </td>
  <td>0 > 1.0 </td>
@@ -14283,6 +14335,14 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td>0 > 2.0 </td>
  <td>1.0</td>
  <td>us/C</td>
+</tr>
+<tr>
+ <td><strong id="SENS_INT_BARO_EN">SENS_INT_BARO_EN</strong> (INT32)</td>
+ <td>Enable internal barometers <p><strong>Comment:</strong> For systems with an external barometer, this should be set to false to make sure that the external is used.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="SENS_LEDDAR1_CFG">SENS_LEDDAR1_CFG</strong> (INT32)</td>
@@ -17646,6 +17706,72 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
 </tr>
 </tbody></table>
 
+## UAVCAN v1
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UAVCAN_V1_BAT_ID">UAVCAN_V1_BAT_ID</strong> (INT32)</td>
+ <td>UAVCAN v1 battery port ID    </td>
+ <td>1 > 32767 </td>
+ <td>4242</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_V1_BAT_MD">UAVCAN_V1_BAT_MD</strong> (INT32)</td>
+ <td>UAVCAN v1 battery mode  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Receive BMSStatus</li> 
+
+<li><strong>2:</strong> Send BMSStatus</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_V1_BAUD">UAVCAN_V1_BAUD</strong> (INT32)</td>
+ <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
+</td>
+ <td>20000 > 1000000 </td>
+ <td>1000000</td>
+ <td>bit/s</td>
+</tr>
+<tr>
+ <td><strong id="UAVCAN_V1_ENABLE">UAVCAN_V1_ENABLE</strong> (INT32)</td>
+ <td>UAVCAN v1 <p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables UAVCANv1</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UAVCANv1
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UAVCAN_V1_ID">UAVCAN_V1_ID</strong> (INT32)</td>
+ <td>UAVCAN v1 Node ID <p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>1 > 125 </td>
+ <td>1</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## UUV Attitude Control
 
 <table>
@@ -17734,6 +17860,70 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td>Yawh proportional gain    </td>
  <td></td>
  <td>4.0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
+## UUV Position Control
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="UUV_GAIN_X_D">UUV_GAIN_X_D</strong> (FLOAT)</td>
+ <td>Gain of D controller X    </td>
+ <td></td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_GAIN_X_P">UUV_GAIN_X_P</strong> (FLOAT)</td>
+ <td>Gain of P controller X    </td>
+ <td></td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_GAIN_Y_D">UUV_GAIN_Y_D</strong> (FLOAT)</td>
+ <td>Gain of D controller Y    </td>
+ <td></td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_GAIN_Y_P">UUV_GAIN_Y_P</strong> (FLOAT)</td>
+ <td>Gain of P controller Y    </td>
+ <td></td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_GAIN_Z_D">UUV_GAIN_Z_D</strong> (FLOAT)</td>
+ <td>Gain of D controller Z    </td>
+ <td></td>
+ <td>0.2</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_GAIN_Z_P">UUV_GAIN_Z_P</strong> (FLOAT)</td>
+ <td>Gain of P controller Z    </td>
+ <td></td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UUV_STAB_MODE">UUV_STAB_MODE</strong> (INT32)</td>
+ <td>Stabilization mode(1) or Position Control(0)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Position Control</li> 
+
+<li><strong>1:</strong> Stabilization Mode</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>1</td>
  <td></td>
 </tr>
 </tbody></table>
