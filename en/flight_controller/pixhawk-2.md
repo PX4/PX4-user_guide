@@ -5,6 +5,10 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
+:::tip
+The [Cube Orange](../cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](../autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
+:::
+
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
