@@ -1,21 +1,26 @@
-# Experimental & Discontinued Autopilots
-
-This category is for experimental and discontinued autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
+# Community Supported, Experimental & Discontinued Autopilots
 
 :::tip
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 :::
 
-Boards in this category must work with at least one PX4 release for a defined vehicle type. They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.
+## Community Supported Autopilots
+
+- [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
+- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
+
+Boards in this category are fully supported, but are not following industry standards and might have sole-source supply chain risks. See the [list of Pixhawk standard boards](../flight_controller/autopilot_pixhawk_standard.md) for a list of products that are officially supported by PX4 and are following industry standards.
 
 ## Experimental Autopilots
 
+This category is for experimental and discontinued autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
+
 - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-- [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
-- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
+
+Boards in this category must work with at least one PX4 release for a defined vehicle type. They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.
 
 ## Experimental Vehicles
 
