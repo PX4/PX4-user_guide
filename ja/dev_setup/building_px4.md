@@ -312,52 +312,9 @@ adb reboot
 
 ## Compiling in a Graphical IDE
 
-The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
+[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
 
-@[youtube](https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720)
-
-## Qt Creator Functionality
-
-Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.
-
-![](../../assets/toolchain/qtcreator.png)
-
-### Qt Creator on Linux
-
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
-
-```sh
-cd ~/src/PX4-Autopilot
-mkdir ../Firmware-build
-cd ../Firmware-build
-cmake ../PX4-Autopilot -G "CodeBlocks - Unix Makefiles"
-```
-
-Then load the CMakeLists.txt in the root PX4-Autopilot folder via **File > Open File or Project** (Select the CMakeLists.txt file).
-
-After loading, the **play** button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
-
-### Qt Creator on Windows
-
-:::note
-Windows has not been tested for PX4 development with Qt Creator.
-:::
-
-### Qt Creator on Mac OS
-
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
-
-```sh
-cd ~/src/PX4-Autopilot
-mkdir -p build/creator
-cd build/creator
-cmake ../.. -G "CodeBlocks - Unix Makefiles"
-```
-
-That's it! Start *Qt Creator*, then complete the steps in the video below to set up the project to build.
-
-@[youtube](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
-
+Other IDEs and editors are discussed in [General Development Tools > IDE / Code Editors](../dev_setup/generic_dev_tools.md#editor-ide).
 
 ## PX4 Make Build Targets
 
