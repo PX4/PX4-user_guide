@@ -1,6 +1,7 @@
 # MacOS Development Environment
 
-The following instructions set up a macOS development environment to build PX4 for:
+The following instructions set up a PX4 development environment for macOS.
+This environment can be used to build PX4 for:
 * Pixhawk and other NuttX-based hardware
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 * [Gazebo Simulation](../simulation/gazebo.md)
@@ -16,6 +17,15 @@ If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting
 5. Check the box for **Open using Rosetta**, then close the window
 6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
 :::
+
+:::tip
+This setup is supported by the PX4 dev team.
+To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets).
+:::
+
+## Video Guide
+
+@[youtube](https://youtu.be/tMbMGiMs1cQ)
 
 ## Homebrew Installation
 
