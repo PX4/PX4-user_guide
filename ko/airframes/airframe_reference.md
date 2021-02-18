@@ -261,22 +261,22 @@
       <td style="vertical-align: top;">
         <ul>
           <li>
-            <b>MAIN1</b>: 전면 우측 상단, CW; 각도:60; 방향:CW
+            <b>MAIN1</b>: 전면 우측 상단, CW, 각도:60, 방향:CW
           </li>
           <li>
-            <b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW
+            <b>MAIN2</b>: 전면 우측 하단, CCW, 각도:60, 방향:CCW
           </li>
           <li>
-            <b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW
+            <b>MAIN3</b>: 후면 상단, CW, 각도:180, 방향:CW
           </li>
           <li>
-            <b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW
+            <b>MAIN4</b>: 후면 하단, CCW, 각도:180, 방향:CCW
           </li>
           <li>
-            <b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW
+            <b>MAIN5</b>: 전면 좌측 상단, CW, 각도:-60, 방향:CW
           </li>
           <li>
-            <b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW
+            <b>MAIN6</b>: 전면 좌측 하단, CCW, 각도:-60, 방향:CCW
           </li>
           <li>
             <b>AUX1</b>: RC AUX1 채널의 입력
