@@ -380,6 +380,7 @@
     * [STM32 Bootloader](software_update/stm32_bootloader.md)
     * [System Tunes](advanced/system_tunes.md)
     * [Advanced Linux Installation Cases](dev_setup/dev_env_advanced_linux.md)
+    * [Windows Cygwin Toolchain Maintenance](advanced/windows_cygwin_toolchain_setup.md)
     * [Unsupported Developer Setup](advanced/dev_env_unsupported.md)
       * [Linux](dev_setup/dev_env_linux.md)
         * [CentOS Linux](dev_setup/dev_env_linux_centos.md)

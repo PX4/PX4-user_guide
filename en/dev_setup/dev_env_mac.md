@@ -1,20 +1,20 @@
 # MacOS Development Environment
 
-MacOS is a supported development platform for PX4. The following instructions set up an environment for building:
-* NuttX-based hardware (Pixhawk, etc.)
-* jMAVSim Smulation
-* Gazebo Simulation
+The following instructions set up a macOS development environment to build PX4 for:
+* Pixhawk and other NuttX-based hardware
+* [jMAVSim Simulation](../simulation/jmavsim.md)
+* [Gazebo Simulation](../simulation/gazebo.md)
 
-To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
+To build other targets you will need to use a [different development OS](../dev_setup/dev_env.md#supported-targets).
 
-:::tip
+:::details Apple M1 Macbook users!
 If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
-1. Locate the Terminal application within the Utilities folder (Finder > Go menu > Utilities)
-2. Select Terminal.app and right-click on it, then choose “Duplicate”
-3. Rename the duplicated Terminal app, e.g. `x86 Terminal`
-4. Now select the renamed `x86 Terminal` app and right-click and choose “Get Info”
-5. Check the box for “Open using Rosetta”, then close the window
-6. Run the `x86 Terminal` as usual, which will fully support the current PX4 toolchain
+1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
+2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
+4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
+5. Check the box for **Open using Rosetta**, then close the window
+6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
 :::
 
 ## Homebrew Installation

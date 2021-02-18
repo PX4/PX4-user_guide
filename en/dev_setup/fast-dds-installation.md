@@ -7,13 +7,18 @@ In particular, Fast DDS is the default middleware implementation for Robot Opera
 
 This topic explains how to install Fast DDS for use with PX4.
 
-:::note
-Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as it now includes a full DDS implementation, rather than just the RTPS wire protocol).
+:::tip
+Only install Fast DDS if you're using PX4 with ROS2 (or some other RTPS/DDS system).
 :::
 
 :::tip
-- For Ubuntu 18.04, at time of writing, you will need to install Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 or higher *from source*.
-- For Ubuntu 20.04, at time of writing, you will need to install Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4  higher *from source*.
+At time of writing you will need to install *from source* for:
+- **Ubuntu 18.04:** Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 (or higher).
+- **Ubuntu 20.04:** Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 (or higher).
+:::
+
+:::note
+Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as it now includes a full DDS implementation, rather than just the RTPS wire protocol).
 :::
 
 
