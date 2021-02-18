@@ -24,13 +24,14 @@ The equipment below is highly recommended:
 
 ## Vehicle Configuration
 
-:::tip
 *QGroundControl* for a **desktop OS** is required for vehicle configuration.
-You should use (and regularly update) the daily build in order to take advantage of the latest features in PX4.
+
+:::tip
+You should use (and regularly update) the *daily build* in order to take advantage of development tools and new features that are not available in the official release.
 :::
 
 To configure the vehicle:
 
-1. Download the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) for your development platform.
+1. Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
 1. [Basic Configuration](../config/README.md) explains how to perform basic configuration. 
 1. [Parameter Configuration](../advanced_config/parameters.md) explains how you can find and modify individual parameters.

@@ -7,14 +7,16 @@ The *Cygwin toolchain* supports building for NuttX/Pixhawk and jMAVSim simulator
 If you want to build for [other targets](../dev_setup/dev_env.md#supported-targets), consider setting up a dual boot system with [Ubuntu Linux](http://ubuntu.com).
 :::
 
-## Additional Tools
-
-After setting up the build/simulation toolchain, see [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful "general development" tools.
-
-
 ## Next Steps
 
-Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
+Once you have finished setting up the command-line toolchain:
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
+  :::tip
+  The *daily build* includes development tools that hidden in release builds. 
+  It may also provide access to new PX4 features that are not yet supported in release builds.
+  :::
+- Continue to the [build instructions](../dev_setup/building_px4.md).
 
 
 ## Other Windows Toolchains

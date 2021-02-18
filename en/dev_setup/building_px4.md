@@ -334,8 +334,6 @@ adb reboot
 [VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development.
 It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
 
-Other IDEs and editors are discussed in [General Development Tools > IDE / Code Editors](../dev_setup/generic_dev_tools.md#editor-ide).
-
 ## PX4 Make Build Targets
 
 The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc.

@@ -1,4 +1,4 @@
-# Windows Cygwin Toolchain
+# Windows Development Environment (Cygwin Toolchain)
 
 This toolchain is portable, easy to install, and easy to use.
 It is the newest and best performing toolchain for developing PX4 on Windows.
@@ -118,6 +118,19 @@ For existing repositories that have this problem caused by a local configuration
 git config --unset core.filemode # remove the local option for this repository to apply the global one
 git submodule foreach --recursive git config --unset core.filemode # remove the local option for all submodules
 ```
+
+## Next Steps
+
+Once you have finished setting up the command-line toolchain:
+
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
+  :::tip
+  The *daily build* includes development tools that hidden in release builds. 
+  It may also provide access to new PX4 features that are not yet supported in release builds.
+  :::
+- Continue to the [build instructions](../dev_setup/building_px4.md).
+
+<!-- Note, this option removed because it is not supported on Windows Cygwin - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line). -->
 
 
 ## Additional Information

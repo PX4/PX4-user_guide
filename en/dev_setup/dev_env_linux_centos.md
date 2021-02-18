@@ -1,7 +1,8 @@
 # Development Environment on CentOS
 
-:::note
-These instructions have not been tested with recent builds of PX4. We hope to provide fully tested instructions with the supported toolchain in the near future.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md).
+See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used.
