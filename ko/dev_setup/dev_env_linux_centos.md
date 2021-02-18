@@ -29,9 +29,61 @@ You may want to also install `python-pip` and `screen`.
 :::
 
 ## GCC Toolchain Installation
-<!-- import GCC toolchain common documentation -->
-{% include "_gcc_toolchain_installation.md" %}
+<!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
+Execute the script below to install GCC 7-2017-q4:
+
+```sh
+pushd .
+cd ~
+wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
+tar -jxf gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
+exportline="export PATH=$HOME/gcc-arm-none-eabi-7-2017-q4-major/bin:\$PATH"
+if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
+popd
+```
+
+Now restart your machine.
+
+
+**Troubleshooting**
+
+Check the version by entering the following command:
+
+```sh
+arm-none-eabi-gcc --version
+```
+
+The output should be something similar to:
+
+```sh
+arm-none-eabi-gcc (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 7.2.1 20170904 (release) [ARM/embedded-7-branch revision 255204]
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
 
 <!-- import docs ninja build system -->
-{% include "_ninja_build_system.md" %}
+## Ninja Build System
+
+[Ninja](https://ninja-build.org/) is a faster build system than *Make* and the PX4 *CMake* generators support it.
+
+On Ubuntu Linux you can install this automatically from normal repos.
+
+```sh
+sudo apt-get install ninja-build -y
+```
+
+Other systems may not include Ninja in the package manager. In this case an alternative is to download the binary and add it to your path:
+
+```sh
+mkdir -p $HOME/ninja
+cd $HOME/ninja
+wget https://github.com/martine/ninja/releases/download/v1.6.0/ninja-linux.zip
+unzip ninja-linux.zip
+rm ninja-linux.zip
+exportline="export PATH=$HOME/ninja:\$PATH"
+if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $exportline >> ~/.profile; fi
+. ~/.profile
+```
+
