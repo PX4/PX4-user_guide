@@ -310,70 +310,17 @@ adb reboot
 
 ## Compiling in a Graphical IDE
 
-The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
+[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
 
-@[youtube](https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720)
-
-## Qt Creator Functionality
-
-Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.
-
-![](../../assets/toolchain/qtcreator.png)
-
-### Qt Creator on Linux
-
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
-
-```sh
-make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
-```
-
-Then load the CMakeLists.txt in the root PX4-Autopilot folder via **File > Open File or Project** (Select the CMakeLists.txt file).
-
-After loading, the **play** button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
-
-### Qt Creator on Windows
-
-:::note
-Windows has not been tested for PX4 development with Qt Creator. The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
-
-### Qt Creator on Mac OS
-
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
-
-```sh
-cd ~/src/PX4-Autopilot
-mkdir -p build/creator
-cd build/creator
-cmake ../.. -G "CodeBlocks - Unix Makefiles"
-```
-
-That's it! Start *Qt Creator*, then complete the steps in the video below to set up the project to build.
-
-@[youtube](https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720)
-
+Other IDEs and editors are discussed in [General Development Tools > IDE / Code Editors](../dev_setup/generic_dev_tools.md#editor-ide).
 
 ## PX4 Make Build Targets
 
 The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc. This section shows how *make* options are constructed and how to find the available choices.
 
-Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
+The full syntax to call *make* with a particular configuration and initialization file is:
 ```sh
-% git diff
-diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
-index 40d7778..2ce7972 100644
---- a/boards/px4/fmu-v2/default.cmake
-+++ b/boards/px4/fmu-v2/default.cmake
-@@ -36,7 +36,7 @@ px4_add_board(
-                imu/l3gd20
-                imu/lsm303d
-                imu/mpu6000
-
--               imu/mpu9250
-+               #imu/mpu9250
-                #iridiumsbd
-                #irlock
-                #magnetometer # all available magnetometer drivers
+make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
 ```
 
 **VENDOR_MODEL_VARIANT**: (also known as `CONFIGURATION_TARGET`)
@@ -403,9 +350,21 @@ make list_config_targets
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
 ```sh
-(cd /home/linaro && ./px4 mainapp.config > mainapp.log)
+% git diff
+diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
+index 40d7778..2ce7972 100644
+--- a/boards/px4/fmu-v2/default.cmake
++++ b/boards/px4/fmu-v2/default.cmake
+@@ -36,7 +36,7 @@ px4_add_board(
+                imu/l3gd20
+                imu/lsm303d
+                imu/mpu6000
 
-exit 0
+-               imu/mpu9250
++               #imu/mpu9250
+                #iridiumsbd
+                #irlock
+                #magnetometer # all available magnetometer drivers
 ```
 :::
 
@@ -417,7 +376,7 @@ Notes:
 
 The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
 
-Additional make targets are discussed in the following sections (list is not exhaustive):
+Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
 
 
 ### Binary Size Profiling
@@ -437,20 +396,9 @@ git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
 
 The example below shows how you might see the impact of removing the *mpu9250* driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
 ```sh
- % git diff
-diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
-index 40d7778..2ce7972 100644
---- a/boards/px4/fmu-v2/default.cmake
-+++ b/boards/px4/fmu-v2/default.cmake
-@@ -36,7 +36,7 @@ px4_add_board(
-                imu/l3gd20
-                imu/lsm303d
-                imu/mpu6000
--               imu/mpu9250
-+               #imu/mpu9250
-                #iridiumsbd
-                #irlock
-                #magnetometer # all available magnetometer drivers
+ (cd /home/linaro && ./px4 mainapp.config > mainapp.log)
+
+exit 0
 ```
 Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
 ```sh
@@ -477,7 +425,7 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
 This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the *mpu9250* driver.
 
 
-## List all releases (tags) sh git tag -l
+## Firmware Version & Git Tags
 
 The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup > Summary** airframe panel:
 
@@ -490,7 +438,7 @@ If you use a different git tag format, versions information may not be displayed
 :::
 
 
-## Troubleshooting
+## List all releases (tags) sh git tag -l
 
 ### General Build Errors
 
