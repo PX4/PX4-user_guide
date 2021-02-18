@@ -1407,9 +1407,9 @@
 </tr>
 </table>
 
-## Rover
+## 로버
 
-### Rover
+### 로버
 
 <div>
 <img src="../../assets/airframes/types/Rover.svg" width="29%" style="max-height: 180px;"/>
@@ -1425,25 +1425,25 @@
     </th>
   </tr>
 <tr id="rover_rover_generic_ground_vehicle">
- <td style="vertical-align: top;">Generic Ground Vehicle</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: steering</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;">일반 지상 차량</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>출력 지정:</b><ul><li><b>MAIN2</b>: 조향장치</li><li><b>MAIN4</b>: 추진기</li></ul></p></td>
 
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td style="vertical-align: top;"><a href="http://docs.aionrobotics.com/en/latest/r1-ugv.html">Aion Robotics R1 UGV</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN0</b>: Speed of left wheels</li><li><b>MAIN1</b>: Speed of right wheels</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지관리: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>출력 지정:</b><ul><li><b>MAIN0</b>: 좌측 바퀴 속도</li><li><b>MAIN1</b>: 우측 바퀴 속도</li></ul></p></td>
 
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td style="vertical-align: top;">NXP Cup car: DF Robot GPX</td>
- <td style="vertical-align: top;"><p>Maintainer: Katrin Moritz</p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지관리: Katrin Moritz</p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>출력 지정:</b><ul><li><b>MAIN2</b>: 스티어링 서보</li><li><b>MAIN3</b>: 좌측 바퀴 속도</li><li><b>MAIN4</b>: 우측 바퀴 속도</li></ul></p></td>
 
 </tr>
 </table>
 
-## Underwater Robot
+## 수중 로봇
 
-### Underwater Robot
+### 수중 로봇
 
 <div>
 <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
@@ -1459,13 +1459,13 @@
     </th>
   </tr>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
- <td style="vertical-align: top;">Generic Underwater Robot</td>
+ <td style="vertical-align: top;">일반 수중 로봇</td>
  <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 60000</p></td>
 
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
- <td style="vertical-align: top;">HippoCampus UUV (Unmanned Underwater Vehicle)</td>
- <td style="vertical-align: top;"><p>Maintainer: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;</p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
+ <td style="vertical-align: top;">HippoCampus UUV (무인 수중선)</td>
+ <td style="vertical-align: top;"><p>유지보수: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;</p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
 
 </tr>
 </table>
@@ -1478,11 +1478,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1 CCW, bow starboard horizontal, , propeller CCW</li><li><b>MAIN2</b>: motor 2 CCW, bow port horizontal, propeller CCW</li><li><b>MAIN3</b>: motor 3 CCW, stern starboard horizontal, propeller CW</li><li><b>MAIN4</b>: motor 4 CCW, stern port horizontal, propeller CW</li><li><b>MAIN5</b>: motor 5 CCW, bow starboard vertical, propeller CCW</li><li><b>MAIN6</b>: motor 6 CCW, bow port vertical, propeller CW</li><li><b>MAIN7</b>: motor 7 CCW, stern starboard vertical, propeller CW</li><li><b>MAIN8</b>: motor 8 CCW, stern port vertical, propeller CCW</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1 반시계, bow starboard horizontal, 프로펠러 반시계</li><li><b>MAIN2</b>: 모터 2 반시계, bow port horizontal, 프로펠러 반시계</li><li><b>MAIN3</b>: 모터 3 반시계, stern starboard horizontal, 프로펠러 시계</li><li><b>MAIN4</b>: 모터 4 반시계, stern port horizontal, 프로펠러 시계</li><li><b>MAIN5</b>: 모터 5 반시계, bow starboard vertical, 프로펠러 반시계</li><li><b>MAIN6</b>: 모터 6 반시계, bow port vertical, 프로펠러 시계</li><li><b>MAIN7</b>: 모터 7 반시계, stern starboard vertical, 프로펠러 시계</li><li><b>MAIN8</b>: 모터 8 반시계, stern port vertical, 프로펠러 반시계</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1499,14 +1499,14 @@
 <tbody>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
  <td style="vertical-align: top;">BlueROV2 (Heavy Configuration)</td>
- <td style="vertical-align: top;"><p>Maintainer: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;</p><p><code>SYS_AUTOSTART</code> = 60002</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;</p><p><code>SYS_AUTOSTART</code> = 60002</p></td>
 
 </tr>
 </tbody></table>
 
-## VTOL
+## 수직이착륙기
 
-### Standard VTOL
+### 표준 수직 이착륙기
 
 <div>
 <img src="../../assets/airframes/types/VTOLPlane.svg" width="29%" style="max-height: 180px;"/>
@@ -1515,7 +1515,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      이름
     </th>
     
     <th>
