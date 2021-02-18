@@ -9,9 +9,6 @@ It is suitable for testing multi-vehicle support in *QGroundControl* (or the [MA
 [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
 :::
 
-:::note
-JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
-:::
 
 ## How to Start Multiple Instances
 
@@ -28,16 +25,17 @@ To start multiple instances (on separate ports):
 1. Start the first instance:
    ```
    ./Tools/jmavsim_run.sh -l
-  ```
+   ```
 1. Start subsequent instances, specifying the *simulation* TCP port for the instance:
    ```
    ./Tools/jmavsim_run.sh -p 4561 -l
    ```
    The port should be set to `4560+i` for `i` in `[0, N-1]`.
 
-Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
+Ground stations such as *QGroundControl* listen for all vehicle instances on the PX4's remote UDP port: `14550` (all GCS traffic is sent to the *same* remote port).
 
-Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on.
+Developer APIs such as *MAVSDK* or *MAVROS* listen on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`.
+Additional instances *all* connect to port `14549`.
 
 ## Additional Resources
 

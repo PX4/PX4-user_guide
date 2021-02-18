@@ -27,7 +27,8 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
 
  - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_rtps`
 
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.) and can be accessed from a unique remote offboard UDP port (14540, 14541, 14542, etc.).
+Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.).
+Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14540` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
 
 :::note
 The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network
