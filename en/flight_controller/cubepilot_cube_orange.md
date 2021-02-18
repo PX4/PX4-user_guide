@@ -6,7 +6,7 @@ Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or
 :::
 
 :::tip
-The PX4 dev team supports this flight controller as a footprint compatible replacement for Cube Black. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](https://pixhawk.org). This flight controller is not following the standard and uses a patented connector.
+The PX4 dev team supports this flight controller as a footprint compatible replacement for Cube Black. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](..autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
 :::
 
 The [Cube Orange](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems. 
