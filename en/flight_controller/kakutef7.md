@@ -116,6 +116,7 @@ UART4 | /dev/ttyS3 | GPS1
 USART6 | /dev/ttyS4 | RC SBUS
 UART7 | /dev/ttyS5 | ESC telemetry (DShot)
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Debug Port
 

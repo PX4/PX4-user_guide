@@ -158,6 +158,8 @@ USART1 | /dev/ttyS0 | SerialRX
 USART4 | /dev/ttyS1 | TELEM1
 USART6 | /dev/ttyS2 | GPS
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## RC Telemetry
 
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
