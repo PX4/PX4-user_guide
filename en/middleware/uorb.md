@@ -134,7 +134,7 @@ Having multiple instances is useful for example if the system has several sensor
 Make sure not to mix `orb_advertise_multi` and `orb_advertise` for the same topic.
 
 The full API is documented in
-[src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
+[platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 ## Message/Field Deprecation
