@@ -1330,12 +1330,12 @@
 <tbody>
 <tr id="plane_plane_v-tail_x-uav_mini_talon">
  <td style="vertical-align: top;">X-UAV Mini Talon</td>
- <td style="vertical-align: top;"><p>Maintainer: Friedrich Beckmann &lt;friedrich.beckmann@hs-augsburg.de&gt;</p><p><code>SYS_AUTOSTART</code> = 2200</p></td>
+ <td style="vertical-align: top;"><p>유지보수: Friedrich Beckmann &lt;friedrich.beckmann@hs-augsburg.de&gt;</p><p><code>SYS_AUTOSTART</code> = 2200</p></td>
 
 </tr>
 </tbody></table>
 
-### Simulation (Plane)
+### 모의시험 환경 (항공기)
 
 <div>
   <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;" /> 
@@ -1343,11 +1343,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li><b>MAIN4</b>: throttle</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: 승강타</li><li><b>MAIN3</b>: 방향타</li><li><b>MAIN4</b>: 추진기</li><li><b>MAIN5</b>: 플랩</li><li><b>MAIN6</b>: 기어</li></ul></td>
 </tr>
   </table>
 </div>
