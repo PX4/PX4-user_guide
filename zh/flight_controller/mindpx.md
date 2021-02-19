@@ -113,6 +113,8 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
