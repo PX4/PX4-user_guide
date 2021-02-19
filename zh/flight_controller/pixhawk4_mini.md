@@ -124,6 +124,8 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## 外部设备
 
 * [数字空速传感器](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
