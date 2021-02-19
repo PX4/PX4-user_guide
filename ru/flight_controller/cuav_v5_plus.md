@@ -154,6 +154,9 @@ For more information see [Using JTAG for hardware debugging](#compatibility_jtag
 | UART7  | /dev/ttyS5 | Debug Console                         |
 | UART8  | /dev/ttyS6 | PX4IO                                 |
 
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 <span id="optional-hardware"></span>
 
 ## Peripherals
