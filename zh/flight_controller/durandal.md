@@ -111,7 +111,6 @@ All dimensions are in millimeters.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
-
 <!-- 
 ## Voltage Ratings
 
@@ -128,7 +127,6 @@ Under these conditions all power sources will be used in this order to power the
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 1. **USB** input (4.75V to 5.25V)
 -->
-
 
 <!-- 
 **Absolute Maximum Ratings**
@@ -166,6 +164,8 @@ make holybro_durandal-v1_default
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | PX4IO         |
 
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## Debug调试端口
