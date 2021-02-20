@@ -290,6 +290,24 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+## fake_gps
+Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+
+
+### Description
+
+<a id="fake_gps_usage"></a>
+
+### Usage
+```
+fake_gps <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## fake_gyro
 Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
 
@@ -340,11 +358,6 @@ The module supports a secondary GPS device, specified via `-e` parameter. The po
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### Examples
-For testing it can be useful to fake a GPS signal (it will signal the system that it has a valid position):
-```
-gps stop
-gps start -f
-```
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
@@ -371,7 +384,6 @@ gps <command> [arguments...]
                  values: <file:dev>
      [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
                  default: 0
-     [-f]        Fake a GPS signal (useful for testing)
      [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
