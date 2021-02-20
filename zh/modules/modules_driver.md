@@ -308,7 +308,26 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm
-Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
+Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+
+
+### 描述
+
+<a id="fake_gps_usage"></a>
+
+### 描述
+```
+fake_gps <command> [arguments...]
+ mc_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        打印状态信息
+```
+## fake_gyro
+Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
 
 
 ### 描述
@@ -326,8 +345,8 @@ fake_gyro <command> [arguments...]
 
    status        打印状态信息
 ```
-## fake_magnetometer
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
+## gps
+Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
 
 
 ### 描述
@@ -335,35 +354,29 @@ Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires v
 
 <a id="fake_magnetometer_usage"></a>
 
-### 描述
+### 实现
 ```
 fake_magnetometer <command> [arguments...]
- mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## gps
-源码：[drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gps)
 
-
-### 描述
-GPS 驱动模块负责处理与设备的通信并且将位置信息通过 uORB 发布出去。 它支持多个协议 (设备供应商)，默认情况下会自动选择正确的协议。
-
-模块支持一个辅助（secondary） GPS 设备，可使用 `-e` 参数进行指定。 辅助 GPS 的位置信息会在第二个 uORB 主题实例上发布，但目前为止系统的其它部分暂未使用该数据（但该数据会被记录下来，以方便进行对比）。
-
-### 实现
-每个设备都有一个线程轮询数据。 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### 示例
-进行测试时能提供虚假的 GPS 信号是非常有用的（它可以告知系统当前已经获得了一个有效的位置）。
-```
-gps stop
-gps start -f
-```
+模块支持一个辅助（secondary） GPS 设备，可使用 `-e` 参数进行指定。 辅助 GPS 的位置信息会在第二个 uORB 主题实例上发布，但目前为止系统的其它部分暂未使用该数据（但该数据会被记录下来，以方便进行对比）。
+
+每个设备都有一个线程轮询数据。 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+
+### 用法
+There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+
+### 描述
 
 pga460 &lt;command&gt; [arguments...] Commands: start &lt;device_path&gt; [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6 status stop help
 ```
@@ -392,7 +405,7 @@ sf1xx <command> [arguments...]
 
 <a id="gps_usage"></a>
 
-### 用法
+### 描述
 ```
 gps <command> [arguments...]
  Commands:
@@ -405,7 +418,6 @@ gps <command> [arguments...]
                  values: <file:dev>
      [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
                  default: 0
-     [-f]        Fake a GPS signal (useful for testing)
      [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
@@ -425,7 +437,7 @@ gps <command> [arguments...]
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 
 
-### 描述
+### 用法
 By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.
 
 Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
@@ -436,7 +448,7 @@ If the INA226 module is not powered, then by default, initialization of the driv
 
 <a id="ina226_usage"></a>
 
-### 描述
+### 用法
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -457,12 +469,12 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
-## irlock
+## fmu mode_pwm3cap1
 Attempt to start driver on any bus (start on bus where first sensor found).
 
 <a id="irlock_usage"></a>
 
-### 用法
+### 使用
 ```
 irlock <command> [arguments...]
  Commands:
@@ -480,12 +492,12 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm3cap1
+## pga460
 Stop driver
 
 <a id="lsm303agr_usage"></a>
 
-### 用法
+### 描述
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -506,14 +518,14 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
-## pga460
+## newpixel
 Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
 
 
-### 使用
+### 描述
 This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### 描述
+### 实现
 Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 ```
 neopixel -n 8
@@ -522,7 +534,7 @@ The module is typically started with: tap_esc start -d /dev/ttyS2 -n
 
 <a id="newpixel_usage"></a>
 
-### 描述
+### 示例
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -535,7 +547,7 @@ newpixel <command> [arguments...]
 
 <a id="paw3902_usage"></a>
 
-### 实现
+### 使用
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -561,7 +573,7 @@ Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/driver
 
 <a id="pca9685_usage"></a>
 
-### 示例
+### 使用
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -590,10 +602,10 @@ This module is responsible for generate pwm pulse with PCA9685 chip.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### 使用
+### 描述
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### 使用
+### 实现
 It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
@@ -603,7 +615,7 @@ pca9685_pwm_out start -a 64 -b 1
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 描述
+### 示例
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -624,7 +636,7 @@ pca9685_pwm_out <command> [arguments...]
 
 <a id="pcf8583_usage"></a>
 
-### 实现
+### 使用
 ```
 pcf8583 <command> [arguments...]
  Commands:
@@ -640,12 +652,12 @@ pcf8583 <command> [arguments...]
 
    status        print status info
 ```
-## pmw3901
+## pwm_out_sim
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
-### 示例
+### 描述
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -666,7 +678,7 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
+## pwm_out
 By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 
 
@@ -677,10 +689,10 @@ This module is responsible for driving the output and reading the input pins. Fo
 
 The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
-### 描述
+### 使用
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
-### 使用
+### 描述
 使用 `pwm` 命令进行进一步的配置 (PWM 速率，级别, ...)，然后使用 `mixer` 命令来加载混控器文件。
 ```
 fmu test
@@ -756,11 +768,11 @@ pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
+## rc_input
 Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
 
 
-### 描述
+### 使用
 源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
@@ -769,7 +781,7 @@ It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
-### 使用
+### 描述
 ```
 pwm_out_sim <command> [arguments...]
  rc_input <command> [arguments...]
@@ -784,12 +796,12 @@ pwm_out_sim <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
+## px4flow
 Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
-### 使用
+### 实现
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -813,7 +825,7 @@ px4flow <command> [arguments...]
 Source: [drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 
-### 描述
+### 示例
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 - PPM
 - SBUS
@@ -824,7 +836,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### 实现
+### Usage
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -843,7 +855,7 @@ Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/ma
 
 <a id="rgbled_usage"></a>
 
-### 示例
+### Usage
 ```
 rgbled <command> [arguments...]
  Commands:
