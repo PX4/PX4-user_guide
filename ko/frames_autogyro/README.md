@@ -1,4 +1,4 @@
-# 오토 자이로 프레임 빌드
+# 오토자이로 프레임 빌드
 
 An [Autogyro](https://en.wikipedia.org/wiki/Autogyro) is a type of [rotorary-wing](https://en.wikipedia.org/wiki/Rotorcraft). Compared to other designs it possesses following advantages:
 
