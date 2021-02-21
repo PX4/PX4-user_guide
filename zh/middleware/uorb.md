@@ -119,7 +119,7 @@ uORB provides a mechanism to publish multiple independent instances of the same 
 
 下面解释了一些常见的陷阱和边界案例：
 
-The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 

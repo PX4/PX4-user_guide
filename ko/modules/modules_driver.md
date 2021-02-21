@@ -309,12 +309,12 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm
-Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
+Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
 
 
 ### Description
 
-<a id="fake_gyro_usage"></a>
+<a id="fake_gps_usage"></a>
 
 ### Usage
 ```
@@ -330,8 +330,26 @@ vmount <command> [arguments...]
 
    status        print status info
 ```
-## fake_magnetometer
+## fake_gyro
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
+
+
+### Description
+
+<a id="fake_gyro_usage"></a>
+
+### Usage
+```
+fake_gyro <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## fake_magnetometer
+Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
 
 
 ### Description
@@ -354,19 +372,14 @@ Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gp
 
 
 ### Description
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+GPS driver module that handles the communication with the device and publishes the position via uORB. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
-The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+The module supports a secondary GPS device, specified via `-e` parameter. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### Implementation
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### Examples
-For testing it can be useful to fake a GPS signal (it will signal the system that it has a valid position):
-```
-gps stop
-gps start -f
-```
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
@@ -440,7 +453,7 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
-## irlock
+## fmu mode_pwm3cap1
 Attempt to start driver on any bus (start on bus where first sensor found).
 
 <a id="irlock_usage"></a>
@@ -463,7 +476,7 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm3cap1
+## pga460
 Stop driver
 
 <a id="lsm303agr_usage"></a>
@@ -481,7 +494,7 @@ pga460 <command> [arguments...]
 
    help
 ```
-## pga460
+## newpixel
 Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
 
 

@@ -445,6 +445,8 @@ The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_
         </tr>
       </table>
       
+      <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+      
       <h2>
         Support
       </h2>

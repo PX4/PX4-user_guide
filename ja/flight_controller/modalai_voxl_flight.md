@@ -185,6 +185,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J1010)                          |
 | UART8  | /dev/ttyS7 | N/A                                     |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 

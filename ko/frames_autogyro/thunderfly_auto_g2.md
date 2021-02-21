@@ -1,34 +1,34 @@
-# ThunderFly Auto-G2 Autogyro
+# ThunderFly Auto-G2 오토자이로
 
-The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [ Durafly™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC model, with several parts of the original model substituted for 3D printable ones.
+*ThunderFly Auto-G2*는 [Durafly ™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC 모델을 기반으로 한 자동 조종 제어 자동자이로입니다.  원본 모델의 여러 부분이 3D 인쇄 가능한 모델로 대체되었습니다.
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
 :::note
-Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
+Auto-G2 오토자이로의 기체는 ThuderFly s.r.o 사에서 개발 및 유지 관리합니다.
 :::
 
-All the added parts are available on [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/) as an open-source project. Printed parts are designed in [OpenSCAD](https://www.openscad.org/).
+추가된 내용들은 [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/)에서 오픈 소스로 제공하고 있습니다. 인쇄된 부품들은 [OpenSCAD](https://www.openscad.org/)로 설계되었습니다.
 
 
-## Modifications
+## 수정 내역
 
-Durafly Auto-G2, in its original design, has a three-blade rotor with 400 mm long blades with a CLARK-Y profile. Rotor head allows tilting in the ROLL axis only. Autogyro is controlled by a rudder and an elevator. Durafly Auto-G2 autogyro box contains the autogyro polystyrene body, ESC, motor (probably 800kV), 4 servos, tail airfoils, 3 blades with rotor center parts, wire chassis and a prerotator.
+Durafly Auto-G2는 원 디자인에는 CLARK-Y 프로파일을 가진 400mm 길이의 세 개의 블레이드 로터가 있습니다. 로터 헤드는 ROLL 축에서만 기울일 수 있습니다. Autogyro는 방향타와 엘리베이터로 제어됩니다. Durafly Auto-G2 오토 자이로 박스에는 오토 자이로 폴리스티렌 본체, ESC, 모터 (아마 800kV), 4 개의 서보, 테일 에어 포일, 로터 센터 부품이있는 3 개의 블레이드, 와이어 섀시 및 프리 로테이터가 포함되어 있습니다.
 
-Modification of the Durafly model are as follows:
-* Addition of an autopilot
-* Rotor head with two axes of freedom (pitch, roll)
-* Two blade rotor with safely breakable rotor plate
-* Larger landing gears
+Durafly 모델의 수정 내역은 아래와 같습니다.
+* 자율 비행 기능 추가
+* 두 개의 자유 축(피치, 롤)이있는 로터 헤드
+* 안전하게 파손 가능한 로터 플레이트가있는 2 개의 블레이드 로터
+* 더 큰 랜딩 기어
 
-### Autopilot
+### 자율 비행
 
-The aircraft with all of the modifications is already quite heavy. Therefore a low-weight flight controller is recommended (e.g. [Holybro pix32](../flight_controller/holybro_pix32.md) or [CUAV nano](../flight_controller/cuav_v5_nano.md)).
+수정된 모델의 항공기의 중량은 상당히 무겁습니다. 따라서 경량 비행 컨트롤러가 권장됩니다 (예 : [Holybro pix32](../flight_controller/holybro_pix32.md) 또는 [CUAV nano](../flight_controller/cuav_v5_nano.md)).
 
-The autopilot should be mounted on the bottom side of the autogyro on a 3D printed damping pad. We have used the damping platform found on [thingiverse](https://www.thingiverse.com/thing:160655)
+자율비행 장치는 3D 프린트 진도 방지 패드의 오토자이로 하단에 장착되어야 합니다. [Thingiverse](https://www.thingiverse.com/thing:160655)에있는 진동 방지 제품을 사용하였습니다.
 
 
-### Rotor-head
+### 로터 헤드
 
 The rotor head is (compared to the original autogyro) modified so it allows a motion in both roll and pitch axes. Thanks to this, the rotor can control turning as well climbing of the autogyro. Directional control of autogyro by rotor is possible even in case of low airspeed compared to the original rudder and elevator control.
 

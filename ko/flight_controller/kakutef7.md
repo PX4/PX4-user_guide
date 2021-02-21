@@ -107,6 +107,8 @@ In addition to the [basic configuration](../config/README.md), the following par
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## Debug Port
 
 ### System Console

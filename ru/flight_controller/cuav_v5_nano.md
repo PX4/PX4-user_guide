@@ -136,6 +136,8 @@ For more information see [Using JTAG for hardware debugging](#compatibility_jtag
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## Voltage Ratings
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.

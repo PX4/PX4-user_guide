@@ -316,3 +316,5 @@ Most users will not need to build this firmware! It is pre-built and automatical
                           </td>
                         </tr>
                       </table>
+                      
+                      <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

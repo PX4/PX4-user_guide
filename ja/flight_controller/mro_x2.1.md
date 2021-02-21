@@ -100,3 +100,5 @@ The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https:/
 | USART6 | /dev/ttyS4 | PX4IO           |
 | UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
 | UART8  | /dev/ttyS6 | SERIAL4         |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

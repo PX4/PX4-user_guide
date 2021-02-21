@@ -181,6 +181,8 @@ For information about wiring and using this port see:
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)

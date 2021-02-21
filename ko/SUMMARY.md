@@ -43,7 +43,7 @@
 * [기체 제작](airframes/README.md) 
   * [기체 프레임 정의서](airframes/airframe_reference.md)
   * [오토자이로](frames_autogyro/README.md) 
-    * [선더플라이 Auto-G2 (홀리브로 픽스32)](frames_autogyro/thunderfly_auto_g2.md)
+    * [선더플라이 Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
   * [멀티콥터](frames_multicopter/README.md) 
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [DJI F450 (CUAV v5 나노)](frames_multicopter/dji_f450_cuav_5nano.md)

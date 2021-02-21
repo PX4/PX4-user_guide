@@ -68,6 +68,8 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
 | UART4  | /dev/ttyS2 | GPS                      |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## 主链接
 
 * [用户手册](http://www.holybro.com/manual/pixfalcon11.pdf)
