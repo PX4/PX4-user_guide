@@ -1,19 +1,19 @@
 # ThunderFly Auto-G2 오토자이로
 
-The *ThunderFly Auto-G2* is an autopilot-controlled autogyro based on the [ Durafly™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC model, with several parts of the original model substituted for 3D printable ones.
+*ThunderFly Auto-G2*는 [Durafly ™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC 모델을 기반으로 한 자동 조종 제어 자동자이로입니다.  원본 모델의 여러 부분이 3D 인쇄 가능한 모델로 대체되었습니다.
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
 :::note
-Auto-G2 autogyro’s airframe is developed and maintained by ThuderFly s.r.o. company.
+Auto-G2 오토자이로의 기체는 ThuderFly s.r.o 사에서 개발 및 유지 관리합니다.
 :::
 
-All the added parts are available on [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/) as an open-source project. Printed parts are designed in [OpenSCAD](https://www.openscad.org/).
+추가된 내용들은 [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/)에서 오픈 소스로 제공하고 있습니다. 인쇄된 부품들은 [OpenSCAD](https://www.openscad.org/)로 설계되었습니다.
 
 
-## Modifications
+## 수정 내역
 
-Durafly Auto-G2, in its original design, has a three-blade rotor with 400 mm long blades with a CLARK-Y profile. Rotor head allows tilting in the ROLL axis only. Autogyro is controlled by a rudder and an elevator. Durafly Auto-G2 autogyro box contains the autogyro polystyrene body, ESC, motor (probably 800kV), 4 servos, tail airfoils, 3 blades with rotor center parts, wire chassis and a prerotator.
+Durafly Auto-G2는 원 디자인에는 CLARK-Y 프로파일을 가진 400mm 길이의 세 개의 블레이드 로터가 있습니다. 로터 헤드는 ROLL 축에서만 기울일 수 있습니다. Autogyro is controlled by a rudder and an elevator. Durafly Auto-G2 autogyro box contains the autogyro polystyrene body, ESC, motor (probably 800kV), 4 servos, tail airfoils, 3 blades with rotor center parts, wire chassis and a prerotator.
 
 Modification of the Durafly model are as follows:
 * Addition of an autopilot
