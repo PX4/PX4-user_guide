@@ -13,22 +13,22 @@ Auto-G2 오토자이로의 기체는 ThuderFly s.r.o 사에서 개발 및 유지
 
 ## 수정 내역
 
-Durafly Auto-G2는 원 디자인에는 CLARK-Y 프로파일을 가진 400mm 길이의 세 개의 블레이드 로터가 있습니다. 로터 헤드는 ROLL 축에서만 기울일 수 있습니다. Autogyro is controlled by a rudder and an elevator. Durafly Auto-G2 autogyro box contains the autogyro polystyrene body, ESC, motor (probably 800kV), 4 servos, tail airfoils, 3 blades with rotor center parts, wire chassis and a prerotator.
+Durafly Auto-G2는 원 디자인에는 CLARK-Y 프로파일을 가진 400mm 길이의 세 개의 블레이드 로터가 있습니다. 로터 헤드는 ROLL 축에서만 기울일 수 있습니다. Autogyro는 방향타와 엘리베이터로 제어됩니다. Durafly Auto-G2 오토 자이로 박스에는 오토 자이로 폴리스티렌 본체, ESC, 모터 (아마 800kV), 4 개의 서보, 테일 에어 포일, 로터 센터 부품이있는 3 개의 블레이드, 와이어 섀시 및 프리 로테이터가 포함되어 있습니다.
 
-Modification of the Durafly model are as follows:
-* Addition of an autopilot
-* Rotor head with two axes of freedom (pitch, roll)
-* Two blade rotor with safely breakable rotor plate
-* Larger landing gears
+Durafly 모델의 수정 내역은 아래와 같습니다.
+* 자율 비행 기능 추가
+* 두 개의 자유 축(피치, 롤)이있는 로터 헤드
+* 안전하게 파손 가능한 로터 플레이트가있는 2 개의 블레이드 로터
+* 더 큰 랜딩 기어
 
-### Autopilot
+### 자율 비행
 
-The aircraft with all of the modifications is already quite heavy. Therefore a low-weight flight controller is recommended (e.g. [Holybro pix32](../flight_controller/holybro_pix32.md) or [CUAV nano](../flight_controller/cuav_v5_nano.md)).
+수정된 모델의 항공기의 중량은 상당히 무겁습니다. 따라서 경량 비행 컨트롤러가 권장됩니다 (예 : [Holybro pix32](../flight_controller/holybro_pix32.md) 또는 [CUAV nano](../flight_controller/cuav_v5_nano.md)).
 
-The autopilot should be mounted on the bottom side of the autogyro on a 3D printed damping pad. We have used the damping platform found on [thingiverse](https://www.thingiverse.com/thing:160655)
+자율비행 장치는 3D 프린트 진도 방지 패드의 오토자이로 하단에 장착되어야 합니다. [Thingiverse](https://www.thingiverse.com/thing:160655)에있는 진동 방지 제품을 사용하였습니다.
 
 
-### Rotor-head
+### 로터 헤드
 
 The rotor head is (compared to the original autogyro) modified so it allows a motion in both roll and pitch axes. Thanks to this, the rotor can control turning as well climbing of the autogyro. Directional control of autogyro by rotor is possible even in case of low airspeed compared to the original rudder and elevator control.
 
