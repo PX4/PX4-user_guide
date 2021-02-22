@@ -250,7 +250,7 @@ Summing mixers are used for actuator and servo control.
 
 A summing (simple) mixer combines zero or more control inputs into a single actuator output.
 Inputs are scaled, and the mixing function sums the result before applying an output scaler.
-In the output scaler, also a minimal actuator traversal time limit can be specified (inverse of a slew rate).
+A minimal actuator traversal time limit can also be specified in the output scaler (inverse of a slew rate).
 
 A simple mixer definition begins with:
 
@@ -262,11 +262,15 @@ O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit> <traversal time>
 If `<control count>` is zero, the sum is effectively zero and the mixer will output a fixed value that is `<offset>` constrained by `<lower limit>` and `<upper limit>`.
 
 The second line defines the output scaler with scaler parameters as discussed above.
-Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000. 
-The `<traversal time>` is optional to be added to the output scaler and can be used to limit the rate of change of an actuator (no limit if not added).
-E.g. a value of 20000 for the traversal time will limit the rate of change of the actuator such that it takes at least 2 seconds from the `<lower limit>` to the `<upper limit>` and vice versa. It can for example be used on actuators that can take harm if moved to fast - like the tilting actuators on a tiltrotor VTOL vehicle. Only use 
-if the hardware requires it, and do not apply any limit on actuators controlling the attitude of a vehicle (such as servos for the aerodynamic surfaces), as this could easily
-lead to controller instability. 
+While the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
+The `<traversal time>` (optional) on the output scaler is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle.
+It can be used to limit the rate of change of an actuator (if this is not specified then no rate limit is applied).
+For example, a `<traversal time>` value of 20000 will limit the rate of change of the actuator such that it takes at least 2 seconds from the `<lower limit>` to the `<upper limit>` and vice versa.
+
+:::note
+- The `<traversal time>` should only be used if the hardware requires it!
+- Do not apply any limit on actuators controlling the attitude of a vehicle (such as servos for the aerodynamic surfaces), as this could easily lead to controller instability.
+:::
 
 The definition continues with `<control count>` entries describing the control
 inputs and their scaling, in the form:
