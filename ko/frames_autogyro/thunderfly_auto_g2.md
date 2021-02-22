@@ -55,11 +55,11 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 로터 블레이드를 인쇄할 수 있습니다.
 
-인쇄된 로터 블래드는 아직 개발 중이지만, 예비 테스트에서 정확한 모양과 세로 홈이 없기 때문에 품질이 더 우수한 것으로 조사되었습니다. However, some of the production processes still need to be tuned.
+인쇄된 로터 블래드는 아직 개발 중이지만, 예비 테스트에서 정확한 모양과 세로 홈이 없기 때문에 품질이 더 우수한 것으로 조사되었습니다. 그러나, 일부 제작 과정은 조정중입니다.
 
 ![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
 
-#### Balancing
+#### 균형
 
 Proper blades balance is very important to minimize vibrations. Blades have to be balanced in such a way, that the center of gravity is located in the middle of the rotor axis.
 
