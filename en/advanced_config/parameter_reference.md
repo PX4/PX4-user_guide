@@ -10965,6 +10965,13 @@ default 1.5 turns per second    </td>
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="RTL_LOITER_RAD">RTL_LOITER_RAD</strong> (FLOAT)</td>
+ <td>Loiter radius for rtl descend <p><strong>Comment:</strong> Set the radius for loitering to a safe altitude for VTOL transition.</p>   </td>
+ <td>25 > 1000 (0.5)</td>
+ <td>50.0</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
  <td>Horizontal radius from return point within which special rules for return mode apply <p><strong>Comment:</strong> The return altitude will be calculated based on RTL_CONE_ANG parameter. The yaw setpoint will switch to the one defined by corresponding waypoint.</p>   </td>
  <td>0.5 > 100 (0.5)</td>
