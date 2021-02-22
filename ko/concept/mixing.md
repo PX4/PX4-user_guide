@@ -225,18 +225,23 @@ Any line that does not begin with a single capital letter followed by a colon ma
 
 Summing mixers are used for actuator and servo control.
 
-A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.
+A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler. A minimal actuator traversal time limit can also be specified in the output scaler (inverse of a slew rate).
 
 A simple mixer definition begins with:
 
 ```
 M: <control count>
-O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
+O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit> <traversal time>
 ```
 
 If `<control count>` is zero, the sum is effectively zero and the mixer will output a fixed value that is `<offset>` constrained by `<lower limit>` and `<upper limit>`.
 
-The second line defines the output scaler with scaler parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
+The second line defines the output scaler with scaler parameters as discussed above. While the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000. The `<traversal time>` (optional) on the output scaler is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle. It can be used to limit the rate of change of an actuator (if this is not specified then no rate limit is applied). For example, a `<traversal time>` value of 20000 will limit the rate of change of the actuator such that it takes at least 2 seconds from the `<lower limit>` to the `<upper limit>` and vice versa.
+
+:::note
+- The `<traversal time>` should only be used if the hardware requires it!
+- Do not apply any limit on actuators controlling the attitude of a vehicle (such as servos for the aerodynamic surfaces), as this could easily lead to controller instability.
+:::
 
 The definition continues with `<control count>` entries describing the control inputs and their scaling, in the form:
 
@@ -295,7 +300,7 @@ Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the th
 
 Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.
 
-The [blade 130 helicopter mixer](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix) can be viewed as an example.
+In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.
 
 <a id="helicopter_mixer"></a>
 
