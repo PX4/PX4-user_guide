@@ -1319,7 +1319,7 @@ Set to 2 to use heading from motion capture  <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td><strong id="COM_ARM_AUTH_REQ">COM_ARM_AUTH_REQ</strong> (INT32)</td>
- <td>Require arm authorization to arm <p><strong>Comment:</strong> The default allows to arm the vehicle without a arm authorization.</p>   </td>
+ <td>Require arm authorization to arm <p><strong>Comment:</strong> By default off. The default allows to arm the vehicle without a arm authorization.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -1425,9 +1425,14 @@ Set -1 to disable the check    </td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p>   </td>
+ <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Allow arming without GPS</li> 
+
+<li><strong>1:</strong> Require GPS lock to arm</li> 
+</ul>
+  </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -15812,6 +15817,20 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  </thead>
 <tbody>
 <tr>
+ <td><strong id="SIH_BARO_OFFSET">SIH_BARO_OFFSET</strong> (FLOAT)</td>
+ <td>Barometer offset in meters <p><strong>Comment:</strong> Absolute value superior to 10000 will disable barometer</p>   </td>
+ <td></td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SIH_GPS_USED">SIH_GPS_USED</strong> (INT32)</td>
+ <td>Number of GPS satellites used    </td>
+ <td>0 > 50 </td>
+ <td>10</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SIH_IXX">SIH_IXX</strong> (FLOAT)</td>
  <td>Vehicle inertia about X axis <p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
  <td>0.0 > ? (0.005)</td>
@@ -15922,6 +15941,27 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td>0.0 > ? (0.05)</td>
  <td>0.2</td>
  <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SIH_MAG_OFFSET_X">SIH_MAG_OFFSET_X</strong> (FLOAT)</td>
+ <td>magnetometer X offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIH_MAG_OFFSET_Y">SIH_MAG_OFFSET_Y</strong> (FLOAT)</td>
+ <td>magnetometer Y offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
+</tr>
+<tr>
+ <td><strong id="SIH_MAG_OFFSET_Z">SIH_MAG_OFFSET_Z</strong> (FLOAT)</td>
+ <td>magnetometer Z offset in Gauss <p><strong>Comment:</strong> Absolute value superior to 10000 will disable magnetometer</p>   </td>
+ <td></td>
+ <td>0.0</td>
+ <td>gauss</td>
 </tr>
 <tr>
  <td><strong id="SIH_MASS">SIH_MASS</strong> (FLOAT)</td>
@@ -18051,6 +18091,10 @@ demanded down pitch to fixed-wing actuation  <strong>Values:</strong><ul>
 <li><strong>3:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2.</li> 
 
 <li><strong>4:</strong> Enable FW forward actuation in hover in altitude, position and auto modes.</li> 
+
+<li><strong>5:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT1 (except LANDING).</li> 
+
+<li><strong>6:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2 (except LANDING).</li> 
 </ul>
   </td>
  <td></td>
