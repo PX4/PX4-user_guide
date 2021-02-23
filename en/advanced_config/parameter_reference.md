@@ -15824,6 +15824,28 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
  <td>m</td>
 </tr>
 <tr>
+ <td><strong id="SIH_DISTSNSR_MAX">SIH_DISTSNSR_MAX</strong> (FLOAT)</td>
+ <td>distance sensor maximun range    </td>
+ <td>0.0 > 1000.0 (0.01)</td>
+ <td>100.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SIH_DISTSNSR_MIN">SIH_DISTSNSR_MIN</strong> (FLOAT)</td>
+ <td>distance sensor minimun range    </td>
+ <td>0.0 > 10.0 (0.01)</td>
+ <td>0.0</td>
+ <td>m</td>
+</tr>
+<tr>
+ <td><strong id="SIH_DISTSNSR_OVR">SIH_DISTSNSR_OVR</strong> (FLOAT)</td>
+ <td>if >= 0 the distance sensor measures will be overrided by this value
+Absolute value superior to 10000 will disable distance sensor    </td>
+ <td></td>
+ <td>-1.0</td>
+ <td>m</td>
+</tr>
+<tr>
  <td><strong id="SIH_GPS_USED">SIH_GPS_USED</strong> (INT32)</td>
  <td>Number of GPS satellites used    </td>
  <td>0 > 50 </td>
