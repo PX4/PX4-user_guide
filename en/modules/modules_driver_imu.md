@@ -74,31 +74,6 @@ adis16497 <command> [arguments...]
 
    status        print status info
 ```
-## bma180
-Source: [drivers/imu/bma180](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bma180)
-
-<a id="bma180_usage"></a>
-### Usage
-```
-bma180 <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
 ## bmi055
 Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bosch/bmi055)
 
@@ -172,31 +147,6 @@ bmi088_i2c <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 118
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
-## bmi160
-Source: [drivers/imu/bmi160](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bmi160)
-
-<a id="bmi160_usage"></a>
-### Usage
-```
-bmi160 <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
 
