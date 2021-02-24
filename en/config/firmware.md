@@ -2,7 +2,7 @@
 
 *QGroundControl* **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards. 
 
-:::caution
+:::warning
 **Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). 
 The vehicle must *not be* powered by a battery.
 :::
