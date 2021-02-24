@@ -10,7 +10,8 @@ Windows users can alternatively install a *slightly modified* Ubuntu Linux PX4 d
 * Run the PX4 JMAVSim simulation (using a Windows-hosted X-Windows app to display the UI)
 
 :::note
-This mechanism only works on Windows 10. It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
+This mechanism only works on Windows 10.
+It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.
 :::
 
 ### Setup Environment
@@ -66,7 +67,7 @@ To run JMAVSim:
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-:::caution
+:::warning
 Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful.
 To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
 ```sh
