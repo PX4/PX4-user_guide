@@ -325,7 +325,7 @@ It is pre-built and automatically installed by *QGroundControl* when appropriate
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
-make px4_fmu-v2_default
+make px4_fmu-v3_default
 ```
 
 ## Debug Port
