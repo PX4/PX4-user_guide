@@ -1,10 +1,10 @@
-# DJI FlameWheel 450 + CUAV V5+ Build
+# DJI FlameWheel 450 + CUAV V5 nano 조립
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+*QGroundControl*을 사용하여 키트를 조립 및 PX4 설정 방법을 설명합니다.
 
-Key information
+주요 내용
 
-- **Frame:** DJI F450
+- **프레임:** DJI F450
 - **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
 - **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
 
