@@ -310,6 +310,7 @@
     * [Manufacturer’s Board Support Guide](hardware/board_support_guide.md)
     * [Flight Controller Porting Guide](hardware/porting_guide.md) 
       * [NuttX Board Porting Guide](hardware/porting_guide_nuttx.md)
+    * [Serial Port Mapping](hardware/serial_port_mapping.md)
     * [Airframes](dev_airframes/README.md) 
       * [Adding a New Airframe](dev_airframes/adding_a_new_frame.md)
     * [Device Drivers](middleware/drivers.md)

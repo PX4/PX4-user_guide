@@ -30,36 +30,36 @@ Durafly 모델의 수정 내역은 아래와 같습니다.
 
 ### 로터 헤드
 
-The rotor head is (compared to the original autogyro) modified so it allows a motion in both roll and pitch axes. Thanks to this, the rotor can control turning as well climbing of the autogyro. Directional control of autogyro by rotor is possible even in case of low airspeed compared to the original rudder and elevator control.
+로터 헤드는 (원래 오토 자이로와 비교하여)  롤 및 피치 축에서도 작동하도록 수정되었습니다. 헤드 로터는 오토 자이로의 회전과 등반 제어가 모두 가능하게 되었습니다. 오토자이로는  낮은 속도에서도 러더 및 엘리베이터를 제어할 수 있습니다.
 
-The printed rotor head consists of three parts. The bottom part is screwed using an M2.5 screw to the original plywood pylon. An M3x35 screw found between the first and the second part creates the pitch axis freedom and the connection between the second and the third part the roll axis freedom. The latter axis is made of an M3x30 screw with a screwed self-locking nut. From the rotor side, the screw head has a large area washer.
+인쇄된 로터 헤드는 세 부분으로 구성됩니다. 바닥 부분은 M2.5 나사를 사용하여 원래 합판 철탑에 나사로 고정됩니다. 첫 번째 부품과 두 번째 부품 사이에있는 M3x35 나사는 피치 축 자유도를 만들고, 두 번째 부품과 세 번째 부품 사이의 연결은 롤 축 자유도를 만듭니다. 후자의 축은 나사식 자동 잠금 너트가있는 M3x30 나사로 만들어집니다. 로터 쪽에서 스크류 헤드에는 면적이 넓은 와셔가 있습니다.
 
-Rotor axis, made of M3x50 high tensile strength screw, goes through the third part. Bearings used are 623 2Z C3 SKF. At the end of this part, there are ball rods attached via M2.5 screws to servos positioned in the bottom part of the pylon. It is preferable to exchange these original servos for better quality ones as they are weak and in the original construction they help each other.
+M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과합니다. 사용된 베어링은 623 2Z C3 SKF입니다. 이 부분의 끝에는 M2.5 나사를 통해 파일론의 바닥 부분에 위치한 서보에 부착된 볼로드가 있습니다. 이 부분의 끝에는 M2.5 나사를 통해 관통 파일론의 바닥에 부착된 볼로드가 있습니다.
 
 ![Rotorhead](../../assets/airframes/autogyro/auto-g2/modif_rh.png)
 
-### Two-blade rotor
+### 이중 날 로터
 
-The original Durafly Auto-G2 autogyro has a three-blade rotor, which as been modified in this built to use a two-blade rotor. The reasons are reduced vibration and easier construction. Printed central parts are designed to be used both with Chinese Durafly blades or 3D printed blades.
+원래 Durafly Auto-G2 오토자이로는 3 날 로터이었으나, 2 날 로터를 사용하도록 수정되었습니다. 주된 이유는 진동이 적고 조립이 간편하기 때문입니다. 인쇄된 중앙 부품은 중국산 Durafly 블레이드 또는 3D 인쇄 블레이드와 함께 사용하도록 설계되었습니다.
 
-The rotor's central part consists of several components which have following roles:
-* They enable blade flapping.
-* They have deformation zones that break upon impact with ground. Thanks to this, the rotor can usually be repaired quickly by replacing only one component.
-* Easy setup of blades angle-of-attack.
+로터의 중앙 부분은 다음과 같은 역할을하는 요소들로 구성됩니다.
+* 블레이드를 펄럭일 수 있습니다.
+* 그들은지면과의 충돌로 부서지는 변형 영역을 가지고 있습니다. 덕분에 일반적으로 하나의 부품만 교체로 로터를 신속하게 수리 할 수 있습니다.
+* 블레이드 공격각을 쉽게 설정 가능합니다.
 
-#### HobbyKing rotor blades
+#### HobbyKing 로터 블레이드
 
-It is possible to use a printed central part of the rotor with the original blades. These blades can be bought on [HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html). Hobbyking blades differ in the position of center of gravity and it is therefore necessary to balance them properly.
+원 블레이드와 함께 로터의 인쇄 된 중앙 부분을 사용할 수 있습니다. 이 블레이드는 [HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html)에서 구입할 수 있습니다. Hobbyking 블레이드는 무게 중심이 다르므로 적절한 균형을 유지하여야 합니다.
 
-#### 3D printed rotor blades
+#### 3D 프린팅 로터 블레이드
 
-It is also possible to print rotor blades.
+로터 블레이드를 인쇄할 수 있습니다.
 
-The printed rotor blads are still under development, but preliminary tests show they are of better quality mostly thanks to their precise shape and absence of longitudinal grooves. However, some of the production processes still need to be tuned.
+인쇄된 로터 블래드는 아직 개발 중이지만, 예비 테스트에서 정확한 모양과 세로 홈이 없기 때문에 품질이 더 우수한 것으로 조사되었습니다. 그러나, 일부 제작 과정은 조정중입니다.
 
 ![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
 
-#### Balancing
+#### 균형
 
 Proper blades balance is very important to minimize vibrations. Blades have to be balanced in such a way, that the center of gravity is located in the middle of the rotor axis.
 

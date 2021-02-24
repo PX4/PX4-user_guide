@@ -224,7 +224,7 @@ The `tag` selects the mixer type (see links for detail on each type):
 
 [这里](../airframes/adding_a_new_frame.md#mixer-file) 是一个典型混控器的示例文件。
 
-A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.
+A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler. A minimal actuator traversal time limit can also be specified in the output scaler (inverse of a slew rate).
 
 A simple mixer definition begins with:
 
@@ -234,25 +234,28 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 
 空的混控器使用如下形式定义：
 
-The second line defines the output scaler with scaler parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
+The second line defines the output scaler with scaler parameters as discussed above. While the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000. The `<traversal time>` (optional) on the output scaler is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle. It can be used to limit the rate of change of an actuator (if this is not specified then no rate limit is applied). For example, a `<traversal time>` value of 20000 will limit the rate of change of the actuator such that it takes at least 2 seconds from the `<lower limit>` to the `<upper limit>` and vice versa.
 
 该混控器使用如下形式的行进行定义：
+- 6x - X 构型的六旋翼
+- Do not apply any limit on actuators controlling the attitude of a vehicle (such as servos for the aerodynamic surfaces), as this could easily lead to controller instability.
+:::
+
+The definition continues with `<control count>` entries describing the control inputs and their scaling, in the form:
 
 ```
 Z:
 ```
 
-:::note
-The `S:` lines must be below the `O:` line.
-:::
-
 滚转、俯仰和偏航的缩放因子大小都分别表示滚转、俯仰和边行控制相对于推力控制的比例。 同时，结果的计算是以浮点计算的形式进行的，在混控器定义文件中的值都将缩小 10000 倍，比如：实际中 0.5 的偏移量（offset）在定义文件中保存为 5000 。
+
+The `<group>` value identifies the control group from which the scaler will read, and the `<index>` value an offset within that group. These values are specific to the device reading the mixer definition.
 
 When used to mix vehicle controls, mixer group zero is the vehicle attitude control group, and index values zero through three are normally roll, pitch, yaw and thrust respectively.
 
-怠速（Idlespeed）的设定值应在 0.0 到 1.0 之间。 在这里怠速的值表示的是相对电机最大转速的百分比，当所有控制输入均为 0 的时候电机应在该转速下运行。
+The remaining fields on the line configure the control scaler with parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
 
-当有一个执行器出现饱和后，所有执行器的值都将被重新缩放以使得饱和执行器的输出被限制在 1.0 。
+An example of a typical mixer file is explained [here](../dev_airframes/adding_a_new_frame.md#mixer-file).
 
 <a id="null_mixer"></a>
 
@@ -260,9 +263,9 @@ When used to mix vehicle controls, mixer group zero is the vehicle attitude cont
 
 A null mixer consumes no controls and generates a single actuator output with a value that is always zero.
 
-推力控制输入同时用于设定直升机的主电机和倾斜盘的总距。 在运行时它会使用一条油门曲线和一条总距曲线，这两条曲线都由 5 个控制点组成。
+Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs. It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
 
-混控器的定义的开头如下：
+The null mixer definition has the form:
 ```
 R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 ```
@@ -271,9 +274,9 @@ R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 
 #### 针对多旋翼的混控器
 
-The multirotor mixer combines four control inputs (roll, pitch, yaw, thrust) into a set of actuator outputs intended to drive motor speed controllers.
-
 后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
+
+The mixer definition is a single line of the form:
 ```
 H: <number of swash-plate servos, either 3 or 4>
 T: <throttle setting at thrust: 0%> <25%> <50%> <75%> <100%>
@@ -282,28 +285,28 @@ P: <collective pitch at thrust: 0%> <25%> <50%> <75%> <100%>
 
 The supported geometries include:
 
-* 6x - X 构型的六旋翼
-* 4+ - + 构型的四旋翼
-* 8x - X 构型的八旋翼
-* 8+ - + 构型的八旋翼
-* 8x - X 构型的八旋翼
-* 8+ - + 构型的八旋翼
+* 它的油门曲线刚开始时斜率很陡，在 50% 油门位置便达到了 6000（0.6）。
+* 随后油门曲线会以一个稍平缓的斜率实现在 100% 油门位置时到达 10000（1.0）。
+* 总距曲线是线性的，但没有用到全部的控制指令区间。
+* 0% 油门位置时总距设置就已经是 500（0.05）了。
+* 油门处于最大位置时总距仅仅为 4500（0.45）。
+* 对于该型直升机而言使用更高的值会导致主桨叶失速。
 
-舵机的输出按照比例 `&lt;scale&gt; / 10000` 进行缩放。 完成缩放后会应用 `&lt;offset&gt;` ，该参数的取值介于 -10000 和 10000 之间。
-
-Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the thrust input ranges from 0.0 to 1.0. Output for each actuator is in the range -1.0 to 1.0.
+Each of the roll, pitch and yaw scale values determine scaling of the roll, pitch and yaw controls relative to the thrust control. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an factor of 0.5 is encoded as 5000.
 
 完成上述工作后，直升机的尾桨设定直接映射到了飞机的偏航指令上。 该设置同时适用于舵机控制的尾桨和使用专用电机控制的尾桨。
 
-以 [Blade 130 直升机混控器](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix) 为例。
+Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.
+
+In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.
 
 <a id="helicopter_mixer"></a>
 
 #### 针对直升机的混控器
 
-The helicopter mixer combines three control inputs (roll, pitch, thrust) into four outputs (swash-plate servos and main motor ESC setting). The first output of the helicopter mixer is the throttle setting for the main motor. The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.
+VTOL 机体的混控器系统可以合并成一个混控器，这样的话，所有舵机都将连接到 IO 或 FMU 端口。VTOL 机体的混控器系统也可以分割成独立的混控器文件，供 IO 和 AUX 使用。 如果分割成独立的文件，我们建议所有的多旋翼电机在一个端口上，所有的伺服电机和固定翼舵机在另一个端口上。 The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.
 
-VTOL 机体的混控器系统可以合并成一个混控器，这样的话，所有舵机都将连接到 IO 或 FMU 端口。VTOL 机体的混控器系统也可以分割成独立的混控器文件，供 IO 和 AUX 使用。 如果分割成独立的文件，我们建议所有的多旋翼电机在一个端口上，所有的伺服电机和固定翼舵机在另一个端口上。
+The thrust control input is used for both the main motor setting as well as the collective pitch for the swash-plate. It uses a throttle-curve and a pitch-curve, both consisting of five points.
 
 :::note
 The throttle- and pitch- curves map the "thrust" stick input position to a throttle value and a pitch value (separately). This allows the flight characteristics to be tuned for different types of flying. An explanation of how curves might be tuned can be found in [this guide](https://www.rchelicopterfun.com/rc-helicopter-radios.html) (search on *Programmable Throttle Curves* and *Programmable Pitch Curves*).
@@ -347,16 +350,16 @@ S:    220  13054  10000      0  -8000   8000
 M: 1
 S: 0 2  10000  10000      0 -10000  10000
 ```
-- 它的油门曲线刚开始时斜率很陡，在 50% 油门位置便达到了 6000（0.6）。
-- 随后油门曲线会以一个稍平缓的斜率实现在 100% 油门位置时到达 10000（1.0）。
-- 总距曲线是线性的，但没有用到全部的控制指令区间。
-- 0% 油门位置时总距设置就已经是 500（0.05）了。
-- 油门处于最大位置时总距仅仅为 4500（0.45）。
-- 对于该型直升机而言使用更高的值会导致主桨叶失速。
-- 该直升机的倾斜盘舵机分别位于 0°、140°、和 220° 的相位位置上。
-- 舵机摇臂的长度并不相等。
-- 第二个和第三个舵机的摇臂更长，其长度大约为第一个舵机的摇臂长度的 1.3054 倍。
-- 由于机械结构限制，所有舵机均被限制在 -8000 和 8000 之间。
+- The throttle-curve starts with a slightly steeper slope to reach 6000 (0.6) at 50% thrust.
+- It continues with a less steep slope to reach 10000 (1.0) at 100% thrust.
+- The pitch-curve is linear, but does not use the entire range.
+- At 0% throttle, the collective pitch setting is already at 500 (0.05).
+- At maximum throttle, the collective pitch is only 4500 (0.45).
+- Using higher values for this type of helicopter would stall the blades.
+- The swash-plate servos for this helicopter are located at angles of 0, 140 and 220 degrees.
+- The servo arm-lenghts are not equal.
+- The second and third servo have a longer arm, by a ratio of 1.3054 compared to the first servo.
+- The servos are limited at -8000 and 8000 because they are mechanically constrained.
 
 <a id="vtol_mixer"></a>
 

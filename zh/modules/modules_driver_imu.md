@@ -77,38 +77,12 @@ adis16497 <command> [arguments...]
 
    status        print status info
 ```
-## bma180
-Source: [drivers/imu/bma180](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bma180)
-
-<a id="bma180_usage"></a>
-
-### 用法
-```
-bma180 <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
 ## bmi055
 Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bosch/bmi055)
 
 <a id="bmi055_usage"></a>
 
-### 描述
+### 用法
 ```
 bmi055 <command> [arguments...]
  Commands:
@@ -136,7 +110,7 @@ Source: [drivers/imu/bosch/bmi088](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="bmi088_usage"></a>
 
-### 用法
+### 描述
 ```
 bmi088 <command> [arguments...]
  Commands:
@@ -179,32 +153,6 @@ bmi088_i2c <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 118
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
-## bmi160
-Source: [drivers/imu/bmi160](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/bmi160)
-
-<a id="bmi160_usage"></a>
-
-### 用法
-```
-bmi160 <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
 
@@ -337,7 +285,7 @@ Source: [drivers/imu/invensense/icm20649](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20649_usage"></a>
 
-### 描述
+### 用法
 ```
 icm20649 <command> [arguments...]
  Commands:
@@ -389,7 +337,7 @@ Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20948_usage"></a>
 
-### 用法
+### 描述
 ```
 icm20948 <command> [arguments...]
  Commands:
@@ -602,7 +550,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/Firmware/tree/ma
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### 用法
 ```
 mpu9520 <command> [arguments...]
  Commands:
