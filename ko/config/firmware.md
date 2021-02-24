@@ -2,8 +2,8 @@
 
 *QGroundControl* **데스크톱** 버전을 사용하여 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러에 PX4 펌웨어를 설치할 수 있습니다.
 
-:::caution
-**펌웨어 설치 시작전에** 차량의 모든 USB * 연결을 해제 *하여야 합니다 (직접 또는 원격 측정 라디오를 통해). 기체에 배터리 전원 연결을 *중지*하여야 합니다.
+:::warning
+**Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). 기체에 배터리 전원 연결을 *중지*하여야 합니다.
 :::
 
 ## PX4 안정 버전 설치
