@@ -6,8 +6,6 @@ This environment can be used to build PX4 for:
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 * [Gazebo Simulation](../simulation/gazebo.md)
 
-To build other targets you will need to use a [different development OS](../dev_setup/dev_env.md#supported-targets).
-
 :::details Apple M1 Macbook users!
 If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
 1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
@@ -20,7 +18,7 @@ If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting
 
 :::tip
 This setup is supported by the PX4 dev team.
-To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets).
+To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](advanced/dev_env_unsupported.md)).
 :::
 
 ## Video Guide

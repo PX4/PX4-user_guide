@@ -1,5 +1,9 @@
 <Redirect to="dev_env_linux_ubuntu" />
 
+<!-- Everything deleted below here - redirects to Ubuntu Linux -->
+
+<!--
+
 # Development Environment on Linux
 
 Linux allows you to build for [all PX4 targets](../dev_setup/dev_env.md#supported-targets) (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).
@@ -27,3 +31,5 @@ Once you have finished setting up the command-line toolchain:
   It may also provide access to new PX4 features that are not yet supported in release builds.
   :::
 - Continue to the [build instructions](../dev_setup/building_px4.md).
+
+-->
