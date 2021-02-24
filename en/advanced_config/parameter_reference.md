@@ -18426,6 +18426,62 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_BMS0_PID">UCAN1_BMS0_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS1_PID">UCAN1_BMS1_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC0_PID">UCAN1_ESC0_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS0_PID">UCAN1_GPS0_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS1_PID">UCAN1_GPS1_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>
 <li><strong>0:</strong> use the module's controller</li> 
