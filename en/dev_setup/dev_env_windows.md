@@ -1,3 +1,9 @@
+<Redirect to="dev_env_windows_cygwin" />
+
+<!-- Everything deleted below here - redirects to Windows Cygwin -->
+
+<!--
+
 # Windows Installation Instructions
 
 To develop for PX4 on Windows, follow the instructions in [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md).
@@ -39,3 +45,5 @@ It is regularly tested as part of our continuous integration system and is known
 | Simulation gazebo | - (not yet) | + (slow) | + (slow) |
 | Support | + | ++ (Linux) | +/- |
 | Comments | <ul><li>New in 2018</li><li>Slim setup</li><li>Portable</li></ul> | <ul><li>Full Linux features</li><li>CPU & RAM intensive</li><li>Disk space intensive</li></ul> | <ul><li>Simulation UI is a "hack".</li><li>Windows 10 only</li><li>Essentially a VM</li></ul> |
+
+-->
