@@ -7,7 +7,7 @@ This environment can be used to build PX4 for:
 
 :::tip
 This setup is supported by the PX4 dev team.
-To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](advanced/dev_env_unsupported.md)).
+To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
 :::
 
 <a id="installation"></a>
