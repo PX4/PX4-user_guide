@@ -2,7 +2,7 @@
 
 *QGroundControl* **桌面** 版本可用于在 [Pixhawk-系列](../getting_started/flight_controller_selection.md) 飞控板上安装 PX4 固件。
 
-:::caution
+:::warning
 **Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). The vehicle must *not be* powered by a battery.
 :::
 
