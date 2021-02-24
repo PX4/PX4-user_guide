@@ -1,3 +1,9 @@
+<Redirect to="dev_env_linux_ubuntu" />
+
+<!-- Everything deleted below here - redirects to Ubuntu Linux -->
+
+<!--
+
 # Development Environment on Linux
 
 Linux allows you to build for [all PX4 targets](../dev_setup/dev_env.md#supported-targets) (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).
@@ -15,6 +21,15 @@ The following instructions explain how to set up a development environment on va
 * [Advanced Linux](../dev_setup/dev_env_advanced_linux.md)
 
 
-After setting up the build/simulation toolchain:
-- [Additional Tools](../dev_setup/generic_dev_tools.md) lists some other useful tools.
-- [Build instructions](../dev_setup/building_px4.md) explains how to download and build PX4 source code.
+## Next Steps
+
+Once you have finished setting up the command-line toolchain:
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
+  :::tip
+  The *daily build* includes development tools that hidden in release builds.
+  It may also provide access to new PX4 features that are not yet supported in release builds.
+  :::
+- Continue to the [build instructions](../dev_setup/building_px4.md).
+
+-->
