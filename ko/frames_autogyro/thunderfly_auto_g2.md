@@ -2,7 +2,7 @@
 
 *ThunderFly Auto-G2*는 [Durafly ™ Auto-G2 Gyrocopter](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) RC 모델을 기반으로 한 자동 조종 제어 자동자이로입니다.  원본 모델의 여러 부분이 3D 인쇄 가능한 모델로 대체되었습니다.
 
-![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
+![자동 G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
 :::note
 Auto-G2 오토자이로의 기체는 ThuderFly s.r.o 사에서 개발 및 유지 관리합니다.
@@ -36,7 +36,7 @@ Durafly 모델의 수정 내역은 아래와 같습니다.
 
 M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과합니다. 사용된 베어링은 623 2Z C3 SKF입니다. 이 부분의 끝에는 M2.5 나사를 통해 파일론의 바닥 부분에 위치한 서보에 부착된 볼로드가 있습니다. 이 부분의 끝에는 M2.5 나사를 통해 관통 파일론의 바닥에 부착된 볼로드가 있습니다.
 
-![Rotorhead](../../assets/airframes/autogyro/auto-g2/modif_rh.png)
+![로터헤드](../../assets/airframes/autogyro/auto-g2/modif_rh.png)
 
 ### 이중 날 로터
 
@@ -57,7 +57,7 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 인쇄된 로터 블래드는 아직 개발 중이지만, 예비 테스트에서 정확한 모양과 세로 홈이 없기 때문에 품질이 더 우수한 것으로 조사되었습니다. 그러나, 일부 제작 과정은 조정중입니다.
 
-![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
+![블레이드 조립](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
 
 #### 균형 유지
 
@@ -71,7 +71,7 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 전체 부품은 오토 자이로 본체 하단에있는 엔진 아래에 핫멜트 접착제를 사용하여 접착됩니다. 오토 자이로가 로프로 견인되는 경우 엔진이 켜지지 않아야 합니다. 예를 들어, 릴리스 장치 스위치가 닫혀있는 경우 트랜스미터에서 엔진 출력을 무효화하여 처리할 수 있습니다.
 
-![Release device](../../assets/airframes/autogyro/auto-g2/modif_release.png)
+![릴리스 장치](../../assets/airframes/autogyro/auto-g2/modif_release.png)
 
 ## 부품 목록
 
@@ -90,36 +90,36 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 * [프로펠러 어댑터](https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html)
 
 
-### Printable parts
+### 기판 부품
 
-* Rotor head:
+* 로터 헤드:
   * [Pylon end](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1001.stl)
-  * [Pitch part](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl)
-  * [Roll part](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl)
+  * [피치 부품](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1002.stl)
+  * [롤 부품](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1003.stl)
 
-* Rotor:
-  * [center part washer top](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl)
-  * [center part washer bottom](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl)
-  * [center plate with deformation zones](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl)
-  * [washers for setting AoA of blades](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl)
-  * [Rotor nut](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl)
+* 로터:
+  * [중앙 부분 와셔 상단](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1008.stl)
+  * [중앙부 와셔 바닥](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1004.stl)
+  * [변형 영역이 있는 센터 플레이트](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1001.stl)
+  * [블레이드 AoA 설정용 와셔](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/111_1005.stl)
+  * [로터 너트](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1002.stl)
 
-* Rotor blades (optional)
-* Autopilot holder
-* [Release device](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl)
-* [Front wheels](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl)
+* 로터 블레이드 (옵션)
+* Autopilot 홀더
+* [릴리스 장치](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1010.stl)
+* [앞 바퀴](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl)
 
-### Recommended spare parts
+### 권장 예비 부품
 
-* Servos with improved quality (recomended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
-* Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
-* Rotor centre plate with deformation zones (3D printed)
-* Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
+* 품질이 향상된 서보 ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm) 권장, 원래 서보는 내구성이 낮음))
+* 프로펠러 ([APC 10x7](https://www.apcprop.com/product/10x7e/))
+* 변형 영역이있는 로터 중앙 플레이트 (3D 인쇄)
+* 로터 블레이드 ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) 또는 3D 프린팅)
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/YhXXSWz5wWs)
+@[유투브](https://youtu.be/YhXXSWz5wWs)
 
-## Photo gallery of changes
+## 변경 사진 갤러리
 
-![Auto-G2 1](../../assets/airframes/autogyro/auto-g2/autog2_1.jpg) ![Auto-G2 2](../../assets/airframes/autogyro/auto-g2/autog2_2.jpg) ![Auto-G2 3](../../assets/airframes/autogyro/auto-g2/autog2_3.jpg) ![Auto-G2 4](../../assets/airframes/autogyro/auto-g2/autog2_4.jpg)
+![자동 G2 1](../../assets/airframes/autogyro/auto-g2/autog2_1.jpg) ![자동 G2 2](../../assets/airframes/autogyro/auto-g2/autog2_2.jpg) ![자동 G2 3](../../assets/airframes/autogyro/auto-g2/autog2_3.jpg) ![자동 G2 4](../../assets/airframes/autogyro/auto-g2/autog2_4.jpg)
