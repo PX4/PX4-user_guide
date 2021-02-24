@@ -294,7 +294,7 @@ Most users will not need to build this firmware! It is pre-built and automatical
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
-    make px4_fmu-v2_default
+    make px4_fmu-v3_default
     
 
 ## Debug调试端口
