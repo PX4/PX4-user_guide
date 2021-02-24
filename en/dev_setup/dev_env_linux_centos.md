@@ -35,6 +35,11 @@ You may want to also install `python-pip` and `screen`.
 
 Execute the script below to install GCC 7-2017-q4:
 
+:::warning
+This version of GCC is out of date.
+At time of writing the current version on Ubuntu is `9-2020-q2-update` (see  [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+:::
+
 ```sh
 pushd .
 cd ~
