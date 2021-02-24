@@ -8,7 +8,7 @@ This topic explains how to make and test changes. Towards the end there is a bas
 Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
 :::
 
-<a id="github_changes"></a>
+<a id="github_changes" ></a>
 
 ## Quick Changes in Github
 
@@ -24,7 +24,7 @@ To edit an existing page:
 
 The documentation team will review the request and either merge it or work with you to update it.
 
-<a id="big_changes"></a>
+<a id="big_changes" ></a>
 
 ## Changes using Git (New Pages and Images)
 

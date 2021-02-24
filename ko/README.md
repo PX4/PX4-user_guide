@@ -112,7 +112,7 @@ PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-
 
 PX4 비행 스택은 [드론코드 프로젝트](https://www.dronecode.org/) 지침을 준수하여 제공됩니다.
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
+<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>
