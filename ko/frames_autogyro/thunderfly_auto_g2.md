@@ -59,35 +59,35 @@ M3x50 고강도 나사로 만들어진 로터 축은 세 번째 부분을 통과
 
 ![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
 
-#### 균형
+#### 균형 유지
 
-Proper blades balance is very important to minimize vibrations. Blades have to be balanced in such a way, that the center of gravity is located in the middle of the rotor axis.
+적절한 블레이드 균형은 진동을 최소화하는 데 매우 중요합니다. 블레이드는 무게 중심이 로터 축의 중앙에 위치하도록 균형을 맞춰야합니다.
 
-Printed blades are balanced in the production process and there is no need to further balance them.
+인쇄된 블레이드는 생산 과정에서 균형을 이미 잡혀있으므로 더 이상 균형을 맞출 필요가 없습니다.
 
-### Release device
+### 릴리스 장치
 
-If you want to launch an autogyro using a winch or if you want to launch it by towing you need to print a release device. It is a small box equipped with servo which pulls out the pin and releases the rope.
+윈치를 사용하여 자동 자이로를 시작하거나 견인하여 시작하려면 릴리스 장치를 인쇄하여야 합니다. 핀을 빼내고 로프를 풀어주는 서보가 장착된 작은 상자입니다.
 
-The whole part is glued, using a hot-melt adhesive, under the engine on the bottom part of an autogyro’s body. If an autogyro is towed by a rope its engine must not be turned on. It can be handled, for example, by nulling the engine’s output in the transmitter if the release device switch is closed.
+전체 부품은 오토 자이로 본체 하단에있는 엔진 아래에 핫멜트 접착제를 사용하여 접착됩니다. 오토 자이로가 로프로 견인되는 경우 엔진이 켜지지 않아야 합니다. 예를 들어, 릴리스 장치 스위치가 닫혀있는 경우 트랜스미터에서 엔진 출력을 무효화하여 처리할 수 있습니다.
 
 ![Release device](../../assets/airframes/autogyro/auto-g2/modif_release.png)
 
-## Parts List
+## 부품 목록
 
-### Electronic
+### 전바 부품
 
-* Autopilot ([Holybro pix32](../flight_controller/holybro_pix32.md), [CUAV nano](../flight_controller/cuav_v5_nano.md))
-* GPS (GPS Modul NEO-6M, with patch antenna)
-* Airspeed sensor ([SDP3x](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/))
-* Stronger servos as a substitution for the original ones (optional), ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm))
-* Additional servo for release device (optional)
+* 자동 조종 장치 ([Holybro pix32](../flight_controller/holybro_pix32.md), [CUAV nano](../flight_controller/cuav_v5_nano.md))
+* GPS (GPS 모듈 NEO-6M, 패치 안테나 포함)
+* 대기 속도 센서 ([SDP3x](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/))
+* 원본을 대체하는 강력한 서보 (옵션), ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm))
+* 릴리스 장치용 추가 서보 (옵션)
 
-### Mechanical parts
+### 기계식 부품
 
-* Rotor head Bearing (623 2Z C3)
-* Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
-* [Prop adapter](https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html)
+* 로터 헤드 베어링 (623 2Z C3)
+* 프로펠러 ([APC 10x7](https://www.apcprop.com/product/10x7e/))
+* [프로펠러 어댑터](https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html)
 
 
 ### Printable parts
