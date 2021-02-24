@@ -1,6 +1,6 @@
-# 멀티 프레임 프레임 빌드
+# 멀티콥터 프레임 조립
 
-PX4 supports numerous types of single- and multi-copters, including helicopters, tricopters, quadcopters, hexarotors, dodecarotors etc, in many different geometries (+, wide, x etc.). The complete set of supported configurations can be seen in [Airframes Reference > Copter](../airframes/airframe_reference.md#copter).
+PX4는 헬리콥터, 트라이 콥터, 쿼드 콥터, 헥사 로터, 도데 카 로터 등 다양한 형상 (+, 와이드, x 등)을 포함한 다양한 유형의 단일 및 다중 헬리콥터를 지원합니다. The complete set of supported configurations can be seen in [Airframes Reference > Copter](../airframes/airframe_reference.md#copter).
 
 This section contains build logs/instructions for assembling and configuring a number of copter frames.
 
