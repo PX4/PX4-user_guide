@@ -1,6 +1,6 @@
 # Setting up a Developer Environment (Toolchain)
 
-The supported platforms for PX4 development are:
+The *supported platforms* for PX4 development are:
 - [Ubuntu Linux](../dev_setup/dev_env_linux_ubuntu.md) (Recommended)
 - [Mac OS](../dev_setup/dev_env_mac.md)
 - [Windows 10](../dev_setup/dev_env_windows_cygwin.md)
@@ -8,7 +8,7 @@ The supported platforms for PX4 development are:
 
 ## Supported Targets
 
-The table below show what PX targets you can build on each OS.
+The table below shows what PX4 targets you can build on each OS.
 
 Target | Linux (Ubuntu) | Mac | Windows
 --|:--:|:--:|:--:
@@ -19,7 +19,7 @@ Target | Linux (Ubuntu) | Mac | Windows
 **Simulation:** [Gazebo SITL](../simulation/gazebo.md) | &check; | &check; | 
 **Simulation:** [ROS with Gazebo](../simulation/ros_interface.md) | &check; | | 
 
-If you're familiar with Docker you can also use one of the prepared containers: [Docker Containers](../test_and_ci/docker.md)
+Experienced Docker users can also build with the containers used by our continuous integration system: [Docker Containers](../test_and_ci/docker.md)
 
 ## Next steps
 
@@ -27,8 +27,3 @@ Once you have finished setting up the command-line toolchain above:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
 - Continue to [Building PX4 Software](../dev_setup/building_px4.md).
-
-
-
-
-

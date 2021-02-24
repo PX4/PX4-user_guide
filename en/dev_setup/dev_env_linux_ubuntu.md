@@ -6,7 +6,7 @@ This environment can be used to build PX4 for [most PX4 targets](../dev_setup/de
 * [jMAVSim Simulation](../simulation/jmavsim.md)
 * [Gazebo Simulation](../simulation/gazebo.md)
 * [Raspberry Pi](#raspberry-pi)
-* [ROS (1)](#ros-gazebo) (Robotics Operating System) (Ubuntu 18.04 only)
+* [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md) (Discontinued)
 
@@ -179,7 +179,12 @@ Additional developer information for using PX4 on Raspberry Pi (including buildi
 <a id="rosgazebo"></a>
 ## ROS/Gazebo
 
-This section explains how to install [ROS/Gazebo](../ros/README.md) ("Melodic") and PX4 on Ubuntu 18.04.
+This section explains how to install [ROS](../ros/README.md) "Melodic" and PX4 on Ubuntu 18.04.
+
+:::warning
+ROS builds are tied to specific Ubuntu versions!
+ROS Melodic can *only* install on Ubuntu 18.04.
+:::
 
 To install the development toolchain:
 
@@ -193,11 +198,11 @@ To install the development toolchain:
    ```
    You may need to acknowledge some prompts as the script progresses.
 
-Note:
+:::note
 * ROS Melodic is installed with Gazebo9 by default.
 * Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
-
+:::
 
 ## Snapdragon Flight
 
@@ -211,8 +216,7 @@ Setup instructions for [Snapdragon Flight](../flight_controller/snapdragon_fligh
 <a id="fast_rtps"></a>
 ## Fast DDS installation
 
-[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the DDS (Data Distribution Service) Specification, a protocol defined by the Object Management Group (OMG).
-Fast DDS is used, via the [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components in a DDS domain.
+[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
 
 Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
