@@ -60,16 +60,16 @@ where:
 - `<bus number>` is the bus number to which the device is connected 
 
 :::note
-Bus number `-b <bus number>` does not match the bus numbering on the autopilot.
-After running the command, the driver shows the bus number corresponding to the label on the box.
+The bus number in code `-b <bus number>` may not match the bus labels on the autopilot.
+For example, when using CUAV V5+ or CUAV Nano:
 
-When using CUAV V5+ or CUAV Nano:
-
-bus label | -b number
+Autopilot label | -b number
 --- | ---
-1 | -X -b 4  |
-2 | -X -b 2  |
-3 | -X -b 1  |
+I2C1 | -X -b 4  |
+I2C2 | -X -b 2  |
+I2C3 | -X -b 1  |
+
+The `pcf8583 start` command outputs the corresponding autopilot bus name/label for each bus number.
 :::
 
 ### Testing
