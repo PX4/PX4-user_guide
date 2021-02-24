@@ -16,7 +16,7 @@ Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the te
 :::
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](advanced/dev_env_unsupported.md)).
+This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/dev_env_unsupported.md)).
 :::
 
 ## Video Guide
