@@ -495,9 +495,28 @@ irlock <command> [arguments...]
 ## pga460
 Stop driver
 
-<a id="lsm303agr_usage"></a>
 
 ### 描述
+Linux PWM output driver with board-specific backend implementation.
+
+<a id="linux_pwm_out_usage"></a>
+
+### 描述
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## lsm303agr
+This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+
+<a id="lsm303agr_usage"></a>
+
+### 实现
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -519,22 +538,22 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
-
-
-### 描述
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-### 实现
 Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+
+
+### 示例
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+
+### 使用
+该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
 ```
 neopixel -n 8
 ```
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 示例
+### 使用
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -543,7 +562,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
+通常使用如下命令：
 
 <a id="paw3902_usage"></a>
 
@@ -573,7 +592,7 @@ Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/driver
 
 <a id="pca9685_usage"></a>
 
-### 使用
+### 描述
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -594,28 +613,28 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-通常使用如下命令：
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### 使用
+### 实现
 This module is responsible for generate pwm pulse with PCA9685 chip.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### 描述
-This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
+### 示例
+该模块负责驱动输出引脚或者读取输入引脚。 IIC communication is based on CDev::I2C
 
-### 实现
-It is typically started with:
+### 使用
+该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
 ```
 pca9685_pwm_out start -a 64 -b 1
 ```
 
-该模块负责驱动输出引脚或者读取输入引脚。 `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
+Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 示例
+### 描述
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -631,8 +650,8 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pcf8583
-该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
+## pwm_out_sim
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 
 <a id="pcf8583_usage"></a>
 
@@ -652,12 +671,12 @@ pcf8583 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
+## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
-### 描述
+### 使用
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -678,28 +697,28 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
+## rc_input
+来驱动所有可以的引脚。
 
 
-### 使用
+### 描述
 This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
-来驱动所有可以的引脚。
+It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
 ### 使用
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
-
-### 描述
-使用 `pwm` 命令进行进一步的配置 (PWM 速率，级别, ...)，然后使用 `mixer` 命令来加载混控器文件。
-```
-fmu test
-```
 源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
 
+### 使用
 针对仿真模拟的 PWM 输出的驱动。
+```
+pwm_out mode_pwm
+```
+To drive all available pins.
+
+该模块在 SITL 和 HITL 仿真中使用。
 ```
 pwm_out mode_pwm3cap1
 ```
@@ -708,82 +727,13 @@ This will enable capturing on the 4th pin. Then do:
 pwm_out test
 ```
 
-该模块在 SITL 和 HITL 仿真中使用。
+源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 <a id="pwm_out_usage"></a>
 
-### 使用
-```
-pwm_out <command> [arguments...]
- Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start pwm_out if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
-
-   sensor_reset  Do a sensor reset (SPI bus)
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   peripheral_reset Reset board peripherals
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   i2c           Configure I2C clock rate
-     <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
-
-   test          Test inputs and outputs
-
-   stop
-
-   status        print status info
-```
-## rc_input
-Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
-
-
-### 使用
-源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
-
-Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
-
-It is used in SITL and HITL.
-
-<a id="pwm_out_sim_usage"></a>
-
 ### 描述
 ```
-pwm_out_sim <command> [arguments...]
+pwm_out <command> [arguments...]
  rc_input <command> [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -796,12 +746,37 @@ pwm_out_sim <command> [arguments...]
 
    status        print status info
 ```
+## pwm_out_sim
+Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+
+
+### 实现
+Driver for simulated PWM outputs.
+
+Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
+
+It is used in SITL and HITL.
+
+<a id="pwm_out_sim_usage"></a>
+
+### 示例
+```
+pwm_out_sim <command> [arguments...]
+ Commands:
+   start         Start the module
+     [-m <val>]  Mode
+                 values: hil|sim, default: sim
+
+   stop
+
+   status        print status info
+```
 ## px4flow
 Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
-### 实现
+### Usage
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -825,7 +800,7 @@ px4flow <command> [arguments...]
 Source: [drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 
-### 示例
+### Description
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 - PPM
 - SBUS
@@ -936,31 +911,6 @@ safety_button <command> [arguments...]
    stop
 
    status        print status info
-```
-## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc)
-
-
-### Description
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
-
-### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
-
-<a id="tap_esc_usage"></a>
-
-### Usage
-```
-tap_esc <command> [arguments...]
- Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
 ```
 ## tone_alarm
 Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)

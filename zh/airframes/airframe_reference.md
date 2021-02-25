@@ -723,11 +723,6 @@
  <td style="vertical-align: top;"><p>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
- <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
  <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
