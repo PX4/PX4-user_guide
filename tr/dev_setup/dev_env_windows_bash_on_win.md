@@ -1,7 +1,7 @@
-# Bash on Windows Toolchain
+# Windows WSL-Based Development Environment
 
-:::note
-The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 Windows users can alternatively install a *slightly modified* Ubuntu Linux PX4 development environment within [Bash on Windows](https://github.com/Microsoft/BashOnWindows), and use it to:
@@ -64,7 +64,7 @@ Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-:::caution
+:::warning
 Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
 ```sh
 export DISPLAY=:0

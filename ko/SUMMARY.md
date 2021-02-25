@@ -164,7 +164,7 @@
       * [mRo 픽스레이서 (FMUv4)](flight_controller/pixracer.md)
       * [헥스 큐브 블랙 (FMUv3)](flight_controller/pixhawk-2.md)
       * [mRo 픽스호크 (FMUv3)](flight_controller/mro_pixhawk.md)
-      * [홀리브로 픽스호크 미니 (FMUv2)](flight_controller/pixhawk_mini.md)
+      * [Holybro Pixhawk Mini (FMUv3)](flight_controller/pixhawk_mini.md)
     * [제조사 지원 자동 항법 장치](flight_controller/autopilot_manufacturer_supported.md) 
       * [에어마인드 MindPX](flight_controller/mindpx.md)
       * [에어마인드 마인드레이서](flight_controller/mindracer.md)

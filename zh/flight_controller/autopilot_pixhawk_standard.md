@@ -16,4 +16,4 @@ The boards in this category are:
 - [mRo Pixracer](../flight_controller/pixracer.md) (FMUv4)
 - [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 - [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
-- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv3)
