@@ -16,4 +16,4 @@ Repeat this step for all motor controllers in the order as shown on the [motor m
 ESCs running the Sapog firmware will need to be rebooted after enumeration for the new enumeration ID to be applied.
 This step has to be performed only once and does not need to be repeated after firmware upgrades.
 
-![UAVCAN Enumeration Controls (bottom right of image)](../../assets/uavcan/uavcan_qgc_setup.png)
+![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
