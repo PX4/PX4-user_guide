@@ -929,54 +929,49 @@
  <td style="vertical-align: top;"><p>유지보수: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
- <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
- <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_draco">
  <td style="vertical-align: top;">UVify Draco</td>
- <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td style="vertical-align: top;">UVify IFO</td>
- <td style="vertical-align: top;"><p>유지보수: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
- <td style="vertical-align: top;">ZMR250 레이서</td>
- <td style="vertical-align: top;"><p>유지보수: Anton Matosov &lt;anton.matosov@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4080</p></td>
+ <td style="vertical-align: top;">ZMR250 Racer</td>
+ <td style="vertical-align: top;"><p>Maintainer: Anton Matosov &lt;anton.matosov@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4080</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_nanomind_110_quad">
- <td style="vertical-align: top;">나노마인드 110 쿼드</td>
- <td style="vertical-align: top;"><p>유지보수: Henry Zhang &lt;zhanghui629@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4090</p></td>
+ <td style="vertical-align: top;">NanoMind 110 Quad</td>
+ <td style="vertical-align: top;"><p>Maintainer: Henry Zhang &lt;zhanghui629@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4090</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_teal_one">
  <td style="vertical-align: top;">Teal One</td>
- <td style="vertical-align: top;"><p>유지보수: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td style="vertical-align: top;">COEX Clover 4</td>
- <td style="vertical-align: top;"><p>유지보수: Oleg Kalachev &lt;okalachev@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4500</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4500</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
  <td style="vertical-align: top;">Crazyflie 2</td>
- <td style="vertical-align: top;"><p>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td style="vertical-align: top;">Crazyflie 2.1</td>
- <td style="vertical-align: top;"><p>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4901</p></td>
 
 </tr>
 </table>
