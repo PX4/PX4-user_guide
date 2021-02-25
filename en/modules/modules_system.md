@@ -114,8 +114,6 @@ Source: [modules/dataman](https://github.com/PX4/Firmware/tree/master/src/module
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API.
 Multiple backends are supported:
 - a file (eg. on the SD card)
-- FLASH (if the board supports it)
-- FRAM
 - RAM (this is obviously not persistent)
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons.
@@ -140,10 +138,9 @@ dataman <command> [arguments...]
      [-f <val>]  Storage file
                  values: <file>
      [-r]        Use RAM backend (NOT persistent)
-     [-i]        Use FLASH backend
 
- The options -f, -r and -i are mutually exclusive. If nothing is specified, a
- file 'dataman' is used
+ The options -f and -r are mutually exclusive. If nothing is specified, a file
+ 'dataman' is used
 
    poweronrestart Restart dataman (on power on)
 
