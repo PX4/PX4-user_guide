@@ -7,4 +7,4 @@ Use [QGroundControl](../qgc/README.md) and switch to the Setup view. Select the 
 
 After the first beep, turn the propeller on the first ESC swiftly into the correct turn direction. The ESCs will all beep each time one is enumerated. Repeat this step for all motor controllers in the order as shown on the [motor map](../airframes/airframe_reference.md). ESCs running the Sapog firmware will need to be rebooted after enumeration for the new enumeration ID to be applied. This step has to be performed only once and does not need to be repeated after firmware upgrades.
 
-![UAVCAN Enumeration Controls (bottom right of image)](../../assets/uavcan/uavcan_qgc_setup.png)
+![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
