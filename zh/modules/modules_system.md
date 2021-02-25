@@ -116,8 +116,6 @@ commander <command> [arguments...]
 该模块通过基于C语言的API以简单数据库的形式为系统的其他部分提供持续性存储功能。 支持多种后端：
 - a file (eg. on the SD card)
 - FLASH(需要飞控板支持)
-- FRAM
-- RAM(暂时性的存储)
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible. 每种类型的数据都有一个特定的类型和一个固定的最大存储条目的数量，因此可以实现对数据的快速随机访问。
 
