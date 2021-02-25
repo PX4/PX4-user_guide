@@ -479,7 +479,11 @@ irlock <command> [arguments...]
 ## pga460
 Stop driver
 
-<a id="lsm303agr_usage"></a>
+
+### Description
+Linux PWM output driver with board-specific backend implementation.
+
+<a id="linux_pwm_out_usage"></a>
 
 ### Usage
 ```
@@ -494,19 +498,45 @@ pga460 <command> [arguments...]
 
    help
 ```
+## lsm303agr
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
+
+<a id="lsm303agr_usage"></a>
+
+### Usage
+```
+lsm303agr <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 
 ### Description
-This module is responsible for driving interfasing to the Neopixel Serial LED
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n
 
 ### Examples
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+It is typically started with:
 ```
 neopixel -n 8
 ```
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
@@ -579,7 +609,7 @@ This module is responsible for generate pwm pulse with PCA9685 chip.
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### Implementation
-This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
+This module depends on ModuleBase and OutputModuleInterface. For boards without a separate IO chip (eg. Pixracer), it uses the main channels.
 
 ### Examples
 It is typically started with:
@@ -587,7 +617,7 @@ It is typically started with:
 pca9685_pwm_out start -a 64 -b 1
 ```
 
-Use the `mixer` command to load mixer files. For boards without a separate IO chip (eg. Pixracer), it uses the main channels.
+Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
 
 <a id="pca9685_pwm_out_usage"></a>
 
@@ -608,7 +638,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
+In case of running in its own thread, the module polls on the actuator_controls topic.
 
 <a id="pcf8583_usage"></a>
 
@@ -655,7 +685,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-In case of running in its own thread, the module polls on the actuator_controls topic.
+Source: [drivers/pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out)
 
 
 ### Description
@@ -671,7 +701,7 @@ By default the module runs on a work queue with a callback on the uORB actuator_
 ### Examples
 It is typically started with:
 ```
-fmu test
+pwm_out mode_pwm
 ```
 To drive all available pins.
 
@@ -909,31 +939,6 @@ safety_button <command> [arguments...]
    stop
 
    status        print status info
-```
-## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc)
-
-
-### Description
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
-
-### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
-
-<a id="tap_esc_usage"></a>
-
-### Usage
-```
-tap_esc <command> [arguments...]
- Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
 ```
 ## tone_alarm
 Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)
