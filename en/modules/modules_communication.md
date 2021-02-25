@@ -69,11 +69,12 @@ mavlink <command> [arguments...]
                  default: 57600
      [-r <val>]  Maximum sending data rate in B/s (if 0, use baudrate / 20)
                  default: 0
+     [-p]        Enable Broadcast
      [-u <val>]  Select UDP Network Port (local)
                  default: 14556
      [-o <val>]  Select UDP Network Port (remote)
                  default: 14550
-     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_BROADCAST
+     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_{i}_BROADCAST
                  param)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
@@ -82,7 +83,7 @@ mavlink <command> [arguments...]
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
-                 MAV_BROADCAST param)
+                 MAV_{i}_BROADCAST param)
                  values: Multicast address in the range
                  [239.0.0.0,239.255.255.255]
      [-f]        Enable message forwarding to other Mavlink instances
