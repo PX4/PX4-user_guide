@@ -17,3 +17,4 @@ ESCs running the Sapog firmware will need to be rebooted after enumeration for t
 This step has to be performed only once and does not need to be repeated after firmware upgrades.
 
 ![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
+
