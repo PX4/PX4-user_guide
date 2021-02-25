@@ -1,6 +1,6 @@
 # CAUV CAN PMU
 
-CAN PMU<sup>&reg;</sup> is a high-precision [UAVCAN](../uavcan/REAMDE) power module developed by CUAV<sup>&reg;</sup>.
+CAN PMU<sup>&reg;</sup> is a high-precision [UAVCAN](../uavcan/README.md) power module developed by CUAV<sup>&reg;</sup>.
 It runs the CUAV ITT compensation algorithm, which enables drones to get the battery data more accurately.
 
 ![CAN PMU](../../assets/hardware/power_module/cuav_can/can_pmu.jpg)
