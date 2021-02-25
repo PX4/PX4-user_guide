@@ -458,6 +458,25 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
+## linux_pwm_out
+Source: [drivers/linux_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/linux_pwm_out)
+
+
+### Description
+Linux PWM output driver with board-specific backend implementation.
+
+<a id="linux_pwm_out_usage"></a>
+
+### Usage
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## lsm303agr
 Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
 
@@ -899,31 +918,6 @@ safety_button <command> [arguments...]
    stop
 
    status        print status info
-```
-## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc)
-
-
-### Description
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
-
-### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
-
-<a id="tap_esc_usage"></a>
-
-### Usage
-```
-tap_esc <command> [arguments...]
- Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
 ```
 ## tone_alarm
 Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)
