@@ -54,57 +54,57 @@ FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블
 
 이 절에서는 CUAV v5+ 구성 모음의 부품을 나열합니다.
 
-| 설명                       | 수량 (기본 패키지) | 수량 (+GPS 패키지) |
-| ------------------------ | ----------- | ------------- |
-| V5+ AutoPilot            | 1           | 1             |
-| DuPont Cable             | 2           | 2             |
-| I2C/CAN Cable            | 2           | 2             |
-| ADC 6.6 Cable            | 2           | 2             |
-| SBUS Signal Cable        | 1           | 1             |
-| IRSSI Cable              | 1           | 1             |
-| DSM Signal Cable         | 1           | 1             |
-| ADC 3.3 Cable            | 1           | 1             |
-| Debug Cable              | 1           | 1             |
-| Safety Switch Cable      | 1           | 1             |
-| Voltage & Current Cable  | 1           | 1             |
-| PW-Link Module Cable     | 1           | 1             |
-| Power Module             | 1           | 1             |
-| SanDisk 16GB Memory Card | 1           | 1             |
-| 12C Expansion Board      | 1           | 1             |
-| TTL Plate                | 1           | 1             |
-| NEO GPS                  | -           | 1             |
-| GPS Bracket              | -           | 1             |
+| 설명                  | 수량 (기본 패키지) | 수량 (+GPS 패키지) |
+| ------------------- | ----------- | ------------- |
+| V5+ AutoPilot       | 1           | 1             |
+| 듀퐁 케이블              | 2           | 2             |
+| I2C/CAN 케이블         | 2           | 2             |
+| ADC 6.6 케이블         | 2           | 2             |
+| SBUS 신호 케이블         | 1           | 1             |
+| IRSSI 케이블           | 1           | 1             |
+| DSM 신호 케이블          | 1           | 1             |
+| ADC 3.3 케이블         | 1           | 1             |
+| 디버깅 케이블             | 1           | 1             |
+| 안전 스위치 케이블          | 1           | 1             |
+| 전압 & 전류 케이블         | 1           | 1             |
+| PW-Link 모듈 케이블      | 1           | 1             |
+| 전원 모듈               | 1           | 1             |
+| SanDisk 16GB 메모리 카드 | 1           | 1             |
+| I2C 확장 보드           | 1           | 1             |
+| TTL 판               | 1           | 1             |
+| NEO GPS             | -           | 1             |
+| GPS 브라켓             | -           | 1             |
 
 
 ![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.jpg)
 
-### Electronics
+### 전자부품
 
-| Description                                           | Quantity |
-| ----------------------------------------------------- | -------- |
-| CUAV V5+                                              | 1        |
-| CUAV NEO V2 GPS                                       | 1        |
-| Holibro Telemetry                                     | 1        |
-| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1        |
-| DJI E305 2312E Motor (800kv,CW)                       | 4        |
-| Hobbywing XRotor 20A APAC Brushless ESC               | 4        |
-| Power Module(Included in the CUAV V5+ package)        | 1        |
-| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1        |
+| 설명                                          | 수량 |
+| ------------------------------------------- | -- |
+| CUAV V5+                                    | 1  |
+| CUAV NEO V2 GPS                             | 1  |
+| Holibro 텔레메트리                               | 1  |
+| FrSky D4R-II 2.4G 4CH ACCST 텔레메트리 수신기       | 1  |
+| DJI E305 2312E 모토(800kv, 시계 방향)             | 4  |
+| Hobbywing XRotor 20A APAC Brushless ESC     | 4  |
+| 전원모듈(CUAV V5+ 패키지에 포함)                      | 1  |
+| Turnigy 고용량 5200mAh 3S 12C Lipo Pack w/XT60 | 1  |
 
 
-### Tools needed
+### 필요한 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-- 2.0mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
-- Soldering iron
+- 2.0mm 육각 스크류드라이버
+- 3mm Phillips 스크류드라이버
+- Wire 커터
+- 정밀 트위저
+- 납땜기
 
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5plus/required_tools.jpg)
 
-## Assembly
+## 조립
 
 Estimated time to assemble is approximately 90 minutes (about 45 minutes for the frame and 45 minutes installing the autopilot and configuring the airframe.
 
