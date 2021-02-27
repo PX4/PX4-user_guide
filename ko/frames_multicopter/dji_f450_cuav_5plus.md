@@ -5,75 +5,75 @@
 주요 내용
 
 - **프레임:** DJI F450
-- **Flight controller:** [CUAV V5+](../flight_controller/cuav_v5_plus.md)
-- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
+- 0>비행 컨트롤러:</strong> [CUAV V5+](../flight_controller/cuav_v5_plus.md)
+- **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
 
 ![Finished setup 1](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete.jpg)
 
-## Bill of materials
+## 부품 명세서
 
-The components needed for this build are:
+조립에 필요한 부품들입니다.
 
-- Flight controller: [CUAV V5+](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1): 
+- 비행컨트롤러: [CUAV V5+](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1): 
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
-  - Power Module
-- Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
-- Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
-- Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
-- Telemetry: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
-- RC Receiver: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
-- Motors: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
+  - 전원 모듈
+- 프레임: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
+- 프로펠러: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
+- 배터리: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
+- 텔레메트리: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+- RC 수신기: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
+- 모터: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 - ESC: [Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 
-In addition, we used an FrSky Taranis controller. You will also need zip ties, double-sided tape, a soldering iron.
+FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블 타이와, 양면 테이프, 납땜도 필요합니다.
 
-The image below shows both frame and electronic components.
+아래의 이미지는 프레임과 전자 부품을 보여줍니다.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5plus/all_components.jpg)
 
-## Hardware
+## 하드웨어
 
-### Frame
+### 프레임
 
-This section lists all hardware for the frame.
+이 절에서는 모든 프레임을 나열합니다.
 
-| Description                                       | Quantity |
-| ------------------------------------------------- | -------- |
-| DJI F450 Bottom plate                             | 1        |
-| DJI F450 Top plate                                | 1        |
-| DJI F450 legs with landing gear                   | 4        |
-| M3*8 screws                                       | 18       |
-| M2 5*6 screws                                     | 24       |
-| Velcro Battery Strap                              | 1        |
-| DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1        |
+| 설명                                 | 수량 |
+| ---------------------------------- | -- |
+| DJI F450 하판                        | 1  |
+| DJI F450 상판                        | 1  |
+| DJI F450 랜딩기어 다리                   | 4  |
+| M3*8 나사                            | 18 |
+| M2 5*6 나사                          | 24 |
+| Velcro Battery Strap               | 1  |
+| DJI Phantom 나사 내장 업그레이드 프로펠러 9.4x5 | 1  |
 
 
 ![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_frame_components.jpg)
 
-### CUAV V5+ Package
+### CUAV v5+ 패키지
 
-This section lists the components in the CUAV v5+ package.
+이 절에서는 CUAV v5+ 구성 모음의 부품을 나열합니다.
 
-| Description              | Quantity (Default Package) | Quantity (+GPS Package) |
-| ------------------------ | -------------------------- | ----------------------- |
-| V5+ Autopilot            | 1                          | 1                       |
-| DuPont Cable             | 2                          | 2                       |
-| I2C/CAN Cable            | 2                          | 2                       |
-| ADC 6.6 Cable            | 2                          | 2                       |
-| SBUS Signal Cable        | 1                          | 1                       |
-| IRSSI Cable              | 1                          | 1                       |
-| DSM Signal Cable         | 1                          | 1                       |
-| ADC 3.3 Cable            | 1                          | 1                       |
-| Debug Cable              | 1                          | 1                       |
-| Safety Switch Cable      | 1                          | 1                       |
-| Voltage & Current Cable  | 1                          | 1                       |
-| PW-Link Module Cable     | 1                          | 1                       |
-| Power Module             | 1                          | 1                       |
-| SanDisk 16GB Memory Card | 1                          | 1                       |
-| 12C Expansion Board      | 1                          | 1                       |
-| TTL Plate                | 1                          | 1                       |
-| NEO GPS                  | -                          | 1                       |
-| GPS Bracket              | -                          | 1                       |
+| 설명                       | 수량 (기본 패키지) | 수량 (+GPS 패키지) |
+| ------------------------ | ----------- | ------------- |
+| V5+ AutoPilot            | 1           | 1             |
+| DuPont Cable             | 2           | 2             |
+| I2C/CAN Cable            | 2           | 2             |
+| ADC 6.6 Cable            | 2           | 2             |
+| SBUS Signal Cable        | 1           | 1             |
+| IRSSI Cable              | 1           | 1             |
+| DSM Signal Cable         | 1           | 1             |
+| ADC 3.3 Cable            | 1           | 1             |
+| Debug Cable              | 1           | 1             |
+| Safety Switch Cable      | 1           | 1             |
+| Voltage & Current Cable  | 1           | 1             |
+| PW-Link Module Cable     | 1           | 1             |
+| Power Module             | 1           | 1             |
+| SanDisk 16GB Memory Card | 1           | 1             |
+| 12C Expansion Board      | 1           | 1             |
+| TTL Plate                | 1           | 1             |
+| NEO GPS                  | -           | 1             |
+| GPS Bracket              | -           | 1             |
 
 
 ![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.jpg)
