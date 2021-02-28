@@ -1,20 +1,20 @@
-# DJI FlameWheel 450 + CUAV V5 nano 구성
+# DJI FlameWheel 450 + CUAV V5 nano 조립
 
-이 주제는 키트의 조립과 *QGroundControl*을 이용하는 PX4 설정에 대한 지침을 제공합니다.
+키트의 조립법과 *QGroundControl*의 PX4 설정법을 제공합니다.
 
-핵심정보
+주요 정보
 
 - **프레임:** DJI F450
-- **비행 조절장치:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
-- **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
+- **비행 컨트롤러:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
+- **조립 시간 (예상):** 90분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
 
 ![성절 완료하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
-## Bill of materials
+## 부품 명세서
 
-이 부품들이 조립에 필요합니다:
+조립에 필요한 부품들입니다.
 
-- 비행컨트롤러: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1): 
+- 비행 컨트롤러: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1): 
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
   - 전원 모듈
 - 프레임: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
@@ -25,9 +25,9 @@
 - 모터: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 - ESC: [Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 
-추가적으로 우리는 FrSky Taranis 조종기 사용합니다. 부수적으로 케이블 타이와, 양면테이프, 땜 납도 필요합니다.
+FrSky Taranis 조종기를 사용할 수 있습니다. 부수적으로 케이블 타이와, 양면 테이프, 납땜도 필요합니다.
 
-아래의 이미지는 프레임과 전자 부품을 보여줍니다.
+아래의 이미지는 프레임과 전자 부품들을 나타냅니다.
 
 ![이 구성에 사용된 모든 부품들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
@@ -78,21 +78,21 @@
 
 ### 전자부품
 
-| 품목                                                    | 수량 |
-| ----------------------------------------------------- | -- |
-| CUAV V5 nano                                          | 1  |
-| CUAV NEO V2 GPS                                       | 1  |
-| Holibro Telemetry                                     | 1  |
-| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1  |
-| DJI E305 2312E Motor (800kv,CW)                       | 4  |
-| Hobbywing XRotor 20A APAC Brushless ESC               | 4  |
-| Power Module(CUAV V5 nano 패키지에 포함된)                   | 1  |
-| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1  |
+| 품목                                             | 수량 |
+| ---------------------------------------------- | -- |
+| CUAV V5 nano                                   | 1  |
+| CUAV NEO V2 GPS                                | 1  |
+| Holibro 텔레메트리                                  | 1  |
+| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver | 1  |
+| DJI E305 2312E Motor (800kv,CW)                | 4  |
+| Hobbywing XRotor 20A APAC Brushless ESC        | 4  |
+| 전원모듈(CUAV V5 nano 패키지에 포함)                     | 1  |
+| Turnigy 고용량 5200mAh 3S 12C Lipo Pack w/XT60    | 1  |
 
 
 ### 필요한 공구
 
-아래 공구들이 조립에 필요합니다.
+조립시에 필요한 공구들입니다.
 
 - 2.0mm 육각 스크류드라이버
 - 3mm Phillips 스크류드라이버
@@ -104,17 +104,17 @@
 
 ## 조립
 
-예상 조립 시간은 약 90 분입니다 (프레임 조립에 약 45 분, 오토파일럿 설치와 구성에 약 45 분).
+예상 조립 시간은 약 90분입니다 (프레임 조립에 약 45분, 자율비행프로그램 설치와 설정에 약 45분).
 
-1. 제공된 나사를 이용하여 밑판에 팔 4개를 결합합니다.
+1. 제공된 나사를 이용하여 하판에 팔 4개를 결합합니다.
   
     ![밑판의 팔들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
-2. ESC (변속기) 의 양극 (빨강) 과 음극 (검정) 을 보드에 납땜합니다.
+2. ESC (변속기) 의 양극 (빨강)과 음극 (검정)을 보드에 납땜합니다.
   
     ![ESC들 납땜하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
 
-3. 전원 모듈의 양극 (빨강) 과 음극 (검정) 을 납땜합니다.
+3. 전원 모듈의 양극 (빨강)과 음극 (검정)을 납땜합니다.
   
     ![전원 모듈 납땜하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
 
