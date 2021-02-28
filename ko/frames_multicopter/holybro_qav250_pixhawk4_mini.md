@@ -1,22 +1,22 @@
-# HolyBro QAV250 + Pixhawk4-Mini Build
+# HolyBro QAV250 + Pixhawk4-Mini 조립
 
-The [Holybro Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) is a great way to start working with Pixhawk 4. The kit includes a carbon-fibre QAV250 racing frame, *Pixhawk 4 Mini*, and almost all other components needed (except battery and receiver). There are variants of the kit both with and without FPV support.
+[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립법 학습에 매우 좋습니다. 이 키트에는 탄소 섬유 QAV250 레이싱 프레임, *Pixhawk 4 Mini* 및 필요한 거의 모든 구성 요소 (배터리 및 수신기 제외)가 포함되어 있습니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+키트 조립법과 *QGroundControl* PX4 설정법을 제공합니다.
 
-Key information
+주요 정보
 
-* **Frame:** Holybro QAV250
-* **Flight controller:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot installation/configuration)
+* **프레임:** Holybro QAV250
+* **비행 컨트롤러:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
+* **조립 시간 (예상):** 3.5시간 (프레임 조립에 2시간, 오토파일럿 설치 및 설정에 1.5시간)
 
 ![Assembled Holybro QAV250 with Pixhawk4 Mini](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 
-## Quickstart Guide
+## 간단한 가이드
 
-[Pixhawk 4 Mini QAV250 Kit Quickstart Guide](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
+[Pixhawk 4 Mini QAV250 키트 시작 안내서](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_qav250kit_quickstart_web.pdf)
 
-## Bill of materials
+## 부품 명세서
 
 The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
 
