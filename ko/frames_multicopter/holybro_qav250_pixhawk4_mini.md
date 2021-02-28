@@ -1,6 +1,6 @@
-# HolyBro QAV250 + Pixhawk4-Mini Build
+# HolyBro QAV250 + Pixhawk4-Mini 조립
 
-The [Holybro Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) is a great way to start working with Pixhawk 4. The kit includes a carbon-fibre QAV250 racing frame, *Pixhawk 4 Mini*, and almost all other components needed (except battery and receiver). There are variants of the kit both with and without FPV support.
+[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4 작업을 시작할 수있는 좋은 방법입니다. 이 키트에는 탄소 섬유 QAV250 레이싱 프레임, *Pixhawk 4 Mini* 및 필요한 거의 모든 구성 요소 (배터리 및 수신기 제외)가 포함되어 있습니다. There are variants of the kit both with and without FPV support.
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 
