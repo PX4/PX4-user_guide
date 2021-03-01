@@ -1,119 +1,114 @@
-# PX4-ROS 2 Bridge
+# ROS 2 with the microRTPS Bridge (Fast DDS)
 
-This section of the guide focusses on the bridge between PX4 and ROS 2, made available through the [microRTPS Bridge](../middleware/micrortps.md) and resulting products to interface with ROS 2, *px4_ros_com* and *px4_msgs* ROS 2 packages.
+This section of the guide explains the bridge between the PX4 Autopilot and ROS 2, made available through the [microRTPS bridge](../middleware/micrortps.md) and the supporting projects available to interface with ROS 2, [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
 
-It also provides information in how to:
-1. Connect ROS 2 nodes with PX4 (via the *microRTPS* Bridge, and using the `px4_ros_com` package)
-1. Connect ROS (ROS "version 1") nodes with PX4 by additionally using the `ros1_bridge` package to bridge ROS 2 and ROS (1).
+**In this guide you will learn:**
+1. How to connect ROS 2 nodes with the PX4 Autopilot, using the [microRTPS bridge](../middleware/micrortps.md), and the [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package)
+2. How to connect ROS (ROS "version 1") nodes with the PX4 Autopilot by using the [`ros1_bridge`](https://github.com/ros2/ros1_bridge) package (by Open Robotics) to bridge ROS 2 and ROS (1).
 
 :::note
-For information about using the *PX4-Fast RTPS(DDS) Bridge* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
+The Fast DDS interface in the PX4 Autopilot can be leveraged with any applications running and linked in DDS domains (including ROS nodes).
+
+For information about using the *microRTPS bridge (Fast DDS)* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
 :::
 
 :::note
-For a more detailed and visual explanation of using the bridge with ROS 2, see the following talks/presentation videos:
+Check-out the following presentations from the PX4 Maintainers, for a more detailed and visual explanation on how to use the microRTPS bridge with ROS 2:
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
-1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
+2. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 :::
 
-## Why Two Bridges (PX4/ROS2 vs PX4/FastDDS)?
+## Why Two Bridges (PX4/ROS2 vs PX4/Fast DDS)?
 
-The [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
-- They both have a client running on PX4 that communicates with an agent running on a companion computer.
-- The PX4 firmware build process creates the client code.
-- The PX4 firmware build process creates IDL files matching a select set of UORB topics that will be shared over DDS.
+The PX4 Autopilot [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
+
+- They both have a client running on the PX4 Autopilot that communicates with an agent running on a companion computer.
+- The PX4 Autopilot firmware build process creates the client code.
+- The PX4 Autopilot firmware build process creates IDL files matching a select set of uORB topics that will be shared over Fast DDS.
 - These IDL files are then used by code generators to create the Agent source code, which can then be compiled for the companion.
 
-The difference is that ROS 2 uses slightly different DDS types than "raw" RTPS/DDS applications.
-These types require slighty different agent code, generated from slightly different IDL files.
-The client-side code is the same in both cases.
+The difference is that ROS 2 uses slightly different DDS types than "raw" RTPS/DDS applications. These types require slighty different agent code, generated from slightly different IDL files. The client-side code is the same in both cases.
 
-The PX4 build process creates ROS2 message files for each uORB message and deploys them to the [px4_msgs](https://github.com/PX4/px4_msgs) repo (via CI).
-The `px4_msgs` package build uses those `.msg` files to generate the ROS 2 interface and type support code to be used by ROS2 nodes.
-At the same time it generates the IDL files that are consumed by the code generators in `px4_ros_com` to generate ROS 2 compatible agent source code.
+The PX4 Autopilot build process creates ROS2 message files for each uORB message and deploys them to the [px4_msgs](https://github.com/PX4/px4_msgs) repository (this is an automated process through CI). The `px4_msgs` package build uses those `.msg` files to generate the ROS 2 interface and type support code to be used by ROS2 nodes. At the same time it generates the IDL files that are consumed by the code generators in `px4_ros_com` to generate ROS 2 compatible agent source code.
 
 :::note 
-This means that you should use a version of `px4_msgs` that matches your firmware.
+This means that you should use a version of `px4_msgs` that matches your PX4 Autopilot firmware release.
 
-At time of writing there is no easy way to match PX4-Autopilot releases with compatible `px4_msgs` (though you could match commit hashes if needed).
+Please be aware that at time of writing, there is no easy way to match PX4 Autopilot releases with compatible `px4_msgs` (though you could match commit hashes if needed).
 
-In future the development team plan to automatically generate release branches `px4_msgs` and `px4_ros_com` that are compatible with the respective PX4-Autopilot releases.
+The PX4 Autopilot development team plans to automatically generate release branches `px4_msgs` and `px4_ros_com` that are compatible with the respective PX4 Autopilot releases.
 :::
 
 
-## Code generation
+## Code Generation
+
+### Dependencies and Requirements
+
+Follow the Installation guide for the latest dependencies and requirements, you need to install [Fast RTPS(DDS) 2.0.0, and Fast-RTPS-Gen 1.0.4 or later](../dev_setup/fast-dds-installation.md) in order to generate the required code.
 
 :::note
-[Fast RTPS(DDS) 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed](../dev_setup/fast-dds-installation.md) in order to generate the required code!
+Make sure you carefully follow the installation instructions, you won't be able to continue with this guide until you meet all the requirements found on the guide linked above.
 :::
 
+### ROS 2 Application Pipeline
 
-### ROS 2/ROS application pipeline
-
-The application pipeline for ROS 2 is very straightforward!
-Because ROS 2 uses DDS/RTPS as its native communications middleware, you can create a ROS 2 listener or advertiser node to publish and subscribe to uORB data on PX4, via the *PX4 Fast RTPS Bridge*.
-This is shown below.
+The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS). Leveraging the middleware, you can create a ROS 2 listener or advertiser nodes to publish and subscribe to uORB data from the PX4 Autopilot, via the *microRTPS Bridge*. This is shown in the diagram below.
 
 :::note
-You do need to make sure that the message types, headers and source files used on both client and agent side (and consequently, on the ROS nodes) are generated from the same Interface Description Language (IDL) files.
-The `px4_ros_com` package provides the needed infrastructure for generating messages and headers needed by ROS 2.
+Please make sure that the message types, headers and source files used on both the client and the agent side (and consequently, on the ROS nodes) are generated from the same Interface Description Language (IDL) files.
+
+The [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package provides the needed infrastructure for generating messages and headers needed by ROS 2.
 :::
 
 ![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
 
-The architecture for integrating ROS applications with PX4 is shown below.
+### ROS (1) Application Pipeline
+
+The architecture for integrating ROS (1) applications with the PX4 Autopilot is shown below.
+
+:::note
+It's important to note the use of the [ros1_bridge](https://github.com/ros2/ros1_bridge) (by Open Robotics), which bridges messages between ROS 2 and ROS.
+
+This is needed because the first version of ROS does not support RTPS.
+:::
 
 ![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png)
 
-Note the use of [ros1_bridge](https://github.com/ros2/ros1_bridge), which bridges messages between ROS 2 and ROS.
-This is needed because the first version of ROS does not support RTPS.
+### ROS 2 / ROS (1) Applications
 
+The [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access the PX4 Autopilot uORB messages from a ROS 2 node (for ROS (1) you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)). This includes all the required components of the *microRTPS bridge*, including the `micrortps_agent` and the IDL files (required by the `micrortps_agent`).
 
-### ROS 2/ROS applications
+The ROS (1) and ROS 2 message definition headers and interfaces are generated from the [px4_msgs](https://github.com/PX4/px4_msgs) package, which match the uORB messages counterparts under PX4 Autopilot. These are required by `px4_ros_com` when generating the IDL files to be used by the `micrortps_agent`.
 
-The [px4_ros_com](https://github.com/PX4/px4_ros_com) package, when built, generates everything needed to access PX4 uORB messages from a ROS 2 node (for ROS (1) you also need [ros1_bridge](https://github.com/ros2/ros1_bridge)).
-This includes all the required components of the *PX4 RTPS bridge*, including the `micrortps_agent` and the IDL files (required by the `micrortps_agent`).
-
-The ROS and ROS 2 message definition headers and interfaces are generated from the [px4_msgs](https://github.com/PX4/px4_msgs) package, which match the uORB messages counterparts under PX4-Autopilot.
-These are required by `px4_ros_com` when generating the IDL files to be used by the `micrortps_agent`.
-
-Both `px4_ros_com` and `px4_msgs` packages have two separate branches:
-- a `master` branch, used with ROS 2.
-  It contains code to generate all the required ROS 2 messages and IDL files to bridge PX4 with ROS 2 nodes.
-- a `ros1` branch, used with ROS.
-  It contains code to generate the ROS message headers and source files, which can be used *with* the `ros1_bridge` to share data between PX4 and ROS.
-
-Both branches in `px4_ros_com` additionally include some example listener and advertiser example nodes.
-
+Both `px4_ros_com` and `px4_msgs` packages have two separate branches, `master` & `ros1`, both branches include some example listener and advertiser example nodes:
+- The `master` branch, used with ROS 2, contains code to generate all the required ROS 2 messages and IDL files to bridge the PX4 Autopilot with ROS 2 nodes.
+- The `ros1` branch, used with ROS, contains code to generate the ROS message headers and source files, which can be used **with** the `ros1_bridge` to share data between the PX4 Autopilot and ROS (1).
 
 ## Agent interfacing with a ROS 2 middleware
 
-Building `px4_ros_com` automatically generates and builds the agent application, though it requires (as a dependency), that the `px4_msgs` package also gets build on the same ROS 2 workspace (or overlaid from another ROS 2 workspace).
-Since it is also installed using the [`colcon`](http://design.ros2.org/articles/build_tool.html) build tools, running it works exactly the same way as the above.
-Check the **Building the `px4_ros_com` package** for details about the build structure.
+Building `px4_ros_com` automatically generates and builds the agent application, though it requires (as a dependency), that the `px4_msgs` package also gets built on the same ROS 2 workspace (or overlaid from another ROS 2 workspace), and since it is also installed using the [`colcon`](http://design.ros2.org/articles/build_tool.html) build tools, running it works exactly the same way as the above.
 
+Check the **Building the [`px4_ros_com`](#building-the-px4-ros-com-and-px4-msgs-packages) package** for details about the build structure.
 
 ## Supported uORB messages
 
-The generated bridge code will enable a specified subset of uORB topics to be published/subscribed via RTPS.
-This is true for both ROS or non-ROS applications.
+The generated bridge code will enable a specified subset of uORB topics to be published/subscribed via RTPS. This is true for both ROS or non-ROS applications.
 
-For *automatic code generation* there's a *yaml* definition file in the PX4 **PX4-Autopilot/msg/tools/** directory called **uorb_rtps_message_ids.yaml**.
-This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in ROS 2 middleware.
+For *automatic code generation* there's a *yaml* definition file in the PX4 **PX4-Autopilot/msg/tools/** directory called **uorb_rtps_message_ids.yaml**. This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in ROS 2 middleware.
 
-:::note
-An RTPS ID must be set for all messages.
-:::
+Thanks to an API change in **"ROS 2 Dashing"** we now use the `rosidl_generate_interfaces()` CMake module (in `px4_msgs`) to generate the IDL files that we require for microRTPS agent generation (in `px4_ros_com`).
 
-:::note
-An API change in ROS 2 Dashing means that we now use the `rosidl_generate_interfaces()` CMake module (in `px4_msgs`) to generate the IDL files that we require for microRTPS agent generation (in `px4_ros_com`).
-PX4-Autopilot includes a template for the IDL file generation, which is only used during the PX4 build process.
+The PX4 Autopilot includes a template for the IDL file generation, which is only used during the PX4 build process.
 
-The `px4_msgs` build generates *slightly different* IDL files for use with ROS 2/ROS (than are built for PX4 firmware).
+The `px4_msgs` build generates *slightly different* IDL files for use with ROS 2/ROS (than are built for PX4 Autopilot firmware).
+
 The **uorb_rtps_message_ids.yaml** is transformed in a way that the message names become *PascalCased* (the name change is irrelevant to the client-agent communication, but is critical for ROS 2, since the message naming must follow the PascalCase convention).
-The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
-:::
 
+The new IDL files also reverse the messages that are sent and received (required because if a message is sent from the client side, then it's received on the agent side, and vice-versa).
+
+:::note
+It's important that an RTPS identifier (id) is set for all messages.
+:::
 
 ```yaml
 rtps:
@@ -140,66 +135,67 @@ rtps:
     send: true
 ```
 
-
 ## Building the `px4_ros_com` and `px4_msgs` packages
 
-Install and setup both ROS 2 and ROS environments on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo for both the `master` and `ros1` branches (see [above for more information](#px4_ros_com)).
+Install and setup the ROS 2 environment on your development machine and separately clone the `px4_ros_com` and `px4_msgs` repo from the `master` branch.
+
 
 :::note
-Only the master branch is needed for ROS 2 (both are needed to target ROS).
+For ROS (1) environements, you need separately clone, checkout, install and setup both the `master`and `ros1` branches (see [above for more information](#px4_ros_com)).
 :::
 
-
-### Installing ROS 2 and Respective Dependencies
+### Installing ROS 2 and Dependencies
 
 :::note
 This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
 :::
 
 1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-1. The install process should also install the *colcon* build tools, but in case that doesn't happen, you can install the tools manually:
+1. The install process should also install the **`colcon`** build tools, but in case that doesn't happen, you can install the tools manually:
 
    ```sh
    sudo apt install python3-colcon-common-extensions
    ```
 
-1. *eigen3_cmake_module* is also required, since Eigen3 is used on the transforms library:
+1. **`eigen3_cmake_module`** is also required, since Eigen3 is used on the transforms library:
 
    ```sh
    sudo apt install ros-dashing-eigen3-cmake-module
    ```
 
-1. Some Python dependencies must also be installed (using *pip* or *apt*):
+1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
 
    ```sh
    sudo pip3 install -U empy pyros-genmsg setuptools
    ```
 
    :::warning
-   If you want to use ROS 1 topics, in communication with ROS 2, you need to build the `ros1_bridge` from source,
+   If you plan to use ROS 1 topics, in communication with ROS 2, you need to build the `ros1_bridge` from source,
    and setup a separate workspace.
+
    Check the section: **Setting up the workspaces > ROS 1 workspace**.
    :::
 
 ### Setting up the workspaces
 
-Since the ROS 2 and ROS require different environments you will need a separate workspace for each ROS version.
-As an example:
+Since the ROS 2 and ROS require different environments you will need a separate workspace for each ROS version.The directory `px4_ros_com/scripts` contains multiple scripts that can be used to build both workspaces.
 
+:::tip
+The commands shown below are only examples, and while work when followed, we are making the assumption that you want to install and clone in your home directory. It's up to you decide where you want your source to live on your development host.
+:::
 
 #### ROS 2 workspace
 
-For ROS 2, create a workspace using:
+Create a workspace using:
 ```sh
-mkdir -p ~/px4_ros_com_ros2/src
+$ mkdir -p ~/px4_ros_com_ros2/src
 ```
 
-Then, clone the respective ROS 2 (`master`) branch to the `/src` directory:
+Clone the respective ROS 2 (`master`) branch to the `/src` directory:
 ```sh
 $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com # clones the master branch
 $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 ```
-
 #### ROS (1) workspace
 
 For ROS, follow exactly the same process, but create a different directory and clone a different branch:
@@ -207,41 +203,58 @@ For ROS, follow exactly the same process, but create a different directory and c
 mkdir -p ~/px4_ros_com_ros1/src
 ```
 
-Then, clone the respective ROS 2 (`ros1`) branch to the `/src` directory:
+Then, clone the respective ROS (1) (`ros1`) branch to the `/src` directory:
+
 ```sh
 $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
 $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
 ```
+#### Building the Workspace
 
-### Building the workspaces
+:::tip
+Make sure you check all the available options for the available build scripts with the `--help` argument.
 
-The directory `px4_ros_com/scripts` contains multiple scripts that can be used to build both workspaces.
+- Using the `--verbose` argument will allow you to see the full *colcon* build output.
+- Each build script has it's own helpful usage argments
+:::
 
-To build both (ROS (1) and ROS 2) workspaces with a single script, use the `build_all.bash`.
-Check the usage with `source build_all.bash --help`.
-The most common way of using it is by passing the ROS(1) workspace directory path and also the PX4-Autopilot directory path:
+:::note
+The build process described below (for all workspaces) will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.
+:::
+
+#### Building ROS 2 Workspace
+Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace to where the `px4_ros_com` and `px4_msgs` `master` branches were cloned.
+
+```sh
+$ cd scripts
+$ source build_ros2_workspace.bash
+```
+
+#### Building ROS (1) Workspace
+Make sure you are on the `ros1` branch of `px4_ros_com`, and use the `build_ros1_bridge.bash`, to build the `ros1_bridge`, to build the ROS (1) workspace to where the `px4_ros_com` and `px4_msgs` `ros1` branches were cloned.
+
+```sh
+$ git checkout ros1
+$ cd scripts
+$ source build_ros1_bridge.bash
+```
+
+#### Building both ROS (1) & ROS 2 Workspaces
+
+To build both (ROS (1) and ROS 2) workspaces with a single script, use the `build_all.bash`. The most common way of using it, is by passing the ROS(1) workspace directory path and also the PX4 Autopilot directory path:
 
 ```sh
 $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
 
 :::note
-Using the `--verbose` argument will allow you to see the full *colcon* build output.
+Remember you need a separate clone of the `px4_ros_com` repository with the `ros1` branch checked-out.
 :::
 
-:::note
-The build process will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.
-:::
-
-One can also use the following individual scripts in order to build the individual parts:
-
-- `build_ros1_bridge.bash`, to build the `ros1_bridge`;
-- `build_ros1_workspace.bash` (only on the `ros1` branch of `px4_ros_com`), to build the ROS1 workspace to where the `px4_ros_com` and `px4_msgs` `ros1` branches were cloned;
-- `build_ros2_workspace.bash`, to build the ROS 2 workspace to where the `px4_ros_com` and `px4_msgs` `master` branches were cloned.
-
+#### Custom builds (for reference)
 The steps below show how to *manually* build the packages (provided for your information/better understanding only).
 
-To build the ROS 2 workspace only:
+**To build the ROS 2 workspace only:**
 
 1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment.
    Don't mind if it tells you that a previous workspace was set before:
@@ -251,7 +264,7 @@ To build the ROS 2 workspace only:
    source /opt/ros/foxy/setup.bash
    ```
 
-1. Build the workspace:
+2. Build the workspace:
 
    ```sh
    colcon build --symlink-install --event-handlers console_direct+
@@ -313,14 +326,20 @@ To build both workspaces (in replacement of the previous steps):
 ### Cleaning the workspaces
 
 After building the workspaces there are many files that must be deleted before you can do a clean/fresh build (for example, after you have changed some code and want to rebuild).
+
 Unfortunately *colcon* does not currently have a way of cleaning the generated **build**, **install** and **log** directories, so these directories must be deleted manually.
 
-The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease this cleaning process.
+The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease this cleaning process, this script can be used to clean all of the workspace options listed above (ROS 2, ROS 1, and Both)
+
 The most common way of using it is by passing it the ROS(1) workspace directory path (since it's usually not on the default path):
 
 ```sh
 $ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
+
+:::tip
+Similar to the build scripts, the `clean_all.bash` script also has a `--help` guide.
+:::
 
 ## Creating a ROS 2 listener
 
@@ -370,8 +389,7 @@ public:
 	}
 ```
 
-This creates a callback function for when the `sensor_combined` uORB messages are received (now as RTPS/DDS messages).
-It outputs the content of the message fields each time the message is received.
+This creates a callback function for when the `sensor_combined` uORB messages are received (now as RTPS/DDS messages), and outputs the content of the message fields each time the message is received.
 
 ```cpp
 private:
@@ -379,7 +397,7 @@ private:
 };
 ```
 
-The above create a subscription to the `sensor_combined_topic` which can be matched with one or more compatible ROS publishers.
+The above lines create a subscription to the `sensor_combined_topic` which can be matched with one or more compatible ROS publishers.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -396,10 +414,9 @@ int main(int argc, char *argv[])
 
 The instantiation of the `SensorCombinedListener` class as a ROS node is done on the `main` function.
 
-
 ## Creating a ROS 2 advertiser
 
-A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to PX4).
+A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to the PX4 Autopilot).
 
 Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/advertisers`:
 
@@ -464,27 +481,24 @@ int main(int argc, char *argv[])
 
 The instantiation of the `DebugVectAdvertiser` class as a ROS node is done on the `main` function.
 
-## Creating a ROS(1) listener
+## Creating a ROS (1) listener
 
-The creation of ROS nodes is a well known and documented process.
-An example of a ROS listener for `sensor_combined` messages can be found in the `ros1` branch repo, under `px4_ros_com/src/listeners`.
-
+Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `sensor_combined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
 
 ## Offboard control
 
-Please check the [ROS 2 Offboard control example](../ros/ros2_offboard_control.md) section.
-
+For a complete reference example on how to use Offboard control with the PX4 Autopilot, please check the [ROS 2 Offboard control example](../ros/ros2_offboard_control.md) section.
 
 ## Quick-start testing the bridge with PX4 SITL
 
-To quickly test the package (using PX4 SITL with Gazebo):
+To quickly test the package (using PX4 SITL with Gazebo), make sure you have checked-out the latest PX4 Autopilot source from GitHub, and [setup your development environment](../dev_setup/dev_env.md).
 
-1. Start PX4 SITL with Gazebo using:
+1. From the root of the PX4 Autopilot project, start SITL Gazebo using:
    ```sh
    make px4_sitl_rtps gazebo
    ```
 
-To only use ROS 2:
+### To only use ROS 2:
 
 1. Make sure to source the workspace configuration first:
 
@@ -503,7 +517,7 @@ To only use ROS 2:
    pxh> micrortps_client start -t UDP
    ```
 
-To use ROS (1) and ROS 2:
+### To use ROS (1) and ROS 2:
 
 1. On one terminal, source the ROS 2 environment and workspace and launch the `ros1_bridge` (this allows ROS 2 and ROS nodes to communicate with each other).
    Also set the `ROS_MASTER_URI` where the `roscore` is/will be running:
@@ -566,18 +580,16 @@ You can also verify the rate of the message using `rostopic hz`.
    	min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
    ```
 
-1. You can also test the `sensor_combined` ROS 2 listener by launching the example launch file in the terminal:
+You can also test the `sensor_combined` ROS 2 listener by launching the example launch file in the terminal, and it should also get data being printed to the console output.
+
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
-And it should also get data being printed to the console output.
-
 :::note
-If ones uses the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
+When using the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
 :::
-
 
 ## Additional information
 
