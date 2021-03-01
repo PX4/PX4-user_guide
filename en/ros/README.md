@@ -32,7 +32,7 @@ The bridge uses uORB message definitions and correspondent IDL types to generate
 The PX4 Development Team created a quick guide explaining the basics on how to achieve [ROS 2 Offboard Control](../ros/ros2_offboard_control.md) of the PX4 Autopilot. 
 
 # ROS 1 with the microRTPS bridge (Fast DDS)
-The native Fast-DDS ROS 2 interface supports ROS 1 through the official ROS 1 Bridge package ([ros1_bridge](https://github.com/ros2/ros1_bridge)) by Open Robotics, and is fully supported by our Fast-DDS implementation.
+The microRTPS bridge supports ROS 1 through the official ROS 1 Bridge package ([ros1_bridge](https://github.com/ros2/ros1_bridge)) by Open Robotics, and is fully supported by our Fast DDS implementation.
 
 :::tip
 While ROS 1 is supported through the Fast-DDS bridge, we strongly recommend you upgrade to ROS 2.
