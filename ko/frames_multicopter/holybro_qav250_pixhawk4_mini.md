@@ -30,54 +30,54 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 * Foxer 카메라
 * Vtx 5.8ghz
 
-Additionally you will need a battery and receiver (+compatible transmitter). This build uses:
+또한, 배터리와 수신기 및 수신기와 호환되는 송신기가 필요합니다. 이 조립 예제에서는 다음의 부품들을 사용합니다.
 
-* Receiver: [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+* 수신기 : [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
+* 배터리: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## 하드웨어
 
-This section lists all hardware for the frame and the autopilot installation.
+프레임 및 자동 조종 장치 설치를 위한 하드웨어들 입니다.
 
-### Frame QAV250
+### 프레임 QAV250
 
-| Description                   | Quantity |
-| ----------------------------- | -------- |
-| Unibody frame plate           | 1        |
-| Flight controller cover plate | 1        |
-| PDB                           | 1        |
-| Camera plate                  | 1        |
-| 35mm standoffs                | 6        |
-| Vinyl screws and nuts         | 4        |
-| 15mm steel screws             | 8        |
-| Steel nuts                    | 8        |
-| 7mm steel screws              | 12       |
-| Velcro battery strap          | 1        |
-| Foam for battery              | 1        |
-| Landing pads                  | 4        |
+| 설명              | 수량 |
+| --------------- | -- |
+| 유니 바디 프레임 플레이트  | 1  |
+| 비행 컨트롤러 커버 플레이트 | 1  |
+| PDB             | 1  |
+| 카메라 플레이트        | 1  |
+| 35mm 스탠드 오프     | 6  |
+| 비닐 나사 및 너트      | 4  |
+| 15mm 강철 나사      | 8  |
+| 강철 너트           | 8  |
+| 7mm 강철 나사       | 12 |
+| 벨크로 배터리 스트랩     | 1  |
+| 배터리용 폼          | 1  |
+| 착륙 패드           | 4  |
 
 ![QAV250 components for frame](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_components.jpg)
 
-### Electronics
+### 전자부품
 
-| Description                                                                                              | Quantity |
-| -------------------------------------------------------------------------------------------------------- | -------- |
-| Motors - DR2205 KV2300                                                                                   | 4        |
-| Fully assembled Power Management Board with ESCs                                                         | 4        |
-| Holybro power module                                                                                     | 1        |
-| Fr-sky D4R-II receiver                                                                                   | 1        |
-| Pixhawk 4 mini                                                                                           | 1        |
-| Holybro GPS Neo-M8N                                                                                      | 1        |
-| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1        |
-| Battery lumenier 1300 mAh 4S 14.8V                                                                       | 1        |
-| Vtx 5.8gHz                                                                                               | 1        |
-| FPV camera (Complete Kit - only)                                                                         | 1        |
+| 설명                                                                                                       | 수량 |
+| -------------------------------------------------------------------------------------------------------- | -- |
+| 모터- DR2205 KV2300                                                                                        | 4  |
+| 조립된 ESC 전원 관리 보드                                                                                         | 4  |
+| Holybro 전원 모듈                                                                                            | 1  |
+| Fr-sky D4R-II 수신기                                                                                        | 1  |
+| Pixhawk 4 mini                                                                                           | 1  |
+| Holybro GPS Neo-M8N                                                                                      | 1  |
+| Holybro [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html) | 1  |
+| 배터리 lumenier 1300 mAh 4S 14.8V                                                                           | 1  |
+| Vtx 5.8ghz                                                                                               | 1  |
+| FPV 카메라 (전체 키트 전용)                                                                                       | 1  |
 
-The image below shows both frame and electronic components.
+아래의 이미지는 프레임과 전자 부품들을 나타냅니다.
 
 ![QAV250 Frame/Pixhawk 4 Mini Electronics before assembly](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/frame_and_electronics_components.jpg)
 
-## Assembly
+## 조립
 
 Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
 
