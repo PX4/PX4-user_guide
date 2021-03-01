@@ -6,7 +6,7 @@ Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or
 :::
 
 :::tip
-The [Cube Orange](../cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](../autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
+The [Cube Orange](../cubepilot_cube_orange.md) is the successor to this product. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](autopilot_pixhawk_standard.md). This flight controller is not following the standard and uses a patented connector.
 :::
 
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
