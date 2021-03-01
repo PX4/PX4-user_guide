@@ -1,20 +1,24 @@
 # MAVROS
 
-The [mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) ROS package enables MAVLink extendable communication between computers running ROS, MAVLink enabled autopilots, and MAVLink enabled GCS.
+[mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled Autopilot, Ground Control Station, or Peripheral. *MAVROS* is the "official" supported bridge between ROS and the MAVLink protocol.
 
-:::note
-*MAVROS* is the "official" supported bridge between ROS and the MAVLink protocol. It is currently being extended to enable [fast-RTPS messaging](../middleware/micrortps.md), including a layer to translate PX4 [uORB messages](../middleware/uorb.md) to common ROS idioms.
-:::
-
-While MAVROS can be used to communicate with any MAVLink enabled autopilot this documentation will be in the context of enabling communication between the PX4 flight stack and a ROS enabled companion computer.
-
-## Installation
-
-MAVROS can be installed either from source or binary. Developers working with ROS are advised to use the source installation.
+While MAVROS can be used to communicate with any MAVLink enabled autopilot this documentation will be in the context of enabling communication between the PX4 Autopilot and a ROS (1) enabled companion computer.
 
 :::tip
-These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation).
-They cover the *ROS Melodic* release.
+The PX4 Autopilot development team, intends to further the support of ROS 2, and recommends everyone upgrade to ROS 2.
+
+We have created an extensive guide to help you upgrade to ROS 2 with the [PX4-ROS 2 bridge](../ros/ros2_comm.md)
+:::
+
+## Resources
+- [mavros ROS Package Summary](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status)
+- [mavros source](https://github.com/mavlink/mavros/)
+
+## Installation
+MAVROS can be installed either from source or binary, developers working with ROS (1) are advised to use the source installation.
+
+:::tip
+These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic* release.
 :::
 
 ### Binary Installation (Debian / Ubuntu)
@@ -104,3 +108,11 @@ Now you are ready to do the build
    ```
 
 In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+
+## MAVROS Examples
+
+The MAVROS [Offboard Control exapmle](../ros/mavros_offboard.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
+
+:::note
+If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
+:::
