@@ -18,16 +18,16 @@
 
 ## 부품 명세서
 
-The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
+Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)에는 필수 구성 요소가 포함되어 있습니다.
 
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 * [Holybro Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
-* Power module holybro
-* Fully assembled Power Management Board with ESCs
-* Motors - DR2205 KV2300
-* 5” Plastic Props
-* Carbon fiber 250 airframe with hardware
-* Foxer camera
+* 전원 모듈 holybro
+* 조립된 ESC 전원 관리 보드
+* 모터- DR2205 KV2300
+* 5 인치 플라스틱 프로펠러
+* 탄소 섬유 250 기체 (하드웨어 포함)
+* Foxer 카메라
 * Vtx 5.8ghz
 
 Additionally you will need a battery and receiver (+compatible transmitter). This build uses:
