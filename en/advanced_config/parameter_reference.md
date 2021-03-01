@@ -6627,10 +6627,8 @@ Setting this parameter to 0 disables the filter    </td>
 </tr>
 <tr>
  <td><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td>Manual-Position control sub-mode <p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
+ <td>Manual-Position control sub-mode <p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Simple position control</li> 
-
-<li><strong>1:</strong> Smooth position control</li> 
 
 <li><strong>3:</strong> Smooth position control (Jerk optimized)</li> 
 
