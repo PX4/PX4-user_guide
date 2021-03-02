@@ -1,4 +1,4 @@
-# Vehicle Selection
+# 기체 선택
 
 PX4 supports air, surface, and submersible vehicles. You can see a full list of the vehicle types and variants ("frames") that have been tested/tuned for use with PX4 here: [Airframe Reference](../airframes/airframe_reference.md).
 
