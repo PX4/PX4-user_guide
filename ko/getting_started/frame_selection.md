@@ -13,7 +13,7 @@ PX4는 항공, 지상 및 수상 수중 차량을 지원합니다. PX4와 호환
     - **보트**는 수상 차량입니다.
     - **잠수정**은 수중 차량입니다.</ul> 
     
-    :::note PX4의 초기 기체 설정은 *QGroundControl*을 사용합니다. : [기체 설정](../config/airframe.md).
+    :::note PX4의 초기 기체 설정은 *QGroundControl*을 사용합니다. : [기체 설정](../config/airframe.md)
     
     ![프레임 선택 ](../../assets/qgc/setup/airframe/airframe_px4.jpg)
 :::
