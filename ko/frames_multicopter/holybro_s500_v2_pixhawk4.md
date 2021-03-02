@@ -12,10 +12,10 @@
 
 ## 부품 명세서
 
-The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html) includes almost all the required components:
+Holybro [S500 V2 키트](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html)에는 필수 구성 요소가 포함되어 있습니다.
 
-* Pixhawk 4 autopilot（PM07 not included)
-* Power Management PM02（Assembled）
+* Pixhawk 4 autopilot（PM07 미포함)
+* 전원 관리 PM02 (조립）
 * ARM adopts high strength plastics
 * Motors - 2216 KV880（ V2 Update）
 * Propeller 1045（ V2 Update）
