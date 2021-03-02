@@ -1,16 +1,16 @@
-# Holybro S500 V2 + Pixhawk 4 Build
+# Holybro S500 V2 + Pixhawk 4 조립
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
-## Key information
+## 주요 정보
 
-- **Frame:** Holybro S500
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **프레임:** Holybro S500
+- **비행 컨트롤러:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **예상 조립 시간:** 90분 (기체 조립에 45분, 오토파일럿 설치 및 설정에 45분)
 
 ![Full S500 Kit](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hero.png)
 
-## Bill of materials
+## 부품 명세서
 
 The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-propeller1045_p1153.html) includes almost all the required components:
 
