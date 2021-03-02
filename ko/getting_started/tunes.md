@@ -1,6 +1,6 @@
 # 소리 설명 (Pixhawk 시리즈)
 
- Pixhawk 비행 컨트롤러 시리즈</ 0>는 가청 톤 / 튜닝 및 [ LED ](../getting_started/led_meanings.md)를 사용하여 차량 상태 및 이벤트 (예 : 무장 성공 및 실패, 배터리 부족 경고)를 나타냅니다.</p> 
+[ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [ LED ](../getting_started/led_meanings.md)를 사용하여 차량 상태와 이벤트 (예 : 무장 성공 및 실패, 배터리 부족 경고)를 표시합니다.
 
 표준 사운드 세트는 다음과 같습니다.
 
