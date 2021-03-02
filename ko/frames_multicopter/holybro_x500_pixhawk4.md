@@ -141,11 +141,11 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 **3 단계 :** 그림 4 및 5와 같이 전원 관리 PM02를 하단 플레이트에 부착합니다.
 
-![Power Management](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
+![전원 관리](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
 
 (그림 4)
 
-![Power Management 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
+![전원 관리 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
 (그림 5)
 
@@ -153,55 +153,55 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 하단 플레이트에는 4 개의 구멍이 있습니다 (그림 4 화살표 참조). M3X8 나사를 사용하여 총 8 개, 각 측면에 4 개씩.
 
-![Power Management 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
+![전원 관리 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
 
 (그림 6)
 
 **5 단계 :** 배터리 마운트를 프레임에 조립합니다. 이를 위해 M2 5X6 나사와 배터리 마운트가 필요합니다 (그림 7 참조).
 
-![Battery Mount 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
+![배터리 장착 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
 
 (그림 7)
 
 긴 막대를 작은 링에 삽입합니다 (그림 8 및 9 참조).
 
-![Battery Mount 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
+![배터리 장착 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
 (그림 8)
 
-![Battery Mount 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
+![배터리 장착 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
 
 (그림 9)
 
 배터리 홀더가 장착 된 상태에서 그림 10과 같이 이미지에 표시된 화살표 위치에 나사를 조입니다. GPS 모듈이 전방을 향하도록 설치하여야  합니다.
 
-![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
+![배터리 장착 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
 (그림 10)
 
 **6 단계 :** 8 * 3 2.54mm 피치 수평 핀을 전원 관리 보드의 10 ~ 10 핀 케이블 (PWM)에 조립합니다. 10 ~ 10 핀 케이블 (PWM)을 8 * 3 2.54mm 피치 수평 핀에 연결합니다 (그림 11 참조).
 
-![Power Module 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
+![전원 모듈 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
 
 (그림 11)
 
 3M 테이프 조각을 잘라 수평 핀 하단에 부착합니다 (그림 12 참조) 수평 핀을 전원 관리 보드에 부착 (그림 13 참조).
 
-![Power Module 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
+![전원 모듈 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
 
 (그림 12)
 
-![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
+![전원 모듈 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
 
 (그림 13)
 
 **7 단계 :** 차량 암을 본체에 설치합니다. ESC를 그림 14와 같이 Arm 튜브에 밀어 넣고, 그림 15와 같이 ESC 케이블을 다시 밀어 넣을 것이기 때문에 ESC 케이블이 너무 길지 않은지 확인합니다.
 
-![Arms 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
+![팔 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
 
 (그림 14)
 
-![Arms 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
+![팔 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
 
 (그림 15)
 
@@ -211,7 +211,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 암 튜브를 약간 밀어 넣어 그림 16의 붉은 광장에 표시된 것처럼 제자리에 단단히 고정되도록하십시오.
 
-![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
+![팔 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
 (그림 16)
 
@@ -221,7 +221,7 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 색상으로 구분된 3 개의 케이블이 ESC에 연결됩니다.
 
-![Motors 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg)
+![모터 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg)
 
 (그림 17)
 
@@ -243,15 +243,15 @@ GPS 마스트를 플레이트에 장착하고, 4 개의 나사를 사용하여 �
 
 플러그인 원격 측정 및 GPS 모듈을 비행 컨트롤러에 연결합니다 (그림 20 참조). RC 수신기, 4 개의 ESC 모두를 비행 컨트롤러와 전원 모듈에 연결합니다 (그림 21 참조).
 
-![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig20.png)
+![Pixhawk 4 배선 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig20.png)
 
 (그림 20)
 
-![Pixhawk 4 wiring 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig21.png)
+![Pixhawk 4 배선 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig21.png)
 
 (그림 21)
 
-![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
+![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
 
 (완전 조립된 X500 키트)
 
@@ -271,7 +271,7 @@ GPS 마스트를 플레이트에 장착하고, 4 개의 나사를 사용하여 �
 *Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택하여야 합니다.
 :::
 
-![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
 다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
 * [센서 방향](../config/flight_controller_orientation.md)
