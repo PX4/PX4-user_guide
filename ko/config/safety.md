@@ -9,11 +9,17 @@ PX4에는 문제 발생시 기체를 보호와 복구에 관련된 여러가지 
 
 ## 안전장치 기능
 
-안전장치 기능들은 여러가지 동작들로 조합됩니다. 일반적인 안전장치 기능들은 아래와 같습니다.<span id="action_flight_termination"></span>비행 종료</ 0></td> 
+안전장치 기능들은 여러가지 동작들로 조합됩니다. 일반적인 안전장치 기능들은 아래와 같습니다.
 
-</tr> 
-
-</tbody> </table> 
+| 동작                                                                         | 설명                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="action_none"></span>없음/비활성화                                           | 조치 없음(안전 장치는 무시됩니다).                                                                                                                                                                                                                                                             |
+| <span id="action_warning"></span>경고                                                | 경고 메시지가 *QGroundControl*으로 전송됩니다.                                                                                                                                                                                                                                                |
+| <span id="action_hold"></span>[대기 모드](../flight_modes/hold.md)                  | 기체는 *대기 모드*로 들어갑니다. 멀티콥터는 제자리에서 호버링을 하고, 고정익은 원주 선회 비행을 하게 됩니다.                                                                                                                                                                                                                  |
+| <span id="action_return"></span>[복귀 모드](../flight_modes/return.md)                | 기체는 *복귀 모드*로 들어갑니다. 복귀 경로는 [복귀 설정](#return_settings)에서 자세히 설정할 수 있습니다.                                                                                                                                                                                                           |
+| <span id="action_land"></span>[착륙 모드](../flight_modes/land.md)                  | 차량은 *착륙 모드*로 전환하여 즉시 착륙합니다.                                                                                                                                                                                                                                                      |
+| <span id="action_flight_termination"></span>[비행 종료](../advanced_config/flight_termination.md) | 모든 컨트롤러를 끄고 모든 PWM 출력을 안전 장치 값(예 : [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1))으로 설정합니다. 안전장치 출력은 낙하산, 랜딩 기어를 배치하거나 다른 작업을 수행하는 데 사용할 수 있습니다. 고정익은 안전하게 활공할 수 있습니다. |
+| <span id="action_lockdown"></span>Lockdown                                          | 모터를 정지합니다(시동을 껍니다). 이것은 [킬 스위치](#kill_switch)를 사용하는 것과 같습니다.                                                                                                                                                                                                                     |
 
 :::note
 모드를 전환하여 오류 방지 조치 (원인이 수정 된 경우)에서 복구 할 수 있습니다. 예를 들어, RC 손실 안전 장치로 인해 차량이 *복귀 모드*로 들어가는 경우 RC가 복구되면, *위치 모드*로 변경하여 비행을 계속할 수 있습니다.
@@ -91,13 +97,13 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 :::tip PX4는 여러 임의의 다각형 및 원형 포함 및 제외 영역 ([Flying > GeoFence](../flying/geofence.md))이 있는 GeoFence를 지원합니다.
 :::
 
-설정 및 기본 [지오 펜스 매개 변수](../advanced_config/parameter_reference.md#geofence)는 다음과 같습니다.
+설정 및 기본 [Geofence 매개 변수](../advanced_config/parameter_reference.md#geofence)는 다음과 같습니다.
 
-| 설정     | 매개변수                                                                           | 설명                                     |
-| ------ | ------------------------------------------------------------------------------ | -------------------------------------- |
-| 위반시 조치 | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | 없음, 경고, 보류 모드, 반환 모드, 종료, 착륙.          |
-| 최대 반경  | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 지오펜스 실린더의 수평 반경. 0 인 경우 지오펜스가 비활성화됩니다. |
-| 최대 고도  | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 지오펜스 실린더의 높이. 0 인 경우 지오펜스가 비활성화됩니다.    |
+| 설정                  | 매개변수                                                                           | 설명                                     |
+| ------------------- | ------------------------------------------------------------------------------ | -------------------------------------- |
+| <nobr>위반시 조치</nobr> | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | 없음, 경고, 보류 모드, 반환 모드, 종료, 착륙.          |
+| 최대 반경               | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 지오펜스 실린더의 수평 반경. 0 인 경우 지오펜스가 비활성화됩니다. |
+| 최대 고도               | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 지오펜스 실린더의 높이. 0 인 경우 지오펜스가 비활성화됩니다.    |
 
 :::note
 `GF_ACTION`을 종료하도록 설정하면 지오펜스 위반시 기체의 동작이 정지하게 됩니다. 이 기능은 위험성이 높으므로 [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM)을 사용하여 비활성화되며, 시스템을 실제로 종료하려면 0으로 재설정해야합니다.
@@ -122,12 +128,12 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 설정과 기본 매개 변수는 다음과 같습니다:
 
-| 설정      | 매개변수                                                                           | 설명                                        |
-| ------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
-| 고도 상승   | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.     |
-| 기본 동작   |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙 |
-| 정지비행 고도 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 차량이 유지하는 고도를 지정할 수 있습니다.     |
-| 정지비행 시간 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
+| 설정                   | 매개변수                                                                           | 설명                                        |
+| -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
+| 고도 상승                | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 기체은 귀환을 위해이 최소 높이 (아래에있는 경우)까지 상승합니다.     |
+| 기본 동작                |                                                                                | *귀환*의 선택 목록 : 착륙, 배회, 미착륙 또는 배회, 일정시간후 착륙 |
+| <nobr>정지비행 고도</nobr> | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 귀환시 배회를 선택하면 차량이 유지하는 고도를 지정할 수 있습니다.     |
+| <nobr>정지비행 시간</nobr> | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 배회후 착륙이 선택하면 기체의 정지 비행 시간을 설정합니다.         |
 
 :::note
 귀환 동작은 [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)에 의해 정의됩니다. 음수이면 즉시 착륙합니다. 더 자세한 정보는 [귀환 모드](../flight_modes/return.md)를 참고하십시오.
@@ -141,10 +147,10 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 설정과 기본 매개 변수는 다음과 같습니다:
 
-| 설정        | 매개변수                                                                           | 설명                                                       |
-| --------- | ------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| 착륙후 시동 꺼기 | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙 후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
-| 착륙 하강률    | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 착륙 하강율(멀티콥더에만 적용됨).                                      |
+| 설정                     | 매개변수                                                                           | 설명                                                       |
+| ---------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| <nobr>착륙후 시동 꺼기</nobr> | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙 후 시동을 끄려면 확인란을 선택합니다. 값은 0 이상으로 1초 미만의 값도 설정할 수 있습니다. |
+| 착륙 하강률                 | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 착륙 하강율(멀티콥더에만 적용됨).                                      |
 
 <span id="failsafe_other"></span>
 
@@ -152,7 +158,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 이 섹션에는 *QGroundControl*의 [안전 설정](#qgc_safety_setup) 페이지에서 설정할 수 없는 안전장치 설정에 관하여 설명합니다.
 
-### 위치 (GPS) 손실 안전장치
+### 위치(GPS) 손실 안전장치
 
 *위치 손실 안전장치*는 위치 추정이 필요한 모드에서 PX4 위치 추정 품질이 일정 수준(GPS 손실로 인해 발생할 수 있음) 이하가 되면 작동합니다.
 
@@ -173,12 +179,13 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 고정익 전용 매개 변수:
 
-| 매개변수                                                                   | 설명                                                 |
-| ---------------------------------------------------------------------- | -------------------------------------------------- |
-| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | 선회 비행 시간 (비행 종료 전 GPS 복구 대기). 비활성화 하려면 0으로 설정하십시오. |
-| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 선회 비행시 고정 피치 각도.                                   |
-| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                 |
-| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                           |
+| 매개변수                                                                   | 설명                                                   |
+| ---------------------------------------------------------------------- | ---------------------------------------------------- |
+| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | 선회 비행 시간 (비행 종료 전 GPS 복구 대기).  
+비활성화 하려면 0으로 설정하십시오. |
+| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 선회 비행시 고정 피치 각도.                                     |
+| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 선회 비행시 고정 롤/뱅크 각도.                                   |
+| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 선회 비행 추력                                             |
 
 ### 오프 보드 안전장치
 

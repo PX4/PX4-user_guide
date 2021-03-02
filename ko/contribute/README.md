@@ -6,10 +6,10 @@
 </div>
 
 :::tip
-[PX4 행동 강령](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md)을 준수할 것을 서약합니다. 이 지침은 개방적인 분위기를 조성을 위하여 마련한 것입니다.
+[PX4 행동 강령](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md)을 준수합니다. 이 지침은 개방적인 분위기 조성을 위한 것입니다.
 :::
 
-이 절에서는 소스 코드, 문서, 번역, 관련 라이선스에 대한 PX4 기여방법에 관한 정보를 설명합니다.
+소스 코드, 문서, 번역, 관련 라이선스에 관련하여 PX4 기여하는 방법을 설명합니다.
 * [온라인 개발 미팅](../contribute/dev_call.md)  - 아키텍쳐, pull 요청, 문제 및 이슈에 대하여 개발팀과 논의합니다.
 * [코드 관리](../contribute/code.md) - PX4 코드 작업
 * [문서](../contribute/docs.md) - 문서 작업

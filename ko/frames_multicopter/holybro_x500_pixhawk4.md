@@ -1,18 +1,18 @@
-# Holybro X500 + Pixhawk4 Build
+# Holybro X500 + Pixhawk4 조립
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
-## Key information
+## 주요 정보
 
-- **Frame:** Holybro X500
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 2 hours (75 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **프레임:** Holybro X500
+- **비행 컨트롤러:** [Pixhawk 4](../flight_controller/pixhawk4.md)
+- **조립 시간 (예상):** 2시간 (프레임 조립에 75분, 오토파일럿 설치 및 설정에 45분)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
-## Bill of materials
+## 부품 명세서
 
-The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes almost all the required components:
+Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수 구성 요소가 포함되어 있습니다.
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
 * Pixhawk 4 GPS

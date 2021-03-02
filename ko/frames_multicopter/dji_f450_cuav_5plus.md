@@ -1,6 +1,6 @@
 # DJI FlameWheel 450 + CUAV V5 nano 조립
 
-*QGroundControl*을 사용하여 키트를 조립 및 PX4 설정 방법을 설명합니다.
+키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 주요 내용
 
