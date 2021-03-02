@@ -10,7 +10,7 @@
 * **비행 컨트롤러:** [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 * **조립 시간 (예상):** 3.5시간 (프레임 조립에 2시간, 오토파일럿 설치 및 설정에 1.5시간)
 
-![Assembled Holybro QAV250 with Pixhawk4 Mini](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
+![Pixhawk4 Mini와 조립된 Holybro QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/qav250_hero.jpg)
 
 ## 간단한 가이드
 
@@ -165,58 +165,57 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 키트를 설치하는 단계는 다음과 같습니다.
 
 1. 프레임에 카메라 브라켓 설치![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_bracket.jpg)
-2. Install the camera on the bracket ![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
-3. The power module on the complete kit comes with wiring ready to connect the Video Transmitter and Camera: ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg) 
-    * Attach the camera connector ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) The wires are: blue=voltage sensor, yellow=video out, black=ground, red=+voltage.
-    * Connect the Video Transmitter (VTX) connector ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) The wires are: yellow=video out, black=ground, red=+voltage.
-4. Secure the Video Transmitter and OSD board to the frame using tape.
+2. 브라켓에 카메라 설치![Camera on Bracket](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_on_bracket.jpg)
+3. 전체 키트의 전원 모듈은 비디오 송신기와 카메라를 연결 배선과 함께 제공합니다. ![Connecting FPV](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection_board.jpg) 
+    * 카메라 커넥터 연결 ![Camera Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_camera_connection.jpg) 전선은 파란색 = 전압 센서, 노란색 = 비디오 출력, 검은 색 = 접지, 빨간색 = + 전압입니다.
+    * 비디오 송신기 (VTX) 커넥터 연결 ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg) 전선은 노란색 = 비디오 출력, 검은 색 = 접지, 빨간색 = + 전압입니다.
+4. 테이프를 사용하여 비디오 송신기와 OSD 보드를 프레임에 고정합니다.
 
 :::note
-If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
+시스템을 직접 배선해야하는 경우, 아래 다이어그램은 카메라, VTX 및 전원 모듈 간의 연결 방법을 나타냅니다. ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 :::
 
 <span id="configure"></span>
 
-## Install/Configure PX4
+## PX4 설치/설정
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-First update the firmware and airframe:
+먼저, 펌웨어와 기체프레임을 업데이트 합니다.
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [펌웨어](../config/firmware.md)
+* [기체](../config/airframe.md)
     
 :::note
-You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
+*HolyBro QAV250* 기체 (**Quadrotor x > HolyBro QAV250**)를 선택하여야 합니다.
     
-    ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: Then perform the mandatory setup/calibration:
+    ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png) ::: 다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
+* [센서 방향](../config/flight_controller_orientation.md)
 
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [나침반](../config/compass.md)
+* [가속도계](../config/accelerometer.md)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [무선 조종기 설정](../config/radio.md)
+* [비행 모드](../config/flight_mode.md)
 
-Ideally you should also do:
+다음 작업 역시 반드시 진행하여야 합니다.
 
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+* [ESC 보정](../advanced_config/esc_calibration.md)
+* [배터리](../config/battery.md)
+* [안전 설정](../config/safety.md)
 
-## Tuning
+## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+기체 선택은 프레임의 *기본* 자동 조종 매개 변수를 설정합니다. 이 상태로도 비행하기에 충분하지만, 특정 프레임 구성에 대한 파라미터를 조정하는 것이 좋습니다.
 
 <!-- should state what we want them to use! -->
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
+튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
 
-## Acknowledgements
+## 감사의 글
 
-This build log was provided by the PX4 Test Team.
+이 조립 로그는 PX4 테스트 팀에서 제공하였습니다.
