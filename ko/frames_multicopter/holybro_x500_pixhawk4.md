@@ -34,61 +34,61 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 프레임과 자율비행프로그램 설치를 위한 하드웨어들 입니다.
 
-| 항목                           | 설명                                               | 수량 |
-| ---------------------------- | ------------------------------------------------ | -- |
-| 소켓 캡 나사                      | 모터 고정에 사용, 스테인레스 스틸 나사 M3*5                      | 16 |
-| 탄소 섬유 튜브-암                   | 직경 : 16mm, 길이 : 200mm                            | 4  |
-| 모터 베이스                       | 6 개의 부품과 4 개의 나사로 구성 4 개의 너트                     | 4  |
-| Slide bar                    | Diameter: 10mm length: 250mm                     | 2  |
-| Battery mounting board       | Thickness: 2mm                                   | 1  |
-| Battery pad                  | 3mm Silicone sheet black                         | 1  |
-| Pylons                       | Engineering plastic embedded with copper nut     | 2  |
-| Cross countersunk head screw | Stainless steel M2.5*5mm                         | 12 |
-| PAN/TILT platform board      | Thickness: 2mm                                   | 1  |
-| Hanger rubber ring gasket    | Inner hole diameter: 10mm black                  | 8  |
-| Hanger                       | Engineering plastic embedded with copper nut     | 8  |
-| Carbon fiber - Bottom plate  | The thickness of 2mm                             | 1  |
-| Socket cap screw             | Stainless steel M2.5*6mm                         | 8  |
-| Nylon stud                   | Black M3*6+6                                     | 4  |
-| Nylon screw                  | Black M3*6                                       | 4  |
-| Carbon fiber - Top plate     | Thickness: 1.5mm                                 | 1  |
-| Pan head screw               | Metal black M3*30mm                              | 16 |
-| Nylon strap                  | U- shape, of 16mm carbon fiber tube              | 16 |
-| Nylon nut                    | Black M3                                         | 4  |
-| Locknut                      | Metal black M3                                   | 16 |
-| Socket cap screw             | Metal black M3*8mm                               | 8  |
-| Landing gear - Vertical pole | Carbon fiber tube+engineering plastic+fastener   | 2  |
-| Landing gear - Cross bar     | Composed of carbon fiber tube and multiple parts | 2  |
+| 항목              | 설명                           | 수량 |
+| --------------- | ---------------------------- | -- |
+| 소켓 캡 나사         | 모터 고정에 사용, 스테인레스 스틸 나사 M3*5  | 16 |
+| 탄소 섬유 튜브-암      | 직경 : 16mm, 길이 : 200mm        | 4  |
+| 모터 베이스          | 6 개의 부품과 4 개의 나사로 구성 4 개의 너트 | 4  |
+| 슬라이드 바          | 직경 : 10mm, 길이 : 250mm        | 2  |
+| 배터리 장착 보드       | 두께: 2mm                      | 1  |
+| 배터리 패드          | 3mm 실리콘 시트 검정                | 1  |
+| 철탑              | 구리 너트가 내장된 엔지니어링 플라스틱        | 2  |
+| 십자 접시 머리 나사     | 스테인리스  M2.5*5mm              | 12 |
+| PAN/TILT 플랫폼 보드 | 두께: 2mm                      | 1  |
+| 행거 고무링 개스킷      | 내부 구멍 직경 : 10mm 검정           | 8  |
+| 헹거              | 구리 너트가 내장된 엔지니어링 플라스틱        | 8  |
+| 탄소 섬유 - 바닥 판    | 두께 2mm                       | 1  |
+| 소켓 캡 나사         | 스테인리스  M2.5*6mm              | 8  |
+| 나일론 스터드         | 검정 M3*6+6                    | 4  |
+| 나일론 나사          | 검정 M3*6                      | 4  |
+| 탄소 섬유 - 상판      | 두께: 1.6mm                    | 1  |
+| 냄비 머리 나사        | 금속 검정 M3*30mm                | 16 |
+| 나일론 스트랩         | 16mm 탄소 섬유 튜브의 U 자형          | 16 |
+| 나일론 너트          | 검정 M3                        | 4  |
+| Locknut         | 금속 검정 M3                     | 16 |
+| 소켓 캡 나사         | 금속 검정 M3*8mm                 | 8  |
+| 착륙 기어 - 수직 막대   | 탄소 섬유 튜브 + 엔지니어링 플라스틱 + 패스너  | 2  |
+| 착륙 기어 - 크로스바    | 탄소 섬유 튜브와 여러 부품으로 구성         | 2  |
 
 ![X500 Components for Frame](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
 
-## Package
+## 패키지
 
-| Items                            | Package |
-| -------------------------------- | ------- |
-| Pixhawk 4                        | 1       |
-| Pixhawk4 GPS MODULE              | 1       |
-| I2C splitter Board               | 2       |
-| 6 to 6 pin cable (power)         | 3       |
-| 4 to 4 pin cable (CAN)           | 2       |
-| 6 to 4 pin cable (Data)          | 1       |
-| 10 to 10 pin cable (PWM)         | 2       |
-| 8 to 8 pin cable(AUX)            | 1       |
-| 7 to 7 pin cable(SPI)            | 1       |
-| 6 to 6 pin cable(Debug)          | 1       |
-| PPM/SBUS out cable               | 1       |
-| XSR receiver cable               | 1       |
-| DSMX receiver cable              | 1       |
-| SBUS receiver cable              | 1       |
-| USB cable                        | 1       |
-| 'X'type folding pedestal mount   | 1       |
-| 70mm & 140mm carbon rod standoff | 2       |
-| 6*3 2.54mm pitch Horizontal Pin  | 1       |
-| 8*3 2.54mm pitch Horizontal Pin  | 2       |
-| Foam Set                         | 1       |
-| Pixhawk4 Quick Start Guide       | 1       |
-| Pixhawk4 Pinouts                 | 1       |
-| GPS Quick Start Guide            | 1       |
+| 항목                               | 패키지 |
+| -------------------------------- | --- |
+| Pixhawk 4                        | 1   |
+| Pixhawk4 GPS 모듈                  | 1   |
+| I2C 스플리터 보드                      | 2   |
+| 6 ~ 6 핀 케이블 (전원)                 | 3   |
+| 4 to 4 pin cable (CAN)           | 2   |
+| 6 to 4 pin cable (Data)          | 1   |
+| 10 to 10 pin cable (PWM)         | 2   |
+| 8 to 8 pin cable(AUX)            | 1   |
+| 7 to 7 pin cable(SPI)            | 1   |
+| 6 to 6 pin cable(Debug)          | 1   |
+| PPM/SBUS out cable               | 1   |
+| XSR receiver cable               | 1   |
+| DSMX receiver cable              | 1   |
+| SBUS receiver cable              | 1   |
+| USB cable                        | 1   |
+| 'X'type folding pedestal mount   | 1   |
+| 70mm & 140mm carbon rod standoff | 2   |
+| 6*3 2.54mm pitch Horizontal Pin  | 1   |
+| 8*3 2.54mm pitch Horizontal Pin  | 2   |
+| Foam Set                         | 1   |
+| Pixhawk4 Quick Start Guide       | 1   |
+| Pixhawk4 Pinouts                 | 1   |
+| GPS Quick Start Guide            | 1   |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
 
