@@ -13800,9 +13800,9 @@ is less than 50% of this value    </td>
 <tr>
  <td><strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)</td>
  <td>Gyro control data maximum publication rate <p><strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> 0 (no limit)</li> 
+<li><strong>0:</strong> 0 (driver minimum)</li> 
 
-<li><strong>50:</strong> 50 Hz</li> 
+<li><strong>100:</strong> 100 Hz</li> 
 
 <li><strong>250:</strong> 250 Hz</li> 
 
@@ -13815,7 +13815,7 @@ is less than 50% of this value    </td>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 2000 </td>
- <td>0</td>
+ <td>400</td>
  <td>Hz</td>
 </tr>
 <tr>
