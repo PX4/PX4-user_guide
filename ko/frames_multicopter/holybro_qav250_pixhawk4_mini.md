@@ -1,8 +1,8 @@
 # HolyBro QAV250 + Pixhawk4-Mini 조립
 
-[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립법 학습에 매우 좋습니다. 이 키트에는 탄소 섬유 QAV250 레이싱 프레임, *Pixhawk 4 Mini* 및 필요한 거의 모든 구성 요소 (배터리 및 수신기 제외)가 포함되어 있습니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.
+[Holybro Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html)는 Pixhawk 4을 조립 학습에 최적의 키트입니다. 이 키트에는 탄소 섬유 QAV250 레이싱 프레임, *Pixhawk 4 Mini* 및 필요한 거의 모든 구성 요소 (배터리 및 수신기 제외)가 포함되어 있습니다. FPV 지원 유무에 따라 키트가 조금씩 달라집니다.
 
-키트 조립법과 *QGroundControl* PX4 설정법을 제공합니다.
+키트 조립법과 *QGroundControl*의 PX4 설정법을 설명합니다.
 
 주요 정보
 
@@ -79,20 +79,20 @@ Holybro [Pixhawk 4 Mini QAV250 키트](https://shop.holybro.com/pixhawk-4-mini-q
 
 ## 조립
 
-Estimated time to assemble frame is 2 hours and 1.5 hours installing the autopilot and configuring the airframe in *QGroundControl*.
+프레임 조립 예상 시간은 2시간이며, *QGroundControl*에서 자동 조종 장치를 설치및 기체 설정 예상 시간은 1.5시간입니다.
 
-### Tools needed
+### 필요한 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-* 2.0mm Hex screwdriver
-* 3mm Phillips screwdriver
-* Wire cutters
-* Precision tweezers
+* 2.0mm 육각 스크류드라이버
+* 3mm Phillips 스크류드라이버
+* Wire 커터
+* 정밀 트위저
 
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/assembly_tools.jpg)
 
-### Frame assembly
+### 프레임 조립
 
 1. Attach arms to the button plate with the 15mm screws as shown:
     
