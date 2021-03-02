@@ -16,49 +16,49 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
 * Pixhawk 4 GPS
-* Battery Strap
-* Propellers - 1045
-* Motors - 2216 KV880
-* Power and Radio Cables
-* Power Management - PM07
+* 배터리 스트랩
+* 프로펠러 - 1045
+* 모터 - 2216 KV880
+* 전원 및 무선 조종기 케이블
+* 전원 관리 - PM07
 * Wheelbase - 500 mm
-* Dimensions - 410*410*300 mm
+* 치수 - 410 *410* 300mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)). This build uses:
+또한 배터리와 수신기([호환 무선 조종기](../getting_started/rc_transmitter_receiver.md))가 필요합니다. 이 조립 예제에서는 다음의 부품들을 사용합니다.
 
-* Receiver: FR SKY Taranis
-* Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+* 수신기: FR SKY Taranis
+* 배터리: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## 하드웨어
 
-This section lists all hardware for the frame and the autopilot installation.
+프레임과 자율비행프로그램 설치를 위한 하드웨어들 입니다.
 
-| Item                         | Description                                       | Quantity |
-| ---------------------------- | ------------------------------------------------- | -------- |
-| Socket cap scre              | Used for motor fixing, stainless steel screw M3*5 | 16       |
-| Carbon fiber tube - Arm      | Diameter: 16mm length: 200mm                      | 4        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts           | 4        |
-| Slide bar                    | Diameter: 10mm length: 250mm                      | 2        |
-| Battery mounting board       | Thickness: 2mm                                    | 1        |
-| Battery pad                  | 3mm Silicone sheet black                          | 1        |
-| Pylons                       | Engineering plastic embedded with copper nut      | 2        |
-| Cross countersunk head screw | Stainless steel M2.5*5mm                          | 12       |
-| PAN/TILT platform board      | Thickness: 2mm                                    | 1        |
-| Hanger rubber ring gasket    | Inner hole diameter: 10mm black                   | 8        |
-| Hanger                       | Engineering plastic embedded with copper nut      | 8        |
-| Carbon fiber - Bottom plate  | The thickness of 2mm                              | 1        |
-| Socket cap screw             | Stainless steel M2.5*6mm                          | 8        |
-| Nylon stud                   | Black M3*6+6                                      | 4        |
-| Nylon screw                  | Black M3*6                                        | 4        |
-| Carbon fiber - Top plate     | Thickness: 1.5mm                                  | 1        |
-| Pan head screw               | Metal black M3*30mm                               | 16       |
-| Nylon strap                  | U- shape, of 16mm carbon fiber tube               | 16       |
-| Nylon nut                    | Black M3                                          | 4        |
-| Locknut                      | Metal black M3                                    | 16       |
-| Socket cap screw             | Metal black M3*8mm                                | 8        |
-| Landing gear - Vertical pole | Carbon fiber tube+engineering plastic+fastener    | 2        |
-| Landing gear - Cross bar     | Composed of carbon fiber tube and multiple parts  | 2        |
+| 항목                           | 설명                                               | 수량 |
+| ---------------------------- | ------------------------------------------------ | -- |
+| 소켓 캡 나사                      | 모터 고정에 사용, 스테인레스 스틸 나사 M3*5                      | 16 |
+| 탄소 섬유 튜브-암                   | 직경 : 16mm, 길이 : 200mm                            | 4  |
+| 모터 베이스                       | 6 개의 부품과 4 개의 나사로 구성 4 개의 너트                     | 4  |
+| Slide bar                    | Diameter: 10mm length: 250mm                     | 2  |
+| Battery mounting board       | Thickness: 2mm                                   | 1  |
+| Battery pad                  | 3mm Silicone sheet black                         | 1  |
+| Pylons                       | Engineering plastic embedded with copper nut     | 2  |
+| Cross countersunk head screw | Stainless steel M2.5*5mm                         | 12 |
+| PAN/TILT platform board      | Thickness: 2mm                                   | 1  |
+| Hanger rubber ring gasket    | Inner hole diameter: 10mm black                  | 8  |
+| Hanger                       | Engineering plastic embedded with copper nut     | 8  |
+| Carbon fiber - Bottom plate  | The thickness of 2mm                             | 1  |
+| Socket cap screw             | Stainless steel M2.5*6mm                         | 8  |
+| Nylon stud                   | Black M3*6+6                                     | 4  |
+| Nylon screw                  | Black M3*6                                       | 4  |
+| Carbon fiber - Top plate     | Thickness: 1.5mm                                 | 1  |
+| Pan head screw               | Metal black M3*30mm                              | 16 |
+| Nylon strap                  | U- shape, of 16mm carbon fiber tube              | 16 |
+| Nylon nut                    | Black M3                                         | 4  |
+| Locknut                      | Metal black M3                                   | 16 |
+| Socket cap screw             | Metal black M3*8mm                               | 8  |
+| Landing gear - Vertical pole | Carbon fiber tube+engineering plastic+fastener   | 2  |
+| Landing gear - Cross bar     | Composed of carbon fiber tube and multiple parts | 2  |
 
 ![X500 Components for Frame](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
 
