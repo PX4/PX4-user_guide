@@ -94,116 +94,116 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 ### 전자부품
 
-| 항목 설명                                            | 수량 |
-| ------------------------------------------------ | -- |
-| Pixhawk 4 autopilot（PM06 not included)           | 1  |
-| Power Management PM02（Assembled)                 | 1  |
-| Motors - 2216 KV880（V2 Update)                   | 4  |
-| Pixhawk 4 GPS                                    | 1  |
-| Fully assembled Power Management Board with ESCs | 1  |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1  |
+| 항목 설명                                           | 수량 |
+| ----------------------------------------------- | -- |
+| Pixhawk 4 autopilot（PM06 not included)          | 1  |
+| 전원 관리 PM02 (조립)                                 | 1  |
+| 모토 - 2216 KV880（V2 Update)                      | 4  |
+| Pixhawk 4 GPS                                   | 1  |
+| 조립된 ESC 전원 관리 보드                                | 1  |
+| 433MHz Telemetry Radio / 915MHz Telemetry Radio | 1  |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
 
-### Tools needed
+### 필요 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
+- 1.5 mm 육각 스크류드라이버
+- 2.0 mm 육각 스크류드라이버
+- 2.5 mm 육각 스크류드라이버
+- 3mm Phillips 스크류드라이버
+- 전선 커터
+- 정밀 트위저
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
 
 
-## Assembly
+## 조립
 
-Estimate time to assemble is 120 minutes, about 75 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+조립 예상 시간은 120 분, 프레임 조립의 경우 약 75 분, QGroundControl에서 자동조종장치 설정에 45 분입니다.
 
-**Step 1:** We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole, see figures 1 and 2.
+**1 단계 :** 먼저 착륙 기어를 수직 기둥에 조립합니다. 랜딩 기어 나사를 풀고 수직 기둥을 삽입합니다 (그림 1 및 2 참조).
 
 ![Landing Figure 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-(Figure 1)
+(그림 1)
 
 ![Landing Figure 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-(Figure 2)
+(그림 2)
 
-**Step 2:** We proceed to arm the motor holder by using 4 U-shaped nylon straps to attach the holder to the carbon fiber arm as shown in figure 3.
+**2 단계 :** 그림 3과 같이 4 개의 U 자형 나일론 스트랩을 사용하여 홀더를 탄소 섬유 암에 부착하여 모터 홀더를 장착합니다.
 
 ![Motor](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-(Figure 3)
+(그림 3)
 
-**Step 3:** Attach the power management PM02 to the bottom plate as shown in Figures 4 and 5.
+**3 단계 :** 그림 4 및 5와 같이 전원 관리 PM02를 하단 플레이트에 부착합니다.
 
 ![Power Management](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
 
-(Figure 4)
+(그림 4)
 
 ![Power Management 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-(Figure 5)
+(그림 5)
 
-**Step 4:**  Assemble the lower plate to the landing gears. Screw the landing gear with a vertical pole to the bottom plate.
+**4 단계 :** 하부 플레이트를 랜딩 기어에 조립합니다. 수직 기둥이 있는 랜딩 기어를 바닥 판에 나사로 고정합니다.
 
-The lower plate has 4 holes (see Figure 4 arrows) use the M3X8 screws, a total of 8 pieces, 4 on each side.
+하단 플레이트에는 4 개의 구멍이 있습니다 (그림 4 화살표 참조). M3X8 나사를 사용하여 총 8 개, 각 측면에 4 개씩.
 
 ![Power Management 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
 
-(Figure 6)
+(그림 6)
 
-**Step 5:** Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount see Figure 7.
+**5 단계 :** 배터리 마운트를 프레임에 조립합니다. 이를 위해 M2 5X6 나사와 배터리 마운트가 필요합니다 (그림 7 참조).
 
 ![Battery Mount 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
 
-(Figure 7)
+(그림 7)
 
-Insert the long rods to the small rings see Figure 8 and 9.
+긴 막대를 작은 링에 삽입합니다 (그림 8 및 9 참조).
 
 ![Battery Mount 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-(Figure 8)
+(그림 8)
 
 ![Battery Mount 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
 
-(Figure 9)
+(그림 9)
 
-With the battery holder completely armed, screw it where arrow shown in the image as shown in Figure 10; keep in mind GPS module will be facing front.
+배터리 홀더가 장착 된 상태에서 그림 10과 같이 이미지에 표시된 화살표 위치에 나사를 조입니다. GPS 모듈이 전방을 향하도록 설치하여야  합니다.
 
 ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-(Figure 10)
+(그림 10)
 
-**Step 6:** Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin, see Figure 11.
+**6 단계 :** 8 * 3 2.54mm 피치 수평 핀을 전원 관리 보드의 10 ~ 10 핀 케이블 (PWM)에 조립합니다. 10 ~ 10 핀 케이블 (PWM)을 8 * 3 2.54mm 피치 수평 핀에 연결합니다 (그림 11 참조).
 
 ![Power Module 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
 
-(Figure 11)
+(그림 11)
 
-Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, see Figure 12 stick the Horizontal Pin to the Power Management Board, see Figure 13.
+3M 테이프 조각을 잘라 수평 핀 하단에 부착합니다 (그림 12 참조) 수평 핀을 전원 관리 보드에 부착 (그림 13 참조).
 
 ![Power Module 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
 
-(Figure 12)
+(그림 12)
 
 ![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
 
-(Figure 13)
+(그림 13)
 
-**Step 7:** Install vehicle Arms to the main body. Take the ESC and push it in the Arm tube as shown in Figure 14 and make sure that the ESC cables are not too long since we will push them back in as shown in Figure 15.
+**7 단계 :** 차량 암을 본체에 설치합니다. ESC를 그림 14와 같이 Arm 튜브에 밀어 넣고, 그림 15와 같이 ESC 케이블을 다시 밀어 넣을 것이기 때문에 ESC 케이블이 너무 길지 않은지 확인합니다.
 
 ![Arms 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
 
-(Figure 14)
+(그림 14)
 
 ![Arms 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
 
-(Figure 15)
+(그림 15)
 
 **Step 8:** Assemble arm to main body.
 
