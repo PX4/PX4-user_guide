@@ -64,44 +64,44 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 ## 패키지
 
-| 항목                               | 패키지 |
-| -------------------------------- | --- |
-| Pixhawk 4                        | 1   |
-| Pixhawk4 GPS 모듈                  | 1   |
-| I2C 스플리터 보드                      | 2   |
-| 6 ~ 6 핀 케이블 (전원)                 | 3   |
-| 4 to 4 pin cable (CAN)           | 2   |
-| 6 to 4 pin cable (Data)          | 1   |
-| 10 to 10 pin cable (PWM)         | 2   |
-| 8 to 8 pin cable(AUX)            | 1   |
-| 7 to 7 pin cable(SPI)            | 1   |
-| 6 to 6 pin cable(Debug)          | 1   |
-| PPM/SBUS out cable               | 1   |
-| XSR receiver cable               | 1   |
-| DSMX receiver cable              | 1   |
-| SBUS receiver cable              | 1   |
-| USB cable                        | 1   |
-| 'X'type folding pedestal mount   | 1   |
-| 70mm & 140mm carbon rod standoff | 2   |
-| 6*3 2.54mm pitch Horizontal Pin  | 1   |
-| 8*3 2.54mm pitch Horizontal Pin  | 2   |
-| Foam Set                         | 1   |
-| Pixhawk4 Quick Start Guide       | 1   |
-| Pixhawk4 Pinouts                 | 1   |
-| GPS Quick Start Guide            | 1   |
+| 항목                  | 패키지 |
+| ------------------- | --- |
+| Pixhawk 4           | 1   |
+| Pixhawk4 GPS 모듈     | 1   |
+| I2C 스플리터 보드         | 2   |
+| 6 ~ 6 핀 케이블 (전원)    | 3   |
+| 4 ~ 4 핀 케이블 (CAN)   | 2   |
+| 6 ~ 4 핀 케이블 (데이터)   | 1   |
+| 10 ~ 10 핀 케이블 (PWN) | 2   |
+| 8 ~ 8 핀 케이블 (AUX)   | 1   |
+| 7 ~ 7 핀 케이블 (SPI)   | 1   |
+| 6 ~ 6 핀 케이블 (디버깅)   | 1   |
+| PPM/SBUS 출력 케이블     | 1   |
+| XSR 수신기 케이블         | 1   |
+| DSMX 수신기 케이블        | 1   |
+| SBUS 수신기 케이블        | 1   |
+| USB 케이블             | 1   |
+| 'X'타입 접이식 받침대 마운트   | 1   |
+| 70mm 및 140mm 카본 받침대 | 2   |
+| 6*3 2.54mm 피치 수평 핀  | 1   |
+| 8*3 2.54mm 피치 수평 핀  | 2   |
+| 폼 세트                | 1   |
+| Pixhawk 4 빠른 시작 가이드 | 1   |
+| Pixhawk4 핀아웃        | 1   |
+| GPS 빠른 시작 가이드       | 1   |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
 
-### Electronics
+### 전자부품
 
-| Item Description                                 | Quantity |
-| ------------------------------------------------ | -------- |
-| Pixhawk 4 autopilot（PM06 not included)           | 1        |
-| Power Management PM02（Assembled)                 | 1        |
-| Motors - 2216 KV880（V2 Update)                   | 4        |
-| Pixhawk 4 GPS                                    | 1        |
-| Fully assembled Power Management Board with ESCs | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1        |
+| 항목 설명                                            | 수량 |
+| ------------------------------------------------ | -- |
+| Pixhawk 4 autopilot（PM06 not included)           | 1  |
+| Power Management PM02（Assembled)                 | 1  |
+| Motors - 2216 KV880（V2 Update)                   | 4  |
+| Pixhawk 4 GPS                                    | 1  |
+| Fully assembled Power Management Board with ESCs | 1  |
+| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1  |
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
 
