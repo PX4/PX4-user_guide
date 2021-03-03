@@ -240,7 +240,7 @@ LiPo 배터리는 포함되어 있지 않습니다. FrSky Taranis 무선 조종�
 
 ![Pixhawk 조립](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_pixhawk.jpg)
 
-![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
+![완전 조립](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
 <span id="configure"></span>
 ## PX4 설치 및 설정
@@ -259,7 +259,7 @@ LiPo 배터리는 포함되어 있지 않습니다. FrSky Taranis 무선 조종�
 *Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택하여야 합니다.
 :::
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
+![QGroundContro l - HolyBro X500 기체 선택](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
 
 다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
 
