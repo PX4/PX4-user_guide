@@ -16,14 +16,14 @@ Holybro [S500 V2 키트](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pro
 
 * Pixhawk 4 autopilot（PM07 미포함)
 * 전원 관리 PM02 (조립）
-* ARM adopts high strength plastics
-* Motors - 2216 KV880（ V2 Update）
-* Propeller 1045（ V2 Update）
-* Pixhawk4 GPS
-* Fully assembled Power Management Board with ESCs
+* ARM, 고강도 플라스틱 채택
+* 모토 - 2216 KV880（V2 업데이트）
+* 프로펠러 1045 (V2 업데이트)
+* Pixhawk 4 GPS
+* 조립된 ESC 전원 관리 보드
 * 433MHz Telemetry Radio / 915MHz Telemetry Radio
-* Power and Radio Cables
-* Battery Straps
+* 전원 및 무선 조종기 케이블
+* 배터리 혁지
 * Dimensions:383*385*240mm
 * Wheelbase:480mm
 
