@@ -1,6 +1,7 @@
-# MAVROS
+# ROS with MAVROS Installation Guide
 
-[mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled Autopilot, Ground Control Station, or Peripheral. *MAVROS* is the "official" supported bridge between ROS and the MAVLink protocol.
+[mavros](http://wiki.ros.org/mavros#mavros.2BAC8-Plugins.sys_status) is a ROS (1) package that enables MAVLink extendable communication between computers running ROS (1) for any MAVLink enabled Autopilot, Ground Control Station, or Peripheral.
+*MAVROS* is the "official" supported bridge between ROS and the MAVLink protocol.
 
 While MAVROS can be used to communicate with any MAVLink enabled autopilot this documentation will be in the context of enabling communication between the PX4 Autopilot and a ROS (1) enabled companion computer.
 
@@ -18,7 +19,8 @@ We have created an extensive guide to help you upgrade to ROS 2 with the [PX4-RO
 MAVROS can be installed either from source or binary, developers working with ROS (1) are advised to use the source installation.
 
 :::tip
-These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation). They cover the *ROS Melodic* release.
+These instructions are a simplified version of the [official installation guide](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+They cover the *ROS Melodic* release.
 :::
 
 ### Binary Installation (Debian / Ubuntu)
