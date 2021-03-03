@@ -127,63 +127,63 @@ LiPo 배터리는 포함되어 있지 않습니다. FrSky Taranis 무선 조종�
 
    ![Figure 7](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig8.jpg)
 
-   각 암에 총 2 개의 M2 5X6 나사를 사용합니다. Insert the screws from the bottom of the plate.
+   각 팔에 총 2 개의 M2 5X6 나사를 사용합니다. 플레이트 바닥에서 나사를 삽입합니다.
 
    ![Figure 8](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig9.jpg)
 
-   Make sure the ESC cables run through the middle of the arm.
+   ESC 케이블이 팔 중앙을 통과하는지 확인하십시오.
 
    ![Figure 9](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig91.jpg)
 
-1. Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin.
+1. 8개의 * 3 2.54mm 피치 수평 핀을 전원 관리 보드의 10 ~ 10 핀 케이블 (PWM)에 조립합니다. 10 ~ 10 핀 케이블 (PWM)을 8 * 3 2.54mm 피치 수평 핀에 연결합니다.
 
    ![Figure 10](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig10.jpg)
 
-   Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin:
+   3M 테이프 조각을 잘라 수평 핀 하단에 부착합니다.
 
    ![Figure 11](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig11.jpg)
 
-   Stick the Horizontal Pin to the Power Management Board:
+   수평 핀을 전원 관리 보드에 고정 :
 
    ![Figure 12](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig12.jpg)
 
    ![Figure 13](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig13.jpg)
 
-1. Assemble the motors to the arms. For this, we will need the 16 screws M3X7, 4 motors, and the 4 arms.
+1. 모터를 팔에 조립하십시오. M3X7 나사 16 개, 모터 4 개, 팔 4 개가 필요합니다.
 
-   Mount the motors in each arm put the screw through the bottom of the arm:
+   각 팔에 모터를 장착하고 팔의 바닥을 통해 나사를 넣습니다.
 
    ![Figure 14](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig14.jpg)
 
    ![Figure 15](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig15.jpg)
 
-   After the 4 motors are mounted on the arm grab the cables(red, blue, black) and put them through the arm thread. The 3 cables that are color-coded go connected to the ESC.
+   4 개의 모터를 팔에 장착 한 후 케이블 (빨간색, 파란색, 검은 색)을 잡고 팔 나사산에 끼웁니다. 색상으로 구분된 3 개의 케이블이 ESC에 연결됩니다.
 
    ![Figure 16](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig16.jpg)
 
    ![Figure 17](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig17.jpg)
 
-1. Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
+1. 프레임에 GPS를 장착합니다. Pixhawk 4 GPS와 마운팅 플레이트가 필요합니다.
 
    ![GPS Parts](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_gpskit.png)
 
-   Mount the GPS mast to the back of the Board, use the 4 screws:
+   보드 뒷면에 GPS 마스트를 장착하고 4 개의 나사를 사용합니다.
 
    ![Figure 18](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig18.jpg)
 
    ![Figure 19](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig19.jpg)
 
-   Use the tape and stick the GPS to the top of the GPS mast:
+   테이프를 사용하고 GPS를 GPS 마스트 상단에 붙입니다.
 
    ![Figure 20](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig20.jpg)
 
-1. Paste the FrSky to the Board. Paste FrSky with double-sided tape (3M) to the bottom board. Attach the FrSky to the frame:
+1. FrSky를 보드에 붙여 넣습니다. 양면 테이프 (3M)로 FrSky를 하단 보드에 붙여 넣습니다. FrSky를 프레임에 부착합니다.
 
    ![Figure 21](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig21.jpg)
 
    ![Figure 22](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig22.jpg)
 
-1. Attach the Telemetry to the frame. The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape.
+1. 텔레메트리를 프레임에 부착합니다. The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape.
 
    ![Figure 23](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig23.jpg)
 
