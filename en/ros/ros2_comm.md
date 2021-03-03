@@ -1,9 +1,9 @@
-# ROS 2 with the microRTPS Bridge (Fast DDS)
+# ROS 2 with the PX4-ROS2 bridge (Fast DDS)
 
-This section of the guide explains the bridge between the PX4 Autopilot and ROS 2, made available through the [microRTPS bridge](../middleware/micrortps.md) and the supporting projects available to interface with ROS 2, [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
+This section of the guide explains the bridge between the PX4 Autopilot and ROS 2, which is made available through the PX4 [microRTPS bridge](../middleware/micrortps.md) middleware, and the supporting projects available to interface with ROS 2: [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
 
 **In this guide you will learn:**
-1. How to connect ROS 2 nodes with the PX4 Autopilot, using the [microRTPS bridge](../middleware/micrortps.md), and the [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package)
+1. How to connect ROS 2 nodes with the PX4 Autopilot, using the [microRTPS bridge](../middleware/micrortps.md), and the [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package.
 2. How to connect ROS (ROS "version 1") nodes with the PX4 Autopilot by using the [`ros1_bridge`](https://github.com/ros2/ros1_bridge) package (by Open Robotics) to bridge ROS 2 and ROS (1).
 
 :::note
@@ -20,7 +20,7 @@ Check-out the following presentations from the PX4 Maintainers, for a more detai
 
 ## Why Two Bridges (PX4/ROS2 vs PX4/Fast DDS)?
 
-The PX4 Autopilot [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
+The PX4 [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
 
 - They both have a client running on the PX4 Autopilot that communicates with an agent running on a companion computer.
 - The PX4 Autopilot firmware build process creates the client code.
