@@ -24,110 +24,110 @@ Holybro [S500 V2 키트](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pro
 * 433MHz Telemetry Radio / 915MHz Telemetry Radio
 * 전원 및 무선 조종기 케이블
 * 배터리 혁지
-* Dimensions:383*385*240mm
-* Wheelbase:480mm
+* 치수 - 383*385*240mm
+* 축거 : 480mm
 
 :::note
-No LiPo battery is included. In addition, we use a FrSky Taranis controller.
+LiPo 배터리는 포함되어 있지 않습니다. FrSky Taranis 무선 조종기를 사용하여 조립하는 경우를 설명합니다.
 :::
 
-## Hardware
+## 하드웨어
 
-| Item Description           | Quantity |
-| -------------------------- | -------- |
-| Wheelbase: 480mm           | 1        |
-| Arms                       | 4        |
-| Set of Landing Gear        | 2        |
-| M3*8 screws                | 18       |
-| M2 5*6 screws              | 24       |
-| Battery Straps             | 1        |
-| Propeller 1045 (V2 Update) | 1        |
+| 품목 설명               | 수량 |
+| ------------------- | -- |
+| 축거 : 480mm          | 1  |
+| 팔                   | 4  |
+| 착륙 기어 세트            | 2  |
+| M3*8 나사             | 18 |
+| M2 5*6 나사           | 24 |
+| 배터리 혁지              | 1  |
+| 프로펠러 1045 (V2 업데이트) | 1  |
 
 ![S500 Hardware](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hardware.jpg)
 
-## Package
-| Items                            | Package |
-| -------------------------------- | ------- |
-| Pixhawk 4                        | 1       |
-| Pixhawk4 GPS MODULE              | 1       |
-| I2C splitter Board               | 2       |
-| 6 to 6 pin cable (power)         | 3       |
-| 4 to 4 pin cable (CAN)           | 2       |
-| 6 to 4 pin cable (Data)          | 1       |
-| 10 to 10 pin cable (PWM)         | 2       |
-| 8 to 8 pin cable(AUX)            | 1       |
-| 7 to 7 pin cable(SPI)            | 1       |
-| 6 to 6 pin cable(Debug)          | 1       |
-| PPM/SBUS out cable               | 1       |
-| XSR receiver cable               | 1       |
-| DSMX receiver cable              | 1       |
-| SBUS receiver cable              | 1       |
-| USB cable                        | 1       |
-| 'X'type folding pedestal mount   | 1       |
-| 70mm & 140mm carbon rod standoff | 2       |
-| 6*3 2.54mm pitch Horizontal Pin  | 1       |
-| 8*3 2.54mm pitch Horizontal Pin  | 2       |
-| Foam Set                         | 1       |
-| Pixhawk4 Quick Start Guide       | 1       |
-| Pixhawk4 Pinouts                 | 1       |
-| GPS Quick Start Guide            | 1       |
+## 패키지
+| 항목                  | 패키지 |
+| ------------------- | --- |
+| Pixhawk 4           | 1   |
+| Pixhawk4 GPS 모듈     | 1   |
+| I2C 분리 보드           | 2   |
+| 6 ~ 6 핀 케이블 (전원)    | 3   |
+| 4 ~ 4 핀 케이블 (CAN)   | 2   |
+| 6 ~ 4 핀 케이블 (데이터)   | 1   |
+| 10 ~ 10 핀 케이블 (PWN) | 2   |
+| 8 ~ 8 핀 케이블 (AUX)   | 1   |
+| 7 ~ 7 핀 케이블 (SPI)   | 1   |
+| 6 ~ 6 핀 케이블 (디버깅)   | 1   |
+| PPM/SBUS 출력 케이블     | 1   |
+| XSR 수신기 케이블         | 1   |
+| DSMX 수신기 케이블        | 1   |
+| SBUS 수신기 케이블        | 1   |
+| USB 케이블             | 1   |
+| 'X'타입 접이식 받침대 마운트   | 1   |
+| 70mm 및 140mm 카본 받침대 | 2   |
+| 6*3 2.54mm 피치 수평 핀  | 1   |
+| 8*3 2.54mm 피치 수평 핀  | 2   |
+| 폼 세트                | 1   |
+| Pixhawk 4 빠른 시작 가이드 | 1   |
+| Pixhawk4 핀아웃        | 1   |
+| GPS 빠른 시작 가이드       | 1   |
 
 ![S500 Package Contents](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_package.jpg)
 
-### Electronics
-| Item Description                                 | Quantity |
-| ------------------------------------------------ | -------- |
-| Pixhawk 4 autopilot (PM06 not included)          | 1        |
-| Power Management PM02 (Assembled)                | 1        |
-| Motors - 2216 KV880 (V2 Update)                  | 4        |
-| Pixhawk 4 GPS                                    | 1        |
-| Fully assembled Power Management Board with ESCs | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1        |
+### 전자부품
+| 품목 설명                                           | 수량 |
+| ----------------------------------------------- | -- |
+| Pixhawk 4 autopilot（PM06 미포함)                   | 1  |
+| 전원 관리 PM02 (조립)                                 | 1  |
+| 모토 - 2216 KV880（V2 업데이트)                        | 4  |
+| Pixhawk 4 GPS                                   | 1  |
+| 조립된 ESC 전원 관리 보드                                | 1  |
+| 433MHz Telemetry Radio / 915MHz Telemetry Radio | 1  |
 
 ![S500 Electronics](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_electronics.jpg)
 
-### Tools needed
+### 필요 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
+- 1.5 mm 육각 스크류드라이버
+- 2.0 mm 육각 스크류드라이버
+- 2.5 mm 육각 스크류드라이버
+- 3mm 필립스 스크류드라이버
+- 전선 커터
+- 정밀 트위저
 
 ![S500 Tools](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_tools2.png)
 
 ![S500 Tools](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_tools.jpg)
 
-## Assembly
+## 조립
 
-Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+조립 예상 시간은 90 분, 프레임 조립에 약 45 분, QGroundControl의 자동조종장치 설정에 45 분입니다.
 
-1. Assembling the Landing Gear. We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole as shown below.
+1. 랜딩 기어 조립. 먼저 착륙 기어를 수직 기둥에 조립합니다. 랜딩 기어 나사를 풀고 수직 기둥을 삽입합니다.
 
    ![Figure 1](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig1.jpg)
 
    ![Figure 2](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig2.jpg)
 
-1. Assemble the Power Management Board to the landing gear. Screw the landing gear with a vertical pole to the Fully assembled Power Management Board.
+1. 전원 관리 보드를 랜딩 기어에 조립합니다. 조립된 전원 관리 보드에 수직 기둥이 있는 랜딩 기어를 나사로 고정합니다.
 
-  The Board has 4 holes (see arrows below).
+  보드에는 4 개의 구멍이 있습니다 (아래 화살표 참조).
 
   ![Figure 3](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig3.jpg)
 
-  Connect with the M3X8 screws, a total of 8 pieces, 4 on each side.
+  M3X8 나사 (총 8 개, 각 측면에 4 개)로 연결합니다.
 
   ![Figure 4](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig4.jpg)
 
-1. Assemble the arms to the Power Management Board. Attach the arm to the Power Management Board.
+1. 전원 관리 보드에 팔을 조립합니다. 전원 관리 보드에 팔을 조립합니다.
 
    ![Figure 6](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig7.jpg)
 
    ![Figure 7](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig8.jpg)
 
-   Use M2 5X6 screws a total of 2 in each arm. Insert the screws from the bottom of the plate.
+   각 암에 총 2 개의 M2 5X6 나사를 사용합니다. Insert the screws from the bottom of the plate.
 
    ![Figure 8](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig9.jpg)
 
