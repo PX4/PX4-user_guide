@@ -1,18 +1,18 @@
 # Lumenier QAV250 Pixhawk Mini 조립
 
-[Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250)는 작지만 완벽하게 작동하는 FPV 멀티 콥터 프레임입니다. This topic provides full build and configuration instructions for using the frame with the *Pixhawk Mini* flight controller, including how to install and configure the PX4 autopilot using *QGroundControl*.
+[Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250)는 작지만 완벽하게 작동하는 FPV 멀티 콥터 프레임입니다. *QGroundControl*을 사용하여 PX4 자동 조종 장치를 설치 및 구성하는 방법을 포함하여 * Pixhawk Mini* 비행 컨트롤러와 함께 프레임을 사용하기위한 전체 조립 방법 및 설정 방법을 설명합니다.
 
-Key information
+주요 정보
 
-- **Frame:** Lumenier QAV250 CF
-- **Flight controller:** Pixhawk Mini
-- **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot setup)
+- **프레임:** Lumenier QAV250 CF
+- **비행 컨트롤러:** Pixhawk Mini
+- **예상 조립 시간:** 3.5시간 (프레임 조립에 2시간, 오토파일럿 설정에 1.5시간)
 
 ![QAV250 - Complete build with pixhawk mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
 ![QAV250 - Complete build with pixhawk mini and props](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build.jpg)
 
-## Bill of materials
+## 부품 명세서
 
 The components used in this build are listed below (along with links to where they can be purchased). In general we used hardware recommended by the manufacturers for the flight controller and frame.
 
