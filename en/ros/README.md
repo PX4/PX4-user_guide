@@ -18,9 +18,8 @@ PX4 supports both the "original" ROS and ROS 2, with the following configuration
 
 - **[ROS 2](../ros/ros2.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros/ros2_comm.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types.
   This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
-- **ROS (1):**
-  - **ROS 1 via ROS 2:** PX4 connects first via the ROS 2 bridge and then via a second bridge ([ros1_bridge](https://github.com/ros2/ros1_bridge)) between ROS 2 and ROS 1.
-  - **[ROS (1) via MAVROS](../ros/ros1.md):** PX4 and ROS (1) communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
+- **[ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md):** PX4 connects first via the [PX4-ROS 2 bridge](../ros/ros2_comm.md) and then via a second bridge ([ros1_bridge](https://github.com/ros2/ros1_bridge)) between ROS 2 and ROS 1.
+- **[ROS (1) via MAVROS](../ros/ros1.md):** PX4 and ROS (1) communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
 
 
 ## ROS Support Roadmap
