@@ -41,6 +41,12 @@ Astute readers will note that since the generated agent might not have been buil
 Right now this is not a problem because the PX4 message set/definitions are relatively stable.
 In the near future the intention is that branches will be created to match with specific PX4 releases.
 
+:::warning
+You cannot use an agent generated as part of a "normal" PX4 build with ROS 2.
+While microRTPS client is the same, the IDL files used by ROS 2 are slightly different than used by normal DDS.
+We use the `px4_msg` to generate appropriate IDL files.
+:::
+
 
 ## Installation & Setup
 
