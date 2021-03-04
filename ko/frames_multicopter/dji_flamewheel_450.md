@@ -18,51 +18,51 @@
 - 프레임: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
 - 모토: 3DR Iris Plus 950kv rebranded T-Motors MN2213
 - ESCs: Hobbywing XRotor 35A Micro 3-6S BLHeli
-- Blades: Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
+- 블레이드: Graupner 10"x5" (M6와 호환되도록 [이 어댑터](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view)를 인쇄해야합니다.) <!--TODO-->
 
-- Distance sensor: Lidar-Lite V3
+- 거리 센서: Lidar-Lite V3
 
 - GPS: Here+ RTK GPS
-- Telemetry: 3DR Telemetry
-- Battery: Roxxy LiPo - 4S, 4000mAh
+- 텔레메트리: 3DR 텔레메트리
+- 배터리: Roxxy LiPo - 4S, 4000mAh
 
-In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis controller. You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build. The GPS mast was reused from an Intel Aero.
+또한, FrSky X4R-SB 3/16ch 2.4Ghz 수신기와 FrSky Taranis 컨트롤러를 사용합니다. 이번 조립에는 동일한 블레이드를 사용하는 경우 지퍼 타이, 양면 테이프, 납땜 인두 및 3D 프린터도 필요합니다. GPS 마스트는 Intel Aero에서 재사용되었습니다.
 
 ![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.jpg)
 
-The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU inside is already dampened.
+*Pixhawk 3 Pro*는 내부 IMU가 이미 축축되어 있기 때문에 양면 테이프를 사용하여 부착 할 수 있습니다.
 
-In this setup the autopilot is rotated by 180 degrees so that it's easier to access the SD card. But if you rotate the base plate by 180 degrees instead, the flight controller board can be mounted facing forward. Either way works, just make sure to set the board rotation correctly in *QGroundControl* afterwards.
+이 설정에서는 자동 조종 장치가 180도 회전되어 SD 카드에 접근이 더욱 용이합니다. 그러나, 베이스 플레이트를 180도 돌리면, 비행 컨트롤러 보드를 전면에 장착할 수 있습니다. 두 방법 모두 가능하나, *QGroundControl*에서 보드 회전의 설정을 확인하여야 합니다.
 
-## Wiring and Connections
+## 배선
 
-General pinout for the Pixhawk 3 Pro can be found [here](https://drotek.gitbook.io/pixhawk-3-pro/hardware/inputs-outputs).
+Pixhawk 3 Pro의 일반 핀아웃은 [여기](https://drotek.gitbook.io/pixhawk-3-pro/hardware/inputs-outputs)에서 조회할 수 있습니다.
 
-### 3DR Telemetry
+### 3DR 텔레메트리
 
-The 3DR Telemetry does not come with a JST GH connector which the *Pixhawk 3 Pro* uses. The pinout remains the same and just the plug needs to be changed. Use the Telem 1 port on the *Pixhawk 3 Pro*.
+3DR 텔레메트리는 *Pixhawk 3 Pro*가 사용하는 JST GH 커넥터와 함께 제공되지 않습니다. 핀아웃은 동일하게 유지되며 플러그만 변경하면됩니다. *Pixhawk 3 Pro*의 Telem 1 포트를 사용하세요.
 
-| pin | Pixhawk 3 Pro Telem 1 | 3DR Telemetry |
-| --- | --------------------- | ------------- |
-| 1   | VCC                   | VCC           |
-| 2   | TX                    | RX            |
-| 3   | RX                    | TX            |
-| 4   | CTS                   | CTS           |
-| 5   | RTS                   | RTS           |
-| 6   | GND                   | GND           |
+| 핀 | Pixhawk 3 Pro Telem 1 | 3DR 텔레메트리 |
+| - | --------------------- | --------- |
+| 1 | VCC                   | VCC       |
+| 2 | TX                    | RX        |
+| 3 | RX                    | TX        |
+| 4 | CTS                   | CTS       |
+| 5 | RTS                   | RTS       |
+| 6 | GND                   | GND       |
 
 ### Lidar-Lite V3
 
-The pinout for the *Lidar Lite V3* and the *Pixhawk 3 Pro* I2C 1 port is as follows.
+*Lidar Lite V3*와 *Pixhawk 3 Pro* I2C 1 포트의 핀아웃은 다음과 같습니다.
 
-| pin | Pixhawk 3 Pro I2C 1 | Lidar Lite V3    |
-| --- | ------------------- | ---------------- |
-| 1   | VCC                 | VCC              |
-| 2   | SCL                 | - (Power enable) |
-| 3   | SDA                 | - (Mode control) |
-| 4   | GND                 | SCL              |
-| 5   | -                   | SDA              |
-| 6   | -                   | GND              |
+| 핀 | Pixhawk 3 Pro I2C 1 | Lidar Lite V3    |
+| - | ------------------- | ---------------- |
+| 1 | VCC                 | VCC              |
+| 2 | SCL                 | - (Power enable) |
+| 3 | SDA                 | - (Mode control) |
+| 4 | GND                 | SCL              |
+| 5 | -                   | SDA              |
+| 6 | -                   | GND              |
 
 ### Here+ RTK GPS
 
