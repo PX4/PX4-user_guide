@@ -28,7 +28,7 @@
 
 또한, FrSky X4R-SB 3/16ch 2.4Ghz 수신기와 FrSky Taranis 컨트롤러를 사용합니다. 이번 조립에는 동일한 블레이드를 사용하는 경우 지퍼 타이, 양면 테이프, 납땜 인두 및 3D 프린터도 필요합니다. GPS 마스트는 Intel Aero에서 재사용되었습니다.
 
-![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.jpg)
+![F450 설정-열기](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.jpg)
 
 *Pixhawk 3 Pro*는 내부 IMU가 이미 축축되어 있기 때문에 양면 테이프를 사용하여 부착 할 수 있습니다.
 
@@ -66,56 +66,56 @@ Pixhawk 3 Pro의 일반 핀아웃은 [여기](https://drotek.gitbook.io/pixhawk-
 
 ### Here+ RTK GPS
 
-The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order to use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector has to be used and pin 6 and 7 are not needed (see below). The additional pins are for the safety button and can be attached as well if needed. More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf), page 17.
+Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. *Pixhawk 3 Pro* (또는 Pixracer)와 함께 사용하려면 6 핀 커넥터를 사용해야하며 핀 6과 7은 필요하지 않습니다 (아래 참조). 추가 핀은 안전 버튼용이며 필요한 경우 부착 할 수 있습니다. 핀아웃에 대한 상세한 내용은 17 페이지의 [이 문서](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf)에서 확인하십시오.
 
-![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.jpg)
+![GPS 설정하기](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.jpg)
 
-| pin | Here+ GPS  | pin | Pixhawk 3 Pro GPS |
-| --- | ---------- | --- | ----------------- |
-| 1   | VCC_5V     | 1   | VCC               |
-| 2   | GPS_RX     | 2   | GPS_TX            |
-| 3   | GPS_TX     | 3   | GPS_RX            |
-| 4   | SCL        | 4   | SCL               |
-| 5   | SDA        | 5   | SDA               |
-| 6   | BUTTON     | -   | -                 |
-| 7   | BUTTON_LED | -   | -                 |
-| 8   | GND        | 6   | GND               |
+| 핀 | Here+ GPS  | 핀 | Pixhawk 3 Pro GPS |
+| - | ---------- | - | ----------------- |
+| 1 | VCC_5V     | 1 | VCC               |
+| 2 | GPS_RX     | 2 | GPS_TX            |
+| 3 | GPS_TX     | 3 | GPS_RX            |
+| 4 | SCL        | 4 | SCL               |
+| 5 | SDA        | 5 | SDA               |
+| 6 | BUTTON     | - | -                 |
+| 7 | BUTTON_LED | - | -                 |
+| 8 | GND        | 6 | GND               |
 
-## Configuration
+## 설정
 
-General documentation on how to setup your quad in *QGroundControl* can be found in [Basic Configuration](../config/README.md). Specific setup instructions are provided below.
+*QGroundControl*에서 쿼드콥터를 설정법에 대한 일반 문서는 [기본 구성](../config/README.md)을 참고하십시오. 특정한 설정에 관련된 지침이 아래에서 제공됩니다.
 
-### Airframe
+### 기체
 
-Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
+**QGC > Airframe> Quadrotor x**에서 기체 **DJI Flame Wheel 450**을 선택합니다.
 
-![Select airframe QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
+![기체 QGC 선택](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
 
 ### RTK GPS
 
-RTK GPS is plug and play. For more instructions see [here](../advanced_features/rtk-gps.md).
+RTK GPS는 플러그 앤 플레이입니다. 자세한 내용은 [여기](../advanced_features/rtk-gps.md)를 참조하십시오.
 
 ### Lidar-Lite
 
-To enable the *Lidar-Lite V3* (connected via I2C), the parameter [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) has to be set to `I2C`.
+*Lidar-Lite V3* (I2C를 통해 연결됨)를 활성화하려면 [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) 매개 변수를 `I2C`로 설정해야합니다.
 
-This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) as shown below:
+이 작업은 아래와 같이 *QGroundControl* [매개 변수](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html)에서 수행할 수 있습니다.
 
-![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
+![QGC에서 SENS_EN_LL40LS 매개 변수 설정](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 
 :::note
-After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
+`SENS_EN_LL40LS`를 설정한 다음에는 비행 컨트롤러를 재부팅하여야 합니다.
 :::
 
-### Others
+### 기타
 
-Set the following parameters as well:
+아래의 매개 변수도 설정하십시오.
 
-- `EKF2_HGT_MODE=2`: this makes sure the Lidar-Lite is used as height source
-- `MAV_PROTO_VER=2`: use MAVLink protocol version 2
-- `CBRK_IO_SAFETY=22027`: disable the safety button
-- `EKF2_GPS_POS_X`, `EKF2_GPS_POS_Y`, `EKF2_GPS_POS_Z`: set the GPS device offset with respect to the board (NED coordinates).
+- `EKF2_HGT_MODE = 2` : Lidar-Lite가 고도값의 소스로 사용되는 지 확인합니다.
+- `MAV_PROTO_VER = 2` : MAVLink 프로토콜 버전 2 사용
+- `CBRK_IO_SAFETY = 22027` : 안전 버튼 비활성화
+- `EKF2_GPS_POS_X`, `EKF2_GPS_POS_Y`, `EKF2_GPS_POS_Z` : 보드 (NED 좌표)를 기준으로 GPS 장치 오프셋을 설정합니다.
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/JovSwzoTepU)
+@[유투브](https://youtu.be/JovSwzoTepU)
