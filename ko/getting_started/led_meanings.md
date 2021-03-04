@@ -1,6 +1,6 @@
 # LED 신호 설명 (Pixhawk 시리즈)
 
-Pixhawk 비행 컨트롤러 시리즈</ 0>는 LED에 기체의 현 상태를 표출합니다.</p> 
+[Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 기체의 현재 상태를 LED에 표시합니다.
 
 * [UI LED](#ui_led)는 *비행 준비*와 관련된 사용자에게 필요한 상태 정보를 제공합니다.
 * [상태 LED](#status_led)는 PX4IO 및 FMU SoC에 대한 상태를 제공합니다. 전원, 부트 로더 모드, 활동 및 오류를 나타냅니다.

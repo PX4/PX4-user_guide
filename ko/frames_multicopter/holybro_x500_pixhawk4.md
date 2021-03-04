@@ -8,7 +8,7 @@
 - **비행 컨트롤러:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **조립 시간 (예상):** 2시간 (프레임 조립에 75분, 오토파일럿 설치 및 설정에 45분)
 
-![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
+![전체 X500 키트](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
 ## 부품 명세서
 
@@ -16,283 +16,282 @@ Holybro [X500 키드](https://shop.holybro.com/x500-kit_p1180.html)에는 필수
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
 * Pixhawk 4 GPS
-* Battery Strap
-* Propellers - 1045
-* Motors - 2216 KV880
-* Power and Radio Cables
-* Power Management - PM07
+* 배터리 스트랩
+* 프로펠러 - 1045
+* 모터 - 2216 KV880
+* 전원 및 무선 조종기 케이블
+* 전원 관리 - PM07
 * Wheelbase - 500 mm
-* Dimensions - 410*410*300 mm
+* 치수 - 410 *410* 300mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)). This build uses:
-
-* Receiver: FR SKY Taranis
-* Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
-
-## Hardware
-
-This section lists all hardware for the frame and the autopilot installation.
-
-| Item                         | Description                                       | Quantity |
-| ---------------------------- | ------------------------------------------------- | -------- |
-| Socket cap scre              | Used for motor fixing, stainless steel screw M3*5 | 16       |
-| Carbon fiber tube - Arm      | Diameter: 16mm length: 200mm                      | 4        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts           | 4        |
-| Slide bar                    | Diameter: 10mm length: 250mm                      | 2        |
-| Battery mounting board       | Thickness: 2mm                                    | 1        |
-| Battery pad                  | 3mm Silicone sheet black                          | 1        |
-| Pylons                       | Engineering plastic embedded with copper nut      | 2        |
-| Cross countersunk head screw | Stainless steel M2.5*5mm                          | 12       |
-| PAN/TILT platform board      | Thickness: 2mm                                    | 1        |
-| Hanger rubber ring gasket    | Inner hole diameter: 10mm black                   | 8        |
-| Hanger                       | Engineering plastic embedded with copper nut      | 8        |
-| Carbon fiber - Bottom plate  | The thickness of 2mm                              | 1        |
-| Socket cap screw             | Stainless steel M2.5*6mm                          | 8        |
-| Nylon stud                   | Black M3*6+6                                      | 4        |
-| Nylon screw                  | Black M3*6                                        | 4        |
-| Carbon fiber - Top plate     | Thickness: 1.5mm                                  | 1        |
-| Pan head screw               | Metal black M3*30mm                               | 16       |
-| Nylon strap                  | U- shape, of 16mm carbon fiber tube               | 16       |
-| Nylon nut                    | Black M3                                          | 4        |
-| Locknut                      | Metal black M3                                    | 16       |
-| Socket cap screw             | Metal black M3*8mm                                | 8        |
-| Landing gear - Vertical pole | Carbon fiber tube+engineering plastic+fastener    | 2        |
-| Landing gear - Cross bar     | Composed of carbon fiber tube and multiple parts  | 2        |
+또한 배터리와 수신기([호환 무선 조종기](../getting_started/rc_transmitter_receiver.md))가 필요합니다. 이 조립 예제에서는 다음의 부품들을 사용합니다.
+
+* 수신기: FR SKY Taranis
+* 배터리: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+
+## 하드웨어
+
+프레임과 자율비행프로그램 설치를 위한 하드웨어들 입니다.
+
+| 항목              | 설명                           | 수량 |
+| --------------- | ---------------------------- | -- |
+| 소켓 캡 나사         | 모터 고정에 사용, 스테인레스 스틸 나사 M3*5  | 16 |
+| 탄소 섬유 튜브-암      | 직경 : 16mm, 길이 : 200mm        | 4  |
+| 모터 베이스          | 6 개의 부품과 4 개의 나사로 구성 4 개의 너트 | 4  |
+| 슬라이드 바          | 직경 : 10mm, 길이 : 250mm        | 2  |
+| 배터리 장착 보드       | 두께: 2mm                      | 1  |
+| 배터리 패드          | 3mm 실리콘 시트 검정                | 1  |
+| 철탑              | 구리 너트가 내장된 엔지니어링 플라스틱        | 2  |
+| 십자 접시 머리 나사     | 스테인리스  M2.5*5mm              | 12 |
+| PAN/TILT 플랫폼 보드 | 두께: 2mm                      | 1  |
+| 행거 고무링 개스킷      | 내부 구멍 직경 : 10mm 검정           | 8  |
+| 헹거              | 구리 너트가 내장된 엔지니어링 플라스틱        | 8  |
+| 탄소 섬유 - 바닥 판    | 두께 2mm                       | 1  |
+| 소켓 캡 나사         | 스테인리스  M2.5*6mm              | 8  |
+| 나일론 스터드         | 검정 M3*6+6                    | 4  |
+| 나일론 나사          | 검정 M3*6                      | 4  |
+| 탄소 섬유 - 상판      | 두께: 1.6mm                    | 1  |
+| 냄비 머리 나사        | 금속 검정 M3*30mm                | 16 |
+| 나일론 스트랩         | 16mm 탄소 섬유 튜브의 U 자형          | 16 |
+| 나일론 너트          | 검정 M3                        | 4  |
+| Locknut         | 금속 검정 M3                     | 16 |
+| 소켓 캡 나사         | 금속 검정 M3*8mm                 | 8  |
+| 착륙 기어 - 수직 막대   | 탄소 섬유 튜브 + 엔지니어링 플라스틱 + 패스너  | 2  |
+| 착륙 기어 - 크로스바    | 탄소 섬유 튜브와 여러 부품으로 구성         | 2  |
 
-![X500 Components for Frame](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
+![X500 프레임 부품](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
 
-## Package
+## 패키지
 
-| Items                            | Package |
-| -------------------------------- | ------- |
-| Pixhawk 4                        | 1       |
-| Pixhawk4 GPS MODULE              | 1       |
-| I2C splitter Board               | 2       |
-| 6 to 6 pin cable (power)         | 3       |
-| 4 to 4 pin cable (CAN)           | 2       |
-| 6 to 4 pin cable (Data)          | 1       |
-| 10 to 10 pin cable (PWM)         | 2       |
-| 8 to 8 pin cable(AUX)            | 1       |
-| 7 to 7 pin cable(SPI)            | 1       |
-| 6 to 6 pin cable(Debug)          | 1       |
-| PPM/SBUS out cable               | 1       |
-| XSR receiver cable               | 1       |
-| DSMX receiver cable              | 1       |
-| SBUS receiver cable              | 1       |
-| USB cable                        | 1       |
-| 'X'type folding pedestal mount   | 1       |
-| 70mm & 140mm carbon rod standoff | 2       |
-| 6*3 2.54mm pitch Horizontal Pin  | 1       |
-| 8*3 2.54mm pitch Horizontal Pin  | 2       |
-| Foam Set                         | 1       |
-| Pixhawk4 Quick Start Guide       | 1       |
-| Pixhawk4 Pinouts                 | 1       |
-| GPS Quick Start Guide            | 1       |
+| 항목                  | 패키지 |
+| ------------------- | --- |
+| Pixhawk 4           | 1   |
+| Pixhawk4 GPS 모듈     | 1   |
+| I2C 스플리터 보드         | 2   |
+| 6 ~ 6 핀 케이블 (전원)    | 3   |
+| 4 ~ 4 핀 케이블 (CAN)   | 2   |
+| 6 ~ 4 핀 케이블 (데이터)   | 1   |
+| 10 ~ 10 핀 케이블 (PWN) | 2   |
+| 8 ~ 8 핀 케이블 (AUX)   | 1   |
+| 7 ~ 7 핀 케이블 (SPI)   | 1   |
+| 6 ~ 6 핀 케이블 (디버깅)   | 1   |
+| PPM/SBUS 출력 케이블     | 1   |
+| XSR 수신기 케이블         | 1   |
+| DSMX 수신기 케이블        | 1   |
+| SBUS 수신기 케이블        | 1   |
+| USB 케이블             | 1   |
+| 'X'타입 접이식 받침대 마운트   | 1   |
+| 70mm 및 140mm 카본 받침대 | 2   |
+| 6*3 2.54mm 피치 수평 핀  | 1   |
+| 8*3 2.54mm 피치 수평 핀  | 2   |
+| 폼 세트                | 1   |
+| Pixhawk 4 빠른 시작 가이드 | 1   |
+| Pixhawk4 핀아웃        | 1   |
+| GPS 빠른 시작 가이드       | 1   |
 
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
+![X500  전체 패키지 내용](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
 
-### Electronics
+### 전자부품
 
-| Item Description                                 | Quantity |
-| ------------------------------------------------ | -------- |
-| Pixhawk 4 autopilot（PM06 not included)           | 1        |
-| Power Management PM02（Assembled)                 | 1        |
-| Motors - 2216 KV880（V2 Update)                   | 4        |
-| Pixhawk 4 GPS                                    | 1        |
-| Fully assembled Power Management Board with ESCs | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1        |
+| 항목 설명                                           | 수량 |
+| ----------------------------------------------- | -- |
+| Pixhawk 4 autopilot（PM06 not included)          | 1  |
+| 전원 관리 PM02 (조립)                                 | 1  |
+| 모토 - 2216 KV880（V2 Update)                      | 4  |
+| Pixhawk 4 GPS                                   | 1  |
+| 조립된 ESC 전원 관리 보드                                | 1  |
+| 433MHz Telemetry Radio / 915MHz Telemetry Radio | 1  |
 
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
+![X500  전체 패키지 내용](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
 
-### Tools needed
+### 필요 공구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-- 1.5 mm Hex screwdriver
-- 2.0 mm Hex screwdriver
-- 2.5 mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
+- 1.5 mm 육각 스크류드라이버
+- 2.0 mm 육각 스크류드라이버
+- 2.5 mm 육각 스크류드라이버
+- 3mm Phillips 스크류드라이버
+- 전선 커터
+- 정밀 트위저
 
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
+![X500  전체 패키지 내용](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
 
 
-## Assembly
+## 조립
 
-Estimate time to assemble is 120 minutes, about 75 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+조립 예상 시간은 120 분, 프레임 조립의 경우 약 75 분, QGroundControl에서 자동조종장치 설정에 45 분입니다.
 
-**Step 1:** We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole, see figures 1 and 2.
+**1 단계 :** 먼저 착륙 기어를 수직 기둥에 조립합니다. 랜딩 기어 나사를 풀고 수직 기둥을 삽입합니다 (그림 1 및 2 참조).
 
-![Landing Figure 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
+![착륙 그림 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-(Figure 1)
+(그림 1)
 
-![Landing Figure 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
+![착륙 그림 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-(Figure 2)
+(그림 2)
 
-**Step 2:** We proceed to arm the motor holder by using 4 U-shaped nylon straps to attach the holder to the carbon fiber arm as shown in figure 3.
+**2 단계 :** 그림 3과 같이 4 개의 U 자형 나일론 스트랩을 사용하여 홀더를 탄소 섬유 암에 부착하여 모터 홀더를 장착합니다.
 
-![Motor](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
+![모터](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-(Figure 3)
+(그림 3)
 
-**Step 3:** Attach the power management PM02 to the bottom plate as shown in Figures 4 and 5.
+**3 단계 :** 그림 4 및 5와 같이 전원 관리 PM02를 하단 플레이트에 부착합니다.
 
-![Power Management](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
+![전원 관리](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
 
-(Figure 4)
+(그림 4)
 
-![Power Management 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
+![전원 관리 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-(Figure 5)
+(그림 5)
 
-**Step 4:**  Assemble the lower plate to the landing gears. Screw the landing gear with a vertical pole to the bottom plate.
+**4 단계 :** 하부 플레이트를 랜딩 기어에 조립합니다. 수직 기둥이 있는 랜딩 기어를 바닥 판에 나사로 고정합니다.
 
-The lower plate has 4 holes (see Figure 4 arrows) use the M3X8 screws, a total of 8 pieces, 4 on each side.
+하단 플레이트에는 4 개의 구멍이 있습니다 (그림 4 화살표 참조). M3X8 나사를 사용하여 총 8 개, 각 측면에 4 개씩.
 
-![Power Management 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
+![전원 관리 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
 
-(Figure 6)
+(그림 6)
 
-**Step 5:** Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount see Figure 7.
+**5 단계 :** 배터리 마운트를 프레임에 조립합니다. 이를 위해 M2 5X6 나사와 배터리 마운트가 필요합니다 (그림 7 참조).
 
-![Battery Mount 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
+![배터리 장착 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
 
-(Figure 7)
+(그림 7)
 
-Insert the long rods to the small rings see Figure 8 and 9.
+긴 막대를 작은 링에 삽입합니다 (그림 8 및 9 참조).
 
-![Battery Mount 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
+![배터리 장착 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-(Figure 8)
+(그림 8)
 
-![Battery Mount 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
+![배터리 장착 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
 
-(Figure 9)
+(그림 9)
 
-With the battery holder completely armed, screw it where arrow shown in the image as shown in Figure 10; keep in mind GPS module will be facing front.
+배터리 홀더가 장착 된 상태에서 그림 10과 같이 이미지에 표시된 화살표 위치에 나사를 조입니다. GPS 모듈이 전방을 향하도록 설치하여야  합니다.
 
-![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
+![배터리 장착 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-(Figure 10)
+(그림 10)
 
-**Step 6:** Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin, see Figure 11.
+**6 단계 :** 8 * 3 2.54mm 피치 수평 핀을 전원 관리 보드의 10 ~ 10 핀 케이블 (PWM)에 조립합니다. 10 ~ 10 핀 케이블 (PWM)을 8 * 3 2.54mm 피치 수평 핀에 연결합니다 (그림 11 참조).
 
-![Power Module 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
+![전원 모듈 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
 
-(Figure 11)
+(그림 11)
 
-Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, see Figure 12 stick the Horizontal Pin to the Power Management Board, see Figure 13.
+3M 테이프 조각을 잘라 수평 핀 하단에 부착합니다 (그림 12 참조) 수평 핀을 전원 관리 보드에 부착 (그림 13 참조).
 
-![Power Module 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
+![전원 모듈 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
 
-(Figure 12)
+(그림 12)
 
-![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
+![전원 모듈 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
 
-(Figure 13)
+(그림 13)
 
-**Step 7:** Install vehicle Arms to the main body. Take the ESC and push it in the Arm tube as shown in Figure 14 and make sure that the ESC cables are not too long since we will push them back in as shown in Figure 15.
+**7 단계 :** 차량 암을 본체에 설치합니다. ESC를 그림 14와 같이 Arm 튜브에 밀어 넣고, 그림 15와 같이 ESC 케이블을 다시 밀어 넣을 것이기 때문에 ESC 케이블이 너무 길지 않은지 확인합니다.
 
-![Arms 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
+![팔 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
 
-(Figure 14)
+(그림 14)
 
-![Arms 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
+![팔 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
 
-(Figure 15)
+(그림 15)
 
-**Step 8:** Assemble arm to main body.
+**8 단계 :** 암을 본체에 조립합니다.
 
-With 4 more U-shaped nylon straps attach the arm with the motor installed to the body of the vehicle as shown in Figure 16, this way you also attach the bottom plate to the top plate.
+4 개의 U 자형 나일론 스트랩을 더 사용하여 그림 16과 같이 모터가 설치된 암을 차량 본체에 부착합니다. 이렇게 하면 하단 플레이트도 상단 플레이트에 부착됩니다.
 
-Keep in mind to have the arm tube a bit pushed in to that it can be kept securely in place as shown in the Red Square from Figure 16.
+암 튜브를 약간 밀어 넣어 그림 16의 붉은 광장에 표시된 것처럼 제자리에 단단히 고정되도록하십시오.
 
-![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
+![팔 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
-(Figure 16)
+(그림 16)
 
-**Step 9:** Connect Motors cables.
+**9 단계 :** 모터 케이블을 연결합니다.
 
-After the 4 arms are mounted on to the main body, connect the cables (red, blue, black) and push them into the arm tube, see Figures 17.
+4 개의 암이 본체에 장착 된 후 케이블 (빨간색, 파란색, 검은 색)을 연결하고 암 튜브에 밀어 넣습니다 (그림 17 참조).
 
-The 3 cables that are color-coded go connected to the ESC.
+색상으로 구분된 3 개의 케이블이 ESC에 연결됩니다.
 
-![Motors 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg)
+![모터 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg)
 
-(Figure 17)
+(그림 17)
 
-**Step 10:** Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
+**10 단계 :** 프레임에 GPS 장착. 이를 위해서는 Pixhawk 4 GPS와 마운팅 플레이트가 필요합니다.
 
-Mount GPS mast to the plate, use the 4 screws see the red circle in Figure 18, keep in mind that the plate is mounted to the battery holder tubes as indicated by the arrows in Figure 18.
+GPS 마스트를 플레이트에 장착하고, 4 개의 나사를 사용하여 그림 18의 빨간색 원을 참조하고, 플레이트가 그림 18의 화살표로 표시된대로 배터리 홀더 튜브에 장착된다는 점을 유의하십시오.
 
 ![GPS 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig18.jpg)
 
-(Figure 18)
+(그림 18)
 
-Use the tape and stick the GPS to the top of the GPS mast, see Figure 19.
+테이프를 사용하고 GPS를 GPS 마스트 상단에 붙입니다 (그림 19 참조).
 
 ![GPS 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig19.jpg)
 
-(Figure 19)
+(그림 19)
 
-**Step 11:** Pixhawk 4 wiring. The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
+**11 단계 :** Pixhawk 4 배선. Pixhawk 4의 배선 방법은 몇 가지가 다릅니다. 아래에는 Pixhawk에 필요한 모든 전선과 연결시의 모습이 기술되어 있습니다.
 
-Plugin Telemetry and GPS module to the flight controller as seen in Figure 20; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module as shown in Figure 21.
+플러그인 원격 측정 및 GPS 모듈을 비행 컨트롤러에 연결합니다 (그림 20 참조). RC 수신기, 4 개의 ESC 모두를 비행 컨트롤러와 전원 모듈에 연결합니다 (그림 21 참조).
 
-![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig20.png)
+![Pixhawk 4 배선 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig20.png)
 
-(Figure 20)
+(그림 20)
 
-![Pixhawk 4 wiring 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig21.png)
+![Pixhawk 4 배선 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig21.png)
 
-(Figure 21)
+(그림 21)
 
-![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
+![키트 조립](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
 
-(Fully assembled X500 Kit)
+(완전 조립된 X500 키트)
 
 <span id="configure"></span>
-## Install/Configure PX4
+## PX4 설치 및 설정
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*에서 PX4 자율비행 프로그램을 설치하고 QAV250 프레임 설정과 보정 작업을 진행합니다. *QGroundControl*을 [다운로드 후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
-:::tip
-Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+:::tip PX4 설치 및 설정 매뉴얼은 [기본 설정](../config/README.md)편을 참고하십시오.
 :::
 
-First update the firmware and airframe:
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+먼저, 펌웨어와 기체프레임을 업데이트 합니다.
+* [펌웨어](../config/firmware.md)
+* [기체](../config/airframe.md)
 
 :::note
-You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
+*Holybro S500* 기체 (**Quadrotor x > Holybro S500**)를 선택하여야 합니다.
 :::
 
-![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+![QGroundContro l - HolyBro S500 기체 선택](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
-Then perform the mandatory setup/calibration:
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+다음에는 필수작업인 설정작업과 보정 작업을 진행합니다.
+* [센서 방향](../config/flight_controller_orientation.md)
+* [나침반](../config/compass.md)
+* [가속도계](../config/accelerometer.md)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [무선 조종기 설정](../config/radio.md)
+* [비행 모드](../config/flight_mode.md)
 
-Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+다음 작업들은 반드시 진행하여야 합니다.
+* [ESC 보정](../advanced_config/esc_calibration.md)
+* [배터리](../config/battery.md)
+* [안전 설정](../config/safety.md)
 
-## Tuning
+## 튜닝
 
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+기체 선택은 프레임의 자유비행 관련 *기본*적인 매개 변수를 설정합니다. 이 상태로도 비행이 가능하지만, 특정 기체에 관련된 변수들을 조정하는 것이 바람직합니다.
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
+튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
 
-## Acknowledgements
+## 감사의 글
 
-This build log was provided by the Dronecode Test Flight Team.
+이 조립 방법은 Dronecode Test Flight Team에서 제공했습니다.
