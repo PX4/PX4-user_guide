@@ -1,7 +1,5 @@
 # ROS 2
 
-
-
 [ROS 2](https://index.ros.org/doc/ros2/) is the newest version of [ROS](http://www.ros.org/) (Robot Operating System), a general purpose robotics library that can be used with the PX4 Autopilot to create powerful drone applications.
 It captures most of the learnings and recently added features of [ROS (1)](ros/ros1.md), improving a number of flaws of the earlier version.
 
@@ -13,8 +11,8 @@ The translation layer between ROS 2 and PX4 is software known as the [PX4-ROS 2 
 This provides a bridge between PX4 UORB messages and ROS 2 messages and types, effectively allowing direct access to PX4 from ROS 2 workflows and nodes.
 The bridge uses UORB message definitions and correspondent IDL types to generate code to serialise and deserialise the messages heading in and out of PX4.
 
-The main topics covered are:
-- [ROS 2 microRTPS bridge](../ros/ros2_comm.md)
+The main topics in this section are:
+- [ROS 2 User Guide](../ros/ros2_comm.md): an overview how to use ROS 2 with PX4 (covering the PX4-ROS2 bridge, installation/setup, and how to build ROS 2 applications for PX4).
 - [ROS 2 microRTPS Offboard Control Example](../ros/ros2_offboard_control.md)
 
 :::note
