@@ -8,20 +8,20 @@ It provides an overview of the ROS2-PX4 bridge architecture and application pipe
 2. How to connect ROS (ROS "version 1") nodes with the PX4 Autopilot by using the [`ros1_bridge`](https://github.com/ros2/ros1_bridge) package (by Open Robotics) to bridge ROS 2 and ROS (1).
 
 :::note
-The Fast DDS interface in the PX4 Autopilot can be leveraged with any applications running and linked in DDS domains (including ROS nodes).
+The Fast DDS interface in the PX4 Autopilot can be leveraged by any applications running and linked in DDS domains (including ROS nodes).
 
-For information about using the *microRTPS bridge (Fast DDS)* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
+For information about using the *microRTPS bridge* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
 :::
 
 :::note
-For a more detailed and visual explanation on how to use the microRTPS bridge with ROS 2 checkout these presentations from the PX4 maintainers:
+For a more detailed and visual explanation on how to use PX4 with ROS 2 see these presentations from the PX4 maintainers:
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
 
 ## Why Two Bridges (PX4/ROS2 vs PX4/Fast DDS)?
 
-The "PX4-ROS2 bridge" is a bridge between the PX4 Autopilot and ROS 2.
+The "PX4-ROS2 bridge" is a bridge between the PX4 and ROS 2.
 It is made available through the PX4 [microRTPS bridge](../middleware/micrortps.md) middleware, and the supporting projects available to interface with ROS 2: [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
 
 The PX4 [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
