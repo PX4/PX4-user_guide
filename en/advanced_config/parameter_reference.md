@@ -1418,7 +1418,7 @@ Set -1 to disable the check    </td>
 </tr>
 <tr>
  <td><strong id="COM_ARM_SWISBTN">COM_ARM_SWISBTN</strong> (INT32)</td>
- <td>Arm switch is only a button <p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p>   </td>
+ <td>Arm switch is a momentary button <p><strong>Comment:</strong> 0: Arming/disarming triggers on switch transition. 1: Arming/disarming triggers when holding the momentary button down for COM_RC_ARM_HYST like the stick gesture.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
  <td></td>
@@ -1957,15 +1957,16 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
  <td><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
  <td>Enable RC stick override of auto and/or offboard modes <p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks more than COM_RC_STICK_OV from their center position immediately gives control back to the pilot by switching to Position mode. Note: Only has an effect on multicopters, and VTOLs in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override during auto modes (except for in critical battery reaction)</li> 
   <li><strong>1:</strong> Enable override during offboard mode</li> 
+  <li><strong>2:</strong> Ignore throttle stick</li> 
 </ul>
  </td>
- <td>0 > 3 </td>
+ <td>0 > 7 </td>
  <td>1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="COM_RC_STICK_OV">COM_RC_STICK_OV</strong> (FLOAT)</td>
- <td>RC stick override threshold <p><strong>Comment:</strong> If COM_RC_OVERRIDE is enabled and the joystick input controlling the horizontally axis (right stick for RC in mode 2) is moved more than this threshold from the center the autopilot switches to position mode and the pilot takes over control.</p>   </td>
+ <td>RC stick override threshold <p><strong>Comment:</strong> If COM_RC_OVERRIDE is enabled and the joystick input is moved more than this threshold the autopilot the pilot takes over control.</p>   </td>
  <td>5 > 80 (0.05)</td>
  <td>30.0</td>
  <td>%</td>
