@@ -391,7 +391,7 @@
   * [Offboard Control from Linux](ros/offboard_control.md)
   * [ROS](ros/README.md)
     * [ROS 2](ros/ros2.md)
-      * [ROS 2 microRTPS bridge](ros/ros2_comm.md)
+      * [ROS 2 Overview/Installation](ros/ros2_comm.md)
       * [ROS 2 microRTPS Offboard Control Example](ros/ros2_offboard_control.md)
     * [ROS (1) with MAVROS](ros/ros1.md)
       * [ROS/MAVROS Installation Guide](ros/mavros_installation.md)

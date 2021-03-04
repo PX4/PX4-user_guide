@@ -1,6 +1,7 @@
-# ROS 2 with the PX4-ROS2 bridge (Fast DDS)
+# ROS 2 User Guide (PX4-ROS 2 Bridge)
 
-This section of the guide explains the bridge between the PX4 Autopilot and ROS 2, which is made available through the PX4 [microRTPS bridge](../middleware/micrortps.md) middleware, and the supporting projects available to interface with ROS 2: [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
+This topic explains how to setup and use ROS 2 with PX4.
+It provides an overview of the ROS2-PX4 bridge architecture and application pipeline, along with instructions on how to install all the needed software and build ROS 2 applications.
 
 **In this guide you will learn:**
 1. How to connect ROS 2 nodes with the PX4 Autopilot, using the [microRTPS bridge](../middleware/micrortps.md), and the [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package.
@@ -13,12 +14,15 @@ For information about using the *microRTPS bridge (Fast DDS)* without ROS 2, see
 :::
 
 :::note
-Check-out the following presentations from the PX4 Maintainers, for a more detailed and visual explanation on how to use the microRTPS bridge with ROS 2:
+For a more detailed and visual explanation on how to use the microRTPS bridge with ROS 2 checkout these presentations from the PX4 maintainers:
+1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
-2. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 :::
 
 ## Why Two Bridges (PX4/ROS2 vs PX4/Fast DDS)?
+
+The "PX4-ROS2 bridge" is a bridge between the PX4 Autopilot and ROS 2.
+It is made available through the PX4 [microRTPS bridge](../middleware/micrortps.md) middleware, and the supporting projects available to interface with ROS 2: [`px4_ros_com`](https://github.com/PX4/px4_ros_com) and [`px4_msgs`](https://github.com/PX4/px4_msgs).
 
 The PX4 [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 bridge (described here) are conceptually the same.
 
@@ -27,14 +31,17 @@ The PX4 [microRTPS bridge (Fast DDS)](../middleware/micrortps.md) and PX4-ROS2 b
 - The PX4 Autopilot firmware build process creates IDL files matching a select set of uORB topics that will be shared over Fast DDS.
 - These IDL files are then used by code generators to create the Agent source code, which can then be compiled for the companion.
 
-The difference is that ROS 2 uses slightly different DDS types than "raw" RTPS/DDS applications. These types require slighty different agent code, generated from slightly different IDL files. The client-side code is the same in both cases.
+The difference is that ROS 2 uses slightly different DDS types than "raw" RTPS/DDS applications.
+These types require slighty different agent code, generated from slightly different IDL files. The client-side code is the same in both cases.
 
-The PX4 Autopilot build process creates ROS2 message files for each uORB message and deploys them to the [px4_msgs](https://github.com/PX4/px4_msgs) repository (this is an automated process through CI). The `px4_msgs` package build uses those `.msg` files to generate the ROS 2 interface and type support code to be used by ROS2 nodes. At the same time it generates the IDL files that are consumed by the code generators in `px4_ros_com` to generate ROS 2 compatible agent source code.
+The PX4 Autopilot build process creates ROS2 message files for each uORB message and deploys them to the [px4_msgs](https://github.com/PX4/px4_msgs) repository (this is an automated process through CI).
+The `px4_msgs` package build uses those `.msg` files to generate the ROS 2 interface and type support code to be used by ROS2 nodes.
+At the same time it generates the IDL files that are consumed by the code generators in `px4_ros_com` to generate ROS 2 compatible agent source code.
 
 :::note 
 This means that you should use a version of `px4_msgs` that matches your PX4 Autopilot firmware release.
 
-Please be aware that at time of writing, there is no easy way to match PX4 Autopilot releases with compatible `px4_msgs` (though you could match commit hashes if needed).
+At time of writing, there is no easy way to match PX4 releases with compatible `px4_msgs` (though you could match commit hashes if needed).
 
 The PX4 Autopilot development team plans to automatically generate release branches `px4_msgs` and `px4_ros_com` that are compatible with the respective PX4 Autopilot releases.
 :::
@@ -55,7 +62,7 @@ Make sure you carefully follow the installation instructions, you won't be able 
 The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS). Leveraging the middleware, you can create a ROS 2 listener or advertiser nodes to publish and subscribe to uORB data from the PX4 Autopilot, via the *microRTPS Bridge*. This is shown in the diagram below.
 
 :::note
-Please make sure that the message types, headers and source files used on both the client and the agent side (and consequently, on the ROS nodes) are generated from the same Interface Description Language (IDL) files.
+Make sure that the message types, headers and source files used on both the client and the agent side (and consequently, on the ROS nodes) are generated from the same Interface Description Language (IDL) files.
 
 The [`px4_ros_com`](https://github.com/PX4/px4_ros_com) package provides the needed infrastructure for generating messages and headers needed by ROS 2.
 :::
@@ -487,7 +494,7 @@ Since the creation of ROS nodes is a well known and documented process, we are g
 
 ## Offboard control
 
-For a complete reference example on how to use Offboard control with the PX4 Autopilot, please check the [ROS 2 Offboard control example](../ros/ros2_offboard_control.md) section.
+For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
 
 ## Quick-start testing the bridge with PX4 SITL
 
