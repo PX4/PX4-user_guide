@@ -14,9 +14,9 @@
 
 ## 부품 목록
 
-- Autopilot: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
-- Frame: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
-- Motors: 3DR Iris Plus 950kv rebranded T-Motors MN2213
+- 비행 컨트롤러: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
+- 프레임: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
+- 모토: 3DR Iris Plus 950kv rebranded T-Motors MN2213
 - ESCs: Hobbywing XRotor 35A Micro 3-6S BLHeli
 - Blades: Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
 
