@@ -30,7 +30,6 @@ These are planned in the near-term PX4 roadmap.
 :::
 
 
-
 ## Further Reading/Information
 
 - [microRTPS bridge](../middleware/micrortps.md): PX4 middleware that underlies the [PX4-ROS 2 bridge](../ros/ros2_comm.md).
