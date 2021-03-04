@@ -35,17 +35,6 @@ This branch also includes example listener and advertiser nodes.
 
 Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2.md#installation-setup) to install ROS 2.
 
-
-
-
-### Setting up the workspaces
-
-
-
-:::tip
-The commands shown below are only examples, and while work when followed, we are making the assumption that you want to install and clone in your home directory. It's up to you decide where you want your source to live on your development host.
-:::
-
 ### Build ROS (1) Workspace
 
 Since the ROS requires a different environments from ROS to you will need to create a separate workspace.
@@ -76,7 +65,7 @@ To create and build the workspace:
    $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
    ```
 
-## Sanity Check the Installation
+### Sanity Check the Installation
 
 As discussed in [ROS 2 User Guide > Sanity Check the Installation](../ros/ros2_comm.md#sanity-check-the-installation) a good way to verify the installation is to test that the bridge can communicate with PX4 by running it against the PX4 simulator. 
 
