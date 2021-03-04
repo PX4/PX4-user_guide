@@ -16,7 +16,6 @@ We highly recommend you read up on ROS 2 first.
 
 :::warning Note
 The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md).
-This documentation reflects the "old approach".
 :::
 
 ## Overview
