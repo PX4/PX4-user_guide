@@ -102,49 +102,49 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_assembly_tools_needed.jpg)
 
-## 오프 프레임 조립
+## 오프-프레임 조립
 
-This section shows how the electronics are wired (off frame) and how the frame is assembled without the electronics. This information can be used for reference if the on-the-frame screenshots are not sufficiently clear.
+이 섹션에서는 전자 장치의 배선 방법과 전자 장치없이 프레임 조립 방법을 설명합니다. 이 정보는 프레임내 스크린 샷이 명확하지 않은 경우 참고용으로 사용할 수 있습니다.
 
-### Electronics Wiring/Connections (off frame)
+### 전자 장비 배선 / 연결 (오프 프레임)
 
-The image below shows the *standard* multicopter wiring for *Pixhawk Mini*. It uses the *Quad Power Distribution Board* to power the ESCs, Pixhawk and Pixhawk power rail (the board includes an integrated power module that supports batteries up to 4S).
+아래의 이미지는 *Pixhawk Mini*의 *표준* 멀티 콥터 배선을 보여줍니다. *쿼드 전력 분배 보드*를 사용하여 ESC, Pixhawk 및 Pixhawk 전원 레일에 전원을 공급합니다 (보드에는 최대 4S의 배터리를 지원하는 통합 전원 모듈이 포함되어 있습니다).
 
 :::note
-For this QAV250 build we instead use the separate 10S Power module to power the ESCs and Pixhawk, and we don't use the optional external switch. The wiring is otherwise similar!
+이 QAV250 빌드의 경우 대신 별도의 10S 전원 모듈을 사용하여 ESC 및 Pixhawk에 전원을 공급하고 옵션 외부 스위치를 사용하지 않습니다. 그렇지 않은 경우에도 배선 방법은 유사합니다!
 :::
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
-### Frame-only assembly
+### 프레임 조립
 
 :::note
-This section shows how the frame is assembled without the complication of the electronics. It is referenced in the full assembly documentation below.
+이 섹션에서는 복잡한 전자 장치를 제외한 프레임을 조립 방법을 설명합니다. 아래의 조립 문서에서 참조됩니다.
 :::
 
-To assemble the frame:
+프레임 조립 방법 :
 
-**Step 1:** Use the 10mm standoffs and 20mm steels screws for PDB as shown in the picture.
+**1 단계 :** 그림과 같이 PDB 용 10mm 스탠드오프와 20mm 강철 나사를 사용합니다.
 
 ![Add standoffs and screws to PDB](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_1_pdb_standoffs.jpg)
 
-**Step 2:** Place the frame on the standoffs.
+**2 단계 :** 스탠드오프에 프레임을 위치시킵니다.
 
 ![Place frame on top of standoffs (on top of PDB)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_frame_with_pdb_no_standoffs.jpg)
 
 :::note
-Ensure that you have the frame-plate mounted the correct way. The cut indicated below shows the bottom of the frame. ![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg)
+프레임 플레이트가 정확하게 장착되었는 지 확인하십시오. 아래 표시된 컷은 프레임 하단을 보여줍니다. ![Diagram indicating which side is bottom of QAV250 frame plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_indicate_bottom_of_frame.jpg)
 :::
 
-**Step 3:** Put the 35mm standoffs on the screws (you will need 2.0mm Hex screwdriver).
+**3 단계 :** 나사에 35mm 스탠드오프를 끼 웁니다 (2.0mm 육각 드라이버가 필요함).
 
 ![Place standoffs on top of frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_frame_on_pdb_standoffs.jpg)
 
-**Step 4:** Attach the camera plate and add remaining standoffs.
+**4 단계 :** 카메라 플레이트를 부착하고 나머지 스탠드오프를 추가합니다.
 
 ![Add camera place and remaining standoffs to the frame.](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_camera_plate_and_remaining_standoffs.jpg)
 
-**Step 5:** Place the flight controller cover plate on the standoffs and screw into place.
+**5 단계 :** 비행 컨트롤러 커버 플레이트를 스탠드오프에 놓고 나사로 고정합니다.
 
 ![Attach flight controller cover plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_add_flight_controller_cover_plate.jpg)
 
