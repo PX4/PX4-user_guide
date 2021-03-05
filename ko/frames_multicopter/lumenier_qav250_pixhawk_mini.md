@@ -36,56 +36,56 @@
 
 ### 프레임 QAV250
 
-| 설명               | 수량 |
-| ---------------- | -- |
-| 유니바디 프레임 플레이트    | 1  |
-| 비행 컨트롤러 커버 플레이트  | 1  |
-| PDB              | 1  |
-| 카메라 플레이트         | 1  |
-| 35mm 스탠드오프       | 6  |
-| 25mm 스탠드오프       | 4  |
-| 10mm 스탠드오프       | 4  |
-| 비닐 캡             | 4  |
-| 20mm 강철 나사       | 4  |
-| 18mm 강철 나사       | 10 |
-| 벨크로 배터리 혁지       | 1  |
-| Foam for battery | 1  |
-| LEDs strip       | 2  |
+| 설명              | 수량 |
+| --------------- | -- |
+| 유니바디 프레임 플레이트   | 1  |
+| 비행 컨트롤러 커버 플레이트 | 1  |
+| PDB             | 1  |
+| 카메라 플레이트        | 1  |
+| 35mm 스탠드오프      | 6  |
+| 25mm 스탠드오프      | 4  |
+| 10mm 스탠드오프      | 4  |
+| 비닐 캡            | 4  |
+| 20mm 강철 나사      | 4  |
+| 18mm 강철 나사      | 10 |
+| 벨크로 배터리 혁지      | 1  |
+| 배터리용 폼          | 1  |
+| LED 스트립         | 2  |
 
 ![Hardware for QAV250 frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_framehardware_displayall.jpg)
 
-### Electronics
+### 전자부품
 
-| Description                        | Quantity |
-| ---------------------------------- | -------- |
-| Motors lumenier Rx2204-14 2300KV   | 4        |
-| ESC lumenier 30A                   | 4        |
-| 3DR power module 10S               | 1        |
-| Fr-sky D4R-II receiver             | 1        |
-| 3DR Pixhawk Mini autopilot         | 1        |
-| 3DR GPS Neo-M8N                    | 1        |
-| 8 PWM servo output                 | 1        |
-| External safety switch             | 1        |
-| Micro SD card                      | 1        |
-| Battery Lumenier 1300 mAh 4S 14.8V | 1        |
+| 품목                             | 수량 |
+| ------------------------------ | -- |
+| 모터 lumenier Rx2204-14 2300KV   | 4  |
+| ESC lumenier 30A               | 4  |
+| 3DR 전원 모듈 10S                  | 1  |
+| Fr-sky D4R-II 수신기              | 1  |
+| 3DR Pixhawk Mini autopilot     | 1  |
+| 3DR GPS Neo-M8N                | 1  |
+| 8 PWM Servo 출력                 | 1  |
+| 외부 안전 스위치                      | 1  |
+| 마이크로 SD 카드                     | 1  |
+| 배터리 lumenier 1300 mAh 4S 14.8V | 1  |
 
 ![QAV250/PixhawkMini Electronics before assembly](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_electronics_unassembled.jpg)
 
-### Telemetry radio (optional)
+### 무선 텔레메트리(선택 사항)
 
-A telemetry radio is an optional component that can be used to wirelessly connect a ground control station (GCS) computer with the autopilot. This allows you to view in-flight data, change missions on the fly, and tune in the vehicle during flight.
+선택사항으로, 무선텔레메트리를 사용하여 GCS (지상 관제소) 컴퓨터를 자동 조종 장치와 무선 연결할 수 있습니다. 이를 통하여 비행 중 데이터를 조회하고, 비행 중에 임무를 변경하고, 비행 중에 차량을 조정할 수 있습니다.
 
-PX4/Pixhawk Mini support many different telemetry radios. The radio used in this build is the (highly recommended) *3DR Telemetry Radio (915MHz)* (Discontinued).
+PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조립에 사용되는 라디오(적극 권장) *3DR Telemetry Radio (915MHz)*입니다 (단종 됨).
 
 :::note
-Telemetry radios use different frequency bands in order to comply with local regulations. Select a version appropriate for your region: USA - 915 MHz, Europe/Australia - 433MHz
+무선 텔레메트리는 현지 규정을 적합한 적절한 주파수 대역을 사용하여야 합니다. 해당 지역에 적합한 버전을 선택하십시오 : 미국 - 915MHz, 유럽/호주 - 433MHz
 :::
 
-The telemetry kit includes:
+텔레메트리 키트에는 다음과 같은 항목들이 포함되어 있습니다.
 
-- Two telemetry transceivers (for vehicle and GCS)
-- Micro USB cable
-- Android OTG adapter cable
+- 2 개의 텔레메트리 수신기 (차량 및 GCS 용)
+- Micro USB 케이블
+- Android OTG 어댑터 케이블
 - Double-sided tape
 
 ![3DR Telemetry Radio Kit - unboxed](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/3dr_telemetry_radio_kit.jpg)
