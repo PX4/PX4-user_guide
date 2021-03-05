@@ -101,6 +101,11 @@ commander <command> [arguments...]
    lockdown
      [off]       Turn lockdown off
 
+   set_ekf_origin
+     lat, lon, alt Origin Latitude, Longitude, Altitude
+
+   lat|lon|alt   Origin latitude longitude altitude
+
    stop
 
    status        print status info
