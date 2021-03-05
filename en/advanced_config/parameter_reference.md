@@ -1844,7 +1844,7 @@ Set -1 to disable the check    </td>
  <td>Time-out to wait when offboard connection is lost before triggering offboard lost action.
 See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
  <td>0 > 60 (0.01)</td>
- <td>0.5</td>
+ <td>1.0</td>
  <td>s</td>
 </tr>
 <tr>
