@@ -14,43 +14,43 @@
 
 ## 부품 명세서
 
-The components used in this build are listed below (along with links to where they can be purchased). In general we used hardware recommended by the manufacturers for the flight controller and frame.
+이 조립에 사용된 부품들은 아래에 구매 링크와 함께 설명되어 있습니다. 일반적으로 제조업체에서 권장하는 비행 컨트롤러와 기체의 하드웨어를 사용하였습니다.
 
-- **Flight controller:** [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
-- **Power module:** 3DR 10s Power Module (Discontinued)
-- **ESC:** Lumenier f390 with Blheli ([getfpv.com](http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html)). These come with the motors.
-- **Motors:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
-- **Propellers:** Lumenier 5x4.5 2 blade ([getfpv.com](http://www.getfpv.com/propellers/lumenier-5x3-5-2-blade-propeller-set-of-4-black.html))
-- **Frame:** Lumenier QAV250 - CF ([getfpv.com](http://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html))
-- **Receiver:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
-- **Battery:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
+- **비행 컨트롤러:** [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md)
+- **전원 모듈 :** 3DR 10s 전원 모듈 (단종)
+- **ESC :** Blheli가 포함 된 Lumenier f390 ([getfpv.com](http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html)). 모터와 함께 제공됩니다.
+- **모터:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
+- **프로펠러:** Lumenier 5x4.5 2 블레이드([getfpv.com](http://www.getfpv.com/propellers/lumenier-5x3-5-2-blade-propeller-set-of-4-black.html))
+- **프레임:** Lumenier QAV250 - CF ([getfpv.com](http://www.getfpv.com/multi-rotor-frames/qav250-mini-fpv-quad/qav250-mini-fpv-quadcopter-carbon-fiber-edition.html))
+- **수신기:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
+- **배터리:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
 
-Notes:
+참고:
 
-- The 4S Power Module that comes with the *Pixhawk Mini* can be used for the battery size above (instead of the 10S Power Module). Assembly is the same with either power module.
-- We also recommend these ESC: Lumenier 12 amp ESC w/ SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).
+- *Pixhawk Mini*와 함께 제공되는 4S 전원 모듈은 위의 배터리 크기로 사용할 수 있습니다 (10S 전원 모듈 대신). 두 전원 모듈의 조립은 동일합니다.
+- 또한 다음 ESC를 권장합니다 : Lumenier 12amp ESC w / SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).
 
-## Hardware
+## 하드웨어
 
-This section lists all hardware for the frame and the autopilot installation.
+프레임과 자율비행프로그램 설치를 위한 하드웨어들 입니다.
 
-### Frame QAV250
+### 프레임 QAV250
 
-| Description                   | Quantity |
-| ----------------------------- | -------- |
-| Unibody frame plate           | 1        |
-| Flight controller cover plate | 1        |
-| PDB                           | 1        |
-| Camera plate                  | 1        |
-| 35mm standoffs                | 6        |
-| 25mm standoffs                | 4        |
-| 10mm standoffs                | 4        |
-| Vinyl caps                    | 4        |
-| 20mm steel screws             | 4        |
-| 18mm steel screws             | 10       |
-| Velcro battery strap          | 1        |
-| Foam for battery              | 1        |
-| LEDs strip                    | 2        |
+| 설명               | 수량 |
+| ---------------- | -- |
+| 유니바디 프레임 플레이트    | 1  |
+| 비행 컨트롤러 커버 플레이트  | 1  |
+| PDB              | 1  |
+| 카메라 플레이트         | 1  |
+| 35mm 스탠드오프       | 6  |
+| 25mm 스탠드오프       | 4  |
+| 10mm 스탠드오프       | 4  |
+| 비닐 캡             | 4  |
+| 20mm 강철 나사       | 4  |
+| 18mm 강철 나사       | 10 |
+| 벨크로 배터리 혁지       | 1  |
+| Foam for battery | 1  |
+| LEDs strip       | 2  |
 
 ![Hardware for QAV250 frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_framehardware_displayall.jpg)
 
