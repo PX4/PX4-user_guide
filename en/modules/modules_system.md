@@ -193,7 +193,7 @@ esc_battery <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft)
+Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
 
 ### Description
