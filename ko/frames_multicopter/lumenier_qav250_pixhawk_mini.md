@@ -148,9 +148,9 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 
 ![Attach flight controller cover plate](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_frame_assembly_add_flight_controller_cover_plate.jpg)
 
-Additional/manufacturer assembly can be found here: [Lumenier QAV250 Carbon Fiber Build Manual](https://www.lumenier.com/products/legacy/build-manual-carbon-fiber).
+추가: 제조업체에서 제공하는 조립 방법은 여기에서 찾을 수 있습니다. [Lumenier QAV250 탄소 섬유 조립 매뉴얼 ](https://www.lumenier.com/products/legacy/build-manual-carbon-fiber).
 
-## FULL Assembly with electronics
+## 전자 장치를 사용하여 전체 조립
 
 This section describes the full assembly of the QAV250 along with the *Pixhawk Mini*, motors and other electronics.
 
