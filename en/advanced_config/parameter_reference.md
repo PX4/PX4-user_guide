@@ -4416,21 +4416,21 @@ Set to 0 to disable heading hold    </td>
 <tr>
  <td><strong id="FW_AIRSPD_MAX">FW_AIRSPD_MAX</strong> (FLOAT)</td>
  <td>Maximum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) is above this value, the TECS controller will try to decrease airspeed more aggressively.</p>   </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>0.5 > 40 (0.5)</td>
  <td>20.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
  <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>0.5 > 40 (0.5)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_TRIM">FW_AIRSPD_TRIM</strong> (FLOAT)</td>
  <td>Cruise Airspeed (CAS) <p><strong>Comment:</strong> The trim CAS (calibrated airspeed) of the vehicle. If an airspeed controller is active, this is the default airspeed setpoint that the controller will try to achieve if no other airspeed setpoint sources are present (e.g. through non-centered RC sticks).</p>   </td>
- <td>0.0 > 40 (0.5)</td>
+ <td>0.5 > 40 (0.5)</td>
  <td>15.0</td>
  <td>m/s</td>
 </tr>
