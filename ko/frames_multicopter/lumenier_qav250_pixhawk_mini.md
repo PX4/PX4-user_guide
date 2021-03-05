@@ -86,23 +86,23 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 - 2 개의 텔레메트리 수신기 (차량 및 GCS 용)
 - Micro USB 케이블
 - Android OTG 어댑터 케이블
-- Double-sided tape
+- 양면 테이프
 
 ![3DR Telemetry Radio Kit - unboxed](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/3dr_telemetry_radio_kit.jpg)
 
-## Assembly tools
+## 조립 도구
 
-The following tools are used in this assembly:
+조립시에 필요한 공구들입니다.
 
-- 2.0mm Hex screwdriver
-- 3mm Philips screwdriver
-- Wire cutters
-- Soldering iron and solder
-- Precision tweezers
+- 2.0mm 육각 스크류드라이버
+- 3mm 필립스 스크류드라이버
+- 전선 커터
+- 납땜 인두 및 땜납
+- 정밀 트위저
 
 ![Tools required for assembling QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_assembly_tools_needed.jpg)
 
-## Off-frame assembly
+## 오프 프레임 조립
 
 This section shows how the electronics are wired (off frame) and how the frame is assembled without the electronics. This information can be used for reference if the on-the-frame screenshots are not sufficiently clear.
 
