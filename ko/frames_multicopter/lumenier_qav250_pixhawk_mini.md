@@ -180,55 +180,55 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 
 **5 단계 :** 모터를 ESC에 납땜
 
-Solder the motor cables to the ESC pads as shown below. Make sure the motors turns in the correct direction. If not, swap the positions of cables A and C on the ESC.
+아래 그림과 같이 모터 케이블을 ESC 패드에 납땜하십시오. 모터가 올바른 방향으로 회전하는지 확인하십시오. 모토 회전 방향을 변경하려면, ESC에서 케이블 A와 C의 위치를 바꿉니다.
 
 ![Solder motors to ESC.](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_motors_to_esc.jpg)
 
 :::note
-Once the cables are soldered in the correct order, cover the pads with electrical tape or tubing. ![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg)
+케이블이 올바른 순서로 납땜되면 전기 테이프 또는 튜브로 패드를 덮으십시오. ![Cover ESC in tape for safety](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_esc_covered_in_tape_for_safety.jpg)
 :::
 
-**Step 6:** Attach the PDB to the frame
+**6 단계 :** 프레임에 PDB 연결
 
-Follow the steps described in the Frame assembly section.
+프레임 조립 섹션에 설명된 단계를 따르십시오.
 
 ![Attach wired PDB to frame on QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_finished_pdb_attach_frame.jpg)
 
-**Step 7:** Attach the LEDs to the frame using the Phillips screws provided.
+**7 단계 :** 제공된 Phillips 나사를 사용하여 LED를 프레임에 부착합니다.
 
 ![Attach LEDS to frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_attach_LEDs_to_frame.jpg)
 
 :::warning
-The carbon fiber is conductive use silicon to avoid the contact with the weld in the frame. ![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg)
+탄소 섬유는 프레임의 용접과의 접촉을 피하기 위해 사용되는 전도성 실리콘입니다. ![Use silicon to isolate LEDs from frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_use_silicon_with_leds.jpg)
 :::
 
-**Step 8:** Attach vibration damping foam to the frame as shown (the foam is included in the *Pixhawk Mini* kit).
+**8 단계 :** 그림과 같이 진동 감쇠 폼을 프레임에 부착합니다 (폼은 *Pixhawk Mini* 키트에 포함되어 있음).
 
-The foam reduces vibrations that may otherwise affect Pixhawk performance. The foam is sticky on both sides.
+폼은 Pixhawk 성능에 영향을 미칠 수 있는 진동을 줄여줍니다. 폼은 양면이 끈적끈적 합니다.
 
 ![Add damping foam to frame (for Pixhawk)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_attach_pixhawk_damping_foam.jpg)
 
-**Step 9:** Attach the *Pixhawk Mini* to the frame using the damping foam.
+**9 단계 :** 댐핑 폼을 사용하여 *Pixhawk Mini*를 프레임에 부착합니다.
 
-The Pixhawk should be oriented so that the arrow faces the front of the frame.
+Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야야 합니다.
 
 ![Attach Pixhawk Mini on top of damping foam](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_attach_pixhawk_mini.jpg)
 
-**Step 10:** Connect the power module.
+**10 단계 :** 전원 모듈을 연결합니다.
 
-Connect the Power Module and *Pixhawk Mini* using the supplied 6pin cable (as shown). If you're using the Power Module from the *Pixhawk Mini* kit it is connected in the same way.
+제공된 6 핀 케이블을 사용하여 전원 모듈과 *Pixhawk Mini*를 연결합니다 (그림 참조). *Pixhawk Mini* 키트의 전원 모듈을 사용하는 경우 동일한 방법으로 연결됩니다.
 
 ![Connect the Pixhawk Mini to the power module](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connectpowermodule.jpg)
 
-**Step 11:** Connect ESC to the PWM output
+**11 단계 :** ESC를 PWM 출력에 연결
 
-Attach the ESCs to the *Pixhawk Mini* in the correct order, using either a PWM output cable *or* a PWM board as shown below (both are supplied in the *Pixhawk Mini* kit ).
+아래 그림과 같이 PWM 출력 케이블 *또는* PWM 보드를 사용하여 ESC를 *Pixhawk Mini*에 올바른 순서로 연결합니다(둘 다 *Pixhawk Mini*에 제공됨).
 
 ![Connect Pixhawk to QAV250 ESCs using PWM Board](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_pwm_board_escs.jpg) ![Connect Pixhawk to QAV250 ESCs using PWM cable](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_pixhawk_to_esc_via_pwm_cables.jpg)
 
-**Step 12:** Connect the receiver
+**12 단계 :** 수신기를 연결합니다.
 
-Connect the *FRSky D4-R* receiver channel 1 to the **RCIN** port on the *Pixhawk Mini* (as shown).
+*FRSky D4-R* 수신기 채널 1을 *Pixhawk Mini*의 **RCIN** 포트에 연결합니다 (그림 참조).
 
 ![Connect FRSKY](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_frsky_rc_reciever.jpg)
 
