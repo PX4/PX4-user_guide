@@ -309,59 +309,59 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 기체의 보정/설정 방법은 대부분 모든 차량에서 유사합니다. 아래 지침을 따르거나, [Autopilot 구성](../config/README.md)을 참조할 수 있습니다.
 
-**Step 3:** Radio calibration
+**3 단계 :** 무선 조종기 보정
 
-1. Turn on the remote control.
-2. Select **Radio** in the left-sidebar.
-3. Select the "mode" of your remote control (top right).
-4. Click the **Calibrate** button and follow the on-screen instructions.
+1. 리모콘을 켜십시오.
+2. 왼쪽 사이드 바에서 **라디오**를 선택합니다.
+3. 리모컨의 "모드"를 선택하십시오 (오른쪽 상단).
+4. **보정** 버튼을 클릭하고 화면의 지시를 따릅니다.
 
 ![QGroundControl - Radio Calibration](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_radio_calibration.jpg)
 
-**Step 4:** Calibrate sensors
+**4 단계 :** 센서 보정
 
-1. Select **Sensors** in the left-sidebar.
-2. Select the **Compass** button and then follow the on-screen instructions.
-3. Select the **Gyroscope **button and then follow the on-screen instructions.
-4. Select the **Accelerometer **button and then follow the on-screen instructions.
+1. 왼쪽 사이드 바에서 **센서**를 선택합니다.
+2. **나침반** 버튼을 선택한 다음 화면의 지시를 따릅니다.
+3. **자이로스코프** 버튼을 선택한 다음 화면의 지시를 따릅니다.
+4. **가속도계** 버튼을 선택한 다음 화면의 지시를 따릅니다.
 
 ![QGroundControl - Calibrate Sensors](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_calibrate_sensors.png)
 
-**Step 5:** Select flight modes.
+**5 단계 :** 비행 모드를 선택합니다.
 
-[Flight Modes](../flight_modes/README.md) provide autopilot assisted or fully controlled flight. New users should configure their receiver to support the following three modes (these make the vehicle much easier to fly):
+[비행 모드](../flight_modes/README.md)는 수동 조종 보조 기능 또는 완전 자율 비행 기능을 제공합니다. 신규 사용자는 다음 세 가지 모드를 지원하도록 수신기를 구성하여야 합니다 (이로 인해 차량을 훨씬 쉽게 비행 할 수 있음).
 
-- *Stabilized* - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- *Altitude* - Climb and drop are controlled to have a maximum rate.
-- *Position* - When sticks are released the vehicle will stop (and hold position against wind drift)
+- *안정화 모드*-차량을 뒤집기 어렵고 스틱을 놓으면 수평이됩니다 (정지 위치가 아님).
+- *고도* - 상승 및 하강이 최대 속도로 제어됩니다.
+- *위치* - 스틱을 놓으면 차량이 정지합니다. (그리고 바람 드리프트에 대한 위치 유지).
 
-There are a number of ways to [configure flight modes](../config/flight_mode.md). In this case we have a three-way switch on the receiver that we map to a single channel (5).
+[비행 모드를 구성](../config/flight_mode.md)하는 방법에는 여러 가지가 있습니다. 이 경우 단일 채널 (5)에 매핑하는 수신기에 3 방향 스위치가 있습니다.
 
 ![QGroundControl - Set flight modes](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_flight_mode_selection_qav250.png)
 
-For more information see:
+더 자세한 정보는 다음을 참고하세요.
 
-- [Flight Mode Configuration](../config/flight_mode.md)
-- [Flight Modes](../flight_modes/README.md)
-- [Flight Modes](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html) (QGroundControl)
+- [비행 모드 설정](../config/flight_mode.md)
+- [비행 모드](../flight_modes/README.md)
+- [비행 모드](https://docs.qgroundcontrol.com/master/en/SetupView/FlightModes.html) (QGroundControl)
 
-**Step 6:** Calibrate ESC
+**6 단계 :** ESC 보정
 
-1. Remove propellers.
+1. 프로펠러 제거.
     
-:::warning
-Propellers must be removed from vehicle prior to performing ESC calibration!
+:::warning ESC
+보정을 수행하기 전에 프로펠러를 기체에서 제거하여야 합니다!
 :::
 
-2. Select **Power **in the left-sidebar.
+2. 왼쪽 사이드 바에서 **전원**을 선택합니다.
 
-3. Select the **Calibrate **button and then follow the on-screen instructions (Connect your battery. When the tones stop, press OK and unplug battery).
+3. **보정** 버튼을 선택한 다음 화면의 지침을 따릅니다. 배터리를 연결합니다. 신호음이 멈추면 확인을 누르고 배터리를 분리합니다.
     
     ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
     
     ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
 
-### Tuning
+### 튜닝
 
 Firmware installation sets *default* autopilot parameters that have been configured for the selected frame (in this case for the *Lumenier QAV250*). As builds may use different components and place them differently, it is a good idea to tune the parameters for a specific frame build.
 
