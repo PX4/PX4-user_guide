@@ -233,81 +233,81 @@ Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야�
 ![Connect FRSKY](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_frsky_rc_reciever.jpg)
 
 :::note
-Notes on receivers:
+수신기에 대한 참고 사항 :
 
-- The *Pixhawk Mini* **RCIN** port accepts PPM input (i.e. multiplexed channels). You can use a PWM receiver (with individual cables for each channel) but you will have to connect via PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
-- You can also use a Spektrum receiver. These are connected to the **SPKT/DSM** input next to **RCIN** on the *Pixhawk Mini*.
-- For more information see: [Pixhawk Mini Receiver Compatibility](../flight_controller/pixhawk_mini.md#rc-radio)
+- *Pixhawk Mini* **RCIN** 포트는 PPM 입력(예 : 멀티 플렉스 채널)을 수용합니다. PWM 수신기 (각 채널에 대한 개별 케이블 포함)를 사용할 수 있지만, [이와 같은](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 인코더를 통해 연결해야합니다.
+- Spektrum 수신기를 사용할 수 있습니다. *Pixhawk Mini*의 **RCIN** 옆에있는 **SPKT/DSM** 입력에 연결됩니다.
+- 자세한 내용은 [Pixhawk Mini 수신기 호환성](../flight_controller/pixhawk_mini.md#rc-radio)을 참조하십시오.
 :::
 
-**Step 13:** Connect the GPS/COMPASS module
+**13 단계 :** GPS/콤파스 모듈 연결
 
-Connect the GPS/COMPASS module to the *Pixhawk Mini*'s **GPS&I2C** port as shown below.
+아래와 같이 GPS/콤파스 모듈을 *Pixhawk Mini*의 **GPS & amp; I2C** 포트에 연결합니다.
 
 ![Connect GPS to Pixhawk Mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_connect_gps_to_pixhawk_mini.jpg)
 
-**Step 14:** Mount the GPS/COMPASS module
+**14 단계 :** GPS/콤파스 모듈 장착
 
-Attach flight controller cover plate (see frame assembly instructions) and then paste the GPS module onto the cover plate with the arrow to the front (paste included in kit).
+비행 컨트롤러 커버 플레이트 (프레임 조립 지침 참조)를 부착 한 다음 화살표가있는 커버 플레이트에 GPS 모듈을 붙여 넣습니다 (키트에 포함 된 붙여 넣기).
 
 ![Mount GPS on QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_mount_gps.jpg)
 
-**Step 15:** Connect and mount the telemetry radio (Optional)
+**15 단계 :** 텔레메트리 연결 및 장착 (선택 사항)
 
-Connect the telemetry radio to the *Pixhawk Mini* **TELEM** port as shown.
+그림과 같이 원격 측정 라디오를 *Pixhawk Mini* **TELEM** 포트에 연결합니다.
 
 ![Connect 3DR Wifi Telemetry Radio Kit to Pixhawk Mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_to_telemetry_radio_connections.jpg)
 
-Then mount the radio using the double-sided tape included in the telemetry radio kit (for this build we mounted the radio below the PDB, as shown below).
+그런 다음 원격 측정 라디오 키트에 포함 된 양면 테이프를 사용하여 라디오를 장착합니다 (이 조립 경우에는 아래의 그림과 같이 PDB 아래에 무선장치를 장착하였습니다).
 
 ![Mount 3DR Wifi Telemetry Radio Kit to QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_mount_telemetry_radio.jpg)
 
-**Step 16:** Attach landing standoffs to the arms
+**16 단계 :** 팔에 착지 스탠드오프 부착
 
 ![QAV250 Landing Standoffs](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_landing_standoffs.jpg)
 
-**Step 17:** Attach the battery foam and velcro battery strap to the cover plate (the battery strap and foam come with the frame kit)
+**17 단계 :** 배터리 폼과 벨크로 배터리 스트랩을 커버 플레이트에 부착합니다 (배터리 스트랩과 폼은 프레임 키트와 함께 제공됨).
 
 ![QAV250 with battery foam and velcro strap](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_battery_foam_and_velcro_strap.jpg)
 
-The frame build is now complete! In the next step we can install and configure the PX4 autopilot.
+이제 프레임의 조립이 완료되었습니다! 다음 단계에서는 PX4 자동조종 장치를 설치하고 구성할 수 있습니다.
 
 ![QAV250 - Complete build with pixhawk mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
-## PX4 installation and configuration
+## PX4 설치 및 구성
 
-This section explains how you can use [QGroundControl](http://qgroundcontrol.com/) to install the PX4 autopilot and configure/tune it for the QAV250 frame.
+이 섹션에서는 [QGroundControl](http://qgroundcontrol.com/)을 사용하여 PX4 자동 조종 장치를 설치하고 QAV250 프레임에 맞게 구성/조정하는 방법을 설명합니다.
 
 :::note
-*QGroundControl* can be used to install and configure your autopilot, and also to plan missions and control your vehicle remotely.
+*QGroundControl*을 사용하여 자동조종 장치를 설치 및 구성하고 임무를 계획하고 기체를 원격으로 제어할 수 있습니다.
 :::
 
-[Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl*을 [다운로드후에 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
-### Firmware update
+### 펌웨어 업데이트
 
-Update the *Pixhawk Mini* with the PX4 firmware, configured for the Lumenier QAV250.
+Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이트합니다.
 
-**Step 1:** Start *QGroundControl* and select **Firmware** from the sidebar. Connect your vehicle to the USB port
+**1 단계 :** *QGroundControl*의 사이드 바에서 **펌웨어**를 선택합니다. 기체를 USB 포트에 연결합니다.
 
 ![QGroundControl - Update firmware](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_firmware_menu.png)
 
-**Step 2:** Select the airframe (**Quadrotor x > Lumenier QAV250**).
+**2 단계 :** 기체를 선택합니다 (**Quadrotor x > Lumenier QAV250**).
 
-Then click **Apply and Restart**.
+**적용 및 재시작**을 클릭하십시오.
 
 ![QGroundControl - Select firmware to update](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
 
 :::note
-For additional information see:
+추가 정보는 다음을 참조하십시오.
 
-- [자동 조종 장치 구성](../config/README.md)
-- [Firmware setup](../config/firmware.md)
+- [자동조종장치 설정](../config/README.md)
+- [펌웨어 설정](../config/firmware.md)
 :::
 
-### Vehicle calibration/setup
+### 기체 보정/설정
 
-Vehicle calibration/setup is typically similar for all vehicles. You can follow the instructions below, or see [Autopilot Configuration](../config/README.md).
+기체의 보정/설정 방법은 대부분 모든 차량에서 유사합니다. 아래 지침을 따르거나, [Autopilot 구성](../config/README.md)을 참조할 수 있습니다.
 
 **Step 3:** Radio calibration
 
