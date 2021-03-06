@@ -65,7 +65,7 @@
     * [컨버젼스 틸트로터 (픽스팰콘)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
     * [TBS Caipiroshka (픽스레이서)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [팰컨 버티고 쿼드플레인 (드로픽스)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
-  * [회전익](frames_rover/README.md) 
+  * [로버 탐사선](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
 * [비행](flying/README.md) 
   * [첫 비행 지침](flying/first_flight_guidelines.md)
