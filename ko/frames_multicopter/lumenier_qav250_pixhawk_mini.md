@@ -256,23 +256,23 @@ Pixhawk는 화살표가 프레임 전면을 향하도록 방향을 맞추어야�
 
 그림과 같이 원격 측정 라디오를 *Pixhawk Mini* **TELEM** 포트에 연결합니다.
 
-![Connect 3DR Wifi Telemetry Radio Kit to Pixhawk Mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_to_telemetry_radio_connections.jpg)
+![3DR Wifi 텔레메트리 키트를 Pixhawk Mini에 연결](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_pixhawk_mini_to_telemetry_radio_connections.jpg)
 
 그런 다음 원격 측정 라디오 키트에 포함 된 양면 테이프를 사용하여 라디오를 장착합니다 (이 조립 경우에는 아래의 그림과 같이 PDB 아래에 무선장치를 장착하였습니다).
 
-![Mount 3DR Wifi Telemetry Radio Kit to QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_mount_telemetry_radio.jpg)
+![3DR Wifi 텔레메트리 키트를 QAV250에 마운트](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_mount_telemetry_radio.jpg)
 
 **16 단계 :** 팔에 착지 스탠드오프 부착
 
-![QAV250 Landing Standoffs](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_landing_standoffs.jpg)
+![QAV250 착륙용 스탠드오프](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_landing_standoffs.jpg)
 
 **17 단계 :** 배터리 폼과 벨크로 배터리 스트랩을 커버 플레이트에 부착합니다 (배터리 스트랩과 폼은 프레임 키트와 함께 제공됨).
 
-![QAV250 with battery foam and velcro strap](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_battery_foam_and_velcro_strap.jpg)
+![배터리 폼 및 벨크로 스트랩이 있는 QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_battery_foam_and_velcro_strap.jpg)
 
 이제 프레임의 조립이 완료되었습니다! 다음 단계에서는 PX4 자동조종 장치를 설치하고 구성할 수 있습니다.
 
-![QAV250 - Complete build with pixhawk mini](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
+![QAV250 - pixhawk mini로 조립](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_complete_build_with_pixhawk_mini.jpg)
 
 ## PX4 설치 및 구성
 
@@ -290,13 +290,13 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 **1 단계 :** *QGroundControl*의 사이드 바에서 **펌웨어**를 선택합니다. 기체를 USB 포트에 연결합니다.
 
-![QGroundControl - Update firmware](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_firmware_menu.png)
+![QGroundControl - 펌웨어 업데이트](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_firmware_menu.png)
 
 **2 단계 :** 기체를 선택합니다 (**Quadrotor x > Lumenier QAV250**).
 
 **적용 및 재시작**을 클릭하십시오.
 
-![QGroundControl - Select firmware to update](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
+![QGroundControl - 업데이트 펌웨어 선택](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_qgc_firmware.png)
 
 :::note
 추가 정보는 다음을 참조하십시오.
@@ -316,7 +316,7 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 3. 리모컨의 "모드"를 선택하십시오 (오른쪽 상단).
 4. **보정** 버튼을 클릭하고 화면의 지시를 따릅니다.
 
-![QGroundControl - Radio Calibration](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_radio_calibration.jpg)
+![QGroundControl - 무선 조종기 보정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_radio_calibration.jpg)
 
 **4 단계 :** 센서 보정
 
@@ -325,7 +325,7 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 3. **자이로스코프** 버튼을 선택한 다음 화면의 지시를 따릅니다.
 4. **가속도계** 버튼을 선택한 다음 화면의 지시를 따릅니다.
 
-![QGroundControl - Calibrate Sensors](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_calibrate_sensors.png)
+![QGroundControl - 센서 보정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_calibrate_sensors.png)
 
 **5 단계 :** 비행 모드를 선택합니다.
 
@@ -337,7 +337,7 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 [비행 모드를 구성](../config/flight_mode.md)하는 방법에는 여러 가지가 있습니다. 이 경우 단일 채널 (5)에 매핑하는 수신기에 3 방향 스위치가 있습니다.
 
-![QGroundControl - Set flight modes](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_flight_mode_selection_qav250.png)
+![QGroundControl - 비행 모드 설정](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qgc_flight_mode_selection_qav250.png)
 
 더 자세한 정보는 다음을 참고하세요.
 
@@ -357,9 +357,9 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 3. **보정** 버튼을 선택한 다음 화면의 지침을 따릅니다. 배터리를 연결합니다. 신호음이 멈추면 확인을 누르고 배터리를 분리합니다.
     
-    ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
+    ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
     
-    ![QGroundControl - Calibrate ESCs](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
+    ![QGroundControl - ESC 보정](../../assets/qgc/setup/esc/qgc_esc_calibration_power.png)
 
 ### 튜닝
 
@@ -367,7 +367,7 @@ Lumenier QAV250 용으로 구성된 PX4 펌웨어로 *Pixhawk Mini*를 업데이
 
 아래 매개 변수는 이 조립법에 권장됩니다 (노란색 매개 변수는 변경된 매개 변수입니다). 비행 테스트를 통해 생성되었습니다.
 
-![Recommended parameters for QAV250](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_recommended_parameters.jpg)
+![QAV250의 권장 매개 변수](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_recommended_parameters.jpg)
 
 튜닝 정보는 [멀티 콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)를 참조하십시오.
 
