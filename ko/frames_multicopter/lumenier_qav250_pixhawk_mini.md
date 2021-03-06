@@ -150,35 +150,35 @@ PX4/Pixhawk Mini는 다양한 무선 텔레메트리를 지원합니다. 이 조
 
 추가: 제조업체에서 제공하는 조립 방법은 여기에서 찾을 수 있습니다. [Lumenier QAV250 탄소 섬유 조립 매뉴얼 ](https://www.lumenier.com/products/legacy/build-manual-carbon-fiber).
 
-## 전자 장치를 사용하여 전체 조립
+## 전자 장치를 포함한 전체 조립
 
-This section describes the full assembly of the QAV250 along with the *Pixhawk Mini*, motors and other electronics.
+*Pixhawk Mini*, 모터 및 기타 전자 장치와 함께 QAV250의 전체 조립 방법을 설명합니다.
 
-**Step 1:** Install motors
+**1 단계 :** 모터 설치
 
-The red mark indicates the front of the frame. Make sure you place the motors in the correct order on the frame and pass the cables through the bottom of the frame.
+빨간색 표시는 프레임의 전방을 표시합니다. 프레임에 순서대로 모터를 배치하고 프레임 하단을 통해 케이블을 통과 시키십시오.
 
 ![Add motors to QAV250 frame](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_add_motors.jpg)
 
-**Step 2:** Solder the 4 ESCs to the PDB
+**2 단계 :** 4 개의 ESC를 PDB에 납땜
 
-The red cables must be soldered to the positive pad and the black cables to the negative pad (as shown for a single ESC below).
+빨간 색 케이블은 양극 패드에 납땜하고, 검은 색 케이블은 음극 패드에 납땜하여야 합니다 (아래는 단일 ESC에 대해 표시됨).
 
 ![Solder ESC to QAV250 PDB](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_esc_pdb.jpg)
 
-**Step 3:** Solder the power module to the PDB
+**3 단계 :** 전원 모듈을 PDB에 납땜
 
-The red cable should be soldered to the positive pad and the black cable to the negative pad. Solder in a way that fits your build.
+빨간 색 케이블은 양극 패드에 납땜하고, 검은 색 케이블은 음극 패드에 납땜하여야 합니다. 조립방법에 맞는 방식으로 납땜하십시오.
 
 ![Solder power module to QAV250 pdb](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_power_module_to_pdb.jpg)
 
-**Step 4:** Solder LEDs to the PDB
+**4 단계 :** LED를 PDB에 납땜
 
-Red cables should connect to the positive pad and black cables with negative pads. The white LEDs are for the front and the red LEDs are for back.
+빨간 색 케이블은 양극 패드에 연결하고, 검은 색 케이블에는 음극 패드에 연결하여야 합니다. 흰색 LED는 전면용이고 빨간색 LED는 후면용입니다.
 
 ![Solder LEDS to QAV250 PDB](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_solder_leds_to_pdb.jpg)
 
-**Step 5:** Solder the motors with the ESC
+**5 단계 :** 모터를 ESC에 납땜
 
 Solder the motor cables to the ESC pads as shown below. Make sure the motors turns in the correct direction. If not, swap the positions of cables A and C on the ESC.
 
