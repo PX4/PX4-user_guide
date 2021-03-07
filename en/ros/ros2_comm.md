@@ -86,7 +86,7 @@ To install ROS 2 and its dependencies:
 1. **`eigen3_cmake_module`** is also required, since Eigen3 is used on the transforms library:
 
    ```sh
-   sudo apt install ros-dashing-eigen3-cmake-module
+   sudo apt install ros-foxy-eigen3-cmake-module
    ```
 
 1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
