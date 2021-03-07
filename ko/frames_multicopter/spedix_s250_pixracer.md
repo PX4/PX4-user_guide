@@ -1,18 +1,18 @@
 # Spedix S250AQ
 
-The Spedix S250 is a asymmetric racing quadcopter perfectly suited for the [Pixracer](../flight_controller/pixracer.md) autopilot.
+Spedix S250은 [Pixracer](../flight_controller/pixracer.md) 자동조종장치에 최적인 비대칭 레이싱 쿼드 콥터입니다.
 
-## Hardware
+## 하드웨어
 
-The hardware required for this build is displayed below.
+이 조립에 필요한 하드웨어가 아래에 표시되어 있습니다.
 
-![Spedix s250 components (unassembled)](../../assets/airframes/multicopter/spedix_s250aq_pixracer/spedix_s250aq_arf_components_unassembled.jpg)
+![Spedix s250 부품 (조립되지 않음)](../../assets/airframes/multicopter/spedix_s250aq_pixracer/spedix_s250aq_arf_components_unassembled.jpg)
 
-## Mounting and Wiring
+## 장착 및 배선
 
-Connect GPS and the Wifi module as shown in the [Pixracer instructions](../flight_controller/pixracer.md).
+[Pixracer 지침](../flight_controller/pixracer.md)에 표시된대로 GPS와 Wifi 모듈을 연결합니다.
 
-Connect the motors in the layout and order defined in the [Airframe Reference](../airframes/airframe_reference.md#quadrotor-asymmetric), and as reproduced below.
+[기체 정의서](../airframes/airframe_reference.md#quadrotor-asymmetric)에 정의된 배치 방법과 순서대로 모터를 연결합니다.
 
 <div>
   <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;" /> 
@@ -20,7 +20,7 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -29,8 +29,8 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
   </table>
 </div>
 
-## Airframe Configuration
+## 기체 설정
 
-Select the Quadrotor asymmetric Spedix S250AQ configuration as shown below. This will not only put PX4 into quadrotor mode, but also load decent default tuning gains.
+아래와 같이 Quadrotor 비대칭 Spedix S250AQ 구성을 선택하십시오. PX4를 쿼드로터 모드로 전환하고 적절한 기본 튜닝 게인을 로드합니다.
 
-![QGC - COnfigure airframe as for Spedix250aq](../../assets/airframes/multicopter/spedix_s250aq_pixracer/spedix_250aq_qgc.png)
+![QGC - Spedix250aq의 경우 COnfigure 기체](../../assets/airframes/multicopter/spedix_s250aq_pixracer/spedix_250aq_qgc.png)
