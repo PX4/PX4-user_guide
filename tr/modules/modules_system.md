@@ -101,6 +101,11 @@ commander <command> [arguments...]
    lockdown
      [off]       Turn lockdown off
 
+   set_ekf_origin
+     lat, lon, alt Origin Latitude, Longitude, Altitude
+
+   lat|lon|alt   Origin latitude longitude altitude
+
    stop
 
    status        print status info
@@ -186,7 +191,7 @@ esc_battery <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft)
+Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
 
 ### Description
