@@ -6394,7 +6394,7 @@ Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
  <td>Pitch P gain <p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td>0.0 > 12 (0.1)</td>
  <td>6.5</td>
- <td>Hz</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MC_RATT_TH">MC_RATT_TH</strong> (FLOAT)</td>
@@ -6415,7 +6415,7 @@ Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
  <td>Roll P gain <p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td>0.0 > 12 (0.1)</td>
  <td>6.5</td>
- <td>Hz</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAWRATE_MAX">MC_YAWRATE_MAX</strong> (FLOAT)</td>
@@ -6429,14 +6429,14 @@ Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
  <td>Yaw P gain <p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td>0.0 > 5 (0.1)</td>
  <td>2.8</td>
- <td>Hz</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MC_YAW_WEIGHT">MC_YAW_WEIGHT</strong> (FLOAT)</td>
  <td>Yaw weight <p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no inpact on the yaw gain.</p>   </td>
  <td>0.0 > 1.0 (0.1)</td>
  <td>0.4</td>
- <td>Hz</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
