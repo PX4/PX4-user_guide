@@ -1,75 +1,72 @@
 # DJI Matrice 100 (Pixhawk 1)
 
-quadcopter는 완전히 사용자 정의가 가능한 프로그래밍 가능한 비행 플랫폼입니다. 이 빌드 로그는 * 3DR Pixhawk </ 0> 비행 컨트롤러와 함께 프레임을 사용하기위한 빌드 및 구성 지침을 제공합니다. </p> 
+DJI <sup>&reg;</sup> Matrice 쿼드콥터는 커스터마이징과 프로그래밍이 가능한 비행 플랫폼입니다. *3DR Pixhawk* 비행 컨트롤러와 기체의 조립 방법과 설정 방법을 설명합니다. 
 
-Key information:
+주요 정보:
 
-* **Frame:** DJI Matrice 100 
-* **Flight controller:** [Pixhawk 1](../flight_controller/pixhawk.md) 
+* **기체:** DJI Matrice 100
+* **비행 컨트롤러:** [Pixhawk 1](../flight_controller/pixhawk.md) 
 
 ![DJI Matrice 100](../../assets/airframes/multicopter/matrice100/Matrice100.jpg)
 
-## Parts List
+## 부품 목록
 
-    * [DJI Matrice 100](http://store.dji.com/product/matrice-100) Just ESCs motors, and frame.
+    * [DJI Matrice 100] (http://store.dji.com/product/matrice-100) ESC 모터와 프레임만 있습니다.
     
-    
 
-## Motor Connections 
+## 모터 연결
 
-자동 조종 장치 조립 지침은  Pixhawk Wiring Quickstart </ 0>를 참조하십시오.</p> 
+자동조종장치 조립 방법은 [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)를 참조하십시오.
 
-### Wiring Diagram 
+### 배선 다이어그램
 
-![Connections
+![연결
 ](../../assets/airframes/multicopter/matrice100/Wiring Diagram.jpg)
 
-### Wiring Harness 
+### 배선 하네스 
 
-![Wiring Harness](../../assets/airframes/multicopter/matrice100/WiringHarness.jpg)
+![배선 하네스](../../assets/airframes/multicopter/matrice100/WiringHarness.jpg)
 
-### PWM Connections 
+### PWM 연결
 
-![PWM Connections](../../assets/airframes/multicopter/matrice100/PwmInput.jpg)
+![PWM 연결](../../assets/airframes/multicopter/matrice100/PwmInput.jpg)
 
-### Other views 
+### 기타 
 
-![Top
-](../../assets/airframes/multicopter/matrice100/Top.jpg)
+![상단](../../assets/airframes/multicopter/matrice100/Top.jpg)
 
-![Back
+![후면
 ](../../assets/airframes/multicopter/matrice100/Back.jpg)
 
-![No Stack
-](../../assets/airframes/multicopter/matrice100/NoStack.jpg)
+![스택 없음](../../assets/airframes/multicopter/matrice100/NoStack.jpg)
 
-![No Top Deck
+![상단 데크 없음
 ](../../assets/airframes/multicopter/matrice100/NoTopDeck.jpg)
 
-### 자동 조종 장치 출력 
+### 자동조종장치 출력 
 
 <!-- 
 The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](../airframes/airframe_reference.md#copter_quadrotor_x_dji_matrice_100)) (or more specifically, in the [quadrotor-x configuration section](../airframes/airframe_reference.md#quadrotor-x). 
 -->
 
-| Output | Rate   | Actuator         |
-| ------ | ------ | ---------------- |
-| MAIN1  | 400 Hz | Front right, CCW |
-| MAIN2  | 400 Hz | Back left, CCW   |
-| MAIN3  | 400 Hz | Front left, CW   |
-| MAIN4  | 400 Hz | Back right, CW   |
-| AUX1   | 50 Hz  | RC AUX1          |
-| AUX2   | 50 Hz  | RC AUX2          |
-| AUX3   | 50 Hz  | RC AUX3          |
+| 출력    | 주파수    | 액추에이터         |
+| ----- | ------ | ------------- |
+| MAIN1 | 400 Hz | 전방 우측, 반시계 방향 |
+| MAIN2 | 400 Hz | 후방 촤즉, 반시계 방향 |
+| MAIN3 | 400 Hz | 전방 좌측, 시계방향   |
+| MAIN4 | 400 Hz | 후방 우측, 시계 방향  |
+| AUX1  | 50 Hz  | RC AUX1       |
+| AUX2  | 50 Hz  | RC AUX2       |
+| AUX3  | 50 Hz  | RC AUX3       |
 
-## Parameters
+## 매개 변수
 
-* 높은 스로틀에서 내부 루프는 기본 x 4 배 이득으로 진동을 유발합니다. 저속 스로틀에서는 높은 게인이 더 나은 응답을 제공하므로 스로틀을 기반으로 한 일부 게인 일정 계획이 전체 응답을 향상시킬 수 있으며 이는 mc_att_control에서 구현 될 수 있음을 알 수 있습니다 지금은 낮은 스로틀이나 높은 스로틀에서 진동이 없도록 조정하고 낮은 스로틀에서 대역폭을 맞 춥니 다 
-  * MC_PITCHRATE_P: 0.05 
-  * MC_PITCHRATE_D: 0.001 
-* 배터리에는 기본 3 대신 6 개의 셀이 있습니다. 
-  * BAT_N_CELLS: 6 
+* 높은 스로틀에서 내부 루프는 기본값의 4 배 이득으로 진동을 유발합니다. 낮은 스로틀에서 높은 게인은 더 나은 응답을 제공합니다. 이는 스로틀을 기반으로하는 일부 게인 스케줄링이 전체 응답을 향상시킬 수 있으며, 이는 mc_att_control에서 구현될 수 있음을 의미합니다. 지금은 낮은 스로틀이나 높은 스로틀에서 진동이 없도록 조정하고, 낮은 스로틀에서 대역폭을 조정합니다. 
+  * MC_PITCHRATE_P: 0.05
+  * MC_PITCHRATE_D: 0.001
+* 배터리에는 기본 3셀 대신 6 개의 셀이 있습니다. 
+  * BAT_N_CELLS: 6
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/3OGs0ONemGc)
+@[유투브](https://youtu.be/3OGs0ONemGc)
