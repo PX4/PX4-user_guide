@@ -13764,7 +13764,7 @@ is less than 50% of this value    </td>
   <li><strong>1:</strong> FFT</li> 
 </ul>
  </td>
- <td>0 > 2 </td>
+ <td>0 > 3 </td>
  <td>0</td>
  <td></td>
 </tr>
