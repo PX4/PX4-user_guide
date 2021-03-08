@@ -10,33 +10,33 @@ Robocat 270 프레임 키트는 여러 소스에서 사용할 수 있습니다. 
 
 ![red parts robocat](../../assets/airframes/multicopter/robocat_270_pixracer/red_parts_robocat.jpg)
 
-표시된 키트에는 EMAX MT2204 모터, EMAX 12A ESC, SimonK 및 6045 카본 프로펠러가 사전에 플래시됩니다. 이것은 최고 품질보다는 저렴하지만 가격을 고려할 때 꽤 괜찮습니다. 예산이 충분합 숙련된 조종사는 Tiger Motors 및 더 빠른 ESC를 사용합니다. 더불어, CAN 버전도 Pixracer/PX4 스택과 함께 사용할 수 있습니다. Those CAN based FOC/Vector Control ESCs have the potential for huge gains in efficiency and reliability.
+표시된 키트에는 EMAX MT2204 모터, EMAX 12A ESC, SimonK 및 6045 카본 프로펠러가 사전에 플래시됩니다. 이것은 최고 품질보다는 저렴하지만 가격을 고려할 때 꽤 괜찮습니다. 예산이 충분합 숙련된 조종사는 Tiger Motors 및 더 빠른 ESC를 사용합니다. 더불어, CAN 버전도 Pixracer/PX4 스택과 함께 사용할 수 있습니다. 이러한 CAN 기반 FOC/벡터 제어 ESC는 많은 효율성과 신뢰성에서 얻을 수 있습니다.
 
 ![Robocat 750 basic setup](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
 
-The first step should be the attachment of all parts for a test, before mounting them onto the frame. Wiring details are shown in the [Pixracer instructions](../flight_controller/pixracer.md) guide.
+첫 번째 단계는 테스트를 위해 모든 부품을 프레임에 장착하기 전에 조립하는 것입니다. 배선 세부 사항은 [Pixracer 지침](../flight_controller/pixracer.md) 가이드에 나와 있습니다.
 
 ![red robo esc](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_esc.jpg)
 
-After that, one starts to assemble the bottom part, where the 36x36mm AUAV ACSP4 Power Module / PDB and the ESC fit very well. If ESC w/o heatsink are used, its recommended to install them on top of the arms, where airflow is provided.
+그 후, 36x36mm AUAV ACSP4 전원 모듈/PDB와 ESC가 잘 맞는 바닥 부분을 조립합니다. 히트 싱크가 없는 ESC를 사용하는 경우에는 공기가 잘 통하는 암 상단에 설치하는 것이 좋습니다.
 
 ![red robo bottom](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_bottom.jpg)
 
-Its a good idea to install the ACSP4 with the shunt resistor for current sensing sunnyside down. Since it might get hot, one has to make sure, that no wire is touching it. It is very important to take care that all the wire insulation is nowhere damaged, since the conductive carbon might lead to shorts. If a 12V source / PDB is not required, a smaller (17x17mm) new ACSP5 Power Module, providing I/U sensing and a 5V BEC is available as well.
+전류 감지를 위해 션트 저항과 함께 ACSP4를 설치하는 것이 좋습니다. 뜨거워 질 수 있으므로 전선이 닿지 않도록 해야합니다. 전도성 탄소가 단락을 일으킬 수 있으므로, 모든 와이어 절연체가 손상되지 않도록 주의하는 것이 매우 중요합니다. 12V 소스/PDB가 필요하지 않은 경우 I/U 감지 및 5V BEC를 제공하는 더 작은 (17x17mm) 새 ACSP5 전원 모듈도 사용할 수 있습니다.
 
 ![red robo top plate](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_top_plate.jpg)
 
-The Pixracer is soft mounted @ the 1st floor, above the battery compartment. This appears like a waste of space, but one needs about 20mm space for wires clearance,since closely tied wire would badly affect vibration damping.
+Pixracer는 배터리 칸 위 1 층에 부드럽게 장착합니다. 이것은 공간 낭비처럼 보이지만, 밀접하게 연결된 와이어는 진동 방지에 적절하지 않기 때문에 배선 간격을 위해 약 20mm의 공간이 필요합니다.
 
-Excursus: Effective damping is required by all advanced flight stacks and pilots using Althold and GPS modes. Although there are still *hard mounters* around, most builds/controllers/flight stacks are affected by vibrations, leading to the core issues Aliasing/Clipping.
+Excursus : Althold 및 GPS 모드를 사용하는 모든 고급 비행 스택 및 조종사는 효과적인 댐핑이 필요합니다. 주변에 여전히 *하드 마운터*가 있지만, 대부분의 빌드/컨트롤러/플라이트 스택은 진동의 영향을 받아 Aliasing/Clipping의 핵심 문제로 이어집니다.
 
 ![vibration_aliasing](../../assets/airframes/multicopter/robocat_270_pixracer/vibration_aliasing.png)
 
-The PX4 stack is logging those impacts as well, so its easy to analyse them. The example plot shows that the vibration induced dropout peaks are going one way instead of rising above and below the sensor values. This shifts the center of the signal, wrongly "telling" the flight controller rising or falling height. Although newer EKF filter algorithms are designed to handle this to a certain amount, its better to prevent impacts like this by the shown soft mount.
+PX4 스택은 이러한 영향도 로깅하므로 분석하기 쉽습니다. 예제 플롯은 진동으로 인한 드롭 아웃 피크가 센서 값 위아래로 상승하는 대신 한 방향으로 가고 있음을 보여줍니다. 이것은 신호의 중심을 이동시켜 비행 컨트롤러가 높이를 올리거나 내리는 것을 잘못 "말"하는 것입니다. 최신 EKF 필터 알고리즘이이를 특정 양으로 처리하도록 설계되었지만, 표시된 소프트 마운트로 인해 이와 같은 영향을 방지하는 것이 좋습니다.
 
 ![red robo damping](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_damping.jpg)
 
-This is realized either by 3DR foam pads or HK orange latex. The latter is not self-adhesive, but double faced tape such as 3M 5925F does the job nicely. If no housing is used for the Pixracer, the pads are sticking underneath a 36x36mm fiber or carbon board, squeezing the mandatory foam on top of the baro sensor as well. This foam reduces all light and most airflow impacts onto the sensor.
+이것은 3DR 폼 패드 또는 HK 오렌지 라텍스에서 제공됩니다. 후자는 자체 접착이 아니지만 3M 5925F와 같은 양면 테이프를 사용하는 것이 좋습니다. Pixracer에 하우징을 사용하지 않는 경우 패드가 36x36mm 섬유 또는 탄소 보드 아래에 달라 붙어 baro 센서 상단의 필수 폼을 압착합니다. This foam reduces all light and most airflow impacts onto the sensor.
 
 ![red robo wires](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_wires.jpg)
 
