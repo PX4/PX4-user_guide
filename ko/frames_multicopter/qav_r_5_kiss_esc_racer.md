@@ -1,17 +1,17 @@
 # QAV-R 5" KISS ESC Racer (Pixracer)
 
-The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
+Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 가벼우면서도 빠른 FPV 레이서입니다. *Pixracer* 비행 컨트롤러 및 *KISS 24A Race Edition* ESC와 기체를 사용하는 조립 방법 및 설정 방법을 설명합니다. 또한 선택항목인 FPV 설정에 대한 정보를 제공합니다.
 
-Key information:
+주요 정보:
 
-- **Frame:** Lumenier QAV-R 5"
-- **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
+- **기체:** Lumenier QAV-R 5"
+- **비행 컨트롤러:** [Pixracer](../flight_controller/pixracer.md)
 
-@[youtube](https://youtu.be/wMYgqvsNEwQ)
+@[유투브](https://youtu.be/wMYgqvsNEwQ)
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
-## Parts List
+## 부품 목록
 
 ### Vehicle (needed for flying)
 
