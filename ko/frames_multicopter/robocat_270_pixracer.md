@@ -36,17 +36,17 @@ PX4 스택은 이러한 영향도 로깅하므로 분석하기 쉽습니다. 예
 
 ![red robo damping](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_damping.jpg)
 
-이것은 3DR 폼 패드 또는 HK 오렌지 라텍스에서 제공됩니다. 후자는 자체 접착이 아니지만 3M 5925F와 같은 양면 테이프를 사용하는 것이 좋습니다. Pixracer에 하우징을 사용하지 않는 경우 패드가 36x36mm 섬유 또는 탄소 보드 아래에 달라 붙어 baro 센서 상단의 필수 폼을 압착합니다. This foam reduces all light and most airflow impacts onto the sensor.
+이것은 3DR 폼 패드 또는 HK 오렌지 라텍스에서 제공됩니다. 후자는 자체 접착이 아니지만 3M 5925F와 같은 양면 테이프를 사용하는 것이 좋습니다. Pixracer에 하우징을 사용하지 않는 경우 패드가 36x36mm 섬유 또는 탄소 보드 아래에 달라 붙어 baro 센서 상단의 필수 폼을 압착합니다. 이 폼은 모든 빛과 대부분의 기류가 센서에 미치는 영향을 줄여줍니다.
 
 ![red robo wires](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_wires.jpg)
 
-It is recommended to fix the cables underneath the Pixracer to prevent damages or relocation during battery placement. Zip ties for the motor wires are worth discussing. If one arm breaks, the damage might be even bigger. For the required X Quad config, connect the four motors according to the layout shown below, so the MAIN1 connector should connect to ESC for motor 1, and so on.
+배터리 배치 중 손상이나 재배치를 방지하기 위해 Pixracer 아래에 케이블을 고정하는 것이 좋습니다. 모터 와이어의 지퍼 타이를 사용하는 것도 고려하는 것이 좋습니다. 한쪽 암이 부러지면, 손실이 더 커지게 됩니다. 필요한 X Quad 구성의 경우 아래 표시된 레이아웃에 따라 4 개의 모터를 연결하므로 MAIN1 커넥터는 모터 1의 ESC에 연결되어야 합니다.
 
 ![Motor order connection for Quad - X configuration](../../assets/airframes/multicopter/robocat_270_pixracer/motor_order_quad_x.png)
 
 ![red robo naked side](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_naked_side.jpg)
 
-The side view shows lots of space for the battery and other addons like an FPV Cam/Tx, RC Rx, OSD and 3DR radio (if the ESP 8266 Wifi board, provided with the Pixracer is not used. The Piezo speaker is mounted sunnyside down near the front stand off. The safety switch, still provided with the Pixracer kit, is not needed at all. The PX4 stack doesn´t use it.
+측면보기는 배터리 및 FPV Cam/Tx, RC Rx, OSD 및 3DR 라디오등을 추가할 수 있는 충분한 공간이 있습니다.(Pixracer와 함께 제공되는 ESP 8266 Wifi 보드를 사용하지 않는 경우). Piezo 스피커는 전면 스탠드 근처에 햇볕이 잘 드는 곳에 장착합니다. Pixracer 키트와 함께 제공되는 안전 스위치는 필요하지 않습니다. PX4 스택은 안전 위치를 사용하지 않습니다.
 
 ![red fat robo](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
 
