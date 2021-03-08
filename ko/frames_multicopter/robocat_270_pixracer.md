@@ -6,11 +6,11 @@ Robocat 270은 경주용이 아닌 순항용으로 설계된 소형 쿼드 콥�
 
 ![red robo case](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_case.jpg)
 
-The Robocat 270 frame kits are available from several sources. Two versions: Fiber glass or carbon. The latter is coming with an assortment of aluminium stand offs instead of fragile plastic provided with the fiber glass version.
+Robocat 270 프레임 키트는 여러 소스에서 사용할 수 있습니다. 두 가지 버전 : 유리 섬유 또는 탄소. 후자는 유리 섬유 버전과 함께 제공되는 깨지기 쉬운 플라스틱 대신 다양한 알루미늄 스탠드오프와 함께 제공됩니다.
 
 ![red parts robocat](../../assets/airframes/multicopter/robocat_270_pixracer/red_parts_robocat.jpg)
 
-The shown kit comes with EMAX MT2204 motors, EMAX 12A ESC, pre-flashed with SimonK and 6045 carbon props. This is rather bargain than top quality, but pretty decent, considering the price. Experienced pilots, not on budget, will rather use e.g. Tiger Motors and faster ESC, even CAN versions can be used with the Pixracer / PX4 stack. Those CAN based FOC/Vector Control ESCs have the potential for huge gains in efficiency and reliability.
+표시된 키트에는 EMAX MT2204 모터, EMAX 12A ESC, SimonK 및 6045 카본 프로펠러가 사전에 플래시됩니다. 이것은 최고 품질보다는 저렴하지만 가격을 고려할 때 꽤 괜찮습니다. 예산이 충분합 숙련된 조종사는 Tiger Motors 및 더 빠른 ESC를 사용합니다. 더불어, CAN 버전도 Pixracer/PX4 스택과 함께 사용할 수 있습니다. Those CAN based FOC/Vector Control ESCs have the potential for huge gains in efficiency and reliability.
 
 ![Robocat 750 basic setup](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
 
