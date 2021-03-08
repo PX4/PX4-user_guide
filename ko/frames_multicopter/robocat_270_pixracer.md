@@ -50,7 +50,7 @@ PX4 스택은 이러한 영향도 로깅하므로 분석하기 쉽습니다. 예
 
 ![red fat robo](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
 
-The Pixracer with PX4 stack is providing several GPS dependent flight modes, such as Auto Missions,Loiter, Position Control and Return to Land. If the GPS is not only used for the latter, it is recommended to install one of the better GNSS units with concurrent GPS / GLONASS ability. Any type with u-blox M8N on a 35x35mm board will fit @ 2nd floor, acting as a mast replacement. It is better to use a GNSS bord with a MAG sensor onboard, since the internal MAG of a flight Controller is always prone to EMI impacts and build related offsets. These might cause TBE (Toilet bowl) effects, impacting GPS modes. Any good rec. for the Pixhawk will work with the Pixracer as well.
+PX4 스택이있는 Pixracer는 Auto Missions, Loiter, Position Control 및 Return to Land와 같은 여러 GPS 종속 비행 모드를 제공합니다. GPS가 후자에만 사용되는 것이 아니라면 동시 GPS/GLONASS 기능이있는 더 나은 GNSS 장치 중 하나를 설치하는 것이 좋습니다. 35x35mm 보드에 u-blox M8N이있는 모든 유형은 2 층에 맞으며 마스트 대체물 역할을 합니다. 비행 컨트롤러의 내부 MAG는 항상 EMI 영향을 미치고 관련 오프셋을 구축하기 때문에 MAG 센서가 내장 된 GNSS 보드를 사용하는 것이 좋습니다. These might cause TBE (Toilet bowl) effects, impacting GPS modes. Any good rec. for the Pixhawk will work with the Pixracer as well.
 
 ![red robo aufgeklappt](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_aufgeklappt.jpg)
 
