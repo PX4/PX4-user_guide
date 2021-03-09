@@ -50,23 +50,23 @@ Lumenier QAV-R 5 "FPV Racing Quadcopter는 탈착식 암이 있는 견고하고 
 
 ## 동력 전달 장치 조립
 
-The KISS ESCs are known for their good performance but they also come with two disadvantages:
+KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 
-- The software they use is not open source (unlike BLHeli)
-- There is no hardware package with pre-soldered wires and/or plugs (to my knowledge)
+- BLHeli와 달리 사용하는 소프트웨어는 오픈 소스가 아닙니다 
+- 미리 납땜된 전선 또는 플러그가 있는 하드웨어가 없습니다.
 
-This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
+즉, 모든 ESC에 최소 6 개의 조인트를 납땜해야 하지만 그만한 가치는 충분합니다.
 
 :::tip
-Always tin both sides you want to connect with solder before actually soldering them together. This will make it a lot easier and it will be less likely to have cold soldering joints.
+실제로 납땜하기 전에 항상 납땜으로 연결하려는 양면에 주석을 추가하십시오. 이렇게하면 훨씬 편리하게 납땜 할 수 있고, 콜드 솔더링 조인트가 생길 가능성이 줄어 듭니다.
 :::
 
 :::tip
-Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors. All signal cables can be very thin in comparison.
+배터리에서 모터까지 고전류를 전달하는 전원 연결에 적절한 케이블 게이지를 사용하는지 확인하십시오. 모든 신호 케이블은 타 케이블에 비하여 매우 얇을 수 있습니다.
 :::
 
 :::tip
-Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
+납땜을 시작하기 전에 케이블에 열 수축을 가하십시오! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
 :::
 
 ### Motors
