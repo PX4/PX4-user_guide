@@ -1,43 +1,6 @@
-# Multicopter PID Tuning Guide
-
-This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
-
-Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely.
-To get the very best performance it is usually good to tune a new vehicle.
-For example, different ESCs or motors require different tuning gains for optimal flight.
-
-:::warning
-This guide is for advanced users.
-Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
-Make sure to have a Kill-switch assigned.
-:::
-
-## Introduction
-
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
-
-The controllers are layered, which means a higher-level controller passes its results to a lower-level controller.
-The lowest-level controller is the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
-The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
-
-
-## Preconditions
-
-- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
-  This should give you a vehicle that already flies.
-- You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) is set correctly.
-  It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
-
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
-  - Remove propellers
-  - Arm the vehicle and lower the throttle to the minimum
-  - Tilt the vehicle to all directions, about 60 degrees
-  - Check that no motors turn off
-- Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
-
-:::warning
-Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+# Multicopter PID Tuning Guide (in-depth)
+:::note
+This page provides in-depth details, for quick vehicle tuning see [here](pid_tuning_guide_multicopter_basic.md).
 :::
 
 ## Tuning Steps
@@ -53,6 +16,11 @@ Here are some general points to follow when tuning:
 - Land before changing a parameter.
   Slowly increase the throttle and check for oscillations.
 - Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
+- Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
+
+:::warning
+Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+:::
 
 ### Rate Controller
 
@@ -312,3 +280,4 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+
