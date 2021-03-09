@@ -1,17 +1,17 @@
-# Wing Wing Z-84 Pixracer Build
+# Wing Wing Z-84 Pixracer 조립
 
-The Wing Wing Z-84 is our gold standard airframe - small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
+Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pixracer](../flight_controller/pixracer.md)를 장착이 가능합니다.
 
-Key information:
+주요 정보:
 
-- **Frame:** Wing Wing Z-84
-- **Flight controller:** Pixracer
+- **기체:** Wing Wing Z-84
+- **비행 컨트롤러:** Pixracer
 
 ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Parts List
+## 부품 목록
 
-### Z-84 Plug n' Fly (PNF/PNP) or Kit
+### Z-84 Plug n' Fly (PNF/PNP) 혹은 키트
 
 One of these:
 
