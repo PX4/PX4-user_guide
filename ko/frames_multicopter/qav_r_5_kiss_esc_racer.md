@@ -162,34 +162,34 @@ ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixr
 
 #### M8N 3DR Pixhawk mini GPS 커넥터
 
-| 핀       | 할당     | Connect to Pixracer Pin |
-| ------- | ------ | ----------------------- |
-| 1 (red) | SCL    | 3                       |
-| 2       | SDA    | 2                       |
-| 3       | VCC 5V | 6                       |
-| 4       | RX     | 5                       |
-| 5       | TX     | 4                       |
-| 6       | GND    | 1                       |
+| 핀      | 할당     | Pixracer 연결 핀 |
+| ------ | ------ | ------------- |
+| 1(red) | SCL    | 3             |
+| 2      | SDA    | 2             |
+| 3      | VCC 5V | 6             |
+| 4      | RX     | 5             |
+| 5      | TX     | 4             |
+| 6      | GND    | 1             |
 
-I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
+본체에 더 가까이 장착하면 자력계 판독 값을 완전히 사용할 수 없기 때문에, 나열된 일반 멀티 콥터 GPS 마스트를 사용하여 GPS 모듈을 장착했습니다. 모듈을 프레임 상단의 맨 뒤쪽에 직접 장착한 실험에서는 ESC 전류의 자기장으로 인해 발생할 가능성이 가장 높은 6 배의 자력계 크기 노이즈가 나타났습니다. 케이블 길이와 프레임 치수에 더 잘 맞도록 마스트를 ~ 2cm 줄였습니다. GPS 모듈은 마스트의 상단 플레이트에 양면 테이프로 접착됩니다.
 
-## FPV Setup
+## FPV 설정
 
-This are instruction for the optional 5.8GHz FPV live video transmission. You'll need the additional FPV parts listed at the beginning. The FPV transmission described here is electronically independent of the flight controller, it only takes the battery voltage after the power module.
+선택사항인 5.8GHz FPV 라이브 비디오 전송 방법에 관한 지침입니다. 처음에 언급한 추가 FPV 부품이 필요합니다. 여기에 설명 된 FPV 전송은 비행 컨트롤러와 전자적으로 독립적으로 작동하며, 전원 모듈과 같이 배터리 전압만을 사용합니다.
 
-I first did a bench test to make sure everything is working correctly. For this connect the video signal cable that comes with your transmitter and plug it to the back of your FPV camera and to the matching plug of the transmitter. Screw the Then connect the JST power plug to your draft vehicle or to some other voltage source. The transmitter LED should light up. Use your 5.8GHz receiver device tuned in to the correct channel to check for the video. To configure the transmitter to an other channel and adjust the transmission power please refer to the [Tramp HV User Manual](https://www.immersionrc.com/?download=5016).
+먼저 모든 것이 올바르게 작동하는지 확인하기 위해 벤치 테스트를 수행하였습니다. 송신기와 함께 제공되는 비디오 신호 케이블을 FPV 카메라 뒷면과 송신기의 일치하는 플러그에 연결하십시오. 나사를 조인 다음 JST 전원 플러그를 초안 차량이나 다른 전압 소스에 연결하십시오. 송신기 LED가 켜져야 합니다. 같은 채널에 맞춰진 5.8GHz 수신 장치를 사용하여 비디오를 확인하십시오. 송신기를 다른 채널로 구성하고 전송 전력을 조정하려면, [Tramp HV 사용 설명서](https://www.immersionrc.com/?download=5016)를 참조하십시오.
 
 ![FPV wiring](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-wiring.jpg)
 
-Like you can see I mounted the transmitter from the inside to the "roof" of the frame using a ziptie. Always put a self sticking piece of foam in between when mounting electronics like this to avoid physical damage during flight. Make sure to place the transmitter such that the antenna connector fits to the dedicated hole of the frame.
+지퍼를 사용하여 내부에서 프레임의 "지붕"까지 송신기를 장착하였습니다. 이와 같은 전자 장치를 장착 할 때 비행 중 물리적 손상을 방지하기 위하여, 접착 폼 조각을 사이에 끼워두는 것이 좋습니다. 안테나 커넥터가 프레임의 전용 구멍에 맞도록 송신기를 배치하십시오.
 
 ![Transmitter](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-tx.jpg)
 
-The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
+부품 목록에있는 웅장한 FPV 카메라 세트는 지금까지 본 최고의 FPV 렌즈와 함께 제공 될뿐만 아니라, 여러 카메라 마운트가 포함되어 있으며 그중 하나는 카메라 각도를 조정하는 데 매우 유연하고 QAV-R 프레임에 잘 맞습니다. 다음의 그림과 같이 장착하였습니다. 카메라 마운트를 프레임에 고정하기 위하여 두 개의 나사와 너트는 프레임 세트에 남아있는 예비 나사에서 가져왔습니다.
 
 ![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
-## Software Configuration
+## 소프트웨어 설정
 
 :::warning
 Always make sure to have either battery or propellers physically removed from your vehicle during any initial configuration. Better safe than sorry!
