@@ -109,67 +109,67 @@ KISS ESC는 성능이 우수하지만, 두 가지의 단점도 있습니다.
 
 이 단계에서 필요한 모든 커넥터를 찾으려면 [Pixracer의 하드웨어 문서](../flight_controller/pixracer.md)가 필요합니다. 나는 Pixracer 보드 아래의 모든 케이블을 깔끔하게 정리하여, 향후 FPV 카메라와 송신기를위한 공간을 확보하고자 하였습니다.
 
-QAV-R 프레임과 함께 제공되는 나일론 스페이서와 나사를 사용하여 Pixracer를 장착했지만 약간의 진동 감쇠를 추가하기 위하여 보드와 스페이서 사이에 **작은 O-링 **을 넣었습니다. Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension. The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
+QAV-R 프레임과 함께 제공되는 나일론 스페이서와 나사를 사용하여 Pixracer를 장착했지만 약간의 진동 방지를 목적으로 보드와 스페이서 사이에 **작은 O-링 **을 넣었습니다. **나사를 너무 많이 또는 조금 조이지 않도록**, 보드가 양쪽면에 명확하게 닿지만 팽팽하게 조이지 않도록 하십시오. 보드는 어떤 식으로든 매달리지 있지 않아야 하며, 손가락으로 힘을 가하면 약간 움직일 수 있어야합니다.
 
 :::warning
-This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
+이는 비행 중에 자이로스코프 및 가속도계 센서가 진동에 큰 영향을 미칠 수 있습니다.
 :::
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
 ![Center connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg) ![Center overview](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
 
-### RC Receiver
+### 무선 수신기
 
-I hooked up the FrSky S-BUS receiver using the cable shipped with the Pixracer but cut away the unnecessary cable branch.
+Pixracer와 함께 제공된 케이블을 사용하여 FrSky S-BUS 수신기를 연결하고, 불필요한 케이블들을제거하였습니다.
 
-For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic:
+스마트 원격 측정 포트에는 수신기와 함께 제공되는 케이블을 사용하였습니다. 핀셋을 사용하여 커넥터에서 불필요한 핀을 모두 제거하고, "스마트"신호가 연결되도록 흰색의 느슨한 끝 케이블을 커넥터의 올바른 핀으로 전환하였습니다. 그런 다음 이 회로도에 따라 FrSky 포트에 맞는 케이블에 느슨한 끝을 납땜하였습니다.
 
 ![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
+전압 공급 포지티브 핀처럼 이미 RCin S-BUS 케이블을 통해 연결되어 있기 때문에, 접지 (GND) 핀도 생략하였습니다.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
-### RC Antenna Mount
+### 무선 조종기 안테나 장착
 
-To have a good RC link while not risking to have the antenna in the props I employed a rugged mount method using heat shrinks and zip ties.
+프로펠러에 안테나가 닿지 않도록, 열 수축 및 지퍼 타이를 사용하는 견고한 마운트 방법을 사용하여 RC 링크를 조립하였습니다.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount-material.jpg)
 
-For this method you cut the big end with the hole off the zip tie, put the rest together with the antenna cable through a long heat shrink and mount this to your frame spacers using a bigger but shorter heat shrink.
+이 방법에서는 지퍼 타이의 구멍으로 큰 끝을 자르고, 나머지는 긴 열 수축을 통해 안테나 케이블과 함께 놓고 더 크고 더 짧은 열 수축을 사용하여 프레임스페이서에 장착합니다.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount.jpg)
 
-### ESC Signal
+### ESC 신호
 
-For the ESC signals I followed the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) and the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) motor numbering scheme. As we have no ground or positive BEC voltage connections we connect our `PWM` ESC signal cables each to its topmost pins of the corresponding output connector.
+ESC 신호의 경우 [Pixracer의 하드웨어 문서](../flight_controller/pixracer.md)와 [Quadrotor x 구성](../airframes/airframe_reference.md#quadrotor-x) 모터 번호 지정 방법을 따라 조립하였습니다. 접지 또는 양극 BEC 전압 연결이 없기 때문에 `PWM` ESC 신호 케이블을 해당 출력 커넥터의 맨 위의 핀에 각각 연결합니다.
 
-### GPS / External Magnetometer
+### GPS / 외부 자력계
 
-I took the GPS cable which fits the connector of the used GPS and came with the Pixracer set. Sadly the pin assignment was completely wrong and I rewired the connector again using tweezers according to the [3DR Pixhawk Mini user manual](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS port.
+사용한 GPS의 커넥터에 맞는 GPS 케이블을 가져와 Pixracer 세트와 함께 조립하였습니다. 안타깝게도 핀 할당이 완전히 잘못되어 [3DR Pixhawk Mini 사용자 설명서](../flight_controller/pixhawk_mini.md#connector-pin-assignments-pin-outs) GPS 포트에 따라 핀셋을 사용하여 커넥터를 다시 배선하였습니다.
 
-#### Pixracer GPS/I2C Port
+#### Pixracer GPS/I2C 포트
 
-| Pin | Assignment |
-| --- | ---------- |
-| 1   | GND        |
-| 2   | SDA        |
-| 3   | SCL        |
-| 4   | RX         |
-| 5   | TX         |
-| 6   | +5V        |
+| 핀 | 할당  |
+| - | --- |
+| 1 | GND |
+| 2 | SDA |
+| 3 | SCL |
+| 4 | RX  |
+| 5 | TX  |
+| 6 | +5V |
 
-#### M8N 3DR Pixhawk mini GPS Connector
+#### M8N 3DR Pixhawk mini GPS 커넥터
 
-| Pin     | Assignment | Connect to Pixracer Pin |
-| ------- | ---------- | ----------------------- |
-| 1 (red) | SCL        | 3                       |
-| 2       | SDA        | 2                       |
-| 3       | VCC 5V     | 6                       |
-| 4       | RX         | 5                       |
-| 5       | TX         | 4                       |
-| 6       | GND        | 1                       |
+| 핀       | 할당     | Connect to Pixracer Pin |
+| ------- | ------ | ----------------------- |
+| 1 (red) | SCL    | 3                       |
+| 2       | SDA    | 2                       |
+| 3       | VCC 5V | 6                       |
+| 4       | RX     | 5                       |
+| 5       | TX     | 4                       |
+| 6       | GND    | 1                       |
 
 I mounted the GPS module using the listed generic multicopter GPS mast because mounting it any closer to the main body made the magnetometer readings totally unusable. An experiment mounting the module directly to the far back of the top of the frame showed 6 times magnetometer magnitude noise most likely caused by the magnetic field of the ESC currents. Note that I shortened the mast by ~2cm to make it better fit the cable length and the frame dimensions. The GPS module is sticked with double sided tape to top plate of the mast.
 
