@@ -89,6 +89,17 @@ brew install px4-sim-jmavsim
 jMAVSim for PX4 v1.11 and earlier required Java 8.
 :::
 
+### troubleshoot (for macOS Catalina users)
+When compiling jmavsim, if the following error appears
+```
+Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
+```
+it means a more recent version of Java is needed. Class file versions 58 corresponds to jdk14, version 59 to jdk15, etc.
+To fix it, tap
+```sh
+brew install --cask adoptopenjdk15
+```
+
 ## Next Steps
 
 Once you have finished setting up the command-line toolchain:
