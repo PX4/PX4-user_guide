@@ -95,8 +95,8 @@ commander <command> [arguments...]
    transition    VTOL transition
 
    mode          Change flight mode
-     manual|acro|offboard|stabilized|rattitude|altctl|posctl|auto:mission|auto:l
-                 oiter|auto:rtl|auto:takeoff|auto:land|auto:precland Flight mode
+     manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
+                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
 
    lockdown
      [off]       Turn lockdown off
