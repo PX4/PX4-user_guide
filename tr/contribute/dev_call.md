@@ -34,7 +34,7 @@ The second part of the meeting is for in-depth technical discussions and open en
 
 
 ## Schedule
-* TIME: Wednesday 17h00 CET, 12h00 EST, 09h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/))
+* TIME: Wednesday 17h00 CET, 11h00 EST, 08h00 PST ([subscribe to calendar](https://www.dronecode.org/calendar/))
 * **Join the call**: [https://meet.jit.si/PX4DeveloperCallWeekly](https://meet.jit.si/PX4DeveloperCallWeekly)
 
 * Agenda is published before the call on [PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)
