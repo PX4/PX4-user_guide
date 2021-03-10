@@ -1,7 +1,13 @@
-# Multicopter PID Tuning Guide (in-depth)
-:::note
-This page provides in-depth details, for quick vehicle tuning see [here](pid_tuning_guide_multicopter_basic.md).
+# Multicopter PID Tuning Guide (Advanced/Detailed)
+
+This topic provides detailed information about PX4 controllers, and how they are tuned.
+
+:::tip
+We recommend that you follow the [basic PID tuning guide](pid_tuning_guide_multicopter_basic.md) for tuning the vehicles _around the hover thrust point_, as the approach described is intuitive, easy, and fast.
+This is all that is required for many vehicles.
 :::
+
+Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.
 
 ## Tuning Steps
 
@@ -15,7 +21,7 @@ Here are some general points to follow when tuning:
   Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
 - Land before changing a parameter.
   Slowly increase the throttle and check for oscillations.
-- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
+- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust-curve) to account for thrust non-linearities or high-thrust oscillations.
 - Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
 
 :::warning
@@ -33,7 +39,7 @@ A badly tuned rate controller will be visible in [Position mode](../flight_modes
 
 #### Rate Controller Architecture/Form
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel_form) and [Standard](#standard_form).
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel-form) and [Standard](#standard-form).
 
 Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
 
@@ -58,7 +64,6 @@ For more information see:
 - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
 :::
 
-<span id="parallel_form"></span>
 ##### Parallel Form
 
 The *parallel form* is the simplest form, and is (hence) commonly used in textbooks.
@@ -66,7 +71,6 @@ In this case the output of the controller is simply the sum of the proportional,
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-<span id="standard_form"></span>
 ##### Standard Form
 
 This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains.
@@ -178,7 +182,6 @@ The following parameters can also be adjusted. These determine the maximum rotat
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 
-<span id="thrust_curve"></span>
 ### Thrust Curve
 
 The tuning above optimises performance around the hover throttle.
