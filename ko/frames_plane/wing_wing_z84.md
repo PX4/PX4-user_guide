@@ -7,7 +7,7 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 - **기체:** Wing Wing Z-84
 - **비행 컨트롤러:** Pixracer
 
-![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
+![Wing Wing Z-84 조립](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
 ## 부품 목록
 
@@ -40,28 +40,28 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 ### 권장 예비 부품
 
 - 프로펠러 보호용 직경 1cm O - 링 ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
-- 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
+- 125x110 mm 프로펠러 ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-## Wiring
+## 배선
 
-The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not the ones labeled with AUX. The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
+아래 배선은 Pixhawk 및 Pixracer에 적용됩니다. AUX로 표시된 출력이 아닌 메인 출력을 사용하십시오. 자동 조종 장치가 서보 레일에 전원을 공급하지 않기 때문에, 모터 컨트롤러에는 내장 BEC가 있어야합니다.
 
-| Port   | Connection                  |
+| 포트     | 연결                          |
 | ------ | --------------------------- |
 | RC IN  | PPM or S.BUS / S.BUS2 input |
-| MAIN 1 | Left Aileron                |
-| MAIN 2 | Right Aileron               |
-| MAIN 3 | Empty                       |
-| MAIN 4 | Throttle                    |
+| MAIN 1 | 좌측 보조익                      |
+| MAIN 2 | 우측 보조익                      |
+| MAIN 3 | 비어있음                        |
+| MAIN 4 | 스로틀                         |
 
-## Build Log
+## 조립 방법
 
-The images below give a rough idea about the assembly process, which is simple and can be done with a hot glue gun.
+아래 이미지는 조립 공정에 대한 대략적인 아이디어를 제공합니다. 글루건으로 사용하는 것이 좋습니다.
 
-![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
+![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg) ![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg) ![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg) ![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg) ![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg) ![Wing Wing Z-84 조립](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
-## Airframe Configuration
+## 기체 설정
 
-Select the Z-84 in the flying wing section of the QGC airframe config:
+QGC 기체 구성의 비행 날개 섹션에서 Z-84를 선택합니다.
 
-![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
+![QGC-West Wing용 펌웨어 선택](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)
