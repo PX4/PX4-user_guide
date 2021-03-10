@@ -12,7 +12,7 @@ It is not used during flight by UAVCAN.
 
 It supports hardware like:
 
-* [Motor controllers](../uavcan/escs.html)
+* [ESC/Motor controllers](../uavcan/escs.html)
 * Airspeed sensors
   * [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 * GNSS receivers for GPS and GLONASS
@@ -33,7 +33,7 @@ PX4 does not support UAVCAN servos (at time of writing).
 All UAVCAN components share the same connection architecture/are wired the same way.
 Connect all on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes (the order in which the nodes are connected/chained does not matter).
 
-The following diagram shows this for a flight controller connected to UAVCAN motor controllers (ESCs) and a UAVCAN GNSS.
+The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.html) and a UAVCAN GNSS.
 
 ![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
 
@@ -43,7 +43,7 @@ Refer to your manufacturer instructions to confirm whether components require se
 For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
 :::note
-- While the connections are the same, the connectors themselvs may differ across devices.
+- While the connections are the same, the _connectors_ may differ across devices.
 - An second/redundant" CAN interface may be used, as shown above (CAN2).
   This is optional, but can increase the robustness of the connection.
 :::
