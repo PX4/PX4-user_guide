@@ -1,7 +1,7 @@
 # UAVCAN
 
 <img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals.
-In contrast to hobby-grade devices it uses rugged, differential signalling, supports firmware upgrades over the bus and supports status feedback from peripherals.
+It uses rugged, differential signalling, and supports firmware upgrades over the bus and status feedback from peripherals.
 
 :::note
 PX4 requires an SD card for UAVCAN node allocation and firmware upgrade.
@@ -18,10 +18,10 @@ It supports hardware like:
 * GNSS receivers for GPS and GLONASS
   * [Zubax GNSS](https://zubax.com/products/gnss_2)
 * Power monitors
-  * [Pomegranate Systems Power Module](../power_module/pomegranate_systems_pm.md)
-  * [CUAV CAN PMU Power Module](../power_module/cuav_can_pmu.md)
+  * [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
+  * [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
 * Distance sensors
-  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../sensor/avanon_laser_interface.md)
+  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 
 :::note
 PX4 does not support UAVCAN servos (at time of writing).
