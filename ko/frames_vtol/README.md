@@ -1,10 +1,10 @@
-# VTOL Airframes
+# VTOL 기체
 
-PX4 supports virtually all VTOL configurations (the complete set of supported configurations can be seen in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol)):
+PX4는 VTOL 설정에 관련된 기능을 대부분 제공합니다. 제공되는 기능과 설정들은 [기체정의서 > VTOL](../airframes/airframe_reference.md#vtol)를 참고하십시오.
 
-- Tailsitters (duo and quadrotors in X and plus configuration)
-- Tiltrotors (Firefly Y6)
-- QuadPlane VTOL (standard plane plus quad)
+- 테일시터 (X 및 플러스 구성의 듀오 및 쿼드로터)
+- 틸트로터 (Firefly Y6)
+- QuadPlane VTOL (표준 평면 + 쿼드)
 
 The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
 
