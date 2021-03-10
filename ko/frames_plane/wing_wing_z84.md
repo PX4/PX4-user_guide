@@ -13,33 +13,33 @@ Wing Wing Z-84는 매우 좋은 표준 기체입니다. 작고 튼튼하며 [Pix
 
 ### Z-84 Plug n' Fly (PNF/PNP) 혹은 키트
 
-One of these:
+다음 중 하나 :
 
 - [Banggood](https://www.banggood.com/Wing-Wing-Z-84-Z84-EPO-845mm-Wingspan-Flying-Wing-PNP-p-973125.html)
-- [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
+- [Hobbyking 미국 창고](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
 :::tip PNF
-(or "PNP") versions include motor, propeller and electronic speed controller. The "kit" version does not include these components, which must be purchased separately.
+(또는 "PNP") 버전에는 모터, 프로펠러 및 ESC가 포함됩니다. "키트"버전에는 이러한 구성 요소가 포함되어 있지 않아서 별도로 구매하여야 합니다.
 :::
 
-### Electronic Speed Controller (ESC)
+### 전자 속도 컨트롤러 (ESC)
 
-One of these (any small (>=12A) ESC will do):
+다음 중 하나 (작은 (> = 12A) ESC가 수행함) :
 
-- [Blue Series 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
+- [블루 시리즈 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
 - [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
-### Autopilot and Essential Components
+### Autopilot 및 필수 부품들
 
-- [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
-- FrSky D4R-II receiver or equivalent (jumpered to PPM sum output according to its manual)
-- [Mini telemetry set](../flight_controller/pixfalcon.md#availability) for Holybro pix32
-- [Digital airspeed sensor](../flight_controller/pixfalcon.md#availability) for Holybro pix32 / Pixfalcon
-- 1800 mAh 2S LiPo Battery - e.g. [Team Orion 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
+- [Pixracer](../flight_controller/pixracer.md) 키트 (GPS 및 전원 모듈 포함)
+- FrSky D4R-II 수신기 또는 동급 (설명서에 따라 PPM 합계 출력으로 점퍼됨)
+- Holybro pix32용 [미니 텔레메 트리 세트](../flight_controller/pixfalcon.md#availability)
+- Holybro pix32 / Pixfalcon용 [디지털 대기 속도 센서](../flight_controller/pixfalcon.md#availability)
+- 1800mAh 2S LiPo 배터리 - 예 : [팀 오리온 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
 
-### Recommended spare parts
+### 권장 예비 부품
 
-- 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
+- 프로펠러 보호용 직경 1cm O - 링 ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
 ## Wiring
