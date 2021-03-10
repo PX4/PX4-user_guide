@@ -2,22 +2,42 @@
 
 This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
-Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely.
-To get the very best performance it is usually good to tune a new vehicle.
-For example, different ESCs or motors require different tuning gains for optimal flight.
+Tuning is recommended for all new vehicle setups, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight.
+For example, different ESCs or motors require different tuning gains.
+
+:::tip
+Generally if you're using an appropriate [supported airframe configuration](../airframes/airframe_reference.md#copter) (selected from [QGroundControl > Airframe](../config/airframe.md)), the default tuning should allow you to fly the vehicle safely.
+To get the _very best_ performance we recommend you tune your new vehicle.
+:::
 
 :::warning
-Un- or miss- tuned vehicles are likely to be unstable, and easy to crash.
-Make sure to have a Kill-switch assigned.
+Poorly tuned vehicles are likely to be unstable, and easy to crash.
+Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
 :::
 
 ## Introduction
 
 PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
 
+The _QGroundControl_ **PID Tuning** setup provides real-time plots of the vehicle setpoint and response curves. 
+The goal of tuning is to set the P/I/D values such that the _Response_ curve matches the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
+
+![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller.
-The lowest-level controller is the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
-The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
+The lowest-level controller is the **rate controller**, followed by the **attitude controller**, and finally the **velocity & position controller**.
+The PID tuning needs to be done in this same order, starting with the rate controller, as it will affect all other controllers.
+
+The testing procedure for each controller (rate, attitude, velocity/posibition) and axis (yaw, roll, pitch) is always the same: create a fast setpoint change by moving the sticks very rapidly and observe the response.
+Then adjust the sliders (as discussed below) to improve the tracking of the response to the setpoint.
+
+:::tip
+- Rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
+- Usually the same tuning gains can be used for roll and pitch.
+- use Acro/Stabilized/Altitude mode to tune the rate controller
+- Use Position mode to tune the velocity and position controllers.
+  Make sure to switch to the simple input mode, for direct control and possibility to generate step inputs.
+:::
 
 ## Preconditions
 
@@ -32,33 +52,42 @@ The PID tuning needs to be done in the same order, starting with the rate contro
   - Arm the vehicle and lower the throttle to the minimum
   - Tilt the vehicle to all directions, about 60 degrees
   - Check that no motors turn off
-- If you can, use a high-rate telemetry link (such as WiFi, a typical 3DR Radio is not fast enough for real-time feedback and plots).
+- Use a high-rate telemetry link such as WiFi if at all possible (a typical low-range telemetry radio is not fast enough for real-time feedback and plots).
   This is particularly important for the rate controller.
+- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle.
 
 ## Tuning Procedure
-QGroundControl provides a tuning UI that shows real-time plots to monitor the tracking of the controllers.
-The goal is for the Response to match the Setpoint as closely as possible (fast response without overshoots).
 
-The testing procedure is always the same: create a step input (fast setpoint change) and observe the response.
-Then adjust the sliders accordingly:
-- P (proportional) or K gain:
-  - increase this for more responsiveness
-  - reduce if the response is overshooting and/or oscillating (up to a certain point increasing the D gain also helps).
-- D (derivative) gain:
-  - this can be increased to dampen overshoots and oscillations
-  - increase this only as much as needed, as it amplifies noise (and can lead to hot motors)
-- I (integral) gain:
-  - used to reduce steady-state error
-  - if too low, the response might never reach the setpoint (e.g. in wind)
-  - if too high, slow oscillations can occur
+The tuning procedure is:
 
-General Remarks:
-- always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle
-- usually the same tuning gains can be used for roll and pitch
-- use Acro/Stabilized/Altitude mode to tune the rate controller
-- rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
-- use Position mode to tune the velocity and position controllers.
-  Make sure to switch to the simple input mode, for direct control and possibility to generate step inputs.
-
-![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
-
+1. Open _QGroundControl_ **Vehicle Setup > PID Tuning**
+   ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+1. Select the **Rate Controller** tab.
+1. Confirm that the airmode selector is set to **Disabled**
+1. Set the *Thrust curve* value to: ????
+1. Set the *Select Tuning* radio button to: **Roll**.
+1. For rate controller tuning, switch to *Acro mode*, *Stabilized mode* or *Altitude mode*.
+1. Select the **Start** button.
+1. Rapidly move the *roll stick* full range and observe the step response on the plots.
+1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again.
+   :::note
+   The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
+   :::
+   The PID values can be adjusted as follows:
+   - P (proportional) or K gain:
+     - increase this for more responsiveness
+     - reduce if the response is overshooting and/or oscillating (up to a certain point increasing the D gain also helps).
+   - D (derivative) gain:
+     - this can be increased to dampen overshoots and oscillations
+     - increase this only as much as needed, as it amplifies noise (and can lead to hot motors)
+   - I (integral) gain:
+     - used to reduce steady-state error
+     - if too low, the response might never reach the setpoint (e.g. in wind)
+     - if too high, slow oscillations can occur
+1. Repeat the tuning process above for the pitch and yaw:
+   - Use *Select Tuning* radio button to select the axis to tune
+   - Move the appropriate sticks (i.e. pitch stick for pitch, yaw stick for yaw).
+   - For pitch tuning, start with the same values as for roll.
+1. Repeat the tuning process for the attitude controller on all the axes.
+1. Repeat the tuning process for the velocity and positions controllers (on all the axes).
+   use Position mode when tuning these controllers.
