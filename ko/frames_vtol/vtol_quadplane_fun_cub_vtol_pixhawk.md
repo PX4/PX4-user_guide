@@ -9,48 +9,48 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-수정되지 않은 Fun Cub는 비교적 저렴하고 비행방법이 비교적 쉽습니다. 변환 후 비행기는 상당히 무겁고 공기 역학적으로 난해합니다. 비행은 우수하지만, 전진 비행시에는 약 75 %의 스로틀이 필요합니다.
+수정되지 않은 Fun Cub는 비교적 저렴하고 비행방법이 비교적 쉽습니다. 조립후에는 비행기는 비교적 무겁고 비행이 간단하지 않습니다. 비행은 우수하지만, 전진 비행시에는 약 75 %의 추진력이 필요합니다.
 
 ## 부품 명세서
 
-The actual plane looks roughly like as shown in the image above (other similar models will work just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
+실제 평면도는 위의 이미지와 비슷합니다 (다른 유사한 모델도 잘 작동합니다. 이것은 Multiplex Fun Cub입니다). 필요한 최소한의 장비는 다음과 같습니다.
 
-- Multiplex FunCub (or similar)
-- Pixhawk or compatible
-- Digital airspeed sensor
-- 900 kV motors (e.g. Iris propulsion set - motors and ESC)
-- 10" props for quad motors (10x45 or 10x47)
-- 10" prop for fixed-wing motor (10×7)
-- GPS module
-- 4S battery
-- Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
-- TOW is ~2.3kg with a 4200mAh 4S battery
+- Multiplex FunCub (또는 유사 제품)
+- Pixhawk 또는 호환 제품
+- 디지털 풍속 센서
+- 900kV 모터 (예 : Iris 추진 세트 - 모터 및 ESC)
+- 쿼드 모터 용 10 " 프로펠러(10x45 또는 10x47)
+- 고정익 모터용 10" 프로펠러(10 × 7)
+- GPS 모듈
+- 4S 배터리
+- 쿼드 모터 장착 용 알루미늄 프레임 (10x10mm 사각 튜브, 벽 두께 1mm)
+- TOW는 4200mAh 4S 배터리로 중량은 약 2.3kg입니다.
 
-## Structure
+## 구조
 
-The structure is made out of aluminum booms as shown below.
+구조는 아래와 같이 알루미늄 재질로 만들어집니다.
 
 ![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
-## Wiring
+## 배선
 
-The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
+Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있는" 방향과 같음).
 
 :::tip
-The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
+*QGroundControl* (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)의 PWM_OUTPUT 그룹에서 PWM \ _REV 매개 변수를 사용하여 서보 방향을 반전할 수 있습니다.
 :::
 
-| Port   | Connection              |
-| ------ | ----------------------- |
-| MAIN 1 | Front right motor (CCW) |
-| MAIN 2 | Back left motor (CCW)   |
-| MAIN 3 | Front left motor (CW)   |
-| MAIN 4 | Back right motor (CW)   |
-| AUX 1  | Left aileron TODO       |
-| AUX 2  | Right aileron           |
-| AUX 3  | Elevator                |
-| AUX 4  | Rudder                  |
-| AUX 5  | Throttle                |
+| 포트     | 연결               |
+| ------ | ---------------- |
+| MAIN 1 | 전방 우측(반시계 방향)    |
+| MAIN 2 | 후방 좌측 모터(반시계 방향) |
+| MAIN 3 | 전방 좌측 모터(시계 방향)  |
+| MAIN 4 | 후방 우측 모터(시계 방향)  |
+| AUX 1  | 좌측 보조익 TODO      |
+| AUX 2  | Right aileron    |
+| AUX 3  | Elevator         |
+| AUX 4  | Rudder           |
+| AUX 5  | Throttle         |
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
