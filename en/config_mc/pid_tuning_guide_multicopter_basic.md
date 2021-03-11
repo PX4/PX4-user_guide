@@ -64,7 +64,12 @@ The tuning procedure is:
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
 1. Confirm that the airmode selector is set to **Disabled**
-1. Set the *Thrust curve* value to: ????
+1. Set the *Thrust curve* value to: 0.3
+   :::note
+   On some vehicles the optimal tuning at hover thrust may not be ideal at higher thrust.
+   The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)
+   A value of 0.3 is a good default.
+   :::
 1. Set the *Select Tuning* radio button to: **Roll**.
 1. For rate controller tuning, switch to *Acro mode*, *Stabilized mode* or *Altitude mode*.
 1. Select the **Start** button.
@@ -91,3 +96,4 @@ The tuning procedure is:
 1. Repeat the tuning process for the attitude controller on all the axes.
 1. Repeat the tuning process for the velocity and positions controllers (on all the axes).
    use Position mode when tuning these controllers.
+
