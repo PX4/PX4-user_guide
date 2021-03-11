@@ -35,26 +35,26 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 ![QuadRanger Parts](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
-  The tools required for the conversion are;
+변환에 필요한 도구는 다음과 같습니다.
 
-- A Dremel or similar rotary tool
-- A hobby knife
-- UHU POR glue
-- CA glue
-- Tape-line
-- Tape
+- Dremel 또는 유사한 회전 도구
+- 취미용 칼
+- UHU POR 접착제
+- CA 접착제
+- 줄자
+- 테이프
 
 ![QuadRanger conversion tools](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_conversion_tools.jpg)
 
-## Wing conversion
+## 날개 변환
 
-A full build log is provided in the following video.
+전체 조립 방법은 다음 비디오에서 제공됩니다.
 
 :::note
-Please note that the conversion in this build log is performed on a wing that shows damage from a previous conversion. 
+이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다.
 :::
 
-@[youtube](https://youtu.be/l_ppJ_HhAUQ)
+@[유투브](https://youtu.be/l_ppJ_HhAUQ)
 
 Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
 
