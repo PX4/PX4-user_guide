@@ -1,17 +1,17 @@
 # FunCub QuadPlane (Pixhawk)
 
-The Fun Cub QuadPlane VTOL is a standard tailplane aircraft (the Multiplex FunCub) that has been retrofitted with a QuadCopter system.
+Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플레인 항공기 (Multiplex FunCub)입니다.
 
-Key information:
+주요 정보:
 
-- **Frame:** Multiplex FunCub
-- **Flight controller:** Pixhawk
+- **기체:** Multiplex FunCub
+- **비행 컨트롤러:** Pixhawk
 
 ![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
+수정되지 않은 Fun Cub는 비교적 저렴하고 비행방법이 비교적 쉽습니다. 변환 후 비행기는 상당히 무겁고 공기 역학적으로 난해합니다. 비행은 우수하지만, 전진 비행시에는 약 75 %의 스로틀이 필요합니다.
 
-## Bill of Materials
+## 부품 명세서
 
 The actual plane looks roughly like as shown in the image above (other similar models will work just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
 
