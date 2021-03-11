@@ -2,6 +2,8 @@
 
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+
+PX4 v1.11 is the last release that supports this platform.
 :::
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
