@@ -1,6 +1,6 @@
 # Volantex Ranger-Ex QuadPlane VTOL (Pixhawk)
 
-The QuadRanger VTOL is a standard tailplane aircraft based on the Volantex Ranger-Ex that has been retrofitted with a QuadCopter system. The Ranger-Ex is an easy to fly FPV platform that is widely available. It is also available from HobbyKing where it is rebranded as the Quanum Observer. The plasic fuselage and 2 meter EPO wing makes it a rugged airframe with a lot of payload capacity.
+QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 널리 사용 가능한 비행하기 쉬운 FPV 플랫폼입니다. It is also available from HobbyKing where it is rebranded as the Quanum Observer. The plasic fuselage and 2 meter EPO wing makes it a rugged airframe with a lot of payload capacity.
 
 Key information:
 
