@@ -49,39 +49,44 @@ For more information about proper bus connections see [UAVCAN Device Interconnec
 :::
 
 
-## Firmware Setup
+## PX4 Configuration
 
-Next, follow the instructions in [UAVCAN Configuration](../uavcan/node_enumeration.md) to activate the UAVCAN functionalities in the firmware.
-Disconnect your power supply and reconnect it.
-After the power cycle all UAVCAN devices should be detected which is confirmed by a beeping motor on the Orel 20 ESCs.
-You can now continue with the general setup and calibration.
+In order to use UAVCAN components with PX4 you will first need to enable the UAVCAN driver:
 
-Depending on the used hardware, it can be reasonable to perform an update of the firmware on the UAVCAN devices.
-This can be done via the UAVCAN itself and the PX4 firmware.
-For more details please refer to the instructions in [UAVCAN Firmware](../uavcan/node_firmware.md).
+1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller) and connect *QGroundControl*.
+1. Navigate to the **Vehicle Setup > Parameters** screen.
+1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) must be [set](../advanced_config/parameters.md) to one of the non-zero values.
 
-## Upgrading Node Firmware
+   The values are:
+   - `0`: UAVCAN driver disabled.
+   - `1`: Sensors Manual Config.
+   - `2`: Sensors Automatic Config.
+   - `3`: Sensors and Actuators (ESCs) Automatic Config
 
-PX4 will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied.
-The process and requirements are described on the [UAVCAN Firmware](../uavcan/node_firmware.md) page.
+   Use `1` if _none_ of the connected UAVCAN devices support automatic configuration (check the manual!), `2` or `3` if _some_ of them support automatic configuration, and `3` if your [UAVCAN ESCs (Motor Controllers)](../uavcan/escs.md) support simple *QGroundControl* setup tools for specifying id and rotation direction.
 
-## Enumerating and Configuring Motor Controllers
+:::note
+You will need to manually allocate static ids for any nodes that don't support automatic configuration.
+When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
+:::
 
-The ID and rotational direction of each motor controller can be assigned after installation in a simple setup routine: [UAVCAN Node Enumeration](../uavcan/node_enumeration.md).
-The routine can be started by the user through QGroundControl.
+Most UAVCAN sensors require no further setup (they are plug'n'play, unless specifically noted in their documentation).
+
+[UAVCAN motor controllers (ESCs)](../uavcan/escs.md) require the motor order be set, and may require a few other parameters be set.
 
 
 ## Troubleshooting
-
-### Motors not spinning when armed
-
-If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs.
-If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
 
 ### UAVCAN devices dont get node ID/Firmware Update Fails
 
 PX4 requires an SD card for UAVCAN node allocation and during firmware update (which happen during boot).
 Check that there is a (working) SD card present and reboot.
 
+### Motors not spinning when armed
 
+If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs.
+If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
 
+## Developer Information
+
+- [UAVCAN Development](../uavcan/developer.md): Topics related to development and integration of new UAVCAN hardware into PX4.

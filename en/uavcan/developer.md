@@ -1,8 +1,10 @@
 # UAVCAN Development
 
-General documentation on [UAVCAN](http://uavcan.org) can be found in: [Hardware > UAVCAN Peripherals](../uavcan/README.md).
+This topic/section has information that is relevant to developers who want to add support for new [UAVCAN](http://uavcan.org) hardware to the PX4 Autopilot.
 
-This topic/section has information that is relevant to developers (or at least largely irrelevant to end users).
+:::note
+[Hardware > UAVCAN Peripherals](../uavcan/README.md) contains information about using existing/supported UAVCAN components with PX4.
+:::
 
 ## Upgrading Node Firmware
 
@@ -20,7 +22,6 @@ They can also be used independently from Pixhawk hardware in order to test a nod
 
 - [UAVCAN Bootloader](../uavcan/bootloader_installation.md)
 - [UAVCAN Firmware Upgrades](../uavcan/node_firmware.md)
-- [UAVCAN Various Notes](../uavcan/notes.md)
 - [Home page](http://uavcan.org) (uavcan.org)
 - [Specification](https://uavcan.org/specification/) (uavcan.org)
 - [Implementations and tutorials](http://uavcan.org/Implementations) (uavcan.org)

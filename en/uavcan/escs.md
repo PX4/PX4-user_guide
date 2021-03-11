@@ -86,7 +86,7 @@ There are many other commercially available ESCs; please add new links as you fi
 ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 -->
 
-<span id="connecting"></span>
+
 ## Wiring/Connections
 
 Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes.
@@ -104,7 +104,7 @@ Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybr
 
 In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
 1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller) and connect *QGroundControl*.
-1. Navigate to the **Vehicle Setup > Parameters** screen
+1. Navigate to the **Vehicle Setup > Parameters** screen.
    :::note
    [Parameters](../advanced_config/parameters.md) explains how to find and set parameters.
    :::
@@ -112,7 +112,7 @@ In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
    This enables automatic enumeration of the motors (ESC) as described in the [next section](#esc-setup). 
 1. (Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
    :::note
-   Some systems will not benefit from this behavior, e.g. glider drones)
+   Some systems will not benefit from this behavior, e.g. glider drones).
    :::
 
 
@@ -129,8 +129,6 @@ The mechanism for enumerating each type of UAVCAN ESC is different (look up the 
 Setup information for some UAVCAN ESCs is provided below.
 
 
-<span id="sapog"></span>
-<span id="sapog_esc_qgc"></span>
 ### Sapog ESC Enumeration using QGroundControl
 
 This section shows how to enumerate any [Sapog-based](https://github.com/PX4/sapog#px4-sapog)-based ESCs "automatically" using *QGroundControl*.
@@ -147,14 +145,15 @@ To enumerate the ESC:
    ![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
 
    You will hear a sound indicating that the flight controller has entered the ESC enumeration mode.
-1. Manually turn each motor in the correct direction of its rotation, starting from the first motor and finishing with the last motor.
+1. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor.
    Each time you turn a motor, you should hear a confirmation beep.
    
    :::note
-   Make sure to turn each of the motors in the correct direction, because the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
    :::
 
 1. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
+1. Reboot PX4 and the Sapog ESCs to apply the new enumeration IDs.
 
 The following video demonstrates the process:
 
