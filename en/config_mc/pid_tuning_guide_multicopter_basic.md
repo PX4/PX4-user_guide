@@ -54,12 +54,13 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
   - Check that no motors turn off
 - Use a high-rate telemetry link such as WiFi if at all possible (a typical low-range telemetry radio is not fast enough for real-time feedback and plots).
   This is particularly important for the rate controller.
-- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle.
+- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle (there is an options for this in the PID tuning screen).
 
 ## Tuning Procedure
 
 The tuning procedure is:
 
+1. Arm the vehicle, takeoff, and hover (typically in _Position mode_).
 1. Open _QGroundControl_ **Vehicle Setup > PID Tuning**
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
@@ -71,10 +72,18 @@ The tuning procedure is:
    A value of 0.3 is a good default.
    :::
 1. Set the *Select Tuning* radio button to: **Roll**.
-1. For rate controller tuning, switch to *Acro mode*, *Stabilized mode* or *Altitude mode*.
-1. Select the **Start** button.
+1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox.
+   This will _automatically_ switch from _Position_ mode to _Stabilised_ mode when you press the **Start** button
+1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
+1. Select the **Start** button in order to start tracking the setpoint and response curves.
 1. Rapidly move the *roll stick* full range and observe the step response on the plots.
+   :::tip
+   Stop tracking to enable easier inspection of the plots.
+   This happens automatically when you zoom/pan.
+   Use the **Start** button to restart the plots, and **Clear** to reset them.
+   :::
 1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again.
+   The values are saved to the vehicle as soon as the sliders are moved.
    :::note
    The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
    :::
@@ -93,7 +102,12 @@ The tuning procedure is:
    - Use *Select Tuning* radio button to select the axis to tune
    - Move the appropriate sticks (i.e. pitch stick for pitch, yaw stick for yaw).
    - For pitch tuning, start with the same values as for roll.
+     :::tip
+     Use the **Save to Clipboard** and **Reset from Clipboard** buttons to copy the roll settings for initial pitch settings.
+     :::
 1. Repeat the tuning process for the attitude controller on all the axes.
 1. Repeat the tuning process for the velocity and positions controllers (on all the axes).
-   use Position mode when tuning these controllers.
+   Use Position mode when tuning these controllers (make sure to switch to the simple input mode, allowing direct control so that you can generate step inputs).
 
+All done!
+Remember to re-enable airmode before leaving the setup.
