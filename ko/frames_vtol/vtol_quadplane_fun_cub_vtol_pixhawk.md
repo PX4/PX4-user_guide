@@ -30,7 +30,7 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 
 구조는 아래와 같이 알루미늄 재질로 만들어집니다.
 
-![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg) ![un Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
 ## 배선
 
@@ -47,23 +47,23 @@ Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉�
 | MAIN 3 | 전방 좌측 모터(시계 방향)  |
 | MAIN 4 | 후방 우측 모터(시계 방향)  |
 | AUX 1  | 좌측 보조익 TODO      |
-| AUX 2  | Right aileron    |
-| AUX 3  | Elevator         |
-| AUX 4  | Rudder           |
-| AUX 5  | Throttle         |
+| AUX 2  | 우측 보조익           |
+| AUX 3  | 승강타              |
+| AUX 4  | 방향타              |
+| AUX 5  | 스로틀              |
 
-For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
+배선 및 설정에 관한 자세한 지침은 다음을 참조하십시오. [표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
-## Airframe Configuration
+## 기체 설정
 
-Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
+아래 QGroundControl에 표시된대로 기체를 설정합니다 (맨 위의 **적용 및 다시 시작**을 클릭하는 것을 잊지 마십시오).
 
-![QCG - Select Fun Cub Quad firmware](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
+![QCG - Fun Cub Quad 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/4K8yaa6A0ks)
+@[유투브](https://youtu.be/4K8yaa6A0ks)
 
-## Support
+## 지원
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
