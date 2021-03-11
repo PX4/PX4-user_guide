@@ -1,37 +1,37 @@
 # Volantex Ranger-Ex QuadPlane VTOL (Pixhawk)
 
-QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 널리 사용 가능한 비행하기 쉬운 FPV 플랫폼입니다. It is also available from HobbyKing where it is rebranded as the Quanum Observer. The plasic fuselage and 2 meter EPO wing makes it a rugged airframe with a lot of payload capacity.
+QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 기반의 표준 꼬리 비행기입니다. Ranger-Ex는 비행법이 간편한 범용적인 FPV 플랫폼입니다. HobbyKing에서 구매할 수 있으며, Quanum Observer로 제품명이 변경되었습니다. 플라스틱 동체와 2m EPO 날개는 탑재 하중이 높은 견고한 기체입니다.
 
-Key information:
+주요 정보:
 
-- **Frame:** Volantex Ranger-Ex or *Quanum Observer*
-- **Flight controller:** Pixhawk
+- **기체: ** Volantex Ranger-Ex 또는 *Quanum Observer*
+- **비행 컨트롤러:** Pixhawk
 
 ![QuadRanger](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
-The VTOL conversion makes the plane a bit heavier (around 3.5kg including LiPo). With this conversion the plane will cruise at approximately 65% throttle. The suggested quad setup provides a thrust of 7.5kg and the airframe can fly with a total weight of around 4.5kg. This leaves enough payload capacity for payloads like FPV gear and cameras.
+VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며 기체는 약 4.5kg의 총 중량으로 비행할 수 있습니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량이 남아 있습니다.
 
-The conversion is designed to minimize impact on the aerodynamics and provide additional strength minimize wing flexing.
+변환은 공기 역학에 미치는 영향을 최소화하고 추가 강도를 제공하여 날개 굴곡을 최소화하도록 설계되었습니다.
 
-## Bill of Materials
+## 부품 명세서
 
-- Volantex Ranger-Ex or Quanum Observer
-- 1200KV 530W motors
-- 30A Speed Controllers
-- 4s battery
-- APC Electric 11x5 propellers
+- Volantex Ranger-Ex 혹은 Quanum Observer
+- 1200KV 530W 모터
+- 30A 속도 컨트롤러
+- 4s 배터리
+- APC Electric 11x5 프로펠러
 
-## Conversion kit
+## 변환 키트
 
-- The basic parts required are;
-- Pixhawk or compatible
-- Digital airspeed sensor
-- 3DR Power module or compatible
+- 필요한 기본 부품은 다음과 같습니다.
+- Pixhawk 호환 제품
+- 디지털 풍속 센서
+- 3DR 호환 전원 모듈
 - GPS
 
-For a full parts list with links to Hobbyking EU and International warehouse see: [QuadRanger-VTOL-partslist](http://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
+Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [QuadRanger-VTOL-partslist](http://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)를 참조하십시오.
 
-The image below depicts the parts required for one wing.
+아래 이미지는 한 날개에 필요한 부품을 보여줍니다.
 
 ![QuadRanger Parts](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
