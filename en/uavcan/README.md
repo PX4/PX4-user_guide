@@ -63,7 +63,7 @@ In order to use UAVCAN components with PX4 you will first need to enable the UAV
    - `2`: Sensors Automatic Config.
    - `3`: Sensors and Actuators (ESCs) Automatic Config
 
-   Use `1` if _none_ of the connected UAVCAN devices support automatic configuration (check the manual!), `2` or `3` if _some_ of them support automatic configuration, and `3` if your [UAVCAN ESCs (Motor Controllers)](../uavcan/escs.md) support simple *QGroundControl* setup tools for specifying id and rotation direction.
+   Use `1` if _none_ of the connected UAVCAN devices support automatic configuration (check the manual!), `2` or `3` if _some_ of them support automatic configuration, and `3` if you're using UAVCAN ESCs (this assigns motor controls to the UAVCAN bus rather than PWM).
 
 :::note
 You will need to manually allocate static ids for any nodes that don't support automatic configuration.
@@ -72,7 +72,8 @@ When using dynamic configuration, any manually allocated ids should be given a v
 
 Most UAVCAN sensors require no further setup (they are plug'n'play, unless specifically noted in their documentation).
 
-[UAVCAN motor controllers (ESCs)](../uavcan/escs.md) require the motor order be set, and may require a few other parameters be set.
+[UAVCAN motor controllers (ESCs)](../uavcan/escs.md) additionally require the motor order be set, and may require a few other parameters be set.
+Whether this can be done using the simple QGroundControl setup UI depends on the type of ESC (see link for information).
 
 
 ## Troubleshooting
