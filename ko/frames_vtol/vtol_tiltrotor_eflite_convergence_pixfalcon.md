@@ -1,10 +1,10 @@
-# E-flite 컨버전스 Tiltrotor VTOL (Pixfalcon)
+# E-flite Convergence Tiltrotor VTOL (Pixfalcon)
 
-The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
+[E-Flite 컨버전스](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) PX4의 자율 비행 기능을 지원하는 VTOL로 변환 할 수 있습니다. 공간이 많지는 않지만 GPS, 텔레메트리와 Pixfalcon을 충분히 장착할 수 있습니다.
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+@[유투브](https://youtu.be/E61P2f2WPNU)
 
-## Hardware Setup
+## 하드웨어 설정
 
 The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
 
