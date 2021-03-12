@@ -15950,6 +15950,13 @@ Absolute value superior to 10000 will disable distance sensor    </td>
  <td>5.0</td>
  <td>N</td>
 </tr>
+<tr>
+ <td><strong id="SIH_T_TAU">SIH_T_TAU</strong> (FLOAT)</td>
+ <td>thruster time constant tau <p><strong>Comment:</strong> the time taken for the thruster to step from 0 to 100% should be about 4 times tau</p>   </td>
+ <td></td>
+ <td>0.05</td>
+ <td>s</td>
+</tr>
 </tbody></table>
 
 ## System
