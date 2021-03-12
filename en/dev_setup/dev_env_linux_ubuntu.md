@@ -57,7 +57,7 @@ To install the toolchain:
    ```
 1. Run the **ubuntu.sh** with no arguments (in a bash shell) to install everything:
    ```bash
-   bash ./Tools/setup/ubuntu.sh
+   bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - Acknowledge any prompts as the script progress.
    - You can use the `--no-nuttx` and `--no-sim-tools` options to omit the NuttX and/or simulation tools.
