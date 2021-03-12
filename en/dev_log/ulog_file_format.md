@@ -83,7 +83,9 @@ struct message_header_s {
   This message **must** be the first message, right after the header section, so that it has a fixed constant offset.
 
   - `compat_flags`: compatible flag bits. 
-    None of them is currently defined and all must be set to 0. 
+    - `compat_flags[0]`, bit 0, *DEFAULT_PARAMETERS*: if set, the log contains parameter defaults (message 'Q').
+
+    The rest of the bits is currently not defined and all must be set to 0.
     These bits can be used for future ULog changes that are compatible with existing parsers. 
     It means parsers can just ignore the bits if one of the unknown bits is set.
   - `incompat_flags`: incompatible flag bits. 
@@ -194,8 +196,26 @@ int32_t time_ref_utc | UTC Time offset in seconds | -3600 |
   If a parameter dynamically changes during runtime, this message can also be used in the Data section.
   The data type is restricted to: `int32_t`, `float`.
 
-This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
+- 'Q': parameter default message.
+  ```c
+  struct ulog_message_parameter_default_header_s {
+  	struct message_header_s header;
+  	uint8_t default_types;
+  	uint8_t key_len;
+  	char key[key_len];
+  	char value[header.msg_size-2-key_len]
+  };
+  ```
+  `default_types` is a bitfield and defines to which group(s) the value belongs to. At least one bit must be set:
+  - `1<<0`: system wide default
+  - `1<<1`: default for the current configuration (e.g. an airframe)
+  
+  A log may not contain default values for all parameters.
+  In those cases the default is equal to the parameter value, and different default types are treated independently.
+  This message can also be used in the Data section.
+  The data type is restricted to: `int32_t`, `float`.
 
+This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
 
 ### Data Section
 
@@ -329,6 +349,8 @@ enum class ulog_tag : uint16_t {
 - 'P': parameter message. 
   See above.
 
+- 'Q': parameter message.
+  See above.
 
 ## Requirements for Parsers
 
