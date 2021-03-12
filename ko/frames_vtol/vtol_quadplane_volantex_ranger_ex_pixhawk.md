@@ -7,7 +7,7 @@ QuadRanger VTOL은 QuadCopter 시스템으로 설계된 Volantex Ranger-Ex를 �
 - **기체: ** Volantex Ranger-Ex 또는 *Quanum Observer*
 - **비행 컨트롤러:** Pixhawk
 
-![QuadRanger](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
+![쿼드레인저](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_complete_build.jpg)
 
 VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증가합니다. 변환된 비행기는 약 65%의 추진력으로 순항할 수 있습니다. 제안하는 쿼드 설정은 7.5kg의 추력을 제공하며 기체는 약 4.5kg의 총 중량으로 비행할 수 있습니다. FPV 장비와 카메라를 탑재에 충분한 하중 용량이 남아 있습니다.
 
@@ -33,7 +33,7 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 아래 이미지는 한 날개에 필요한 부품을 보여줍니다.
 
-![QuadRanger Parts](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
+![쿼드레인저 부품](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_parts_for_one_wing.jpg)
 
 변환에 필요한 도구는 다음과 같습니다.
 
@@ -44,7 +44,7 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 - 줄자
 - 테이프
 
-![QuadRanger conversion tools](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_conversion_tools.jpg)
+![쿼드레인저 변환 도구](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_conversion_tools.jpg)
 
 ## 날개 변환
 
@@ -58,48 +58,48 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 800mm 사각 탄소 튜브를 570mm와 230mm 길이로 자릅니다.
 
-고정된 깊이를 유지하기 위해 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. The slot should be the length, depth and width of one 230mm square carbon tube. It should be located as indicated below.
+고정된 깊이를 유지하기 위해 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. 슬롯은 230mm 정사각형 탄소 튜브 1 개의 길이, 깊이 및 너비를 유지하여야 합니다. 아래 표시된 위치에 있어야합니다.
 
-![QuadRanger carbon tube slot](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
+![QuadRanger 탄소 튜브 슬롯](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
 
-Glue the 300x150x1.5mm carbon sheet to the 230mm carbon tube using CA glue and create an opening to run wires through. Insert the wires for power and signal to the ESC's. Using UHU POR glue the sheet and carbon tube to the Styrofoam wing as indicated below.
+CA 접착제를 사용하여 300x150x1.5mm 탄소 시트를 230mm 탄소 튜브에 붙이고 전선을 통과할 구멍을 만듭니다. 전원 및 신호용 전선을 ESC에 삽입합니다. UHU POR를 사용하여 시트와 탄소 튜브를 아래 표시된대로 스티로폼 날개에 붙입니다.
 
-![QuadRanger sheet attachment](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_sheet_attachment.jpg)
+![QuadRanger 시트 첨부](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_sheet_attachment.jpg)
 
-Using CA glue, glue the 570mm square carbon tube to the carbon sheet. It should be located 285mm from where the wings join. The tube should be centred relative to the vertical area of the wing. It should extend exactly 165mm on both sides.
+CA 접착제를 사용하여 570mm 정사각형 탄소 튜브를 탄소 시트에 붙입니다. 날개가 만나는 지점에서 285mm 떨어진 곳에 위치하여야 합니다. 튜브는 날개의 수직 영역을 기준으로 중앙에 있어야 합니다. 양쪽에서 정확히 165mm 연장되어야합니다.
 
-Attach the motor mount to the motor. With another motor mount plate and 4 M3x25mm screws clamp the motor on the end of the square carbon tube as indicated below. Attach the ESC's with tie wraps to the carbon tube. When using the Afro ESC be sure to connect at least signal and ground wire.
+모터 마운트를 모터에 부착합니다. 다른 모터 장착 플레이트와 4 개의 M3x25mm 나사를 사용하여 아래 표시된대로 사각형 탄소 튜브 끝에 모터를 고정합니다. 타이 랩이있는 ESC를 카본 튜브에 부착합니다. Afro ESC를 사용할 때는 최소한 신호와 접지선을 연결하십시오.
 
-![QuadRanger motor and esc](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_motor_and_esc.jpg)
+![QuadRanger 모토와 esc](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_motor_and_esc.jpg)
 
-## Wiring
+## 배선
 
-The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
+Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있음"과 같은 방향)
 
-| Port   | Connection             |
-| ------ | ---------------------- |
-| MAIN 1 | Front right motor, CCW |
-| MAIN 2 | Back left motor, CCW   |
-| MAIN 3 | Front left motor, CW   |
-| MAIN 4 | Back right motor, CW   |
-| AUX 1  | Left aileron           |
-| AUX 2  | Right aileron          |
-| AUX 3  | Elevator               |
-| AUX 4  | Rudder                 |
-| AUX 5  | Throttle               |
+| 포트     | 연결            |
+| ------ | ------------- |
+| MAIN 1 | 전방 우측, 반시계 방향 |
+| MAIN 2 | 후방 촤즉, 반시계 방향 |
+| MAIN 3 | 전방 좌측, 시계방향   |
+| MAIN 4 | 후방 우측, 시계 방향  |
+| AUX 1  | 좌측 보조익        |
+| AUX 2  | 우측 보조익        |
+| AUX 3  | 승강타           |
+| AUX 4  | 방향타           |
+| AUX 5  | 스로틀           |
 
 :::note
-The servo direction can be reversed using the PWM\_REV parameters in the PWM\_OUTPUT group of QGroundControl (cogwheel tab, last item in the left menu)
+서보 방향은 QGroundControl의 PWM\_OUTPUT 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 PWM\_REV 매개 변수를 사용하여 변경할 수 있습니다.
 :::
 
-For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
+배선 및 설정에 관한 자세한 지침은 다음을 참조하십시오.[표준 VTOL 배선 및 설정](../config_vtol/vtol_quad_configuration.md)
 
-## Configuration
+## 설정
 
-Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
+아래 QGroundControl에 표시된대로 기체를 설정합니다 (맨 위의 **적용 및 다시 시작**을 클릭하는 것을 잊지 마십시오).
 
-![QGC - select firmware for standard VTOL](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
+![QGC - 표준 VTOL용 펌웨어 선택](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Support
+## 지원
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+VTOL 변환 또는 구성에 대한 질문이 있으시면 <https://discuss.px4.io/c/px4/vtol>을 방문하십시오.
