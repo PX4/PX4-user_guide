@@ -48,7 +48,7 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 ## 날개 변환
 
-전체 조립 방법은 다음 비디오에서 제공됩니다.
+전체 조립 방법은 아래 비디오를 참고하십시오.
 
 :::note
 이 변환 조립 방법은 이전 변환으로 인한 손상을 보여주는 날개에서 수행됩니다.
@@ -56,9 +56,9 @@ Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [Quad
 
 @[유투브](https://youtu.be/l_ppJ_HhAUQ)
 
-Cut both 800mm square carbon tubes to a length of 570mm and 230mm.
+800mm 사각 탄소 튜브를 570mm와 230mm 길이로 자릅니다.
 
-Making a slot in the Styrofoam wing 1.5cm deep using a rotary tool with some form of guidance to keep a fixed depth. The slot should be the length, depth and width of one 230mm square carbon tube. It should be located as indicated below.
+고정된 깊이를 유지하기 위해 회전 도구를 사용하여 1.5cm 깊이의 스티로폼 날개에 슬롯을 만듭니다. The slot should be the length, depth and width of one 230mm square carbon tube. It should be located as indicated below.
 
 ![QuadRanger carbon tube slot](../../assets/airframes/vtol/quadranger_rangerex_pixhawk/quadranger_vtol_carbon_tube_slot.jpg)
 
