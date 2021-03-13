@@ -1,14 +1,14 @@
 # TBS Caipiroshka
 
-The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
+Caipiroshka VTOL은 조금 수정된 *TBS Caipirinha*입니다.
 
 :::note
-The *TBS Caipirinha* has been superceded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
+*TBS Caipirinha*는 더 이상 사용할 수 없습니다. 이 지침은 업데이트된 차량 [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)에서 *작동하여야 합니다*. 부품 목록에서 다른 여러 구성 요소도 업데이트 되었습니다.
 :::
 
-@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
+@[유투브](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
-## Parts List
+## 부품 목록
 
 * TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)) 
 * Left and right 3D-printed motor mount (<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
