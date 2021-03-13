@@ -6,28 +6,28 @@
 
 ## 하드웨어 설정
 
-The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
+컨버전스에는 7 개의 PWM 신호가 필요하며 다음과 같은 방식으로 Pixfalcon에 연결됩니다 (PX4의 기체 구성과 일치, 비행기 뒤에서 본 왼쪽 / 오른쪽).
 
-| Port   | Connection       |
-| ------ | ---------------- |
-| MAIN 1 | Motor right      |
-| MAIN 2 | Motor left       |
-| MAIN 3 | Motor back       |
-| MAIN 4 | empty            |
-| MAIN 5 | Tilt servo right |
-| MAIN 6 | Tilt servo left  |
-| MAIN 7 | Elevon right     |
-| MAIN 8 | Elevon left      |
+| 포트     | 연결       |
+| ------ | -------- |
+| MAIN 1 | 우측 모터    |
+| MAIN 2 | 좌측 모터    |
+| MAIN 3 | 후면 모터    |
+| MAIN 4 | 없음       |
+| MAIN 5 | 우측 틸트 서보 |
+| MAIN 6 | 좌측 틸트 서보 |
+| MAIN 7 | 우측 엘레본   |
+| MAIN 8 | 좌측 엘레본   |
 
-Pixfalcon은 원래 자동 조종 장치가 있던 동일한 장소에 장착 할 수 있습니다.
+Pixfalcon은 원래 자동조종장치가 있었던 동일한 장소에 장착 가능합니다.
 
 ![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-텔레 메 트리 모듈은 FPV 변속기를 수용 할 수있는 베이에 장착됩니다.
+텔레메트리 모듈은 FPV 전송 기어를 고정하기 위한 베이에 장착합니다.
 
 ![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-GPS를 넣기 위해 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
+GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
 ![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
