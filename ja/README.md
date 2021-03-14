@@ -6,75 +6,79 @@
 
 PX4 は *本格的なオートパイロットシステムです*. 世界中の産業界・アカデミアの開発者によって開発され，世界中のコミュニティによってサポートされており，レーシング用ドローンや運送用ドローンのみならず地上から潜水艇まで，様々なビークルに用いることができます．
 
-このガイドはPX4を搭載する機体を組立て、パラメタを調し、安全に飛ばすために必要な全てのことを含んでいます。
-:::
-
-このガイドは今でも現在進行形で作られています。 このガイドは未だPX4の全てをカバーしているわけではありません。
+このガイドはPX4を搭載する機体を組立て、パラメタを調し、安全に飛ばすために必要な全てのことを含んでいます。 Interested in contributing? Check out the [Development](development/development.md) section.
 :::
 
 ## なにから始めればいいの？
 
-[さあ、はじめよう](getting_started/README.md) はすべてのユーザーが読むべきです! 本章は，様々な機能(フライトモードや安全機能) や利用可能なハードウェア(フライトコントローラ，機体，テレメトリーシステム，無線機) など，PX4の概要について説明しています。
+[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
 
-貴方の行いたいことに応じて、以下のヒントがこの解説書を探索するのに役に立つことでしょう。
+Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
-**既にドローンを持っていて，すぐ飛ばしたいという方:**
+**I already have a drone and I just want to fly:**
 
-PX4が使える既成機（RTF）を持っている人
+If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
 * [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法、主要センサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション及びRC装置や安全機能のセットアップについて説明しています．
 * [フライト](flying/README.md) ではどこでどのように安全に飛行させるかや，ア―ミングや飛行中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードの詳細についても解説しています．
 
-**PX4準拠のドローンを手作りしたい方:**
+**I want to build a drone with PX4 from scratch:**
 
-:::**Tip** "サポートされている" 機体のリストは [機体一覧](airframes/airframe_reference.md)にあります. これらの機体はテスト済で，調整された設定値を*QGroundControl*を通してダウンロードできます.
+:::tip
+The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
 :::
 
-機体を手作りしたい方:
+If you want to build a vehicle from scratch:
 
 * フレームの選択 - [機体の組み立て](airframes/README.md) にはすべてのサポートされているフレームが列挙されています。更に機体を組み立てるための詳細な情報が提供されています．
 * フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照してください。
 * [基本構成](assembly/README.md) では，重要な周辺機器をオートパイロット用機器にどのように接続するか説明しています．
 * [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体に応じた設定方法について説明しています。 また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計等) のキャリブレーション、RC装置や安全機能のセットアップについても説明しています。
 
-飛行させる準備が完了したら、 [フライト](flying/README.md) 章を参照してください。
+Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
-**標準機を改造する場合:**
+**I want to add payload or a camera:**
 
-フライトコントローラや基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に大きな影響を与える改造をした場合は以下を参照してください:
+The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
 
-* [周辺機器](peripherals/README.md) では外部センサを使用するための追加情報を記載しています。
-* [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています。
-* [応用設定](advanced_config/README.md) はより良い調整や微調整に役立ちます．
+* [Payloads](payloads/README.md) describes how to integrate payloads
 
-**PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
+**I am modifying a supported vehicle:**
 
-* [開発](development/development.md) では新しい機体や車両の支援方法、フライトアルゴリズムの改造や，新しいモードの追加，新しいハードウェアの追加，PX4とフライトコントローラーの外部からの通信，さらにPX4の開発への貢献などについて記述しています．
+Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+
+* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+
+**I want to run PX4 on new hardware and extend the platform:**
+
+* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## ヘルプの参照
 
-[サポート](contribute/support.md) ページでは、コア開発チームとより広いコミュニティからヘルプを得る方法について説明します。
+The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
-その他にも以下のものをカバーしています:
+Among other things it covers:
 
-* [フォーラムでヘルプが使えます](contribute/support.md#forums-and-chat)
-* [診断に関する事項](contribute/support.md#diagnosing-problems)
-* [バグを報告する方法](contribute/support.md#issue-bug-reporting)
-* [毎週の開発者通話](contribute/support.md#weekly-dev-call)
+* [Forums where you can get help](contribute/support.md#forums-and-chat)
+* [Diagnosing issues](contribute/support.md#diagnosing-problems)
+* [How to report bugs](contribute/support.md#issue-bug-reporting)
+* [Weekly dev call](contribute/support.md#weekly-dev-call)
 
 ## バグ & 問題提起
 
-PX4の使用に問題がある場合は、まずそれらを [サポートフォーラム](contribute/support.md#forums-and-chat) に投稿してください（PX4の問題ではなく車両設定によって引き起こされた可能性がありますので）
+If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
 
-開発チームによって指示された場合、コードの問題は [Github ここ](https://github.com/PX4/PX4-Autopilot/issues) にあげられる可能性があります。 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 貢献
 
 Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
-* [コード](contribute/README.md)
-* [ドキュメント](contribute/docs.md)
-* [翻訳](contribute/translation.md)
+* [Code](contribute/README.md)
+* [Documentation](contribute/docs.md)
+* [Translation](contribute/translation.md)
 
 ## Translations
 
