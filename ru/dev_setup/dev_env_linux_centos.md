@@ -1,7 +1,7 @@
-# Development Environment on CentOS
+# CentOS Development Environment
 
-:::note
-These instructions have not been tested with recent builds of PX4. We hope to provide fully tested instructions with the supported toolchain in the near future.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
@@ -32,6 +32,10 @@ You may want to also install `python-pip` and `screen`.
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 
 Execute the script below to install GCC 7-2017-q4:
+
+:::warning
+This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see  [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+:::
 
 ```sh
 pushd .
