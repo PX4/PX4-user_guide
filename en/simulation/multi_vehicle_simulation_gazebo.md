@@ -81,7 +81,7 @@ To build an example setup, follow the steps below:
    For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gabo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
+   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
    ```
 
    :::note
