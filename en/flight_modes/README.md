@@ -323,34 +323,6 @@ th {
 </td>
 </tr>
 
-
-<tr id="rattitude_mc">
- <td><a href="../flight_modes/rattitude_mc.html">Rattitude</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
- </td>
- <td>S or S<sub>rate</sub></td>
- <td>S<sub>rate</sub></td>
- <td>M</td>
- <td></td>
- <td>
- <p>RC mode that allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired. Centered sticks level vehicle.
-  <ul>
-    <li>Sticks within mode's threshold (like <a href="#manual_stabilized_mc">Manual/Stabilized mode</a>).
-      <ul>
-       <li>Centered RP sticks level vehicle. Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-      </ul>
-    </li>
-    <li>Sticks outside threshold (like <a href="#acro_mc">Acro mode</a>): 
-      <ul>
-       <li>RPY stick inputs control the rate of angular rotation around the respective axes.</li>
-      </ul>
-    </li>
-  </ul>
- </p>
-</td>
-</tr>
-
-
 <tr id="acro_mc">
  <td><a href="../flight_modes/acro_mc.html">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>

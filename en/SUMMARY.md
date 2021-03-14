@@ -80,7 +80,6 @@
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
     * [Manual/Stabilized Mode (MC)](flight_modes/manual_stabilized_mc.md)
-    * [Rattitude Mode (MC)](flight_modes/rattitude_mc.md)
     * [Acro Mode (MC)](flight_modes/acro_mc.md)
     * [Orbit Mode (MC)](flight_modes/orbit.md)
     * [Position Mode (FW)](flight_modes/position_fw.md)

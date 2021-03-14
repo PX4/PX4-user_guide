@@ -274,7 +274,7 @@ Failure detection during flight is deactivated by default (enable by setting the
 During **takeoff** the failure detector [attitude trigger](#attitude_trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions).
 Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 
-The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), [Rattitude](../flight_modes/rattitude_mc.md) and [Manual (FW)](../flight_modes/manual_fw.md)).
+The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), and [Manual (FW)](../flight_modes/manual_fw.md)).
 
 
 
@@ -338,7 +338,6 @@ This includes:
 - *Manual mode*
 - *Acro mode*
 - *Stabilized*
-- *Rattitude*
 
 For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected.
 This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
