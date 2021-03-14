@@ -6,17 +6,17 @@
 The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
 :::
 
-## What is the ecl EKF?
+## 什么是 ecl EKF？
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+估计和控制库（ECL）使用扩展卡尔曼滤波算法（EKF）来处理传感器的测量信息，并提供如下状态量的估计值：
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
-* Velocity at the IMU - North,East,Down \(m/s\)
-* Position at the IMU - North,East,Down \(m\)
-* IMU delta angle bias estimates - X,Y,Z \(rad\)
-* IMU delta velocity bias estimates - X,Y,Z\(m/s\)
-* Earth Magnetic field components - North,East,Down \(gauss\)
-* Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
+* 四元数定义从北，东，下局部地球坐标系到 X，Y，Z 机体坐标系的旋转
+* IMU 的速度 - 北、东、地 \(m/s\)
+* IMU 的位置 - 北、东、地 \(m\)
+* IMU 增量角度偏差估计 - X, Y, Z \(rad\)
+* IMU 增量速度偏差估计 - X, Y, Z\(m/s\)
+* 地球磁场组分 - 北-东-地 \(gauss\)
+* 飞行器机体坐标系磁场偏差 - X, Y, Z \(gauss\)
 * Wind velocity - North,East \(m/s\)
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
