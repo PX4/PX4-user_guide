@@ -1,46 +1,46 @@
-# E-flite 컨버전스 Tiltrotor VTOL (Pixfalcon)
+# E-flite Convergence Tiltrotor VTOL (Pixfalcon)
 
-The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
+[E-Flite 컨버전스](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) PX4의 자율 비행 기능을 지원하는 VTOL로 변환 할 수 있습니다. 공간이 많지는 않지만 GPS, 텔레메트리와 Pixfalcon을 충분히 장착할 수 있습니다.
 
-@[youtube](https://youtu.be/E61P2f2WPNU)
+@[유투브](https://youtu.be/E61P2f2WPNU)
 
-## Hardware Setup
+## 하드웨어 설정
 
-The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
+컨버전스에는 7 개의 PWM 신호가 필요하며 다음과 같은 방식으로 Pixfalcon에 연결됩니다 (PX4의 기체 구성과 일치, 비행기 뒤에서 본 왼쪽 / 오른쪽).
 
-| Port   | Connection       |
-| ------ | ---------------- |
-| MAIN 1 | Motor right      |
-| MAIN 2 | Motor left       |
-| MAIN 3 | Motor back       |
-| MAIN 4 | empty            |
-| MAIN 5 | Tilt servo right |
-| MAIN 6 | Tilt servo left  |
-| MAIN 7 | Elevon right     |
-| MAIN 8 | Elevon left      |
+| 포트     | 연결       |
+| ------ | -------- |
+| MAIN 1 | 우측 모터    |
+| MAIN 2 | 좌측 모터    |
+| MAIN 3 | 후면 모터    |
+| MAIN 4 | 없음       |
+| MAIN 5 | 우측 틸트 서보 |
+| MAIN 6 | 좌측 틸트 서보 |
+| MAIN 7 | 우측 엘레본   |
+| MAIN 8 | 좌측 엘레본   |
 
-Pixfalcon은 원래 자동 조종 장치가 있던 동일한 장소에 장착 할 수 있습니다.
+Pixfalcon은 원래 자동조종장치가 있었던 동일한 장소에 장착 가능합니다.
 
-![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
+![Pixfalcon 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-텔레 메 트리 모듈은 FPV 변속기를 수용 할 수있는 베이에 장착됩니다.
+텔레메트리 모듈은 FPV 전송 기어를 고정하기 위한 베이에 장착합니다.
 
-![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
+![텔레메트리 모듈 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-GPS를 넣기 위해 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
+GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. GPS를 기체 내부에 손상 없이 장착 가능합니다.
 
-![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
+![GPS 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
-## Configuration
+## 설정
 
-Before the autopilot is configured normally (radio, sensors, flight modes), select the airframe configuration "E-flite Convergence" under "VTOL Tiltrotor" in QGC and restart.
+자동조종 장치를 정상적으로 설정하기 전에 (무선, 센서, 비행 모드) 아래에서 기체 구성 "E-flite Convergence"를 선택합니다. QGC에서 "VTOL Tiltrotor"를 실행하고 다시 시작합니다.
 
-If the airframe is not yet visible in QGC, set the following parameters and restart:
+기체가 아직 QGC에 표시되지 않으면 다음 매개 변수를 설정하고 다시 시작하십시오.
 
 - `SYS_AUTOSTART`: 13012
 - `SYS_AUTOCONFIG`: 1
 
-Notes:
+참고:
 
-- Remember to assign the transition switch for switching to fixed-wing.
-- By default permanent stabilization is enabled. If you like fully manual flying in fixed-wing, set VT\_FW\_PERM\_STAB to 0.
+- 고정 날개로 전환하려면 전환 스위치를 지정하여야 합니다.
+- 기본적으로 영구 안정화가 활성화됩니다. 고정익에서 완전 수동 비행을 위해서는 VT\_FW\_PERM\_STAB를 0으로 설정하십시오.
