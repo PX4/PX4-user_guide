@@ -55,7 +55,7 @@ To install the toolchain:
    ```
 1. 运行 bash 脚本（比如运行 **ubuntu_sim.sh** ）： bash source ubuntu_sim.sh 所有弹出的提示均确认通过。
    ```bash
-   bash ./Tools/setup/ubuntu.sh
+   bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - 在安装过程中确认并通过所有的提示。
    - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。

@@ -75,7 +75,10 @@ struct message_header_s {
   ```
   这条消息**必须**是头后面的第一条消息，这样才有固定的常数偏移量。
 
-  - `compat_flags`: 兼容的标志位。 它们目前都没有定义，都必须设置为 0。 `compat_flags`: compatible flag bits. None of them is currently defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set. 这意味着, 如果设置了一个未知位，解析器就可以忽略。
+  - `compat_flags`: compatible flag bits.
+    - `compat_flags[0]`, bit 0, *DEFAULT_PARAMETERS*: if set, the log contains parameter defaults (message 'Q').
+
+    The rest of the bits is currently not defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
   - `incompat_flags`: 不兼容的标志位。 `incompat_flags`: incompatible flag bits. The LSB bit of index 0 is set to one if the log contains appended data and at lease one of the `appended_offsets` is non-zero. All other bits are undefined und must be set to 0. If a parser finds one of these bits set, it must refuse to parse the log. This can be used to introduce breaking changes that existing parsers cannot handle. 其他位都是未定义的，必须将设置为 0。 如果解析器发现这些位置 1，它必须拒绝解析日志。 这可用于引入现有解析器无法处理的重大更改。
   - `appended_offsets`: File offsets (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message. A process appending data should do: 如果没有附加数据，则所有偏移量必须为零。 这可以用于消息中途暂停的情况下可靠的添加数据。
 
@@ -154,8 +157,23 @@ struct message_header_s {
 
 - 'P'：报文参数。 格式与 `message_info_s` 相同。 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`. 数据类型限制为：`int32_t`，`float` 。
 
-这部分在第一个 `message_add_logged_s` 或者 `message_logging_s` 开始之前结束 (以先出现的消息为准) 。
+- 'Q': parameter default message.
+  ```c
+  struct ulog_message_parameter_default_header_s {
+    struct message_header_s header;
+    uint8_t default_types;
+    uint8_t key_len;
+    char key[key_len];
+    char value[header.msg_size-2-key_len]
+  };
+  ```
+  `default_types` is a bitfield and defines to which group(s) the value belongs to. At least one bit must be set:
+  - `1<<0`: system wide default
+  - `1<<1`: default for the current configuration (e.g. an airframe)
 
+  A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently. This message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
+
+这部分在第一个 `message_add_logged_s` 或者 `message_logging_s` 开始之前结束 (以先出现的消息为准) 。
 
 ### 数据部分
 
@@ -221,7 +239,7 @@ struct message_header_s {
   `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture. For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
 
   ```
-enum class ulog_tag : uint16_t {
+  enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
     ppk_handler,
@@ -232,7 +250,7 @@ enum class ulog_tag : uint16_t {
     io_service,
     cbuf,
     ulg
-};
+  };
   ```
 
   `timestamp`: every logged message (`message_add_logged_s`) must include a timestamp field (does not need to be the first field). Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`. The unit is always microseconds, except for `uint8_t` it's milliseconds. A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts). The timestamp must always be monotonic increasing for a message serie with the same `msg_id`.
@@ -271,6 +289,7 @@ enum class ulog_tag : uint16_t {
 
 - 'P': parameter message. See above. 见上文。
 
+- 'Q': parameter message. See above.
 
 ## 解析器的要求
 

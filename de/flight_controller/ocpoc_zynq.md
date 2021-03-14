@@ -3,7 +3,10 @@
 :::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://ainstein.ai/) for hardware support or compliance issues.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+
+PX4 v1.11 is the last release that has experimental support for this platform.
 :::
 
 The [OcPoC-Zynq Mini](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) is a FPGA+ARM SoC based flight control platform.

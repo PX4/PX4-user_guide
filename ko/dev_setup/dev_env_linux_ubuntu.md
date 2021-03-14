@@ -55,7 +55,7 @@ To install the toolchain:
    ```
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download>ubuntu_sim_nuttx.sh</a>**: **ubuntu_sim.sh** + NuttX tools.
    ```bash
-   bash ./Tools/setup/ubuntu.sh
+   bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - Acknowledge any prompts as the script progress.
    - We've created a number of bash scripts that you can use to install the Simulators and/or NuttX toolchain.

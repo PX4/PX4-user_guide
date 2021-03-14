@@ -1,6 +1,6 @@
 # CentOS 上的开发环境
 
-开发环境编译工作需要 Python 2.7.5 的支持，因此本文使用 CentOS 7 操作系统。 We hope to provide fully tested instructions with the supported toolchain in the near future. （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。
+开发环境编译工作需要 Python 2.7.5 的支持，因此本文使用 CentOS 7 操作系统。 See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support! （如使用更早版本的 CentOS 则需要额外安装 python v2.7.5）。
 
 The build requires Python 2.7.5. Therefore as of this writing Centos 7 should be used. (For earlier Centos releases a side-by-side install of python v2.7.5 may be done. But it is not recommended because it can break yum.)
 
@@ -31,6 +31,10 @@ You may want to also install `python-pip` and `screen`.
 
 Execute the script below to install GCC 7-2017-q4:
 
+:::warning
+This version of GCC is out of date. At time of writing the current version on Ubuntu is `9-2020-q2-update` (see  [focal nuttx docker file](https://github.com/PX4/PX4-containers/blob/master/docker/Dockerfile_nuttx-focal#L28))
+:::
+
 ```sh
 pushd .
 cd ~
@@ -41,7 +45,7 @@ if grep -Fxq "$exportline" ~/.profile; then echo nothing to do ; else echo $expo
 popd
 ```
 
-{% include "_ninja_build_system.md" %}
+Now restart your machine.
 
 
 **Troubleshooting**

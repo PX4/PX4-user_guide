@@ -8,7 +8,7 @@ This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL 
 
 To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
-Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>]
+Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
 - `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`.
@@ -24,6 +24,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
    - Maximum number of vehicles is 255.
 
  - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_rtps`
+ - `<label>` : specific label for model, e.g: `rtps`
 
 Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.). Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14540` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
 
@@ -75,7 +76,7 @@ To build an example setup, follow the steps below:
 1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
 
    ```bash
-   ./Tools/gabo_sitl_multiple_run.sh  -m iris_rtps -t px4_sitl_rtps -n 4
+   ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
    ```
 
 :::note

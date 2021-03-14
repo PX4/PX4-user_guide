@@ -319,8 +319,6 @@ adb reboot
 
 前面的部分演示了如何调用 *make* 来构建多个不同的目标、启动模拟器、使用 IDE 等。 本节介绍如何构造 *make* 选项以及如何查找可用选项。
 
-或者将文件复制到计算机，在本地编辑，然后将其复制回：
-
 ## Qt Creator 功能
 
 The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc. This section shows how *make* options are constructed and how to find the available choices.
@@ -330,18 +328,17 @@ The full syntax to call *make* with a particular configuration and initializatio
 make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
 ```
 
-然后重新启动骁龙：
+**VENDOR_MODEL_VARIANT**: (also known as `CONFIGURATION_TARGET`)
 
 - [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq)（PX4 用户手册）
 - **MODEL：** *飞控板模型</1>"模型 "：`sitl`、`fmu-v2`、`fmu-v3`、`fmu-v4`、`fmu-v5`、`navio2` 等。
 - **VARIANT:**特定配置：例如 `rtps`、`lpe`，其中包含 `默认` 配置中不存在的组件。 最常见的是 `default`，可以省略。
 
-:::tip
-You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
+然后重新启动骁龙：
 ```sh
 make list_config_targets
 ```
-以下各节讨论了其他目标生成的问题（包括但不限于）：
+:::
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
@@ -375,15 +372,15 @@ You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options usin
 ```
 :::
 
-然后通过 **文件 > 打开项目** 加载根目录下的 CMakeLists.txt。
+Notes:
 - `CONFIGURATION_TARGET` 和 `VIEWER_MODEL_DEBUGGER` 中的大多数值都有默认值, 因此是可选的。 比如，`gazebo` 相当于 `gazebo_iris` 或 `gazebo_iris_none` 。
 - 如果要在其他两个设置之间指定默认值，可以使用三个下划线。 例如，`gazebo___gdb` 等效于 `gazebo_iris_gdb`。
 - 您可以使用 `VIEWER_MODEL_DEBUGGER` 的 `none` 值启动 PX4 并等待模拟器。 例如，使用 `make px4_sitl_default none` 启动 PX4和使用 `./Tools/jmavsim_run.sh` 启动 jMAVSim 。
 
 
-可以看出，从 `px4_fmu-v2_default` 删除 *mpu9250* 驱动，可以节省 10.3KB 的 flash 空间。 它还显示了 *mpu9250* 驱动程序的不同部件的大小。
+The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
 
-开启 Qt creator 之前，需要新建 [项目文件](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator)。
+Additional make targets are discussed in the following sections (list is not exhaustive):
 
 
 ### Qt creator 提供符号跳转、自动补全和编译固件的功能。

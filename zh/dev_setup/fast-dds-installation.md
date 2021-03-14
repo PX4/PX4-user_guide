@@ -6,13 +6,12 @@ Fast DDS enables an RTPS/DDS interface that allows PX4 uORB topics to be shared 
 
 This topic explains how to install Fast DDS for use with PX4.
 
-:::note
-Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as it now includes a full DDS implementation, rather than just the RTPS wire protocol).
+:::tip
+Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to use the PX4 Autopilot with another Fast RTPS/DDS system such as ROS 2.
 :::
 
-:::tip
-- For Ubuntu 18.04, at time of writing, you will need to install Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 or higher *from source*.
-- For Ubuntu 20.04, at time of writing, you will need to install Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4  higher *from source*.
+:::note
+Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as it now includes a full DDS implementation, rather than just the RTPS wire protocol).
 :::
 
 
@@ -20,10 +19,35 @@ Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as
 
 *eProsima Fast DDS* requires the following packages to work.
 
+:::note
+At time of writing you will need to install *from source* for:
+- **Ubuntu 18.04:** Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 (or higher).
+- **Ubuntu 20.04:** Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 (or higher).
+:::
 
 ### Java
 
 Java is required to use our built-in code generation tool - *fastrtpsgen*. [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) is recommended.
+
+### Gradle
+
+You also need to [install Gradle](https://gradle.org/install/) to build the source generators (Fast-RTPS-Gen), we recommend you install Gradle via [sdkman](https://sdkman.io).
+
+### Foonathan memory
+
+In order to build Fast DDS you need to install the Foonathan Memory dependency.
+
+```sh
+git clone https://github.com/eProsima/foonathan_memory_vendor.git
+cd foonathan_memory_vendor
+mkdir build & cd build
+cmake ..
+cmake --build . --target install
+```
+
+:::note
+If the last step fails, try running the command with the proper user privileges (sudo)
+:::
 
 ### Windows 7 32-bit and 64-bit
 
@@ -43,10 +67,6 @@ $ git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.0 ~/Fas
 $ cd ~/FastDDS-2.0.0
 $ mkdir build && cd build
 ```
-
-:::note
-You may need to [install Gradle](https://gradle.org/install/) to build the source (e.g. this is true on vanilla Fedora Linux). A build warning will be displayed if this is the case.
-:::
 
 If you are on Linux, execute:
 

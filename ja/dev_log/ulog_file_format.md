@@ -76,7 +76,10 @@ struct message_header_s {
   ```
   This message **must** be the first message, right after the header section, so that it has a fixed constant offset.
 
-  - `compat_flags`: compatible flag bits. None of them is currently defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
+  - `compat_flags`: compatible flag bits.
+    - `compat_flags[0]`, bit 0, *DEFAULT_PARAMETERS*: if set, the log contains parameter defaults (message 'Q').
+
+    The rest of the bits is currently not defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
   - `incompat_flags`: incompatible flag bits. The LSB bit of index 0 is set to one if the log contains appended data and at least one of the `appended_offsets` is non-zero. All other bits are undefined and must be set to 0. If a parser finds one of these bits set, it must refuse to parse the log. This can be used to introduce breaking changes that existing parsers cannot handle.
   - `appended_offsets`: File offsets (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message.
 
@@ -156,8 +159,23 @@ struct message_header_s {
 
 - 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
 
-This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
+- 'Q': parameter default message.
+  ```c
+  struct ulog_message_parameter_default_header_s {
+    struct message_header_s header;
+    uint8_t default_types;
+    uint8_t key_len;
+    char key[key_len];
+    char value[header.msg_size-2-key_len]
+  };
+  ```
+  `default_types` is a bitfield and defines to which group(s) the value belongs to. At least one bit must be set:
+  - `1<<0`: system wide default
+  - `1<<1`: default for the current configuration (e.g. an airframe)
 
+  A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently. This message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
+
+This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
 
 ### Data Section
 
@@ -226,7 +244,7 @@ The following messages belong to this section:
   `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture. For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
 
   ```
-enum class ulog_tag : uint16_t {
+  enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
     ppk_handler,
@@ -237,7 +255,7 @@ enum class ulog_tag : uint16_t {
     io_service,
     cbuf,
     ulg
-};
+  };
   ```
 
   `timestamp`: in microseconds `log_level`: same as in the Linux kernel:
@@ -276,6 +294,7 @@ enum class ulog_tag : uint16_t {
 
 - 'P': parameter message. See above.
 
+- 'Q': parameter message. See above.
 
 ## Requirements for Parsers
 
