@@ -337,22 +337,22 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请参阅 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的 filter\_fault\_flags。
 
-### 观察错误
+### 观测错误
 
-有两种类型观察错误：
+有两种类型观测错误：
 
 * 数据丢失。 一个例子是测距仪无法提供返回数据。
 * 新息，即状态预测和传感器观察之间的差异过度。 这种情况的一个例子是过度振动导致大的垂直位置误差，导致气压计高度测量被拒绝。
 
-Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
+这两者都可能导致观测数据被拒绝，如果时间足够长，使得 EKF 尝试重置状态以使用传感器观测数据。 所有观测结果均对新息进行了统计置信度检查。 要检查的标准偏差数据由每个观测类型的 `EKF2_*_GATE` 参数控制。
 
-Test levels are available in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) as follows:
+测试级别在 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中可用，如下所示：
 
-* mag\_test\_ratio : ratio of the largest magnetometer innovation component to the innovation test limit
-* State variances \(diagonals in the covariance matrix\) are constrained to be non-negative.
-* pos\_test\_ratio : ratio of the largest horizontal position innovation component to the innovation test limit
-* hgt\_test\_ratio : ratio of the vertical position innovation to the innovation test limit
-* tas\_test\_ratio : ratio of the true airspeed innovation to the innovation test limit
+* `mag_test_ratio`: 最大磁强计新息组分与新息测试极限的比例
+* `vel_test_ratio`: 最大速度新息组分与新息测试极限的比率
+* `pos_test_ratio`: 最大水平位置新息组分与新息测试极限的比例
+* `hgt_test_ratio`: 垂直位置新息与新息测试极限的比率
+* `tas_test_ratio`: 真空速新息与新息测试极限的比率
 * vel\_test\_ratio : ratio of the largest velocity innovation component to the innovation test limit
 
 For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
