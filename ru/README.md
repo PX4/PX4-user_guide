@@ -7,11 +7,7 @@
 PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
-:::
-
-:::note
-This guide is still a work in progress! It does not yet cover all of PX4.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
 :::
 
 ## How Do I Get Started?
@@ -41,6 +37,12 @@ If you want to build a vehicle from scratch:
 * [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+
+**I want to add payload or a camera:**
+
+The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+
+* [Payloads](payloads/README.md) describes how to integrate payloads
 
 **I am modifying a supported vehicle:**
 
@@ -112,7 +114,7 @@ The following icons used in this library are licensed separately (as shown below
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
+<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>
