@@ -197,6 +197,25 @@ esc_battery <command> [arguments...]
 
    status        print status info
 ```
+## gyro_calibration
+Source: [modules/gyro_calibration](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_calibration)
+
+
+### Description
+Simple online gyroscope calibration.
+
+
+<a id="gyro_calibration_usage"></a>
+### Usage
+```
+gyro_calibration <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## gyro_fft
 Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
