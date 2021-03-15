@@ -22,83 +22,83 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
 
 * 사전 적층 EPP 날개
 * 윙팁 및 전체 하드웨어
-* [Dropix](https://store-drotek.com/888-dropix.html) 비행 컨트롤러 
+* [Dropix](https://store-drotek.com/888-dropix.html) 아래의 부품들이 포함된 비행 컨트롤러 
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * 전원 센서: 
-  * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
-* [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
-* 4 x propeller 10”x 5” (quad motors)
+  * [풍속 센서](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
+* [쿼드 파워 세트 T-모터](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
+* 4 x 프로펠러 10”x 5”(쿼드 모터)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
-* 1 x propeller 10” x 5” (pusher motor)
+* 프로펠러 10”x 5”1 개 (푸셔 모터)
 * 1 x [ESC 30A](http://rctimer.com/product-146.html)
-* [Pusher motor power system](http://airtekhobbies.com/c283410.html)
-* Carbon fiber tubes and mounts
-* G10 motor mounts
-* 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
-* [Power distribution board and cable](https://store-drotek.com/453-apm-power-source-xt60.html)
+* [푸셔 모터 전원 시스템](http://airtekhobbies.com/c283410.html)
+* 탄소 섬유 튜브 및 마운트
+* G10 모터 마운트
+* 1 x [3700mah 4S 30C 리포 배터리](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
+* [배전 보드 및 케이블](https://store-drotek.com/453-apm-power-source-xt60.html)
 
-The kit does not come with a radio receiver or (optional) telemetry modules. For this build we used the following components:
+이 키트는 라디오 수신기 또는 텔레메트리(선택 사항)는 제공하지 않습니다. 이 조립 방법에서는 다음의 부품을 사용하였습니다.
 
-* [Receiver FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* [Telemetry 915 MHz modules](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
+* [수신기 FR-SKY d4rII](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
+* [Telemetry 915MHz 모듈](http://www.getfpv.com/flight-controllers/accessories-parts/holybro-100mw-fpv-transceiver-telemetry-radio-set-915mhz.html)
 
-## Tools needed
+## 필요 공구
 
-The following tools were used to assemble the airframe:
+기체를 조립에 아래의 도구들을 사용하였습니다.
 
-* Philips screwdriver
-* 5.5 mm Hex Socket Screwdriver
-* Wire cutters
-* Soldering iron and solder
-* Hobby stainless steel tweezer
-* Gorilla glue
-* Fiberglass reinforced tape
+* 필립스 스크류드라이버
+* 5.5 mm 육각 스크류드라이버
+* 전선 커터
+* 납땜 인두 및 땜납
+* 취미 스테인리스 핀셋
+* 고릴라 접착제
+* 유리 섬유 강화 테이프
 
 ![Build tools](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_build_tools.jpg)
 
-## Assembly steps
+## 조립 단계
 
-The RTF kit requires the following assembly.
+RTF 키트는 아래와 같이 조립하여야 합니다.
 
-### Step 1: Attach motors mounts
+### 1 단계 : 모터 마운트 부착
 
-1. Spread gorilla glue inside the wing brackets as shown.
+1. 그림과 같이 윙 브래킷 내부에 고릴라 접착제를 펴서 바릅니다.
   
   ![Add glue on wing brackets](../../assets/airframes/vtol/falcon_vertigo/wing_brackets_glue.jpg)
 
-2. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
+2. 브래킷에 카본 튜브를 부착합니다. 브래킷과 튜브는 흰색 표시를 사용하여 정렬합니다 (그림 참조).
   
 :::note
-This is very important because the white mark indicates the center of gravity.
+흰색 표시가 무게 중심을 나타내기 때문에 매우 중요합니다.
 :::
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="Carbon tube in brackets" width="300px" />
 
-3. The following images show the alignment of rods from other viewpoints:
+3. 다음 이미지는 다른 관점에서 로드의 정렬을 보여줍니다.
   
   ![quad motor frame rod alignment from bottom](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_9_bottom_view_rod_alignment.jpg) ![quad motor frame rod alignment schematic](../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_11_rod_alignment_schamatic.jpg)
 
-### Step 2: Attach the wings
+### 2 단계 : 날개 부착
 
-1. Insert both carbon tubes into the fuselage.
+1. 두 탄소 튜브를 동체에 삽입합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_15_fuselage_tubes.jpg" width="500px" title="Fuselage carbon tubes" />
 
-2. Spread gorilla glue between the two white marks on each tube (indicated by the red arrows). The white mark in the center (blue arrow) will be placed in the center of the fuselage and the other marks on the sides.
+2. 각 튜브에있는 두 개의 흰색 표시 사이에 고릴라 접착제를 바릅니다 (빨간색 화살표로 표시됨). 중앙의 흰색 표시 (파란색 화살표)는 동체 중앙에 배치되고 다른 표시는 측면에 배치됩니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_13_rod_apply_glue.jpg" width="500px" title="Apply glue to rod" />
 
-3. Once the carbon tubes are inside the fuselage, spread gorilla glue on the rest of the tube and attach the wings.
+3. 탄소 튜브가 동체 내부에 있으면 튜브의 나머지 부분에 고릴라 접착제를 바르고 날개를 부착하십시오.
 
-4. The fuselage has two holes for the motor and servo cables. Pass the cables through the holes and then join the wings to the fuselage.
+4. 동체에는 모터와 서보 케이블을 위한 두 개의 구멍이 있습니다. 구멍을 통해 케이블을 통과시킨 다음 날개를 동체에 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_17_fuselage_holes_cables.jpg" width="500px" title="Fuselage holes for cables" />
 
-5. Within the fuselage connect the signal cables you just passed through from the wings to the ESC using the provided connectors. The ESC are already connected to the motors and set up to turn in the correct order (you will need to connect the ESC PDB to a power module in a later step).
+5. 동체 내에서 제공된 커넥터를 사용하여 방금 날개에서 ESC로 통과한 신호 케이블을 연결합니다. ESC는 이미 모터에 연결되어 있으며 올바른 순서로 회전하도록 설정되어 있습니다 (나중 단계에서 ESC PDB를 전원 모듈에 연결해야 함).
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_19_connect_esc_power_and_signal_cables.jpg" width="500px" title="Connect ESC power and signal cables" />
 
-6. As with the ESCs, the servos are already installed. Connect the signal cable from the wing (passed through the fuselage) to the flight controller.
+6. ESC와 마찬가지로 서보는 이미 설치되어 있습니다. 날개 (동체를 통과)에서 비행 컨트롤러로 신호 케이블을 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_21_connect_servo_cables.jpg" width="500px" title="Connect servo cables" />
 
