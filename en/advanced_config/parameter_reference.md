@@ -13715,7 +13715,7 @@ is less than 50% of this value    </td>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>256</td>
+ <td>1024</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -13723,7 +13723,7 @@ is less than 50% of this value    </td>
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>200.0</td>
+ <td>256.</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -13731,7 +13731,7 @@ is less than 50% of this value    </td>
  <td>IMU gyro FFT minimum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>50.0</td>
+ <td>32.</td>
  <td>Hz</td>
 </tr>
 <tr>
