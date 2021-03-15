@@ -102,113 +102,113 @@ RTF 키트는 아래와 같이 조립하여야 합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_21_connect_servo_cables.jpg" width="500px" title="Connect servo cables" />
 
-7. Repeat these steps for the other wing.
+7. 다른 날개에 이 단계를 반복합니다.
 
-### Step 3: Connect the electronics
+### 3 단계 : 전자 장치 연결
 
-This kit includes Dropix flight controller with most of the required electronics pre-connected (if you use another Pixhawk-compatible flight controller the connections are similar).
+이 키트에는 필요한 전자 장치가 대부분 미리 연결된 Dropix 비행 컨트롤러가 포함되어 있습니다 (다른 Pixhawk 호환 비행 컨트롤러를 사용하는 경우 연결이 유사함).
 
 <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
 :::note
-General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md).
+Dropix 연결에 대한 일반 정보는 [Dropix 비행 컨트롤러](../flight_controller/dropix.md)에서 찾을 수 있습니다.
 :::
 
-#### Connect the ESC power connector and pass the signals cables to the flight controller
+#### ESC 전원 커넥터를 연결하고 신호 케이블을 비행 컨트롤러에 전달합니다.
 
-1. Connect the ESC to the power module using the XT60 connector
+1. XT60 커넥터를 사용하여 ESC를 전원 모듈에 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_25_aileron_esc_connections.jpg" width="500px" title="" />
 
-2. Pass the signals cables through to the flight controller
+2. 신호 케이블을 비행 컨트롤러로 전달합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_27_gps_esc_servo_connections.jpg" width="500px" title="GPS, ESC, Servo connections" />
 
-#### Motor Wiring
+#### 모터 배선
 
-The outputs of Dropix should be wired using the standard QuadPlane configuration (orientation as if "sitting in the plane").
+Dropix의 출력은 표준 QuadPlane 구성 ( "평면에 앉아 있는" 방향)을 사용하여 연결하여야합니다.
 
-| Port   | Connection             |
-| ------ | ---------------------- |
-| MAIN 1 | Front right motor, CCW |
-| MAIN 2 | Back left motor, CCW   |
-| MAIN 3 | Front left motor, CW   |
-| MAIN 4 | Back right motor, CW   |
-| AUX 1  | 에일러온                   |
-| AUX 2  | 우로 아일론                 |
-| AUX 3  | Elevator               |
-| AUX 4  | Rudder                 |
-| AUX 5  | Throttle               |
+| 포트     | 연결               |
+| ------ | ---------------- |
+| MAIN 1 | 전방 우측 모터, 반시계 방향 |
+| MAIN 2 | 후방 촤즉 모터, 반시계 방향 |
+| MAIN 3 | 전방 좌측 모터, 시계방향   |
+| MAIN 4 | 후방 우측 모터, 시계 방향  |
+| AUX 1  | 좌측 보조익           |
+| AUX 2  | 우측 보조익           |
+| AUX 3  | 승강타              |
+| AUX 4  | 방향타              |
+| AUX 5  | 스로틀              |
 
 <span id="dropix_back"></span>
 
-#### Flight Controller Connections: Motors, Servos, RC receiver, current sensor
+#### 비행 컨트롤러 연결 : 모터, 서보, RC 수신기, 전류 센서
 
-The image below shows back of the dropix flight controller, highlighting the outputs pins to connect quad motors cables, aileron signal cables, throttle motor, and the current sensor and receiver (RC IN) input pins.
+아래 이미지는 dropix 비행 컨트롤러의 뒷면을 보여 주며 쿼드 모터 케이블, 에일러론 신호 케이블, 스로틀 모터, 전류 센서 및 수신기 (RC IN) 입력 핀을 연결하기위한 출력 핀을 강조 표시합니다.
 
 <img id="dropix_outputs" src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_33_dropix_outputs.jpg" width="500px" title="Dropix motor/servo outputs" />
 
-1. Connect quad motors signal cables.
+1. 쿼드 모터 신호 케이블을 연결합니다.
 
-2. Connect the aileron cables and throttle motor in the auxiliary outputs.
+2. 보조 출력에 에일러론 케이블과 스로틀 모터를 연결합니다.
 
-3. Connect the throttle motor signal cable from the ESC to the appropriate flight controller auxiliary port. Connect the ESC to the throttle motor.
+3. ESC의 스로틀 모터 신호 케이블을 적절한 비행 컨트롤러 보조 포트에 연결합니다. ESC를 스로틀 모터에 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_37_connect_throttle_motor.jpg" width="500px" title="Connect throttle motor" />
 
-4. Connect the receiver (RC IN).
+4. 수신기를 RC IN에 연결합니다.
 
 <span id="dropix_front"></span>
 
-#### Flight Controller Connections: Telemetry, Airspeed Sensor, GPS, Buzzer and Safety Switch
+#### 비행 컨트롤러 연결 : 원격 측정, 대기 속도 센서, GPS, 부저 및 안전 스위치
 
-The sensor inputs, telemetry, buzzer and safety switch are located in the front of the flight controller, as shown in the connection diagram below.
+센서 입력, 원격 측정, 부저 및 안전 스위치는 아래 연결 다이어그램과 같이 비행 컨트롤러의 전면에 있습니다.
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" alt="Dropix connectors front" title="Dropix connectors front" />
 
-1. Connect the telemetry, airspeed sensor, GPS, buzzer and safety switch as shown.
+1. 그림과 같이 원격 측정, 대기 속도 센서, GPS, 부저 및 안전 스위치를 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_39_connect_sensors.jpg" width="500px" title="Connect sensors" />
 
-#### Flight Controller: Connect power module and external USB
+#### 비행 컨트롤러 : 전원 모듈 및 외부 USB 연결
 
-The inputs for the USB port, power module and external USB are located on the right side of the flight controller.
+USB 포트, 전원 모듈 및 외부 USB에 대한 입력은 비행 컨트롤러의 오른쪽에 있습니다.
 
-1. Connect power and USB as shown
+1. 그림과 같이 전원과 USB를 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_41_connect_power_module_usb.jpg" width="500px" title="Connect power module and USB" />
 
 :::tip
-The external USB is optional. It should be used if access to the USB port is difficult once the flight controller is mounted.
+외부 USB는 선택 사항입니다. 비행 컨트롤러를 장착 후 USB 포트에 액세스하기 어려운 경우에 사용하여야 합니다.
 :::
 
-#### Install the pitot tube (airspeed sensor)
+#### 피토 튜브 (대기 속도 센서) 설치
 
-The pitot tube is installed on the front of the plane and connected to the airspeed sensor via a tube.
+피토 튜브는 비행기 전면에 설치되며 튜브를 통해 대기 속도 센서에 연결됩니다.
 
 :::caution
-It is important that nothing obstructs airflow to the Pitot tube. This is critical for fixed-wing flight and for transitioning from quad to plane.
+피토 튜브 근처에 공기 흐름을 방해하는 것이 없어야합니다. 이것은 고정익 비행과 쿼드에서 비행기로의 전환에 매우 중요합니다.
 :::
 
-1. Install the Pitot tube in the front of the plane
+1. 비행기 전면에 피토 튜브를 설치합니다
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_43_airspeed_sensor_mounting.jpg" width="500px" title="Airspeed sensor mounting" />
 
-2. Secure the connecting tubing and ensure that it is not bent/kinked.
+2. 연결 튜브를 고정하고 구부러 지거나 꼬이지 않았는 지 확인합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_45_airspeed_sensor_tubing.jpg" width="500px" title="Airspeed sensor mounting" />
 
-3. Connect the tubes to the airspeed sensor.
+3. 튜브를 대기 속도 센서에 연결합니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_47_connect_airspeed_sensor_tubing.jpg" width="500px" title="Connect airspeed sensor and tubing" />
 
-#### Install/connect receiver and telemetry module
+#### 수신기 및 원격 측정 모듈 설치 / 연결
 
-1. Paste the receiver and telemetry module to the outside of the vehicle frame.
+1. 수신기와 원격 측정 모듈을 차량 프레임 외부에 붙여 넣습니다.
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_49_receiver_mounting.jpg" width="500px" title="Paste receiver" />
 
-2. Connect the receiver to the RC IN port on the *back* of the dropix, as shown above (also see the [flight controller instructions](#dropix_back)).
+2. 수신기를 위에 표시된대로 dropix의 *뒷면*에있는 RC IN 포트에 연결합니다 ([비행 컨트롤러 지침](#dropix_back) 참조).
 
 3. Connect the telemetry module to the *front* of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
   
