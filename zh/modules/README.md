@@ -6,4 +6,4 @@ Directory contains:
 
 * [编写您的第一个应用程序](hello_sky.md)
 * [应用/模块模板](module_template.md)
-* [模块 & 命令](modules/modules_main.md)
+* [模块 & 命令](modules_main.md)
