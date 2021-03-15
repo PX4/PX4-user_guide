@@ -360,13 +360,13 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
 
 <h3>GPS 数据质量检查</h3>
 
-<p>The EKF applies a number of GPS quality checks before commencing GPS aiding.
-These checks are controlled by the <a href="../advanced_config/parameter_reference.md#EKF2_GPS_CHECK">EKF2_GPS_CHECK</a> and <code>EKF2_REQ_*` parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).</p> 
+<p>在开始 GPS 辅助之前，EKF 应用了许多 GPS 数据质量检查。
+这些检查由 <a href="../advanced_config/parameter_reference.md#EKF2_GPS_CHECK">EKF2_GPS_CHECK</a> 和 <code>EKF2_REQ_*` 参数控制。 这些检查的通过/失败状态记录在 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags 消息中。 当所有所需的 GPS 检查通过后，此整数将为零。 如果EKF没有开始GPS对齐， 在 [estimatator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中，对照位掩码定义 `gps_check_fail_flags` 检查整数的值。</p> 
   ### EKF 数值误差
   
-  The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
+  EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 这意味着，当重新调整 EKF 时，可能遇到协方差矩阵运算条件恶劣，足以导致状态估计中的发散或显著错误的情况。
   
-  To prevent this, every covariance and state update step contains the following error detection and correction steps:
+  为防止这种情况，每个协方差和状态更新步骤都包含以下错误检测和更正步骤：
   
   * If the innovation variance is less than the observation variance \(this requires a negative state variance which is impossible\) or the covariance update will produce a negative variance for any of the states, then: 
     * 跳过状态和协方差更新
