@@ -392,33 +392,33 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
   通过进行以下参数更改，可以使 EKF 能更加抵御振动引起的高度发散：
   
   * 将主要的高度传感器的新息通道的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
-  * Increase the value of [EKF2_ACC_NOISE](../advanced/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially. 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
+  * 初始化时将 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 的值增加到 0.5。 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
   
-  Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.
+  注意 这些变化的影响将使 EKF 对 GPS 垂直速度和气压的误差更敏感。
   
   ## 如果位置估计发散了应该怎么办?
   
-  The most common causes of position divergence are:
+  位置发散的最常见原因是：
   
   * 高振动级别。 
     * 通过改进无人机的机械隔离来解决。
     * 增加 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 和 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 的值会有所帮助，但确实会使 EKF 更容易受到 GPS 故障的影响。
   * 过大的陀螺仪偏差偏移。 
-    * 通过重新校准陀螺仪来修复。 Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to slow the rate of temperature change.
+    * 通过重新校准陀螺仪来修复。 检查过度温度灵敏度(&gt; 3 deg/sec 偏差在从冷机开始变暖时发生变化，如果受隔热影响以减缓温度变化的速度，则替换传感器。
   * 不好的偏航对齐 
     * 检查磁力计校准和对齐。
-    * Check the heading shown QGC is within 15 deg truth
+    * 检查显示的航向 QGC 是否在 15 度以内
   * GPS 精度差 
     * 检查是否有干扰
     * 改善隔离和屏蔽
     * 检查飞行位置是否有 GPS 信号障碍物和反射器（附近的高层建筑）
   * GPS 数据丢失
   
-  Determining which of these is the primary cause requires a methodical approach to analysis of the EKF log data:
+  确定其中哪一个是主要原因需要对 EKF 日志数据进行系统分析：
   
-  * Plot the velocity innovation test ratio - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio
-  * Plot the horizontal position innovation test ratio - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).pos\_test\_ratio
-  * Plot the magnetometer innovation test ratio - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).mag\_test\_ratio
+  * 绘制速度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio
+  * 绘制水平位置新息测试比率 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio
+  * 绘制高度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio
   * Magnetometer XYZ \(gauss\) : Refer to mag\_innov\[3\] in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
   * 绘制 GPS 接收器报告的速度精度-[vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s
   * Plot the IMU delta angle state estimates - [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).states\[10\], states\[11\] and states\[12\]
