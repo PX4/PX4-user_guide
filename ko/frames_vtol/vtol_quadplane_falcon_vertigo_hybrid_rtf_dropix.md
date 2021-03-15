@@ -1,7 +1,7 @@
 # 단종 : Falcon Vertigo Hybrid VTOL RTF (Dropix)
 
 :::warning
-단종 Falcon Venturi FPV Wing 프레임은 더 이상 사용할 수 없습니다.
+단종되어서 Falcon Venturi FPV Wing 프레임은 더 이상 사용할 수 없습니다.
 :::
 
 *Falcon Vertigo Hybrid VTOL*은 PX4와 Dropix (Pixhawk 호환) 비행 컨트롤러와 함께 작동하도록 설계된 쿼드 플레인 VTOL 항공기입니다. 작은 GoPro 카메라를 장착 가능합니다.
@@ -18,13 +18,13 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
 
 ## 부품 명세서
 
-Almost everything you need is provided in the RTF kit (the links next to components below are provided in case you wished to purchase any component separately):
+필요한 대부분의 부품들이 RTF 키트에 포함되어 있습니다. 부품을 별도 구매하는 경우에는 아래 부품 목록의 링크를 참고하십시오.
 
-* Pre laminated EPP wings
-* Wingtips and full hardware
-* [Dropix](https://store-drotek.com/888-dropix.html) flight controller with 
+* 사전 적층 EPP 날개
+* 윙팁 및 전체 하드웨어
+* [Dropix](https://store-drotek.com/888-dropix.html) 비행 컨트롤러 
   * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
-  * Power Sensor 
+  * 전원 센서: 
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
 * 4 x propeller 10”x 5” (quad motors)
