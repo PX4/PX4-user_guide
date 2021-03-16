@@ -24,6 +24,31 @@ adis16448 <command> [arguments...]
 
    status        print status info
 ```
+## adis16470
+Source: [drivers/imu/analog_devices/adis16470](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/analog_devices/adis16470)
+
+<a id="adis16470_usage"></a>
+### Usage
+```
+adis16470 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adis16477
 Source: [drivers/imu/adis16477](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/adis16477)
 
