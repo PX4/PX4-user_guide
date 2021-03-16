@@ -172,8 +172,27 @@ replay <command> [arguments...]
 
    status        print status info
 ```
-## gyro_fft
+## gyro_calibration
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
+
+
+### Description
+Simple online gyroscope calibration.
+
+<a id="gyro_calibration_usage"></a>
+
+### Usage
+```
+gyro_calibration <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## gyro_fft
+Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
 
 ### Description
@@ -216,10 +235,10 @@ Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/
 
 
 ### Description
-Module to detect the freefall and landed state of the vehicle, and publishing the `vehicle_land_detected` topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.
+**ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
 
 ### Implementation
-Every type is implemented in its own class with a common base class. The base class maintains a state (landed, maybe_landed, ground_contact). Each possible state is implemented in the derived classes. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
+**maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The base class maintains a state (landed, maybe_landed, ground_contact). When maybe_landed is detected, the position controller sets the thrust setpoint to zero. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
 
 #### Multicopter Land Detector
 **ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
@@ -277,7 +296,7 @@ It supports 2 backends:
 
 Both backends can be enabled and used at the same time.
 
-The file backend supports 2 types of log files: full (the normal log) and a mission log. The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
+In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
 
 ### Implementation
 The implementation uses two threads:
@@ -306,6 +325,7 @@ logger <command> [arguments...]
    start
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
+     [-x]        Enable/disable logging via Aux1 RC channel
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -314,8 +334,6 @@ logger <command> [arguments...]
                  default: 280
      [-b <val>]  Log buffer size in KiB
                  default: 12
-     [-q <val>]  uORB queue size for mavlink mode
-                 default: 14
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
@@ -379,7 +397,7 @@ Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modu
 
 
 ### Description
-The rc_update module handles RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches and then publish as `rc_channels` and `manual_control_setpoint`.
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
@@ -397,13 +415,13 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
+Source: [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
 
 
 ### Description
 This module is used to replay ULog files.
 
-There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. It is currently only responsible for temperature calibration and tone alarm on RC Loss.
+There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
 - `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
 - Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
 

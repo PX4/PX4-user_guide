@@ -118,7 +118,7 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 <li><strong>Hdg:</strong>机头朝向 (正北为 0°)。</li>
 <li><strong>VFAS:</strong>实际电池电压值 (电压 frsky 安培传感器)。</li>
 <li><strong>Vspd:</strong>垂直速度 (cm/s)。</li>
-<li><strong>Tmp1:</strong><a href="../getting_started/flight_modes.md">飞行模式</a>, 作为整数发送: 18-手动, 23-定高, 22-定位, 27-任务, 26-保持, 28-返航, 19-特技, 24 0 离线, 20-自稳, 21-速率, 25-起飞, 29-下降, 30-跟随。</li>
+<li><strong>Tmp1:</strong> <a href="../getting_started/flight_modes.md">Flight mode</a>, sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.</li>
 <li><strong>Tmp2:</strong>gps 信息。 最右边的数字是 gps 定位类型 (0 = 无, 2 = 2d, 3 = 3d)。 其他数字是卫星的数量。</li>
 </ul>
 

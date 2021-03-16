@@ -248,7 +248,7 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 
 **이륙**중에 차량이 뒤집히면 고장 감지기 [자세 트리거](#attitude_trigger)가 [잠금 동작](#action_lockdown)을 호출합니다(잠금은 모터를 정지시키지만, 비행 종료와 달리 낙하산을 펼치거나 기타 실패 조치 수행하지 않음). 이 확인은 `CBRK_FLIGHTTERM` 매개 변수에 관계없이 *이륙시 항상 사용*합니다.
 
-고장 감지기는 기체의 뒤집히는 것이 *예상*되는 경우를 제외하고, 모든 기체 유형 및 모드에서 활성화됩니다 (예 : [Acro 모드(MC)](../flight_modes/altitude_mc.md), [Acro 모드 (FW)](../flight_modes/altitude_fw.md), [Rattitude](../flight_modes/rattitude_mc.md) 및 [수동 (FW)](../flight_modes/manual_fw.md)).
+The failure detector is active in all vehicle types and modes, except for those where the vehicle is *expected* to do flips (i.e. [Acro mode (MC)](../flight_modes/altitude_mc.md), [Acro mode (FW)](../flight_modes/altitude_fw.md), and [Manual (FW)](../flight_modes/manual_fw.md)).
 
 <span id="attitude_trigger"></span>
 
@@ -310,7 +310,6 @@ RC 연결불량 안전장치는 RC 송신기 링크가 *수동 모드*에서 무
 * *수동 모드*
 * *Acro 모드*
 * *안정 모드*
-* *Rattitude*
 
 비행중 비시동을 지원하지 않는 모드의 경우 비행 중 스위치가 무시되지만 착륙후에는 사용할 수 있습니다. 여기에는 *위치 모드* 및 자율 모드 (예 : *미션*, *착륙* 등)가 포함됩니다.
 
