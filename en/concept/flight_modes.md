@@ -39,8 +39,8 @@ Vehicle movement always follows stick movement, but the level/type of response c
   * **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
   
     :::note
-	For Multirotors, Manual and Stabilized modes are the same.
-	:::
+    For Multirotors, Manual and Stabilized modes are the same.
+    :::
 
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot.
     The autopilot controls the angular rates, but not the attitude.
@@ -85,4 +85,4 @@ Vehicle movement always follows stick movement, but the level/type of response c
 
 ## Flight Mode Evaluation Diagram
 
-![Commander Flow diagram.](../../assets/diagrams/commander-flow-diagram.png)
+![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
