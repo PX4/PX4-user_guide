@@ -25,6 +25,32 @@ adis16448 <command> [arguments...]
 
    status        print status info
 ```
+## adis16470
+Source: [drivers/imu/analog_devices/adis16470](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/analog_devices/adis16470)
+
+<a id="adis16470_usage"></a>
+
+### 使用
+```
+adis16470 <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
 ## adis16477
 Source: [drivers/imu/adis16477](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/adis16477)
 
@@ -56,7 +82,7 @@ Source: [drivers/imu/adis16497](https://github.com/PX4/Firmware/tree/master/src/
 
 <a id="adis16497_usage"></a>
 
-### 使用
+### 用法
 ```
 adis16497 <command> [arguments...]
  Commands:
@@ -82,7 +108,7 @@ Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="bmi055_usage"></a>
 
-### 用法
+### 描述
 ```
 bmi055 <command> [arguments...]
  Commands:
@@ -110,7 +136,7 @@ Source: [drivers/imu/bosch/bmi088](https://github.com/PX4/Firmware/tree/master/s
 
 <a id="bmi088_usage"></a>
 
-### 描述
+### 用法
 ```
 bmi088 <command> [arguments...]
  Commands:
@@ -311,7 +337,7 @@ Source: [drivers/imu/invensense/icm20689](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20689_usage"></a>
 
-### 用法
+### 描述
 ```
 icm20689 <command> [arguments...]
  Commands:
@@ -337,7 +363,7 @@ Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/Firmware/tree/m
 
 <a id="icm20948_usage"></a>
 
-### 描述
+### 用法
 ```
 icm20948 <command> [arguments...]
  Commands:
@@ -550,7 +576,7 @@ Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/Firmware/tree/ma
 
 <a id="mpu9520_usage"></a>
 
-### 用法
+### Usage
 ```
 mpu9520 <command> [arguments...]
  Commands:
