@@ -240,8 +240,8 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 * 姿态输出数据在 [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) 消息中找到。
 * 本地位置输出数据在 [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) 消息中找到。
-* 风速输出数据可在[wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 信息中找到。
-* 高频增速振动 - estimator\_status.vibe\[2\]
+* 全局 \(WGS-84\) 输出数据可在 [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 消息中找到。
+* 风速输出数据可在 [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/wind_estimate.msg) 消息中找到。
 
 ### 状态
 
@@ -257,7 +257,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[22 ... 23\] 风速 NE \(m/s\)
 * \[24 ... 32\] 未使用
 
-### 状态变量
+### 状态方差
 
 请参阅 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的covariances\[28\]。 covariances\[28\] 的索引映射如下：
 
@@ -271,7 +271,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[22 ... 23\] 风速 NE \(m/s\)^2
 * \[24 ... 28\] 未使用
 
-### 观测新息和新息变量
+### 观测新息和新息方差
 
 观测 `estimator_innovations`, `estimator_innovation_variances`, 和 `estimator_innovation_test_ratios` 的消息字段定义于 [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)。 消息都有相同的字段名称/类型(但是单位不同)。
 
@@ -285,7 +285,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 一些观测值为：
 
-* \[0\] 角度跟踪误差量级 \(rad\)
+* 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
 * 偏航角度 (rad, rad^2) : `heading`
 * 空速真值 (m/s, (m/s)^2) : `airspeed`
 * 合成侧滑 (rad, rad^2) : `beta`
