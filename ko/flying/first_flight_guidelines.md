@@ -1,8 +1,8 @@
-# First Flight Guidelines
+# 첫 비행 지침
 
-[Learning to fly](../flying/basic_flying.md) is a lot of fun! These guidelines are designed to ensure that your first flight experience is enjoyable, educational, and safe.
+비행 방법을 배우는</ 0>것은 정말 재미있습니다! 이 지침은 첫 비행 경험이 즐겁고 교육적이며 안전하도록 설계되었습니다.</p> 
 
-## Select a Good Location
+## 좋은 위치 선택
 
 Selecting the right location for your first flight is critical. The main things to look for are:
 
