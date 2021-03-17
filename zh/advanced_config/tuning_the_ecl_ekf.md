@@ -182,7 +182,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 * ecl EKF能够以数学上一致的方式融合来自具有不同时延和数据速率的传感器的数据，一旦时延参数设置正确，就可以提高动态操纵期间的精度。
 * 如果[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)参数设置为3，则将使用外部视觉系统垂直位置数据。
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第8位设置为真，将使用外部视觉系统速度数据。
+* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 8 位设置为真，将使用外部视觉系统速度数据。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 6 位为真，则外部视觉参考帧偏移将被估计并用于旋转外部视觉系统数据。
 
