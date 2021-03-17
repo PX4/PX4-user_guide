@@ -390,7 +390,7 @@ EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推�
 
 通过进行以下参数更改，可以使 EKF 能更加抵御振动引起的高度发散：
 
-* 将主要的高度传感器的新息通道的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
+* 将主要的高度传感器的新息门槛的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
 * 初始化时将 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 的值增加到 0.5。 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
 
 注意 这些变化的影响将使 EKF 对 GPS 垂直速度和气压的误差更敏感。
