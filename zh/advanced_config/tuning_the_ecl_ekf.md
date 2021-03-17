@@ -158,7 +158,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 <span id="mc_wind_estimation_using_drag"></span>
 
-### 阻力比力
+### 基于阻力比力的多旋翼风场估计
 
 多旋翼平台可以利用沿 X 和 Y 机体轴的空速和阻力之间的关系来估计风速的北/东分量。 通过将 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第5位设置为 true 来启用此功能。 沿 X 和 Y 轴的空速和比力（IMU加速度）之间的关系由 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) 和 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) 参数控制，这些参数分别设置了 X 和 Y 方向飞行的弹道系数。 比力观测噪声量由 [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) 参数设置。
 
@@ -171,7 +171,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 如果满足以下条件，将使用[Optical flow](../sensor/optical_flow.md)数据：
 
 * 有效的测距仪数据可用。
-* ecl EKF使用更多的内存和FLASH空间。
+* 在 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 1 位为真。
 * 光流传感器返回的质量度量值大于 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 参数设置的最低要求。
 
 <span id="ekf2_extvis"></span>
@@ -180,7 +180,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 来自外部视觉系统，例如 Vicon，提供位置、速度和姿态测量，在以下条件下可以被使用：
 
-* ecl EKF能够以数学上一致的方式融合来自具有不同时延和数据速率的传感器的数据，一旦时延参数设置正确，就可以提高动态操纵期间的精度。
+* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 3 位为真，则将使用外部视觉系统的水平位置数据。
 * 如果[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)参数设置为3，则将使用外部视觉系统垂直位置数据。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 8 位设置为真，将使用外部视觉系统速度数据。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
