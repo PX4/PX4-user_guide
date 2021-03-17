@@ -48,7 +48,7 @@ Fixed Wing:
 
 Multicopter: 
 * Manual-Easy: [Position](#position-mode-mc), [Altitude](#altitude-mode-fcmc), [Manual/Stabilized](#manual-stabilized-mode-mc), [Orbit](#orbit-mode-mc)
-* Manual-Acrobatic: [Rattitude](#rattitude-mode-mc), [Acro](#acro-mode-mc)
+* Manual-Acrobatic: [Acro](#acro-mode-mc)
 * Autonomous: [Hold](#hold-mode-mc), [Return](#return-mode-mc), [Mission](#mission-mode-mc), [Takeoff](#takeoff-mode-mc), [Land](#land-mode-mc), [Follow Me](#follow-me-mode-mc), [Offboard](#offboard-mode-mc)
 
 Rover/Boat:
@@ -132,19 +132,6 @@ The vehicle will then hover in place/maintain altitude - provided it is properly
 The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
-
-
-<a id="rattitude_mc"></a>
-### Rattitude (MC)
-
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
-
-[Rattitude mode](../flight_modes/rattitude_mc.md) allows pilots to fly using [Manual/Stabilized](#manual_stabilized_mc) flight most of the time, but still perform [Acro mode](#acro_mc)-style flips and tricks when desired. 
-
-The vehicle behaves as in *Manual/Stabilized mode* when the Roll/Pitch stick is moved within the central area and like *Acro mode* when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range).
-When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
-
-<!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
 
 
 <a id="acro_mc"></a>
