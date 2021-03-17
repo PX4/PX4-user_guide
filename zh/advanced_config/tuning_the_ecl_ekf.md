@@ -158,7 +158,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 <span id="mc_wind_estimation_using_drag"></span>
 
-### 阻力比力
+### 基于阻力比力的多旋翼风场估计
 
 多旋翼平台可以利用沿 X 和 Y 机体轴的空速和阻力之间的关系来估计风速的北/东分量。 通过将 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第5位设置为 true 来启用此功能。 沿 X 和 Y 轴的空速和比力（IMU加速度）之间的关系由 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) 和 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) 参数控制，这些参数分别设置了 X 和 Y 方向飞行的弹道系数。 比力观测噪声量由 [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) 参数设置。
 
@@ -171,7 +171,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 如果满足以下条件，将使用[Optical flow](../sensor/optical_flow.md)数据：
 
 * 有效的测距仪数据可用。
-* ecl EKF使用更多的内存和FLASH空间。
+* 在 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 1 位为真。
 * 光流传感器返回的质量度量值大于 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 参数设置的最低要求。
 
 <span id="ekf2_extvis"></span>
@@ -180,9 +180,9 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 来自外部视觉系统，例如 Vicon，提供位置、速度和姿态测量，在以下条件下可以被使用：
 
-* ecl EKF能够以数学上一致的方式融合来自具有不同时延和数据速率的传感器的数据，一旦时延参数设置正确，就可以提高动态操纵期间的精度。
+* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 3 位为真，则将使用外部视觉系统的水平位置数据。
 * 如果[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)参数设置为3，则将使用外部视觉系统垂直位置数据。
-* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第8位设置为真，将使用外部视觉系统速度数据。
+* 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 8 位设置为真，将使用外部视觉系统速度数据。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 6 位为真，则外部视觉参考帧偏移将被估计并用于旋转外部视觉系统数据。
 
@@ -214,7 +214,7 @@ EKF 要考虑视觉姿态估计的不确定性。 此不确定性信息可以通
 ### 缺点
 
 * ecl EKF 是一种复杂的算法，需要很好地理解扩展卡尔曼滤波器理论及其应用于导航中的问题才能成功调整。 因此，不知道怎么修改，用户就很难得到好结果。
-* 本地位置输出数据可在vehicle\_local\_position信息中找到。
+* ecl EKF 使用更多 RAM 和闪存空间。
 * ecl EKF 使用更多的日志空间。
 
 ### 优点
@@ -240,8 +240,8 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 * 姿态输出数据在 [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) 消息中找到。
 * 本地位置输出数据在 [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) 消息中找到。
-* 风速输出数据可在[wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 信息中找到。
-* 高频增速振动 - estimator\_status.vibe\[2\]
+* 全局 \(WGS-84\) 输出数据可在 [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 消息中找到。
+* 风速输出数据可在 [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/wind_estimate.msg) 消息中找到。
 
 ### 状态
 
@@ -257,7 +257,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[22 ... 23\] 风速 NE \(m/s\)
 * \[24 ... 32\] 未使用
 
-### 状态变量
+### 状态方差
 
 请参阅 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的covariances\[28\]。 covariances\[28\] 的索引映射如下：
 
@@ -271,7 +271,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[22 ... 23\] 风速 NE \(m/s\)^2
 * \[24 ... 28\] 未使用
 
-### 观测新息和新息变量
+### 观测新息和新息方差
 
 观测 `estimator_innovations`, `estimator_innovation_variances`, 和 `estimator_innovation_test_ratios` 的消息字段定义于 [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)。 消息都有相同的字段名称/类型(但是单位不同)。
 
@@ -285,7 +285,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 一些观测值为：
 
-* \[0\] 角度跟踪误差量级 \(rad\)
+* 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
 * 偏航角度 (rad, rad^2) : `heading`
 * 空速真值 (m/s, (m/s)^2) : `airspeed`
 * 合成侧滑 (rad, rad^2) : `beta`
@@ -329,7 +329,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 索引映射如下：
 
-* \[0\] 角度跟踪误差幅度 (rad)
+* \[0\] 角度跟踪误差量级 (rad)
 * \[1\] 速度跟踪误差量级（m/s）。 速度跟踪时间常量可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 速度输出上的观测噪声量。
 * \[2\] 位置跟踪误差量级 \(m\)。 位置跟踪时间常量可以使用 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 位置输出上的观察噪声量。
 
@@ -353,149 +353,148 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
 * `pos_test_ratio`: 最大水平位置新息组分与新息测试极限的比例
 * `hgt_test_ratio`: 垂直位置新息与新息测试极限的比率
 * `tas_test_ratio`: 真空速新息与新息测试极限的比率
-* `hagl_test_ratio</0: 距地高度新息与新息测试极限的比率</li>
-</ul>
+* `hagl_test_ratio`: 距地高度新息与新息测试极限的比率
 
-<p>对于每个传感器的二进制通过/失败摘要，请访问在 <a href="https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg">estimator\_status</a> 中的innovation\_check\_flags。</p>
+对于每个传感器的二进制通过/失败摘要，请访问在 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中的innovation\_check\_flags。
 
-<h3>GPS 数据质量检查</h3>
+### GPS 数据质量检查
 
-<p>在开始 GPS 辅助之前，EKF 应用了许多 GPS 数据质量检查。
-这些检查由 <a href="../advanced_config/parameter_reference.md#EKF2_GPS_CHECK">EKF2_GPS_CHECK</a> 和 <code>EKF2_REQ_*` 参数控制。 这些检查的通过/失败状态记录在 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags 消息中。 当所有所需的 GPS 检查通过后，此整数将为零。 如果EKF没有开始GPS对齐， 在 [estimatator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中，对照位掩码定义 `gps_check_fail_flags` 检查整数的值。</p> 
-  ### EKF 数值误差
-  
-  EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 这意味着，当重新调整 EKF 时，可能遇到协方差矩阵运算条件恶劣，足以导致状态估计中的发散或显著错误的情况。
-  
-  为防止这种情况，每个协方差和状态更新步骤都包含以下错误检测和更正步骤：
-  
-  * 如果新息方差小于观测方差（这需要一个不可能的负值状态方差）或协方差更新将为任何一个状态产生负值方差，那么： 
-    * 跳过状态和协方差更新
-    * 协方差矩阵中的相应行和列被重置
-    * 失败记录在 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) filter\_fault\_flags 消息中
-  * estimator\_status.hgt\_test\_ratio 将大于 1.0
-  * 状态方差应用数值上限。
-  * 协方差矩阵强制对称。
-  
-  重新调整过滤器后，特别是需要减少噪声变量的重新调整，应检查`estimator_status.gps_check_fail_flags` 的值，以确保它保持为零。
-  
-  ## 如果高度估计值发散了怎么办?
-  
-  在飞行期间 EKF 高度偏离 GPS 和高度计测量的最常见原因是由振动引起的 IMU 测量的削波和/或混叠。 如果出现这种情况，数据中应有以下迹象：
-  
-  * [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] 和 [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] 两者的正负符号相同。
-  * [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 将大于 1.0
-  
-  建议第一步是确保使用有效的隔离安装系统将无人机与机身隔离。 隔离安装座具有 6 个自由度，因此具有 6 个谐振频率。 作为一般规则，隔离支架上的自动驾驶仪的 6 个共振频率应高于 25Hz，以避免与无人机动力学相互作用并低于电动机的频率。
-  
-  如果谐振频率与电动机或螺旋桨叶片通过频率一致，则隔离安装件会使振动更严重。
-  
-  通过进行以下参数更改，可以使 EKF 能更加抵御振动引起的高度发散：
-  
-  * 将主要的高度传感器的新息通道的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
-  * 初始化时将 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 的值增加到 0.5。 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
-  
-  注意 这些变化的影响将使 EKF 对 GPS 垂直速度和气压的误差更敏感。
-  
-  ## 如果位置估计发散了应该怎么办?
-  
-  位置发散的最常见原因是：
-  
-  * 高振动级别。 
-    * 通过改进无人机的机械隔离来解决。
-    * 增加 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 和 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 的值会有所帮助，但确实会使 EKF 更容易受到 GPS 故障的影响。
-  * 过大的陀螺仪偏差偏移。 
-    * 通过重新校准陀螺仪来修复。 检查过度温度灵敏度(&gt; 3 deg/sec 偏差在从冷机开始变暖时发生变化，如果受隔热影响以减缓温度变化的速度，则替换传感器。
-  * 不好的偏航对齐 
-    * 检查磁力计校准和对齐。
-    * 检查显示的航向 QGC 是否在 15 度以内
-  * GPS 精度差 
-    * 检查是否有干扰
-    * 改善隔离和屏蔽
-    * 检查飞行位置是否有 GPS 信号障碍物和反射器（附近的高层建筑）
-  * GPS 数据丢失
-  
-  确定其中哪一个是主要原因需要对 EKF 日志数据进行系统分析：
-  
-  * 绘制速度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio
-  * 绘制水平位置新息测试比率 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio
-  * 绘制高度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio
-  * 绘制磁强计新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio
-  * 绘制 GPS 接收器报告的速度精度-[vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s
-  * 绘制IMU增量角状态估计 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\], states\[11\] and states\[12\]
-  * 绘制 EKF 内部高频振动指标： 
-    * 增量角锥角振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[0\]
-    * 高频增量角振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[1\]
-    * 高频增量速度振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[2\]
-  
-  在正常操作期间，所有测试比率应保持在 0.5 以下，并且只有偶然的峰值高于此值，如下面成功飞行中的示例所示：
-  
-  ![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
-  
-  下图显示了具有良好隔离的多旋翼飞行器的 EKF 振动指标。 可以看到着陆冲击和起飞和着陆期间增加的振动。 如果收集的数据不足，使用这些指标无法提供有关最大阈值的具体建议。
-  
-  ![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
-  
-  上述振动指标的数值有限值，因为在接近 IMU 采样频率的频率下存在的振动（大多数电路板为 1kHz）将导致在高频振动指标中未显示的数据中出现偏移。 检测混叠误差的唯一方法是它们对惯性导航精度和新息水平的提高。
-  
-  除了生成 &gt; 1.0 的大的位置和速度测试比率外，不同的误差机制还以不同的方式影响其它测试比率：
-  
-  ### 振动过大的测定
-  
-  高振动级别通常会影响垂直位置和速度新息以及水平分量。 磁强计测试水平仅受到很小程度的影响。
-  
-  \(在此插入示例绘图显示不好振动\)
-  
-  ### 过度陀螺偏差的测定
-  
-  大的陀螺偏差偏移通常的特征是在飞行期间增量角度偏差值的变化大于 5E-4（相当于 ~3 度/秒），并且如果偏航轴受到影响，也会导致磁强计测试比大幅增加。 除极端情况外，高度通常不受影响。 如果滤波器在飞行前给定时间稳定，则可以容忍接通最高 5 度/秒的偏差值。 如果位置发散，飞手进行的飞行前检查应防止解锁。
-  
-  \(在此插入示例图表显示不好的陀螺偏差\)
-  
-  ### 确定较差的偏航精度
-  
-  由于惯性导航和GPS测量计算的速度方向不一致，偏航对准不良会导致无人机开始移动时速度测试比率迅速增加。 磁强计的新息受到轻微影响。 高度通常不受影响。
-  
-  \(在此插入示例绘图显示不好的偏航对齐\)
-  
-  ### GPS 数据精度差的确定
-  
-  GPS 数据精度差通常伴随着接收器报告的速度误差的增加以及新息的增加。 由多路径，遮蔽和干扰引起的瞬态误差是更常见的原因。 下面是一个暂时失去 GPS 数据精度的例子，其中多旋翼飞行器开始从其游荡位置漂移并且必须使用摇杆进行校正。 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio 大于 1 表示GPs 速度与其它测量不一致，已被拒绝。
-  
-  ![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
-  
-  这伴随着 GPS 接收器报告的速度精度的上升，这表明它可能是 GPS 误差。
-  
-  ![GPS Glitch - reported receiver accuracy](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
-  
-  如果我们还看一下 GPS 水平速度新息和新息差异，我们可以看到北向速度新息伴随着这次 GPS “故障”事件的大幅增长。
-  
-  ![GPS Glitch - velocity innovations](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
-  
-  ### GPS 数据丢失的确定
-  
-  GPS 数据的丢失将通过速度和位置新息测试比率 'flat-lining' 来显示。 如果发生这种情况，请检查 `vehicle_gps_position` 中的其它 GPS 状态数据以获取更多信息。
-  
-  下图显示了 NED GPS 速度新息 `ekf2_innovations_0.vel_pos_innov[0 ... 2]`，GPS NE 位置新息 `ekf2_innovations_0.vel_pos_innov[3 ... 4]` 和使用 SITL Gazebo 从模拟 VTOL 生成的 Baro 垂直位置新息 `ekf2_innovations_0.vel_pos_innov[5]` 。
-  
-  模拟的 GPS 在 73 秒时失锁。 注意 GPS 丢失后，NED 速度新息和 NE 位置新息 'flat-line' 。 注意在没有 GPS 数据的 10 秒后，EKF 使用最后的已知位置恢复到静态位置模式，并且 NE 位置新息开始再次改变。
-  
-  ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
-  
-  ### 气压计地面效果补偿
-  
-  如果机体在降落期间在靠近地面时往往爬升回到空中， 最可能的原因是气压计地面效应。
-  
-  这种情况是在推进器向地面推进并在无人机下空形成高压区时造成的。 其结果是降低了对压力高度的解读，从而导致了不必要的爬升。 下图显示了存在地面效应的典型情况。 注意气压计信号如何在飞行开始和结束时消失。
-  
-  ![Barometer ground effect](../../assets/ecl/gnd_effect.png)
-  
-  你可以启用 *ground effect compensation* 来解决这个问题：
-  
-  * 从绘图中估算出气压计在起飞或着陆期间的跌落程度。 在上面的绘图中，人们可以看到降落过程中大约6米的气压计下沉。
-  * 然后将参数 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 设置为该值，并添加 10% 的余量值。 因此，在这种情况下，6.6米的数值将是一个良好的起点。
-  
-  如果有可用的地形估计(例如，机体装备了测距仪)，然后你可以另外指定[EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT)， 即距地高度，低于该高度，地面效应补偿将被激活。 如果没有可用的地形估计，这个参数将不会产生任何效果，系统将使用继承法来确定是否应激活地面效果补偿。
-  
-  ## 更多信息
-  
-  * [PX4 状态估计概述视频](https://youtu.be/HkYRJJoyBwQ)，*PX4 开发者峰会 2019*， (Dr. Paul Riseborough) 对状态估计器进行了概述，并且还进一步介绍了2018/19年以来的重大变化以及2019年期间计划的改进措施。
+在开始 GPS 辅助之前，EKF 应用了许多 GPS 数据质量检查。 这些检查由 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 和 `EKF2_REQ_*` 参数控制。 这些检查的通过/失败状态记录在 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags 消息中。 当所有所需的 GPS 检查通过后，此整数将为零。 如果EKF没有开始GPS对齐， 在 [estimatator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中，对照位掩码定义 `gps_check_fail_flags` 检查整数的值。
+
+### EKF 数值误差
+
+EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 这意味着，当重新调整 EKF 时，可能遇到协方差矩阵运算条件恶劣，足以导致状态估计中的发散或显著错误的情况。
+
+为防止这种情况，每个协方差和状态更新步骤都包含以下错误检测和更正步骤：
+
+* 如果新息方差小于观测方差（这需要一个不可能的负值状态方差）或协方差更新将为任何一个状态产生负值方差，那么： 
+  * 跳过状态和协方差更新
+  * 协方差矩阵中的相应行和列被重置
+  * 失败记录在 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) filter\_fault\_flags 消息中
+* 状态方差（协方差矩阵中的对角线）被限制为非负。
+* 状态方差应用数值上限。
+* 协方差矩阵强制对称。
+
+重新调整过滤器后，特别是需要减少噪声变量的重新调整，应检查`estimator_status.gps_check_fail_flags` 的值，以确保它保持为零。
+
+## 如果高度估计值发散了怎么办?
+
+在飞行期间 EKF 高度偏离 GPS 和高度计测量的最常见原因是由振动引起的 IMU 测量的削波和/或混叠。 如果出现这种情况，数据中应有以下迹象：
+
+* [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] 和 [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] 两者的正负符号相同。
+* [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 将大于 1.0
+
+建议第一步是确保使用有效的隔离安装系统将无人机与机身隔离。 隔离安装座具有 6 个自由度，因此具有 6 个谐振频率。 作为一般规则，隔离支架上的自动驾驶仪的 6 个共振频率应高于 25Hz，以避免与无人机动力学相互作用并低于电动机的频率。
+
+如果谐振频率与电动机或螺旋桨叶片通过频率一致，则隔离安装件会使振动更严重。
+
+通过进行以下参数更改，可以使 EKF 能更加抵御振动引起的高度发散：
+
+* 将主要的高度传感器的新息门槛的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
+* 初始化时将 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 的值增加到 0.5。 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
+
+注意 这些变化的影响将使 EKF 对 GPS 垂直速度和气压的误差更敏感。
+
+## 如果位置估计发散了应该怎么办?
+
+位置发散的最常见原因是：
+
+* 高振动级别。 
+  * 通过改进无人机的机械隔离来解决。
+  * 增加 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 和 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 的值会有所帮助，但确实会使 EKF 更容易受到 GPS 故障的影响。
+* 过大的陀螺仪偏差偏移。 
+  * 通过重新校准陀螺仪来修复。 检查过度温度灵敏度(&gt; 3 deg/sec 偏差在从冷机开始热启动时发生变化，如果受隔热影响以减缓温度变化的速度，则替换传感器。
+* 不好的偏航对齐 
+  * 检查磁力计校准和对齐。
+  * 检查显示的航向 QGC 是否在 15 度以内
+* GPS 精度差 
+  * 检查是否有干扰
+  * 改善隔离和屏蔽
+  * 检查飞行位置是否有 GPS 信号障碍物和反射器（附近的高层建筑）
+* GPS 数据丢失
+
+确定其中哪一个是主要原因需要对 EKF 日志数据进行系统分析：
+
+* 绘制速度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio
+* 绘制水平位置新息测试比率 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio
+* 绘制高度新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio
+* 绘制磁强计新息测试比率 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio
+* 绘制 GPS 接收器报告的速度精度-[vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s
+* 绘制IMU增量角状态估计 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\], states\[11\] and states\[12\]
+* 绘制 EKF 内部高频振动指标： 
+  * 增量角锥角振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[0\]
+  * 高频增量角振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[1\]
+  * 高频增量速度振动 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[2\]
+
+在正常操作期间，所有测试比率应保持在 0.5 以下，并且只有偶然的峰值高于此值，如下面成功飞行中的示例所示：
+
+![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
+
+下图显示了具有良好隔离的多旋翼飞行器的 EKF 振动指标。 可以看到着陆冲击和起飞和着陆期间增加的振动。 如果收集的数据不足，使用这些指标无法提供有关最大阈值的具体建议。
+
+![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
+
+上述振动指标的数值有限值，因为在接近 IMU 采样频率的频率下存在的振动（大多数电路板为 1kHz）将导致在高频振动指标中未显示的数据中出现偏移。 检测混叠误差的唯一方法是它们对惯性导航精度和新息水平的提高。
+
+除了生成 &gt; 1.0 的大的位置和速度测试比率外，不同的误差机制还以不同的方式影响其它测试比率：
+
+### 确定过度振动
+
+高振动级别通常会影响垂直位置和速度新息以及水平分量。 磁强计测试水平仅受到很小程度的影响。
+
+\(在此插入示例绘图显示不好振动\)
+
+### 确定过度的陀螺偏差
+
+大的陀螺偏差偏移通常的特征是在飞行期间增量角度偏差值的变化大于 5E-4（相当于 ~3 度/秒），并且如果偏航轴受到影响，也会导致磁强计测试比大幅增加。 除极端情况外，高度通常不受影响。 如果滤波器在飞行前给定时间稳定，则可以容忍接通最高 5 度/秒的偏差值。 如果位置发散，飞手进行的飞行前检查应防止解锁。
+
+\(在此插入示例图表显示不好的陀螺偏差\)
+
+### 确定较差的偏航精度
+
+由于惯性导航和GPS测量计算的速度方向不一致，偏航对准不良会导致无人机开始移动时速度测试比率迅速增加。 磁强计的新息受到轻微影响。 高度通常不受影响。
+
+\(在此插入示例绘图显示不好的偏航对齐\)
+
+### 确定较差的GPS 数据精度
+
+GPS 数据精度差通常伴随着接收器报告的速度误差的增加以及新息的增加。 由多路径，遮蔽和干扰引起的瞬态误差是更常见的原因。 下面是一个暂时失去 GPS 数据精度的例子，其中多旋翼飞行器开始从其游荡位置漂移并且必须使用摇杆进行校正。 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio 大于 1 表示GPs 速度与其它测量不一致，已被拒绝。
+
+![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
+
+这伴随着 GPS 接收器报告的速度精度的上升，这表明它可能是 GPS 误差。
+
+![GPS Glitch - reported receiver accuracy](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
+
+如果我们还看一下 GPS 水平速度新息和新息差异，我们可以看到北向速度新息伴随着这次 GPS “故障”事件的大幅增长。
+
+![GPS Glitch - velocity innovations](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
+
+### 确定 GPS 数据的丢失
+
+GPS 数据的丢失将通过速度和位置新息测试比率 'flat-lining' 来显示。 如果发生这种情况，请检查 `vehicle_gps_position` 中的其它 GPS 状态数据以获取更多信息。
+
+下图显示了 NED GPS 速度新息 `ekf2_innovations_0.vel_pos_innov[0 ... 2]`，GPS NE 位置新息 `ekf2_innovations_0.vel_pos_innov[3 ... 4]` 和使用 SITL Gazebo 从模拟 VTOL 生成的 Baro 垂直位置新息 `ekf2_innovations_0.vel_pos_innov[5]` 。
+
+模拟的 GPS 在 73 秒时失锁。 注意 GPS 丢失后，NED 速度新息和 NE 位置新息 'flat-line' 。 注意在没有 GPS 数据的 10 秒后，EKF 使用最后的已知位置恢复到静态位置模式，并且 NE 位置新息开始再次改变。
+
+![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
+
+### 气压计地面效应补偿
+
+如果机体在降落期间在靠近地面时往往爬升回到空中， 最可能的原因是气压计地面效应。
+
+这种情况是在推进器向地面推进并在无人机下空形成高压区时造成的。 其结果是降低了对压力高度的解读，从而导致了不必要的爬升。 下图显示了存在地面效应的典型情况。 注意气压计信号如何在飞行开始和结束时消失。
+
+![Barometer ground effect](../../assets/ecl/gnd_effect.png)
+
+你可以启用 *ground effect compensation* 来解决这个问题：
+
+* 从绘图中估算出气压计在起飞或着陆期间的跌落程度。 在上面的绘图中，人们可以看到降落过程中大约6米的气压计下沉。
+* 然后将参数 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 设置为该值，并添加 10% 的余量值。 因此，在这种情况下，6.6米的数值将是一个良好的起点。
+
+如果有可用的地形估计(例如，机体装备了测距仪)，然后你可以另外指定[EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT)， 即距地高度，低于该高度，地面效应补偿将被激活。 如果没有可用的地形估计，这个参数将不会产生任何效果，系统将使用继承法来确定是否应激活地面效果补偿。
+
+## 更多信息
+
+* [PX4 状态估计概述视频](https://youtu.be/HkYRJJoyBwQ)，*PX4 开发者峰会 2019*， (Dr. Paul Riseborough) 对状态估计器进行了概述，并且还进一步介绍了2018/19年以来的重大变化以及2019年期间计划的改进措施。
