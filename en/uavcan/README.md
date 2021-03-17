@@ -21,6 +21,7 @@ It supports hardware like:
   * [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
   * [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
 * Distance sensors
+  - [Ark Flow](ark_flow.md)
   - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
 
 :::note
