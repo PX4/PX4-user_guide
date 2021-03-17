@@ -16,7 +16,7 @@
 
 ## 조립
 
-The assembly consists of a wooden frame on which all the autopilot parts were attached. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
+부품들을 나무판위 부착하여 조립합니다. Tests showed that a better vibration insulation should be used, especially for the Pixhawk and the Flow module.
 
 ![Stampede Chassis](../../assets/airframes/rover/traxxas_stampede_vxl/stampede_chassis.jpg)
 
