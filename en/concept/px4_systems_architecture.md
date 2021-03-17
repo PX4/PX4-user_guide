@@ -1,6 +1,6 @@
 # PX4 System Architecture
 
-The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a mission computer (also known as a "companion computer"). 
+The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer"). 
 
 :::note
 The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware.
@@ -30,21 +30,21 @@ The left hand side of the diagram shows the software stack, which is horizontall
 - The PX4 flight stack running on the flight controller includes [drivers](../modules/modules_driver.md), [comms modules](../modules/modules_communication.md), [controllers](../modules/modules_controller.md), [estimators](../modules/modules_controller.md) and other [middleware and system modules](../modules/modules_main.md).
 
 
-## FC and Mission Computer
+## FC and Companion Computer
 
-The diagram below shows a PX4 system that includes both a flight controller and a mission computer.
+The diagram below shows a PX4 system that includes both a flight controller and a companion computer (here referred to as a "mission computer").
 
-![PX4 architecture - FC + Mission Control](../../assets/diagrams/px4_arch_fc_companion.svg)
+![PX4 architecture - FC + Companion Computer](../../assets/diagrams/px4_arch_fc_companion.svg)
 
 <!-- source for drawing: https://docs.google.com/drawings/d/1zFtvA_B-BmfmxFmAd-XIvAZ-jRqOydj0aBtqSolBcqI/edit -->
 
-The flight controller runs the normal PX4 flight stack, while a mission computer provides advanced features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
+The flight controller runs the normal PX4 flight stack, while a companion computer provides advanced features like [object avoidance](../computer_vision/obstacle_avoidance.md) and [collision prevention](../computer_vision/collision_prevention.md).
 The two systems are connected using a fast serial or IP link, and typically communicate using the [MAVLink protocol](https://mavlink.io/en/).
-Communications with the ground stations and the cloud are usually routed via the mission computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router) (from Intel)).
+Communications with the ground stations and the cloud are usually routed via the companion computer (e.g. using the [MAVLink Router](https://github.com/mavlink-router/mavlink-router) (from Intel)).
 
-PX4 systems typically run a Linux OS on the mission computer (because the [PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux).
+PX4 systems typically run a Linux OS on the companion computer (because the [PX4/Avoidance](https://github.com/PX4/PX4-Avoidance) project delivers ROS-based avoidance libraries designed for Linux).
 Linux is a much better platform for "general" software development than NuttX; there are many more Linux developers and a lot of useful software has already been written (e.g. for computer vision, communications, cloud integrations, hardware drivers).
-Mission computers sometimes run Android for the same reason.
+Companion computers sometimes run Android for the same reason.
 
 :::note
 The diagram shows a cloud or ground station connection via LTE, an approach that has been used a number of PX4-based systems.
