@@ -67,9 +67,16 @@ The tuning procedure is:
 1. Confirm that the airmode selector is set to **Disabled**
 1. Set the *Thrust curve* value to: 0.3
    :::note
-   On some vehicles the optimal tuning at hover thrust may not be ideal at higher thrust.
-   The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)
+   For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear.
+   As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
+   
+   
+   The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
    A value of 0.3 is a good default.
+   :::
+   
+   :::tip
+   RPM-based controllers and some UAVCAN ESC have a linear thrust relationship so you do not need to tune the thrust curve.
    :::
 1. Set the *Select Tuning* radio button to: **Roll**.
 1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox.
