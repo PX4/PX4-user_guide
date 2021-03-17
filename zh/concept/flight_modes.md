@@ -61,4 +61,4 @@ For Multirotors, Manual and Stabilized modes are the same.
 
 ## 飞行模式评估图
 
-![Commander Flow diagram.](../../assets/diagrams/commander-flow-diagram.png)
+![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
