@@ -70,7 +70,6 @@ The tuning procedure is:
    For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear.
    As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
    
-   
    The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
    A value of 0.3 is a good default.
    :::
