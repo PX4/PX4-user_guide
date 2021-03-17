@@ -112,3 +112,7 @@ dshot esc_info -m 1
 :::tip
 You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
 :::
+
+:::tip
+Not all DSHOT-capable ESCs support [esc_info] (e.g. APD 80F3x), check with manufacturer for details.
+:::
