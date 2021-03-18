@@ -1,22 +1,22 @@
-# Flying 101
+# 비행 101
 
-이 항목에서는 수동 또는 자동 조종 보조 비행 모드 (자율 비행의 경우 :  Missions </ 1> 참조)에서  RC 송신기 </ 0>를 사용하여 기체를 비행하는 기본 사항에 대해 설명합니다</p> 
+수동 또는 자동 조종 보조 비행 모드에서 [RC 송신기](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체 비행의 기본적인 사항들을 설명합니다 (자율 비행의 경우 [미션](../flying/missions.md) 참조).
 
 :::note
-Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+처음 비행하기 전에 [첫 비행 지침](../flying/first_flight_guidelines.md)을 읽어야 합니다.
 :::
 
 <span id="arm"></span>
 
-## Arm the Vehicle
+## 기체 시동
 
-Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming). This will power all motors and actuators; on a multicopter it will start propellers turning.
+비행 전에 먼저 시동</ 0>을 걸어야 합니다. 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.</p> 
 
-To arm the drone:
+드론 시동을 거는 방법
 
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety_switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner. 
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming_switch).
+- 먼저 [안전 스위치](../getting_started/px4_basic_concepts.md#safety_switch)를 해제 하십시오.
+- 기체에 arm 명령을 사용하십시오. 스로틀 스틱을 오른쪽 하단에 놓으면 시동 명령이 실행됩니다. 
+  - 또는 [시동 스위치](../config/safety.md#arming_switch)를 설정하십시오.
   - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
 
 :::tip
