@@ -1,20 +1,20 @@
 # 첫 비행 지침
 
-비행 방법을 배우는</ 0>것은 정말 재미있습니다! 이 지침은 첫 비행 경험이 즐겁고 교육적이며 안전하도록 설계되었습니다.</p> 
+[비행 방법을 배우는](../flying/basic_flying.md)것은 매우 즐겁습니다. 첫 비행 경험을 즐겁고 안전하게 진행할 수 있도록 지침을 설명합니다.
 
 ## 좋은 위치 선택
 
-Selecting the right location for your first flight is critical. The main things to look for are:
+첫 비행을 위한 좋은 위치를 선택하는 것이 매우 중요합니다. 좋은 비행 위치의 조건들은 아래와 같습니다.
 
-- Make sure the space is open. No high trees, hills or buildings next to it, because it will impair the GPS reception.
-- Make sure no people are within 100 m / 300 feet.
-- Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
+- 개방된 공간이어야 합니다. 주변에 높은 나무, 언덕 또는 건물이 없어야 합니다. GPS 수신을 방해하기 때문입니다.
+- 사람이 100m 내에 있지 않도록 하십시오.
+- 집, 구조물, 자동차, 물, 옥수수 밭 (드론을 찾기 어렵움)에서 100m내에 장애물이 없는 지 확인하여야 합니다.
 
 :::note
-100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
+100m 간격은 경험상 적절하지만, 해당 지역의 비행 규정을 준수 여부도 확인하여야 합니다.
 :::
 
-## Bring a Pro
+## 전문가 초빙
 
 Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
 
