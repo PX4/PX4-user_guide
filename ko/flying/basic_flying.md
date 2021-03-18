@@ -62,57 +62,57 @@
 - 스로틀 스틱을 왼쪽 하단 모서리에 놓아 수동으로 무장 해제하십시오.
 
 :::note
-If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+착륙하는 동안 차량 "트위치"가 표시되는 경우 (모터를 껐다가 즉시 다시 켜십시오) 이는 잘못된 [토지 감지기 구성](../advanced_config/land_detector.md) (특히 잘못 설정된 [MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) 때문일 수 있습니다.).
 :::
 
 :::tip
-Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+특히 고정익에는 자동 착륙 모드를 적극 권장합니다.
 :::
 
-## Flight Controls/Commands
+## 비행 제어 명령어
 
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
+이륙과 착륙을 포함한 모든 비행은 롤, 요, 피치 및 스로틀의 4 가지 기본 명령을 사용하여 제어됩니다.
 
-![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
+![RC 기본 명령어](../../assets/flying/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+항공기를 제어하려면 기본 롤, 피치, 요 및 스로틀 명령이 3D 공간에서의 이동에 미치는 영향을 이해해야합니다 이것은 고정익과 같이 전진 비행기를 제어하는지, 아니면 다중기처럼 "공중 선회 항공기"를 제어하는 지에 따라 다릅니다.
 
-### Hover Aircraft
+### 항공기 선회
 
-Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
+선회 항공기 (헬리콥터 모드, 호버 모드의 헬리콥터)는 다음과 같이 이동 명령에 응답합니다
 
-![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
+![기본 동작 Multicopter](../../assets/flying/basic_movements_multicopter.png)
 
-- Pitch => Forward/back.
-- Roll => Left/right.
-- Yaw => Left/right rotation around the centre of the frame.
-- Throttle => Changed altitude/speed.
+- 피치 => 앞으로 / 뒤로.
+- 롤 => 왼쪽 / 오른쪽.
+- Yaw => 프레임 중앙을 중심으로 좌우로 회전.
+- Throttle => 고도/속도 제어
 
-### Forward-flying Aircraft
+### 전방 비행 항공기
 
-Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
+전방 비행 항공기 (항공기, 전방 비행 중 VTOL)는 다음과 같이 이동 명령에 응답합니다
 
-![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
+![기본 동작 전달](../../assets/flying/basic_movements_forward.png)
 
-- Pitch => Up/down.
-- Roll => Left/right and a turn.
-- Yaw => Left/right tail rotation and turn.
-- Throttle => Changed forward speed.
+- 피치 => 위 / 아래.
+- 롤 => 왼쪽 / 오른쪽 및 차례.
+- Yaw => 왼쪽 / 오른쪽 꼬리 회전과 방향 전환.
+- Throttle => 고도/속도 제어
 
 :::note
-The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time. This maneuver requires experience!
+비행기에 가장 적합한 회전은 조정 회전이라고하며 롤과 작은 요를 동시에 사용하여 수행됩니다. 이 기동에는 많은 경험이 필요합니다!
 :::
 
-## Assisted Flight
+## 보조 비행
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
+기체 제어 매커니즘을 충분히 이해하고 있어도, 완전 수동 모드 비행은 매우 어려운 작업입니다. 초보자는 비행 모드를 사용하도록 [ 송신기를 구성](../config/flight_mode.md) 하여야 합니다. 자동조종장치는 잘못된 사용자 입력이나 환경적인 요인을 자동으로 보완하여 비행합니다.
 
-The following three modes are highly recommended for new users:
+초보자에게 다음 세 가지 모드를 적극 권장합니다.
 
-- Stabilized - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- Altitude - Climb and drop are controlled to have a maximum rate.
-- Position - When sticks are released the vehicle will stop (and hold position against wind drift)
+- 안정화 모드-차량을 뒤집기 어렵고 스틱을 놓으면 수평이됩니다 (정지 위치가 아님).
+- 고도 - 상승 및 하강이 최대 속도로 제어됩니다.
+- 위치 - 스틱을 놓으면 차량이 정지합니다. (그리고 바람 드리프트에 대한 위치 유지).
 
 :::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
+*QGroundControl* 기본 비행 화면 하단에있는 버튼을 통해 자동 모드를 액세스할 수 있습니다.
 :::
