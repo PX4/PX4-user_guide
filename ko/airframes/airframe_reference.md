@@ -1574,11 +1574,6 @@
  <td style="vertical-align: top;"><p>유지보수: Silvan Fuhrer &lt;silvan@auterion.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: A형 주익 좌측</li><li><b>MAIN3</b>: 추진 모터</li><li><b>MAIN4</b>: A형 주익 우측</li><li><b>MAIN5</b>: 모터 1</li><li><b>MAIN6</b>: 모터 2</li><li><b>MAIN7</b>: 모터 3</li><li><b>MAIN8</b>: 모터 4</li></ul></p></td>
 
 </tr>
-<tr id="vtol_standard_vtol_generic_quadplane_vtol_(pwm14)">
- <td style="vertical-align: top;">일반 쿼드플레인 수직 이착륙기)</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13015</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN1</b>: 보조익 1</li><li><b>MAIN6</b>: 보조익 2</li><li><b>MAIN7</b>: 승강타</li><li><b>MAIN8</b>: 방향타</li><li><b>MAIN9</b>: 추진 모터</li></ul></p></td>
-
-</tr>
 </table>
 
 ### VTOL 듀오 테일시터

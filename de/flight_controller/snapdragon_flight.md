@@ -186,3 +186,19 @@ This will cause a problem for any other type of I/O on the same connector, since
 ## Dimensions
 
 ![Snapdragon Dimensions](../../assets/hardware/hardware-snapdragon-dimensions.png)
+
+## Developer Setup/Building Firmware
+
+Development setup and build instructions are provided in:
+
+* [Development Environment](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
+
+## Further Information
+
+* [Hardware Setup Example](../flight_controller/snapdragon_flight_hardware_example_setup.md)
+* [Developer Environment Installation](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Snapdragon Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
+* [Snapdragon Advanced](../flight_controller/snapdragon_flight_advanced.md)
