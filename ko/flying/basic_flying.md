@@ -1,119 +1,118 @@
-# Flying 101
+# 비행 101
 
-이 항목에서는 수동 또는 자동 조종 보조 비행 모드 (자율 비행의 경우 :  Missions </ 1> 참조)에서  RC 송신기 </ 0>를 사용하여 기체를 비행하는 기본 사항에 대해 설명합니다</p> 
+수동 또는 자동 조종 보조 비행 모드에서 [RC 송신기](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체 비행의 기본적인 사항들을 설명합니다 (자율 비행의 경우 [미션](../flying/missions.md) 참조).
 
 :::note
-Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+처음 비행하기 전에 [첫 비행 지침](../flying/first_flight_guidelines.md)을 읽어야 합니다.
 :::
 
 <span id="arm"></span>
 
-## Arm the Vehicle
+## 기체 시동
 
-Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming). This will power all motors and actuators; on a multicopter it will start propellers turning.
+비행 전에 먼저 시동</ 0>을 걸어야 합니다. 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.</p> 
 
-To arm the drone:
+드론 시동을 거는 방법
 
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety_switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner. 
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming_switch).
-  - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
+- 먼저 [안전 스위치](../getting_started/px4_basic_concepts.md#safety_switch)를 해제 하십시오.
+- 기체에 arm 명령을 사용하십시오. 스로틀 스틱을 오른쪽 하단에 놓으면 시동 명령이 실행됩니다. 
+  - 또는 [시동 스위치](../config/safety.md#arming_switch)를 설정하십시오.
+  - *QGroundControl*에서 시동을 걸 수도 있습니다. PX4는 자율 비행을 위해서 무선 조종기가 반드시 필요하지 않습니다.
 
 :::tip
-The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
+기체는 [보정과 설정](../config/README.md)작업이 완료되고, 위치 잠금 설정시까지 시동을 걸 수 없습니다. [차량 상태 알림](../getting_started/vehicle_status.md) (차량용 LED, 오디오 알림 및 *QGroundControl* 업데이트 포함)은 기체가 비행 준비가 완료되면 알람을 표시합니다. 비행 준비 미비시에는 그 원인을 알려줍니다.
 :::
 
 :::note
-The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use.
+이륙 시간이 너무 오래 걸리면 기체는 자동으로 ([기본값](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) [무장 해제](../advanced_config/prearm_arm_disarm.md#auto-disarming) (모터 끄기) 됩니다! 이것은 기체를 사용하지 않을 때 안전한 상태로 되돌리는 안전 조치입니다.
 :::
 
-:::note
-A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+:::note VTOL은 멀티 콥터 모드에서만 시동이 가능합니다. 기본적으로 고정익 모드의 무장은 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)을 사용하여 활성화 할 수 있습니다.
 :::
 
 <span id="takeoff-and-landing"></span>
 
-## Takeoff
+## 이륙
 
-The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode](../flight_modes/takeoff.md). Usually this is triggered from an [RC switch](../config/flight_mode.md) or ground station.
+이륙하는 가장 용이한 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
-
-:::tip
-The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
-:::
-
-:::note
-The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
-:::
-
-:::note
-The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
-:::
-
-## Landing
-
-The easiest way to land is to use the automatic [Land](../flight_modes/land.md) or [Return](../flight_modes/return.md) modes.
-
-For multicopter (and VTOL in multicopter mode) pilots can land manually by pressing the throttle stick down until the vehicle lands and disarms.
-
-Note that vehicles automatically disarm on landing by default:
-
-- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
-- Manually disarm by putting the throttle stick in the bottom left corner.
-
-:::note
-If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
-:::
+멀티 콥터 (및 멀티 콥터 모드의 VTOL) [포지션 모드](../flight_modes/README.md#position_mc)를 활성화하고 기체 시동후 스로틀 스틱을 62.5 % 이상 올리면 *수동으로* 이륙할 수 있습니다. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
 
 :::tip
-Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+특히 고정익에는 자동 이륙 모드를 적극 권장합니다!
 :::
 
-## Flight Controls/Commands
-
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
-
-![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
-
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
-
-### Hover Aircraft
-
-Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
-
-![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
-
-- Pitch => Forward/back.
-- Roll => Left/right.
-- Yaw => Left/right rotation around the centre of the frame.
-- Throttle => Changed altitude/speed.
-
-### Forward-flying Aircraft
-
-Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
-
-![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
-
-- Pitch => Up/down.
-- Roll => Left/right and a turn.
-- Yaw => Left/right tail rotation and turn.
-- Throttle => Changed forward speed.
-
 :::note
-The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time. This maneuver requires experience!
+시동 후 이륙 시간이 너무 오래 걸리면 차량의 시동이 해제될 수 있습니다 ([COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)를 사용하여 시간 제한 조정).
 :::
 
-## Assisted Flight
+:::note
+이륙시 문제가 발생하면 [고장 감지기](../config/safety.md#failure_detector)가 자동으로 엔진을 중지합니다.
+:::
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
+## 착륙
 
-The following three modes are highly recommended for new users:
+착륙하는 가장 용이한 방법은 자동 [착륙](../flight_modes/land.md) 또는 [복귀](../flight_modes/return.md) 모드를 사용하는 것입니다.
 
-- Stabilized - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-- Altitude - Climb and drop are controlled to have a maximum rate.
-- Position - When sticks are released the vehicle will stop (and hold position against wind drift)
+멀티 콥터 (및 멀티 콥터 모드의 VTOL)의 경우 차량이 착륙하고 무장 해제 될 때까지 스로틀 스틱을 아래로 눌러 수동으로 착륙할 수 있습니다.
+
+차량은 기본적으로 착륙시 자동으로 무장 해제됩니다.
+
+- 착륙 후 자동 해제 시간을 설정하려면 [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)를 사용하십시오 (또는 모두 비활성화).
+- 스로틀 스틱을 왼쪽 하단 모서리에 놓아 수동으로 무장 해제하십시오.
 
 :::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
+착륙하는 동안 차량 "트위치"가 표시되는 경우 (모터를 껐다가 즉시 다시 켜십시오) 이는 잘못된 [토지 감지기 구성](../advanced_config/land_detector.md) (특히 잘못 설정된 [MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) 때문일 수 있습니다.).
+:::
+
+:::tip
+특히 고정익에는 자동 착륙 모드를 적극 권장합니다.
+:::
+
+## 비행 제어 명령어
+
+이륙과 착륙을 포함한 모든 비행은 롤, 요, 피치 및 스로틀의 4 가지 기본 명령을 사용하여 제어됩니다.
+
+![RC 기본 명령어](../../assets/flying/rc_basic_commands.png)
+
+항공기를 제어하려면 기본 롤, 피치, 요 및 스로틀 명령이 3D 공간에서의 이동에 미치는 영향을 이해해야합니다 이것은 고정익과 같이 전진 비행기를 제어하는지, 아니면 다중기처럼 "공중 선회 항공기"를 제어하는 지에 따라 다릅니다.
+
+### 항공기 선회
+
+선회 항공기 (헬리콥터 모드, 호버 모드의 헬리콥터)는 다음과 같이 이동 명령에 응답합니다
+
+![기본 동작 Multicopter](../../assets/flying/basic_movements_multicopter.png)
+
+- 피치 => 앞으로 / 뒤로.
+- 롤 => 왼쪽 / 오른쪽.
+- Yaw => 프레임 중앙을 중심으로 좌우로 회전.
+- Throttle => 고도/속도 제어
+
+### 전방 비행 항공기
+
+전방 비행 항공기 (항공기, 전방 비행 중 VTOL)는 다음과 같이 이동 명령에 응답합니다
+
+![기본 동작 전달](../../assets/flying/basic_movements_forward.png)
+
+- 피치 => 위 / 아래.
+- 롤 => 왼쪽 / 오른쪽 및 차례.
+- Yaw => 왼쪽 / 오른쪽 꼬리 회전과 방향 전환.
+- Throttle => 고도/속도 제어
+
+:::note
+비행기에 가장 적합한 회전은 조정 회전이라고하며 롤과 작은 요를 동시에 사용하여 수행됩니다. 이 기동에는 많은 경험이 필요합니다!
+:::
+
+## 보조 비행
+
+기체 제어 매커니즘을 충분히 이해하고 있어도, 완전 수동 모드 비행은 매우 어려운 작업입니다. 초보자는 비행 모드를 사용하도록 [ 송신기를 구성](../config/flight_mode.md) 하여야 합니다. 자동조종장치는 잘못된 사용자 입력이나 환경적인 요인을 자동으로 보완하여 비행합니다.
+
+초보자에게 다음 세 가지 모드를 적극 권장합니다.
+
+- 안정화 모드-차량을 뒤집기 어렵고 스틱을 놓으면 수평이됩니다 (정지 위치가 아님).
+- 고도 - 상승 및 하강이 최대 속도로 제어됩니다.
+- 위치 - 스틱을 놓으면 차량이 정지합니다. (그리고 바람 드리프트에 대한 위치 유지).
+
+:::note
+*QGroundControl* 기본 비행 화면 하단에있는 버튼을 통해 자동 모드를 액세스할 수 있습니다.
 :::

@@ -1,6 +1,6 @@
-# Fixed Wing Landing
+# 고정익 착륙
 
-PX4 enables autopilot-controlled fixed-wing (FW) landing in [Missions](../flying/missions.md), [Land mode](../flight_modes/land.md), and [Return mode](../flight_modes/return.md).
+PX4는 [임수](../flying/missions.md), [착륙 모드](../flight_modes/land.md) 및 [복귀 모드](../flight_modes/return.md)에서 자동 조종 제어 고정익(FW) 착륙이 가능합니다.
 
 The landing logic has several phases, as shown below. In the first phase the vehicle will follow a fixed trajectory ([FW_LND_ANG](#FW_LND_ANG)) towards the ground. At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path (the curve is based on the value of [FW_LND_HVIRT](#FW_LND_HVIRT)).
 
