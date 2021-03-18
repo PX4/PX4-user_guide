@@ -16,20 +16,20 @@
 
 ## 전문가 초빙
 
-Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+첫 비행 경험이 있는 전문가와 동행하여 도움을 받으십시오. 비행 전 점검 사항들을 확인하고, 문제가 발생하면 도움을 받으십시오.
 
-## Plan the Flight
+## 비행 계획
 
-Plan the flight before taking off. Make sure you know the whole route and where/how the vehicle will land.
+이륙하기 전에 비행을 계획하십시오. 전체 경로와 차량이 착륙 위치와 방법을 알고 있어야 합니다.
 
-## Limit the Damage
+## 피해 제한
 
-Damaging property or injuring people with your UAV can have significant legal and financial consequences (far in excess of the value of the UAV itself).
+UAV로 재산을 훼손하거나 사람을 다치는 것은 상당한 법적 및 재정적 결과를 초래할 수 있습니다 (UAV 가치를 훨씬 초과함).
 
-The UAV should always be manually flown within a safe zone where there are no obstacles or people, and it must be clearly visible at all times.
+UAV는 장애물이나 사람이 없는 안전 구역에서 비행해야하며 항상 명확하게 볼 수 있어야합니다.
 
-If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
+차량에 대한 통제 할 수 없는 경우에는 가능한 한 빨리 사람이나 건물 등이 없는 빈 공간에 착륙시키는 것이 좋습니다.
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#safety_switch). This allows you to immediately return or crash your drone if necessary.
+[송신기의 안전 스위치를 설정](../config/safety.md#safety_switch)하는 것이 바람직합니다. 안전 스위치를 사용하여 경우 즉시 복귀하거나 드론을 재빨리 착륙시킬 수 있습니다.
 :::
