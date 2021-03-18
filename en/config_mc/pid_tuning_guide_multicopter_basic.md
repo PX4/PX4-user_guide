@@ -35,12 +35,14 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 - Rate controller tuning is the most important, and if tuned well, the other controllers often need no or only minor adjustments
 - Usually the same tuning gains can be used for roll and pitch.
 - use Acro/Stabilized/Altitude mode to tune the rate controller
-- Use Position mode to tune the velocity and position controllers.
-  Make sure to switch to the simple input mode, for direct control and possibility to generate step inputs.
+- Use [Position mode](../flight_modes/position_mc.md) to tune the *Velocity Controller* and the *Position Controller*.
+  Make sure to switch to the *Simple position control* mode so you can generate step inputs.
+  ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 :::
 
 ## Preconditions
 
+- You are using the QGroundControl [ **daily build**](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) (the latest tuning UI will be in the next release build after March 2021).
 - You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
   This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
@@ -60,20 +62,26 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 
 The tuning procedure is:
 
-1. Arm the vehicle, takeoff, and hover (typically in _Position mode_).
+1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes/position_mc.md)).
 1. Open _QGroundControl_ **Vehicle Setup > PID Tuning**
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
 1. Confirm that the airmode selector is set to **Disabled**
-1. Set the *Thrust curve* value to: 0.3
+1. Set the *Thrust curve* value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
+  
    :::note
-   On some vehicles the optimal tuning at hover thrust may not be ideal at higher thrust.
-   The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)
-   A value of 0.3 is a good default.
+   For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear.
+   As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
+   
+   The thrust curve value can be used to compensate for this non-linearity:
+   - For PWM controllers, 0.3 is a good default (which may benefit from [further tuning](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
+   - For RPM-based controllers, use 1 (no further tuning is required as these have a quadratic thrust curve).
+   
+   For more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve).
    :::
 1. Set the *Select Tuning* radio button to: **Roll**.
 1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox.
-   This will _automatically_ switch from _Position_ mode to _Stabilised_ mode when you press the **Start** button
+   This will _automatically_ switch from [Position mode](../flight_modes/position_mc.md) to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) when you press the **Start** button
 1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
 1. Select the **Start** button in order to start tracking the setpoint and response curves.
 1. Rapidly move the *roll stick* full range and observe the step response on the plots.
@@ -107,7 +115,10 @@ The tuning procedure is:
      :::
 1. Repeat the tuning process for the attitude controller on all the axes.
 1. Repeat the tuning process for the velocity and positions controllers (on all the axes).
-   Use Position mode when tuning these controllers (make sure to switch to the simple input mode, allowing direct control so that you can generate step inputs).
+   - Use Position mode when tuning these controllers
+   - Select the **Simple position control** option in the *Position control mode ...* selector (this allows direct control for the generation of step inputs)
+   
+     ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 
 All done!
 Remember to re-enable airmode before leaving the setup.
