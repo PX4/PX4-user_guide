@@ -42,6 +42,7 @@ Then adjust the sliders (as discussed below) to improve the tracking of the resp
 
 ## Preconditions
 
+- You are using the QGroundControl [ **daily build**](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html) (the latest tuning UI will be in the next release build after March 2021).
 - You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
   This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
@@ -66,17 +67,17 @@ The tuning procedure is:
    ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. Select the **Rate Controller** tab.
 1. Confirm that the airmode selector is set to **Disabled**
-1. Set the *Thrust curve* value to: 0.3
+1. Set the *Thrust curve* value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
+  
    :::note
    For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear.
    As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
    
-   The thrust curve value can be used to compensate for this non-linearity (for more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
-   A value of 0.3 is a good default.
-   :::
+   The thrust curve value can be used to compensate for this non-linearity:
+   - For PWM controllers, 0.3 is a good default (which may benefit from [further tuning](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
+   - For RPM-based controllers, use 1 (no further tuning is required as these have a quadratic thrust curve).
    
-   :::tip
-   RPM-based controllers and some UAVCAN ESC have a linear thrust relationship so you do not need to tune the thrust curve.
+   For more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve).
    :::
 1. Set the *Select Tuning* radio button to: **Roll**.
 1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox.
