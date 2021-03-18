@@ -7,7 +7,7 @@
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md) (Discontinued)
+* [Snapdragon Flight](../flight_controller/snapdragon_flight.md#developer-setup-building-firmware) (Discontinued)
 
 :::tip
 This setup is supported by the PX4 dev team.
@@ -203,24 +203,17 @@ To install the development toolchain:
 * The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
 :::
 
-## 模拟器依赖
-
-Setup instructions for [Snapdragon Flight](../flight_controller/snapdragon_flight.md) are provided in the flight controller pages:
-* [开发环境](../flight_controller/snapdragon_flight_dev_environment_installation.md)
-* [软件安装](../flight_controller/snapdragon_flight_software_installation.md)
-* [配置](../flight_controller/snapdragon_flight_configuration.md)
-
 <a id="fast_dds"></a>
 <a id="fast_rtps"></a>
 
-## Gazebo dependencies
+## 模拟器依赖
 
 [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
 
 Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
 
-## Next Steps
+## Gazebo dependencies
 
 Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
