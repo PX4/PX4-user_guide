@@ -48,7 +48,7 @@ Pinouts for the default OcPoC-Zynq configuration and full step-by-step instructi
 
 ## OcPoC-Zynq 용 PX4 구현
 
-After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/PX4-Autopilot), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
+After setting up the [PX4 development environment](../dev_setup/dev_env_linux_ubuntu.md) and cloning the [PX4 Firmware](https://github.com/PX4/PX4-Autopilot), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
 
     make aerotenna_ocpoc_ubuntu
     
