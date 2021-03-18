@@ -13715,15 +13715,9 @@ is less than 50% of this value    </td>
 <tr>
  <td><strong id="IMU_GYRO_FFT_LEN">IMU_GYRO_FFT_LEN</strong> (INT32)</td>
  <td>IMU gyro FFT length  <strong>Values:</strong><ul>
-<li><strong>128:</strong> 128</li> 
-
 <li><strong>256:</strong> 256</li> 
 
-<li><strong>512:</strong> 512</li> 
-
 <li><strong>1024:</strong> 1024</li> 
-
-<li><strong>2048:</strong> 2048</li> 
 
 <li><strong>4096:</strong> 4096</li> 
 </ul>
@@ -13738,7 +13732,7 @@ is less than 50% of this value    </td>
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>256.</td>
+ <td>192.</td>
  <td>Hz</td>
 </tr>
 <tr>
