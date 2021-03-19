@@ -1,6 +1,6 @@
-# Missions
+# 임무
 
-## Planning Missions
+## 임무 계획
 
 Manually planning missions is straightforward:
 
