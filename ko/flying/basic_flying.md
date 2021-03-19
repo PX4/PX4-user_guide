@@ -10,7 +10,7 @@
 
 ## 기체 시동
 
-비행 전에 먼저 시동</ 0>을 걸어야 합니다. 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.</p> 
+비행 전에 먼저 [시동](../getting_started/px4_basic_concepts.md#arming)을 걸어야 합니다. 시동을 걸면 모든 모터와 액추에이터에 전원을 공급합니다. 멀티 콥터에서는 프로펠러가 회전할 수 있습니다.
 
 드론 시동을 거는 방법
 
@@ -34,7 +34,7 @@
 
 ## 이륙
 
-이륙하는 가장 용이한 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
+가장 용이한 이륙 방법([기체 시동](#arm) 후)은 자동 [이륙 모드](../flight_modes/takeoff.md)를 사용하는 것입니다. 일반적으로 [RC 스위치](../config/flight_mode.md) 또는 지상국 프로그램을 사용합니다.
 
 멀티 콥터 (및 멀티 콥터 모드의 VTOL) [포지션 모드](../flight_modes/README.md#position_mc)를 활성화하고 기체 시동후 스로틀 스틱을 62.5 % 이상 올리면 *수동으로* 이륙할 수 있습니다. 이 값을 초과하면 모든 컨트롤러가 활성화되고 차량이 호버링에 필요한 스로틀 수준 ([ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER))으로 이동합니다
 
@@ -52,7 +52,7 @@
 
 ## 착륙
 
-착륙하는 가장 용이한 방법은 자동 [착륙](../flight_modes/land.md) 또는 [복귀](../flight_modes/return.md) 모드를 사용하는 것입니다.
+가장 용이한 착륙 방법은 자동 [착륙](../flight_modes/land.md) 또는 [복귀](../flight_modes/return.md) 모드를 사용하는 것입니다.
 
 멀티 콥터 (및 멀티 콥터 모드의 VTOL)의 경우 차량이 착륙하고 무장 해제 될 때까지 스로틀 스틱을 아래로 눌러 수동으로 착륙할 수 있습니다.
 
