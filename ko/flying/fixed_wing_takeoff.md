@@ -12,40 +12,40 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 이 모드에서 시작하려면 :
 - 기체의 시동을 겁니다.
 - 기체를 *위치 모드*로 설정합니다.
-- 차량을 강한 바람에 직접 던져서 비행시킵니다.
+- 기체를 강한 바람에 직접 던져서 발사합니다.
 
-The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode). It will then continue in *Postion mode*.
+기체는 [이륙 모드](#takeoff-flight-mode)와 동일한 상승 동작을 사용하여 `FW_CLMBOUT_DIFF`로 상승합니다. 그런 다음 *포지션 모드*에서 계속 동작합니다.
 
-## Takeoff Flight Mode
+## 비행 모드에서 이륙
 
-[Takeoff Mode](../flight_modes/takeoff.md#fixed_wing) enables takeoff using either *catapult/hand-launch* (default) or *runway takeoff*.
+[이륙 모드](../flight_modes/takeoff.md#fixed_wing)는 *투석기/수동 발사* (기본값) 또는 *활주로 이륙*을 사용하여 이륙 할 수 있습니다.
 
-### Catapult/Hand-Launch Mode
+### 투석기/수공 발사 모드
 
-When armed and in takeoff mode the vehicle waits to detect launch (i.e. from acceleration due to catapult or hand launch). On launch detection, the vehicle ramps up to maximum throttle ([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch. The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds. All RC stick movement is ignored until climbout ends.
+시동후에 이륙 모드이면 기체는 발사를 감지하기 위해 대기합니다 (예 : 투석기 또는 손 발사로 인한 가속). 발사 감지시 기체는 약 2 초 만에 최대 스로틀([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR))까지 상승한 다음 10도 피치에서 최대 스로틀 상승을 수행합니다. 기체 상승 단계는 차량이 올바른 고도([FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)로 정의 됨)에 도달하면 종료되며, 그 후에는 일반 내비게이션이 진행됩니다. 모든 RC 스틱의 조작은 상승이 끝날 때까지 무시됩니다.
 
 :::warning
-The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/PX4-Autopilot/pull/9243 -->
+기본 상승 피치는 일부 기체에 적합하지 않을 수 있습니다. <!-- see https://github.com/PX4/PX4-Autopilot/pull/9243 -->
 :::
 
-To launch in this mode:
-- Arm the vehicle.
-- Put the vehicle into *Takeoff mode*.
-- Launch/throw the vehicle (firmly) directly into the wind.
+이 모드에서 발사하려면:
+- 기체의 시동을 겁니다.
+- 기체를 *위치 모드*로 설정합니다.
+- 기체를 강한 바람에 직접 던져서 발사합니다.
 
 :::note
-Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
+대부분의 기존 고정익 차량은 놓을 때 평평하고 수평을 유지해야합니다 (기수가 위 또는 아래로 있지 않고 차량이 구르거나 요잉하지 않는 것이 중요합니다).
 :::
 
 :::tip
-Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
+일부 사용자는 발사 감지를 사전 트리거하고 발사 전에 최대 스로틀을 램핑하여 이륙 성능을 개선했다고보고합니다 (발사 감지 펌프를 트리거하거나 기체를 앞으로 흔들기 위해).
 :::
 
-### Runway Takeoff Mode
+### 활주로 이륙
 
-Runway takeoff mode is enabled using [RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF).
+활주로 이륙 모드는 [RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)를 사용합니다.
 
-The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight_modes/takeoff.md#runway_launch).
+모드는 [이륙 모드 > 고정익 > 활주로 이륙](../flight_modes/takeoff.md#runway_launch) 입니다.
 
 ## Mission Takeoff
 
