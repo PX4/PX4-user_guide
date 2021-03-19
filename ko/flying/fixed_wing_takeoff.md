@@ -12,7 +12,7 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 이 모드에서 시작하려면 :
 - 기체의 시동을 겁니다.
 - 기체를 *위치 모드*로 설정합니다.
-- 기체를 강한 바람에 직접 던져서 발사합니다.
+- 기체를 공중에 던져서 발사합니다.
 
 기체는 [이륙 모드](#takeoff-flight-mode)와 동일한 상승 동작을 사용하여 `FW_CLMBOUT_DIFF`로 상승합니다. 그런 다음 *포지션 모드*에서 계속 동작합니다.
 
@@ -31,7 +31,7 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 이 모드에서 발사하려면:
 - 기체의 시동을 겁니다.
 - 기체를 *위치 모드*로 설정합니다.
-- 기체를 강한 바람에 직접 던져서 발사합니다.
+- 기체를 공중에 던져서 발사합니다.
 
 :::note
 대부분의 기존 고정익 차량은 놓을 때 평평하고 수평을 유지해야합니다 (기수가 위 또는 아래로 있지 않고 차량이 구르거나 요잉하지 않는 것이 중요합니다).
@@ -47,32 +47,32 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 
 모드는 [이륙 모드 > 고정익 > 활주로 이륙](../flight_modes/takeoff.md#runway_launch) 입니다.
 
-## Mission Takeoff
+## 임무 이륙
 
-You can also hand/catapult launch a fixed wing vehicle in a mission.
+미션 모드에서 고정익 차량을 손/투석기로 발사할 수도 있습니다.
 
-To launch in a mission:
-1. Add a fixed wing takeoff item to the **start** of the mission.
-
-:::tip
-Set the takeoff item minimum pitch parameter to an appropriate value for your airframe!
-:::
-1. Switch to mission mode.
-1. Arm the vehicle.
-1. Launch/throw the vehicle (firmly) directly into the wind.
-
-:::note
-Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
-:::
+미션 모드에서 발사하려면:
+1. 임무 **시작**에 고정 날개 이륙 항목을 추가합니다.
 
 :::tip
-Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
+이륙 항목 최소 피치 매개 변수를 기체에 적합한 값으로 설정하십시오!
 :::
-
-Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the Takeoff waypoint) and navigates  towards the location of the Takeoff waypoint. It continues climbing until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude (if it reaches the target waypoint before achieving this altitude it spirals up to this level).
+1. 임무 모드로 전환합니다.
+1. 기체의 시동을 겁니다.
+1. 기체를 공중에 던져서 발사합니다.
 
 :::note
-The roll angle is limited to a maximum of 15 degrees during climbout (`FW_CLMBOUT_DIFF is > 0` and distance to takeoff altitude is > `FW_CLMBOUT_DIFF`).
+대부분의 기존 고정익 차량은 놓을 때 평평하고 수평을 유지해야합니다 (기수가 위 또는 아래로 있지 않고 차량이 구르거나 요잉하지 않는 것이 중요합니다).
 :::
 
-The mission transitions to the next waypoint when it has reached the altitude (within `FW_CLMBOUT_DIFF`) and location.
+:::tip
+일부 사용자는 발사 감지를 사전 트리거하고 발사 전에 최대 스로틀을 램핑하여 이륙 성능을 개선했다고보고합니다 (발사 감지 펌프를 트리거하거나 기체를 앞으로 흔들기 위해).
+:::
+
+이륙/비행이 감지되면 기체가 상승한 다음에(이륙 웨이 포인트의 최소 피치 매개 변수 사용) 이륙 웨이포인트 위치로 이동합니다. 이륙 웨이포인트 고도 아래 `FW_CLMBOUT_DIFF`에 도달할 때까지 계속 상승합니다 (이 고도에 도달하기 전에 목표 웨이 포인트에 도달하면이 수준까지 올라갑니다).
+
+:::note
+롤 각도는 상승하는 동안 최대 15도로 제한됩니다 (`FW_CLMBOUT_DIFF  > 0`이고, 이륙 고도까지의 거리는 `FW_CLMBOUT_DIFF` 이상입니다).
+:::
+
+임무는 고도(`FW_CLMBOUT_DIFF` 이내) 및 위치에 도달하면 다음 웨이포인트로 전환됩니다.
