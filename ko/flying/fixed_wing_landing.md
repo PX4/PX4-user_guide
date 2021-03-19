@@ -2,11 +2,11 @@
 
 PX4는 [임수](../flying/missions.md), [착륙 모드](../flight_modes/land.md) 및 [복귀 모드](../flight_modes/return.md)에서 자동 조종 제어 고정익(FW) 착륙이 가능합니다.
 
-The landing logic has several phases, as shown below. In the first phase the vehicle will follow a fixed trajectory ([FW_LND_ANG](#FW_LND_ANG)) towards the ground. At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path (the curve is based on the value of [FW_LND_HVIRT](#FW_LND_HVIRT)).
+랜딩 과정에는 아래와 같이 여러 단계가 있습니다. 첫 번째 단계에서 기체는 지면을 향해 고정된 궤적 ([FW_LND_ANG](#FW_LND_ANG))을 따라 비행합니다. 플레어 착륙 고도 ([FW_LND_FLALT](#FW_LND_FLALT))에서 기체는 플레어 경로를 따르기 시작합니다 (곡선은 [FW_LND_HVIRT](#FW_LND_HVIRT) 값을 기반으로 함).
 
 ![Fixed Wing - Landing Path](../../assets/flying/fw_landing_path.png)
 
-The flare landing altitude is relative to the altitude that the FW vehicle "thinks" is ground level. In [Land mode](../flight_modes/land.md) the ground altitude is not known and the vehicle will use assume it is at 0m (sea level). Often the ground level will be much higher than sea level, so the vehicle will land in the first phase (it will land on the ground before it reaches the flare altitude).
+플레어 착륙 고도는 고정익의 고도와 관련이 있습니다. In [Land mode](../flight_modes/land.md) the ground altitude is not known and the vehicle will use assume it is at 0m (sea level). Often the ground level will be much higher than sea level, so the vehicle will land in the first phase (it will land on the ground before it reaches the flare altitude).
 
 In a mission, [Return mode](../flight_modes/return.md), or if the vehicle has a range sensor fitted then ground level can be accurately estimated and landing behaviour will be as shown in the preceding diagram.
 
