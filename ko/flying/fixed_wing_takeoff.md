@@ -1,11 +1,11 @@
-# Fixed Wing Takeoff
+# 고정익 이륙
 
-PX4 supports fixed-wing takeoff in [missions](#mission-takeoff) and using the [Takeoff](#takeoff-flight-mode) flight mode. Vehicles can be *catapult/hand-launched* or use the runway takeoff mode. <!-- runway support in missions? -->
+PX4는 고정익의 [임무](#mission-takeoff) 및 [이륙](#takeoff-flight-mode) 비행 모드에서 이륙을 지원합니다. 기체는 *투석기/수동 발사*를 사용하거나 활주로 이륙 모드를 사용할 수 있습니다. <!-- runway support in missions? -->
 In all cases the vehicle takes off at a predefined pitch in its current direction (RC stick input is ignored).
 
-The sections below explain the main methods.
+아래 섹션에서는 주요 방법을 설명합니다.
 
-## Position Flight Mode
+## 위치 비행 모드
 
 The vehicle will takeoff in [Position mode](../flight_modes/position_fw.md) if it detects sufficient launch acceleration when launched at an altitude below [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF).
 
