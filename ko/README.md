@@ -12,84 +12,84 @@ PX4는 *자율비행* 프로그램입니다. 세계적인 수준의 개발자들
 
 ## 시작하기
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[시작하기](getting_started/README.md)편을 먼저 읽으실 것을 추천드립니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)와 더불어 PX4의 전반적인 내용을 알려드립니다.
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+목적에 따라, 아래의 팁은 이 안내서를 보실 때 많은 도움이 될 수 있습니다.
 
-**I already have a drone and I just want to fly:**
+**가지고 있는 드론을 날리고 싶을 경우**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4를 지원하는 기체가 준비되어 있는 경우:
 
-* [기본 설정](config/README.md)에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등)를 캘리브레이션하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다. 
+* [기본 설정](config/README.md)편에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등)를 캘리브레이션하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다. 
 * [비행](flying/README.md)편은 안전하게 비행할 수 있는 방법과 장소, 그리고 시동 방법 및 비행 관련 문제 해결 방법 등에 대하여 설명합니다. 또한 비행 모드에 대한 자세한 정보를 제공합니다.
 
-**I want to build a drone with PX4 from scratch:**
+**처음부터 PX4로 무인 항공기를 만드는 경우**
 
 :::tip
-The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+"지원" 기체의 목록은 [기체 프레임 정의서](airframes/airframe_reference.md)에 기술되어 있습니다. 이 목록의 기체들은 *QGroundControl*에서 시험을 마쳤으며 각 기체에 적합하게 튜닝되어 있습니다.
 :::
 
-If you want to build a vehicle from scratch:
+처음부터 기체를 제작하려면
 
-* 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다.
+* 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다. 
 * 비행 컨트롤러 선택 - [시작하기 > 비행 컨트롤러](getting_started/flight_controller_selection.md)와 [자동 항법 장치 하드웨어](flight_controller/README.md)를 살펴보십시오.
 * [조립](assembly/README.md)은 중요한 주변 장치를 자동 항법 장치에 연결하는 방법을 설명합니다.
 * [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 기체에 적합한 펌웨어 설정법을 설명합니다. 주요 센서(나침반, 자이로/IMU, 항속센서 등)를 보정법과 원격 조종법 및 안전 기능 설정 방법을 설명합니다.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+기체를 날릴 준비가 되었다면 [비행](flying/README.md)편으로 넘어가십시오.
 
-**I want to add payload or a camera:**
+**페이로드 또는 카메라를 추가하는 경우**
 
-The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+페이로드 섹션에서는 카메라를 추가하는 방법 또는 패키지를 제공 할 수 있도록 PX4를 설정하는 방법을 설명합니다.
 
-* [Payloads](payloads/README.md) describes how to integrate payloads
+* [페이로드](payloads/README.md)에서는 페이로드를 통합하는 방법을 설명합니다.
 
-**I am modifying a supported vehicle:**
+**기체를 변경하는 경우**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+비행 컨트롤러 및 기본 센서 수정은 위 항목에서 다룹니다. 새로운 센서를 추가하거나 중요한 비행 설정을 변경하는 경우
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [주변 장치](peripherals/README.md)에서는 외부 센서 사용에 대한 추가 정보를 제공합니다.
+* [기본 설정](config/README.md)에서는 주요 센서를 보정법을 설명합니다.
+* [고급 설정](advanced_config/README.md)에서는 기체의 재설정 및 튜닝 방법을 설명합니다.
 
-**I want to run PX4 on new hardware and extend the platform:**
+**새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하는 경우**
 
-* [Development](development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [개발](development/development.md)에서는 신규 기체 사용 방법, 비행 알고리즘 수정, 신규 모드 추가, 신규 하드웨어 통합 및 비행 컨트롤러 외부에서 PX4와 통신하는 방법을 설명합니다.
 
 ## 도움 받기
 
-The [Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
+[지원](contribute/support.md)페이지는 코어 개발 팀과 더 넓은 커뮤니티로부터 도움을 받는법에 대해 설명합니다.
 
-Among other things it covers:
+특히 다음 내용을 다룹니다:
 
-* [Forums where you can get help](contribute/support.md#forums-and-chat)
-* [Diagnosing issues](contribute/support.md#diagnosing-problems)
-* [How to report bugs](contribute/support.md#issue-bug-reporting)
-* [Weekly dev call](contribute/support.md#weekly-dev-call)
+* [도움을 받을 수 있는 포럼 목록](contribute/support.md#forums-and-chat)
+* [문제 진단](contribute/support.md#diagnosing-problems)
+* [버그 보고 방법](contribute/support.md#issue-bug-reporting)
+* [주간 온라인 개발자 회의](contribute/support.md#weekly-dev-call)
 
 ## 버그 및 문제점 보고
 
-If you have any problems using PX4 first post them on the [support forums](contribute/support.md#forums-and-chat) (as they may be caused by vehicle configuration).
+PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 게시하십시오 (기체 설정때문에 문제가 발생할 수 있음).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+개발팀의 요청에 따라, [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 문제(Code issue)를 제기할 수 있습니다. 가능한 경우 문제 양식(Issue template)에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
 
 ## 기여하기
 
-Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
+코드와 문서에 기여하는 방법은 [기여](contribute/README.md)편에서 찾을 수 있습니다.
 
-* [Code](contribute/README.md)
-* [Documentation](contribute/docs.md)
-* [Translation](contribute/translation.md)
+* [코드](contribute/README.md)
+* [문서](contribute/docs.md)
+* [번역](contribute/translation.md)
 
 ## 번역
 
-There are several [translations](contribute/translation.md) of this guide. You can access these from the Languages menu (top right):
+이 안내서의 다양한 [번역](contribute/translation.md)본이 있습니다. (우측 상단의) 언어 메뉴에서 원하시는 번역본을 선택할 수 있습니다:
 
 ![Language Selector](../assets/vuepress/language_selector.png)
 
 ## 라이센스
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
+PX4 코드는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-Clause)에 따라 자유롭게 사용하고 수정할 수 있습니다. This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [Licences](contribute/licenses.md).
 
 ## 주요 행사 및 일정
 
