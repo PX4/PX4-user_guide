@@ -1,8 +1,8 @@
 # 임무
 
-## 임무 계획
+## 임무 계획하기
 
-Manually planning missions is straightforward:
+수동으로 임무를 계획하는 것은 간단한 작업입니다.
 
 - Switch to the mission view
 - Select the **Add Waypoint** ("plus") icon in the top left. 
