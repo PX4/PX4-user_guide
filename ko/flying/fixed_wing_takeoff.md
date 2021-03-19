@@ -1,18 +1,18 @@
 # 고정익 이륙
 
-PX4는 고정익의 [임무](#mission-takeoff) 및 [이륙](#takeoff-flight-mode) 비행 모드에서 이륙을 지원합니다. 기체는 *투석기/수동 발사*를 사용하거나 활주로 이륙 모드를 사용할 수 있습니다. <!-- runway support in missions? -->
+PX4는 [임무](#mission-takeoff)와 [이륙](#takeoff-flight-mode) 비행 모드에서 고정익 이륙을 지원합니다. 기체는 *투석기/수동 발사*를 사용하거나 활주로 이륙 모드를 사용할 수 있습니다. <!-- runway support in missions? -->
 In all cases the vehicle takes off at a predefined pitch in its current direction (RC stick input is ignored).
 
 아래 섹션에서는 주요 방법을 설명합니다.
 
 ## 위치 비행 모드
 
-The vehicle will takeoff in [Position mode](../flight_modes/position_fw.md) if it detects sufficient launch acceleration when launched at an altitude below [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF).
+기체를 [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) 이하의 고도에서 발사했을 때, 충분한 발사 가속을 감지하면 [위치 모드](../flight_modes/position_fw.md)에서 이륙합니다.
 
-To launch in this mode:
-- Arm the vehicle.
-- Put the vehicle into *Position mode*.
-- Launch/throw the vehicle (firmly) directly into the wind.
+이 모드에서 시작하려면 :
+- 기체의 시동을 겁니다.
+- 기체를 *위치 모드*로 설정합니다.
+- 차량을 강한 바람에 직접 던져서 비행시킵니다.
 
 The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode). It will then continue in *Postion mode*.
 
