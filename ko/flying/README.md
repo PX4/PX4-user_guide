@@ -1,10 +1,10 @@
 # 비행
 
-자동항법장치를 이용한 비행 방법을 설명합니다. 수동 비행 방법과 자율 비행 방법에 대하여 설명합니다.
+자동항법장치를 이용하여 비행하는 방법을 설명합니다. 수동 비행 방법과 자율 비행 방법에 대하여 설명합니다.
 
-[첫 비행 지침](../flying/first_flight_guidelines.md) - 첫 비행을 즐겁고 안전하게 하는 지침
+[첫 비행 지침](../flying/first_flight_guidelines.md) - 첫 비행을 즐겁고 안전하게 하기 위한 지침들
 
-[Flying 101](../flying/basic_flying.md) - RC 무선 조정기를 사용하여 기체를 수동으로 조종하는 법.
+[Flying 101](../flying/basic_flying.md) - RC 무선 조정기를 사용하여 기체를 수동으로 조종법.
 
 [미션](../flying/missions.md) - 자율 비행 방법.
 
@@ -12,7 +12,7 @@
 
 [랠리 포인트](../flying/plan_safety_points.md) — 안전 복귀 착륙 포인트 (랠리 포인트)를 계획하는 방법.
 
-[비행 모드](../flight_modes/README.md) - 요약표와 비행 모드에 대한 자세한 정보.
+[비행 모드](../flight_modes/README.md) - 비행 모드에 대한 요약표와 자세한 정보.
 
 [지형 추적 / 홀드 & Range Assistance ](../flying/terrain_following_holding.md) — 지형 추적 활성화 방법.
 

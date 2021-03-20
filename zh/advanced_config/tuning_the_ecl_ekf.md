@@ -45,8 +45,8 @@ EKF 具有不同的操作模式，以允许不同的传感器测量组合。 滤
 
 需要以最小 5Hz 的速率的三轴机体固连磁力计数据（或外部视觉系统姿势数据）。 磁力计数据可以用于两种方式：
 
-* 使用倾角估计和磁偏角将磁力计测量值转换为偏航角。 然后将该偏航角用作 EKF 的观察值。 该方法精度较低并且不允许学习机体坐标系场偏移，但是它对于磁场异常和大的初置陀螺偏差更有鲁棒性。 它是启动期间和在地面时的默认方法。
-* XYZ 磁力计读数用作单独的观察值。 该方法更精确并且允许学习机体坐标系场偏移，但是它假设地球磁场环境只会缓慢变化，并且当存在显着的外部磁场异常时表现较差。
+* 使用倾角估计和磁偏角将磁力计测量值转换为偏航角。 然后将该偏航角用作 EKF 的观测值。 该方法精度较低并且不允许学习机体坐标系场偏移，但是它对于磁场异常和大的初置陀螺偏差更有鲁棒性。 它是启动期间和在地面时的默认方法。
+* XYZ 磁力计读数用作单独的观测值。 该方法更精确并且允许学习机体坐标系场偏移，但是它假设地球磁场环境只会缓慢变化，并且当存在显着的外部磁场异常时表现较差。
 
 用于选择这些模式的逻辑由 [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) 参数设置。
 
@@ -136,7 +136,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 | hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | 米/秒                         | 根据所报告的全球导航卫星系统位置计算出的漂移率（在固定状态时）。                                                |
 | vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | 2\] Velocity NED \(m/s\) | 根据所报告的全球导航卫星系统高度计算出的漂移率（在固定时）。                                                  |
 | hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s                         | 所报告的全球导航卫星系统横向速度的筛选星等。                                                          |
-| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s                         | 所报告的全球导航卫星系统垂直速度的过滤级别。                                                          |
+| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s                         | 所报告的全球导航卫星系统垂直速度的滤波量级。                                                          |
 
 :::note
 `hpos_drift_rate`, `vpos_drift_rate` 和 `hspd` 是在 `ekf2_gps_drift` 主题中计算出来的。 请注意， `ekf2_gps_drift` 不被记录在文件里！
@@ -331,7 +331,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 * \[0\] 角度跟踪误差量级 (rad)
 * \[1\] 速度跟踪误差量级（m/s）。 速度跟踪时间常量可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 速度输出上的观测噪声量。
-* \[2\] 位置跟踪误差量级 \(m\)。 位置跟踪时间常量可以使用 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 位置输出上的观察噪声量。
+* \[2\] 位置跟踪误差量级 \(m\)。 位置跟踪时间常量可以使用 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数进行调整。 减小此参数可减少稳态误差，但会增加 NED 位置输出上的观测噪声量。
 
 ### EKF 错误
 
@@ -342,15 +342,15 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
 有两种类型观测错误：
 
 * 数据丢失。 一个例子是测距仪无法提供返回数据。
-* 新息，即状态预测和传感器观察之间的差异过度。 这种情况的一个例子是过度振动导致大的垂直位置误差，导致气压计高度测量被拒绝。
+* 新息，即状态预测和传感器观测之间的差异过度。 这种情况的一个例子是过度振动导致大的垂直位置误差，导致气压计高度测量被拒绝。
 
 这两者都可能导致观测数据被拒绝，如果时间足够长，使得 EKF 尝试重置状态以使用传感器观测数据。 所有观测结果均对新息进行了统计置信度检查。 要检查的标准偏差数据由每个观测类型的 `EKF2_*_GATE` 参数控制。
 
 测试级别在 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) 中可用，如下所示：
 
-* `mag_test_ratio`: 最大磁强计新息组分与新息测试极限的比例
+* `mag_test_ratio`: 最大磁强计新息组分与新息测试极限的比率
 * `vel_test_ratio`: 最大速度新息组分与新息测试极限的比率
-* `pos_test_ratio`: 最大水平位置新息组分与新息测试极限的比例
+* `pos_test_ratio`: 最大水平位置新息组分与新息测试极限的比率
 * `hgt_test_ratio`: 垂直位置新息与新息测试极限的比率
 * `tas_test_ratio`: 真空速新息与新息测试极限的比率
 * `hagl_test_ratio`: 距地高度新息与新息测试极限的比率
@@ -375,7 +375,7 @@ EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推�
 * 状态方差应用数值上限。
 * 协方差矩阵强制对称。
 
-重新调整过滤器后，特别是需要减少噪声变量的重新调整，应检查`estimator_status.gps_check_fail_flags` 的值，以确保它保持为零。
+重新调整滤波器后，特别是需要减少噪声变量的重新调整，应检查`estimator_status.gps_check_fail_flags` 的值，以确保它保持为零。
 
 ## 如果高度估计值发散了怎么办?
 

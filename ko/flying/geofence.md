@@ -1,6 +1,6 @@
-# GeoFence
+# 지리적 울타리
 
-A GeoFence is a virtual boundary that defines where a vehicle can travel. GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace.
+지리적 울타리는 기체의 비행 영역을 정의하는 가상 경계입니다. 지리적 울타리는 기체가 RC 무선 조종기의 영향권을 벗어나서 안전하지 않거나 제한된 공역의 비행을 방지합니다.
 
 PX4 provides two independent mechanisms for specify a GeoFence:
 - A basic "failsafe" Geofence that defines a simple cylinder.
