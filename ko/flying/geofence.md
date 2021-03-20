@@ -12,30 +12,30 @@ GeoFence는 미션 모드와 수동 비행 모드에 모두 적용됩니다.
 
 ## 사고 방지 GeoFence
 
-The [GeoFence Failsafe](../config/safety.md#geofence-failsafe) defines a cylinder centered on the home position, with a specified maximum radius and altitude.
+[사고 방지 GeoFence](../config/safety.md#geofence-failsafe)는 지정된 최대 반경과 고도로 홈 위치를 중심으로 하는 실린더를 정의합니다.
 
-The settings also include a "failsafe action" in the event that the fence is breached. This may simply be a warning notification, but more commonly a vehicle will immediately [Return](../flight_modes/return.md) to a safe location.
+또한 펜스가 위반되는 경우 "사고 방지 액션" 설정이 포함됩니다. 단순히 알람 경고로 설정할 수도 있지만, 일반적으로 기체를 즉시 안전한 위치로 [복귀 ](../flight_modes/return.md) 시킵니다.
 
-For more information see: [Safety > GeoFence Failsafe](../config/safety.md#geofence-failsafe).
+자세한 내용은 [안전 > 사고 장비 GeoFence](../config/safety.md#geofence-failsafe)를 참조하십시오.
 
-## GeoFence Plan
+## GeoFence 계획
 
-PX4 supports complex GeoFence boundaries made up of multiple circular and polygonal regions, which may be defined as either inclusion (fly within) or exclusion (fly outside) areas.
+PX4는 포함 (내부 비행) 또는 제외 (외부 비행) 영역으로 정의되는 여러개의 원형 및 다각형으로 구성된 복잡한 GeoFence 경계를 지원합니다.
 
-The GeoFence is planned in *QGroundControl* alongside the mission and rally points.
+GeoFence는 미션 및 랠리 포인트와 함께 *QGroundControl*에서 계획됩니다.
 
 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+GeoFence 계획은 [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl 사용자 가이드)에 자세하게 문서화되어 있습니다.
 
-In summary:
-1. Open *QGroundControl > Plan View*.
-1. Select the *Plan Type* radio button: **Fence**. This will display the *GeoFence Editor*. ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
-1. Select the **Polygon Fence** or **Circular Fence** button to add a *basic* fence of the desired type to the map. This also adds an entry for the type of fence in the editor.
-1. Use the map to configure the shape and position of the fence.
-   - The fence center marker can be used to move the fence to the correct position.
-   - The marker on the border of a circular fence can be used to change the radius.
-   - The markers on corners (vertices) can be used to change the geometry of a polygon. Additional vertices are created by clicking halfway along the lines between existing markers.
+요약
+1. *QGroundControl > 평면도 *를 오픈합니다.
+1. *계획 유형* 라디오 버튼 : **울타리**를 선택합니다. 그러면 *GeoFence 편집기*가 표시됩니다. ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
+1. **다각형 울타리** 또는 **원형 울타리** 버튼을 선택하여 원하는 유형의 *기본 * 울타리를 지도에 추가합니다. 편집기에서 울타리 유형을 추가합니다.
+1. 지도를 사용하여 울타리의 모양과 위치를 구성하십시오.
+   - 펜스 중앙 마커를 사용하여 펜스를 올바른 위치로 이동할 수 있습니다.
+   - 원형 울타리 테두리의 마커를 사용하여 반경을 변경할 수 있습니다.
+   - 모서리 (정점)의 마커를 사용하여 다각형의 형상을 변경할 수 있습니다. Additional vertices are created by clicking halfway along the lines between existing markers.
 1. Use the *GeoFence Editor* to set a fence as an inclusion or exclusion, and to select a fence to edit (**Edit** radio button) or Delete (**Del** button).
 1. Add as many fences as you like.
 1. Once finished, click on the **Upload** button (top right) to send the fence (along with rally points and mission) to the vehicle.
