@@ -1,16 +1,16 @@
-# 지리적 울타리
+# GeoFence
 
-지리적 울타리는 기체의 비행 영역을 정의하는 가상 경계입니다. 지리적 울타리는 기체가 RC 무선 조종기의 영향권을 벗어나서 안전하지 않거나 제한된 공역의 비행을 방지합니다.
+GeoFence는 기체의 비행 영역을 정의하는 가상 경계입니다. GeoFence는 기체가 RC 무선 조종기의 영향권을 벗어나서 안전하지 않거나 제한된 공역의 비행하는 것을 방지합니다.
 
-PX4 provides two independent mechanisms for specify a GeoFence:
-- A basic "failsafe" Geofence that defines a simple cylinder.
-- More complicated geometries can be defined using a GeoFence Plan (*QGroundControl*).
+PX4는 두 가지 방법으로 GeoFence를 지정합니다.
+- 간단한 실린더를 정의하는 기본 "사고방지" 지오펜스.
+- GeoFence 계획(*QGroundControl*)을 사용하여 더 복잡한 지오메트리를 정의할 수 있습니다.
 
 :::note
-GeoFences apply in all modes, including both missions and manual flight.
+GeoFence는 미션 모드와 수동 비행 모드에 모두 적용됩니다.
 :::
 
-## Failsafe GeoFence
+## 사고 방지 GeoFence
 
 The [GeoFence Failsafe](../config/safety.md#geofence-failsafe) defines a cylinder centered on the home position, with a specified maximum radius and altitude.
 
