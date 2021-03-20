@@ -1,10 +1,10 @@
-# Safety Points (Rally Points)
+# 안전 포인트 (랠리 포인트)
 
-Safety points are alternative [Return Mode](../flight_modes/return.md) destinations/landing points. When enabled, the vehicle will choose the *closest return destination* of: home location, mission landing pattern or a *safety point*.
+안전 지점은 [반환 모드](../flight_modes/return.md)의 목적지/착륙 지점을 대체하는 지점입니다. 활성화되면 기체는 홈 위치, 임무 착륙 패턴 또는 *안전 지점*중 *가장 가까운 반환 목적지*를 선택합니다.
 
 ![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
-## Creating/Defining Safety Points
+## 안전 포인트 설정
 
 Safety points are created in *QGroundControl* (which calls them "Rally Points").
 
