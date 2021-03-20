@@ -17,5 +17,5 @@
 [지형 추적 / 홀드 & Range Assistance ](../flying/terrain_following_holding.md) — 지형 추적 활성화 방법
 
 :::tip
-[차량 상태 알림](../getting_started/vehicle_status.md)은 차량이 비행할 준비가 되었는지 확인할 수 있습니다. 비행 준비가 안 되어 있는 경우의 원인을 자세히 설명합니다.
+[기체 상태 알림](../getting_started/vehicle_status.md)은 기체 비행 준비 여부를 확인할 수 있습니다. 비행 준비가 안 되어 있는 경우에는 원인을 자세히 설명합니다.
 :::
