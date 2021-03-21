@@ -1,12 +1,12 @@
-# 안전 포인트 (랠리 포인트)
+# 안전 지점 (랠리 포인트)
 
 안전 지점은 [반환 모드](../flight_modes/return.md)의 목적지/착륙 지점을 대체하는 지점입니다. 활성화되면 기체는 홈 위치, 임무 착륙 패턴 또는 *안전 지점*중 *가장 가까운 반환 목적지*를 선택합니다.
 
-![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
+![안전 지점](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
-## 안전 포인트 설정
+## 안전 지점 설정
 
-안전 지점은 *QGroundControl* ( "랠리 지점"이라고 함)에서 생성됩니다.
+안전 지점은 *QGroundControl* ( "랠리 포인트"라고 함)에서 생성됩니다.
 
 전체 개요:
 1. **QGroundControl > 평면뷰 **를 오픈합니다
@@ -18,12 +18,12 @@
 1. **업로드 필요** 버튼을 선택하여 랠리 포인트 ([미션](../flying/missions.md) 및 [지오 펜스](../flying/geofence.md)와 함께)를 기체에 업로드합니다.
 
 :::tip
-More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html).
+자세한 문서는 *QGroundControl 사용자 가이드* : [계획보기-랠리 포인트](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html)를 참고하십시오.
 :::
 
-## Using Safety Points
+## 안전 지점 사용법
 
-Safety points are not enabled by default (there are a number of different [Return Mode Types](../flight_modes/return.md#return_types)).
+안전 지점은 기본적으로 활성화되어 있지 않습니다 (다양한 [반환 모드 유형](../flight_modes/return.md#return_types)이 있습니다).
 
-To enable safety points:
-1. [Use the QGroundControl Parameter Editor](../advanced_config/parameters.md) to set parameter: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).
+안전 지점을 활성화하려면 :
+1. [QGroundControl 매개 변수 편집기를 사용](../advanced_config/parameters.md)하여 매개 변수를 설정합니다 : [RTL_TYPE = 3](../advanced_config/parameter_reference.md#RTL_TYPE).
