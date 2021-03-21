@@ -204,7 +204,7 @@
         * [스냅드래곤 소프트웨어 설치](flight_controller/snapdragon_flight_software_installation.md)
         * [설정](flight_controller/snapdragon_flight_configuration.md)
         * [스냅드래곤 고급](flight_controller/snapdragon_flight_advanced.md)
-      * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
+      * [Intel® 에어로 RTF 드론 (단종)](complete_vehicles/intel_aero.md)
   * [비행 제어 장치 주변 기기](peripherals/README.md) 
     * [GPS/나침반](gps_compass/README.md) 
       * [Hex Here2](gps_compass/gps_hex_here2.md)
