@@ -388,8 +388,6 @@
     * [ROS Integration Testing](test_and_ci/integration_testing.md)
     * [Docker Containers](test_and_ci/docker.md)
     * [Maintenance](test_and_ci/maintenance.md)
-* [Releases](releases/README.md)
-  * [1.12](releases/1.12.md)
 * [Robotics](robotics/README.md)
   * [Offboard Control from Linux](ros/offboard_control.md)
   * [ROS](ros/README.md)
@@ -415,3 +413,6 @@
   * [Translation](contribute/translation.md)
   * [Terminology/Notation](contribute/notation.md)
   * [Licenses](contribute/licenses.md)
+* [Releases](releases/README.md)
+  * [1.12](releases/1.12.md)
+  
