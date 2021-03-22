@@ -150,6 +150,7 @@ The vehicle will follow a smooth rounded curve towards the next waypoint (if one
 
 Vehicles switch to the next waypoint as soon as they enter the acceptance radius. 
 - For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
+![acc-rad](../../assets/flying/acceptance_radius_mission.png)
 - For FW the radius is defined by the "L1 distance".
   - The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
   - By default, it's about 70 meters.
