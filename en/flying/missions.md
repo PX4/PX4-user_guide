@@ -27,6 +27,14 @@ By default this is the next waypoint.
 
 Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
 
+### Setting acceptance/turning radius
+
+For a multi-rotor drone, the acceptance radius parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD) can be adjusted to control how close to a waypoint the drone needs to be before switching to the next waypoint. By default, the acceptance radius is small to make sure the multirotor passes above the waypoints but it can also be increased to create a smoother path where the drone starts to turn before reaching the waypoint.
+
+![acceptance-radius-comparison](../../assets/flying/acc_rad_comp.jpg)
+
+The speed in the turn is automatically computed depending on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+
 ## Flying Missions
 
 Once the mission is uploaded, switch to the flight view.
