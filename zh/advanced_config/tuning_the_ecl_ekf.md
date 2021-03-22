@@ -144,7 +144,7 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 ### 测距仪
 
-单状态滤波器使用测距仪的对地距离来估计地形相对于高度基准的垂直位置。
+测距仪的对地距离被用于一个单状态滤波器以估计地形相对于高度基准的垂直位置。
 
 如果在可用作零高度基准面的平面上操作，则 EKF 也可以直接使用测距仪数据，通过将 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 参数设置为 2 来估算高度。
 
@@ -287,7 +287,7 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 * 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
 * 偏航角度 (rad, rad^2) : `heading`
-* 空速真值 (m/s, (m/s)^2) : `airspeed`
+* 真实空速 (m/s, (m/s)^2) : `airspeed`
 * 合成侧滑 (rad, rad^2) : `beta`
 * 光流 XY (rad/sec, (rad/s)^2) : `flow`
 * 距地高度 (m, m^2) : `hagl`
