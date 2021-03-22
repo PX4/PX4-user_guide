@@ -5054,28 +5054,28 @@ Value 0 turns the functionality off    </td>
 <tbody>
 <tr>
  <td><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state (m/s)</p>   </td>
+ <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
  <td>4 > 20 </td>
  <td>6.00</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
+ <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
  <td>0.5 > 10 </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
+ <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
  <td>0.1 > 20 </td>
  <td>3.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state (m/s^2)</p>   </td>
+ <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
  <td>2 > 15 </td>
  <td>8.0</td>
  <td>m/s^2</td>
@@ -5103,14 +5103,14 @@ Value 0 turns the functionality off    </td>
 </tr>
 <tr>
  <td><strong id="LNDMC_XY_VEL_MAX">LNDMC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
+ <td>Multicopter max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
  <td></td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
+ <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
  <td></td>
  <td>0.50</td>
  <td>m/s</td>
