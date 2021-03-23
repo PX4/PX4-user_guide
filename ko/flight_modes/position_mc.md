@@ -8,12 +8,12 @@
 위치 모드는 새 전단지를위한 가장 안전한 수동 모드입니다. [고도](../flight_modes/altitude_mc.md) 및 [수동 / 안정화](../flight_modes/manual_stabilized_mc.md) 모드와 달리, 차량은 바람의 저항에 의해 감속 될 때까지 계속되는 대신 스틱이 중앙에있을 때 정지합니다.
 :::
 
-The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
+아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 (모드 2 송신기의 경우).
 
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 :::warning
-Care must be taken when landing in this mode. When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm. If landing is correctly detected, motors will spin down after touch down and then disarm shortly after. If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
+이 모드에서 착륙시에 주의하여야 합니다. 이 모드에 처음 착륙시 시동 해제를 위해 [수동/안정](../flight_modes/manual_stabilized_mc.md)으로 전환할 준비를하십시오. 착지가 올바르게 감지되면 모터가 터치 다운 후 회전하고 곧바로 시동 해제됩니다. If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. Be aware that the vehicle may tip over on the ground due to GPS drift.
 :::
 
 ## Technical Summary
