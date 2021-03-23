@@ -1,16 +1,16 @@
-# Acro Mode (Multicopter)
+# 아크로 모드(멀티콥터)
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+* 아크로 모드 *는 뒤집기, 롤 및 루프등과 같은 곡예 비행을 위한 RC 모드입니다.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등)과 현재 모멘텀에 따라 움직입니다.
 
 ![MC Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_MC.png)
 
 <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
 
-## Technical Description
+## 기술적 설명
 
 RC/manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
