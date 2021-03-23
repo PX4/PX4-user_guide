@@ -1,22 +1,22 @@
-# 수동 / 안정 모드 (멀티 태스킹)
+# 수동/안정화 모드 (멀티콥터)
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-* Manual / Stabilized </ 0> 모드는 RC 컨트롤 스틱이 중앙에있을 때 멀티탭을 안정시킵니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.</p> 
+*수동/안정화*모드는 RC 조종 스틱이 중앙에 있을 때 멀티콥터를 안정화합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
 :::note
-This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+이 멀티콥터 모드는 *수동* 또는 *안정화* 모드를 설정하여 활성화됩니다.
 :::
 
-When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+수동 제어에서 롤과 피치 스틱이 각 축을 중심으로 기체의 자세를 * 각도*로 제어하닙니다. 요 스틱은 수평면 위의 회전 속도를 제어하고 스로틀은 고도/속도를 제어합니다 .
 
-As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+조종 스틱을 놓으면 중앙 데드 존으로 돌아갑니다. 롤 포크와 피치 스틱이 중앙에 오면 멀티 피터가 수평을 유지하고 정지합니다. 기체는 적절하게 균형을 잡고, 스로틀이 적절하게 설정되고([아래 참조](#params)), 외력이 가해지지 않으면 (예 : 바람), 고도에 유지되거나 유지됩니다. 기체는는 바람 방향으로 표류하게 되며, 고도를 유지하기 위해서는 스로틀을 제어하여야 합니다.
 
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
 
-## Technical Description
+## 기술적 설명
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+조종사의 입력은 롤 및 피치 각 명령과 요 율 명령으로 전달됩니다. 스로틀은 크기가 조정되고 ([아래](#params) 참조) 출력 믹서로 직접 전달됩니다. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
 
 :::note
 
