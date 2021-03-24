@@ -27,14 +27,22 @@ By default this is the next waypoint.
 
 Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
 
-### Setting acceptance/turning radius
+### Setting Acceptance/Turning Radius
 
-For a multi-rotor drone, the acceptance radius parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD) can be adjusted to control how close to a waypoint the drone needs to be before switching to the next waypoint. By default, the acceptance radius is small to make sure the multirotor passes above the waypoints but it can also be increased to create a smoother path where the drone starts to turn before reaching the waypoint.
+The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
+
+For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
+By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
 
 The image below shows the same mission flown with different acceptance radius parameters:
+
 ![acceptance-radius-comparison](../../assets/flying/acceptance_radius_comparison.png)
 
-The speed in the turn is automatically computed depending on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+
+:::tip
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#inter-waypoint-trajectory).
+:::
 
 ## Flying Missions
 
