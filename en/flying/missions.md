@@ -36,7 +36,7 @@ By default, the radius is small to ensure that multirotors pass above the waypoi
 
 The image below shows the same mission flown with different acceptance radius parameters:
 
-![acceptance-radius-comparison](../../assets/flying/acceptance_radius_comparison.png)
+![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
 
 The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
 
