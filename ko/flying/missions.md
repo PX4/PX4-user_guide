@@ -26,8 +26,24 @@
 
 고정익과 같이 요 및 이동 방향을 제어할 수 없는 기체는 요 설정을 무시합니다.
 
+### Setting Acceptance/Turning Radius
+
+The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
+
+For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD). By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
+
+The image below shows the same mission flown with different acceptance radius parameters:
+
+![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
+
+The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+
+:::tip
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#inter-waypoint-trajectory).
+:::
+
 ## 임무 비행
 
-임무가 업로드되면 비행 보기로 전환합니다. 미션은 진행 상황을 쉽게 추적하도록 표시됩니다. 이보기에서 미션을 수정할 수 없습니다.
+Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
-![임무 비행](../../assets/flying/flying_mission.jpg)
+![flying-mission](../../assets/flying/flying_mission.jpg)
