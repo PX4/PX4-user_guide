@@ -12,7 +12,7 @@
 
 아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 ([모드 2 송신기](../getting_started/rc_transmitter_receiver.md#transmitter_modes)의 경우).
 
-![Altitude Control FW](../../assets/flight_modes/altitude_control_mode_fw.png)
+![고정익 고도 제어](../../assets/flight_modes/altitude_control_mode_fw.png)
 
 ## 기술 요약
 
