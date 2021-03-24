@@ -23,7 +23,7 @@ Besides that:
    Check the [PX4-ROS 2 bridge](../ros/ros2_comm.md) document for details on how to do it.
 1. `px4_msgs` and `px4_ros_com` should be already on your colcon workspace.
    See the link in the previous point for details.
-1. `offboard_control_mode` and `position_setpoint_triplet` messages are configured in the `uorb_rtps_message_ids.yaml` file both in the PX4-Autopilot and
+1. `offboard_control_mode` and `trajectory_setpoint` messages are configured in the `uorb_rtps_message_ids.yaml` file both in the PX4-Autopilot and
 *px4_ros_com* package to be *received* in the Autopilot.
 
    In *PX4-Autopilot/msg/tools/uorb_rtps_message_ids.yaml*:
@@ -32,8 +32,9 @@ Besides that:
        id: 44
        receive: true
      ...
-     - msg: position_setpoint_triplet
-       id: 51
+     - msg: trajectory_setpoint
+       id: 186
+       alias: vehicle_local_position_setpoint
        receive: true
    ```
 
@@ -43,8 +44,9 @@ Besides that:
        msg: OffboardControlMode
        receive: true
      ...
-     - id: 51
-       msg: PositionSetpointTriplet
+     - alias: VehicleLocalPositionSetpoint
+       id: 186
+       msg: TrajectorySetpoint
        receive: true
    ```
 
@@ -66,33 +68,35 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_Pub
     });
 ```
 
-The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `position_setpoint_triplet` messages.
+The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
 
 ```cpp
-        auto timer_callback = [this]() -> void {
-        if (offboard_setpoint_counter_ == 100) {
-                // Change to Offboard mode after 100 setpoints
-                this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
+auto timer_callback = [this]() -> void {
 
-                // Arm the vehicle
-                this->arm();
-        }
+			if (offboard_setpoint_counter_ == 10) {
+				// Change to Offboard mode after 10 setpoints
+				this->publish_vehicle_command(VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1, 6);
 
-        // offboard_control_mode needs to be paired with position_setpoint_triplet
-        publish_offboard_control_mode();
-        publish_position_setpoint_triplet();
+				// Arm the vehicle
+				this->arm();
+			}
 
-        // stop the counter after reaching 100
-        if (offboard_setpoint_counter_ < 101) {
-                offboard_setpoint_counter_++;
-        }
-};
-timer_ = this->create_wall_timer(10ms, timer_callback);
+            		// offboard_control_mode needs to be paired with trajectory_setpoint
+			publish_offboard_control_mode();
+			publish_trajectory_setpoint();
+
+           		 // stop the counter after reaching 11
+			if (offboard_setpoint_counter_ < 11) {
+				offboard_setpoint_counter_++;
+			}
+		};
+		timer_ = this->create_wall_timer(100ms, timer_callback);
+	}
 ```
 
 The above is the main loop spining on the ROS 2 node.
-It first sends 100 setpoint messages before sending the command to change to offboard mode
-At the same time, both `offboard_control_mode` and `position_setpoint_triplet` messages are sent to the flight controller.
+It first sends 10 setpoint messages before sending the command to change to offboard mode
+At the same time, both `offboard_control_mode` and `trajectory_setpoint` messages are sent to the flight controller.
 
 ```cpp
 /**
@@ -102,44 +106,36 @@ At the same time, both `offboard_control_mode` and `position_setpoint_triplet` m
 void OffboardControl::publish_offboard_control_mode() const {
 	OffboardControlMode msg{};
 	msg.timestamp = timestamp_.load();
-	msg.ignore_thrust = true;
-	msg.ignore_attitude = true;
-	msg.ignore_bodyrate_x = true;
-	msg.ignore_bodyrate_y = true;
-	msg.ignore_bodyrate_z = true;
-	msg.ignore_position = false;
-	msg.ignore_velocity = true;
-	msg.ignore_acceleration_force = true;
-	msg.ignore_alt_hold = true;
+	msg.position = true;
+	msg.velocity = false;
+	msg.acceleration = false;
+	msg.attitude = false;
+	msg.body_rate = false;
 
 	offboard_control_mode_publisher_->publish(msg);
 }
 
-/**
- * @brief Publish position setpoint triplets.
- *        For this example, it sends position setpoint triplets to make the
- *        vehicle hover at 5 meters.
- */
-void OffboardControl::publish_position_setpoint_triplet() const {
-	PositionSetpointTriplet msg{};
-	msg.timestamp = timestamp_.load();
-	msg.current.timestamp = timestamp_.load();
-	msg.current.type = PositionSetpoint::SETPOINT_TYPE_POSITION;
-	msg.current.x = 0.0;
-	msg.current.y = 0.0;
-	msg.current.z = -5.0;
-	msg.current.cruising_speed = -1.0;
-	msg.current.position_valid = true;
-	msg.current.alt_valid = true;
-	msg.current.valid = true;
 
-	position_setpoint_triplet_publisher_->publish(msg);
+/**
+ * @brief Publish a trajectory setpoint
+ *        For this example, it sends a trajectory setpoint to make the
+ *        vehicle hover at 5 meters with a yaw angle of 180 degrees.
+ */
+void OffboardControl::publish_trajectory_setpoint() const {
+	TrajectorySetpoint msg{};
+	msg.timestamp = timestamp_.load();
+	msg.x = 0.0;
+	msg.y = 0.0;
+	msg.z = -5.0;
+	msg.yaw = -3.14; // [-PI:PI]
+
+	trajectory_setpoint_publisher_->publish(msg);
 }
 ```
 
-The above functions exemplify how the fields on both `offboard_control_mode` and `position_setpoint_triplet` messages can be set.
-Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `ignore_position` field is set to `true`, while all the others get set to `false`, and in the `position_setpoint_triplet`, on the `current` setpoint, `valid`, `alt_valid` and `position_valid` are set to `true`.
-Also, in this case, `x`, `y` and `z` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
+The above functions exemplify how the fields on both `offboard_control_mode` and `trajectory_setpoint` messages can be set.
+Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `position` field is set to `true`, while all the others get set to `false`.
+Also, in this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
 
 :::tip
 The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS 2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
