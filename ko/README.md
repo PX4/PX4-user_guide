@@ -112,7 +112,7 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 
 ## 운영 방법
 
-PX4는 [Dronecode 프로젝트](https://www.dronecode.org/) 주관으로 운영 및 관리됩니다.
+PX4는 [Dronecode 프로젝트](https://www.dronecode.org/) 주관으로 운영되고 관리합니다.
 
 <a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
