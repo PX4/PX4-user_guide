@@ -4,17 +4,17 @@
 
 *고도* 비행모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하는것을 용이하게 합니다. 이 모드 하에서 바람이 있을 때 기체는 방향을 유지하지 않습니다.
 
-기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어할 수 있습니다. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed.
+기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어할 수 있습니다. 일단 중앙에 위치하면 자동조종장치가 현재 고도에 고정되고 요/롤 및 모든 대기 속도에서 이 고도를 유지합니다.
 
-The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+스로틀 입력은 대기 속도를 제어합니다. 롤과 피치는 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프할 수 없습니다).
 
-When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+모든 원격 제어 입력이 중앙에 있을 때 (롤, 피치, 요 및 ~ 50 % 스로틀 없음) 기체는 직선, 수평 비행 (바람에 따라)으로 돌아가 현재 고도를 유지합니다.
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 ([모드 2 송신기](../getting_started/rc_transmitter_receiver.md#transmitter_modes)의 경우).
 
 ![Altitude Control FW](../../assets/flight_modes/altitude_control_mode_fw.png)
 
-## Technical Summary
+## 기술 요약
 
 RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
 
