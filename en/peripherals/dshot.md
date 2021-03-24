@@ -112,3 +112,12 @@ dshot esc_info -m 1
 :::tip
 You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
 :::
+
+:::tip
+Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled.
+The resulting error is:
+```
+ERROR [dshot] No data received. If telemetry is setup correctly, try again.
+```
+Check manufacturer documentation for confirmation/details.
+:::

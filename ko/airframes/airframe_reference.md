@@ -1574,11 +1574,6 @@
  <td style="vertical-align: top;"><p>유지보수: Silvan Fuhrer &lt;silvan@auterion.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: A형 주익 좌측</li><li><b>MAIN3</b>: 추진 모터</li><li><b>MAIN4</b>: A형 주익 우측</li><li><b>MAIN5</b>: 모터 1</li><li><b>MAIN6</b>: 모터 2</li><li><b>MAIN7</b>: 모터 3</li><li><b>MAIN8</b>: 모터 4</li></ul></p></td>
 
 </tr>
-<tr id="vtol_standard_vtol_generic_quadplane_vtol_(pwm14)">
- <td style="vertical-align: top;">일반 쿼드플레인 수직 이착륙기)</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13015</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN1</b>: 보조익 1</li><li><b>MAIN6</b>: 보조익 2</li><li><b>MAIN7</b>: 승강타</li><li><b>MAIN8</b>: 방향타</li><li><b>MAIN9</b>: 추진 모터</li></ul></p></td>
-
-</tr>
 </table>
 
 ### VTOL 듀오 테일시터
@@ -1694,18 +1689,7 @@
 ### 수직 이착륙 틸트로터
 
 <div>
-  <img src="../../assets/airframes/types/VTOLTiltRotor.svg" width="29%" style="max-height: 180px;" /> 
-  
-  <table style="float: right; width: 70%; font-size:1.5rem;">
-    <colgroup><col></colgroup> <tr>
-      <th>
-        공통 출력
-      </th>
-    </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: 틸트 서보</li><li><b>AUX2</b>: 엘러본(elevon) 1</li><li><b>AUX3</b>: 엘러본(elevon) 2</li><li><b>AUX4</b>: 기어</li></ul></td>
-</tr>
-  </table>
+<img src="../../assets/airframes/types/VTOLTiltRotor.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1719,7 +1703,7 @@
   </tr>
 <tr id="vtol_vtol_tiltrotor_birdseyeview_aerobotics_firefly6">
  <td style="vertical-align: top;">BirdsEyeView Aerobotics FireFly6</td>
- <td style="vertical-align: top;"><p>유지보수: Roman Bapst &lt;roman@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13002</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 전면 우측 모터 하단</li><li><b>MAIN2</b>: 전면 우측 모터 상단</li><li><b>MAIN3</b>: 후면 모터 하단</li><li><b>MAIN4</b>: 후면 모터 상단</li><li><b>MAIN5</b>: 전면 좌측 모터 하단</li><li><b>MAIN6</b>: 전면 좌측 모터 상단</li></ul></p></td>
+ <td style="vertical-align: top;"><p>유지보수: Roman Bapst &lt;roman@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13002</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 전면 우측 모터 하단</li><li><b>MAIN2</b>: 전면 우측 모터 상단</li><li><b>MAIN3</b>: 후면 모터 하단</li><li><b>MAIN4</b>: 후면 모터 상단</li><li><b>MAIN5</b>: 전면 좌측 모터 하단</li><li><b>MAIN6</b>: 전면 좌측 모터 상단</li><li><b>AUX1</b>: Tilt servo</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></p></td>
 
 </tr>
 <tr id="vtol_vtol_tiltrotor_cruiseader_claire">
@@ -1730,6 +1714,11 @@
 <tr id="vtol_vtol_tiltrotor_e-flite_convergence">
  <td style="vertical-align: top;">E-플라이트 컨버전스</td>
  <td style="vertical-align: top;"><p>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13012</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 우측 모터</li><li><b>MAIN2</b>: 좌측 모터</li><li><b>MAIN3</b>: 후면 모터</li><li><b>MAIN4</b>: (비어 있음)</li><li><b>MAIN5</b></0>: 우측 틸트 서보</li><li><b>MAIN6</b></0>: 좌측 틸트 서보</li><li><b>MAIN7</b>: 우측 보조익</li><li><b>MAIN8</b>: 좌측 보조익</li></ul></p></td>
+
+</tr>
+<tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
+ <td style="vertical-align: top;">Generic Quadplane VTOL Tiltrotor</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Motor tilt front left</li><li><b>AUX2</b>: Motor tilt front right</li><li><b>AUX3</b>: Motor tilt rear left</li><li><b>AUX4</b>: Motor tilt rear right</li><li><b>AUX5</b>: Aileron left</li><li><b>AUX6</b>: Aileron right</li><li><b>AUX7</b>: Elevator</li><li><b>AUX8</b>: Rudder</li></ul></p></td>
 
 </tr>
 </table>

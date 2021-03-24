@@ -60,18 +60,11 @@ make px4_sitl gazebo
 
 To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
 
-For example, to build for *Pixracer* you would use the following command:
+For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
 ```sh
 cd PX4-Autopilot
 make px4_fmu-v4_default
 ```
-
-:::note
-In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration). The `default` is optional so you could instead do:
-```
-make px4_fmu-v4
-```
-:::
 
 A successful run will end with similar output to:
 ```sh
@@ -79,7 +72,7 @@ A successful run will end with similar output to:
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-Build instructions are given in the documentation for the individual [flight controller boards](../flight_controller/README.md). The following list shows the build commands for just the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
+The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
 * [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
 * [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
@@ -96,9 +89,12 @@ Build instructions are given in the documentation for the individual [flight con
 :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
+Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
+
 :::note
-Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
+
 
 ### Uploading Firmware (Flashing the board)
 
@@ -121,194 +117,8 @@ Rebooting.
 
 ## Other Boards
 
-The following boards have more complicated build and/or deployment instructions.
+Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
 
-### Raspberry Pi 2/3 Boards
-
-The command below builds the target for [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
-
-#### Cross-compiler Build
-
-Set the IP (or hostname) of your RPi using:
-
-```sh
-export AUTOPILOT_HOST=192.168.X.X
-```
-or
-```sh
-export AUTOPILOT_HOST=pi_hostname.domain
-```
-
-
-:::note
-The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
-:::
-
-Build the executable file:
-
-```sh
-cd PX4-Autopilot
-make emlid_navio2 # for cross-compiler build
-```
-
-The "px4" executable file is in the directory **build/emlid_navio2_default/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](../flight_controller/raspberry_pi_navio2.md#developer-quick-start).
-
-Then upload it with:
-
-```sh
-cd PX4-Autopilot
-make emlid_navio2 upload # for cross-compiler build
-```
-
-Then, connect over ssh and run it with (as root):
-
-```sh
-cd ~/px4
-sudo ./bin/px4 -s px4.config
-```
-
-#### Native Build
-
-If you're building *directly* on the Pi, you will want the native build target (emlid_navio2_native).
-
-```sh
-cd PX4-Autopilot
-make emlid_navio2_native # for native build
-```
-
-The "px4" executable file is in the directory **build/emlid_navio2_native/**. Run it directly with:
-
-```sh
-sudo ./build/emlid_navio2_native/px4 build/emlid_navio2_native/etc -s ./posix-configs/rpi/px4.config
-```
-
-A successful build followed by executing px4 will give you something like this:
-
-```sh
-
-______  __   __    ___
-| ___ \ \ \ / /   /   |
-| |_/ /  \ V /   / /| |
-|  __/   /   \  / /_| |
-| |     / /^\ \ \___  |
-\_|     \/   \/     |_/
-
-px4 starting.
-
-
-pxh>
-```
-
-#### Autostart
-
-To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
-```sh
-cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
-```
-
-
-### OcPoC-Zynq Mini
-
-Build instructions for the [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md) are covered in:
-* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq)
-* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)  (aerotenna.readme.io)
-
-
-### QuRT / Snapdragon Based Boards
-
-This section shows how to build for the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
-
-#### Build
-
-:::note
-If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
-:::
-
-The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../middleware/uorb.md).
-
-```sh
-cd PX4-Autopilot
-make atlflight_eagle_default
-```
-
-To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
-
-```sh
-adb shell
-```
-
-Go back to previous terminal and upload:
-
-```sh
-make atlflight_eagle_default upload
-```
-
-Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
-
-The mixer currently needs to be copied manually:
-
-```sh
-adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
-```
-
-#### Run
-
-Run the DSP debug monitor:
-
-```sh
-${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
-```
-
-Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
-
-Go back to ADB shell and run px4:
-
-```sh
-cd /home/linaro
-./px4 -s mainapp.config
-```
-
-Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.
-
-#### Autostart
-
-To run the px4 as soon as the Snapdragon has booted, you can add the startup to `rc.local`:
-
-Either edit the file `/etc/rc.local` directly on the Snapdragon:
-
-```sh
-adb shell
-vim /etc/rc.local
-```
-
-Or copy the file to your computer, edit it locally, and copy it back:
-
-```sh
-adb pull /etc/rc.local
-gedit rc.local
-adb push rc.local /etc/rc.local
-```
-
-For the auto-start, add the following line before `exit 0`:
-
-```sh
-(cd /home/linaro && ./px4 -s mainapp.config > mainapp.log)
-
-exit 0
-```
-
-Make sure that the `rc.local` is executable:
-
-```sh
-adb shell
-chmod +x /etc/rc.local
-```
-
-Then reboot the Snapdragon:
-
-```sh
-adb reboot
-```
 
 ## Compiling in a Graphical IDE
 

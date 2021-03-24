@@ -526,8 +526,7 @@ tr > * {
 <tbody>
 <tr>
  <td><strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)</td>
- <td>Acceleration compensation based on GPS
-velocity    </td>
+ <td>Acceleration compensation based on GPS velocity    </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -541,9 +540,7 @@ velocity    </td>
 </tr>
 <tr>
  <td><strong id="ATT_EXT_HDG_M">ATT_EXT_HDG_M</strong> (INT32)</td>
- <td>External heading usage mode (from Motion capture/Vision)
-Set to 1 to use heading estimate from vision.
-Set to 2 to use heading from motion capture  <strong>Values:</strong><ul>
+ <td>External heading usage mode (from Motion capture/Vision) <p><strong>Comment:</strong> Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> None</li> 
 
 <li><strong>1:</strong> Vision</li> 
@@ -1382,8 +1379,7 @@ Set to 2 to use heading from motion capture  <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
- <td>Maximum magnetic field inconsistency between units that will allow arming
-Set -1 to disable the check    </td>
+ <td>Maximum magnetic field inconsistency between units that will allow arming <p><strong>Comment:</strong> Set -1 to disable the check.</p>   </td>
  <td>3 > 180 </td>
  <td>45</td>
  <td>deg</td>
@@ -1829,8 +1825,7 @@ Set -1 to disable the check    </td>
 </tr>
 <tr>
  <td><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
- <td>Time-out to wait when offboard connection is lost before triggering offboard lost action.
-See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
+ <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_ACT and COM_OBL_RC_ACT to configure action.</p>   </td>
  <td>0 > 60 (0.01)</td>
  <td>1.0</td>
  <td>s</td>
@@ -2827,34 +2822,28 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action    </td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_ACCLIM">EKF2_ABL_ACCLIM</strong> (FLOAT)</td>
- <td>Maximum IMU accel magnitude that allows IMU bias learning.
-If the magnitude of the IMU accelerometer vector exceeds this value, the EKF delta velocity state estimation will be inhibited.
-This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the delta velocity bias estimates    </td>
+ <td>Maximum IMU accel magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU accelerometer vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the delta velocity bias estimates.</p>   </td>
  <td>20.0 > 200.0 </td>
  <td>25.0</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_GYRLIM">EKF2_ABL_GYRLIM</strong> (FLOAT)</td>
- <td>Maximum IMU gyro angular rate magnitude that allows IMU bias learning.
-If the magnitude of the IMU angular rate vector exceeds this value, the EKF delta velocity state estimation will be inhibited.
-This reduces the adverse effect of rapid rotation rates and associated errors on the delta velocity bias estimates    </td>
+ <td>Maximum IMU gyro angular rate magnitude that allows IMU bias learning <p><strong>Comment:</strong> If the magnitude of the IMU angular rate vector exceeds this value, the EKF delta velocity state estimation will be inhibited. This reduces the adverse effect of rapid rotation rates and associated errors on the delta velocity bias estimates.</p>   </td>
  <td>2.0 > 20.0 </td>
  <td>3.0</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_LIM">EKF2_ABL_LIM</strong> (FLOAT)</td>
- <td>Accelerometer bias learning limit. The ekf delta velocity bias states will be limited to within a range equivalent to +- of this value    </td>
+ <td>Accelerometer bias learning limit <p><strong>Comment:</strong> The ekf delta velocity bias states will be limited to within a range equivalent to +- of this value.</p>   </td>
  <td>0.0 > 0.8 </td>
  <td>0.4</td>
  <td>m/s^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
- <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit delta velocity bias learning.
-The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay.
-This parameter controls the time constant of the decay    </td>
+ <td>Time constant used by acceleration and angular rate magnitude checks used to inhibit delta velocity bias learning <p><strong>Comment:</strong> The vector magnitude of angular rate and acceleration used to check if learning should be inhibited has a peak hold filter applied to it with an exponential decay. This parameter controls the time constant of the decay.</p>   </td>
  <td>0.1 > 1.0 </td>
  <td>0.5</td>
  <td>s</td>
@@ -2901,10 +2890,7 @@ This parameter controls the time constant of the decay    </td>
 </tr>
 <tr>
  <td><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
- <td>Airspeed fusion threshold. A value of zero will deactivate airspeed fusion. Any other positive
-value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed.
-Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS.
-Use EKF2_FUSE_BETA to activate sideslip fusion    </td>
+ <td>Airspeed fusion threshold <p><strong>Comment:</strong> A value of zero will deactivate airspeed fusion. Any other positive value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed. Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_FUSE_BETA to activate sideslip fusion.</p>   </td>
  <td>0.0 > ? </td>
  <td>0.0</td>
  <td>m/s</td>
@@ -2956,16 +2942,14 @@ Use EKF2_FUSE_BETA to activate sideslip fusion    </td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
- <td>X-axis ballistic coefficient used by the multi-rotor specific drag force model.
-This should be adjusted to minimise variance of the X-axis drag specific force innovation sequence    </td>
+ <td>X-axis ballistic coefficient used by the multi-rotor specific drag force model <p><strong>Comment:</strong> This should be adjusted to minimise variance of the X-axis drag specific force innovation sequence.</p>   </td>
  <td>1.0 > 100.0 </td>
  <td>25.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
- <td>Y-axis ballistic coefficient used by the multi-rotor specific drag force model.
-This should be adjusted to minimise variance of the Y-axis drag specific force innovation sequence    </td>
+ <td>Y-axis ballistic coefficient used by the multi-rotor specific drag force model <p><strong>Comment:</strong> This should be adjusted to minimise variance of the Y-axis drag specific force innovation sequence.</p>   </td>
  <td>1.0 > 100.0 </td>
  <td>25.0</td>
  <td>kg/m^2</td>
@@ -2998,8 +2982,7 @@ This should be adjusted to minimise variance of the Y-axis drag specific force i
 </tr>
 <tr>
  <td><strong id="EKF2_DRAG_NOISE">EKF2_DRAG_NOISE</strong> (FLOAT)</td>
- <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model.
-Increasing it makes the multi-rotor wind estimates adjust more slowly    </td>
+ <td>Specific drag force observation noise variance used by the multi-rotor specific drag force model <p><strong>Comment:</strong> Increasing this makes the multi-rotor wind estimates adjust more slowly.</p>   </td>
  <td>0.5 > 10.0 </td>
  <td>2.5</td>
  <td>(m/s^2)^2</td>
@@ -3020,8 +3003,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly    </td>
 </tr>
 <tr>
  <td><strong id="EKF2_EVP_GATE">EKF2_EVP_GATE</strong> (FLOAT)</td>
- <td>Gate size for vision position fusion
-Sets the number of standard deviations used by the innovation consistency test    </td>
+ <td>Gate size for vision position fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>1.0 > ? </td>
  <td>5.0</td>
  <td>SD</td>
@@ -3188,8 +3170,7 @@ Sets the number of standard deviations used by the innovation consistency test  
 </tr>
 <tr>
  <td><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
- <td>Default value of true airspeed used in EKF-GSF AHRS calculation.
-If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes    </td>
+ <td>Default value of true airspeed used in EKF-GSF AHRS calculation <p><strong>Comment:</strong> If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes.</p>   </td>
  <td>0.0 > 100.0 </td>
  <td>15.0</td>
  <td>m/s</td>
@@ -3262,8 +3243,7 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
- <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method.
-This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion    </td>
+ <td>Horizontal acceleration threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
  <td>0.0 > 5.0 </td>
  <td>0.5</td>
  <td>m/s^2</td>
@@ -3341,16 +3321,14 @@ This parameter is used when the magnetometer fusion method is set automatically 
 </tr>
 <tr>
  <td><strong id="EKF2_MAG_YAWLIM">EKF2_MAG_YAWLIM</strong> (FLOAT)</td>
- <td>Yaw rate threshold used by automatic selection of magnetometer fusion method.
-This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion    </td>
+ <td>Yaw rate threshold used by automatic selection of magnetometer fusion method <p><strong>Comment:</strong> This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered yaw rate is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion.</p>   </td>
  <td>0.0 > 1.0 </td>
  <td>0.25</td>
  <td>rad/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MIN_OBS_DT">EKF2_MIN_OBS_DT</strong> (INT32)</td>
- <td>Minimum time of arrival delta between non-IMU observations before data is downsampled.
-Baro and Magnetometer data will be averaged before downsampling, other data will be point sampled resulting in loss of information    <p><b>Reboot required:</b> true</p>
+ <td>Minimum time of arrival delta between non-IMU observations before data is downsampled <p><strong>Comment:</strong> Baro and Magnetometer data will be averaged before downsampling, other data will be point sampled resulting in loss of information.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>10 > 50 </td>
  <td>20</td>
@@ -3402,8 +3380,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
 </tr>
 <tr>
  <td><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
- <td>Optical flow measurement delay relative to IMU measurements
-Assumes measurement is timestamped at trailing edge of integration period    <p><b>Reboot required:</b> true</p>
+ <td>Optical flow measurement delay relative to IMU measurements <p><strong>Comment:</strong> Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 300 </td>
  <td>20</td>
@@ -3460,44 +3437,35 @@ Assumes measurement is timestamped at trailing edge of integration period    <p>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_XN">EKF2_PCOEF_XN</strong> (FLOAT)</td>
- <td>Static pressure position error coefficient for the negative X axis.
-This is the ratio of static pressure error to dynamic pressure generated by a negative wind relative velocity along the X body axis.
-If the baro height estimate rises during backwards flight, then this will be a negative number    </td>
+ <td>Static pressure position error coefficient for the negative X axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a negative wind relative velocity along the X body axis. If the baro height estimate rises during backwards flight, then this will be a negative number.</p>   </td>
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_XP">EKF2_PCOEF_XP</strong> (FLOAT)</td>
- <td>Static pressure position error coefficient for the positive X axis
-This is the ratio of static pressure error to dynamic pressure generated by a positive wind relative velocity along the X body axis.
-If the baro height estimate rises during forward flight, then this will be a negative number    </td>
+ <td>Static pressure position error coefficient for the positive X axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a positive wind relative velocity along the X body axis. If the baro height estimate rises during forward flight, then this will be a negative number.</p>   </td>
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_YN">EKF2_PCOEF_YN</strong> (FLOAT)</td>
- <td>Pressure position error coefficient for the negative Y axis.
-This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the negative Y (LH) body axis.
-If the baro height estimate rises during sideways flight to the left, then this will be a negative number    </td>
+ <td>Pressure position error coefficient for the negative Y axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the negative Y (LH) body axis. If the baro height estimate rises during sideways flight to the left, then this will be a negative number.</p>   </td>
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_YP">EKF2_PCOEF_YP</strong> (FLOAT)</td>
- <td>Pressure position error coefficient for the positive Y axis.
-This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the positive Y (RH) body axis.
-If the baro height estimate rises during sideways flight to the right, then this will be a negative number    </td>
+ <td>Pressure position error coefficient for the positive Y axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the positive Y (RH) body axis. If the baro height estimate rises during sideways flight to the right, then this will be a negative number.</p>   </td>
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="EKF2_PCOEF_Z">EKF2_PCOEF_Z</strong> (FLOAT)</td>
- <td>Static pressure position error coefficient for the Z axis.
-This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the Z body axis    </td>
+ <td>Static pressure position error coefficient for the Z axis <p><strong>Comment:</strong> This is the ratio of static pressure error to dynamic pressure generated by a wind relative velocity along the Z body axis.</p>   </td>
  <td>-0.5 > 0.5 </td>
  <td>0.0</td>
  <td></td>
@@ -4216,8 +4184,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td><strong id="FW_LND_HHDIST">FW_LND_HHDIST</strong> (FLOAT)</td>
- <td>Landing heading hold horizontal distance.
-Set to 0 to disable heading hold    </td>
+ <td>Landing heading hold horizontal distance <p><strong>Comment:</strong> Set to 0 to disable heading hold.</p>   </td>
  <td>0 > 30.0 (0.5)</td>
  <td>15.0</td>
  <td>m</td>
@@ -4553,9 +4520,7 @@ Set to 0 to disable heading hold    </td>
 <tbody>
 <tr>
  <td><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
- <td>Enable checks on ESCs that report their arming state.
-If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state.
-Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle    <p><b>Reboot required:</b> true</p>
+ <td>Enable checks on ESCs that report their arming state <p><strong>Comment:</strong> If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state. Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Enabled (1)</td>
@@ -4563,8 +4528,7 @@ Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback i
 </tr>
 <tr>
  <td><strong id="FD_EXT_ATS_EN">FD_EXT_ATS_EN</strong> (INT32)</td>
- <td>Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external
-automatic trigger system (ATS) <p><strong>Comment:</strong> External ATS is required by ASTM F3322-18.</p>   <p><b>Reboot required:</b> true</p>
+ <td>Enable PWM input on for engaging failsafe from an external automatic trigger system (ATS) <p><strong>Comment:</strong> Enabled on either AUX5 or MAIN5 depending on board. External ATS is required by ASTM F3322-18.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -4631,9 +4595,7 @@ automatic trigger system (ATS) <p><strong>Comment:</strong> External ATS is requ
 </tr>
 <tr>
  <td><strong id="NAV_FT_RS">NAV_FT_RS</strong> (FLOAT)</td>
- <td>Dynamic filtering algorithm responsiveness to target movement
-lower numbers increase the responsiveness to changing long lat
-but also ignore less noise    </td>
+ <td>Dynamic filtering algorithm responsiveness to target movement <p><strong>Comment:</strong> lower numbers increase the responsiveness to changing long lat but also ignore less noise</p>   </td>
  <td>0.0 > 1.0 </td>
  <td>0.5</td>
  <td></td>
@@ -5036,8 +4998,7 @@ but also ignore less noise    </td>
 </tr>
 <tr>
  <td><strong id="ISBD_STACK_TIME">ISBD_STACK_TIME</strong> (INT32)</td>
- <td>Time [ms] the Iridium driver will wait for additional mavlink messages to combine them into one SBD message
-Value 0 turns the functionality off    </td>
+ <td>Time the Iridium driver will wait for additional mavlink messages to combine them into one SBD message <p><strong>Comment:</strong> Value 0 turns the functionality off</p>   </td>
  <td>0 > 500 </td>
  <td>0</td>
  <td>ms</td>
@@ -5054,28 +5015,28 @@ Value 0 turns the functionality off    </td>
 <tbody>
 <tr>
  <td><strong id="LNDFW_AIRSPD_MAX">LNDFW_AIRSPD_MAX</strong> (FLOAT)</td>
- <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state (m/s)</p>   </td>
+ <td>Airspeed max <p><strong>Comment:</strong> Maximum airspeed allowed in the landed state</p>   </td>
  <td>4 > 20 </td>
  <td>6.00</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
+ <td>Fixedwing max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
  <td>0.5 > 10 </td>
  <td>5.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
+ <td>Fixedwing max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
  <td>0.1 > 20 </td>
  <td>3.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
- <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state (m/s^2)</p>   </td>
+ <td>Fixedwing max horizontal acceleration <p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state</p>   </td>
  <td>2 > 15 </td>
  <td>8.0</td>
  <td>m/s^2</td>
@@ -5103,14 +5064,14 @@ Value 0 turns the functionality off    </td>
 </tr>
 <tr>
  <td><strong id="LNDMC_XY_VEL_MAX">LNDMC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
+ <td>Multicopter max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
  <td></td>
  <td>1.5</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
- <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>   </td>
+ <td>Multicopter max climb rate <p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state</p>   </td>
  <td></td>
  <td>0.50</td>
  <td>m/s</td>
@@ -5240,8 +5201,7 @@ Value 0 turns the functionality off    </td>
 </tr>
 <tr>
  <td><strong id="LPE_FAKE_ORIGIN">LPE_FAKE_ORIGIN</strong> (INT32)</td>
- <td>Enable publishing of a fake global position (e.g for AUTO missions using Optical Flow)
-by initializing the estimator to the LPE_LAT/LON parameters when global information is unavailable    </td>
+ <td>Enable publishing of a fake global position (e.g for AUTO missions using Optical Flow) <p><strong>Comment:</strong> By initializing the estimator to the LPE_LAT/LON parameters when global information is unavailable</p>   </td>
  <td>0 > 1 </td>
  <td>0</td>
  <td></td>
@@ -5313,8 +5273,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
 </tr>
 <tr>
  <td><strong id="LPE_GPS_VXY">LPE_GPS_VXY</strong> (FLOAT)</td>
- <td>GPS xy velocity standard deviation.
-EPV used if greater than this value    </td>
+ <td>GPS xy velocity standard deviation <p><strong>Comment:</strong> EPV used if greater than this value.</p>   </td>
  <td>0.01 > 2 </td>
  <td>0.25</td>
  <td>m/s</td>
@@ -5433,8 +5392,7 @@ EPV used if greater than this value    </td>
 </tr>
 <tr>
  <td><strong id="LPE_T_MAX_GRADE">LPE_T_MAX_GRADE</strong> (FLOAT)</td>
- <td>Terrain maximum percent grade, hilly/outdoor (100 = 45 deg), flat/Indoor (0 = 0 deg)
-Used to calculate increased terrain random walk nosie due to movement    </td>
+ <td>Terrain maximum percent grade, hilly/outdoor (100 = 45 deg), flat/Indoor (0 = 0 deg) <p><strong>Comment:</strong> Used to calculate increased terrain random walk nosie due to movement.</p>   </td>
  <td>0 > 100 </td>
  <td>1.0</td>
  <td>%</td>
@@ -6157,9 +6115,7 @@ Used to calculate increased terrain random walk nosie due to movement    </td>
 <tbody>
 <tr>
  <td><strong id="MNT_DO_STAB">MNT_DO_STAB</strong> (INT32)</td>
- <td>Stabilize the mount (set to true for servo gimbal, false for passthrough).
-(This is required for a gimbal which is not capable of stabilizing itself
-and relies on the IMU's attitude estimation.)  <strong>Values:</strong><ul>
+ <td>Stabilize the mount <p><strong>Comment:</strong> Set to true for servo gimbal, false for passthrough. This is required for a gimbal which is not capable of stabilizing itself and relies on the IMU's attitude estimation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
 
 <li><strong>1:</strong> Stabilize all axis</li> 
@@ -6288,16 +6244,14 @@ and relies on the IMU's attitude estimation.)  <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td><strong id="MNT_OB_LOCK_MODE">MNT_OB_LOCK_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting a locking mode
-if required for the gimbal (only in AUX output mode)    </td>
+ <td>Mixer value for selecting a locking mode <p><strong>Comment:</strong> if required for the gimbal (only in AUX output mode)</p>   </td>
  <td>-1.0 > 1.0 </td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_OB_NORM_MODE">MNT_OB_NORM_MODE</strong> (FLOAT)</td>
- <td>Mixer value for selecting normal mode
-if required by the gimbal (only in AUX output mode)    </td>
+ <td>Mixer value for selecting normal mode <p><strong>Comment:</strong> if required by the gimbal (only in AUX output mode)</p>   </td>
  <td>-1.0 > 1.0 </td>
  <td>-1.0</td>
  <td></td>
@@ -6346,16 +6300,14 @@ if required by the gimbal (only in AUX output mode)    </td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_PITCH">MNT_RATE_PITCH</strong> (FLOAT)</td>
- <td>Angular pitch rate for manual input in degrees/second.
-Full stick input [-1..1] translats to [-pitch rate..pitch rate]    </td>
+ <td>Angular pitch rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-pitch rate..pitch rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="MNT_RATE_YAW">MNT_RATE_YAW</strong> (FLOAT)</td>
- <td>Angular yaw rate for manual input in degrees/second.
-Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
+ <td>Angular yaw rate for manual input in degrees/second <p><strong>Comment:</strong> Full stick input [-1..1] translats to [-yaw rate..yaw rate].</p>   </td>
  <td>1.0 > 90.0 </td>
  <td>30.0</td>
  <td></td>
@@ -6466,8 +6418,7 @@ Full stick input [-1..1] translats to [-yaw rate..yaw rate]    </td>
 </tr>
 <tr>
  <td><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
- <td>Manual tilt input filter time constant
-Setting this parameter to 0 disables the filter    </td>
+ <td>Manual tilt input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
  <td>0.0 > 2.0 </td>
  <td>0.0</td>
  <td>s</td>
@@ -6572,8 +6523,7 @@ Setting this parameter to 0 disables the filter    </td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)</td>
- <td>Maximum horizontal position mode velocity when close to ground/home altitude
-Set the value higher than the otherwise expected maximum to disable any slowdown    </td>
+ <td>Maximum horizontal position mode velocity when close to ground/home altitude <p><strong>Comment:</strong> Set the value higher than the otherwise expected maximum to disable any slowdown.</p>   </td>
  <td>0 > ? </td>
  <td>10.0</td>
  <td>m/s</td>
@@ -6601,8 +6551,7 @@ Set the value higher than the otherwise expected maximum to disable any slowdown
 </tr>
 <tr>
  <td><strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)</td>
- <td>Manual yaw rate input filter time constant
-Setting this parameter to 0 disables the filter    </td>
+ <td>Manual yaw rate input filter time constant <p><strong>Comment:</strong> Setting this parameter to 0 disables the filter</p>   </td>
  <td>0.0 > 5.0 </td>
  <td>0.08</td>
  <td>s</td>
@@ -6705,16 +6654,14 @@ Setting this parameter to 0 disables the filter    </td>
 </tr>
 <tr>
  <td><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity setpoint for manual controlled mode
-If velocity setpoint larger than MPC_XY_VEL_MAX is set, then
-the setpoint will be capped to MPC_XY_VEL_MAX    </td>
+ <td>Maximum horizontal velocity setpoint for manual controlled mode <p><strong>Comment:</strong> If velocity setpoint larger than MPC_XY_VEL_MAX is set, then the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td>3.0 > 20.0 (1)</td>
  <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
  <td><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td>Maximum horizontal velocity in mission <p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>   </td>
+ <td>Maximum horizontal velocity in mission <p><strong>Comment:</strong> Horizontal velocity used when flying autonomously in e.g. Missions, RTL, Goto.</p>   </td>
  <td>3.0 > 20.0 (1)</td>
  <td>5.0</td>
  <td>m/s</td>
@@ -6899,16 +6846,14 @@ the setpoint will be capped to MPC_XY_VEL_MAX    </td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
- <td>Max acro pitch rate
-default: 2 turns per second    </td>
+ <td>Max acro pitch rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
  <td>0.0 > 1800.0 (5)</td>
  <td>720.0</td>
  <td>deg/s</td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
- <td>Max acro roll rate
-default: 2 turns per second    </td>
+ <td>Max acro roll rate <p><strong>Comment:</strong> default: 2 turns per second</p>   </td>
  <td>0.0 > 1800.0 (5)</td>
  <td>720.0</td>
  <td>deg/s</td>
@@ -6929,8 +6874,7 @@ default: 2 turns per second    </td>
 </tr>
 <tr>
  <td><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td>Max acro yaw rate
-default 1.5 turns per second    </td>
+ <td>Max acro yaw rate <p><strong>Comment:</strong> default 1.5 turns per second</p>   </td>
  <td>0.0 > 1800.0 (5)</td>
  <td>540.0</td>
  <td>deg/s</td>
@@ -11111,9 +11055,7 @@ default 1.5 turns per second    </td>
 </tr>
 <tr>
  <td><strong id="GND_MAX_ANG">GND_MAX_ANG</strong> (FLOAT)</td>
- <td>Maximum turn angle for Ackerman steering.
-At a control output of 0, the steering wheels are at 0 radians.
-At a control output of 1, the steering wheels are at GND_MAX_ANG radians    </td>
+ <td>Maximum turn angle for Ackerman steering <p><strong>Comment:</strong> At a control output of 0, the steering wheels are at 0 radians. At a control output of 1, the steering wheels are at GND_MAX_ANG radians.</p>   </td>
  <td>0.0 > 3.14159 (0.01)</td>
  <td>0.7854</td>
  <td>rad</td>
@@ -11219,9 +11161,7 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians    </td
 <tbody>
 <tr>
  <td><strong id="RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</strong> (FLOAT)</td>
- <td>Min. airspeed scaling factor for takeoff.
-Pitch up will be commanded when the following airspeed is reached:
-FW_AIRSPD_MIN * RWTO_AIRSPD_SCL    </td>
+ <td>Min airspeed scaling factor for takeoff <p><strong>Comment:</strong> Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>   </td>
  <td>0.0 > 2.0 (0.01)</td>
  <td>1.3</td>
  <td>norm</td>
@@ -11240,46 +11180,35 @@ FW_AIRSPD_MIN * RWTO_AIRSPD_SCL    </td>
 </tr>
 <tr>
  <td><strong id="RWTO_MAX_PITCH">RWTO_MAX_PITCH</strong> (FLOAT)</td>
- <td>Max pitch during takeoff.
-Fixed-wing settings are used if set to 0. Note that there is also a minimum
-pitch of 10 degrees during takeoff, so this must be larger if set    </td>
+ <td>Max pitch during takeoff <p><strong>Comment:</strong> Fixed-wing settings are used if set to 0. Note that there is also a minimum pitch of 10 degrees during takeoff, so this must be larger if set.</p>   </td>
  <td>0.0 > 60.0 (0.5)</td>
  <td>20.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="RWTO_MAX_ROLL">RWTO_MAX_ROLL</strong> (FLOAT)</td>
- <td>Max roll during climbout.
-Roll is limited during climbout to ensure enough lift and prevents aggressive
-navigation before we're on a safe height    </td>
+ <td>Max roll during climbout <p><strong>Comment:</strong> Roll is limited during climbout to ensure enough lift and prevents aggressive navigation before we're on a safe height.</p>   </td>
  <td>0.0 > 60.0 (0.5)</td>
  <td>25.0</td>
  <td>deg</td>
 </tr>
 <tr>
  <td><strong id="RWTO_MAX_THR">RWTO_MAX_THR</strong> (FLOAT)</td>
- <td>Max throttle during runway takeoff.
-(Can be used to test taxi on runway)    </td>
+ <td>Max throttle during runway takeoff <p><strong>Comment:</strong> Can be used to test taxi on runway</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>1.0</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="RWTO_NAV_ALT">RWTO_NAV_ALT</strong> (FLOAT)</td>
- <td>Altitude AGL at which we have enough ground clearance to allow some roll.
-Until RWTO_NAV_ALT is reached the plane is held level and only
-rudder is used to keep the heading (see RWTO_HDG). This should be below
-FW_CLMBOUT_DIFF if FW_CLMBOUT_DIFF > 0    </td>
+ <td>Altitude AGL at which we have enough ground clearance to allow some roll <p><strong>Comment:</strong> Until RWTO_NAV_ALT is reached the plane is held level and only rudder is used to keep the heading (see RWTO_HDG). This should be below FW_CLMBOUT_DIFF if FW_CLMBOUT_DIFF > 0.</p>   </td>
  <td>0.0 > 100.0 (1)</td>
  <td>5.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="RWTO_PSP">RWTO_PSP</strong> (FLOAT)</td>
- <td>Pitch setpoint during taxi / before takeoff airspeed is reached.
-A taildragger with stearable wheel might need to pitch up
-a little to keep it's wheel on the ground before airspeed
-to takeoff is reached    </td>
+ <td>Pitch setpoint during taxi / before takeoff airspeed is reached <p><strong>Comment:</strong> A taildragger with steerable wheel might need to pitch up a little to keep its wheel on the ground before airspeed to takeoff is reached.</p>   </td>
  <td>-10.0 > 20.0 (0.5)</td>
  <td>0.0</td>
  <td>deg</td>
@@ -11409,9 +11338,7 @@ to takeoff is reached    </td>
 </tr>
 <tr>
  <td><strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)</td>
- <td>Simulator Battery minimal percentage. Can be used to alter
-the battery level during SITL- or HITL-simulation on the fly.
-Particularly useful for testing different low-battery behaviour    </td>
+ <td>Simulator Battery minimal percentage <p><strong>Comment:</strong> Can be used to alter the battery level during SITL- or HITL-simulation on the fly. Particularly useful for testing different low-battery behaviour.</p>   </td>
  <td>0 > 100 (0.1)</td>
  <td>50.0</td>
  <td>%</td>
@@ -12778,11 +12705,7 @@ Particularly useful for testing different low-battery behaviour    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-X component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>X Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -12810,11 +12733,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Y component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Y Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -12842,11 +12761,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_ZCOMP">CAL_MAG0_ZCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Z component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Z Axis throttle compensation for Mag 0 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -12996,11 +12911,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-X component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>X Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13028,11 +12939,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Y component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Y Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13060,11 +12967,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_ZCOMP">CAL_MAG1_ZCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Z component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Z Axis throttle compensation for Mag 1 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13214,11 +13117,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-X component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>X Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13246,11 +13145,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Y component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Y Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13278,11 +13173,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_ZCOMP">CAL_MAG2_ZCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Z component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Z Axis throttle compensation for Mag 2 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13432,11 +13323,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-X component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>X Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between X component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13464,11 +13351,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Y component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Y Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between Y component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13496,11 +13379,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_ZCOMP">CAL_MAG3_ZCOMP</strong> (FLOAT)</td>
- <td>Coefficient describing linear relationship between
-Z component of magnetometer in body frame axis
-and either current or throttle depending on value of CAL_MAG_COMP_TYP
-Unit for throttle-based compensation is [G] and
-for current-based compensation [G/kA]    </td>
+ <td>Z Axis throttle compensation for Mag 3 <p><strong>Comment:</strong> Coefficient describing linear relationship between Z component of magnetometer in body frame axis and either current or throttle depending on value of CAL_MAG_COMP_TYP. Unit for throttle-based compensation is [G] and for current-based compensation [G/kA]</p>   </td>
  <td></td>
  <td>0.0</td>
  <td></td>
@@ -13565,10 +13444,7 @@ for current-based compensation [G/kA]    </td>
 </tr>
 <tr>
  <td><strong id="SENS_FLOW_MAXR">SENS_FLOW_MAXR</strong> (FLOAT)</td>
- <td>Magnitude of maximum angular flow rate reliably measurable by the optical flow sensor.
-Optical flow data will not fused by the estimators if the magnitude of the flow rate exceeds this value and
-control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground
-is less than 50% of this value    </td>
+ <td>Magnitude of maximum angular flow rate reliably measurable by the optical flow sensor <p><strong>Comment:</strong> Optical flow data will not fused by the estimators if the magnitude of the flow rate exceeds this value and control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground is less than 50% of this value.</p>   </td>
  <td>1.0 > ? </td>
  <td>2.5</td>
  <td>rad/s</td>
@@ -13715,15 +13591,9 @@ is less than 50% of this value    </td>
 <tr>
  <td><strong id="IMU_GYRO_FFT_LEN">IMU_GYRO_FFT_LEN</strong> (INT32)</td>
  <td>IMU gyro FFT length  <strong>Values:</strong><ul>
-<li><strong>128:</strong> 128</li> 
-
 <li><strong>256:</strong> 256</li> 
 
-<li><strong>512:</strong> 512</li> 
-
 <li><strong>1024:</strong> 1024</li> 
-
-<li><strong>2048:</strong> 2048</li> 
 
 <li><strong>4096:</strong> 4096</li> 
 </ul>
@@ -13738,7 +13608,7 @@ is less than 50% of this value    </td>
  <td>IMU gyro FFT maximum frequency    <p><b>Reboot required:</b> true</p>
 </td>
  <td>1 > 1000 </td>
- <td>256.</td>
+ <td>192.</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -13845,8 +13715,7 @@ is less than 50% of this value    </td>
 </tr>
 <tr>
  <td><strong id="PCF8583_POOL">PCF8583_POOL</strong> (INT32)</td>
- <td>PCF8583 rotorfreq (i2c) pool interval
-How often the sensor is readout    <p><b>Reboot required:</b> true</p>
+ <td>PCF8583 rotorfreq (i2c) pool interval <p><strong>Comment:</strong> Determines how often the sensor is read out.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>1000000</td>
@@ -15798,8 +15667,7 @@ How often the sensor is readout    <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td><strong id="SIH_DISTSNSR_OVR">SIH_DISTSNSR_OVR</strong> (FLOAT)</td>
- <td>if >= 0 the distance sensor measures will be overrided by this value
-Absolute value superior to 10000 will disable distance sensor    </td>
+ <td>if >= 0 the distance sensor measures will be overrided by this value <p><strong>Comment:</strong> Absolute value superior to 10000 will disable distance sensor</p>   </td>
  <td></td>
  <td>-1.0</td>
  <td>m</td>
@@ -18008,17 +17876,14 @@ Absolute value superior to 10000 will disable distance sensor    </td>
 </tr>
 <tr>
  <td><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td>Delay in seconds before applying back transition throttle
-Set this to a value greater than 0 to give the motor time to spin down <p><strong>Comment:</strong> unit s</p>   </td>
+ <td>Delay in seconds before applying back transition throttle <p><strong>Comment:</strong> Set this to a value greater than 0 to give the motor time to spin down. unit s</p>   </td>
  <td>0 > 10 (1)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td>Output on airbrakes channel during back transition
-Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
-Airbrakes need to be enables for your selected model/mixer    </td>
+ <td>Output on airbrakes channel during back transition <p><strong>Comment:</strong> Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel Airbrakes need to be enables for your selected model/mixer</p>   </td>
  <td>0 > 1 (0.01)</td>
  <td>0.0</td>
  <td></td>
@@ -18039,18 +17904,14 @@ Airbrakes need to be enables for your selected model/mixer    </td>
 </tr>
 <tr>
  <td><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to hover flight.
-standard vtol: pusher
-tailsitter, tiltrotor: main throttle <p><strong>Comment:</strong> Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>   </td>
+ <td>Target throttle value for the transition to hover flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>   </td>
  <td>-1 > 1 (0.01)</td>
  <td>0.0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force
-when fixed-wing forward actuation is active (seeVT_FW_TRHUST_EN).
-If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead    </td>
+ <td>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force <p><strong>Comment:</strong> When fixed-wing forward actuation is active (see VT_FW_TRHUST_EN). If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead.</p>   </td>
  <td>0.0 > 45.0 </td>
  <td>5.0</td>
  <td></td>
@@ -18064,12 +17925,7 @@ If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are
 </tr>
 <tr>
  <td><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
- <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down).
-This technique can be used to avoid the plane having to pitch down in order to move forward.
-This prevents large, negative lift values being created when facing strong winds.
-Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL).
-Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from
-demanded down pitch to fixed-wing actuation  <strong>Values:</strong><ul>
+ <td>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down) <p><strong>Comment:</strong> This technique can be used to avoid the plane having to pitch down in order to move forward. This prevents large, negative lift values being created when facing strong winds. Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL). Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from demanded down pitch to fixed-wing actuation.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
 
 <li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
@@ -18161,9 +18017,7 @@ demanded down pitch to fixed-wing actuation  <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
- <td>Target throttle value for the transition to fixed wing flight.
-standard vtol: pusher
-tailsitter, tiltrotor: main throttle    </td>
+ <td>Target throttle value for the transition to fixed wing flight <p><strong>Comment:</strong> standard vtol: pusher tailsitter, tiltrotor: main throttle</p>   </td>
  <td>0.0 > 1.0 (0.01)</td>
  <td>1.0</td>
  <td></td>
@@ -18198,8 +18052,7 @@ tailsitter, tiltrotor: main throttle    </td>
 </tr>
 <tr>
  <td><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
- <td>Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition
-to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR    </td>
+ <td>Pusher throttle ramp up window <p><strong>Comment:</strong> Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR.</p>   </td>
  <td>? > 20 (0.01)</td>
  <td>3.0</td>
  <td></td>

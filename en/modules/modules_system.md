@@ -412,8 +412,8 @@ netman <command> [arguments...]
  Commands:
    show          Display the current persistent network settings to the console.
 
-   update        Check SD card for network.cfg and update network persistent
-                 network settings.
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
 
    save          Save the current network parameters to the SD card.
      [-i <val>]  Set the interface name

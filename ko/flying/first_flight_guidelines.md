@@ -1,35 +1,35 @@
 # 첫 비행 지침
 
-비행 방법을 배우는</ 0>것은 정말 재미있습니다! 이 지침은 첫 비행 경험이 즐겁고 교육적이며 안전하도록 설계되었습니다.</p> 
+[비행법을 학습](../flying/basic_flying.md)은 매우 즐겁습니다. 즐겁고 안전한 처녀 비행을 위한 지침들을 설명합니다.
 
 ## 좋은 위치 선택
 
-Selecting the right location for your first flight is critical. The main things to look for are:
+좋은 위치를 선택은 처녀 비행에 매우 중요합니다. 좋은 비행 위치의 조건들은 아래와 같습니다.
 
-- Make sure the space is open. No high trees, hills or buildings next to it, because it will impair the GPS reception.
-- Make sure no people are within 100 m / 300 feet.
-- Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
+- 개방된 공간이어야 합니다. 주변에 높은 나무, 언덕 또는 건물이 없어야 합니다. GPS 수신을 방해하기 때문입니다.
+- 사람이 100m 내에 있지 않도록 하십시오.
+- 집, 구조물, 자동차, 물, 옥수수 밭 (드론을 찾기 어렵움)에서 100m내에 장애물이 없는 지 확인하여야 합니다.
 
 :::note
-100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
+100m 간격은 경험상 적절하지만, 해당 지역의 비행 규정을 준수 여부도 확인하여야 합니다.
 :::
 
-## Bring a Pro
+## 전문가 초빙
 
-Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+첫 비행 경험이 있는 전문가와 동행하여 도움을 받으십시오. 비행 전 점검 사항들을 확인하고, 문제가 발생하면 도움을 받으십시오.
 
-## Plan the Flight
+## 비행 계획
 
-Plan the flight before taking off. Make sure you know the whole route and where/how the vehicle will land.
+이륙하기 전에 비행을 계획하십시오. 전체 경로와 차량이 착륙 위치와 방법을 알고 있어야 합니다.
 
-## Limit the Damage
+## 피해 최소화
 
-Damaging property or injuring people with your UAV can have significant legal and financial consequences (far in excess of the value of the UAV itself).
+드론으로 재산을 훼손하거나 사람을 다치는 것은 상당한 법적 및 재정적 결과를 초래할 수 있습니다 (드론의 가치를 훨씬 초과함).
 
-The UAV should always be manually flown within a safe zone where there are no obstacles or people, and it must be clearly visible at all times.
+드론은 장애물과 사람이 없는 안전 구역에서 비행하여야 하며 항상 명확하게 볼 수 있어야합니다.
 
-If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
+드론을 통제 할 수 없는 경우에는, 가능한 한 빨리 빈 공간에 착륙시키는 것이 좋습니다.
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#safety_switch). This allows you to immediately return or crash your drone if necessary.
+[송신기의 안전 스위치를 설정](../config/safety.md#safety_switch)하는 것이 바람직합니다. 안전 스위치를 사용하여 경우 즉시 복귀하거나 드론을 재빨리 착륙시킬 수 있습니다.
 :::
