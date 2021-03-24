@@ -1,25 +1,25 @@
-# Position Mode (Fixed Wing)
+# 위치 모드(고정익)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Position mode* is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
+*위치모드*는 스틱을 놓거나 중앙에 놓을 때 기체가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
 
-The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+스로틀은 대기 속도를 결정합니다 (스로틀 50 %에서 기체는 사전 설정된 순항 속도로 현재 고도를 유지합니다). 피치는 상승/하강하는 데 사용됩니다. 롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).
 
 :::tip
-Position mode is the safest fixed-wing manual mode for new fliers.
+위치 모드는 고정익 초보 비행자에게 가장 안전한 수동 모드입니다.
 :::
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
+아래 다이어그램은 모드 동작을 시각적으로 보여줍니다 ([모드 2 송신기](../getting_started/rc_transmitter_receiver.md#transmitter_modes)의 경우).
 
-![FW Position Mode](../../assets/flight_modes/position_FW.png)
+![고정익 위치 모드](../../assets/flight_modes/position_FW.png)
 
-## Technical Description
+## 기술적 설명
 
-Centered RC RPY sticks – gives level flight that follows a straight line ground track in the current direction against any wind.
+중앙 RC RPY 스틱 – 바람에 대항하여 현재 방향으로 직선 지상 트랙을 따라가는 수평 비행.
 
-## Parameters
+## 매개 변수
 
-| Parameter | Description |
-| --------- | ----------- |
-| &nbsp;    |             |
+| 매개 변수  | 설명 |
+| ------ | -- |
+| &nbsp; |    |
