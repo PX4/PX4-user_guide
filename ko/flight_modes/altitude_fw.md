@@ -1,6 +1,6 @@
 # 고도 모드(고정익)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
 *고도* 비행모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하는것을 용이하게 합니다. 이 모드 하에서 바람이 있을 때 기체는 방향을 유지하지 않습니다.
 
@@ -16,29 +16,29 @@
 
 ## 기술 요약
 
-RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+RC 수동 모드는 안정화 모드와 같지만 고도 안정화를 사용합니다 (중앙 스틱은 차량을 직선 및 수평 비행 상태로 만들고 현재 고도를 유지합니다). 기체의 경로가 유지되지 않고 바람에 표류할 수 있습니다.
 
-* Centered Roll/Pitch/Yaw inputs (inside deadband): 
-  * Autopilot levels vehicle/wings and maintains altitude.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
-* Outside center: 
-  * Pitch stick controls altitude.
-  * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
-  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
-  * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+* 중앙 롤/피치/요 입력 (데드 밴드 내부) : 
+  * 자동조종장치는 기체/날개를 수평으로 유지하고 고도를 유지합니다.
+  * 스로틀 스틱은 대기 속도 센서가 연결된 경우 기체의 대기 속도를 제어합니다. 대기 속도 센서가 없으면 사용자는 스로틀을 제어할 수 없습니다 (이 경우 기체는 크루즈 스로틀 ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE))에서 수평으로 날아 오르거나 내리는 데 필요한만큼 스로틀을 높이거나 낮춥니 다).
+* 센터 외부: 
+  * 피치 스틱은 고도를 제어합니다.
+  * 스로틀 스틱은 기체의 대기 속도를 제어합니다 (중앙 롤/피치/요 입력의 경우).
+  * 롤 스틱은 롤 각도를 제어합니다. 자동 조종 장치는 [조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지합니다. 이것은 [안정화 모드](../flight_modes/stabilized_fw.md)와 동일합니다.
+  * 요 스틱은 방향타를 작동합니다 ([조정 비행](https://en.wikipedia.org/wiki/Coordinated_flight)을 유지하기 위해 자동 조종 장치에 의해 계산된 신호에 신호가 추가됩니다). 이것은 [안정화 모드](../flight_modes/stabilized_fw.md)와 동일합니다.
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-* The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+* 수동 입력이 필요합니다 (RC 컨트롤러 또는 MAVLink를 통한 게임 패드/엄지 스틱).
+* 고도는 일반적으로 기압계로 측정되며 극단적인 기상 조건에서는 정확하지 않을 수 있습니다. LIDAR/거리 센서가 장착된 기체는 높은 정확도로 고도를 제어할 수 있습니다.
 :::
 
-## Parameters
+## 매개 변수
 
-The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+이 모드는 아래의 매개 변수의 영향을받습니다.<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
 
 <td>
-  Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
+  자세 안정화 모드에서 수동 제어를위한 최대 피치. 기본값: 45도.
 </td></tr> 
 
 <tr>
@@ -46,7 +46,7 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
     <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
     
     <td>
-      Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
+      자세 안정화 모드에서 수동 제어를 위한 최대 롤. 기본값: 45도.
     </td></tr> 
     
     <tr>
@@ -54,7 +54,7 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
         <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
         
         <td>
-          The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters.
+          명령된 고도 및 대기 속도를 유지하는 데 필요한 롤/요는 FW L1 제어 매개 변수의 영향을 받습니다.
         </td></tr> </tbody> </table> 
         
         <!-- 
