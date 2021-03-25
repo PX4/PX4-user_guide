@@ -2,14 +2,14 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-* 이륙 (Takeo) </ 0> 비행 모드는 기체가 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
+*이륙* 비행 모드는 기체가 지정된 높이로 상승후, 추가 입력을 기다립니다.
 
 :::note
 
-* This mode requires GPS.
-* The vehicle must be armed before this mode can be engaged.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
+* 이 모드는 GPS가 필요합니다.
+* 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
+* 이 모드는 자동입니다. 기체를 제어하기 위해 사용자 개입이 *필요하지* 않습니다.
+* RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
 * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 :::
