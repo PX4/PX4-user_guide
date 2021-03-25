@@ -1,6 +1,6 @@
 # 이륙 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *이륙* 비행 모드는 기체가 지정된 높이로 상승후, 추가 입력을 기다립니다.
 
@@ -77,6 +77,6 @@ RC 스틱 이동은 위험한 배터리 안전 장치를 처리하지 않는 한
 
 VTOL은 부팅시 MC 모드로 기본 설정되며 일반적으로 [멀티 콥터 모드](#multi-copter-mc) (또한 더 안전함)에서 이륙하는 것을 가정합니다.
 
-That said, if transitioned to Fixed wing before takeoff, they will takeoff in [Fixed Wing](#fixed_wing) mode.
+그러나, 이륙 전에 고정익으로 전환하면 [고정익](#fixed_wing) 모드로 이륙합니다.
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
