@@ -1,5 +1,11 @@
 # UAVCAN Firmware Upgrading
 
+PX4 will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied.
+
+:::warning UAVCAN
+devices typically ship with appropriate firmware preinstalled. These instructions are primarily needed when developing UAVCAN devices.
+:::
+
 ## Vectorcontrol ESC Codebase (Pixhawk ESC 1.6 and S2740VC)
 
 Download the ESC code:
