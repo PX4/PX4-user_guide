@@ -14,4 +14,6 @@ PX4를 이용한 기체 조립 및 조종 방법의 기본 개념을 설명합�
 
 [비행 모드](../getting_started/flight_modes.md) — 수동 및 자율 비행을 위한 비행 모드
 
-[비행 기록](../getting_started/flight_reporting.md) — 비행 기록 다운로드/디버깅/분석
+[Payloads & Cameras](../payloads/README.md)
+
+[Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.
