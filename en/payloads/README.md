@@ -6,14 +6,19 @@ PX4 supports a wide range of payloads and cameras.
 
 Mapping drones use cameras to capture images at time or distance intervals during surveys.
 
-The following topics show how to connect your camera and set up camera triggering:
-* [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
-* [Camera timing feedback](../peripherals/camera.md#camera_capture) via hotshoe input.
+MAVLink cameras that support the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) provide the best integration with PX4 and QGroundControl. 
+The MAVSDK provides simple APIs to use this protocol for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4).
 
-The MAVLink commands used in survey missions (and as standalone commands) are:
+Cameras can also be connected directly to a flight controller using PWM or GPI outputs.
+PX4 supports the following set of MAVLink commands/mission items for cameras that are connected to the flight controller:
 * [MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL) - set time interval between captures.
 * [MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - set distance between captures
 * [MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - start/stop capturing (using distance or time, as defined using above messages).
+
+The following topics show how to *connect* your camera configure PX4:
+* [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
+* [Camera timing feedback](../peripherals/camera.md#camera_capture) via hotshoe input.
+
 
 ## Cargo Drones ("Actuator" Payloads)
 
@@ -23,6 +28,18 @@ PX4 supports servo and GPIO triggering via both RC and MAVLink commands.
 ### Example Mission (in QGC)
 
 Use the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command to trigger one of the payload actuators.
+
+### RC Triggering
+
+You can map up to three RC channels to control servos/actuators attached to the flight controller using the parameters [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3).
+
+The RC channels are then *usually* mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (but they don't have to be).
+You can check which outputs are used for RC AUX passthrough on your vehicle in the [Airframe Reference](../airframes/airframe_reference.html).
+For example, [Quadrotor-X](../airframes/airframe_reference.html#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel".
+
+If your vehicle has no mapping then you can add one by using a custom [Mixer File](https://docs.px4.io/master/en/concept/mixing.html) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
+An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix).
+
 
 ### Example script (MAVSDK)
 
@@ -120,3 +137,19 @@ void send_actuator(MavlinkPassthrough& mavlink_passthrough,
     std::cout << "Sent message" << std::endl;
 }
 ```
+
+## Surveillance, Search & Rescue
+
+Surveillance and Search & Rescue drones have similar requirements to mapping drones.
+The main differences are that, in addition to flying a planned survey area, they typically need good standalone control over the camera for image and video capture, and they may need to be able to work during both day and night
+
+Use a camera that supports the [MAVLink Camera Protocol](https://mavlink.io/en/services/camera.html) as this supports image and video capture, zooming, storage management, multiple cameras on the same vehicle and switching between them, etc.
+These cameras can be controlled either manually from QGroundControl or via MAVSDK (for both [standalone camera operations](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) and in [missions](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4)).
+See [Camera triggering](../peripherals/camera.md) for information on how to configure your camera to work with MAVLink.
+
+:::note
+Cameras connected directly to the flight control _only_ support camera triggering, and are unlikely to be suitable for most surveillance/search work.
+:::
+
+A search and rescue drone may also need to carry cargo, for example, emergency supplies for a stranded hiker.
+See [Cargo Drones](#cargo-drones-actuator-payloads) above for information about payload delivery.
