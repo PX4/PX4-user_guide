@@ -149,129 +149,128 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[유지 모드](../flight_modes/hold.md)는 멀티콥터가 현재 위치와 고도에서 호버링합니다 (바람과 다른 힘에 대한 현 위치 유지). 유지 모드를 사용하여 임무를 일시 중지하거나 비상시 기체를 다시 제어할 수 있습니다. It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pause** button.
+[유지 모드](../flight_modes/hold.md)는 멀티콥터가 현재 위치와 고도에서 호버링합니다 (바람과 다른 힘에 대한 현 위치 유지). 유지 모드를 사용하여 임무를 일시 중지하거나 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 RC 스위치 또는 *QGroundControl* **일시 정지** 버튼으로 활성화할 수 있습니다.
 
 <a id="return_mc"></a>
 
-### Return Mode (MC)
+### 귀환 모드(멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Return mode](../flight_modes/return.md) causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
+[복귀 모드](../flight_modes/return.md)는 차량이 안전한 위치와 경로로 비행하게 합니다. 이 모드는 수동 (사전 프로그래밍된 RC 스위치를 통해) 또는 자동 (즉, [사고 방지](../config/safety.md)가 동작되는 경우)으로 활성화 될 수 있습니다.
 
-The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
+귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다. 기본적으로 멀티콥터는 안전한 높이로 상승하고 홈 위치로 날아간 다음 착륙합니다.
 
 <a id="mission_mc"></a>
 
-### Mission Mode (MC)
+### 임무 모드 (멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+[임무 모드](../flight_modes/mission.md)는 비행 제어기에 업로드 된 사전 정의 된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성 및 업로드됩니다.
 
-:::tip
-The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)시에 사용하는 것과 같은 프로그램입니다.
 :::
 
 <a id="takeoff_mc"></a>
 
-### Takeoff Mode (MC)
+### 이륙 모드(멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Takeoff](../flight_modes/takeoff.md) mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
+[이륙](../flight_modes/takeoff.md) 모드는 멀티콥터가 이륙 고도까지 수직 상승후에 호버링합니다.
 
 <a id="land_mc"></a>
 
-### Land Mode (MC)
+### 착륙 모드 (멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Land mode](../flight_modes/land.md) causes the multicopter to land at the location at which the mode was engaged.
+[착륙 모드](../flight_modes/land.md)는 멀티콥터의 이륙 위치에 착륙합니다.
 
 <a id="followme_mc"></a>
 
-### Follow Me Mode (MC)
+### 추적 모드(멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Follow Me mode](../flight_modes/follow_me.md) causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running *QGroundControl* or from a MAVSDK app.
+[추적 모드](../flight_modes/follow_me.md)는 멀티콥터가 현재 위치 설정 값을 제공하는 사용자를 자율적으로 추적합니다. 위치 설정 값은 *QGroundControl*을 실행하는 Android 휴대 전화/태블릿 또는 MAVSDK 앱에서 가져올 수 있습니다.
 
 <a id="offboard_mc"></a>
 
-### Offboard Mode (MC)
+### 오프보드 모드(멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Offboard mode](../flight_modes/offboard.md) causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink.
+[오프 보드 모드](../flight_modes/offboard.md)는 멀티 콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록 합니다.
 
 :::note
-This mode is intended for vehicle control from companion computers and ground stations!
+이 모드는 보조 컴퓨터와 지상관제소 프로그램을 위한 것입니다!
 :::
 
 <a id="fw_flight_modes"></a>
 
-## 고정익
+## 고정익 
 
 <a id="position_fw"></a>
 
-### Position Mode (FW)
+### 위치 모드 (고정익)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Position mode](../flight_modes/position_fw.md) is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
+[위치모드](../flight_modes/position_fw.md)는 스틱을 놓거나 중앙에 놓을 때 기체가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
 
-The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+스로틀은 대기 속도를 결정합니다 (스로틀 50 %에서 기체는 사전 설정된 순항 속도로 현재 고도를 유지합니다). 피치는 상승과 하강에 사용됩니다. 롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).
 
 :::tip
-Position mode is the safest fixed-wing manual mode for new fliers.
+위치 모드는 고정익 초보 비행자에게 가장 안전한 수동 모드입니다.
 :::
 
 ![FW Position Mode](../../assets/flight_modes/position_FW.png)
 
 <a id="altitude_fw"></a>
 
-### Altitude Mode (FW)
+### 고도 모드 (고정익)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" />](#altitude_only)
 
-[Altitude mode](../flight_modes/altitude_fw.md) makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+[고도](../flight_modes/altitude_fw.md) 비행 모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하기가 용이합니다. 이 모드에서는 바람이 불 때는 기체는 방향을 유지하지 않습니다.
 
-The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어합니다. 일단 중앙에 위치하면 자동조종장치가 현재 고도에 고정되고 요/롤 및 모든 대기 속도에서 이 고도를 유지합니다. 스로틀은 대기 속도를 제어합니다. 롤과 피치는 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프할 수 없습니다).
 
-When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+모든 원격 제어 입력이 중앙에 있을 때 (롤, 피치, 요 및 ~ 50 % 스로틀 없음) 기체는 직선, 수평 비행 (바람에 따라)으로 돌아가 현재 고도를 유지합니다.
 
 :::tip
-*Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+*고도 모드*는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 가이드 모드입니다. [수동](#manual_fw) 모드와 유사하지만, 피치 스틱을 놓으면 기체의 고도가 안정화됩니다.
 :::
 
 ![FW Altitude Mode](../../assets/flight_modes/altitude_FW.png)
 
 <a id="stabilized_fw"></a>
 
-### Stabilized Mode (FW)
+### 안정화 모드 (고정익)
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Stabilized mode](../flight_modes/stabilized_fw.md) puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+[안정화 모드](../flight_modes/stabilized_fw.md)는 RC 스틱이 중앙에있을 때 기체를 수평 비행으로 전환하여 바람에 대한 수평 자세를 유지합니다 (기체 방향 및 고도 제외).
 
-The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+기체는 피치 입력을 기반으로 상승/하강하며, 롤/피치 스틱이 0이 아닌 경우 회전합니다. 롤과 피치는 각도가 제어됩니다 (거꾸로 굴리거나 반복 할 수 없음).
 
 :::tip
-*Stabilized mode* is much easier to fly than [Manual mode](#manual_fw) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+*안정화 모드*는 굴리거나 뒤집을 수 없기 때문에, [수동 모드](#manual_fw)보다 비행하기 훨씬 쉽고 조종 스틱을 중앙에 배치하여 기체의 수평 유지가 용이합니다.
 :::
 
-The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+스로틀을 0%로 낮추면 기체가 미끄러집니다 (모터 정지). 회전을 수행하기 위해 명령은 기동 내내 지켜 져야합니다. 롤이 풀리면 비행기는 회전을 멈추고 스스로 수평을 맞출 것입니다 (피치 및 요 명령도 마찬가지입니다).
 
 ![FW Manual Flight](../../assets/flight_modes/manual_stabilized_FW.png)
 
 <a id="acro_fw"></a>
 
-### Acro Mode (FW)
+### 곡예 모드 (고정익)
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Acro mode](../flight_modes/acro_fw.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+[곡에 모드](../flight_modes/acro_fw.md)는 롤과 루프등의 곡예 비행을 위한 RC 모드입니다.
 
 The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
