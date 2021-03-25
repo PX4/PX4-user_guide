@@ -10,45 +10,45 @@
 * 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 * 이 모드는 자동입니다. 기체를 제어하기 위해 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
-* The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+* 멀티콥터 (또는 멀티콥터 모드의 VTOL)에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
+* 이륙시 문제가 발생하면 [고장 감지기](../config/safety.md#failure_detector)가 자동으로 엔진을 중지합니다.
 :::
 
-The specific behaviour for each vehicle type is described below.
+각 기체 유형에 대한 구체적인 행동은 아래에 설명되어 있습니다.
 
-## 멀티 헬기 (MC)
+## 멀티콥터(MC)
 
-A multi rotor ascends to the altitude defined in `MIS_TAKEOFF_ALT` and holds position.
+멀티 로터는 ` MIS_TAKEOFF_ALT`에 정의된 고도까지 상승하고 위치를 유지합니다.
 
-RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+RC 스틱 이동은 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체를 [위치 모드](../flight_modes/position_mc.md)로 변경합니다.
 
-Takeoff is affected by the following parameters:
+이륙은 다음 매개 변수의 영향을받습니다.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | 이륙 중 목표 고도 (기본값 : 2.5m)                                                                                                                                                                                                                                                                                                                   |
-| <span id="MPC_TKO_SPEED"></span>[MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | 상승 속도 (기본값 : 1.5m / s)                                                                                                                                                                                                                                                                                                                    |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
+| 매개 변수                                                                                                   | 설명                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="MIS_TAKEOFF_ALT"></span>[MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | 이륙 중 목표 고도 (기본값 : 2.5m)                                                                                                                                                                            |
+| <span id="MPC_TKO_SPEED"></span>[MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | 상승 속도 (기본값 : 1.5m/s)                                                                                                                                                                               |
+| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 활성화된 경우 멀티콥터 (또는 멀티콥터 모드의 VTOL)에서 스틱을 움직여 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 다시 제공합니다 (차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프 보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
 
 <span id="fixed_wing"></span>
 
-## Fixed Wing (FW)
+## 고정익(FW)
 
-The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using [RWTO_TKOFF](#RWTO_TKOFF). RC stick movement is ignored in both cases.
+기체는 *투석기/발사 모드* 또는 *활주로 이륙 모드*를 사용하여 현재 방향으로 이륙합니다. 모드는 기본적으로 투석기/수발기가 되지만, [ RWTO_TKOFF](#RWTO_TKOFF)를 사용하여 활주로 이륙으로 설정할 수 있습니다. 두 경우 모두 RC 스틱 제어는 무시됩니다.
 
 <span id="hand_launch"></span>
 
-### Catapult/Hand Launch
+### 투석기/수동 발사 모드
 
-In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger). On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
+*투석기/수동 발사 모드*에서 기체는 발사를 감지하기 위해 대기합니다 (가속 트리거 기준). 발사시 약 2초만에 최대 스로틀 ([RWTO_MAX_THR](#RWTO_MAX_THR))까지 상승한 다음 *최소* 10도 이륙 피치로 최대 스로틀 상승합니다. [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF)에 도달하면 [홀드 모드](../flight_modes/hold.md) 배회 비행합니다.
 
 :::note
-In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met. For catapult launch this is some acceleration threshold.
+위에 논의된 동작외에도 일부 조건이 충족 될 때까지 시작 시퀀스가 ​​시작되지 않도록 차단하는 시작 탐지기가 있습니다. 투석기 발사의 경우 이는 약간의 가속 임계치입니다.
 :::
 
 <span id="runway_launch"></span>
 
-### Runway Takeoff
+### 활주로 이륙
 
 The *runway takeoff mode* has the following phases:
 
