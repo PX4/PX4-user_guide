@@ -179,6 +179,10 @@ After building the colcon workspace, and after starting PX4 SITL and both the mi
 $ source path_to_colcon_workspace/install/setup.bash
 $ ros2 run px4_ros_com offboard_control
 ```
+:::note
+It's possible to run the example in python too: `ros2 run px4_ros_com offboard_control_p.py`.
+If you get the error `No executable found`, change the file permissions using `sudo chmod +x src/px4_ros_com/scripts/offboard_control_p.py`.
+:::
 
 ## Demo with PX4 SITL and Gazebo
 
