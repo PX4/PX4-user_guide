@@ -50,35 +50,33 @@ RC 스틱 이동은 위험한 배터리 안전 장치를 처리하지 않는 한
 
 ### 활주로 이륙
 
-The *runway takeoff mode* has the following phases:
+*활주로 이륙 모드*에는 다음과 같은 상태가 있습니다.
 
-1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
-2. ** 이륙 </ 0> : 피치를 높이고 기체 고도> 항법 고도 ( RWTO_NAV_ALT </ 1>)까지 계속하십시오.</li> 
-    
-    * ** 등산 </ 0> :지면 위의 고도  FW_CLMBOUT_DIFF </ 1>까지 상승하십시오. 이 단계에서는 롤 및 제목 제한이 제거됩니다.</li> </ol> 
-        
-        ### Fixed Wing Takeoff Parameters
-        
-        Takeoff is affected by the following parameters:
-        
-        최소 이륙을위한 속도의 스케일링 계수. 피치는 대기 속도에 도달하면 증가합니다 :  FW_AIRSPD_MIN </ 0> * <code> RWTO_AIRSPD_SCL </ 0></td>
-</tr>
-<tr>
-  <td><span id="RWTO_NAV_ALT"></span><a href="../advanced_config/parameter_reference.md#RWTO_NAV_ALT">RWTO_NAV_ALT</a>
-</td>
-  <td>지면 위의 고도 (AGL). 약간의 굴림을 허용하는 충분한 지상고가 있습니다. <code> RWTO_NAV_ALT </ 0>에 도달 할 때까지 비행기는 수평을 유지하고 표제를 지키기 위해 방향타 만 사용됩니다 (<span id="RWTO_HDG"> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </ 2> 참조). <code> FW_CLMBOUT_DIFF </ 0>> 0이면 <code> FW_CLMBOUT_DIFF </ 0> 아래에 있어야합니다.</td>
-</tr>
-</tbody>
-</table>
+1. **스로틀 램프** : 이륙을위한 최소 속도 ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL))에 도달 할 때까지 활주로에 고정 (피치 고정, )
+2. ** 이륙 ** : 피치를 높이고 기체 고도> 항법 고도 ([RWTO_NAV_ALT](#RWTO_NAV_ALT))까지 계속 상승합니다.
+3. **상승** :지면 고도 [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF)까지 상승합니다. 이 단계에서는 롤 및 방향 제한은 무시됩니다.
 
-<p>:::note
-The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
-:::</p>
+### 고정익 이륙 매개 변수
 
-<h2>VTOL</h2>
+이륙은 다음 매개 변수의 영향을받습니다.
 
-<p>VTOLs default to MC mode on boot, and it is generally expected that they will take off in <a href="#multi-copter-mc">multicopter mode</a> (and also safer).</p>
+| 매개 변수                                                                                                    | 설명                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="RWTO_TKOFF"></span>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)              | 랜딩 기어가있는 활주로 이륙. 기본값 : 비활성화 됨                                                                                                                                                                                                                                 |
+| <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)        | 활주로 이륙 중 최대 스로틀.                                                                                                                                                                                                                                              |
+| <span id="FW_CLMBOUT_DIFF"></span>[FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)  | 등반 고도 차이. 이륙 고도 설정값 없이 이륙하는 경우 목표 고도로 사용됩니다 (이륙 모드에는 설정값이 없지만 임무에는 있음).                                                                                                                                                                                       |
+| <span id="FW_AIRSPD_MIN"></span>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)      | 최소 항속 속도. TECS 컨트롤러가 대기 속도를보다 적극적으로 높이려고 시도합니다.                                                                                                                                                                                                               |
+| <span id="RWTO_AIRSPD_SCL"></span>[RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL) | 최소 이륙을위한 속도의 스케일링 계수. 피치는 대기 속도에 도달하면 증가합니다 : `FW_AIRSPD_MIN` * `RWTO_AIRSPD_SCL`                                                                                                                                                                             |
+| <span id="RWTO_NAV_ALT"></span>[RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT)       | 지면 고도 (AGL). 약간의 굴림을 허용하는 충분한 지상고가 있습니다. `RWTO_NAV_ALT`에 도달할 때까지 기체는 수평을 유지하고 비행 방향 유지를 위하여 방향타만을 사용됩니다 ([RWTO_HDG](../advanced_config/parameter_reference.md#RWTO_HDG) <span id="RWTO_HDG">참조</span>). `FW_CLMBOUT_DIFF` > 0이면 `FW_CLMBOUT_DIFF` 아래에 있어야합니다. |
 
-<p>That said, if transitioned to Fixed wing before takeoff, they will takeoff in <a href="#fixed_wing">Fixed Wing</a> mode.</p>
+:::note
+기체는 이륙시 항상 일반 FW 최대/최소 스로틀 설정을 따릅니다 ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
+:::
+
+## 수직 이착륙기
+
+VTOL은 부팅시 MC 모드로 기본 설정되며 일반적으로 [멀티 콥터 모드](#multi-copter-mc) (또한 더 안전함)에서 이륙하는 것을 가정합니다.
+
+That said, if transitioned to Fixed wing before takeoff, they will takeoff in [Fixed Wing](#fixed_wing) mode.
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
