@@ -1,5 +1,12 @@
 # UAVCAN Firmware Upgrading
 
+PX4 will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied.
+
+:::warning
+UAVCAN devices typically ship with appropriate firmware preinstalled. 
+These instructions are primarily needed when developing UAVCAN devices.
+:::
+
 ## Vectorcontrol ESC Codebase (Pixhawk ESC 1.6 and S2740VC)
 
 Download the ESC code:
@@ -11,7 +18,8 @@ cd vectorcontrol
 
 ### Flashing the UAVCAN Bootloader
 
-Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
+Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed.
+To build the bootloader, run:
 
 ```sh
 make clean && BOARD=px4esc_1_6 make -j8
