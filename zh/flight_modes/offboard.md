@@ -51,9 +51,9 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
     * 速度设定值（仅`vx`，`yy`，`vz`）
     * *推力*设定值（仅`afx`，`afy`，`afz`）
     
-:::note
+    :::note
 映射加速度设定值以创建正常的推力设定值（即不支持加速度设定值）。
-:::
+    :::
     
     * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
   * PX4 支持以下 `coordinate_frame` 值(仅限)： [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL)。
