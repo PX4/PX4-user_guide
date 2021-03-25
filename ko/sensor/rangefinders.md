@@ -48,7 +48,7 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 
 ### Avionics Anonymous UAVCAN Laser Altimeter Interface
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../sensor/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the UAVCAN bus, a more robust interface than I2C.
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [UAVCAN](../uavcan/README.md) bus, a more robust interface than I2C.
 
 <span id="configuration"></span>
 
