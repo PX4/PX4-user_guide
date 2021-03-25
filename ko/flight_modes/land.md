@@ -1,8 +1,8 @@
-# Land Mode
+# 착륙 모드
 
 [<img src="../../assets/site/position_fixed.svg" title="필요한 위치 추정치(예: GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Land* flight mode causes the vehicle to land at the position where the mode was engaged. After landing, vehicles will disarm after a short timeout (by default).
+*착륙* 비행 모드는 기체가 모드가 활성화된 위치에 착륙하게 합니다. 착륙 후 기체는 짧은 시간내에 (기본적으로) 시동 해제됩니다.
 
 :::note
 
