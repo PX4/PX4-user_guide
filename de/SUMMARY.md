@@ -12,6 +12,7 @@
     * [LED Meanings](getting_started/led_meanings.md)
     * [Tune/Sound Meanings](getting_started/tunes.md)
     * [Preflight Checks](flying/pre_flight_checks.md)
+  * [Payloads & Cameras](payloads/README.md)
   * [Flight Reporting](getting_started/flight_reporting.md)
 * [Basic Assembly](assembly/README.md) 
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
