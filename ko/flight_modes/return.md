@@ -134,42 +134,42 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 원뿔 아래에서 원뿔 (2) 또는 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (둘 중 더 높은 쪽)와 교차하는 위치를 반환합니다.
 - 원뿔 (3)은 [RTL_RETURN_ALT](#RTL_RETURN_ALT)에 까지 먼저 상승합니다.
 - 원뿔 내에서 
-  - [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) 이상에서는 현재 고도로 돌아옵니다.
+  - [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) 이상에서는 현재 고도로 복귀합니다.
   - [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) 아래에서는 먼저 `RTL_DESCEND_ALT`로 상승합니다.
 
 참고:
 
-- If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone": 
-  - the vehicle returns at `RTL_RETURN_ALT` (or above).
-- If [RTL_CONE_ANG](#RTL_CONE_ANG) is 90 degrees the vehicle will return at the greater of `RTL_DESCEND_ALT` and the current altitude.
-- The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
+- [RTL_CONE_ANG](#RTL_CONE_ANG)이 0도이면 "원뿔"이 없습니다. 
+  - 기체는 `RTL_RETURN_ALT` (또는 그 이상)으로 복귀합니다.
+- [RTL_CONE_ANG](#RTL_CONE_ANG)이 90도이면 기체는 `RTL_DESCEND_ALT`와 현재 고도 중 높은 고도로 복귀합니다.
+- 기체는 복귀를 위해 항상 최소 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT)으로 상승합니다.
 
 <span id="arrival"></span>
 
-## Hover/Landing at Destination
+## 목적지에 호버링/착륙
 
-Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
+임무 착륙을 실행하지 않으면 (예 : [홈 위치 복귀](#home_return) 또는 [최인접 안전 목적지 복귀](#safety_point_return)을 실행하는 경우) 기체는 목적지에 도착하여 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 고도로 빠르게 하강합니다.
 
-The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) and then land. If [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) it will loiter indefinitely.
+기체는 지정된 시간 ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) 동안 배회후에 착륙합니다. [RTL_LAND_DELAY = -1](#RTL_LAND_DELAY)이면 무기한 배회합니다.
 
 <span id="default_configuration"></span>
 
-## Vehicle Default Behaviour
+## 기체 기본 동작
 
-The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
+이 모드는 모든 기체에서 매유 유사한 방식으로 *구현*되며 (단, 고정익 대기시 호버링하지 않고 원을 그리며) 따라서 동일한 매개 변수를 사용하여 조정됩니다.
 
-However the *default configuration* is tailored to suit the vehicle type, as described below.
+그러나 *기본 설정*은 아래 설명과 같이 기체 유형에 맞게 조정됩니다.
 
-### Multi-Copter (MC)
+### 멀티콥터 (MC)
 
-Multicopters use a [home location return](#home_return) by default (and the following configuration):
+멀티콥터는 기본적으로 [홈 위치 복귀](#home_return)나 다음 설정을 사용합니다.
 
-- Ascend to [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG=0](#RTL_CONE_ANG) - cone not used).
-- Fly to the home position in a straight line and constant altitude (if already above the return altitude it will return at its current altitude).
-- Rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
-- Land more or less immediately (small [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
+- [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG = 0](#RTL_CONE_ANG)-원뿔 사용 안 함)로 상승합니다.
+- 직선과 일정한 고도로 홈 위치로 비행합니다 (현제 고도가 복귀 고도보다 높은 경우 현재 고도로 복귀합니다).
+- [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) 고도까지 빠르게 하강합니다.
+- 거의 즉시 착륙합니다. (작은 [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
 
-### Fixed Wing (FW)
+### 고정익 (FW)
 
 Fixed-wing aircraft use a [mission landing return type](#mission_landing_return) by default:
 
