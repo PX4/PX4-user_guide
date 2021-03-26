@@ -128,7 +128,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 <!-- Original draw.io diagram can be found here: https://drive.google.com/file/d/1W72XeZYSOkRlBSbPXCCiam9NMAyAWSg-/view?usp=sharing -->
 
-If the vehicle is:
+기체가 다음과 같은 경우 :
 
 - Above [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) it will return at its current altitude.
 - Below the cone it will return where it intersects the cone (2) or [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (whichever is higher).
