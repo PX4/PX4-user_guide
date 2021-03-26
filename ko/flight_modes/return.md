@@ -103,7 +103,7 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 <span id="safety_point_return"></span>
 
-### Closest Safe Destination Return Type (RTL_TYPE=3)
+### 가장 가까운 안전한 대상 복귀 유형 (RTL_TYPE = 3)
 
 In this return type the vehicle:
 
