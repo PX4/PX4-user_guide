@@ -1,6 +1,6 @@
 # 착륙 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="필요한 위치 추정치(예: GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="필요한 위치 추정치(예: GPS) " width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *착륙* 모드는 기체의 모드가 활성화된 위치에 착륙합니다. 착륙후 기체는 가급적 짧은 시간내에 시동이 해제됩니다.
 
@@ -30,20 +30,20 @@ RC 스틱 이동은 위험한 배터리 안전 장치를 처리하지 않는 한
 
 ## 고정익 (FW)
 
-The vehicle will turn and land at the location at which the mode was engaged. RC stick movement is ignored.
+기체 모드가 시작된 위치로 복귀하여 착륙합니다. RC 스틱 이동은 무시됩니다.
 
-Fixed wing landing logic and parameters are explained in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+고정익의 착륙 원리와 설정 매개변수는 [고정익 착륙](../flying/fixed_wing_landing.md)에서 자세하게 설명합니다.
 
 :::note
-Often a FW vehicle will follow a fixed landing trajectory to ground (it will not attempt a flared landing). This is because in LAND mode the vehicle may not know ground altitude and will assume it is at sea level. As ground level may be much higher, a vehicle will often reach the ground at an altitude above where flare logic would be engaged.
+종종 고정익은 지면에 대한 고정된 착륙 궤적을 비행합니다. 플레어 착륙은 시도하지 않습니다. 이는 착륙 모드에서 기체가 지상 고도를 모를 수 있고, 해수면에 있다고 가정하기 때문입니다. 지면 수준이 훨씬 높을 수 있기 때문에, 기체는 플레어 로직이 적용되는 고도에서 지상에 도달하는 경우가 많습니다.
 :::
 
-Landing is affected by the following parameters (also see [Landing (Fixed Wing)](../flying/fixed_wing_landing.md)):
+착륙은 다음 매개변수의 영향을 받습니다([ 랜딩(고정 날개)](../flying/fixed_wing_landing.md) 참조).
 
-| Parameter                                                                      | Description                                                                                              |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing, in seconds. If set to -1 the vehicle will not disarm on landing. |
+| 매개 변수                                                                          | 설명                                                    |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 착륙후 자동 시동 해제 대기 시간 (단위 초). -1로 설정하면 착륙시 시동 해제되지 않습니다. |
 
-## VTOL
+## 수직이착륙기
 
-A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.
+VTOL은 고정익 모드에서는 이륙 동작 및 매개 변수는 [고정익](#fixed-wing-fw)를 따르며, 멀티콥터 모드에서는 [멀티콥터](#multi-copter-mc) 매개 변수를 따릅니다. [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)이 설정되면(기본값: 켜짐) 고정익 모드의 VTOL이 착륙 직전에 멀티콥터로 되돌아갑니다.
