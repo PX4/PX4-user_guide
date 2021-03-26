@@ -97,9 +97,9 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
   - 미션 모드 (위)에서 복귀 모드가 시작된 것처럼 임무를 반대로 계속 수행합니다.
 - **수동 모드:** 홈으로 직접 비행하여 착륙합니다.
 
-If no mission is defined PX4 will fly directly to home location and land (rally points are ignored).
+미션이 정의되지 않은 경우 PX4는 홈 위치에 착륙합니다(랠리 포인트는 무시됨).
 
-If the mission changes during return mode, then the behaviour is re-evaluated based on the new mission following the same rules as above (e.g. if the new mission has no landing sequence and you're in a mission, the mission is reversed).
+복귀 모드에서 임무가 변경되면 위와 동일한 규칙에 따라 새 임무에 따라 행동이 재평가됩니다 (예 : 새 임무에 착륙 순서가없고 임무를 수행중인 경우 임무가 반전 됨).
 
 <span id="safety_point_return"></span>
 
