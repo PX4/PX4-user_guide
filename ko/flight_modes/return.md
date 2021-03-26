@@ -110,19 +110,19 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
 - 홈 위치, 미션 착륙 패턴 또는 집결 지점의 가장 가까운 목적지로 직접 이동합니다.
 - 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다
-- If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
+- 목적지가 홈 위치 또는 집결지인 경우 기체는 하강 고도 ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT))로 하강한 다음 [착륙 또는 대기](#arrival)합니다.
 
 <span id="return_altitude"></span>
 
-## Return Altitude
+## 복귀 고도
 
-A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
+기체는 목적지까지의 장애물을 피하여 복귀하기 이전에 안전한 고도로 먼저 상승합니다.
 
 :::note
-This is true for most [return types](#return_types). The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
+이것은 대부분의 [복귀 유형](#return_types)에 해당됩니다. 예외는 기체가 미션 웨이포인트를 비행중에 [미션 경로 복귀](#mission_path_return)을 실행하는 경우입니다 (장애물을 피할 수 있다고 가정할 수 있음).
 :::
 
-The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
+고정익 복귀 고도는 매개 변수 [RTL_RETURN_ALT](#RTL_RETURN_ALT)를 사용하여 설정됩니다. 멀티 콥터 및 VTOL 차량의 복귀 고도는 [RTL_RETURN_ALT](#RTL_RETURN_ALT) 및 [RTL_CONE_ANG](#RTL_CONE_ANG) 매개 변수를 사용하여 구성되며, 이는 목적지 (홈 위치 또는 안전 지점)를 중심으로 한 반 원뿔을 정의합니다.
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
