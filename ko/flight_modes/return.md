@@ -105,11 +105,11 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 ### 가장 가까운 안전한 대상 복귀 유형 (RTL_TYPE = 3)
 
-In this return type the vehicle:
+이 복귀 유형에서 기체의 동작:
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies a direct path to the closest destination of: home location, mission landing pattern or rally point.
-- If the destination is a mission landing pattern the vehicle will follow the pattern to land
+- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+- 홈 위치, 미션 착륙 패턴 또는 집결 지점의 가장 가까운 목적지로 직접 이동합니다.
+- 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
 
 <span id="return_altitude"></span>
