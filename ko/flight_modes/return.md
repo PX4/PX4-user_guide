@@ -22,36 +22,36 @@ PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 �
 
 PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 검색하는 네 가지 대체 접근 방식 ([RTL_TYPE](#RTL_TYPE))을 제공합니다.
 
-- [Home/rally point return](#home_return) (`RTL_TYPE=0`): Ascend to safe altitude and return via a direct path to the closest rally point or home location.
-- [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination *other than home*: rally point or start of mission landing. If no mission landing or rally points are defined, return home via direct path.
-- [Mission path return](#mission_path_return) (`RTL_TYPE=2`): Use mission path and fast-continue to mission landing (if defined). If no mission landing defined, fast-reverse mission to home. If no mission defined, return direct to home (rally points are ignored).
-- [Closest safe destination return](#safety_point_return) (`RTL_TYPE=3`): Ascend to a safe altitude and return via direct path to closest destination: home, start of mission landing pattern, or rally point. If the destination is a mission landing pattern, follow the pattern to land.
+- [홈/랠리 포인트 복귀](#home_return) (`RTL_TYPE = 0 `) : 안전한 고도로 상승하여 가장 가까운 랠리 포인트 또는 홈 위치로 직접 경로를 통하여 복귀합니다.
+- [미션 착륙/랠리 포인트 복귀](#mission_landing_return) (`RTL_TYPE = 1 `) : 안전한 고도로 상승, *홈 위치가 아닌 * 가장 가까운 목적지로 직행 : 랠리 미션 착륙 지점 또는 시작. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 직접 경로를 통해 홈으로 복귀합니다.
+- [미션 경로 복귀](#mission_path_return) (`RTL_TYPE = 2`) : 임무 경로를 사용하고 임무 착륙을 신속하게 진행합니다 (정의된 경우). 임무 착륙이 정의되지 않은 경우 홈으로 빠르게 역회전합니다. 정의된 임무가 없으면 집으로 직접 돌아갑니다 (랠리 포인트는 무시됨).
+- [가장 가까운 안전한 목적지 복귀](#safety_point_return) (`RTL_TYPE = 3`) : 안전한 고도로 상승하여 가장 가까운 목적지 (홈, 임무 시작 착지 패턴 또는 집결지)로 직접 경로를 통하여 복귀합니다. 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
 
-More detailed explanations for each of the types are provided in the following sections.
+각 유형에 대한 자세한 설명은 다음 섹션에서 제공됩니다.
 
 <span id="home_return"></span>
 
-### Home/Rally Point Return Type (RTL_TYPE=0)
+### 홈/랠리 포인트 복귀 유형 (RTL_TYPE = 0)
 
-In this return type the vehicle:
+이 복귀 유형에서 기체의 동작:
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies via direct path to the home position or a rally point (whichever is closest)
-- [Land or waits](#arrival) at descent altitude (depending on landing parameters).
+- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+- 홈 포지션 또는 랠리 포인트 (둘 중 가장 가까운 지점) 로의 직접 경로로 비행합니다.
+- 하강 고도에서 [착륙 또는 대기](#arrival) (착륙 매개 변수에 따라 다름).
 
 :::note
-If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
+랠리 포인트가 정의되지 않은 경우 이는 *출발지 복귀* (RTL) / *홈으로 복귀* (RTH)과 동일합니다.
 :::
 
 <span id="mission_landing_return"></span>
 
-### Mission Landing/Rally Point Return Type (RTL_TYPE=1)
+### 임무 착륙/랠리 포인트 복귀 유형 (RTL_TYPE = 1)
 
-In this return type the vehicle:
+이 복귀 유형에서 기체의 동작:
 
-- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies via direct path to a rally point or the start of a [mission landing pattern](#mission_landing_pattern) (whichever is closest). If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
-- If the destination is a mission landing pattern it will follow the pattern to land.
+- 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+- 랠리 지점 또는 [임무 착륙 패턴](#mission_landing_pattern)의 시작점 (둘 중 가장 가까운 지점)으로 직접 이동합니다. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 기체는 직접 경로를 통하여 홈으로 복귀합니다.
+- 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
 - If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
 
 <span id="mission_landing_pattern"></span>
