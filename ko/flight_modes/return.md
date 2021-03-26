@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Return* flight mode is used to *fly a vehicle to safety* on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
+*복귀* 모드는 대기(호버링 또는 선회) 또는 착륙 가능한 안전한 목적지까지 장애물이없는 경로에서 *기체를 안전하게 비행*하기위해 사용합니다.
 
 PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and mission landing sequences.
 

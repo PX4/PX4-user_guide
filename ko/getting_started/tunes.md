@@ -1,11 +1,11 @@
 # 소리 설명 (Pixhawk 시리즈)
 
-[ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [ LED ](../getting_started/led_meanings.md)를 사용하여 차량 상태와 이벤트 (예 : 무장 성공 및 실패, 배터리 부족 경고)를 표시합니다.
+[ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [LED](../getting_started/led_meanings.md)를 사용하여 기체 상태와 이벤트(예 : 시동 성공 및 실패, 배터리 부족 경고 등)를 표시합니다.
 
 표준 사운드 세트는 다음과 같습니다.
 
 :::note
-** 개발자 : ** 곡은 [ /lib/tunes/tune_definition.desc ](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 정의되어 있으며 [ tune_control ](../modules/modules_system.md#tunecontrol) 모듈을 사용하여 테스트 할 수 있습니다.
+**개발자 :** 음향은 [ /lib/tunes/tune_definition.desc ](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 정의되어 있으며 [ tune_control ](../modules/modules_system.md#tunecontrol) 모듈을 사용하여 테스트 할 수 있습니다.
 :::
 
 ## 부팅 / 시작
