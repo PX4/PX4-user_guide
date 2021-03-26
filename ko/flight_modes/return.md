@@ -132,12 +132,12 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 
 - [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) 이상에서는 현재 고도로 돌아옵니다.
 - 원뿔 아래에서 원뿔 (2) 또는 [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (둘 중 더 높은 쪽)와 교차하는 위치를 반환합니다.
-- Outside the cone (3) it will first climb until it reaches [RTL_RETURN_ALT](#RTL_RETURN_ALT).
-- Inside the cone: 
-  - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will return at its current altitude.
-  - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) it will first ascend to `RTL_DESCEND_ALT`.
+- 원뿔 (3)은 [RTL_RETURN_ALT](#RTL_RETURN_ALT)에 까지 먼저 상승합니다.
+- 원뿔 내에서 
+  - [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) 이상에서는 현재 고도로 돌아옵니다.
+  - [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) 아래에서는 먼저 `RTL_DESCEND_ALT`로 상승합니다.
 
-Note:
+참고:
 
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone": 
   - the vehicle returns at `RTL_RETURN_ALT` (or above).
