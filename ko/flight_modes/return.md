@@ -52,50 +52,50 @@ PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 
 - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
 - 랠리 지점 또는 [임무 착륙 패턴](#mission_landing_pattern)의 시작점 (둘 중 가장 가까운 지점)으로 직접 이동합니다. 임무 착륙 또는 집결 지점이 정의되지 않은 경우에는 기체는 직접 경로를 통하여 홈으로 복귀합니다.
 - 목적지가 임무 착륙 패턴인 경우 패턴을 따라 착륙합니다.
-- If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
+- 목적지가 집결지 또는 홈인 경우에는 하강 고도에서 [착륙또는 대기](#arrival)합니다 (착륙 매개 변수에 따라 다름).
 
 <span id="mission_landing_pattern"></span>
 :::note
-A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+미션 착륙 패턴은 [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), 하나 이상의 위치 웨이포인트 및 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)로 구성됩니다.
 :::
 
 :::warning
-When this type is set PX4 will reject any mission without a valid landing pattern.
+이 유형이 설정되면 PX4는 유효한 착지 패턴이 없는 임무를 거부합니다.
 :::
 
 <span id="mission_path_return"></span>
 
-### Mission Path Return Type (RTL_TYPE=2)
+### 임무 경로 복귀 유형 (RTL_TYPE = 2)
 
-This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. Rally points, if any, are ignored.
+이 반환 유형은 임무(정의 된 경우)을 사용하여 안전한 복귀 *경로*를 제공하고 임무 착륙 패턴 (정의 된 경우)을 사용하여 착륙합니다. 임무가 있지만 임무 착수 패턴이없는 경우 임무는 *역방향*으로 비행합니다. 랠리 포인트는 무시됩니다.
 
 :::note
-The behaviour is fairly complex because it depends on the flight mode, and whether a mission and mission landing are defined.
+비행 모드와 임무 및 임무 착륙이 정의 여부에 따라 동작이 매우 복잡해집니다.
 :::
 
-Mission *with* landing pattern:
+착륙 패턴이 *있는* 임무 :
 
-- **Mission mode:** Mission is continued in "fast-forward mode" (jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints) and then lands.
-- **Auto mode other than mission mode:** 
-  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
-  - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
-  - Continue mission in fast forward mode from that waypoint.
-- **Manual modes:** 
-  - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
-  - Fly directly to landing sequence position and descend to waypoint altitude
-  - Land using mission landing pattern
+- **임무 모드 :** 임무는 "빨리 감기 모드"(점프, 지연 및 기타 비위치 명령 무시, 선회 및 기타 위치 웨이포인트가 간단한 웨이포인트로 변환 됨)에서 수행한 다음 착륙합니다.
+- **임무 모드 이외의 자동 모드 :** 
+  - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+  - 가장 가까운 웨이포인트 (착륙 WP가 아닌 FW의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
+  - 그 웨이포인트에서 빨리 감기 모드로 임무를 계속 수행합니다.
+- **수동 모드:** 
+  - 안전한 [복귀 고도](#return_altitude) (예상 장애물 위)로 상승합니다.
+  - 착륙 순서 위치로 직접 비행하고 웨이포인트 고도로 하강합니다.
+  - 임무 착륙 패턴을 사용하는 착륙
 
-Mission *without* landing pattern defined:
+착륙 패턴이 *없는* 임무 :
 
-- **Mission mode:** 
-  - Mission flown "fast-backward" (in reverse) starting from the previous waypoint 
-    - Jumps, delay and any other non-position commands ignored, loiter and other position waypoints converted to simple waypoints.
-    - VTOL vehicles transition to FW mode (if needed) before flying the mission in reverse.
-  - On reaching waypoint 1, the vehicle ascends to the [return altitude](#return_altitude) and flies to the home position (where it [lands or waits](#arrival)).
-- **Auto mode other than mission mode:** 
-  - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
-  - Continue the mission in reverse, exactly as though Return mode was triggered in mission mode (above)
-- **Manual modes:** Fly directly to home location and land.
+- **임무 모드:** 
+  - 이전 웨이포인트에서 시작하여 "빨리 후진"(역방향) 비행한 미션 
+    - 점프, 지연 및 기타 위치가 아닌 명령은 무시되며, 선회 및 기타 위치 웨이포인트는 단순 웨이포인트로 변환됩니다.
+    - VTOL은 임무를 역으로 비행하기 전에 필요한 경우에는 고정익 모드로 전환합니다.
+  - 웨이 포인트 1에 도달하면 기체는 [복귀 고도](#return_altitude)로 상승하여 홈 위치 ([착륙 또는 대기](#arrival))로 비행합니다.
+- **임무 모드 이외의 자동 모드 :** 
+  - 가장 가까운 웨이포인트 (착륙 웨이포인트가 아닌 고정익의 경우)로 직접 비행하고 웨이포인트 고도로 하강합니다.
+  - 미션 모드 (위)에서 복귀 모드가 시작된 것처럼 임무를 반대로 계속 수행합니다.
+- **수동 모드:** 홈으로 직접 비행하여 착륙합니다.
 
 If no mission is defined PX4 will fly directly to home location and land (rally points are ignored).
 
