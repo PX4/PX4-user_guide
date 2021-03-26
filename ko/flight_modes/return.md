@@ -2,25 +2,25 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*복귀* 모드는 대기(호버링 또는 선회) 또는 착륙 가능한 안전한 목적지까지 장애물이없는 경로에서 *기체를 안전하게 비행*하기위해 사용합니다.
+*복귀* 모드는 대기(호버링 또는 선회) 또는 착륙 가능한 안전한 목적지까지 장애물이 없는 경로로 *기체를 안전하게 비행*하기 위하여 사용합니다. 
 
-PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, rally ("safe") points, mission paths, and mission landing sequences.
+PX4는 홈 위치, 집결 ( "안전") 지점, 임무 경로 및 임무 착륙 시퀀스 사용을 포함하여 안전한 복귀 경로, 목적지 착륙을 위한 다양한 메커니즘을 제공합니다.
 
-The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
+다음 섹션에서는 [복귀 유형 ](#return_types), [복귀 고도](#return_altitude) 및 [착륙/도착 동작](#arrival) 설정 방법을 설명합니다. 마지막에는 각 [기체 유형](#default_configuration)에 대한 *기본* (미리 구성된) 동작을 설명하는 섹션이 있습니다.
 
 :::note
 
-- This mode requires GPS.
-- This mode is automatic - no user intervention is *required* to control the vehicle.
-- RC control switches can be used to change flight modes on any vehicle.
-- RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+- 이 모드는 GPS가 필요합니다.
+- 이 모드는 자동입니다. 기체 제어시 사용자 개입이 *필요하지* 않습니다.
+- RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
+- 멀티콥터 또는 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
 :::
 
 <span id="return_types"></span>
 
-## Return Types (RTL_TYPE)
+## 복귀 유형(RTL_TYPE)
 
-PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an unobstructed path to a safe destination and/or landing:
+PX4는 안전한 목적지 또는 착륙지까지 방해받지 않는 경로를 검색하는 네 가지 대체 접근 방식 ([RTL_TYPE](#RTL_TYPE))을 제공합니다.
 
 - [Home/rally point return](#home_return) (`RTL_TYPE=0`): Ascend to safe altitude and return via a direct path to the closest rally point or home location.
 - [Mission landing/rally point return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to the closest destination *other than home*: rally point or start of mission landing. If no mission landing or rally points are defined, return home via direct path.
