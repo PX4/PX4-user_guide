@@ -1,8 +1,8 @@
-# 보류 모드
+# 유지 모드
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-* Hold * 비행 모드(예: "Loiter")는 기체를 정지시키고 현재의 GPS 위치와 고도를 유지합니다(MC 기체는 GPS 위치를 맴돌 것입니다).
+*유지* 모드(예: "Loiter")는 기체를 정지시키고 현재의 GPS 위치와 고도를 유지합니다(멀터콥터는 GPS 위치를 배회합니다).
 
 :::tip
 *Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
@@ -33,7 +33,7 @@ The behaviour can be configured using the parameters below.
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/loiter.cpp#L61 -->
 
-## 고정 날개(FW)
+## 고정익 (FW)
 
 The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
 

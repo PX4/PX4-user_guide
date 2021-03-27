@@ -91,7 +91,7 @@
     * [이륙 모드](flight_modes/takeoff.md)
     * [착륙 모드](flight_modes/land.md)
     * [복귀 모드](flight_modes/return.md)
-    * [정지 모드](flight_modes/hold.md)
+    * [유지 모드](flight_modes/hold.md)
     * [임무 모드](flight_modes/mission.md)
     * [추적 모드](flight_modes/follow_me.md)
     * [오프보드 모드](flight_modes/offboard.md)
