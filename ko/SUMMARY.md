@@ -90,7 +90,7 @@
     * [수동 모드 (고정익)](flight_modes/manual_fw.md)
     * [이륙 모드](flight_modes/takeoff.md)
     * [착륙 모드](flight_modes/land.md)
-    * [복귀 모드](flight_modes/return.md)
+    * [귀환 모드](flight_modes/return.md)
     * [유지 모드](flight_modes/hold.md)
     * [임무 모드](flight_modes/mission.md)
     * [추적 모드](flight_modes/follow_me.md)
