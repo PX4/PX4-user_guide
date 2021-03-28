@@ -5,46 +5,46 @@
 *유지* 모드(예: "Loiter")는 기체를 정지시키고 현재의 GPS 위치와 고도를 유지합니다(멀터콥터는 GPS 위치를 배회합니다).
 
 :::tip
-*Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+*유지 모드*를 사용하여 임무를 일시 중지하거나 비상시 기체를 다시 제어할 수 있습니다. 일반적으로 사전 프로그래밍된 스위치로 작동시킵니다.
 :::
 
 :::note
 
-* This mode requires GPS.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* 이 모드는 GPS가 필요합니다.
+* 이 모드는 자동입니다. 기체를 제어하기 위해 사용자 개입이 *필요하지* 않습니다.
+* RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.
+* 멀티콥터 또는 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
 :::
 
-The specific behaviour for each vehicle type is described below.
+각 기체 유형에 대한 구체적인 동작은 아래에 설명되어 있습니다.
 
-## 멀티코터(MC)
+## 멀티코터 (MC)
 
-A multicopter hovers at the current position and altitude.
+멀티콥터는 현재 위치와 고도에서 호버링합니다.
 
-RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+RC 스틱 이동은 위험한 배터리 안전 장치를 처리하지 않는 한, [기본적으로](#COM_RC_OVERRIDE) 기체를 [위치 모드](../flight_modes/position_mc.md)로 변경합니다.
 
-The behaviour can be configured using the parameters below.
+아래 매개 변수를 사용하여 동작을 설정할 수 있습니다.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT)   | 정지기 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 기체가 이 고도로 상승함).                                                                                                                                                                                                                                                                                          |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT)   | 정지기 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 기체가 이 고도로 상승함).                                                                                                                                                  |
+| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 활성화된 경우 멀티콥터 (또는 멀티콥터 모드의 VTOL)에서 스틱을 움직여 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 다시 제공합니다 (차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
 
 <!-- Code for this here: https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/loiter.cpp#L61 -->
 
 ## 고정익 (FW)
 
-The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
+비행기는 현재 고도에서 GPS 유지 위치를 중심으로 선회한다. 기체가 먼저 `으로 상승합니다.MIS_LTRMIN_ALT` 모드가 이 고도 이하에서 작동할 경우.
 
-RC stick movement is ignored.
+RC 스틱 이동은 무시됩니다.
 
-The behaviour can be configured using the parameters below.
+아래 매개 변수를 사용하여 동작을 설정할 수 있습니다.
 
-| Parameter                                                                    | Description                                                                                                   |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [Na'Vi는 '라 오버랩'](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | 로터 원의 반지름.                                                                                                    |
-| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
+| 매개변수                                                                         | 설명                                              |
+| ---------------------------------------------------------------------------- | ----------------------------------------------- |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | 배회 원의 반경                                        |
+| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 배회 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 기체가 이 고도로 상승함). |
 
 ## VTOL
 
