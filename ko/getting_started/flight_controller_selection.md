@@ -2,7 +2,7 @@
 
 기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택해야 합니다.
 
-PX4는 많은 수의 비행 제어기에서 실행가능합니다. [Autopilot Hardware](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하세요. 주요한 목록은 아래와 같습니다.
+PX4는 많은 수의 비행 제어기에서 실행가능합니다. [Autopilot Hardware](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하세요. 주요 목록은 아래와 같습니다.
 
 ## Pixhawk 시리즈
 

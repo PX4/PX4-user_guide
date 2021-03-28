@@ -1,5 +1,5 @@
-# Releases
+# 출시
 
-PX4 Release Notes, explaining changes that went into each release.
+PX4 릴리스 노트는 각 릴리스에 변경 사항을 설명합니다.
 
 * [1.12](../releases/1.12.md)
