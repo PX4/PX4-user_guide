@@ -12,7 +12,7 @@
 
 이러한 곡은 부팅 과정에에 재생됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
 
-#### 시작 톤<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### 시작 톤 <audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 - MicroSD 카드가 마운트되었습니다 (부팅 중).
 
@@ -30,7 +30,7 @@
 - 마운트 실패 (포맷이 성공하면 부팅 시퀀스가 다시 마운트를 시도합니다).
 - MicroSD 카드가 없습니다.
 
-#### 포맷 실패<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### 포맷 실패 <audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 - MicroSD 카드 포맷에 실패했습니다 (이전 카드 마운트 시도 후).
 
@@ -100,7 +100,7 @@
 
 <!-- Does not appear to be used: TONE_PARACHUTE_RELEASE_TUNE -->
 
-#### EKF 경고<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### EKF 경고 <audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 <!-- Does not appear to be used: TONE_EKF_WARNING_TUNE -->
 
