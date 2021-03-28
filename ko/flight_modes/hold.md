@@ -1,6 +1,6 @@
 # 유지 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *유지* 모드(예: "Loiter")는 기체를 정지시키고 현재의 GPS 위치와 고도를 유지합니다(멀터콥터는 GPS 위치를 배회합니다).
 
@@ -48,6 +48,6 @@ RC 스틱 이동은 무시됩니다.
 
 ## VTOL
 
-A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+VTOL은 고정익 모드에서는 유지 동작과 매개 변수는 [고정익](#fixed-wing-fw)를 따르며, 멀티콥터 모드에서는 [멀티콥터](#multi-copter-mc) 매개 변수를 따릅니다.
 
 <!-- this maps to AUTO_LOITER in flight mode state machine -->
