@@ -404,7 +404,7 @@
       * [ROS/MAVROS Installation on RPi](ros/raspberrypi_installation.md)
       * [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
-* [기여 및 온라인 개발 미팅](contribute/README.md) 
+* [기여 및 온라인 미팅](contribute/README.md) 
   * [온라인 개발 미팅](contribute/dev_call.md)
   * [지원](contribute/support.md)
   * [소스 코드 관리](contribute/code.md) 
