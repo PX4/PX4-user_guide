@@ -1,6 +1,6 @@
 # 임무 모드 
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 [QGroundControl](https://docs.qgroundcontrol.com/en/) (QGC)과 같은 GCS (Ground Control Station) 애플리케이션으로 생성하여 업로드 됩니다.
 
@@ -148,10 +148,10 @@ PX4는 이전 웨이포인트에서 현재 목표까지 직선을 따라갈 것�
 
 ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
 
-Vehicles switch to the next waypoint as soon as they enter the acceptance radius:
+기체는 허용 반경에 들어 오자마자 다음 웨이포인트로 전환합니다.
 
-* For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
-* For FW the acceptance radius is defined by the "L1 distance". 
-  * The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
-  * By default, it's about 70 meters.
-  * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
+* 멀티콥터의 경우 이 반경은 [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)로 정의됩니다.
+* 고정익의 경우 허용 반경은 "L1 거리"로 정의됩니다. 
+  * L1 거리는 [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) 및 [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD)의 두 매개 변수와 현재지면 속도에서 계산됩니다.
+  * 기본적으로 약 70 미터입니다.
+  * 방정식: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
