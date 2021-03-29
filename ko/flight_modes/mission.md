@@ -75,12 +75,12 @@
 
 <span id="mission_commands"></span>
 
-## Supported Mission Commands
+## 지원되는 임무 명령
 
-PX4 "accepts" the following MAVLink mission commands in Mission mode (with some *caveats*, given after the list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+PX4는 미션 모드에서 다음 MAVLink 미션 명령을 "수락"합니다 (일부 *caveats* 포함). 달리 명시되지 않는 한 구현은 MAVLink 사양에 정의된 대로입니다.
 
 * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
-  * *Param3* (flythrough) is ignored. Flythrough is always enabled if *param 1* (time_inside) > 0.
+  * *Param3* (플라이 스루)는 무시됩니다. 플라이 스루는 *param 1* (time_inside)> 0 인 경우 항상 활성화됩니다.
 * [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM)
 * [MAV_CMD_NAV_LOITER_TIME](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME)
 * [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 
@@ -88,7 +88,7 @@ PX4 "accepts" the following MAVLink mission commands in Mission mode (with some 
 * [MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)
 * [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
   
-  * `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
+  * `MAV_CMD_NAV_VTOL_TAKEOFF.param2 ` (전환 제목)은 무시됩니다. 대신 다음 웨이포인트로의 방향이 전환 방향으로 사용됩니다. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
 
 * [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND)
 
@@ -131,20 +131,20 @@ PX4 "accepts" the following MAVLink mission commands in Mission mode (with some 
 
 Note:
 
-* PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
-* PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-* Not all messages/commands are exposed via *QGroundControl*.
-* The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp).
+* PX4는 위의 메시지를 구문 분석하지만, 반드시 *동작* 할 필요는 없습니다. 예를 들어, 일부 메시지는 기체 유형에 따라 차이가 있습니다.
+* PX4는 임무 명령에 대한 로컬 프레임을 지원하지 않습니다 (예 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+* 모든 메시지와명령이 *QGroundControl*을 통해 노출되는 것은 아닙니다.
+* 메시지가 추가되면 목록이 최신이 아닐 수 있습니다. 코드를 검사하여 현재 설정을 확인할 수 있습니다. 지원은 [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp)의 `MavlinkMissionManager :: parse_mavlink_mission_item`입니다.
   
 :::note
-Please add an issue report or PR if you find a missing/incorrect message.
+누락되거나 잘못된 메시지를 찾으면 문제 보고서 또는 PR을 추가하십시오.
 :::
 
-## Inter-Waypoint Trajectory
+## 웨이포인트 간 궤적
 
-PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+PX4는 이전 웨이포인트에서 현재 목표까지 직선을 따라갈 것으로 예상합니다 (웨이포인트 사이에 다른 종류의 경로를 계획하지 않습니다. 필요한 경우 추가 웨이포인트를 추가하여 시뮬레이션 할 수 있습니다).
 
-MC vehicles will change the *speed* when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning. The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)). The diagram below shows the sorts of paths that you might expect.
+멀티콥터는 [저크 제한](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) 튜닝에 따라 웨이포인트에 접근하거나 이탈할 때 *속도*를 변경합니다. 기체는 허용 반경 ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD))에 의해 정의한 다음 웨이포인트 (정의된 경우)를 향해 부드러운 곡선으로 비행합니다. 아래의 다이어그램은 예상 가능한 경로들을 나타냅니다.
 
 ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
 
