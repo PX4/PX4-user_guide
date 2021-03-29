@@ -2,32 +2,32 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/en/) (QGC).
+*임무 모드*는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 [QGroundControl](https://docs.qgroundcontrol.com/en/) (QGC)과 같은 GCS (Ground Control Station) 애플리케이션으로 생성하여 업로드 됩니다.
 
 :::note
 
-* This mode requires 3d position information (e.g. GPS).
-* The vehicle must be armed before this mode can be engaged.
-* This mode is automatic - no user intervention is *required* to control the vehicle.
-* RC control switches can be used to change flight modes on any vehicle.
-* RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+* 이 모드에는 3D 위치 정보 (예 : GPS)가 필요합니다.
+* 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
+* 이 모드는 자동이며, 기체 제어에 사용자 개입이 *필요하지* 않습니다.
+* RC 무선 조종기 스위치는 기체의 비행 모드를 변경할 수 있습니다.
+* 멀티콥터와 VTOL 멀티콥터 모드에서 RC 스틱을 움직이면 위험한 배터리 안전 장치를 처리하지 않는 한 [기본적으로](#COM_RC_OVERRIDE) 기체는 [위치 모드](../flight_modes/position_mc.md)로 변경됩니다.
 :::
 
-## Description
+## 설명
 
-Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)) and uploaded prior to launch. They may also be created by a developer API, and/or uploaded in flight.
+임무는 일반적으로 지상 관제소(예 : QGroundControl</ 0>)에서 생성되고 발사전에 업로드됩니다. 개발자 API로 생성하거나 비행중에 업로드 할 수 있습니다.</p> 
 
-Individual [mission commands](#mission_commands) are handled in a way that is appropriate for each vehicle's flight characteristics (for example loiter is implemented as *hover* for copter and *circle* for fixed-wing). VTOL vehicles follow the behavior and parameters of fixed-wing when in FW mode, and of copter when in MC mode.
+개별 [미션 명령](#mission_commands)은 기체의 비행 특성에 적합한 방식으로 처리됩니다 (예를 들어 loiter는 헬리콥터의 경우 *hover*로 동작하고, 고정익에는 *circle *로 동작합니다.). VTOL 차량은 고정익모드에서는 고정익, 멀터콥터 모드에서는 헬리콥터의 동작과 매개 변수를 따릅니다.
 
 :::note
-Missions are uploaded onto a SD card that needs to be inserted **before** booting up the autopilot.
+임무는 자동조종장치를 부팅하기 **전에** 삽입한 SD 카드에 업로드 됩니다.
 :::
 
-At high level all vehicle types behave in the same way when MISSION mode is engaged:
+높은 수준에서 모든 기체 유형은 임무모드가 작동시 동일한 방식으로 작동합니다.
 
-1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step. 
-2. If a mission is stored and PX4 is landed: 
-  * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
+1. 임무가 저장되고 PX4가 비행 이면 현재 단계에서 [미션/비행 계획](../flying/missions.md)을 실행합니다. 
+2. 미션이 저장되고 PX4가 착륙한 경우 : 
+  * 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode. 
 3. If no mission is stored, or if PX4 has finished executing all mission commands: 
   * If flying the vehicle will loiter.
