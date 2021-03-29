@@ -27,51 +27,51 @@
 
 1. 임무가 저장되고 PX4가 비행 이면 현재 단계에서 [미션/비행 계획](../flying/missions.md)을 실행합니다. 
 2. 미션이 저장되고 PX4가 착륙한 경우 : 
-  * 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
-  * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode. 
-3. If no mission is stored, or if PX4 has finished executing all mission commands: 
-  * If flying the vehicle will loiter.
-  * If landed the vehicle will "wait".
+  * 헬리콥터에서 PX4는 [미션/비행 계획](../flying/missions.md)을 실행합니다. 임무에 `이륙` 명령이 없는 경우 PX4는 현재 단계에서 나머지 비행 계획을 실행하기 전에 기체를 최소 고도로 상승시킵니다.
+  * 고정익 차량에서는 PX4가 자동으로 이륙하지 않습니다 (자동조종장치가 움직임 부족을 감지하고 스로틀을 0으로 설정합니다). 차량은 임누 모드에서 손이나 투석기를 발사하면 임무를 수행을 시작할 수 있습니다. 
+3. 저장된 임무가 없거나 PX4가 모든 임무 명령 실행을 완료한 경우 : 
+  * 비행하면 기체는 배회합니다.
+  * 착륙하면 기체는 "대기"합니다.
 
-4. You can manually change the current mission command by selecting it in *QGroundControl*.
+4. *QGroundControl*에서 선택하여 현재 임무 명령을 수동으로 변경할 수 있습니다.
   
 :::note
-If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
+미션에서 *항목으로 이동* 명령이있는 경우 다른 항목으로 이동해도 루프 카운터가 재설정되지 **않습니다**. 이것은 현재 임무 명령을 1로 변경하면 임무를 "완전히 다시 시작" 하지 않는 것입니다.
 :::
 
-5. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
+5. 임무는 기체의 시동이 꺼지거나 새 임무가 업로드된 경우에만 초기화됩니다.
   
 :::tip
-To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle.
+기체가 착륙 후 자동으로 시동이 꺼려면 *QGroundControl*에서 [차량 설정 > 안전](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)에서 *착륙 모드 설정*한 다음 < 0>이후 해제</em>를 설정하십시오. 착륙 후 시동 꺼기 대기 시간을 입력하십시오.
 :::
 
-Missions can be paused by activating [HOLD mode](../flight_modes/hold.md). The mission will then continue from the current mission command when you reactivate the MISSION flight mode. While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
+[유지 모드](../flight_modes/hold.md)를 사용하여 임무를 일시 중지할 수 있습니다. 임무 비행 모드를 다시 활성화하면 미션이 현재 미션 명령에서 계속됩니다. 임누 모드에서 비행하는 동안 미션을 중단하고 다른 모드로 전환하기로 결정한 경우: 위치 모드에서 RC로 기체를 다른 곳으로 비행한 다음 미션 모드로 다시 전환하면 현재 위치에서 미션을 계속하고 아직 방문하지 않은 다음 미션 웨이포인트로 비행합니다.
 
-:::warning
-Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash). We recommend you centre the control sticks before switching to any other mode.
+:::warning RC
+모드로 전환 전에 스로틀 스틱이 0이 아닌지 확인하십시오 (그렇지 않으면 기체가 충돌합니다). 다른 모드로 전환하기 전에 조종 스틱을 중앙에 두는 것이 좋습니다.
 :::
 
-For more information about mission planning, see:
+임무 계획에 대한 자세한 내용은 다음을 참조하십시오.
 
-* [Mission Planning](../flying/missions.md)
-* [Plan View](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+* [임무 계획](../flying/missions.md)
+* [계획보기](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) (*QGroundControl* 사용자 가이드)
 
-## QGroundControl Support
+## QGroundControl 지원
 
-*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). For more information see:
+*QGroundControl*은 추가 GCS 수준의 임무 처리 지원을 제공합니다 (비행 컨트롤러에서 제공하는 것 외에도). 더 자세한 정보는 다음을 참고하세요.
 
-* [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
-* [Resume mission after Return mode](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
+* [기체 착륙 후 임무 제거](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
+* [귀환 모드 후 임무 재개](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
 
-## Mission Parameters
+## 임무 매개변수
 
-Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission). A very small subset are listed below.
+임무 동작은 여러 매개 변수의 영향을 받습니다. [매개 변수 참조 > 임무](../advanced_config/parameter_reference.md#mission)에 문서화되어 있습니다. 매우 작은 하위 집합이 아래에 나열되어 있습니다.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                                                                                                                                           |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | Fixed-wing loiter radius.                                                                                                                                                                                                                                                                                                                 |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default. |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC 손실 안전 모드 (RC 연결이 끊어지면 기체가 수행할 작업) - 예 : 홀드 모드 진입, 복귀 모드, 종료 등                                                                                                                                  |
+| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 고정익 선회 반경                                                                                                                                                                                         |
+| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 활성화된 경우 멀티콥터 (또는 멀티콥터 모드의 VTOL)에서 스틱을 움직여 [위치 모드](../flight_modes/position_mc.md)에서 조종사에게 제어권을 다시 제공합니다 (차량이 중요한 배터리 안전 장치를 처리하는 경우 제외). 자동 모드와 오프보드 모드에 대해 별도로 활성화할 수 있으며, 기본적으로 자동 모드에서 활성화됩니다. |
 
 <span id="mission_commands"></span>
 
