@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent.
+*Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
 
 :::tip
@@ -15,9 +15,10 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 :::warning
-Care must be taken when landing in this mode. When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm.
-If landing is correctly detected, motors will spin down after touch down and then disarm shortly after. 
-If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm. 
+Care must be taken when landing in this mode.
+When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm.
+If landing is correctly detected, motors will spin down after touch down and then disarm shortly after.
+If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm.
 Be aware that the vehicle may tip over on the ground due to GPS drift.
 :::
 
