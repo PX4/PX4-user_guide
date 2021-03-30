@@ -27,7 +27,7 @@ RC/manual mode where RPT sticks control *speed* in corresponding directions. Cen
 
 * Centered RPT sticks (in RC deadzone) hold x, y, z position steady against any wind, and levels attitude.
 * Outside center:
-  * Roll/Pitch sticks control acceleration horizontally (over ground) in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.
+  * Roll/Pitch sticks control horizontal acceleration (over ground) in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.
   * Throttle stick controls speed of ascent-descent.
   * Yaw stick controls rate of angular rotation above the horizontal plane.
 * Takeoff:
