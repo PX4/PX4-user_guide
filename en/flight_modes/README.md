@@ -249,7 +249,7 @@ th {
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
       <ul>
-       <li>Roll/Pitch sticks control horizontal acceleration over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.</li>
+       <li>Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).</li>
        <li>Throttle stick controls speed of ascent-descent.</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
       </ul>
