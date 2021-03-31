@@ -80,7 +80,7 @@ The convention for firmware image names is:
 
 e.g. `com.thiemar.s2740vc-v1-1.0-1.0.68e34de6.bin`
 
-However, due to space/performance constraints (names may not exceed 28 charates), the UAVCAN firmware updater requires those filenames to be split and stored in a directory structure like the following:
+However, due to space/performance constraints (names may not exceed 28 characters), the UAVCAN firmware updater requires those filenames to be split and stored in a directory structure like the following:
 
 ```
 /fs/microsd/fw/<node name>/<hw version major>.<hw version minor>/<hw name>-<sw version major>.<sw version minor>.<git hash>.bin
