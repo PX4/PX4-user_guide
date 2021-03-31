@@ -40,31 +40,48 @@ Order this module from:
 * LED Indicators
 * USA Built
 
-## Pixhawk Setup
 
-In order to use the ARK Flow board, connect it to the CAN bus (on any Pixhawk series controller) and enable the UAVCAN driver using [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) set to 2 or 3.
 
-The steps are:
-- In *QGroundControl*:
-  - Set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) and reboot (see [Parameters](../advanced_config/parameters.md) for information on finding and setting parameters).
-- Connect ARK Flow CAN to the Pixhawk CAN
+### Wiring/Connecting
 
-Once enabled, the module will be detected on boot.
-Flow data should be coming through at 10Hz.
+The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
+Multiple sensors can be connected by plugging additional sensors into the ARK Flow's second CAN connector.
+
+General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
 <span id="mounting"></span>
 ### Mounting/Orientation
 
-The recommended mounting orientation is defined connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
+The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
 ![ARK Flow align with Pixhawk](../../assets/hardware/sensors/optical_flow/ark_flow_orientation.png)
 
-On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
+This corresponds to the default value (`0`) of the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
+Change the parameter appropriately if using a different orientation.
 
-<span id="px4_configuration"></span>
-## PX4 Configuration
+The sensor can be mounted anywhere on the frame, but you will need to specify the focal point position, relative to vehicle centre of gravity, during [PX4 configuration](#px4-configuration).
 
-The parameters that you may need to configure are listed below.
+
+## PX4 Setup
+
+### Enabling UAVCAN
+
+In order to use the ARK Flow board, connect it to the Pixhawk CAN bus and enable the UAVCAN driver by setting parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` for dynamic node allocation (or `3` if using [UAVCAN ESCs](../uavcan/escs.md)).
+
+The steps are:
+- In *QGroundControl* set the parameter [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to `2` or `3` and reboot (see [Finding/Updating Parameters](../advanced_config/parameters.md)).
+- Connect ARK Flow CAN to the Pixhawk CAN.
+
+Once enabled, the module will be detected on boot.
+Flow data should arrive at 10Hz.
+
+### PX4 Configuration
+
+Set the EKF optical flow parameters in [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) in order to:
+- enable fusing optical flow measurements for velocity calculation.
+- define offsets if the sensor is not centred within the vehicle.
+
+In addition you may need to configure the following parameters.
 
 Parameter | Description
 --- | ---
@@ -73,25 +90,21 @@ Parameter | Description
 <span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
 <span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) | Yaw rotation of the board relative to the vehicle body frame.
 
-If you're using flow with the ECL/EFK2 estimator you will also need to set the [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) parameters.
-These enable fusing optical flow measurements for velocity calculation and also allow you to define offsets if the sensor is not centred within the vehicle.
 
-### Connecting
+## Building Ark Flow Firmware
 
-The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable.
-Multiple sensors can be connected by plugging additional sensors into the ARK Flow's second CAN connector.
+Ark Flow is sold with a recent firmware build.
+Developers who want to update to the very latest version can build and install it themselves using the normal PX4 toolchain and sources.
 
-## Software / Build Source
-
-* PX4 Firmware (Firmware source code on Github: [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot))
-
-## Building Firmware for Development
-
-Install the [PX4 toolchain](../dev_setup/dev_env.md). 
-Then and clone the sources from https://github.com/PX4/PX4-Autopilot using *git*.
-
-```bash
-cd PX4-Autopilot
-make ark_can-flow
-```
-Then follow instructions for [UAVCAN firmware updating](node_firmware.md) instructions using the binary located in build/ark_can-flow_default named XX-X.X.XXXXXXXX.uavcan.bin
+The steps are:
+1. Install the [PX4 toolchain](../dev_setup/dev_env.md). 
+1. Clone the PX4-Autopilot sources, including Ark Flow, using *git*:
+   ```bash
+   git clone https://github.com/PX4/PX4-Autopilot --recursive
+   cd PX4-Autopilot
+   ```
+1. Build the *Ark Flow* firmware:
+   ```
+   make ark_can-flow
+   ```
+1. Follow instructions for [UAVCAN firmware updating](node_firmware.md) using the binary located in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
