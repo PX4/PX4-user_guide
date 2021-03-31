@@ -6,9 +6,9 @@ author: Jimmy Johnson
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Follow Me* mode allows a multicopter to autonomously follow and track another system that is broadcasting its position using the [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET) MAVLink message.
+*추적* 모드를 사용하면 멀티콥터가 MAVLINK message [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET)을 사용하여 위치를 전송하는 대상을 자율적으로 추적할 수 있습니다.
 
-The vehicle will automatically yaw to face and follow the target from a specified [relative position](#NAV_FT_FS), [horizontal separation](#NAV_FT_DST) and [height](#NAV_MIN_FT_HT) above the home position. By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home/arming position. While in this mode no user input is required.
+기체는 지정된 [상대 위치](#NAV_FT_FS), [수평 분리](#NAV_FT_DST) 및 홈 [ 높이 ](#NAV_MIN_FT_HT)에서 목표를 자동으로 추적합니다. By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home/arming position. While in this mode no user input is required.
 
 :::tip PX4 currently ignores the altitude of/from the target and follows at a constant altitude above home. This limitation is because altitude sources from GPS on ground stations are often inaccurate.
 :::
