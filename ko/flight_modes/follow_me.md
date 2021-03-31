@@ -27,13 +27,13 @@ author: Jimmy Johnson
 **추적 모드**는 장애물 회피 유형을 지원하지 않습니다. 이 모드를 사용시에는 특별한 주의가 필요합니다.
 :::
 
-다음의 비행주의 사항을 준수하여야 합니다. - 추적 모드는 나무, 전선, 집 등에 의해 방해받지 않는 넓고 열린 공간에서만 사용하여야 합니다. -[추적 높이](#NAV_MIN_FT_HT)를 주위 장애물보다 훨씬 높은 값으로 설정합니다. *기본값*은 홈 (시동) 위치에서 8 미터 위 입니다. - 모드가 자동 이륙을 구현하더라도 착륙시 추적 모드로 전환하는 것보다 추적 모드를 시작하기 전에 수동으로 안전한 높이로 비행하는 것이 *안전*합니다. - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
+다음의 비행주의 사항을 준수하여야 합니다. - 추적 모드는 나무, 전선, 집 등에 의해 방해받지 않는 넓고 열린 공간에서만 사용하여야 합니다. -[추적 높이](#NAV_MIN_FT_HT)를 주위 장애물보다 훨씬 높은 값으로 설정합니다. *기본값*은 홈 (시동) 위치에서 8 미터 위 입니다. - 모드가 자동 이륙을 구현하더라도 착륙시 추적 모드로 전환하는 것보다 추적 모드를 시작하기 전에 수동으로 안전한 높이로 비행하는 것이 *안전*합니다. - 특히 고속 비행시 정지 가능한 충분한 공간을 확보하십시오. 많은 Android 장치는 위치를 자주 갱신하지 않으며, 속도와 방향의 자동 조종 장치 추정이 정확하지 않을 수 있습니다. - 추적 모드를 처음 사용시에는, 문제들이 발생할 경우를 대비하여 미리 수동 RC 제어를 준비 하십시오. 위치 정보의 정확도는 대상 시스템에서 사용하는 GPS의 품질에 따라 다릅니다. GPS가 정확하지 않으면, 추적 모드가 정확하지 않습니다.
 
-## Using Follow Me with QGroundControl
+## QGroundControl에서의 추적 모드 사용
 
-*Follow Me* mode is supported by *QGroundControl* on ground station hardware that has a GPS module. The recommended configuration is a USB OTG-capable Android device with two telemetry radios.
+*추적* 모드는 GPS 모듈이 탑재된 지상국 하드웨어의 *QGroundControl*에서 사용할 수 있습니다. 권장 구성은 텔레메트리를 사용하는 USB OTG 지원 Android 장치입니다.
 
-To setup *Follow Me* mode: - Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios). - Disable sleep-mode on your Android device: - This setting can usually be found under: **Settings \> Display**. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
+*추적* 모드를 설정하려면 : - 텔레메트리를 Android 장치와 기체에 모두에 장착하여, 두 라디오간에 위치 정보를 전송할 수 있습니다. -Android 기기에서 절전 모드 비활성화 : -이 설정은 일반적으로 ** 설정 > 디스플레이 **에서 찾을 수 있습니다. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
 
 At this point you should be able to start moving and the copter should follow your movements.
 
