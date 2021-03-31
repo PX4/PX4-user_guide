@@ -3,7 +3,8 @@
 [Microhard Pico Serial](http://microhardcorp.com/P900.php) radios enable MAVLink communication between a radio on a vehicle and a GCS.
 Microhard Pico Serial radios are 1 Watt output radios that support point to point, point to multi-point, and mesh modes.
 A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh.
-Vehicles must have different IDs.
+Vehicles must have different MAVLINK IDs.
+The Microhard Pico radios can also be ordered with AES-256 encryption.
 
 ![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
