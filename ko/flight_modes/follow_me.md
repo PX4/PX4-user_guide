@@ -8,26 +8,26 @@ author: Jimmy Johnson
 
 *추적* 모드를 사용하면 멀티콥터가 MAVLINK message [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET)을 사용하여 위치를 전송하는 대상을 자율적으로 추적할 수 있습니다.
 
-기체는 지정된 [상대 위치](#NAV_FT_FS), [수평 분리](#NAV_FT_DST) 및 홈 [ 높이 ](#NAV_MIN_FT_HT)에서 목표를 자동으로 추적합니다. By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home/arming position. While in this mode no user input is required.
+기체는 지정된 [상대 위치](#NAV_FT_FS), [수평 분리](#NAV_FT_DST) 및 홈 [ 높이 ](#NAV_MIN_FT_HT)에서 목표를 자동으로 추적합니다. 기본적으로 8 미터 거리와 홈/시동 위치에서 8 미터 높이에서 타겟 바로 뒤에서 따라갑니다. 이 모드에서는 사용자 입력이 필요하지 않습니다.
 
-:::tip PX4 currently ignores the altitude of/from the target and follows at a constant altitude above home. This limitation is because altitude sources from GPS on ground stations are often inaccurate.
+:::tip PX4는 현재 타겟의 고도를 무시하고 홈 위의 일정한 고도를 유지합니다. 이 제한은 지상국 GPS의 고도 소스가 종종 부정확하기 때문입니다.
 :::
 
-The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
+이 모드는 GPS 모듈이있는 Android 태블릿의 *QGroundControl* 및 <a href = "https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html">MAVSDK</a>에서 지원됩니다.
 
 :::note
-* This mode requires GPS. * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
+* 이 모드는 GPS가 필요합니다. *이 모드는 현재 멀티콥터에서만 지원됩니다. * 추적 대상은 위치 정보를 제공할 수 있어야 합니다. * *QGroundControl*은 GPS가있는 Android 기기에서만 이 모드를 지원합니다.
 :::
 
-@[youtube](https://youtu.be/RxDL4CtkzAQ)
+@[유투브](https://youtu.be/RxDL4CtkzAQ)
 
-## Safety Precautions
+## 안전 주의 사항
 
 :::warning
-**Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
+**추적 모드**는 장애물 회피 유형을 지원하지 않습니다. 이 모드를 사용시에는 특별한 주의가 필요합니다.
 :::
 
-The following flight precautions should be observed: - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions. By *default* this is 8 metres/26 feet above the home (arming) position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off). - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
+다음의 비행주의 사항을 준수하여야 합니다. - 추적 모드는 나무, 전선, 집 등에 의해 방해받지 않는 넓고 열린 공간에서만 사용하여야 합니다. -[추적 높이](#NAV_MIN_FT_HT)를 주위 장애물보다 훨씬 높은 값으로 설정합니다. *기본값*은 홈 (시동) 위치에서 8 미터 위 입니다. - 모드가 자동 이륙을 구현하더라도 착륙시 추적 모드로 전환하는 것보다 추적 모드를 시작하기 전에 수동으로 안전한 높이로 비행하는 것이 *안전*합니다. - Give your vehicle sufficient room to stop, especially when it is moving fast. Many Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by target system. If the GPS is not accurate, this will be reflected in follow me.
 
 ## Using Follow Me with QGroundControl
 
