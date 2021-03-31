@@ -111,7 +111,7 @@ The serial device depends on what port is used to connect the vehicle to the com
    ```
    Run Gazebo in HITL mode sh gazebo Tools/sitl_gazebo/worlds/iris.world
    ```sh
-   gazebo Tools/sitl_gazebo/worlds/iris.world
+   gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo.
 
