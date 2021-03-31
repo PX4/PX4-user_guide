@@ -18,7 +18,7 @@ Not all flight modes are available on all vehicle types, and some modes behave d
 
 Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
 
-Last of all, in multicopter [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) (unless handling a critical battery failsafe). Stick movement is ignored for autonomous fixed-wing flight.
+Last of all, in multicopter [autonomous modes](#categories) RC stick movement will change the vehicle to [Position mode](../flight_modes/position_mc.md) [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) (unless handling a critical battery failsafe). Stick movement is ignored for autonomous fixed-wing flight.
 
 <a id="categories"></a>
 
