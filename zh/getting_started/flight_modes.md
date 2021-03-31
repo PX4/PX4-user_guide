@@ -18,7 +18,7 @@ This topic provides an overview of the available the flight modes for different 
 
 一些飞行模式仅在飞行前和飞行中某些特定条件下起作用（如 GPS 锁定，空速传感器，某个轴的姿态感测）。 除非满足合适的条件，否则 PX4 不会允许切换到这些模式。
 
-Last of all, in multicopter [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) (unless handling a critical battery failsafe). Stick movement is ignored for autonomous fixed-wing flight.
+Last of all, in multicopter [autonomous modes](#categories) RC stick movement will change the vehicle to [Position mode](../flight_modes/position_mc.md) [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) (unless handling a critical battery failsafe). Stick movement is ignored for autonomous fixed-wing flight.
 
 <a id="categories"></a>
 

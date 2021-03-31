@@ -18,7 +18,7 @@
 
 일부 비행 모드는 특정 비행 전 및 비행 중 상태(예 : GPS 잠금 장치, 속도 센서, 축을 따라 비행기의 자세 감지)에서만 유의미합니다. PX4는 적절한 조건이 충족될 때까지 해당 모드로의 전환을 허용하지 않습니다.
 
-마지막으로, 멀티콥터 [자율 모드](#categories)에서 RC 스틱 이동은 [기본적으로](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) 기체를 [위치 모드](../flight_modes/position_mc.md)로 변경합니다 (중요한 배터리 안전 장치를 처리하지 않는 한). 고정익 비행에서는 스틱 이동이 무시됩니다.
+Last of all, in multicopter [autonomous modes](#categories) RC stick movement will change the vehicle to [Position mode](../flight_modes/position_mc.md) [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) (unless handling a critical battery failsafe). 고정익 비행에서는 스틱 이동이 무시됩니다.
 
 <a id="categories"></a>
 
