@@ -72,7 +72,7 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 Parameter | Description
 --- | ---
 <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture. <br>**Note:**<br>- This setting *disables the stick gesture*!<br>- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via *QGroundControl*.
-<span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a button. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on respective switch transitions.<br>-`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).
+<span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.<br>-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).
 
 :::note
 The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
