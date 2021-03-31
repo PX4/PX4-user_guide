@@ -4,7 +4,7 @@ author: Jimmy Johnson
 
 # 추적 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *추적* 모드를 사용하면 멀티콥터가 MAVLINK message [FOLLOW_TARGET](https://mavlink.io/en/messages/common.html#FOLLOW_TARGET)을 사용하여 위치를 전송하는 대상을 자율적으로 추적할 수 있습니다.
 
@@ -33,26 +33,26 @@ author: Jimmy Johnson
 
 *추적* 모드는 GPS 모듈이 탑재된 지상국 하드웨어의 *QGroundControl*에서 사용할 수 있습니다. 권장 구성은 텔레메트리를 사용하는 USB OTG 지원 Android 장치입니다.
 
-*추적* 모드를 설정하려면 : - 텔레메트리를 Android 장치와 기체에 모두에 장착하여, 두 라디오간에 위치 정보를 전송할 수 있습니다. -Android 기기에서 절전 모드 비활성화 : -이 설정은 일반적으로 ** 설정 > 디스플레이 **에서 찾을 수 있습니다. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Takeoff to a height of at least 2-3 metres (recommended even though auto-takeoff is supported). - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and takeoff. - Switch into follow me mode. - The copter will ascend to the specified [minimum height](#NAV_MIN_FT_HT) and then pause for a moment to assess the radio link. If the link update rate is OK the multicopter will then yaw to face the target.
+*추적* 모드를 설정하려면 : - 텔레메트리를 Android 장치와 기체에 모두에 장착하여, 두 라디오간에 위치 정보를 전송할 수 있습니다. -Android 기기에서 절전 모드 비활성화 : -이 설정은 일반적으로 ** 설정 > 디스플레이 **에서 찾을 수 있습니다. - GPS 신호가 일정한 간격으로 전송되지 않을 수 있으므로, Android 기기를 절전 모드로 전환되지 않도록 설정하여야 합니다. - 최소 2 ~ 3 미터 높이로 이륙합니다 (자동 이륙이 지원되더라도 권장됨). - 기체를 지면에 놓고 안전 스위치를 누른 다음, 최소 10m 뒤로 물러나십시오. - 시동후에 이륙합니다. - 추적 모드로 전환합니다. - 헬리콥터가 지정된 [최소 높이](#NAV_MIN_FT_HT)까지 상승후. 잠시 대기하여 텔레메트르 연결 상태를 평가합니다. 링크 업데이트 속도가 ON이면 멀티콥터가 목표를 향해 요잉합니다.
 
-At this point you should be able to start moving and the copter should follow your movements.
+이 시점에서 조정자가 움직이면, 멀티콥터는 당신의 움직임을 추적하여야 합니다.
 
-The mode has been tested on the following Android devices: - Nexus 5 - Nexus 7 Tablet
+이 모드는 다음 Android 장치에서 테스트되었습니다. - 넥서스 5 - Nexus 7 태블릿
 
-## Configuration
+## 설정
 
-The follow-me behaviour can be configured using the following parameters:
+추적 동작은 다음 매개변수를 사용하여 설정합니다.
 
-| Parameter                                                                                           | Description                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | Vehicle/ground station separation in the *horizontal* (x,y) plane. Minimum allowed separation is 1 meter. Default distance is 8 meters (about 26 ft).                                                                                       |
-| <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | Vehicle follow-me height. Note that this height is fixed *relative to the home/arming position* (not the target vehicle). Default and minimum height is 8 meters (about 26 ft).                                                             |
-| <span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS)         | Flight position relative to the user when follow-me mode is active.  
-- `0` = Follow from the front right.  
-- `1` = Follow from behind or trail the user (Default).  
-- `2` = Follow from the front.  
-- `3` = Follow from the front left. |
+| 매개변수                                                                                                | 설명                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="NAV_FT_DST"></span>[NAV_FT_DST](../advanced_config/parameter_reference.md#NAV_FT_DST)       | *수평* (x, y) 평면에서 차량/지상 스테이션 분리. 최소 허용 간격은 1 미터입니다. 기본 거리는 8 미터 (약 26 피트)입니다.                                                              |
+| <span id="NAV_MIN_FT_HT"></span>[NAV_MIN_FT_HT](../advanced_config/parameter_reference.md#NAV_MIN_FT_HT) | 기체 추적 높이. 이 높이는 *홈/시동 위치를 기준으로* 고정되어 있습니다 (대상 기체 아님). 기본 및 최소 높이는 8 미터 (약 26 피트)입니다.                                                      |
+| <span id="NAV_FT_FS"></span>[NAV_FT_FS](../advanced_config/parameter_reference.md#NAV_FT_FS)         | 추적 모드가 활성화되어 있을 때 사용자를 기준으로 한 비행 위치.   
+-`0` = 전면 우측에서 팔로우.   
+-`1` = 뒤에서 팔로우 또는 사용자 추적 (기본값).   
+-`2` = 정면에서 따르기.   
+-`3` = 정면 왼쪽에서 따르기. |
 
-## Known Issues
+## 알려진 이슈들
 
-- The SiK 915 Mhz [telemetry radio](../telemetry/sik_radio.md) is known to interfere with the GPS signal being received by some Android devices. Keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
+- SiK 915 Mhz [텔레메트리](../telemetry/sik_radio.md)는 일부 Android 기기에서 수신하는 GPS 신호를 방해하는 것으로 알려져 있습니다. 간섭을 피하기 위해 추적 대상 모드를 사용할 때 텔레메트리와 Android 장치를 가능한 멀리 두십시오.
