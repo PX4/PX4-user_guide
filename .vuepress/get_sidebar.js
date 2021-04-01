@@ -101,9 +101,12 @@ module.exports = {
                           //The parent of this is a new child group. So we need to create it as such and make it a parent.
                           let new_parent = {};
                           new_parent.title = last_item.title;
-                          new_parent.path = last_item.path;
+                          new_parent.path = ''; // last_item.path;
                           //new_parent.sidebarDepth = 1;
                           new_parent.children = [];
+                          //Add first child
+                          let entry = new Array(last_item.path, last_item.title+ ' (Overview)');
+                          new_parent.children.push(entry);
                           //console.log('  DEBUG:  Adding new_parent: ' + new_parent.title)
                           //console.log('    DEBUG:  path ' + new_parent.path)
                           parents.push(new_parent)
