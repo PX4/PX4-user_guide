@@ -1,5 +1,10 @@
 # Custom Payload Mixers
 
+:::warning
+From PX4 v1.12 you can trigger actuators for custom payloads "out of the box" using the `MAV_CMD_DO_SET_ACTUATOR` command (see [Payloads & Cameras](../payloads/README.md)).
+The approach described here is only useful when you want to add a custom module to control an output.
+:::
+
 This topic shows how to add a custom [mixer](../concept/mixing.md) for programmatically controlling a custom payload (e.g., an electromagnetic gripper).
 
 The topic is intended for developers who want to support payload types that do not have existing control group definitions (e.g. gimbals have a control group, but grippers do not).
