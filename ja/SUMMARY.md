@@ -354,6 +354,7 @@
     * [Sending Debug Values](debug/debug_values.md)
     * [System-wide Replay](debug/system_wide_replay.md)
     * [Profiling](debug/profiling.md)
+    * [Binary Size Profiling](debug/binary_size_profiling.md)
     * [Logging](dev_log/logging.md)
     * [Flight Log Analysis](dev_log/flight_log_analysis.md)
     * [ULog File Format](dev_log/ulog_file_format.md)
