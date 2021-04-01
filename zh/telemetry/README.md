@@ -9,6 +9,7 @@ PX4支持多种类型数传电台：
   * [HKPilot（SIK）遥测无线电](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro（SIK）遥测无线电](../telemetry/holybro_sik_radio.md)
 * [WiFi 数传](../telemetry/telemetry_wifi.md)
+* [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 
 PX4 协议兼容 [SiK 电台](../telemetry/sik_radio.md)，并且可以即插即用（尽管你可能需要使用适当的连接器）。
 
