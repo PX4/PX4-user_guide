@@ -131,6 +131,11 @@ Rebooting.
 
 Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
 
+You can also list all configuration targets using the command:
+```sh
+make list_config_targets
+```
+
 
 ## Compiling in a Graphical IDE
 
@@ -267,7 +272,6 @@ Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR
 Additional make targets are discussed in relevant sections:
 - `bloaty_compare_master`: [Binary Size Profiling]()
 - ...
-
 
 
 ## Firmware Version & Git Tags
