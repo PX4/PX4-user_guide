@@ -2,31 +2,30 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-기체는 MAVLink를 태워 전달한 위치, 속도, 고도 지점 설정을 따릅니다. 셋포인트 명령은 컴페니언 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 통해 기체의 fcu와 연결합니다.
+기체는 MAVLink를 태워 전달한 위치, 속도, 고도 지점 설정을 따릅니다. 셋포인트 명령은 보조 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 사용하여 보조 컴퓨터를 연결합니다.
 
-:::tip
-Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
+:::tip MAVLink에서 허용하는 모든 좌표 프레임과 필드 값이 모든 설정 점 메시지와 기체에 지원되는 것은 아닙니다. 지원되는 값을 확인하시려면, 아래 섹션을 *주의 하여* 읽으십시오. 모드에 작동 전과 모드가 작동하는 동안 설정 값은 2Hz이상에서 스트리밍되어야합니다.
 :::
 
 :::note
 
-* This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
-* RC control is disabled except to change modes.
-* The vehicle must be armed before this mode can be engaged.
-* The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged.
-* The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
-* Not all co-ordinate frames and field values allowed by MAVLink are supported.
+* 이 모드에는 위치 또는 자세/태도 정보(GPS, 광학 흐름, 시각-관성 주행 거리 측정, 모캡 등)가 필요합니다. 
+* RC 제어는 모드 변경을 제외하고 비활성화되어 있습니다.
+* 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
+* 이 모드를 사용하려면 차량이 이미 **목표 설정 값 (> 2Hz) 스트림**을 수신하고 있어야합니다.
+* 목표 설정 값이 2Hz 이상의 속도로 수신되지 않으면 기체의 모드를 종료합니다.
+* MAVLink에서 허용하는 모든 좌표 프레임 및 필드 값이 지원되는 것은 아닙니다.
 :::
 
-## Description
+## 설명
 
-Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink messages (more may be supported in future).
+오프보드 모드는 주로 기체의 움직임과 자세를 제어하는 데 사용되며, 매우 제한된 MAVLink 메시지 세트만 지원합니다 (향후 더 많은 기능이 지원될 수 있음).
 
-Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+이륙, 착륙, 발사 귀환과 같은 다른 작업은 적절한 모드를 사용하여 잘 처리됩니다. 업로드, 다운로드 임무와 같은 작업은 모든 모드에서 수행 가능합니다.
 
-A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
+모드를 시작하기 전에 기체는 설정 값 명령 스트림을 수신하여야 모드가 유지됩니다. 메시지 주파수가 2Hz 미만으로 떨어지면 기체는 정지합니다. 이 모드에서 위치를 유지하려면 기체는 현재 위치에 대한 일련의 설정 값을 수신하여야 합니다.
 
-Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+오프 보드 모드에는 원격 MAVLink 시스템 (예 : 컴패니언 컴퓨터 또는 GCS)에 대한 연결하여야 합니다. If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
 ## Supported Messages
 
