@@ -1,6 +1,6 @@
 # 오프보드(Offboard) 모드
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 기체는 MAVLink를 태워 전달한 위치, 속도, 고도 지점 설정을 따릅니다. 셋포인트 명령은 보조 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 사용하여 보조 컴퓨터를 연결합니다.
 
@@ -170,5 +170,5 @@ RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 
 
 다음의 리소스는 개발자에게 유용합니다.
 
-* [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
-* [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
+* [Linux 오프보드 제어](../ros/offboard_control.md) (PX4 개발 가이드)
+* [MAVROS 오프보드 제어 예제](../ros/mavros_offboard.md) (PX4 개발 가이드)
