@@ -50,9 +50,8 @@ Command parameters `param1`, `param2`, and `param3`, are mapped to the _same out
 Usually these are the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (the RC section above explains how to check).
 The other command parameters (`param4` to `param7`) are unused/ignored by PX4.
 
-The parameters take normalised values between -1 and 1.
+The parameters take normalised values in the range `[-1, 1]` (resulting in PWM outputs in the range `[PWM_AUX_MINx, PWM_AUX_MAXx]`, where X is the output number).
 All params/actuators that are not being controlled should be set to `NaN`.
-
 
 
 ### MAVSDK (Example script)
