@@ -25,27 +25,40 @@ The following topics show how to *connect* your camera configure PX4:
 Cargo drones commonly use servos/actuators to trigger cargo release, control winches, etc.
 PX4 supports servo and GPIO triggering via both RC and MAVLink commands.
 
-### Example Mission (in QGC)
-
-Use the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command to trigger one of the payload actuators.
-
 ### RC Triggering
 
 You can map up to three RC channels to control servos/actuators attached to the flight controller using the parameters [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3).
 
-The RC channels are then *usually* mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (but they don't have to be).
+The RC channels are *usually* mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller - _but they don't have to be_.
 You can check which outputs are used for RC AUX passthrough on your vehicle in the [Airframe Reference](../airframes/airframe_reference.html).
-For example, [Quadrotor-X](../airframes/airframe_reference.html#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel".
+For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel", "**AUX2:** feed-through of RC AUX2 channel", "**AUX3:** feed-through of RC AUX3 channel".
 
-If your vehicle has no mapping then you can add one by using a custom [Mixer File](https://docs.px4.io/master/en/concept/mixing.html) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
+If your vehicle doesn't specify RC AUX feed-through outputs, then you can add them using using a custom [Mixer File](../concept/mixing.md) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
 An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix).
 
+:::note
+The same outputs used for "feed-through of RC AUX" may also be set using a MAVLink command (see [below](#mission-triggering)).
+PX4 will use the last value set through either mechanism.
+:::
 
-### Example script (MAVSDK)
+
+### Mission Triggering
+
+You can use the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command to set (up to) three actuators values at a time, either in a mission or as a command.
+
+Command parameters `param1`, `param2`, and `param3`, are mapped to the _same outputs_ as are used for [RC triggering](#rc-triggering).
+Usually these are the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (the RC section above explains how to check).
+The other command parameters (`param4` to `param7`) are unused/ignored by PX4.
+
+The parameters take normalised values in the range `[-1, 1]` (resulting in PWM outputs in the range `[PWM_AUX_MINx, PWM_AUX_MAXx]`, where X is the output number).
+All params/actuators that are not being controlled should be set to `NaN`.
+
+
+### MAVSDK (Example script)
 
 The following [MAVSDK](https://mavsdk.mavlink.io/develop/en/) sample code shows how to trigger payload release.
 
-The code uses the MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command, specifying the value of up to 3 actuators.
+The code uses the MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command, specifying the value of (up to) 3 actuators.
 
 <!-- note, we still need to explain how to map those values to actual outputs on PX4 
 There are also questions on this script in the original PR.
