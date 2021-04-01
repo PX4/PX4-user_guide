@@ -25,42 +25,42 @@
 
 모드를 시작하기 전에 기체는 설정 값 명령 스트림을 수신하여야 모드가 유지됩니다. 메시지 주파수가 2Hz 미만으로 떨어지면 기체는 정지합니다. 이 모드에서 위치를 유지하려면 기체는 현재 위치에 대한 일련의 설정 값을 수신하여야 합니다.
 
-오프 보드 모드에는 원격 MAVLink 시스템 (예 : 컴패니언 컴퓨터 또는 GCS)에 대한 연결하여야 합니다. If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+오프 보드 모드에는 원격 MAVLink 시스템 (예 : 컴패니언 컴퓨터 또는 GCS)에 대한 연결하여야 합니다. 연결이 끊어지면 시간 초과([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 후에 기체는 착륙을 시도하거나 다른 안전 조치를 수행합니다. 작업은 [COM_OBL_ACT](#COM_OBL_ACT) 및 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 매개변수로 정의됩니다.
 
-## Supported Messages
+## 지원되는 메시지
 
-### Copter/VTOL
+### 멀티콥터/VTOL
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `x`, `y`, `z`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * Acceleration setpoint (only `afx`, `afy`, `afz`)
-    * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-    * Position setpoint **and** velocity setpoint **and** acceleration (the acceleration setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-  * * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+    * 위치 설정점(`x`, `y`, `z` 만 해당.)
+    * 속도 설정 점 (`vx`, `vy`, `vz` 만 해당)
+    * 가속도 설정점 (`afx`, `afy`, `afz` 만 해당)
+    * 위치 설정 값 **및** 속도 설정 값 (속도 설정 값은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 결과는 속도 컨트롤러의 입력으로 사용됨).
+    * 위치 설정 값 **및** 속도 설정 값 **및** 가속 (가속도 설정 값은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 그 결과가 속도 컨트롤러의 입력으로 사용됨).
+  * * PX4는 `coordinate_frame` 값 (전용)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * 다음 입력 조합이 지원됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
-    * Position setpoint (only `lat_int`, `lon_int`, `alt`)
-    * Velocity setpoint (only `vx`, `yy`, `vz`)
-    * *Thrust* setpoint (only `afx`, `afy`, `afz`)
+    * 위치 설정점(`lat_int`, `lon_int`, `alt` 만 해당.)
+    * 속도 설정 점 (`vx`, `vy`, `vz` 만 해당)
+    * *추진력* 설정점 (`afx`, `afy`, `afz` 만 해당)
     
 :::note
-Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
+가속 설정점은 정규화된 추력 설정 값을 만들기 위하여 매핑됩니다 (즉, 가속 설정값은 "올바르게"지원되지 않음).
 :::
     
-    * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-  * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+    * 위치 설정 값 **및** 속도 설정 값 (속도 설정 값은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 결과는 속도 컨트롤러의 입력으로 사용됨).
+  * PX4는 다음 `coordinate_frame` 값 (전용)을 지원합니다 : [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
-  * The following input combinations are supported: 
-    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
+  * 다음 입력 조합이 지원됩니다. 
+    * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 있는 자세/방향 (`SET_ATTITUDE_TARGET.q`).
     * Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
 
 * [MAV_CMD_DO_CHANGE_SPEED](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_CHANGE_SPEED)
