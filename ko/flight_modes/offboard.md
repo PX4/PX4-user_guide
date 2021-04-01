@@ -36,9 +36,9 @@
   * 다음 입력 조합이 지원됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * 위치 설정점(`x`, `y`, `z` 만 해당.)
-    * 속도 설정 점 (`vx`, `vy`, `vz` 만 해당)
-    * 가속도 설정점 (`afx`, `afy`, `afz` 만 해당)
-    * 위치 설정 값 **및** 속도 설정 값 (속도 설정 값은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 결과는 속도 컨트롤러의 입력으로 사용됨).
+    * 속도 설정점 (`vx`, `vy`, `vz` 만 해당)
+    * 가속도 설정점 (`afx`, `afy`, `afz` 만 해당) 
+    * 위치 설정점 및 속도 설정점 (속도 설정점은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 결과는 속도 컨트롤러의 입력으로 사용됨).
     * 위치 설정 값 **및** 속도 설정 값 **및** 가속 (가속도 설정 값은 피드 포워드로 사용되며 위치 컨트롤러의 출력에 추가되고 그 결과가 속도 컨트롤러의 입력으로 사용됨).
   * * PX4는 `coordinate_frame` 값 (전용)을 지원합니다 : [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 및 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
@@ -148,31 +148,27 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
   * `type_mask`에서 설정점의 *유형*을 지정합니다 (MAVLink 표준의 일부가 아님). 값들은 다음과 같습니다: 
     * 다음 비트가 설정되지 않으면 정상적인 동작입니다.
     * -12288 : Loiter 설정점 (설정점에 매우 가까워지면 기체는 멈춤).
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  * PX4는 좌표 프레임 (`coordinate_frame` 필드)을 지원합니다 : [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
-  * The following input combinations are supported: 
-    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`). :::note Only the yaw setting is actually used/extracted.
+  * 다음 입력 조합이 지원됩니다. 
+    * 추력 설정점 (`SET_ATTITUDE_TARGET.thrust`)이 있는 자세/방향 (`SET_ATTITUDE_TARGET.q`). :::note yaw 설정만 실제로 사용/추출됩니다.
 :::
 
-## Offboard Parameters
+## 오프보드 매개변수
 
-*Offboard mode* is affected by the following parameters:
+*오프보드 모드*는 아래의 매개 변수의 영향을받습니다.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_ACT` and `COM_OBL_RC_ACT`)                                                                                                             |
-| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | Mode to switch to if offboard control is lost when *not* connected to RC (Values are - 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md)).                                                 |
-| <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | Mode to switch to if offboard control is lost while still connected to RC control (Values are - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md)). |
-| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) causes a mode change to [Position mode](../flight_modes/position_mc.md). This is not enabled for offboard mode by default.                                                         |
-| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                                                                          |
+RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 전환할 모드 (값 :-0 : *위치*, 1 : [고도](../flight_modes/altitude_mc.md), 2 : *수동</0) >, 3 : [복귀](../flight_modes/return.md), 4 : [착륙](../flight_modes/land.md)).</td> </tr> 
 
-## Developer Resources
+</tbody> </table> 
 
-Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
+## 개발자 리소스
 
-The following resources may be useful for a developer audience:
+일반적으로 개발자는 MAVLink 계층에서 직접 작업하지 않지만 대신 [MAVSDK](https://mavsdk.mavlink.io/) 또는 [ROS](http://www.ros.org/)와 같은 로봇 API를 사용합니다 (이는 개발자 친화적인 API를 제공하고 관리 및 유지 관리를 처리합니다. 연결, 메시지 전송 및 응답 모니터링-*오프보드 모드* 및 MAVLink 작업의 세부 사항).
+
+다음의 리소스는 개발자에게 유용합니다.
 
 * [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
 * [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
