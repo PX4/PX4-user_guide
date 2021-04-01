@@ -227,6 +227,7 @@
       * [Telemetry Wifi](telemetry/telemetry_wifi.md) 
         * [ESP8266 WiFi Module](telemetry/esp8266_wifi_module.md)
         * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
+      * [Microhard Serial Telemetry Radio](telemetry/microhard_serial.md)
     * [FrSky Telemetry](peripherals/frsky_telemetry.md)
     * [Power Modules](power_module/README.md) 
       * [CUAV HV pm](power_module/cuav_hv_pm.md)

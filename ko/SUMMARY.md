@@ -227,6 +227,7 @@
       * [텔레메트리 무선랜](telemetry/telemetry_wifi.md) 
         * [ESP8266 WiFi 모듈](telemetry/esp8266_wifi_module.md)
         * [3DR 텔레메트리 WiFi (단종)](telemetry/3dr_telemetry_wifi.md)
+      * [Microhard Serial Telemetry Radio](telemetry/microhard_serial.md)
     * [FrSky 텔레메트리](peripherals/frsky_telemetry.md)
     * [전원 모듈](power_module/README.md) 
       * [CUAV HV pm](power_module/cuav_hv_pm.md)
