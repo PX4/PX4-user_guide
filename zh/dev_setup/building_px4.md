@@ -116,81 +116,65 @@ Rebooting.
 
 并上传：
 
+You can also list all configuration targets using the command:
+```sh
+make list_config_targets
+```
+
 
 ## 用图形界面 IDE 编译
 
 [VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
 
+
 ## Qt Creator 功能
 
-The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc. This section shows how *make* options are constructed and how to find the available choices.
+### 将固件烧录到飞控板
 
-要在骁龙启动后立即运行 PX4，您可以将启动添加到 `rc.local`：
-```sh
-make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
+Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
 ```
-
-成功生成,，然后执行 PX4 将会看到如下内容：
-
-- **VENDOR:** The manufacturer of the board: `px4`, `aerotenna`, `airmind`, `atlflight`, `auav`, `beaglebone`, `intel`, `nxp`, etc. The vendor name for Pixhawk series boards is `px4`.
-- **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
-- **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
-
-:::tip
-You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
-```sh
 sudo ./bin/px4 -s px4.config
 ```
-[Parrot Bebop](https://docs.px4.io/en/flight_controller/bebop.html)的支持还处于早期阶段，应当格外小心。
 
-**VIEWER_MODEL_DEBUGGER_WORLD:**
+### OcPoC-Zynq Mini
 
-- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
 
-:::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, gazebo, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
-:::
-- **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](../simulation/README.md#startup-scripts) to select appropriate parameters.
-- **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
+If you're building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
 
-:::tip
-You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+
+
+### Parrot Bebop
+
+MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
+
+The build toolchain will then report `Too many open files` for many files, as shown below:
 ```sh
 cd Firmware
 make emlid_navio2_native # for native build
 ```
-到上一个终端并上传：
 
-Notes:
-- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
-- **MODEL:**要使用的 *载具* 模型（例如 `iris` (*default*)、`rover`、`tailsitter` 等），该模型将由模拟器加载。 环境变量 `PX4_SIM_MODEL` 将设置为所选模型。 然后在 [启动脚本 ](#scripts) 中使用该模型来选择适当的参数。
-- **DEBUGGER:**要使用的调试器：`none` (*default*)、`ide`、`gdb`、`lldb`、`ddd`、`valgrind`、`callgrind`。 有关详细信息，请参阅 < 0>Simulation 调试 </0>。
+The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
+- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
+- Enter this command:
+  ```sh
+  ulimit -S -n 300
+  ```
 
+### Qt creator 提供符号跳转、自动补全和编译固件的功能。
 
-The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
-
-运行 DSP 调试监控器：
-
-
-### 将固件烧录到飞控板
-
-The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
-
-:::tip
-This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
-:::
-
-*Bloaty* must be in your path and found at *cmake* configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install *bloaty* as shown:
-```
-git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
-    && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
-    && rm -rf /tmp/*
-```
-
-The example below shows how you might see the impact of removing the *mpu9250* driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
+As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
 ```sh
- <br />______  __   __    ___
+xcode-select --install
+sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
+```
+
+### 基于 QuRT / Snapdragon 的飞控板
+
+"Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
+```
+<br />______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -202,34 +186,70 @@ px4 starting.
 
 pxh&gt;
 ```
-Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
-```sh
-% make px4_fmu-v2_default bloaty_compare_master
-...
-...
-...
-     VM SIZE                                                                                        FILE SIZE
- --------------                                                                                  --------------
-  [DEL]     -52 MPU9250::check_null_data(unsigned int*, unsigned char)                               -52  [DEL]
-  [DEL]     -52 MPU9250::test_error()                                                                -52  [DEL]
-  [DEL]     -52 MPU9250_gyro::MPU9250_gyro(MPU9250*, char const*)                                    -52  [DEL]
-  [DEL]     -56 mpu9250::info(MPU9250_BUS)                                                           -56  [DEL]
-  [DEL]     -56 mpu9250::regdump(MPU9250_BUS)                                                        -56  [DEL]
-...                                        -336  [DEL]
-  [DEL]    -344 MPU9250_mag::_measure(ak8963_regs)                                                  -344  [DEL]
-  [DEL]    -684 MPU9250::MPU9250(device::Device*, device::Device*, char const*, char const*, cha    -684  [DEL]
-  [DEL]    -684 MPU9250::init()                                                                     -684  [DEL]
-  [DEL]   -1000 MPU9250::measure()                                                                 -1000  [DEL]
- -41.3%   -1011 [43 Others]                                                                        -1011 -41.3%
-  -1.0% -1.05Ki [Unmapped]                                                                       +24.2Ki  +0.2%
-  -1.0% -10.3Ki TOTAL                                                                            +14.9Ki  +0.1%
+运行 DSP 调试监控器：
+
+You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the *mpu9250* driver.
+pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+```
 
 
 ## PX4 创建生成目标
 
-同步后重启：
+The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc. This section shows how *make* options are constructed and how to find the available choices.
+
+The full syntax to call *make* with a particular configuration and initialization file is:
+```sh
+make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
+```
+
+**VENDOR_MODEL_VARIANT**: (also known as `CONFIGURATION_TARGET`)
+
+- **VENDOR:** The manufacturer of the board: `px4`, `aerotenna`, `airmind`, `atlflight`, `auav`, `beaglebone`, `intel`, `nxp`, etc. The vendor name for Pixhawk series boards is `px4`.
+- **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
+- **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
+
+:::tip
+You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
+```sh
+cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
+```
+:::
+
+**VIEWER_MODEL_DEBUGGER_WORLD:**
+
+- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+
+:::tip
+`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, gazebo, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
+:::
+- **MODEL:**要使用的 *载具* 模型（例如 `iris` (*default*)、`rover`、`tailsitter` 等），该模型将由模拟器加载。 环境变量 `PX4_SIM_MODEL` 将设置为所选模型。 然后在 [启动脚本 ](#scripts) 中使用该模型来选择适当的参数。
+- **DEBUGGER:**要使用的调试器：`none` (*default*)、`ide`、`gdb`、`lldb`、`ddd`、`valgrind`、`callgrind`。 有关详细信息，请参阅 < 0>Simulation 调试 </0>。
+- **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
+
+:::tip
+You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
+```sh
+make px4_sitl list_vmd_make_targets
+```
+:::
+
+Notes:
+- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
+- You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo___gdb` is equivalent to `gazebo_iris_gdb`.
+- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
+
+
+The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
+
+Additional make targets are discussed in relevant sections:
+- `bloaty_compare_master`: [Binary Size Profiling]()
+- ...
+
+
+## 列出所有发行版本（标签） sh git tag -l
+
+The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup > Summary** airframe panel:
 
 ![Firmware info](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
 
@@ -240,58 +260,3 @@ If you use a different git tag format, versions information may not be displayed
 :::
 
 
-## 列出所有发行版本（标签） sh git tag -l
-
-### OcPoC-Zynq Mini
-
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
-```
-git submodule update --recursive
-make distclean
-```
-
-### Parrot Bebop
-
-The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
-
-If you're building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
-
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
-
-
-### Qt creator 提供符号跳转、自动补全和编译固件的功能。
-
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
-
-注意：在 Mac 上可以使用 [nano-dm](https://github.com/kevinmehall/nano-dm)。
-```sh
-cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
-```
-
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
-- Enter this command:
-  ```sh
-  ulimit -S -n 300
-  ```
-
-### 基于 QuRT / Snapdragon 的飞控板
-
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
-```sh
-xcode-select --install
-sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
-```
-
-### 在 Linux 上使用 Qt creator
-
-{% youtube %}https://www.youtube.com/watch?v=0pa0gS30zNw&rel=0&vq=hd720{% endyoutube %}
-```
-adb shell
-```
-If you have already installed these dependencies this may be because there is more than one Python version on the computer (e.g. Python 2.7.16 Python 3.8.3), and the module is not present in the version used by the build toolchain.
-
-You should be able to fix this by explicitly installing the dependencies as shown:
-```
-make atlflight_eagle_default upload
-```
