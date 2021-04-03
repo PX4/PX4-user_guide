@@ -41,47 +41,47 @@ PX4는 모든 모드에서 저속 저고도([범위지원](#range_aid))에서 �
 지형 유지는[MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE)를 `2`로 설정하면 활성화됩니다.
 
 :::note
-*지형 유지*는 [지형 추적](#terrain_following)과 유사하게 구현됩니다. EKF 추정기의 출력을 사용하여 고도 추정치를 제공하고 추정 지형 고도 (별도의 단일 상태 지형 추정기를 사용하여 거리 센서 측정에서 계산 됨)를 사용하여 고도 설정치를 제공합니다. If the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
+*지형 유지*는 [지형 추적](#terrain_following)과 유사하게 구현됩니다. EKF 추정기의 출력을 사용하여 고도 추정치를 제공하고 추정 지형 고도 (별도의 단일 상태 지형 추정기를 사용하여 거리 센서 측정에서 계산 됨)를 사용하여 고도 설정치를 제공합니다. 외부 힘으로 인해 지면까지의 거리가 변경되면, 지면 위의 높이를 일정하게 유지하기 위해 고도 설정 값이 조정됩니다.
 :::
 
 <span id="distance_sensor_primary_altitude_source"></span>
 
-## Distance Sensor as Primary Source of Height
+## 높이의 주요 소스인 거리 센서
 
-PX4 allows you to make a distance sensor the *primary source of altitude data* (in any flight mode/vehicle type). This may be useful when no barometer is available, or for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
+PX4를 사용하면 거리 센서를 *고도 데이터의 기본 소스* (모든 비행 모드/기체 유형에서)로 만들 수 있습니다. 이는 기압계를 사용할 수 없거나 기체가 거의 평평한 표면 (예 : 실내) 위로만 비행을 *보장*하는 애플리케이션에 유용할 수 있습니다.
 
 :::tip
-The default and preferred altitude sensor for most use cases is the barometer (when available).
+대부분의 사용 사례에서 기본 및 선호되는 고도 센서는 기압계입니다 (사용 가능한 경우).
 :::
 
-When using a distance sensor as the primary source of height, fliers should be aware:
+거리 센서를 주요 높이 소스로 사용할 때 플라이어는 다음 사항에 유의하여야 합니다.
 
-- Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator is relying purely on accelerometer estimates.
+- 장애물 위로 비행하면 추정기가 거리계 데이터를 거부할 수 있으며 (내부 데이터 일관성 검사로 인해), 추정기가 낮은 고도 유지를 초래할 수 있습니다. 가속도계 추정치에만 의존하고 있습니다.
     
 :::note
-This scenario might occur when a vehicle ascends a slope at a near-constant height above ground, because the rangefinder altitude does not change while that estimated from the accelerometer does.  
-    The ECL performs innovation consistency checks that take into account the error between measurement and current state as well as the estimated variance of the state and the variance of the measurement itself. If the checks fail the rangefinder data will be rejected, and the altitude will be estimated from the accelerometer. After 5 seconds of inconsistent data the estimator resets the state (in this case height) to match the current distance sensor data. The measurements might also become consistent again, for example, if the vehicle descends, or if the estimated height drifts to match the measured rangefinder height. <!-- see discussion https://github.com/PX4/px4_user_guide/pull/457#pullrequestreview-221010392 -->
+이 시나리오는 기체가 지상에서 거의 일정한 높이에서 경사를 상승하는 경우에 발생할 수 있습니다. 왜냐하면, 거리계의 고도는 가속도계에서 추정한 고도는 변하지 않기 때문입니다.   
+    ECL은 측정과 현재 상태 사이의 오류는 물론 상태의 추정 된 분산과 측정 자체의 분산을 고려하는 혁신 일관성 검사를 수행합니다. 검사에 실패하면 거리계 데이터가 거부되고 고도는 가속도계에서 추정됩니다. 일관되지 않은 데이터 5 초 후 추정기는 현재 거리 센서 데이터와 일치하도록 상태 (이 경우 높이)를 재설정합니다. 예를 들어, 기체가 하강하거나 예상 높이가 측정된 거리계 높이와 일치하도록 드리프트하는 경우에도 측정 값이 다시 일관될 수 있습니다. <!-- see discussion https://github.com/PX4/px4_user_guide/pull/457#pullrequestreview-221010392 -->
 :::
 
-- The local NED origin will move up and down with ground level.
+- 로컬 NED 원점은 지면과 함께 위아래로 이동합니다.
 
-- Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data. This again leads to poor altitude hold.
+- 고르지 않은 표면(예 : 나무)에서 거리 측정기 성능이 매우 나빠서 노이즈가 많고 데이터가 일관되지 않을 수 있습니다. 이것은 다시 낮은 고도 유지로 이어집니다.
 
-The feature is enabled by setting: [EKF2_HGT_MODE=2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
+이 기능은 [EKF2_HGT_MODE = 2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 설정으로 활성화됩니다.
 
 <span id="range_aid"></span>
 
-## Range Aid
+## 거리 보조 장치
 
-*Range Aid* uses a distance sensor as the primary source of height estimation during low speed/low altitude operation, but will otherwise use the primary source of altitude data defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) (typically a barometer). It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+*거리 보조 장치*은 저속 저고도 비행 중 높이 추정의 기본 소스로 거리 센서를 사용하지만, 그렇지 않으면 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)에 정의된 고도 데이터의 기본 소스를 사용합니다 (일반적으로 기압계). 기압계 설정이 로터 세척의 간섭이 과도하고, EKF 상태 추정치를 손상시킬 수있는 경우에 주로 *이착륙*을 위한 것입니다.
 
-Range aid may also be used to improve altitude hold when the vehicle is stationary.
+기체가 정지할 때 고도 유지를 개선하기 위해 거리 보조 장치를 사용할 수도 있습니다.
 
 :::tip
-[Terrain Hold](#terrain_hold) is recommended over *Range Aid* for terrain holding. This is because terrain hold uses the normal ECL/EKF estimator for determining height, and this is generally more reliable than a distance sensor in most conditions.
+[지형 유지](#terrain_hold)는 지형 유지를 위해 *거리 보조 장치*보다 권장됩니다. 이는 지형 유지가 높이를 결정하는 데 일반 ECL/EKF 추정기를 사용하기 때문이며 일반적으로 대부분의 조건에서 거리 센서보다 더 안정적입니다.
 :::
 
-*Range Aid* is enabled by setting [EKF2_RNG_AID=1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (when the primary source of altitude data ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)) is *not* the rangefinder).
+*거리 보조 장치*은 [EKF2_RNG_AID = 1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (고도 데이터의 기본 소스 ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)))가 거리계가 *아닌* 경우 설정하여 활성화됩니다.).
 
 Range aid is further configured using the `EKF2_RNG_A_` parameters:
 
