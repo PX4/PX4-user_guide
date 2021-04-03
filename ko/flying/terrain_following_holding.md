@@ -2,7 +2,7 @@
 
 PX4는 *멀티 콥터*에서 [위치](../flight_modes/position_mc.md) 및 [고도 모드](../flight_modes/altitude_mc.md)에서 [지형 추적](#terrain_following) 및 [지형 유지](#terrain_hold), 및 [거리 센서](../sensor/rangefinders.md)가 있는 *MC 모드의 VTOL 차량*를 지원합니다. 
 
-PX4 also supports using a *distance sensor* as the [primary source of altitude data](#distance_sensor_primary_altitude_source) in any mode, either all the time, or just when flying at low altitudes at low velocities ([Range Aid](#range_aid)).
+PX4는 모든 모드에서 저속 저고도([범위지원](#range_aid))에서 비행시 [고도 데이터의 기본 소스](#distance_sensor_primary_altitude_source)로 *거리 센서* 사용합니다.
 
 :::note PX4 does not "natively" support terrain following in missions. *QGroundControl* can be used to define missions that *approximately* follow terrain (this just sets waypoint altitudes based on height above terrain, where terrain height at waypoints is obtained from a map database).
 :::
