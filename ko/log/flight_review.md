@@ -2,11 +2,11 @@
 
 [Flight Review](http://logs.px4.io) 는 기체의 상태를 점검하기 위해 사용할 수 있습니다
 
-The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
+챠트은 자명하지만, 허용 범위와 챠트는 어떤 모양이어야 하는지를 알기 위해서는 약간의 경험이 필요합니다. 이 페이지에서는 챠트을 해석하고 일반적인 문제를 식별하는 방법을 설명합니다.
 
-## General Usage
+## 일반적인 사용법
 
-Features that are common to many plots:
+여러 챠트에 공통적 인 기능 :
 
 - Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
     - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
