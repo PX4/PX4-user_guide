@@ -2,7 +2,7 @@
 
 PX4는 *멀티 콥터*에서 [위치](../flight_modes/position_mc.md) 및 [고도 모드](../flight_modes/altitude_mc.md)에서 [지형 추적](#terrain_following) 및 [지형 유지](#terrain_hold), 및 [거리 센서](../sensor/rangefinders.md)가 있는 *MC 모드의 VTOL 차량*를 지원합니다. 
 
-PX4는 모든 모드에서 저속 저고도([범위지원](#range_aid))에서 비행시 [고도 데이터의 기본 소스](#distance_sensor_primary_altitude_source)로 *거리 센서* 사용합니다.
+PX4는 모든 모드에서 저속 저고도([범위지원](#range_aid))에서 비행시 [고도 데이터의 기본 소스](#distance_sensor_primary_altitude_source)로 *거리 센서*를사용합니다.
 
 :::note PX4는 임무 모드에서는 지형 추적을 "기본적으로" 지원하지 않습니다. *QGroundControl*을 사용하여 지형을 *대략* 따르는 임무를 정의 할 수 있습니다 (이는 지형 위의 높이를 기준으로 웨이포인트 고도를 설정하며, 웨이포인트의 지형 높이는 지도 데이터베이스에서 가져옴).
 :::
@@ -18,30 +18,30 @@ PX4는 모든 모드에서 저속 저고도([범위지원](#range_aid))에서 �
 
 *지형 추적*이 활성화되면 PX4는 EKF 추정기의 출력을 사용하여 고도 추정치를 제공하고 추정 지형 고도 (다른 추정기를 사용하여 거리 센서 측정에서 계산)를 제공하여 고도 설정치를 제공합니다. 지면까지의 거리가 변하면, 고도 설정 값이 조정되어지면 위의 높이를 일정하게 유지합니다.
 
-At higher altitudes (when the estimator reports that the distance sensor data is invalid) the vehicle switches to *altitude following*, and will typically fly at a near-constant height above mean sea level (AMSL) using the barometer for altitude data.
+더 높은 고도에서 (추정기가 거리 센서 데이터가 유효하지 않다고보고하는 경우) 기체는 *다음 고도*로 전환되며, 일반적으로 기압계를 사용하여 고도 데이터를 측정하여 평균 해발(AMSL) 위의 거의 일정한 고도로 비행합니다.
 
 :::note
-More precisely, the vehicle will use the *primary source of altitude data* as defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE). This is, by default, the barometer.
+보다 정확하게는 기체는 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)에 정의한 *고도 데이터의 기본 소스*를 사용합니다. 이것은 기본적으로 기압계입니다.
 :::
 
-Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.
+지형 추적은 [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE)를 `1`로 설정하면 활성화됩니다.
 
 <span id="terrain_hold"></span>
 
-## Terrain Hold
+## 지형 유지
 
-*Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude. This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
+*지형 유지*는 거리 센서를 사용하여 고도 제어 모드에서 기체가 낮은 고도에서 수평으로 고정되어 있을 때 지면에서 일정한 높이를 유지하도록 도와줍니다. 이를 통해 기체는 기압계 드리프트 또는 로터 세척으로 인한 과도한 기압계 간섭으로 인한 고도 변화를 피할 수 있습니다.
 
 :::note
-This feature can be enabled in [Position](../flight_modes/position_mc.md) and [Altitude modes](../flight_modes/altitude_mc.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
+이 기능은 [위치 모드](../flight_modes/position_mc.md)와 [고도 모드](../flight_modes/altitude_mc.md), *멀티콥터* 및 [거리 센서](../sensor/rangefinders.md)를 장착한 *MC 모드의 VTOL 기체*에서 사용할 수 있습니다.
 :::
 
-When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)), or above the altitude where the distance sensor is providing valid data, the vehicle will switch into *altitude following*.
+수평으로 (`속도 >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY)) 이동하거나 거리 센서가 유효한 데이터를 제공하는 고도 이상으로 이동할 때 기체는 *추종 고도*로 전환됩니다.
 
-Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `2`.
+지형 유지는[MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE)를 `2`로 설정하면 활성화됩니다.
 
 :::note
-*Terrain hold* is implemented similarly to [terrain following](#terrain_following). It uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using a separate, single state terrain estimator) to provide the altitude setpoint. If the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
+*지형 유지*는 [지형 추적](#terrain_following)과 유사하게 구현됩니다. EKF 추정기의 출력을 사용하여 고도 추정치를 제공하고 추정 지형 고도 (별도의 단일 상태 지형 추정기를 사용하여 거리 센서 측정에서 계산 됨)를 사용하여 고도 설정치를 제공합니다. If the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
 :::
 
 <span id="distance_sensor_primary_altitude_source"></span>
