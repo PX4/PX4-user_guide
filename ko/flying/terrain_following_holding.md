@@ -83,8 +83,8 @@ PX4를 사용하면 거리 센서를 *고도 데이터의 기본 소스* (모든
 
 *거리 보조 장치*은 [EKF2_RNG_AID = 1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (고도 데이터의 기본 소스 ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)))가 거리계가 *아닌* 경우 설정하여 활성화됩니다.).
 
-Range aid is further configured using the `EKF2_RNG_A_` parameters:
+거리 보조 장치는 `EKF2_RNG_A_` 매개 변수를 사용하여 추가로 설정합니다.
 
-- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizontal speed, above which range aid is disabled.
-- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
-- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX) : 범위 보조 기능이 비활성화 된 최대 수평 속도.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) : 범위 보조 기능이 비활성화 된 최대 높이.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE) : 범위 지원 일관성이 "게이트"(범위 지원이 비활성화되기 전의 오류 측정)를 확인합니다.
