@@ -160,9 +160,13 @@ See https://github.com/PX4/PX4-Autopilot/pull/12149 and https://github.com/PX4/P
 
 *오프보드 모드*는 아래의 매개 변수의 영향을받습니다.
 
-RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 전환할 모드 (값 :-0 : *위치*, 1 : [고도](../flight_modes/altitude_mc.md), 2 : *수동</0) >, 3 : [복귀](../flight_modes/return.md), 4 : [착륙](../flight_modes/land.md)).</td> </tr> 
-
-</tbody> </table> 
+| 매개변수                                                                                                    | 설명                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)     | 오프보드 손실 안전 장치 (`COM_OBL_ACT` 및 `COM_OBL_RC_ACT`) 동작 전에 오프 보드 연결이 손실되었을 때 대기하는 시간 제한 (초)                                    |
+| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)         | RC에 연결되지 *않았을 때* 오프 보드 제어가 손실된 경우 전환할 모드                                                                                   |
+| <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT)   | RC 제어에 연결되어 있는 동안 오프보드 제어가 손실된 경우 전환할 모드.                                                                                  |
+| <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 멀티콥터 (또는 MC 모드의 VTOL)에서 스틱 이동으로 인해 모드가 [위치 모드](../flight_modes/position_mc.md)로 변경 여부를 제어합니다. 기본적으로 오프보드 모드에서는 활성화되지 않습니다. |
+| <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | [위치 모드](../flight_modes/position_mc.md)로 전환하는 스틱 이동량 ([COM_RC_OVERRIDE](#COM_RC_OVERRIDE)이 활성화된 경우).                     |
 
 ## 개발자 리소스
 
