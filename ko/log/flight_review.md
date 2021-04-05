@@ -1,22 +1,22 @@
 # Flight Review를 이용한 로그 분석
 
-[Flight Review](http://logs.px4.io) 는 기체의 상태를 점검하기 위해 사용할 수 있습니다
+[Flight Review](http://logs.px4.io) 는 기체 상태 점검에 사용할 수 있습니다.
 
-챠트은 자명하지만, 허용 범위와 챠트는 어떤 모양이어야 하는지를 알기 위해서는 약간의 경험이 필요합니다. 이 페이지에서는 챠트을 해석하고 일반적인 문제를 식별하는 방법을 설명합니다.
+플롯은 자명하지만, 허용 범위와 폴롯은 어떤 모양이어야 하는 지를 알기 위해서는 약간의 경험이 필요합니다. 이 페이지에서는 챠트을 해석하고 일반적인 문제를 식별하는 방법을 설명합니다.
 
 ## 일반적인 사용법
 
-여러 챠트에 공통적 인 기능 :
+여러 플롯에 공통적 인 기능 :
 
-- Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
-    - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
-    - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed wing, and red for transition).
-- Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
-- Mouse scrolling inside the plot zooms both axes.
+- 플롯 배경색은 기록 중 비행 모드를 나타내는 데 사용됩니다 (그래프는 모드에 따라 다름). ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
+    - **비행 모드 :** 플롯 본문의 배경색은 비행 모드를 나타냅니다. 플롯 위로 마우스를 가져 가면 비행 모드 레이블이 표시됩니다.
+    - **VTOL 비행 모드 :** VTOL 기체는 추가로 플롯 하단에 VTOL 모드를 배경색으로 표시합니다 (멀티콥터의 경우 파란색, 고정익의 경우 노란색, 전환의 경우 빨간색).
+- 특정 플롯 축을 마우스로 스크롤 하면 해당 축이 확대됩니다 (수평 또는 수직).
+- 플롯 내에서 마우스를 스크롤 하면 두 축이 모두 확대됩니다.
 
 <span id="tracking"></span>
 
-## PID Tracking Performance
+## PID 추적 성능
 
 Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
 
