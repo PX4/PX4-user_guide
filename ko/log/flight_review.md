@@ -99,97 +99,97 @@ S500 프레임:
 
 ![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-DJI F450 frame (good vibration). ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
 :::note
-Above you can see the blade passing frequency of the propellers at around 100 Hz.
+위에서는 약 100Hz에서 프로펠러의 블레이드 통과 주파수를 볼 수 있습니다.
 :::
 
-S500 frame: ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+S500 프레임:![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
-#### Examples: Bad Vibration
+#### 예: 불량 진동
 
-The strong yellow lines at around 100Hz indicate a potential issue that requires further investigation (starting with a review of the other charts).
+약 100Hz의 강한 노란색 선은 추가 조사가 필요한 잠재적인 문제를 나타냅니다 (다른 차트 검토부터 시작).
 
 ![High vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
 
-This plot below shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
+이 플롯은 50Hz에 가까운 주파수의 피크를 보여줍니다 (이 경우 "느슨한"랜딩 기어로 인해).
 
 :::tip
-This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics. With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
+이것은 기체 역학에 가까운 강력한 단일 저주파이기 때문에 가능한 문제를 나타냅니다. 기본 필터 설정인 80Hz 진동은 50Hz에서 필터링되지 않습니다.
 :::
 
 ![Vibrations in landing gear - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
-Extremely high (unsafe) vibration! Note that the graph is almost completely yellow.
+매우 높은 (안전하지 않은) 진동! 그래프는 거의 완전히 노란색입니다.
 
 :::warning
-You should not fly with such high vibration levels.
+높은 진동 수준으로 비행하여서는 안됩니다.
 :::
 
 ![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
-### Raw Acceleration
+### 원시 가속
 
-This graph shows the raw accelerometer measurements for the x, y and z axis. Ideally each line is thin and clearly shows the vehicle's accelerations.
+이 그래프는 x, y 및 z 축에 대한 원시 가속도계 측정을 보여줍니다. 이상적으로 각 선은 가늘고 기체의 가속도를 보여줍니다.
 
-As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hover or slow flight, the vibration levels are too high.
+경험상 z 축 그래프가 호버링 또는 느린 비행 중에 x/y 축 그래프에 닿으면, 진동 수준이 너무 높은 것입니다.
 
 :::tip
-The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
+이 그래프를 사용하는 가장 좋은 방법은 차량이 호버링하는 부분을 약간 확대하는 것입니다.
 :::
 
-#### Examples: Good Vibration
+#### 예: 양호한 진동
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+[QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 프레임 (양호한 진동).
 
 ![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
-DJI F450 frame (good vibration). ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-#### Examples: Bad Vibration
+#### 예: 불량 진동
 
 <span id="raw_acc_s500"></span>
-S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
+S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 기체의 경우 일반적임). 이것은 비행 성능에 부정적인 영향을 미치기 시작하는 한계입니다.
 
 ![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
-Vibration too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+너무 강한 진동 z 축의 그래프가 x/y 축 그래프와 어떻게 겹치는 지 확인하십시오.
 
 ![Vibrations in landing gear - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
-Vibration levels are too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+진동 수준이 너무 높습니다. z 축의 그래프가 x/y 축 그래프와 어떻게 겹치는 지 확인하십시오.
 
 ![High vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
-Very high (unsafe) vibration levels.
+매우 높은 (안전하지 않은) 진동 수준.
 
 :::warning
-You should not fly with such high vibration levels.
+높은 진동 수준으로 비행하여서는 안 됩니다.
 :::
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 <span id="fifo_logging"></span>
 
-### Raw High-rate IMU Data Plots
+### 원시 고속 IMU 데이터 플롯
 
-For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU). This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
+심층 분석을 위해 원시 IMU 데이터를 전체 속도 (IMU에 따라 몇 kHz)로 기록하는 옵션이 있습니다. 이를 통해 일반 로깅보다 훨씬 더 높은 주파수를 검사할 수 있으므로 진동 마운트를 선택하거나 저역 통과 및 노치 필터를 적절하게 구성시에 도움이 될 수 있습니다.
 
-To use it, some parameters need to be changed:
+이를 사용하려면 일부 매개 변수를 변경하여야 합니다.
 
-- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
+- [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)를 400으로 설정합니다. 이렇게하면 원시 센서 데이터가 센서에서 시스템의 나머지 부분으로 전송될 때보다 효율적으로 압축되고 로그 크기가 줄어듭니다 (유용한 데이터를 줄이지 않고). <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
   Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
 
-- Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
+- IMU 데이터에는 높은 로깅 대역폭이 필요하므로, 좋은 SD 카드를 사용하여야 합니다(로깅 속도가 너무 높으면 Flight Review에서 드롭 아웃이 표시됨).
     
 :::tip
-See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+많이 사용하는 SD 카드를 비교하려면 [로깅> SD 카드](../dev_log/logging.md#sd-cards)를 참조하세요.
 :::
 
-- Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:
+- [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)에서 자이로 또는 가속 고속 FIFO 프로필을 활성화하고 나머지 항목은 비활성화 합니다. 정말 좋은 SD 카드를 사용하면 (드롭 아웃이 적거나 없음) 다음 작업을 수행 할 수 있습니다.
     
     - either enable both accel and gyro profiles
     - or enable accel/gyro plus the default logging profile
