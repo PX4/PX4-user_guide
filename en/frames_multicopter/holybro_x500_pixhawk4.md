@@ -4,9 +4,10 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Key information
 
-- **Frame:** Holybro X500
+- **Full Kit:** [Holybro X500 Kit](https://shop.holybro.com/x500-kit_p1180.html)
+- **Frame:** [Holybro X500](https://shop.holybro.com/x500-frame-kit_p1178.html)
 - **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 2 hours (75 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
@@ -15,94 +16,54 @@ This topic provides full instructions for building the kit and configuring PX4 u
 The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes almost all the required components:
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
-* Pixhawk 4 GPS
+* [Pixhawk 4 GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)
+* [Power Management - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+* [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
+* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
+* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
 * Battery Strap
-* Propellers - 1045
-* Motors - 2216 KV880
 * Power and Radio Cables
-* Power Management - PM07
 * Wheelbase - 500 mm
-* Dimensions - 410*410*300 mm
+* Dimensions - 410x410x300 mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
 Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)).
 This build uses:
 
-* Receiver: FR SKY Taranis
+* Receiver: FRSKY Taranis
 * Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## Main Hardware
 
 This section lists all hardware for the frame and the autopilot installation.
 
 Item | Description | Quantity
 ---|---|---
-Socket cap scre               |  Used for motor fixing, stainless steel screw M3*5    | 16
-Carbon fiber tube - Arm       |  Diameter: 16mm length: 200mm                         | 4
+Bottom plate                  |  Carbon fiber (2mm thick)                             | 1
+Top plate                     |  Carbon fiber (1.5mm thick)                           | 1
+Arm                           |  Carbon fiber tube (Diameter: 16mm length: 200mm)     | 4
+Landing gear - Vertical pole  |  Carbon fiber tube + engineering plastic              | 2
+Landing gear - Cross bar      |  Carbon fiber tube + engineering plastic + foam       | 2
 Motor base                    |  Consists of 6 parts and 4 screws 4 nuts              | 4
 Slide bar                     |  Diameter: 10mm length: 250mm                         | 2
 Battery mounting board        |  Thickness: 2mm                                       | 1
 Battery pad                   |  3mm Silicone sheet black                             | 1
-Pylons                        |  Engineering plastic embedded with copper nut         | 2
-Cross countersunk head screw  |  Stainless steel M2.5*5mm                             | 12
-PAN/TILT platform board       |  Thickness: 2mm                                       | 1
-Hanger rubber ring gasket     |  Inner hole diameter: 10mm black                      | 8
-Hanger                        |  Engineering plastic embedded with copper nut         | 8
-Carbon fiber - Bottom plate   |  The thickness of 2mm                                 | 1
-Socket cap screw              |  Stainless steel M2.5*6mm                             | 8
-Nylon stud                    |  Black M3*6+6                                         | 4
-Nylon screw                   |  Black M3*6                                           | 4
-Carbon fiber - Top plate      |  Thickness: 1.5mm                                     | 1
-Pan head screw                |  Metal black M3*30mm                                  | 16
-Nylon strap                   |  U- shape, of 16mm carbon fiber tube                  | 16
-Nylon nut                     |  Black M3                                             | 4
-Locknut                       |  Metal black M3                                       | 16
-Socket cap screw              |  Metal black M3*8mm                                   | 8
-Landing gear - Vertical pole   |  Carbon fiber tube+engineering plastic+fastener       | 2
-Landing gear - Cross bar       |  Composed of carbon fiber tube and multiple parts     | 2
+Platform board                |  Thickness: 2mm                                       | 1
 
+
+![X500 Full Package Contents](../../assets/airframes/multicopter/whats_inside_x500.png)
 ![X500 Components for Frame](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
 
-## Package
-
-Items | Package
----|---
-Pixhawk 4                        |  1
-Pixhawk4 GPS MODULE              |  1
-I2C splitter Board               |  2
-6 to 6 pin cable (power)         |  3
-4 to 4 pin cable (CAN)           |  2
-6 to 4 pin cable (Data)          |  1
-10 to 10 pin cable (PWM)         |  2
-8 to 8 pin cable(AUX)            |  1
-7 to 7 pin cable(SPI)            |  1
-6 to 6 pin cable(Debug)          |  1
-PPM/SBUS out cable               |  1
-XSR receiver cable               |  1
-DSMX receiver cable              |  1
-SBUS receiver cable              |  1
-USB cable                        |  1
-'X'type folding pedestal mount   |  1
-70mm & 140mm carbon rod standoff |  2
-6*3 2.54mm pitch Horizontal Pin  |  1
-8*3 2.54mm pitch Horizontal Pin  |  2
-Foam Set                         |  1
-Pixhawk4 Quick Start Guide       |  1
-Pixhawk4 Pinouts                 |  1
-GPS Quick Start Guide            |  1
-
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
 
 ### Electronics
 
 Item Description | Quantity
 --- | ---
-Pixhawk 4 autopilot（PM06 not included)            |  1
-Power Management PM02（Assembled)                  |  1
-Motors - 2216 KV880（V2 Update)                    |  4
-Pixhawk 4 GPS                                      |  1
-Fully assembled Power Management Board with ESCs   |  1
-433MHz Telemetry Radio / 915MHz Telemetry Radio    |  1
+Power Management PM07 (with pre-soldered ESC power cables)            |  1
+Pixhawk 4 GPS                                                         |  1
+Motors - 2216 KV880（V2 Update)                                       |  4
+Holybro BLHeli S ESC 20A x4                                           |  1
+433MHz Telemetry Radio / 915MHz Telemetry Radio                       |  1
 
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
 
@@ -114,15 +75,14 @@ The following tools are used in this assembly:
 - 2.0 mm Hex screwdriver
 - 2.5 mm Hex screwdriver
 - 3mm Phillips screwdriver
+- 5.5 mm socket wrench or small piler
 - Wire cutters
 - Precision tweezers
-
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
 
 
 ## Assembly
 
-Estimate time to assemble is 120 minutes, about 75 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 **Step 1:** We are going to start by assembling the landing gear to the vertical pole.
 Unscrew the landing gear screws and insert the vertical pole, see figures 1 and 2.
