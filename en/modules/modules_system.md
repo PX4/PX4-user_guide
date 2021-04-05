@@ -99,6 +99,8 @@ commander <command> [arguments...]
      manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
                  :rtl|auto:takeoff|auto:land|auto:precland Flight mode
 
+   pair
+
    lockdown
      [off]       Turn lockdown off
 

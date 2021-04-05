@@ -1447,9 +1447,9 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
- <td>Time-out for auto disarm if too slow to takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.</p>   </td>
+ <td>Time-out for auto disarm if too slow to takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). This is set to 25 seconds to ensure a system will not disarm if the pilot is not immediately taking off, but not so long that a system is completely forgotten about. A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.</p>   </td>
  <td></td>
- <td>10.0</td>
+ <td>25.0</td>
  <td>s</td>
 </tr>
 <tr>
@@ -1778,6 +1778,13 @@ tr > * {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_OBC_LOSS_T">COM_OBC_LOSS_T</strong> (FLOAT)</td>
+ <td>Time-out to wait when onboard computer connection is lost before warning about loss connection    </td>
+ <td>0 > 60 (0.01)</td>
+ <td>5.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
  <td>Set offboard loss failsafe mode <p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
@@ -1898,7 +1905,7 @@ tr > * {
 </ul>
   </td>
  <td></td>
- <td>1</td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -3536,7 +3543,7 @@ tr > * {
 </ul>
   </td>
  <td></td>
- <td>0</td>
+ <td>1</td>
  <td></td>
 </tr>
 <tr>
@@ -5515,6 +5522,8 @@ tr > * {
 <li><strong>8:</strong> External Vision</li> 
 
 <li><strong>10:</strong> Gimbal</li> 
+
+<li><strong>11:</strong> Onboard Low Bandwidth</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5597,6 +5606,8 @@ tr > * {
 <li><strong>8:</strong> External Vision</li> 
 
 <li><strong>10:</strong> Gimbal</li> 
+
+<li><strong>11:</strong> Onboard Low Bandwidth</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -5679,6 +5690,8 @@ tr > * {
 <li><strong>8:</strong> External Vision</li> 
 
 <li><strong>10:</strong> Gimbal</li> 
+
+<li><strong>11:</strong> Onboard Low Bandwidth</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -8431,24 +8444,6 @@ tr > * {
  <td>Thrust to motor control signal model parameter <p><strong>Comment:</strong> Parameter used to model the nonlinear relationship between motor control signal (e.g. PWM) and static thrust. The model is: rel_thrust = factor * rel_signal^2 + (1-factor) * rel_signal, where rel_thrust is the normalized thrust between 0 and 1, and rel_signal is the relative motor control signal between 0 and 1.</p>   </td>
  <td>0.0 > 1.0 </td>
  <td>0.0</td>
- <td></td>
-</tr>
-</tbody></table>
-
-## Peripheral
-
-<table>
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td><strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)</td>
- <td>BlinkM LED    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>Disabled (0)</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -13551,7 +13546,7 @@ tr > * {
  <td>Cutoff frequency for angular acceleration (D-Term filter) <p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to increase IMU_GYRO_CUTOFF, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td>0 > 1000 </td>
- <td>10.0</td>
+ <td>20.0</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -13646,6 +13641,8 @@ tr > * {
 
 <li><strong>400:</strong> 400 Hz</li> 
 
+<li><strong>800:</strong> 800 Hz</li> 
+
 <li><strong>1000:</strong> 1000 Hz</li> 
 
 <li><strong>2000:</strong> 2000 Hz</li> 
@@ -13662,6 +13659,8 @@ tr > * {
 <li><strong>100:</strong> 100 Hz</li> 
 
 <li><strong>200:</strong> 200 Hz</li> 
+
+<li><strong>250:</strong> 250 Hz</li> 
 
 <li><strong>400:</strong> 400 Hz</li> 
 </ul>
@@ -13907,6 +13906,19 @@ tr > * {
 </td>
  <td></td>
  <td>25</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_ADIS164X">SENS_EN_ADIS164X</strong> (INT32)</td>
+ <td>Analog Devices ADIS16448 IMU (external SPI)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Enabled</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1 </td>
+ <td>0</td>
  <td></td>
 </tr>
 <tr>
@@ -15869,9 +15881,7 @@ tr > * {
  <td>Automatically configure default values <p><strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Keep parameters</li> 
 
-<li><strong>1:</strong> Reset parameters</li> 
-
-<li><strong>2:</strong> Reload airframe parameters</li> 
+<li><strong>1:</strong> Reset parameters to airframe defaults</li> 
 </ul>
   </td>
  <td></td>
@@ -15996,13 +16006,6 @@ tr > * {
 </td>
  <td></td>
  <td>2</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="SYS_PARAM_VER">SYS_PARAM_VER</strong> (INT32)</td>
- <td>Parameter version <p><strong>Comment:</strong> This is used internally only: an airframe configuration might set an expected parameter version value via PARAM_DEFAULTS_VER. This is checked on bootup against SYS_PARAM_VER, and if they do not match, parameters from the airframe configuration are reloaded.</p>   </td>
- <td>0 > ? </td>
- <td>1</td>
  <td></td>
 </tr>
 <tr>

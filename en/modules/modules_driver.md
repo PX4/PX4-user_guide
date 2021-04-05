@@ -129,38 +129,6 @@ batt_smbus <command> [arguments...]
 
    status        print status info
 ```
-## blinkm
-Source: [drivers/lights/blinkm](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/blinkm)
-
-<a id="blinkm_usage"></a>
-### Usage
-```
-blinkm <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 9
-
-   systemstate
-
-   ledoff
-
-   list
-
-   script
-     -n <val>    Script file name
-                 values: <file>
-
-   stop
-
-   status        print status info
-```
 ## bst
 Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
 
