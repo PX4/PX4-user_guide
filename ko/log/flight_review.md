@@ -191,24 +191,24 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 - [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)에서 자이로 또는 가속 고속 FIFO 프로필을 활성화하고 나머지 항목은 비활성화 합니다. 정말 좋은 SD 카드를 사용하면 (드롭 아웃이 적거나 없음) 다음 작업을 수행 할 수 있습니다.
     
-    - either enable both accel and gyro profiles
-    - or enable accel/gyro plus the default logging profile
+    - 가속 및 자이로 프로필 모두 활성화
+    - 또는 가속/자이로와 기본 로깅 프로필을 활성화합니다.
 
-Example plot:
+프롯 예:
 
 ![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
 :::note
-Data of the first IMU is logged, which is not necessarily the same as the one used for flying. This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
+첫 번째 IMU의 데이터가 기록되며, 비행에 사용되는 데이터와 반드시 동일하지는 않습니다. 이는 IMU가 다르게 장착된 경우에만 중요합니다 (예 : 하드 장착형과 소프트 장착).
 :::
 
 :::note
-Do not forget to restore the parameters after testing.
+테스트 후 매개 변수를 복원하는 것을 잊지 마십시오.
 :::
 
 <span id="solutions"></span>
 
-### Fixing Vibration Problems
+### 진동 문제 해결
 
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
