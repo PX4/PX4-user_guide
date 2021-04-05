@@ -18,26 +18,26 @@
 
 ## PID 추적 성능
 
-Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
+비행 모드에 따라 비행 컨트롤러는 위치, 속도, 고도 또는 속도 설정 값을 추적할 수 있습니다 (추적된 설정 값은 모드에 따라 다릅니다. 예 : 안정화 모드에서는 속도 설정 값이 없음).
 
-The **Estimated** line (red) should closely match with the **Setpoint** (green). If they do not, in most cases the PID gains of that controller need to be tuned.
+**예상** 라인 (빨간색)은 **설정 값** (녹색)과 거의 일치하여야 합니다. 그렇지 않은 경우 대부분의 경우 해당 컨트롤러의 PID 게인을 조정해야합니다.
 
-The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) contains example plots and information about analysing tracking performance.
+[멀티콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)에는 추적 성능 분석에 대한 예제 플롯과 정보가 포함되어 있습니다.
 
 :::tip
-For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
+특히 속도 컨트롤러의 경우 확대 할 때 더 자세한 정보를 얻으려면 고속 로깅 프로필 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE))을 활성화하는 것이 유용합니다.
 :::
 
-## Vibration
+## 진동
 
-Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
+진동은 멀티콥터의 가장 일반적인 문제중 하나입니다. 높은 진동은 아래의 결과들을 초래할 수 있습니다.
 
-- less efficient flight and reduced flight time
-- the motors can heat up
-- increased material wearout
-- inability to tune the vehicle tightly, resulting in degraded flight performance.
-- sensor clipping
-- position estimation failures, potentially resulting in fly-aways.
+- 비효율적인 비행 및 비행 시간 감소
+- 모터가 가열될 수 있습니다.
+- 재료들의 마모 증가
+- 기체을 단단히 고정할 수 없어, 비행 성능이 저하됩니다.
+- 센서 클리핑
+- 위치 추정 실패로 인하여 잠재적으로 오비행이 발생할 수 있습니다.
 
 It is therefore important to keep an eye on the vibration levels and improve the setup if needed.
 
