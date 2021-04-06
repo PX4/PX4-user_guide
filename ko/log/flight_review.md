@@ -228,16 +228,16 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
     
     다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. 이것은 극단적인 경우의 예입니다. ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
-## GPS Uncertainty
+## GPS 불확실성
 
-The *GPS Uncertainty* plot shows information from the GPS device:
+*GPS 불확실성* 플롯은 GPS 장치의 정보를 나타냅니다.
 
-- Number of used satellites (should be around 12 or higher)
-- Horizontal position accuracy (should be below 1 meter)
-- Vertical position accuracy (should be below 2 meters)
-- GPS fix: this is 3 for a 3D GPS fix, 4 for GPS + Dead Reckoning, 5 for RTK float and 6 for RTK fixed type
+- 사용된 위성 수 (약 12 개 이상이어야 함)
+- 수평 위치 정확도 (1 미터 미만이어야 함)
+- 수직 위치 정확도 (2 미터 미만이어야 함)
+- GPS 수정 : 3D GPS 수정의 경우 3, GPS + Dead Reckoning의 경우 4, RTK 플로트의 경우 5, RTK 고정 유형의 경우 6입니다.
 
 ## GPS Noise & Jamming
 
