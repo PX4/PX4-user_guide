@@ -243,42 +243,41 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 확인하는 데 유용합니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
 
-:::tip USB
-3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+:::팁 USB 3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
 :::
 
-The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
+**방해 표시기**는 약 40 이하이어야 합니다. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.
 
-This is an example without any interference:
+이것은 간섭이없는 예입니다.
 
 ![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
-## Thrust and Magnetic Field
+## 추력 및 자기장
 
-The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
+*추력 및 자기장* 플롯은 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
 
-The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*상관 관계가 있는 경우* 모터 (또는 다른 소비자)에서 끌어온 전류가 자기장에 영향을 미치고 있음을 의미합니다. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
-Solutions to this are:
+이에 대한 해결책은 다음과 같습니다:
 
-- Use an external magnetometer (avoid using the internal magnetometer)
-- If using an external magnetometer, move it further away from strong currents (i.e. by using a (longer) GPS mast).
+- 외부 자력계를 사용하십시오 (내부 자력계는 사용하지 마십시오).
+- 외부 자력계를 사용하는 경우 강한 전류에서 먼 곳에 장착하여야 합니다.(예 : 더 긴 GPS 마스트 사용).
 
-If the norm is uncorrelated but not constant, most likely it is not properly calibrated. However it could also be due to external disturbances (for example when flying close to metal constructs).
+표준이 상관 관계가 없지만 일정하지 않은 경우 제대로 보정되지 않았을 가능성이 높습니다. 그러나, 외부 방해로 인한 것일 수도 있습니다 (예 : 금속 구조물 가까이에서 비행 할 때).
 
-This example shows that the norm is non-constant, but it does not correlate with the thrust: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+이 예는 표준이 일정하지 않지만 추력과 관련이 없음을 보여줍니다.![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 ## Estimator Watchdog
 
-The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
+*Estimator Watchdog* 플롯은 추정기의 상태 보고서를 보여줍니다. 상수 0 이어야합니다.
 
-This is what it should look like if there are no problems: ![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+문제가 없는 경우 다음과 같이 표시됩니다.![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
-If one of the flags is non-zero, the estimator detected a problem that needs to be further investigated. Most of the time it is an issue with a sensor, for example magnetometer interferences. It usually helps to look at the plots of the corresponding sensor. <!-- TODO: separate page for estimator issues? -->
+플래그 중 하나가 0이 아니면 추정기는 조사가 필요한 문제를 감지한 것입니다. 대부분의 경우 이것은 자력계 간섭과 같은 센서의 문제입니다. 일반적으로 해당 센서의 플롯을 보면 도움이 됩니다. <!-- TODO: separate page for estimator issues? -->
 
-Here is an example with magnetometer problems: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+다음은 자력계 문제가 있는 경우의 예입니다.![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 ## Sampling Regularity of Sensor Data
 
