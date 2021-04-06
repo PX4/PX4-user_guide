@@ -210,75 +210,74 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ### 진동 문제 해결
 
-Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
+진동의 원인(또는 여러 원인의 조합)을 로그만으로는 알 수 없는 경우가 많이 있습니다.
 
-In this case the vehicle should be inspected. [Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to reduce vibration levels.
+이러한 경우에는 기체를 검사하여야 합니다. [진동 방지](../assembly/vibration_isolation.md)은 진동을 줄이기 위하여 확인할 수있는 (및 수행 할) 몇 가지 기본적인 사항들에 대하여 설명합니다.
 
-## Actuator Outputs
+## 액추에이터 출력
 
-The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
+*액추에이터 출력* 그래프는 개별 액추에이터 (모터/서보)로 전송되는 신호를 나타냅니다. 일반적으로 최소 및 최대 구성된 PWM 값 사이의 범위입니다 (예 : 1000 ~ 2000).
 
-This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
-The plot can help to identify different problems:
+플롯은 다양한 문제 식별에 도움이 될 수 있습니다.
 
-- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. It is not necessarily a problem, for example when flying at full throttle this is expected. But if it happens for example during a mission, it's an indication that the vehicle is overweight for the amount of thrust that it can provide.
-- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
-- An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
+- 하나 이상의 신호가 오랜 시간에 걸쳐 최대 값에 도달하면 컨트롤러가 **포화**에 도달 함을 의미합니다. 예를 들어, 최대 출력 비행시 예상되는 문제점은 아닙니다. 그러나, 예를 들어 임무중에 발생하는 것은 기체가 제공할 수있는 추력의 양에 비해 과체중임을 나타냅니다.
+- 멀티콥터의 경우 플롯은 기체는 **불균형** 인 경우 좋은 표시가 될 수 있습니다. 플롯에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
+- 요 축에서도 불균형이 발생할 수 있습니다. 플롯은 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
     
-    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. 이것은 극단적인 경우의 예입니다. ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
-## GPS Uncertainty
+## GPS 불확실성
 
-The *GPS Uncertainty* plot shows information from the GPS device:
+*GPS 불확실성* 플롯은 GPS 장치의 정보를 나타냅니다.
 
-- Number of used satellites (should be around 12 or higher)
-- Horizontal position accuracy (should be below 1 meter)
-- Vertical position accuracy (should be below 2 meters)
-- GPS fix: this is 3 for a 3D GPS fix, 4 for GPS + Dead Reckoning, 5 for RTK float and 6 for RTK fixed type
+- 사용된 위성 수 (약 12 개 이상이어야 함)
+- 수평 위치 정확도 (1 미터 미만이어야 함)
+- 수직 위치 정확도 (2 미터 미만이어야 함)
+- GPS 수정 : 3D GPS 수정의 경우 3, GPS + Dead Reckoning의 경우 4, RTK 플로트의 경우 5, RTK 고정 유형의 경우 6입니다.
 
-## GPS Noise & Jamming
+## GPS 잡음과 방해 전파
 
-The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
+GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 확인하는 데 유용합니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
 
-:::tip USB
-3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+:::팁 USB 3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
 :::
 
-The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
+**방해 표시기**는 약 40 이하이어야 합니다. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.
 
-This is an example without any interference:
+이것은 간섭이없는 예입니다.
 
 ![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
-## Thrust and Magnetic Field
+## 추력 및 자기장
 
-The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
+*추력 및 자기장* 플롯은 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
 
-The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*상관 관계가 있는 경우* 모터 (또는 다른 소비자)에서 끌어온 전류가 자기장에 영향을 미치고 있음을 의미합니다. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
-Solutions to this are:
+이에 대한 해결책은 다음과 같습니다:
 
-- Use an external magnetometer (avoid using the internal magnetometer)
-- If using an external magnetometer, move it further away from strong currents (i.e. by using a (longer) GPS mast).
+- 외부 자력계를 사용하십시오 (내부 자력계는 사용하지 마십시오).
+- 외부 자력계를 사용하는 경우 강한 전류에서 먼 곳에 장착하여야 합니다.(예 : 더 긴 GPS 마스트 사용).
 
-If the norm is uncorrelated but not constant, most likely it is not properly calibrated. However it could also be due to external disturbances (for example when flying close to metal constructs).
+표준이 상관 관계가 없지만 일정하지 않은 경우 제대로 보정되지 않았을 가능성이 높습니다. 그러나, 외부 방해로 인한 것일 수도 있습니다 (예 : 금속 구조물 가까이에서 비행 할 때).
 
-This example shows that the norm is non-constant, but it does not correlate with the thrust: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+이 예는 표준이 일정하지 않지만 추력과 관련이 없음을 보여줍니다.![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 ## Estimator Watchdog
 
-The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
+*Estimator Watchdog* 플롯은 추정기의 상태 보고서를 보여줍니다. 상수 0 이어야합니다.
 
-This is what it should look like if there are no problems: ![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+문제가 없는 경우 다음과 같이 표시됩니다.![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
-If one of the flags is non-zero, the estimator detected a problem that needs to be further investigated. Most of the time it is an issue with a sensor, for example magnetometer interferences. It usually helps to look at the plots of the corresponding sensor. <!-- TODO: separate page for estimator issues? -->
+플래그 중 하나가 0이 아니면 추정기는 조사가 필요한 문제를 감지한 것입니다. 대부분의 경우 이것은 자력계 간섭과 같은 센서의 문제입니다. 일반적으로 해당 센서의 플롯을 보면 도움이 됩니다. <!-- TODO: separate page for estimator issues? -->
 
-Here is an example with magnetometer problems: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+다음은 자력계 문제가 있는 경우의 예입니다.![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 ## Sampling Regularity of Sensor Data
 
