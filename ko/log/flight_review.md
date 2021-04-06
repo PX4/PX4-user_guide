@@ -216,19 +216,19 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ## 액추에이터 출력
 
-The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
+*액추에이터 출력* 그래프는 개별 액추에이터 (모터/서보)로 전송되는 신호를 나타냅니다. 일반적으로 최소 및 최대 구성된 PWM 값 사이의 범위입니다 (예 : 1000 ~ 2000).
 
-This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
-The plot can help to identify different problems:
+플롯은 다양한 문제 식별에 도움이 될 수 있습니다.
 
-- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. It is not necessarily a problem, for example when flying at full throttle this is expected. But if it happens for example during a mission, it's an indication that the vehicle is overweight for the amount of thrust that it can provide.
-- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
-- An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
+- 하나 이상의 신호가 오랜 시간에 걸쳐 최대 값에 도달하면 컨트롤러가 **포화**에 도달 함을 의미합니다. 예를 들어, 최대 출력 비행시 예상되는 문제점은 아닙니다. 그러나, 예를 들어 임무중에 발생하는 것은 기체가 제공할 수있는 추력의 양에 비해 과체중임을 나타냅니다.
+- 멀티콥터의 경우 플롯은 기체는 **불균형** 인 경우 좋은 표시가 될 수 있습니다. 플롯에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
+- 요 축에서도 불균형이 발생할 수 있습니다. 플롯은 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
     
-    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 ## GPS Uncertainty
 
