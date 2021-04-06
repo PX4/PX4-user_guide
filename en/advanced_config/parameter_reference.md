@@ -7069,56 +7069,56 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
- <td>PWM aux 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
- <td>PWM aux 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
- <td>PWM aux 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
- <td>PWM aux 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
- <td>PWM aux 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
- <td>PWM aux 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
- <td>PWM aux 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
- <td>PWM aux 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   </td>
+ <td>PWM aux 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>0</td>
  <td>us</td>
@@ -7811,98 +7811,98 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS1">PWM_MAIN_DIS1</strong> (INT32)</td>
- <td>PWM main 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS10">PWM_MAIN_DIS10</strong> (INT32)</td>
- <td>PWM main 10 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 10 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS11">PWM_MAIN_DIS11</strong> (INT32)</td>
- <td>PWM main 11 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 11 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS12">PWM_MAIN_DIS12</strong> (INT32)</td>
- <td>PWM main 12 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 12 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS13">PWM_MAIN_DIS13</strong> (INT32)</td>
- <td>PWM main 13 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 13 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS14">PWM_MAIN_DIS14</strong> (INT32)</td>
- <td>PWM main 14 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 14 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS2">PWM_MAIN_DIS2</strong> (INT32)</td>
- <td>PWM main 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS3">PWM_MAIN_DIS3</strong> (INT32)</td>
- <td>PWM main 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS4">PWM_MAIN_DIS4</strong> (INT32)</td>
- <td>PWM main 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS5">PWM_MAIN_DIS5</strong> (INT32)</td>
- <td>PWM main 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS6">PWM_MAIN_DIS6</strong> (INT32)</td>
- <td>PWM main 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS7">PWM_MAIN_DIS7</strong> (INT32)</td>
- <td>PWM main 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS8">PWM_MAIN_DIS8</strong> (INT32)</td>
- <td>PWM main 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_DIS9">PWM_MAIN_DIS9</strong> (INT32)</td>
- <td>PWM main 9 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used</p>   </td>
+ <td>PWM main 9 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_MAIN_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
@@ -8021,98 +8021,98 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)</td>
- <td>PWM main 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 1 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX10">PWM_MAIN_MAX10</strong> (INT32)</td>
- <td>PWM main 10 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 10 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX11">PWM_MAIN_MAX11</strong> (INT32)</td>
- <td>PWM main 11 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 11 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX12">PWM_MAIN_MAX12</strong> (INT32)</td>
- <td>PWM main 12 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 12 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX13">PWM_MAIN_MAX13</strong> (INT32)</td>
- <td>PWM main 13 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 13 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX14">PWM_MAIN_MAX14</strong> (INT32)</td>
- <td>PWM main 14 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 14 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)</td>
- <td>PWM main 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 2 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)</td>
- <td>PWM main 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 3 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)</td>
- <td>PWM main 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 4 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)</td>
- <td>PWM main 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 5 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)</td>
- <td>PWM main 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 6 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)</td>
- <td>PWM main 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 7 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)</td>
- <td>PWM main 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 8 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MAX9">PWM_MAIN_MAX9</strong> (INT32)</td>
- <td>PWM main 9 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used</p>   </td>
+ <td>PWM main 9 maximum value <p><strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MAX will be used</p>   </td>
  <td>-1 > 2150 </td>
  <td>-1</td>
  <td>us</td>
@@ -8126,98 +8126,98 @@ tr > * {
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)</td>
- <td>PWM main 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 1 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN10">PWM_MAIN_MIN10</strong> (INT32)</td>
- <td>PWM main 10 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 10 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN11">PWM_MAIN_MIN11</strong> (INT32)</td>
- <td>PWM main 11 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 11 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN12">PWM_MAIN_MIN12</strong> (INT32)</td>
- <td>PWM main 12 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 12 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN13">PWM_MAIN_MIN13</strong> (INT32)</td>
- <td>PWM main 13 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 13 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN14">PWM_MAIN_MIN14</strong> (INT32)</td>
- <td>PWM main 14 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 14 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)</td>
- <td>PWM main 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 2 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)</td>
- <td>PWM main 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 3 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)</td>
- <td>PWM main 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 4 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)</td>
- <td>PWM main 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 5 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)</td>
- <td>PWM main 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 6 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)</td>
- <td>PWM main 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 7 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)</td>
- <td>PWM main 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 8 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_MIN9">PWM_MAIN_MIN9</strong> (INT32)</td>
- <td>PWM main 9 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used</p>   </td>
+ <td>PWM main 9 minimum value <p><strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAIN_MIN will be used</p>   </td>
  <td>-1 > 1600 </td>
  <td>-1</td>
  <td>us</td>
