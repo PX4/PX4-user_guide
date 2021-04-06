@@ -239,9 +239,9 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 - 수직 위치 정확도 (2 미터 미만이어야 함)
 - GPS 수정 : 3D GPS 수정의 경우 3, GPS + Dead Reckoning의 경우 4, RTK 플로트의 경우 5, RTK 고정 유형의 경우 6입니다.
 
-## GPS Noise & Jamming
+## GPS 잡음과 방해 전파
 
-The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
+GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 확인하는 데 유용합니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
 
 :::tip USB
 3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
