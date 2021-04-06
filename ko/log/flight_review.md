@@ -210,11 +210,11 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ### 진동 문제 해결
 
-Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
+진동의 원인(또는 여러 원인의 조합)을 로그만으로는 알 수 없는 경우가 많이 있습니다.
 
-In this case the vehicle should be inspected. [Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to reduce vibration levels.
+이러한 경우에는 기체를 검사하여야 합니다. [진동 방지](../assembly/vibration_isolation.md)은 진동을 줄이기 위하여 확인할 수있는 (및 수행 할) 몇 가지 기본적인 사항들에 대하여 설명합니다.
 
-## Actuator Outputs
+## 액추에이터 출력
 
 The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
 
