@@ -14,12 +14,6 @@ If a listed parameter is missing from the Firmware see: [Finding/Updating Parame
 tr > * {
     vertical-align : top;
 }
-td:nth-child(1),td:nth-child(2) {
-  text-align : left;
-  }
-table {
-  width: fit-content;
-}
 </style>
 
 ## UAVCAN Motor Parameters
@@ -1427,10 +1421,10 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Allow arming without GPS</li> 
+ <td>Allow arming without GPS <p><strong>Comment:</strong> The default allows the vehicle to arm without GPS signal.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Require GPS lock to arm</li> 
 
-<li><strong>1:</strong> Require GPS lock to arm</li> 
+<li><strong>1:</strong> Allow arming without GPS</li> 
 </ul>
   </td>
  <td></td>
