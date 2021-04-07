@@ -85,20 +85,11 @@ brew install --cask adoptopenjdk14
 brew install px4-sim-jmavsim
 ```
 
-:::note
-jMAVSim for PX4 v1.11 and earlier required Java 8.
-:::
+:::warning
+jMAVSim for PX4 v1.11 and beyond we require at least JDK 15. (for troubleshooting information see [the jMAVSim guide](../simulation/jmavsim.html))
 
-### troubleshoot (for macOS Catalina users)
-When compiling jmavsim, if the following error appears
-```
-Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
-```
-it means a more recent version of Java is needed. Class file versions 58 corresponds to jdk14, version 59 to jdk15, etc.
-To fix it, tap
-```sh
-brew install --cask adoptopenjdk15
-```
+Specifically macOS users might run into this problem check for the error code: `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix on [the jMAVSim guide](../simulation/jmavsim.html)) under the troubleshooting section.
+:::
 
 ## Next Steps
 
@@ -106,8 +97,7 @@ Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
 - Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
   :::tip
-  The *daily build* includes development tools that hidden in release builds. 
+  The *daily build* includes development tools that are hidden in release builds. 
   It may also provide access to new PX4 features that are not yet supported in release builds.
   :::
 - Continue to the [build instructions](../dev_setup/building_px4.md).
-
