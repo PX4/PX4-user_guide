@@ -137,7 +137,7 @@ These are the factors that affect the latency:
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
 
-### Filters
+### Filter Tuning
 
 Filters trade off control latency and noise filtering, both of which impact performance.
 For information see: [Filter/Control Latency Tuning](../advanced_config/filter_tuning.md)
