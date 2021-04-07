@@ -292,21 +292,21 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 **델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. 그 배수의 스파이크가 있는 경우 (추정기 타임 슬립이 증가하지 않음) 이는 로거가 일부 샘플을 건너 뛴 것을 의미합니다. 로거가 낮은 우선 순위로 실행되기 때문에 가끔 이런 현상이 발생할 수 있습니다. 배수가 아닌 스파이크가 있는 경우 조사해야하는 불규칙한 센서 드라이버 스케줄링을 나타냅니다.
 
-**추정기 타임 슬립**은 현재 시간과 해당 시간까지의 통합 센서 간격 시간 간의 차이를 나타냅니다. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
+**추정기 타임 슬립**은 현재 시간과 해당 시간까지의 통합 센서 간격 시간 간의 차이를 나타냅니다. 변경되면 추정기가 센서 데이터를 놓쳤거나 드라이버가 잘못된 통합 간격을 게시함을 의미합니다. 0으로 유지되어야하지만, 비행중 매개 변수 변경에 대해 약간 증가할 수 있으며 일반적으로 문제가 되지는 않습니다.
 
-This is a good example: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
+이것은 좋은 예입니다.![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
-The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](../dev_log/logging.md#sd-cards) for good SD cards):
+다음 예는 너무 많은 드롭 아웃이 나타나고 있으며, 이 경우 사용 된 SD 카드의 품질이 좋지 않았습니다. (좋은 SD 카드는 [여기](../dev_log/logging.md#sd-cards) 참조) :
 
 ![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
-## Logged Messages
+## 로그 메시지
 
-This is a table with system error and warning messages. For example they show when a task becomes low on stack size.
+시스템 오류와 경고 메시지에 관한 표입니다. 예를 들어 작업이 스택 크기가 낮으면 표시됩니다.
 
-The messages need to be examined individually, and not all of them indicate a problem. For example the following shows a kill-switch test: ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
+메시지는 개별적으로 검사하여야 하며, 모든 메시지가 문제를 나타내는 것은 아닙니다. 예를 들어 다음은 kill-switch 테스트를 나타냅니다. ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
 
-## Flight/Frame Log Review Examples
+## 비행/기체 로그 검토 예
 
 It is often worth looking at multiple charts for a particular flight when analyzing vehicle condition (different charts can better highlight some issues). This is particularly important when reviewing for possible vibration problems.
 
