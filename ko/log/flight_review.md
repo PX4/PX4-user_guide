@@ -220,11 +220,11 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
-플롯은 다양한 문제 식별에 도움이 될 수 있습니다.
+그래프 여러가지 문제점을 식별에 매우 유용합니다.
 
 - 하나 이상의 신호가 오랜 시간에 걸쳐 최대 값에 도달하면 컨트롤러가 **포화**에 도달 함을 의미합니다. 예를 들어, 최대 출력 비행시 예상되는 문제점은 아닙니다. 그러나, 예를 들어 임무중에 발생하는 것은 기체가 제공할 수있는 추력의 양에 비해 과체중임을 나타냅니다.
-- 멀티콥터의 경우 플롯은 기체는 **불균형** 인 경우 좋은 표시가 될 수 있습니다. 플롯에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
-- 요 축에서도 불균형이 발생할 수 있습니다. 플롯은 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
+- 멀티콥터의 경우 그래프는 기체는 **불균형**인 경우 좋은 표시가 될 수 있습니다. 그래프에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
+- 요 축에서도 불균형이 발생할 수 있습니다. 그래프는 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
     
     다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
@@ -241,7 +241,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 ## GPS 잡음과 방해 전파
 
-GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 확인하는 데 유용합니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
+GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파를 확인할 수 있습니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
 
 :::팁 USB 3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
 :::
@@ -254,7 +254,7 @@ GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 
 
 ## 추력 및 자기장
 
-*추력 및 자기장* 플롯은 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
+*추력 및 자기장* 그래프는 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
 
 표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
@@ -279,17 +279,17 @@ GPS 노이즈dhk 방해 전파 플롯은 GPS 신호 간섭 및 방해 전파를 
 
 다음은 자력계 문제가 있는 경우의 예입니다.![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
-## Sampling Regularity of Sensor Data
+## 센서 데이터의 샘플링 규칙
 
-The sampling regularity plot provides insights into problems with the logging system and scheduling.
+샘플링 규칙 그래프는 로깅 시스템 및 스케줄링 문제에 대한 통찰력을 제공합니다.
 
-The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
+로그 버퍼가 너무 작거나 로깅 속도가 너무 높거나 낮은 품질의 SD 카드를 사용하면 **로깅 드롭 아웃**의 양이 증가하기 시작합니다.
 
 :::note
-Occasional dropouts can be expected on medium quality cards.
+중간 품질의 카드에서는 가끔 드롭 아웃이 발생할 수 있습니다.
 :::
 
-The **delta t** shows the time difference between two logged IMU samples. It should be close to 4 ms because the data publishing rate is 250Hz. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
+**델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
 
 The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
 
