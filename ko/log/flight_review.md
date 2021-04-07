@@ -243,7 +243,8 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파를 확인할 수 있습니다. GPS 신호는 매우 약하므로 GPS에서 사용하는 주파수를 사용하는 (케이블을 통해) 부품으로 인하여 방해를 받기 쉽습니다.
 
-:::팁 USB 3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
+:::tip USB
+3은 최대의 GPS 전파 방해 소스로 [알려져 있습니다](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html).
 :::
 
 **방해 표시기**는 약 40 이하이어야 합니다. 약 80 이상의 값은 너무 높으므로 설정을 검사하여야 합니다. 신호 간섭은 정확도가 떨어지고 GPS 수정이 불가능한 지점까지 위성 수가 적기 때문에 현저하게 나타납니다.
@@ -289,9 +290,9 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 중간 품질의 카드에서는 가끔 드롭 아웃이 발생할 수 있습니다.
 :::
 
-**델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
+**델타 t**는 로깅된 두 IMU 샘플 간의 시간 차이를 보여줍니다. 데이터 게시 속도가 250Hz이므로 4ms에 가까워야 합니다. 그 배수의 스파이크가 있는 경우 (추정기 타임 슬립이 증가하지 않음) 이는 로거가 일부 샘플을 건너 뛴 것을 의미합니다. 로거가 낮은 우선 순위로 실행되기 때문에 가끔 이런 현상이 발생할 수 있습니다. 배수가 아닌 스파이크가 있는 경우 조사해야하는 불규칙한 센서 드라이버 스케줄링을 나타냅니다.
 
-The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
+**추정기 타임 슬립**은 현재 시간과 해당 시간까지의 통합 센서 간격 시간 간의 차이를 나타냅니다. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
 
 This is a good example: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
