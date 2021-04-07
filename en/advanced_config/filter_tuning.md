@@ -4,10 +4,6 @@ Filters can be used to trade off [control latency](#control-latency), which affe
 
 This topic provides an overview of control latency and PX4 filter tuning.
 
-<!-- // Other things you need to consider that might affect filter tuning, or which will have no impact on filter tuning? - I am assuming vibration setup, center of gravity doesn't affect anything, balanced props, 
-- What other tuning should you have done first before looking at filters? Sounds like maybe undertuning PIDs is important before doing this? -->
-
-
 ## Control Latency
 
 The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
