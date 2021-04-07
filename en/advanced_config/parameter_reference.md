@@ -14,6 +14,12 @@ If a listed parameter is missing from the Firmware see: [Finding/Updating Parame
 tr > * {
     vertical-align : top;
 }
+td:nth-child(1),td:nth-child(2) {
+  text-align : left;
+  }
+table {
+  width: fit-content;
+}
 </style>
 
 ## UAVCAN Motor Parameters

@@ -45,21 +45,20 @@ module.exports = {
               let regex = /(\s*?)\*\s\[(.*?)\]\((.*?)\)/g;
 
               try {
-        
                   //console.log('DEBUG: Lastitem at start: '+ last_item);
                   let match = regex.exec(line)
                   //console.log('0: '+ match[0])
                   indent_level=match[1].length;
                   link_title = match[2];
                   link_url = match[3].trim();
-			  }
+              }
               catch (err) { //Just skip empty lines that don't match
                   //console.log(err)
                   //console.log("DEBUG: Couldn't match line, skip line using return")
-				  return;
+                  return;
               }
 
-			  
+
               try {
 
                   if (link_url.endsWith('README.md')) {
@@ -71,7 +70,7 @@ module.exports = {
                   if (!link_url.startsWith('http')) {
                       link_url = '/'+lang+'/'+link_url;
                   }
-            
+
                   //Tidy up some of the title escaping that isn't used by VuePress
                   link_title=link_title.replace('\\(','(')
                   link_title=link_title.replace('\\)',')')
@@ -84,7 +83,7 @@ module.exports = {
                   if (indent_divider > 0) {
                       indent_level= indent_level/indent_divider;
                   }
-            
+
 
                   //First iteration skips rest of processing except for saving the line.
                   // We process lines on the next iteration, because it is the next item which tells us if 
@@ -101,64 +100,68 @@ module.exports = {
                           //The parent of this is a new child group. So we need to create it as such and make it a parent.
                           let new_parent = {};
                           new_parent.title = last_item.title;
-                          new_parent.path = last_item.path;
+                          // new_parent.path = last_item.path;
+                          new_parent.path = ''; // Make parent have no URL
                           //new_parent.sidebarDepth = 1;
                           new_parent.children = [];
+                          //Add first child
+                          let entry = new Array(last_item.path, 'Introduction'); //last_item.title+
+                          new_parent.children.push(entry);
                           //console.log('  DEBUG:  Adding new_parent: ' + new_parent.title)
                           //console.log('    DEBUG:  path ' + new_parent.path)
                           parents.push(new_parent)
                           }
                       else if (indent_level < lastlevel) {
-						  //we have gone up at least one level with new line
-						  //Last line needs to be added to its parent.
-						  //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
-						  finished_collection = parents.pop();
-						  let entry = new Array(last_item.path,last_item.title);
-						  //console.log('   - DEBUG: Current_parent: '+ finished_collection.title)
-						  //console.log('   - DEBUG: Current_parent.children: '+ finished_collection.children)
-						  if (typeof finished_collection.children !== 'undefined') {
-						      //console.log('   - DEBUG: Add' + entry + ' to group (has child var)' + finished_collection.title);
-						      finished_collection.children.push(entry);
-						  }
-						  else {
-						      //parent is array
-						      //console.log('   - DEBUG: Add ' + entry + ' to TOP level');
-						      finished_collection.push(entry);
-						  }
-						  //Then need to pop current parent and add finished collection to its parent
-                
-						  //console.log('  - DEBUG: Group Finished:'+ lastlevel+'/'+ indent_level + ': ' + finished_collection.title)
-						  current_parent = parents.pop();
-						  //console.log('  DEBUG: Add finished_collection ' + finished_collection.title + 'to parent:' + current_parent);
-						  if (typeof current_parent.children !== 'undefined') {
+                          //we have gone up at least one level with new line
+                          //Last line needs to be added to its parent.
+                          //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
+                          finished_collection = parents.pop();
+                          let entry = new Array(last_item.path,last_item.title);
+                          //console.log('   - DEBUG: Current_parent: '+ finished_collection.title)
+                          //console.log('   - DEBUG: Current_parent.children: '+ finished_collection.children)
+                          if (typeof finished_collection.children !== 'undefined') {
+                              //console.log('   - DEBUG: Add' + entry + ' to group (has child var)' + finished_collection.title);
+                              finished_collection.children.push(entry);
+                          }
+                          else {
+                              //parent is array
+                              //console.log('   - DEBUG: Add ' + entry + ' to TOP level');
+                              finished_collection.push(entry);
+                          }
+                          //Then need to pop current parent and add finished collection to its parent
+
+                          //console.log('  - DEBUG: Group Finished:'+ lastlevel+'/'+ indent_level + ': ' + finished_collection.title)
+                          current_parent = parents.pop();
+                          //console.log('  DEBUG: Add finished_collection ' + finished_collection.title + 'to parent:' + current_parent);
+                          if (typeof current_parent.children !== 'undefined') {
                                   //console.log('   DEBUG: Parent is group');
                                   current_parent.children.push(finished_collection);
-						  }
-						  else {
-						      //parent is array
-						      //console.log('   DEBUG: Parent is array (top level)');
-						      current_parent.push(finished_collection);
-						  }
-						  parents.push(current_parent); //Add back the parent to the parent array.
-						  
-						  //If we went up multiple levels lets add current parent to its parent in loop						 
+                          }
+                          else {
+                              //parent is array
+                              //console.log('   DEBUG: Parent is array (top level)');
+                              current_parent.push(finished_collection);
+                          }
+                          parents.push(current_parent); //Add back the parent to the parent array.
+
+                          //If we went up multiple levels lets add current parent to its parent in loop						 
                           while (indent_level < --lastlevel) {
-							  //Here we have no item. Group has finished (with a group)
-							  //So add the current parent (finished) to its parent. 
-							  //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
-							  finished_collection = parents.pop();
-							  current_parent = parents.pop();
-							  //console.log('  DEBUG: Add finished_collection: ' + finished_collection.title + ' to its parent (group): ' + current_parent.title);
-							  if (typeof current_parent.children !== 'undefined') {
+                              //Here we have no item. Group has finished (with a group)
+                              //So add the current parent (finished) to its parent. 
+                              //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
+                              finished_collection = parents.pop();
+                              current_parent = parents.pop();
+                              //console.log('  DEBUG: Add finished_collection: ' + finished_collection.title + ' to its parent (group): ' + current_parent.title);
+                              if (typeof current_parent.children !== 'undefined') {
                                   //console.log('   DEBUG: Parent is a group');
                                   current_parent.children.push(finished_collection);
-							  }
-							  else {
-							      //parent is array
-						          //console.log('    DEBUG: Parent is an array');
-						          current_parent.push(finished_collection);
-							  }
-						      parents.push(current_parent); //Add back the parent to the parent array.   
+                              }
+                              else {
+                                  //parent is array
+                                  //console.log('    DEBUG: Parent is an array');
+                                  current_parent.push(finished_collection);
+                              }
+                              parents.push(current_parent); //Add back the parent to the parent array.   
                           }
                           
                       }
