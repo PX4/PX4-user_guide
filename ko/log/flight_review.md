@@ -143,9 +143,9 @@ S500 프레임:![저진동 S500 - 스펙트럼 밀도 플롯](../../assets/fligh
 
 [QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 프레임 (양호한 진동).
 
-![저진동 QAV-R 5 Racer - 원시 가속. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![저진동 QAV-R 5 Racer - 원시 가속도. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
-DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+DJI F450 프레임(양호한 진동).![저진동 DJI F450 - 원시 가속도 그래프](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
@@ -154,15 +154,15 @@ DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - raw accel. plot]
 <span id="raw_acc_s500"></span>
 S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 기체의 경우 일반적임). 이것은 비행 성능에 부정적인 영향을 미치기 시작하는 한계입니다.
 
-![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
+![경계선 진동 S500 x, y - 원시 가속도. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
 너무 강한 진동 z 축의 그래프가 x/y 축 그래프와 어떻게 겹치는 지 확인하십시오.
 
-![Vibrations in landing gear - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
+![랜딩 기어의 진동 - 원시 가속도. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
 진동 수준이 너무 높습니다. z 축의 그래프가 x/y 축 그래프와 어떻게 겹치는 지 확인하십시오.
 
-![High vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
+![원시 가속도에서 높은 진동. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
 매우 높은 (안전하지 않은) 진동 수준.
 
@@ -170,7 +170,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 높은 진동 수준으로 비행하여서는 안 됩니다.
 :::
 
-![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
+![원시 가속에서 매우 높은 진동. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 <span id="fifo_logging"></span>
 
@@ -196,7 +196,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 그래프 예:
 
-![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
+![고속 가속 전력 스펙트럼 밀도](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
 :::note
 첫 번째 IMU의 데이터가 기록되며, 비행에 사용되는 데이터와 반드시 동일하지는 않습니다. 이는 IMU가 다르게 장착된 경우에만 중요합니다 (예 : 하드 장착형과 소프트 장착).
@@ -218,7 +218,7 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 
 *액추에이터 출력* 그래프는 개별 액추에이터 (모터/서보)로 전송되는 신호를 나타냅니다. 일반적으로 최소 및 최대 구성된 PWM 값 사이의 범위입니다 (예 : 1000 ~ 2000).
 
-다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+다음은 정상적인 쿼드로터의 예입니다 (모든 신호가 범위 내에 있고, 서로 거의 겹치며, 너무 시끄럽지 않음).![우수한 액추에이터 출력](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
 그래프 여러가지 문제점을 식별에 매우 유용합니다.
 
@@ -226,9 +226,9 @@ S500 프레임. 경계선 진동 수준-x 및 y에 대해 약간 높음 (S500 �
 - 멀티콥터의 경우 그래프는 기체는 **불균형**인 경우 좋은 표시가 될 수 있습니다. 그래프에서 하나 이상의 인접 모터(쿼드 로터의 경우 2 개)가 평균적으로 더 높은 추력으로 작동해야 함을 보여줍니다. 일부 모터가 다른 모터보다 더 많은 추력을 제공하거나 ESC가 보정되지 않은 경우에도 마찬가지입니다. 불균형 차량은 일반적으로 자동 조종 장치가 자동으로 설명하므로 큰 문제는 아닙니다. 그러나, 최대 달성 가능한 추력을 줄이고 일부 모터에 더 많은 부담을 주므로 기체의 균형을 맞추는 것이 좋습니다.
 - 요 축에서도 불균형이 발생할 수 있습니다. 그래프는 이전 사례와 비슷하게 보이지만 반대 모터는 각각 더 높거나 낮게 작동합니다. 원인은 하나 이상의 모터가 기울어 졌기 때문일 수 있습니다.
     
-    다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    다음은 헥사 로터의 예입니다. 모터 1, 3, 6은 더 높은 추력으로 작동합니다.![헥사로터 불균형 액추에이터 출력](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. 이것은 극단적인 경우의 예입니다. ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- 신호가 **잡음**이 심한 (진폭이 높음) 경우에는 두 가지 원인이 있을 수 있습니다. 컨트롤러를 통과하는 센서 노이즈 또는 진동 (다른 플롯에도 표시됨, 이전 섹션 참조) 또는 PID 이득이 너무 높은 경우 입니다. 이것은 극단적인 경우의 예입니다. ![시끄러운 액추에이터 출력 - 극단적 인 경우](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 ## GPS 불확실성
 
@@ -251,15 +251,15 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 이것은 간섭이없는 예입니다.
 
-![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
+![GPS 방해 - 좋은 그래프](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
 ## 추력 및 자기장
 
 *추력 및 자기장* 그래프는 자기 센서 측정 벡터의 추력과 표준을 나타냅니다.
 
-표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+표준은 전체 비행에 걸쳐 일정해야하며 추력과 관련이 없어야합니다. 이것은 표준이 상수에 매우 가까운 좋은 예입니다. ![상수에 가까운 추력과 자기장](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*상관 관계가 있는 경우* 모터 (또는 다른 소비자)에서 끌어온 전류가 자기장에 영향을 미치고 있음을 의미합니다. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*상관 관계가 있는 경우* 모터 (또는 다른 소비자)에서 끌어온 전류가 자기장에 영향을 미치고 있음을 의미합니다. 이것은 부정확한 요 추정으로 이어지므로 피해야 합니다. 다음 플롯은 자력계의 추력과 표준 사이의 강한 상관 관계를 나타냅니다. ![추력 및 자기장의 상관성](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
 이에 대한 해결책은 다음과 같습니다:
 
@@ -268,17 +268,17 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 표준이 상관 관계가 없지만 일정하지 않은 경우 제대로 보정되지 않았을 가능성이 높습니다. 그러나, 외부 방해로 인한 것일 수도 있습니다 (예 : 금속 구조물 가까이에서 비행 할 때).
 
-이 예는 표준이 일정하지 않지만 추력과 관련이 없음을 보여줍니다.![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+이 예는 표준이 일정하지 않지만 추력과 관련이 없음을 보여줍니다.![추력 및 자기장의 비상관성](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 ## Estimator Watchdog
 
 *Estimator Watchdog* 플롯은 추정기의 상태 보고서를 보여줍니다. 상수 0 이어야합니다.
 
-문제가 없는 경우 다음과 같이 표시됩니다.![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+문제가 없는 경우 다음과 같이 표시됩니다.![Estimator Watchdog - 양호](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
 플래그 중 하나가 0이 아니면 추정기는 조사가 필요한 문제를 감지한 것입니다. 대부분의 경우 이것은 자력계 간섭과 같은 센서의 문제입니다. 일반적으로 해당 센서의 플롯을 보면 도움이 됩니다. <!-- TODO: separate page for estimator issues? -->
 
-다음은 자력계 문제가 있는 경우의 예입니다.![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+다음은 자력계 문제가 있는 경우의 예입니다.![자력계 문제가 있는 Estimator watchdog](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 ## 센서 데이터의 샘플링 규칙
 
@@ -294,17 +294,17 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 **추정기 타임 슬립**은 현재 시간과 해당 시간까지의 통합 센서 간격 시간 간의 차이를 나타냅니다. 변경되면 추정기가 센서 데이터를 놓쳤거나 드라이버가 잘못된 통합 간격을 게시함을 의미합니다. 0으로 유지되어야하지만, 비행중 매개 변수 변경에 대해 약간 증가할 수 있으며 일반적으로 문제가 되지는 않습니다.
 
-이것은 좋은 예입니다.![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
+이것은 좋은 예입니다.![샘플링 규칙성 양호](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
 다음 예는 너무 많은 드롭 아웃이 나타나고 있으며, 이 경우 사용 된 SD 카드의 품질이 좋지 않았습니다. (좋은 SD 카드는 [여기](../dev_log/logging.md#sd-cards) 참조) :
 
-![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
+![많은 탈락](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
 ## 로그 메시지
 
 시스템 오류와 경고 메시지에 관한 표입니다. 예를 들어 작업이 스택 크기가 낮으면 표시됩니다.
 
-메시지는 개별적으로 검사하여야 하며, 모든 메시지가 문제를 나타내는 것은 아닙니다. 예를 들어 다음은 kill-switch 테스트를 나타냅니다. ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
+메시지는 개별적으로 검사하여야 하며, 모든 메시지가 문제를 나타내는 것은 아닙니다. 예를 들어 다음은 kill-switch 테스트를 나타냅니다. ![로그 메시지](../../assets/flight_log_analysis/flight_review/logged_messages.png)
 
 ## 비행/기체 로그 검토 예
 
@@ -322,11 +322,11 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 - 스펙트럼 밀도는 대부분 녹색이며 저주파에서 약간의 노란색만 있습니다.
 - Raw Acceleration에는 x/y 축 트레이스와 잘 분리된 z 축 트레이스가 있습니다.
 
-![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
+![저진동 QAV-R 5 Racer - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
+![저진동 QAV-R 5 Racer - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
 
-![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![저진동 QAV-R 5 Racer - 원시 가속도. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
 ### DJI F450
 
@@ -338,11 +338,11 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 - 스펙트럼 밀도는 대부분 녹색입니다. 블레이드 통과 주파수가 다시 표시됩니다.
 - Raw Acceleration에는 x/y 축 트레이스와 잘 분리된 z 축 트레이스가 있습니다.
 
-![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
+![저진동 DJI F450 - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
-![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+![저진동 DJI F450 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+![저진동 DJI F450 - 원시 가속도 그래프](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 ### S500 
 
@@ -354,8 +354,8 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 - 스펙트럼 밀도는 대부분 녹색이지만, 100Hz에서 DJI F450보다 노란색이 더 많습니다.
 - Raw Acceleration에는 x/y 축 트레이스에 근접한 z 축 트레이스가 있습니다. 이것은 비행 성능에 부정적인 영향을 미치기 시작하는 한계입니다.
 
-![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
+![저진동 S500 액추에이터 컨트롤 - FFT 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+![저진동 S500 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
-![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
+![경계선 진동 S500 x, y - 원시 가속도. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
