@@ -8,7 +8,7 @@
 
 그래프에 공통적인 기능 :
 
-- 그래프의 배경색은 기록 중 비행 모드를 나타내는 데 사용됩니다 (그래프는 모드에 따라 다름). ![Flight Modes](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
+- 그래프의 배경색은 기록 중 비행 모드를 나타내는 데 사용됩니다 (그래프는 모드에 따라 다름). ![비행 모드](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
     - **비행 모드 :** 그래프 본문의 배경색은 비행 모드를 나타냅니다. 그래프 위로 마우스를 가져 가면 비행 모드 레이블이 표시됩니다.
     - **VTOL 비행 모드 :** VTOL 기체는 추가로 그래프 하단에 VTOL 모드를 배경색으로 표시합니다 (멀티콥터의 경우 파란색, 고정익의 경우 노란색, 전환의 경우 빨간색).
 - 특정 그래프 축을 마우스로 스크롤 하면 해당 축이 확대됩니다 (수평 또는 수직).
@@ -63,7 +63,7 @@ y 축 스케일링은 기체마다 다르지만, 동일한 기체의 로그를 �
 
 [QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 프레임 (양호한 진동).
 
-![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
+![저진동 QAV-R 5 Racer - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
 :::note
 위 프레임의 뛰어난 진동 특성은 [소프트웨어 필터](../config_mc/racer_setup.md#filters)의 차단 주파수를 상당히 증가시킬 수 있음을 의미합니다 (제어 지연 시간 감소).
@@ -71,11 +71,11 @@ y 축 스케일링은 기체마다 다르지만, 동일한 기체의 로그를 �
 
 DJI F450 프레임(양호한 진동).
 
-![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
+![저진동 DJI F450 - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
 S500 프레임:
 
-![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
+![저진동 S500 액추에이터 컨트롤 - FFT 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
 :::note
 위의 그래프가 좋아 보이지만 [동일한 비행에 대한 원시 가속도 그래프](#raw_acc_s500)는 진동 수준이 x와 y에 대해 약간 높다는 것을 보여줍니다. 이것은 여러 그래프를 확인할 가치가 있는 이유에 대한 좋은 예입니다!
@@ -85,7 +85,7 @@ S500 프레임:
 
 이 예는 50Hz에 가까운 주파수의 피크를 보여줍니다 (이 경우 "느슨한"랜딩 기어로 인해).
 
-![Vibrations in landing gear - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
+![랜딩 기어의 진동 - FFT 플롯](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
 
 ### 가속 전력 스펙트럼 밀도
 
@@ -97,21 +97,21 @@ S500 프레임:
 
 [QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 프레임 (양호한 진동).
 
-![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+![저진동 QAV-R 5 Racer - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+DJI F450 프레임(양호한 진동).![저진동 DJI F450 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
 :::note
 위에서는 약 100Hz에서 프로펠러의 블레이드 통과 주파수를 볼 수 있습니다.
 :::
 
-S500 프레임:![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+S500 프레임:![저진동 S500 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
 #### 예: 불량 진동
 
 약 100Hz의 강한 노란색 선은 추가 조사가 필요한 잠재적인 문제를 나타냅니다 (다른 차트 검토부터 시작).
 
-![High vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
+![높은 진동 스펙트럼 밀도 그래프 ](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
 
 이 그래프는 50Hz에 가까운 주파수의 피크를 보여줍니다 (이 경우 "느슨한"랜딩 기어로 인해).
 
@@ -119,7 +119,7 @@ S500 프레임:![Vibration S500 - spectral density plot](../../assets/flight_log
 이것은 기체 역학에 가까운 강력한 단일 저주파이기 때문에 가능한 문제를 나타냅니다. 기본 필터 설정인 80Hz 진동은 50Hz에서 필터링되지 않습니다.
 :::
 
-![Vibrations in landing gear - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
+![랜딩 기어의 진동 - 스펙트럼 밀도 플롯](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
 매우 높은 (안전하지 않은) 진동! 그래프는 거의 완전히 노란색입니다.
 
@@ -127,7 +127,7 @@ S500 프레임:![Vibration S500 - spectral density plot](../../assets/flight_log
 높은 진동 수준으로 비행하여서는 안됩니다.
 :::
 
-![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
+![매우 높은 진동 스펙트럼 밀도 그래프 ](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
 ### 원시 가속
 
@@ -143,7 +143,7 @@ S500 프레임:![Vibration S500 - spectral density plot](../../assets/flight_log
 
 [QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 프레임 (양호한 진동).
 
-![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![저진동 QAV-R 5 Racer - 원시 가속. 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
 DJI F450 프레임(양호한 진동).![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
@@ -308,19 +308,19 @@ GPS 노이즈와 방해 전파 그래프로 GPS 신호 간섭 및 방해 전파�
 
 ## 비행/기체 로그 검토 예
 
-It is often worth looking at multiple charts for a particular flight when analyzing vehicle condition (different charts can better highlight some issues). This is particularly important when reviewing for possible vibration problems.
+기체 상태를 분석시 특정 기체의 여러 그래프를 분석하는 것이 좋습니다 (다른 그래프가 일부 문제를 더 잘 나타낼 수 있음). 이것은 진동 문제를 검토시 특히 중요합니다.
 
-The section below groups a few (previously presented) charts by flight/vehicle.
+아래 섹션은 비행/기체별로 몇 가지 (이전에 제시된) 그래프를 그룹화합니다.
 
 ### QAV-R 5" Racer
 
-These charts are all from the same flight of a [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md). <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+이 그래프는 모두 [QAV-R 5 "Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md)의 동일한 비행에서 가져온 것입니다. <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has very low vibration:
+진동이 매우 낮은 기체임을 나타냅니다.
 
-- Actuator Controls FFT shows only a single peak at the lowest end, with the rest low and flat.
-- Spectral density is mostly green, with only a little yellow at the low frequencies.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+- 액추에이터 제어 FFT는 가장 낮은 끝에서 단일 피크 만 표시하고 나머지는 낮고 평평합니다.
+- 스펙트럼 밀도는 대부분 녹색이며 저주파에서 약간의 노란색만 있습니다.
+- Raw Acceleration에는 x/y 축 트레이스와 잘 분리된 z 축 트레이스가 있습니다.
 
 ![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
@@ -330,13 +330,13 @@ They show a vehicle that has very low vibration:
 
 ### DJI F450
 
-These charts are all from the same flight of a *DJI F450*. <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+이 차트는 *DJI F450*의 동일한 비행에서 가져온 것입니다. <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has low vibration (but not as low as the QAV-R above!):
+진동이 적은 기체임을 나타냅니다 (하지만 위의 QAV-R만큼 낮지는 않습니다!).
 
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz (this is the blade passing frequency of the propellers).
-- Spectral density is mostly green. The blade passing frequency is again visible.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+- 액추에이터 제어 FFT는 가장 낮은 끝에서 피크를 보여줍니다. 약 100Hz (프로펠러의 블레이드 통과 주파수)에서 범프를 제외하고 나머지 대부분은 평평합니다.
+- 스펙트럼 밀도는 대부분 녹색입니다. 블레이드 통과 주파수가 다시 표시됩니다.
+- Raw Acceleration에는 x/y 축 트레이스와 잘 분리된 z 축 트레이스가 있습니다.
 
 ![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
@@ -344,15 +344,15 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 
 ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
-### S500
+### S500 
 
-These charts are all from the same flight of an S500.
+이 차트는 S550의 동일한 비행에서 가져온 것입니다.
 
-They show a vehicle that has borderline-acceptable vibration:
+경계선 허용 진동이 있는 기체임을 나타냅니다.
 
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz.
-- Spectral density is mostly green, but more yellow than for the DJI F450 at 100Hz.
-- Raw Acceleration has z-axis trace fairly close to the x/y-axis traces. This is at the limit where it starts to negatively affect flight performance.
+- 액추에이터 제어 FFT는 가장 낮은 끝에서 피크를 보여줍니다. 약 100Hz의 범프를 제외하고는, 나머지 대부분은 평평합니다.
+- 스펙트럼 밀도는 대부분 녹색이지만, 100Hz에서 DJI F450보다 노란색이 더 많습니다.
+- Raw Acceleration에는 x/y 축 트레이스에 근접한 z 축 트레이스가 있습니다. 이것은 비행 성능에 부정적인 영향을 미치기 시작하는 한계입니다.
 
 ![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
