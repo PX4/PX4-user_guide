@@ -115,6 +115,7 @@
   * [Video Streaming](companion_computer/video_streaming.md)
 * [Advanced Configuration](advanced_config/README.md)
   * [Finding/Updating Parameters](advanced_config/parameters.md)
+  * [Filter/Control Latency Tuning](advanced_config/filter_tuning.md)
   * [Multicopter Config/Tuning](config_mc/README.md)
     * [MC PID Tuning Guide (Detailed)](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
