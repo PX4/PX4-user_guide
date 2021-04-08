@@ -2,11 +2,24 @@
 
 *Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
 
-## Video 
+## Video
 
-A description of how flight modes work (in PX4 v1.9) is provided in the following video: **PX4 Flight Task Architecture Overview** - Dennis Mannhart, Matthias Grob (*PX4 Developer Summit 2019*).
+The following vidoes provide an overview of flight tasks in PX4.
+The first covers the state of tasks in PX4 v1.9.
+The second is an update, which covers the changes in PX4 v1.11.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-dkQG8YLffc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
+
+A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
+
+@[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
+
+#### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
+
+@[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
+
+The relevent section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec).
+The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.
 
 ## Creating a Flight Task
 
