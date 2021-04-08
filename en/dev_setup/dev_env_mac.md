@@ -86,9 +86,10 @@ brew install px4-sim-jmavsim
 ```
 
 :::warning
-jMAVSim for PX4 v1.11 and beyond we require at least JDK 15. (for troubleshooting information see [the jMAVSim guide](../simulation/jmavsim.html))
+jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
 
-Specifically macOS users might run into this problem check for the error code: `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix on [the jMAVSim guide](../simulation/jmavsim.html)) under the troubleshooting section.
+For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`.
+You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.html#troubleshooting)).
 :::
 
 ## Next Steps
