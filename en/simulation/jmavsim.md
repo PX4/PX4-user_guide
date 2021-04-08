@@ -230,5 +230,19 @@ and comment out the line indicated below:
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557).
-The fix was found in [askubuntu.com](https://askubuntu.com/questions/695560).
+For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557).
+A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
+
+### Exception in thread "main" java.lang.UnsupportedClassVersionError:
+When compiling jMAVsim, you might encounter the following error:
+
+```
+Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
+```
+
+This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, etc.
+
+To fix it under macOS, we recommend installing OpenJDK through homebrew
+```sh
+brew install --cask adoptopenjdk15
+```
