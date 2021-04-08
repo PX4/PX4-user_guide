@@ -1,6 +1,10 @@
 # Development Environment on ArchLinux
 
-The user needs to be added to the group "uucp": <!-- NEED px4_version -->
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+:::
+
+The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
 The script installs (by default) all tools to build PX4 (without RTPS) for NuttX targets and run simulation with *jMAVsim*. You can additionally install the *Gazebo* simulator by specifying the command line argument: `--gazebo`.
 
@@ -23,7 +27,7 @@ source ./archlinux_install_script.sh
   ```
 
 The script takes the following optional parameters:
-- `--gazebo`: Add this parameter parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/). :::note Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
+- `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/). :::note Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
 :::
 
 - `--no-nuttx`: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).

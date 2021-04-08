@@ -1,7 +1,7 @@
 # Companion Computer Peripherals
 
-This section contains information about peripherals for connecting Pixhawk (PX4) to a companion computer, and peripherals that might be connected to such a companion computer (and potentially triggered/accessed by PX4).
-
+This section contains information about companion computer peripherals.
+These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
 ## Companion/Pixhawk Communication
 
@@ -11,7 +11,7 @@ There are a few devices that allow this communication bridge such as FTDI USB br
 
 :::note
 PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example).
-Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
 :::
 
 ### FTDI Devices
@@ -31,7 +31,7 @@ Device | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH
 
 ### Logic Level Shifters
 
-On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. 
+On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO.
 In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
 Options include:
@@ -44,7 +44,7 @@ Cameras are used image and video capture, and more generally to provide data for
 
 ### Stereo Cameras
 
-Stereo cameras are typically used for depth perception, path planning and SLAM. 
+Stereo cameras are typically used for depth perception, path planning and SLAM.
 They are in no way guaranteed to be plug and play with your companion computer.
 
 Popular stereo cameras include:
@@ -86,5 +86,5 @@ This approach means that you do not need to know the IP address of the GCS compu
 :::
 
 Some USB modules that are known to work include:
-- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
+- [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/)
   - The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.

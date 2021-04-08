@@ -1,7 +1,6 @@
 # CUAV V5 nano Autopilot
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
@@ -19,7 +18,7 @@ Some of its main features include:
 - Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
 - More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
 - Firmware-compatible with PX4.
-- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces.
+- Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
 
 :::note
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -137,6 +136,8 @@ For more information see [Using JTAG for hardware debugging](#compatibility_jtag
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## Voltage Ratings
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
@@ -193,8 +194,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-:::warning
-PX4 does not support this interface.
+:::warning PX4 does not support this interface.
 :::
 
 ## Known Issues

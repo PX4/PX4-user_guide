@@ -1,7 +1,6 @@
 # Durandal Wiring Quick Start
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
@@ -10,7 +9,7 @@ This quick start guide shows how to power the Holybro [Durandal](../flight_contr
 
 ## Unboxing
 
-Durandal is sold bundled with a number of different combinations of accessories, including power modules: *PM02 V3* and *PM07*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
+Durandal is sold bundled with a number of different combinations of accessories, including power modules: *PM02 V3* and *PM07*, and the *Pixhawk 4 GPS/Compass* ( u-blox NEO-M8N).
 
 The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
 
@@ -204,4 +203,4 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 - [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
 - [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
 - [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
-- [Stm32H743IIK_pinmap.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Stm32H743IIK_pinmap.pdf) (Durandal Pinmap)
+- [STM32H743IIK_pinout.pdf](https://github.com/PX4/PX4-user_guide/raw/master/assets/flight_controller/durandal/STM32H743IIK_pinout.pdf) (Durandal Pinmap)

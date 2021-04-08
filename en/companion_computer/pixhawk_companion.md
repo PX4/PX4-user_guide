@@ -40,14 +40,14 @@ In most cases the accessible hardware serial ports already have some function (m
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-| TELEM2 |         | FTDI    |        |
---- | --- | ---
-|1         | +5V (red)|         | DO NOT CONNECT!   |
-|2         | Tx  (out)| 5       | FTDI RX (yellow) (in)   |
-|3         | Rx  (in) | 4       | FTDI TX (orange) (out)  |
-|4         | CTS (in) |6       | FTDI RTS (green) (out) |
-|5         | RTS (out)|2       | FTDI CTS (brown) (in) |
-|6         | GND     | 1       | FTDI GND (black)   |
+TELEM2 | | FTDI | &nbsp 
+--- | --- | --- | ---
+1 | +5V (red)| | DO NOT CONNECT!
+2 | Tx  (out)| 5 | FTDI RX (yellow) (in)
+3 | Rx  (in) | 4 | FTDI TX (orange) (out)
+4 | CTS (in) | 6 | FTDI RTS (green) (out)
+5 | RTS (out)| 2 | FTDI CTS (brown) (in)
+6 | GND     | 1 | FTDI GND (black)
 
 ## Software setup on Linux
 

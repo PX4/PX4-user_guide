@@ -8,6 +8,22 @@ This topic explains several methods for updating the Pixhawk bootloader.
 Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
+## Building the new PX4 bootloader yourself
+
+Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
+
+Build the new bootloader in the PX4-Autopilot folder with:
+
+    make px4_fmu-v6x_bootloader
+    
+
+Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+
+If you need a HEX file instead of an ELF file, use objcopy:
+
+    arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
+    
+
 <span id="qgc_bootloader_update"></span>
 
 ## QGroundControl Bootloader Update
@@ -67,7 +83,8 @@ The following steps explain how you can "manually" update the bootloader using t
 6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
     
-    :::note To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+:::note
+To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
 :::
 
 8. Use the following command to scan for the Pixhawk’s swd and connect to it:

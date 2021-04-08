@@ -1,6 +1,6 @@
-# Gazebo Simulation
+# Gazebo 시뮬레이션
 
-[Gazebo](http://gazebosim.org) is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision. This page describes its use with SITL and a single vehicle. Gazebo can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md).
+[가제보](http://gazebosim.org) 는 개체 회피 및 컴퓨터 시각 정보 처리 시험에 일부 적합한, 강력한 자동화 로봇용 3차원 모의 시험 환경입니다. 이 페이지에서는 SITL과 단일 기체와의 활용법을 설명합니다. 가제보는 또한 [HITL](../simulation/hitl.md)과 [다중 기체 모의 시험](../simulation/multi-vehicle-simulation.md)용으로 활용할 수 있습니다.
 
 **Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine (coming soon!)
 
@@ -8,7 +8,7 @@
 Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
 :::
 
-{% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
 [![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -36,17 +36,17 @@ You can run a simulation by starting PX4 SITL and gazebo with the airframe confi
 Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 
-## Running the Simulation
+## 모의 시험 환경 실행
 
-Run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
+PX4 SITL과 에어프레임 설정(멀티콥터, 비행체, 수직 이착륙기, 광류센서 및 다중 기체 모의 시험 지원)을 불러오는 명령으로 모의 시험환경을 시작하십시오.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
+The easiest way to do this is to open a terminal in the root directory of the PX4 *Firmware* repository and call `make` for the targets as shown in the following sections. 예를 들어, 쿼드로터 모의 시험을 시작(기본)하려면:
 ```sh
 cd ~/src/Firmware
 make px4_sitl gazebo
 ```
 
-The supported vehicles and `make` commands are listed below (click links to see vehicle images).
+지원 기체와 `make` 명령은 아래와 같습니다(기체 그림을 보려면 링크를 누르십시오).
 
 :::note
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
@@ -75,14 +75,14 @@ The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful refer
 
 The commands above launch a single vehicle with the full UI. Other options include:
 - **Tip** You can use the [instructions below](#start_px4_sim_separately) to keep Gazebo running and only re-launch PX4. This is quicker than restarting both.
-- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo UI (this uses fewer resources and is much faster).
+- 가제보 인터페이스를 시작하지 않는 [헤드리스 모드](#headless)로 모의시험 환경을 실행합니다(자원을 훨씬 적게 차지하며 더 빠릅니다).
 
 
-## Taking it to the Sky
+## 하늘로 띄우기
 
-The `make` commands above first build PX4, and then run it along with the Gazebo simulator.
+위에서 언급한 `make` 명령은 PX4를 우선 빌드하고, 가제보 모의 시험 환경을 띄웁니다.
 
-Once PX4 has started it will launch the PX4 shell as shown below.
+PX4를 시작하면 아래와 같이 PX4 셸을 실행합니다.
 
 ```
 ______  __   __    ___ 
@@ -121,7 +121,7 @@ Simply prefix the normal *make* command with `HEADLESS=1` as shown:
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## 사용법/설정 옵션
 
 <a id="headless"></a>
 
@@ -206,7 +206,8 @@ To enable/disable GPS noise:
    ```
    make px4_sitl gazebo_iris
    ```
-   :::tip The SDF files are not overwritten on subsequent builds.
+:::tip
+The SDF files are not overwritten on subsequent builds.
 :::
 
 2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
@@ -278,9 +279,8 @@ make px4_sitl gazebo_rover__sonoma_raceway
 ```
 
 The video below shows that the location of the environment is aligned with the gazebo world:
-{% youtube %}
-https://youtu.be/-a2WWLni5do
-{% endyoutube %}
+
+@[youtube](https://youtu.be/-a2WWLni5do)
 
 <a id="start_px4_sim_separately"></a>
 
@@ -312,7 +312,7 @@ The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/se
 
 The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
 
-**Note** Video streaming from Gazebo and the Gazebo widget to turn streaming on/off are not enabled by default.
+To simulate a plane with this camera:
 ```
 make px4_sitl_default gazebo_plane_cam
 ```
@@ -322,7 +322,8 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 :::
 
 :::note
-The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp). Simply open **Settings > General** and set **Video Source** to *UDP Video Stream* and **UDP Port** to *5600*:
+The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp).
+:::
 
 <a id="flight_termination"></a>
 
@@ -330,7 +331,7 @@ The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_ima
 
 *Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
 
-The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
+The `if750a` target has a parachute attached to the vehicle. Simply open **Settings > General** and set **Video Source** to *UDP Video Stream* and **UDP Port** to *5600*:
 ```
 make px4_sitl gazebo_if750a
 ```
@@ -356,8 +357,8 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 
 *Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-:::note
-FYI only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+:::note FYI
+only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
 ### Gazebo GUI to Start/Stop Video Streaming

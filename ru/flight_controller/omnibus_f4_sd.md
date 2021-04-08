@@ -1,7 +1,6 @@
 # Omnibus F4 SD
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
 :::
 
 The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
@@ -44,8 +43,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
 
-:::tip
-PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::tip PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
 :::
 
 :::tip
@@ -155,6 +153,8 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 | USART1 | /dev/ttyS0 | SerialRX |
 | USART4 | /dev/ttyS1 | TELEM1   |
 | USART6 | /dev/ttyS2 | GPS      |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## RC Telemetry
 

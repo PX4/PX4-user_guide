@@ -5,7 +5,11 @@ PX4 does not manufacture this (or any) autopilot.
 Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 :::
 
-The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems. 
+:::tip
+The PX4 dev team supports this flight controller as a footprint compatible replacement for Cube Black. We recommend however to consider products built on industry standards, such as the [Pixhawk Standards](https://pixhawk.org). This flight controller is not following the standard and uses a patented connector.
+:::
+
+The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
 ![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
 
@@ -18,9 +22,6 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 :::
 
-:::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
-:::
 
 ## Key Features
 
@@ -68,11 +69,11 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * **Servo rail input voltage:** 3.3V / 5V
   * **USB port input:**
     * Voltage: 4V - 5.7V
-	* Rated current: 250 mA
+    * Rated current: 250 mA
   * **POWER:**
     * Input voltage: 4.1V - 5.7V
-	* Rated input current: 2.5A
-	* Rated input/output power: 14W
+    * Rated input current: 2.5A
+    * Rated input/output power: 14W
 * **Dimensions:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
   - **Carrier:** 94.5mm x 44.3mm x 17.3mm

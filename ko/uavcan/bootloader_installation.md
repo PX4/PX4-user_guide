@@ -1,7 +1,7 @@
 # UAVCAN 부트로더 설치
 
-:::warning
-UAVCAN 장치는 보통 부트로더를 미리 심어넣은 상태로 나옵니다. UAVCAN 장치를 직접 개발할 의도가 아니라면 이 절의 절차는 따르지 마십시오.
+:::warning UAVCAN
+장치는 보통 부트로더를 미리 심어넣은 상태로 나옵니다. UAVCAN 장치를 직접 개발할 의도가 아니라면 이 절의 절차는 따르지 마십시오.
 :::
 
 ## 개요
@@ -97,7 +97,7 @@ JLinkGDBServer -select USB=0 -device STM32F446RE -if SWD-DP -speed 20000 -vd
 arm-none-eabi-gdb px4esc_1_6-bootloader.elf
 ```
 
-At the `gdb` prompt, run:
+`gdb` 프롬프트에서 다음 명령을 실행하십시오:
 
 ```
 tar ext :2331

@@ -1,19 +1,19 @@
-# GIT Examples
+# git 예제
 
 <a id="contributing_code"></a>
 
-## Contributing code to PX4
+## PX4에 코드 기여
 
-Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example.
+PX4의 기능 추가는 다음 절차를 따릅니다. 다음 예제를 따라 PX4에 기여 결과를 공유할 수 있습니다.
 
-* [Sign up](https://github.com/join) for github if you haven't already
-* Fork the Firmware (see [here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository))
-* Clone your forked repository to your local computer<br>
+* 아직 Github에 계정이 없으면 [가입](https://github.com/join)하십시오.
+* 펌웨어 코드를 복제(fork)하십시오([이곳](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository) 참고)
+* 여러분의 계정으로 복제(fork)한 저장소를 로컬 컴퓨터로 가져오십시오<br>
   ```sh
   cd ~/wherever/
 git clone https://github.com/<your git name>/Firmware.git
   ```
-* Go into the new directory, initialize and update the submodules, and add the original upstream Firmware<br>
+* 새 디렉터리로 이동, 초기화, 하위 모듈을 업데이트한 후, 원본 업스트림 펌웨어를 추가하십시오<br>
   ```sh
   cd Firmware
 git submodule update --init --recursive

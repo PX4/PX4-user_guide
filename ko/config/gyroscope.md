@@ -1,29 +1,29 @@
-# Gyroscope Calibration
+# 자이로스코프 보정
 
-*QGroundControl* will guide you to place the vehicle on a flat surface and keep it still.
+기체를 평평한 곳에 움직이지 않도록 놓아둔 체로 *QGroundControl*을 사용하여 보정을 시작합니다.
 
-## Performing the Calibration
+## 보정 방법
 
-The calibration steps are:
+보정 절차는 다음과 같습니다:
 
-1. Click the **Gyroscope** sensor button
+1. **자이로스코프** 센서 버튼 클릭
     
-    ![Select Gyroscope calibration PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.jpg)
+    ![자이로스코프 보정 PX4 선택](../../assets/qgc/setup/sensor/gyroscope_calibrate_px4.jpg)
 
-2. Place the vehicle on a surface and leave it still.
+2. 기체을 평평한 곳에 놓고 가만히 둡니다.
 
-3. Click **Ok** to start the calibration.
+3. **확인**을 눌러 보정작업을 시작하십시오.
     
-    The bar at the top shows the progress:
+    상단의 Progressive Bar에서 진행 상황을 보여줍니다.
     
-    ![Gyro calibration in progress on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_progress_px4.jpg)
+    ![PX4에서 자이로스코프 보정 진행 중](../../assets/qgc/setup/sensor/gyroscope_calibrate_progress_px4.jpg)
 
-4. When finished, *QGroundControl* will display a progress bar *Calibration complete* ![Gyro calibration complete on PX4](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.jpg)
+4. 완료되면 *QGroundControl*에 *캘리브레이션 완료* 메시지가 나타납니다. ![PX4에서 자이로스코프 보정 완료](../../assets/qgc/setup/sensor/gyroscope_calibrate_complete_px4.jpg)
 
 :::note
-If you move the vehicle *QGroundControl* will automatically restart the gyroscope calibration.
+차량을 이동하면 *QGroundControl*이 자동으로 자이로스코프 보정을 다시 시작합니다.
 :::
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl User Guide > Gyroscope](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope)
+* [QGroundControl 사용 설명서 > 자이로스코프](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#gyroscope)

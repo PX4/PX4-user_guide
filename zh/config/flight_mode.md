@@ -55,7 +55,8 @@ To configure single-channel flight mode selection:
     
     ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
-    :::tip If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+:::tip
+If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
 :::
 
 4. 进行 *飞行模式设置* :
@@ -78,7 +79,9 @@ It is common to use the positions of a 2- and a 3-position switch on the transmi
 
 The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
 
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots". {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
+The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots".
+
+@[youtube](https://youtu.be/scqO7vbH2jo)
 
 ### 单通道模式设置示例
 
@@ -125,7 +128,8 @@ To configure flight modes using the multi-channel UI:
     
     ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
-    :::tip If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
+:::tip
+If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
 :::
 
 4. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel). There are a number of complications on the mode to channel assignments:

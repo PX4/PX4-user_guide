@@ -1,6 +1,6 @@
 # 机载计算机外设
 
-本节包含有关用于连接 Pixhawk(PX4) 到机载计算机的外设的信息，以及可能连接到此类机载计算机(并可能由 PX4 触发/访问) 的外设的信息。
+This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
 ## Companion/Pixhawk Communication
 
@@ -8,8 +8,7 @@ Typical companion computer work with Pixhawk requires a companion link to transm
 
 有一些构建这种通信桥的设备，如 FTDI USB 接口和电平移位器(见下文)。
 
-:::note
-PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+:::note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
 :::
 
 ### FTDI 设备

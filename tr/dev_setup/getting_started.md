@@ -1,9 +1,9 @@
-# Getting Started
+# Başlangıç
 
-This section contains topics about getting started with PX4 development:
+Bu bölüm, PX4 geliştirmeye başlamakla ilgili konuları içermektedir:
 
-* [Initial Setup](../dev_setup/config_initial.md)
-* [Toolchain Installation](../dev_setup/dev_env.md)
-* [Building the Code](../dev_setup/building_px4.md)
-* [Writing an Application](../modules/hello_sky.md)
-* [Application/Module Template](../modules/module_template.md)
+* [İlk Kurulum](../dev_setup/config_initial.md)
+* [Geliştirici ortamı kurulumu](../dev_setup/dev_env.md)
+* [Kodu oluşturma ve geliştirme](../dev_setup/building_px4.md)
+* [Bir Uygulama yazma](../modules/hello_sky.md)
+* [Uygulama/Modül Şablonu](../modules/module_template.md)

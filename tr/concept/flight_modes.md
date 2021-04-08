@@ -18,7 +18,10 @@ User-facing flight mode documentation can be found in:
 
 "Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
 
-* **Fixed wing aircraft/ rovers / boats:**
+* **Rovers / Boats:**
+  * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
+
+* **Fixed wing aircraft:**
   * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
   * **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
@@ -26,12 +29,11 @@ User-facing flight mode documentation can be found in:
 * **Multirotors:**
   * **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
 
-    :::note For Multirotors, Manual and Stabilized modes are the same.
+:::note
+For Multirotors, Manual and Stabilized modes are the same.
 :::
 
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
-  * **RATTITUDE** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot if they are greater than the mode's threshold, i.e. if the RC sticks are a certain distance away from the center position. If not the inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. In short, the autopilot acts as an angular rate controller when the RC sticks are away from center (like in the ACRO mode), whereas when the RC sticks are centered, the autopilot acts as an attitude controller (like in the Stabilized mode).
-
 
 ### Assisted flight modes
 
@@ -51,7 +53,7 @@ User-facing flight mode documentation can be found in:
 * **AUTO_LOITER** (Loiter)
   * **Fixed wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
   * **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
-* **AUTO_RTL** (Return to Land)
+* **AUTO_RTL** (Return to Launch)
   * **Fixed wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
   * **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
 * **AUTO_MISSION** (Mission)
@@ -60,4 +62,4 @@ User-facing flight mode documentation can be found in:
 
 ## Flight Mode Evaluation Diagram
 
-![Commander Flow diagram.](../../assets/diagrams/commander-flow-diagram.png)
+![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)

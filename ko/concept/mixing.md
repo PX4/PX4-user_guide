@@ -13,15 +13,8 @@ Separating the mixer logic from the actual attitude controller greatly improves 
 A particular controller sends a particular normalized force or torque demand (scaled from -1..+1) to the mixer, which then sets individual actuators accordingly. The output driver (e.g. UART, UAVCAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
 
 ![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
-<!--- Mermaid Live Version:
-https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19
-graph LR;
-  att_ctrl[Attitude Controller] dash-dash> act_group0[Actuator Control Group 0]
-  gimbal_ctrl[Gimbal Controller] dash-dash> act_group2[Actuator Control Group 2]
-  act_group0 dash-dash> output_group5[Actuator 5]
-  act_group0 dash-dash> output_group6[Actuator 6]
-  act_group2[Actuator Control Group 2] dash-dash> output_group0[Actuator 5]
---->
+
+<!-- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19 --->
 
 ## Control Groups
 
@@ -92,7 +85,7 @@ This group is only used to define mapping of RC inputs to specific outputs durin
 
 ## Virtual Control Groups
 
-:::caution
+:::warning
 *Virtual Control Group*s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for "completeness".
 :::
 
@@ -133,13 +126,7 @@ This approach is needed because the physical bus used for MAIN outputs is not al
 Since there are multiple control groups (like flight controls, payload, etc.) and multiple output groups (busses), one control group can send commands to multiple output groups.
 
 ![Mixer Input/Output Mapping](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
-<!--- Mermaid Live Version:
-https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0
-graph TD;
-  actuator_group_0 dashdash>output_group_5
-  actuator_group_0dashdash>output_group_6
-  actuator_group_1dashdash>output_group_0
---->
+<!--- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
 
 :::note
 In practice, the startup scripts only load mixers into a single device (output group). This is a configuration rather than technical limitation; you could load the main mixer into multiple drivers and have, for example, the same signal on both UAVCAN and the main pins.
@@ -238,18 +225,23 @@ Any line that does not begin with a single capital letter followed by a colon ma
 
 Summing mixers are used for actuator and servo control.
 
-A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.
+A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler. A minimal actuator traversal time limit can also be specified in the output scaler (inverse of a slew rate).
 
 A simple mixer definition begins with:
 
 ```
 M: <control count>
-O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
+O: <-ve scale> <+ve scale> <offset> <lower limit> <upper limit> <traversal time>
 ```
 
 If `<control count>` is zero, the sum is effectively zero and the mixer will output a fixed value that is `<offset>` constrained by `<lower limit>` and `<upper limit>`.
 
-The second line defines the output scaler with scaler parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
+The second line defines the output scaler with scaler parameters as discussed above. While the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000. The `<traversal time>` (optional) on the output scaler is intended for actuators that may be damaged if they move too fast — like the tilting actuators on a tiltrotor VTOL vehicle. It can be used to limit the rate of change of an actuator (if this is not specified then no rate limit is applied). For example, a `<traversal time>` value of 20000 will limit the rate of change of the actuator such that it takes at least 2 seconds from the `<lower limit>` to the `<upper limit>` and vice versa.
+
+:::note
+- The `<traversal time>` should only be used if the hardware requires it!
+- Do not apply any limit on actuators controlling the attitude of a vehicle (such as servos for the aerodynamic surfaces), as this could easily lead to controller instability.
+:::
 
 The definition continues with `<control count>` entries describing the control inputs and their scaling, in the form:
 
@@ -308,7 +300,7 @@ Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the th
 
 Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.
 
-The [blade 130 helicopter mixer](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix) can be viewed as an example.
+In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.
 
 <a id="helicopter_mixer"></a>
 

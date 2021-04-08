@@ -73,26 +73,71 @@ In the unzipped folder, run:
 
 ## Clone PX4 Firmware & Build
 
-On your PC, clone the PX4 firmware repo and build it as described below.
+:::note
+If you use the [Qualcomm ESC board](http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board) (UART-based), then please follow their instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md). If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.
+:::
 
-If you haven't yet cloned the Firmware repo:
+On your PC, clone the PX4 firmware repo.
 
     cd ~
     mkdir src
     cd src
     git clone git@github.com:PX4/PX4-Autopilot.git
-    
-
-Once you're in your local copy of the Firmware:
-
     cd PX4-Autopilot
     git submodule update --init --recursive
-    export FC_ADDON=<location-of-extracted-flight-controller-addon>
-    make clean
-    make atlflight_eagle_default
-    make atlflight_eagle_default upload
-    adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
     
+
+Then build the targets for the Linux and the DSP side. Both executables communicate via [UORB](../middleware/uorb.md).
+
+```sh
+cd PX4-Autopilot
+export FC_ADDON=<location-of-extracted-flight-controller-addon>
+make clean
+make atlflight_eagle_default
+```
+
+To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
+
+```sh
+adb shell
+```
+
+Go back to previous terminal and upload:
+
+```sh
+make atlflight_eagle_default upload
+```
+
+Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
+
+The mixer currently needs to be copied manually:
+
+```sh
+adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
+```
+
+## Start PX4
+
+Run the DSP debug monitor:
+
+```sh
+${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
+```
+
+Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+
+Go back to ADB shell and run PX4:
+
+```sh
+cd /home/linaro
+./px4 -s mainapp.config
+```
+
+Note that the PX4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the PX4 auto-start after boot.
+
+:::tip
+Information for **autostarting PX4** can be found in: [Configure Snapdragon > Autostart PX4 and Snap VIO](../flight_controller/snapdragon_flight_configuration.md#autostart-px4-and-snap-vio).
+:::
 
 ## Install ROS
 

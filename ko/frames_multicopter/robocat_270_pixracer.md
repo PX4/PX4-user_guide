@@ -1,69 +1,68 @@
 # Robocat 270
 
-The Robocat 270 is a small quadcopter design, rather meant for cruising than for racing, still a perfect trial base for the [Pixracer](../flight_controller/pixracer.md) autopilot. It is heavier than a typical 250 racer, but offers a lot of space for add ons and bigger batteries up to 3S/2200mAh. Its an robust small quadcopter for beginners, very well visible for older Pros as well. It's so easy: Robocat, Pixracer with PX4 Software and QGroundControl Groundstation: Build, calibrate and fly !
+Robocat 270은 경주용이 아닌 순항용으로 설계된 소형 쿼드 콥터로 [Pixracer](../flight_controller/pixracer.md) 자동조종장치를위한 최적의 시험용 제품입니다. 일반적인 250 레이서보다 무겁지만, 추가 기능과 최대 3S/2200mAh의 더 큰 배터리를 위한 많은 공간을 제공합니다. 초보자를위한 견고한 소형 쿼드 콥터로, 노년층 전문가에게도 적당합니다. 매우 쉽습니다 : Robocat, PX4 소프트웨어가 포함된 Pixracer 및 QGroundControl Groundstation : 조립, 보정 및 비행!
 
-## Mounting and Wiring
+## 조립 및 배선
 
-![red robo case](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_case.jpg)
+![적색 로보 케이스](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_case.jpg)
 
-The Robocat 270 frame kits are available from several sources. Two versions: Fiber glass or carbon. The latter is coming with an assortment of aluminium stand offs instead of fragile plastic provided with the fiber glass version.
+Robocat 270 프레임 키트는 여러 소스에서 사용할 수 있습니다. 두 가지 버전 : 유리 섬유 또는 탄소. 후자는 유리 섬유 버전과 함께 제공되는 깨지기 쉬운 플라스틱 대신 다양한 알루미늄 스탠드오프와 함께 제공됩니다.
 
-![red parts robocat](../../assets/airframes/multicopter/robocat_270_pixracer/red_parts_robocat.jpg)
+![적색 로보캣 부품](../../assets/airframes/multicopter/robocat_270_pixracer/red_parts_robocat.jpg)
 
-The shown kit comes with EMAX MT2204 motors, EMAX 12A ESC, pre-flashed with SimonK and 6045 carbon props. This is rather bargain than top quality, but pretty decent, considering the price. Experienced pilots, not on budget, will rather use e.g. Tiger Motors and faster ESC, even CAN versions can be used with the Pixracer / PX4 stack. Those CAN based FOC/Vector Control ESCs have the potential for huge gains in efficiency and reliability.
+표시된 키트에는 EMAX MT2204 모터, EMAX 12A ESC, SimonK 및 6045 카본 프로펠러가 사전에 플래시됩니다. 이것은 최고 품질보다는 저렴하지만 가격을 고려할 때 꽤 괜찮습니다. 예산이 충분합 숙련된 조종사는 Tiger Motors 및 더 빠른 ESC를 사용합니다. 더불어, CAN 버전도 Pixracer/PX4 스택과 함께 사용할 수 있습니다. 이러한 CAN 기반 FOC/벡터 제어 ESC는 많은 효율성과 신뢰성에서 얻을 수 있습니다.
 
-![Robocat 750 basic setup](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
+![Robocat 750 기본 설정](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
 
-The first step should be the attachment of all parts for a test, before before mounting them onto the frame. Wiring details are shown @ the [Pixracer instructions](../flight_controller/pixracer.md) guide.
+첫 번째 단계는 테스트를 위해 모든 부품을 프레임에 장착하기 전에 조립하는 것입니다. 배선 세부 사항은 [Pixracer 지침](../flight_controller/pixracer.md) 가이드에 나와 있습니다.
 
-![red robo esc](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_esc.jpg)
+![적색 로보 esc](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_esc.jpg)
 
-After that, one starts to assemble the bottom part, where the 36x36mm AUAV ACSP4 Power Module / PDB and the ESC fit very well. If ESC w/o heatsink are used, its recommended to install them on top of the arms, where airflow is provided.
+그 후, 36x36mm AUAV ACSP4 전원 모듈/PDB와 ESC가 잘 맞는 바닥 부분을 조립합니다. 히트 싱크가 없는 ESC를 사용하는 경우에는 공기가 잘 통하는 암 상단에 설치하는 것이 좋습니다.
 
-![red robo bottom](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_bottom.jpg)
+![적색 로보 바닥](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_bottom.jpg)
 
-Its a good idea to install the ACSP4 with the shunt resistor for current sensing sunnyside down. Since it might get hot, one has to make sure, that no wire is touching it. It is very important to take care that all the wire insulation is nowhere damaged, since the conductive carbon might lead to shorts. If a 12V source / PDB is not required, a smaller (17x17mm) new ACSP5 Power Module, providing I/U sensing and a 5V BEC is available as well.
+전류 감지를 위해 션트 저항과 함께 ACSP4를 설치하는 것이 좋습니다. 뜨거워 질 수 있으므로 전선이 닿지 않도록 해야합니다. 전도성 탄소가 단락을 일으킬 수 있으므로, 모든 와이어 절연체가 손상되지 않도록 주의하는 것이 매우 중요합니다. 12V 소스/PDB가 필요하지 않은 경우 I/U 감지 및 5V BEC를 제공하는 더 작은 (17x17mm) 새 ACSP5 전원 모듈도 사용할 수 있습니다.
 
-![red robo top plate](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_top_plate.jpg)
+![적색 로보 상판](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_top_plate.jpg)
 
-The Pixracer is soft mounted @ the 1st floor, above the battery compartment. This appears like a waste of space, but one needs about 20mm space for wires clearance,since closely tied wire would badly affect vibration damping.
+Pixracer는 배터리 칸 위 1 층에 부드럽게 장착합니다. 이것은 공간 낭비처럼 보이지만, 밀접하게 연결된 와이어는 진동 방지에 적절하지 않기 때문에 배선 간격을 위해 약 20mm의 공간이 필요합니다.
 
-Excursus: Effective damping is required by all advanced flight stacks and pilots using Althold and GPS modes. Although there are still *hard mounters* around, most builds/controllers/flight stacks are affected by vibrations, leading to the core issues Aliasing/Clipping.
+Excursus : Althold 및 GPS 모드를 사용하는 모든 고급 비행 스택 및 조종사는 효과적인 댐핑이 필요합니다. 주변에 여전히 *하드 마운터*가 있지만, 대부분의 빌드/컨트롤러/플라이트 스택은 진동의 영향을 받아 Aliasing/Clipping의 핵심 문제로 이어집니다.
 
-![vibration_aliasing](../../assets/airframes/multicopter/robocat_270_pixracer/vibration_aliasing.png)
+![진동 앨리어싱](../../assets/airframes/multicopter/robocat_270_pixracer/vibration_aliasing.png)
 
-The PX4 stack is logging those impacts as well, so its easy to analyse them. The example plot shows that the vibration induced dropout peaks are going one way instead of rising above and below the sensor values. This shifts the center of the signal, wrongly "telling" the flight controller rising or falling height. Although newer EKF filter algorithms are designed to handle this to a certain amount, its better to prevent impacts like this by the shown soft mount.
+PX4 스택은 이러한 영향도 로깅하므로 분석하기 쉽습니다. 예제 플롯은 진동으로 인한 드롭 아웃 피크가 센서 값 위아래로 상승하는 대신 한 방향으로 가고 있음을 보여줍니다. 이것은 신호의 중심을 이동시켜 비행 컨트롤러가 높이를 올리거나 내리는 것을 잘못 "말"하는 것입니다. 최신 EKF 필터 알고리즘이이를 특정 양으로 처리하도록 설계되었지만, 표시된 소프트 마운트로 인해 이와 같은 영향을 방지하는 것이 좋습니다.
 
-![red robo damping](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_damping.jpg)
+![적색 로보 댐핑](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_damping.jpg)
 
-This is realized either by 3DR foam pads or HK orange latex. The latter is not self-adhesive, but double faced tape such as 3M 5925F does the job nicely. If no housing is used for the Pixracer, the pads are sticking underneath a 36x36mm fiber or carbon board, squeezing the mandatory foam on top of the baro sensor as well. This foam reduces all light and most airflow impacts onto the sensor.
+이것은 3DR 폼 패드 또는 HK 오렌지 라텍스에서 제공됩니다. 후자는 자체 접착이 아니지만 3M 5925F와 같은 양면 테이프를 사용하는 것이 좋습니다. Pixracer에 하우징을 사용하지 않는 경우 패드가 36x36mm 섬유 또는 탄소 보드 아래에 달라 붙어 baro 센서 상단의 필수 폼을 압착합니다. 이 폼은 모든 빛과 대부분의 기류가 센서에 미치는 영향을 줄여줍니다.
 
-![red robo wires](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_wires.jpg)
+![적색 로보 전선](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_wires.jpg)
 
-It is recommended to fix the cables underneath the Pixracer to prevent damages or relocation during battery placement. Zip ties for the motor wires are worth discussing. If one arm breaks, the damage might be even bigger. For the required X Quad config, connect the four motors according to the layout shown below, so the MAIN1 connector should connect to ESC for motor 1, and so on.
+배터리 배치 중 손상이나 재배치를 방지하기 위해 Pixracer 아래에 케이블을 고정하는 것이 좋습니다. 모터 와이어의 지퍼 타이를 사용하는 것도 고려하는 것이 좋습니다. 한쪽 암이 부러지면, 손실이 더 커지게 됩니다. 필요한 X Quad 구성의 경우 아래 표시된 레이아웃에 따라 4 개의 모터를 연결하므로 MAIN1 커넥터는 모터 1의 ESC에 연결되어야 합니다.
 
-![Motor order connection for Quad - X configuration](../../assets/airframes/multicopter/robocat_270_pixracer/motor_order_quad_x.png)
+![쿼드 - X 설정 모터 연결 순서](../../assets/airframes/multicopter/robocat_270_pixracer/motor_order_quad_x.png)
 
-![red robo naked side](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_naked_side.jpg)
+![적색 로보 측면](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_naked_side.jpg)
 
-The side view shows lots of space for the battery and other addons like an FPV Cam/Tx, RC Rx, OSD and 3DR radio (if the ESP 8266 Wifi board, provided with the Pixracer is not used. The Piezo speaker is mounted sunnyside down near the front stand off. The safety switch, still provided with the Pixracer kit, is not needed at all. The PX4 stack doesn´t use it.
+측면보기는 배터리 및 FPV Cam/Tx, RC Rx, OSD 및 3DR 라디오등을 추가할 수 있는 충분한 공간이 있습니다.(Pixracer와 함께 제공되는 ESP 8266 Wifi 보드를 사용하지 않는 경우). Piezo 스피커는 전면 스탠드 근처에 햇볕이 잘 드는 곳에 장착합니다. Pixracer 키트와 함께 제공되는 안전 스위치는 필요하지 않습니다. PX4 스택은 안전 위치를 사용하지 않습니다.
 
-![red fat robo](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
+![적색 fat 로보](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
 
-The Pixracer with PX4 stack is providing several GPS dependent flight modes, such as Auto Missions,Loiter, Position Control and Return to Land. If the GPS is not only used for the latter, it is recommended to install one of the better GNSS units with concurrent GPS / GLONASS ability. Any type with U-BLOX M8N on a 35x35mm board will fit @ 2nd floor, acting as a mast replacement. It is better to use a GNSS bord with a MAG sensor onboard, since the internal MAG of a flight Controller is always prone to EMI impacts and build related offsets. These might cause TBE (Toilet bowl) effects, impacting GPS modes. Any good rec. for the Pixhawk will work with the Pixracer as well.
+PX4 스택이있는 Pixracer는 Auto Missions, Loiter, Position Control 및 Return to Land와 같은 여러 GPS 종속 비행 모드를 제공합니다. GPS가 후자에만 사용되는 것이 아니라면 동시 GPS/GLONASS 기능이있는 더 나은 GNSS 장치 중 하나를 설치하는 것이 좋습니다. 35x35mm 보드에 u-blox M8N이있는 모든 유형은 2 층에 맞으며 마스트 대체물 역할을 합니다. 비행 컨트롤러의 내부 MAG는 항상 EMI 영향을 미치고 관련 오프셋을 구축하기 때문에 MAG 센서가 내장 된 GNSS 보드를 사용하는 것이 좋습니다. 이로 인해 TBE(변기) 효과가 발생하여 GPS 모드에 영향을 미칠 수 있습니다. 좋은 녹음. Pixhawk는 Pixracer에서도 작동합니다.
 
 ![red robo aufgeklappt](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_aufgeklappt.jpg)
 
-The foldable upper part of the Robocat frame allows easy access to the Pixracer and other external components. The wiring provided with the Pixracer kit will be long enough for this application. For others it might be required to enlongate them, which is easier than to crimp new ones with JST-GH connectors.
+Robocat 프레임의 접이식 상단 부분은 Pixracer 및 기타 외부 구성 요소에 쉽게 접근할 수 있도록 합니다. Pixracer 키트와 함께 제공되는 배선의 길이는 넉넉합니다. 다른 경우에는 JST-GH 커넥터로 새 것을 압착하는 것보다 더 쉽게 늘려야 할 수도 있습니다.
 
-:::note
-AUAV.CO supplies a large variety of replacements for several applications.
+:::note AUAV.CO는 여러 애플리케이션에 대한 다양한 대체품을 제공합니다.
 :::
 
-When everything is ready, its time for configuration and calibration with QGroundControl.
+모든 것이 준비되면 QGroundControl로 설정과 보정 작업을 하여야 합니다.
 
-## Airframe Configuration
+## 기체 설정
 
-Select the QAV250 configuration as shown below. This will not only put PX4 into quadrotor mode, but also load decent default tuning gains.
+아래와 같이 QAV250 구성을 선택합니다. 이것은 PX4를 쿼드 로터 모드로 전환 할뿐만 아니라 적절한 기본 튜닝 게인을로드합니다.
 
-![QGC - select QAV240 firmware](../../assets/airframes/multicopter/robocat_270_pixracer/qav250_qgc_firmware.png)
+![QGC - QAV240 펌웨어 선택](../../assets/airframes/multicopter/robocat_270_pixracer/qav250_qgc_firmware.png)

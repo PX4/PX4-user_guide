@@ -1,11 +1,11 @@
-# Motor/Servo Checks
+# 电机检查
 
-After the airframe is setup and configured you should validate the motor assignment and spin direction, and the servo response. This can be done in *QGroundControl*, under the [Vehicle Setup > Motors](https://docs.qgroundcontrol.com/en/SetupView/Motors.html) tab.
+在机架设置并配置完毕后，您应该检查电机分配和旋转方向以及servo响应。 这些可以在QGroundControl中完成，其选项是Vehicle Setup > Motors tab.
 
-Note the following PX4-specific behaviour:
-- If a safety button is used, it must be pressed before motor testing is allowed.
-- The kill-switch can still be used to stop motors immediately.
-- The parameter [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) can be used to completely disable motor testing.
+注意这些PX4特有的操作：
+- 如果使用了安全按钮，在允许电机测试之前必须按下，保证其开启。
+- 急停开关仍然可以立即停止电机。
+- 使用参数 [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) ，可以禁用电机测试。
 - On boards with an IO, only the MAIN pins can be tested.
 - On the shell, [motor_test](../modules/modules_command.md#motortest) can be used as well, which has additional options.
 

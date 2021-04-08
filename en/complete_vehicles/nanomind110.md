@@ -22,7 +22,7 @@ The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_
 
 ### Flight video
 
-{% youtube %}https://www.youtube.com/watch?v=bLtKa--Buic{% endyoutube %}
+@[youtube](https://youtu.be/bLtKa--Buic)
 
 ### Where to buy
 

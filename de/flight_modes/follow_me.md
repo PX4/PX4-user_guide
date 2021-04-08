@@ -10,8 +10,7 @@ author: Jimmy Johnson
 
 The vehicle will automatically yaw to face and follow the target from a specified [relative position](#NAV_FT_FS), [horizontal separation](#NAV_FT_DST) and [height](#NAV_MIN_FT_HT) above the home position. By default it will follow from directly behind the target at a distance of 8 meters, and a height of 8 meters above the home/arming position. While in this mode no user input is required.
 
-:::tip
-PX4 currently ignores the altitude of/from the target and follows at a constant altitude above home. This limitation is because altitude sources from GPS on ground stations are often inaccurate.
+:::tip PX4 currently ignores the altitude of/from the target and follows at a constant altitude above home. This limitation is because altitude sources from GPS on ground stations are often inaccurate.
 :::
 
 The mode is supported by *QGroundControl* on Android tablets that have a GPS module, and by the [MAVSDK](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_follow_me.html).
@@ -20,7 +19,7 @@ The mode is supported by *QGroundControl* on Android tablets that have a GPS mod
 * This mode requires GPS. * This mode is currently only supported on multicopter. * The follow target must also be able to supply position information. * *QGroundControl* only supports this mode on Android devices that have GPS.
 :::
 
-{% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
+@[youtube](https://youtu.be/RxDL4CtkzAQ)
 
 ## Safety Precautions
 

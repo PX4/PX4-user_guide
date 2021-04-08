@@ -80,9 +80,8 @@ It is common to use the positions of a 2- and a 3-position switch on the transmi
 The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
 
 The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots".
-{% youtube %}
-http://www.youtube.com/watch?v=scqO7vbH2jo
-{% endyoutube %}
+
+@[youtube](https://youtu.be/scqO7vbH2jo)
 
 ### Single-Channel Setup Instructional Example
 

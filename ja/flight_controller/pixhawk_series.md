@@ -31,7 +31,7 @@ The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilo
 The PX4 maintenance and test teams maintain and support these standard boards.
 :::
 
-The list of boards boards supported by the PX4 project is reproduced below:
+The list of boards supported by the PX4 project is reproduced below:
 
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
@@ -72,7 +72,8 @@ PX4 *users* generally do not need to know very much about FMU versions:
 * *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
 * Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
     
-    :::note The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+:::note
+The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
 :::
 
 PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.

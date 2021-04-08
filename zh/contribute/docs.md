@@ -8,7 +8,7 @@ This topic explains how to make and test changes. Towards the end there is a bas
 Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
 :::
 
-<a id="github_changes"></a>
+<a id="github_changes" ></a>
 
 ## 快速更改
 
@@ -24,7 +24,7 @@ The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change re
 
 The documentation team will review the request and either merge it or work with you to update it.
 
-<a id="big_changes"></a>
+<a id="big_changes" ></a>
 
 ## Adding New Content - Big Changes
 
@@ -62,7 +62,8 @@ The following explain how to get the source code, build locally (to test), and m
    git remote add upstream https://github.com/PX4/px4_user_guide.git
    ```
 
-   :::tip A "remote" is a handle to a particular repository. The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide. Above you create a new remote *upstream* that points to the PX4 project version of the documents.
+:::tip
+A "remote" is a handle to a particular repository. The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide. Above you create a new remote *upstream* that points to the PX4 project version of the documents.
 :::
 1. Create a branch for your changes:
    ```sh

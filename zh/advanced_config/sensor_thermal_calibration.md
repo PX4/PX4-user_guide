@@ -78,7 +78,7 @@ To perform an offboard calibration:
 6. 将电路板冷却到操作所需的最低温度。
 7. 接通电源并保持电路板静止<sup id="fnref2:2"><a href="#fn:2" class="footnote-ref"> 2 </a></sup>，将其缓慢加热至所需的最高工作温度。 <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
 8. 断开电源并取出 .ulog 文件。
-9. 在** Firmware / Tools **目录中打开一个终端窗口并运行 python 校准脚本文件： 
+9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: 
         sh
         python process_sensor_caldata.py &lt;full path name to .ulog file&gt; 这将生成 
     

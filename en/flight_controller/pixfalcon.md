@@ -73,6 +73,7 @@ UART1 | /dev/ttyS0 | IO Debug
 USART2 | /dev/ttyS1 | TELEM1 (No flow control)
 UART4 | /dev/ttyS2 | GPS
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Key Links
 

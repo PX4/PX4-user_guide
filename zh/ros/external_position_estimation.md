@@ -27,8 +27,7 @@ PX4 uses the following MAVLink messages for getting external position informatio
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
-:::tip
-EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
 :::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.
@@ -100,7 +99,7 @@ You will first need to [switch to the LPE estimator](../advanced/switching_state
 
 
 :::note
-If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
 :::
 
 ### 启用外部位置输入

@@ -96,11 +96,18 @@ commander <command> [arguments...]
    transition    VTOL transition
 
    mode          Change flight mode
-     manual|acro|offboard|stabilized|rattitude|altctl|posctl|auto:mission|auto:l
-                 oiter|auto:rtl|auto:takeoff|auto:land|auto:precland Flight mode
+     manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
+                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
+
+   pair
 
    lockdown
      [off]       Turn lockdown off
+
+   set_ekf_origin
+     lat, lon, alt Origin Latitude, Longitude, Altitude
+
+   lat|lon|alt   Origin latitude longitude altitude
 
    stop
 
@@ -114,8 +121,6 @@ Source: [modules/dataman](https://github.com/PX4/Firmware/tree/master/src/module
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API.
 Multiple backends are supported:
 - a file (eg. on the SD card)
-- FLASH (if the board supports it)
-- FRAM
 - RAM (this is obviously not persistent)
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons.
@@ -140,10 +145,9 @@ dataman <command> [arguments...]
      [-f <val>]  Storage file
                  values: <file>
      [-r]        Use RAM backend (NOT persistent)
-     [-i]        Use FLASH backend
 
- The options -f, -r and -i are mutually exclusive. If nothing is specified, a
- file 'dataman' is used
+ The options -f and -r are mutually exclusive. If nothing is specified, a file
+ 'dataman' is used
 
    poweronrestart Restart dataman (on power on)
 
@@ -195,8 +199,27 @@ esc_battery <command> [arguments...]
 
    status        print status info
 ```
+## gyro_calibration
+Source: [modules/gyro_calibration](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_calibration)
+
+
+### Description
+Simple online gyroscope calibration.
+
+
+<a id="gyro_calibration_usage"></a>
+### Usage
+```
+gyro_calibration <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## gyro_fft
-Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft)
+Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
 
 ### Description
@@ -362,6 +385,41 @@ logger <command> [arguments...]
    stop
 
    status        print status info
+```
+## netman
+Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+
+
+  ### Description
+  Network configuration manager saves the network settings in non-volatile
+  memory. On boot the `update` option will be run. If a network configuration
+  does not exist. The default setting will be saved in non-volatile and the
+  system rebooted.
+  On Subsequent boots, the `update` option will check for the existence of
+  `net.cfg` in the root of the SD Card.  It will saves the network settings
+  from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+
+  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings.
+  The  `show` option will display the network settings  to the console.
+
+  ### Examples
+  $ netman save           # Save the parameters to the SD card.
+  $ netman show           # display current settings.
+  $ netman update -i eth0 # do an update
+
+<a id="netman_usage"></a>
+### Usage
+```
+netman <command> [arguments...]
+ Commands:
+   show          Display the current persistent network settings to the console.
+
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
+
+   save          Save the current network parameters to the SD card.
+     [-i <val>]  Set the interface name
+                 default: eth0
 ```
 ## pwm_input
 Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)

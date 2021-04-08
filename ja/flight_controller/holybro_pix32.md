@@ -1,7 +1,6 @@
 # Holybro pix32 Flight Controller
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
@@ -33,7 +32,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 * Dimensions/Weight 
   * Size: 81x44x15mm
   * Weight: 33.1g
-* GPS: U-blox<sup>&reg;</sup> super precision Neo-7M with compass
+* GPS: u-blox<sup>&reg;</sup> super precision Neo-7M with compass
 * Input Voltage: 2~10s (7.4~37V)
 
 ### Connectivity
@@ -96,3 +95,5 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files
 | UART4  |            |                       |
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

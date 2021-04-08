@@ -1,7 +1,8 @@
 # 接线指南
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+
+Note also that while [Cube Black](../flight_controller/pixhawk-2.md) is [fully supported by PX4](../flight_controller/autopilot_pixhawk_standard.md), support for [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md) is [Experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.

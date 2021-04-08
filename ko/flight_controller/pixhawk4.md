@@ -1,7 +1,6 @@
 # Pixhawk 4
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
@@ -25,7 +24,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 가속/자이로: BMI055
   * 지자계: IST8310
   * 기압계: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS 수신기; IST8310 지자계 센서가 통합된
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * 인터페이스: 
   * PWM 출력 8-16개 (IO에서 8개, FMU에서 8개)
   * FMU의 전용 PWM/캡처 입력 3 개

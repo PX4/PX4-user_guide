@@ -19,7 +19,7 @@ PX4 项目使用三分支 Git 模型：
 PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有效版本是
 * [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/)（推荐）
 * [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
-* [astyle 3.01](https://sourceforge.net/projects/astyle/files/)
+* [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (recommended)
 
 一旦安装完毕，格式化可以使用 `.工具/astyle/check_code_style_all.sh`。 一个干净的 master 分支的输出应该是 `格式检查通过`。 如果做到这一点，`制作格式`将来可以自动检查和格式化所有文件。
 
@@ -37,7 +37,8 @@ Currently we have two types of source-based documentation:
   - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
 * 我们鼓励其它源文档 *添加必要的值*。
 
-  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::tip
+Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
   - 不要添加可以从 C++ 实体名称零碎地推断出的文档。

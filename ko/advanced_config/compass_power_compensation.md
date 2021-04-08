@@ -36,14 +36,16 @@ Performing this power compensation is advisable only if all the following statem
    - 스로틀을 천천히 0까지 낮춥니다.
    - 기체 시동을 끄십시오. > **참고** 진동을 면밀히 관찰하고, 신중하게 테스트를 진행하십시오.
 
-   :::note Perform the test carefully and closely monitor the vibrations.
+:::note
+Perform the test carefully and closely monitor the vibrations.
 :::
 1. ulog를 검색하고, python 스크립트 [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)를 사용하여 보정 매개변수를 확인하십시오.
    ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   :::note If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
+:::note
+If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
 :::
 1. 스크립트는 추력 및 전류에 대한 매개변수 식별값을 계산하여 콘솔에 인쇄할 것입니다. 스크립트에서 나타나는 그림은 각 나침반 인스턴스에 대한 "적합성"과 제안된 값으로 데이터가 보정된 경우의 모습을 보여줍니다. 전류 측정이 가능한 경우,  일반적으로 전류 보정을 사용하면 더 나은 결과를 얻을 수 있습니다. 다음은 현재 적합도는 양호하지만 관계가 선형이 아니므로 추력 매개 변수를 사용할 수 없는 로그의 예입니다. ![선형 적합](../../assets/advanced_config/line_fit.png)
 

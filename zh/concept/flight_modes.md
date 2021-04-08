@@ -19,18 +19,20 @@
 
 * **固定翼无人机/无人车/无人船：**
   * **手动控制模式：**飞手的控制输入（ 来自遥控器的原始用户输入 ）直接传递给输出混控器。
-  * **自稳模式：**飞手的俯仰和横滚输入以角度的方式传递给飞控，而偏航输入通过输出混合器直接发送到方向舵（手动控制）。 如果遥控器的俯仰杆和滚转杆在中间，飞控程序会将无人机的俯仰角和滚转角调为0°，从而稳定（调平）姿态，以防止风的干扰。 然而，在这种模式下，飞控程序不会去控制无人机的位置，因此位置会因风而漂移。 在非零滚转角输入下，无人机会进行一个协调行的转弯以实现零侧滑（y方向（侧向）的加速度为零）。 在协调转弯时，方向舵用于控制侧滑角，任何手动的偏航输入都会叠加在侧滑控制中。
-  * **特技模式:**飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 飞控程序会控制角速率。 飞手对油门的操作输入将直接传递到输出混控器上。
 
 * **多旋翼无人机：**
-  * **手动/自稳模式：**飞手的操作输入会作为滚转和俯仰*角度*指令和偏航*角速率* 指令。 飞手对油门的操作输入将直接传递到输出混控器上。 飞控程序控制姿态，这意味着遥控器的俯仰杆和滚转杆在中间时，飞控程序会将俯仰角和滚转角调整为零，从而使姿态保持水平。 然而，在这种模式下，飞控程序不会去控制无人机的位置，因此位置会因风而漂移。
+  * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
+  * **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
+  * **姿态特技模式：**如果飞行员的输入值大于该模式的阈值，即如果遥控器操纵杆离中心位置有一定距离，飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。 飞手对油门的操作输入将直接传到输出混控器上。
 
-    :::note 对于多旋翼无人机，手动控制模式和自稳模式是相通的。
+* **Multirotors:**
+  * **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
+
+:::note
+For Multirotors, Manual and Stabilized modes are the same.
 :::
 
-  * **特技模式：**飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 飞控程序会控制无人机的姿态角变化的角速度，但不会控制姿态。 因此即便遥控器摇杆处于居中位置，无人机也不会调平。 这一特性使得多旋翼无人机可以完全翻转过来。 飞手对油门的操作输入将直接传递到输出混控器上。
-  * **姿态特技模式：**如果飞行员的输入值大于该模式的阈值，即如果遥控器操纵杆离中心位置有一定距离，飞手的输入作为滚转、俯仰和偏航 *角速率* 指令传递给飞控程序。 反之，飞手的操作输入会作为滚转和俯仰<1>角度</1>指令和偏航<1>角速率</1> 指令。 飞手对油门的操作输入将直接传到输出混控器上。 简言之，当遥控器操纵杆远离中心时，飞控程序会充当角速率控制器（如特技模式模式），而当遥控器操纵杆中间部位时，飞控程序会充当姿态控制器（如在自稳模式下）。
-
+  * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
 
 ### 辅助飞行模式
 
@@ -59,4 +61,4 @@
 
 ## 飞行模式评估图
 
-![Commander Flow diagram.](../../assets/diagrams/commander-flow-diagram.png)
+![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)

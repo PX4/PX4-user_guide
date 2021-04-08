@@ -8,9 +8,25 @@
 Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 :::
 
+## Building the new PX4 bootloader yourself
+
+Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
+
+Build the new bootloader in the PX4-Autopilot folder with:
+
+    make px4_fmu-v6x_bootloader
+    
+
+Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+
+If you need a HEX file instead of an ELF file, use objcopy:
+
+    arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
+    
+
 <span id="qgc_bootloader_update"></span>
 
-## QGroundControl Bootloader 更新
+## QGroundControl Bootloader Update
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
@@ -67,7 +83,8 @@ The following steps explain how you can "manually" update the bootloader using t
 6. 现在，使用以下命令连接到 Dronecode probe： ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. 使用另一条 USB 线为 Pixhawk 供电，然后将 Dronecode probe 连接到 FMU-DEBUG 端口。
     
-    :::note To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+:::note
+To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
 :::
 
 8. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
@@ -80,7 +97,7 @@ The following steps explain how you can "manually" update the bootloader using t
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
-## 其他飞控板（非 Pixhawk）
+## Other Boards (Non-Pixhawk)
 
 Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 

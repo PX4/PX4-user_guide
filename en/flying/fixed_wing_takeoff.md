@@ -1,12 +1,11 @@
 # Fixed Wing Takeoff
 
-PX4 supports fixed-wing takeoff in [missions](#mission) and using the [Takeoff](#takeoff) flight mode.
+PX4 supports fixed-wing takeoff in [missions](#mission-takeoff) and using the [Takeoff](#takeoff-flight-mode) flight mode.
 Vehicles can be *catapult/hand-launched* or use the runway takeoff mode. <!-- runway support in missions? -->
 In all cases the vehicle takes off at a predefined pitch in its current direction (RC stick input is ignored).
 
 The sections below explain the main methods.
 
-<span id="position"></span>
 ## Position Flight Mode
 
 The vehicle will takeoff in [Position mode](../flight_modes/position_fw.md) if it detects sufficient launch acceleration when launched at an altitude below [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF).
@@ -16,17 +15,16 @@ To launch in this mode:
 - Put the vehicle into *Position mode*.
 - Launch/throw the vehicle (firmly) directly into the wind.
 
-The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff).
+The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff-flight-mode).
 It will then continue in *Postion mode*.
 
-<span id="takeoff"></span>
 ## Takeoff Flight Mode
 
 [Takeoff Mode](../flight_modes/takeoff.md#fixed_wing) enables takeoff using either *catapult/hand-launch* (default) or *runway takeoff*.
 
 ### Catapult/Hand-Launch Mode
 
-When armed and in takeoff mode the vehicle waits to detect launch (i.e. from acceleration due to catapult or hand launch). 
+When armed and in takeoff mode the vehicle waits to detect launch (i.e. from acceleration due to catapult or hand launch).
 On launch detection, the vehicle ramps up to maximum throttle ([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch.
 The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
 All RC stick movement is ignored until climbout ends.
@@ -54,7 +52,6 @@ Runway takeoff mode is enabled using [RWTO_TKOFF](../advanced_config/parameter_r
 
 The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight_modes/takeoff.md#runway_launch).
 
-<span id="mission"></span>
 ## Mission Takeoff
 
 You can also hand/catapult launch a fixed wing vehicle in a mission.

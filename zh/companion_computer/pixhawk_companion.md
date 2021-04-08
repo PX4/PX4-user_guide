@@ -35,14 +35,14 @@ For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripheral
 
 The safe bet is to use an FTDI Chip USB-to-serial adapter board and the wiring below. This always works and is easy to set up.
 
-|  | TELEM2 |           | FTDI |                    |
-|  | ------ | --------- | ---- | ------------------ |
-|  | 1      | + 5v (红色) |      | 请勿连接！              |
-|  | 2      | Tx (输出)   | 5    | FTDI RX (黄色) (输入)  |
-|  | 3      | Rx（输入）    | 4    | FTDI TX (橙色) (输出)  |
-|  | 4      | CTS（输入）   | 6    | FTDI RTS (绿色) (输出) |
-|  | 5      | RTS（输出）   | 2    | FTDI RTS (棕色) (输出) |
-|  | 6      | GND       | 1    | FTDI GND (黑色)      |
+| TELEM2 |   | FTDI    | FTDI            |
+| ------ | - | ------- | --------------- |
+| 1      | 1 |         | DO NOT CONNECT! |
+| 2      | 2 | Tx (输出) | 5               |
+| 3      | 3 | Rx（输入）  | 4               |
+| 4      | 4 | CTS（输入） | 6               |
+| 5      | 5 | RTS（输出） | 2               |
+| 6      | 6 | GND     | 1               |
 
 ## Linux系统上的软件设置
 

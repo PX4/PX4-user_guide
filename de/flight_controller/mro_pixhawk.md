@@ -1,7 +1,6 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](http://nuttx.org) OS.
@@ -90,6 +89,8 @@ See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 | UART4  |            |                       |
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Schematics
 

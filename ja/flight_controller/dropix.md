@@ -1,7 +1,6 @@
 # DroPix Flight Controller
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
 :::
 
 The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
@@ -73,3 +72,5 @@ To [build PX4](../dev_setup/building_px4.md) for this target:
 | UART4  |            |                       |
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

@@ -1,5 +1,24 @@
 # Modules Reference: Controller
 
+## ODULE_NAM
+Source: [modules/control_allocator](https://github.com/PX4/Firmware/tree/master/src/modules/control_allocator)
+
+
+### Description
+This implements control allocation. It takes torque and thrust setpoints
+as inputs and outputs actuator setpoint messages.
+
+<a id="ODULE_NAM_usage"></a>
+### Usage
+```
+ODULE_NAM <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## airship_att_control
 Source: [modules/airship_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/airship_att_control)
 
@@ -19,6 +38,26 @@ To reduce control latency, the module directly polls on the gyro topic published
 ### Usage
 ```
 airship_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## flight_mode_manager
+Source: [modules/flight_mode_manager](https://github.com/PX4/Firmware/tree/master/src/modules/flight_mode_manager)
+
+
+### Description
+This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input
+and outputs setpoints for controllers.
+
+
+<a id="flight_mode_manager_usage"></a>
+### Usage
+```
+flight_mode_manager <command> [arguments...]
  Commands:
    start
 
@@ -239,6 +278,36 @@ uuv_att_control stop
 ### Usage
 ```
 uuv_att_control <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## uuv_pos_control
+Source: [modules/uuv_pos_control](https://github.com/PX4/Firmware/tree/master/src/modules/uuv_pos_control)
+
+
+### Description
+Controls the attitude of an unmanned underwater vehicle (UUV).
+Publishes `actuator_controls_0` messages at a constant 250Hz.
+### Implementation
+Currently, this implementation supports only a few modes:
+ * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
+ * Auto mission: The uuv runs missions
+### Examples
+CLI usage example:
+```
+uuv_pos_control start
+uuv_pos_control status
+uuv_pos_control stop
+```
+
+<a id="uuv_pos_control_usage"></a>
+### Usage
+```
+uuv_pos_control <command> [arguments...]
  Commands:
    start
 

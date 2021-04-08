@@ -2,7 +2,7 @@
 
 This tutorial shows the basics of *Offboard* control with MAVROS, using an Iris quadcopter simulated in Gazebo/SITL. At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
 
-:::caution
+:::warning
 *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 

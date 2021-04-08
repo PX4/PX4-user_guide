@@ -46,6 +46,4 @@ To install and configure PX4:
 
 ## Video
 
-{% youtube %}
-https://youtu.be/_-O0kv0Qsh4
-{% endyoutube %}
+@[youtube](https://youtu.be/_-O0kv0Qsh4)

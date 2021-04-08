@@ -31,7 +31,11 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 
 ### PX4Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
+[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
+
+### ARK Flow
+
+[ARK Flow](../uavcan/ark_flow.md) is a [UAVCAN](../uavcan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
 
 ### PMW3901-Based Sensors
 

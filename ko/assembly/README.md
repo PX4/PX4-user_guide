@@ -1,11 +1,11 @@
 # 기본 조립
 
-PX4를 실행하는 일반적인 "최소" 비행 제어 시스템은 전원 시스템, GPS, 외부 나침반 (선택), 무선 제어 시스템(선택) 및 텔레메트리 무선 시스템(선택 사양)에 연결된 비행 컨트롤러로 구성됩니다.
+PX4 실행에 필요한 비행 컨트롤러의 일반적인 최소 사양은 전원 시스템, GPS이며, 선택 사양으로는 외부 나침반, 무선 조종기와 텔레메트리 등이 있습니다.
 
-이 절에는 다양한 [비행 제어 장치](../flight_controller/README.md)를 조립하는 법에 대해 설명합니다.
+여러가지 [비행 콘트롤러](../flight_controller/README.md)에 대한 조립법을 설명합니다.
 
 :::tip
-Quickstart guides are only provided for a few controllers. Other controllers will have similar connections. Additional information may be available in [flight controllers](../flight_controller/README.md) pages or in manufacturer documentation.
+조립 기초 가이드는 일부 컨트롤러의 조립법을 제공합니다. 다른 컨트롤러의 조립법도 비슷합니다. 더 자세한 조립법은 [비행 컨트롤러](../flight_controller/README.md) 페이지 또는 제조업체 설명서를 이용하십시오.
 :::
 
 * 센서 및 기타 주변 장치(예: 비행기의 속도 센서) 연결에 대한 정보는 [주변 장치](../peripherals/README.md)를 참조하십시오.

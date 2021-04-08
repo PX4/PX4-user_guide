@@ -14,7 +14,7 @@ The shown kit comes with EMAX MT2204 motors, EMAX 12A ESC, pre-flashed with Simo
 
 ![Robocat 750 basic setup](../../assets/airframes/multicopter/robocat_270_pixracer/robocat750_basic_setup_1.jpg)
 
-The first step should be the attachment of all parts for a test, before before mounting them onto the frame. Wiring details are shown @ the [Pixracer instructions](../flight_controller/pixracer.md) guide.
+The first step should be the attachment of all parts for a test, before mounting them onto the frame. Wiring details are shown in the [Pixracer instructions](../flight_controller/pixracer.md) guide.
 
 ![red robo esc](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_esc.jpg)
 
@@ -50,14 +50,13 @@ The side view shows lots of space for the battery and other addons like an FPV C
 
 ![red fat robo](../../assets/airframes/multicopter/robocat_270_pixracer/red_fat_robo.jpg)
 
-The Pixracer with PX4 stack is providing several GPS dependent flight modes, such as Auto Missions,Loiter, Position Control and Return to Land. If the GPS is not only used for the latter, it is recommended to install one of the better GNSS units with concurrent GPS / GLONASS ability. Any type with U-BLOX M8N on a 35x35mm board will fit @ 2nd floor, acting as a mast replacement. It is better to use a GNSS bord with a MAG sensor onboard, since the internal MAG of a flight Controller is always prone to EMI impacts and build related offsets. These might cause TBE (Toilet bowl) effects, impacting GPS modes. Any good rec. for the Pixhawk will work with the Pixracer as well.
+The Pixracer with PX4 stack is providing several GPS dependent flight modes, such as Auto Missions,Loiter, Position Control and Return to Land. If the GPS is not only used for the latter, it is recommended to install one of the better GNSS units with concurrent GPS / GLONASS ability. Any type with u-blox M8N on a 35x35mm board will fit @ 2nd floor, acting as a mast replacement. It is better to use a GNSS bord with a MAG sensor onboard, since the internal MAG of a flight Controller is always prone to EMI impacts and build related offsets. These might cause TBE (Toilet bowl) effects, impacting GPS modes. Any good rec. for the Pixhawk will work with the Pixracer as well.
 
 ![red robo aufgeklappt](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_aufgeklappt.jpg)
 
 The foldable upper part of the Robocat frame allows easy access to the Pixracer and other external components. The wiring provided with the Pixracer kit will be long enough for this application. For others it might be required to enlongate them, which is easier than to crimp new ones with JST-GH connectors.
 
-:::note
-AUAV.CO supplies a large variety of replacements for several applications.
+:::note AUAV.CO supplies a large variety of replacements for several applications.
 :::
 
 When everything is ready, its time for configuration and calibration with QGroundControl.

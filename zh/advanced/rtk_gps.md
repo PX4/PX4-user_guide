@@ -14,46 +14,47 @@ PX4目前仅支持u-blox M8P单频（L1频点）RTK接收机。
 
 ## 支持的 RTK GPS 模块
 
-PX4 currently only supports the single-frequency (L1) u-blox M8P based GNSS receivers for RTK.
-
-A number of manufacturers have created products using this receiver. The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
+The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
 
 :::note
-u-blox has two variants of the M8P chip, the M8P-0 and the M8P-2. The M8P-0 can only be used as Rover, not as Base, whereas the M8P-2 can be used both as Rover or as Base.
+Most devices come with two variants, a base and a rover. Make sure to select the correct variant.
 :::
 
 ## 自动配置
 
+The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to *QGroundControl* or the autopilot).
+
 QGroundControl配置RTK基站输出依据RTCM3.2框架，每帧为1 Hz：
 
-As soon as the autopilot receives `GPS_RTCM_DATA` MAVLink messages, it automatically forwards the RTCM data to the attached GPS module.
-
-The RTCM Base Position message (1005) is of length 22 bytes, while the others are all of variable length depending on the number of visible satellites and the number of signals from the satellite (only 1 for L1 units like M8P). Since at a given time, the *maximum* number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient.
+:::note
+The u-blox U-Center RTK module configuration tool is not needed/used!
 :::
 
-If *MAVLink 1* is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length. As a result the approximate uplink requirement is around 700+ bytes per second. This can lead to link saturation on low-bandwidth half-duplex telemetry modules (e.g. 3DR Telemetry Radios). 因此，大约每秒上行需求是700多个字节。 这可能导致低带宽半双轨遥测模块 (如3DR Telemetry Radios) 连接的饱和。
+The RTCM Base Position message (1005) is of length 22 bytes, while the others are all of variable length depending on the number of visible satellites and the number of signals from the satellite (only 1 for L1 units like M8P). Since at a given time, the *maximum* number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient. In practice, this means that support for new protocols and/or messages only need to be added to one place.
+:::
 
 ### RTCM 报文
 
-QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz:
+QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz, unless otherwise stated:
 
-- **1005** - Station coordinates XYZ for antenna reference point (Base position).
+- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
 - **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
 - **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-
+- **1230** - GLONASS code-phase biases.
+- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
 
 ## 上行数据速率
 
-MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console: 必须注意确保数传链在整个过程中使用 MAVLink 2。 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：
+The raw RTCM messages from the base are packed into a MAVLink `GPS_RTCM_DATA` message and sent over the datalink. The maximum length of each MAVLink message is 182 bytes. Depending on the RTCM message, the MAVLink message is almost never completely filled.
 
-The RTCM Base Position message (1005) is of length 22 bytes, while the others are all of variable length depending on the number of visible satellites and the number of signals from the satellite (only 1 for L1 units like M8P). Since at a given time, the _maximum_ number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient.
+MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console: 必须注意确保数传链在整个过程中使用 MAVLink 2。
 
 If *MAVLink 1* is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length. As a result the approximate uplink requirement is around 700+ bytes per second. This can lead to link saturation on low-bandwidth half-duplex telemetry modules (e.g. 3DR Telemetry Radios).
 
 If *MAVLink 2* is used then any empty space in the `GPS_RTCM_DATA message` is removed. The resulting uplink requirement is about the same as the theoretical value (~300 bytes per second).
 
-:::tip
-PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
+:::tip PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
 :::
 
 MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console:

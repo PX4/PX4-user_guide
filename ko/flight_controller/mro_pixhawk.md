@@ -1,7 +1,6 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](http://nuttx.org) OS.
@@ -144,7 +143,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
           </h2>
           
           <p>
-            :::tip Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
 :::
           </p>
           
@@ -271,6 +271,8 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
             </tr>
           </table>
           
+          <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+          
           <h2>
             Schematics
           </h2>
@@ -284,6 +286,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
               <a href="https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF"> FMUv3 schematic </ 0> - 회로도 및 레이아웃</li> </ul> 
               
               <p>
-                :::note As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
+:::note
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
 :::
               </p>

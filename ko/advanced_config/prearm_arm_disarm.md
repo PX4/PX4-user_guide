@@ -16,7 +16,8 @@ Note 시동 전 기체 상태를 지상 통제 장치에서는 *disarmed*로 나
 
 - *안전 스위치*는 *기체*의 제어 장치로, 기체에 시동을 걸 수 있기 전 가동해야 하며, 시동 전에 시동이 멋대로 커지는 일을 (설정에 따라) 막을 수 있어야 합니다. 보통 안전 스위치는 GPS 장치에 붙어있으나, 별도의 물리 부품으로 따로 떨어져있을 수 있습니다.
   
-    :::warning 일단 기체에 시동이 걸리면 위험합니다. 안전 스위치는 갑작스럽게 시동을 거는 상황을 예방하는 추가 대책입니다.
+:::warning
+일단 기체에 시동이 걸리면 위험합니다. 안전 스위치는 갑작스럽게 시동을 거는 상황을 예방하는 추가 대책입니다.
 :::
 
 - An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
@@ -76,9 +77,9 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 **Note:**  
 - This setting *disables the stick gesture*!  
 - This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via *QGroundControl*. |
-| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a button.   
-- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on respective switch transitions.  
--`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                         |
+| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button.   
+- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.  
+-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                 |
 
 
 :::note

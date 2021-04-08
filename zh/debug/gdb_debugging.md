@@ -77,9 +77,7 @@ A hard fault is a state when a CPU executes an invalid instruction or accesses a
 
 The following video demonstrates hardfault debugging on PX4 using Eclipse and a JTAG debugger. It was presented at the PX4 Developer Conference 2019.
 
-{% youtube %}
-https://www.youtube.com/watch?v=KZkAM_PVOi0
-{% endyoutube %}
+@{% youtube %}
 
 ### 调试 Nuttx 的硬件故障
 
@@ -135,13 +133,13 @@ xPSR: 61000000 BASEPRI: 00000000 CONTROL: 00000000
 EXC_RETURN: ffffffe9
 ```
 
-要解码硬件故障，需要加载 *exact* 二进制文件到调试器中。
+{% endyoutube %}
 
 ```bash
 arm-none-eabi-gdb build/px4_fmu-v2_default/px4_fmu-v2_default.elf
 ```
 
-然后在 GDB 提示中，从 R8 中的最后一个指令开始，从闪存中的第一个地址开始（因为它以 `0x080` 开头，第一个地址 `0x0808439f`）。 执行从左到右。 因此，硬件故障之前的最后一步是当 `mavlink_log.c` 尝试 publish 消息时
+Then in the GDB prompt, start with the last instructions in R8, with the first address in flash (recognizable because it starts with `0x080`, the first is `0x0808439f`). The execution is left to right. So one of the last steps before the hard fault was when `mavlink_log.c` tried to publish something,
 
 ```sh
 (gdb) info line *0x0808439f

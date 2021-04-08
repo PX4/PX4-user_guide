@@ -8,7 +8,7 @@ These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](ht
 A number of other components have been updated in the parts list too.
 :::
 
-{% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ## Parts List
 

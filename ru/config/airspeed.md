@@ -21,7 +21,8 @@ To calibrate the airspeed sensor:
 5. Click **OK** to start the calibration.
 6. Blow into the tip of the pitot tube to signal the end of calibration.
     
-    :::tip Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+:::tip
+Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
 :::
 
 7. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)

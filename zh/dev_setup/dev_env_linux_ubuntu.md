@@ -1,22 +1,53 @@
 # Ubuntu LTS/Debian Linux 的开发环境
 
 [Ubuntu linux lts](https://wiki.ubuntu.com/LTS)（16.04）是标准的/首选的 Linux 开发操作系统。 Linux允许您构建[所有PX4目标](../setup/dev_env.md#supported-targets)（基于NuttX的硬件、高通骁龙飞控硬件、基于Linux的硬件、仿真、ROS）。
-
-以下说明说明了如何 *手动* 设置每个受支持的目标的开发环境。
-- **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**: Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools. 不包含[FastRTPS](#fast_rtps)所依赖的工具。 <!-- NEED px4_version -->
-- **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim.sh" target="_blank" download>ubuntu_sim.sh</a>**: **ubuntu_sim_common_deps.sh** + [Gazebo8](#gazebo) 模拟器。 <!-- NEED px4_version -->
+* Pixhawk and other NuttX-based hardware
+* [jMAVSim Simulation](../simulation/jmavsim.md)
+* [Gazebo Simulation](../simulation/gazebo.md)
+* [Raspberry Pi](#raspberry-pi)
+* [ROS (1)](#ros-gazebo) (Robotics Operating System)
+* [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
+* [Snapdragon Flight](../flight_controller/snapdragon_flight.md#developer-setup-building-firmware) (Discontinued)
 
 :::tip
-The scripts have been tested on *clean* Ubuntu 18.04 LTS and Ubuntu 20.04 LTS installations. They *may* not work as expected if installed "on top" of an existing system, or on a different Ubuntu release.
+This setup is supported by the PX4 dev team.
 :::
 
-这些脚本是:
+:::note
+The supported OS versions for PX4 development are [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) 18.04 (Bionic Beaver) and 20.04 (Focal Fossa). For ROS (1) Ubuntu LTS 18.04 (only) is supported.
+
+The instructions should also work on other Debian Linux based systems, but this is not verified/officially supported.
+:::
 
 ## 一键安装脚本
 
 使用脚本：
 
-用户应先加入组 ”dialout“：
+@用户应先加入组 ”dialout“：
+
+## 权限设置
+
+Bash scripts are provided to help make it easy to install development environment for different target platforms. They are intended to be run on *clean* Ubuntu LTS installations.
+
+| Script                                                                                                                           | Description                                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**                                          | Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
+|
+| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                                                                                                                                  |
+
+:::note
+The scripts *may* not work if installed "on top" of an existing system, or on a different Ubuntu release.
+:::
+
+## ROS/Gazebo
+
+Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> script to set up a development environment that includes [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
+
+:::warning ROS
+users must follow the instructions for: [ROS/Gazebo](#rosgazebo). <!-- ROS installs Gazebo automatically, as part of the ROS installation). -->
+:::
+
+To install the toolchain:
 
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download>ubuntu_sim_common_deps.sh</a>**：[通用依赖](#common-dependencies)，[jMAVSim](#jmavsim) 模拟器
    ```bash
@@ -24,22 +55,16 @@ The scripts have been tested on *clean* Ubuntu 18.04 LTS and Ubuntu 20.04 LTS in
    ```
 1. 运行 bash 脚本（比如运行 **ubuntu_sim.sh** ）： bash source ubuntu_sim.sh 所有弹出的提示均确认通过。
    ```bash
-   bash ./Tools/setup/ubuntu.sh
+   bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
    - 在安装过程中确认并通过所有的提示。
    - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
 1. 完成后重新启动计算机。
 
-:::note
-You can alternatively download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**) and run ubuntu.sh in place: <!-- NEED px4_version --> <br>`wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh` <!-- NEED px4_version -->
-   <br>`wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt` <!-- NEED px4_version -->
-   <br>`bash ubuntu.sh`
-:::
-
-Notes:
+::: details
+Information-only notes
 - ** Note** PX4兼容Gazebo7、8和9。 上面的 [安装说明](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) 是关于安装 Gazebo 9 的。
-- **Note** 如果您要使用 ros，请按照以下部分中的 [ROS/Gazebo](#rosgazebo) 说明操作（这些操作将自动安装 gazebo，作为 ros 安装的一部分）。
-- 你可以通过确认gcc的版本来验证Nuttx的安装：
+- You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash
    $arm-none-eabi-gcc --version
 
@@ -47,25 +72,42 @@ Notes:
    Copyright (C) 2017 Free Software Foundation, Inc.
    This is free software; see the source for copying conditions.  There is NO
    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  ```<!-- Do we need to add to our scripts or can we assume correct version installs over?
+  ```
+- You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) and then run **ubuntu.sh**: <!-- NEED px4_version -->
+   ```bash
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
+   bash ubuntu.sh
+   ```
+:::
+
+<!-- Do we need to add to our scripts or can we assume correct version installs over?
 Remove any old versions of the arm-none-eabi toolchain.
 ```sh
 sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
 sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 ```
---><a id="raspberry-pi-hardware"></a>
+-->
 
-## 权限设置
 
-The following instructions explain how to set up a build toolchain for RasPi on *Ubuntu 18.04*.
+<a id="raspberry-pi-hardware"></a>
+
+## 通用依赖
+
+为 [jMAVSim Simulation](../simulation/jmavsim.md) 安装依赖。
 
 :::warning
 To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
 :::
 
-To get the common dependencies for Raspberry Pi:
+本节解释如何安装 [ROS/Gazebo](../ros/README.md) ("Melodic") 以便与PX4一起使用。
 
-1. 有关在树莓派上使用 PX4（包括本地构建 PX4）的其他开发人员信息，请参见此处：[Raspberry pi 2/navio2 autopilot](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html)。<!-- NEED px4_version -->1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download>ubuntu_sim_nuttx.sh</a>**：**ubuntu_sim.sh** + NuttX 工具。
+1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**):  <!-- NEED px4_version -->
+   ```
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
+   wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
+   ```
+1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download>ubuntu_sim_nuttx.sh</a>**：**ubuntu_sim.sh** + NuttX 工具。
    ```bash
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
@@ -79,7 +121,7 @@ Ubuntu software repository provides a set of pre-compiled toolchains. Note that 
 sudo usermod -a -G dialout $USER
 ```
 
-Set them as default:
+```sh
 
 ```sh
 sudo apt-get remove modemmanager
@@ -87,7 +129,7 @@ sudo apt-get remove modemmanager
 
 ### jMAVSim
 
-为 [jMAVSim Simulation](../simulation/jmavsim.md) 安装依赖。
+sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
 
 ```sh
 sudo apt-get update -y
@@ -103,15 +145,15 @@ sudo -H pip install pandas jinja2 pyserial cerberus
 
 ### Gazebo
 
-为 [jMAVSim Simulation](../simulation/gazebo.md) 安装依赖。
+First [install GCC](#gcc) (needed to use clang).
 
-本节解释如何安装 [ROS/Gazebo](../ros/README.md) ("Melodic") 以便与PX4一起使用。
+sudo apt-get update
 ```
 # optional python tools
 sudo -H pip install pyulog
 ```
 
-安装开发工具链:
+sudo apt-get install ros-kinetic-desktop-full -y
 ```sh
 git clone https://github.com/raspberrypi/tools.git ${HOME}/rpi-tools
 
@@ -128,52 +170,53 @@ make
 
 ### Detailed Information
 
-```sh
+Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
 
 - [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - 在安装[高通骁龙飞控](#snapdragon-flight) 或 [树莓派/Parrot Bebop](#raspberry-pi-hardware) 之前， 你可以先运行它。
 
-<a id="rosgazebo" mark="crwd-mark"></a>
+<a id="rosgazebo"></a>
 
-## ROS/Gazebo
+## FastRTPS 安装
 
-sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
+This section explains how to install [ROS](../ros/README.md) "Melodic" and PX4 on Ubuntu 18.04.
+
+:::warning ROS
+builds are tied to specific Ubuntu versions! ROS Melodic can *only* install on Ubuntu 18.04.
+:::
 
 To install the development toolchain:
 
-1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh" target="_blank" download mark="crwd-mark">ubuntu_sim_ros_gazebo.sh</a>**: **ubuntu_sim_common_deps.sh** + [ROS/Gazebo and MAVROS](#rosgazebo). <!-- NEED px4_version --> 1. 下载脚本
+1. Download the script in a bash shell: <!-- NEED px4_version -->
+   ```bash
+   wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
+   ```
+1. 下载脚本
    ```bash
    ROS Gazebo: http://wiki.ros.org/kinetic/Installation/Ubuntu
    ```
    随着脚本的运行，可能需要确认一些提示。
 
-sudo apt-get update
+:::note
 * ROS Kinetic 默认与 Gazebo 7 一起安装（为了简化 ROS 的开发，我们使用的默认而不是 Gazebo 8）。
 * 你的 catkin （ROS 构建系统）工作目录生成在**~/catkin_ws/**。
-* 这些说明来自 ROS Wiki [Ubuntu 页 ](http://wiki.ros.org/kinetic/Installation/Ubuntu)。
+* The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+:::
 
-
-
-## 通用依赖
-
-sudo apt-get install ros-kinetic-desktop-full -y
-* [开发环境](../flight_controller/snapdragon_flight_dev_environment_installation.md)
-* [软件安装](../flight_controller/snapdragon_flight_software_installation.md)
-* [配置](../flight_controller/snapdragon_flight_configuration.md)
-
+<a id="fast_dds"></a>
 <a id="fast_rtps"></a>
-
-## FastRTPS 安装
-
-[eProsima Fast RTPS](http://eprosima-fast-rtps.readthedocs.io/en/latest/) is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol. FastRTPS is used, via the [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md), to allow PX4 uORB topics to be shared with offboard components.
-
-Follow the instructions in [Fast RTPS Installation](../dev_setup/fast-rtps-installation.md) to install it.
-
 
 ## 模拟器依赖
 
-After setting up the build/simulation toolchain, see [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful tools.
+[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
+
+Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
+
 
 ## Gazebo dependencies
 
-Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
+Once you have finished setting up the command-line toolchain:
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+:::
+- Continue to the [build instructions](../dev_setup/building_px4.md).

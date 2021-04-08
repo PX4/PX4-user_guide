@@ -8,4 +8,4 @@ PX4提供无人地面载具的基础支持。 全部可支持的机型可见 [�
 
 [Traxxas Stampede](../frames_rover/traxxas_stampede.md)
 
-{% youtube %}https://youtu.be/N3HvSKS3nCw{% endyoutube %}
+@[youtube](https://youtu.be/N3HvSKS3nCw)

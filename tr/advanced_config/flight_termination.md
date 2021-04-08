@@ -14,8 +14,7 @@ Depending on what devices are connected, the PWM failsafe outputs can be used to
 
 There is no way to recover from flight termination. After triggering you should unplug the battery as soon as possible. You will need to reboot/power cycle the vehicle before it can be used again.
 
-:::tip
-PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
+:::tip PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
 :::
 
 :::tip

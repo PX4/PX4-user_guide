@@ -12,7 +12,7 @@ We encourage you to contribute your changes into PX4, where possible!
 
 To create an external module:
 
-- Create an *external directory* directory for grouping the external modules:
+- Create an *external directory* folder for grouping the external modules:
   - This can be located anywhere outside of the **PX4-Autopilot** tree.
   - It must have the same structure as **PX4-Autopilot** (i.e. it must contain a directory called **src**).
   - Later we refer to this directory using `EXTERNAL_MODULES_LOCATION`.

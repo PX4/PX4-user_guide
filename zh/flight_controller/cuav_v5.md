@@ -1,7 +1,6 @@
 # CUAV v5 (Discontinued)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 :::
 
 :::warning
@@ -115,6 +114,8 @@ The pinout is as shown.
 | USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
 | UART7  | /dev/ttyS5 | Debug Console                         |
 | UART8  | /dev/ttyS6 | PX4IO                                 |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## 外部设备
 

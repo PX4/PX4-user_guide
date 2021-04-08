@@ -8,7 +8,7 @@
 Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
 :::
 
-{% youtube %}https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
 [![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -205,7 +205,8 @@ To enable/disable GPS noise:
    ```
    make px4_sitl gazebo_iris
    ```
-   :::tip The SDF files are not overwritten on subsequent builds.
+:::tip
+The SDF files are not overwritten on subsequent builds.
 :::
 
 2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
@@ -278,9 +279,8 @@ make px4_sitl gazebo_rover__sonoma_raceway
 ```
 
 The video below shows that the location of the environment is aligned with the gazebo world:
-{% youtube %}
-https://youtu.be/-a2WWLni5do
-{% endyoutube %}
+
+@[youtube](https://youtu.be/-a2WWLni5do)
 
 <a id="start_px4_sim_separately"></a>
 
@@ -357,8 +357,8 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 
 *Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
-:::note
-FYI only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+:::note FYI
+only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
 ### Start/Stop Video Streaming

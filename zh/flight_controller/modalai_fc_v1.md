@@ -1,7 +1,6 @@
 # ModalAI Flight Core v1
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
 :::
 
 The ModalAI [Flight Core v1](https://modalai.com/flight-core) ([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA. The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl) ([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
@@ -132,6 +131,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J5)                              |
 | UART8  | /dev/ttyS7 | N/A                                      |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## 技术支持
 

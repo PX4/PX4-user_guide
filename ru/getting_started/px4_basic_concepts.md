@@ -113,8 +113,7 @@ Information about batteries and battery configuration can be found in [Battery C
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
-:::note
-PX4 does not require a remote control system for autonomous flight modes.
+:::note PX4 does not require a remote control system for autonomous flight modes.
 :::
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)

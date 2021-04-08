@@ -1,7 +1,6 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.intrinsyc.com/) for hardware support or compliance issues.
 :::
 
 :::warning
@@ -29,7 +28,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Wifi: Qualcomm® VIVE™ 1-stream 802.11n/ac with MU-MIMO † Integrated digital core
 * BT/WiFi: BT 4.0 and 2G/5G WiFi via QCA6234 
   * 802.11n, 2×2 MIMO with 2 uCOAX connectors on-board for connection to external antenna
-* GPS: Telit Jupiter SE868 V2 module (use of an external u-Blox module is recommended by PX4 instead) 
+* GPS: Telit Jupiter SE868 V2 module (use of an external u-blox module is recommended by PX4 instead) 
   * uCOAX connector on-board for connection to external GPS patch antenna
   * CSR SiRFstarV @ 5Hz via UART
 * Accelerometer / Gyro / Mag: Invensense MPU-9250 9-Axis Sensor, 3x3mm QFN, on bus SPI1
@@ -187,3 +186,19 @@ This will cause a problem for any other type of I/O on the same connector, since
 ## 尺寸
 
 ![Snapdragon Dimensions](../../assets/hardware/hardware-snapdragon-dimensions.png)
+
+## Developer Setup/Building Firmware
+
+Development setup and build instructions are provided in:
+
+* [Development Environment](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
+
+## Further Information
+
+* [Hardware Setup Example](../flight_controller/snapdragon_flight_hardware_example_setup.md)
+* [Developer Environment Installation](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Snapdragon Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
+* [Snapdragon Advanced](../flight_controller/snapdragon_flight_advanced.md)

@@ -17,7 +17,8 @@ In addition you will need:
 - LiPo battery charger (vehicle ships with one battery, but you may want spares).
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
     
-    :::note FPV support is completely independent of PX4/flight controller.
+:::note FPV
+support is completely independent of PX4/flight controller.
 :::
 
 ## Flashing PX4 Bootloader
@@ -46,4 +47,4 @@ To install and configure PX4:
 
 ## Video
 
-{% youtube %} https://youtu.be/_-O0kv0Qsh4 {% endyoutube %}
+@[youtube](https://youtu.be/_-O0kv0Qsh4)

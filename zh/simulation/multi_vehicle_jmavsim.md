@@ -6,13 +6,10 @@
 This is the easiest way to simulate multiple vehicles running PX4. It is suitable for testing multi-vehicle support in *QGroundControl* (or the [MAVSDK](https://mavsdk.mavlink.io/), etc.). [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used for swarm simulations with many vehicles, or for testing features like computer vision that are only supported by Gazebo.
 :::
 
-:::note
-JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
-:::
 
 ## 如何启动多个飞行器实例
 
-像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
+To start multiple instances (on separate ports):
 
 1. 编译 PX4 `make px4_sitl_default`
    ```
@@ -25,16 +22,16 @@ JMAVSim multi-vehicle simulation works on PX4 v1.8.0 and later.
 1. 启动第一个实例: `./Tools/jmavsim_run.sh`
    ```
    ./Tools/jmavsim_run.sh -l
-  ```
+   ```
 1. 启动后续实例，并为该实例指定 *仿真* UDP 端口（所有命令应在同一行输入，以空格键隔开，完成输入后直接回车运行，此时由于所有实例的启动位置都相同所以无法分辨启动的实例个数，可通过查看端口号进行查询）： `./Tools/jmavsim_run.sh -p 14561` 端口号应设置为 `14560+i` for `i` in `[0, N-1]`。
    ```
    ./Tools/jmavsim_run.sh -p 4561 -l
    ```
    端口号应该被设置为 `4560+i` ， `i` 的范围为 `[0, N-1]` 。
 
-Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
+像 *MAVSDK* 或者 *MAVROS* 开发者 APIs 接口就是通过连接 UDP 接口 14540 （第一个实例）， UDP 接口 14541（第二个实例），以此类推。
 
-Developer APIs such as *MAVSDK* or *MAVROS* connect on the UDP port 14540 (first instance), UDP port 14541 (second instance), and so on.
+Developer APIs such as *MAVSDK* or *MAVROS* listen on sequentially allocated PX4 remote UDP ports from `14540` (first instance) to `14549`. Additional instances *all* connect to port `14549`.
 
 ## 额外资源
 

@@ -18,7 +18,7 @@ The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md
 Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
 
 :::note
-MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a a *local* co-ordinate system.
+MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* co-ordinate system.
 :::
 
 For information about MoCap see:

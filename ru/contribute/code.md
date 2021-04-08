@@ -17,9 +17,9 @@ All code contributions have to be under the permissive [BSD 3-clause license](ht
 ## Code Style Formatting
 
 PX4 uses [astyle](http://astyle.sourceforge.net/) for code formatting. Valid versions are
-* [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/) (recommended)
+* [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/) (deprecated)
 * [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
-* [astyle 3.01](https://sourceforge.net/projects/astyle/files/)
+* [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (recommended)
 
 Once installed, formatting can be checked with `./Tools/astyle/check_code_style_all.sh`. The output should be `Format checks passed` on a clean master. If that worked, `make format` can be used in the future to check and format all files automatically.
 
@@ -37,7 +37,8 @@ Currently we have two types of source-based documentation:
   - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
 * We encourage other in-source documentation *where it adds value/is not redundant*.
 
-  :::tip Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+:::tip
+Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
   - Do not add documentation that can trivially be assumed from C++ entity names.

@@ -1,7 +1,6 @@
 # Pixhawk快速使用指导
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.

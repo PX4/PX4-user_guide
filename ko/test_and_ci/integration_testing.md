@@ -1,145 +1,141 @@
 # 통합 테스트
 
-종단간 통합 시험을 다룹니다. 시험은 자동으로 실행합니다([Jenkins CI](../test_and_ci/jenkins_ci.md))
+This topic explains how to run (and extend) PX4's ROS-based integration tests.
+
+:::note
+[MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests. Use the ROS-based integration test framework for use cases that *require* ROS (e.g. object avoidance).
+
+All PX4 integraton tests are executed automatically by our [Continuous Integration](../test_and_ci/continous_integration.md) system.
+:::
 
 ## ROS / MAVROS 테스트
 
-준비 요건:
+* [jMAVSim 모의 시험 환경](../simulation/jmavsim.md)
+* [가제보 모의 시험 환경](../simulation/gazebo.md)
+* [ROS와 MAVROS](../simulation/ros_interface.md)
 
-  * [jMAVSim 모의 시험 환경](../simulation/jmavsim.md)
-  * [가제보 모의 시험 환경](../simulation/gazebo.md)
-  * [ROS와 MAVROS](../simulation/ros_interface.md)
+## Execute Tests
 
-### 실행 시험
-
-MAVROS 테스트 기반에서 완전한 시험을 실행하려면:
+To run the MAVROS tests:
 
 ```sh
 cd <PX4-Autopilot_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 rostest px4 mavros_posix_tests_iris.launch
 ```
-test_target is one of the Makefile targets. The available ones are: *tests_mission*, *tests_mission_coverage*, *tests_offboard* and *tests_avoidance*.
 
-Test can also be executed directly by running the test scripts, located under `test/`:
+`test /` 아래에있는 테스트 스크립트를 실행하여 테스트를 직접 실행할 수도 있습니다.
+
+예:
 ```sh
-rostest px4 mavros_posix_tests_iris.launch gui:=true headless:=false
+소스 <catkin_ws> /devel/setup.bash
+cd <PX4-Autopilot_clone>
+px4_sitl_default sitl_gazebo 만들기
+./test/ <test_bash_script> <test_launch_file>
 ```
 
-Example:
+또는 GUI로 무슨 일이 일어나고 있는지 확인하십시오.
 ```sh
 ./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test
 ```
 
-`launch/mavros_posix_tests_irisl.launch`의 시험 그룹에 새 항목을 추가하십시오:
+.test 파일은 `integrationtests/python_src/px4_it/mavros/`에 정의된 해당 Python 테스트를 시작합니다.
 
 ```sh
-# Start simulation
-cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-roslaunch px4 mavros_posix_sitl.launch
-
-# Run test (in a new shell):
-cd <PX4-Autopilot_clone>
-source integrationtests/setup_gazebo_ros.bash $(pwd)
-rosrun px4 mavros_new_test.py
+./test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test gui:=true headless:=false
 ```
 
-위에서 보여드린 바와 같이 완전한 시험 모음을 실행하십시오.
+The **.test** files launch the corresponding Python tests defined in `integrationtests/python_src/px4_it/mavros/`
 
 
-### 새 MAVROS 시험 작성 (파이썬)
+## Write a New MAVROS Test (Python)
 
-:::note
-Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.
-:::
+This section explains how to write a new python test using ROS(1)/MAVROS, test it, and add it to the PX4 test suite.
 
-#### 1.) 새 시험 스크립트 작성
+We recommend you review the existing tests as examples/inspiration ([integrationtests/python_src/px4_it/mavros/](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros)). The official ROS documentation also contains information on how to use [unittest](http://wiki.ros.org/unittest) (on which this test suite is based).
 
-Test scripts are located in `integrationtests/python_src/px4_it/mavros/`. See other existing scripts for examples. Also please consult the official ROS documentation on how to use [unittest](http://wiki.ros.org/unittest).
+To write a new test:
 
-
-Empty test skeleton:
-
-```python
-<group ns="$(arg ns)">
-        [...] <test test-name="mavros_new_test" pkg="px4" type="mavros_new_test.py" />
-    </group>
-
-#
-# @author Example Author <author@example.com>
-#
-PKG = 'px4'
-
-import unittest
-import rospy
-import rosbag
-
-from sensor_msgs.msg import NavSatFix
-
-class MavrosNewTest(unittest.TestCase):
-    """
-    Test description
-    """
-
-    def setUp(self):
-        rospy.init_node('test_node', anonymous=True)
-        rospy.wait_for_service('mavros/cmd/arming', 30)
-
-        rospy.Subscriber("mavros/global_position/global", NavSatFix, self.global_position_callback)
-        self.rate = rospy.Rate(10) # 10hz
-        self.has_global_pos = False
-
-    def tearDown(self):
-        pass
+1. Create a new test script by copying the empty test skeleton below:
+    ```python
+    #!/usr/bin/env python
+    # [... LICENSE ...]
 
     #
-    # General callback functions used in tests
+    # @author Example Author <author@example.com>
     #
-    def global_position_callback(self, data):
-        self.has_global_pos = True
+    PKG = 'px4'
 
-    def test_method(self):
-        """Test method description"""
+    import unittest
+    import rospy
+    import rosbag
 
-        # FIXME: hack to wait for simulation to be ready
-        while not self.has_global_pos:
-            self.rate.sleep()
+    from sensor_msgs.msg import NavSatFix
 
-        # TODO: execute test
+    class MavrosNewTest(unittest.TestCase):
+        """
+        Test description
+        """
 
-if __name__ == '__main__':
-    import rostest
-    rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
-```
+        def setUp(self):
+            rospy.init_node('test_node', anonymous=True)
+            rospy.wait_for_service('mavros/cmd/arming', 30)
 
-#### 2.) 새 시험만 실행
+            rospy.Subscriber("mavros/global_position/global", NavSatFix, self.global_position_callback)
+            self.rate = rospy.Rate(10) # 10hz
+            self.has_global_pos = False
 
-```sh
-# Start simulation
-cd <PX4-Autopilot_clone>
-source Tools/setup_gazebo.bash
-roslaunch launch/mavros_posix_sitl.launch
+        def tearDown(self):
+            pass
 
-# Run test (in a new shell):
-cd <PX4-Autopilot_clone>
-source Tools/setup_gazebo.bash
-rosrun px4 mavros_new_test.py
-```
+        #
+        # General callback functions used in tests
+        #
+        def global_position_callback(self, data):
+            self.has_global_pos = True
 
-#### 3.) 파일을 실행할 새 시험 노드 추가
+        def test_method(self):
+            """Test method description"""
 
-In `test/` create a new `<test_name>.test` ROS launch file. Call the test file using one of the base scripts *rostest_px4_run.sh* or *rostest_avoidance_run.sh*
+            # FIXME: hack to wait for simulation to be ready
+            while not self.has_global_pos:
+                self.rate.sleep()
 
-#### 4.) (Optional) Create a new target in the Makefile
-1. Open the Makefile
-2. Search the *Testing* section
-3. Add a new target name and call the test
+            # TODO: execute test
 
-Example:
-```sh
-tests_<new_test_target_name>: rostest
-    @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
-```
+    if __name__ == '__main__':
+        import rostest
+        rostest.rosrun(PKG, 'mavros_new_test', MavrosNewTest)
+    ```
 
-Run the tests as described above.
+1. Run the new test only
+   - Start the simulator:
+        ```sh
+        cd <PX4-Autopilot_clone>
+        source Tools/setup_gazebo.bash
+        roslaunch launch/mavros_posix_sitl.launch
+        ```
+    - Run test (in a new shell):
+        ```
+        cd <PX4-Autopilot_clone>
+        source Tools/setup_gazebo.bash
+        rosrun px4 mavros_new_test.py
+        ```
+
+1. Add new test node to a launch file
+
+   - In `test/` create a new `<test_name>.test` ROS launch file.
+   - Call the test file using one of the base scripts *rostest_px4_run.sh* or *rostest_avoidance_run.sh*
+
+1. (Optional) Create a new target in the Makefile
+   - Open the Makefile
+   - Search the *Testing* section
+   - Add a new target name and call the test
+
+   For example:
+    ```sh
+    tests_<new_test_target_name>: rostest
+        @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
+    ```
+
+예:

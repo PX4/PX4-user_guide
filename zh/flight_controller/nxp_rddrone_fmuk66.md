@@ -1,7 +1,6 @@
 # NXP RDDRONE-FMUK66 FMU
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
 :::
 
 RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD). NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
@@ -31,7 +30,7 @@ These flight controllers are [manufacturer supported](../flight_controller/autop
   - Barometer: ML3115A2
   - Barometer: BMP280
 - **GPS:**
-  - ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  - u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers. Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.

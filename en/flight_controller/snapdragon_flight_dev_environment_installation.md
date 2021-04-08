@@ -25,7 +25,7 @@ To set up the development environment:
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh ~
    sudo chmod +x ubuntu_sim_common_deps.sh
    ./ubuntu_sim_common_deps.sh
-  ```
+   ```
 
 ## Cross-toolchain & Hexagon SDK
 

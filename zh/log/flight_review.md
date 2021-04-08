@@ -180,12 +180,13 @@ For an in-depth analysis there is an option to log the raw IMU data at full rate
 
 To use it, some parameters need to be changed:
 
-- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
+- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
   Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
 
 - Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
     
-    :::tip See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
+:::tip
+See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
 :::
 
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can:
@@ -242,8 +243,8 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 
 The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
 
-:::tip
-USB 3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+:::tip USB
+3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
 :::
 
 The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.

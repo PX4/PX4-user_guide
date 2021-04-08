@@ -20,7 +20,8 @@ Other key parameters that you may need to tune in order to improve landing behav
 
 - [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-系统的悬停油门 (默认值为 50%)。 正确设置这一点是很重要的, 因为它使高度控制更加准确, 并确保正确的地面检测。 没有安装有效载荷的穿越机或大型相机的无人机可能需要更低的悬停油门 (例如 35%)。
     
-    :::note Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+:::note
+Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
 :::
 
 - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)-系统的全局最小油门。 这应被设置是飞行器能够被控制下降
@@ -49,7 +50,7 @@ This state is reached if following conditions are true for 0.35 seconds:
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- 油门低于[ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN) +（[ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN)）* [ LNDMC_LOW_T_THR ](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR)，或者速度设定值是地面速度的 0.9 倍，同时飞行器没有垂直运动。
+- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
 
 If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 

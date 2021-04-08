@@ -143,3 +143,4 @@ For the example above, this means setting the parameter `MPC_POS_MODE=2`, taking
 :::note
 The task defined above should only be tested on the simulator (the code doesn't actually create setpoints so the vehicle will not fly).
 :::
+

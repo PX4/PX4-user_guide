@@ -1,7 +1,6 @@
 # Pixhawk 4 Mini
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
@@ -23,7 +22,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces: 
   * 8 PWM outputs
   * 4 dedicated PWM/Capture inputs on FMU
@@ -126,6 +125,8 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 | UART7  | /dev/ttyS5 | Debug Console                         |
 | UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
 
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Peripherals
 

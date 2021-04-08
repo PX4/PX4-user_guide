@@ -2,8 +2,7 @@
 
 無線操縦 (RC) システムは，*マニュアルで* 機体を手持ちの送信機から操縦する場合に必要です。 本章では，無線操縦システムについての概要と，選定の仕方，接続の仕方について解説します。
 
-:::tip
-PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+:::tip PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
 :::
 
 ## RCシステムはどのように動作するのか?
@@ -50,7 +49,7 @@ There is nothing to stop you using more channels/control mechanisms, and these c
 
 ## RCシステムコンポーネントの選択
 
-You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
+You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
 
 Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
 
@@ -115,7 +114,7 @@ If you are using a *Spektrum* receiver, you can put it into bind mode using *QGr
 RC receivers have different ways of indicating signal loss:
 
 * Output nothing (automatically detected by PX4)
-* Output a low throttle value value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
+* Output a low throttle value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
 * Output the last received signal (PX4 cannot handle this case!)
 
 Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).

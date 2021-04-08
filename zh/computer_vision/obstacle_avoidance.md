@@ -8,13 +8,14 @@
 
 本文将阐述怎样在这两种模式中设置自主避障功能。
 
-{% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
+@[youtube](https://youtu.be/PrGt7pKj3tI)
 
 ## 局限 / 能力
 
 - 自主避障的最大速度当前约为 3m/s（由于计算避障路径的开销）。
   
-  :::note 避障可以使用 *local planner* 规划器以约 30Hz 的速度发出消息，并且以约 3m/s的速度移动）或全局规划器（以约 10Hz 和任务速度发出消息，自主避障速度约为 1-1.5 m/s）。
+:::note
+避障可以使用 *local planner* 规划器以约 30Hz 的速度发出消息，并且以约 3m/s的速度移动）或全局规划器（以约 10Hz 和任务速度发出消息，自主避障速度约为 1-1.5 m/s）。
 :::
 
 <span id="offboard_mode"></span>

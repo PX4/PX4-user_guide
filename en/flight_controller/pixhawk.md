@@ -90,9 +90,7 @@ Order mRo Pixhawk from:
 * 3.3 and 6.6V ADC inputs
 * Internal microUSB port and external microUSB port extension
 
-{% youtube %}
-https://youtu.be/gCCC5A-Bvv4
-{% endyoutube %}
+@[youtube](https://youtu.be/gCCC5A-Bvv4)
 
 
 ### Power System and Protection
@@ -253,6 +251,8 @@ USART3 | /dev/ttyS2 | TELEM2 (flow control)
 UART4 | | 
 UART7 | CONSOLE
 UART8 | SERIAL4
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Debug Ports
 

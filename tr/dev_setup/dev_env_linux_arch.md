@@ -1,4 +1,8 @@
-# Development Environment on Arch Linux
+# Arch Linux Development Environment
+
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+:::
 
 The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/arch.sh). <!-- NEED px4_version -->
 
@@ -24,7 +28,7 @@ To get and run the scripts, do either of:
   ```
 
 The script takes the following optional parameters:
-- `--gazebo`: Add this parameter parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/). :::note Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
+- `--gazebo`: Add this parameter to install Gazebo from the [AUR](https://aur.archlinux.org/packages/gazebo/). :::note Gazebo gets compiled from source. It takes some time to install and requires entering the `sudo` password multiple times (for dependencies).
 :::
 
 - `--no-nuttx`: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).

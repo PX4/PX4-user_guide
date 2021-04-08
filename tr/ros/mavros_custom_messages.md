@@ -259,7 +259,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
    }
    ```
 
-   For a more detailed explanation please see the documentation for [Writing your first application](../modules/hello_sky.md).
+   For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
 
 1. Lastly add your module in the **default.cmake** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**:
    ```cmake

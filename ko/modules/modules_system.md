@@ -95,8 +95,6 @@ Source: [modules/dataman](https://github.com/PX4/Firmware/tree/master/src/module
 ### Description
 Module to provide persistent storage for the rest of the system in form of a simple database through a C API. Multiple backends are supported:
 - a file (eg. on the SD card)
-- FLASH (if the board supports it)
-- FRAM
 - RAM (this is obviously not persistent)
 
 It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
@@ -116,10 +114,9 @@ dataman <command> [arguments...]
      [-f <val>]  Storage file
                  values: <file>
      [-r]        Use RAM backend (NOT persistent)
-     [-i]        Use FLASH backend
 
- The options -f, -r and -i are mutually exclusive. If nothing is specified, a
- file 'dataman' is used
+ The options -f and -r are mutually exclusive. If nothing is specified, a file
+ 'dataman' is used
 
    poweronrestart Restart dataman (on power on)
 
@@ -175,8 +172,27 @@ replay <command> [arguments...]
 
    status        print status info
 ```
-## gyro_fft
+## gyro_calibration
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
+
+
+### Description
+Simple online gyroscope calibration.
+
+<a id="gyro_calibration_usage"></a>
+
+### Usage
+```
+gyro_calibration <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## gyro_fft
+Source: [modules/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/modules/gyro_fft)
 
 
 ### Description
@@ -219,10 +235,10 @@ Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/
 
 
 ### Description
-Module to detect the freefall and landed state of the vehicle, and publishing the `vehicle_land_detected` topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.
+**ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
 
 ### Implementation
-Every type is implemented in its own class with a common base class. The base class maintains a state (landed, maybe_landed, ground_contact). Each possible state is implemented in the derived classes. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
+**maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The base class maintains a state (landed, maybe_landed, ground_contact). When maybe_landed is detected, the position controller sets the thrust setpoint to zero. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
 
 #### Multicopter Land Detector
 **ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
@@ -280,7 +296,7 @@ It supports 2 backends:
 
 Both backends can be enabled and used at the same time.
 
-The file backend supports 2 types of log files: full (the normal log) and a mission log. The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
+In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
 
 ### Implementation
 The implementation uses two threads:
@@ -309,6 +325,7 @@ logger <command> [arguments...]
    start
      [-m <val>]  Backend mode
                  values: file|mavlink|all, default: all
+     [-x]        Enable/disable logging via Aux1 RC channel
      [-e]        Enable logging right after start until disarm (otherwise only
                  when armed)
      [-f]        Log until shutdown (implies -e)
@@ -317,8 +334,6 @@ logger <command> [arguments...]
                  default: 280
      [-b <val>]  Log buffer size in KiB
                  default: 12
-     [-q <val>]  uORB queue size for mavlink mode
-                 default: 14
      [-p <val>]  Poll on a topic instead of running with fixed rate (Log rate
                  and topic intervals are ignored if this is set)
                  values: <topic_name>
@@ -330,6 +345,31 @@ logger <command> [arguments...]
    stop
 
    status        print status info
+```
+## netman
+Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+
+
+  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+
+  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+
+  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+
+<a id="netman_usage"></a>
+
+### Usage
+```
+netman <command> [arguments...]
+ Commands:
+   show          Display the current persistent network settings to the console.
+
+   update        Check SD card for net.cfg and update network persistent network
+                 settings.
+
+   save          Save the current network parameters to the SD card.
+     [-i <val>]  Set the interface name
+                 default: eth0
 ```
 ## pwm_input
 Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input)
@@ -353,11 +393,11 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## rc_update
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
 
 
 ### Description
-Do RC channel mapping: read the raw input channels (`input_rc`), then apply the calibration, map the RC channels to the configured channels & mode switches, low-pass filter, and then publish as `rc_channels` and `manual_control_setpoint`.
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
 
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
@@ -387,7 +427,7 @@ There are 2 environment variables used for configuration: `replay`, which must b
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
+The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
 
 <a id="replay_usage"></a>
 
@@ -410,7 +450,7 @@ Source: [modules/events](https://github.com/PX4/Firmware/tree/master/src/modules
 
 
 ### Description
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for temperature calibration and tone alarm on RC Loss.
+Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
 
 The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
@@ -505,18 +545,16 @@ tune_control play -t 2
 ```
 tune_control <command> [arguments...]
  Commands:
-   play          Play system tune, tone, or melody
+   play          Play system tune or single note.
+     error       Play error tune
      [-t <val>]  Play predefined system tune
                  default: 1
-     [-f <val>]  Frequency of tone in Hz (0-22kHz)
-                 default: 0
-     [-d <val>]  Duration of tone in us
-                 default: 1
-     [-s <val>]  Strength of tone (0-100)
+     [-f <val>]  Frequency of note in Hz (0-22kHz)
+     [-d <val>]  Duration of note in us
+     [-s <val>]  Volume level (loudness) of the note (0-100)
                  default: 40
      [-m <val>]  Melody in string form
-                 values: <string> - e.g.
-     "MFT200e8a8a"
+                 values: <string> - e.g. "MFT200e8a8a"
 
    libtest       Test library
 

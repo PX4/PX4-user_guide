@@ -1,7 +1,6 @@
 # Pixhawk 4
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 *Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
@@ -25,7 +24,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
   * 加速度计 / 陀螺仪：BMI055
   * 磁力计：IST8310
   * 气压计：MS5611
-* GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * 接口： 
   * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   * FMU 上有 3 路专用 PWM/Capture 输入

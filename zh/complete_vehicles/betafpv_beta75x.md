@@ -17,7 +17,8 @@ BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的
 - 锂电池充电器 (飞机发货时包含一块电池, 但你可能想要额外备用的)。
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
     
-    :::note FPV support is completely independent of PX4/flight controller.
+:::note FPV
+support is completely independent of PX4/flight controller.
 :::
 
 ## 刷写 Bootloader
@@ -46,4 +47,4 @@ To install and configure PX4:
 
 ## 视频
 
-{% youtube %} https://youtu.be/_-O0kv0Qsh4 {% endyoutube %}
+@[youtube](https://youtu.be/_-O0kv0Qsh4)

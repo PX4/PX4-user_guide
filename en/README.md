@@ -8,12 +8,7 @@ PX4 is the *Professional Autopilot*.
 Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
-:::
-
-:::note
-This guide is still a work in progress!
-It does not yet cover all of PX4.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle. Interested in contributing? Check out the [Development](development/development.md) section.
 :::
 
 ## How Do I Get Started?
@@ -48,6 +43,11 @@ If you want to build a vehicle from scratch:
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
+**I want to add payload or a camera:**
+
+The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+
+- [Payloads](payloads/README.md) describes how to integrate payloads
 
 **I am modifying a supported vehicle:**
 

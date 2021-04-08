@@ -1,7 +1,6 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
 :::
 
 :::warning
@@ -23,7 +22,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
   * CPU: 24 MHz ARM Cortex M3
   * RAM: 8 KB SRAM
 * Wifi: ESP8266 external
-* GPS: U-Blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / U-Blox 6 (3D Robotics)
+* GPS: u-blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / u-blox 6 (3D Robotics)
 * Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
 * Redundant power supply inputs and automatic failover
 * External safety switch
@@ -83,7 +82,7 @@ Order mRo Pixhawk from:
 * 3.3 and 6.6V ADC inputs
 * Internal microUSB port and external microUSB port extension
 
-{% youtube %} https://youtu.be/gCCC5A-Bvv4 {% endyoutube %}
+@[youtube](https://youtu.be/gCCC5A-Bvv4)
 
 ### Power System and Protection
 
@@ -241,6 +240,8 @@ Due to space constraints two ports are on one connector.
 | UART4  |            |                       |
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Debug Ports
 

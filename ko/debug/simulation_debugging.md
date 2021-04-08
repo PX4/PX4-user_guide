@@ -69,7 +69,7 @@ Or in the case of GDB:
 (gdb) handle SIGCONT noprint nostop
 ```
 
-After that the The lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
+After that the lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.
 
 The last parameter, the &lt;viewer\_model\_debugger&gt; triplet, is actually passed to make in the build directory, so
 

@@ -16,7 +16,8 @@ Users can control progression though these states using a [safety switch](../get
 
 - A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
   
-    :::warning A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+:::warning
+A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 :::
 
 - An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
@@ -76,9 +77,9 @@ The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM
 **Note:**  
 - This setting *disables the stick gesture*!  
 - This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via *QGroundControl*. |
-| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a button.   
-- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on respective switch transitions.  
--`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                         |
+| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button.   
+- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.  
+-`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                 |
 
 
 :::note

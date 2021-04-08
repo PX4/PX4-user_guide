@@ -2,7 +2,7 @@
 
 本教程介绍了使用 Gazbo/SITL 中模拟的四轴飞行器 *Offboard* 控制的基础知识。 在教程的末尾, 你应该看到与下面的视频相同的行为, 即缓慢起飞到2米的高度。
 
-:::caution
+:::warning
 *Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
 :::
 

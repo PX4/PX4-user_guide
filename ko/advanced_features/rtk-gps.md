@@ -1,7 +1,7 @@
 # RTK GPS
 
-[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) increases the accuracy of GNSS/GPS systems to centimeter-level. RTK allows PX4 to be used in applications like precision surveying, where pinpoint accuracy is essential.
+[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) GNSS/GPS systems provide centimeter-level accuracy, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential). This feature requires *QGroundControl* running on a laptop/PC and a vehicle with a WiFi or Telemetry radio link to the ground station laptop.
 
-PX4는 다수의 RTK GPS 장치를 지원합니다. PX4는 * QGroundControl*을 실행하고 있는 랩톱/개인용 컴퓨터 그리고 WiFi 또는 텔레메트리 무선 통신 연결이 있는 기체가 필요합니다.
+In addition, [some RTK setups](../gps_compass/u-blox_f9p_heading.md) can provide heading from GPS, which can be used as an alternative to the compass.
 
-지원되는 장치 및 설정에 대한 정보는 [ 주변 장치 하드웨어](../gps_compass/rtk_gps.md) 절에서 찾을 수 있습니다.
+Information about supported devices and setup can be found in the section: [Peripheral Hardware > RTK GPS](../gps_compass/rtk_gps.md).

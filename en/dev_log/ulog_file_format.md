@@ -10,7 +10,7 @@ The format uses Little Endian for all binary types.
 
 ## Data types
 
-The following binary types are used. 
+The following binary types are used.
 They all correspond to the types in C:
 
 | Type              | Size in Bytes |
@@ -51,7 +51,7 @@ The header is a fixed-size section and has the following format (16 bytes):
 ----------------------------------------------------------------------
 ```
 
-Version is the file format version, currently 1. 
+Version is the file format version, currently 1.
 Timestamp is a `uint64_t` integer, denotes the start of the logging in microseconds.
 
 
@@ -68,7 +68,7 @@ struct message_header_s {
 };
 ```
 
-`msg_size` is the size of the message in bytes without the header (`hdr_size`= 3 bytes). 
+`msg_size` is the size of the message in bytes without the header (`hdr_size`= 3 bytes).
 `msg_type` defines the content and is one of the following:
 
 - 'B': Flag bitset message.
@@ -82,26 +82,28 @@ struct message_header_s {
   ```
   This message **must** be the first message, right after the header section, so that it has a fixed constant offset.
 
-  - `compat_flags`: compatible flag bits. 
-    None of them is currently defined and all must be set to 0. 
-    These bits can be used for future ULog changes that are compatible with existing parsers. 
+  - `compat_flags`: compatible flag bits.
+    - `compat_flags[0]`, bit 0, *DEFAULT_PARAMETERS*: if set, the log contains parameter defaults (message 'Q').
+
+    The rest of the bits is currently not defined and all must be set to 0.
+    These bits can be used for future ULog changes that are compatible with existing parsers.
     It means parsers can just ignore the bits if one of the unknown bits is set.
-  - `incompat_flags`: incompatible flag bits. 
-    The LSB bit of index 0 is set to one if the log contains appended data and at least one of the `appended_offsets` is non-zero. 
+  - `incompat_flags`: incompatible flag bits.
+    The LSB bit of index 0 is set to one if the log contains appended data and at least one of the `appended_offsets` is non-zero.
     All other bits are undefined and must be set to 0.
-    If a parser finds one of these bits set, it must refuse to parse the log. 
+    If a parser finds one of these bits set, it must refuse to parse the log.
     This can be used to introduce breaking changes that existing parsers cannot handle.
-  - `appended_offsets`: File offsets (0-based) for appended data. 
-    If no data is appended, all offsets must be zero. 
+  - `appended_offsets`: File offsets (0-based) for appended data.
+    If no data is appended, all offsets must be zero.
     This can be used to reliably append data for logs that may stop in the middle of a message.
-    
+
     A process appending data should do:
     - set the relevant `incompat_flags` bit,
     - set the first `appended_offsets` that is 0 to the length of the log file,
     - then append any type of messages that are valid for the Data section.
 
-  It is possible that there are more fields appended at the end of this message in future ULog specifications. 
-  This means a parser must not assume a fixed length of this message. 
+  It is possible that there are more fields appended at the end of this message in future ULog specifications.
+  This means a parser must not assume a fixed length of this message.
   If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
 
 
@@ -116,20 +118,20 @@ struct message_header_s {
   There can be an arbitrary amount of fields (at least 1), separated by `;`.
   A field has the format: `type field_name` or `type[array_length] field_name` for arrays (only fixed size arrays are supported).
   `type` is one of the basic binary types or a `message_name` of another format definition (nested usage).
-  A type can be used before it's defined. 
+  A type can be used before it's defined.
   There can be arbitrary nesting but no circular dependencies.
 
   Some field names are special:
-  - `timestamp`: every logged message (`message_add_logged_s`) must include a timestamp field (does not need to be the first field). 
-    Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`. 
-    The unit is always microseconds, except for in `uint8_t` it's milliseconds. 
-    A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts). 
+  - `timestamp`: every logged message (`message_add_logged_s`) must include a timestamp field (does not need to be the first field).
+    Its type can be: `uint64_t` (currently the only one used), `uint32_t`, `uint16_t` or `uint8_t`.
+    The unit is always microseconds, except for in `uint8_t` it's milliseconds.
+    A log writer must make sure to log messages often enough to be able to detect wrap-arounds and a log reader must handle wrap-arounds (and take into account dropouts).
     The timestamp must always be monotonic increasing for a message series with the same `msg_id`.
-  - Padding: field names that start with `_padding` should not be displayed and their data must be ignored by a reader. 
+  - Padding: field names that start with `_padding` should not be displayed and their data must be ignored by a reader.
     These fields can be inserted by a writer to ensure correct alignment.
 
-    If the padding field is the last field, then this field will not be logged, to avoid writing unnecessary data. 
-    This means the `message_data_s.data` will be shorter by the size of the padding. 
+    If the padding field is the last field, then this field will not be logged, to avoid writing unnecessary data.
+    This means the `message_data_s.data` will be shorter by the size of the padding.
     However the padding is still needed when the message is used in a nested definition.
 
 - 'I': information message.
@@ -141,10 +143,10 @@ struct message_header_s {
   	char value[header.msg_size-1-key_len]
   };
   ```
-  `key` is a plain string, as in the format message (can also be a custom type), but consists of only a single field without ending `;`, eg. `float[3] myvalues`. 
+  `key` is a plain string, as in the format message (can also be a custom type), but consists of only a single field without ending `;`, eg. `float[3] myvalues`.
   `value` contains the data as described by `key`.
 
-  Note that an information message with a certain key must occur at most once in the entire log. 
+  Note that an information message with a certain key must occur at most once in the entire log.
   Parsers can store information messages as a dictionary.
 
   Predefined information messages are:
@@ -165,10 +167,10 @@ char[value_len] sys_toolchain_ver | Toolchain Version |  "6.2.1"
 char[value_len] sys_mcu | Chip name and revision |  "STM32F42x, rev A"
 char[value_len] sys_uuid | Unique identifier for vehicle (eg. MCU ID) |  "392a93e32fa3"...
 char[value_len] log_type | Type of the log (full log if not specified) | "mission"
-char[value_len] replay | File name of replayed log if in replay mode | "log001.ulg" 
+char[value_len] replay | File name of replayed log if in replay mode | "log001.ulg"
 int32_t time_ref_utc | UTC Time offset in seconds | -3600 |
 
-  The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is major, BB is minor, CC is patch and TT is the type. 
+  The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is major, BB is minor, CC is patch and TT is the type.
   Type is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version.
   So for example 0x010402ff translates into the release version v1.4.2.
 
@@ -185,22 +187,40 @@ int32_t time_ref_utc | UTC Time offset in seconds | -3600 |
   	char value[header.msg_size-2-key_len]
   };
   ```
-  The same as the information message, except that there can be multiple messages with the same key (parsers store them as a list). 
-  The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key. 
+  The same as the information message, except that there can be multiple messages with the same key (parsers store them as a list).
+  The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key.
   Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
 
-- 'P': parameter message. 
+- 'P': parameter message.
   Same format as `message_info_s`.
   If a parameter dynamically changes during runtime, this message can also be used in the Data section.
   The data type is restricted to: `int32_t`, `float`.
 
-This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
+- 'Q': parameter default message.
+  ```c
+  struct ulog_message_parameter_default_header_s {
+  	struct message_header_s header;
+  	uint8_t default_types;
+  	uint8_t key_len;
+  	char key[key_len];
+  	char value[header.msg_size-2-key_len]
+  };
+  ```
+  `default_types` is a bitfield and defines to which group(s) the value belongs to. At least one bit must be set:
+  - `1<<0`: system wide default
+  - `1<<1`: default for the current configuration (e.g. an airframe)
 
+  A log may not contain default values for all parameters.
+  In those cases the default is equal to the parameter value, and different default types are treated independently.
+  This message can also be used in the Data section.
+  The data type is restricted to: `int32_t`, `float`.
+
+This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
 
 ### Data Section
 
 The following messages belong to this section:
-- 'A': subscribe a message by name and give it an id that is used in `message_data_s`. 
+- 'A': subscribe a message by name and give it an id that is used in `message_data_s`.
   This must come before the first corresponding `message_data_s`.
   ```c
   struct message_add_logged_s {
@@ -212,10 +232,10 @@ The following messages belong to this section:
   ```
   `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type.
   The default and first instance must be 0.
-  `msg_id`: unique id to match `message_data_s` data. 
-  The first use must set this to 0, then increase it. 
+  `msg_id`: unique id to match `message_data_s` data.
+  The first use must set this to 0, then increase it.
   The same `msg_id` must not be used twice for different subscriptions, not even after unsubscribing.
-  `message_name`: message name to subscribe to. 
+  `message_name`: message name to subscribe to.
   Must match one of the `message_format_s` definitions.
 
 - 'R': unsubscribe a message, to mark that it will not be logged anymore (not used currently).
@@ -234,8 +254,8 @@ The following messages belong to this section:
   	uint8_t data[header.msg_size-2];
   };
   ```
-  `msg_id`: as defined by a `message_add_logged_s` message. 
-  `data` contains the logged binary message as defined by `message_format_s`. 
+  `msg_id`: as defined by a `message_add_logged_s` message.
+  `data` contains the logged binary message as defined by `message_format_s`.
   See above for special treatment of padding fields.
 
 - 'L': Logged string message, i.e. printf output.
@@ -274,7 +294,7 @@ The following messages belong to this section:
   For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
 
   ```
-enum class ulog_tag : uint16_t {
+  enum class ulog_tag : uint16_t {
     unassigned,
     mavlink_handler,
     ppk_handler,
@@ -285,7 +305,7 @@ enum class ulog_tag : uint16_t {
     io_service,
     cbuf,
     ulg
-};
+  };
   ```
 
   `timestamp`: in microseconds
@@ -320,15 +340,17 @@ enum class ulog_tag : uint16_t {
   };
   ```
 
-- 'I': information message. 
+- 'I': information message.
   See above.
 
-- 'M': information message multi. 
+- 'M': information message multi.
   See above.
 
-- 'P': parameter message. 
+- 'P': parameter message.
   See above.
 
+- 'Q': parameter message.
+  See above.
 
 ## Requirements for Parsers
 
@@ -336,7 +358,7 @@ A valid ULog parser must fulfill the following requirements:
 - Must ignore unknown messages (but it can print a warning).
 - Parse future/unknown file format versions as well (but it can print a warning).
 - Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of `ulog_message_flag_bits_s` message), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. 
+- A parser must be able to correctly handle logs that end abruptly, in the middle of a message.
   The unfinished message should just be discarded.
 - For appended data: a parser can assume the Data section exists, i.e. the offset points to a place after the Definitions section.
 
@@ -357,7 +379,7 @@ A valid ULog parser must fulfill the following requirements:
 - [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
 - [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
 - [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
-- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.  
+- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
 
 
 ## File Format Version History
@@ -365,6 +387,6 @@ A valid ULog parser must fulfill the following requirements:
 ### Changes in version 2
 
 Addition of `ulog_message_info_multiple_header_s` and `ulog_message_flag_bits_s` messages and the ability to append data to a log.
-This is used to add crash data to an existing log. 
-If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers. 
+This is used to add crash data to an existing log.
+If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers.
 Other than that forward and backward compatibility is given if parsers ignore unknown messages.

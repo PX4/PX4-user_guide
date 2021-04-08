@@ -1,10 +1,9 @@
 # ModalAI VOXL Flight
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
 :::
 
-The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7. Made in the USA, VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
+The ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet)) is one of the first computing platforms to combine the power and sophistication of Snapdragon with the flexibility and ease of use of PX4 on an STM32F7. Made in the USA, VOXL Flight supports obstacle avoidance and GPS-denied (indoor) navigation fused with a PX4 flight controller on a single PCB.
 
 ![VOXL-Flight](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dk.jpg)
 
@@ -186,6 +185,7 @@ make modalai_fc-v1
 | UART7  | /dev/ttyS6 | TELEM1 (J1010)                          |
 | UART8  | /dev/ttyS7 | N/A                                     |
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 

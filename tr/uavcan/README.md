@@ -1,54 +1,86 @@
-# UAVCAN Introduction
+# UAVCAN
 
-![UAVCAN Logo](../../assets/uavcan/uavcan_logo_transparent.png)
+<img style="float:right; width: 200px ; padding: 10px;" src="../../assets/uavcan/uavcan_logo_transparent.png" alt="UAVCAN Logo" /> [UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics/peripherals. It uses rugged, differential signalling, and supports firmware upgrades over the bus and status feedback from peripherals.
 
-[UAVCAN](http://uavcan.org) is an onboard network which allows the autopilot to connect to avionics. It supports hardware like:
-
-* Motor controllers
-  * [Zubax Orel 20](https://zubax.com/product/zubax-orel-20) :::note Runs [Sapog Firmware](https://github.com/px4/sapog) (open source). Based on [Sapog Reference Hardware](https://github.com/PX4/Hardware/tree/master/sapog_reference_hardware).
-:::
-* Airspeed sensors
-  * [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
-* GNSS receivers for GPS and GLONASS
-  * [Zubax GNSS](https://zubax.com/products/gnss_2)
-* Power monitors
-  * [Pomegranate Systems Power Module](../power_module/pomegranate_systems_pm.md)
-  * [CUAV CAN PMU Power Module](../power_module/cuav_can_pmu.md)
-
-In contrast to hobby-grade devices it uses rugged, differential signalling and supports firmware upgrades over the bus. All motor controllers provide status feedback and implement field-oriented-control \(FOC\).
-
-:::note
-PX4 requires an SD card for UAVCAN node allocation and firmware upgrade. It is not used during flight by UAVCAN.
+:::note PX4 requires an SD card for UAVCAN node allocation and firmware upgrade. It is not used during flight by UAVCAN.
 :::
 
-## Initial Setup
+## Supported Hardware
 
-The following instructions provide a step-by-step guide to connect and setup a quadcopter with ESCs and GPS connected via UAVCAN. The hardware of choice is a Pixhawk 2.1, Zubax Orel 20 ESCs and a Zubax GNSS GPS module.
+It supports hardware like:
 
-### Wiring
+- [ESC/Motor controllers](../uavcan/escs.html)
+- Airspeed sensors
+  - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
+- GNSS receivers for GPS and GLONASS
+  - [Zubax GNSS](https://zubax.com/products/gnss_2)
+- Power monitors
+  - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
+  - [CUAV CAN PMU Power Module](../uavcan/cuav_can_pmu.md)
+- Distance sensors
+  - [Ark Flow](ark_flow.md)
+  - [Avionics Anonymous Laser Altimeter UAVCAN Interface](../uavcan/avanon_laser_interface.md)
+- Optical Flow
+  - [Ark Flow](ark_flow.md)
 
-The first step is to connect all UAVCAN enabled devices with the flight controller. The following diagram displays how to wire all components. The used Zubax devices all support a redundant CAN interface in which the second bus is optional but increases the robustness of the connection.
+
+:::note PX4 does not support UAVCAN servos (at time of writing).
+:::
+
+
+## Wiring
+
+All UAVCAN components share the same connection architecture/are wired the same way. Connect all on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes (the order in which the nodes are connected/chained does not matter).
+
+The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.html) and a UAVCAN GNSS.
 
 ![UAVCAN Wiring](../../assets/uavcan/uavcan_wiring.png)
 
-It is important to mention that some devices require an external power supply \(e.g. Zubax Orel 20\) and others can be powered by the CAN connection \(e.g Zubax GNSS\) itself. Please refer to the documentation of your hardware before continuing with the setup.
+The diagram does not show any power wiring. Refer to your manufacturer instructions to confirm whether components require separate power or can be powered from the CAN bus itself.
 
-### Firmware Setup
+For more information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
-Next, follow the instructions in [UAVCAN Configuration](../uavcan/node_enumeration.md) to activate the UAVCAN functionalities in the firmware. Disconnect your power supply and reconnect it. After the power cycle all UAVCAN devices should be detected which is confirmed by a beeping motor on the Orel 20 ESCs. You can now continue with the general setup and calibration.
+:::note
+- While the connections are the same, the _connectors_ may differ across devices.
+- An second/redundant" CAN interface may be used, as shown above (CAN2). This is optional, but can increase the robustness of the connection.
+:::
 
-Depending on the used hardware, it can be reasonable to perform an update of the firmware on the UAVCAN devices. This can be done via the UAVCAN itself and the PX4 firmware. For more details please refer to the instructions in [UAVCAN Firmware](../uavcan/node_firmware.md).
 
-## Upgrading Node Firmware
+## PX4 Configuration
 
-The PX4 middleware will automatically upgrade firmware on UAVCAN nodes if the matching firmware is supplied. The process and requirements are described on the [UAVCAN Firmware](../uavcan/node_firmware.md) page.
+In order to use UAVCAN components with PX4 you will first need to enable the UAVCAN driver:
 
-## Enumerating and Configuring Motor Controllers
+1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller) and connect *QGroundControl*.
+1. Navigate to the **Vehicle Setup > Parameters** screen.
+1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) must be [set](../advanced_config/parameters.md) to one of the non-zero values.
 
-The ID and rotational direction of each motor controller can be assigned after installation in a simple setup routine: [UAVCAN Node Enumeration](../uavcan/node_enumeration.md). The routine can be started by the user through QGroundControl.
+   The values are:
+   - `0`: UAVCAN driver disabled.
+   - `1`: Sensors Manual Config.
+   - `2`: Sensors Automatic Config.
+   - `3`: Sensors and Actuators (ESCs) Automatic Config
 
-## Useful links
+   Use `1` if _none_ of the connected UAVCAN devices support automatic configuration (check the manual!), `2` or `3` if _some_ of them support automatic configuration, and `3` if you're using UAVCAN ESCs (this assigns motor controls to the UAVCAN bus rather than PWM).
 
-* [Homepage](http://uavcan.org)
-* [Specification](https://uavcan.org/specification/)
-* [Implementations and tutorials](http://uavcan.org/Implementations)
+:::note
+You will need to manually allocate static ids for any nodes that don't support automatic configuration. When using dynamic configuration, any manually allocated ids should be given a value greater than the number of UAVCAN devices (to avoid clashes).
+:::
+
+Most UAVCAN sensors require no further setup (they are plug'n'play, unless specifically noted in their documentation).
+
+[UAVCAN motor controllers (ESCs)](../uavcan/escs.md) additionally require the motor order be set, and may require a few other parameters be set. Whether this can be done using the simple QGroundControl setup UI depends on the type of ESC (see link for information).
+
+
+## Troubleshooting
+
+### UAVCAN devices dont get node ID/Firmware Update Fails
+
+PX4 requires an SD card for UAVCAN node allocation and during firmware update (which happen during boot). Check that there is a (working) SD card present and reboot.
+
+### Motors not spinning when armed
+
+If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs. If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
+
+## Developer Information
+
+- [UAVCAN Development](../uavcan/developer.md): Topics related to development and integration of new UAVCAN hardware into PX4.

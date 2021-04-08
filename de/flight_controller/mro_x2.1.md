@@ -1,7 +1,6 @@
 # mRo-X2.1 Autopilot
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 :::
 
 The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
@@ -101,3 +100,5 @@ The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https:/
 | USART6 | /dev/ttyS4 | PX4IO           |
 | UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
 | UART8  | /dev/ttyS6 | SERIAL4         |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

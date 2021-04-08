@@ -6,7 +6,7 @@ The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 The *TBS Caipirinha* has been superceded and is no longer available. These instructions *should* work with the updated vehicle: [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp). A number of other components have been updated in the parts list too.
 :::
 
-{% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
+@[youtube](https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720)
 
 ## 配件列表
 

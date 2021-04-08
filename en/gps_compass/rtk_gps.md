@@ -2,13 +2,10 @@
 
 *RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
 
-Some RTK devices have dual antennas, and can output yaw as well as position infomation.
-This can be used as an alternative to a compass for providing heading information.
-
-This topic covers the setup for both positioning and yaw (if supported).
-
 :::note
-[RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md) explains an alternative approach for getting yaw from RTK GPS, which requires two vehicle-mounted RTK FP9 GPS devices.
+GPS can also be used as a source of yaw/heading information:
+- [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+- [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
 :::
 
 
@@ -159,31 +156,6 @@ See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) s
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
 
 
-
-## RTK GPS that Output Yaw
-
-Some RTK GPS units have multiple antennas, and can output a yaw angle.
-This yaw can be used instead of the heading from the magnetic compass (and as an alternative to [RTK Heading with Two FP9 modules](#rtk-gps-heading-setup-configuration-u-blox-f9p)).
-
-###  Supported Devices
-
-* [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
-
-### Configuration
-
-[RTK Positioning](#positioning-setup-configuration) should be set up as normal.
-
-In order to use the GPS for yaw fusion you will also need to configure:
-
-Parameter | Setting
---- | ---
-[GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) |  The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
-[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | Set bit position 7 "GPS yaw fusion" to `1` (i.e. add 128 to the parameter value).
-
-
-:::tip
-Additional device-specific configuration is covered in the device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
-:::
 
 ## Further Information
 

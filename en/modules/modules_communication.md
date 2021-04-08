@@ -69,21 +69,21 @@ mavlink <command> [arguments...]
                  default: 57600
      [-r <val>]  Maximum sending data rate in B/s (if 0, use baudrate / 20)
                  default: 0
+     [-p]        Enable Broadcast
      [-u <val>]  Select UDP Network Port (local)
                  default: 14556
      [-o <val>]  Select UDP Network Port (remote)
                  default: 14550
-     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_BROADCAST
+     [-t <val>]  Partner IP (broadcasting can be enabled via MAV_{i}_BROADCAST
                  param)
                  default: 127.0.0.1
      [-m <val>]  Mode: sets default streams and rates
-                 values:
-                 custom|camera|onboard|osd|magic|config|iridium|minimal|extvsisi
-                 on, default: normal
+                 values: custom|camera|onboard|osd|magic|config|iridium|minimal|
+                 extvision|extvisionmin|gimbal, default: normal
      [-n <val>]  wifi/ethernet interface name
                  values: <interface_name>
      [-c <val>]  Multicast address (multicasting can be enabled via
-                 MAV_BROADCAST param)
+                 MAV_{i}_BROADCAST param)
                  values: Multicast address in the range
                  [239.0.0.0,239.255.255.255]
      [-f]        Enable message forwarding to other Mavlink instances
@@ -143,24 +143,17 @@ micrortps_client <command> [arguments...]
    status
 ```
 ## uorb
-Source: [modules/uORB](https://github.com/PX4/Firmware/tree/master/src/modules/uORB)
+Source: [systemcmds/uorb](https://github.com/PX4/Firmware/tree/master/src/systemcmds/uorb)
 
 
 ### Description
 uORB is the internal pub-sub messaging system, used for communication between modules.
 
-It is typically started as one of the very first modules and most other modules depend on it.
-
 ### Implementation
-No thread or work queue is needed, the module start only makes sure to initialize the shared global state.
-Communication is done via shared memory.
 The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa.
 This is achieved by having a separate buffer between a publisher and a subscriber.
 
 The code is optimized to minimize the memory footprint and the latency to exchange messages.
-
-The interface is based on file descriptors: internally it uses `read`, `write` and `ioctl`. Except for the
-publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
 
 Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
 
@@ -178,8 +171,6 @@ uorb top
 ```
 uorb <command> [arguments...]
  Commands:
-   start
-
    status        Print topic statistics
 
    top           Monitor topic publication rates

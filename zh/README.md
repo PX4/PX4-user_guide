@@ -7,11 +7,7 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
-:::
-
-:::note
-This guide is still a work in progress! It does not yet cover all of PX4.
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 Interested in contributing? Check out the [Development](development/development.md) section.
 :::
 
 ## 如何开始？
@@ -42,13 +38,19 @@ If you want to build a vehicle from scratch:
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
+**I want to add payload or a camera:**
+
+The payloads section describes how to add a camera or how to configure PX4 to enable you to deliver packages.
+
+* [Payloads](payloads/README.md) describes how to integrate payloads
+
 **I am modifying a supported vehicle:**
 
 Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
 
-* [外设硬件](peripherals/README.md) 提供了有关使用外部传感器的其他信息。
-* [基本配置](config/README.md) 讲解了如何校准主传感器。
-* 请使用 [高级配置](advanced_config/README.md) 对机身进行重新微调。
+* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
 **I want to run PX4 on new hardware and extend the platform:**
 
@@ -75,9 +77,9 @@ If directed by the development team, code issues may be raised on [Github here](
 
 Information on how to contribute to code and documentation can be found in the [Contributing](contribute/README.md) section:
 
-* [贡献代码](contribute/README.md)
-* [文档撰写](contribute/docs.md)
-* [参与翻译（中文翻译组长微信：253331754，QQ：76006963）](contribute/translation.md)
+* [Code](contribute/README.md)
+* [Documentation](contribute/docs.md)
+* [Translation](contribute/translation.md)
 
 ## 翻译
 
@@ -94,7 +96,7 @@ PX4 code is free to use and modify under the terms of the permissive [BSD 3-clau
 The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
 
 * [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
-* [太平洋时间 – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
 * [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
 
 :::tip
@@ -112,7 +114,7 @@ The following icons used in this library are licensed separately (as shown below
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
+<a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>

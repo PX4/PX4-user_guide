@@ -16,7 +16,8 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
 
 - (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들:
   
-  - [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+  - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+  - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 
 - (벤더가 지원하는) 커스텀 버전의 PX4를 구동하는 소비자용 드론들:

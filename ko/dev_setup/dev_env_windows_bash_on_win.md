@@ -1,7 +1,7 @@
-# Bash on Windows Toolchain
+# Windows WSL-Based Development Environment
 
-:::note
-The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 The easiest way to setup the environment is to use the **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download>windows_bash_nuttx.sh</a>** script (details for script are [given below](#build_script_details)).
@@ -34,7 +34,8 @@ To build the firmware (i.e. for px4_fmu-v4):
    ```
    On successful completion you'll find the firmware here: `Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4`
 
-   :::note The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+:::note
+The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 :::
 
 1. You can flash the custom firmware on Windows using *QGroundControl* or *Mission Planner* (it is not possible to directly flash the firmware from within the bash shell using the `upload` command).
@@ -54,7 +55,8 @@ In addition, it uses a [64 bit arm-none-eabi compiler](https://github.com/SolinG
   make px4_sitl gazebo
    ```
 
-   :::tip Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+:::tip
+Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
 :::
 1. Start PX4 and jMAVSim in the bash shell:
    ```sh
@@ -64,7 +66,7 @@ In addition, it uses a [64 bit arm-none-eabi compiler](https://github.com/SolinG
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-:::caution
+:::warning
 Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
 ```sh
 export DISPLAY=:0

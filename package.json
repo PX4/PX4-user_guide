@@ -20,9 +20,11 @@
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
-    "docs:build": "yarn docs:build_ubuntu"
+    "docs:build": "yarn docs:build_ubuntu",
+    "start": "yarn docs:dev"
   },
   "dependencies": {
+    "markdown-it-video": "^0.6.3",
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-right-anchor": "^0.4.4"
   }

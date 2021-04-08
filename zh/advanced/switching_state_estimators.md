@@ -2,8 +2,7 @@
 
 此页显示了可用的状态估计器以及如何在它们之间切换。
 
-:::tip
-EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
+:::tip EKF2 is highly recommended for all purposes (LPE is no longer supported/maintained).
 :::
 
 ## 可用的估计器

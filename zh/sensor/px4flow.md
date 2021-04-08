@@ -12,7 +12,7 @@ PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自�
 - Size 45.5 mm x 35mm
 - Power consumption 115mA / 5V
 
-{% youtube %} https://youtu.be/0Jpq6DU_HVg {% endyoutube %}
+@[youtube](https://youtu.be/0Jpq6DU_HVg)
 
 ## 购买渠道
 
@@ -40,8 +40,7 @@ PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自�
 
 In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
-:::warning
-PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
+:::warning PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
 :::
 
 The steps are:
@@ -63,10 +62,9 @@ The recommended mounting orientation is defined as Y on flow board pointing towa
 
 On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the default).
 
-Make sure the the PX4Flow board is well dampened.
+Make sure the PX4Flow board is well dampened.
 
-:::warning
-PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::warning PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
 :::
 
 <span id="px4_configuration"></span>
@@ -236,7 +234,8 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 - Check that the image is sharp at the operating distance (the typical flight altitude)
   
-  :::tip [Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+:::tip
+[Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
 :::
 
 <span id="developer_guide"></span>
@@ -257,8 +256,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 - PC with *QGroundControl* installed
 - PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::note
-PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 :::
 
 ## 编译

@@ -1,38 +1,14 @@
-# 多轴飞行器 PID 调参指南
+# Multicopter PID Tuning Guide (Advanced/Detailed)
 
-本教程介绍如何在 PX4 上调整 [ 多轴飞行器 ](../airframes/airframe_reference.md#copter) (四、六、八旋翼等) 的 PID 参数 。
+This topic provides detailed information about PX4 controllers, and how they are tuned.
 
-通常, 如果您使用的是 [ 已经支持的机型 ](../airframes/airframe_reference.md#copter) （例如, [ QGroundControl ](../config/airframe.md) 中的机身），则默认参数应足以安全地飞行。 为了获得最好的性能, 最好能整定新飞机的 PID 参数。 例如, 不同的电调或电机需要不同的控制增益, 才能获得最佳飞行效果。
-
-:::warning
-This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash. Make sure to have a Kill-switch assigned.
+:::tip
+We recommend that you follow the [basic PID tuning guide](pid_tuning_guide_multicopter_basic.md) for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
 :::
 
-## 简介
+Use this topic when tuning around the hover thrust point is not sufficient (e.g. on vehicles where there are non-linearities and oscillations at higher thrusts). It is also useful for a deeper understanding of how the basic tuning works, and to understand how to use the [airmode](#airmode-mixer-saturation) setting.
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
-
-The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**. The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
-
-## 前置条件
-
-- 您已为您的飞行器选择了最接近的 [ 默认机型配置 ](../config/airframe.md)。 这应该可以让你的飞行器飞起来。
-- 您应该已经执行过 [ 电调（ESC）校准 ](../advanced_config/esc_calibration.md)。
-- [ PWM_MIN ](../advanced_config/parameter_reference.md#PWM_MIN) 正确设置。 它需要设置一个小值, 但当飞行器解锁时, 需要保证 ** 电机不停转 **。
-  
-  可以在 [特技 Acro 模式](../flight_modes/acro_mc.md) 或 [ 手动/自稳模式 ](../flight_modes/manual_stabilized_mc.md) 中进行测试：
-  
-  - 卸下螺旋桨
-  - 解锁，并将油门杆拉到最低
-  - 把飞行器倾斜到各个方向, 大约60度
-  - 确保没有电机停转
-- 可以通过 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数，启用高速率日志记录配置文件, 以便使用日志来查看角速率和姿态跟踪性能 (之后可以禁用该选项) 。
-
-:::warning
-Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
-:::
-
-## 调参步骤
+## Tuning Steps
 
 :::note
 For safety reasons, the default gains are set to low values. You must increase the gains before you can expect good control responses.
@@ -40,9 +16,13 @@ For safety reasons, the default gains are set to low values. You must increase t
 
 Here are some general points to follow when tuning:
 
-- 调整增益时，所有的增益值都应该慢慢增加, 因为增益过大可能会导致危险的振荡! 一般情况下，每次增益值的调整幅度大约在20%到30%，获得最优增益值后，基于最优值再下调5%到10%。
-- 在修改参数之前务必先着陆。 慢慢增加油门，观察振荡的现象。
-- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
+- All gains should be increased very slowly as large gains may cause dangerous oscillations! Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
+- Land before changing a parameter. Slowly increase the throttle and check for oscillations.
+- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust-curve) to account for thrust non-linearities or high-thrust oscillations.
+- 可以通过 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数，启用高速率日志记录配置文件, 以便使用日志来查看角速率和姿态跟踪性能 (之后可以禁用该选项) 。
+
+::warning 在调参过程中，禁用 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)。
+:::
 
 ### 速率控制器
 
@@ -52,9 +32,9 @@ The rate controller is the inner-most loop with three independent PID controller
 A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 :::
 
-#### Rate Controller Architecture/Form
+#### 速率控制器架构/形式
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel_form) and [Standard](#standard_form).
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel-form) and [Standard](#standard-form).
 
 Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
 
@@ -79,23 +59,19 @@ For more information see:
 - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
 :::
 
-<span id="parallel_form"></span>
-
-##### Parallel Form
+##### 并行模式
 
 The *parallel form* is the simplest form, and is (hence) commonly used in textbooks. In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-<span id="standard_form"></span>
-
-##### Standard Form
+##### 标准模式
 
 This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
 
 ![PID_Standard](../../assets/mc_pid_tuning/PID_algorithm_Standard.png)
 
-#### Rate PID Tuning
+#### 角速度 PID 调试
 
 The related parameters for the tuning of the PID rate controllers are:
 
@@ -127,7 +103,7 @@ The proportional gain is used to minimize the tracking error (below we use **P**
   - the vehicle will react slowly to input changes.
   - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
-##### Derivative Gain (D)
+##### 微分增益
 
 The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
 
@@ -139,7 +115,7 @@ Typical values are:
 - standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
 - parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
 
-##### Integral Gain (I)
+##### 积分增益 (I)
 
 The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying *Acro mode*), but it should not be set too high.
 
@@ -187,9 +163,7 @@ The following parameters can also be adjusted. These determine the maximum rotat
 - Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-<span id="thrust_curve"></span>
-
-### Thrust Curve
+### 推力曲线
 
 The tuning above optimises performance around the hover throttle. But you may start to see oscillations when going towards full throttle.
 

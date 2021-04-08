@@ -1,74 +1,74 @@
-# Sensors
+# 센서
 
-PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, etc.
+PX4는 센서를 사용하여 기체의 상태를 결정하여 자율 비행의 기체 안정화에 필수적인 과정을 수행합니다. 기체 상태에는 위치, 고도, 방향, 속도, 대기 속도, 방향 (태도), 회전 속도 및 배터리 잔량 등이 포함됩니다.
 
-The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+자이로스코프 센서, 가속도 센서, 지자기 센서 및 기압 센서는 * 시스템 구동에 필요한 최소 요구사항입니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서를 추가되어야 합니다.
 
-The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+최소한의 센서 세트가 [ Pixhawk 시리즈 ](../flight_controller/pixhawk_series.md) 비행 콘트롤러에 내장되어 있습니다 (다른 컨트롤러 플랫폼에도있을 수 있음). 제어기에 센서를 추가할 수 있습니다.
 
-Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
+주요 센서에 대해 설명합니다. 마지막에는 [ 센서 배선 ](#wiring)에 대한 링크가 있습니다.
 
 <span id="gps_compass"></span>
 
-## GPS & Compass
+## GPS와 나침반
 
-PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4는 여러 GNSS(Global Navigation Satellite System) 수신기와 나침반 (자기계)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [ 실시간 운동학 (RTK) GPS 수신기 ](../gps_compass/rtk_gps.md)를 지원합니다.
 
 :::note
-[Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+[픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에는 *내부* 나침반이 포함되어 있습니다. Pixhawk를 가능한 배터리나 전선에서 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 대부분의 소형 운송체에서는 외부 나침반이 필수적인 요구사항입니다.
 :::
 
-We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+모터나 ESC 전원에서 가능한 멀리 떨어진 곳에 장착된 외부 나침반/GPS 수신기을 사용하는 것이 좋습니다. 일반적으로 받침대 또는 고정 날개에 설치합니다.
 
-Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
+GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)에 기술되어 있습니다.
 
-![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
+![GPS/나침반](../../assets/hardware/gps/gps_compass.jpg)
 
-## Airspeed
+## 대기속도 센서
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+고정이나 수직이착륙기에는 대기속도센서를 *사용하는 것이 좋습니다.*
 
-They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 비행 속도는 매우 중요한 항목입니다. 고정익 비행의 경우 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
 
-![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![디지털 풍속 센서](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
+더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)편을 참조하십시오.
 
-## Tachometer
+## 타코미터
 
-Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
+타코미터([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동 조종 장치가 실속 또는 다른 로터 고장을 감지할 수 있기 때문에 로터 윙 프레임에 *적극 권장*합니다 (로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다).
 
-![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
+![디지털 RPM 센서-TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
+더 자세한 정보와 권장 하드웨어는 [센서 > 타코미터](../sensor/tachometers.md)편을 참조하십시오.
 
-## Distance
+## 거리 센서
 
-Distance sensors are used for precision landing, object avoidance and terrain following.
+거리 센서는 정확한 착지, 장애물 회피와 등고 비행 등에 필요합니다.
 
-PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
+PX4는 여러가지 기술을 사용하여 다양한 범위의 기능을 지원하는 저렴한 거리 센서를 지원합니다. 더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오.
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
-## Optical Flow
+## 광류 센서
 
-[Optical Flow](../sensor/optical_flow.md) sensors use a downward facing camera and a downward facing distance sensor for velocity estimation. PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. This sensor can be used indoors, when no GPS signal is available.
+[ 광류 센서 ](../sensor/optical_flow.md) 센서는 속도 추정을 위해 하향 카메라와 하향 거리 센서를 사용합니다. PX4는 센서 출력을 다른 위치 소스 (예 : GPS)의 정보와 연계하여 정확한 위치 잠금을 제공합니다. 이 센서는 GPS 신호를 사용할 수없는 실내에서 사용할 수 있습니다.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
-Some options include:
+다른 옵션은 다음과 같습니다:
 
-* [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
-* [PMW3901](../sensor/pmw3901.md) based flow sensors, which have a sensor much like in an optical mouse trackpad.
+* 통합 소나 센서가있는 [ PX4Flow ](../sensor/px4flow.md) 기반 유량 센서.
+* 광학 마우스 트랙 패드와 유사한 센서가있는 [ PMW3901 ](../sensor/pmw3901.md) 기반 유량 센서
 
 <span id="wiring"></span>
 
-## Sensor Wiring
+## 센서 배선
 
-Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
+센서 배선 정보는 일반적으로 비행 제어기 및 센서 자체에 관하여 제조사에서 매뉴얼을 제공한다.
 
-In addition, see:
+추가:
 
-* [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These cover wiring of the core sensors to specific flight controller hardware.
-* [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
-* [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
+* [ 기초 초립법 ](../assembly/README.md)에는 비행 제어기에 관한 빠른 시작 가이드가 포함되어 있습니다. 여기에는 특정 비행 컨트롤러 하드웨어에 대한 코어 센서의 배선이 포함됩니다.
+* [ 비행 제어기 ](../flight_controller/README.md) 항목에는 종종 배선 정보가 포함됩니다.
+* [ 주변 하드웨어 ](../peripherals/README.md)에는 다른 센서에 대한 문서가 포함되어 있습니다.

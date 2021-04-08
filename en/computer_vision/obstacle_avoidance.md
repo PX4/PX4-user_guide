@@ -9,8 +9,7 @@ Obstacle avoidance is intended for automatic modes, and is currently supported f
 
 This topic explains how the feature is set up and enabled in both modes.
 
-{% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
-
+@[youtube](https://youtu.be/PrGt7pKj3tI)
 
 
 ## Limitations/Capabilities

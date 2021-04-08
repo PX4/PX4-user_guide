@@ -13,8 +13,8 @@ The current set of compatible airframes vs Simulators is:
 
 Airframe | `SYS_AUTOSTART` | Gazebo | jMAVSim
 --- | --- | --- | --- | ---
-<a href="../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x">HIL Quadcopter X</a> | 1001 | Y | Y
-<a href="../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane">HIL Standard VTOL QuadPlane</a> | 1002 | Y |
+[HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x) | 1001 | Y | Y
+[HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002 | Y |
 [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) copter | 4001 | Y | Y
 [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_flame_wheel_f450) | 4011 | Y | Y
 
@@ -122,7 +122,7 @@ Make sure *QGroundControl* is not running!
    ```
    and run Gazebo in HITL mode:
    ```sh
-   gazebo Tools/sitl_gazebo/worlds/iris.world
+   gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
    ```
 1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo.
 
@@ -149,4 +149,4 @@ Make sure *QGroundControl* is not running!
 
 ## Fly an Autonomous Mission in HITL
 
-You should be able to use *QGroundControl* to [run missions](../qgc/README.md#planning-missions) and otherwise control the vehicle.
+You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.

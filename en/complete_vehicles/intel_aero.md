@@ -2,6 +2,8 @@
 
 :::warning
 This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+
+PX4 v1.11 is the last release that supports this platform.
 :::
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform.

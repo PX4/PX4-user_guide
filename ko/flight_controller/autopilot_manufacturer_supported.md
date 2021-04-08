@@ -18,8 +18,6 @@ The boards in this category are:
 - [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
-- [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
-- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
 - [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
 - [Holybro Kakute F7](../flight_controller/kakutef7.md)
 - [Holybro Durandal](../flight_controller/durandal.md)

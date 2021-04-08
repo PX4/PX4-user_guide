@@ -276,4 +276,4 @@ To connect to Crazyflie 2.0 via MAVROS:
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
+@[youtube](https://youtu.be/2Bcy3k1h5uc)

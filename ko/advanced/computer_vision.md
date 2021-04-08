@@ -14,11 +14,13 @@ PX4는 다음 기능 지원을 목적으로 컴퓨터 비전 시스템([보조 �
 
 ## 움직임 감지(Motion Capture) {#mocap}
 
-Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
+움직임 감지(Motion Capture, a.k.a MoCap)는 기체 *외부*의 위치 결정 방법으로, 3차원 *자세*(위치와 방향) 를 추정하는 기술입니다. MoCap 시스템은 보통 적외선 카메라로 움직임을 감지하나, 광선 레이더, 광대역 주파(UWB) 형태 기술을 활용할 수도 있습니다.
 
-관성 주행 시각 측정(VIO) 기술은 *로컬* 시작점에서 상대 위치로 기체가 이동할 경우 3차원 *자세* (위치와 방향)와 *속도*를 추정할 때 활용합니다. 보통 GPS가 빠졌거나 (예: 실내) 신뢰할 수 없을 때(예: 다리 아래로 비행할 경우) 기체 운행에 활용합니다.
+:::note
+MoCap은 GPS가 빠져있는 상황에서 기체 탐색 운용을 할 때 활용하며, 상대적인 *로컬* 좌표 체계 위치 정보를 제공합니다.
+:::
 
-관성 주행 시각 측정(VIO) 기술은 관성 측정부(IMU)에서 시각 정보와 관성 측정 수치를 결합(저화질 이미지를 촬영하는 고속 기체 이동시 오류 보정)하여 기체의 *자세*를 추정하는 [주행 시각 측정](https://en.wikipedia.org/wiki/Visual_odometry) 기술을 활용합니다.
+MoCap 기술에 대해 더 알아보려면 다음을 참고하십시오:
 - [외부 위치 추정](../ros/external_position_estimation.md)
 - [움직임 감지(Motion Capture)기술을 활용한 비행 (VICON, Optitrack)](../tutorials/motion-capture-vicon-optitrack.md)
 - [EKF > 외부 비전 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
@@ -26,15 +28,15 @@ Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and
 
 ## 관성 주행 시각 측정 {#vio}
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors) or unreliable (e.g. when flying under a bridge).
+관성 주행 시각 측정(VIO) 기술은 *로컬* 시작점에서 상대 위치로 기체가 이동할 경우 3차원 *자세* (위치와 방향)와 *속도*를 추정할 때 활용합니다. 보통 GPS가 빠졌거나 (예: 실내) 신뢰할 수 없을 때(예: 다리 아래로 비행할 경우) 기체 운행에 활용합니다.
 
-[광류 센서(Optical Flow)](../sensor/optical_flow.md) 기술로 2차원 평면상의 속도를 추정합니다(아래 방향으로 향한 카메라와 아래 방향으로 향한 거리 센서 활용).
+관성 주행 시각 측정(VIO) 기술은 관성 측정부(IMU)에서 시각 정보와 관성 측정 수치를 결합(저화질 이미지를 촬영하는 고속 기체 이동시 오류 보정)하여 기체의 *자세*를 추정하는 [주행 시각 측정](https://en.wikipedia.org/wiki/Visual_odometry) 기술을 활용합니다.
 
-:::note
-On difference between VIO and [MoCap](#mocap) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
+:::note VIO
+와 [MoCap](#mocap)간의 차이점은, VIO 카메라/관성 측정부(IMU)의 경우 기체 중심이며, 속도 정보가 추가로 붙습니다.
 :::
 
-For information about configuring VIO on PX4 see:
+PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 - [EKF > 외부 비전 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 설정 안내서](../peripherals/camera_t265_vio.md)
 - [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
@@ -42,9 +44,9 @@ For information about configuring VIO on PX4 see:
 
 ## 광류 센서 {#optical_flow}
 
-[Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+[광류 센서(Optical Flow)](../sensor/optical_flow.md) 기술로 2차원 평면상의 속도를 추정합니다(아래 방향으로 향한 카메라와 아래 방향으로 향한 거리 센서 활용).
 
-For information about optical flow see:
+광류 센서 기술을 더 알아보려면 다음을 살펴보십시오:
 - [광류 센서](../sensor/optical_flow.md)
   - [PX4Flow 스마트 카메라](../sensor/px4flow.md)
 - [EKF > 광류 센서](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)

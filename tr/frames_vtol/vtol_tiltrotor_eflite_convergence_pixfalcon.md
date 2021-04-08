@@ -2,7 +2,7 @@
 
 The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
 
-{% youtube %} http://www.youtube.com/watch?v=E61P2f2WPNU {% endyoutube %}
+@[youtube](https://youtu.be/E61P2f2WPNU)
 
 ## Hardware Setup
 

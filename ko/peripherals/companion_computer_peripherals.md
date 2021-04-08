@@ -1,6 +1,6 @@
 # 보조 컴퓨터 주변 장치
 
-이 절에서는 픽스호트(PX4)를 보조 컴퓨터에 연결하고 여러 주변 장치를 보조 컴퓨터로 연결(하고 PX4에서 잠재적으로 실행/접근)하는 내용을 다룹니다.
+This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
 
 ## 보조 컴퓨터/픽스호크 통신
 
@@ -8,8 +8,7 @@
 
 FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가능한 몇가지 장치가 있습니다.
 
-:::note
-PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). 기타 관련 주제/절은 [픽스호크 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md), [RTPS/ROS2 인터페이스: PX4-FastRTPS 브릿지](../middleware/micrortps.md)가 있습니다.
+:::note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
 :::
 
 ### FTDI 장치

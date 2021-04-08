@@ -96,21 +96,43 @@ failure [arguments...]
 ## gpio
 Source: [systemcmds/gpio](https://github.com/PX4/Firmware/tree/master/src/systemcmds/gpio)
 
-This command is used to read and write GPIOs.
+
+### Description
+This command is used to read and write GPIOs
+
+gpio read <PORT><PIN>/<DEVICE> \[PULLDOWN|PULLUP\] \[--force\] gpio write <PORT><PIN>/<DEVICE> <VALUE> \[PUSHPULL|OPENDRAIN\] \[--force\]
+
+### Examples
+Read the value on port H pin 4 configured as pullup, and it is high
+```
+gpio read H4 PULLUP
+```
+1 OK
+
+Set the output value on Port E pin 7 to high
+```
+gpio write E7 1 --force
+```
+
+Set the output value on device /dev/gpin1 to high
+```
+gpio write /dev/gpin1 1
+```
+
 <a id="gpio_usage"></a>
 
 ### Usage
 ```
-esc_calib [arguments...]
+gpio [arguments...]
    read
-     <PORT> <PIN> GPIO port and pin
+     <PORT><PIN>/<DEVICE> GPIO port and pin or device
      [PULLDOWN|PULLUP] Pulldown/Pullup
      [--force]   Force (ignore board gpio list)
 
    write
      <PORT> <PIN> GPIO port and pin
      <VALUE>     Value to write
-     [PULLDOWN|PULLUP] Pulldown/Pullup
+     [PUSHPULL|OPENDRAIN] Pushpull/Opendrain
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
@@ -174,27 +196,33 @@ led_control blink -c blue -l 0 -n 5
 
 ### Usage
 ```
-config <command> [arguments...]
+led_control <command> [arguments...]
  Commands:
+   test          Run a test pattern
 
- The <file:dev> argument is typically one of /dev/{gyro,accel,mag}i
-   block         Block sensor topic publication
-     <file:dev>  Sensor device file
+   on            Turn LED on
 
-   unblock       Unblock sensor topic publication
-     <file:dev>  Sensor device file
+   off           Turn LED off
 
-   sampling      Set sensor sampling rate
-     <file:dev> <rate> Sensor device file and sampling rate in Hz
+   reset         Reset LED priority
 
-   rate          Set sensor publication rate
-     <file:dev> <rate> Sensor device file and publication rate in Hz
+   blink         Blink LED N times
+     [-n <val>]  Number of blinks
+                 default: 3
+     [-s <val>]  Set blinking speed
+                 values: fast|normal|slow, default: normal
 
-   range         Set sensor measurement range
-     <file:dev> <rate> Sensor device file and range
+   breathe       Continuously fade LED in & out
 
-   check         Perform sensor self-test (and print info)
-     <file:dev>  Sensor device file
+   flash         Two fast blinks and then off with frequency of 1Hz
+
+ The following arguments apply to all of the above commands except for 'test':
+     [-c <val>]  color
+                 values: red|blue|green|yellow|purple|amber|cyan|white, default:
+                 white
+     [-l <val>]  Which LED to control: 0, 1, 2, ... (default=all)
+     [-p <val>]  Priority
+                 default: 2
 ```
 ## listener
 Source: [systemcmds/topic_listener](https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener)
@@ -202,7 +230,7 @@ Source: [systemcmds/topic_listener](https://github.com/PX4/Firmware/tree/master/
 
 Utility to listen on uORB topics and print the data to the console.
 
-Note: this command currently only supports the `/dev/pwm_output0` output.
+The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 
 <a id="listener_usage"></a>
 
@@ -260,7 +288,8 @@ Application to test motor ramp up.
 
 Before starting, make sure to stop any running attitude controller:
 ```
-motor_ramp sine 1100 0.5
+mc_rate_control stop
+fw_att_control stop
 ```
 
 When starting, a background task is started, runs for several seconds (as specified), then exits.
@@ -292,7 +321,7 @@ Source: [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/
 
 Utility to test motors.
 
-Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
+WARNING: remove all props before using this command.
 
 <a id="motor_test_usage"></a>
 
@@ -362,14 +391,14 @@ Command to access and manipulate parameters via shell or script.
 
 This is used for example in the startup script to set airframe-specific parameters.
 
-Parameters are automatically saved when changed, eg. with `param set`. It is used to only show relevant parameters to a ground control station. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
+Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
 
 If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
 
 Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
 
 ### Examples
-Tool to print performance counters
+Change the airframe and make sure the airframe's default parameters are loaded:
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -405,6 +434,10 @@ param <command> [arguments...]
    status        Print status of parameter system
 
    set           Set parameter to a value
+     <param_name> <value> Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   set-default   Set parameter default to a value
      <param_name> <value> Parameter name and value to set
      [fail]      If provided, let the command fail if param is not found
 
@@ -459,13 +492,13 @@ Source: [systemcmds/pwm](https://github.com/PX4/Firmware/tree/master/src/systemc
 ### Description
 This command is used to configure PWM outputs for servo and ESC control.
 
-Reboot the system
+The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
 
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm info` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
+It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
 
 The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
 
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm info` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
+Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
 
 The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
 
@@ -493,7 +526,7 @@ pwm <command> [arguments...]
 
    disarm        Disarm output
 
-   info          Print current configuration of all channels
+   status        Print current configuration of all channels
 
    forcefail     Force Failsafe mode. PWM outputs are set to failsafe values.
      on|off      Turn on or off
@@ -531,7 +564,7 @@ pwm <command> [arguments...]
      [-c <val>]  select channels in the form: 1234 (1 digit per channel,
                  1=first)
      [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
-     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm info' to show
+     [-g <val>]  Select channels by group (eg. 0, 1, 2. use 'pwm status' to show
                  groups)
      [-a]        Select all channels
 
@@ -544,7 +577,8 @@ pwm <command> [arguments...]
 ## reboot
 Source: [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
 
-Test the speed of an SD Card<a id="reboot_usage"></a>
+Reboot the system
+<a id="reboot_usage"></a>
 
 ### Usage
 ```
@@ -568,6 +602,7 @@ sd_bench [arguments...]
      [-d <val>]  Duration of a run in ms
                  default: 2000
      [-s]        Call fsync after each block (default=at end of each run)
+     [-u]        Test performance with unaligned data)
 ```
 ## system_time
 Source: [systemcmds/system_time](https://github.com/PX4/Firmware/tree/master/src/systemcmds/system_time)
@@ -579,7 +614,7 @@ Command-line tool to set and get system time.
 
 ### Examples
 
-Monitor running processes and their CPU, stack usage, priority and state
+Set the system time and read it back
 ```
 system_time set 1600775044
 system_time get

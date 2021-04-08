@@ -5,6 +5,7 @@ heroText: PX4 User Guide
 tagline: PX4 is the *Professional Autopilot*, powering vehicles from cargo, mapping and surveillance drones through to ground vehicles and submersibles.
 actionText: Learn More →
 actionLink: /en/
+search: false
 features:
 - title: Modular Architecture
   details: PX4 is highly modular and extensible both in terms of hardware and software. It utilizes a port-based architecture – which means when developers add components, the extended system does not lose robustness or performance. 

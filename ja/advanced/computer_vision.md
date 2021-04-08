@@ -1,10 +1,10 @@
-# Computer Vision (Optical Flow, MoCap, VIO, Avoidance)
+# コンピュータビジョン (光学フロー, MoCap, VIO, 回避)
 
-[Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
+[コンピュータビジョン](https://en.wikipedia.org/wiki/Computer_vision) コンピュータが映像データを使用して環境を把握できる技術です。
 
-PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/pixhawk_companion.md)) in order to support the following features:
-- [Optical Flow](#optical_flow) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
-- [Motion Capture](#mocap) provides 3D pose estimation using a vision system that is *external* to the vehicle. It is primarily used for indoor navigation.
+PX4では、以下の機能をサポートするために、主に [Companion Computers](../companion_computer/pixhawk_companion.md)上で動作するコンピュータビジョンシステムを使用しています。
+- [光学フロー](#optical_flow) では、2次元速度の推定が行えます (下向きのカメラと下向きの距離センサーを使用)。
+- [モーションキャプチャー](#mocap) は、車両の *外部* にあるビジョンシステムを使用して、3Dの 姿勢推定を提供します。 主に屋内ナビゲーションに使用されます。
 - [Visual Inertial Odometry](#vio) provides 3D pose and velocity estimation using an onboard vision system and IMU. It is used for navigation when global position information is absent or unreliable.
 - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) provides full navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/avoidance](https://github.com/PX4/avoidance) running on a companion computer.
 - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
@@ -18,7 +18,7 @@ The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md
 Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
 
 :::note
-MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a a *local* co-ordinate system.
+MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* co-ordinate system.
 :::
 
 For information about MoCap see:

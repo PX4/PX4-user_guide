@@ -1,7 +1,6 @@
 # Pixhawk 3 Pro
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
 :::
 
 The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
@@ -86,3 +85,5 @@ For information about wiring and using this port see:
 | UART4  |            |                       |
 | UART7  | CONSOLE    |                       |
 | UART8  | SERIAL4    |                       |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->

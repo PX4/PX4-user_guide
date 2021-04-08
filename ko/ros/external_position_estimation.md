@@ -1,6 +1,6 @@
 # Using Vision or Motion Capture Systems for Position Estimation
 
-Visual Inertial Odometry (VIO) and and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).
+Visual Inertial Odometry (VIO) and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).
 
 Both VIO and MoCap determine a vehicle's *pose* (position and attitude) from "visual" information. The main difference between them is the frame perspective:
 - VIO uses *onboard sensors* to get pose data from the vehicle's perspective (see [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
@@ -27,8 +27,7 @@ PX4 uses the following MAVLink messages for getting external position informatio
 
 EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
 
-:::tip
-EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
 :::
 
 The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.
@@ -42,8 +41,8 @@ PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body fram
 
 Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
 
-:::tip
-ROS users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+:::tip ROS
+users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
 :::
 
 For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention.
@@ -102,7 +101,7 @@ You will first need to [switch to the LPE estimator](../advanced/switching_state
 
 
 :::note
-If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
 :::
 
 ### Enabling External Pose Input
@@ -212,7 +211,7 @@ The following steps explain how to feed position estimates from an [OptiTrack](h
 
 #### Steps on the *Motive* MoCap software
 
-* Align your robot's forward direction with the the [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
+* Align your robot's forward direction with the [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
 * [Define a rigid body in the Motive software](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Give the robot a name that does not contain spaces, e.g. `robot1` instead of `Rigidbody 1`
 * [Enable Frame Broadacst and VRPN streaming](https://www.youtube.com/watch?v=yYRNG58zPFo)
 * Set the Up axis to be the Z axis (the default is Y)

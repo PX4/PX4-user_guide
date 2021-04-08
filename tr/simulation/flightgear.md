@@ -6,8 +6,7 @@ This page describes FlightGear's single-vehicle use in SITL. For information abo
 
 **Supported Vehicles:** Autogyro, Plane, Rover.
 
-{% youtube %}https://www.youtube.com/watch?v=iqdcN5Gj4wI{% endyoutube %}
-
+@[youtube](https://youtu.be/iqdcN5Gj4wI)
 
 [![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -38,9 +37,10 @@ These instructions were tested on Ubuntu 18.04
    sudo apt update
    sudo apt install flightgear
    ```
-   This installs the latest stable FlightGear version from the PAA repository along with the the FGdata package.
+   This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
 
-   :::tip For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+:::tip
+For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
 :::
 
 1. Check that you are able to run FlightGear:

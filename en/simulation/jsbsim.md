@@ -7,8 +7,7 @@ Rotational earth effects are also modeled into the dynamics.
 
 **Supported Vehicles:** Plane, Quadrotor, Hexarotor
 
-{% youtube %}https://youtu.be/y5azVNmIVyw{% endyoutube %}
-
+@[youtube](https://youtu.be/y5azVNmIVyw)
 
 :::note
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).

@@ -14,7 +14,7 @@ It has been tested with the following devices:
 
 ## Hardware Setup
 
-Either device can can be connected to any free/unused serial port on the flight controller. Most commonly it they are connected to TELEM2 (if this is not being use for some other purpose).
+Either device can be connected to any free/unused serial port on the flight controller. Most commonly it they are connected to TELEM2 (if this is not being use for some other purpose).
 
 ### PingRX
 

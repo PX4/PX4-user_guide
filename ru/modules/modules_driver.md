@@ -131,39 +131,6 @@ batt_smbus <command> [arguments...]
 
    status        print status info
 ```
-## blinkm
-Source: [drivers/lights/blinkm](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/blinkm)
-
-<a id="blinkm_usage"></a>
-
-### Usage
-```
-blinkm <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 9
-
-   systemstate
-
-   ledoff
-
-   list
-
-   script
-     -n <val>    Script file name
-                 values: <file>
-
-   stop
-
-   status        print status info
-```
 ## bst
 Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
 
@@ -221,6 +188,10 @@ dshot <command> [arguments...]
    mode_gpio
 
    mode_pwm      Select all available pins as PWM
+
+   mode_pwm14
+
+   mode_pwm12
 
    mode_pwm8
 
@@ -286,6 +257,24 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
+## fake_gps
+Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+
+
+### Description
+
+<a id="fake_gps_usage"></a>
+
+### Usage
+```
+fake_gps <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## fake_gyro
 Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
 
@@ -336,11 +325,6 @@ The module supports a secondary GPS device, specified via `-e` parameter. The po
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### Examples
-For testing it can be useful to fake a GPS signal (it will signal the system that it has a valid position):
-```
-gps stop
-gps start -f
-```
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
@@ -367,7 +351,6 @@ gps <command> [arguments...]
                  values: <file:dev>
      [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
                  default: 0
-     [-f]        Fake a GPS signal (useful for testing)
      [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
@@ -442,6 +425,25 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
+## linux_pwm_out
+Source: [drivers/linux_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/linux_pwm_out)
+
+
+### Description
+Linux PWM output driver with board-specific backend implementation.
+
+<a id="linux_pwm_out_usage"></a>
+
+### Usage
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
 ## lsm303agr
 Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
 
@@ -468,6 +470,30 @@ lsm303agr <command> [arguments...]
 
    status        print status info
 ```
+## newpixel
+Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+
+
+### Description
+This module is responsible for driving interfasing to the Neopixel Serial LED
+
+### Examples
+It is typically started with:
+```
+neopixel -n 8
+```
+To drive all available leds.
+
+<a id="newpixel_usage"></a>
+
+### Usage
+```
+newpixel <command> [arguments...]
+ Commands:
+   stop
+
+   status        print status info
+```
 ## paw3902
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
 
@@ -487,7 +513,7 @@ paw3902 <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
+     [-Y <val>]  custom yaw rotation (degrees)
                  default: 0
 
    stop
@@ -650,6 +676,10 @@ pwm_out <command> [arguments...]
    mode_gpio
 
    mode_pwm      Select all available pins as PWM
+
+   mode_pwm14
+
+   mode_pwm12
 
    mode_pwm8
 
@@ -855,31 +885,6 @@ safety_button <command> [arguments...]
    stop
 
    status        print status info
-```
-## tap_esc
-Source: [drivers/tap_esc](https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc)
-
-
-### Description
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
-
-### Implementation
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
-
-### Example
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
-
-<a id="tap_esc_usage"></a>
-
-### Usage
-```
-tap_esc <command> [arguments...]
- Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
 ```
 ## tone_alarm
 Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)

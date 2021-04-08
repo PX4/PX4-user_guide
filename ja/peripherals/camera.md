@@ -4,37 +4,37 @@ The camera trigger driver allows the use of the AUX ports to send out pulses in 
 
 In addition to a pulse being sent out, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp. This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
 
-Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment that a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+Cameras can also (optionally) use the flight controller [camera capture pin](#camera-capture) to signal the exact moment that a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
-## トリガー設定 {#trigger_setup_qgc}
+## Trigger Configuration
 
 Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_backend) and [hardware setup](#hardware_setup) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [hardware setup](#trigger-hardware-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
 
 :::note
 The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
 :::
 
-## トリガーモード {#trigger_mode}
+## Trigger Modes
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| モード | 説明                                                                                                                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------- |
-| 0   | カメラトリガーは無効                                                                                                                |
-| 1   | MAVLinkの`MAV_CMD_DO_TRIGGER_CONTROL` コマンドによってオンオフ可能なインターバル撮影モードとして機能します。 詳細は[コマンドインターフェース](#command_interface) を参照してください。 |
-| 2   | インターバル撮影を常に行います。                                                                                                          |
-| 3   | 距離に応じてトリガーを行うモードです。 あらかじめ設定された水平距離を飛行するたびに，撮影が行われます。 ただし，2トリガー間の最短時間は設定されたトリガーインターバル時間以上となるよう制限されます。                      |
-| 4   | Missionモードで飛行中，ミッション設定に応じて自動的にトリガーされます。                                                                                   |
+| モード | 説明                                                                                                                                     |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 0   | カメラトリガーは無効                                                                                                                             |
+| 1   | MAVLinkの`MAV_CMD_DO_TRIGGER_CONTROL` コマンドによってオンオフ可能なインターバル撮影モードとして機能します。 See [command interface](#command-interface) for more details. |
+| 2   | インターバル撮影を常に行います。                                                                                                                       |
+| 3   | 距離に応じてトリガーを行うモードです。 あらかじめ設定された水平距離を飛行するたびに，撮影が行われます。 ただし，2トリガー間の最短時間は設定されたトリガーインターバル時間以上となるよう制限されます。                                   |
+| 4   | Missionモードで飛行中，ミッション設定に応じて自動的にトリガーされます。                                                                                                |
 
 :::note
 If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 :::
 
-## トリガーハードウェア設定 {#hardware_setup}
+## Trigger Hardware Configuration
 
 The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
@@ -46,7 +46,7 @@ On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins m
 With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
 :::
 
-## トリガーインターフェースのバックエンド {#trigger_backend}
+## Trigger Interface Backends
 
 The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
@@ -67,9 +67,9 @@ The camera trigger driver supports several backends - each for a specific applic
 
 The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
 
-## Camera Capture {#camera_capture}
+## Camera Capture
 
-Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+Cameras can also (optionally) use the flight controller camera capture pin to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
 Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The capture pin used depends on the hardware:
 
@@ -82,11 +82,10 @@ Cameras that have a hotshoe connector (for connecting a flash) can usually be co
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-:::note
-PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
+:::note PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 :::
 
-## Command Interface {#command_interface}
+## Command Interface
 
 **TODO : NEEDS UPDATING updating**
 

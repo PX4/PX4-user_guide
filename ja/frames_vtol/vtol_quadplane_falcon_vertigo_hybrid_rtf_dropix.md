@@ -23,7 +23,7 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * Pre laminated EPP wings
 * Wingtips and full hardware
 * [Dropix](https://store-drotek.com/888-dropix.html) flight controller with 
-  * [GPS Ublox M8N](https://store-drotek.com/876-DP0105.html)
+  * [GPS u-blox M8N](https://store-drotek.com/876-DP0105.html)
   * Power Sensor 
   * [Airspeed Sensor](https://store-drotek.com/793-digital-differential-airspeed-sensor-kit-.html)
 * [Quad power set T-Motor](http://www.getfpv.com/motors/tiger-motor-mt-2216-11-900kv-v2.html)
@@ -68,7 +68,8 @@ The RTF kit requires the following assembly.
 
 2. Attach the carbon tube in the brackets. The bracket and tube must be aligned using the white mark (as shown in the picture).
   
-  :::note This is very important because the white mark indicates the center of gravity.
+:::note
+This is very important because the white mark indicates the center of gravity.
 :::
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/carbon_tube_in_brackets.jpg" title="Carbon tube in brackets" width="300px" />
@@ -239,7 +240,8 @@ The final assembly step is to check the vehicle is stable and that the motors ha
   
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
   
-  :::note If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
+:::note
+If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
 :::
 
 2. Check the vehicle is balanced around the expected centre of gravity
@@ -272,7 +274,7 @@ After you finish calibration the VTOL is ready to fly.
 
 ## Video
 
-{% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
+@[youtube](https://youtu.be/h7OHTigtU0s)
 
 ## Support
 

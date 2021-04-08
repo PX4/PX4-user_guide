@@ -1,7 +1,6 @@
 # Holybro Pixhawk Mini
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
@@ -60,7 +59,7 @@ This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md
 
 **GPS module (supplied with kit):**
 
-- **GNSS receiver:** ublox<sup>&reg;</sup> Neo-M8N; compass HMC5983
+- **GNSS receiver:** u-blox<sup>&reg;</sup> Neo-M8N; compass HMC5983
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
@@ -88,7 +87,7 @@ Key features of the Pixhawk Mini are:
 
 The Pixhawk Mini is shipped with new **GPS module**:
 
-- Based on the uBlox M8N
+- Based on the u-blox M8N
 - Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Industry leading –167 dBm navigation sensitivity
 - Security and integrity protection
@@ -295,7 +294,7 @@ Most users will not need to build this firmware! It is pre-built and automatical
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
 
-    make px4_fmu-v2_default
+    make px4_fmu-v3_default
     
 
 ## Debug调试端口

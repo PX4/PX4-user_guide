@@ -4,7 +4,6 @@ This section contains diagrams for the main PX4 controllers.
 
 The diagrams use the standard [PX4 notation](../contribute/notation.md) (and each have an annotated legend).
 
-
 <!--    The diagrams were created with LaTeX / TikZ.
         The code can be found in assets/diagrams/mc_control_arch_tikz.tex.
         The easiest way to generate the diagrams and edit them is to copy the code and paste it an Overleaf (www.overleaf.com/) document to see the output.
@@ -25,8 +24,16 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 
 * K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
 * The integral authority is limited to prevent wind up.
-* A Low Pass Filter (LPF) is used on the derivative path to reduce noise.
-* The outputs are limited, usually at -1 and 1.
+* The outputs are limited (in the mixer), usually at -1 and 1.
+* A Low Pass Filter (LPF) is used on the derivative path to reduce noise (the gyro driver provides a filtered derivative to the controller).
+
+:::note
+The IMU pipeline is: gyro data > apply calibration parameters > remove estimated bias > notch filter (`IMU_GYRO_NF_BW` and `IMU_GYRO_NF_FREQ`) > low-pass filter (`IMU_GYRO_CUTOFF`) > vehicle_angular_velocity (*filtered angular rate used by the P and I controllers*) > derivative -> low-pass filter (`IMU_DGYRO_CUTOFF`) > vehicle_angular_acceleration (*filtered angular acceleration used by the D controller*)
+
+  ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
+:::
+  
+  <!-- source for image is https://github.com/PX4/PX4-Autopilot/blob/850d0bc588af79186286652af4c8293daafd2c4c/src/lib/mixer/MultirotorMixer/MultirotorMixer.cpp#L323-L326 -->
 
 ### Multicopter Attitude Controller
 
@@ -55,7 +62,6 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 #### Combined Position and Velocity Controller Diagram
 
 ![MC Position Controller Diagram](../../assets/diagrams/px4_mc_position_controller_diagram.png)
-
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
@@ -121,7 +127,6 @@ $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
 ![FW Attitude Controller Diagram](../../assets/diagrams/px4_fw_attitude_controller_diagram.png)
 
-
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1ibxekmtc6Ljq60DvNMplgnnU-JOvKYLQ/view?usp=sharing
 Request access from dev team. -->
 
@@ -141,7 +146,6 @@ The roll and pitch controllers have the same structure and the longitudinal and 
 ## VTOL Flight Controller
 
 ![VTOL Attitude Controller Diagram](../../assets/diagrams/VTOL_controller_diagram.png)
-
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1tVpmFhLosYjAtVI46lfZkxBz_vTNi8VH/view?usp=sharing
 Request access from dev team. -->

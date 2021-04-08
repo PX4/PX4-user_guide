@@ -1,7 +1,7 @@
 # Windows Virtual Machine-Hosted Toolchain
 
-:::note
-The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 Windows developers can run the PX4 toolchain in a virtual machine (VM) with Linux as the guest operating system. After setting up the virtual machine, the installation and setup of PX4 within the VM is exactly the same as on a native Linux computer.
@@ -22,8 +22,14 @@ There are multiple ways to setup a VM which is capable of executing the PX4 envi
 1. Download [VMWare Player Freeware](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
 1. Install it on your Windows system
 1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). (see [Linux Instructions Page](../setup/dev_env_linux.md) for recommended Ubuntu version).
-1. Open *VMWare Player* and select the option to create a new virtual machine
-1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use
+1. Open *VMWare Player*.
+1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
+
+:::note
+This option is required to properly run 3D simulation environments like jMAVSim and Gazebo. We recommend this is done before installing Linux in the virtual environment.
+:::
+1. Select the option to create a new virtual machine.
+1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use.
 1. Also in the wizard, select the resources you want to allocate to your virtual machine while it is running. Allocate as much memory and as many CPU cores as you can without rendering your host Windows system unusable.
 1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
 1. Once the new VM is booted up make sure you install *VMWare tools drivers and tools extension* inside your guest system. This will enhance performance and usability of your VM usage:
@@ -32,4 +38,4 @@ There are multiple ways to setup a VM which is capable of executing the PX4 envi
     * Guest display resolution adaption to the window size
     * Clipboard sharing to host system
     * File sharing to host system
-1. Continue with [PX4 environment setup for Linux](../setup/dev_env_linux.md)
+1. Continue with [PX4 environment setup for Linux](../dev_setup/dev_env_linux.md)

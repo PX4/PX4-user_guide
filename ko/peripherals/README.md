@@ -1,3 +1,3 @@
 # 주변 장치
 
-이 절에서는 PX4에서 사용할 수 있는 외부 센서 및 기타 주변 장치 하드웨어를 다룹니다.
+This section contains topics related to external sensors and other optional peripheral hardware that can be *connected to a flight controller*.

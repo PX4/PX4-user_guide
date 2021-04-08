@@ -1,7 +1,6 @@
 # Holybro Pix32 v5
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 [Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS. It can be regarded as a variant version of Pixhawk4.
@@ -25,7 +24,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces:
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU

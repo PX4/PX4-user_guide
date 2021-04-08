@@ -121,7 +121,7 @@ uORB provides a mechanism to publish multiple independent instances of the same 
 
 The following explains some common pitfalls and corner cases:
 
-The full API is documented in [src/modules/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/uORB/uORBManager.hpp).
+The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
 
 <a id="deprecation"></a>
 
@@ -130,7 +130,7 @@ As there are external tools using uORB messages from log files, such as [Flight 
 
 - Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
 - In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
-  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/msg/CMakeLists.txt#L157) and the **.msg** file needs to be deleted.
+  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
   - Removed or renamed fields must be commented and marked as deprecated. For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`. This is to ensure that removed fields (or messages) are not re-added in future.
   - In case of a semantic change (e.g. the unit changes from degrees to radians), the field must be renamed as well and the previous one marked as deprecated as above.
 

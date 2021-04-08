@@ -1,7 +1,6 @@
 # MindPX 하드웨어
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
 :::
 
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
@@ -286,7 +285,8 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
       </h3>
       
       <p>
-        :::tip Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+:::tip
+Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
 :::
       </p>
       
@@ -314,7 +314,8 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
       </h2>
       
       <p>
-        :::note The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
+:::note
+The user guide is <a href="http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf">here</a>.
 :::
       </p>
       
@@ -443,6 +444,8 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
           </td>
         </tr>
       </table>
+      
+      <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
       
       <h2>
         Support

@@ -56,7 +56,7 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 - **Sensor** 
   - **Compass, Gyro, Accelerometer:** ICM20948
   - **Barometer:** MS5611
-- **Receiver Type:** 72-channel ublox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Receiver Type:** 72-channel u-blox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
 - **Navigation Update Rate:** Max: 10 Hz
 - **Positionaing Accuracy:** 3D Fix
 - **Time to first fix:** 

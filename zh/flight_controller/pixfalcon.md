@@ -1,7 +1,6 @@
 # Pixfalcon Flight Controller (Discontinued)
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 :::warning
@@ -20,7 +19,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 * Failsafe System-on-Chip: STM32F100 
   * CPU: 24 MHz ARM Cortex M3
   * RAM: 8 KB SRAM
-* GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
+* GPS: u-blox<sup>&reg;</sup> M8 (bundled)
 
 ### 连接性
 
@@ -68,6 +67,8 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 | UART1  | /dev/ttyS0 | IO Debug                 |
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
 | UART4  | /dev/ttyS2 | GPS                      |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## 主链接
 

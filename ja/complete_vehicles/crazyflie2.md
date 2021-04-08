@@ -1,11 +1,9 @@
 # Crazyflie 2.0
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
 :::
 
-:::warning
-PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 :::
 
 The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
@@ -114,7 +112,8 @@ To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these
 * Navigate to the examples folder: ```cd examples```
 * Launch cfbridge: ```python cfbridge.py```
   
-  :::note *Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+:::note
+*Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
 :::
 
 * Open QGroundControl.
@@ -218,4 +217,4 @@ To connect to Crazyflie 2.0 via MAVROS:
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
+@[youtube](https://youtu.be/2Bcy3k1h5uc)

@@ -160,23 +160,27 @@ The following items should be checked during setup:
   Where possible receivers should be configured to output at the same rate.
 
 
-#### GPS Performance Requirements
+#### GNSS Performance Requirements
 
-For the ECL to accept GPS data for navigation, certain minimum requirements need to be satisfied over a period of 10 seconds (minimums are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters)
+For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
 
-The table below shows the different metrics directly reported or calculated from the GPS data, and the minimum required values for the data to be used by ECL.
+Minima are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be en-/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
+
+The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL.
 In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g.  u-blox M8 series) - i.e. values that are considered good/acceptable.
 
 Metric | Minimum required | Average Value | Units | Notes
 --- | --- | --- | --- | ---
-eph | 3&nbsp;([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH)) | 0.8 | m | Standard deviation of horizontal position error
-epv | 5&nbsp;([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV)) | 1.5 | m | Standard deviation of vertical position error
-Number of satellites | 6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS)) | 14 | - |
-Speed variance | 0.5 | 0.3 | m/s |
-Fix type | 3 | 4 | - |
-hpos_drift_rate | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | Drift rate calculated from reported GPS position (when stationary).
-vpos_drift_rate | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Drift rate calculated from reported GPS altitude (when stationary).
-hspd | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC)) | 0.01 | m/s | Filtered magnitude of reported GPS horizontal velocity.
+eph | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH)) | 0.8 | m | Standard deviation of horizontal position error
+epv | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV)) | 1.5 | m | Standard deviation of vertical position error
+Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS)) | 14 | - |
+sacc | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC)) | 0.2 | m/s | Standard deviation of horizontal speed error
+fix type | ≥&nbsp;3 | 4 | - | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated
+PDOP | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP)) | 1.0 | - | Position dilution of precision
+hpos drift rate | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | Drift rate calculated from reported GNSS position (when stationary).
+vpos drift rate | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Drift rate calculated from reported GNSS altitude (when stationary).
+hspd | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | Filtered magnitude of reported GNSS horizontal velocity.
+vspd | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Filtered magnitude of reported GNSS vertical velocity.
 
 :::note
 The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
@@ -214,7 +218,7 @@ If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](..
 
 ### Optical Flow
 
-Optical flow data will be used if the following conditions are met:
+[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
 
 * Valid range finder data is available.
 * Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.

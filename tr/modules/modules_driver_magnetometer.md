@@ -46,7 +46,7 @@ ak8963 <command> [arguments...]
    status        print status info
 ```
 ## bmm150
-Source: [drivers/magnetometer/bmm150](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/bmm150)
+Source: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/bosch/bmm150)
 
 <a id="bmm150_usage"></a>
 
@@ -63,12 +63,6 @@ bmm150 <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-R <val>]  Rotation
                  default: 0
-
-   reset
-
-   regdump
-
-   selftest
 
    stop
 

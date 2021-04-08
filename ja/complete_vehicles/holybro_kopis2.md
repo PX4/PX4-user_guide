@@ -1,6 +1,6 @@
 # Holybro Kopis 2
 
-The [Holybro Kopis 2](http://www.holybro.com/product/kopis-2/) is a ready-to-fly racer quad for flying FPV or line-of-sight.
+The [Holybro Kopis 2](https://shop.holybro.com/c/kopis_0480l) is a ready-to-fly racer quad for flying FPV or line-of-sight.
 
 ![Kopis 2](../../assets/hardware/holybro_kopis2.jpg)
 
@@ -8,16 +8,17 @@ The [Holybro Kopis 2](http://www.holybro.com/product/kopis-2/) is a ready-to-fly
 
 The *Kopis 2* can be bought from a number of vendors, including:
 
-- [Holybro](https://shop.holybro.com/kopis-2_p1114.html)
+- [Holybro](https://shop.holybro.com/c/kopis_0480)
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 In addition you will need:
 
 - An RC transmitter. The *Kopis 2* can ship with an FrSky receiver or no receiver at all.
 - LiPo battery and charger.
-- FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+- FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/). You can also use DJI FPV goggles if you have the HDV verison of the Kopis 2.
     
-    :::note FPV support is completely independent of PX4/flight controller.
+:::note FPV
+support is completely independent of PX4/flight controller.
 :::
 
 ## Flashing PX4 Bootloader
@@ -43,11 +44,3 @@ To install and configure PX4:
 - [Load PX4 Firmware](../config/firmware.md). 
 - [Set the Airframe](../config/airframe.md) to *Holybro Kopis 2*.
 - Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
-
-<!--
-## Video
-
-TODO
-{% youtube %}
-{% endyoutube %}
--->

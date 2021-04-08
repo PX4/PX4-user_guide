@@ -2,24 +2,32 @@
 
 MacOS 是受支持的 PX4 开发平台。 根据本文的指示构建的开发环境可以用编译：
 * 基于 NuttX 的硬件 (Pixhawk等)
-* jMAVSim 仿真模拟
-* Gazebo 8 仿真模拟
+* [jMAVSim Simulation](../simulation/jmavsim.md)
+* [Gazebo Simulation](../simulation/gazebo.md)
 
-:::note
-To build other targets see: [Toolchain Installation > Supported Targets](../dev_setup/dev_env.md#supported-targets).
+:::details
+Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
+1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
+2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
+3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
+4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
+5. Check the box for **Open using Rosetta**, then close the window
+6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
 :::
 
 :::tip
-A video tutorial can be found here: [Setting up your PX4 development environment on macOS](https://youtu.be/tMbMGiMs1cQ).
+This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/dev_env_unsupported.md)).
 :::
 
 ## Homebrew 安装
 
-The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
+@[youtube](https://youtu.be/tMbMGiMs1cQ)
 
 ## 常用工具
 
-The PX4 toolchain requires the usage of the ZSH shell. If you are using the shell, add this line to your shell profile:
+The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
+
+## 额外工具
 
 完成编译/仿真开发环境设置后，你可以从 [Additional Tools](../setup/generic_dev_tools.md) 找到一些有用的“通用”开发工具。
 ```sh
@@ -29,7 +37,7 @@ brew install px4-dev
 brew install px4-sim
 ```
 
-## 额外工具
+## 后续步骤
 
 设置完环境后，请转至 [build instructions](../setup/building_px4.md) 。
 
@@ -37,7 +45,7 @@ brew install px4-sim
 brew cask install xquartz java
 ```
 
-## 后续步骤
+## Gazebo 仿真
 
 After installing Homebrew, run these commands in your shell to install the common tools:
 
@@ -54,37 +62,38 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
-## Gazebo 仿真
+## jMAVSim 仿真模拟
 
 To install SITL simulation with Gazebo:
 
 ```sh
-brew cask install xquartz
+brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-## jMAVSim 仿真模拟
+## 额外工具
 
-To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 14). You can either download [Java 14 from Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or use the AdoptOpenJDK tap:
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk14
+brew install --cask adoptopenjdk15
 ```
 
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-:::note
-jMAVSim for PX4 v1.11 and earlier required Java 8.
+:::warning
+jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
+
+For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.html#troubleshooting)).
 :::
-
-## 额外工具
-
-See [Additional Tools](../dev_setup/generic_dev_tools.md) for information about other useful development tools that are not part of the build toolchain (for example IDEs and GCSs).
 
 ## 后续步骤
 
-Once you have finished setting up the environment, continue to the [build instructions](../dev_setup/building_px4.md).
-
+Once you have finished setting up the command-line toolchain:
+- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+:::
+- Continue to the [build instructions](../dev_setup/building_px4.md).

@@ -1,34 +1,34 @@
-# 수동 / 안정 모드 (멀티 태스킹)
+# 수동/안정화 모드 (멀티콥터)
 
-[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-* Manual / Stabilized </ 0> 모드는 RC 컨트롤 스틱이 중앙에있을 때 멀티탭을 안정시킵니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.</p> 
+*수동/안정화*모드는 RC 조종 스틱이 중앙에 있을 때 멀티콥터를 안정화합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
 :::note
-This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+이 멀티콥터 모드는 *수동* 또는 *안정화* 모드를 설정하여 활성화됩니다.
 :::
 
-When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+수동 제어에서 롤과 피치 스틱이 각 축을 중심으로 기체의 자세를 * 각도*로 제어하닙니다. 요 스틱은 수평면 위의 회전 속도를 제어하고 스로틀은 고도/속도를 제어합니다 .
 
-As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+조종 스틱을 놓으면 중앙 데드 존으로 돌아갑니다. 롤 포크와 피치 스틱이 중앙에 오면 멀티 피터가 수평을 유지하고 정지합니다. 기체는 적절하게 균형을 잡고, 스로틀이 적절하게 설정되고([아래](#params) 참고), 외력이 가해지지 않으면 (예 : 바람), 고도에 유지되거나 유지됩니다. 기체는는 바람 방향으로 표류하게 되며, 고도를 유지하기 위해서는 스로틀을 제어하여야 합니다.
 
-![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
+![멀티콥터 수동 비행](../../assets/flight_modes/manual_stabilized_MC.png)
 
-## Technical Description
+## 기술적 설명
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+조종사의 입력은 롤 및 피치 각 명령과 요 율 명령으로 전달됩니다. 스로틀은 크기가 조정되고 ([아래](#params) 참고), 출력 믹서로 직접 전달됩니다. 자동 조종 장치는 자세를 제어합니다. 즉, RC 스틱이 컨트롤러 데드 존 내부에 집중 될 때 롤과 피치 각을 제로로 조절합니다 (결과적으로 태도가 수평이 됨). 자동 조종 장치는 바람 (또는 다른 원인)으로 인한 드리프트를 보상하지 않습니다.
 
 :::note
 
-* Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
+* 수동 입력이 필요합니다 (RC 컨트롤러 또는 MAVLink를 통한 게임 패드/엄지 스틱).
 :::
 
 <span id="params"></span>
 
-## Parameters
+## 매개 변수
 
-| Parameter                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="MPC_THR_HOVER"></span>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | Hover throttle that is output when the throttle stick is centered and `MPC_THR_CURVE` is set to default.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| <span id="MPC_THR_CURVE"></span>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | Defines the throttle scaling. By default this is set to **Rescale to hover thrust**, which means that when the throttle stick is centered the configured hover throttle is output (`MPC_THR_HOVER`) and the stick input is linearly rescaled below and above that (allowing for a smooth transition between Stabilized and Altitude/Position control).   
-On powerful vehicles the hover throttle might be very low (e.g. below 20%) so that rescaling distorts the throttle input - i.e. here 80% of the thrust would be controlled by just the top half of the stick input and 20% by the bottom. If needed `MPC_THR_CURVE` can be set to **No Rescale** so that there is no rescaling (stick input to throttle mapping is independent of `MPC_THR_HOVER`). |
+| 매개 변수                                                                                               | 설명                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="MPC_THR_HOVER"></span>[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) | 스로틀 스틱이 중앙에 있고 `MPC_THR_CURVE`가 기본값으로 설정되어있을 때 출력되는 호버 스로틀입니다.                                                                                                                                                                                                                                                                                                                                      |
+| <span id="MPC_THR_CURVE"></span>[MPC_THR_CURVE](../advanced_config/parameter_reference.md#MPC_THR_CURVE) | 스로틀 스케일링을 정의합니다. 기본적으로이 값은 **호버 추력으로 조정**으로 설정되어 있습니다. 즉, 스로틀 스틱이 중앙에있을 때 구성된 호버 스로틀이 출력되고 (`MPC_THR_HOVER`) 스틱 입력이 선형으로 조정됩니다. 그 아래 및 위 (안정화 및 고도/위치 제어 간의 부드러운 전환 허용).   
+강력한 기체의 경우 호버 스로틀이 매우 낮아 (예 : 20 % 미만) 스로틀 입력이 왜곡 될 수 있습니다. 즉, 여기서 추력의 80 %는 스틱 입력의 상단 절반으로, 하단은 20 %로 제어됩니다. 필요한 경우 `MPC_THR_CURVE`를 **No Rescale**로 설정하여 배율을 다시 조정할 수 없습니다 (스로틀 매핑에 대한 스틱 입력은 `MPC_THR_HOVER`과 무관 함). |

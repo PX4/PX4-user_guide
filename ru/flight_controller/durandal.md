@@ -1,7 +1,6 @@
 # Holybro Durandal
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 *Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
@@ -34,7 +33,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
   - Accel/Gyro: BMI088
   - Mag: IST8310
   - Barometer: MS5611
-- GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
 #### Interfaces
@@ -112,7 +111,6 @@ All dimensions are in millimeters.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
-
 <!-- 
 ## Voltage Ratings
 
@@ -129,7 +127,6 @@ Under these conditions all power sources will be used in this order to power the
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 1. **USB** input (4.75V to 5.25V)
 -->
-
 
 <!-- 
 **Absolute Maximum Ratings**
@@ -169,6 +166,8 @@ make holybro_durandal-v1_default
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | PX4IO         |
 
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
 ## Debug Port

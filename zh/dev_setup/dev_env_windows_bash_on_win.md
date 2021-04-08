@@ -1,7 +1,7 @@
 # Bash on Windows 工具链
 
-:::note
-The [Windows Cygwin Toolchain](../dev_setup/dev_env_windows_cygwin.md) is the (only) officially supported toolchain for Windows development.
+:::warning
+This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
 设置开发环境的最简单的方法是使用 **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download>windows_bash_nuttx.sh</a>** 安装脚本 （脚本文件的详细说明见 [下文](#build_script_details)）。
@@ -35,7 +35,8 @@ JMAVSim 运行流程：
    ```
    成功完成编译后可以在 `Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4` 文件夹下找到编译好的固件。
 
-   :::note The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+:::note
+The `make` commands to build firmware for other boards can be found in [Building the Code](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 :::
 
 1. 在 Windows 平台上无法直接在 bash shell 中使用 `upload` 命令完成固件的烧写，你可以使用 *QGroundControl* 或者 *Mission Planner* 烧写自定义的固件。
@@ -55,7 +56,8 @@ Bash on Windows does not include support for UI libraries. In order to display t
   make px4_sitl gazebo
    ```
 
-   :::tip Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
+:::tip
+Add this line to the Ubuntu **.bashrc** file if you don't want to enter it every session.
 :::
 1. 在 bash shell 界面中启动 px4 和 jmavsim：
    ```sh
@@ -65,7 +67,7 @@ Bash on Windows does not include support for UI libraries. In order to display t
 
    ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
 
-:::caution
+:::warning
 Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
 ```sh
 export DISPLAY=:0

@@ -27,8 +27,7 @@ To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports la
 Developers might alternatively modify the [airframe AUX mixer](../dev_airframes/adding_a_new_frame.md#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 :::
 
-:::note
-FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
+:::note FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
 :::
 
 :::tip
@@ -103,4 +102,12 @@ dshot esc_info -m 1
 
 :::tip
 You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
+:::
+
+:::tip
+Not all DSHOT-capable ESCs support `[esc_info]`(e.g. APD 80F3x), even when telemetry is supported and enabled. The resulting error is:
+```
+ERROR [dshot] No data received. If telemetry is setup correctly, try again.
+```
+Check manufacturer documentation for confirmation/details.
 :::

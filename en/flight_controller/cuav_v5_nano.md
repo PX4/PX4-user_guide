@@ -141,6 +141,8 @@ USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
 ## Voltage Ratings
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.

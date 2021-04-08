@@ -20,7 +20,7 @@ The following simulators work with PX4 for HITL and/or SITL simulation.
 
 Simulator |Description
 ---|---
-[Gazebo](../simulation/gazebo.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo]../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
+[Gazebo](../simulation/gazebo.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>
 [FlightGear](../simulation/flightgear.md) | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. [Multi-vehicle simulation](../simulation/multi_vehicle_flightgear.md) is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>
 [JSBSim](../simulation/jsbsim.md) | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>
 [jMAVSim](../simulation/jmavsim.md) | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../simulation/multi_vehicle_jmavsim.md).</p><p><strong>Supported Vehicles:</strong> Quad</p>
@@ -66,11 +66,15 @@ Message | Direction | Description
 By default, PX4 uses commonly established UDP ports for MAVLink communication with ground control stations (e.g. *QGroundControl*), Offboard APIs (e.g. MAVSDK, MAVROS) and simulator APIs (e.g. Gazebo).
 These ports are:
 
-* UDP Port **14540** is used for communication with offboard APIs.
-  Offboard APIs are expected to listen for connections on this port.
-* UDP Port **14550** is used for communication with ground control stations.
+* PX4's remote UDP Port **14550** is used for communication with ground control stations.
   GCS are expected to listen for connections on this port.
   *QGroundControl* listens to this port by default.
+* PX4's remote UDP Port **14540** is used for communication with offboard APIs.
+  Offboard APIs are expected to listen for connections on this port.
+  :::note
+  Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549`
+  (additional instances all use port `14549`).
+  :::
 * The simulator's local TCP Port **4560** is used for communication with PX4.
   PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.
 
@@ -79,18 +83,31 @@ The ports for the GCS and offboard APIs are set in configuration files, while th
 :::
 
 
+<!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 --> 
+
+
 ## SITL Simulation Environment
 
 The diagram below shows a typical SITL simulation environment for any of the supported simulators.
+
+![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
+
 The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
 
 * PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560.
   Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above.
   PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.
-* PX4 uses the normal MAVLink module to connect to ground stations (which listen on port 14550) and external developer APIs like MAVSDK or ROS (which listen on port 14540).
-* A serial connection is used to connect Joystick/Gamepad hardware via *QGroundControl*.
-
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.png)
+  :::note
+  Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink).
+  This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps).
+  :::
+* PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
+  - Ground stations listen to PX4's remote UDP port: `14550`
+  - External developer APIs listen to PX4's remote UDP port: `14540`.
+    For multi-vehicle simulations, PX4 sequentially allocates a separate remote port for each instance from `14540` to `14549` (additional instances all use port `14549`).
+* PX4 defines a number of *local* UDP ports (`14580`,`18570`), which are sometimes used when networking with PX4 running in a container or virtual machine.
+  These are not recommended for "general" use and may change in future.
+* A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via *QGroundControl*.
 
 If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured.
 You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
@@ -116,6 +133,9 @@ make px4_sitl gazebo_iris_opt_flow
 
 # Start JMavSim with iris (default vehicle model)
 make px4_sitl jmavsim
+
+# Start PX4 with no simulator (i.e. to use your own "custom" simulator)
+make px4_sitl none_iris
 ```
 
 The simulation can be further configured via environment variables:

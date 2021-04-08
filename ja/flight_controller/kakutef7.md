@@ -1,7 +1,6 @@
 # Kakute F7
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 :::
 
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
@@ -107,6 +106,8 @@ In addition to the [basic configuration](../config/README.md), the following par
 | USART6 | /dev/ttyS4 | RC SBUS               |
 | UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
 
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Debug Port
 

@@ -1,7 +1,6 @@
 # CUAV Nora Flight Controller
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 :::
 
 The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
@@ -17,7 +16,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 ## 特性
 
 * Internal shock absorption
-* The integrated integrated process reduces the failure caused by interface damage.
+* The integrated process reduces the failure caused by interface damage.
 * Support USB_HS, download logs faster (PX4 not yet supported)
 * Support more dshot output
 * Support IMU heating, make the sensor work better

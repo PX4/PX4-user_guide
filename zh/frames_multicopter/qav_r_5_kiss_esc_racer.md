@@ -7,7 +7,7 @@ Key information:
 - **Frame:** Lumenier QAV-R 5"
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
-{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
+@[youtube](https://youtu.be/wMYgqvsNEwQ)
 
 ![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 

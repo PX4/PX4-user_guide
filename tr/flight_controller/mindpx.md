@@ -1,7 +1,6 @@
 # MindPX Hardware
 
-:::warning
-PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
 :::
 
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
@@ -113,6 +112,8 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 | USART6 | /dev/ttyS4 | ?             |
 | UART7  | /dev/ttyS5 | Debug Console |
 | UART8  | /dev/ttyS6 | ?             |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 ## Support
 

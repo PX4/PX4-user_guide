@@ -1,26 +1,95 @@
 # ESP8266 WiFi Module
 
-The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller.
+The ESP8266 and its clones are low-cost and readily available Wi-Fi modules with full TCP/IP stack and microcontroller capability. They can be used with any Pixhawk series controller.
 
-:::tip
-ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::tip ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
 :::
 
 ## Where to Buy
 
-The module is readily available. A few vendors are listed below.
+The module is readily available, and usually have the firmware already installed and configured to useable defaults. A few vendors are listed below.
 
-- [Sparkfun](https://www.sparkfun.com/products/13678)
-- [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
+Modules that accept 3.3V supply:
 
-## Module Setup
+* [Sparkfun](https://www.sparkfun.com/products/13678)
+* (discontinued) [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
 
-The ESP8266 firmware has these *factory* settings:
+Modules that accept 5.0V supply:
 
-- SSID: PixRacer
-- Password: pixracer
-- WiFi Channel: 11
-- UART speed 921600
+* [Banggood](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html)
+* [Banggood](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html)
+
+<span id="px4_config"></span>
+
+## Pixhawk/PX4 Setup & Configuration
+
+:::tip
+If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter). The following instructions assume you are using PX4 versions after 1.8.2
+:::
+
+Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
+
+Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
+
+Using *QGroundControl*:
+
+* [Load recent PX4 firwmare](../config/firmware.md)
+* [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266. Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
+
+Once the firmware (port) is set up you can remove the physical USB connection between the ground station and the vehicle.
+
+## Connect via ESP8266 to QGC
+
+The module exposes a WiFi hotspot that your ground station computer can use to connect to the vehicle.
+
+:::note
+The settings for the ESP8266 hotspot should be provided with the board (e.g. typically printed on the reverse side of the board or on the packaging).
+
+A common factory network setting is:
+
+* **SSID:** PixRacer
+* **Password:** pixracer
+* **WiFi Channel:** 11
+* **UART speed:** 921600
+
+Other modules may use settings like this:
+
+* **SSID:** IFFRC_xxxxxxxx
+* **Password:** 12345678
+* **IP:** 192.168.4.1
+* **Port:** 6789 (TCP)
+:::
+
+On your wifi-enabled *QGroundControl* ground station computer/tablet, find and connect to the open wireless network for your ESP8266. On a Windows computer the connection settings for a network with name **Pixracer** and default password **pixracer** point will look like this:
+
+![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
+
+*QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to a WiFi access point named "Pixracer".
+
+If you're using a module with any other WiFi name you will need to manually set up the QGroundControl WiFi connection, as shown in the following section.
+
+## Configure QGC with non-standard WiFi connections
+
+*QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to the "Pixracer" WiFi access point. For any other access point name you will need to manually create a custom comm link:
+
+1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html)
+2. Add new connection with appropriate settings.
+3. Select the new connection, and click **Connect**.
+4. The vehicle should now connect
+
+## Verify
+
+You should now see HUD movement on your QGC computer via wireless link and be able to view the summary panel for the ESP8266 WiFi Bridge (as shown below).
+
+![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
+
+:::tip
+If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
+:::
+
+## Module Flashing/Setup (Advanced)
+
+The module should come preconfigured with appropriate firmware. If not, you can use the instructions below to update it with the latest version.
 
 ### Build From Sources
 
@@ -43,13 +112,13 @@ Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described bel
 
 Where:
 
-- **firmware_xxxxx.bin** is the firmware you downloaded above
-- **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
+* **firmware_xxxxx.bin** is the firmware you downloaded above
+* **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
 
 ### Wiring for Flashing the Firmware
 
 :::warning
-ESP8266 must be powered with 3.3 volts only.
+Most ESP8266 modules support 3.3 volts (only), while some flight controllers (e.g. Pixhawk 4) output at 5V. Check compatibility and step down the voltage if needed.
 :::
 
 There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
@@ -65,43 +134,3 @@ I built a cable where RX, TX, VCC, and GND are properly wired directly from the 
 ### Flashing Diagram using an FTDI USB/UART Adapter
 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
-
-<span id="px4_config"></span>
-
-## Pixhawk/PX4 Setup & Configuration
-
-:::tip
-If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter). The following instructions assume you are using PX4 versions after 1.8.2
-:::
-
-Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
-
-Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
-
-Using *QGroundControl*:
-
-- [Load recent PX4 firwmare](../config/firmware.md)
-- [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266. Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
-
-Once the firmware (port) is set up you can remove the physical USB connection between the ground station and the vehicle.
-
-## Connect via ESP8266 to QGC
-
-On your wifi-enabled *QGroundControl* ground station computer/tablet, find and connect to the open wireless network for your ESP8266.
-
-- By default the ESP8266 network is named **PixRacer** and the default password is **pixracer**.
-- On Windows, the connection settings will look like this:
-    
-    ![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png)
-    
-    ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
-
-QGC automatically starts its UDP link on boot. Once your computer/tablet is connected to the **PixRacer** WiFi Access Point, it will automatically make the connection.
-
-You should now see HUD movement on your QGC computer via wireless link and be able to view the summary panel for the ESP8266 WiFi Bridge (as shown below).
-
-![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
-
-:::tip
-If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
-:::

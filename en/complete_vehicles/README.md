@@ -15,7 +15,8 @@ You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) an
   * VTOL
     * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 - Consumer drones that can be updated to run PX4 (from other flight stacks):
-  * [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+  * [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+  * [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
 <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 - Consumer drones run a custom version of PX4 (supported by their vendors):
