@@ -54,11 +54,10 @@ For the full list of build targets run `make px4_sitl list_vmd_make_targets` (an
 
 | Vehicle                                                                                                                                 | Command                                         |
 | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                                 | `make clean
- make px4_sitl gazebo_typhoon_h480` |
+| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                                 | `make px4_sitl gazebo` |
 | [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                                  | `make px4_sitl gazebo_iris_opt_flow`            |
 | [3DR Solo in Gazebo](../simulation/gazebo_vehicles.md#3dr_solo)                                                                         | `make px4_sitl gazebo_solo`                     |
-| !!crwdBlockTags_82_sgaTkcolBdwrc!![Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`             |
+| [Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`             |
 | [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                       | `make px4_sitl gazebo_plane`                    |
 | [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                       | `make px4_sitl gazebo_plane_catapult`           |
 | [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                         | `make px4_sitl gazebo_standard_vtol`            |
@@ -226,7 +225,7 @@ Once the plugin is enabled you can run SITL with Gazebo in the normal way:
 
 ## Loading a Specific World
 
-PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world).
+PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds). By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world).
 
 You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 
