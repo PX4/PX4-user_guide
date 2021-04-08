@@ -4,9 +4,10 @@ This topic provides full instructions for building the kit and configuring PX4 u
 
 ## Key information
 
-- **Frame:** Holybro X500
+- **Full Kit:** [Holybro X500 Kit](https://shop.holybro.com/x500-kit_p1180.html)
+- **Frame:** [Holybro X500](https://shop.holybro.com/x500-frame-kit_p1178.html)
 - **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
-- **Assembly time (approx.):** 2 hours (75 minutes for frame, 45 minutes for autopilot installation/configuration)
+- **Assembly time (approx.):** 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
 
@@ -15,95 +16,49 @@ This topic provides full instructions for building the kit and configuring PX4 u
 The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes almost all the required components:
 
 * [Pixhawk 4 autopilot](../flight_controller/pixhawk4.md)
-* Pixhawk 4 GPS
+* [Pixhawk 4 GPS](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html)
+* [Power Management - PM07](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+* [Holybro Motors - 2216 KV880 x4](https://shop.holybro.com/motor2216-880kv-1pc_p1154.html)
+* [Holybro BLHeli S ESC 20A x4](https://shop.holybro.com/blheli-s-esc-20a_p1143.html)
+* [Propellers - 1045 x4](https://shop.holybro.com/propeller10452pair_p1155.html)
 * Battery Strap
-* Propellers - 1045
-* Motors - 2216 KV880
 * Power and Radio Cables
-* Power Management - PM07
 * Wheelbase - 500 mm
-* Dimensions - 410*410*300 mm
+* Dimensions - 410x410x300 mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
-Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)). This build uses:
-
-* Receiver: FR SKY Taranis
-* Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
+Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)) if you want to control the drone manually.
 
 ## 硬件
 
 This section lists all hardware for the frame and the autopilot installation.
 
-| Item                         | 描述                                                | Quantity |
-| ---------------------------- | ------------------------------------------------- | -------- |
-| Socket cap scre              | Used for motor fixing, stainless steel screw M3*5 | 16       |
-| Carbon fiber tube - Arm      | Diameter: 16mm length: 200mm                      | 4        |
-| Motor base                   | Consists of 6 parts and 4 screws 4 nuts           | 4        |
-| Slide bar                    | Diameter: 10mm length: 250mm                      | 2        |
-| Battery mounting board       | Thickness: 2mm                                    | 1        |
-| Battery pad                  | 3mm Silicone sheet black                          | 1        |
-| Pylons                       | Engineering plastic embedded with copper nut      | 2        |
-| Cross countersunk head screw | Stainless steel M2.5*5mm                          | 12       |
-| PAN/TILT platform board      | Thickness: 2mm                                    | 1        |
-| Hanger rubber ring gasket    | Inner hole diameter: 10mm black                   | 8        |
-| Hanger                       | Engineering plastic embedded with copper nut      | 8        |
-| Carbon fiber - Bottom plate  | The thickness of 2mm                              | 1        |
-| Socket cap screw             | Stainless steel M2.5*6mm                          | 8        |
-| Nylon stud                   | Black M3*6+6                                      | 4        |
-| Nylon screw                  | Black M3*6                                        | 4        |
-| Carbon fiber - Top plate     | Thickness: 1.5mm                                  | 1        |
-| Pan head screw               | Metal black M3*30mm                               | 16       |
-| Nylon strap                  | U- shape, of 16mm carbon fiber tube               | 16       |
-| Nylon nut                    | Black M3                                          | 4        |
-| Locknut                      | Metal black M3                                    | 16       |
-| Socket cap screw             | Metal black M3*8mm                                | 8        |
-| Landing gear - Vertical pole | Carbon fiber tube+engineering plastic+fastener    | 2        |
-| Landing gear - Cross bar     | Composed of carbon fiber tube and multiple parts  | 2        |
+| Item                         | 描述                                               | Quantity |
+| ---------------------------- | ------------------------------------------------ | -------- |
+| Bottom plate                 | Carbon fiber (2mm thick)                         | 16       |
+| Top plate                    | Carbon fiber (1.5mm thick)                       | 4        |
+| Arm                          | Carbon fiber tube (Diameter: 16mm length: 200mm) | 4        |
+| Landing gear - Vertical pole | Carbon fiber tube + engineering plastic          | 2        |
+| Landing gear - Cross bar     | Carbon fiber tube + engineering plastic + foam   | 1        |
+| Motor base                   | Consists of 6 parts and 4 screws 4 nuts          | 1        |
+| Slide bar                    | Diameter: 10mm length: 250mm                     | 2        |
+| Battery mounting board       | Thickness: 2mm                                   | 12       |
+| Battery pad                  | 3mm Silicone sheet black                         | 1        |
+| Platform board               | Thickness: 2mm                                   | 8        |
+| Hanger & rubber ring gasket  | Inner hole diameter: 10mm black                  | 8        |
 
-![X500 Components for Frame](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_frame.png)
-
-## Package
-
-| Items                            | Package |
-| -------------------------------- | ------- |
-| Pixhawk 4                        | 1       |
-| Pixhawk4 GPS MODULE              | 1       |
-| I2C splitter Board               | 2       |
-| 6 to 6 pin cable (power)         | 3       |
-| 4 to 4 pin cable (CAN)           | 2       |
-| 6 to 4 pin cable (Data)          | 1       |
-| 10 to 10 pin cable (PWM)         | 2       |
-| 8 to 8 pin cable(AUX)            | 1       |
-| 7 to 7 pin cable(SPI)            | 1       |
-| 6 to 6 pin cable(Debug)          | 1       |
-| PPM/SBUS out cable               | 1       |
-| XSR receiver cable               | 1       |
-| DSMX receiver cable              | 1       |
-| SBUS receiver cable              | 1       |
-| USB cable                        | 1       |
-| 'X'type folding pedestal mount   | 1       |
-| 70mm & 140mm carbon rod standoff | 2       |
-| 6*3 2.54mm pitch Horizontal Pin  | 1       |
-| 8*3 2.54mm pitch Horizontal Pin  | 2       |
-| Foam Set                         | 1       |
-| Pixhawk4 Quick Start Guide       | 1       |
-| Pixhawk4 Pinouts                 | 1       |
-| GPS Quick Start Guide            | 1       |
-
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_package.png)
+![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/whats_inside_x500_labeled.jpg)
 
 ### Electronics
 
-| Item Description                                 | Quantity |
-| ------------------------------------------------ | -------- |
-| Pixhawk 4 autopilot（PM06 not included)           | 1        |
-| Power Management PM02（Assembled)                 | 1        |
-| Motors - 2216 KV880（V2 Update)                   | 4        |
-| Pixhawk 4 GPS                                    | 1        |
-| Fully assembled Power Management Board with ESCs | 1        |
-| 433MHz Telemetry Radio / 915MHz Telemetry Radio  | 1        |
-
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hardware_electronics.png)
+| Items                                                      | Quantity |
+| ---------------------------------------------------------- | -------- |
+| Pixhawk 4                                                  | 1        |
+| Pixhawk4 GPS Module                                        | 1        |
+| Power Management PM07 (with pre-soldered ESC power cables) | 2        |
+| Motors 2216 KV880（V2 Update)                               | 3        |
+| Holybro BLHeli S ESC 20A x4                                | 2        |
+| 433MHz Telemetry Radio / 915MHz Telemetry Radio            | 1        |
 
 ### Tools needed
 
@@ -113,186 +68,161 @@ The following tools are used in this assembly:
 - 2.0 mm Hex screwdriver
 - 2.5 mm Hex screwdriver
 - 3mm Phillips screwdriver
+- 5.5 mm socket wrench or small piler
 - Wire cutters
 - Precision tweezers
 
-![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
 
+## Assembly
 
-## 组装
+Estimate time to assemble is 3.75 hours (180 minutes for frame, 45 minutes for autopilot installation/configuration)
 
-Estimate time to assemble is 120 minutes, about 75 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+1. Start by assembling the landing gear. Unscrew the landing gear screws and insert the vertical pole (figures 1 and 2).
 
-**Step 1:** We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole, see figures 1 and 2.
+   ![Landing Figure 1: Components](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
 
-![Landing Figure 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig1.jpg)
+   _Figure 2_: Landing gear components
 
-(Figure 1)
+   ![Landing Figure 2: Assembled](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
 
-![Landing Figure 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_1_fig2.jpg)
+   _Figure 2_: Landing gear assembled
 
-(Figure 2)
+1. Then put the 4 arms through the 4 motor bases shown in figure 3. Make sure the rods protrude the base slightly and are consistent throughout all 4 arms, and be sure to have the motor wires facing outward.
 
-**Step 2:** We proceed to arm the motor holder by using 4 U-shaped nylon straps to attach the holder to the carbon fiber arm as shown in figure 3.
+   ![Attach arms to motor bases](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
 
-![Motor](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_step_2_fig3.png)
+   _Figure 3_: Attach arms to motor bases
 
-(Figure 3)
+1. Insert 4 nylon screws and nylon standoffs and attach the power module PM07 to the bottom plate using 4 nylon nuts as shown in Figures 4.
 
-**Step 3:** Attach the power management PM02 to the bottom plate as shown in Figures 4 and 5.
+   ![Attach power module](../../assets/airframes/multicopter/x500_holybro_pixhawk4/power_module.jpg)
 
-![Power Management](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig4.png)
+   _Figure 4_: Attach power module
 
-(Figure 4)
+1. Feed the 4 motor ESCs through each of the arms and connect the 3-wires end to the motors shown in Figure 5.
 
-![Power Management 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg" width="250" title="Connect motors" />
 
-(Figure 5)
+   _Figure 5_: Connect motors
 
-**Step 4:**  Assemble the lower plate to the landing gears. Screw the landing gear with a vertical pole to the bottom plate.
+1. Connect the ESCs power wires onto the power module PM07, black->black and red->red, ESC PWM signal wires goes to "FMU-PWM-Out". Make sure you connect the motor ESC PWM wires in the correct order. Refer to Figure 7 for airframe motor number and connect to the corrsponding number on the PM07 board.
 
-The lower plate has 4 holes (see Figure 4 arrows) use the M3X8 screws, a total of 8 pieces, 4 on each side.
+   ![ESC power module and signal wiring](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_pwm.jpg) _Figure 7_: ESC power module and signal wiring
 
-![Power Management 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig6.png)
+   The color on top of the motor indicate the spin direction (figure 7-1), black tip is clockwise, and white tip is counter-clockwise. Make sure the follow the px4 quadrotor x airframe reference for motor direction (figure 7-2).
 
-(Figure 6)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/quadx.png" width="240" />
 
-**Step 5:** Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount see Figure 7.
+   _Figure 7_: Motor order/direction diagram
 
-![Battery Mount 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig7.jpeg)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/motor_direction1.jpg" width="400" />
 
-(Figure 7)
+   _Figure 7-1_: Motor direction
 
-Insert the long rods to the small rings see Figure 8 and 9.
+1. Connect the 10 pin cables to FMU-PWM-in, the 6 pin cables to the PWR1 on the PM07 power module.
 
-![Battery Mount 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
+   ![Flight controller/Power module PWM and Power connections](../../assets/airframes/multicopter/x500_holybro_pixhawk4/pm07_cable.jpg)
 
-(Figure 8)
+   _Figure 8_: Power module PWM and power wiring
 
-![Battery Mount 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png)
+1. If you want to mount the GPS on the top plate, you can now secure the GPS mount onto the top plate using 4 screws and nuts.
 
-(Figure 9)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gpsmount.jpg" width="400" title="Secure GPS mount onto top plate" />
 
-With the battery holder completely armed, screw it where arrow shown in the image as shown in Figure 10; keep in mind GPS module will be facing front.
+   _Figure 9_: Secure GPS mount onto top plate
 
-![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
+1. Feed the PM07 cables through the top plate. Connect the top and bottom plate by using 4 U-shaped nylon straps, screws, and nuts on each side, ensure that the motor ESC cables are inside the U-shape nylon straps like Figure 10, keep the nut loose.
 
-(Figure 10)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/top_plate.jpg" width="300" />
 
-**Step 6:** Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin, see Figure 11.
+   _Figure 10-1_: Feed power module cables through top plate
 
-![Power Module 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig11.jpg)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/ushape.jpg" width="355" title="Connecting top and bottom plate" />
 
-(Figure 11)
+   _Figure 10-2_: Connecting top and bottom plate
 
-Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, see Figure 12 stick the Horizontal Pin to the Power Management Board, see Figure 13.
+1. Push the arm tubes a bit into the frame and make sure the amount of protrusion (red square from Figure 11) are consistent on all 4 arms. Ensure all the motors are pointed directly upward, then tighten all the nuts and screws.
 
-![Power Module 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig12.jpg)
+   ![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
 
-(Figure 12)
+1. Put the hanger gaskets into the 4 hangers and mount them onto the bottom plate using 8 hex screws (Figure 11). The screw holes are noted by the white arrow in Figure 12. We recommend tilting the drone sideway to make the installation easier.
 
-![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig9.png" width="400" title="Hanger gaskets" />
 
-(Figure 13)
+   _Figure 11_: Hanger gaskets
 
-**Step 7:** Install vehicle Arms to the main body. Take the ESC and push it in the Arm tube as shown in Figure 14 and make sure that the ESC cables are not too long since we will push them back in as shown in Figure 15.
+   ![Battery Mount 4](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig10.jpg)
 
-![Arms 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig14.jpg)
+   _Figure 12_: Screw holes
 
-(Figure 14)
+1. Insert the slide bars onto the hanger rings (Figure 13). Assemble the battery mount and platform board and mount them onto the slide bars as shown in Figure 14.
 
-![Arms 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig15.jpg)
+   ![Battery Mount 2: Slide bars](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig8.png)
 
-(Figure 15)
+   _Figure 13_: Slide bars
 
-**Step 8:** Assemble arm to main body.
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/battery_mount1.jpg" width="400" title="Battery mount on slide bars" />
 
-With 4 more U-shaped nylon straps attach the arm with the motor installed to the body of the vehicle as shown in Figure 16, this way you also attach the bottom plate to the top plate.
+   _Figure 14_: Battery mount on slide bars
 
-Keep in mind to have the arm tube a bit pushed in to that it can be kept securely in place as shown in the Red Square from Figure 16.
+1. Mount the landing gear onto the bottom plate. We recommend tilting the drone sideway to make this installation process easier.
 
-![Arms 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig16.jpg)
+   ![Landing Gear](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig5.jpg)
 
-(Figure 16)
+   _Figure 15_: Landing Gear
 
-**Step 9:** Connect Motors cables.
 
-After the 4 arms are mounted on to the main body, connect the cables (red, blue, black) and push them into the arm tube, see Figures 17.
+1. Use the tape and stick the GPS to the top of the GPS mast and mount the GPS mast. Make sure the arrow on the gps is pointing forward (Figure 16).
 
-The 3 cables that are color-coded go connected to the ESC.
+   <img src="../../assets/airframes/multicopter/x500_holybro_pixhawk4/gps2.jpg" width="400" title="Figure 16: GPS and mast" />
 
-![Motors 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig17.jpg)
+   _Figure 16_: GPS and mast
 
-(Figure 17)
 
-**Step 10:** Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
+1. Mount the telemetry radio onto the top plate. Plug the telemetry cable into `TELEM1` port and GPS module to `GPS MODULE` port on the flight controller. Plug the cable from PM07 FMU-PWM-in to FMU-PWM-out and PWR1 to `POWER1` on the flight controller, as shown in Figure 17.
 
-Mount GPS mast to the plate, use the 4 screws see the red circle in Figure 18, keep in mind that the plate is mounted to the battery holder tubes as indicated by the arrows in Figure 18.
+   ![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/fc_connections.jpg)
 
-![GPS 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig18.jpg)
+   _Figure 17_: Mount telemetry radio/plug in PWM and Power cables to Flight controller.
 
-(Figure 18)
+Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for more information.
 
-Use the tape and stick the GPS to the top of the GPS mast, see Figure 19.
-
-![GPS 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig19.jpg)
-
-(Figure 19)
-
-**Step 11:** Pixhawk 4 wiring. The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
-
-Plugin Telemetry and GPS module to the flight controller as seen in Figure 20; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module as shown in Figure 21.
-
-![Pixhawk 4 wiring 1](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig20.png)
-
-(Figure 20)
-
-![Pixhawk 4 wiring 2](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig21.png)
-
-(Figure 21)
+That's it. The fully assembled kit is shown below:
 
 ![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
 
-(Fully assembled X500 Kit)
+<a id="configure"></a>
 
-<span id="configure"></span>
-## Install/Configure PX4
-
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+## 组装
 
 :::tip
 Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 :::
 
+*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the X500 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+
 First update the firmware and airframe:
-* [固件](../config/firmware.md)
-* [机架](../config/airframe.md)
-
-:::note
-You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
-:::
-
-![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
+* [Firmware](../config/firmware.md)
+* [Airframe](../config/airframe.md) - You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**) ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
 Then perform the mandatory setup/calibration:
-* [传感器方向](../config/flight_controller_orientation.md)
-* [罗盘](../config/compass.md)
-* [加速度计 Accelerometer](../config/accelerometer.md)
-* [水平平面校准](../config/level_horizon_calibration.md)
-* [无线电系统设置](../config/radio.md)
-* [飞行模式](../config/flight_mode.md)
+* [固件](../config/flight_controller_orientation.md)
+* [机架](../config/compass.md)
+* [Accelerometer](../config/accelerometer.md)
+* [Level Horizon Calibration](../config/level_horizon_calibration.md)
+* [Radio Setup](../config/radio.md)
+* [Flight Modes](../config/flight_mode.md)
 
 Ideally you should also do:
-* [电调（ESC）校准](../advanced_config/esc_calibration.md)
-* [电池](../config/battery.md)
-* [安全](../config/safety.md)
+* [传感器方向](../advanced_config/esc_calibration.md)
+* [罗盘](../config/battery.md)
+* [加速度计 Accelerometer](../config/safety.md)
+
+
+## Tuning
+
+Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build. For instructions on how, see: [Multicopter Basic PID Tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
 
 ## 调试
-
-Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
-
-For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
-
-## Acknowledgements
 
 This build log was provided by the Dronecode Test Flight Team.

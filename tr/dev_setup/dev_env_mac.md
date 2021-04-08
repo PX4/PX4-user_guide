@@ -71,26 +71,27 @@ brew install px4-sim-gazebo
 
 ## jMAVSim Simulation
 
-To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 14). You can either download [Java 14 from Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or use the AdoptOpenJDK tap:
+To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk14
+brew install --cask adoptopenjdk15
 ```
 
 ```sh
 brew install px4-sim-jmavsim
 ```
 
-:::note
-jMAVSim for PX4 v1.11 and earlier required Java 8.
+:::warning
+jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
+
+For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.html#troubleshooting)).
 :::
 
 ## Next Steps
 
 Once you have finished setting up the command-line toolchain:
 - Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
 :::
 - Continue to the [build instructions](../dev_setup/building_px4.md).
-

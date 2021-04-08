@@ -27,7 +27,7 @@
 但是增加GPS也有一些好处，尤其是对于初学者。
 
 - 你可以让飞机进入定位状态，飞行器将会待在一个地方。 当你失去方向或者需要刹车时候，这会是有用的。 它通常也可以被用来安全降落。
-- 返航模式将可以使用，可以使用开关触发，或者是遥控器信号丢失或者低电量保护逻辑触发。
+- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
 - 当发生事故时，你将有飞机最后的位置，方便寻找飞机。
 - 飞行记录将包含飞行路线追踪，这意味着你可以进行航行回顾（3D 模式）。 这可以帮助你改善特技飞行技巧。
 
@@ -73,11 +73,11 @@
 
 如果您使用GPS，您可以跳过此部分，使用默认估算。 否则，您应该切换到Q姿态估计器，它可以在没有磁罗盘或气压计的情况下工作。
 
-若要选择它，请设置 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 至 1, 并更改 以下参数：
+To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
 
 - 如果系统没有磁罗盘，设置 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) 至 0。
 - 如果系统没有气压计，设置 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) 到 0。
-- 配置 Q 估算器：设置 [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) 到 0, [ATT_W_AC](../advanced_config/parameter_reference.md#ATT_W_ACC) 到 0.4 和 [ATT_W_GYRO_BIA](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) 到 0。 如果您愿意，您可以稍后调整这些。
+- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. 如果您愿意，您可以稍后调整这些。
 
 ### 故障保护
 
@@ -111,7 +111,7 @@
 - 软件和传感器芯片中的低通滤波器在改善噪声与增加延迟之间形成均衡。
 - PX4 软件内部：传感器信号需要从驱动程序中读取，然后通过控制器传递到输出驱动器。
 - IO chip (MAINpins) 添加了大约5.4ms的延迟相对于使用 AUX pins的延迟时间(这不适用于 *Pixracer* 或 *Omnibus F4*, 但适用于Pixhawk)。 要避免IO 延迟，请禁用 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) 并将电机连接到 AUX 引脚。
-- 通过设置 [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) 到 0来启用单射以减少延迟。 
+- PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
 
 <span id="filters"></span>
 
@@ -146,8 +146,7 @@
 
 执行的飞行可以只是在 [手动/稳定模式](../flight_modes/manual_stabilized_mc.md) 中悬停，可以有一些到所有方向的roll和pitch，以及增加一些油门。 总持续时间不需要超过 30 秒。 为了更好地进行比较，所有测试中的操作都应该是相似的。
 
-首先调整陀螺仪的滤波器 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) ，方法是在使用一个较低的D项滤波值时以十赫兹的步长增加它([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)。  
-上传日志到 https://logs.px4.io 并比较 *执行器控制 FFT* 图。 在噪声开始显著增加之前设置截止频率(对于60赫兹周围和以上的频率)。 然后以同样的方式调整D项滤波器(`IMU_DGYRO_CUTOFF`)。
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
 
 下面是三种不同滤波器设置值的示例(40Hz, 70Hz, 90Hz)。 在90赫兹，一般噪音水平开始增加（尤其是roll），因此70赫兹的截断频率是安全的。 ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
