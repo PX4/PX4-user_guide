@@ -62,33 +62,32 @@ Flarm/PingRX는 다른 [MAVLink 주변기기](../peripherals/mavlink_peripherals
 
 기체를 재부팅합니다.
 
-You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
+이제 57600으로 설정하여야 하는 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)라는 새 매개변수를 찾을 수 있습니다.
 
-:::note
-Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
+:::note PX4 v1.9 이전 버전에서는 이제는 더 이상 사용되지 않는 매개변수인 `SYS_COMPANION`을 사용하여 포트를 설정할 수 있습니다.
 :::
 
-### Configure Traffic Avoidance
+### 사고 방지 설정
 
-Configure the action when there is a potential collision using the parameter below:
+아래 매개변수를 사용하여 잠재적 충돌시의 동작을 설정합니다.
 
-| Parameter                                                                                                           | Description                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
-| <span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
-| <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
-
-
-## Implementation
-
-PX4 listens for valid transponder reports during missions.
-
-If a valid transponder report is received, PX4 first uses the transponder position and heading information to estimate whether the vehicles will share a similar altitude before they pass each other. If they may then PX4 it estimates how the closest distance between the path to the next waypoint and the other vehicles predicted path. If the crossing point is less than the configured distance for altitude and path, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return. The detection distance can be configured separately for manned and unmanned aviation.
+| 매개변수                                                                                                                | 설명                                                                    |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)    | 교통 회피 모드 활성화는 회피 대응을 지정합니다. 0 : 비활성화, 1 : 경고 만, 2 : 귀환 모드, 3 : 착륙 모드. |
+| <span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | *유인* 항공기에 대한 교통 회피 거리 설정                                              |
+| <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | *무인* 항공기에 대한 교통 회피 거리 설정                                              |
 
 
-The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp)).
+## 구현
 
-PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended). The last 10 Digits of the GUID is displayed as Drone identification.
+PX4는 임무 중에 유효한 응답기 보고서를 수신합니다.
+
+유효한 트랜스폰더 보고서가 수신되면, PX4는 먼저 트랜스폰더 위치 및 방향 정보를 사용하여 기체가 서로 통과하기 전에 유사한 고도를 공유할지 여부를 추정합니다. PX4는 할 수 있다면 그것은 다음 웨이포인트까지의 경로와 다른 차량 사이의 가장 가까운 거리가 경로를 예측한 방법을 추정합니다. 교차점이 고도 및 경로에 대해 구성된 거리보다 작 으면 [교통 회피 페일 세이프](../config/safety.md#traffic-avoidance-failsafe) 작업이 시작되고 차량이 경고, 착륙 또는 귀환합니다. 탐지 거리는 유인 및 무인 항공기에 대해 별도로 설정할 수 있습니다.
+
+
+코드는 `Navigator :: check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp))에서 찾을 수 있습니다.
+
+MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). The last 10 Digits of the GUID is displayed as Drone identification.
 
 ## Further Information
 
