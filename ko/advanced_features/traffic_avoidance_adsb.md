@@ -87,9 +87,9 @@ PX4는 임무 중에 유효한 응답기 보고서를 수신합니다.
 
 코드는 `Navigator :: check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp))에서 찾을 수 있습니다.
 
-MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). The last 10 Digits of the GUID is displayed as Drone identification.
+MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). GUID의 마지막 10 자리는 드론 식별로 표시됩니다.
 
-## Further Information
+## 추가 정보
 
-* [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-* [Serial Port Configuration](../peripherals/serial_configuration.md)
+* [MAVLink 주변장치](../peripherals/mavlink_peripherals.md)
+* [직렬 포트 설정](../peripherals/serial_configuration.md)
