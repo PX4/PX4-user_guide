@@ -25,6 +25,18 @@ PX4 uses [astyle](http://astyle.sourceforge.net/) for code formatting. Valid ver
 
 Once installed, formatting can be checked with `./Tools/astyle/check_code_style_all.sh`. The output should be `Format checks passed` on a clean master. If that worked, `make format` can be used in the future to check and format all files automatically.
 
+## File name conventions
+
+Going forward we aim to follow these file naming conventions:
+
+- C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
+- C++ header files should be called the same as source files except the ending being `.hpp`.
+- C++ header files that are required to be C compatible, should end in `.h`.
+- Foldernames are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase inside of that to match the source and header files.
+- Test files need to have a `Test` suffix, e.g. `FooThingTest.cpp`.
+
+- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+
 ## In-Source Documentation
 
 PX4 developers are encouraged to create appropriate in-source documentation.
