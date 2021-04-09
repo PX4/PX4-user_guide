@@ -14,29 +14,29 @@ PX4 사고방지는 MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common
 
 ## 하드웨어 설정
 
-Either device can be connected to any free/unused serial port on the flight controller. Most commonly it they are connected to TELEM2 (if this is not being use for some other purpose).
+두 장치 모두 비행컨트롤러의 직렬 포트에 연결할 수 있습니다. 가장 일반적으로 TELEM2에 연결됩니다 (다른 용도로 사용되지 않는 경우).
 
 ### PingRX
 
-The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
+PingRX MAVLink 포트는 아래와 같이 핀아웃이있는 JST ZHR-4 메이팅 커넥터를 사용합니다.
 
-| Pin     | Signal   | Volt         |
+| 핀       | 신호       | 전압           |
 | ------- | -------- | ------------ |
 | 1 (red) | RX (IN)  | +5V tolerant |
 | 2 (blk) | TX (OUT) |              |
 | 3 (blk) | Power    | +4 to 6V     |
 | 4 (blk) | GND      | GND          |
 
-The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
+PingRX에는 [mRo Pixhawk](../flight_controller/mro_pixhawk.md)의 TELEM2 포트 (DF13-6P)에 직접 연결가능한  커넥터 케이블이 함께 제공됩니다. 다른 포트나 보드의 경우 자체 케이블이 필요합니다.
 
 
 ## FLARM
 
-FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
+FLARM에는 [mRo Pixhawk](../flight_controller/mro_pixhawk.md)와 동일한 핀아웃을 가진 온보드 DF-13 6 핀 커넥터가 있습니다.
 
-| Pin     | Signal   | Volt        |
+| 핀       | 신호       | 전압          |
 | ------- | -------- | ----------- |
-| 1 (red) | VCC      | +4V to +36V |
+| 1(red)  | VCC      | +4V to +36V |
 | 2 (blk) | TX (OUT) | +3.3V       |
 | 3 (blk) | RX (IN)  | +3.3V       |
 | 4 (blk) | -        | +3.3V       |
@@ -44,23 +44,23 @@ FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the 
 | 6 (blk) | GND      | GND         |
 
 :::note
-The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
+비행 컨트롤러의 TX 및 RX는 FLARM의 RX 및 TX에 각각 연결되어야 합니다.
 :::
 
-## Software Configuration
+## 소프트웨어 설정
 
-### Port Configuration
+### 포트 설정
 
-Flarm/PingRX are configured in the same way as any other [MAVLink Peripheral](../peripherals/mavlink_peripherals.md). The only *specific* setup is that the port baud rate must be set to 57600 and the a low-bandwidth profile (`MAV_X_MODE`).
+Flarm/PingRX는 다른 [MAVLink 주변기기](../peripherals/mavlink_peripherals.md)와 동일한 방식으로 설정됩니다. 유일한 *특정* 설정은 포트 전송 속도가 57600 및 저 대역폭 프로필 (`MAV_X_MODE`)로 설정되어야 한다는 것입니다.
 
-Assuming you have connected the device to the TELEM2 port, [set the parameters](../advanced_config/parameters.md) as shown:
+장치를 TELEM2 포트에 연결했다고 가정하고 다음과 같이 [매개 변수를 설정](../advanced_config/parameters.md)합니다.
 
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = TELEM 2
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = Normal
 - [MAV_1_RATE](../advanced_config/parameter_reference.md#MAV_1_RATE) = 0 (default sending rate for port).
 - [MAV_1_FORWARD](../advanced_config/parameter_reference.md#MAV_1_FORWARD) = Enabled
 
-Then reboot the vehicle.
+기체를 재부팅합니다.
 
 You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
