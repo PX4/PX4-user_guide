@@ -27,25 +27,37 @@ PX4 使用 [asty](http://astyle.sourceforge.net/) 进行代码格式化。 有�
 
 鼓励PX4开发者创建适当的源文档。
 
+- C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
+- C++ header files should be named the same as source files except have the suffix `.hpp`.
+- C++ header files that are required to be C compatible, should have the suffix `.h`.
+- Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
+- Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
+
+- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+
+## 提交和提交消息
+
+PX4 developers are encouraged to create appropriate in-source documentation.
+
 :::note
 Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
 :::
 
 Currently we have two types of source-based documentation:
 - `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
-  - API 记录在 [源代码](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)。
-  - 使用的良好例子包括在 [应用程序/模块模板](../apps/module_template.md) 以及从模块引用链接的文件。
-* 我们鼓励其它源文档 *添加必要的值*。
+  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
+  - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
+* We encourage other in-source documentation *where it adds value/is not redundant*.
 
 :::tip
 Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
 :::
 
-  - 不要添加可以从 C++ 实体名称零碎地推断出的文档。
-  - 通常您可能想要添加关于 corner cases 和错误处理的信息。
-  - [Doxgyen](http://www.doxygen.nl/)如果需要文件，应使用标签：`@class`，`@file`，`@param`，`@return`，`@var`，`@see`，`@note`，`@note`。 一个很好的用法例子是 [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h)。
+  - Do not add documentation that can trivially be assumed from C++ entity names.
+  - Commonly you may want to add information about corner cases and error handling.
+  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h).
 
-## 提交和提交消息
+## Commits and Commit Messages
 
 Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
 
@@ -67,6 +79,6 @@ Please use descriptive, multi-paragraph commit messages for all non-trivial chan
 已上报：名字 <email@px4.io>
 ```
 
-本提交指南基于 Linux Kernel 和 Linus Torvald 维护的 [项目的最佳做法](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)。
+**Use **`git commit -s`** to sign off on all of your commits.** This will add `signed-off-by:` with your name and email as the last line.
 
 This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
