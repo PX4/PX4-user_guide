@@ -30,10 +30,10 @@ Once installed, formatting can be checked with `./Tools/astyle/check_code_style_
 Going forward we aim to follow these file naming conventions:
 
 - C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
-- C++ header files should be called the same as source files except the ending being `.hpp`.
-- C++ header files that are required to be C compatible, should end in `.h`.
-- Foldernames are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase inside of that to match the source and header files.
-- Test files need to have a `Test` suffix, e.g. `FooThingTest.cpp`.
+- C++ header files should be named the same as source files except have the suffix `.hpp`.
+- C++ header files that are required to be C compatible, should have the suffix `.h`.
+- Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
+- Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
 
 - One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
 
