@@ -1,4 +1,4 @@
-# Payloads and Cameras
+# 탑재 중량과 카메라
 
 PX4 supports a wide range of payloads and cameras.
 
