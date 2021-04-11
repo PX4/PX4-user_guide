@@ -1,6 +1,6 @@
 # 항공 교통 회피 : UAS 교통 관리 (UTM)
 
-PX4 can use MAVLink [`UTM_GLOBAL_POSITION`](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) messages to support simple air traffic avoidance in [missions](../flight_modes/mission.md). If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [`NAV_TRAFF_AVOID`](#NAV_TRAFF_AVOID)).
+PX4에서는 MAVLink [`UTM_GLOBAL_POSITION`](https://mavlink.io/en/messages/common.html#UTM_GLOBAL_POSITION) 메시지를 사용하여 [임무 수행](../flight_modes/mission.md)중 간단한 항공 교통 회피 기능을 지원할 수 있습니다. 잠재적인 충돌이 감지되면 PX4는 [`NAV_TRAFF_AVOID`](#NAV_TRAFF_AVOID) 값에 따라 *경고*, 즉시 [착륙](../flight_modes/land.md) 또는 [귀환](../flight_modes/return.md) 할 수 있습니다.
 
 :::note
 This implementation is exactly the same as for [ADS-B traffic avoidance](../advanced_features/traffic_avoidance_adsb.md) (except for the source of other-vehicle data). For more information see [implementation](#implementation) below.
