@@ -26,29 +26,29 @@ PX4는 다양한 페이로드와 카메라를 지원합니다.
 
 최대 3 개의 RC 채널을 매핑하여 [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) ~ [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3) 매개변수를 사용하여 비행컨트롤러에 연결된 서보/액추에이터를 제어할 수 있습니다.
 
-RC 채널은 *보통* 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력에 매핑됩니다 - _ 하지만 그럴 필요는 없습니다 _. 차량의 RC AUX 패스스루에 사용되는 출력은 [기체 정의서](../airframes/airframe_reference.html)에서 확인할 수 있습니다. For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel", "**AUX2:** feed-through of RC AUX2 channel", "**AUX3:** feed-through of RC AUX3 channel".
+RC 채널은 *보통* 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력에 매핑됩니다 - _ 하지만 그럴 필요는 없습니다 _. 차량의 RC AUX 패스스루에 사용되는 출력은 [기체 정의서](../airframes/airframe_reference.html)에서 확인할 수 있습니다. 예를 들어, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x)에는 "**AUX1 :** RC AUX1 채널의 피드 스루", "**AUX2 :** RC AUX2 채널의 피드 스루", **AUX3 :** RC AUX3 채널의 피드 스루 "와 같은 일반 매핑이 있습니다.
 
-If your vehicle doesn't specify RC AUX feed-through outputs, then you can add them using using a custom [Mixer File](../concept/mixing.md) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s). An example of such a mixer is the default passthrough mixer: [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix).
+기체의 RC AUX 피드 스루 출력을 지정하지 않은 경우 [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) 출력 5-7을 원하는 포트로 매핑하여 사용자가 정의한 [Mixer File](../concept/mixing.md)을 사용하여 추가 할 수 있습니다. 이러한 믹서의 예는 기본 패스스루 믹서입니다 : [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix).
 
 :::note
-The same outputs used for "feed-through of RC AUX" may also be set using a MAVLink command (see [below](#mission-triggering)). PX4 will use the last value set through either mechanism.
+"RC AUX의 피드 스루"에 사용되는 동일한 출력은 MAVLink 명령을 사용하여 설정할 수도 있습니다 ([아래](#mission-triggering) 참조). PX4는 두 메커니즘 중 하나를 통하여 설정된 마지막 값을 사용합니다.
 :::
 
 
-### Mission Triggering
+### 임무 트리거링
 
-You can use the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command to set (up to) three actuators values at a time, either in a mission or as a command.
+[MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink 명령을 사용하여 미션에서 또는 명령으로 한 번에 최대 3 개의 액추에이터 값을 설정할 수 있습니다.
 
-Command parameters `param1`, `param2`, and `param3`, are mapped to the _same outputs_ as are used for [RC triggering](#rc-triggering). Usually these are the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (the RC section above explains how to check). The other command parameters (`param4` to `param7`) are unused/ignored by PX4.
+명령 매개 변수 `param1`, `param2` 및 `param3`은 [RC 트리거링](#rc-triggering)에 사용 된 것과 _동일한 출력_에 매핑됩니다. 일반적으로 비행컨트롤러의 `AUX1`, `AUX2`, `AUX3` 출력입니다 (위의 RC 섹션에서는 확인 방법을 설명합니다). 다른 명령의 매개변수 (`param4` ~ `param7`)들은 PX4에서 사용되지 않거나 무시됩니다.
 
-The parameters take normalised values in the range `[-1, 1]` (resulting in PWM outputs in the range `[PWM_AUX_MINx, PWM_AUX_MAXx]`, where X is the output number). All params/actuators that are not being controlled should be set to `NaN`.
+매개 변수는 `[-1, 1]` 범위의 정규화된 값을 사용합니다 (결과적으로 PWM 출력은 `[PWM_AUX_MINx, PWM_AUX_MAXx]` 범위에서 X는 출력 번호 임). 제어되지 않는 모든 매개 변수/액추에이터는 `NaN`으로 설정하여야 합니다.
 
 
-### MAVSDK (Example script)
+### MAVSDK (예제 스크립트)
 
-The following [MAVSDK](https://mavsdk.mavlink.io/develop/en/) sample code shows how to trigger payload release.
+다음 [MAVSDK](https://mavsdk.mavlink.io/develop/en/) 샘플 코드는 페이로드 릴리스를 트리거하는 방법을 설명합니다.
 
-The code uses the MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) plugin to send the [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink command, specifying the value of (up to) 3 actuators.
+이 코드는 MAVSDK [MavlinkPassthrough](https://mavsdk.mavlink.io/develop/en/api_reference/classmavsdk_1_1_mavlink_passthrough.html) 플러그인을 사용하여 [MAV_CMD_DO_SET_ACTUATOR](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ACTUATOR) MAVLink 명령을 전송하고 (최대) 3 개의 액추에이터 값을 지정합니다.
 
 
 <!-- note, we still need to explain how to map those values to actual outputs on PX4 
@@ -73,37 +73,7 @@ void send_actuator(MavlinkPassthrough& mavlink_passthrough,
 int main(int argc, char **argv)
 {
     Mavsdk mavsdk;
-    std::string connection_url;
-    ConnectionResult connection_result;
-    float value1, value2, value3;
-
-    if (argc == 5) {
-        connection_url = argv[1];
-        connection_result = mavsdk.add_any_connection(connection_url);
-        value1 = std::stof(argv[2]);
-        value2 = std::stof(argv[3]);
-        value3 = std::stof(argv[4]);
-    } 
-
-    if (connection_result != ConnectionResult::Success) {
-        std::cout << "Connection failed: " << connection_result << std::endl;
-        return 1;
-    }
-
-    bool discovered_system = false;
-    mavsdk.subscribe_on_new_system([&mavsdk, &discovered_system]() {
-        const auto system = mavsdk.systems().at(0);
-
-        if (system->is_connected()) {
-            std::cout << "Discovered system" << std::endl;
-            discovered_system = true;
-        }
-    });
-
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-
-    if (!discovered_system) {
-        std::cout << "No device found, exiting." << std::endl;
+    std::string connection_url; << std::endl;
         return 1;
     }
 
@@ -119,27 +89,6 @@ int main(int argc, char **argv)
     auto mavlink_passthrough = MavlinkPassthrough{system};
 
     send_actuator(mavlink_passthrough, value1, value2, value3);
-
-    return 0;
-}
-
-void send_actuator(MavlinkPassthrough& mavlink_passthrough,
-        float value1, float value2, float value3)
-{
-    std::cout << "Sending message" << std::endl;
-    mavlink_message_t message;
-    mavlink_msg_command_long_pack(
-            mavlink_passthrough.get_our_sysid(),
-            mavlink_passthrough.get_our_compid(),
-            &message,
-            1, 1,
-            MAV_CMD_DO_SET_ACTUATOR,
-            0,
-            value1, value2, value3,
-            NAN, NAN, NAN, 0);
-    mavlink_passthrough.send_message(message);
-    std::cout << "Sent message" << std::endl;
-}
 ```
 
 ## Surveillance, Search & Rescue
