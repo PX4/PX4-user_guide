@@ -136,26 +136,35 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   注意：
   
   * PX4 解析上述消息，但不是必须要 *做*的。 例如，某些消息是针对飞机类型的。
-  * PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+  * 对于任务命令，PX4 不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
   * 并非所有消息/命令都通过 *QGroundControl* 公开。
-  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp).
-    
-:::note
-Please add an issue report or PR if you find a missing/incorrect message.
-:::
-  
-  ## 航点间轨迹
-  
-  PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。
-  
-  MC vehicles will change the *speed* when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning. The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)). The diagram below shows the sorts of paths that you might expect.
-  
-  ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
-  
-  Vehicles switch to the next waypoint as soon as they enter the acceptance radius:
-  
-  * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
-  * For FW the acceptance radius is defined by the "L1 distance". 
-    * L1 距离是根据两个参数计算的： [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) 和 [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD)，还有当前地速。
-    * 默认情况下，约 70米。
-    * 方程式： $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
+  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 支持  /src/modules/mavlink/mavlink_mission.cpp  中的<1>MavlinkMissionManager::parse_mavlink_mission_item</a> 。</p>
+
+<p>:::note
+如果发现缺失或错误消息，请添加问题报告或者 PR。
+:::</p></li>
+</ul>
+
+<h2>航点间轨迹</h2>
+
+<p>PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。</p>
+
+<p>MC vehicles will change the <em>speed</em> when approaching or leaving a waypoint based on the <a href="../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode">jerk-limited</a> tuning.
+The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius (<a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a>).
+The diagram below shows the sorts of paths that you might expect.</p>
+
+<p><img src="../../assets/flying/acceptance_radius_mission.png" alt="acc-rad" /></p>
+
+<p>Vehicles switch to the next waypoint as soon as they enter the acceptance radius:</p>
+
+<ul>
+<li>For MC this radius is defined by <a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a>.</li>
+<li>For FW the acceptance radius is defined by the "L1 distance".
+
+<ul>
+<li>L1 距离是根据两个参数计算的： <a href="../advanced_config/parameter_reference.md#FW_L1_DAMPING">FW_L1_DAMPING</a> 和 <a href="../advanced_config/parameter_reference.md#FW_L1_PERIOD">FW_L1_PERIOD</a>，还有当前地速。</li>
+<li>默认情况下，约 70米。</li>
+<li>方程式： 
+$$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}<em>{ {xy}</em>{ground} } \right \|$$</li>
+</ul></li>
+</ul>
