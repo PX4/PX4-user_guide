@@ -10,7 +10,7 @@
 位置模式对于新手是最安全的固定翼手动模式。
 :::
 
-下图直观的显示了该模式（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+下图直观的显示了该模式（对于一个[美国手的发射机](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![固定翼位置模式](../../assets/flight_modes/position_FW.png)
 
