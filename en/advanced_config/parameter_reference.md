@@ -17494,6 +17494,19 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UAVCAN_BAT_MON">UAVCAN_BAT_MON</strong> (INT32)</td>
+ <td>UAVCAN BATTERY_MONITOR battery monitor selection <p><strong>Comment:</strong> This parameter defines that the system will select the battery monitor under the following conditions 0 - default battery monitor 1 - CUAV battery monitor</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> default battery monitor</li> 
+
+<li><strong>1:</strong> CUAV battery monitor</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 1 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UAVCAN_BITRATE">UAVCAN_BITRATE</strong> (INT32)</td>
  <td>UAVCAN CAN bus bitrate    <p><b>Reboot required:</b> true</p>
 </td>
