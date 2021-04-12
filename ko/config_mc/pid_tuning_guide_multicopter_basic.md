@@ -1,6 +1,6 @@
-# Multicopter PID Tuning Guide
+# 멀티콥터 PID 튜닝 가이드
 
-This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
+이 튜토리얼은 모든 [멀티콥터 설정](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo 등)에 대해 PX4에서 PID 루프를 조정하는 방법을 설명합니다.
 
 Tuning is recommended for all new vehicle setups, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight. For example, different ESCs or motors require different tuning gains.
 
