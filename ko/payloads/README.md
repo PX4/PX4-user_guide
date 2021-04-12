@@ -98,7 +98,7 @@ int main(int argc, char **argv)
 [MAVLink 카메라 프로토콜](https://mavlink.io/en/services/camera.html)을 지원하는 카메라를 사용하십시오.이 카메라는 이미지 및 비디오 캡처, 확대/축소, 저장 관리, 동일한 차량의 여러 카메라 및 카메라 간 전환 등을 지원합니다. 이러한 카메라는 QGroundControl 또는 MAVSDK를 통해 수동으로 제어할 수 있습니다 ([독립형 카메라 작동](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html) 및 [임무](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4) 모두). MAVLink 연동 카메라 설정법은 [카메라 트리거링](../peripherals/camera.md)을 참조하십시오.
 
 :::note
-비행 제어 장치에 직접 연결된 카메라는 _만_ 카메라 트리거링을 지원하며 대부분의 감시/검색 작업에 적합하지 않을 수 있습니다.
+비행 제어 장치에 직접 연결된 카메라 _만_ 카메라 트리거링을 지원하며, 대부분 감시/검색 작업에는 적합하지 않을 수 있습니다.
 :::
 
 수색 및 구조용 드론은 실종된 등산객을위한 비상 용품과 같은화물을 운반할 수도 있습니다. 페이로드 배송에 대한 정보는 위의 [화물 드론](#cargo-drones-actuator-payloads)을 참조하십시오.
