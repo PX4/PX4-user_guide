@@ -21,7 +21,7 @@ Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position an
 VIO使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)来从视觉信息估计车辆*姿势*，结合来自IMU的惯性测量（以校正与载具快速移动导致不良的图像捕获）。
 - [外部位置的估计](../ros/external_position_estimation.md)
 - [使用 Motion Capture 飞行（VICON，Optitrack）](../tutorials/motion-capture-vicon-optitrack.md)
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
 ## 视觉惯性测距法 {#vio}

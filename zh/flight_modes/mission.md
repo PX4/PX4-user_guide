@@ -48,7 +48,7 @@
   可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 在任务模式下飞行时，如果决定中止任务，并且切换到了其他飞行模式，如位置模式，通过遥控器讲无人机飞到了其他地方，然后切换回任务模式，无人机将从当前位置继续执行任务，并会飞往下一个未访问的任务航点。
   
 :::warning
-Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash). We recommend you centre the control sticks before switching to any other mode.
+在切换到其他遥控器模式之前，确保油门摇杆不为零（否则无人机将坠毁）。 我们建议您在切换到任何其他模式之前将摇杆置中。
 :::
   
   有关任务规划的更多信息，请参阅：
@@ -67,12 +67,12 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   
   任务表现受很多参数影响，其中大部分参数记录在 [Parameter Reference （参考参数）> Mission （任务）](../advanced_config/parameter_reference.md#mission) 中。 下面列出了一个很小的子集。
   
-  | 参数                                                                                                      | 描述                                                                                                                                                                                                      |
-  | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | 遥控信号丢失失效保护模式（如果断开遥控无人机会怎样）- 例如进入保持模式，返航模式，终止等。                                                                                                                                                          |
-  | <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 固定翼悬停半径。                                                                                                                                                                                                |
-  | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | Controls whether stick movement on a multicopter (or VTOL in MC mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md). 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。 |
-  | <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | The amount of stick movement that causes a transition to [Position mode](../flight_modes/position_mc.md) (if [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) is enabled).                                         |
+  | 参数                                                                                                      | 描述                                                                                                    |
+  | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+  | <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | 遥控信号丢失失效保护模式（如果断开遥控无人机会怎样）- 例如进入保持模式，返航模式，终止等。                                                        |
+  | <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | 固定翼悬停半径。                                                                                              |
+  | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | 控制多旋翼（或者多旋翼模式下的 VOTL）的摇杆移动是否将控制权交给位置模式下的飞手。 可以分别为自动模式和 offboard 模式启用此功能，默认情况下在自动模式下启用此功能。             |
+  | <span id="COM_RC_STICK_OV"></span>[COM_RC_STICK_OV](../advanced_config/parameter_reference.md#COM_RC_STICK_OV) | 导致发射机切换到 [位置模式](../flight_modes/position_mc.md) 的摇杆移动量（如果 [COM_RC_OVERRIDE](#COM_RC_OVERRIDE) 已启用）。 |
   
   
 
@@ -81,7 +81,7 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   
   ## 支持的任务命令
   
-  PX4 "accepts" the following MAVLink mission commands in Mission mode (with some *caveats*, given after the list). 除非另有说明，否则该实现与 MAVLink 规范中定义的一样。
+  PX4 在任务模式下 “接受” 一下 MAVLink 任务命令 （一些 *参考*， 在列表后面）。 除非另有说明，否则该实现与 MAVLink 规范中定义的一样。
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
     * *Param3* （漫游） 被忽略。 如果 *param1* （time_inside）> 0，漫游始终使能。
@@ -92,7 +92,7 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   * [MAV_CMD_NAV_LOITER_TO_ALT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TO_ALT)
   * [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
     
-    * `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
+    * `MAV_CMD_NAV_VTOL_TAKEOFF.param2` （过渡标题）被忽略。 取而代之的是，转向下一个航点用于过渡航向。 <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
   
   * [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND)
   
@@ -136,26 +136,35 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   注意：
   
   * PX4 解析上述消息，但不是必须要 *做*的。 例如，某些消息是针对飞机类型的。
-  * PX4 does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+  * 对于任务命令，PX4 不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
   * 并非所有消息/命令都通过 *QGroundControl* 公开。
-  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp).
-    
-:::note
-Please add an issue report or PR if you find a missing/incorrect message.
-:::
-  
-  ## 航点间轨迹
-  
-  PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。
-  
-  MC vehicles will change the *speed* when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning. The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius ([NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)). The diagram below shows the sorts of paths that you might expect.
-  
-  ![acc-rad](../../assets/flying/acceptance_radius_mission.png)
-  
-  Vehicles switch to the next waypoint as soon as they enter the acceptance radius:
-  
-  * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
-  * For FW the acceptance radius is defined by the "L1 distance". 
-    * L1 距离是根据两个参数计算的： [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) 和 [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD)，还有当前地速。
-    * 默认情况下，约 70米。
-    * 方程式： $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
+  * 添加消息时，列表可能已过时。 可以通过查看代码来检查当前设置。 支持  /src/modules/mavlink/mavlink_mission.cpp  中的<1>MavlinkMissionManager::parse_mavlink_mission_item</a> 。</p>
+
+<p>:::note
+如果发现缺失或错误消息，请添加问题报告或者 PR。
+:::</p></li>
+</ul>
+
+<h2>航点间轨迹</h2>
+
+<p>PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。</p>
+
+<p>当MC 无人机接近或离开航点时，将基于<a href="../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode">jerk-limited</a>的调试来更改<em>速度</em>。
+无人机将朝着由接受半径（<a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD"> NAV_ACC_RAD </a>）定义的下一个航路点（如果已定义）遵循一条平滑的圆弧曲线。
+下图显示了您可能期望的各种路径。</p>
+
+<p><img src="../../assets/flying/acceptance_radius_mission.png" alt="acc-rad" /></p>
+
+<p>进入接收半径的无人机会立即切换到下一个航路点：</p>
+
+<ul>
+<li>对于多旋翼，该半径由 <a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a> 定义。</li>
+<li>对于固定翼，接受半径由 “L1 distance” 定义。
+
+<ul>
+<li>L1 距离是根据两个参数计算的： <a href="../advanced_config/parameter_reference.md#FW_L1_DAMPING">FW_L1_DAMPING</a> 和 <a href="../advanced_config/parameter_reference.md#FW_L1_PERIOD">FW_L1_PERIOD</a>，还有当前地速。</li>
+<li>默认情况下，约 70米。</li>
+<li>方程式： 
+$$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}<em>{ {xy}</em>{ground} } \right \|$$</li>
+</ul></li>
+</ul>

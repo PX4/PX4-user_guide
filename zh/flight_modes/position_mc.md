@@ -8,7 +8,7 @@
 位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
 :::
 
-下图直观地显示了模式行为（对于模式2变送器）。
+下图直观地显示了模式行为（对于美国手的发射机）。
 
 ![多旋翼位置模式](../../assets/flight_modes/position_MC.png)
 
