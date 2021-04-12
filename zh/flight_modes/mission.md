@@ -48,7 +48,7 @@
   可以通过激活[HOLD 模式](../flight_modes/hold.md)暂停任务。 当您重新激活 MISSION 飞行模式时，任务将从当前任务命令继续执行。 在任务模式下飞行时，如果决定中止任务，并且切换到了其他飞行模式，如位置模式，通过遥控器讲无人机飞到了其他地方，然后切换回任务模式，无人机将从当前位置继续执行任务，并会飞往下一个未访问的任务航点。
   
 :::warning
-Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash). We recommend you centre the control sticks before switching to any other mode.
+在切换到其他遥控器模式之前，确保油门摇杆不为零（否则无人机将坠毁）。 我们建议您在切换到任何其他模式之前将摇杆置中。
 :::
   
   有关任务规划的更多信息，请参阅：
@@ -149,17 +149,17 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
 
 <p>PX4 期望从上一个航点到当前目标遵循一条直线（不计划航点之间的任何其他类型路径 - 如果需要，可以通过添加额外航点来模拟）。</p>
 
-<p>MC vehicles will change the <em>speed</em> when approaching or leaving a waypoint based on the <a href="../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode">jerk-limited</a> tuning.
-The vehicle will follow a smooth rounded curve towards the next waypoint (if one is defined) defined by the acceptance radius (<a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a>).
-The diagram below shows the sorts of paths that you might expect.</p>
+<p>当MC 无人机接近或离开航点时，将基于<a href="../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode">jerk-limited</a>的调试来更改<em>速度</em>。
+无人机将朝着由接受半径（<a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD"> NAV_ACC_RAD </a>）定义的下一个航路点（如果已定义）遵循一条平滑的圆弧曲线。
+下图显示了您可能期望的各种路径。</p>
 
 <p><img src="../../assets/flying/acceptance_radius_mission.png" alt="acc-rad" /></p>
 
-<p>Vehicles switch to the next waypoint as soon as they enter the acceptance radius:</p>
+<p>进入接收半径的无人机会立即切换到下一个航路点：</p>
 
 <ul>
-<li>For MC this radius is defined by <a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a>.</li>
-<li>For FW the acceptance radius is defined by the "L1 distance".
+<li>对于多旋翼，该半径由 <a href="../advanced_config/parameter_reference.md#NAV_ACC_RAD">NAV_ACC_RAD</a> 定义。</li>
+<li>对于固定翼，接受半径由 “L1 distance” 定义。
 
 <ul>
 <li>L1 距离是根据两个参数计算的： <a href="../advanced_config/parameter_reference.md#FW_L1_DAMPING">FW_L1_DAMPING</a> 和 <a href="../advanced_config/parameter_reference.md#FW_L1_PERIOD">FW_L1_PERIOD</a>，还有当前地速。</li>
