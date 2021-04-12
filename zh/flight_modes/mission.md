@@ -81,7 +81,7 @@ Ensure that the throttle stick is non-zero before switching to any RC mode (othe
   
   ## 支持的任务命令
   
-  PX4 "accepts" the following MAVLink mission commands in Mission mode (with some *caveats*, given after the list). 除非另有说明，否则该实现与 MAVLink 规范中定义的一样。
+  PX4 在任务模式下 “接受” 一下 MAVLink 任务命令 （一些 *参考*， 在列表后面）。 除非另有说明，否则该实现与 MAVLink 规范中定义的一样。
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
     * *Param3* （漫游） 被忽略。 如果 *param1* （time_inside）> 0，漫游始终使能。
