@@ -14,13 +14,13 @@ PX4 包含了一个通用的挂载设备/云台的控制驱动，它含有多种
 
 如果输入模式设置为 `AUTO`，则模式将根据最新输入进行自动切换。 如果需要从 MAVLink 切换为 RC 输入，则需要一个较大的杆量。
 
-## AUX 输出
+## MAVLink 云台(MNT_MODE_OUT=MAVLINK)
 
-输出分配如下所示:
+要启用 MAVLink 云台，先设置参数[MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)为`MAVLINK_DO_MOUNT`，和参数[MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)为`MAVLINK`。
 
-The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)(../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)).
+云台可以参照[MAVLink 外设 (GCS/OSD/Companion)(../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion)中的说明连接到*任何空闲串口*，（也可以参照[串口配置](../peripherals/serial_configuration.md#serial-port-configuration)）。
 
-A common configuration is to have a serial connection to the gimbal from the Flight Controller TELEM2 port (assuming TELEM2 is free). For this configuration you would set:
+常见的配置是从飞控的 TELEM2 串口连接到云台（假设 TELEM2 是空闲的）。 您将为此配置设置：
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
 - [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
