@@ -56,19 +56,18 @@ param save /fs/microsd/vtol_param_backup
 
 有两个不同的命令可用于 *load* 参数:
 - `param load` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
-- `param import ` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save</0 >）。</li>
-</ul>
+- `param import` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save`）。
 
-<p spaces-before="0">The <code>load` effectively resets the parameters to the state when the parameters were saved (we say "effectively" because any parameters saved in the file will be updated, but other parameters may have different firmware-defined default values than when the parameters file was created). </p>
+`load` 有效地将参数重置为保存参数时的状态（我们说 "有效"，因为保存在文件中的任何参数都将被更新，但其他参数可能有不同于参数文件创建时的固件定义默认值）。
 
-By contrast, `import` merges the parameters in the file with the current state of the vehicle. This can be used, for example, to just import a parameter file containing calibration data, without overwriting the rest of the system configuration.
+相比之下，`import` 是将文件中的参数与无人机的当前状态合并。 例如，这可以用来只导入包含校准数据的参数文件，而不覆盖系统配置的其余部分。
 
-参数名称不得超过 16个 ASCII 字符。
+这两种情况的示例如下所示:
 
 ```sh
-# 将参数重置为保存文件时,
+# 文件保存时重置参数
 param load /fs/microsd/vtol_param_backup
-# 保存参数 (不自动完成与负载)
+# 选择性的保存参数 (不自动加载)
 param save
 ```
 ```sh
@@ -79,16 +78,16 @@ param import /fs/microsd/vtol_param_backup
 
 ## 参数名称
 
-Parameter names must be no more than 16 ASCII characters.
+参数名称不得超过 16 个 ASCII 字符。
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed wing systems. This convention is not enforced.
+按照惯例，组中的每个参数都应共享相同的 (有意义的) 字符串前缀，后跟下划线，`MC_` 和 `FW_` 用于与多旋翼或固定翼系统具体相关的参数。 此惯例不强制执行。
 
-有单独的 C 和 C++ 的 API 可用于从 PX4 模块和驱动程序中访问参数值。
+该名称必须在代码和 [parameter metadatata](#parameter-metadata) 中匹配，才能正确地将参数与其元数据（包括固件中的默认值）相关联。
 
 
 ## C / C++ API
 
-API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制，可与参数值的更改（即来自 GCS 的更改）同步。
+有单独的 C 和 C++ 的 API 可用于从 PX4 模块和驱动程序中访问参数值。
 
 One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
 
