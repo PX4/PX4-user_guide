@@ -35,28 +35,28 @@
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
-1. 如果要安装所有组件，请进入到新克隆的代码仓库文件夹， 然后双击位于文件夹 `toolchain`目录中的脚本 ` install-all-components.bat`。 If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
-1. Continue with [Getting Started](#getting_started) (or [Usage Instructions](#usage_instructions))
+1. 如果要安装所有组件，请进入到新克隆的代码仓库文件夹， 然后双击位于文件夹 `toolchain`目录中的脚本 ` install-all-components.bat`。 如果您只需要某些组件并希望占用有限的Internet 数据和磁盘空间，则可以进入到不同的组件文件夹，如 ` toolchain\cygwin64 `，然后单击 ** install-XXX.bat ** 脚本以获取特定的内容。
+1. 继续 [ 入门指南 ](#getting_started) (或 [ 使用说明 ](#usage_instructions))
 
 
 <a id="manual_setup"></a>
 
-### Manual Installation (for Toolchain Developers)
+### 手动安装 (用于工具链开发者)
 
-This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.
+本节描述如何手动设置Cygwin工具链，同时指向基于脚本的安装仓库中对应的脚本。 结果应与使用脚本或 MSI 安装程序相同。
 
 :::note
-The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.
+由于工具链的更新维护，这些指令可能无法涵盖未来更改的所有细节。
 :::
 
-1. Create the *folders*: **C:\PX4\**, **C:\PX4\toolchain\** and **C:\PX4\home\**
-1. Download the *Cygwin installer* file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
-1. Run the downloaded setup file
-1. In the wizard choose to install into the folder: **C:\PX4\toolchain\cygwin64\**
-1. Select to install the default Cygwin base and the newest available version of the following additional packages:
+1. 创建 *文件夹*: **C:\PX4\**, **C:\PX4\toolchain\** 和 **C:\PX4\home\**
+1. 从[Cygwin 官网](https://cygwin.com/install.html)下载*Cywin 安装*文件[setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe)
+1. 运行下载的安装文件
+1. 在向导中选择安装到文件夹：**C:\PX4\toolchain\cygwin64\**
+1. 选择安装默认的 Cygwin 基础包和以下附加包的最新可用版本:
 
-   * **Category:Packagename**
-   * Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
+   * **类别:Packagename**
+   * Devel:cmake (3.3.2 正常工作无告警, 3.6.2有告警但能够正常工作)
    * Devel:gcc-g++
    * Devel:gdb
    * Devel:git
@@ -64,7 +64,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Devel:ninja
    * Devel:patch
    * Editors:xxd
-   * Editors:nano (unless you're the vim pro)
+   * Editors:nano (除非你精通 vim)
    * Python:python2
    * Python:python2-pip
    * Python:python2-numpy
@@ -77,14 +77,14 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Web:wget
 
 :::note
-Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
+不要选择尽可能多的不在这个列表上的软件包，有些软件包冲突和中断构建。
 :::
 
 :::note
-That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
+这就是 [Cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) 批处理做的。
 :::
 
-1. Write up or copy the **batch scripts** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) and [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. 编写或复制 **批处理脚本** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) 和 [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
 
    The reason to start all the development tools through the prepared batch script is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain's folder. This is done by always first calling the script [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) and the desired application like the console after that.
 
