@@ -7,5 +7,5 @@
 :::
 
 :::warning
-The environments and tools in this section are rarely tested and may not work. You should not use these unless you are and expert with the environment and capable of debugging the environment yourself.
+本章节中的环境和工具很少测试，可能无法工作。 除非您是开发环境专家并且能够自己调试环境，否则不要使用这些工具和环境。
 :::
