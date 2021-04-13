@@ -1,15 +1,15 @@
-# Windows Cygwin Development Environment (Maintenance Instructions)
+# Windows Cygwin 开发环境 (维护说明)
 
-This topic explains how to construct and extend the development environment used for the supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
+本主题解释了如何构建和扩展支持的 [基于Cygwin的Windows开发环境](../dev_setup/dev_env_windows_cygwin.md) 的开发环境。
 
 
-## Additional Information
+## 附加信息
 
 <a id="features"></a>
 
-### Features / Issues
+### 特性/问题
 
-The following features are known to work (version 2.0):
+以下已知正常功能 (版本 2.0):
 
 * Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
 * Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
