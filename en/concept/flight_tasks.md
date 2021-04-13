@@ -90,7 +90,7 @@ The instructions below might be used to create a task named *MyTask*:
    bool FlightTaskMyTask::activate(vehicle_local_position_setpoint_s last_setpoint)
    {
      bool ret = FlightTask::activate(last_setpoint);
-     PX4_INFO("FlightTaskMyTask activate was called! ret:%d", ret); // check if engaged this mode.
+     PX4_INFO("FlightTaskMyTask activate was called! ret: %d", ret); // report if activation was succesful
      return ret;
    }
 
