@@ -142,18 +142,16 @@ private:
 ```cpp
 #include <uORB/topics/parameter_update.h>
 ```
-在模块驱动程序启动时订阅更新消息，在停止时取消订阅。 `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
+在模块驱动程序启动时订阅更新消息，在停止时取消订阅。 `orb_subscribe()`函数返回的`parameter_update_sub`是一个句柄，我们可以使用该句柄来指向特定订阅。
 ```cpp
-# Subscribe to parameter_update message
+# 订阅 parameter_update 消息
 int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
 ...
-# Unsubscribe to parameter_update messages
-orb_unsubscribe(parameter_update_sub);
-# Unsubscribe to parameter_update messages
+# 取消订阅 parameter_update 消息
 orb_unsubscribe(parameter_update_sub);
 ```
 
-在上面的方法中：
+调用 `parameters_update(parameter_update_sub);` 在代码中定期检查是否有更新(这是模板)：
 ```cpp
 void Module::parameters_update(int parameter_update_sub, bool force)
 {
@@ -181,17 +179,17 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 - 调用 `ModuleParams::updateParams()`。 Then we call `ModuleParams::updateParams()`. This "under the hood" checks if the specific parameter attributes listed in our `DEFINE_PARAMETERS` list need updating, and then does so if needed.
 - This example doesn't call `Module::parameters_update()` with `force=True`. If you had other values that needed to be set up a common pattern is to include them in the function, and call it once with `force=True` during initialisation. 如果您有其他需要设置公共模式的值，则是将它们包含在函数中，并在初始化过程中使用 `force=True` 调用它一次。
 
-C API 可以在模块和驱动程序中使用。
+然后，参数属性 (`_sys_autostart` 和`_att_bias_max` 在本例中) 可用于表示参数，并随时更新参数值的变化。
 
 :::tip
-The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+[Application/Module Template](../modules/module_template.md)使用的是新风格的 C++ API，但是不包括[parameter metadata](#parameter-metadata)。
 :::
 
 ### C API
 
-The C API can be used within both modules and drivers.
+C API 可以在模块和驱动程序中使用。
 
-First include the parameter API:
+首先包括参数 API 头文件:
 ```C
 #include <parameters/param.h>
 ```
