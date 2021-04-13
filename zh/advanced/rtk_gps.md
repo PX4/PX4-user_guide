@@ -2,13 +2,13 @@
 
 [实时载波相位差分定位](https://en.wikipedia.org/wiki/Real_Time_Kinematic) （RTK）能够提供厘米级的定位信息。 这一章节将介绍 RTK 是如何集成到 PX4 中的。
 
-RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
+::::tip RTK GPS *使用说明* 在  [硬件外设 > RTK GPS](../gps_compass/rtk_gps.md)中。 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
 
 ## 综述
 
-在PX4系统中，为达到RTK的差分效果，需要2个RTK GPS模块和一个数据链路。 固定在地面的RTK GPS模块称作基站，另一个在空中的模块称作移动站。
+RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 它依靠一个单一的参考基站站实时校正，这种校正可以与多个流动站一起工作。
 
-Two RTK GPS modules and a datalink are required to setup RTK with PX4. The fixed-position ground-based GPS unit is called the *Base* and the in-air unit is called the *Rover*. The Base unit connects to *QGroundControl* (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message). On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
+PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端的 GPS 单元叫基站（ *Base*），在空中的单元叫移动站（*Rover*）。 基站通过 USB 连接到地面站*QGroundControl*，同时使用数传将 RTCM 校正流传给无人机（使用 MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 消息）。 On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
 
 PX4目前仅支持u-blox M8P单频（L1频点）RTK接收机。
 
