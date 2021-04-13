@@ -8,16 +8,16 @@
 
 RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 它依靠一个单一的参考基站站实时校正，这种校正可以与多个流动站一起工作。
 
-PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端的 GPS 单元叫基站（ *Base*），在空中的单元叫移动站（*Rover*）。 基站通过 USB 连接到地面站*QGroundControl*，同时使用数传将 RTCM 校正流传给无人机（使用 MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 消息）。 On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
+PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端的 GPS 单元叫基站（ *Base*），在空中的单元叫移动站（*Rover*）。 基站通过 USB 连接到地面站*QGroundControl*，同时使用数传将 RTCM 校正流传给无人机（使用 MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 消息）。 在自驾仪上，MAVLink消息包被解包得到RTCM的修正信息，并把这些信息发送给移动站，移动站结合修正信息最终解算得到 RTK 解。
 
-PX4目前仅支持u-blox M8P单频（L1频点）RTK接收机。
+数据链通常能够处理上行数据率为300字节每秒的数据（更详细的信息参考下面的[上行数据速率](#uplink-datarate)章节）。
 
 ## 支持的 RTK GPS 模块
 
-The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
+下面列举的这些设备是经过我们测试的可以在 [用户手册](../gps_compass/rtk_gps.md#supported-rtk-devices) 找到。
 
 :::note
-Most devices come with two variants, a base and a rover. Make sure to select the correct variant.
+大多数设备都有两个变体, 一个基站和一个移动站。 确保选择正确的变体。
 :::
 
 ## 自动配置
