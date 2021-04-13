@@ -93,7 +93,7 @@ make px4_sitl gazebo_typhoon_h480
 vmount test yaw 30
 ```
 
-Note that the simulated gimbal stabilizes itself, so if you send MAVLink commands, set the `stabilize` flags to `false`.
+注意模拟的云台自身稳定，因此如果发送 MAVLink 命令，设置`stabilize`标志为`false`。
 
-![Gazebo Gimbal Simulation](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 云台仿真](../../assets/simulation/gazebo/gimbal-simulation.png)
 
