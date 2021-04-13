@@ -112,7 +112,7 @@ The instructions below might be used to create a task named *MyTask*:
    Usually a parameter is used to select when a particular flight task should be used.
    
    For example, to enable our new `MyTask` in the Manual-Position control sub-mode:
-   - Update `MPC_POS_MODE` ([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/mc_pos_control_params.c)) to add an option for selecting "MyTask" if the parameter==2:
+   - Update `MPC_POS_MODE` ([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/mc_pos_control_params.c#L706-L721)) to add an option for selecting "MyTask" if the parameter has a previously unused value like 5:
      ```
      ...
      * @value 4 Acceleration based input
