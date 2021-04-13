@@ -37,25 +37,25 @@ x   RC_MAP_ACRO_SW [375,514] : 0
 param show -c
 ```
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should *always* use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+您可以使用`param show-for-airframe`来显示所有修改了默认值的参数，只显示当前机架定义的文件（默认导入）。
 
 
 ### 导出和加载参数
 
-标准的 `param save ` 命令将参数存储在当前默认文件中:
+您可以保存自上次将所有参数重置为其固件定义的默认值以来 *touched* 的任何参数（这包括已更改的任何参数，即使这些参数已更改为默认值）。
 
-如果提供了参数，它将将参数存储到这个新位置:
+标准的 `param save ` 命令将参数存储在当前默认文件中:
 ```sh
 param save
 ```
 
-有两个不同的命令可用于 *load* 参数:
+如果提供了参数，它会将参数存储到这个新位置:
 ```sh
 param save /fs/microsd/vtol_param_backup
 ```
 
-`load` 有效地将参数重置为保存参数时的状态（我们说 "有效"，因为保存在文件中的任何参数都将被更新，但其他参数可能具有与参数文件）。
-- `param load ` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
+有两个不同的命令可用于 *load* 参数:
+- `param load` 首先将所有参数完全重置为默认值，然后用存储在文件中的任何值覆盖参数值。
 - `param import ` 只是用文件中的值覆盖参数值，然后保存结果（即有效调用 `param save</0 >）。</li>
 </ul>
 
