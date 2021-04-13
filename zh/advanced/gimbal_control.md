@@ -43,12 +43,12 @@ PX4 包含了一个通用的挂载设备/云台的控制驱动，它含有多种
 ### 自定义混控器配置
 
 :::tip
-Read [Mixing and Actuators](../concept/mixing.md) for an explanation of how mixers work and the format of the mixer file.
+阅读[混控和执行器](../concept/mixing.md)来理解混控器的工作方式和混控器的文件格式。
 :::
 
-下面举例的是挂载设备的基本混控器配置：
+输出自定义可以通过在 SD卡上[创建一个混控器文件](../concept/system_startup.md#starting-a-custom-mixer)名字为`etc/mixers/mount.aux.mix`实现。
 
-台风 H480 的模型带有一个预先配置的仿真云台。
+下面是一个挂载基本混控器的配置。
 
 ```
 # roll
@@ -65,29 +65,30 @@ S: 2 1  10000  10000      0 -10000  10000
 M: 1
 O:      10000  10000      0 -10000  10000
 S: 2 2  10000  10000      0 -10000  10000
+
 ```
 
 
-## 测试
+## SITL
 
-若要运行它，请使用：
+Typhoon H480 型号带有预先配置的模拟云台。
+
+要运行它，请使用：
+```
+make px4_sitl gazebo_typhoon_h480
+```
 
 为了能够在其他模型或者仿真器件下测试挂载驱动，请使用 `vmount start` 去确保驱动正在运行。 然后再配置它的参数。
-```
-make px4_sitl gazebo_typhoon_h480
-```
-
-To just test the mount driver on other models or simulators, make sure the driver runs (using `vmount start`), then configure its parameters.
 
 
 ## 测试
-The driver provides a simple test command - it needs to be stopped first with `vmount stop`. The following describes testing in SITL, but the commands also work on a real device.
+驱动程序提供了一个简单的测试指令。 首先它需要使用 </code>vmount stop</0> 指令来停止。 接下来描述了在SITL中的测试方式，但是这些指令也可以在真实的设备中使用。
 
-Start the simulation with (no parameter needs to be changed for that):
+使用下面这条指令开始仿真（不需要修改任何参数）：
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
-因此，如果发送 mavlink 命令，请将 `stabilize` 标志设置为 false。
+确保无人机是上锁状态，例如使用`命令行 takeoff`， 然后用下面的命令来控制云台（例如）：
 ```
 vmount test yaw 30
 ```
