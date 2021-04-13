@@ -154,5 +154,5 @@ To test the flight task you need to run the vehicle with the task enabled.
 For the example above, this means setting the parameter `MPC_POS_MODE=2`, taking off, and switching the vehicle to [Position mode](../flight_modes/position_mc.md).
 
 :::note
-The task defined above should only be tested on the simulator (the code doesn't actually create setpoints so the vehicle will not fly).
+The task defined above should only be tested on the simulator. The code doesn't actually create setpoints so the vehicle will not fly.
 :::
