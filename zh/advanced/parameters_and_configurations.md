@@ -1,15 +1,15 @@
 # 参数设置
 
-PX4 使用 *param subsystem *（`float` 和 `int32_t` 值的平面表）和文本文件（用于混频器和启动脚本）来存储其配置。
+PX4 使用 *param subsystem *（`float` 和 `int32_t` 类型的二维表）和文本文件（用于混控器和启动脚本）来存储其配置。
 
-本节详细讨论 *param* 子系统。 This section discusses the *param* subsystem in detail. It covers how to list, save and load parameters, and how to define them.
+本节详细讨论 *param* 子系统。 它涵盖如何列出、保存和加载参数，以及如何定义这些参数。
 
 :::tip
-[System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages.
+[系统启动](../concept/system_startup.md) 以及 [机架配置](../dev_airframes/adding_a_new_frame.md) 在其他页面上的详细工作方式。
 :::
 
 
-## 命令行使用方法
+## 命令行用法
 
 `param show ` 命令列出了所有系统参数:
 
