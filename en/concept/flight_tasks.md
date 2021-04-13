@@ -125,11 +125,11 @@ The instructions below might be used to create a task named *MyTask*:
    - Update `MPC_POS_MODE` ([mc_pos_control_params.c](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/mc_pos_control_params.c)) to add an option for selecting "MyTask" if the parameter==2:
      ```
      ...
-     * @value 2 MyTask
-     * @value 3 Smooth position control (Jerk optimized)
+     * @value 4 Acceleration based input
+     * @value 5 MyTask position mode implementation
      * @group Multicopter Position Control
      */
-     PARAM_DEFINE_INT32(MPC_POS_MODE, 3);
+    PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ``` 
    - Add a switch in [MulticopterPositionControl.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mc_pos_control/MulticopterPositionControl.cpp) to enable the task when `MPC_POS_MODE==2`"
      ```cpp
