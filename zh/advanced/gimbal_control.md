@@ -21,20 +21,20 @@ PX4 包含了一个通用的挂载设备/云台的控制驱动，它含有多种
 云台可以参照[MAVLink 外设 (GCS/OSD/Companion)(../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion)中的说明连接到*任何空闲串口*，（也可以参照[串口配置](../peripherals/serial_configuration.md#serial-port-configuration)）。
 
 常见的配置是从飞控的 TELEM2 串口连接到云台（假设 TELEM2 是空闲的）。 您将为此配置设置：
-- [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).
-- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) to **NORMAL**
-- [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) to manufacturer recommended baud rate.
+- [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG)为**TELEM2**（如果`MAV_1_CONFIG`已经用于连接机载计算机，使用`MAV_2_CONFIG`）。
+- [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE)为**NORMAL**
+- [SER_TEL2)BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD)设置为厂家建议的波特率。
 
-This will enable the user to command the gimbal using [MAV_CMD_DO_MOUNT_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL) and [MAV_CMD_DO_MOUNT_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONFIGURE).
+这将使用户能够使用 [MAV_CMD_DO_MOUNT_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONTROL) 和 [MAV_CMD_DOUNT_CONFIGURE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_MOUNT_CONFIGURE) 来命令云台。
 
 
-## 软件在环仿真（ SITL ）
+## 飞控云台（MNT_MODE_OUT=AUX）
 
-The gimbal can be connected to the Flight controller AUX ports by setting the output mode to `MNT_MODE_OUT=AUX`.
+可以通过设置输出模式`MNT_MODE_OUT=AUX`，这样云台可以连接到飞控的 AUX 端口。
 
-如果输出模式设置为`AUX`，需要定义混控器文件去重新映射输出引脚，[挂载混控器](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix)会被自动选择（机型配置文件提供了覆盖任何一款的 AUX 混控器）。
+需要一个混控器文件来定义输出引脚的映射，并自动选择[ mount mixer](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix)（这会覆盖机架配置提供的任何 AUX 混控器）。
 
-使用下面这条指令开始仿真（不需要修改任何参数）：
+输出分配如下所示：
 - **AUX1**: Pitch
 - **AUX2**: Roll
 - **AUX3**: Yaw
