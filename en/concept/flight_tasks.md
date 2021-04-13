@@ -24,7 +24,7 @@ The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4de
 ## Creating a Flight Task
 
 Flight tasks are [PX4 modules/applications](../modules/hello_sky.md) that contain a task definition class derived from [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/flight_tasks/tasks/FlightTask/FlightTask.hpp).
-Programmers typically reimplement the `activate()` and `update()` virtual methods.
+Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior.
 The `activate()` method is called with the setpoint from the previous task when the task is switched to, while `update()` is called during execution of the control loop to implement the task.
 
 By convention tasks are contained in a sub folder of [PX4-Autopilot/src/lib/flight_tasks/tasks/](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/flight_tasks/tasks) (named after the task), and the source files are named with the prefix "FlightTask".
