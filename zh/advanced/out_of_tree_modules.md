@@ -68,8 +68,8 @@
 
 ## 构建外部模块和 uORB 消息
 
-对于后续增量构建，不需要指定` EXTERNAL_MODULES_LOCATION `。
+执行 `make px4_sitl EXTERNAL_MODULES_LOCATION=<path>`。
 
-Any other build target can be used, but the build directory must not yet exist. If it already exists, you can also just set the *cmake* variable in the build folder.
+任何其他构建目标都可以使用，但构建目录尚不存在。 如果它已经存在，您还可以在构建文件夹中设置*cmake*变量。
 
-For subsequent incremental builds `EXTERNAL_MODULES_LOCATION` does not need to be specified.
+对于随后的递增版本 `EXTERNAL_MODULES_LOCATION` 无需指定。
