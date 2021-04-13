@@ -105,7 +105,7 @@ C++ API 提供像*类属性*一样的宏来声明参数。 您添加了一些"bo
 #include <px4_platform_common/module_params.h>
 ```
 
-Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+从 `ModuleParams` 派生类，并使用 `DEFINE_PARAMETERS` 指定参数李彪及其关联的参数属性。 参数的名称必须与其参数元数据定义相同。
 ```cpp
 class MyModule : ..., public ModuleParams
 {
@@ -136,13 +136,13 @@ private:
 };
 ```
 
-首先包括访问 uORB parameter_update 消息的标头:
+使用模板更新 CPP 文件，以检查与参数更新相关的 uORB 消息。
 
-First include the header to access the uORB parameter_update message:
+首先包含能够访问 uORB parameter_update 消息的头文件：
 ```cpp
 #include <uORB/topics/parameter_update.h>
 ```
-Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
+在模块驱动程序启动时订阅更新消息，在停止时取消订阅。 `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
 ```cpp
 # Subscribe to parameter_update message
 int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
