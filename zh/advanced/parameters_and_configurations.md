@@ -89,11 +89,11 @@ param import /fs/microsd/vtol_param_backup
 
 有单独的 C 和 C++ 的 API 可用于从 PX4 模块和驱动程序中访问参数值。
 
-One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制，可与参数值的更改（即来自 GCS 的更改）同步。
 
-此外，C++ 版本在 RAM 方面也具有更好的类型安全性和更少的开销。 In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+同步很重要，因为参数可以随时更改为另一个值。 您的代码应该 *始终* 使用参数存储中的当前值。 如果无法获取最新版本，则需要在更改参数后重新启动（使用 `@reboot_required` 元数据设置此要求）。
 
-The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date! 您可以添加一些 "样板" 代码，以定期侦听与 *any* 参数更新相关的 [uORB topic](../middleware/uorb.md) 中的更改。
+此外，C++ 版本有更好的类型安全和更小的 RAM 开销。 缺点是参数名称必须在编译时知道，而 C 语言 API 可以将动态创建的名称作为字符串。
 
 
 ### C++ API
@@ -173,9 +173,6 @@ void Module::parameters_update(int parameter_update_sub, bool force)
         // this class attributes need updating (and do so). 
         updateParams();
     }
-} 
-        updateParams();
-    }
 }
 ```
 然后，参数属性 (`_sys_autostart` 和 `_att_bias_max` 在本例中) 可用于表示参数，并将在参数值更改时进行更新。
@@ -210,11 +207,11 @@ If `PARAM_NAME` was declared in parameter metadata then its default value will b
 
 `param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
 ```cpp
-# Get the handle to the parameter
+# 获取参数句柄
 param_t my_param_handle = PARAM_INVALID;
 my_param_handle = param_find("PARAM_NAME");
 
-# Query the value of the parameter when needed
+# 查询我们需要的参数
 int32_t my_param = 0;
 param_get(my_param_handle, &my_param);
 ```
@@ -248,16 +245,6 @@ Parameter metadata sections look like the following examples:
  * Pitch P gain
  *
  * Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.
- *
- * @unit 1/s
- * @min 0.0
- * @max 10
- * @decimal 2
- * @increment 0.0005
- * @reboot_required true
- * @group Multicopter Attitude Control
- */
-PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
  *
  * @unit 1/s
  * @min 0.0
@@ -314,7 +301,7 @@ The lines in the comment block are all optional, and are primarily used to contr
  */
 ```
 
-### YAML Metadata
+### YAML 元数据
 
 :::note
 At time of writing YAML parameter definitions cannot be used in *libraries*.
