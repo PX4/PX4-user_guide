@@ -96,7 +96,7 @@ The instructions below might be used to create a task named *MyTask*:
 
    bool FlightTaskMyTask::update()
    {
-     PX4_INFO("FlightTaskMyTask update was called!"); // check updated.
+     PX4_INFO("FlightTaskMyTask update was called!"); // report update
      return true;
    }
    ```
