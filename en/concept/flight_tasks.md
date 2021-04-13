@@ -131,7 +131,7 @@ The instructions below might be used to create a task named *MyTask*:
      * @value 5 MyTask position mode implementation
      * @group Multicopter Position Control
      */
-    PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
+     PARAM_DEFINE_INT32(MPC_POS_MODE, 4);
      ``` 
    - Add a case for your new option in the switch for the parameter [FlightModeManager.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/FlightModeManager.cpp#L266-L285) to enable the task when `_param_mpc_pos_mode` has the right value.
      ```cpp
