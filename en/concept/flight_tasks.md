@@ -4,7 +4,7 @@
 
 ## Video
 
-The following vidoes provide an overview of flight tasks in PX4.
+The following videos provide an overview of flight tasks in PX4.
 The first covers the state of tasks in PX4 v1.9.
 The second is an update, which covers the changes in PX4 v1.11.
 
@@ -156,4 +156,3 @@ For the example above, this means setting the parameter `MPC_POS_MODE=2`, taking
 :::note
 The task defined above should only be tested on the simulator (the code doesn't actually create setpoints so the vehicle will not fly).
 :::
-
