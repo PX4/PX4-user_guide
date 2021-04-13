@@ -194,16 +194,16 @@ C API 可以在模块和驱动程序中使用。
 #include <parameters/param.h>
 ```
 
-Then retrieve the parameter and assign it to a variable (here `my_param`), as shown below for `PARAM_NAME`. The variable `my_param` can then be used in your module code.
+然后检索参数并将其分配到一个变量 (这里 `my_param`)，如下文所示 `PARAM_NAME`。 变量 `my_param` 然后可以用于您的模块代码。
 ```C
 int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
 :::note
-If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed. 通常，它与关联的模块一起存储。
+如果参数元数据中声明了 `PARAM_NAME` 则将设置其默认值。 上面的调用来查找参数应该始终成功。 通常，它与关联的模块一起存储。
 
-`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
+`param_find()` 是一个“昂贵”操作，返回一个可以被 `param_get()` 使用的句柄。 如果要多次读取该参数，可以缓存句柄，并在需要时在 `param_get()` 中使用
 ```cpp
 # 获取参数句柄
 param_t my_param_handle = PARAM_INVALID;
@@ -217,10 +217,10 @@ param_get(my_param_handle, &my_param);
 
 ## 参数元数据
 
-PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
+PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，并在固件中设置的每个参数的默认值。
 
 :::tip
-Correct metadata is critical for good user experience in a ground station.
+正确的元数据对于地面站的良好用户体验至关重要。
 :::
 
 Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
