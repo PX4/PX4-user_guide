@@ -25,7 +25,9 @@ The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4de
 
 A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode.
 Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior.
-The `activate()` method is called with the setpoint from the previous task when the task is switched to, while `update()` is called during execution of the control loop to implement the task.
+The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
+
+`update()` is called on every loop iteration during the execution and contains the core behavior implementation producing setpoints.
 
 By convention tasks are contained in a sub folder of [PX4-Autopilot/src/lib/flight_tasks/tasks/](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/flight_tasks/tasks) (named after the task), and the source files are named with the prefix "FlightTask".
 
