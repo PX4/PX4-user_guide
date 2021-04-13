@@ -11,16 +11,16 @@ PX4 使用 *param subsystem *（`float` 和 `int32_t` 类型的二维表）和�
 
 ## 命令行用法
 
-`param show ` 命令列出了所有系统参数:
+PX4 [系统控制台](../debug/system_console.md)提供了[参数](../modules/modules_command.md#param)工具，可用于设置参数，读取参数值，保存参数，以及导出和还原参数。
 
 ### 获取和设置参数
 
-为了更有选择性，可以使用带有通配符 "*" 的部分参数名称：
+`param show` 命令列出所有系统参数：
 ```sh
 param show
 ```
 
-可以使用 `-c` 标志显示已更改的所有参数（从其默认值）：
+为了更具选择性，参数明可以使用通配符 "*"：
 ```sh
 nsh> param show RC_MAP_A*
 Symbols: x = used, + = saved, * = unsaved
@@ -32,7 +32,7 @@ x   RC_MAP_ACRO_SW [375,514] : 0
  723 parameters total, 532 used.
 ```
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have changed been changed, even if they have been changed back to their default).
+可以使用 `-c` 标志显示已更改的所有参数（从其默认值）：
 ```sh
 param show -c
 ```
