@@ -42,7 +42,7 @@ ANSI 音乐在 ANSI BBS 系统中很受欢迎，因此最好的编辑工具是 D
    - 按 **F7**, 向右滚动旋钮，在输出列表选择格式，获取 ANSI。 文件将导出到 Melody 主目录的 *root*（具有相同名称和文件类型特定扩展名）。
 1. 打开文件。 输出可能看起来像这样：
 
-   ![ANSI Output from file](../../assets/tunes/tune_musicmaker_ansi_output.png)
+   ![来自文件的 ANSI 输出](../../assets/tunes/tune_musicmaker_ansi_output.png)
 
 1. 可以在 PX4 中播放的字符串是  `MNT` 和 `P64`: `150L1O3DL16CL32<B>C<AEL16A`
 
@@ -55,20 +55,20 @@ tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
 ```
 
 :::note
-Out of the box, the `tune_control` is only present on real hardware (not the simulator).
+开箱即用产品中，tune_control 只存在于实际硬件上（而不是模拟器）。
 :::
 
 ## 正在替换已存在的乐曲
 
-待开发
+乐曲定义在 [tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)。
 
-If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in `PX4_DEFINE_TUNE`.
+如果你只需要替换现有的乐曲，可以在自己的 fork 中替换文件， 并更新 `PX4_DEFINE_TUNE` 中定义的乐曲字符串。
 
 
 ## 添加新乐曲
 
 
-TBD.
+待开发
 
 
 <!-- 
