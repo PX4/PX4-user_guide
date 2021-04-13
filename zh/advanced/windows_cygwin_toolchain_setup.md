@@ -128,7 +128,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
 :::
 
 1. 下载、构建并添加*genromfs*到环境变量:
-   * Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
+   * 克隆源代码到文件夹 **C:\PX4\toolchain\genromfs\genromfs-src** 使用
      ```
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
@@ -140,10 +140,10 @@ git clone https://github.com/PX4/windows-toolchain PX4
      make all
     ```
 
-    * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+    * 复制生成的二进制文件**genromfs.exe**到**C:\PX4\toolchain\genromfs**同级目录下
 
 :::note
-This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
+这是工具链在[genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat)中做的操作。
 :::
 
-1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. 确保所有已安装组件的二进制文件夹都正确配置在 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)配置的</code>PATH</0>环境变量中。
