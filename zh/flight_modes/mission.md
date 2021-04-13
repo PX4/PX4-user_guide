@@ -164,7 +164,7 @@
 <ul>
 <li>L1 距离是根据两个参数计算的： <a href="../advanced_config/parameter_reference.md#FW_L1_DAMPING">FW_L1_DAMPING</a> 和 <a href="../advanced_config/parameter_reference.md#FW_L1_PERIOD">FW_L1_PERIOD</a>，还有当前地速。</li>
 <li>默认情况下，约 70米。</li>
-<li>方程式： 
+<li>方程式: 
 $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}<em>{ {xy}</em>{ground} } \right \|$$</li>
 </ul></li>
 </ul>
