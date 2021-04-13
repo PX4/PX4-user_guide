@@ -5,7 +5,7 @@
 ## Video
 
 The following videos provide an overview of flight tasks in PX4.
-The first covers the state of tasks in PX4 v1.9.
+The first covers the state of the flight task framework in PX4 v1.9.
 The second is an update, which covers the changes in PX4 v1.11.
 
 #### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
