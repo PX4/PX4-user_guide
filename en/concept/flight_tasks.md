@@ -79,7 +79,7 @@ The instructions below might be used to create a task named *MyTask*:
      bool activate(vehicle_local_position_setpoint_s last_setpoint);
 
    private:
-     float _origin_z = 0.0f;
+     float _origin_z{0.f};
    };
    ```
 4. Update the cpp file as appropriate.
