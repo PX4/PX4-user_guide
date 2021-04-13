@@ -22,33 +22,34 @@ PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端�
 
 ## 自动配置
 
-The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to *QGroundControl* or the autopilot).
+PX4 GPS 栈自动设置GPS 模块，通过UART或USB发送和接收正确的消息，取决于模块的连接位置 (到 *QGroundControl* 或自驾仪)。
 
-QGroundControl配置RTK基站输出依据RTCM3.2框架，每帧为1 Hz：
+一旦自动驾驶仪接收到` GPS_RTCM_DATA ` MAVLink 消息，它就会自动将 RTCM 数据转发到连接的 GPS模块。
 
 :::note
-The u-blox U-Center RTK module configuration tool is not needed/used!
+u-blox U-Center RTK 模块配置工具不需要/使用！
 :::
 
-The RTCM Base Position message (1005) is of length 22 bytes, while the others are all of variable length depending on the number of visible satellites and the number of signals from the satellite (only 1 for L1 units like M8P). Since at a given time, the *maximum* number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient. In practice, this means that support for new protocols and/or messages only need to be added to one place.
+:::note
+*QGroundControl* 和自驾仪固件共享相同 [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers)。 In practice, this means that support for new protocols and/or messages only need to be added to one place.
 :::
 
 ### RTCM 报文
 
-QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz, unless otherwise stated:
+QGroundControl 配置RTK 基地站输出以下 RTCM3.2 帧, 每个帧均为 1 Hz, 除非另有说明：
 
-- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
-- **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1230** - GLONASS code-phase biases.
-- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
-- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1005** - 天线参考点的站坐标 XYZ (基站位置), 0.2 Hz。
+- **1077** - 完整的 GPS 伪距、载波相、多普勒和信号强度(高分辨率)。
+- **1087** - 所有 GLONASS 伪距、载波相、多普勒和信号强度(高分辨率)。
+- **1230** - GLONASS 代码相位差。
+- **1097** - 完整伽利略伪距、运载相、多普勒和信号强度(高分辨率)
+- **1127** - 完整的北斗伪距，载波相位，多普勒和信号强度(高分辨率)
 
 ## 上行数据速率
 
-The raw RTCM messages from the base are packed into a MAVLink `GPS_RTCM_DATA` message and sent over the datalink. The maximum length of each MAVLink message is 182 bytes. Depending on the RTCM message, the MAVLink message is almost never completely filled.
+来自基础的原始 RTCM 消息被打包到一个 MAVLink `GPS_RTCM_DATA` 消息，并且通过数据链接发送。 MAVLink 消息的最大长度是182字节。 根据RTCM的信息类型，MAVLink信息是不会填满的。
 
-MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console: 必须注意确保数传链在整个过程中使用 MAVLink 2。
+RTCM 基础位置消息(1005)长度为 22 字节， 而其他卫星的长度则因可见卫星的数量和卫星信号的数量而异（M8P等L1单元只有一个）。 必须注意确保数传链在整个过程中使用 MAVLink 2。
 
 If *MAVLink 1* is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length. As a result the approximate uplink requirement is around 700+ bytes per second. This can lead to link saturation on low-bandwidth half-duplex telemetry modules (e.g. 3DR Telemetry Radios).
 
