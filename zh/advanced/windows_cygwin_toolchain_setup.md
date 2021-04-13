@@ -98,33 +98,33 @@ git clone https://github.com/PX4/windows-toolchain PX4
    ```
 
 :::note
-That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
+这是脚本 [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat)做的操作。
 :::
 
 1. 下载 [**ARM GCC 编译器**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) zip 二进制压缩包，并将内容解压缩到文件夹 `C:\PX4\toolchain\gcc-arm`。
 
 :::note
-This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
+这是在脚本[gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat)中工具链做的操作。
 :::
 
 1. 安装 JDK
-   * Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
-   * Because sadly there is no portable archive containing the binaries directly you have to install it.
-   * Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
-   * You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
+   * 从 [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) 或 [AdoptOpenJDK](https://adoptopenjdk.net/) 下载 Java 14。
+   * 不幸的是，没有包含二进制文件的便携存档，您必须直接安装它。
+   * 找到二进制文件并将其移动/复制到 **C:\PX4\toolchain\jdk**
+   * 您可以再次从 Windows 系统卸载工具包，我们只需要工具链中的二进制工具。
 
 :::note
-This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
+这是工具链在: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat) 中所起的作用。
 :::
 
 1. 下载 Windows的二进制文件压缩包[**Apache Ant**](https://ant.apache.org/bindownload.cgi) ，并将内容解包到文件夹 `C:\PX4\toolchain\apache-ant`
 
 :::tip
-Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+请确保您在下载的归档中没有其他文件夹层。
 :::
 
 :::note
-This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
+这是工具链在[apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat)所做的操作。
 :::
 
 1. 下载、构建并添加*genromfs*到环境变量:
