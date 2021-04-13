@@ -98,11 +98,11 @@ API 之间的一个重要区别是，C++ 版本具有更有效的标准化机制
 
 ### C++ API
 
-The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API 提供像*类属性*一样的宏来声明参数。 您添加了一些"boilerplate"代码来定期监听 [uORB topic](../middleware/uorb.md) 与 *任意* 参数更新相关的更改。 然后，框架代码（在不可见的情况下）处理跟踪 uORB 消息，这些消息会影响您的参数属性并使它们保持同步。 在代码的其余部分中，您只能使用定义的参数属性，它们将始终是最新的！
 
-First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
+首先在你的模块或驱动类头文件中包含 **px4_platform_common/module_params.h**（以获取 `DEFINE_PARAMETERS`宏）：
 ```cpp
-#include <px4_module_params.h>
+#include <px4_platform_common/module_params.h>
 ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
