@@ -5,12 +5,12 @@ External modules provide a convenient mechanism for developers to manage/group p
 本主题说明如何将外部（“out of tree”）模块添加到PX4编译中。
 
 :::tip
-We encourage you to contribute your changes into PX4, where possible!
+我们鼓励您在可能的情况下将您的更改贡献到 PX4 !
 :::
 
 ## 用法
 
-To create an external module:
+要创建外部模块：
 
 - 创建*外部目录*目录以对外部模块进行分组：
   - This can be located anywhere outside of the **Firmware** tree.
