@@ -223,16 +223,16 @@ PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，�
 正确的元数据对于地面站的良好用户体验至关重要。
 :::
 
-Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
+参数元数据可以储存在源文件目录树的任意位置中，作为 **.c** 或 **.yaml** 参数定义(YAML 定义较新，较灵活)。 通常，它与关联的模块一起存储。
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
+构建系统提取元数据（使用命令`make parameters_metadata`）来构建[parameter reference](../advanced_config/parameter_reference.md)，并且参数信息供地面站使用。
 
 :::warning
-After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+添加了一个 *新的* 参数文件后，你应该在产生新参数（被添加的参数文件作为*cmake*配置步骤中的一部分，在清理构建和 cmake 被修改后会被添加）之前调用`make clean`。
 :::
 
 
-### c 参数 Metadata
+### c 参数元数据
 
 The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
 
