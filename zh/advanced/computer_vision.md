@@ -45,7 +45,7 @@ VIO 使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)中的视
 
 [光流](../sensor/optical_flow.md)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
 
-For information about optical flow see:
+有关光流的信息，请参阅：
 - [光流](../sensor/optical_flow.md)
   - [PX4Flow 智能摄像机](../sensor/px4flow.md)
 - [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
