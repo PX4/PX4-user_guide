@@ -139,13 +139,15 @@ The instructions below might be used to create a task named *MyTask*:
      // manual position control
      ...
      switch (_param_mpc_pos_mode.get()) {
-       case 1:
-          error =  _flight_tasks.switchTask(FlightTaskIndex::ManualPositionSmooth);
+       ...
+       case 3:
+          error = switchTask(FlightTaskIndex::ManualPositionSmoothVel);
           break;
-
-       case 2: //Add option for new task: MyTask
+       case 5: // Add case for new task: MyTask
           error =  _flight_tasks.switchTask(FlightTaskIndex::MyTask);
           break;
+	case 4:
+	....
      ...
      ```
   
