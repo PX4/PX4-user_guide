@@ -43,7 +43,7 @@ The instructions below might be used to create a task named *MyTask*:
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
 3. Update **CMakeLists.txt** for the new task
-   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [AutoMapper/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/flight_tasks/tasks/AutoMapper/CMakeLists.txt)
+   - Copy the contents of the **CMakeLists.txt** for another task - e.g. [Orbit/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/Orbit/CMakeLists.txt)
    - Update the copyright to the current year
      ```cmake   
      ############################################################################
