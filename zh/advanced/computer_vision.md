@@ -27,15 +27,15 @@ MoCap 通常用于在没有 GPS 的情况下导航无人机（例如室内），
 
 ## 视觉惯性测距法 {#vio}
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors) or unreliable (e.g. when flying under a bridge).
+视觉惯性测距（VIO）用于估算 3D *姿态* （位置和方向）和相对于*本地*起始位置的无人机运动*速度*。 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给无人机导航。
 
-[Optical Flow](https://docs.px4.io/en/sensor/optical_flow.html) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+VIO 使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)中的视觉信息来估算无人机*姿态*，融合 IMU 的惯性测量信息（为了矫正因不良的图像捕获导致的机身快速移动错误）。
 
-:::note
-On difference between VIO and [MoCap](#mocap) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
+:::note VIO
+和 [MoCap](#mocap) 之间的区别在于 VIO 相机或者 IMU 是基于无人机的，并且额外提供速度信息。
 :::
 
-For information about configuring VIO on PX4 see:
+关于在 PX4 上配置 VIO 的信息，请参阅：
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 Setup guide](../peripherals/camera_t265_vio.md)
 - [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
