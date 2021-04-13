@@ -234,9 +234,9 @@ PX4 使用广泛的参数元数据系统来驱动面向用户的参数表示，�
 
 ### c 参数元数据
 
-The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
+传统方法是将定义的参数元数据写在一个扩展名为**.c**的文件中（在撰写本文时，这是源代码中最常用的方法）。
 
-Parameter metadata sections look like the following examples:
+参数元数据部分看起来像下面的例子：
 
 ```cpp
 /**
@@ -270,20 +270,12 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ```
 
-The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
+末尾的 `PARAM_DEFINE_*` 宏指定参数的类型 (`PARAM_DEFINE_FLOAT` 或 `PARAM_DEFINE_INT32`)、参数的名称 (必须与代码中使用的名称匹配) 以及固件中的默认值。
 
-The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)).
+注释块中的行都是可选的，主要用于控制地面站内的显示和编辑选项。 下面给出了每行的用途（有关详细信息，请参阅 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)）。
 
 ```cpp
 /**
- * <title>
- *
- * <longer description, can be multi-line>
- *
- * @unit <the unit, e.g. m for meters>
- * @min <the minimum sane value. Can be overridden by the user>
- * @max <the maximum sane value. Can be overridden by the user>
- * @decimal <the minimum sane value. /**
  * <title>
  *
  * <longer description, can be multi-line>
@@ -302,16 +294,16 @@ The lines in the comment block are all optional, and are primarily used to contr
 ### YAML 元数据
 
 :::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
+在写入 YAML 参数定义时，无法在 *libraries* 中使用。
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+YAML 元数据是为了完全替换 **.c** 文件定义。 它支持所有相同的元数据，以及多实例定义等新功能。
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
+- YAML 参数元数据架构在此处： [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)。
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
 
 
-#### Multi-Instance (Templated) Meta Data
+#### 多实例（模块化）元数据
 
 Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
 
