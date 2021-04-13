@@ -86,9 +86,9 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 1. 编写或复制 **批处理脚本** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) 和 [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
 
-   The reason to start all the development tools through the prepared batch script is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain's folder. This is done by always first calling the script [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) and the desired application like the console after that.
+   使用预先准备好的批处理脚本启动开发环境的原因是，这些脚本预配置了程序使用工具链所在目录下的绿色版 Cygwin 环境变量。 通过始终先调用脚本[** setup-environment.bat **](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)和像控制台这样所需的应用程序来完成此操作。
 
-   The script [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) locally sets environmental variables for the workspace root directory `PX4_DIR`, all binary locations `PATH`, and the home directory of the unix environment `HOME`.
+   脚本[setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)用于设置工作区根目录 `PX4_DIR`的环境变量，和 unix 环境中的 `HOME`目录。
 
 1. 通过打开并运行 Cywin 工具链控制台（双击**run-console.bat**）来添加必要的 **python packages**。
    ```
