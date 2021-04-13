@@ -90,7 +90,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
    The script [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) locally sets environmental variables for the workspace root directory `PX4_DIR`, all binary locations `PATH`, and the home directory of the unix environment `HOME`.
 
-1. Add necessary **python packages** to your setup by opening the Cygwin toolchain console (double clicking **run-console.bat**) and executing
+1. 通过打开并运行 Cywin 工具链控制台（双击**run-console.bat**）来添加必要的 **python packages**。
    ```
    pip2 install toml
    pip2 install pyserial
@@ -101,13 +101,13 @@ git clone https://github.com/PX4/windows-toolchain PX4
 That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
 :::
 
-1. Download the [**ARM GCC compiler**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\gcc-arm`.
+1. 下载 [**ARM GCC 编译器**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) zip 二进制压缩包，并将内容解压缩到文件夹 `C:\PX4\toolchain\gcc-arm`。
 
 :::note
 This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
 :::
 
-1. Install the JDK:
+1. 安装 JDK
    * Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
    * Because sadly there is no portable archive containing the binaries directly you have to install it.
    * Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
@@ -117,7 +117,7 @@ This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github
 This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
 :::
 
-1. Download [**Apache Ant**](https://ant.apache.org/bindownload.cgi) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\apache-ant`.
+1. 下载 Windows的二进制文件压缩包[**Apache Ant**](https://ant.apache.org/bindownload.cgi) ，并将内容解包到文件夹 `C:\PX4\toolchain\apache-ant`
 
 :::tip
 Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
@@ -127,14 +127,14 @@ Make sure you don't have an additional folder layer from the folder which is ins
 This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
 :::
 
-1. Download, build and add *genromfs* to the path:
+1. 下载、构建并添加*genromfs*到环境变量:
    * Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
      ```
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
-   * Compile it with:
+   * 编译:
      ```
      cd genromfs-src
      make all
