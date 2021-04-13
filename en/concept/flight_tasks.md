@@ -33,7 +33,7 @@ By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/f
 
 The instructions below might be used to create a task named *MyTask*:
 
-1. Create a directory for the new flight task in [PX4-Autopilot/src/lib/flight_tasks/tasks/](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/flight_tasks/tasks).
+1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks).
    By convention the directory is named after the task, so we will call it **/MyTask**.
    ```
    mkdir PX4-Autopilot/src/lib/flight_tasks/tasks/MyTask
