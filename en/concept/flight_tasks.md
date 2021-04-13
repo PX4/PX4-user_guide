@@ -102,22 +102,10 @@ The instructions below might be used to create a task named *MyTask*:
    ```
 5. Add the new task to the list of tasks to be built in [PX4-Autopilot/src/modules/flight_mode_manager/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/CMakeLists.txt#L40):  
    ```
-   # add core flight tasks to list
-   list(APPEND flight_tasks_all
-     ManualAltitude
-     ManualAltitudeSmooth
-     ManualAltitudeSmoothVel
-     ManualPosition
-     ManualPositionSmooth
-     ManualPositionSmoothVel
-     AutoLineSmoothVel
-     AutoFollowMe
-     Offboard
-     Failsafe
-     Descend
-     Transition
-     MyTask
-     ${flight_tasks_to_add}
+   list(APPEND flight_tasks_to_add
+      Orbit
+      MyTask
+   )
    )
    ```
 6. Update a flight mode to ensure that the task is called. 
