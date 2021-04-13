@@ -29,7 +29,7 @@ The `activate()` method is called when switching to the task and allows to initi
 
 `update()` is called on every loop iteration during the execution and contains the core behavior implementation producing setpoints.
 
-By convention tasks are contained in a sub folder of [PX4-Autopilot/src/lib/flight_tasks/tasks/](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/flight_tasks/tasks) (named after the task), and the source files are named with the prefix "FlightTask".
+By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
 
 The instructions below might be used to create a task named *MyTask*:
 
