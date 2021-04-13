@@ -300,25 +300,25 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 YAML 元数据是为了完全替换 **.c** 文件定义。 它支持所有相同的元数据，以及多实例定义等新功能。
 
 - YAML 参数元数据架构在此处： [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)。
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+- 正在使用的 YAML 定义示例可以在 MAVLink 参数定义中找到： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)。
 
 
 #### 多实例（模块化）元数据
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
+[YAML 参数定义](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 支持模块化参数定义(不支持模块化参数代码)。
 
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+YAML 允许使用 `${i}` 在参数名，描述等中定义实例数。 例如，下面将生成 MY_PARAM_1_RATE、MY_PARAM_2_RATE 等。
 ```
 MY_PARAM_${i}_RATE:
             description:
                 short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes.
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+以下 YAML 定义提供起始和结束索引。
+- `num_instances` (默认是1): 要生成的实例数 (>=1)
+- `instance_start` (默认是 0): 第一个实例编号。 如果是 0， `${i}` 扩展到 [0, N-1]`.
 
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
+关于完整的示例，请参阅MAVLink参数定义： [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
 
 ## 更多信息
 
