@@ -51,7 +51,7 @@ The instructions below might be used to create a task named *MyTask*:
      #   Copyright (c) 2021 PX4 Development Team. All rights reserved.
      #
      ```
-   - Modify the code to reflect the new task - e.g. replace `FlightTaskAutoMapper` with `FlightTaskMyTask`.
+   - Modify the code to reflect the new task - e.g. replace `FlightTaskOrbit` with `FlightTaskMyTask`.
      The code will look something like this:
      ```cmake 
      px4_add_library(FlightTaskMyTask
