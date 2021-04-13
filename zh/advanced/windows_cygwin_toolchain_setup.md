@@ -11,31 +11,31 @@
 
 以下已知正常功能 (版本 2.0):
 
-* Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
-* Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
-* Style check with *astyle* (supports the command: `make format`)
-* Command line auto completion
-* Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. **C:\PX4\** and uses a temporary local path).
-* The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+* 使用 jMAVSim 编译和运行 SITL，其性能明显优于虚拟机 (它生成一个原生windows 二进制 ** px4.exe **)。
+* 编译和上传 NuttX 二进制文件（例如：px4_fmu-v2 和 px4_fmu-v4）
+* 使用 *astyle* 进行格式检查 (支持命令: `make format`)
+* 命令行自动补全
+* 绿色安装 安装程序不会影响您的系统和全局路径设置 (它只修改选定的安装目录, 例如 ** C:\PX4 \ ** 并使用临时本地路径变量)。
+* 安装程序支持更新到最新版本，同时保持您的个人更改在工具链文件夹中。
 
-Omissions:
-* Simulation: Gazebo and ROS are not supported.
-* Only NuttX and JMAVSim/SITL builds are supported.
-* [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
+补充：
+* 仿真模拟：暂不支持 Gazebo 和 ROS。
+* 仅支持 NuttX 和 JMAVSim/SITL 构建。
+* [已知问题](https://github.com/orgs/PX4/projects/6) (也用来报告问题)。
 
 <a id="script_setup"></a>
 
-### Shell Script Installation
+### Shell 脚本安装
 
-You can also install the environment using shell scripts in the Github project.
+你还可以使用 Github 项目中的 shell 脚本进行开发环境的安装。
 
-1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
-1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
+1. 确保您安装了 [Windows 版本的 Git](https://git-scm.com/download/win)。
+1. 将代码仓库 https://github.com/PX4/windows-toolchain 克隆到要安装工具链的位置。 打开 `Git Bash` 并执行以下操作，打开后会自动进入默认的安装目录：
 ```
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
-1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
+1. 如果要安装所有组件，请进入到新克隆的代码仓库文件夹， 然后双击位于文件夹 `toolchain`目录中的脚本 ` install-all-components.bat`。 If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
 1. Continue with [Getting Started](#getting_started) (or [Usage Instructions](#usage_instructions))
 
 
