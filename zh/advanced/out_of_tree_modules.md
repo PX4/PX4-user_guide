@@ -1,8 +1,8 @@
 # 外部模块（Out-of-Tree）
 
-External modules provide a convenient mechanism for developers to manage/group proprietary modules that they want add to (or update in) PX4 firmware. External modules can use the same includes as internal modules and can interact with internal modules via uORB. 外部模块可以使用与内部模块相同的includes，并可以通过uORB与内部模块交互。
+外部模块为开发人员提供了一种便捷的机制，可以管理/分组他们想要添加（或更新）PX4 固件的专有模块。 外部模块可以使用与内部模块相同的includes，并可以通过uORB与内部模块交互。
 
-本主题说明如何将外部（“out of tree”）模块添加到PX4编译中。
+本主题说明如何将外部（“out of tree”）模块添加到 PX4 编译中。
 
 :::tip
 我们鼓励您在可能的情况下将您的更改贡献到 PX4 !
@@ -13,8 +13,8 @@ External modules provide a convenient mechanism for developers to manage/group p
 要创建外部模块：
 
 - 创建*外部目录*目录以对外部模块进行分组：
-  - This can be located anywhere outside of the **Firmware** tree.
-  - It must have the same structure as **Firmware** (i.e. it must contain a directory called **src**).
+  - 这个可以放在**PX4-Autopilot**目录树以外的任何地方。
+  - 它必须具有与**PX4-Autopilot**相同的目录结构（即必须包含**src**目录）。
   - 稍后我们使用` EXTERNAL_MODULES_LOCATION `来引用此目录。
 - 将现有模块（例如**examples/px4_simple_app**）复制到外部目录，或直接创建新模块。
 - Rename the module (including `MODULE` in **CMakeLists.txt**) or remove it from the existing Firmware *cmake* build config. This is to avoid conflicts with internal modules. This is to avoid conflicts with internal modules.
