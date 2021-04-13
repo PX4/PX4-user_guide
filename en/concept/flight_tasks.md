@@ -23,7 +23,7 @@ The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4de
 
 ## Creating a Flight Task
 
-Flight tasks are [PX4 modules/applications](../modules/hello_sky.md) that contain a task definition class derived from [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/flight_tasks/tasks/FlightTask/FlightTask.hpp).
+A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode.
 Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior.
 The `activate()` method is called with the setpoint from the previous task when the task is switched to, while `update()` is called during execution of the control loop to implement the task.
 
