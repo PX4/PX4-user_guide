@@ -36,20 +36,20 @@ VIO 使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)中的视
 :::
 
 关于在 PX4 上配置 VIO 的信息，请参阅：
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [T265 Setup guide](../peripherals/camera_t265_vio.md)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
+- [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [T265 安装指南](../peripherals/camera_t265_vio.md)
+- [Snapdragon > 安装 > 安装 Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
 ## 光流 {#optical_flow}
 
-[Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+[光流](../sensor/optical_flow.md)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
 
 For information about optical flow see:
 - [光流](../sensor/optical_flow.md)
   - [PX4Flow 智能摄像机](../sensor/px4flow.md)
-- [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
+- [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
-## External Resources
+## 外部资源
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 计算机视觉模拟仿真环境。 [XTDrone 手册](https://www.yuque.com/xtdrone/manual_en) 有你需要开始的一切！
