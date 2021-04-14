@@ -24,8 +24,6 @@ graph LR;
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
-<a id="installation"></a>
-
 ## Installation
 
 Gazebo 9 setup is included in our standard build instructions:
@@ -52,20 +50,20 @@ The supported vehicles and `make` commands are listed below (click links to see 
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
 :::
 
-| Vehicle                                                                                                                                 | Command                                |
-| --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                                 | `make px4_sitl gazebo`                 |
-| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                                  | `make px4_sitl gazebo_iris_opt_flow`   |
-| [3DR Solo (Quadrotor)](../simulation/gazebo_vehicles.md#3dr_solo)                                                                       | `make px4_sitl gazebo_solo`            |
-| !!crwdBlockTags_82_sgaTkcolBdwrc!![Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`    |
-| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                       | `make px4_sitl gazebo_plane`           |
-| [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                       | `make px4_sitl gazebo_plane_catapult`  |
-| [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                         | `make px4_sitl gazebo_standard_vtol`   |
-| [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                     | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                                    | `make px4_sitl gazebo_rover`           |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                             | `make px4_sitl gazebo_uuv_hippocampus` |
-| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                            | `make px4_sitl gazebo_boat`            |
-| [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                         | `make px4_sitl gazebo_cloudship`       |
+| Vehicle                                                                                                                            | Command                                |
+| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                            | `make px4_sitl gazebo`                 |
+| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                             | `make px4_sitl gazebo_iris_opt_flow`   |
+| [3DR Solo (Quadrotor)](../simulation/gazebo_vehicles.md#3dr_solo)                                                                  | `make px4_sitl gazebo_solo`            |
+| <span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`    |
+| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                  | `make px4_sitl gazebo_plane`           |
+| [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
+| [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo_standard_vtol`   |
+| [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo_tailsitter`      |
+| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                               | `make px4_sitl gazebo_rover`           |
+| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
+| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo_boat`            |
+| [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo_cloudship`       |
 
 
 :::note
@@ -192,6 +190,7 @@ The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://git
 
 This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
 
+
 <a id="gps_noise"></a>
 
 ### Simulating GPS Noise
@@ -221,6 +220,7 @@ The SDF files are not overwritten on subsequent builds.
    * If it is not preset GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
 The next time you build/restart Gazebo it will use the new GPS noise setting.
+
 
 <a id="set_world"></a>
 
@@ -281,6 +281,7 @@ make px4_sitl gazebo_rover__sonoma_raceway
 The video below shows that the location of the environment is aligned with the gazebo world:
 
 @[youtube](https://youtu.be/-a2WWLni5do)
+
 
 <a id="start_px4_sim_separately"></a>
 
