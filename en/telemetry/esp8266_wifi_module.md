@@ -25,8 +25,8 @@ Modules that accept 5.0V supply:
 ## Pixhawk/PX4 Setup & Configuration
 
 :::tip
-If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter).
-The following instructions assume you are using PX4 versions after 1.8.2
+You *may* first need to update the ESP8266 module with recent/compatible firmware ([see below](#esp8266-flashing-firmware-advanced)).
+The manufacture instructions should explain if this is needed.
 :::
 
 Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
@@ -39,6 +39,7 @@ Using *QGroundControl*:
   Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
 
 Once the firmware (port) is set up you can remove the physical USB connection between the ground station and the vehicle.
+
 
 ## Connect via ESP8266 to QGC
 
@@ -92,30 +93,34 @@ If you have any problem connecting, see [QGC Installation/Configuration Problems
 :::
 
 
-## Module Flashing/Setup (Advanced)
+## ESP8266 Flashing/Firmware (Advanced)
 
-The module should come preconfigured with appropriate firmware.
-If not, you can use the instructions below to update it with the latest version.
-
-### Build From Sources
-
-The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
-
+ESP8266 modules from different manufacturers may not have appropriate firmware pre-installed.
+The instructions below explain how to update it with the latest version.
 
 ### Pre Built Binaries
 
 [MavLink ESP8266 Firmware V 1.2.2](http://www.grubba.com/mavesp8266/firmware-1.2.2.bin)
 
-### Updating the Firmware
+### Build From Sources
+
+The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
+
+### Updating the Firmware OTA
 
 If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature.
-Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. 
+Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`.
 You can then select the firmware file you downloaded above and upload it to the WiFi Module.
+
+:::tip
+This is the easiest way to update firmware!
+:::
+
 
 ### Flashing the ESP8266 Firmware
 
 Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described below.
-If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment. 
+If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment.
 If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
 
 ```
@@ -143,11 +148,11 @@ This is what my own setup looks like:
 I built a cable where RX, TX, VCC, and GND are properly wired directly from the FTDI adapter to the ESP8266. 
 From the ESP8266, I left two wires connected to GPIO-0 and CH_PD free so I can boot it either normally or in flash mode by connecting them to GND and VCC respectively.
 
-### ESP8266 (ESP-01) Pinout
+#### ESP8266 (ESP-01) Pinout
 
 ![esp8266 wifi module pinout](../../assets/hardware/telemetry/esp8266_pinout.jpg)
 
 
-### Flashing Diagram using an FTDI USB/UART Adapter
+#### Flashing Diagram using an FTDI USB/UART Adapter
 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
