@@ -26,7 +26,6 @@ graph LR;
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
-<a id="installation"></a>
 ## Installation
 
 Gazebo 9 setup is included in our standard build instructions:
