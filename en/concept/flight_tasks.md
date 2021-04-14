@@ -2,26 +2,8 @@
 
 *Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
 
-## Video
 
-The following videos provide an overview of flight tasks in PX4.
-The first covers the state of the flight task framework in PX4 v1.9.
-The second is an update, which covers the changes in PX4 v1.11.
-
-#### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
-
-A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
-
-@[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
-
-#### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
-
-@[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
-
-The relevent section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec).
-The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.
-
-## Creating a Flight Task
+## Overview
 
 A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode.
 Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior.
@@ -30,6 +12,13 @@ The `activate()` method is called when switching to the task and allows to initi
 `update()` is called on every loop iteration during the execution and contains the core behavior implementation producing setpoints.
 
 By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
+
+:::note
+Video overviews from PX4 developer summits are [provided below](#video).
+:::
+
+
+## Creating a Flight Task
 
 The instructions below might be used to create a task named *MyTask*:
 
@@ -148,3 +137,23 @@ For the example above, this means setting the parameter `MPC_POS_MODE` to 5, tak
 :::note
 The task defined above should only be tested on the simulator. The code doesn't actually create setpoints so the vehicle will not fly.
 :::
+
+
+## Video
+
+The following videos provide an overview of flight tasks in PX4.
+The first covers the state of the flight task framework in PX4 v1.9.
+The second is an update, which covers the changes in PX4 v1.11.
+
+#### PX4 Flight Task Architecture Overview (PX4 Developer Summit 2019)
+
+A description of how flight modes work in PX4 v1.9 (Dennis Mannhart, Matthias Grob).
+
+@[youtube](https://youtu.be/-dkQG8YLffc) <!-- datestamp:video:youtube:20190704:PX4 Flight Task Architecture Overview — PX4 Developer Summit 2019 -->
+
+#### Overview of multicopter control from sensors to motors (PX4 Developer Summit Virtual 2020)
+
+@[youtube](https://youtu.be/orvng_11ngQ?t=560) <!-- datestamp:video:youtube:20200720:Overview of multicopter control from sensors to motors — PX4 Developer Summit Virtual 2020 From 9min20sec - Section on flight tasks-->
+
+The relevent section of this video is an update of flight tasks in PX4 v11.1 at (9min 20sec).
+The [slides can be found here (PDF)](https://static.sched.com/hosted_files/px4developersummitvirtual2020/1b/PX4%20Developer%20Summit%202020%20-%20Overview%20of%20multicopter%20control%20from%20sensors%20to%20motors.pdf) - Slides 9 and 12 are relevant.
