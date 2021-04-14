@@ -284,7 +284,7 @@ The `S:` lines must be below the `O:` line.
 :::
 
 :::note
-Be aware that every Mixer containing an `S:`-line with `<group>=0` and `<index>=3` (throttle) won't work in disarmed state. E.g. a helicopter servo that has four inputs (roll, pitch, yaw and throttle) won't move in disarmed state even with roll/pitch/yaw signals.
+Any mixer output that has a throttle input (an `S:`-line with `<group>=0` and `<index>=3`) won't work in disarmed or prearmed state. For example, a servo that has four inputs (roll, pitch, yaw and throttle) won't move in disarmed state even with roll/pitch/yaw signals.
 :::
 
 The `<group>` value identifies the control group from which the scaler will read, and the `<index>` value an offset within that group.
