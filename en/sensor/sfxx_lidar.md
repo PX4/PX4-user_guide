@@ -40,6 +40,9 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 
 ![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/sf1xx_i2c.jpg)
 
+:::note
+In case it is the first time you are using the sensor with Pixhawk, you have to enable Pixhawk compatibility in [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio).
+:::
 
 :::note
 Some older revisions cannot be used with PX4. 
