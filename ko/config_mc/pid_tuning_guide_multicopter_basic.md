@@ -2,19 +2,19 @@
 
 이 튜토리얼은 모든 [멀티콥터 설정](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo 등)에 대해 PX4에서 PID 루프를 조정하는 방법을 설명합니다.
 
-Tuning is recommended for all new vehicle setups, because relatively small hardware and assembly changes can affect the gains required tuning gains for optimal flight. For example, different ESCs or motors require different tuning gains.
+비교적 작은 하드웨어와 어셈블리 변경이 최적의 비행  튜닝 게인에 영향을 미치므로,  새로운 기체 설정에 튜닝이 권장됩니다. 예를 들어, 새로운 ESC 또는 모터에는 다른 튜닝 게인이 필요합니다.
 
 :::tip
-Generally if you're using an appropriate [supported airframe configuration](../airframes/airframe_reference.md#copter) (selected from [QGroundControl > Airframe](../config/airframe.md)), the default tuning should allow you to fly the vehicle safely. To get the _very best_ performance we recommend you tune your new vehicle.
+일반적으로 적절한 [지원되는 기체 구성](../airframes/airframe_reference.md#copter) ([QGroundControl >기체 ](../config/airframe.md)에서 선택)을 사용하는 경우 기본 튜닝을 통해 기체를 안전하게 비행할 수 있습니다. _최고의_ 성능을 얻으려면 새 기체를 튜닝하는 것이 좋습니다.
 :::
 
 :::warning
-Poorly tuned vehicles are likely to be unstable, and easy to crash. Make sure to have assigned a [Kill switch](../config/safety.md#emergency-switches).
+잘못 튜닝된 기체는 불안정하고 충돌하기 쉽습니다. [킬 스위치](../config/safety.md#emergency-switches)를 지정했는 지 확인하십시오.
 :::
 
-## Introduction
+## 소개
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
+PX4는 **P**roportional, **I**ntegral, **D**erivative (PID) 컨트롤러를 사용합니다 (보편화된 제어 기술).
 
 The _QGroundControl_ **PID Tuning** setup provides real-time plots of the vehicle setpoint and response curves. The goal of tuning is to set the P/I/D values such that the _Response_ curve matches the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots).
 
