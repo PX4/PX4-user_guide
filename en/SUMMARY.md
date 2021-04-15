@@ -49,6 +49,7 @@
   * [Multicopters](frames_multicopter/README.md)
     * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
     * [S500 V2 (Pixhawk 4)](frames_multicopter/holybro_s500_v2_pixhawk4.md)
+    * [S500 V2 Video (Pixhawk 4)](frames_multicopter/holybro_s500_pixhawk4_video_af.md)
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
     * [QAV250 (Pixhawk4 Mini)](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
