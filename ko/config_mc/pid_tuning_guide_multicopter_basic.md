@@ -18,7 +18,7 @@ PX4는 **P**roportional, **I**ntegral, **D**erivative (PID) 컨트롤러를 사�
 
 _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 실시간 플롯을 제공합니다. 튜닝의 목표는 _Response_ 곡선이 _Setpoint_ 곡선과 최대한 가깝게 일치하도록 P/I/D 값을 설정하는 것입니다 (예 : 오버슈트없는 빠른 응답).
 
-![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+![QGC 속도 컨트롤러 튜닝 UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 
 컨트롤러는 계층화되어 있어 상위 수준의 컨트롤러 결과를 하위 수준의 컨트롤러로 전달합니다. 가장 낮은 수준의 컨트롤러는 **속도 컨트롤러**, **태도 컨트롤러**, 마지막으로 **속도 & 위치 컨트롤러** 입니다. PID 튜닝은 다른 모든 컨트롤러에 영향을 미치므로 속도 컨트롤러부터 시작하여 동일한 순서로 수행해야합니다.
 
@@ -51,7 +51,7 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 튜닝 절차는 다음과 같습니다.
 
 1. 기체에 시동을 걸고, 이륙 호버링합니다 (일반적으로 [위치 모드](../flight_modes/position_mc.md)에서).
-1. _QGroundControl_을 실행합니다. **차량 설정 > PID 튜닝** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+1. _QGroundControl_을 실행합니다. **차량 설정 > PID 튜닝** ![QGC 속도 컨트롤러 튜닝 UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
 1. **Rate Controller** 탭을 선택하십시오.
 1. 에어 모드 선택기가 **사용 안함**으로 설정되어 있는 지 확인합니다.
 1. *추력 곡선* 값을 0.3 (PWM, 전력 기반 컨트롤러) 또는 1 (RPM 기반 ESC)로 설정합니다.
@@ -65,32 +65,32 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
    자세한 내용은 [자세한 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)를 참조하십시오.
 :::
 1. *튜닝 선택* 라디오 버튼을 **롤**로 설정합니다.
-1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox. This will _automatically_ switch from [Position mode](../flight_modes/position_mc.md) to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) when you press the **Start** button
-1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
-1. Select the **Start** button in order to start tracking the setpoint and response curves.
-1. Rapidly move the *roll stick* full range and observe the step response on the plots. :::tip Stop tracking to enable easier inspection of the plots. This happens automatically when you zoom/pan. Use the **Start** button to restart the plots, and **Clear** to reset them.
+1. (선택 사항) **자동 비행 모드 전환** 확인란을 선택합니다. **시작** 버튼을 누르면 _자동으로_ [위치 모드](../flight_modes/position_mc.md)에서 [안정화 모드](../flight_modes/manual_stabilized_mc.md)로 전환됩니다.
+1. 속도 컨트롤러 튜닝의 경우 *곡예 모드*, *안정화 모드* 또는 *고도 모드*로 전환합니다 (자동 전환이 활성화되지 않은 경우).
+1. 설정점과 응답 곡선 추적을 시작하려면 **시작** 버튼을 클릭합니다.
+1. *롤 스틱* 전체 범위를 빠르게 이동하고 플롯에서 계단 응답을 관찰합니다. :::tip 플롯을 더 쉽게 검사 할 수 있도록 추적을 중지하십시오. 확대/축소/이동시 자동으로 발생합니다. 플롯을 다시 시작하려면 **시작** 버튼을 사용하고 재설정하려면 **지우기** 버튼을 사용합니다.
 :::
-1. Modify the three PID values using the sliders (for roll rate-tuning these affect `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`) and observe the step response again. The values are saved to the vehicle as soon as the sliders are moved. :::note The goal is for the _Response_ curve to match the _Setpoint_ curve as closely as possible (i.e. a fast response without overshoots). ::: The PID values can be adjusted as follows:
-   - P (proportional) or K gain:
-     - increase this for more responsiveness
-     - reduce if the response is overshooting and/or oscillating (up to a certain point increasing the D gain also helps).
-   - D (derivative) gain:
-     - this can be increased to dampen overshoots and oscillations
-     - increase this only as much as needed, as it amplifies noise (and can lead to hot motors)
-   - I (integral) gain:
-     - used to reduce steady-state error
-     - if too low, the response might never reach the setpoint (e.g. in wind)
-     - if too high, slow oscillations can occur
-1. Repeat the tuning process above for the pitch and yaw:
-   - Use *Select Tuning* radio button to select the axis to tune
-   - Move the appropriate sticks (i.e. pitch stick for pitch, yaw stick for yaw).
-   - For pitch tuning, start with the same values as for roll. :::tip Use the **Save to Clipboard** and **Reset from Clipboard** buttons to copy the roll settings for initial pitch settings.
+1. 슬라이더를 사용하여 3 개의 PID 값을 수정하고 (롤 속도 조정을 위해 `MC_ROLLRATE_K`, `MC_ROLLRATE_I`, `MC_ROLLRATE_D`에 영향을 미칩니다) 단계 응답을 다시 관찰합니다. 슬라이더를 움직이면 값이 기체에 저장됩니다. :::note 목표는 _Response_ 곡선이 _Setpoint_ 곡선과 최대한 가깝게 일치하는 것입니다 (예 : 오버슈트없는 빠른 응답). ::: PID 값은 다음과 같이 조정할 수 있습니다.
+   - P (비례) 또는 K 이득 :
+     - 더 많은 응답을 위해 이것을 늘리십시오.
+     - 응답이 오버 슈팅 및/또는 진동하는 경우 감소합니다 (특정 지점까지 D 게인 증가도 도움이 됨).
+   - D (미분) 이득 :
+     - 오버슈트 및 진동을 줄이기 위해이 값을 늘릴 수 있습니다.
+     - 소음을 증폭하고 모터가 뜨거워 질 수 있으므로 필요한 만큼만 늘리십시오.
+   - I (적분) 이득 :
+     - 정상 상태 오류를 줄이는 데 사용
+     - 너무 낮으면 응답이 설정 값에 도달하지 못할 수 있습니다 (예 : 바람)
+     - 너무 높으면 느린 진동이 발생할 수 있습니다.
+1. 피치와 요에 대해 위의 튜닝 프로세스를 반복합니다.
+   - *튜닝 선택* 라디오 버튼을 사용하여 튜닝 축을 선택합니다.
+   - 적절한 스틱을 이동합니다 (예 : 피치 스틱, 요 스틱).
+   - 피치 튜닝의 경우 롤과 동일한 값으로 시작하십시오. :::tip 초기 피치 설정에 대한 롤 설정을 복사하려면 **클립 보드에 저장** 및 **클립 보드에서 재설정** 버튼을 사용합니다.
 :::
-1. Repeat the tuning process for the attitude controller on all the axes.
-1. Repeat the tuning process for the velocity and positions controllers (on all the axes).
-   - Use Position mode when tuning these controllers
-   - Select the **Simple position control** option in the *Position control mode ...* selector (this allows direct control for the generation of step inputs)
+1. 모든 축에서 자세 콘트롤러에 대하여 튜닝 프로세스를 반복하십시오.
+1. 속도 및 위치 컨트롤러 (모든 축에서)에 대해 튜닝 프로세스를 반복합니다.
+   - 이러한 컨트롤러를 조정할 때 위치 모드를 사용하십시오.
+   - *위치 제어 모드 ... * 선택기에서 **간단한 위치 제어** 옵션을 선택합니다 (이렇게하면 단계 입력 생성을 직접 제어할 수 있음).
 
-     ![QGC PID tuning: Simple control selector](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
+     ![QGC PID 튜닝 : 간단한 제어 선택기](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_simple_control.png)
 
-All done! Remember to re-enable airmode before leaving the setup.
+완료되었습니다 ! 설정을 종료하기 전에 에어 모드를 다시 활성화하여야 합니다.
