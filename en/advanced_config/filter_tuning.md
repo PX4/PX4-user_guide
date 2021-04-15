@@ -40,7 +40,16 @@ This is the filtering pipeline for the controllers in PX4:
   Generally not used.
 
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters.
-However this is a trade-off as it will also increase the noise of the signal that is fed to the motors.
+The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
+
+Cuttoff (Hz) | Delay approx. (ms)
+--- | ---
+30 | 8
+60 | 3.8
+120 | 1.9
+
+
+However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors.
 Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
 - Reduced flight time because the motors continuously change their speed.
