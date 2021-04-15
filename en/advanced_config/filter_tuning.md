@@ -27,9 +27,12 @@ Below we look at the impact of the low pass filters.
 
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor.
-  The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
+  This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to 98Hz and it is sampled at 1kHz).
 - Low-pass filter on the gyro sensor data.
   It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
+  :::note
+  Sampling and filtering is always performed at the full raw sensor rate (commonly 8Hz).
+  :::
 - A separate low-pass filter on the D-term.
   The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
   For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
