@@ -55,8 +55,10 @@ First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE]
 [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
 :::warning
-Do not try to fix a vehicle that suffers from high vibrations with filter tuning.
-Instead fix the vehicle hardware setup.
+Do not try to fix a vehicle that suffers from high vibrations with filter tuning!
+Instead:
+- Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
+- Fix the vehicle hardware setup.
 :::
 
 Filter tuning is best done by reviewing flight logs.
