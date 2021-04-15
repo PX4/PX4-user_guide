@@ -283,6 +283,10 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 The `S:` lines must be below the `O:` line.
 :::
 
+:::note
+Any mixer output that has a throttle input (an `S:`-line with `<group>=0` and `<index>=3`) won't work in disarmed or prearmed state. For example, a servo that has four inputs (roll, pitch, yaw and throttle) won't move in disarmed state even with roll/pitch/yaw signals.
+:::
+
 The `<group>` value identifies the control group from which the scaler will read, and the `<index>` value an offset within that group.
 These values are specific to the device reading the mixer definition.
 
