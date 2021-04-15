@@ -249,6 +249,10 @@ Z:
 
 滚转、俯仰和偏航的缩放因子大小都分别表示滚转、俯仰和边行控制相对于推力控制的比例。 同时，结果的计算是以浮点计算的形式进行的，在混控器定义文件中的值都将缩小 10000 倍，比如：实际中 0.5 的偏移量（offset）在定义文件中保存为 5000 。
 
+:::note
+Any mixer output that has a throttle input (an `S:`-line with `<group>=0` and `<index>=3`) won't work in disarmed or prearmed state. For example, a servo that has four inputs (roll, pitch, yaw and throttle) won't move in disarmed state even with roll/pitch/yaw signals.
+:::
+
 The `<group>` value identifies the control group from which the scaler will read, and the `<index>` value an offset within that group. These values are specific to the device reading the mixer definition.
 
 When used to mix vehicle controls, mixer group zero is the vehicle attitude control group, and index values zero through three are normally roll, pitch, yaw and thrust respectively.
@@ -265,7 +269,7 @@ A null mixer consumes no controls and generates a single actuator output with a 
 
 Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs. It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
 
-The null mixer definition has the form:
+后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
 ```
 R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 ```
@@ -274,7 +278,7 @@ R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 
 #### 针对多旋翼的混控器
 
-后面的各行则是对每个倾斜盘舵机（ 3 个或者 4 个）进行设定，文本行的形式如下：
+The multirotor mixer combines four control inputs (roll, pitch, yaw, thrust) into a set of actuator outputs intended to drive motor speed controllers.
 
 The mixer definition is a single line of the form:
 ```
@@ -292,9 +296,9 @@ The supported geometries include:
 * 油门处于最大位置时总距仅仅为 4500（0.45）。
 * 对于该型直升机而言使用更高的值会导致主桨叶失速。
 
-Each of the roll, pitch and yaw scale values determine scaling of the roll, pitch and yaw controls relative to the thrust control. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an factor of 0.5 is encoded as 5000.
-
 完成上述工作后，直升机的尾桨设定直接映射到了飞机的偏航指令上。 该设置同时适用于舵机控制的尾桨和使用专用电机控制的尾桨。
+
+Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the thrust input ranges from 0.0 to 1.0. Output for each actuator is in the range -1.0 to 1.0.
 
 Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.
 
@@ -304,7 +308,7 @@ In the case where an actuator saturates, all actuator values are rescaled so tha
 
 #### 针对直升机的混控器
 
-VTOL 机体的混控器系统可以合并成一个混控器，这样的话，所有舵机都将连接到 IO 或 FMU 端口。VTOL 机体的混控器系统也可以分割成独立的混控器文件，供 IO 和 AUX 使用。 如果分割成独立的文件，我们建议所有的多旋翼电机在一个端口上，所有的伺服电机和固定翼舵机在另一个端口上。 The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.
+The helicopter mixer combines three control inputs (roll, pitch, thrust) into four outputs (swash-plate servos and main motor ESC setting). The first output of the helicopter mixer is the throttle setting for the main motor. The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.
 
 The thrust control input is used for both the main motor setting as well as the collective pitch for the swash-plate. It uses a throttle-curve and a pitch-curve, both consisting of five points.
 
