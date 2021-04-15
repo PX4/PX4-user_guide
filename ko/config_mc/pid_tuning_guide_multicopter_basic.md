@@ -35,37 +35,36 @@ _QGroundControl_ **PID 튜닝** 설정은 기체 설정점과 응답 곡선의 �
 
 - QGroundControl [ **일일 빌드**](https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html)를 사용 중입니다 (최신 튜닝 UI는 2021년 3월 이후의 다음 릴리스 빌드에 있을 예정입니다).
 - 기체에 가장 일치하는 [기본 기체 구성](../config/airframe.md)을 선택하였습니다. 이것은 이미 비행한 기체를 제공할 것입니다.
-- You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- If using PWM output: [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) is set correctly. It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
+- [ESC 보정](../advanced_config/esc_calibration.md)을 완료하여야 합니다.
+- PWM 출력을 사용하는 경우 : [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)이 올바르게 설정되었습니다. 낮게 설정해야하지만 기체 시동시에는 **모터가 절대 멈추지 않도록**합니다.
 
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
-  - Remove propellers
-  - Arm the vehicle and lower the throttle to the minimum
-  - Tilt the vehicle to all directions, about 60 degrees
-  - Check that no motors turn off
-- Use a high-rate telemetry link such as WiFi if at all possible (a typical low-range telemetry radio is not fast enough for real-time feedback and plots). This is particularly important for the rate controller.
-- Disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) before tuning a vehicle (there is an options for this in the PID tuning screen).
+  [곡예 모드](../flight_modes/acro_mc.md) 또는 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 테스트할 수 있습니다.
+  - 프로펠러 제거합니다.
+  - 기체에 시동을 걸고 스로틀을 천천히 최대로 올립니다.
+  - 차량을 모든 방향으로 60도 정도 기울입니다.
+  - 모터가 꺼져 있지 않은지 확인합니다.
+- 가능하면 WiFi와 같은 고속 원격 측정 링크를 사용하십시오 (일반적인 저거리 원격 측정 라디오는 실시간 피드백 및 플롯에 적당하지 않습니다). 이는 속도 컨트롤러에 특히 중요합니다.
+- 기체 튜닝전에 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)를 비활성화하십시오 (PID 튜닝 화면에 이에 대한 옵션이 있습니다).
 
-## Tuning Procedure
+## 튜닝 절차
 
-The tuning procedure is:
+튜닝 절차는 다음과 같습니다.
 
-1. Arm the vehicle, takeoff, and hover (typically in [Position mode](../flight_modes/position_mc.md)).
-1. Open _QGroundControl_ **Vehicle Setup > PID Tuning** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
-1. Select the **Rate Controller** tab.
-1. Confirm that the airmode selector is set to **Disabled**
-1. Set the *Thrust curve* value to: 0.3 (PWM, power-based controllers) or 1 (RPM-based ESCs)
+1. 기체에 시동을 걸고, 이륙 호버링합니다 (일반적으로 [위치 모드](../flight_modes/position_mc.md)에서).
+1. _QGroundControl_을 실행합니다. **차량 설정 > PID 튜닝** ![QGC Rate Controller Tuning UI](../../assets/mc_pid_tuning/qgc_mc_pid_tuning_rate_controller.png)
+1. **Rate Controller** 탭을 선택하십시오.
+1. 에어 모드 선택기가 **사용 안함**으로 설정되어 있는 지 확인합니다.
+1. *추력 곡선* 값을 0.3 (PWM, 전력 기반 컨트롤러) 또는 1 (RPM 기반 ESC)로 설정합니다.
 
-:::note
-For PWM, power-based and (some) UAVCAN speed controllers, the control signal to thrust relationship may not be linear. As a result, the optimal tuning at hover thrust may not be ideal when the vehicle is operating at higher thrust.
+   :::note PWM, 전력 기반 및 (일부) UAVCAN 속도 컨트롤러의 경우 추력 관계에 대한 제어 신호가 선형이 아닐 수 있습니다. 그 결과 호버 추력에서 최적의 튜닝은 차량이 강한 추력으로 작동시 최적이 아닐 수 있습니다.
 
-   The thrust curve value can be used to compensate for this non-linearity:
-   - For PWM controllers, 0.3 is a good default (which may benefit from [further tuning](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)).
-   - For RPM-based controllers, use 1 (no further tuning is required as these have a quadratic thrust curve).
+   추력 곡선 값을 사용하여 비선형성을 보상할 수 있습니다.
+   - PWM 컨트롤러의 경우 0.3이 좋은 기본값입니다 ([추가 조정](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)의 이점을 누릴 수 있음).
+   - RPM 기반 컨트롤러의 경우 1을 사용합니다 (2 차 추력 곡선이 있으므로 추가 튜닝이 필요하지 않음).
 
-   For more information see the [detailed PID tuning guide](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve).
+   자세한 내용은 [자세한 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)를 참조하십시오.
 :::
-1. Set the *Select Tuning* radio button to: **Roll**.
+1. *튜닝 선택* 라디오 버튼을 **롤**로 설정합니다.
 1. (Optionally) Select the **Automatic Flight Mode Switching** checkbox. This will _automatically_ switch from [Position mode](../flight_modes/position_mc.md) to [Stabilised mode](../flight_modes/manual_stabilized_mc.md) when you press the **Start** button
 1. For rate controller tuning switch to *Acro mode*, *Stabilized mode* or *Altitude mode* (unless automatic switching is enabled).
 1. Select the **Start** button in order to start tracking the setpoint and response curves.
