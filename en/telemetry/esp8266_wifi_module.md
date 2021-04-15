@@ -9,23 +9,25 @@ ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_c
 
 ## Where to Buy
 
-The module is readily available, and usually have the firmware already installed and configured to useable defaults.
+The ESP8266 module is readily available from a number of suppliers.
 A few vendors are listed below.
 
+Most modules support 3.3 V input (only), while some flight controllers (e.g. Pixhawk 4) output at 5V (you will need to check compatibility and step down the voltage if needed).
+
 Modules that accept 3.3V supply:
-* [Sparkfun](https://www.sparkfun.com/products/13678)
-* (discontinued) [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
+* [WRL-17146](https://www.sparkfun.com/products/13678) (Sparkfun)
+* [AI Cloud](https://us.gearbest.com/boards-shields/pp_009604906563.html) - discontinued (GearBeast)
 
 Modules that accept 5.0V supply:
-* [Banggood](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html )
-* [Banggood](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html )
+* [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
+* [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
 
 
 <span id="px4_config"></span>
 ## Pixhawk/PX4 Setup & Configuration
 
 :::tip
-You *may* first need to update the ESP8266 module with recent/compatible firmware ([see below](#esp8266-flashing-firmware-advanced)).
+You *may* first need to update the radio with PX4-compatible ESP8266 firmware ([see below](#esp8266-flashing-firmware-advanced)).
 The manufacture instructions should explain if this is needed.
 :::
 
@@ -34,11 +36,11 @@ Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on
 Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
 
 Using *QGroundControl*:
-- [Load recent PX4 firwmare](../config/firmware.md)
+- [Load recent PX4 firwmare onto the flight controller](../config/firmware.md).
 - [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266.
   Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
 
-Once the firmware (port) is set up you can remove the physical USB connection between the ground station and the vehicle.
+Once you have configured the flight controller serial port used for connecting to the radio, you can remove the physical USB connection between the ground station and the vehicle.
 
 
 ## Connect via ESP8266 to QGC
@@ -58,7 +60,11 @@ Other modules may use settings like this:
 - **SSID:** IFFRC_xxxxxxxx
 - **Password:** 12345678
 - **IP:** 192.168.4.1
-- **Port:** 6789 (TCP) 
+- **Port:** 6789 (TCP)
+
+Examples of boards from AlphaUILink and DOITING are shown below: 
+
+<img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - Back"/> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - Front"/> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - Back"/> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - Front"/>
 :::
 
 On your wifi-enabled *QGroundControl* ground station computer/tablet, find and connect to the open wireless network for your ESP8266.
@@ -95,8 +101,8 @@ If you have any problem connecting, see [QGC Installation/Configuration Problems
 
 ## ESP8266 Flashing/Firmware (Advanced)
 
-ESP8266 modules from different manufacturers may not have appropriate firmware pre-installed.
-The instructions below explain how to update it with the latest version.
+ESP8266 modules from different manufacturers may not have appropriate ESP8266 firmware pre-installed.
+The instructions below explain how to update radios with the correct version.
 
 ### Pre Built Binaries
 
@@ -104,7 +110,7 @@ The instructions below explain how to update it with the latest version.
 
 ### Build From Sources
 
-The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
+The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the ESP8266 firmware.
 
 ### Updating the Firmware OTA
 
