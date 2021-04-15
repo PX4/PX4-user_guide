@@ -53,7 +53,6 @@ Cuttoff (Hz) | Delay approx. (ms)
 60 | 3.8
 120 | 1.9
 
-
 However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors.
 Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
