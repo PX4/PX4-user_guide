@@ -244,7 +244,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p>RC mode where RPT sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
+ <td><p>RC mode where roll, pitch, throttle sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed altitude and position against wind.
   <ul>
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
@@ -429,4 +429,3 @@ Auto | This mode is automatic (RC control is disabled by default except to chang
 Abbreviations:
   * RPY: Roll, Pitch, Yaw
   * RPT: Roll, Pitch Throttle
-

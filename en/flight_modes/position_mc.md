@@ -4,6 +4,7 @@
 
 *Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent.
 When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
+With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL).
 
 :::tip
 Position mode is the safest manual mode for new fliers. 
@@ -14,21 +15,28 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
+### Landing
+
+Landing in this mode is easy:
+1. Position the drone horizontally above the landing spot using the roll and pitch stick.
+1. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
+1. Pull the throttle stick down gently until the vehicle touches the ground.
+1. Pull the throttle stick all the way down to facilitate and accelerate land detection.
+1. The vehicle will lower propeller thrust, detect the ground and automatically disarm by default (see [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+
 :::warning
-Care must be taken when landing in this mode.
-When first landing in this mode, be ready to switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) in order to be able to disarm.
-If landing is correctly detected, motors will spin down after touch down and then disarm shortly after.
-If the motors keep spinning at higher RPM or start spinning up, first switch to [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md), and then disarm.
-Be aware that the vehicle may tip over on the ground due to GPS drift.
+In case the vehicle fails to stop horizontally: Keep it under control in [Altitude](../flight_modes/altitude_mc.md) mode and land like instructed above but manually making sure the vehicle stays above the landing spot using roll and pitch stick. After landing check GPS and magnetometer orientation, calibration.
+
+In case the vehicle fails to detect the ground and landing: After the vehicle is on the ground switch to [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode keeping the throttle stick low and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
 :::
 
 ## Technical Summary
 
 RC/manual mode where RPT sticks control *speed* in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
 
-* Centered RPT sticks (in RC deadzone) hold x, y, z position steady against any wind, and levels attitude.
+* Centered roll, pitch, throttle sticks (within RC deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) hold x, y, z position steady against any disturbance like wind.
 * Outside center:
-  * Roll/Pitch sticks control horizontal acceleration (over ground) in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.
+  * Roll/Pitch sticks control horizontal acceleration over ground in forward-back and left-right directions relative to the front direction of the vehicle.
   * Throttle stick controls speed of ascent-descent.
   * Yaw stick controls rate of angular rotation above the horizontal plane.
 * Takeoff:
@@ -55,7 +63,7 @@ Parameter | Description
 <span id="MPC_LAND_ALT2"></span>[MPC_LAND_ALT2](../advanced_config/parameter_reference.md#MPC_LAND_ALT2) | Altitude for second phase of slow landing. In this phase maximum horizontal velocity is limited to [MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY). Default 5m.
 <span id="RCX_DZ"></span>`RCX_DZ` | RC dead zone for channel X. The value of X for throttle will depend on the value of [RC_MAP_THROTTLE](../advanced_config/parameter_reference.md#RC_MAP_THROTTLE). For example, if the throttle is channel 4 then  [RC4_DZ](../advanced_config/parameter_reference.md#RC4_DZ) specifies the deadzone.
 <span id="MPC_xxx"></span>`MPC_XXXX` | Most of the MPC_xxx parameters affect flight behaviour in this mode (at least to some extent). For example, [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) defines the thrust at which a vehicle will hover.
-<span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) | Stick control mode for movement over ground. From PX4 v1.12 the default (4) is that stick position controls acceleration (in a similar way to a car accelerator pedal). Other options allow stick angle to directly control speed over ground, with and without smoothing/acceleration limits.
+<span id="MPC_POS_MODE"></span>[MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) | Stick input to movement translation strategy. From PX4 v1.12 the default (4) is that stick position controls acceleration (in a similar way to a car accelerator pedal). Other options allow stick deflection to directly control speed over ground, with and without smoothing and acceleration limits.
 
 
 ## Additional Information
