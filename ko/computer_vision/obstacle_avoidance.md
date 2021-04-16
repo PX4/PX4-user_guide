@@ -6,13 +6,13 @@
 
 장애물 회피는 자동 모드를위한 것이며 현재 [임무](#mission_mode) 및 [오프 보드 모드](#offboard_mode)의 멀티콥터에 지원됩니다.
 
-두 모드에서 기능을 설정하고 활성화하는 방법에 대하여 설명합니다.
+두 가지 모드에서 기능을 설정하고 활성화하는 방법에 대하여 설명합니다.
 
 @[유투브](https://youtu.be/PrGt7pKj3tI)
 
-## Limitations/Capabilities
+## 제약 사항과 성능
 
-- The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
+- 장애물 회피를 위한 최대 속도는 현재 약 3m/s입니다 (회피 경로 계산 비용으로 인해).
   
 :::note
 Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
