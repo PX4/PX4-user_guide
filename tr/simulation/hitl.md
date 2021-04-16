@@ -12,6 +12,7 @@ The current set of compatible airframes vs Simulators is:
 
 | Airframe                                                                                                         | `SYS_AUTOSTART` | Gazebo | jMAVSim |
 | ---------------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
+| [HIL Airplane](../airframes/airframe_reference.md#simulation-plane)                                              | 1000            | Y      |         |
 | [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x)               | 1001            | Y      | Y       |
 | [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y      |         |
 | [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) copter           | 4001            | Y      | Y       |
