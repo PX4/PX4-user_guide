@@ -15,37 +15,37 @@
 - 장애물 회피를 위한 최대 속도는 현재 약 3m/s입니다 (회피 경로 계산 비용으로 인해).
   
 :::note
-Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
+장애물 회피는 *로컬 플래너*를 사용하면 약 30Hz에서 메시지를 전송하고 약 3m/s로 이동할 수 있습니다. 글로벌 플래너를 사용하면 약 10Hz에서 메시지를 전송하고 장애물 회피 임무 속도는 약 1~1.5 m/s입니다.
 :::
 
 <span id="offboard_mode"></span>
 
-## Offboard Mode Avoidance
+## 오프보드 모드 회피
 
-PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
+PX4는 [오프 보드 모드](../flight_modes/offboard.md)에서 장애물 회피를 지원합니다.
 
-The desired route comes from a [ROS](../ros/README.md) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
+원하는 경로는 보조 컴퓨터에서 실행되는 [ROS](../ros/README.md) 노드에서 가져옵니다. 이것은 장애물 회피 모듈 (다른 ROS 노드)로 전달됩니다. 회피 소프트웨어는 `SET_POSITION_TARGET_LOCAL_NED` 메시지의 스트림으로 비행 스택에 계획된 경로를 전송합니다.
 
-The only required PX4-side setup is to put PX4 into *Offboard mode*.
+유일한 필수 PX4 설정은 PX4를 *오프보드 모드*로 설정하는 것입니다.
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
 <span id="mission_mode"></span>
 
-## Mission Mode Avoidance
+## 임무 모드 회피
 
-PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
+PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드](../flight_modes/mission.md)에서 장애물 회피를 지원합니다.
 
-### Mission Progression
+### 임무 수행
 
-Mission behaviour with obstacle avoidance enabled is *slightly different* to the original plan.
+장애물 회피가 활성화된 임무 동작은 원래의 계획과 *약간의 차이*가 납니다.
 
-The difference when avoidance is active are:
+회피가 활성화된 경우 차이점은 다음과 같습니다.
 
-- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading. 
-  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
-- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
-- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
+- 웨이포인트는 기체의 방향과 관계없이 허용 반경내에 있을 때 "도달"한 것으로 간주됩니다. 
+  - 이것은 기체의 특정 방향 (즉, 이전 웨이포인트에서 "가까운"직선)으로 웨이포인트에 도달해야하는 일반 임무와의 차이점입니다. 장애물 회피 알고리즘이 기체 방향을 완전히 제어하고, 기체는 항상 현재 시야에서 움직이기 때문에 장애물 회피가 활성화된 경우이 제약 조건을 충족할 수 없습니다. 
+- PX4는 이전 웨이포인트에 도달하면 (즉, 차량이 허용 반경에 진입하자마자) 새로운 현재/다음 웨이포인트를 방출하기 시작합니다.
+- 웨이포인트가 장애물 *안쪽*에 있으면 도달할 수 없을 수 있습니다 (미션이 중단됨). 
   - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
   - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
 - The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
