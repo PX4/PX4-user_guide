@@ -1,14 +1,14 @@
-# Obstacle Avoidance
+# 장애물 회피
 
-*Obstacle Avoidance* enables a vehicle to navigate around obstacles when following a preplanned path.
+*장애물 회피* 기능을 사용하여 계획된 경로를 비행시 장애물 주위를 탐색 할 수 있습니다.
 
-The feature requires a companion computer that is running computer vision software. This software provides a route for a given desired trajectory, mapping and navigating around obstacles to achieve the best path.
+이 기능을 사용하려면 컴퓨터 비전 소프트웨어를 실행하는 보조 컴퓨터가 필요합니다. 이 소프트웨어는 주어진 원하는 궤적에 대한 경로, 매핑 및 장애물 주변 탐색을 제공하여 최적의 경로를 제공합니다.
 
-Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
+장애물 회피는 자동 모드를위한 것이며 현재 [임무](#mission_mode) 및 [오프 보드 모드](#offboard_mode)의 멀티콥터에 지원됩니다.
 
-This topic explains how the feature is set up and enabled in both modes.
+두 모드에서 기능을 설정하고 활성화하는 방법에 대하여 설명합니다.
 
-@[youtube](https://youtu.be/PrGt7pKj3tI)
+@[유투브](https://youtu.be/PrGt7pKj3tI)
 
 ## Limitations/Capabilities
 
