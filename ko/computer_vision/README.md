@@ -9,13 +9,13 @@ PX4는 다음과 기능에 컴퓨터 비전 시스템([보조 컴퓨터](../comp
   - [시각 관성 오도메 트리(VIO)](../computer_vision/visual_inertial_odometry.md)는 온보드 비전 시스템 및 IMU를 사용하여 3D 자세 및 속도를 추정합니다. 전역 위치 정보가 없거나 신뢰할 수 없는 경우에는 내비게이션용으로 사용됩니다.
 - 회피 및 경로 계획 :
   - [장애물 회피](../computer_vision/obstacle_avoidance.md)는 계획된 경로를 비행시 장애물 주변의 내비게이션 기능을 제공합니다 (현재 임무가 지원됨). 이 기술은 보조 컴퓨터의 [PX4/avoidance](https://github.com/PX4/avoidance) 기능을 활용합니다.
-  - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
-  - [Safe Landing](../computer_vision/safe_landing.md) guides vehicles to find (and land on) flat terrain that is free of stationary obstacles.
+  - [충돌 방지](../computer_vision/collision_prevention.md) 기술은 (주로 매뉴얼 모드로 비행시) 기체가 장애물로 돌진시 정지용으로 사용됩니다.
+  - [안전 착륙](../computer_vision/safe_landing.md)은 고정 장애물이 없는 평평한 지형을 찾거나 착륙하도록 기체를 안내합니다.
 
 :::tip
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) (Holybro)는 PX4에서 컴퓨터 비전으로 작업하는 개발자를위한 강력하고 저렴한 키트입니다. [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 소프트웨어는 사전 설치되어 제공되며, 자체 알고리즘으로 사용할 수 있습니다.
 :::
 
-## External Resources
+## 외부 참고 자료
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 v1.9 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md)-컴퓨터 비전용 ROS + PX4 v1.9 시뮬레이션 환경. [XTDrone 매뉴얼](https://www.yuque.com/xtdrone/manual_en)에는 시작하는 데 필요한 모든 내용이 포함되어 있습니다.
