@@ -46,39 +46,39 @@ PX4는 보조 컴퓨터의 회피 소프트웨어를 사용하여 [임무 모드
   - 이것은 기체의 특정 방향 (즉, 이전 웨이포인트에서 "가까운"직선)으로 웨이포인트에 도달해야하는 일반 임무와의 차이점입니다. 장애물 회피 알고리즘이 기체 방향을 완전히 제어하고, 기체는 항상 현재 시야에서 움직이기 때문에 장애물 회피가 활성화된 경우이 제약 조건을 충족할 수 없습니다. 
 - PX4는 이전 웨이포인트에 도달하면 (즉, 차량이 허용 반경에 진입하자마자) 새로운 현재/다음 웨이포인트를 방출하기 시작합니다.
 - 웨이포인트가 장애물 *안쪽*에 있으면 도달할 수 없을 수 있습니다 (미션이 중단됨). 
-  - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
-  - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
-- The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
-  - *local planner* mission speed is around 3 m/s.
-  - *global planner* mission speed is around 1-1.5 m/s.
+  - 이전-현재 웨이포인트 라인의 기체 투영이 현재 웨이포인트를 통과하면 수락 반경이 확대되어 현재 웨이포인트에 도달한 것으로 설정됩니다.
+  - 차량이 x-y 수용 반경내에 있는 경우 임무가 진행되도록 고도 수용이 수정됩니다 (고도 수용 반경에 있지 않더라도).
+- 원래의 미션 속도 (*QGroundControl*/PX4에 설정 됨)는 무시됩니다. 속도는 회피 소프트웨어에 의해 결정됩니다. 
+  - *로컬 플래너* 임무 속도는 약 3m/s입니다.
+  - *글로벌 플래너* 임무 속도는 약 1~1.5m/s입니다.
 
-If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes/hold.md).
+PX4가 0.5 초 이상 설정 값 업데이트 수신을 중지하면 [보류 모드](../flight_modes/hold.md)로 전환됩니다.
 
-### PX4 Configuration
+### PX4 설정
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+장애물 회피는 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID)를 1로 [설정](../advanced_config/parameters.md)하여 PX4 내에서 활성화됩니다.
 
 :::note
-`COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+`COM_OBS_AVOID`는 [안전 착륙](../computer_vision/safe_landing.md) 및 PX4 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md) (추적 인터페이스)를 사용하는 기타 기능을 활성화하여 외부 경로 계획 서비스를 PX4와 통합합니다.
 :::
 
-## Companion Computer Setup
+## 보조 컴퓨터 설정
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
-Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
+임무에서 장애물 회피는 *로컬 플래너* 또는 *글로벌 플래너*를 사용할 수 있습니다. 좀 더 좋은 성능을 가진 로컬 플래너를 권장합니다.
 
 <span id="interface"></span>
 
-## Obstacle Avoidance Interface
+## 장애물 회피 인터페이스
 
-PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스를 포함하여 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md)를 사용합니다.
 
-The interface (messages sent) between PX4 and the companion are *exactly* the same as for any other path planning services.
+PX4와 보조 컴퓨터간의 인터페이스(전송된 메시지)는 다른 경로 계획 서비스와 *정확히* 동일합니다.
 
-## Supported Hardware
+## 지원 하드웨어
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4 회피](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
 
 <!-- ## Further Information -->
 
