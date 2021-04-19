@@ -1,4 +1,4 @@
-# 飞行控制器的朝向的高级调参
+# 飞控方向的高级调参
 
 可以通过手动调参来修正无人机的方向和地平线水准，以校正传感器芯片存在的微小不对准或校准误差。
 
@@ -24,7 +24,7 @@
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
+该参数定义了 FMU 飞控板相对于飞机平台的旋转角。 可选值有：
 
 - 0 = 无旋转
 - 1 = 偏航 45°
