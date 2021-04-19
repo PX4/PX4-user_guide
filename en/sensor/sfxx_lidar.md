@@ -34,15 +34,24 @@ SF10/C | 100m | Serial or I2C
 Check the tables above to confirm that which models can be connected to the I2C port.
 
 <span id="i2c_hardware_setup"></span>
+
+### Lidar Configuration
+
+:::note
+Please be aware that Lightware doesn't ship with Pixhawk I2C compatibility enabled by default. To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
+:::
+
+![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/sf11-i2c-config.jpg)
+
 ### Hardware
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
+
+
 ![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/sf1xx_i2c.jpg)
 
-:::note
-In case it is the first time you are using the sensor with Pixhawk, you have to enable Pixhawk compatibility in [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio).
-:::
+
 
 :::note
 Some older revisions cannot be used with PX4. 
