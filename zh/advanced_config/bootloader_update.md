@@ -17,18 +17,18 @@
     make px4_fmu-v6x_bootloader
     
 
-Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+该命令构建出的 bootloader 二进制文件像这样 `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`， 可以通过 SWD 或者 DFU 烧写。 If you are building the bootloader you should be familiar with one of these options already.
 
-If you need a HEX file instead of an ELF file, use objcopy:
+如果需要 HEX 文件而不是 ELF 文件，请使用 objcopy 参数：
 
     arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
     
 
 <span id="qgc_bootloader_update"></span>
 
-## QGroundControl Bootloader Update
+## 使用 QGroundControl 地面站更新 Bootloader
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 :::note
 This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
