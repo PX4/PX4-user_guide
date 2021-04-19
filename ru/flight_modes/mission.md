@@ -141,7 +141,7 @@ Note:
 Please add an issue report or PR if you find a missing/incorrect message.
 :::
 
-## Inter-Waypoint Trajectory
+## Rounded turns: Inter-Waypoint Trajectory
 
 PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
 
