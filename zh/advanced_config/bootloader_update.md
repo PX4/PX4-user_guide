@@ -12,7 +12,7 @@
 
 以 FMUv6X （STM32H7）开始的板子使用树内的 PX4 bootloader。 旧板子使用遗留的 [PX4 bootloader](https://github.com/PX4/Bootloader) 仓库中的 bootloader。 请参考README中的说明来学习如何使用它。
 
-Build the new bootloader in the PX4-Autopilot folder with:
+在 PX4-Autopilot 文件夹中构建新的 bootloader:
 
     make px4_fmu-v6x_bootloader
     
@@ -51,11 +51,11 @@ Generally at this point you may then want to [update the firmware](../config/fir
 
 <span id="dronecode_probe"></span>
 
-### 使用 Dronecode Probe 更新 Bootloader (Dronecode Probe 是官方 JTAG/SWD+UART 调试器 )
+### Dronecode Probe Bootloader 更新
 
-The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+以下步骤说明了如何使用 dronecode probe “手动” 更新 bootloader ：
 
-1. 获取包含 bootloader 的二进制文件（从开发团队 或 自行编译获得）。
+1. 获取包含 bootloader 的二进制文件（从开发团队或自行编译获得）。
 2. 通过 USB 将 Dronecode Probe 连接到PC。 
 3. 进入包含二进制文件的目录，然后在终端中运行以下命令 ： 
         bash
@@ -97,7 +97,7 @@ To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
-## Other Boards (Non-Pixhawk)
+## 其他飞控板（非 Pixhawk）
 
 Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 
