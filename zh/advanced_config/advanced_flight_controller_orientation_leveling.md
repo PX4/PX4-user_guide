@@ -55,12 +55,12 @@
 
 **SENS_BOARD_X_OFF**
 
-Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+绕 PX4FMU 的 X 轴或者 横滚轴旋转角度。 正角度增加在逆时针方向，负角度增加在顺时针方向。
 
 **SENS_BOARD_Y_OFF**
 
-Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+绕 PX4FMU 的 Y 轴或者俯仰轴旋转角度。 正角度值增加在逆时针方向，负角度增加在顺时针方向。
 
 **SENS_BOARD_Z_OFF**
 
-Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+绕 PX4FMU 的 Z 轴或者偏航轴旋转角度。 正角度增加在逆时针方向，负角度增加在顺时针方向。
