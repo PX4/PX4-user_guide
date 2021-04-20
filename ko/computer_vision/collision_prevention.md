@@ -1,10 +1,10 @@
 # 충돌 방지
 
-*충돌방지* 기능은 기체가 장애물 앞에서 자동으로 속도를 늦추거나 멈추도록 합니다
+*충돌방지* 기능은 기체가 장애물을 만나면 자동으로 속도를 늦추거나 정지합니다
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
+[위치 모드](../flight_modes/position_mc.md)에서 멀티콥터에 대해 활성화할 수 있으며, 오프보드 보조 컴퓨터, MAVLink를 통한 오프보드 거리계, 비행 컨트롤러에 부착된 거리계 또는 위의 조합에서 센서 데이터를 사용할 수 있습니다.
 
-Collision prevention may restrict vehicle maximum speed if the sensor range isn't large enough! It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+충돌 방지는 센서 범위가 충분히 크지 않으면, 기체의 최대 속도를 제한할 수 있습니다! It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
 
 :::tip
 If high flight speeds are critical, consider disabling collision prevention when not needed.
