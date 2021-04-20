@@ -127,7 +127,7 @@ Make sure *QGroundControl* is not running!
 1. 将飞行控制器连接到计算机, 并等待其启动。
 1. 在 HITL 模式下运行 jMAVSim (r如有必要，修改串口号名称 `/dev/ttyACM0` - 比如，在 Mac OS 上该参数应为 `/dev/tty.usbmodem1`)： sh ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 921600 -r 250
    ```sh
-   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
+   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 2000000 -r 250
    ```
 
 :::note
