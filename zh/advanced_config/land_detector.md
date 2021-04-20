@@ -13,7 +13,7 @@
 所有的关于着陆探测器的参数集在参数索引中列出，带有前缀 [LNDMC](../advanced_config/parameter_reference.md#land-detector) （可以通过[参数编辑器](../advanced_config/parameters.md)在 QGroundControl 中编辑这些参数）。
 
 :::tip
-Information about how the parameters affect landing can be found below in [Land Detector States](#states).
+关于参数如何影响着着陆的信息可以在下面的 [Land Detor States](#states) 中找到。
 :::
 
 Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
