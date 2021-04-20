@@ -18304,14 +18304,21 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS0_PID">UCAN1_BMS0_PID</strong> (INT32)</td>
+ <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
  <td>    </td>
  <td></td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS1_PID">UCAN1_BMS1_PID</strong> (INT32)</td>
+ <td><strong id="UCAN1_BMS_BS_PID">UCAN1_BMS_BS_PID</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_ES_PID">UCAN1_BMS_ES_PID</strong> (INT32)</td>
  <td>    </td>
  <td></td>
  <td>0</td>
@@ -18347,6 +18354,13 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_LG_BMS_PID">UCAN1_LG_BMS_PID</strong> (INT32)</td>
  <td>    </td>
  <td></td>
  <td>0</td>
