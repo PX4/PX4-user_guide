@@ -31,9 +31,15 @@ The following models are no longer available from the manufacturer.
 
 Check the tables above to confirm that which models can be connected to the I2C port.
 
-<span id="i2c_hardware_setup"></span>
+### Lidar Configuration
 
-### 硬件
+This hardware does not ship with Pixhawk I2C compatibility enabled by default. To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
+
+![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/sf11-i2c-config.jpg)
+
+<a id="i2c_hardware_setup"></a>
+
+### Hardware
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
@@ -53,7 +59,7 @@ Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX)
 
 <span id="serial_hardware_setup"></span>
 
-### 硬件
+### Hardware
 
 The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
