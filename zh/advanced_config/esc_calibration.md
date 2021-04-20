@@ -6,24 +6,24 @@
 
 电调根据飞控的 PWM 输入值 来调节电机速度（和方向）。 电调响应的输入范围是可配置的，甚至同一模型下的不同电调之间的默认范围也是不同的。
 
-This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
+此校准将更新所有 ESCs, 其最大和最小 PWM 输入值将由飞控提供。 随后，所有电调/电机机都将以同样方式（跨越整个输入范围）对飞控输入作出反应。
 
-Calibration is recommended for all ESCs, and in particular for low cost models.
+建议对所有电调进行校准，特别是低成本模型机。
 
-## 操作前提
+## 前置条件
 
-The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
+系统必须包括一个电源模块（PX4 使用测量的电压来确定电池是否连接）。
 
 ## 步骤
 
-To calibrate the ESCs:
+校准电调：
 
 1. 卸下螺旋桨。
     
 :::warning
-Never attempt ESC calibration with props on.
+切勿带桨进行电调校准。
     
-    The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+    电调校准期间电机不应旋转。 However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
 :::
 
 2. 断开电池并（仅）通过 USB 连接飞行控制器。
