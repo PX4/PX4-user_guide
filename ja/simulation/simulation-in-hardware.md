@@ -35,12 +35,12 @@ The simulated quadrotor can be displayed in jMAVSim from PX4 v1.11.
 1. Unplug and replug the hardware autopilot (allow a few seconds for it to boot).
 1. Start jMAVSim by calling the script **jmavsim_run.sh** from a terminal:
    ```
-   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 921600 -r 250 -o
+   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -r 250 -o
    ```
    where the flags are
    - `-q` to allow the communication to *QGroundControl* (optional).
    - `-d` to start the serial device `/dev/ttyACM0` on Linux. On macOS this would be `/dev/tty.usbmodem1`.
-   - `-b` to set the serial baud rate to `921600`.
+   - `-b` to set the serial baud rate to `2000000`.
    - `-r` to set the refresh rate to `250` Hz (optional).
    - `-o` to start jMAVSim in *display Only* mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
 1. After few seconds, *QGroundControl* can be opened again.
