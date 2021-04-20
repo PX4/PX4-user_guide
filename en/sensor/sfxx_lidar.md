@@ -3,7 +3,7 @@
 LightWare develops a range of light-weight, general purpose, laser altimeters ("Lidar") suitable for mounting on UAVs.
 These are useful for applications including terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, anti-collision sensing etc.
 
-![LightWare SF11/C Lidar](../../assets/hardware/sensors/sf11c_120_m.jpg)
+![LightWare SF11/C Lidar](../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg)
 
 ## Supported Models
 
@@ -38,14 +38,14 @@ Check the tables above to confirm that which models can be connected to the I2C 
 This hardware does not ship with Pixhawk I2C compatibility enabled by default.
 To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
 
-![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/sf11-i2c-config.jpg)
+![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/lightware_studio_i2c_config.jpg)
 
 <a id="i2c_hardware_setup"></a>
 ### Hardware
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
-![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/sf1xx_i2c.jpg)
+![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/lidar_lightware/sf1xx_i2c.jpg)
 
 :::note
 Some older revisions cannot be used with PX4. 
