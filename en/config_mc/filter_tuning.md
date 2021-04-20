@@ -36,7 +36,7 @@ This is the filtering pipeline for the controllers in PX4:
 - Low-pass filter on the gyro sensor data.
   It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
   :::note
-  Sampling and filtering is always performed at the full raw sensor rate (commonly 8Hz).
+  Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
   :::
 - A separate low-pass filter on the D-term.
   The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
