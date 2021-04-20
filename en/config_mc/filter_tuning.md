@@ -32,7 +32,7 @@ Below we look at the impact of the low pass filters.
 
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor.
-  This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to 98Hz and it is sampled at 1kHz).
+  This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
 - Low-pass filter on the gyro sensor data.
   It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
   :::note
