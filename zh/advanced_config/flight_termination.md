@@ -54,10 +54,10 @@ If you're using Pixhawk-series board you will have to separately power the servo
 - 将 [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) 设置为设备的“OFF”PWM值。
 - 将 [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) 设置为设备的“ON”PWM值。
 
-Finally, set the `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM values for any motors.
+最后，设置任意电机的 `PWM_AUX_FAILn` 和 `PWM_MAIN_FAILn` PWM 值。
 
 ## 逻辑图解
 
-The diagram below shows the logical flow around flight termination.
+下图显示了飞行终止的逻辑流程。
 
 ![Logic diagram](../../assets/config/flight_termination_logic_diagram.png)
