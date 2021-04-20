@@ -40,18 +40,18 @@
 
 ##### 进入 DFU 模式
 
-Both methods require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
+两种方法都要求飞控板处于 DFU 模式。 要进入 DFU 模式， 当将 USB 连接到电脑时按住启动按钮。 飞控板上电后可以释放该按钮。
 
 ##### dfu-util
 
     dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
     
 
-请在此处查看 dfuse 手册：https://www.st.com/resource/zh/user_manual/cd00155676.pdf
+重新启动飞控板，并且不要按下启动按钮。
 
 ##### dfuse
 
-Flash the **<target>.bin** file.
+在此处查看 dfuse 手册: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
 烧写**<target>.bin** 文件。
 
@@ -61,6 +61,6 @@ Flash the **<target>.bin** file.
 
 为了切换回 * Betaflight *：
 
-- 备份 PX4 参数，例如通过[导出](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters)将它们导出到 SD卡
+- 备份 PX4 参数，例如通过[导出](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters)将其导出到 SD 卡中。
 - 连接 USB 线时，按住** bootloader **按钮
-- 然后使用* Betaflight-configurator </ 0>像往常一样烧写* Betaflight *固件进其 flash</li> </ul>
+- 然后使用* Betaflight-configurator </ 0>像往常一样烧写* Betaflight *固件。</li> </ul>
