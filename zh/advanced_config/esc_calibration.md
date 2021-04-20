@@ -4,7 +4,7 @@
 这些说明仅与 [PWM 电调相关](../peripherals/pwm_escs_and_servo.md)。
 :::
 
-电调根据飞控的 PWM 输入值 来调节电机速度（和方向）。 The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
+电调根据飞控的 PWM 输入值 来调节电机速度（和方向）。 电调响应的输入范围是可配置的，甚至同一模型下的不同电调之间的默认范围也是不同的。
 
 This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
 
