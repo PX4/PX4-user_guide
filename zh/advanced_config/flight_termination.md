@@ -30,17 +30,17 @@
 任何 *安全设备* (例如一个 [降落伞](../peripherals/parachute.md)）可以使用因更改 PWM 值而触发的降落伞， 并且可以连接到任意空闲的 PWM 端口（MAIN和 AUX）。
 
 :::note
-If you're using Pixhawk-series board you will have to separately power the servo rail (i.e. from a 5V BEC, which is often also available from your ESC).
+如果您使用 Pixhawk 系列飞控板， 您必须单独为舵机单独供电（通常供电来自 5V BEC, 通常来自电调 BEC）。
 :::
 
 ## 软件配置
 
-对于每个与安全装置相连的 MAIN 输出，其中“n”指 PWM 端口号：
+[安全](../config/safety.md) 主题解释了如何将 *飞行终止* 设置为 [失效保护动作](../config/safety.md#failsafe_actions) 作为特定故障安全检查。
 
-对于每个与安全装置相连的 AUX 输出，其中“n”指 PWM 端口号：
+如果载具翻转（超过一定姿态）或外部自动触发系统（ATS）检测到故障，则[故障检测器](../config/safety.md#failure_detector)也可以（可选）通过配置来触发飞行终止，如下所示：
 
-- 设置 [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) 启用故障检测器（默认情况下禁用）。
-- 通过[安全 > 故障检测器 > 姿态触发器](../config/safety.md#attitude_trigger)可以配置触发*飞行终止*的姿态极限值。 > **Note** 在*起飞期间*，超过限制值的姿态将触发*上锁*（制动电机但不启动降落伞），而不是飞行终止。 无论 `CBRK_FLIGHTTERM` 为何值，此选项始终启用。
+- 通过设置 [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) 来启用故障检测器。
+- [安全> 故障检测 > 姿态触发](../config/safety.md#attitude_trigger) 解释了如何通过配置姿态限制触发 *飞行终止*。 :::note 在 *起飞期间* 过分的状态将会触发 *锁定* (制动电机，但不会启动降落伞) 而不是飞行终止。 无论 `CBRK_FLIGHTTERM` 为何值，此选项始终启用。
 :::
 - [通过安全 > 外部自动触发系统（ATS）](../config/safety.md#external_ats)可以配置外部触发系统。
 
@@ -60,4 +60,4 @@ If you're using Pixhawk-series board you will have to separately power the servo
 
 下图显示了飞行终止的逻辑流程。
 
-![Logic diagram](../../assets/config/flight_termination_logic_diagram.png)
+![逻辑图解](../../assets/config/flight_termination_logic_diagram.png)
