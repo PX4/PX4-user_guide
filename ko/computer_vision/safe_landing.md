@@ -12,44 +12,44 @@
 
 안전 착륙은 거친 지형에서 평평한 지역을 찾기 위해 설계되었습니다.
 
-- Landing on a road is not prevented; if a car is detected it will be "forgotten" once it moves past.
-- Landing on water may occur if using radar or ultrasound sensors, but should not occur if using stereo cameras or LIDAR. 
-  - The system will only land if it is able to detect ground. For stereo cameras, water that is rough enough to have sufficient distinguishing features for analysis will not be flat enough to land on.
+- 도로에 착륙하는 것은 방지되지는 않습니다. 자동차가 감지되어 지나가면 "잊혀집니다".
+- 레이더 또는 초음파 센서를 사용하는 경우 물에 착륙 할 수 있지만, 스테레오 카메라 또는 LIDAR를 사용하는 경우 발생하지 않아야 합니다. 
+  - 시스템은 접지를 감지할 수있는 경우에만 착륙합니다. 스테레오 카메라의 경우 분석을 위한 충분한 구별 기능을 가질 수 있을 정도로 거친 물은 착륙하기에 충분히 평평하지 않습니다.
 
-## PX4 Configuration
+## PX4 설정
 
-Safe landing is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+안전 착륙은 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID)를 1로 [설정](../advanced_config/parameters.md)하여 PX4내에서 활성화됩니다.
 
 :::note
-`COM_OBS_AVOID` also enables [Obstacle Avoidance in Missions](../computer_vision/obstacle_avoidance.md#mission_mode) and any other features that use the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
+`COM_OBS_AVOID`는 [안전 착륙](../computer_vision/obstacle_avoidance.md#mission_mode) 및 PX4 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md) (추적 인터페이스)를 사용하는 기타 기능을 활성화하여 외부 경로 계획 서비스를 PX4와 통합합니다.
 :::
 
-## Companion Computer Setup
+## 보조 컴퓨터 설정
 
-Companion-side setup and configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
-This covers the common setup for obstacle avoidance and collision prevention, and includes specific sections for using the *safe landing planner* (which provides companion-side support for this feature):
+여기에는 장애물 회피 및 충돌 방지를위한 일반적인 설정이 포함되며 *안전 착륙 플래너* (이 기능은 보조컴퓨터에서 제공)를 사용하기위한 특정 섹션이 포함됩니다.
 
-* [Simulation setup](https://github.com/PX4/avoidance#safe-landing-planner)
-* [Harware setup](https://github.com/PX4/avoidance#safe-landing-planner-1)
+* [시뮬레이션 설정](https://github.com/PX4/avoidance#safe-landing-planner)
+* [하드웨어 설정](https://github.com/PX4/avoidance#safe-landing-planner-1)
 
-The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
+구성 정보에는 다양한 카메라, 차량 크기 및 착륙 여부를 결정하는 높이에 대한 안전 착륙을 설정 방법이 포함하고 있습니다.
 
 <span id="interface"></span>
 
 ## 안전 착륙 인터페이스
 
-PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
+PX4는 [임무중 장애물 회피](../computer_vision/obstacle_avoidance.md#mission_mode), [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스를 포함하여 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 [경로 계획 오프 보드 인터페이스](../computer_vision/path_planning_interface.md)를 사용합니다.
 
-The interface (messages sent) between PX4 and the companion are exactly the same as for any other path planning services. Note however that the safe landing planner only uses information in Point 0 of the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message for the desired path.
+PX4와 보조 컴퓨터간의 인터페이스(전송된 메시지)는 다른 경로 계획 서비스와 정확히 동일합니다. 그러나 안전 착륙 계획자는 원하는 경로에 대한 `TRAJECTORY_REPRESENTATION_WAYPOINTS` 메시지의 Point 0에있는 정보만 사용합니다.
 
-## 지원 하드웨어
+## 지원 하드웨어 
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4 회피](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
 
-## 추가 정보
+## 추가 정보 
 
-* [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer)
-* [PX4/avoidance](https://github.com/PX4/avoidance) 
-  * [모의 시험 환경 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#safe-landing-planner)
-  * [하드웨어 설정 > 안전 착륙 계획](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
+* [비전 및 보드 외부 제어 인터페이스](https://youtu.be/CxIsJWtVaTA?t=963) (PX4 개발자 서밋 2019: Martina Rivizzigno, Auterion Computer Vision Engineer) 
+* [PX4 회피 기능](https://github.com/PX4/avoidance) 
+  * [시뮬레이션 설정 > 안전 착륙 플래너](https://github.com/PX4/avoidance#safe-landing-planner)
+  * [하드웨어 설정 > 안전 착륙 플래너](https://github.com/PX4/avoidance#ssafe-landing-planner-1)
