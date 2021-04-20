@@ -50,24 +50,24 @@
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
+- 推力低于 [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3 除非有悬停推理估计，否则 0.6）， 或速度设定点是着陆速度的 0.9， 但车辆没有垂直移动。
 
-If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
+如果飞行器处于位置控制或速度控制并且检测到地面接触，位置控制器会将沿飞行器 x-y 轴的推力矢量设置为零。
 
 #### 可能着陆
 
-This state is reached if following conditions are true for 0.25 seconds:
+如果满足以下条件达到 0.25 秒，则进入此状态：
 
 - 所有的地面接触条件都是真
-- 没有旋转（[ LNDMC_ROT_MAX ](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX)），即 俯仰、滚转、偏航为零的状态。
-- 具有低油门 ，即油门低于`MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- 没有滚动运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
+- 具有低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 
-If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
+如果飞行器只知道推力和角速度，为了进入下一个状态，飞行器必须具有较低的推力（油门）和非旋转状态达到 8.0 秒。
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+如果飞行器处于位置控制或速度控制并且可能已检测到着陆，位置控制器会将推力矢量设置为零。
 
 #### 降落完成
 
-This state is reached if following conditions are true for 0.3 seconds:
+如果满足以下条件达到 0.3 秒，则进入此状态：
 
 - 所有的可能着陆条件均为真
