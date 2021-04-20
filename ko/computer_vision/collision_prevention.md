@@ -4,17 +4,17 @@
 
 [위치 모드](../flight_modes/position_mc.md)에서 멀티콥터에 대해 활성화할 수 있으며, 오프보드 보조 컴퓨터, MAVLink를 통한 오프보드 거리계, 비행 컨트롤러에 부착된 거리계 또는 위의 조합에서 센서 데이터를 사용할 수 있습니다.
 
-충돌 방지는 센서 범위가 충분히 크지 않으면, 기체의 최대 속도를 제한할 수 있습니다! It also prevents motion in directions where no sensor data is available (i.e. if you have no rear-sensor data, you will not be able to fly backwards).
+충돌 방지는 센서 범위가 충분히 크지 않으면, 기체의 최대 속도를 제한할 수 있습니다! 또한 센서 데이터를 사용할 수 없는 방향으로의 움직임을 방지합니다 (즉, 후방 센서 데이터가없는 경우 뒤로 비행할 수 없음).
 
 :::tip
-If high flight speeds are critical, consider disabling collision prevention when not needed.
+빠른 비행 속도가 중요한 경우에는, 필요치 않으면 충돌 방지 기능을 비활성화하는 것이 좋습니다.
 :::
 
 :::tip
-Ensure that you have sensors/sensor data in all directions that you want to fly (when collision prevention is enabled).
+비행하려는 모든 방향에 센서/센서 데이터가 있는지 확인하십시오 (충돌 방지가 활성화된 경우).
 :::
 
-## Overview
+## 개요
 
 *Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([CP_DIST](#CP_DIST)).
 
