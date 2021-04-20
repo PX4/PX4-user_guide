@@ -16,7 +16,7 @@
 关于参数如何影响着着陆的信息可以在下面的 [Land Detor States](#states) 中找到。
 :::
 
-Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
+为了改善特定机架上的着陆，您可能需要调整的其他关键参数包括:
 
 - [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-系统的悬停油门 (默认值为 50%)。 正确设置这一点是很重要的, 因为它使高度控制更加准确, 并确保正确的地面检测。 没有安装有效载荷的穿越机或大型相机的无人机可能需要更低的悬停油门 (例如 35%)。
     
