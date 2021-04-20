@@ -1,21 +1,21 @@
-# 磁力计补偿（针对动力系统大电流诱发的磁场）
+# 磁罗盘功率补偿
 
 罗盘（磁力计）应该安装在尽可能远离通过大电流的线缆的位置，因为大电流诱发的磁场会干扰罗盘的读数。
 
 本文解释了如何在不能改变磁航向计安装位置的情况下如何补偿诱发磁场带来的影响。
 
 :::tip
-Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+使磁航向计远离动力电缆是最简单和最有效的避免诱发磁场干扰的方法，因为磁场强度是按与电缆的距离的二次方衰减的。
 :::
 
 :::note
-The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+下述过程基于多旋翼无人机演示，但同样适用于其他类型的载具。
 :::
 
 <span id="when"></span>
 ## 本节补偿方法可用的前提
 
-Performing this power compensation is advisable only if all the following statements are true:
+只有当下述的全部条件都满足时才建议采用功率补偿：
 1. 磁航向计无法远离动力线缆。
 1. 磁航向计读数与油门杆位与/或电池电流有强相关性。![失效的磁航向计](../../assets/advanced_config/corrupted_mag.png)
 
