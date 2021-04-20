@@ -83,8 +83,7 @@
 6. 现在，使用以下命令连接到 Dronecode probe： ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
 7. 使用另一条 USB 线为 Pixhawk 供电，然后将 Dronecode probe 连接到 FMU-DEBUG 端口。
     
-:::note
-To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+    为了能够将 Dronecode probe 连接到 FMU-DEBUG 端口，您可能需要卸下外壳（例如，在Pixhawk 4 上，可以使用 T6 Torx 螺丝刀进行操作）。
 :::
 
 8. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
@@ -95,10 +94,10 @@ To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to
 
 9. 将二进制文件加载到 Pixhawk 中 ： ```(gdb) load```
 
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
+Bootloader 更新后，您可以使用* QGroundControl * 来 [加载 PX4 固件](../config/firmware.md)。
 
 ## 其他飞控板（非 Pixhawk）
 
-Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
+不属于 [ Pixhawk 系列](../flight_controller/pixhawk_series.md)的板卡将具有自己的 bootloader 更新机制。
 
-For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
+对于已预烧写 Betaflight 的板卡，请参见[ Betaflight System 烧写 Bootloader ](bootloader_update_from_betaflight.md)。
