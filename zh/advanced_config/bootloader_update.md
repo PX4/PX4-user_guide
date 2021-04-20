@@ -17,7 +17,7 @@
     make px4_fmu-v6x_bootloader
     
 
-该命令构建出的 bootloader 二进制文件像这样 `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`， 可以通过 SWD 或者 DFU 烧写。 If you are building the bootloader you should be familiar with one of these options already.
+该命令构建出的 bootloader 二进制文件像这样 `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`， 可以通过 SWD 或者 DFU 烧写。 如果你正准备构建 bootloader，你应该已经熟悉这些选项之一。
 
 如果需要 HEX 文件而不是 ELF 文件，请使用 objcopy 参数：
 
@@ -28,16 +28,16 @@
 
 ## 使用 QGroundControl 地面站更新 Bootloader
 
-最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
 
 :::note
-This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+此方法只能在固件中存在 [SYS_BL_UpDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 时才能使用 (目前只是 FMUv2 和一些自定义固件)。
 :::
 
-The steps are:
+步骤如下：
 
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
-2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader. :::note The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+2. 使用包含 最新的/所需的 bootloader 的 image 文件来[更新固件](../config/firmware.md#custom)。 :::note 已经更新的 bootloader 可能在自定义固件中提供（例如，来自开发团队的固件），或者可能在最新的 master 分支中。
 :::
     
     ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
@@ -47,7 +47,7 @@ The steps are:
 4. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 5. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
 
-Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+通常，此时您可能想要使用 正确/新安装 的 bootloader 再次[更新固件](../config/firmware.md)。
 
 <span id="dronecode_probe"></span>
 
