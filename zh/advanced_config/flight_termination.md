@@ -14,20 +14,20 @@
 
 飞行终止是无法取消的。 在飞行终止触发后，您应尽快拔下电池。 您需要在重启载具或重新上电后才能再次使用。
 
-:::tip PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
+:::tip PX4 不能感知接了那些安全设备 - 它只是将一组预先定义的 PWM 值用于其输出。
 :::
 
 :::tip
-Failsafe values are applied to all outputs on termination. There is no way to configure independent time-based (or other) triggering of the motors or specific safety devices.
+失效保护值被应用到终止时的所有输出。 无法配置时基触发的电机或者特定的安全设备。
 :::
 
 :::note
-This is *not* an independent *Flight Termination System*. If power is lost or if the autopilot crashes completely, the failsafe devices will not be triggered.
+这*不是*一个独立的 *飞行终止系统*。 如果断电或者自驾仪完全失控，则不会出发失效保护设备。
 :::
 
 ## 硬件配置
 
-[安全](../config/safety.md)话题解释了如何将*飞行终止*设置为针对特定故障安全检查而执行的[故障保护动作](../config/safety.md#failsafe_actions)。
+任何 *安全设备* (例如一个 [降落伞](../peripherals/parachute.md)）可以使用因更改 PWM 值而触发的降落伞， 并且可以连接到任意空闲的 PWM 端口（MAIN和 AUX）。
 
 :::note
 If you're using Pixhawk-series board you will have to separately power the servo rail (i.e. from a 5V BEC, which is often also available from your ESC).
