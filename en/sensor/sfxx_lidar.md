@@ -38,7 +38,7 @@ Check the tables above to confirm that which models can be connected to the I2C 
 This hardware does not ship with Pixhawk I2C compatibility enabled by default.
 To enable support, you have to download [LightWare Studio](https://lightwarelidar.com/pages/lightware-studio) and got to **Parameters > Communication** and tick mark **I2C compatibility mode (Pixhawk)**
 
-![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/lightware_studio_i2c_config.jpg)
+![LightWare SF11/C Lidar-I2C Config](../../assets/hardware/sensors/lidar_lightware/lightware_studio_i2c_config.jpg)
 
 <a id="i2c_hardware_setup"></a>
 ### Hardware
