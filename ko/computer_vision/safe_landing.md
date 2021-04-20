@@ -1,16 +1,16 @@
 # 안전 착륙
 
-The *Safe Landing* feature ensures that vehicles only land on flat terrain.
+*안전 착륙* 기능은 비행기가 평평한 곳에 착륙할 수 있게 합니다.
 
-The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mission mode](../flight_modes/mission.md) on multicopter vehicles that have a companion computer running the appropriate vision software. It can also be used for VTOL vehicles in MC mode.
+이 기능은 적절한 비전 소프트웨어를 실행하는 보조 컴퓨터가있는 멀티콥터의 [착륙 모드](../flight_modes/land.md) 및 [임무 모드](../flight_modes/mission.md)에서 활성화 할 수 있습니다. 멀티콥터 모드의 VTOL에서도 사용할 수 있습니다.
 
-착륙 명령을 내리면, 기체는 우선 지표면을 측정할 수 있는 높이만큼 하강합니다(보조 컴퓨터의 `loiter_height` 매개변수). 착륙 지점이 충분히 평평하지 않으면, 기체는 정방 나선 패턴 외부로 이동한 후 주기적으로 멈추고 지형을 다시 확인하는 절차를 반복하여 착륙 지점이 너무 고르지 않은지 확인합니다.
+착륙 명령을 받으면 기체는 먼저 표면을 측정할 수있는 높이로 하강합니다 (보조 컴퓨터 `loiter_height` 매개 변수). 착륙 영역이 충분히 평평하지 않은 경우에는 비행기는 정사각형 나선형 패턴으로 바깥쪽으로 이동하여 주기적으로 정지하여 너무 거칠지 않은 착륙 지점을 다시 검색합니다. 
 
-@{% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
+@[유투브](https://youtu.be/9SuJYcT0Mgc)
 
-## Limitations/Capabilities
+## 제약 사항과 성능
 
-Safe landing is designed for finding flat areas in rough terrain.
+안전 착륙은 거친 지형에서 평평한 지역을 찾기 위해 설계되었습니다.
 
 - Landing on a road is not prevented; if a car is detected it will be "forgotten" once it moves past.
 - Landing on water may occur if using radar or ultrasound sensors, but should not occur if using stereo cameras or LIDAR. 
