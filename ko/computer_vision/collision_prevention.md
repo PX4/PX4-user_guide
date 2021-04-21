@@ -127,13 +127,13 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 시스템의 초기 테스트에서는 `OBSTACLE_DISTANCE` 메시지가 10Hz (비전 시스템에서 지원하는 최대 속도)에서 방출되는 4m/s로 움직이는 기체를 사용하였습니다. 시스템은 상당히 빠른 속도와 낮은 주파수 거리 업데이트에서 잘 작동 할 수 있습니다.
 :::
 
-테스트한 보조 소프트웨어는 [PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소의 *local_planner*입니다. For more information on hardware and software setup see: [PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
+테스트한 보조 소프트웨어는 [PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소의 *local_planner*입니다. 하드웨어와 소프트웨어 설정에 대한 자세한 내용은 [PX4 장애물 회피 > 하드웨어에서 실행](https://github.com/PX4/avoidance#run-on-hardware)을 참조하십시오. <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+하드웨어와 소프트웨어는 [ PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소에 설명된 대로 설정하여야 합니다. `OBSTACLE_DISTANCE` 메시지를 내보내려면 *rqt_reconfigure* 도구를 사용하고 매개 변수 `send_obstacles_fcu`를 true로 설정하여야 합니다.
 
-## Gazebo Setup
+## 가제보 설정
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) for setup instructions.
+*충돌 방지*는 Gazebo를 사용하여 테스트할 수 있습니다. 설정 방법은 <0 PX4 장애물 회피</a>를 참조하십시오.
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 
