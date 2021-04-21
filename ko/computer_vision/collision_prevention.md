@@ -62,33 +62,33 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 ### 범위 데이터 손실
 
-자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. If you want the vehicle to be able to move again, you will need to disable Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value, or switching to a mode other than [Position mode](../flight_modes/position_mc.md) (e.g. to *Altitude mode* or *Stabilized mode*).
+자동항법장치가 0.5 초 이상 센서로부터 범위 데이터를 수신하지 못하면 *수신된 범위 데이터 없음, 이동 허용 없음* 경고 메시지를 출력합니다. 이렇게하면 xy의 속도 설정값이 0이 됩니다. 5초 동안 데이터를 수신하지 않으면 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. 기체가 다시 움직일 수 있도록 하려면 매개 변수 [CP_DIST](#CP_DIST)를 음수로 설정하거나 [위치 모드](../flight_modes/position_mc.md) 이외의 모드(예 : *고도 모드* 또는 *안정화 모드*)로 전환하여 충돌 방지를 비활성화하여야 합니다. 
 
-If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the field of view (FOV) of the reporting sensors. The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
+여러 센서가 연결되어 있고, 그 중 하나와의 연결이 끊어진 경우에도 보고 센서의 시야 (FOV) 내부를 비행할 수 있습니다. 결함이 있는 센서의 데이터가 만료되고, 이 센서가 포함하는 영역이 커버되지 않은 것으로 처리되므로 그 곳으로 이동할 수 없습니다.
 
 :::warning
-Be careful when enabling [CP_GO_NO_DATA=1](#CP_GO_NO_DATA), which allows the vehicle to fly outside the area with sensor coverage. If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
+[CP_GO_NO_DATA = 1](#CP_GO_NO_DATA)을 활성화시에는 주의하여야 합니다. 간혹, 기체가 센서 범위 외부로 벗어날 수 있습니다. 여러 센서 중 하나라도 연결이 끊어지면 결함이있는 센서의 영역이 무시되어, 제약없이 이동할 수 있습니다.
 :::
 
 <span id="delay_tuning"></span>
 
-### CP_DELAY Delay Tuning
+### CP_DELAY 지연 튜닝
 
-There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*. Both sources of delay are tuned using the [CP_DELAY](#CP_DELAY) parameter.
+고려해야 할 두 가지 주요 지연 원인은 *센서 지연*과 기체 *속도 설정점 추적 지연*입니다. 두 지연 소스 모두 [CP_DELAY](#CP_DELAY) 매개변수를 사용하여 튜닝됩니다.
 
-The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0. For external vision-based systems the sensor delay may be as high as 0.2s.
+비행 컨트롤러에 직접 연결된 거리 센서의 *센서 지연*은 0으로 가정할 수 있습니다. 외부 비전 기반 시스템의 경우 센서 지연이 최대 0.2 초 일 수 있습니다.
 
-Vehicle *velocity setpoint tracking delay* can be measured by flying at full speed in [Position mode](../flight_modes/position_mc.md), then commanding a stop. The delay between the actual velocity and the velocity setpoint can then be measured from the logs. The tracking delay is typically between 0.1 and 0.5 seconds, depending on vehicle size and tuning.
+기체 *속도 설정 점 추적 지연*은 [위치 모드](../flight_modes/position_mc.md)에서 최고 속도로 비행후 정지 명령을 내리면 측정할 수 있습니다. 실제 속도와 속도 설정점 사이의 지연은 로그에서 측정할 수 있습니다. 추적 지연은 일반적으로 기체 크기와 튜닝에 따라 0.1 초에서 0.5 초 사이입니다.
 
 :::tip
-If vehicle speed oscillates as it approaches the obstacle (i.e. it slows down, speeds up, slows down) the delay is set too high.
+장애물에 접근시 기체 속도가 진동하면 (즉, 감속, 가속, 감속), 지연이 너무 높게 설정됩니다.
 :::
 
 <span id="angle_change_tuning"></span>
 
-### CP_GUIDE_ANG Guidance Tuning
+### CP_GUIDE_ANG 가이던스 튜닝
 
-Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired. Setting the [CP_GUIDE_ANG](#CP_GUIDE_ANG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
 
 If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
 
