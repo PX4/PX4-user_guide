@@ -1453,9 +1453,9 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
- <td>Time-out for auto disarm if too slow to takeoff <p><strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). This is set to 25 seconds to ensure a system will not disarm if the pilot is not immediately taking off, but not so long that a system is completely forgotten about. A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.</p>   </td>
+ <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn't takeoff within the timout it disamrs again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
  <td></td>
- <td>25.0</td>
+ <td>10.0</td>
  <td>s</td>
 </tr>
 <tr>
