@@ -25,7 +25,7 @@ The following factors affect control latency:
 - The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)).
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk).
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
+- PWM output signal: enable [Dshot](.../en/peripherals/dshot.md) or One-Shot ([PWM_AUX_RATE=0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) or [PWM_MAIN_RATE=0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)) to reduce latency.
 
 Below we look at the impact of the low pass filters.
 
