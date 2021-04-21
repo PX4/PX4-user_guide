@@ -88,52 +88,52 @@ PX4 소프트웨어 설정은 다음 섹션에서 다룹니다. 충돌 방지를
 
 ### CP_GUIDE_ANG 가이던스 튜닝
 
-차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+차량, 환경 유형 및 조종사의 기술에 따라 각기 다른 가이던스가 필요할 수 있습니다. [CP_GUIDE_ANG](#CP_GUIDE_ANG) 매개 변수를 0으로 설정하면 안내가 비활성화되어 기체가 명령된 방향으로만 정확하게 이동합니다. 이 매개 변수를 높이면 기체가 장애물을 피할 수 있는 최적의 방향을 선택할 수 있으므로 좁은 틈새를 더 쉽게 통과하고 물체를 돌아 다니는 동안 최소 거리를 정확하게 유지할 수 있습니다.
 
-If this parameter is too small the vehicle may feel 'stuck' when close to obstacles, because only movement away from obstacles at minimum distance are allowed. If the parameter is too large the vehicle may feel like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 degrees is a good balance, although different vehicles may have different requirements.
+이 매개 변수가 너무 작으면 장애물에 가까워 졌을 때 기체가 '고착'된 느낌을 받을 수 있습니다. 장애물에서 멀어지는 이동만 허용되기 때문입니다. 매개 변수가 너무 크면 운전자가 지시하지 않은 방향으로 기체가 장애물에서 멀어지는 것처럼 느껴질 수 있습니다. 테스트에서 30도는 적절한 값이지만, 기체마다 값이 달라질 수 있습니다.
 
 :::note
-The guidance feature will never direct the vehicle in a direction without sensor data. If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
+가이던스 기능은 센서 데이터가 없는 방향으로 기체를 이동시키지 않습니다. 단 하나의 거리 센서만 전방을 향하고 있는 상태에서 기체가 '고착'된 느낌이 드는 경우, 이는 정보 부족으로 인하여 가이던스가 방향을 안전하게 조정할 수 없기 때문일 수 있습니다.
 :::
 
 <span id="rangefinder"></span>
 
-## PX4 Distance Sensor
+## PX4 거리 센서
 
-At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR distance sensor for collision prevention "out of the box", with minimal additional configuration:
+작성 시점에 PX4를 사용하면 최소한의 추가 설정으로 충돌 방지용으로 [Lanbao PSK-CM8JL65-CC5](../sensor/cm8jl65_ir_distance_sensor.md) IR 거리 센서를 사용할 수 있습니다.
 
-- First [attach and configure the sensor](../sensor/cm8jl65_ir_distance_sensor.md), and enable collision prevention (as described above, using [CP_DIST](#CP_DIST)).
-- Set the sensor orientation using [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0).
+- 먼저 [센서를 장착 설정](../sensor/cm8jl65_ir_distance_sensor.md)하고 충돌 방지를 활성화합니다 (위에서 설명한대로 [CP_DIST](#CP_DIST) 사용).
+- [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0)을 사용하여 센서 방향을 설정합니다.
 
-Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
+다른 센서를 활성화 할 수 있지만, 이를 위해서는 센서 방향과 시야를 설정하기 위하여 드라이버 코드를 수정하여야 합니다.
 
-- Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using [CP_DIST](#CP_DIST).
-- Modify the driver to set the orientation. This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
-- Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
+- 특정 포트에 거리 센서를 연결 설정하고 ([센서 별 문서](../sensor/rangefinders.md) 참조) [CP_DIST](#CP_DIST)를 사용하여 충돌 방지를 활성화합니다.
+- 방향을 설정하려면 드라이버를 수정하십시오. 이 작업은 `SENS_CM8JL65_R_0` 매개 변수를 모방하여 수행하여야 합니다 (센서 *module.yaml* 파일의 방향을 `sf0x start -d와 같은 것으로 하드 코딩 할 수도 있습니다). $ {SERIAL_DEV} -R 25 ` -여기서 25는 `ROTATION_DOWNWARD_FACING`과 같습니다).
+- 거리 센서 UORB 주제 (`distance_sensor_s.h_fov`)에서 *시야*를 설정하도록 드라이버를 수정합니다.
 
 :::tip
-You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179). Please contribute back your changes!
+[기능 PR](https://github.com/PX4/PX4-Autopilot/pull/12179)에서 필요한 수정 사항을 확인할 수 있습니다. 변경 사항에 기여하여 주십시오!
 :::
 
 <span id="companion"></span>
 
-## Companion Setup
+## 보조 컴퓨터 설정
 
-If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages, which should reflect when and where obstacle were detected.
+보조 컴퓨터 또는 외부 센서를 사용하는 경우 장애물이 감지된 시기와 위치를 반영하는 [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) 메시지 스트림을 제공하여야 합니다.
 
-The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+메시지를 *전송하여야 하는* 최소 속도는 기체 속도에 따라 다릅니다. 속도가 높을수록 기체가 감지된 장애물에 응답시간이 더 오래 걸립니다.
 
 :::note
-Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
+시스템의 초기 테스트에서는 `OBSTACLE_DISTANCE` 메시지가 10Hz (비전 시스템에서 지원하는 최대 속도)에서 방출되는 4m/s로 움직이는 기체를 사용하였습니다. 시스템은 상당히 빠른 속도와 낮은 주파수 거리 업데이트에서 잘 작동 할 수 있습니다.
 :::
 
-The tested companion software is the *local_planner* from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. For more information on hardware and software setup see: [PX4/avoidance > Run on Hardware](https://github.com/PX4/avoidance#run-on-hardware). <!-- hardware platform used for testing not readily available, so have removed -->
+테스트한 보조 소프트웨어는 [PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소의 *local_planner*입니다. 하드웨어와 소프트웨어 설정에 대한 자세한 내용은 [PX4 장애물 회피 > 하드웨어에서 실행](https://github.com/PX4/avoidance#run-on-hardware)을 참조하십시오. <!-- hardware platform used for testing not readily available, so have removed -->
 
-The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+하드웨어와 소프트웨어는 [ PX4 장애물 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 저장소에 설명된 대로 설정하여야 합니다. `OBSTACLE_DISTANCE` 메시지를 내보내려면 *rqt_reconfigure* 도구를 사용하고 매개 변수 `send_obstacles_fcu`를 true로 설정하여야 합니다.
 
-## Gazebo Setup
+## 가제보 설정
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) for setup instructions.
+*충돌 방지*는 Gazebo를 사용하여 테스트할 수 있습니다. 설정 방법은 <0 PX4 장애물 회피</a>를 참조하십시오.
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
 

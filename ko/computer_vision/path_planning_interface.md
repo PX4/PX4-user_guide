@@ -1,6 +1,6 @@
-# Path Planning Interface
+# 경로 계획 인터페이스
 
-PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
+PX4는 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 여러 MAVLink 인터페이스를 사용합니다 (임무시 장애물 회피, [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스 포함).
 
 - There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces: 
   - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the *desired path*. May be used by path planning software to send PX4 a stream of setpoints for the *planned path*.

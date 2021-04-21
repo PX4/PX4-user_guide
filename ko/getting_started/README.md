@@ -1,6 +1,6 @@
 # PX4 자율 비행
 
-PX4를 이용한 기체 조립 및 조종 방법에 관한 기본 개념을 설명합니다.
+PX4를 이용한 기체 조립 방법과 조종 방법에 관한 기본 개념들을 설명합니다.
 
 [기본 개념](../getting_started/px4_basic_concepts.md) — PX4와 Dronecode 플랫폼 개요
 
