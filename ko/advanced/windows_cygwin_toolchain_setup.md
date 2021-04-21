@@ -1,24 +1,24 @@
-# Windows Cygwin Development Environment (Maintenance Instructions)
+# 윈도우즈 환경의 Cygwin 개발 환경 설정 (유지 보수 지침)
 
-This topic explains how to construct and extend the development environment used for the supported [Cygwin-based Windows Development Environment](../dev_setup/dev_env_windows_cygwin.md).
+이 주제는 어떤 방식으로 [Cygwin 기반의 윈도우 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 구성하고 확장하는 방법을 설명해주는 글입니다.
 
 
-## Additional Information
+## 추가 정보
 
 <a id="features"></a>
 
-### Features / Issues
+### 기능 / 문제
 
-The following features are known to work (version 2.0):
+다음과 같은 기능은 다음과 같은 버전에서 확실히 작동합니다. (Version 2.0):
 
-* Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary **px4.exe**).
-* Building and uploading NuttX builds (e.g.: px4_fmu-v2 and px4_fmu-v4)
-* Style check with *astyle* (supports the command: `make format`)
-* Command line auto completion
-* Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. **C:\PX4\** and uses a temporary local path).
-* The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+* SITL과 jMAVSim의 빌드 및 실행은 가상 머신에서의 동작보다 월등합니다. (이것은 윈도우 자체 바이너리를 만듭니다.  **px4.exe**).
+* NuttX 빌드 및 업로드 (예:  px4_fmu-v2 and px4_fmu-v4)
+* *astyle*을 이용한 코드 검사(명령어: `make format`)
+* 명령행 자동 완성
+* 비침투적 설치 도구 해당 설치 프로그램은 사용자의 시스템과 전역 경로 설정에 어떤 영향도 주지 않습니다 (C:\PX4\와 같은 선택한 설치 디렉터리만 수정하며 임시 로컬 경로를 사용합니다).
+* 설치 마법사에서는 툴체인 폴더의 개별 설정을 유지하면서 새 버전으로 업데이트할 수 있습니다.
 
-Omissions:
+미지원:
 * Simulation: Gazebo and ROS are not supported.
 * Only NuttX and JMAVSim/SITL builds are supported.
 * [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
@@ -55,7 +55,7 @@ The toolchain gets maintained and hence these instructions might not cover every
 1. In the wizard choose to install into the folder: **C:\PX4\toolchain\cygwin64\**
 1. Select to install the default Cygwin base and the newest available version of the following additional packages:
 
-   * **Category:Packagename**
+   * **Category:Packagename **
    * Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
    * Devel:gcc-g++
    * Devel:gdb
