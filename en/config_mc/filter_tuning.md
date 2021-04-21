@@ -22,6 +22,7 @@ The following factors affect control latency:
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
+- The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)).
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk).
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
@@ -33,6 +34,8 @@ Below we look at the impact of the low pass filters.
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor.
   This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
+- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example at the rotor blade pass frequency.
+  This filter can be configured using [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) and [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ).
 - Low-pass filter on the gyro sensor data.
   It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
   :::note
@@ -58,6 +61,9 @@ Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
+
+Setups that have a significant lower-frequency noise spike (e.g. at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter.
+This allows the low pass filter cuttoff to be increased, reducing the latency.
 
 The best filter settings depend on the vehicle.
 The defaults are set conservatively — such that they work on lower-quality setups as well.
@@ -87,11 +93,17 @@ Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
 
 Below is an example for three different filter values (40Hz, 70Hz, 90Hz).
 At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting.
-![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png)
-![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png)
-![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
+![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png)
+![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png)
+![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 
 :::note
 The plot cannot be compared between different vehicles, as the y axis scale can be different.
 On the same vehicle it is consistent and independent of the flight duration.
 :::
+
+If the flight plot shows significant low frequency spikes, like the one shown in the diagram below (though this spike is narrower than usual), first remove it using a notch filter with settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW).
+You would then tune the low pass filter cuttoffs as described above.
+For this diagram a `IMU_GYRO_CUTOFF` of 80, or even 120 would be fine!
+
+![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
