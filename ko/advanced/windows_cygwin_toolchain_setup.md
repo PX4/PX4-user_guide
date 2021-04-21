@@ -1,4 +1,4 @@
-# Windows Cygwin Development Environment (Maintenance Instructions)
+# 윈도우즈 환경의 Cygwin 개발 환경 설정 (유지 보수 지침)
 
 이 주제는 어떤 방식으로 [Cygwin 기반의 윈도우 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 구성하고 확장하는 방법을 설명해주는 글입니다.
 
@@ -15,10 +15,10 @@
 * NuttX 빌드 및 업로드 (예:  px4_fmu-v2 and px4_fmu-v4)
 * *astyle*을 이용한 코드 검사(명령어: `make format`)
 * 명령행 자동 완성
-* Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. **C:\PX4\** and uses a temporary local path).
-* The installer supports updating to a new version keeping your personal changes inside the toolchain folder
+* 비침투적 설치 도구 해당 설치 프로그램은 사용자의 시스템과 전역 경로 설정에 어떤 영향도 주지 않습니다 (C:\PX4\와 같은 선택한 설치 디렉터리만 수정하며 임시 로컬 경로를 사용합니다).
+* 설치 마법사에서는 툴체인 폴더의 개별 설정을 유지하면서 새 버전으로 업데이트할 수 있습니다.
 
-Omissions:
+미지원:
 * Simulation: Gazebo and ROS are not supported.
 * Only NuttX and JMAVSim/SITL builds are supported.
 * [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
