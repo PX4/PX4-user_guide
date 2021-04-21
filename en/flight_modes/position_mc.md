@@ -22,13 +22,13 @@ Landing in this mode is easy:
 1. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
 1. Pull the throttle stick down gently until the vehicle touches the ground.
 1. Pull the throttle stick all the way down to facilitate and accelerate land detection.
-1. The vehicle will lower propeller thrust, detect the ground and automatically disarm by default (see [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND))
+1. The vehicle will lower propeller thrust, detect the ground and [automatically disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (by default).
 
 :::warning
 While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
 - If the vehicle does not stop moving horizontally:
   - You can still land under control in [Altitude mode](../flight_modes/altitude_mc.md).
-    The approach is the same as above, except that you manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
+    The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
   - After landing check GPS and magnetometer orientation, calibration.
 - If the vehicle does not detect the ground/landing and disarm:
   - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command.
