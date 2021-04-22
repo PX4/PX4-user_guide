@@ -110,7 +110,20 @@ The plot cannot be compared between different vehicles, as the y axis scale can 
 On the same vehicle it is consistent and independent of the flight duration.
 :::
 
-If the flight plots shows significant low frequency spikes, like the one shown in the diagram below (though this spike is narrower than usual), remove it using a notch filter with settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW).
-You would then tune the low pass filter cuttoffs as described above.
+If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter.
+In this case you might use the settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) (note, this spike is narrower than usual).
+The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
 
 ![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
+
+## Additional Tips
+
+1. Acceptable latency depends on vehicle size and expectations.
+   FPV racers typically tune for the absolute minimal latency (as a ballpark `IMU_GYRO_CUTOFF` around 120, `IMU_DGYRO_CUTOFF` of 50 to 80). 
+   For bigger vehicles latency is less critical and `IMU_GYRO_CUTOFF` of around 80 might be acceptable. 
+
+1. You can start tuning at higher `IMU_GYRO_CUTOFF` values (e.g. 100Hz), which might be desirable because the default tuning of `IMU_GYRO_CUTOFF` is set very low (30Hz).
+   The only caveat is that you must be aware of the risks:
+   - Don't fly for more than 20-30 seconds
+   - Check that the motors are not getting to hot
+   - Listen for odd sounds and symptoms of excessive noise, as discussed above.
