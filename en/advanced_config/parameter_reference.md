@@ -1336,9 +1336,9 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
- <td>Require all the ESCs to be detected to arm <p><strong>Comment:</strong> This param is specific for ESCs reporting status. Normal ESCs configurations are not affected by the change of this param.</p>   </td>
+ <td>Require all the ESCs to be detected to arm <p><strong>Comment:</strong> This param is specific for ESCs reporting status. It shall be used only if ESCs support telemetry. </p>   </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
@@ -2748,7 +2748,7 @@ table {
 </tr>
 <tr>
  <td><strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)</td>
- <td>Serial Configuration for DShot Driver <p><strong>Comment:</strong> Configure on which serial port to run DShot Driver.</p> <strong>Values:</strong><ul>
+ <td>Serial Configuration for DShot Driver <p><strong>Comment:</strong> Configure on which serial port to run DShot Driver. To detect ECS timeout or broken connection it needs to be enabled together with <a href="https://docs.px4.io/master/en/advanced_config/parameter_reference.html#COM_ARM_CHK_ESCS#COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</a></p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>6:</strong> UART 6</li> 
