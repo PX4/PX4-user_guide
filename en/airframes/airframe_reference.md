@@ -1047,7 +1047,7 @@ This page lists all supported airframes and types including
 ### Vectored 6 DOF UUV
 
 <div>
-<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
