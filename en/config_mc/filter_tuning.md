@@ -36,7 +36,7 @@ Below we look at the impact of the low pass filters.
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor.
   This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example at the rotor blade pass frequency.
+- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency.
   This filter can be configured using [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) and [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ).
 - Low-pass filter on the gyro sensor data.
   It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
@@ -64,8 +64,12 @@ Noise on the motors has the following consequences:
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
 
-Setups that have a significant lower-frequency noise spike (e.g. at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter.
+Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise).
 Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+
+:::note
+Only one notch filter is provided. Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
+:::
 
 The best filter settings depend on the vehicle.
 The defaults are set conservatively — such that they work on lower-quality setups as well.
