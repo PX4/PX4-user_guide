@@ -65,7 +65,7 @@ Noise on the motors has the following consequences:
 - Visible random small twitches.
 
 Setups that have a significant lower-frequency noise spike (e.g. at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter.
-This allows the low pass filter cuttoff to be increased, reducing the latency.
+Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
 
 The best filter settings depend on the vehicle.
 The defaults are set conservatively — such that they work on lower-quality setups as well.
@@ -89,13 +89,13 @@ The total duration does not need to be more than 30 seconds.
 In order to better compare, the maneuver should be similar in all tests.
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).
-Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot.
+Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot.
 Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
 
 Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
 Note that there can be negative impacts on preformance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
 
-Below is an example for three different filter values (40Hz, 70Hz, 90Hz).
+Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz).
 At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting.
 ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png)
 ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png)
@@ -106,8 +106,7 @@ The plot cannot be compared between different vehicles, as the y axis scale can 
 On the same vehicle it is consistent and independent of the flight duration.
 :::
 
-If the flight plot shows significant low frequency spikes, like the one shown in the diagram below (though this spike is narrower than usual), first remove it using a notch filter with settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW).
+If the flight plots shows significant low frequency spikes, like the one shown in the diagram below (though this spike is narrower than usual), remove it using a notch filter with settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW).
 You would then tune the low pass filter cuttoffs as described above.
-For this diagram a `IMU_GYRO_CUTOFF` of 80, or even 120 would be fine!
 
 ![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
