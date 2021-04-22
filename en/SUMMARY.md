@@ -116,6 +116,7 @@
 * [Advanced Configuration](advanced_config/README.md)
   * [Finding/Updating Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md)
+    * [MC Filter/Control Latency Tuning](config_mc/filter_tuning.md)
     * [MC PID Tuning Guide (Detailed)](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
       * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
