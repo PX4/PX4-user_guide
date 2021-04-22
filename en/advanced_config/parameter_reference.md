@@ -1336,9 +1336,9 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
- <td>Require all the ESCs to be detected to arm <p><strong>Comment:</strong> This param is specific for ESCs reporting status. Normal ESCs configurations are not affected by the change of this param.</p>   </td>
+ <td>Enable checks on ESCs that report telemetry <p><strong>Comment:</strong> If this parameter is set, the system will check ESC's online status and failures. This param is specific for ESCs reporting status. It shall be used only if ESCs support telemetry.</p>   </td>
  <td></td>
- <td>Enabled (1)</td>
+ <td>Disabled (0)</td>
  <td></td>
 </tr>
 <tr>
