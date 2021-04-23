@@ -1,9 +1,9 @@
-# 硬件
+# 高级配置
 
-本节包含的主题有：
+本节包含高级配置主题，覆盖特殊载具调参，以及不常见的传感器和外设。
 
 :::tip
-The topics are useful if you are creating a new airframe type or significantly modifying a supported frame. Generally if you're using a [supported airframe](../airframes/airframe_reference.md#copter) (e.g. from [QGroundControl > Airframe](../config/airframe.md)) the default tuning and configuration should be acceptable.
+如果要创建新的机架类型或者大幅度修改已经支持的机架，这些主题会有用。 一般来说，如果使用[支持的机架](../airframes/airframe_reference.md#copter)（例如来自[QGroundControl > 机架](../config/airframe.md)），默认的调校和配置应该是可以接受的。
 :::
 
 For the standard configuration appropriate to every vehicle see: [Basic Configuration](../config/README.md).
