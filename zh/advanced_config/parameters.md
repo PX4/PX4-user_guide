@@ -18,11 +18,11 @@
 
 可以在*搜索*框中输入一个词来搜索参数。 和搜索字眼相关的所有参数名称和说明将会以列表形式显示 (按 ** 清除(Clear) ** 重置搜索)。
 
-![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![参数搜索](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 您也可以点击左边的按钮来浏览参数组（下图显示了*电池校准*参数组被选中）。
 
-![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![参数界面](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
 如果找不到想要的参数，请参阅[下一节](#missing)。
@@ -38,7 +38,7 @@
 
 如果一个参数是以未启用的另一个参数为条件，则该参数不会被显示。
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. 尤其是[串口配置参数](../peripherals/serial_configuration.md)，它依赖于分配给串口的服务。
+您通常可以通过搜索 [完整的参数参考](../advanced_config/parameter_reference.md) 和其他文档来找到条件参数。 尤其是[串口配置参数](../peripherals/serial_configuration.md)，它依赖于分配给串口的服务。
 
 ### 固件中没有的参数
 
@@ -64,17 +64,17 @@ You can usually find out what parameters are conditional by searching the [full 
 
 要更改参数的值，请单击组或搜索列表中的参数行。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
-![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
+![更改参数值](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 :::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+当您点击 **保存** 时，参数会自动上传到所连接的载具。 根据参数，您可能需要重新启动飞控才能使更改生效。
 :::
 
 ## 工具
 
 您可以在屏幕右上角的**工具 (Tools)**菜单中选择更多的选项。
 
-![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
+![工具菜单](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
 **刷新** <br />用从载具上重新请求的所有参数值刷新地面站上的参数值。
 
