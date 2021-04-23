@@ -6,4 +6,4 @@
 如果要创建新的机架类型或者大幅度修改已经支持的机架，这些主题会有用。 一般来说，如果使用[支持的机架](../airframes/airframe_reference.md#copter)（例如来自[QGroundControl > 机架](../config/airframe.md)），默认的调校和配置应该是可以接受的。
 :::
 
-For the standard configuration appropriate to every vehicle see: [Basic Configuration](../config/README.md).
+适合每一种载具的标准配置见： [基本配置](../config/README.md)。
