@@ -27,29 +27,29 @@ PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 �
 
 보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
-The actual setup/configuration required depends on the planner being used.
+필요한 실제 구성과 설정은 사용하는 플래너에 따라 달라집니다.
 
 :::warning
-Only one planner can run on the companion computer at a time (at time of writing). This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
+한 번에 하나의 플래너만 보조 컴퓨터에서 실행할 수 있습니다 (이 문서 작성 당시에는). 이는 다른 플래너를 사용하는 오프보드 기능을 동일한 기체에서 활성화 할 수 없음을 의미합니다. 기체는 장애물 회피 및 충돌 방지를 지원할 수 있지만 안전한 착륙은 할 수 없습니다. 또는 그 반대.
 :::
 
 <span id="waypoint_interface"></span>
 
-## Trajectory Interface
+## 궤적 인터페이스
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in *auto* modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
+PX4는 *원하는 경로*에 대한 정보를 보조 컴퓨터 (`COM_OBS_AVOID = 1`, *자동* 모드에서)로 전송하고, 경로계획 소프트웨어에서 *계획된 경로*의 설정점들을 다시 수신합니다. 
 
-The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
+원하는 경로 정보는 아래 [PX4 웨이포인트 인터페이스](#px4_waypoint_interface)에 설명 된대로 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 메시지를 사용하여 PX4에서 전송됩니다.
 
-Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+경로 플래너 소프트웨어는 `TRAJECTORY_REPRESENTATION_WAYPOINTS` ([보조 컴퓨터 웨이포인트 인터페이스](#companion_waypoint_interface) 참조) 또는 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) ( [Companion Bezier Trajectory Interface](#bezier_interface) 참조). 차이점은 웨이포인트는 다음 세트포인트 목적지를 지정하는 반면에, 베지어 궤적은 정확한 차량 움직임을 지정한다는 것입니다 (즉, 시간에 따라 이동하는 세트포인트).
 
 :::warning
-Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+경로계획 소프트웨어는 작업을 실행하는 동안 이러한 인터페이스를 혼합해서는 안됩니다 (PX4는 두 유형의 마지막 수신 메시지를 사용합니다).
 :::
 
 <span id="px4_waypoint_interface"></span>
 
-### PX4 Waypoint Interface
+### PX4 웨이포인트 인터페이스
 
 PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
