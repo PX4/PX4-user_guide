@@ -78,18 +78,18 @@ PX4에서 설정한 필드 :
   - `pos_yaw[2]`: 요 설정점
   - `vel_yaw[2]`: 요 속도 설정점
   - `command[2]`: 다음 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
-- All other indices/fields are set as NaN.
+- 다른 모든 인덱스와 필드는 NaN으로 설정됩니다.
 
 <span id="type_adapted"></span>
-Notes:
+참고:
 
-- Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Point 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planner.
+- Point 0은 타겟 유형에 따라 수정된 현재 웨이포인트/타겟입니다. 예를 들어 착륙tl 목표 x, y 좌표 및 하강 속도를 지정하는 것이 합리적입니다. 이를 달성하기 위해 `FlightTaskAutoMapper`는 위치의 z 구성 요소를 NAN으로 설정하고 z-속도를 원하는 값으로 설정하기 위해 Point 0의 착륙 웨이포인트를 수정합니다.
+- Point 1과 2는 안전 착륙 계획자가 사용하지 않습니다.
+- Point 1은 지역 및 글로벌 플래너가 사용합니다.
 
 <span id="companion-failure-handling"></span>
 
-#### Handling of Companion Failure
+#### 보조 컴퓨터의 실패 처리
 
 PX4 safely handles the case where messages are not received from the offboard system:
 
