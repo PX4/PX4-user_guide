@@ -44,11 +44,11 @@ You can usually find out what parameters are conditional by searching the [full 
 
 参数可能不在固件中，因为您使用了不同版本的 PX4，或者因为您构建的固件中没有包含相关的模块。
 
-每个PX4版本都添加了新参数，现有参数有时被删除或重命名。 You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+每个PX4版本都添加了新参数，现有参数有时被删除或重命名。 您可以通过查阅对应版本的[全部参数参考](../advanced_config/parameter_reference.md)来检查一个参数是否*应该*存在。 您还可以在源代码和发布说明中查找参数。
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+参数可能不在固件中的另一个原因是如果其关联的模块没有被包含。 这个问题（特别是）对*FMUv2 固件*，该固件省略了许多模块，才能使 PX4 可以适用于 1MB的闪存。 解决此问题有两种方法：
 
-- 检查你的控制板是否可以升级到包含了所有模块的FMUv3固件：[固件 > FMUv2 Bootloader 升级](../config/firmware.md#bootloader)
+- 检查你是否可以更新你的板来运行 FMUv3 固件，其中包括所有模块： [固件 > FMUv2 Bootloader 更新](../config/firmware.md#bootloader)
 - 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](../dev_setup/building_px4.md)。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
         DRIVERS
             adc
