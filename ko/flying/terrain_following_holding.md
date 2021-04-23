@@ -81,9 +81,9 @@ PX4를 사용하면 거리 센서를 *고도 데이터의 기본 소스* (모든
 [지형 유지](#terrain_hold)는 지형 유지를 위해 *거리 보조 장치*보다 권장됩니다. 이는 지형 유지가 높이를 결정하는 데 일반 ECL/EKF 추정기를 사용하기 때문이며 일반적으로 대부분의 조건에서 거리 센서보다 더 안정적입니다.
 :::
 
-*거리 보조 장치*은 [EKF2_RNG_AID = 1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (고도 데이터의 기본 소스 ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)))가 거리계가 *아닌* 경우 설정하여 활성화됩니다.).
+*범위 보조 장치*은 [EKF2_RNG_AID = 1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (고도 데이터의 기본 소스 ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)))가 거리계가 *아닌* 경우 설정하여 활성화됩니다.).
 
-거리 보조 장치는 `EKF2_RNG_A_` 매개 변수를 사용하여 추가로 설정합니다.
+범위 보조 장치는 `EKF2_RNG_A_` 매개 변수를 사용하여 추가로 설정합니다.
 
 - [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX) : 범위 보조 기능이 비활성화 된 최대 수평 속도.
 - [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX) : 범위 보조 기능이 비활성화 된 최대 높이.
