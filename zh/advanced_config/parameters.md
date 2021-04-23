@@ -49,20 +49,20 @@ You can usually find out what parameters are conditional by searching the [full 
 参数可能不在固件中的另一个原因是如果其关联的模块没有被包含。 这个问题（特别是）对*FMUv2 固件*，该固件省略了许多模块，才能使 PX4 可以适用于 1MB的闪存。 解决此问题有两种方法：
 
 - 检查你是否可以更新你的板来运行 FMUv3 固件，其中包括所有模块： [固件 > FMUv2 Bootloader 更新](../config/firmware.md#bootloader)
-- 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](../dev_setup/building_px4.md)。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
+- 如果你的控制板只能运行 FMUv2 固件，你需要 [重新构建 PX4](../dev_setup/building_px4.md) 并启用缺失的模块。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
         DRIVERS
             adc
             #barometer # 全部支持的气压计驱动
             barometer/ms5611
             #batt_smbus
-            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. 找到可以移除的模块需要一些试错， 还取决于你要求载具达到哪些使用案例。
+            #camera_capture :::note 您可能还需要禁用其他模块才能将重新构建的固件适用于 1MB 的闪存。 找到可以移除的模块需要一些试错， 还取决于你要求载具达到哪些使用案例。
 :::
 
 <span id="changing"></span>
 
 ## 更改参数
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+要更改参数的值，请单击组或搜索列表中的参数行。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
 ![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
@@ -70,18 +70,18 @@ To change the value of a parameter click on the parameter row in a group or sear
 When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 :::
 
-## 工具（Tools）菜单
+## 工具
 
-You can select additional options from the **Tools** menu on the top right hand side of the screen.
+您可以在屏幕右上角的**工具 (Tools)**菜单中选择更多的选项。
 
 ![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+**刷新** <br />用从载具上重新请求的所有参数值刷新地面站上的参数值。
 
-**Reset all to defaults** <br />Reset all parameters to their original default values.
+**重置所有参数为默认值** <br />将全部参数重置为原始默认值。
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**从文件中载入/保存到文件** <br />从现有文件中载入参数或将当前参数设置保存到一个文件。
 
-**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**清空遥控器参数** <br />清除全部与遥控器相关的参数。 更多信息请参见：[遥控器设置 > 通道参数调校 ](../config/radio.md#param-tuning-channels)。
 
-**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
+**重启载具** <br />重新启动载具（更改一些参数后需要）。
