@@ -5,18 +5,18 @@
 你可以在*QGroundControl 参数* 界面查找和修改**任何**与载具相关的参数。 点击顶部菜单 *齿轮* 图标，然后点击侧边栏中的 *参数* 访问屏幕。
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+大多数常用的参数可以通过[基本设置](../config/README.md)中的专用配置界面更方便的设置。 在修改不太常用的修改参数时需要 *参数* 界面。例如，在调整新的载具时。
 :::
 
 :::warning
-While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+虽然又写参数可以在飞行中更改，但是不建议这样做（除非指南中又明确说明）。
 :::
 
 <span id="finding"></span>
 
 ## 查找参数
 
-You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
+可以在*搜索*框中输入一个词来搜索参数。 和搜索字眼相关的所有参数名称和说明将会以列表形式显示 (按 ** 清除(Clear) ** 重置搜索)。
 
 ![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
