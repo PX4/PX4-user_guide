@@ -95,7 +95,7 @@
     * [임무 모드](flight_modes/mission.md)
     * [추적 모드](flight_modes/follow_me.md)
     * [오프보드 모드](flight_modes/offboard.md)
-  * [지형 추적 / 유지 ](flying/terrain_following_holding.md)
+  * [지형 추적 및 유지](flying/terrain_following_holding.md)
 * [비행 로그 분석](log/flight_log_analysis.md) 
   * [비행 검토 및 로그 분석](log/flight_review.md)
 * [고급 기능](advanced_features/README.md) 
