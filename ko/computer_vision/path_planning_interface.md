@@ -1,96 +1,95 @@
 # 경로 계획 인터페이스
 
-PX4는 보조 컴퓨터의 경로 계획 서비스를 통합하기 위하여 여러 MAVLink 인터페이스를 사용합니다 (임무시 장애물 회피, [안전 착륙](../computer_vision/safe_landing.md) 및 향후 서비스 포함).
+PX4는 보조 컴퓨터의 경로 계획 서비스 통합을 위하여 여러 가지 MAVLink 인터페이스를 사용합니다 (임무 수행 장애물 회피, [안전 착륙](../computer_vision/safe_landing.md) 및 향후 개발 서비스 포함).
 
-- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces: 
-  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the *desired path*. May be used by path planning software to send PX4 a stream of setpoints for the *planned path*.
-  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the *planned path* as a bezier curve. The curve indicates the (moving) position setpoint of the vehicle over a given time period.
-- The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
-- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
+- 두 개의 [MAVLink 경로 계획 프로토콜](https://mavlink.io/en/services/trajectory.html) 인터페이스가 있습니다. 
+  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) : PX4에서 *희망 경로* 전송에 사용됨. 경로계획 소프트웨어에서 *계획 경로*에 대한 설정점 스트림을 PX4에 전송할 수 있습니다.
+  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER)는 (또는) 경로계획 소프트웨어에서 PX4에 *계획 경로*를 베지어 곡선으로 전송할 수 있습니다. 곡선은 주어진 기간 동안 기체의 (이동) 위치 설정치를 나타냅니다.
+- [HEARTBEAT/연결 프로토콜](https://mavlink.io/en/services/heartbeat.html)은 "작동중"임을 감지합니다.
+- [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 및 [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE)는 각각 기체의 로컬 위치와 고도를 전송합니다.
 
-Path planning is enabled on PX4 in automatic modes (landing, takeoff, hold, mission, return) if [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID). In these modes planning software is expected to supply setpoints to PX4; if the software cannot support a particular flight mode it must mirror back setpoints from the vehicle.
+[COM_OBS_AVOID = 1](../advanced_config/parameter_reference.md#COM_OBS_AVOID)인 경우 PX4에서 자동 모드 (착륙, 이륙, 보류, 임무, 복귀)에서 경로 계획이 활성화됩니다. 이러한 모드에서 경로 계획 소프트웨어는 PX4에 설정값을 제공할 것으로 예상됩니다. 소프트웨어가 특정 비행 모드를 지원할 수없는 경우 기체의 설정값을 미러링하여야 합니다.
 
-:::tip
-The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows).
+:::tip MAVLink를 통해 PX4 UORB 토픽에서 ROS 로의 메시지 흐름은 모두 [PX4 장애물 회피 > 메시지 흐름](https://github.com/PX4/avoidance#message-flows)에 문서화되어 있습니다.
 :::
 
-All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
+이 인터페이스를 사용하는 모든 서비스는 동일한 유형과 형식의 메시지를 송수신합니다. 따라서 개발자는 이 인터페이스를 사용하여 새로운 보조 컴퓨터의 경로 계획 서비스를 만들거나 기존 플래너 소프트웨어를 조정할 수 있습니다.
 
 :::note
-The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+[PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md)는 경로계획 소프트웨어 개발에 권장됩니다. [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 소프트웨어는 사전 설치되어 제공되며, 자체 알고리즘으로 사용할 수 있습니다.
 :::
 
-## PX4 Configuration
+## PX4 설정
 
-Path planning is activated in PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+경로 계획은 [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID)를 1로 [설정](../advanced_config/parameters.md)하여 PX4내에서 활성화됩니다.
 
-## Companion Computer Setup
+## 보조 컴퓨터 설정
 
-Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+보조 컴퓨터 하드웨어와 소프트웨어 구성과 설정은 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github 저장소에서 제공됩니다.
 
-The actual setup/configuration required depends on the planner being used.
+필요한 실제 구성과 설정은 사용하는 플래너에 따라 달라집니다.
 
 :::warning
-Only one planner can run on the companion computer at a time (at time of writing). This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
+한 번에 하나의 플래너만 보조 컴퓨터에서 실행할 수 있습니다 (이 문서 작성 당시에는). 이는 다른 플래너를 사용하는 오프보드 기능을 동일한 기체에서 활성화 할 수 없음을 의미합니다. 기체는 장애물 회피 및 충돌 방지를 지원할 수 있지만 안전한 착륙은 할 수 없습니다. 또는 그 반대.
 :::
 
 <span id="waypoint_interface"></span>
 
-## Trajectory Interface
+## 궤적 인터페이스
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in *auto* modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
+PX4는 *원하는 경로*에 대한 정보를 보조 컴퓨터 (`COM_OBS_AVOID = 1`, *자동* 모드에서)로 전송하고, 경로계획 소프트웨어에서 *계획된 경로*의 설정점들을 다시 수신합니다. 
 
-The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
+원하는 경로 정보는 아래 [PX4 웨이포인트 인터페이스](#px4_waypoint_interface)에 설명 된대로 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 메시지를 사용하여 PX4에서 전송됩니다.
 
-Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)). The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+경로 플래너 소프트웨어는 `TRAJECTORY_REPRESENTATION_WAYPOINTS` ([보조 컴퓨터 웨이포인트 인터페이스](#companion_waypoint_interface) 참조) 또는 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) ( [Companion Bezier Trajectory Interface](#bezier_interface) 참조). 차이점은 웨이포인트는 다음 세트포인트 목적지를 지정하는 반면에, 베지어 궤적은 정확한 차량 움직임을 지정한다는 것입니다 (즉, 시간에 따라 이동하는 세트포인트).
 
 :::warning
-Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+경로계획 소프트웨어는 작업을 실행하는 동안 이러한 인터페이스를 혼합해서는 안됩니다 (PX4는 두 유형의 마지막 수신 메시지를 사용합니다).
 :::
 
 <span id="px4_waypoint_interface"></span>
 
-### PX4 Waypoint Interface
+### PX4 웨이포인트 인터페이스
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4는 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 메시지에 희망 경로를 초초당 5회 전송합니다.
 
-The fields set by PX4 as shown:
+PX4에서 설정한 필드 :
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec` : UNIX Epoch 시간.
 - `valid_points`: 3
-- Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
+- Point 0 - FlightTaskAutoMapper에 의해 *튜닝된 현재 웨이포인트 유형* ([아래 노트](#type_adapted) 참조) : 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: *현재* 임무 웨이포인트의 유형 적응 x-y-z NED 로컬 위치
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: *현재* 임무 웨이포인트의 유형 적응 x-y-z NED 로컬 속도
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: 현재 요 각도
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
-- Point 1 - Current waypoint (Unmodified/not type adapted)): 
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `command[0]`: 현재 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 1 - 현재 웨이 포인트 (수정되지 않음 / 조정되지 않은 유형) : 
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: *현재* 임무 웨이포인트의 x-y-z NED 로컬 위치
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `pos_yaw[1]`: 요 설정점
+  - `vel_yaw[1]`: 요 속도 설정점
+  - `command[1]`: 현재 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 2 - 로컬 좌표의 다음 웨이 포인트 (수정되지 않음 / 조정되지 않은 유형) : 
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: *다음* 임무 웨이포인트의 x-y-z NED 로컬 위치
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
-- All other indices/fields are set as NaN.
+  - `pos_yaw[2]`: 요 설정점
+  - `vel_yaw[2]`: 요 속도 설정점
+  - `command[2]`: 다음 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
+- 다른 모든 인덱스와 필드는 NaN으로 설정됩니다.
 
 <span id="type_adapted"></span>
-Notes:
+참고:
 
-- Point 0 is the current waypoint/target modified based on the type of target. For example, it makes sense when landing to specify the target x, y coordinates and a descent velocity. To achieve this `FlightTaskAutoMapper` modifies land waypoints in Point 0 to set the z component of position to NAN and the z-velocity to a desired value.
-- Point 1 and 2 are not used by the safe landing planner.
-- Point 1 is used by local and global planner.
+- Point 0은 타겟 유형에 따라 수정된 현재 웨이포인트/타겟입니다. 예를 들어 착륙tl 목표 x, y 좌표 및 하강 속도를 지정하는 것이 합리적입니다. 이를 달성하기 위해 `FlightTaskAutoMapper`는 위치의 z 구성 요소를 NAN으로 설정하고 z-속도를 원하는 값으로 설정하기 위해 Point 0의 착륙 웨이포인트를 수정합니다.
+- Point 1과 2는 안전 착륙 계획자가 사용하지 않습니다.
+- Point 1은 지역 및 글로벌 플래너가 사용합니다.
 
 <span id="companion-failure-handling"></span>
 
-#### Handling of Companion Failure
+#### 보조 컴퓨터의 실패 처리
 
 PX4 safely handles the case where messages are not received from the offboard system:
 
