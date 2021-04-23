@@ -51,33 +51,33 @@ PX4는 *원하는 경로*에 대한 정보를 보조 컴퓨터 (`COM_OBS_AVOID =
 
 ### PX4 웨이포인트 인터페이스
 
-PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4는 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 메시지에 희망 경로를 초초당 5회 전송합니다.
 
-The fields set by PX4 as shown:
+PX4에서 설정한 필드 :
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec` : UNIX Epoch 시간.
 - `valid_points`: 3
-- Point 0 - Current waypoint *type adapted* by FlightTaskAutoMapper (see [notes below](#type_adapted)): 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: Type adapted x-y-z NED local position of *current* mission waypoint.
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: Type adapted x-y-z NED local velocity of *current* mission waypoint.
+- Point 0 - FlightTaskAutoMapper에 의해 *튜닝된 현재 웨이포인트 유형* ([아래 노트](#type_adapted) 참조) : 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: *현재* 임무 웨이포인트의 유형 적응 x-y-z NED 로컬 위치
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: *현재* 임무 웨이포인트의 유형 적응 x-y-z NED 로컬 속도
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_yaw[0]`: 현재 요 각도
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
-- Point 1 - Current waypoint (Unmodified/not type adapted)): 
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `command[0]`: 현재 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 1 - 현재 웨이 포인트 (수정되지 않음 / 조정되지 않은 유형) : 
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: *현재* 임무 웨이포인트의 x-y-z NED 로컬 위치
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
-- Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `pos_yaw[1]`: 요 설정점
+  - `vel_yaw[1]`: 요 속도 설정점
+  - `command[1]`: 현재 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
+- Point 2 - 로컬 좌표의 다음 웨이 포인트 (수정되지 않음 / 조정되지 않은 유형) : 
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: *다음* 임무 웨이포인트의 x-y-z NED 로컬 위치
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
+  - `pos_yaw[2]`: 요 설정점
+  - `vel_yaw[2]`: 요 속도 설정점
+  - `command[2]`: 다음 웨이포인트에서의 [MAVLink 명령어](https://mavlink.io/en/messages/common.html#mav_commands) 
 - All other indices/fields are set as NaN.
 
 <span id="type_adapted"></span>
