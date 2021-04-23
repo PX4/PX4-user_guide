@@ -91,7 +91,7 @@ PX4에서 설정한 필드 :
 
 #### 보조 컴퓨터의 실패 처리
 
-PX4 safely handles the case where messages are not received from the offboard system:
+PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 안전하게 처리합니다.
 
 - If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
   - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
