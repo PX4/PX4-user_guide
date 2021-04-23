@@ -20,31 +20,31 @@
 
 ![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
-You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
+您也可以点击左边的按钮来浏览参数组（下图显示了*电池校准*参数组被选中）。
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
-If you can't find an expected parameter, see the [next section](#missing).
+如果找不到想要的参数，请参阅[下一节](#missing)。
 :::
 
 <span id="missing"></span>
 
 ## 找不到的参数
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+参数通常不可见，因为它们要么以其他参数为条件，要么不存在于固件中（见下文）。
 
-### 受条件限制的参数
+### 条件参数
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+如果一个参数是以未启用的另一个参数为条件，则该参数不会被显示。
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. 尤其是[串口配置参数](../peripherals/serial_configuration.md)，它依赖于分配给串口的服务。
 
 ### 固件中没有的参数
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+参数可能不在固件中，因为您使用了不同版本的 PX4，或者因为您构建的固件中没有包含相关的模块。
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+每个PX4版本都添加了新参数，现有参数有时被删除或重命名。 You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
 
 The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 
