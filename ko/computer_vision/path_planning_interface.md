@@ -122,37 +122,37 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
   - `pos_yaw[0]`: 요 각도 설정점
   - `vel_yaw[0]`: 요 속도 설정점
   - `command[0]`: NaN.
-- All other indices/fields are set as NaN.
+- 다른 모든 인덱스와 필드는 NaN으로 설정됩니다.
 
-A planner that implements this interface must:
+이 인터페이스를 구현하는 플래너는 다음 기능을 수행하여야합니다.
 
-- Emit setpoints at more than 2Hz when receiving messages from PX4. PX4 will enter [Hold mode](../flight_modes/hold.md) if no message is received for more than 0.5s.
-- Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
+- PX4에서 메시지를 수신 할 때 2Hz 이상에서 설정값을 송출합니다. 0.5초 이상 메시지가 수신되지 않으면 PX4는 [보류 모드](../flight_modes/hold.md)로 전환됩니다.
+- 현재 기체 상태에 대한 계획을 지원하지 않을 때 수신하는 설정값을 미러링합니다 (예 : 로컬 플래너는 착륙 모드를 지원하지 않기 때문에 안전 착륙 중에 전송된 메시지를 미러링합니다).
 
 <span id="bezier_interface"></span>
 
-## Companion Bezier Trajectory Interface
+## 보조 컴퓨터 베지어 궤적 인터페이스
 
-The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
+경로계획 소프트웨어 (보조 컴퓨터에서 실행)는 [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) 메시지의 스트림으로 PX4에 계획된 경로를 *전송할 수 있습니다*.
 
-The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`. PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
+메시지는 `타임 스탬프` 메시지에서 시작하여 시간 `델타` 이후에 최종 지점에 도달하는 곡선 (제어점에 의해 정의됨) 측면에서 기체의 운행 경로를 정의합니다. PX4는 메시지가 전송 시간, 현재 시간 및 곡선의 총 시간 (델타)을 사용하여 새 설정값 (곡선을 따라 예상되는 현재 위치/속도/가속도)을 계산합니다.
 
 :::note
-For example, say the message was sent 0.1 seconds ago and `delta` (curve duration) is 0.3s. PX4 can calculate its setpoint at the 0.1s position in the curve.
+예를 들어 메시지가 0.1초 전에 전송되었고 `델타` (곡선 지속 시간)가 0.3 초라고 가정합니다. PX4는 곡선의 0.1s 위치에서 설정값을 계산할 수 있습니다.
 :::
 
-In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
+더 자세히 설명하면 `TRAJECTORY_REPRESENTATION_BEZIER`는 다음과 같이 구문 분석됩니다.
 
-- The number of bezier control points determines the degree of the bezier curve. For example, 3 points makes a quadratic bezier curve with constant acceleration.
-- The bezier curve must be the same degree in x, y, z, and yaw, with all bezier control points finite
-- The `delta` array should have the value corresponding with the last bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. Other values in the `delta` array are ignored.
-- The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
-- The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-- Bezier curves expire after the execution time of the bezier curve has been reached. Ensure that new messages are sent at a high enough rate/with long enough execution time that this does not happen (or the vehicle will switch to Hold mode).
+- 베지어 제어점의 수는 베지어 곡선도를 결정합니다. 예를 들어, 3개의 점은 일정한 가속도로 2차 베지어 곡선을 생성합니다.
+- 베지어 곡선은 x, y, z 및 yaw에서 동일한 각도이여야 하며, 모든 베지어 제어점은 유한하여야합니다.
+- `delta` 배열은 마지막 베지어 제어점에 해당하는 값을 가져야합니다. 웨이포인트에서 처음부터 끝까지 커브를 실행하는 데 걸리는 시간을 나타냅니다. `델타` 배열의 다른 값들은 무시됩니다.
+- MAVLink 메시지의 타임스탬프는 곡선이 시작되는 시간이어야하며, 통신 지연과 클럭 불일치는 타임 싱크 메커니즘을 통하여 비행 컨트롤러에서 보상됩니다.
+- 제어점은 모두 지역 좌표([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED))로 지정되어야 합니다.
+- 베지어 곡선은 베지어 곡선의 실행 시간에 도달하면 만료됩니다. 새 메시지가 발생하지 않을 만큼 충분히 높은 속도와 충분한 실행 시간으로 전송되는지 확인하십시오 (그렇지 않으면, 기체가 보류 모드로 전환됨).
 
-## Supported Hardware
+## 지원 하드웨어
 
-Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
+시험을 통과한 보조 컴퓨터와 카메라 목록은 [PX4 회피](https://github.com/PX4/avoidance#run-on-hardware)에 있습니다.
 
 <!-- ## Further Information -->
 
