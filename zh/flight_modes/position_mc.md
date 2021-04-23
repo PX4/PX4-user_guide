@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Position* is an easy-to-fly RC mode in which roll and pitch sticks control acceleration over ground in the vehicle's left-right and forward-back directions (similar to a car's accelerator pedal), and throttle controls speed of ascent-descent. 当摇杆释放/居中时，无人机将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 With full stick deflection the vehicle accelerates initially with [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX) ramping down until it reaches the final velocity [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL).
+*位置模式* 是一种易于飞行的遥控器模式，该模式下横滚和俯仰摇杆控制载具相对于地面的前后左右加速度（类似于车的油门踏板），油门控制加减速。 当摇杆释放/居中时，无人机将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 摇杆满偏的情况下，载具以参数 [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX) 定义的值加速，直到达到参数 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)定义的最终速度后开始减速。
 
 :::tip
 位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
@@ -12,9 +12,9 @@
 
 ![多旋翼位置模式](../../assets/flight_modes/position_MC.png)
 
-### Landing
+### 着陆
 
-Landing in this mode is easy:
+该模式下着陆很容易：
 
 1. Position the drone horizontally above the landing spot using the roll and pitch stick.
 2. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
@@ -32,7 +32,7 @@ While very rare on a well calibrated vehicle, sometimes there may be problems wi
   - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
 :::
 
-## 技术总结
+## 技术概要
 
 RC mode where roll, pitch, throttle (RPT) sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed altitude and position against wind.
 
@@ -52,7 +52,7 @@ RC mode where roll, pitch, throttle (RPT) sticks control movement in correspondi
 - This mode requires GPS.
 :::
 
-### Parameters
+### 参数
 
 All the parameters in the [Multicopter Position Control](../advanced_config/parameter_reference.md#multicopter-position-control) group are relevant. A few parameters of particular note are listed below.
 
@@ -72,6 +72,6 @@ All the parameters in the [Multicopter Position Control](../advanced_config/para
 
 ## 附加信息
 
-### Position Loss/Safety
+### 位置丢失/安全
 
 Position mode is dependent on having an acceptable position estimate. If the estimate falls below acceptable levels, for example due to GPS loss, this may trigger a [Position (GPS) Loss Failsafe](../config/safety.md#position-gps-loss-failsafe). Depending on configuration, whether you have a remote control, and whether there is an adequate altitude estimate, PX4 may switch to altitude mode, manual mode, land mode or terminate.
