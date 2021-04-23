@@ -93,10 +93,10 @@ PX4에서 설정한 필드 :
 
 PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 안전하게 처리합니다.
 
-- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
-  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
-- If no planner is running and `COM_OBS_AVOID` is enabled after boot: 
-  - the vehicle will run normally in manual modes.
+- 실행중인 플래너가없고 `COM_OBS_AVOID`가 부팅시 활성화 된 경우 : 
+  - 비행 전 검사는 (기체 모드와 관계없이) 실패하고 `COM_OBS_AVOID`가 0으로 설정될 때까지 비행하지 않습니다.
+- 실행중인 플래너가없고 `COM_OBS_AVOID`가 부팅후 활성화 된 경우 : 
+  - 기체는 수동 모드에서 정상적으로 작동합니다.
   - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
 - When external path planning is enabled: 
   - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
