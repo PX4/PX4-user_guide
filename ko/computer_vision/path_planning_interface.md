@@ -97,30 +97,30 @@ PX4는 오프보드 시스템에서 메시지가 수신되지 않는 경우를 �
   - 비행 전 검사는 (기체 모드와 관계없이) 실패하고 `COM_OBS_AVOID`가 0으로 설정될 때까지 비행하지 않습니다.
 - 실행중인 플래너가없고 `COM_OBS_AVOID`가 부팅후 활성화 된 경우 : 
   - 기체는 수동 모드에서 정상적으로 작동합니다.
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
-- When external path planning is enabled: 
-  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md). :::note A planner must always provide points in this timeframe.
-  - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
+  - 자율 모드(예 : 착륙 모드)로 전환하면 즉시 [유지 모드](../flight_modes/hold.md)로 돌아갑니다.
+- 외부 경로 계획이 활성화 된 경우 : 
+  - `HEARTBEAT`가 분실된 경우 PX4는 "Avoidance system lost"또는 "Avoidance system timeout"(기체 상태에 따라 다름)을 나타내는 상태 메시지 (*QGroundControl*에 표시됨)를 내 보냅니다. . 이것은 현재 비행 모드와 관계가 없습니다.
+  - 궤적 메시지가 0.5 초 이상 수신되지 않고, 기체가 자율 모드(복귀, 임무, 이륙, 착륙)에인 경우에는 기체는 [유지 모드](../flight_modes/hold.md)로 전환됩니다. :::note 플래너는 항상 이 기간에 포인트를 제공하여야 합니다.
+  - 플래너는 기체가 경로 계획을 제공하지 않는 모드나 상태이면 수신한 설정값을 미러링합니다. (즉, 기체가 원하는 경로를 따라가는 데 약간의 지연이 있음).
 :::
-  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+  - 경로 계획 중에 마지막으로 제공된 베지어 궤적의 실행 시간이 만료되면 ([베지어 궤적 인터페이스](#bezier_interface)를 사용할 때) 0.5 초 이내에 새 메시지를 받지 못하는 것과 동일하게 처리됩니다 (예 : 기체가 [대기 모드](../flight_modes/hold.md)).
 
 <span id="companion_waypoint_interface"></span>
 
-## Companion Waypoint Interface
+## 보조 컴퓨터 웨이포인트 인터페이스
 
-The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
+경로계획 소프트웨어 (보조 컴퓨터에서 실행)는 계획된 경로를 Point 0에 설정점이있는 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 메시지의 스트림으로 PX4에 *전송할 수 있습니다 *.
 
-The fields for the messages from the companion computer are set as shown:
+보조 컴퓨터의 메시지 필드는 다음과 같이 설정됩니다.
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec` : UNIX Epoch 시간.
 - `valid_points`: 1
-- Current vehicle information: 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+- 현재 기체 정보 
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED 기체 지역 위치 세트포인트
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED 세트포인트
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: 요 각도 설정점
+  - `vel_yaw[0]`: 요 속도 설정점
   - `command[0]`: NaN.
 - All other indices/fields are set as NaN.
 
