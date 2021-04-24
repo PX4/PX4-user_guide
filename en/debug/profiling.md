@@ -12,6 +12,24 @@ The folded stacks are then fed into the visualization script, for which purpose 
 
 ## Basic Usage
 
+### Prerequisites
+
+The profiler relies on GDB to run PX4 on the embedded target.  So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.  You will then need a JTAG debugger, such as the DroneCode Probe, to run the GDB server and interact with the board.  You may also need to modify the contents of `poor-mans-profiler.sh` to point to the debugger.  For example, with a Pixhawk 4 connected via USB, followed by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
+
+```
+usesr@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+lrwxrwxrwx 1 root root  13 Apr 23 18:48 usb-3D_Robotics_PX4_FMU_v5.x_0-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if00 -> ../../ttyACM1
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
+```
+
+So in this case, the `/dev/ttyACM0` shown in the script should be replaced with `/dev/ttyACM1`.
+
+### Running
+
 Basic usage of the profiler is available through the build system. 
 For example, the following command builds and profiles px4_fmu-v4pro target with 10000 samples (fetching *FlameGraph* and adding it to the path as needed).
 
