@@ -207,7 +207,7 @@ Source: [modules/rover_pos_control](https://github.com/PX4/Firmware/tree/master/
 ### Description
 Controls the position of a ground rover using an L1 controller.
 
-Publishes `actuator_controls_0` messages at a constant 250Hz.
+Publishes `actuator_controls_0` messages at IMU_GYRO_RATEMAX.
 
 ### Implementation
 Currently, this implementation supports only a few modes:
