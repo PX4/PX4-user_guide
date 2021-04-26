@@ -59,25 +59,25 @@ catkin build px4_realsense_bridge
    - 처음 세 개의 `인수`는 비행 컨트롤러의 중심에서 카메라까지의 미터 단위로 *변환* x, y, z를 지정합니다. 예를 들어 카메라가 컨트롤러 앞 10cm, 위쪽 4cm 인 경우 처음 세 숫자는 [0.1, 0, 0.04, ...]입니다.
    - 다음 세 개의 `인수`는 라디안 (요, 피치, 롤)으로 회전을 지정합니다. 따라서 `[... 0, 1.5708, 0]`은 90도 내림(지면을 향함)을 의미합니다. 정면을 바라보는 것은 [... 0 0 0]입니다.
 
-- Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
-- Run VIO by calling `roslaunch` with an appropriate launch file:
+- PX4 EKF2 추정기를 조정하려면 [아래](#ekf2_tuning) 지침을 따르십시오.
+- 적절한 시작 파일과 함께 `roslaunch`를 호출하여 VIO를 실행합니다.
   ```
   cd ~/catkin_ws/src
-  roslaunch px4_realsense_bridge bridge_mavros.launch
+roslaunch px4_realsense_bridge bridge_mavros.launch
   ```
-  The launch file options are:
-  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch): Use on vehicle in most cases (starts bridge and MAVROS).
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): Use if some other component is responsible for starting MAVROS (only starts bridge)
-  - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):Use for simulation (starts bridge, MAVROS, SITL)
-- Verify the connection to the flight controller.
+  실행 파일 옵션은 다음과 같습니다.
+  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) : 대부분의 경우 기체에 사용합니다 (브리지 및 MAVROS 시작).
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
+- 비행 컨트롤러 연결을 확인하십시오.
 
 :::tip
-You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+*QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)를 사용하여 `ODOMETRY` 또는 `VISION_POSITION_ESTIMATE` 메시지를 받고 있는지 확인할 수 있습니다.(또는 구성 요소 ID가 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`) 인 `HEARTBEAT ` 메시지)
 :::
-- [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
+- 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate)!
 
 <span id="ekf2_tuning"></span>
-### PX4 Tuning
+### PX4 튜닝
 
 The following parameters must be set to use external position information with EKF2.
 
