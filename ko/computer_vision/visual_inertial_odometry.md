@@ -1,4 +1,4 @@
-# 시각 관성 주행기록계(VIO)
+# 시각 관성 주행거리 측정(VIO)
 
 *Visual Inertial Odometry* (VIO)는 *지역적* 시작 위치를 기준으로 움직이는 기체의 3차원 *자세* (지역적 위치 및 방향)와 *속도*를 추정하는 [컴퓨터 비전](../computer_vision/README.md) 기술입니다. GPS가 없거나 신뢰할 수없는 상황 (예 : 실내 또는 다리 아래에서 비행시)에서 기체 내비게이션용으로 사용됩니다.
 
@@ -10,54 +10,54 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip
-The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+위의 [Auterion 제품 동영상](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/)은 [지원 가능한 설정](#supported_setup)을 사용하여 비행중인기체를 보여줍니다.
 :::
 
 :::note
-This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+이 (지원되는) 솔루션은 ROS를 사용하여 VIO 정보를 PX4로 라우팅합니다. PX4 자체는 적절한 [MAVLink 인터페이스](../ros/external_position_estimation.md#px4-mavlink-integration)를 통하여 제공되는 메시지 소스는 신경 쓰지 않습니다.
 :::
 
 <span id="supported_setup"></span>
-## Supported Setup
+## 지원 가능한 설정
 
-The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
-
-
-
-### Camera Mounting
-
-Attach the camera to the companion computer and mount it to the frame:
-
-- Connect the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) using the supplied cable.
-- Mount the camera with lenses pointing down if at all possible (default).
-- The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+지원 가능한 설정은 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md) 및 ROS (보조 컴퓨터에서 실행)를 사용하여 PX4에 주행 거리 측정 정보를 제공합니다. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
 
 
-### ROS/VIO Setup
 
-To setup the Bridge, ROS and PX4:
-- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
-- Get the Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge):
-  - Clone this repository in your catkin workspace.
+### 카메라 장착
+
+카메라를 보조 컴퓨터에 연결하고 프레임에 장착합니다.
+
+- 제공된 케이블을 사용하여 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md)를 연결합니다.
+- 가능하면 렌즈가 아래쪽을 향하도록 카메라를 장착하십시오 (기본값).
+- 카메라는 진동에 매우 민감합니다. 부드러운 장착이 권장됩니다 (예 : 방진폼 사용).
+
+
+### ROS/VIO 설정
+
+Bridge, ROS 및 PX4를 설정 :
+- 보조 컴퓨터에서 [MAVROS](../ros/mavros_installation.md)를 설치하고 설정합니다.
+- Auterion [VIO 브리지 ROS 노드](https://github.com/Auterion/VIO_bridge)를 가져옵니다.
+  - catkin 작업 공간에서이 저장소를 복제하십시오.
     ```
     cd ~/catkin_ws/src
-    git clone https://github.com/Auterion/VIO.git
+git clone https://github.com/Auterion/VIO.git
     ```
-  - Build the package:
+  - 패키지 빌드:
     ```
     cd ~/catkin_ws/src
-    catkin build px4_realsense_bridge
+catkin build px4_realsense_bridge
     ```
-- Configure the camera orientation if needed:
-  - The VIO bridge doesn't require any configuration if the camera is mounted with the lenses facing down (the default).
-  - For any other orientation modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below:
+- 필요한 경우 카메라 방향을 설정합니다.
+  - 카메라가 렌즈가 아래를 향하도록 장착 된 경우 VIO 브리지는 구성이 필요하지 않습니다 (기본값).
+  - 다른 방향의 경우 아래 섹션에서 [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)를 수정합니다.
     ```xml
     <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
         args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
     ```
-   This is a static transform that links the camera ROS frame `camera_pose_frame` to the mavros drone frame `base_link`.
-   - the first three `args` specify *translation* x,y,z in metres from the center of flight controller to camera. For example, if the camera is 10cm in front of the controller and 4cm up, the first three numbers would be : [0.1, 0, 0.04,...]
-   - the next three `args` specify rotation in radians (yaw, pitch, roll). So `[... 0, 1.5708, 0]` means pitch down by 90deg (facing the ground). Facing straight forward would be [... 0 0 0].
+   카메라 ROS 프레임 `camera_pose_frame`을 mavros 드론 프레임 `base_link`에 연결하는 정적 변환입니다.
+   - 처음 세 개의 `인수`는 비행 컨트롤러의 중심에서 카메라까지의 미터 단위로 *변환* x, y, z를 지정합니다. 예를 들어 카메라가 컨트롤러 앞 10cm, 위쪽 4cm 인 경우 처음 세 숫자는 [0.1, 0, 0.04, ...]입니다.
+   - 다음 세 개의 `인수`는 라디안 (요, 피치, 롤)으로 회전을 지정합니다. 따라서 `[... 0, 1.5708, 0]`은 90도 내림(지면을 향함)을 의미합니다. 정면을 바라보는 것은 [... 0 0 0]입니다.
 
 - Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
 - Run VIO by calling `roslaunch` with an appropriate launch file:
