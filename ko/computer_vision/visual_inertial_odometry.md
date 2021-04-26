@@ -1,83 +1,83 @@
-# Visual Intertial Odometry (VIO)
+# 시각 관성 주행거리 측정(VIO)
 
-*Visual Inertial Odometry* (VIO) is a [computer vision](../computer_vision/README.md) technique used for estimating the 3D *pose* (local position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent or unreliable (e.g. indoors, or when flying under a bridge).
+*Visual Inertial Odometry* (VIO)는 *지역적* 시작 위치를 기준으로 움직이는 기체의 3차원 *자세* (지역적 위치 및 방향)와 *속도*를 추정하는 [컴퓨터 비전](../computer_vision/README.md) 기술입니다. GPS가 없거나 신뢰할 수없는 상황 (예 : 실내 또는 다리 아래에서 비행시)에서 기체 내비게이션용으로 사용됩니다.
 
-VIO uses [Visual Odometry](https://en.wikipedia.org/wiki/Visual_odometry) to estimate vehicle *pose* from camera images, combined with inertial measurements from the vehicle IMU (to correct for errors associated with rapid vehicle movement resulting in poor image capture).
+VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체의 *자세*를 추정하기 위하여 [시각적 Odometry](https://en.wikipedia.org/wiki/Visual_odometry)를 사용합니다 (이미지 캡처 불량을 초래하는 빠른 기체 이동과 관련된 오류를 수정함).
 
-This topic shows how to set up PX4 and a companion computer to use the *supported* VIO setup.
+*지원 가능한* VIO 설정을 사용하도록 PX4와 보조 컴퓨터 설정방법을 설명합니다.
 
 <iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
 
 :::tip
-The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) above shows a vehicle flying using the [supported setup](#supported_setup).
+위의 [Auterion 제품 동영상](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/)은 [지원 가능한 설정](#supported_setup)을 사용하여 비행중인기체를 보여줍니다.
 :::
 
 :::note
-This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
+이 (지원되는) 솔루션은 ROS를 사용하여 VIO 정보를 PX4로 라우팅합니다. PX4 자체는 적절한 [MAVLink 인터페이스](../ros/external_position_estimation.md#px4-mavlink-integration)를 통하여 제공되는 메시지 소스는 신경 쓰지 않습니다.
 :::
 
 <span id="supported_setup"></span>
-## Supported Setup
+## 지원 가능한 설정
 
-The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
-
-
-
-### Camera Mounting
-
-Attach the camera to the companion computer and mount it to the frame:
-
-- Connect the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) using the supplied cable.
-- Mount the camera with lenses pointing down if at all possible (default).
-- The camera is very senstive to vibration; a soft mounting is recommended (e.g. using vibration isolation foam).
+지원 가능한 설정은 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md) 및 ROS (보조 컴퓨터에서 실행)를 사용하여 PX4에 주행 거리 측정 정보를 제공합니다. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
 
 
-### ROS/VIO Setup
 
-To setup the Bridge, ROS and PX4:
-- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
-- Get the Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge):
-  - Clone this repository in your catkin workspace.
+### 카메라 장착
+
+카메라를 보조 컴퓨터에 연결하고 프레임에 장착합니다.
+
+- 제공된 케이블을 사용하여 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md)를 연결합니다.
+- 가능하면 렌즈가 아래쪽을 향하도록 카메라를 장착하십시오 (기본값).
+- 카메라는 진동에 매우 민감합니다. 부드러운 장착이 권장됩니다 (예 : 방진폼 사용).
+
+
+### ROS/VIO 설정
+
+Bridge, ROS 및 PX4를 설정 :
+- 보조 컴퓨터에서 [MAVROS](../ros/mavros_installation.md)를 설치하고 설정합니다.
+- Auterion [VIO 브리지 ROS 노드](https://github.com/Auterion/VIO_bridge)를 가져옵니다.
+  - catkin 작업 공간에서이 저장소를 복제하십시오.
     ```
     cd ~/catkin_ws/src
-    git clone https://github.com/Auterion/VIO.git
+git clone https://github.com/Auterion/VIO.git
     ```
-  - Build the package:
+  - 패키지 빌드:
     ```
     cd ~/catkin_ws/src
-    catkin build px4_realsense_bridge
+catkin build px4_realsense_bridge
     ```
-- Configure the camera orientation if needed:
-  - The VIO bridge doesn't require any configuration if the camera is mounted with the lenses facing down (the default).
-  - For any other orientation modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below:
+- 필요한 경우 카메라 방향을 설정합니다.
+  - 카메라가 렌즈가 아래를 향하도록 장착 된 경우 VIO 브리지는 구성이 필요하지 않습니다 (기본값).
+  - 다른 방향의 경우 아래 섹션에서 [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)를 수정합니다.
     ```xml
     <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
         args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
     ```
-   This is a static transform that links the camera ROS frame `camera_pose_frame` to the mavros drone frame `base_link`.
-   - the first three `args` specify *translation* x,y,z in metres from the center of flight controller to camera. For example, if the camera is 10cm in front of the controller and 4cm up, the first three numbers would be : [0.1, 0, 0.04,...]
-   - the next three `args` specify rotation in radians (yaw, pitch, roll). So `[... 0, 1.5708, 0]` means pitch down by 90deg (facing the ground). Facing straight forward would be [... 0 0 0].
+   카메라 ROS 프레임 `camera_pose_frame`을 mavros 드론 프레임 `base_link`에 연결하는 정적 변환입니다.
+   - 처음 세 개의 `인수`는 비행 컨트롤러의 중심에서 카메라까지의 미터 단위로 *변환* x, y, z를 지정합니다. 예를 들어 카메라가 컨트롤러 앞 10cm, 위쪽 4cm 인 경우 처음 세 숫자는 [0.1, 0, 0.04, ...]입니다.
+   - 다음 세 개의 `인수`는 라디안 (요, 피치, 롤)으로 회전을 지정합니다. 따라서 `[... 0, 1.5708, 0]`은 90도 내림(지면을 향함)을 의미합니다. 정면을 바라보는 것은 [... 0 0 0]입니다.
 
-- Follow the instructions [below](#ekf2_tuning) for tuning the PX4 EKF2 estimator.
-- Run VIO by calling `roslaunch` with an appropriate launch file:
+- PX4 EKF2 추정기를 조정하려면 [아래](#ekf2_tuning) 지침을 따르십시오.
+- 적절한 시작 파일과 함께 `roslaunch`를 호출하여 VIO를 실행합니다.
   ```
   cd ~/catkin_ws/src
-  roslaunch px4_realsense_bridge bridge_mavros.launch
+roslaunch px4_realsense_bridge bridge_mavros.launch
   ```
-  The launch file options are:
-  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch): Use on vehicle in most cases (starts bridge and MAVROS).
-  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch): Use if some other component is responsible for starting MAVROS (only starts bridge)
-  - [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch):Use for simulation (starts bridge, MAVROS, SITL)
-- Verify the connection to the flight controller.
+  실행 파일 옵션은 다음과 같습니다.
+  - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) : 대부분의 경우 기체에 사용합니다 (브리지 및 MAVROS 시작).
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
+  - [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch) : 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용 (브리지 시작만)
+- 비행 컨트롤러 연결을 확인하십시오.
 
 :::tip
-You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
+*QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)를 사용하여 `ODOMETRY` 또는 `VISION_POSITION_ESTIMATE` 메시지를 받고 있는지 확인할 수 있습니다.(또는 구성 요소 ID가 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`) 인 `HEARTBEAT ` 메시지)
 :::
-- [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
+- 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate)!
 
 <span id="ekf2_tuning"></span>
-### PX4 Tuning
+### PX4 튜닝
 
 The following parameters must be set to use external position information with EKF2.
 

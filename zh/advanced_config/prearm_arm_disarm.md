@@ -1,15 +1,15 @@
-# Prearm, Arm, Disarm Configuration
+# 预解锁，解锁，锁定配置
 
 机体是有可移动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！
 
-To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
+为了减少发生事故的可能性， PX4 有明确的载具部件供电状态：
 
-- **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
-- **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
+- **锁定：** 电机或执行器不供电。
+- **预解锁：** 电机/螺旋桨被锁定，但是没有危险的电子设备被供电（例如副翼，襟翼等）。
+- **解锁：** 载具全部供电。 电机/螺旋桨可能转动（危险！）
 
 :::note
-Ground stations may display *disarmed* for pre-armed vehicles. While not technically correct for pre-armed vehicles, it is "safe".
+对于预解锁的载具，地面站可能显示*锁定*状态。 虽然技术上不适合预解锁的载具，但它是“安全的”。
 :::
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
@@ -35,7 +35,7 @@ Arming/disarming parameters can be found in [Parameter Reference > Commander](..
 
 <span id="arm_disarm_gestures"></span>
 
-## Arming Gesture
+## 解锁手法
 
 By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 
@@ -59,7 +59,7 @@ The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYS
 
 <span id="arm_disarm_switch"></span>
 
-## Arming Button/Switch
+## 解锁按钮/开关
 
 An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
@@ -96,7 +96,7 @@ By default vehicles will automatically disarm on landing, or if you take too lon
 | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable). |
 
 
-## Arming Sequence: Pre Arm Mode & Safety Button
+## 解锁顺序：预解锁模式 & 安全按钮
 
 The arming sequence depends on whether or not there is a *safety switch*, and is controlled by the parameters [COM_PREARM_MODE](#COM_PREARM_MODE) (Prearm mode) and [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I/O safety circuit breaker).
 
@@ -110,7 +110,7 @@ If there is a safety switch then this will be a precondition for arming. If ther
 
 The sections below detail the startup sequences for the different configurations
 
-### Default: COM_PREARM_MODE=Safety and Safety Switch
+### 默认：COM_PREARM_MODE=Safety and Safety Switch
 
 The default configuration uses safety switch to prearm. From prearm you can then arm to engage all motors/actuators. It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
 
