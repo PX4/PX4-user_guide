@@ -42,7 +42,7 @@ In order to build Fast DDS you need to install the Foonathan Memory dependency.
 ```sh
 git clone https://github.com/eProsima/foonathan_memory_vendor.git
 cd foonathan_memory_vendor
-mkdir build & cd build
+mkdir build && cd build
 cmake ..
 cmake --build . --target install
 ```
