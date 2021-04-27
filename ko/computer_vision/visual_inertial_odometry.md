@@ -4,7 +4,7 @@
 
 VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체의 *자세*를 추정하기 위하여 [시각적 Odometry](https://en.wikipedia.org/wiki/Visual_odometry)를 사용합니다 (이미지 캡처 불량을 초래하는 빠른 기체 이동과 관련된 오류를 수정함).
 
-*지원 가능한* VIO 설정을 사용하도록 PX4와 보조 컴퓨터 설정방법을 설명합니다.
+*지원 가능한*  VIO 설정을 사용하도록 PX4와 보조 컴퓨터 설정 방법을 설명합니다.
 
 <iframe width="650" height="365" src="https://www.youtube.com/embed/gWtrka2mK7U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen mark="crwd-mark"></iframe>
 <!-- https://youtu.be/gWtrka2mK7U -->
@@ -63,7 +63,7 @@ catkin build px4_realsense_bridge
 - 적절한 시작 파일과 함께 `roslaunch`를 호출하여 VIO를 실행합니다.
   ```
   cd ~/catkin_ws/src
-roslaunch px4_realsense_bridge bridge_mavros.launch
+  roslaunch px4_realsense_bridge bridge_mavros.launch
   ```
   실행 파일 옵션은 다음과 같습니다.
   - [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) : 대부분의 경우 기체에 사용합니다 (브리지 및 MAVROS 시작).
@@ -74,40 +74,40 @@ roslaunch px4_realsense_bridge bridge_mavros.launch
 :::tip
 *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)를 사용하여 `ODOMETRY` 또는 `VISION_POSITION_ESTIMATE` 메시지를 받고 있는지 확인할 수 있습니다.(또는 구성 요소 ID가 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`) 인 `HEARTBEAT ` 메시지)
 :::
-- 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate)!
+- 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate).
 
 <span id="ekf2_tuning"></span>
 ### PX4 튜닝
 
-The following parameters must be set to use external position information with EKF2.
+EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설정하여야 합니다.
 
-| Parameter                                                                                                                                                                                                                          | Setting for External Position Estimation                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* accoring to your desired fusion model.      |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | Set to *Vision* to use the vision a primary source for altitude estimation.                                                                            |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor with respect to the vehicles body frame.                                                                         |
+| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | 원하는 융합 모델에 따라 *시력 위치 융합*, *시력 속도 융합*, *시력 요 융합* 및 *외부 시력 회전*을 설정합니다.           |
+| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | 비전을 고도 추정의 기본 소스로 사용하려면 *비전*으로 설정합니다.                                          |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임 스탬프와 "실제" 캡처 시간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오. |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 차체 프레임에 대한 비전 센서의 위치를 설정합니다.                                                   |
 
-These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (remember to reboot the flight controller in order for parameter changes to take effect).
+*QGroundControl* > **기체 설정 > 매개변수 > EKF2**에서 설정할 수 있습니다.  (매개변수 변경 사항을 적용하려면 비행 컨트롤러를 재부팅하여야 합니다).
 
-For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
+자세한 추가 정보는 [ECL/EKF 개요 & 튜닝 > 외부 비전 시스템 ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)을 참고하십시오.
 
 <span id="tuning-EKF2_EV_DELAY"></span>
 #### Tuning EKF2_EV_DELAY
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)는 *IMU 측정에 대한 비전 위치 추정기 지연*입니다. 즉, 비전 시스템 타임스탬프와 IMU 클록 (EKF2의 "기본 클록")에 의해 기록된 "실제" 캡처 시간 간의 차이입니다.
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this may need some empirical tuning becuase delays in the communication chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+기술적으로 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. 실제로는 통신 체인의 지연이 설정에 따라 달라지기 때문에 약간의 경험적인 튜닝이 필요할 수 있습니다. 시스템이 완전히 동기화된 체인으로 설정되는 경우는 드뭅니다!
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates:
+IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략적인 지연 추정치를 얻을 수 있습니다.
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+[FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여 외부 데이터와 온보드 추정치(위 참조)의 플롯을 그릴 수 있습니다.
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여 매개변수를 변경하여 추가로 조정할 수 있습니다.
 
 <span id="verify_estimate"></span>
 ## Check/Verify VIO Estimate
