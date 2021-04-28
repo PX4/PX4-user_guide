@@ -19,11 +19,13 @@ The profiler relies on GDB to run PX4 on the embedded target.
 So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.
 You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
 
-You may also need to modify the contents of `poor-mans-profiler.sh` to point to the debugger.
-If using a DroneCode Probe, it should be plug and play.
-For other devices, you may need to change the script to point to your specific device.
-For example, with a Pixhawk 4 connected via USB, along by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
 
+### Determine the Debugger Device
+
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/swd_debug.md#dronecode-probe).
+If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located.
+You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu.
+For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
 ```
 user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
 total 0
@@ -34,7 +36,14 @@ lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magi
 lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
 ```
 
-So in this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`, but for a different device with a different name, you would need to modify the script accordingly.
+In this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`.
+But if you were using a different device you would be able discover the appropriate id from the listing above. 
+
+Then pass in the appropriate device using the `--gdbdev` argument like this:
+```bash
+./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --gdbdev=/dev/ttyACM2
+```
+
 
 ### Running
 
@@ -109,8 +118,3 @@ Should you want to append to the old stacks rather than overwrite them, use the 
 As one might suspect, `--append` with `--nsamples=0` will instruct the script to only regenerate the SVG without accessing the target at all.
 
 Please read the script for a more in depth understanding of how it works.
-
-## Credits
-
-Credits for the idea belong to
-[Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/).
