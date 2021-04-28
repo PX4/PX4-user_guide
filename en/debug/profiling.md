@@ -1,6 +1,6 @@
 # Poor Man's Sampling Profiler
 
-This section describes how to assess performance of the PX4 system by means of profiling.
+This section describes you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4. 
 
 ## Approach
 
@@ -14,7 +14,11 @@ The folded stacks are then fed into the visualization script, for which purpose 
 
 ### Prerequisites
 
-The profiler relies on GDB to run PX4 on the embedded target.  So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.  You will then need a JTAG debugger, such as the DroneCode Probe, to run the GDB server and interact with the board.  You may also need to modify the contents of `poor-mans-profiler.sh` to point to the debugger.  For example, with a Pixhawk 4 connected via USB, followed by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
+The profiler relies on GDB to run PX4 on the embedded target.
+So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.
+You will then need a JTAG debugger, such as the DroneCode Probe, to run the GDB server and interact with the board.
+You may also need to modify the contents of `poor-mans-profiler.sh` to point to the debugger.
+For example, with a Pixhawk 4 connected via USB, followed by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
 
 ```
 usesr@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
@@ -67,10 +71,9 @@ Please watch out for them while using it:
   This does not affect single core embedded targets, since they always execute in one thread, but this limitation makes the profiler incompatible with many other applications.
   In the future the stack folder should be modified to support multiple stack traces per sample.
 
-<a id="implementation"></a>
 ## Implementation
 
-The script is located at `Debug/poor-mans-profiler.sh`.
+The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh)
 Once launched, it will perform the specified number of samples with the specified time interval.
 Collected samples will be stored in a text file in the system temp directory (typically `/tmp`).
 Once sampling is finished, the script will automatically invoke the stack folder, the output of which will be stored in an adjacent file in the temp directory.
