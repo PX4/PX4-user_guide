@@ -16,12 +16,15 @@ The folded stacks are then fed into the visualization script, for which purpose 
 
 The profiler relies on GDB to run PX4 on the embedded target.
 So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.
-You will then need a JTAG debugger, such as the DroneCode Probe, to run the GDB server and interact with the board.
+You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
+
 You may also need to modify the contents of `poor-mans-profiler.sh` to point to the debugger.
-For example, with a Pixhawk 4 connected via USB, followed by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
+If using a DroneCode Probe, it should be plug and play.
+For other devices, you may need to change the script to point to your specific device.
+For example, with a Pixhawk 4 connected via USB, along by a DroneCode Probe over USB, the following devices are enumerated in Ubuntu:
 
 ```
-usesr@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
 total 0
 drwxr-xr-x 2 root root 100 Apr 23 18:57 .
 drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
@@ -30,7 +33,7 @@ lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magi
 lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
 ```
 
-So in this case, the `/dev/ttyACM0` shown in the script should be replaced with `/dev/ttyACM1`.
+So in this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`, but for a different device with a different name, you would need to modify the script accordingly.
 
 ### Running
 
