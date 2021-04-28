@@ -6,7 +6,7 @@
 이 카메라를 추천하며, [VIO (Visual Inertial Odometry) > 설정](../computer_vision/visual_inertial_odometry.md#supported_setup)에서 사용됩니다.
 :::
 
-![Intel Realsense Tracking Camera T265 - Angled Image](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
+![Intel Realsense 추적 카메라 T265 - 각진 이미지](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
 ## 구매 링크
@@ -31,8 +31,8 @@
 - 카메라는 고주파 진동에 민감합니다! 방진 폼을 사용하여 장착하여야 합니다.
 <span id="launch_files"></span> 다양한 시나리오에 대한 실행 파일이 제공됩니다.
 
-| 실행 파일                                                                                                       | 시작                   | 설명                                                               |
-| ----------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------- |
-| [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)             | Bridge, MAVROS       | Use on vehicle in most cases                                     |
-| [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch)                           | Bridge only          | Use if some other component is responsible for starting MAVROS). |
-| [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch) | Bridge, MAVROS, SITL | Use for simulation.                                              |
+| 실행 파일                                                                                                       | 시작                   | 설명                               |
+| ----------------------------------------------------------------------------------------------------------- | -------------------- | -------------------------------- |
+| [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch)             | Bridge, MAVROS       | 대부분의 경우 기체에 사용                   |
+| [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch)                           | Bridge에만 사용          | 다른 구성 요소가 MAVROS 시작을 담당하는 경우 사용. |
+| [bridge_mavros_sitl.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros_sitl.launch) | Bridge, MAVROS, SITL | 시뮬레이션 용도                         |
