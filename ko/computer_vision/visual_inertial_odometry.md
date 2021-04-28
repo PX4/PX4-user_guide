@@ -101,7 +101,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 
 IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략적인 지연 추정치를 얻을 수 있습니다.
 
-![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
+![ekf2_ev_delay 로그](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여 외부 데이터와 온보드 추정치(위 참조)의 플롯을 그릴 수 있습니다.
@@ -152,10 +152,10 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
 이 구현을 확장하는 데 관심이있는 개발자 (또는 ROS에 의존하지 않을 수있는 다른 구현을 작성)는 [위치 추정용 비전 또는 모션 캡처 시스템 사용](../ros/external_position_estimation.md)을 참조하여야 합니다.
 
-This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
+이 항목에서는 LPE Estimator (사용되지 않음)와 함께 사용할 VIO를 구성하는 방법도 설명합니다.
 
 
-## Further Information
+## 추가 정보
 
-- [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
+- [ECL/EKF 개요와 튜닝 > 외부 비젼 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
