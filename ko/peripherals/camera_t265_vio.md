@@ -1,20 +1,20 @@
-# T265 Intel Realsense Tracking Camera (VIO)
+# T265 리얼센스 추적 카메라(VIO)
 
-The [Intel Realsense Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) provides odometry information that can be used for [VIO](../computer_vision/visual_inertial_odometry.md), augmenting or replacing other positioning systems on PX4.
+[Intel Realsense 추적 카메라 T265 ](https://www.intelrealsense.com/tracking-camera-t265/)는 [VIO](../computer_vision/visual_inertial_odometry.md)에 사용할 수 있는 주행 거리 측정 정보를 제공하여, PX4의 다른 포지셔닝 시스템을 보강하거나 대체합니다.
 
 :::tip
-This camera is recommended, and is used in the [Visual Inertial Odometry (VIO) > Supported Setup](../computer_vision/visual_inertial_odometry.md#supported_setup).
+이 카메라를 추천하며, [VIO (Visual Inertial Odometry) > 지원되는 설정](../computer_vision/visual_inertial_odometry.md#supported_setup)에서 사용됩니다.
 :::
 
 ![Intel Realsense Tracking Camera T265 - Angled Image](../../assets/peripherals/camera_vio/t265_intel_realsense_tracking_camera_photo_angle.jpg)
 
 
-## Purchase Link
+## 구매 링크
 
-[Intel® RealSense™ Tracking Camera T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
+[Intel® RealSense™ 추적 카메라 T265](https://store.intelrealsense.com/buy-intel-realsense-tracking-camera-t265.html) (store.intelrealsense.com)
 
 
-## Setup Instructions
+## 설정 방법
 
 The instructions in [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md) explain how to set up this camera.
 
