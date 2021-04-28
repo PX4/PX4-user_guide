@@ -42,7 +42,7 @@ You can use `param show-for-airframe` to show all parameters that have changed f
 
 ### Exporting and Loading Parameters
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have been changed, even if they have been changed back to their default).
+You can save any parameters that have been *changed* (that are different from airframe defaults).
 
 The standard `param save` command will store the parameters in the current default file:
 ```sh

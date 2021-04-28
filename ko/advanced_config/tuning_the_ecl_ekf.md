@@ -11,10 +11,10 @@ The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the
 The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
 * Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
-* Velocity at the IMU - North,East,Down \(m/s\)
-* Position at the IMU - North,East,Down \(m\)
-* IMU delta angle bias estimates - X,Y,Z \(rad\)
-* IMU delta velocity bias estimates - X,Y,Z\(m/s\)
+* Velocity at the IMU - North, East, Down (m/s)
+* Position at the IMU - North, East, Down (m)
+* IMU delta angle bias estimates - X, Y, Z (rad)
+* IMU delta velocity bias estimates - X, Y, Z (m/s)
 * Earth Magnetic field components - North,East,Down \(gauss\)
 * Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
 * Wind velocity - North,East \(m/s\)
@@ -29,45 +29,59 @@ The 'fusion time horizon' delay and length of the buffers is determined by the l
 
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
+The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/PX4-ECL/blob/master/EKF/matlab/scripts/Terrain%20Estimator/GenerateEquationsTerrainEstimator.m).
 
-## Running Multiple Instances
+## Running a Single EKF Instance
 
-The default behaviour is to perform sensor selection and failover before data is received by the EKF with only a single instance of the EKF running. This provides protection against a limited number of sensor faults such as loss of data but does not protect against the sensor providing inaccurate data that exceeds the ability of the EKF and control loops to compensate.
+The *default behaviour* is to run a single instance of the EKF. In this case sensor selection and failover is performed before data is received by the EKF. This provides protection against a limited number of sensor faults, such as loss of data, but does not protect against the sensor providing inaccurate data that exceeds the ability of the EKF and control loops to compensate.
 
-Depending on the number of IMUs and magnetometers and the autopilots CPU capacity, multiple instances of the EKF can be run. This provides protection against a wider range of sensor errors and is achieved by each EKF instance using a different sensor combination. By comparing the internal consistency of each EKF instance, the EKF selector is able to determine the EKF and sensor combination with the best data consistency. This enables faults such as sudden changes in IMU bias, saturation or stuck data to be detected and isolated.
+The parameter settings for running a single EKF instance are:
 
-The total number of EKF instances is the product of the number of IMU's and number of magnetometers selected by [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) and [EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) and is given by the following formula:
+* [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) = 0
+* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) = 0
+* [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1
+* [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1
 
-N_instances = MAX([EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) , 1) x MAX([EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) , 1)
+## Running Multiple EKF Instances
 
-For example an autopilot with 2 IMUs and 2 magnetometers could run with EKF2_MULTI_IMU = 2 and EKF2_MULTI_MAG = 2 for a total of 4 EKF instances where each instance uses the following combination of sensors
+Depending on the number of IMUs and magnetometers and the autopilot's CPU capacity, multiple instances of the EKF can be run. This provides protection against a wider range of sensor errors and is achieved by each EKF instance using a different sensor combination. By comparing the internal consistency of each EKF instance, the EKF selector is able to determine the EKF and sensor combination with the best data consistency. This enables faults such as sudden changes in IMU bias, saturation or stuck data to be detected and isolated.
+
+The total number of EKF instances is the product of the number of IMU's and number of magnetometers selected by [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) and [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) and is given by the following formula:
+
+> N_instances = MAX([EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) , 1) x MAX([EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) , 1)
+
+For example an autopilot with 2 IMUs and 2 magnetometers could run with EKF2_MULTI_IMU = 2 and EKF2_MULTI_MAG = 2 for a total of 4 EKF instances where each instance uses the following combination of sensors:
 
 * EKF instance 1 : IMU 1, magnetometer 1
 * EKF instance 2 : IMU 1, magnetometer 2
 * EKF instance 3 : IMU 2, magnetometer 1
 * EKF instance 4 : IMU 2, magnetometer 2
 
-The maximum number of IMU or magnetometer sensors that can be handled is 4 of each for a theoretical maximum of 4 x 4 = 16 EKF instances. In practice this is limited by available computing resources. Ground based testing to check CPU and memory utilisation should be performed before flying. During development of this feature, testing with STM32F7 CPU based HW demonstrated 4 EKF instances with acceptable processing load and memory utilisation margin.
+The maximum number of IMU or magnetometer sensors that can be handled is 4 of each for a theoretical maximum of 4 x 4 = 16 EKF instances. In practice this is limited by available computing resources. During development of this feature, testing with STM32F7 CPU based HW demonstrated 4 EKF instances with acceptable processing load and memory utilisation margin.
 
-If [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >= 3, then the failover time for large rate gyro errors is further reduced because the EKF selector is able to apply a median select strategy for faster isolation of the faulty IMU.
+:::warning
+Ground based testing to check CPU and memory utilisation should be performed before flying.
+:::
+
+If [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) >= 3, then the failover time for large rate gyro errors is further reduced because the EKF selector is able to apply a median select strategy for faster isolation of the faulty IMU.
 
 The setup for multiple EKF instances is controlled by the following parameters:
 
-* [SENS_IMU_MODE](..../advanced_config/parameter_reference.md#SENS_IMU_MODE) When set to 1 (default for single EKF operation) the sensor module selects IMU data used by the EKF. This provides protection against loss of data from the sensor but does not protect against bad sensor data. When set to 0, the sensor module does not make a selection. Set to 0 if running multiple EKF instances with IMU sensor diversity, ie [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) > 1.
+* [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE): Set to 0 if running multiple EKF instances with IMU sensor diversity, ie [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) > 1.
+  
+  When set to 1 (default for single EKF operation) the sensor module selects IMU data used by the EKF. This provides protection against loss of data from the sensor but does not protect against bad sensor data. When set to 0, the sensor module does not make a selection.
 
-* [SENS_MAG_MODE](..../advanced_config/parameter_reference.md#SENS_MAG_MODE) When set to 1 (default for single EKF operation) the sensor module selects Magnetometer data used by the EKF. This provides protection against loss of data from the sensor but does not protect against bad sensor data. When set to 0, the sensor module does not make a selection. Set to 0 if running multiple EKF instances with magnetometer sensor diversity, ie [EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1.
+* [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE): Set to 0 if running multiple EKF instances with magnetometer sensor diversity, ie [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) > 1.
+  
+  When set to 1 (default for single EKF operation) the sensor module selects Magnetometer data used by the EKF. This provides protection against loss of data from the sensor but does not protect against bad sensor data. When set to 0, the sensor module does not make a selection.
 
-* [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) This paraameter specifies the number of IMU sensors used by the multiple EKF's. If EKF2_MULTI_IMU <= 1, then only the first IMU sensor will be used. When [SENS_IMU_MODE](..../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1, this will be the sensor selected by the sensor module. If EKF2_MULTI_IMU >= 2, then a separate EKF instance will run for the specified number of IMU sensors up to the lesser of 4 or the number of IMU's present.
+* [EKF2_MULTI_IMU](../advanced_config/parameter_reference.md#EKF2_MULTI_IMU): This parameter specifies the number of IMU sensors used by the multiple EKF's. If `EKF2_MULTI_IMU` <= 1, then only the first IMU sensor will be used. When [SENS_IMU_MODE](../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1, this will be the sensor selected by the sensor module. If `EKF2_MULTI_IMU` >= 2, then a separate EKF instance will run for the specified number of IMU sensors up to the lesser of 4 or the number of IMU's present.
 
-* [EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) This paraameter specifies the number of magnetometer sensors used by the multiple EKF's. If EKF2_MULTI_MAG <= 1, then only the first magnetometer sensor will be used. When [SENS_MAG_MODE](..../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1, this will be the sensor selected by the sensor module. If EKF2_MULTI_MAG >= 2, then a separate EKF instance will run for the specified number of magnetometer sensors up to the lesser of 4 or the number of magnetometers present.
+* [EKF2_MULTI_MAG](../advanced_config/parameter_reference.md#EKF2_MULTI_MAG): This parameter specifies the number of magnetometer sensors used by the multiple EKF's. If `EKF2_MULTI_MAG` <= 1, then only the first magnetometer sensor will be used. When [SENS_MAG_MODE](../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1, this will be the sensor selected by the sensor module. If `EKF2_MULTI_MAG` >= 2, then a separate EKF instance will run for the specified number of magnetometer sensors up to the lesser of 4 or the number of magnetometers present.
 
-The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported. The following parameter settings should be made when recording a log intended for [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay):
-
-* [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) = 0
-* [EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) = 0
-* [SENS_IMU_MODE](..../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1
-* [SENS_MAG_MODE](..../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1
+:::note
+The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](#running-a-single-ekf-instance).
+:::
 
 ## What sensor measurements does it use?
 
@@ -204,12 +218,9 @@ These can be tuned by flying the vehicle in [Position mode](../flight_modes/posi
 
 If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE), have access to the development environment, and are able to build code, then we recommended you fly *once* and perform the tuning via [EKF2 Replay](../debug/system_wide_replay.md#ekf2-replay) of the flight log.
 
-The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported. The following parameter settings should be made when recording a log intended for [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay):
-
-* [EKF2_MULTI_IMU](..../advanced_config/parameter_reference.md#EKF2_MULTI_IMU) = 0
-* [EKF2_MULTI_MAG](..../advanced_config/parameter_reference.md#EKF2_MULTI_MAG) = 0
-* [SENS_IMU_MODE](..../advanced_config/parameter_reference.md#SENS_IMU_MODE) = 1
-* [SENS_MAG_MODE](..../advanced_config/parameter_reference.md#SENS_MAG_MODE) = 1
+:::note
+The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](#running-a-single-ekf-instance).
+:::
 
 ### Optical Flow
 
