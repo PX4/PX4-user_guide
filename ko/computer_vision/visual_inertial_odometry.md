@@ -101,7 +101,7 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 
 IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략적인 지연 추정치를 얻을 수 있습니다.
 
-![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
+![ekf2_ev_delay 로그](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여 외부 데이터와 온보드 추정치(위 참조)의 플롯을 그릴 수 있습니다.
@@ -110,52 +110,52 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여 매개변수를 변경하여 추가로 조정할 수 있습니다.
 
 <span id="verify_estimate"></span>
-## Check/Verify VIO Estimate
+## VIO 예상치 확인
 
-Perform the following checks to verify that VIO is working properly *before* your first flight:
+첫 비행 *전에* VIO가 정상 작동 여부를 확인하려면 다음 검사를 수행하십시오.
 
-* Set the PX4 parameter `MAV_ODOM_LP` to 1. PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
-* Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
-  * At this point the body frame is aligned with the reference frame of the external pose system.
-  * If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-* Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
-* Check that linear velocities in the message are in expressed in the *FRD* body frame reference frame.
-* Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming the `ODOMETRY` message back.
+* PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 자세를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 재전송합니다. 이러한 MAVLink 메시지는 *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)로 확인할 수 있습니다.
+* `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언 (w = 1, x = y = z = 0)에 매우 가까워 질 때까지 차량을 요잉합니다.
+  * 이 시점에서 바디 프레임은 외부 포즈 시스템의 참조 프레임과 정렬됩니다.
+  * 기체를 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 여전히 프레임에 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고 좌표 프레임을 다시 확인하십시오.
+* 정렬이 완료되면 지상에서 기체를 들어 올릴 수 있으며 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 기체를 앞쪽으로 움직이면 x 좌표가 증가합니다. 차량을 오른쪽으로 이동하면 y 좌표는 증가합니다.
+* 메시지의 선형 속도가 *FRD* 본문 프레임 참조 프레임에 표현되어 있는지 확인합니다.
+* PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 `ODOMETRY` 메시지 재전송을 중지합니다.
 
-If those steps are consistent, you can try your first flight:
-1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above). Lower your throttle stick and arm the motors.
+이러한 단계가 유지되면, 첫 번째 비행을 시도할 수 있습니다.
+1. 기체를 지상에 놓고 `ODOMETRY` 피드백 스트리밍을 시작합니다 (위 참조). 스로틀 스틱을 내리고 모터를 작동시키십시오.
 
-   At this point, with the left stick at the lowest position, switch to position control. You should have a green light. The green light tells you that position feedback is available and position control is now activated.
+   이 시점에서 왼쪽 스틱을 가장 낮은 위치에두고 위치 제어로 전환합니다. 초록불이 켜져야 합니다. 녹색 표시등은 위치 피드백을 사용할 수 있으며 위치 제어가 활성화되었음을 알려줍니다.
 
-1. Put the throttle stick in the middle (the dead zone) so that the vehicle maintains its altitude. Raising the stick will increase the reference altitude while lowering the value will decrease it. Similarly the other stick will change position over ground.
-1. Increase the value of the throttle stick and the vehicle will take off, put it back to the middle right after.
-1. Confirm that the vehicle can hold its position.
-
-
-## Troubleshooting
-
-First make sure MAVROS is able to connect successfully to the flight controller.
-
-If it is connecting properly common problems/solutions are:
-
-- **Problem:** I get drift / flyaways when the drone flies, but not when I carry it around with the props off.
-  - If using the [T265](../peripherals/camera_t265_vio.md) try soft-mounting it (this camera is very sensitive to high frequency vibrations).
-
-- **Problem:** I get toilet-bowling when VIO is enabled.
-  - Make sure the orientation of the camera matches the transform in the launch file. Use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that the velocities in the `ODOMETRY` message coming from MAVROS are aligned to the FRD coordinate system.
-
-- **Problem:** I want to use vision position to do loop closing, and also want to run GPS.
-  - This is really difficult, because when they disagree it will confuse the EKF. From testing it is more reliable to just use vision velocity (if you figure out a way to make this configuration reliable, let us know).
+1. 기체가 고도를 유지하도록 스로틀 스틱을 중간(데드 존)에 놓습니다. 스틱을 올리면 기준 고도가 증가하고 값을 낮추면 감소합니다. 마찬가지로 다른 스틱은 지상에서 위치를 변경합니다.
+1. 스로틀 스틱의 값을 높이면 차량이 이륙하면 즉시 중앙에 다시 놓습니다.
+1. 기체가 제자리를 유지하는 지 확인하십시오.
 
 
-## Developer Information
+## 문제 해결
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md).
+먼저 MAVROS가 비행 컨트롤러에 성공적으로 연결할 수 있는지 확인하십시오.
 
-This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
+제대로 연결되는 경우 일반적인 문제 해결 방법은 다음과 같습니다.
+
+- **문제 :** 드론 비행시 드리프트/플라이 어웨이를 얻습니다.
+  - [T265](../peripherals/camera_t265_vio.md)를 사용하는 경우 소프트 마운트를 시도하십시오. 이 카메라는 고주파 진동에 매우 민감합니다.
+
+- **문제 :** VIO가 활성화되면 변기 볼링이 발생합니다.
+  - 카메라의 방향이 시작 파일의 변환과 일치하는 지 확인합니다. *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)를 사용하여 MAVROS에서 오는 `ODOMETRY` 메시지의 속도가 FRD 좌표계에 정렬되었는지 확인합니다.
+
+- **문제 :** 비전 위치를 사용하여 루프를 닫고 GPS도 실행하고 싶습니다.
+  - 이문제는 EKF를 혼란스럽게 할 것이기 때문에 정말 어렵습니다. 테스트에서 비전 속도를 사용하는 것이 더 안정적입니다 (이 설정을 신뢰할 수있는 방법을 찾으면 알려주십시오).
 
 
-## Further Information
+## 개발자 정보
 
-- [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
+이 구현을 확장하는 데 관심이있는 개발자 (또는 ROS에 의존하지 않을 수있는 다른 구현을 작성)는 [위치 추정용 비전 또는 모션 캡처 시스템 사용](../ros/external_position_estimation.md)을 참조하여야 합니다.
+
+이 항목에서는 LPE Estimator (사용되지 않음)와 함께 사용할 VIO를 구성하는 방법도 설명합니다.
+
+
+## 추가 정보
+
+- [ECL/EKF 개요와 튜닝 > 외부 비젼 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
