@@ -110,15 +110,15 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여 매개변수를 변경하여 추가로 조정할 수 있습니다.
 
 <span id="verify_estimate"></span>
-## Check/Verify VIO Estimate
+## VIO 예상치 확인
 
-Perform the following checks to verify that VIO is working properly *before* your first flight:
+첫 비행 *전에* VIO가 정상 작동 여부를 확인하려면 다음 검사를 수행하십시오.
 
-* Set the PX4 parameter `MAV_ODOM_LP` to 1. PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages. You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)
-* Yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion (w=1, x=y=z=0).
-  * At this point the body frame is aligned with the reference frame of the external pose system.
-  * If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still has a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-* Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate.
+* PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 자세를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 재전송합니다. 이러한 MAVLink 메시지는 *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)로 확인할 수 있습니다.
+* `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언 (w = 1, x = y = z = 0)에 매우 가까워 질 때까지 차량을 요잉합니다.
+  * 이 시점에서 바디 프레임은 외부 포즈 시스템의 참조 프레임과 정렬됩니다.
+  * 기체를 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 여전히 프레임에 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고 좌표 프레임을 다시 확인하십시오.
+* 정렬이 완료되면 지상에서 기체를 들어 올릴 수 있으며 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 기체를 앞쪽으로 움직이면 x 좌표가 증가합니다. 차량을 오른쪽으로 이동하면 y 좌표는 증가합니다.
 * Check that linear velocities in the message are in expressed in the *FRD* body frame reference frame.
 * Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming the `ODOMETRY` message back.
 
