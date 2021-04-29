@@ -12,9 +12,9 @@
 对于预解锁的载具，地面站可能显示*锁定*状态。 虽然技术上不适合预解锁的载具，但它是“安全的”。
 :::
 
-Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
+用户可以控制进度，即使这些状态在载具上使用 [安全开关](../getting_started/px4_basic_concepts.md#safety_switch) (可选) *和* 一个 [解锁开关/按钮](#arm_disarm_switch) [解锁手法](#arm_disarm_gestures), 或 *MAVLink 命令* 在地面控制器：
 
-- A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+- *安全开关* 是载具上的控制 ** 必须使用它才能解锁载具， 而且也可防止预解锁（视配置而定）。 Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
   
 :::warning
 A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
