@@ -23,9 +23,9 @@
 - *解锁开关*是*在遥控器上*的一个开关或按钮，可以用来解锁载具和启动电机（安全开关不能阻止解锁）。
 
 - *解锁手法*是一个*在遥控器上的*摇杆运动，可以用来替代解锁开关。
-- MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
+- 也可以通过地面站发送 MAVLink 命令来解锁/锁定载具。
 
-PX4 will also automatically disarm the vehicle if it does not takeoff within a certain amount of time after arming, and if it is not manually disarmed after landing. This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
+如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
 
 PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
