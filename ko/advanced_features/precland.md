@@ -8,12 +8,12 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 하드웨어 설정
 
-[공식 설명서](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
+[공식 매뉴얼](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
 [ 범위거리 센서 ](../getting_started/sensor_selection.md#distance)(*LidarLite v3*)를 설치에도 문제가 없습니다.
 
 :::note
-많은 적외선 기반 범위 센서는 IR-LOCK 비콘이 있는 경우 제대로 작동하지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 설명서를 참조하십시오.
+대부분의 적외선 범위 센서는 IR-LOCK 비콘이 있는 경우에는 제대로 작동하지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 설명서를 참조하십시오.
 :::
 
 ### 펌웨어 설정
@@ -40,48 +40,48 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 정밀 착륙 모드
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+정밀 착륙은 "필수" 또는 "가능성 탐색"으로 설정할 수 있습니다. 모드 선택에 따라 정밀착륙 매커니즘은 달라집니다.
 
 ### 필수 모드
 
-In *Required Mode* the vehicle will search for a beacon if none is visible when landing is initiated. The vehicle will perform a precision landing if a beacon is located.
+*필수 모드*에서 착륙을 시작할 때 아무런 신호를 찾을 수 없으면 기체는 비컨을 찾기 시작합니다. 비컨을 찾은 경우에는 기체는 정밀 착륙을 실행합니다.
 
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the beacon is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+이런 탐색 과정은 탐색 고도까지 상승을 포함합니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 비컨을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후에는 현재 위치에서 일반 착륙을 시작합니다.
 
 ### 가능성 탐색 모드
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
+*가능성 탐색 모드*에서는 기체가 착륙이 시행될 때 비컨이 가시적이면 정밀 착륙을 시작합니다. 비컨이 보이지 않으면, 기체는 즉시 현재 위치에서 *일반* 착륙을 수행합니다.
 
 ## 정밀 착륙 수행
 
 :::note
-Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+현재 좌표 컨트롤러 구현의 한계로, 정밀 착륙은 유효한 GPS 측정 좌표에서만 가능합니다.
 :::
 
-### 커맨드를 사용한 수행
+### 커맨드를 사용한 수행 
 
-Precision landing can be initiated through the command line interface with
+정밀 착륙은 아래의 명령으로 시작할 수 있습니다
 
     commander mode auto:precland
     
 
-In this case, the precision landing is always considered "required".
+이 경우, 정밀 착륙은 "필수" 모드로 간주됩니다.
 
 <span id="mission"></span>
 
-### In a Mission
+### 미션에서의 수행
 
-Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
+정밀 착륙은 `param2`을 적절히 설정해 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)를 사용하여 [임무](../flying/missions.md)의 일부로 시작됩니다.
 
-- `param2` = 0: 비컨 사용 없이 일반 착륙
-- `param2` = 1: *가능성 탐색* 모드 정밀 착륙
-- `param2` = 1: *필수* 모드 정밀 착륙
+- `param2` = 0: 비컨을 사용하지 않은 일반 착륙
+- `param2` = 1: *가능성 탐색* 정밀 착륙
+- `param2` = 2: *필수* 정밀 착륙
 
 ## 시뮬레이션
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
+IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo](../simulation/gazebo.md)에서 시뮬레이션할 수 있습니다.
 
-To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
     make px4_sitl gazebo_iris_irlock
     
@@ -90,7 +90,7 @@ You can change the location of the beacon either by moving it in the Gazebo GUI 
 
 ## 작동 원리
 
-### 착륙 목표 추정
+### 착륙 목표 추정기
 
 The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
 
