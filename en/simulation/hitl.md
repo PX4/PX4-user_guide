@@ -137,7 +137,7 @@ Make sure *QGroundControl* is not running!
 1. Connect the flight controller to the computer and wait for it to boot.
 1. Run jMAVSim in HITL mode:
    ```sh
-   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 2000000 -r 250
+   ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
    :::note
