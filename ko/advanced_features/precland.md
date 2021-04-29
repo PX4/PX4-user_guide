@@ -2,7 +2,7 @@
 
 PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), IR 비컨 (예 [IR-LOCK MarkOne](https://irlock.com/collections/markone)), 그리고 하향 범위 센서를 사용하여 *멀티콥터* (PX4 v1.7.4 이상)의 정밀 착륙을 지원합니다. 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차를 가질 수 있습니다.
 
-정밀 착륙은 *Precision Land* 비행 모드나 [미션](#mission)의 일부로 시작할 수 있습니다.
+정밀 착륙은 *정밀 착륙* 비행 모드나 [임무](#mission)의 일부로 시작할 수 있습니다.
 
 ## 설정
 
@@ -18,25 +18,25 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 펌웨어 설정
 
-Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)):
+정밀 착륙은 기본적으로 PX4 펌웨어에 포함되어 있지 않은 `irlock` 모듈과 `landing_target_estimator` 모듈이 필요합니다. 비행 컨트롤러의 설정 파일 (예 : [PX4-Autopilot/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake))에 다음 줄을 추가 (또는 주석 해제)하여 포함시킬 수 있습니다.
 
     drivers/irlock
-    modules/landing_target_estimator
+    modules/landing_target_estimator 
     
 
-The two modules should also be started on system boot. For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
+시스템 부팅시에 두 모듈은 반드시 시작되어야 합니다. 지침은 [사용자 정의 시스템 시작](../concept/system_startup.md#customizing-the-system-startup)편을 참조하십시오.
 
-## 소프트웨어 구성(파라미터)
+## 소프트웨어 설정(매개변수)
 
-Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. The most important parameters are discussed below.
+정밀 착륙은 `landing_target_estimator`과 `navigator` 매개변수를 사용하여 설정합니다. 위의 매개변수는 각각 "Landing target estimator"와 "Precision land" 그룹에서 찾을 수 있습니다. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
 
-The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving. If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller. If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
+매개변수 [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)는 비컨이 정지할 것인 지 또는 움직일 것인 지를 결정합니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 착륙할 멀티콥터에 설치된 경우), 비컨 측정은 정밀 랜딩 컨트롤러에서 목표 좌표 생성에만 사용됩니다. `LTEST_MODE`가 고정으로 설정되면 비컨 측정은 기체 위치 추정기 (EKF2 또는 LPE)에서도 사용됩니다.
 
-The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle. Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor. Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
+기체에 대한 비컨의 상대 위치와 속도를 추정하기 전에, 매개변수 [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X)와 [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)로 비컨 측정의 스케일을 조정할 수 있습니다. IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적입니다. `LTEST_SCALE_X`와 `LTEST_SCALE_Y`은 기체 프레임이 아니라 센서 프레임을 기준이어야 합니다.
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`. Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame). If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
+이러한 스케일 매개변수를 보정에는 `LTEST_MODE`를 moving으로 설정하고, `landing_target_pose`와 `vehicle_local_position` 을 [로깅](../dev_log/logging.md#configuration)하는 동안 비컨 위로 멀티콥터를 날려 전후좌우로 기체를 움직이십시오. 그런 다음, `landing_target_pose.vx_rel`와 `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx`와 `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 보정합니다.
 
-If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
+`LTEST_MODE`를 정지로 설정하고 정밀착륙 도중 기체의 측면에 진동이 나타나면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
 ## 정밀 착륙 모드
 
