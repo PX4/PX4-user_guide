@@ -270,13 +270,13 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 롤, 피치 및 요 스틱은 각 축을 중심으로 회전 속도를 제어하고 각 축의 출력은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 오면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 따라 이동합니다.
 
-![FW Manual Acrobatic Flight](../../assets/flight_modes/manual_acrobatic_FW.png)
+![고정익 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_FW.png)
 
 <a id="manual_fw"></a>
 
 ### 수동 모드 (고정익)
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
 [수동 모드](../flight_modes/manual_fw.md)은 RC 스틱 입력을 출력 믹서에 직접 전송하여 수동 제어로만 기체를 비행합니다.
 
@@ -292,7 +292,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 유지 모드 (고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
 [유지](../flight_modes/hold.md)는 고정익이 현재 고도에서 현재 위치를 중심으로 선회합니다. 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 RC 스위치 또는 *QGroundControl* **일시 정지** 버튼으로 활성화할 수 있습니다.
 
@@ -300,7 +300,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 귀환 모드(고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
 [복귀 모드](../flight_modes/return.md)는 차량이 안전한 위치와 경로로 비행하게 합니다. 이 모드는 수동 (사전 프로그래밍된 RC 스위치를 통해) 또는 자동 (즉, [사고 방지](../config/safety.md)가 동작되는 경우)으로 활성화 될 수 있습니다.
 
@@ -310,7 +310,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 임무 모드 (고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
 [임무 모드](../flight_modes/mission.md)는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성 및 업로드됩니다.
 
@@ -321,7 +321,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 이륙 모드 (고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
 [이륙 모드](../flight_modes/takeoff.md#fixed_wing)는 기체 이륙에 필요한 일련의 작업들을 수행합니다. 구체적인 발사 동작은 구성된 이륙 모드 (투석기/수동 발사 모드 또는 활주로 이륙 모드)에 따라 다릅니다.
 
@@ -329,7 +329,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 착륙 모드 (고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
 [착륙 모드](../flight_modes/land.md)는 이륙 위치에 착륙합니다. 고정익의 착륙 원리와 설정 매개변수는 [고정익 착륙](../flying/fixed_wing_landing.md)에서 자세하게 설명합니다.
 
@@ -337,7 +337,7 @@ Last of all, in multicopter [autonomous modes](#categories) RC stick movement wi
 
 ### 오프보드 모드 (고정익)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
 [오프 보드 모드](../flight_modes/offboard.md)는 멀티콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록합니다.
 
@@ -365,7 +365,7 @@ VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습
 
 ### 수동 모드 (UGV)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to use" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_easy.png" title="사용하기 쉬움" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
 :::note
 이 모드는 미션 모드 비설정시에 활성화됩니다.
@@ -385,7 +385,7 @@ When under manual control the roll and pitch sticks control the angle of the veh
 
 ### 임무 모드 (UGV)
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
 *임무 모드*는 비행 제어기에 업로드 된 사전 정의 된 자율 [임무](../flying/missions.md) (비행 계획)를 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성하고 업로드합니다.
 
