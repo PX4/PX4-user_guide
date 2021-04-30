@@ -207,7 +207,7 @@ cd /path/to/PX4/PX4-Autopilot
 cd build/px4_sitl_rtps/src/modules/micrortps_bridge
 mkdir micrortps_listener
 cd micrortps_listener
-fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
 This creates a basic subscriber and publisher, and a main-application that you can run. In order to print the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:

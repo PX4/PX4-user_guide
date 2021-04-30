@@ -12,20 +12,20 @@
 对于预解锁的载具，地面站可能显示*锁定*状态。 虽然技术上不适合预解锁的载具，但它是“安全的”。
 :::
 
-Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
+用户可以控制进度，即使这些状态在载具上使用 [安全开关](../getting_started/px4_basic_concepts.md#safety_switch) (可选) *和* 一个 [解锁开关/按钮](#arm_disarm_switch) [解锁手法](#arm_disarm_gestures), 或 *MAVLink 命令* 在地面控制器：
 
-- A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+- *安全开关* 是载具上的控制 ** 必须使用它才能解锁载具， 而且也可防止预解锁（视配置而定）。 通常，安全开关被集成到 GPS 单元中，但也可能是一个单独的物理组件。
   
 :::warning
-A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+解锁后的载具有潜在危险。 安全开关是防止意外解锁发生的一个附加机制。
 :::
 
-- An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
+- *解锁开关*是*在遥控器上*的一个开关或按钮，可以用来解锁载具和启动电机（安全开关不能阻止解锁）。
 
-- An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
-- MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
+- *解锁手法*是一个*在遥控器上的*摇杆运动，可以用来替代解锁开关。
+- 也可以通过地面站发送 MAVLink 命令来解锁/锁定载具。
 
-PX4 will also automatically disarm the vehicle if it does not takeoff within a certain amount of time after arming, and if it is not manually disarmed after landing. This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
+如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
 
 PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
