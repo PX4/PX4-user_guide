@@ -25,22 +25,22 @@
 - *解锁手法*是一个*在遥控器上的*摇杆运动，可以用来替代解锁开关。
 - 也可以通过地面站发送 MAVLink 命令来解锁/锁定载具。
 
-如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
+如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 这减少了解锁的载具在地面上的时间。
 
-PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+PX4 允许您通过参数配置预解锁，解锁和锁定的方式。（参数可以通过*QGroundControl*地面站上的[参数编辑器](../advanced_config/parameters.md)编辑），详见下文各节。
 
 :::tip
-Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
+解锁/锁定参数可以在[Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander)中找到（搜索`COM_ARM_*` 和 `COM_DISARM_*`）。
 :::
 
 <span id="arm_disarm_gestures"></span>
 
 ## 解锁手法
 
-By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
+默认情况下，载具可以通过移动遥控器的油门/偏航摇杆到特定的位置，并保持 1 秒来解锁和锁定。
 
-- **Arming:** Throttle minimum, yaw maximum
-- **Disarming:** Throttle minimum, yaw minimum
+- **解锁：** 油门最小，偏航最大
+- **锁定：** 油门最小，偏航最小
 
 RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
 
