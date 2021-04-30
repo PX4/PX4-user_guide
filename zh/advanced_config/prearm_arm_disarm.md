@@ -42,20 +42,20 @@ PX4 允许您通过参数配置预解锁，解锁和锁定的方式。（参数�
 - **解锁：** 油门最小，偏航最大
 - **锁定：** 油门最小，偏航最小
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
+遥控器[基于不同的模式](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls)有不同的手法（因为控制器模式会影响用于油门和偏航的摇杆）：
 
-- **Mode 2**: 
-  - *Arm:* Left stick to bottom right. 
-  - *Disarm:* Left stick to the bottom left.
-- **Mode 1**: 
-  - *Arm:* Left-stick to right, right-stick to bottom.
-  - *Disarm:* Left-stick to left, right-stick to the bottom.
+- **美国手**： 
+  - *解锁：*左摇杆到右下角。 
+  - *锁定：*左摇杆到左下角。
+- **日本手**： 
+  - *解锁：*左摇杆到右边，右摇杆到下方。
+  - *锁定：*左摇杆到左边，右摇杆到下方。
 
-The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+可以使用[COM_RC_ARM_HYST](#COM_RC_ARM_HYST)参数来配置保持时间。
 
-| 参数                                                                                                      | 描述                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
+| 参数                                                                                                      | 描述                                      |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。 |
 
 <span id="arm_disarm_switch"></span>
 
