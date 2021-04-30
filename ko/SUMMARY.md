@@ -110,7 +110,7 @@
     * [비쥬얼 관성 오도메트리](computer_vision/visual_inertial_odometry.md) 
       * [리얼센스 T265 트래킹 카메라 (VIO)](peripherals/camera_t265_vio.md)
   * [정밀 착륙](advanced_features/precland.md)
-  * [실시간 GPS 측위(RTK)](advanced_features/rtk-gps.md)
+  * [GPS 실시간 측위(RTK)](advanced_features/rtk-gps.md)
   * [RockBlock SatCom 시스템](advanced_features/satcom_roadblock.md)
   * [동영상 스트리밍](companion_computer/video_streaming.md)
 * [고급 설정](advanced_config/README.md) 
