@@ -61,7 +61,7 @@ PX4 允许您通过参数配置预解锁，解锁和锁定的方式。（参数�
 
 ## 解锁按钮/开关
 
-An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
+*解锁按钮*或者“瞬时开关”可以配置为触发解锁/锁定*而不是*[基于手势解锁](#arm_disarm_gestures)（设置解锁开关会禁止手势解锁）。 按钮应该保持按下（[名义上](#COM_RC_ARM_HYST)）1 秒来解锁（当锁定时）或者锁定（当解锁时）。
 
 A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
 
