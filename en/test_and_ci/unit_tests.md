@@ -42,7 +42,7 @@ The steps to creating new functional tests are as follows:
 1. If additional library dependencies are required, they should also be added to the CMakeLists after the `LINKLIBS` as shown above.
 
 Tests can be run via `make tests`, after which you will find the binary in `build/px4_sitl_test/functional-MyNewFunctional`.
-It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
+It can be run directly in a debugger, however be careful to only run one test per executable invocation using the [--gtest_filter=\<regex\>](https://github.com/google/googletest/blob/master/docs/advanced.md#running-a-subset-of-the-tests) arguments, as some parts of the uORB and parameter libraries don't clean themselves up perfectly and may result in undefined behavior if set up multiple times.
 
 ## Writing a SITL Unit Test
 
@@ -155,7 +155,7 @@ The individual GTest test binaries are in the `build/px4_sitl_test/` directory, 
 Filter to run only a subset of tests using a regular expression for the ctest name with this command:
 
 ```bash
-make tests TESTFILTER=<filter expression>
+make tests TESTFILTER=<regex filter expression>
 ```
 
 For example:
