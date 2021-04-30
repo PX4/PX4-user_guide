@@ -63,10 +63,10 @@ PX4 允许您通过参数配置预解锁，解锁和锁定的方式。（参数�
 
 *解锁按钮*或者“瞬时开关”可以配置为触发解锁/锁定*而不是*[基于手势解锁](#arm_disarm_gestures)（设置解锁开关会禁止手势解锁）。 按钮应该保持按下（[名义上](#COM_RC_ARM_HYST)）1 秒来解锁（当锁定时）或者锁定（当解锁时）。
 
-A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
+一个两段开关也可以用来解锁或锁定，其相应的解锁或锁定命令通过开关上的*转换*发送的。
 
 :::tip
-Two-position arming switches are primarily used in/recommended for racing drones.
+两段解锁开关主要用于/推荐用于竞技无人机。
 :::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
