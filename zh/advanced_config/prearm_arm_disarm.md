@@ -25,48 +25,48 @@
 - *解锁手法*是一个*在遥控器上的*摇杆运动，可以用来替代解锁开关。
 - 也可以通过地面站发送 MAVLink 命令来解锁/锁定载具。
 
-如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
+如果在解锁后的一段时间内没有起飞，和如果着陆后没有手动锁定， PX4 会自动锁定载具。 这减少了解锁的载具在地面上的时间。
 
-PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+PX4 允许您通过参数配置预解锁，解锁和锁定的方式。（参数可以通过*QGroundControl*地面站上的[参数编辑器](../advanced_config/parameters.md)编辑），详见下文各节。
 
 :::tip
-Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_*` and `COM_DISARM_*`).
+解锁/锁定参数可以在[Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander)中找到（搜索`COM_ARM_*` 和 `COM_DISARM_*`）。
 :::
 
 <span id="arm_disarm_gestures"></span>
 
 ## 解锁手法
 
-By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
+默认情况下，载具可以通过移动遥控器的油门/偏航摇杆到特定的位置，并保持 1 秒来解锁和锁定。
 
-- **Arming:** Throttle minimum, yaw maximum
-- **Disarming:** Throttle minimum, yaw minimum
+- **解锁：** 油门最小，偏航最大
+- **锁定：** 油门最小，偏航最小
 
-RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
+遥控器[基于不同的模式](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls)有不同的手法（因为控制器模式会影响用于油门和偏航的摇杆）：
 
-- **Mode 2**: 
-  - *Arm:* Left stick to bottom right. 
-  - *Disarm:* Left stick to the bottom left.
-- **Mode 1**: 
-  - *Arm:* Left-stick to right, right-stick to bottom.
-  - *Disarm:* Left-stick to left, right-stick to the bottom.
+- **美国手**： 
+  - *解锁：*左摇杆到右下角。 
+  - *锁定：*左摇杆到左下角。
+- **日本手**： 
+  - *解锁：*左摇杆到右边，右摇杆到下方。
+  - *锁定：*左摇杆到左边，右摇杆到下方。
 
-The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+可以使用[COM_RC_ARM_HYST](#COM_RC_ARM_HYST)参数来配置保持时间。
 
-| 参数                                                                                                      | 描述                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
+| 参数                                                                                                      | 描述                                      |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 遥控器的摇杆在解锁/锁定发生之前必须保持在解锁/锁定的位置。（默认：1 秒）。 |
 
 <span id="arm_disarm_switch"></span>
 
 ## 解锁按钮/开关
 
-An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
+*解锁按钮*或者“瞬时开关”可以配置为触发解锁/锁定*而不是*[基于手势解锁](#arm_disarm_gestures)（设置解锁开关会禁止手势解锁）。 按钮应该保持按下（[名义上](#COM_RC_ARM_HYST)）1 秒来解锁（当锁定时）或者锁定（当解锁时）。
 
-A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
+一个两段开关也可以用来解锁或锁定，其相应的解锁或锁定命令通过开关上的*转换*发送的。
 
 :::tip
-Two-position arming switches are primarily used in/recommended for racing drones.
+两段解锁开关主要用于/推荐用于竞技无人机。
 :::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).

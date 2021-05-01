@@ -1,6 +1,6 @@
 # 정밀 착륙
 
-PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), IR 비컨 (예 [IR-LOCK MarkOne](https://irlock.com/collections/markone)), 그리고 하향 범위 센서를 사용하여 *멀티콥터* (PX4 v1.7.4 이상)의 정밀 착륙을 지원합니다. 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차를 가질 수 있습니다.
+PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), IR 비컨(예 [IR-LOCK MarkOne](https://irlock.com/collections/markone)), 그리고 하향 범위 센서를 사용하여 *멀티콥터* (PX4 v1.7.4 이상)의 정밀 착륙을 지원합니다. 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다. GPS 착륙은 수 미터의 오차를 가질 수 있습니다.
 
 정밀 착륙은 *정밀 착륙* 비행 모드나 [임무](#mission)의 일부로 시작할 수 있습니다.
 
@@ -92,19 +92,19 @@ You can change the location of the beacon either by moving it in the Gazebo GUI 
 
 ### 착륙 목표 추정기
 
-The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
+`landing_target_estimator`는 `irlock` 드라이버로부터 측정값을 받을 뿐 아니라, 기체로부터의 비컨의 상대 위치를 추정하기 위한 예상 지형 고도를 받아옵니다.
 
-The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
+`irock_report`의 측정에는 영상 중심에서 비컨으로 각도의 접선이 포함됩니다. 다른 말로, 측정은 z 성분의 크기가 1이고, 측정은 비컨을 나타내는 벡터의 x와 y성분입니다. 비컨에서 카메라부터의 거리의 측정을 스케일링하는것은 비컨에서 카메라까지의 벡터를 반환합니다. 이것으로 상대 위치는 북쪽으로 정렬되게 회전하고, 기체 자세 추정치를 사용해 기체 프레임을 수평으로 만듭니다. 상대 위치 측정의 x, y 성분은 별도의 칼만 필터로 필터링됩니다. 이 필터는 속도 추정치를 생성하고 일시적으로 생긴 이상값을 거부하는 단순 저대역 필터입니다.
 
-The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
+`landing_target_estimator`는 새로운 `irlock-report`가 추정치에 결합시 마다 매번 추정 상대 위치와 속도를 보고합니다. 비컨이 보이지 않거나, 신호 측정이 거부되면 아무 것도 보고하지 않습니다. 착륙 목표 추정치는 `landing_targett_pose` uORB 메시지에 게재됩니다.
 
-### 고급 기체 위치 추정
+### 고급 기체 위치 추정 
 
-If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements. This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
+매개변수 `LTEST_MODE`을 사용하여 비컨을 정지 상태로 지정한 경우, 비컨 측정을 통해 기체의 위치와 속도 추정치를 개선할 수 있습니다. 기체의 음의 속도를 측정을 비컨의 속도와 결합하여 추정합니다.
 
 ### 정밀 착륙 과정
 
-The precision land procedure consists of three phases:
+정밀 착륙 과정은 3단계로 구성됩니다.
 
 1. **수평 접근 방식:** 기체는 현재 고도를 유지하면서 비컨에 수평으로 접근합니다. 기체에 대한 비컨 위치가 임계값([PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)) 미만인 경우 다음 단계가 입력됩니다. 이 단계에서 비컨이 일정 시간([PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT) 이상의 시간) 동안 잡히지 않으면, 탐색 과정이 시작되거나 (정밀 착륙이 "필수" 모드일 때,) 기체는 일반 착륙을 수행합니다 ( "가능성 탐색" 정밀 착륙 모드일 때).
 
@@ -112,6 +112,6 @@ The precision land procedure consists of three phases:
 
 3. **최종 접근 방식:** 기체가 지면과 가까울 때 ([PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), 기체는 비컨의 중앙에 위치하여 하강합니다. 만약 비컨이 이 단계에서 잡히지 않는다면, 기체는 정밀 착륙의 모드와 무관하게 계속 하강합니다.
 
-Search procedures are initiated in 1. and 2. a maximum of [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times.
+탐색 과정은 1과 2에서 최대 [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH)번 시작합니다.
 
-![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)
+![정밀 착륙 흐름도](../../assets/precision_land/precland-flow-diagram.png)
