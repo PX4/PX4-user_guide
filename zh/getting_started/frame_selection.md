@@ -1,19 +1,19 @@
-# Vehicle Selection
+# 载具选择
 
-PX4 supports air, surface, and submersible vehicles. You can see a full list of the vehicle types and variants ("frames") that have been tested/tuned for use with PX4 here: [Airframe Reference](../airframes/airframe_reference.md).
+PX4支持空中、地面、水面、水下载具。这里你可以查看所有经过测试和调试过的载具列表： [Airframe Reference](../airframes/airframe_reference.md).
 
-Select the frame based on what you need it for:
+根据需要选择框架：
 
-- **Multicopters** offer precision hovering and verticle takeoff, at the cost of shorter and generally slower flight. PX4 has modes that make them easy to fly, and they are the most popular type of flying vehicle.
-- **Fixed wing** airplanes offer longer and faster flight, and hence better coverage for ground surveys etc. However they are harder to fly and land than multicopters, and aren't suitable if you need to hover or fly very slowly (e.g. when surveying vertical structures).
-- **VTOL** (Vertical Takeoff and Landing) aircraft come in a number of types: tiltrotors, tailsitters, quadplanes etc. They offer the best of both worlds: take off in vertical mode like a multicopter and then transition in forward flight like an airplane. They are often more expensive than either multicopters and fixed wing aircraft, and harder to build and tune.
-- **Airships/Balloons** are lighter-than-air vehicles that typically offer high altitude long duration flight, often at the cost of having limited (or no) control over speed and direction of flight.
-- **Rovers** are car-like ground vehicles. They are simple to control and often fun to use.
-- **Boats** are water-surface vehicles.
-- **Submersibles** are underwater vehicles.
+- **多轴飞行器** 能够提供精确的悬停和垂直起飞，但代价是飞行时间较短且通常较慢。 PX4具有使它们易于飞行的模式，并且它们是最受欢迎的飞行载具类型。
+- **固定翼飞机** 固定翼提供更长，更快的飞行，因此可以更好地进行地面测量等。但是，它们比多轴飞行器更难飞行和着陆，因此如果您需要悬停或缓慢飞行（比如进行垂直测量），则不适合使用。
+- **垂直起降固定翼飞机** 垂直起降固定翼飞机有多种类型：倾转旋翼，尾推，四轴等。它们提供了两个方面的优势：像多轴飞行器一样在垂直模式下起飞，然后像固定翼飞机一样在向前飞行。它们通常比多轴飞行器和固定翼飞机都昂贵，并且难以制造和调试。
+- **飞艇/气球** 比飞机轻的飞行器，通常提供高海拔长时间飞行，通常以有限的（或不控制）飞行速度和方向为代价。
+- **漫游车** 类似汽车的地面载具。它们易于控制，使用起来常常很有趣。
+- **船** 水面载具。
+- **潜水艇** 水下载具。
 
-:::note
-The airframe settings used by PX4 are configured in *QGroundControl* during initital setup: [Airframe setup](../config/airframe.md).
+:::注解
+在* QGroundControl *的"initital setup"中配置PX4的载具设置：[Airframe setup](../config/airframe.md).
 
 ![Frame Selection](../../assets/qgc/setup/airframe/airframe_px4.jpg)
 :::
