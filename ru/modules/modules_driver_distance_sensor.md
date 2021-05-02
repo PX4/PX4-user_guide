@@ -1,4 +1,27 @@
 # Modules Reference: Distance Sensor (Driver)
+## gy_us42
+Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/gy_us42)
+
+<a id="gy_us42_usage"></a>
+
+### Usage
+```
+gy_us42 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop
+
+   status        print status info
+```
 ## leddar_one
 Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/leddar_one)
 
