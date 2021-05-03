@@ -134,20 +134,20 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 `udp2rabbit.py` 스크립트가 몇 초 내에 실행되고 있는 터미널에서 메시지에 대한 확인할 수 있는 경우 RockBlock 전달 그룹, 릴레이 서버 및 udp2rabbit 스크립트가 올바르게 설정된 것입니다.
 
-![udp2rabbit message acknowledge](../../assets/satcom/verification.png)
+![udp2rabbit 메시지 확인](../../assets/satcom/verification.png)
 
 ## 시스템 실행
 
 1. *QGroundControl*을 실행합니다. 먼저 높은 지연 시간 링크를 수동으로 연결한 다음, 일반 텔레메트리 링크를 연결합니다.
   
-  ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
+  ![High Latency 링크를 연결합니다.](../../assets/satcom/linkconnect.png)
 
 2. 지상국 컴퓨터의 터미널에서 *SatComInfrarastructure* 저장소 위치로 변경합니다. 그런 다음 **udp2rabbit.py** 스크립트를 실행합니다. ```./udp2rabbit.py```
 
 3. 기체의 전원을 켭니다.
 4. QGC에서 첫 번째 `HIGH_LATENCY2` 메시지가 수신될 때까지 기다립니다. 이 검사는 *MAVLink Inspector* 위젯을 사용하거나 *LinkIndicator *를 사용하여 도구 모음에서 확인할 수 있습니다. 활성 기체에서 두 개 이상의 링크가 연결되어 있는 경우, 표시된 링크의 이름을 클릭하면 모든 링크가 표시됩니다.
   
-  ![Link Toolbar](../../assets/satcom/linkindicator.jpg)
+  ![링크 툴바](../../assets/satcom/linkindicator.jpg)
   
   링크 표시기는 항상 우선 순위 링크의 이름을 표시합니다.
 
@@ -157,7 +157,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
   * 기체가 시동을 켜고 텔레메트리 링크가 끊어지면(특정 시간 동안 MAVLink 메시지가 수신되지 않을 경우), 오토파일럿과 QGC는 일반 텔레메트리에서 긴 대기 시간 링크로 되돌아갑니다. 텔레메트리 링크가 복구되는 즉시 QGC와 자동 조종기가 다시 이 링크로 전환됩니다.
   * 사용자는 도구 모음의 `LinkIndicator`에서 우선 순위 링크를 선택할 수 있습니다. 이 링크가 활성화되어 있거나 사용자가 다른 우선 순위 링크를 선택하면 이 링크는 우선 순위 링크로 유지됩니다.
     
-    ![Prioritylink Selection](../../assets/satcom/linkselection.png)
+    ![우선 순위 링크 선택](../../assets/satcom/linkselection.png)
 
 ## 문제 해결
 
