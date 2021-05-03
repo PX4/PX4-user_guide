@@ -76,46 +76,46 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 ## 릴레이 서버 설정
 
-The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
+릴레이 서버는 Ubuntu 16.04 또는 14.04 버전에서 실행하여야 합니다.
 
-1. The server working as a message relay should have a static IP address and two publicly accessible, open, TCP ports:
+1. 메시지 릴레이로 작동하는 서버에는 고정 IP 주소와 열린 TCP 포트 2개가 있어야 합니다.
   
-  * `5672` for the *RabbitMQ* message broker (can be changed in the *rabbitmq* settings)
-  * `45679` for the HTTP POST interface (can be changed in the **relay.cfg** file)
+  * *RabbitMQ* 메시지 브로커에 대한 `5672`(*Rabbitmq* 설정에서 변경할 수 있음)
+  * HTTP POST 인터페이스의 경우 `45679`(**relay.cfg** 파일에서 변경할 수 있음)
 
-2. Install the required python modules: 
+2. 필요한 Python 모듈을 설치합니다. 
   
       bash
        sudo pip install pika tornado future
 
-3. Install the `rabbitmq` message broker: ```sudo apt install rabbitmq-server```
-4. Configure the broker's credentials (change PWD to your preferred password): 
+3. `rabbitmq` 메시지 브로커를 설치합니다. ```sudo apt install rabbitmq-server```
+4. 브로커 자격 증명을 구성합니다(암호를 PWD로 변경). 
       bash
        sudo rabbitmqctl add_user iridiumsbd PWD
        sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
 
-5. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
-6. Go to the location of the *SatComInfrastructure* repo and configure the broker's queues: ```./setup_rabbit.py localhost iridiumsbd PWD```
-7. Verify the setup: ```sudo rabbitmqctl list_queues```
+5. [SatComInfrarastructure](https://github.com/acfloria/SatComInfrastructure.git) 저장소를 복제합니다. ```git clone https://github.com/acfloria/SatComInfrastructure.git```
+6. *SatComInfrarastructure*로 이동하여 브로커 대기열을 설정합니다. ```./setup_rabbit.py localhost iridiumsbd PWD```
+7. 설정을 확인합니다. ```sudo rabbitmqctl list_queues```
   
-  This should give you a list of 4 queues: `MO`, `MO_LOG`, `MT`, `MT_LOG`
+  이렇게 하면 4개의 대기열 목록이 표시됩니다: `MO`, `MO_LOG`, `MT`, `MT`
 
-8. Edit the `relay.cfg` configuration file to reflect your settings.
+8. 설정을 반영하도록 `relay.cfg` 설정 파일을 편집합니다.
 
-9. Start the relay script in the detached mode: ```screen -dm bash -c 'cd SatcomInfrastructure/; ./relay.py```
+9. 분리 모드에서 릴레이 스크립트를 실행합니다. ```screen -dm bash -c 'cd SatcomInfrastructure/; ./relay.py```
 
-Other instructions include:
+기타 지침은 다음과 같습니다.
 
-* Detach from the screen: ```ctrl+a d```
-* Kill execution of the script: ```ctrl+a :quit```
-* Reattach to the screen:: ```screen -dr```
+* 화면에서 분리: ```ctrl+a d```
+* 스크립트 실행 중지: ```ctrl+a :quit```
+* 화면에 다시 부착: ```screen -dr```
 
 ## 지상국 컴퓨터
 
-To setup the ground station:
+지상국을 설정 방법:
 
-1. 필요한 Python 모듈을 장착하십시오. ```sudo pip install pika tornado future```
-2. Clone the SatComInfrastructure repository: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
+1. 필요한 Python 모듈을 설치합니다. ```sudo pip install pika tornado future```
+2. SatComInfrarastructure 저장소 복제: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
 3. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
 4. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
 5. Add a UDP connection in QGC with the parameters:
