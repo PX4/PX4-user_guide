@@ -4687,10 +4687,12 @@ table {
 <li><strong>3:</strong> Ashtech / Trimble</li> 
 
 <li><strong>4:</strong> Emlid Reach</li> 
+
+<li><strong>5:</strong> Femtomes</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>0 > 5 </td>
  <td>1</td>
  <td></td>
 </tr>
@@ -4751,10 +4753,12 @@ table {
 <li><strong>3:</strong> Ashtech / Trimble</li> 
 
 <li><strong>4:</strong> Emlid Reach</li> 
+
+<li><strong>5:</strong> Femtomes</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4 </td>
+ <td>0 > 5 </td>
  <td>1</td>
  <td></td>
 </tr>

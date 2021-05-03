@@ -357,7 +357,7 @@ gps <command> [arguments...]
      [-j <val>]  secondary GPS interface
                  values: spi|uart, default: uart
      [-p <val>]  GPS Protocol (default=auto select)
-                 values: ubx|mtk|ash|eml
+                 values: ubx|mtk|ash|eml|fem
 
    stop
 
