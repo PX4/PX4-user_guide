@@ -138,7 +138,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 ## 시스템 실행
 
-1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
+1. *QGroundControl*을 실행합니다. 먼저 높은 지연 시간 링크를 수동으로 연결한 다음, 일반 텔레메트리 링크를 연결합니다.
   
   ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
