@@ -116,23 +116,23 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 1. 필요한 Python 모듈을 설치합니다. ```sudo pip install pika tornado future```
 2. SatComInfrarastructure 저장소 복제: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
-3. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
-4. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
-5. Add a UDP connection in QGC with the parameters:
+3. 설정을 반영하도록 **udp2rabbit.cfg** 설정 파일을 편집합니다.
+4. [*QGroundControl* 설치](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (데일리 빌드).
+5. 다음 매개 변수를 사용하여 QGC에서 UDP 연결을 추가합니다.
   
-  * Listening port: 10000
-  * Target hosts: 127.0.0.1:10001
-  * High Latency: checked
+  * 접속 포트: 10000
+  * 대상 호스트: 127.0.0.1:10001
+  * 높은 지연 시간: 확인됨
     
     ![High Latency Link Settings](../../assets/satcom/linksettings.png)
 
-### Verification
+### 검증
 
-1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: ```./udp2rabbit.py```
+1. 접지 스테이션 컴퓨터의 터미널에서 *SatComInfrarastructure* 저장소 위치로 변경합니다. 그런 다음 **udp2rabbit.py** 스크립트를 실행합니다. ```./udp2rabbit.py```
 
-2. Send a test message from [RockBlock Account](https://rockblock.rock7.com/Operations) to the created delivery group in the `Test Delivery Groups` tab.
+2. [ RockBlock 계정](https://rockblock.rock7.com/Operations)에서 테스트 메시지를 `테스트 전송 그룹` 탭에 생성된 전송 그룹으로 보냅니다.
 
-If in the terminal where the `udp2rabbit.py` script is running within a couple of seconds the acknowledge for a message can be observed, then the RockBlock delivery group, the relay server and the udp2rabbit script are set up correctly:
+`udp2rabbit.py` 스크립트가 몇 초 내에 실행되고 있는 터미널에서 메시지에 대한 확인할 수 있는 경우 RockBlock 전달 그룹, 릴레이 서버 및 udp2rabbit 스크립트가 올바르게 설정된 것입니다.
 
 ![udp2rabbit message acknowledge](../../assets/satcom/verification.png)
 
