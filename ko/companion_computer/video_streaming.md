@@ -1,9 +1,8 @@
-# Video Streaming (Companion Computer/QGroundControl)
+# 동영상 스트리밍 (보조 컴퓨터/QGroundControl)
 
-PX4-based vehicles support video streaming using a camera connected to a companion computer. GStreamer is used to send the video to *QGroundControl* over an IP link.
+PX4 기반의 기체는 보조 컴퓨터에 연결된 카메라를 사용하여 비디오 스트리밍을 제공합니다. GStreamer는인터넷으로 *QGroundControl*에 비디오를 전송합니다.
 
-:::note
-You can't video stream directly from a camera connected to PX4.
+:::note PX4에 연결된 카메라에서 직접 비디오를 스트리밍 할 수 없습니다.
 :::
 
 To support streaming use cases you will need to install *GStreamer* development packages on both your companion computer and on the system running *QGroundControl*.
