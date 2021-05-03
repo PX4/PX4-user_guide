@@ -14,7 +14,7 @@
 
 전체 시스템 아키텍처는 다음과 같습니다.
 
-![건축학](../../assets/satcom/architecture.jpg)
+![아키텍쳐](../../assets/satcom/architecture.jpg)
 
 :::note
 설정은 Ubuntu 14.04 및 16.04에서 실행되는 *QGoundControl*의 현재 릴리스로 테스트되었습니다.
@@ -72,7 +72,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
 
 메시지 릴레이 서버에 대한 배달 그룹을 설정하고 모듈을 해당 배달 그룹에 추가합니다.
 
-![Delivery Groups](../../assets/satcom/deliverygroup.png)
+![배달 그룹](../../assets/satcom/deliverygroup.png)
 
 ## 릴레이 서버 설정
 
@@ -124,7 +124,7 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
   * 대상 호스트: 127.0.0.1:10001
   * 높은 지연 시간: 확인됨
     
-    ![High Latency Link Settings](../../assets/satcom/linksettings.png)
+    ![높은 지연 시간 링크 설정](../../assets/satcom/linksettings.png)
 
 ### 검증
 
@@ -142,38 +142,38 @@ RockBlock의 첫 번째 모듈을 구입시의 첫 번째 단계는 사용자 �
   
   ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
-2. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: ```./udp2rabbit.py```
+2. 지상국 컴퓨터의 터미널에서 *SatComInfrarastructure* 저장소 위치로 변경합니다. 그런 다음 **udp2rabbit.py** 스크립트를 실행합니다. ```./udp2rabbit.py```
 
-3. Power up the vehicle.
-4. Wait until the first `HIGH_LATENCY2` message is received on QGC. This can be checked either using the *MAVLink Inspector* widget or on the toolbar with the *LinkIndicator*. If more than one link is connected to the active vehicle the *LinkIndicator* shows all of them by clicking on the name of the shown link:
+3. 기체의 전원을 켭니다.
+4. QGC에서 첫 번째 `HIGH_LATENCY2` 메시지가 수신될 때까지 기다립니다. 이 검사는 *MAVLink Inspector* 위젯을 사용하거나 *LinkIndicator *를 사용하여 도구 모음에서 확인할 수 있습니다. 활성 기체에서 두 개 이상의 링크가 연결되어 있는 경우, 표시된 링크의 이름을 클릭하면 모든 링크가 표시됩니다.
   
   ![Link Toolbar](../../assets/satcom/linkindicator.jpg)
   
-  The link indicator always shows the name of the priority link.
+  링크 표시기는 항상 우선 순위 링크의 이름을 표시합니다.
 
-5. The satellite communication system is now ready to use. The priority link, which is the link over which commands are send, is determined the following ways:
+5. 이제 위성 통신 시스템을 사용할 준비가 되었습니다. 우선 순위 링크(명령 전송 링크)는 다음 방법으로 결정됩니다.
   
-  * If no link is commanded by the user a regular radio telemetry link is preferred over the high latency link.
-  * The autopilot and QGC will fall back from the regular radio telemetry to the high latency link if the vehicle is armed and the radio telemetry link is lost (no MAVLink messages received for a certain time). As soon as the radio telemetry link is regained QGC and the autopilot will switch back to it.
-  * The user can select a priority link over the `LinkIndicator` on the toolbar. This link is kept as the priority link as long as this link is active or the user selects another priority link:
+  * 사용자가 링크를 명령하지 않으면, 지연 시간이 큰 링크보다 일반적인 텔레메트리 링크가 선호됩니다.
+  * 기체가 시동을 켜고 텔레메트리 링크가 끊어지면(특정 시간 동안 MAVLink 메시지가 수신되지 않을 경우), 오토파일럿과 QGC는 일반 텔레메트리에서 긴 대기 시간 링크로 되돌아갑니다. 텔레메트리 링크가 복구되는 즉시 QGC와 자동 조종기가 다시 이 링크로 전환됩니다.
+  * 사용자는 도구 모음의 `LinkIndicator`에서 우선 순위 링크를 선택할 수 있습니다. 이 링크가 활성화되어 있거나 사용자가 다른 우선 순위 링크를 선택하면 이 링크는 우선 순위 링크로 유지됩니다.
     
     ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
-## Troubleshooting
+## 문제 해결
 
-* Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react) 
-  * Check the settings of the relay server and make sure that they are correct, especially the IMEI.
+* 비행기에서 위성 통신 메시지를 수신하지만 명령을 전송할 수 없습니다(차량이 반응하지 않음). 
+  * 릴레이 서버의 설정을 확인하고 해당 설정이 올바른지 확인합니다(특히 IMEI).
 
-* No satellite communication messages from the airplane arrive on the ground station:
+* 비행기의 위성 통신 메시지는 지상국에 도착하지 않습니다.
   
-  * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module: ```iridiumsbd status```
-  * Make sure using the verification steps from above that the relay server, the delivery group and the `udp2rabbit.py` script are set up correctly.
-  * Check if the link is connected and that its settings are correct.
+  * 시스템 콘솔이 <>iridiumsbd</em> 드라이버가 시작된 경우 및 모듈이 위성 신호를 수신 여부를 확인합니다. ```iridiumsbd status```
+  * 위의 확인 단계를 사용하여 릴레이 서버, 전송 그룹 및`udp2rabbit.py` 스크립트가 올바르게 설정되었는지 확인합니다.
+  * 링크가 연결되어 있고 설정이 정확한 지 확인하십시오.
 
-* The IridiumSBD driver does not start:
+* IridiumSBD 드라이버가 시작되지 않음:
   
-  * Reboot the vehicle. If that helps increase the sleep time in the `extras.txt` before the driver is started. If that does not help make sure that the Pixhawk and the module have the same ground level. Confirm also that the baudrate of the module is set to 115200.
+  * 기체를 재부팅합니다. 도움이된다면 드라이버를 시작하기 전에 `extras.txt`에서 절전 시간을 늘리십시오. 그래도 Pixhawk와 모듈이 동일한 접지 레벨을 유지하는지 확인할 수 있습니다. 모듈의 보레이트가 115200으로 설정되어 있는 지 확인하십시오.
 
-* A first message is received on the ground but as soon as the vehicle is flying no message can be transmitted or the latency is significantly larger (in the order of minutes)
+* 지상에서 첫 번째 메시지가 수신되지만, 기체가 비행하는 즉시 메시지를 전송할 수 없거나 대기 시간이 훨씬 더 길어집니다(분 단위).
   
-  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is not damaged.
+  * 비행 후 신호 품질을 확인합니다. 비행 중에 감소하는 경우 내부 안테나 보다 외부 안테나를 사용하는 것이 좋습니다. 이미 외부 안테나를 전자 장치 또는 신호를 방해 할 수있는 모든 것에서 최대한 멀리 이동하십시오. 또한 안테나가 손상되지 않았는 지 확인합니다.
