@@ -5080,6 +5080,13 @@ table {
  <td>deg/s</td>
 </tr>
 <tr>
+ <td><strong id="LNDMC_TRIG_TIME">LNDMC_TRIG_TIME</strong> (FLOAT)</td>
+ <td>Multicopter land detection trigger time <p><strong>Comment:</strong> Total time it takes to go through all three land detection stages: ground contact, maybe landed, landed when all necessary conditions are constantly met.</p>   </td>
+ <td>0.1 > 10.0 </td>
+ <td>1.0</td>
+ <td>s</td>
+</tr>
+<tr>
  <td><strong id="LNDMC_XY_VEL_MAX">LNDMC_XY_VEL_MAX</strong> (FLOAT)</td>
  <td>Multicopter max horizontal velocity <p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state</p>   </td>
  <td></td>
