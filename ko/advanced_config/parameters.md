@@ -1,31 +1,31 @@
 # 파라미터 검색 및 수정
 
-PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
+PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등의 기능을 수정할 수 있습니다.
 
-*QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
+*QGroundControl 매개변수* 화면은 기체와 관련된 **매개변수 **를 검색하고 수정합니다. 상단 메뉴의 *톱니 바퀴* 아이콘을 클릭한 다음 좌측 메뉴의 *매개변수*를 클릭합니다.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+일반적으로 사용되는 매개변수들은 [기본 설정](../config/README.md) 설정 화면을 사용하여 수정합니다. *매개변수* 화면은 신규 기체를 튜닝하거나 일반적이지 않은 매개변수를 수정시에 사용합니다.
 :::
 
 :::warning
-While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+일부 매개 변수는 비행중에 변경할 수 있지만 권장되지 않습니다 (가이드에 명시적으로 언급된 경우는 제외).
 :::
 
 <span id="finding"></span>
 
-## Finding a Parameter
+## 매개변수 검색
 
-You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
+*검색* 필드에 이름을 입력하여 매개변수를 검색합니다. 검색은 입력된 문자열을 포함하는 모든 매개변수의 이름과 설명을 나열합니다(검색을 초기화하려면 **지우기** 버튼를 클릭합니다).
 
 ![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
-You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
+왼쪽 버튼을 클릭하여 그룹별로 매개변수를 검색할 수 있습니다 (*배터리 보정* 그룹 아래의 이미지가 선택됨).
 
 ![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
-If you can't find an expected parameter, see the [next section](#missing).
+매개 변수를 찾을 수없는 경우에는 [다음 섹션](#missing)을 참조하십시오.
 :::
 
 <span id="missing"></span>
