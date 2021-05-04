@@ -18,11 +18,11 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정
 
 *검색* 필드에 이름을 입력하여 매개변수를 검색합니다. 검색은 입력된 문자열을 포함하는 모든 매개변수의 이름과 설명을 나열합니다(검색을 초기화하려면 **지우기** 버튼를 클릭합니다).
 
-![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![매개변수 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 왼쪽 버튼을 클릭하여 그룹별로 매개변수를 검색할 수 있습니다 (*배터리 보정* 그룹 아래의 이미지가 선택됨).
 
-![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![매개변수 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
 매개 변수를 찾을 수없는 경우에는 [다음 섹션](#missing)을 참조하십시오.
@@ -55,33 +55,33 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture :::note 빌드된 펌웨어를 1MB 플래시에 맞추려면 다른 모듈을 비활성화하여야 할 수도 있습니다. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note 빌드된 펌웨어를 1MB 플래시에 맞추려면 다른 모듈을 비활성화하여야 할 수도 있습니다. 제거할 모듈을 찾으려면 시행 착오가 수반되며, 기체의 요구 사항에 따라 달라집니다.
 :::
 
 <span id="changing"></span>
 
-## Changing a Parameter
+## 매개변수 변경
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+매개변수를 변경하려면 그룹 또는 검색 목록에서 매개변수를 클릭하십시오. 그러면 값을 수정하는 사이드 대화 상자가 열립니다 (이 대화 상자는 매개변수에 대한 추가 세부 정보- 변경 사항을 적용하기 위해서는 재부팅하여야 하는 지를 알려줍니다.)
 
-![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
+![매개변수 값의 변경](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 :::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+**저장** 버튼을 클릭하여 매개변수를 기체에 업로드합니다. 매개변수에 따라 변경된 내용을 적용하기 위해서 비행 컨트롤러 재부팅이 필요합니다.
 :::
 
-## Tools
+## 도구
 
-You can select additional options from the **Tools** menu on the top right hand side of the screen.
+화면의 오른쪽 상단의 **도구** 메뉴에서 추가 옵션을 선택할 수 있습니다.
 
-![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
+![도구 메뉴](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+**새로 고침** <br />모든 매개변수를 기체로부터 재로딩합니다.
 
-**Reset all to defaults** <br />Reset all parameters to their original default values.
+**기본값으로 재설정** <br />모든 매개변수를 펌웨어의 기본값으로 재설정합니다.
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**파일에서 불러오기 / 파일에 저장** <br />기존 파일에서 매개변수를 불러오거나 현재 매개변수 설정을 파일에 저장합니다.
 
-**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**RC를 Param으로 지우기** <br />이것은 RC 송신기 제어와 매개 변수 사이의 모든 연관성을 삭제합니다. 자세한 내용은 [라디오 설정 > 매개변수 튜닝 채널](../config/radio.md#param-tuning-channels)를 참조하십시오.
 
-**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
+**기체 재부팅** <br />기체을 재부팅합니다 (일부 파라미터를 변경후에 요구됩니다).
