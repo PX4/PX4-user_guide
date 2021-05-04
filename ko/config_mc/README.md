@@ -1,3 +1,3 @@
-# Multicopter Configuration
+# 멀티콥터 설정
 
-This section contains topics related to multicopter configuration and tuning.
+이 섹션에는 멀티콥터 설정과 튜닝에 관련된 항목들이 기술되어 있습니다.
