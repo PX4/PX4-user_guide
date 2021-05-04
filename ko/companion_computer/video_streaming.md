@@ -23,12 +23,12 @@ QGC로 비디오 스트리밍을 설정하고 사용하려면 :
    ```
    다른 플랫폼의 경우 [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md)의 지침을 참고하십시오.
 1. *Fly View*에서 동영상 설정: [QGroundControl > 일반 설정 (설정보기) > 비디오 ](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video)
-1. 모든 것이 정상적으로 작동하게 되면, QGC 비디오 스위처 (QGC Fly View 왼쪽 하단 모서리)에 비디오 스트림이 표시되어야합니다. You can click on the video switcher to toggle the video full-screen, as shown in the screenshot below.
+1. 모든 것이 정상적으로 작동하게 되면, QGC 비디오 스위처 (QGC Fly View 왼쪽 하단 모서리)에 비디오 스트림이 표시됩니다. 아래 스크린 샷과 같이 비디오 스위처를 클릭하여 비디오를 전체 화면으로 전환  수 있습니다.
 
-   ![QGC displaying video stream](../../assets/videostreaming/qgc-screenshot.png)
+   ![QGC에서의 실시간 동영상 전송 화면](../../assets/videostreaming/qgc-screenshot.png)
 
 
 
-## Gazebo Simulation
+## 가제보 시뮬레이션
 
-Gazebo support video streaming from within the simulated environment. For more information see [Gazebo Simulation > Video Streaming](../simulation/gazebo.md#video-streaming).
+Gazebo는 시뮬레이션 환경에서 비디오 스트리밍을 지원합니다. 자세한 내용은 [가제보 시뮬레이션 > 비디오 스트리밍](../simulation/gazebo.md#video-streaming)을 참고하십시오.
