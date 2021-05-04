@@ -30,32 +30,32 @@ PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정
 
 <span id="missing"></span>
 
-## Missing Parameters
+## 누락된 매개변수
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+매개변수는 일반적으로 다른 매개변수에 조건부이거나 펌웨어에 없기 때문에 표시되지 않습니다 (아래 참조).
 
-### Conditional Parameters
+### 조건부 매개변수
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+비활성화된 매개변수에 조건부인 경우 표시되지 않을 수 있습니다.
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+일반적으로 [전체 매개변수 참조](../advanced_config/parameter_reference.md) 및 기타 문서를 검색하여 조건부 매개변수를 찾을 수 있습니다. 특히 [직렬 포트 구성 매개변수](../peripherals/serial_configuration.md)는 직렬 포트에 할당된 서비스에 따라 달라집니다.
 
-### Parameter Not In Firmware
+### 펌웨어에 없는 매개변수
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+다른 버전의 PX4를 사용 중이거나 관련 모듈이 포함되지 않은 빌드인 경우에는 매개 변수가 펌웨어에 없을 수도 있습니다.
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+각 PX4 버전에 새로운 매개변수가 추가되고 기존 매개변수가 제거되거나 이름이 변경될 수 있습니다. 대상 버전에 대한 [전체 매개 변수 참조](../advanced_config/parameter_reference.md)를 검토하여 매개변수 *존재 여부*를 확인할 수 있습니다. 소스 트리 및 릴리스 정보에서 매개 변수를 검색할 수 있습니다.
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+매개 변수가 펌웨어에 존재하지 않는 경우는 관련 모듈이 포함되지 않은 경우입니다. 이것은 (특히) *FMUv2 펌웨어*의 문제로, PX4가 1MB의 사용 가능한 플래시를 기준으로 많은 모듈을 생략합니다. 이 문제를 해결 방법으로 두 가지 옵션이 있습니다.
 
-- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake): 
+- 모든 모듈을 포함하는 FMUv3 펌웨어를 실행하도록 보드를 업데이트 할 수 있는지 확인하십시오. [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader)
+- 보드에서 FMUv2 펌웨어 만 실행할 수있는 경우에는 누락된 모듈을 활성화한 상태에서 [PX4를 다시 빌드](../dev_setup/building_px4.md)하여야 합니다. [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)에서 주석 처리된 것을 확인할 수 있습니다. 
         DRIVERS
             adc
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note 빌드된 펌웨어를 1MB 플래시에 맞추려면 다른 모듈을 비활성화하여야 할 수도 있습니다. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 :::
 
 <span id="changing"></span>
