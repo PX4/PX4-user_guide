@@ -6433,7 +6433,7 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)</td>
+ <td><strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (INT32)</td>
  <td>Boolean to allow moving into directions where there is no sensor data (outside FOV) <p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
  <td></td>
  <td>Disabled (0)</td>
