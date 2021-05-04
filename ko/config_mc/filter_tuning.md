@@ -1,4 +1,4 @@
-# MC Filter Tuning & Control Latency
+# MC 필터 튜닝과 지연 시간 제어
 
 Filters can be used to trade off [control latency](#control-latency), which affects flight performance, and noise filtering, which impacts both flight performance and motor health.
 

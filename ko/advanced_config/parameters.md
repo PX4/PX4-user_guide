@@ -1,87 +1,87 @@
-# 파라미터 찾기/업데이트하기
+# 파라미터 검색 및 수정
 
-PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
+PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등의 기능을 수정할 수 있습니다.
 
-*QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
+*QGroundControl 매개변수* 화면은 기체와 관련된 **매개변수 **를 검색하고 수정합니다. 상단 메뉴의 *톱니 바퀴* 아이콘을 클릭한 다음 좌측 메뉴의 *매개변수*를 클릭합니다.
 
 :::note
-Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+일반적으로 사용되는 매개변수들은 [기본 설정](../config/README.md) 설정 화면을 사용하여 수정합니다. *매개변수* 화면은 신규 기체를 튜닝하거나 일반적이지 않은 매개변수를 수정시에 사용합니다.
 :::
 
 :::warning
-While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+일부 매개 변수는 비행중에 변경할 수 있지만 권장되지 않습니다 (가이드에 명시적으로 언급된 경우는 제외).
 :::
 
 <span id="finding"></span>
 
-## Finding a Parameter
+## 매개변수 검색
 
-You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
+*검색* 필드에 이름을 입력하여 매개변수를 검색합니다. 검색은 입력된 문자열을 포함하는 모든 매개변수의 이름과 설명을 나열합니다(검색을 초기화하려면 **지우기** 버튼를 클릭합니다).
 
-![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
+![매개변수 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
-You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
+왼쪽 버튼을 클릭하여 그룹별로 매개변수를 검색할 수 있습니다 (*배터리 보정* 그룹 아래의 이미지가 선택됨).
 
-![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+![매개변수 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 :::tip
-If you can't find an expected parameter, see the [next section](#missing).
+매개 변수를 찾을 수없는 경우에는 [다음 섹션](#missing)을 참조하십시오.
 :::
 
 <span id="missing"></span>
 
-## Missing Parameters
+## 누락된 매개변수
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+매개변수는 일반적으로 다른 매개변수에 조건부이거나 펌웨어에 없기 때문에 표시되지 않습니다 (아래 참조).
 
-### Conditional Parameters
+### 조건부 매개변수
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+비활성화된 매개변수에 조건부인 경우 표시되지 않을 수 있습니다.
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+일반적으로 [전체 매개변수 참조](../advanced_config/parameter_reference.md) 및 기타 문서를 검색하여 조건부 매개변수를 찾을 수 있습니다. 특히 [직렬 포트 구성 매개변수](../peripherals/serial_configuration.md)는 직렬 포트에 할당된 서비스에 따라 달라집니다.
 
-### Parameter Not In Firmware
+### 펌웨어에 없는 매개변수
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+다른 버전의 PX4를 사용 중이거나 관련 모듈이 포함되지 않은 빌드인 경우에는 매개 변수가 펌웨어에 없을 수도 있습니다.
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+각 PX4 버전에 새로운 매개변수가 추가되고 기존 매개변수가 제거되거나 이름이 변경될 수 있습니다. 대상 버전에 대한 [전체 매개 변수 참조](../advanced_config/parameter_reference.md)를 검토하여 매개변수 *존재 여부*를 확인할 수 있습니다. 소스 트리 및 릴리스 정보에서 매개 변수를 검색할 수 있습니다.
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+매개 변수가 펌웨어에 존재하지 않는 경우는 관련 모듈이 포함되지 않은 경우입니다. 이것은 (특히) *FMUv2 펌웨어*의 문제로, PX4가 1MB의 사용 가능한 플래시를 기준으로 많은 모듈을 생략합니다. 이 문제를 해결 방법으로 두 가지 옵션이 있습니다.
 
-- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](../dev_setup/building_px4.md) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake): 
+- 모든 모듈을 포함하는 FMUv3 펌웨어를 실행하도록 보드를 업데이트 할 수 있는지 확인하십시오. [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader)
+- 보드에서 FMUv2 펌웨어 만 실행할 수있는 경우에는 누락된 모듈을 활성화한 상태에서 [PX4를 다시 빌드](../dev_setup/building_px4.md)하여야 합니다. [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)에서 주석 처리된 것을 확인할 수 있습니다. 
         DRIVERS
             adc
             #barometer # all available barometer drivers
             barometer/ms5611
             #batt_smbus
-            #camera_capture :::note You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+            #camera_capture :::note 빌드된 펌웨어를 1MB 플래시에 맞추려면 다른 모듈을 비활성화하여야 할 수도 있습니다. 제거할 모듈을 찾으려면 시행 착오가 수반되며, 기체의 요구 사항에 따라 달라집니다.
 :::
 
 <span id="changing"></span>
 
-## Changing a Parameter
+## 매개변수 변경
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+매개변수를 변경하려면 그룹 또는 검색 목록에서 매개변수를 클릭하십시오. 그러면 값을 수정하는 사이드 대화 상자가 열립니다 (이 대화 상자는 매개변수에 대한 추가 세부 정보- 변경 사항을 적용하기 위해서는 재부팅하여야 하는 지를 알려줍니다.)
 
-![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
+![매개변수 값의 변경](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 :::note
-When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+**저장** 버튼을 클릭하여 매개변수를 기체에 업로드합니다. 매개변수에 따라 변경된 내용을 적용하기 위해서 비행 컨트롤러 재부팅이 필요합니다.
 :::
 
-## Tools
+## 도구
 
-You can select additional options from the **Tools** menu on the top right hand side of the screen.
+화면의 오른쪽 상단의 **도구** 메뉴에서 추가 옵션을 선택할 수 있습니다.
 
-![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
+![도구 메뉴](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+**새로 고침** <br />모든 매개변수를 기체로부터 재로딩합니다.
 
-**Reset all to defaults** <br />Reset all parameters to their original default values.
+**기본값으로 재설정** <br />모든 매개변수를 펌웨어의 기본값으로 재설정합니다.
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**파일에서 불러오기 / 파일에 저장** <br />기존 파일에서 매개변수를 불러오거나 현재 매개변수 설정을 파일에 저장합니다.
 
-**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+**RC를 Param으로 지우기** <br />이것은 RC 송신기 제어와 매개 변수 사이의 모든 연관성을 삭제합니다. 자세한 내용은 [라디오 설정 > 매개변수 튜닝 채널](../config/radio.md#param-tuning-channels)를 참조하십시오.
 
-**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).
+**기체 재부팅** <br />기체을 재부팅합니다 (일부 파라미터를 변경후에 요구됩니다).

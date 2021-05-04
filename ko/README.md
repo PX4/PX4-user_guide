@@ -4,17 +4,17 @@
 
 [![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4는 *전문적인 자율비행 프로그램* 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활동중인 단체의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박 등 다양한 운송체에 적용할 수 있습니다.
+PX4는 *전문적인 자율비행 프로그램* 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활동중인 단체의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박 등 다양한 운송체에 적용 가능합니다.
 
 :::tip
-이 안내서에는 PX4를 이용한 기체 조립, 설정 및 비행 방법이 기술되어 있습니다. 기여에 관심이 있으시면, [개발](development/development.md)편을 참고하여 주십시오.
+이 안내서는 PX4를 이용한 기체 조립, 설정 및 비행 방법 등을 설명합니다. 기여를 하시려면, [개발](development/development.md)편을 참고하여 주십시오.
 :::
 
 ## 시작하기
 
-[시작하기](getting_started/README.md)편을 먼저 읽으실 것을 추천드립니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)와 더불어 PX4의 전반적인 내용을 알려드립니다.
+[시작](getting_started/README.md)편을 먼저 읽으실 것을 추천합니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)와 더불어 PX4의 전반적인 내용을 알려드립니다.
 
-목적에 따라, 아래의 팁은 이 안내서를 보실 때 많은 도움이 될 수 있습니다.
+이 안내서를 보실 때 도움이 되는 팁들은 다음과 같습니다.
 
 **가지고 있는 드론을 날리고 싶을 경우**
 
@@ -58,9 +58,9 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 
 ## 도움 받기
 
-[지원](contribute/support.md)페이지는 코어 개발 팀과 더 넓은 커뮤니티로부터 도움을 받는법에 대해 설명합니다.
+[지원](contribute/support.md) 페이지는 코어 개발 팀과 더 넓은 커뮤니티로부터 도움을 받는법에 대해 설명합니다.
 
-특히 다음 내용을 다룹니다:
+다음과 같은 내용을 다루고 있습니다.
 
 * [도움을 받을 수 있는 포럼 목록](contribute/support.md#forums-and-chat)
 * [문제 진단](contribute/support.md#diagnosing-problems)
@@ -69,9 +69,9 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 
 ## 버그 및 문제점 보고
 
-PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 게시하십시오 (기체 설정때문에 문제가 발생할 수 있음).
+PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 올려주십시오.
 
-개발팀의 요청에 따라, [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 문제(Code issue)를 제기할 수 있습니다. 가능한 경우 문제 양식(Issue template)에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
+개발팀의 지침에 따라, [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 이슈를 제기할 수 있습니다. 가능한 경우 문제 양식(Issue template)에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
 
 ## 기여 
 

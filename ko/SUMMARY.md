@@ -111,7 +111,7 @@
       * [리얼센스 T265 트래킹 카메라 (VIO)](peripherals/camera_t265_vio.md)
   * [정밀 착륙](advanced_features/precland.md)
   * [GPS 실시간 측위(RTK)](advanced_features/rtk-gps.md)
-  * [RockBlock SatCom 시스템](advanced_features/satcom_roadblock.md)
+  * [이리듐 위성 통신](advanced_features/satcom_roadblock.md)
   * [동영상 스트리밍](companion_computer/video_streaming.md)
 * [고급 설정](advanced_config/README.md) 
   * [매개변수 검색 및수정](advanced_config/parameters.md)
