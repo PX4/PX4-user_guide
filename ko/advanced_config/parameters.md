@@ -1,4 +1,4 @@
-# 파라미터 찾기/업데이트하기
+# 파라미터 검색 및 수정
 
 PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
 
