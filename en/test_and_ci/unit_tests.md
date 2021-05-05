@@ -126,7 +126,7 @@ The steps to create new SITL unit tests are as follows:
        {"[description]", test_[description], OPTION},
        ...
    }
-```
+   ```
    `OPTION` can be `OPT_NOALLTEST`,`OPT_NOJIGTEST` or `0` and is considered if within px4 shell one of the two commands are called:
 
    ```bash
