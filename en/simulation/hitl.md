@@ -106,7 +106,8 @@ Make sure *QGroundControl* is not running!
 
    :::note
    The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`).
-   An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`. The correct device will be the last one shown.
+   An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`.
+   The correct device will be the last one shown.
    :::
 
 1. Set up the environment variables:
