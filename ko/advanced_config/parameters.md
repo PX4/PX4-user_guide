@@ -1,8 +1,8 @@
 # 파라미터 검색 및 수정
 
-PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 설정하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등의 기능을 수정할 수 있습니다.
+PX4에서는 [매개변수](../advanced_config/parameter_reference.md)를 통하여 [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등을 수정합니다.
 
-*QGroundControl 매개변수* 화면은 기체와 관련된 **매개변수 **를 검색하고 수정합니다. 상단 메뉴의 *톱니 바퀴* 아이콘을 클릭한 다음 좌측 메뉴의 *매개변수*를 클릭합니다.
+*QGroundControl 매개변수* 화면은 기체와 관련된 **매개변수**를 검색하고 수정합니다. 상단 메뉴의 *톱니 바퀴* 아이콘을 클릭한 다음 좌측 메뉴의 *매개변수*를 클릭합니다.
 
 :::note
 일반적으로 사용되는 매개변수들은 [기본 설정](../config/README.md) 설정 화면을 사용하여 수정합니다. *매개변수* 화면은 신규 기체를 튜닝하거나 일반적이지 않은 매개변수를 수정시에 사용합니다.
