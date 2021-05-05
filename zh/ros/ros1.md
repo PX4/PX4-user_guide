@@ -20,3 +20,4 @@ The main topics covered are:
 
 - [PX4 ROS Setups](../ros/README.md#ros-setups).
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+- [Prometheus自主无人机开源项目](https://github.com/amov-lab/Prometheus) - Prometheus是一套开源的自主无人机软件平台，为无人机的智能与自主飞行提供全套解决方案。本项目基于PX4开源飞控固件，旨在为PX4开发者配套成熟可用的机载电脑端程序，提供更加简洁快速的开发体验。目前已集成建图、定位、规划、控制及目标检测等模块，并配套有Gazebo仿真测试代码。
