@@ -1,0 +1,22 @@
+{
+  "name": "vuepress-plugin-fulltext-search",
+  "version": "2.2.0",
+  "description": "Adds full-text search capabilities to your vuepress site with a help of flexsearch library.",
+  "main": "index.js",
+  "repository": "https://github.com/leo-buneev/vuepress-plugin-fulltext-search.git",
+  "author": "Leonid Buneev <leonid.buneev@tirecheck.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "cross-env NODE_ENV=production eslint --max-warnings=0 --ext .js,.vue,.md ."
+  },
+  "dependencies": {
+    "flexsearch": "^0.6.32",
+    "html-to-text": "^7.0.0",
+    "lodash": "^4.17.19",
+    "vuepress": "^1.4.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint-plugin-tyrecheck": "^2.10.3"
+  }
+}

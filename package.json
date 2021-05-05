@@ -10,6 +10,7 @@
     "@vuepress/plugin-medium-zoom": "^1.6.0",
     "lodash.debounce": "^4.0.8",
     "vuepress": "^1.5.4",
+    "vuepress-plugin-fulltext-search": "^2.2.0",
     "vuepress-plugin-redirect": "^1.2.5"
   },
   "scripts": {

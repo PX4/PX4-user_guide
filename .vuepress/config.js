@@ -23,6 +23,12 @@ module.exports = {
     }
   },
   plugins: [
+      [
+      require('./plugins/vuepress-plugin-fulltext-search/index.js'),
+        {
+          split: /\s+/,
+        },
+      ],
       '@vuepress/medium-zoom',
       ['container', {
         type: 'note',
