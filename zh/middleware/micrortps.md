@@ -185,6 +185,7 @@ $ ./micrortps_agent [options]
   -p &lt;poll_ms&gt;            UART设备轮询时间，单位ms， 缺省为 1ms。 缺省为 1ms。
   -r &lt;reception port&gt;     UDP 接收端口， 缺省为 2019。
   -s &lt;sending port&gt;       UDP发送端口， 缺省为 2020。
+  -n <set namespace>      Set a namespace for the micrortps_agent.
 ```
 
 To launch the *Agent*, run `micrortps_agent` with appropriate options for specifying the connection to the *Client* (the default options connect from a Linux device to the *Client* over a UART port).
