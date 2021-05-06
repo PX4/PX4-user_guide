@@ -13,16 +13,16 @@
 *제어 지연*은 모터가 변화에 반응할 때까지 기체의 물리적 장애로 인한 지연을 의미합니다.
 
 :::tip
-지연 시간을 줄이면 **P** 증가율을 높일 수 있으므로 비행 성능이 향상됩니다. 지연 시간 1 밀리초도 상당한 영향을 미칠 수 있습니다.
+지연 시간을 줄이면 **P** 증가율을 높일 수 있으므로 비행 성능이 향상됩니다. 1/1000초의 지연 시간도 큰 영향을 미칠 수 있습니다.
 :::
 
-The following factors affect control latency:
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). A higher rate reduces latency but is computationally intensive/can starve other processes. 4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](.../en/peripherals/dshot.md) or One-Shot ([PWM_AUX_RATE=0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) or [PWM_MAIN_RATE=0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)) to reduce latency.
+다음의 요소들은 제어 지연에 영향을 끼칩니다.
+- 부드러운 기체 또는 부드러운 진동 장착은 대기 시간을 증가시킵니다 (필터 역할을 함).
+- 소프트웨어 및 센서 칩의 저주파 필터는 대기 시간 증가분을 상쇄하여 노이즈 필터링을 원활하게합니다.
+- PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
+- 최대 자이로 게시 속도 ([IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)로 설정됨). 속도가 높을수록 지연 시간이 줄어들지만 증간된 연산량으로 인하여 다른 프로세스를 방해할 수 있습니다. 4kHz 이상은 STM32H7 프로세서 이상의 컨트롤러에서만 권장됩니다 (2kHz 값은 성능이 낮은 프로세서의 최대치입니다).
+- IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
+- PWM 출력 신호 : 대기 시간을 줄이기 위하여 [Dshot](.../en/peripherals/dshot.md) 또는 One-Shot ([PWM_AUX_RATE = 0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) 또는 [PWM_MAIN_RATE = 0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE))을 활성화합니다.
 
 Below we look at the impact of the low pass filters.
 
