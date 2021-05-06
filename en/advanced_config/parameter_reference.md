@@ -2721,6 +2721,27 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="DSHOT_3D_DEAD_H">DSHOT_3D_DEAD_H</strong> (INT32)</td>
+ <td>DSHOT 3D deadband high <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
+ <td>1000 > 1999 </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="DSHOT_3D_DEAD_L">DSHOT_3D_DEAD_L</strong> (INT32)</td>
+ <td>DSHOT 3D deadband low <p><strong>Comment:</strong> When the actuator_output is between DSHOT_3D_DEAD_L and DSHOT_3D_DEAD_H, motor will not spin. This value is with respect to the mixer_module range (0-1999), not the DSHOT values.</p>   </td>
+ <td>0 > 1000 </td>
+ <td>1000</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="DSHOT_3D_ENABLE">DSHOT_3D_ENABLE</strong> (INT32)</td>
+ <td>Allows for 3d mode when using DShot and suitable mixer <p><strong>Comment:</strong> WARNING: ESC must be configured for 3D mode, and DSHOT_MIN set to 0. This splits the throttle ranges in two. Direction 1) 48 is the slowest, 1047 is the fastest. Direction 2) 1049 is the slowest, 2047 is the fastest. When mixer outputs 1000 or value inside DSHOT 3D deadband, DShot 0 is sent.</p>   </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)</td>
  <td>Configure DShot <p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable (use PWM/Oneshot)</li> 
