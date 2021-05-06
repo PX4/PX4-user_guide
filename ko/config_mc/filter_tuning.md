@@ -1,19 +1,19 @@
-# MC 필터 튜닝과 지연 시간 제어
+# MC 필터 튜닝과 제어 지연
 
-Filters can be used to trade off [control latency](#control-latency), which affects flight performance, and noise filtering, which impacts both flight performance and motor health.
+필터를 사용하여 비행 성능에 영향을 미치는 [제어 지연](#control-latency)과 비행 성능과 모터 상태에 영향을 미치는 소음 필터링을 절충할 수 있습니다.
 
-This topic provides an overview of control latency and PX4 filter tuning.
+제어 지연과 PX4 필터 튜닝에 관한 개요를 제공합니다.
 
 :::note
-Before filter tuning you should do a first pass at [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be undertuned (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough).
+필터 튜닝전에 [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)에서 첫 번째 패스를 수행하여야 합니다. 차량은 저 조율 (**P** 및 **D** 게인을 너무 낮게 설정해야 함)하여 컨트롤러에서 소음으로 해석될 수있는 진동을 제거하여야 합니다 (기본 이득이 충분할 수 있습니다).
 :::
 
-## Control Latency
+## 제어 지연
 
-The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
+*제어 지연*은 모터가 변화에 반응할 때까지 기체의 물리적 장애로 인한 지연을 의미합니다.
 
 :::tip
-Lowering latency allows you to increase the rate **P** gains, which results in better flight performance. Even one millisecond difference in the latency can have a significant impact.
+지연 시간을 줄이면 **P** 증가율을 높일 수 있으므로 비행 성능이 향상됩니다. 지연 시간 1 밀리초도 상당한 영향을 미칠 수 있습니다.
 :::
 
 The following factors affect control latency:
