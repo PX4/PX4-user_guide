@@ -18,13 +18,13 @@
 
 다음의 요소들은 제어 지연에 영향을 끼칩니다.
 - 부드러운 기체 또는 부드러운 진동 장착은 대기 시간을 증가시킵니다 (필터 역할을 함).
-- 소프트웨어 및 센서 칩의 저주파 필터는 대기 시간 증가분을 상쇄하여 노이즈 필터링을 원활하게합니다.
+- 소프트웨어 및 센서 칩의 저역 통과 필터는 대기 시간 증가분을 상쇄하여 노이즈 필터링을 원활하게합니다.
 - PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
 - 최대 자이로 게시 속도 ([IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)로 설정됨). 속도가 높을수록 지연 시간이 줄어들지만 증간된 연산량으로 인하여 다른 프로세스를 방해할 수 있습니다. 4kHz 이상은 STM32H7 프로세서 이상의 컨트롤러에서만 권장됩니다 (2kHz 값은 성능이 낮은 프로세서의 최대치입니다).
 - IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
 - PWM 출력 신호 : 대기 시간을 줄이기 위하여 [Dshot](.../en/peripherals/dshot.md) 또는 One-Shot ([PWM_AUX_RATE = 0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) 또는 [PWM_MAIN_RATE = 0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE))을 활성화합니다.
 
-아래에서는 저주파 필터의 효과에 대하여 설명합니다.
+아래에서는 저역 통과 필터의 효과에 대하여 설명합니다.
 
 ## 필터
 
@@ -44,20 +44,20 @@
 | 60       | 3.8          |
 | 120      | 1.9          |
 
-However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors. Noise on the motors has the following consequences:
-- Motors and ESCs can get hot, to the point where they get damaged.
-- Reduced flight time because the motors continuously change their speed.
-- Visible random small twitches.
+그러나 `IMU_GYRO_CUTOFF`를 증가시키면 모터에 공급되는 신호의 노이즈도 증가합니다. 모터 소음은 다음과 같은 결과를 가져옵니다.
+- 모터와 ESC는 손상될 정도로 뜨거워 질 수 있습니다.
+- 모터가 계속 속도를 변경하므로 비행 시간이 단축됩니다.
+- 가시적인 임의의 작은 트위치.
 
-Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise). Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+상당한 저주파 노이즈 스파이크가있는 설정 (예 : 로터 블레이드 통과 주파수의 고조파로 인한)은 노치 필터를 사용하여 신호가 저역 통과 필터로 전달되기 전에 신호를 제거하는 것이 좋습니다 (이러한 고조파는 다른 소음원으로 모터에서 비슷한 해로운 영향을 미칩니다). 노치 필터가 없으면이 노이즈가 모터로 전달되는 것을 방지하기 위하여 저역 통과 필터 컷오프를 매우 낮게 설정해야합니다 (대기 시간 증가).
 
 :::note
-Only one notch filter is provided. Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
+노치 필터는 하나만 제공됩니다. 하나 이상의 저주파 노이즈 스파이크가 있는 기체는 일반적으로 노치 필터로 첫 번째 스파이크를 청소하며 저역 통과 필터를 사용하여 후속 스파이크를 청소합니다.
 :::
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+최적의 필터 설정은 기체에 따라 달라집니다. 기본값은 낮은 품질 설정에서도 작동하도록 보수적으로 설정됩니다.
 
-## Filter Tuning
+## 필터 튜닝
 
 First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
