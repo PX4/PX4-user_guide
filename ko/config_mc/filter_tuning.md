@@ -28,21 +28,21 @@
 
 ## 필터
 
-This is the filtering pipeline for the controllers in PX4:
-- On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) and [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ).
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
+다음은 PX4 컨트롤러의 필터링 파이프 라인입니다.
+- 자이로 센서용 온칩 DLPF. 비활성화가 가능한 모든 칩에서 비활성화됩니다 (그렇지 않은 경우, 차단 주파수가 칩의 최고 수준으로 설정됨).
+- 로터 블레이드 통과 주파수의 고조파와 같은 협대역 노이즈를 필터링을 위한 자이로 센서 데이터의 노치 필터입니다. 이 필터는 [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 및 [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ)를 사용하여 설정할 수 있습니다.
+- 자이로 센서 데이터에 대한 저주파 통과 필터. [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 매개변수로 설정할 수 있습니다. :::note 샘플링과 필터링은 항상 전체 원시 센서 속도(일반적으로 IMU에 따라 8kHz)에서 수행됩니다.
 :::
-- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
+- D-term에 대한 별도의 저역 통과 필터. D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다. 이러한 이유로 D-term에는 별도로 구성 가능한 저역 통과 필터 [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)가 있습니다.
+- 모터 출력의 슬루 레이트 필터 ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). 일반적으로 사용되지 않습니다.
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
+제어 지연을 줄이기 위해 저역 통과 필터의 차단 주파수를 높이려고 합니다. `IMU_GYRO_CUTOFF` 증가로 인한 지연 시간에 미치는 영향은 대략 다음과 같습니다.
 
-| Cuttoff (Hz) | Delay approx. (ms) |
-| ------------ | ------------------ |
-| 30           | 8                  |
-| 60           | 3.8                |
-| 120          | 1.9                |
+| 컷오프 (Hz) | 지연(대략). (ms) |
+| -------- | ------------ |
+| 30       | 8            |
+| 60       | 3.8          |
+| 120      | 1.9          |
 
 However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors. Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
