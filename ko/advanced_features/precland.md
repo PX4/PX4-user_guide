@@ -86,7 +86,7 @@ IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사�
     make px4_sitl gazebo_iris_irlock
     
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
+비컨은 Gazebo GUI에서 이동시키거나, [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 비컨을 이동하여 위치를 변경할 수 있습니다.
 
 ## 작동 원리
 
