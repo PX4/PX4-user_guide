@@ -1717,8 +1717,8 @@
 
 </tr>
 <tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
- <td style="vertical-align: top;">Generic Quadplane VTOL Tiltrotor</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Motor tilt front left</li><li><b>AUX2</b>: Motor tilt front right</li><li><b>AUX3</b>: Motor tilt rear left</li><li><b>AUX4</b>: Motor tilt rear right</li><li><b>AUX5</b>: Aileron left</li><li><b>AUX6</b>: Aileron right</li><li><b>AUX7</b>: Elevator</li><li><b>AUX8</b>: Rudder</li></ul></p></td>
+ <td style="vertical-align: top;">일반 쿼드플레인 수직이착륙기</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13030</p><p><b>출력 지정:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>AUX1</b>: 전면 좌측 틸트 모터</li><li><b>AUX2</b>: 전면 우측 틸트 모터</li><li><b>AUX3</b>: 후면 좌측 틸트 모터</li><li><b>AUX4</b>: 후면 우측 틸트 모터</li><li><b>AUX5</b>: 좌측 보조익</li><li><b>AUX6</b>: 우측 보조익</li><li><b>AUX7</b>: 승강타</li><li><b>AUX8</b>: 방향타</li></ul></p></td>
 
 </tr>
 </table>
