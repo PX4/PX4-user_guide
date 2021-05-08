@@ -18406,6 +18406,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
+ <td>    </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UUV_SKIP_CTRL">UUV_SKIP_CTRL</strong> (INT32)</td>
  <td>Skip the controller  <strong>Values:</strong><ul>
 <li><strong>0:</strong> use the module's controller</li> 
