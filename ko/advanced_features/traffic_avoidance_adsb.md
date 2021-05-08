@@ -82,9 +82,9 @@ Flarm/PingRX는 다른 [MAVLink 주변기기](../peripherals/mavlink_peripherals
 유효한 트랜스폰더 보고서가 수신되면, PX4는 먼저 트랜스폰더 위치 및 방향 정보를 사용하여 기체가 서로 통과하기 전에 유사한 고도를 공유할지 여부를 추정합니다. PX4는 할 수 있다면 그것은 다음 웨이포인트까지의 경로와 다른 차량 사이의 가장 가까운 거리가 경로를 예측한 방법을 추정합니다. 교차점이 고도 및 경로에 대해 구성된 거리보다 작 으면 [교통 회피 페일 세이프](../config/safety.md#traffic-avoidance-failsafe) 작업이 시작되고 차량이 경고, 착륙 또는 귀환합니다. 탐지 거리는 유인 및 무인 항공기에 대해 별도로 설정할 수 있습니다.
 
 
-코드는 `Navigator :: check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp))에서 찾을 수 있습니다.
+코드는 `Navigator :: check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/navigator/navigator_main.cpp))을 참고하십시오.
 
-MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). GUID의 마지막 10 자리는 드론 식별로 표시됩니다.
+MAVLink 인스턴스에 대해 구성된 경우 PX4는 트랜스폰더 데이터도 GCS로 전달합니다 (권장됨). GUID의 마지막 10 자리로 드론을 식별합니다.
 
 ## 추가 정보
 
