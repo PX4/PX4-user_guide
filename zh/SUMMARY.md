@@ -69,6 +69,8 @@
     * [Falcon Vertigo 四旋翼 (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
   * [小车](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
+  * [UUV/Submarines](frames_sub/README.md) 
+    * [BlueROV2](frames_sub/bluerov2.md)
 * [飞行](flying/README.md) 
   * [首次飞行指南](flying/first_flight_guidelines.md)
   * [飞行基础指南 ](flying/basic_flying.md) 
