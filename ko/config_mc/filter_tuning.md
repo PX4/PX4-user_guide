@@ -68,25 +68,25 @@
 
 필터 튜닝은 비행 로그를 검토하는 것이 제일 좋은 방법입니다. 서로 다른 매개 변수를 사용하여 여러 차례 비행후 로그를 분석할 수 있지만, 별도의 로그 파일이 생성되도록 중간에 시동을 꺼야합니다.
 
-비행 기동은 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)에서 단순히 모든 방향으로 롤링 및 피칭하고 스로틀 기간을 늘리면서 호버링할 수 있습니다. 전체 시간은 30초를 넘지 않아도 됩니다. In order to better compare, the maneuver should be similar in all tests.
+비행 기동은 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)에서 단순히 모든 방향으로 롤링 및 피칭하고 스로틀 기간을 늘리면서 호버링할 수 있습니다. 전체 시간은 30초를 넘지 않아도 됩니다. 정확한 비교를 위해서 모든 테스트에서 기동이 유사하여야 합니다.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
+먼저 낮은 D-term 필터값 ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)을 사용하면서 10Hz 단위로 자이로 필터 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF)를 조정합니다. 로그를 [Flight Review](https://logs.px4.io)에 업로드하여 *Actuator Controls FFT* 플롯을 비교합니다. 노이즈가 눈에 띄게 증가하기 전에 차단 주파수를 설정하십시오 (60Hz 주변 및 그 이상의 주파수).
 
-Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. Note that there can be negative impacts on preformance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
+그런 다음 동일한 방식으로 D-term 필터 (`IMU_DGYRO_CUTOFF`)를 조정합니다. `IMU_GYRO_CUTOFF`와 `IMU_DGYRO_CUTOFF`가 차이가 많이 나면, 성능에 부정적인 영향을 미칠 수 있습니다 (그 차이는 중요합니다. 예 : D = 15, gyro = 80).
 
-Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
+다음은 세 가지 다른 `IMU_DGYRO_CUTOFF` 필터값 (40Hz, 70Hz, 90Hz)에 대한 예입니다. 90Hz에서는 일반적인 소음이 증가하기 시작하므로 (특히 롤의 경우) 차단 주파수 70Hz가 안전합니다. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 
 :::note
-The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration.
+y 축 스케일이 다를 수 있으므로 다른 차량간에 플롯을 비교할 수 없습니다. 동일한 기체에서 일관적이며 비행 시간과는 무관합니다.
 :::
 
-If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter. In this case you might use the settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) (note, this spike is narrower than usual). The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
+아래 다이어그램에 표시된 것과 같이 비행 플롯에 상당한 저주파 스파이크가 나타되는 경우에는 노치 필터를 사용하여 제거할 수 있습니다. 이 경우 [IMU_GYRO_NF_FREQ = 32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) 및 [IMU_GYRO_NF_BW = 5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 설정을 사용할 수 있습니다 (이 스파이크는 평소보다 좁습니다). 저역 통과 필터와 노치 필터는 독립적으로 조정할 수 있습니다 (즉, 저역 통과 필터를 조정하기 전에 노치 필터를 설정할 필요는 없습니다).
 
 ![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
 
-## Additional Tips
+## 추가 팁
 
-1. Acceptable latency depends on vehicle size and expectations. FPV racers typically tune for the absolute minimal latency (as a ballpark `IMU_GYRO_CUTOFF` around 120, `IMU_DGYRO_CUTOFF` of 50 to 80). For bigger vehicles latency is less critical and `IMU_GYRO_CUTOFF` of around 80 might be acceptable.
+1. 허용 가능한 지연 시간은 기체 크기와 기대치에 따라 달라집니다. FPV 레이서는 일반적으로 절대 최소 대기 시간 (약 120의 야구장 `IMU_GYRO_CUTOFF`, 50에서 80의 `IMU_DGYRO_CUTOFF`)으로 조정합니다. 대형 기체의 지연 시간의 중요성은 작습니다. 약 80의 `IMU_GYRO_CUTOFF`가 허용될 수 있습니다.
 
 1. You can start tuning at higher `IMU_GYRO_CUTOFF` values (e.g. 100Hz), which might be desirable because the default tuning of `IMU_GYRO_CUTOFF` is set very low (30Hz). The only caveat is that you must be aware of the risks:
    - Don't fly for more than 20-30 seconds
