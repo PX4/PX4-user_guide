@@ -1,6 +1,6 @@
-# Multicopter PID Tuning Guide (Advanced/Detailed)
+# 멀티콥터 PID 튜닝 가이드 (고급/상세) 
 
-This topic provides detailed information about PX4 controllers, and how they are tuned.
+PX4 컨트롤러의 튜닝 방법에 관한 자세한 정보를 제공합니다.
 
 :::tip
 We recommend that you follow the [basic PID tuning guide](pid_tuning_guide_multicopter_basic.md) for tuning the vehicles *around the hover thrust point*, as the approach described is intuitive, easy, and fast. This is all that is required for many vehicles.
