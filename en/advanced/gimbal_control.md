@@ -23,7 +23,7 @@ To switch from MAVLink to RC, a large stick motion is required.
 
 To enable a MAVLink gimbal, first set parameter [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) to `MAVLINK_DO_MOUNT` and [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) to `MAVLINK`.
 
-The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)(../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) (also see 
+The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) (also see 
 [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)).
 
 A common configuration is to have a serial connection to the gimbal from the Flight Controller TELEM2 port (assuming TELEM2 is free).
