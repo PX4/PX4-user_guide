@@ -69,6 +69,8 @@
     * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
   * [Rovers](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
+  * [UUV/Submarines](frames_sub/README.md) 
+    * [BlueROV2](frames_sub/bluerov2.md)
 * [フライト](flying/README.md) 
   * [初飛行のガイドライン](flying/first_flight_guidelines.md)
   * [手動操縦](flying/basic_flying.md) 
