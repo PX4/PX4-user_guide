@@ -88,7 +88,7 @@ y 축 스케일이 다를 수 있으므로 다른 차량간에 플롯을 비교�
 
 1. 허용 가능한 지연 시간은 기체 크기와 기대치에 따라 달라집니다. FPV 레이서는 일반적으로 절대 최소 대기 시간 (약 120의 야구장 `IMU_GYRO_CUTOFF`, 50에서 80의 `IMU_DGYRO_CUTOFF`)으로 조정합니다. 대형 기체의 지연 시간의 중요성은 작습니다. 약 80의 `IMU_GYRO_CUTOFF`가 허용될 수 있습니다.
 
-1. You can start tuning at higher `IMU_GYRO_CUTOFF` values (e.g. 100Hz), which might be desirable because the default tuning of `IMU_GYRO_CUTOFF` is set very low (30Hz). The only caveat is that you must be aware of the risks:
-   - Don't fly for more than 20-30 seconds
-   - Check that the motors are not getting to hot
-   - Listen for odd sounds and symptoms of excessive noise, as discussed above.
+1. 더 높은 `IMU_GYRO_CUTOFF` 값 (예 : 100Hz)에서 튜닝을 시작할 수 있으며, 이는 `IMU_GYRO_CUTOFF`의 기본 튜닝이 매우 낮게 (30Hz) 설정되어 있기 때문에 바람직 할 수 있습니다. 유일한 주의 사항은 위험을 알고 있어야한다는 것입니다.
+   - 20 ~ 30 초 이상 비행하지 마십시오
+   - 모터가 과열되지 않는 지 확인하십시오.
+   - 위의 설명처럼 이상한 소리와 과도한 소음을 체크하십시오.
