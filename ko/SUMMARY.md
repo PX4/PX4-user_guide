@@ -69,6 +69,8 @@
     * [팰컨 버티고 쿼드플레인 (드로픽스)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
   * [로버 탐사선](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
+  * [UUV/Submarines](frames_sub/README.md) 
+    * [BlueROV2](frames_sub/bluerov2.md)
 * [비행](flying/README.md) 
   * [처녀 비행 지침](flying/first_flight_guidelines.md)
   * [비행 101](flying/basic_flying.md) 
