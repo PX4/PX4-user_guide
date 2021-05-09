@@ -59,16 +59,16 @@
 
 ## 필터 튜닝
 
-First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
+먼저 고속 로깅 프로필이 활성화되었는 지 확인하십시오 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 매개 변수). 그러면 [Flight Review](../getting_started/flight_reporting.md)가 롤, 피치 및 요 컨트롤에 대한 FFT 플롯을 표시합니다.
 
 :::warning
-- Do not try to fix a vehicle that suffers from high vibrations with filter tuning! Instead fix the vehicle hardware setup.
-- Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
+- 기체의 심한 진동 문제를 필터 튜닝만으로  해결하는 것은 적절하지 않습니다. 기체의 하드웨어 설정을 수정하는 것이 바람직합니다.
+- PID 게인, 특히 D가 진동으로 나타날 수 있으므로 너무 높게 설정되지 않았는 지 확인하십시오.
 :::
 
-Filter tuning is best done by reviewing flight logs. You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
+필터 튜닝은 비행 로그를 검토하는 것이 제일 좋은 방법입니다. 서로 다른 매개 변수를 사용하여 여러 차례 비행후 로그를 분석할 수 있지만, 별도의 로그 파일이 생성되도록 중간에 시동을 꺼야합니다.
 
-The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
+비행 기동은 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)에서 단순히 모든 방향으로 롤링 및 피칭하고 스로틀 기간을 늘리면서 호버링할 수 있습니다. 전체 시간은 30초를 넘지 않아도 됩니다. In order to better compare, the maneuver should be similar in all tests.
 
 First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
 
