@@ -47,8 +47,3 @@ You will need to:
 @[youtube](https://www.youtube.com/watch?v=1sUaURmlmT8)
 
 <!-- @DanielDuecker on github is good person to ask about this frame -->
-<!--
-Unused images - undecided
-![Field testing in Hamburg Finkenwerder Marina 1](../../assets/airframes/sub/bluerov/finkenwerder_marina1.jpg)
-![Field testing in Hamburg Finkenwerder Marina 2](../../assets/airframes/sub/bluerov/finkenwerder_marina2.jpg)
--->
