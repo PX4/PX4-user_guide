@@ -35,16 +35,16 @@ PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.
 
 #### 속도 컨트롤러 아키텍처/양식
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel-form) and [Standard](#standard-form).
+PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-form))에서 두 가지 (수학적으로 동등한) 형태의 PID 속도 컨트롤러를 지원합니다.
 
-Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
+사용자는 다른 형식의 비례 이득을 "1"로 설정하여 사용되는 형식을 선택할 수 있습니다 (즉, 아래 다이어그램에서 병렬 형식의 경우 **K**을 1로 설정하거나 **P** 표준 형식의 경우 1로 설정하여 K 또는 P 블록을 한 줄로 바꿉니다).
 
 ![PID_Mixed](../../assets/mc_pid_tuning/PID_algorithm_Mixed.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
 
-- *G(s)* represents the angular rates dynamics of a vehicle
-- *r* is the rate setpoint
-- *y* is the body angular rate (measured by a gyro)
-- *e* is the error between the rate setpoint and the measured rate
+- *G(s)*는 기체의 각속도를 나타냅니다.
+- *r*은 속도 설정점입니다.
+- *y*는 신체 각속도 (자이로로 측정)입니다.
+- *e*는 속도 설정값과 측정 속도 사이의 오류입니다.
 - *u* is the output of the PID controller
 
 The two forms are described below.
