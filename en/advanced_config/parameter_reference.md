@@ -357,13 +357,6 @@ table {
  <td>Hz</td>
 </tr>
 <tr>
- <td><strong id="ASPD_STALL">ASPD_STALL</strong> (FLOAT)</td>
- <td>Airspeed fault detection stall airspeed <p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.</p>   </td>
- <td></td>
- <td>10.0</td>
- <td>m/s</td>
-</tr>
-<tr>
  <td><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
  <td>Airspeed Selector: Gate size for true airspeed fusion <p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td>1 > 5 </td>
@@ -1291,7 +1284,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="COM_ARM_ARSP_EN">COM_ARM_ARSP_EN</strong> (INT32)</td>
- <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the stall speed (ASPD_STALL). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
+ <td>Enable preflight check for maximal allowed airspeed when arming <p><strong>Comment:</strong> Deny arming if the current airspeed measurement is greater than half the cruise airspeed (FW_AIRSPD_TRIM). Excessive airspeed measurements on ground are either caused by wind or bad airspeed calibration.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Enabled</li> 
@@ -4404,9 +4397,16 @@ table {
 </tr>
 <tr>
  <td><strong id="FW_AIRSPD_MIN">FW_AIRSPD_MIN</strong> (FLOAT)</td>
- <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> If the CAS (calibrated airspeed) falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
+ <td>Minimum Airspeed (CAS) <p><strong>Comment:</strong> The minimal airspeed (calibrated airspeed) the user is able to command. Further, if the airspeed falls below this value, the TECS controller will try to increase airspeed more aggressively.</p>   </td>
  <td>0.5 > 40 (0.5)</td>
  <td>10.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_AIRSPD_STALL">FW_AIRSPD_STALL</strong> (FLOAT)</td>
+ <td>Stall Airspeed (CAS) <p><strong>Comment:</strong> The stall airspeed (calibrated airspeed) of the vehicle. It is used for airspeed sensor failure detection and for the control surface scaling airspeed limits.</p>   </td>
+ <td>0.5 > 40 (0.5)</td>
+ <td>7.0</td>
  <td>m/s</td>
 </tr>
 <tr>
