@@ -97,14 +97,14 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 ##### 비례 이득 (P/K)
 
-비례 이득은 추적 오류를 최소화하는 데 사용됩니다 (아래에서 **P** 또는 **K**를 참조하기 위하여 **P**를 사용합니다). It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
+비례 이득은 추적 오류를 최소화하는 데 사용됩니다 (아래에서 **P** 또는 **K**를 참조하기 위하여 **P**를 사용합니다). 빠른 응답을 담당하므로 가능한 높게 설정하여야 하지만, 진동이 발생하지 않아야 합니다.
 
-- If the **P** gain is too high: you will see high-frequency oscillations.
-- If the **P** gain is too low: 
-  - the vehicle will react slowly to input changes.
-  - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
+- **P** 게인이 너무 높은 경우, 고주파 진동이 나타납니다.
+- **P** 게인이 너무 낮은 경우: 
+  - 기체가 입력 변화에 느리게 반응합니다.
+  - *곡예 모드*에서는 기체가 표류하므로, 레벨을 유지를 위하여 지속적으로 수정하여야 합니다.
 
-##### Derivative Gain (D)
+##### 미분 이득 (D)
 
 The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
 
