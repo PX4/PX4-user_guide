@@ -140,15 +140,15 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 #### 로그
 
-Looking at a log helps to evaluate tracking performance as well. Here is an example for good roll and yaw rate tracking:
+로그는 추적 성능 평가에 많은 도움이 됩니다. 다음은 롤과 요 속도 추적의 좋은 예입니다.
 
 ![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
-And here is a good example for the roll rate tracking with several flips, which create an extreme step-input. You can see that the vehicle overshoots only by a very small amount: ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
+다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
-### Attitude Controller
+### 자세 컨트롤러
 
-This controls the orientation and outputs desired body rates with the following tuning parameters:
+이것은 방향을 제어하고 다음 튜닝 매개변수를 사용하여 원하는 기체의 비율을 출력합니다.
 
 - Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
 - Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
