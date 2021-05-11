@@ -148,23 +148,23 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 ### 자세 컨트롤러
 
-이것은 방향을 제어하고 다음 튜닝 매개변수를 사용하여 원하는 기체의 비율을 출력합니다.
+이것은 방향과 아래의 튜닝 매개변수를 사용하여 기체의 비율의 출력을 제어합니다.
 
-- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
-- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+- Roll 제어 ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
+- Pitch 제어([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
+- Yaw 제어 ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
-The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
+자세 컨트롤러의 튜닝은 비교적 간단합니다. 대부분 기본값을 변경할 필요가 없습니다.
 
-To tune the attitude controller, fly in *Manual/Stabilized mode* and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
+자세 컨트롤러를 튜닝시에는 *수동/안정 모드*로 비행하고 **P** 게인을 점진적으로 증가시킵니다. 진동이나 오버슈트가 나타나는 것은 게인이 너무 높은 것입니다.
 
-The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
+아래의 매개변수를 조정할 수 있습니다. 세 축의 최대 회전 속도를 결정합니다.
 
-- Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
-- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+- 최대 롤 회전속도([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
+- 최대 피치 회전 속도 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
+- 최대 요 회전 속도 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-### Thrust Curve
+### 추력 곡선
 
 The tuning above optimises performance around the hover throttle. But you may start to see oscillations when going towards full throttle.
 
