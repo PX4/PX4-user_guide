@@ -11,10 +11,10 @@ PX4 컨트롤러의 튜닝 방법에 대한 자세한 정보를 제공합니다.
 ## 튜닝 단계
 
 :::note
-안전상의 이유로 기본 게인은 낮은 값으로 설정됩니다. 좋은 제어 응답을 기대하기 전에 이득을 증가시켜야 합니다.
+안전상의 이유로 기본 게인은 낮은 값으로 설정됩니다. 적절한 제어 응답을 얻기 위해서는 게인 값을 적절하게 증가시켜야 합니다.
 :::
 
-튜닝시 지켜야 할 일반적인 사항은 아래와 같습니다.
+튜닝시 준수할 일반적인 사항은 아래와 같습니다.
 
 - 큰 이득은 위험한 진동을 발생시킬 수 있으므로, 모든 이득은 매우 천천히 증가시켜야합니다! 일반적으로 반복당 이득을 20~30%씩 증가시키고, 최종 미세 조정을 위해 5~10%로 줄입니다.
 - 매개변수를 변경하기 전에 착륙시키십시오. 스로틀을 천천히 증가시키고 진동을 점검하십시오.
@@ -82,89 +82,89 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 속도 콘트롤러는 [곡예 모드](../flight_modes/acro_mc.md)와 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)에서 튜닝할 수 있습니다.
 
-- *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo: 
+- *곡예 모드* 는 선호되기는 하지만, 비행이 어렵습니다. 이 모드를 선택하는 경우 모든 스틱 엑스포를 비활성화하십시오. 
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- *Manual/Stabilized mode* is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+- *수동/안정 모드*는 비행이 용이하지만, 자세 또는 속도 컨트롤러에 어느 정도의 튜닝이 필요한지 확인하는 것이 어렵습니다.
 
-If the vehicle does not fly at all:
+기체이 비행이 전혀 되지 않는 경우:
 
-- If there are strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
-- If the reaction to RC movement is minimal, increase the **P** gains.
+- 처음 이륙 시도시 (비행하지 않는 지점까지) 강한 진동이 있으면, 이륙이 성공할 때 까지 **P** 및 **D** 게인을 줄입니다.
+- RC 움직임에 대한 반응이 미미하면 **P** 게인을 높입니다.
 
-The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
+실제 튜닝은 *수동 모드 * 또는 *곡예 모드*에서 거의 동일합니다. 롤 및 피치에 대해 **P**와 **D** 게인을 반복적으로 조정한 다음 **I** 게인을 조정합니다. 처음에는 롤과 피치에 동일한 값을 사용할 수 있으며, 좋은 값을 얻은 후에는 롤과 피치 응답을 개별적으로 확인하여 미세 조정할 수 있습니다 (기체가 대칭인 경우 필요하지 않음). yaw의 경우 **D**를 0으로 둘 수 있다는 점을 제외하면 매우 유사합니다.
 
-##### Proportional Gain (P/K)
+##### 비례 이득 (P/K)
 
-The proportional gain is used to minimize the tracking error (below we use **P** to refer to both **P** or **K**). It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
+비례 이득은 추적 오류를 최소화하는 데 사용됩니다 (아래에서 **P** 또는 **K**를 참조하기 위하여 **P**를 사용합니다). 빠른 응답을 담당하므로 가능한 높게 설정하여야 하지만, 진동이 발생하지 않아야 합니다.
 
-- If the **P** gain is too high: you will see high-frequency oscillations.
-- If the **P** gain is too low: 
-  - the vehicle will react slowly to input changes.
-  - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
+- **P** 게인이 너무 높은 경우, 고주파 진동이 나타납니다.
+- **P** 게인이 너무 낮은 경우: 
+  - 기체가 입력 변화에 느리게 반응합니다.
+  - *곡예 모드*에서는 기체가 표류하므로, 레벨을 유지를 위하여 지속적으로 수정하여야 합니다.
 
-##### Derivative Gain (D)
+##### 미분 이득 (D)
 
-The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
+**D** 미분 게인은 속도 댐핑에 사용됩니다. 오버 슈트를 제거하기 위하여 적절하게 높은 값으로 설정합니다.
 
-- If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
-- If the **D** gain is too low: you see overshoots after a step-input.
+- **D** 게인이 너무 높은 경우 : **D** 항이 소음을 증폭하기 때문에, 모터가 경련을 일으키고 뜨거워집니다.
+- **D** 게인이 너무 낮은 경우 : 스텝 입력 후 오버 슈트가 나타납니다.
 
-Typical values are:
+일반적인 값은 다음과 같습니다.
 
-- standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
-- parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
+- 표준 형식 (**P** = 1) : **K** 값에 대하여 0.01 (4 "레이서)에서 0.04 (500 크기) 사이 
+- 병렬 형식 (**K** = 1) : **P** 값에 따라 0.0004에서 0.005 사이
 
-##### Integral Gain (I)
+##### 적분 이득 (I)
 
-The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying *Acro mode*), but it should not be set too high.
+**I** (적분) 이득은 오류 메모리를 유지합니다. **I** 항은 원하는 비율에 얼마 동안 도달하지 않으면 증가합니다. 중요하지만 (특히 *곡예 모드*를 비행시) 너무 높게 설정해서는 안 됩니다.
 
-- If the I gain is too high: you will see slow oscillations.
-- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. It should keep the same angle. If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
+- I 게인이 너무 높으면 느린 진동이 나타납니다.
+- I 게인이 너무 낮은 경우 : 차량을 한쪽으로 약 45도 기울이고 그대로 유지하여 *곡예 모드*에서 테스트하는 것이 가장 좋습니다. 같은 각도를 유지하여야 합니다. 뒤로 드리프트하면 **I** 게인을 늘립니다. 더 긴 시간 동안 원하는 속도와 실제 속도 사이에 오프셋이 있을 때 낮은 **I** 게인도 로그에 표시됩니다.
 
-Typical values are:
+일반적인 값은 다음과 같습니다.
 
-- standard form (**P** = 1): between 0.5 (VTOL plane), 1 (500 size) and 8 (4" racer), for any value of **K**
-- parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15 The pitch gain usually needs to be a bit higher than the roll gain.
+- 표준 형식 (**P** = 1) : **K** 값에 대하여 0.5 (VTOL 평면), 1 (500 크기) 및 8 (4 "레이서) 사이,
+- 평행 형식 (**K** = 1) : **P**가 약 0.15 인 경우 0.3에서 0.5 사이 피치 게인은 일반적으로 롤 게인보다 약간 높아야 합니다.
 
-#### Testing Procedure
+#### 테스트 절차
 
-To test the current gains, provide a fast **step-input** when hovering and observe how the vehicle reacts. It should immediately follow the command, and neither oscillate, nor overshoot (it feels 'locked-in').
+현재 이득을 테스트하려면 호버링시 빠른 **단계 입력**을 제공하고 기체의 반응을 관찰하십시오. 명령을 즉시 반등하여야 하며, 진동이나 오버슛이 발생하지 않아야 합니다 ( '고정'된 느낌).
 
-You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
+예를 들어 롤용 스텝 입력을 만들 수 있습니다. 롤 스틱을 한쪽으로 빠르게 밀었다가 다시 빠르게 놓아줍니다 (스프링이므로 스틱을 놓으면 스틱도 진동합니다. 잘 튜닝된 기체는 이러한 진동에 반응합니다).
 
 :::note
-A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
+*곡예 모드*에서 잘 튜닝된 기체는 한쪽으로 기울지 않지만, 수정 없이도 수십 초 동안 같은 자세를 유지합니다.
 :::
 
-#### Logs
+#### 로그
 
-Looking at a log helps to evaluate tracking performance as well. Here is an example for good roll and yaw rate tracking:
+로그는 추적 성능 평가에 많은 도움이 됩니다. 다음은 롤과 요 속도 추적의 좋은 예입니다.
 
 ![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
-And here is a good example for the roll rate tracking with several flips, which create an extreme step-input. You can see that the vehicle overshoots only by a very small amount: ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
+다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
-### Attitude Controller
+### 자세 컨트롤러
 
-This controls the orientation and outputs desired body rates with the following tuning parameters:
+이것은 방향과 아래의 튜닝 매개변수를 사용하여 기체의 비율의 출력을 제어합니다.
 
-- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
-- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+- Roll 제어 ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
+- Pitch 제어([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P))
+- Yaw 제어 ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
-The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
+자세 컨트롤러의 튜닝은 비교적 간단합니다. 대부분 기본값을 변경할 필요가 없습니다.
 
-To tune the attitude controller, fly in *Manual/Stabilized mode* and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
+자세 컨트롤러를 튜닝시에는 *수동/안정 모드*로 비행하고 **P** 게인을 점진적으로 증가시킵니다. 진동이나 오버슈트가 나타나는 것은 게인이 너무 높은 것입니다.
 
-The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
+아래의 매개변수를 조정할 수 있습니다. 세 축의 최대 회전 속도를 결정합니다.
 
-- Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
-- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+- 최대 롤 회전속도([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
+- 최대 피치 회전 속도 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX))
+- 최대 요 회전 속도 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-### Thrust Curve
+### 추력 곡선
 
 The tuning above optimises performance around the hover throttle. But you may start to see oscillations when going towards full throttle.
 
