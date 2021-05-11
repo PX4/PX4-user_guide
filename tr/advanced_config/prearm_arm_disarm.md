@@ -14,7 +14,7 @@ Ground stations may display *disarmed* for pre-armed vehicles. While not technic
 
 Users can control progression though these states using a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) on the vehicle (optional) *and* an [arming switch/button](#arm_disarm_switch), [arming gesture](#arm_disarm_gestures), or *MAVLink command* on the ground controller:
 
-- A *safety switch* is an control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+- A *safety switch* is a control *on the vehicle* that must be engaged before the vehicle can be armed, and which may also prevent prearming (depending on the configuration). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
   
 :::warning
 A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.

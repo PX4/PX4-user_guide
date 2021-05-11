@@ -16,9 +16,12 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
 
 - Consumer drones that can be updated to run PX4 (from other flight stacks):
   
-  - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
-  - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
-  - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
+  - Multicopter 
+    - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
+    - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
+    - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
+  - Underwater Vehicles 
+    - [BlueROV2](../frames_sub/bluerov2.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 
 - Consumer drones run a custom version of PX4 (supported by their vendors):
   

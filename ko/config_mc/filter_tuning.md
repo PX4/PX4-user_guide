@@ -13,82 +13,82 @@
 *제어 지연*은 모터가 변화에 반응할 때까지 기체의 물리적 장애로 인한 지연을 의미합니다.
 
 :::tip
-지연 시간을 줄이면 **P** 증가율을 높일 수 있으므로 비행 성능이 향상됩니다. 지연 시간 1 밀리초도 상당한 영향을 미칠 수 있습니다.
+지연 시간을 줄이면 **P** 증가율을 높일 수 있으므로 비행 성능이 향상됩니다. 1/1000초의 지연 시간도 큰 영향을 미칠 수 있습니다.
 :::
 
-The following factors affect control latency:
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The maximum gyro publication rate (configured with [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)). A higher rate reduces latency but is computationally intensive/can starve other processes. 4 kHz or higher is only recommended for controllers with STM32H7 processor or newer (2 kHz value is near the limit for less capable processors).
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable [Dshot](.../en/peripherals/dshot.md) or One-Shot ([PWM_AUX_RATE=0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) or [PWM_MAIN_RATE=0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)) to reduce latency.
+다음의 요소들은 제어 지연에 영향을 끼칩니다.
+- 부드러운 기체 또는 부드러운 진동 장착은 대기 시간을 증가시킵니다 (필터 역할을 함).
+- 소프트웨어 및 센서 칩의 저역 통과 필터는 대기 시간 증가분을 상쇄하여 노이즈 필터링을 원활하게합니다.
+- PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
+- 최대 자이로 게시 속도 ([IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX)로 설정됨). 속도가 높을수록 지연 시간이 줄어들지만 증간된 연산량으로 인하여 다른 프로세스를 방해할 수 있습니다. 4kHz 이상은 STM32H7 프로세서 이상의 컨트롤러에서만 권장됩니다 (2kHz 값은 성능이 낮은 프로세서의 최대치입니다).
+- IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
+- PWM 출력 신호 : 대기 시간을 줄이기 위하여 [Dshot](.../en/peripherals/dshot.md) 또는 One-Shot ([PWM_AUX_RATE = 0](../advanced_config/parameter_reference.md#PWM_AUX_RATE) 또는 [PWM_MAIN_RATE = 0](../advanced_config/parameter_reference.md#PWM_MAIN_RATE))을 활성화합니다.
 
-Below we look at the impact of the low pass filters.
+아래에서는 저역 통과 필터의 효과에 대하여 설명합니다.
 
-## Filters
+## 필터
 
-This is the filtering pipeline for the controllers in PX4:
-- On-chip DLPF for the gyro sensor. This is disabled on all chips where it can be disabled (if not, the cutoff frequency is set to the highest level of the chip).
-- A notch filter on the gyro sensor data that is used to filter out narrow band noise, for example harmonics at the rotor blade pass frequency. This filter can be configured using [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) and [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ).
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter. :::note Sampling and filtering is always performed at the full raw sensor rate (commonly 8kHz, depending on the IMU).
+다음은 PX4 컨트롤러의 필터링 파이프 라인입니다.
+- 자이로 센서용 온칩 DLPF. 비활성화가 가능한 모든 칩에서 비활성화됩니다 (그렇지 않은 경우, 차단 주파수가 칩의 최고 수준으로 설정됨).
+- 로터 블레이드 통과 주파수의 고조파와 같은 협대역 노이즈를 필터링을 위한 자이로 센서 데이터의 노치 필터입니다. 이 필터는 [IMU_GYRO_NF_BW](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 및 [IMU_GYRO_NF_FREQ](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ)를 사용하여 설정할 수 있습니다.
+- 자이로 센서 데이터에 대한 저주파 통과 필터. [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) 매개변수로 설정할 수 있습니다. :::note 샘플링과 필터링은 항상 전체 원시 센서 속도(일반적으로 IMU에 따라 8kHz)에서 수행됩니다.
 :::
-- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
-- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
+- D-term에 대한 별도의 저역 통과 필터. D-term은 노이즈에 가장 취약하지만 대기 시간이 약간 증가해도 성능에 나쁜 영향을 주지 않습니다. 이러한 이유로 D-term에는 별도로 구성 가능한 저역 통과 필터 [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF)가 있습니다.
+- 모터 출력의 슬루 레이트 필터 ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). 일반적으로 사용되지 않습니다.
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. The effect on latency of increasing `IMU_GYRO_CUTOFF` is approximated below.
+제어 지연을 줄이기 위해 저역 통과 필터의 차단 주파수를 높이려고 합니다. `IMU_GYRO_CUTOFF` 증가로 인한 지연 시간에 미치는 영향은 대략 다음과 같습니다.
 
-| Cuttoff (Hz) | Delay approx. (ms) |
-| ------------ | ------------------ |
-| 30           | 8                  |
-| 60           | 3.8                |
-| 120          | 1.9                |
+| 컷오프 (Hz) | 지연(대략). (ms) |
+| -------- | ------------ |
+| 30       | 8            |
+| 60       | 3.8          |
+| 120      | 1.9          |
 
-However this is a trade-off as increasing `IMU_GYRO_CUTOFF` will also increase the noise of the signal that is fed to the motors. Noise on the motors has the following consequences:
-- Motors and ESCs can get hot, to the point where they get damaged.
-- Reduced flight time because the motors continuously change their speed.
-- Visible random small twitches.
+그러나 `IMU_GYRO_CUTOFF`를 증가시키면 모터에 공급되는 신호의 노이즈도 증가합니다. 모터 소음은 다음과 같은 결과를 가져옵니다.
+- 모터와 ESC는 손상될 정도로 뜨거워 질 수 있습니다.
+- 모터가 계속 속도를 변경하므로 비행 시간이 단축됩니다.
+- 가시적인 임의의 작은 트위치.
 
-Setups that have a significant lower-frequency noise spike (e.g. due to harmonics at the rotor blade pass frequency) can benefit from using the notch filter to clean the signal before it is passed to the low pass filter (these harmonics have a similar detrimental impact on motors as other sources of noise). Without the notch filter you'd have to set the low pass filter cuttoff much lower (increasing the latency) in order to avoid passing this noise to the motors.
+상당한 저주파 노이즈 스파이크가있는 설정 (예 : 로터 블레이드 통과 주파수의 고조파로 인한)은 노치 필터를 사용하여 신호가 저역 통과 필터로 전달되기 전에 신호를 제거하는 것이 좋습니다 (이러한 고조파는 다른 소음원으로 모터에서 비슷한 해로운 영향을 미칩니다). 노치 필터가 없으면이 노이즈가 모터로 전달되는 것을 방지하기 위하여 저역 통과 필터 컷오프를 매우 낮게 설정해야합니다 (대기 시간 증가).
 
 :::note
-Only one notch filter is provided. Airframes with more than one low frequency noise spike typically clean the first spike with the notch filter, and subsequent spikes using the low pass filter.
+노치 필터는 하나만 제공됩니다. 하나 이상의 저주파 노이즈 스파이크가 있는 기체는 일반적으로 노치 필터로 첫 번째 스파이크를 청소하며 저역 통과 필터를 사용하여 후속 스파이크를 청소합니다.
 :::
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+최적의 필터 설정은 기체에 따라 달라집니다. 기본값은 낮은 품질 설정에서도 작동하도록 보수적으로 설정됩니다.
 
-## Filter Tuning
+## 필터 튜닝
 
-First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
+먼저 고속 로깅 프로필이 활성화되었는 지 확인하십시오 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 매개 변수). 그러면 [Flight Review](../getting_started/flight_reporting.md)가 롤, 피치 및 요 컨트롤에 대한 FFT 플롯을 표시합니다.
 
 :::warning
-- Do not try to fix a vehicle that suffers from high vibrations with filter tuning! Instead fix the vehicle hardware setup.
-- Confirm that PID gains, in particular D, are not set too high as this can show up as vibrations.
+- 기체의 심한 진동 문제를 필터 튜닝만으로  해결하는 것은 적절하지 않습니다. 기체의 하드웨어 설정을 수정하는 것이 바람직합니다.
+- PID 게인, 특히 D가 진동으로 나타날 수 있으므로 너무 높게 설정되지 않았는 지 확인하십시오.
 :::
 
-Filter tuning is best done by reviewing flight logs. You can do multiple flights right after each other with different parameters and then inspect all logs, but make sure to disarm in between so that separate log files are created.
+필터 튜닝은 비행 로그를 검토하는 것이 제일 좋은 방법입니다. 서로 다른 매개 변수를 사용하여 여러 차례 비행후 로그를 분석할 수 있지만, 별도의 로그 파일이 생성되도록 중간에 시동을 꺼야합니다.
 
-The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
+비행 기동은 [수동/안정화 모드](../flight_modes/manual_stabilized_mc.md)에서 단순히 모든 방향으로 롤링 및 피칭하고 스로틀 기간을 늘리면서 호버링할 수 있습니다. 전체 시간은 30초를 넘지 않아도 됩니다. 정확한 비교를 위해서 모든 테스트에서 기동이 유사하여야 합니다.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30). Upload the logs to [Flight Review](https://logs.px4.io) and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz).
+먼저 낮은 D-term 필터값 ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30)을 사용하면서 10Hz 단위로 자이로 필터 [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF)를 조정합니다. 로그를 [Flight Review](https://logs.px4.io)에 업로드하여 *Actuator Controls FFT* 플롯을 비교합니다. 노이즈가 눈에 띄게 증가하기 전에 차단 주파수를 설정하십시오 (60Hz 주변 및 그 이상의 주파수).
 
-Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. Note that there can be negative impacts on preformance if `IMU_GYRO_CUTOFF` and `IMU_DGYRO_CUTOFF` are set too far apart (the differences have to be significant though - e.g. D=15, gyro=80).
+그런 다음 동일한 방식으로 D-term 필터 (`IMU_DGYRO_CUTOFF`)를 조정합니다. `IMU_GYRO_CUTOFF`와 `IMU_DGYRO_CUTOFF`가 차이가 많이 나면, 성능에 부정적인 영향을 미칠 수 있습니다 (그 차이는 중요합니다. 예 : D = 15, gyro = 80).
 
-Below is an example for three different `IMU_DGYRO_CUTOFF` filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
+다음은 세 가지 다른 `IMU_DGYRO_CUTOFF` 필터값 (40Hz, 70Hz, 90Hz)에 대한 예입니다. 90Hz에서는 일반적인 소음이 증가하기 시작하므로 (특히 롤의 경우) 차단 주파수 70Hz가 안전합니다. ![IMU_DGYRO_CUTOFF=40](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/config/mc/filter_tuning/actuator_controls_fft_dgyrocutoff_90.png)
 
 :::note
-The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration.
+y 축 스케일이 다를 수 있으므로 다른 차량간에 플롯을 비교할 수 없습니다. 동일한 기체에서 일관적이며 비행 시간과는 무관합니다.
 :::
 
-If the flight plots shows significant low frequency spikes, like the one shown in the diagram below, you can remove it using a notch filter. In this case you might use the settings: [IMU_GYRO_NF_FREQ=32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) and [IMU_GYRO_NF_BW=5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) (note, this spike is narrower than usual). The low pass filters and the notch filter can be tuned independently (i.e. you don't need to set the notch filter before collecting the data for tuning the low pass filter).
+아래 다이어그램에 표시된 것과 같이 비행 플롯에 상당한 저주파 스파이크가 나타되는 경우에는 노치 필터를 사용하여 제거할 수 있습니다. 이 경우 [IMU_GYRO_NF_FREQ = 32](../advanced_config/parameter_reference.md#IMU_GYRO_NF_FREQ) 및 [IMU_GYRO_NF_BW = 5](../advanced_config/parameter_reference.md#IMU_GYRO_NF_BW) 설정을 사용할 수 있습니다 (이 스파이크는 평소보다 좁습니다). 저역 통과 필터와 노치 필터는 독립적으로 조정할 수 있습니다 (즉, 저역 통과 필터를 조정하기 전에 노치 필터를 설정할 필요는 없습니다).
 
 ![IMU_GYRO_NF_FREQ=32 IMU_GYRO_NF_BW=5](../../assets/config/mc/filter_tuning/actuator_controls_fft_gyro_notch_32.png)
 
-## Additional Tips
+## 추가 팁
 
-1. Acceptable latency depends on vehicle size and expectations. FPV racers typically tune for the absolute minimal latency (as a ballpark `IMU_GYRO_CUTOFF` around 120, `IMU_DGYRO_CUTOFF` of 50 to 80). For bigger vehicles latency is less critical and `IMU_GYRO_CUTOFF` of around 80 might be acceptable.
+1. 허용 가능한 지연 시간은 기체 크기와 기대치에 따라 달라집니다. FPV 레이서는 일반적으로 절대 최소 대기 시간 (약 120의 야구장 `IMU_GYRO_CUTOFF`, 50에서 80의 `IMU_DGYRO_CUTOFF`)으로 조정합니다. 대형 기체의 지연 시간의 중요성은 작습니다. 약 80의 `IMU_GYRO_CUTOFF`가 허용될 수 있습니다.
 
-1. You can start tuning at higher `IMU_GYRO_CUTOFF` values (e.g. 100Hz), which might be desirable because the default tuning of `IMU_GYRO_CUTOFF` is set very low (30Hz). The only caveat is that you must be aware of the risks:
-   - Don't fly for more than 20-30 seconds
-   - Check that the motors are not getting to hot
-   - Listen for odd sounds and symptoms of excessive noise, as discussed above.
+1. 더 높은 `IMU_GYRO_CUTOFF` 값 (예 : 100Hz)에서 튜닝을 시작할 수 있으며, 이는 `IMU_GYRO_CUTOFF`의 기본 튜닝이 매우 낮게 (30Hz) 설정되어 있기 때문에 바람직 할 수 있습니다. 유일한 주의 사항은 위험을 알고 있어야한다는 것입니다.
+   - 20 ~ 30 초 이상 비행하지 마십시오
+   - 모터가 과열되지 않는 지 확인하십시오.
+   - 위의 설명처럼 이상한 소리와 과도한 소음을 체크하십시오.
