@@ -1175,17 +1175,17 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-back-to-top@^1.6.0":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.7.1.tgz#8bdc4a2de95f8244f167b3b3066c2610b88aabeb"
-  integrity sha512-Hw/5kQjqtkHEstifcq4gpdVwS38C3ecruLCUibq3YEES6DJUYZ8tN1oo3FTugYgpXsyn3HxWftyalozcZ2IutA==
+"@vuepress/plugin-back-to-top@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.8.2.tgz#e9794409d1d589e4952b0700291270d2696e6d01"
+  integrity sha512-htAf2m8+6cGmYQexWerznGBY10y1E4TBfebYC3Y3wqNjFjvXUmRKcAG/u6Yxvey4OFkQUxbth2ilKi/GlIW8aQ==
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-google-analytics@^1.6.0":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.7.1.tgz#c337e13c8a27f6fea911a04db22a3f3596a571fb"
-  integrity sha512-27fQzRMsqGYpMf+ruyhsdfLv/n6z6b6LutFLE/pH66Itlh6ox9ew31x0pqYBbWIC/a4lBfXYUwFvi+DEvlb1EQ==
+"@vuepress/plugin-google-analytics@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.8.2.tgz#96cf65f1f0ecbb3bcf6b0d10089dafe2aea875bc"
+  integrity sha512-BMFayLzT2BvXmnhM9mDHw0UPU7J0pH1X9gQA4HmZxOf7f3+atK5eJGsc1Ia/+1FTG2ESvhFLUU/CC3h5arjEJw==
 
 "@vuepress/plugin-last-updated@1.8.2":
   version "1.8.2"
@@ -1194,10 +1194,10 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-medium-zoom@^1.6.0":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.7.1.tgz#170598bba9941dbd047cffaa659023db8f46e337"
-  integrity sha512-pYI6myr4bi9SYzvR6D4r7+YpjpXgudCbontXKZIARS7hJ+kVBapVYnetrbeNFKq+7a/QGOkAuAK2j39dQLaMXQ==
+"@vuepress/plugin-medium-zoom@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.8.2.tgz#0243dd27edf0c710f9a41a234d253d76ab51e625"
+  integrity sha512-Mljso/8E6IbNmIKmwKeC6FDfnhKY3fsOUSs5kEGzz3RQwd54eshqHAMRVwW4LZkYZHhwQXF8+qk7YqoMZB7jjg==
   dependencies:
     medium-zoom "^1.0.4"
 
@@ -4848,6 +4848,11 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -7754,12 +7759,12 @@ vuepress-plugin-redirect@^1.2.5:
     "@shigma/stringify-object" "^3.3.0"
     vuepress-plugin-dehydrate "1.1.5"
 
-vuepress-plugin-right-anchor@^0.4.4:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.4.5.tgz#395031c4da1f9f60a747a43dedcdbe9194392e0f"
-  integrity sha512-cDa+gguUBmNXA829JmK61z6p08zTVWeiEN+30TJ/6T3aWYCLNYhGM7hCVEYYpUmYnpXQC0vzm6v6q4XjDDzkDA==
+vuepress-plugin-right-anchor@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.4.9.tgz#57d80def720b7cd12e17fefb0145e46ba1adc623"
+  integrity sha512-NtgOPNA/a/l4Ndb4ijTUKm7izenQHN9T3uB5NFdNOW6OtTd2K6YXNGAgD9IoTi4wYb/bzS9CuXMEMoM13gmfZw==
   dependencies:
-    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"
