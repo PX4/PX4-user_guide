@@ -142,9 +142,9 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 로그는 추적 성능 평가에 많은 도움이 됩니다. 다음은 롤과 요 속도 추적의 좋은 예입니다.
 
-![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
+![롤 레이트 추적](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![요 레이트 추적](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
-다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
+다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![롤 레이트 추적 플립](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
 ### 자세 컨트롤러
 
@@ -178,14 +178,14 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 [스러스트 스탠드](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)가 있는 (또는 추력 및 모터 명령을 동시에 *측정* 할 수 있는 경우) 경우 에는, 모터 제어 신호와 모터의 실제 추력 사이의 관계를 결정하고 기능을 데이터에 맞출 수 있습니다. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [이 노트북](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)은 이전에 측정 된 추력과 PWM 데이터에서 추력 모델 계수 `THR_MDL_FAC`를 계산하는 방법을 설명합니다. 이 플롯에 표시된 곡선은 &alpha; k, 실제 단위 (kgf 및 &mu;s)로 추력과 PWM을 표시합니다. 곡선 맞춤 문제를 단순화하기 위해 &alpha;를 추정하지 않고도 `k`를 찾기 위해 0과 1 사이의 데이터를 정규화 할 수 있습니다(&alpha; = 1, 데이터가 정규화 될 때).
 
-[![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
+[![추력 곡선 보상](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
 
 :::note PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집니다.
 :::
 
 이 실험의 또 다른 방법은 정규화된 모터 명령과 추력 값의 산점도를 만들고 `THR_MDL_FAC` 매개변수로 실험하여 추력 곡선을 반복적으로 조정하는 것입니다. 해당 그래프의 예는 아래와 같습니다.
 
-![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+![상대 추력 및 PWM 분산 그래프](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
 
 원시 모터 명령 및 추력 데이터가 실험의 전체 범위에 걸쳐 수집되는 경우, 다음 방정식을 사용하여 데이터를 정규화할 수 있습니다.
 
@@ -236,4 +236,4 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 혼합이 상한선으로 포화되면, 명령된 추력이 감소되어 모터가 100 % 이상의 추력을 전달하지 않도록 합니다. 이 동작은 Airmode 로직과 유사하며 Airmode 활성화 여부에 관계없이 적용됩니다.
 
-Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+기체 비행이 성공적이면 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수를 통하여 에어 모드를 활성화 할 수 있습니다.
