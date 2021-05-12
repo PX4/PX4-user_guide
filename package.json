@@ -4,14 +4,6 @@
   "main": "index.js",
   "repository": "https://github.com/PX4/px4_user_guide.git",
   "license": "CC-BY-4.0",
-  "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.6.0",
-    "@vuepress/plugin-google-analytics": "^1.6.0",
-    "@vuepress/plugin-medium-zoom": "^1.6.0",
-    "lodash.debounce": "^4.0.8",
-    "vuepress": "^1.5.4",
-    "vuepress-plugin-redirect": "^1.2.5"
-  },
   "scripts": {
     "ununtu_copyworker": "./.vuepress/scripts/worker_copy.sh",
     "windows_copyworker": "./.vuepress/scripts/worker_copy.bat",
@@ -24,8 +16,14 @@
     "start": "yarn docs:dev"
   },
   "dependencies": {
+    "vuepress": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.6.0",
+    "@vuepress/plugin-google-analytics": "^1.6.0",
+    "@vuepress/plugin-medium-zoom": "^1.6.0",
+    "lodash.debounce": "^4.0.8",
     "markdown-it-video": "^0.6.3",
     "vuepress-plugin-mathjax": "^1.2.8",
+    "vuepress-plugin-redirect": "^1.2.5",
     "vuepress-plugin-right-anchor": "^0.4.4"
   }
 }
