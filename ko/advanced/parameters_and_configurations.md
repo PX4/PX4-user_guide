@@ -75,37 +75,45 @@ param save
 param import /fs/microsd/vtol_param_backup  
 ```
 
-
 ## 매개변수 이름
 
 매개변수 이름은 ASCII 문자 16개를 넘어서는 안됩니다.
+- `param_update` uORB 메시지에 *어떤* 업데이트 사항이 있다면 `orb_check()`에서 알려주고 (다만 어떤 매개변수가 영향을 받았는지 정보는 아님) `updated` 부울린 값을 설정합니다.
+- "일부" 매개변수를 업데이트했다면 `parameter_update_s` (`param_upd`)에 최신 매개변수 값을 복사합니다
 
 관례에 따르면, 그룹의 모든 매개변수는 밑줄 문자가 뒤따라오는 동일한(의미를 가진) 문자열을 공유하며, 다중 프로펠러 항공기 또는 고정익 항공기의 여부에 따라 `MC_`와 `FW_`를 매개변수 이름에 활용합니다. 이 관례는 강제 사항이 아닙니다.
-
-PX4 모듈과 드라이버에서 매개변수 값에 접근하는 용도로 C와 C++언어로 활용할 수 있는 개별 API가 있습니다.
-
-
-## C / C++ API
-
-PX4 모듈과 드라이버에서 매개변수 값에 접근하는 용도로 C와 C++언어로 활용할 수 있는 개별 API가 있습니다.
-
-API간 중요한 차이점이 있다면, C++ 버전은 매개변수 값을 바꿀 때 동기화하는 표준 매커니즘이 더욱 효율적입니다(예: GCS에서 업데이트).
-
-매개변수 값이 다른 값으로 언제든 바뀔 수 있으므로 동기화는 중요합니다. 코드는 매개변수 저장소에 *항상* 현재 값을 사용해야합니다. 최근 버전을 가져올 수 없다면, 매개변수 값을 바꾼 후 다시 부팅해야 합니다(`@reboot_required` 메타데이터로 필수 여부 설정).
-
-C++ API에서는 *클래스 속성*으로 매개변수를 선언하는 매크로를 제공합니다. *임의의*  매개변수 업데이트와 관련된 [uORB 토픽](../middleware/uorb.md)의 변경을 주기적으로 확인하는 "상용구" 코드를 추가합니다.
 
 
 ### C++ API
 
-C++ API에서는 *클래스 속성*으로 매개변수를 선언하는 매크로를 제공합니다. *임의의*  매개변수 업데이트와 관련된 [uORB 토픽](../middleware/uorb.md)의 변경을 주기적으로 확인하는 "상용구" 코드를 추가합니다. 이렇게 하면 프레임워크 코드는 매개변수 속성 값에 영향을 주는 uORB 메시지를 (감쪽같이) 추적하고 동기화 과정을 통해 매개변수 속성 값을 유지합니다. 나머지 코드에서 지정한 매개변수 속성을 활용하고 항상 최신으로 유지할 수 있습니다!
+PX4 모듈과 드라이버에서 매개변수 값에 접근하는 용도로 C와 C++언어로 활용할 수 있는 개별 API가 있습니다.
 
-모듈 또는 드라이버에 **px4_platform_common/module_params.h** 헤더를 클래스 헤더에 넣으십시오(`DEFINE_PARAMETERS` 매크로를 가져옵니다):
+By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed wing systems. This convention is not enforced.
+
+API간 중요한 차이점이 있다면, C++ 버전은 매개변수 값을 바꿀 때 동기화하는 표준 매커니즘이 더욱 효율적입니다(예: GCS에서 업데이트).
+
+
+### C API
+
+There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
+
+One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+
+C++ API에서는 *클래스 속성*으로 매개변수를 선언하는 매크로를 제공합니다. *임의의*  매개변수 업데이트와 관련된 [uORB 토픽](../middleware/uorb.md)의 변경을 주기적으로 확인하는 "상용구" 코드를 추가합니다. 이렇게 하면 프레임워크 코드는 매개변수 속성 값에 영향을 주는 uORB 메시지를 (감쪽같이) 추적하고 동기화 과정을 통해 매개변수 속성 값을 유지합니다.
+
+In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
+
+
+#### 다중 인스턴스 (서식화) 메타데이터
+
+`ModuleParams` 클래스를 상송하고 매개변수 목록과 관련 매개변수 속성을 정의할 때 `DEFINE_PARAMETERS`를 활용하십시오. 매개변수 이름은 매개변수 메타데이터 정의와 정확히 일치해야합니다. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+
+상용구 코드로 cpp 파일을 업데이트하여 매개변수 업데이트와 관련 있는 uORB 메시지를 확인하십시오.
 ```cpp
 #include <px4_platform_common/module_params.h>
 ```
 
-`ModuleParams` 클래스를 상송하고 매개변수 목록과 관련 매개변수 속성을 정의할 때 `DEFINE_PARAMETERS`를 활용하십시오. 매개변수 이름은 매개변수 메타데이터 정의와 정확히 일치해야합니다.
+Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
 ```cpp
 class MyModule : ..., public ModuleParams
 {
@@ -127,13 +135,15 @@ private:
 };
 ```
 
-상용구 코드로 cpp 파일을 업데이트하여 매개변수 업데이트와 관련 있는 uORB 메시지를 확인하십시오.
+Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
 
-우선 헤더를 포함하여 uORB parameter_update 메시지에 접근하게 합니다:
+위 메서드에서:
 ```cpp
 #include <uORB/topics/parameter_update.h>
 ```
-모듈 또는 드라이버를 시작할 때 메시지 업데이트 과정에 참여하며, 과정이 끝나면 해제합니다. `orb_subscribe()`에서 반환하는 `parameter_update_sub` 값은  메시지 업데이트 과정 참여시 참고할 핸들입니다.
+
+Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
+
 ```cpp
 # Subscribe to parameter_update message
 int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
@@ -142,7 +152,7 @@ int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
 orb_unsubscribe(parameter_update_sub);
 ```
 
-위 메서드에서:
+C API는 모듈과 드라이버 모두에서 활용할 수 있습니다.
 ```cpp
 void Module::parameters_update(int parameter_update_sub, bool force)
 {
@@ -164,37 +174,40 @@ void Module::parameters_update(int parameter_update_sub, bool force)
     }
 }
 ```
-매개변수 속성(이 경우, `_sys_autostart` 와 `_att_bias_max`)은 매개변수를 대신할 목적으로 활용할 수 있으며, 매개변수 값이 바뀔 때마다 업데이트합니다.
-- `param_update` uORB 메시지에 *어떤* 업데이트 사항이 있다면 `orb_check()`에서 알려주고 (다만 어떤 매개변수가 영향을 받았는지 정보는 아님) `updated` 부울린 값을 설정합니다.
-- "일부" 매개변수를 업데이트했다면 `parameter_update_s` (`param_upd`)에 최신 매개변수 값을 복사합니다
-- 그 다음 `ModuleParams::updateParams()` 메서드를 호출합니다. 이 "하부" 에서는 `DEFINE_PARAMETERS`  목록에 있는 특정 매개변수 속성을 업데이트해야 하는지 확인하고, 필요할 경우 진행합니다.
-- 이 예제에서는 `Module::parameters_update()` 메서드를 `force=True` 인자 값을 대입하여 호출하지 않습니다. 만약 함수에 넣은 일반 패턴을 설정해야 할 다른 값이 있다면, 초기화를 진행하는  동안 `force=True` 값을 대입하여 1회 호출합니다.
+In the above method:
+- YAML 매개변수 메타데이터 스키마는 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에 있습니다.
+- 활용 중인 YAML 정의 예제는 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의파일에서 찾을 수 있습니다.
+- Then we call `ModuleParams::updateParams()`. This "under the hood" checks if the specific parameter attributes listed in our `DEFINE_PARAMETERS` list need updating, and then does so if needed.
+- This example doesn't call `Module::parameters_update()` with `force=True`. If you had other values that needed to be set up a common pattern is to include them in the function, and call it once with `force=True` during initialisation.
 
 C API는 모듈과 드라이버 모두에서 활용할 수 있습니다.
 
-:::Tip [어플리케이션/모듈 서식](../modules/module_template.md)에서는 새 방식의 C++ API를 사용하나 [매개변수 메타데이터](#parameter-metadata)는 들어있지 않습니다.
+:::tip
+The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
 :::
 
-### C API
+#### C API
 
-C API는 모듈과 드라이버 모두에서 활용할 수 있습니다.
+The C API can be used within both modules and drivers.
 
-우선 매개변수 API를 넣으십시오:
+First include the parameter API:
 ```C
 #include <parameters/param.h>
 ```
 
-그리고 아래와 같이 `PARAM_NAME` 매개변수를 가져와서 변수에 할당하십시오(여기서는 `my_param`). `my_param` 변수는 여러분이 작성한 모듈 코드에서 활용할 수 있습니다.
+`param_find()`은 "실행 시간이 조금 걸리는" 동작이며, 이 함수에서 나온 핸들 값은 `param_get()` 함수에서 사용할 수 있습니다. 매개변수를 여러줄에서 가져올 경우, 필요할 때 핸들 값을 캐싱한 다음 `param_get()` 값을 사용합니다.
 ```C
 int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
 :::note
-`PARAM_NAME`을 매개변수 메타데이터에서 선언했다면 우선 이 기본값을 설정하며, 위 코드에서의 매개변수 검색 호출은 언제든 성공합니다.
+If `PARAM_NAME` was declared in parameter metadata then its default value will be set, and the above call to find the parameter should always succeed.
 :::
 
-`param_find()`은 "실행 시간이 조금 걸리는" 동작이며, 이 함수에서 나온 핸들 값은 `param_get()` 함수에서 사용할 수 있습니다. 매개변수를 여러줄에서 가져올 경우, 필요할 때 핸들 값을 캐싱한 다음 `param_get()` 값을 사용합니다.
+:::tip
+올바른 메타데이터는 지상 장치에서의 바람직한 사용자 경험에 중요합니다.
+:::
 ```cpp
 # Get the handle to the parameter
 param_t my_param_handle = PARAM_INVALID;
@@ -206,53 +219,86 @@ param_get(my_param_handle, &my_param);
 ```
 
 
-## 매개변수 메타데이터
+### C 매개변수 메타데이터
 
-기존의 매개변수 메타데이터 정의 방식의 접근은 **.c** 확장자를 가진 파일을 활용하는 방식입니다(이 글을 작성하는 시점에는 소스트리에서 가장 일반적으로 활용하는 접근법입니다).
+PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
 :::tip
-올바른 메타데이터는 지상 장치에서의 바람직한 사용자 경험에 중요합니다.
+Correct metadata is critical for good user experience in a ground station.
 :::
-
-매개변수 메타데이터는 소스트리 어디에든 **.c** 또는 **.yaml** 매개변수 정의파일로 저장할 수 있습니다(YAML 정의가 더 최신이며 다루기에 유연합니다). 보통 관련 모듈과 함께 저장합니다.
-
-빌드 시스템에서는 (`make parameters_metadata` 명령을 활용하여) 메타데이터를 추출하여 지상 관제 프로그램에서 활용할 [매개변수 참조](../advanced_config/parameter_reference.md)와 매개변수 정보를 빌드합니다.
 
 :::warning
 *새* 매개변수 파일을 추가하고 나면, 새 매개변수를 만들기 전 `make clean`을 실행해야합니다(매개변수 파일은 *cmake* 설정 단계의 일부로서 추가하며, 이 명령을 실행하면 cmake 파일을 수정했을 때, 기존의 빌드 파일을 정리합니다).
 :::
 
-
-### C 매개변수 메타데이터
-
 서식화 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원합니다(서식화 매개변수 코드는 지원하지 않습니다).
 
-매개변수 메타데이터 부분은 다음 예제와 같습니다:
+:::warning
+After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+:::
 
-```cpp
-/**
- * Acceleration compensation based on GPS
- * velocity.
- *
- * @group Attitude Q estimator
- * @boolean
- */
-PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
-```
-```cpp
-/**
- * Acceleration compensation based on GPS
- * velocity.
- *
- * @group Attitude Q estimator
- * @boolean
- */
-PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
-```
 
-위 코드 마지막의 `PARAM_DEFINE_*` 매크로는 매개변수 형식(`PARAM_DEFINE_FLOAT` 또는 `PARAM_DEFINE_INT32`), 매개변수 이름(코드에서 사용할 이름과 일치해야 함), 펌웨어의 기본값을 지정합니다.
+#### YAML Metadata
+
+:::note
+At time of writing YAML parameter definitions cannot be used in *libraries*.
+:::
 
 주석 블록 행 내용은 모두 취사선택 요소이며, 기본적으로 지상 통제 장치에서 화면을 제어하고 옵션을 편집할 때 활용합니다. 각 행의 목적은 다음과 같습니다(자세한 내용은 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)을 참고하십시오).
+
+- `num_instances` (기본값 1): 생성할 인스턴스 갯수(하나 이상)
+- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+
+
+#### Multi-Instance (Templated) YAML Meta Data
+
+Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
+
+YAML 메타데이터는 **.c**의 정의를 완전히 대체할 용도로 존재합니다. 모든 동일한 메타데이터를 지원하며, 다중 인스턴스 정의와 같은 새 기능도 있습니다.
+```
+MY_PARAM_${i}_RATE:
+            description:
+                short: Maximum rate for instance ${i}
+```
+
+서식화 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원합니다(서식화 매개변수 코드는 지원하지 않습니다).
+- `num_instances` (default 1): Number of instances to generate (>=1)
+- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+
+For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
+
+
+#### c Parameter Metadata
+
+다음 YAML 정의에서는 시작, 끝 인덱스 번호를 제공합니다.
+
+전체 예제를 보려면 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의 파일을 살펴보십시오
+
+```cpp
+/**
+ * Acceleration compensation based on GPS
+ * velocity.
+ *
+ * @group Attitude Q estimator
+ * @boolean
+ */
+PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
+```
+```cpp
+/**
+ * <title>
+ *
+ * <longer description, can be multi-line>
+ *
+ * @unit <the unit, e.g. m for meters>
+ * @min <the minimum sane value.
+ Can be overridden by the user>
+ * @max <the maximum sane value.
+```
+
+The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
+
+The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)).
 
 ```cpp
 /**
@@ -263,7 +309,7 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
  * @unit <the unit, e.g. m for meters>
  * @min <the minimum sane value. Can be overridden by the user>
  * @max <the maximum sane value. Can be overridden by the user>
- * @max <the maximum sane value. Can be overridden by the user>
+ * @decimal <the minimum sane value. Can be overridden by the user>
  * @increment <the "ticks" in which this value will increment in the UI>
  * @reboot_required true <add this if changing the param requires a system restart.>
  * @boolean <add this for integer parameters that represent a boolean value>
@@ -271,36 +317,9 @@ PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
  */
 ```
 
-### YAML 메타데이터
-
-:::note
-이 내용을 작성하는 시점에서는 YAML 매개변수 정의를 *라이브러리*에서 활용할 수 없습니다.
-:::
-
-YAML 메타데이터는 **.c**의 정의를 완전히 대체할 용도로 존재합니다. 모든 동일한 메타데이터를 지원하며, 다중 인스턴스 정의와 같은 새 기능도 있습니다.
-
-- YAML 매개변수 메타데이터 스키마는 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에 있습니다.
-- 활용 중인 YAML 정의 예제는 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의파일에서 찾을 수 있습니다.
 
 
-#### 다중 인스턴스 (서식화) 메타데이터
+## C / C++ API
 
-서식화 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원합니다(서식화 매개변수 코드는 지원하지 않습니다).
-
-YAML 형식 코드에서는 매개변수 이름, 설명의 인스턴스 번호를 `${i}`로 정할 수 있습니다. 예를 들어, 아래 예제에서는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 만듭니다.
-```
-MY_PARAM_${i}_RATE:
-            description:
-                short: Maximum rate for instance ${i}
-```
-
-다음 YAML 정의에서는 시작, 끝 인덱스 번호를 제공합니다.
-- `num_instances` (기본값 1): 생성할 인스턴스 갯수(하나 이상)
-- `instance_start` (기본값 0): 첫번재 인스턴스 번호. 0으로 지정하면, `${i}` 값은 0부터 N-1 까지 갑니다.
-
-전체 예제를 보려면 [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml) MAVLink 매개변수 정의 파일을 살펴보십시오
-
-## 추가 정보
-
-- [매개변수 검색/업데이트](../advanced_config/parameters.md)
-- [매개변수 참고](../advanced_config/parameter_reference.md)
+- [Finding/Updating Parameters](../advanced_config/parameters.md)
+- [Parameter Reference](../advanced_config/parameter_reference.md)
