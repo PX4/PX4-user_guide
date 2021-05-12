@@ -117,10 +117,19 @@ You add some "boilerplate" code to regularly listen for changes in the [uORB Top
 Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. 
 In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
-First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
-```cpp
-#include <px4_platform_common/module_params.h>
-```
+First include the required needed headers in the class header for your module or driver:
+- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+  ```cpp
+  #include <px4_platform_common/module_params.h>
+  ```
+- **parameter_update.h** to access the uORB `parameter_update` message:
+  ```cpp
+  #include <uORB/topics/parameter_update.h>
+  ```
+- **Subscription.hpp** for the UORB parameter update subscription
+  ```cpp
+  #include <uORB/Subscription.hpp>
+  ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes.
 The names of the parameters must be the same as their parameter metadata definitions.
@@ -142,15 +151,15 @@ private:
 		(ParamInt<px4::params::SYS_AUTOSTART>) _sys_autostart,   /**< example parameter */
 		(ParamFloat<px4::params::ATT_BIAS_MAX>) _att_bias_max  /**< another parameter */
 	)
+	
+	// Subscriptions
+	uORB::SubscriptionInterval _parameter_update_sub{ORB_ID(parameter_update), 1_s};
+	
 };
 ```
 
-Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
 
-First include the header to access the uORB parameter_update message:
-```cpp
-#include <uORB/topics/parameter_update.h>
-```
+Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
 
 Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. 
 `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
@@ -164,7 +173,7 @@ orb_unsubscribe(parameter_update_sub);
 ```
 
 Call `parameters_update(parameter_update_sub);` periodically in code to check if there has been an update (this is boilerplate):
-```cpp
+```cpp 
 void Module::parameters_update(int parameter_update_sub, bool force)
 {
 	bool updated;
