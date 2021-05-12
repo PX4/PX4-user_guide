@@ -1,4 +1,4 @@
-# 멀티로터 경로 조정하기 (궤적 생성기)
+# 멀티콥터 설정점 튜닝(궤적 생성기)
 
 This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
 

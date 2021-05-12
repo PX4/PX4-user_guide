@@ -50,7 +50,7 @@ PX4는 단일 "혼합" 구현([병렬](#parallel-form) 및 [표준](#standard-fo
 두 가지 형식이 아래에 기술되어 있습니다.
 
 :::note
-미분항(**D**)은 [ 미분 킥](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/)으로 알려진 효과를 피하기 위하여 피드백 경로에 있습니다.
+미분항(**D**)은 [미분 킥](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/) 효과를 회피하기 위하여 피드백 경로에 위치합니다.
 :::
 
 :::tip
@@ -142,9 +142,9 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 로그는 추적 성능 평가에 많은 도움이 됩니다. 다음은 롤과 요 속도 추적의 좋은 예입니다.
 
-![roll rate tracking](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
+![롤 레이트 추적](../../assets/mc_pid_tuning/roll_rate_tracking.png) ![요 레이트 추적](../../assets/mc_pid_tuning/yaw_rate_tracking.png)
 
-다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![roll rate tracking flips](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
+다음은 극단적인 스텝 입력을 생성하는 몇 번의 플립으로 롤 속도를 추적하는 좋은 예입니다. 기체에 아주 적은 양의 오버 슈트가 발생하는 것을 볼 수 있습니다. ![롤 레이트 추적 플립](../../assets/mc_pid_tuning/roll_rate_tracking_flip.png)
 
 ### 자세 컨트롤러
 
@@ -166,41 +166,40 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 ### 추력 곡선
 
-The tuning above optimises performance around the hover throttle. But you may start to see oscillations when going towards full throttle.
+위의 튜닝은 호버 스로틀 주위의 성능을 최적화합니다. 그러나 풀 스로틀로 갈 때 진동이 시작될 수 있습니다.
 
-To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
-
-:::note
-The rate controller might need to be re-tuned if you change this parameter.
-:::
-
-The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
-
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise *measure* thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. [This Notebook](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb) shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
-
-[![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
+이를 막으려면 [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) 매개 변수로 **추력 곡선**을 조정하십시오.
 
 :::note
-The mapping between PWM and static thrust depends highly on the battery voltage.
+이 매개변수를 변경하면 속도 컨트롤러를 다시 조정하여야 할 수 있습니다.
 :::
 
-An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter. An example of that graph is shown here:
+모터 제어 신호 (예 : PWM)에서 예상 추력으로의 매핑은 기본적으로 선형입니다. `THR_MDL_FAC`를 1로 설정하면 2 차가됩니다. 그 사이의 값은 둘의 선형 보간을 사용합니다. 일반적인 값은 0.3 ~ 0.5 입니다.
 
-![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+[스러스트 스탠드](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)가 있는 (또는 추력 및 모터 명령을 동시에 *측정* 할 수 있는 경우) 경우 에는, 모터 제어 신호와 모터의 실제 추력 사이의 관계를 결정하고 기능을 데이터에 맞출 수 있습니다. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [이 노트북](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)은 이전에 측정 된 추력과 PWM 데이터에서 추력 모델 계수 `THR_MDL_FAC`를 계산하는 방법을 설명합니다. 이 플롯에 표시된 곡선은 &alpha; k, 실제 단위 (kgf 및 &mu;s)로 추력과 PWM을 표시합니다. 곡선 맞춤 문제를 단순화하기 위해 &alpha;를 추정하지 않고도 `k`를 찾기 위해 0과 1 사이의 데이터를 정규화 할 수 있습니다(&alpha; = 1, 데이터가 정규화 될 때).
 
-If raw motor command and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
+[![추력 곡선 보상](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
+
+:::note PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집니다.
+:::
+
+이 실험의 또 다른 방법은 정규화된 모터 명령과 추력 값의 산점도를 만들고 `THR_MDL_FAC` 매개변수로 실험하여 추력 곡선을 반복적으로 조정하는 것입니다. 해당 그래프의 예는 아래와 같습니다.
+
+![상대 추력 및 PWM 분산 그래프](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+
+원시 모터 명령 및 추력 데이터가 실험의 전체 범위에 걸쳐 수집되는 경우, 다음 방정식을 사용하여 데이터를 정규화할 수 있습니다.
 
 *normalized_value = ( raw_value - min (raw_value) ) / ( max ( raw_value ) - min ( raw_value ) )*
 
-After you have a scatter plot of the normalized values, you can try and make the curve match by plotting the equation
+정규화된 값의 산점도를 얻은 후 방정식을 플로팅하여 곡선을 일치시킬 수 있습니다.
 
 *rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
 
-over a linear range of normalized motor command values between 0 and 1. Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference. Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
+0과 1 사이의 정규화된 모터 명령 값의 선형 범위. 이것은 [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) 매개변수 참조에 표시된 것처럼 추력과 모터 명령을 매핑하기 위해 펌웨어에서 사용되는 방정식입니다. 여기서 *rel_thrust*는 0과 1 사이의 정규화된 추력 값이고 *rel_signal*은 0과 1 사이의 정규화된 모터 명령 신호 값입니다.
 
-In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7.
+위의 예에서 곡선은 `THR_MDL_FAC`가 0.7로 설정되었을 때 가장 좋은 결과를 나타내었습니다.
 
-If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
+스러스트 스탠드에 접근할 수 없는 경우, 경험적으로 모델링 요소를 조정할 수 있습니다. 0.3부터 시작하여 한 번에 0.1 씩 늘립니다. 너무 높으면, 낮은 스로틀 값에서 진동이 감지되기 시작합니다. 너무 낮으면, 더 높은 스로틀 값에서 진동이 나타납니다.
 
 <!-- TODO
 ### Velocity & Position Controller
@@ -218,23 +217,23 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 <span id="airmode"></span>
 
-### Airmode & Mixer Saturation
+### 에어 모드 & 믹서 포화
 
-The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. This step is called mixing.
+속도 컨트롤러는 세 축 (roll, pitch 및 yaw)에 대한 토크 명령과 스칼라 추력값을 출력하며, 이는 개별 모터 추력 명령으로 변환하여야 합니다. 이 단계를 믹싱이라고 합니다.
 
-It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%). This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
+예를 들어 낮은 추력과 큰 롤 명령의 경우 모터 명령 중 하나가 음수가 될 수 있습니다 (비슷하게 100 % 이상이 될 수 있음). 이것은 믹서 포화입니다. 기체가 이 명령을 실행하는 것은 물리적으로 불가능합니다 (가역 모터 제외). PX4에는 이 문제를 해결하기 위한 두 가지 모드가 있습니다.
 
-- Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled). In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
-- Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled). This has the big advantage that the attitude/rates can be tracked correctly even at low or zero throttle. It generally improves the flight performance.
+- 롤에 대한 명령된 토크를 줄여 모터 명령이 0 미만이 되지 않도록합니다 (에어 모드 비활성화 됨). 명령된 추력이 0 인 극단적인 경우에는 더 이상 자세 보정이 가능하지 않으므로이 모드에 항상 최소 추력이 필요합니다.
+- 또는 명령된 추력을 증가시켜 모터 명령이 음수값이 되지 않도록 합니다(에어 모드 활성화). 이것은 낮은 스로틀이나 제로 스로틀에서도 자세/속도를 정확하게 추적할 수 있는 큰 장점이 있습니다. 일반적으로 비행 성능을 향상시킵니다.
   
-  However it increases the total thrust which can lead to situations where the vehicle continues to ascend even though the throttle is reduced to zero. For a well-tuned, correctly functioning vehicle it is not the case, but for example it can happen when the vehicle strongly oscillates due to too high P tuning gains.
+  그러나, 이는 스로틀이 0으로 감소하더라도 기체가 계속 상승하도록 총추력을 증가시킵니다. 잘 조정되고 올바르게 작동하는 기체에는 제외하고, 너무 높은 P 조정 이득으로 인하여 기체가 강하게 진동할 때 발생할 수 있습니다.
 
-Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
+두 모드는 두 모터에 대한 2D 그림과 롤 <span style="color:#9673A6">r</span>에 대한 토크 명령은 아래에 표시되어 있습니다. 왼쪽 모터에서는 <span style="color:#9673A6">r</span>이 명령된 추력에 추가되고, 오른쪽 모터에서는 차감됩니다. 모터 추력은 <span style="color:#6A9153">녹색</span>입니다. Airmode를 활성화하면 명령된 추력이 <span style="color:#B85450">b</span> 만큼 증가합니다. 비활성화되면, <span style="color:#9673A6">r</span>이 감소합니다.
 
 ![Airmode](../../assets/mc_pid_tuning/MC_PID_tuning-Airmode.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the first Tab
 -->
 
-If mixing becomes saturated towards the upper bound the commanded thrust is reduced to ensure that no motor is commanded to deliver more than 100% thrust. This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
+혼합이 상한선으로 포화되면, 명령된 추력이 감소되어 모터가 100 % 이상의 추력을 전달하지 않도록 합니다. 이 동작은 Airmode 로직과 유사하며 Airmode 활성화 여부에 관계없이 적용됩니다.
 
-Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+기체 비행이 성공적이면 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수를 통하여 에어 모드를 활성화 할 수 있습니다.
