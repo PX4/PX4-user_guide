@@ -176,31 +176,30 @@ PID 속도 컨트롤러 튜닝 매개 변수는 다음과 같습니다.
 
 모터 제어 신호 (예 : PWM)에서 예상 추력으로의 매핑은 기본적으로 선형입니다. `THR_MDL_FAC`를 1로 설정하면 2 차가됩니다. 그 사이의 값은 둘의 선형 보간을 사용합니다. 일반적인 값은 0.3 ~ 0.5 입니다.
 
-[스러스트 스탠드](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)가 있는 (또는 추력 및 모터 명령을 동시에 *측정* 할 수 있는 경우) 경우 에는, 모터 제어 신호와 모터의 실제 추력 사이의 관계를 결정하고 기능을 데이터에 맞출 수 있습니다. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [이 노트북](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)은 이전에 측정 된 추력과 PWM 데이터에서 추력 모델 계수 `THR_MDL_FAC`를 계산하는 방법을 설명합니다. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
+[스러스트 스탠드](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)가 있는 (또는 추력 및 모터 명령을 동시에 *측정* 할 수 있는 경우) 경우 에는, 모터 제어 신호와 모터의 실제 추력 사이의 관계를 결정하고 기능을 데이터에 맞출 수 있습니다. `actuator_output`이라고하는 PX4의 모터 명령은 사용중인 각 ESC에 대한 PWM, Dshot, UAVCAN 명령 일 수 있습니다. [이 노트북](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)은 이전에 측정 된 추력과 PWM 데이터에서 추력 모델 계수 `THR_MDL_FAC`를 계산하는 방법을 설명합니다. 이 플롯에 표시된 곡선은 &alpha; k, 실제 단위 (kgf 및 &mu;s)로 추력과 PWM을 표시합니다. 곡선 맞춤 문제를 단순화하기 위해 &alpha;를 추정하지 않고도 `k`를 찾기 위해 0과 1 사이의 데이터를 정규화 할 수 있습니다(&alpha; = 1, 데이터가 정규화 될 때).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
 
-:::note
-The mapping between PWM and static thrust depends highly on the battery voltage.
+:::note PWM과 정적 추력간의 매핑은 배터리 전압에 따라 크게 달라집니다.
 :::
 
-An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter. An example of that graph is shown here:
+이 실험의 또 다른 방법은 정규화된 모터 명령과 추력 값의 산점도를 만들고 `THR_MDL_FAC` 매개변수로 실험하여 추력 곡선을 반복적으로 조정하는 것입니다. 해당 그래프의 예는 아래와 같습니다.
 
 ![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
 
-If raw motor command and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
+원시 모터 명령 및 추력 데이터가 실험의 전체 범위에 걸쳐 수집되는 경우, 다음 방정식을 사용하여 데이터를 정규화할 수 있습니다.
 
 *normalized_value = ( raw_value - min (raw_value) ) / ( max ( raw_value ) - min ( raw_value ) )*
 
-After you have a scatter plot of the normalized values, you can try and make the curve match by plotting the equation
+정규화된 값의 산점도를 얻은 후 방정식을 플로팅하여 곡선을 일치시킬 수 있습니다.
 
 *rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
 
-over a linear range of normalized motor command values between 0 and 1. Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference. Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
+0과 1 사이의 정규화된 모터 명령 값의 선형 범위. 이것은 [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) 매개변수 참조에 표시된 것처럼 추력과 모터 명령을 매핑하기 위해 펌웨어에서 사용되는 방정식입니다. 여기서 *rel_thrust*는 0과 1 사이의 정규화된 추력 값이고 *rel_signal*은 0과 1 사이의 정규화된 모터 명령 신호 값입니다.
 
-In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7.
+위의 예에서 곡선은 `THR_MDL_FAC`가 0.7로 설정되었을 때 가장 좋은 결과를 나타내었습니다.
 
-If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
+스러스트 스탠드에 접근할 수 없는 경우, 경험적으로 모델링 요소를 조정할 수 있습니다. 0.3부터 시작하여 한 번에 0.1 씩 늘립니다. 너무 높으면, 낮은 스로틀 값에서 진동이 감지되기 시작합니다. 너무 낮으면, 더 높은 스로틀 값에서 진동이 나타납니다.
 
 <!-- TODO
 ### Velocity & Position Controller
@@ -218,9 +217,9 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 <span id="airmode"></span>
 
-### Airmode & Mixer Saturation
+### 에어 모드 & 믹서 채도
 
-The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. This step is called mixing.
+속도 컨트롤러는 세 축 (roll, pitch 및 yaw)에 대한 토크 명령과 스칼라 추력값을 출력하며, 이는 개별 모터 추력 명령으로 변환하여야 합니다. 이 단계를 믹싱이라고 합니다.
 
 It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%). This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
 
