@@ -16,23 +16,23 @@
 
 ## 개요
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level tuning") aims to reduce the error between the desired setpoint and the estimate of the vehicle state.
+P/PID 컨트롤러에 대한 입력은 기체에서 추적하는 *목표 설정값*입니다. [PID 튜닝](../config_mc/pid_tuning_guide_multicopter.md) ( "낮은 레벨 튜닝")은 목표 설정 값과 기체 상태 추정값 사이의 오류를 줄이는 것을 목표로합니다.
 
-The *desired setpoint* passed to the P/PID controller is itself calculated from a *demanded setpoint* based on a stick position (in RC modes) or from a mission command. The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
+P/PID 컨트롤러로 전달되는 *목표 설정 값*은 스틱 위치 (RC 모드에서) 또는 임무 명령에서 *요구된 설정 값*에서 자체적으로 계산됩니다. 요구되는 설정값은 빨리 변경 될 수 있습니다 (예 : 사용자가 스틱을 "단계" 0에서 최대값으로 이동하는 경우). 원하는 설정값이 "램프"로 변경되면 기체의 비행 특성이 더 좋아집니다.
 
-*Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
+*설정점 값 조정* ( "높은 수준 조정")은 *요구*와 *목표</ 0> 설정점 간의 매핑을 지정합니다. "원하는 설정값은 요구된 설정 값을 따릅니다.</p> 
 
 :::tip
-Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+[P/PID 게인](../config_mc/pid_tuning_guide_multicopter.md)을 잘못 조정하면 불안정해 질 수 있습니다. 잘못 튜닝된 *설정값*은 불안정성을 초래하지는 않지만, 설정값 변경에 대한 반응은 매우 불안정하거나 응답하지 않을 수 있습니다.
 :::
 
 <span id="modes"></span>
 
-## Flight Modes Trajectory Support
+## 비행 모드 궤적 지원
 
-[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
+[미션 모드](../flight_modes/mission.md)는 항상 [저크 제한](../config_mc/mc_jerk_limited_type_trajectory.md) 궤적을 사용하였습니다.
 
-[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[위치 모드](../flight_modes/position_mc.md)는 아래 나열된 모든 [궤적 유형](#trajectory_implementation)을 지원합니다. 기본적으로 [저크 제한](../config_mc/mc_jerk_limited_type_trajectory.md) 궤적을 사용합니다. 다른 유형은 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)를 사용하여 설정할 수 있습니다.
 
 [Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
