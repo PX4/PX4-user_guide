@@ -86,7 +86,7 @@ module.exports = {
     px4_version: 'master',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
     logo: '/px4-logo.svg',
-    
+    searchMaxSuggestions: 10,
     // Assumes GitHub. Can also be a full GitLab url.
     //repo: 'PX4/Firmware',
     // Customising the header label
@@ -127,7 +127,13 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        algolia: {},
+        /*
+        algolia: {
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
+          indexName: 'px4'
+        },
+        */
+        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         nav: [
           {
             text: 'PX4',
@@ -201,7 +207,13 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        algolia: {},
+        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+        /*
+        algolia: {
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
+          indexName: 'px4'
+        },
+        */
         nav: [
           {
             text: 'PX4',
@@ -268,6 +280,7 @@ module.exports = {
             buttonText: "刷新"
           }
         },
+        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         nav: [
           {
             text: 'PX4',
@@ -316,7 +329,6 @@ module.exports = {
             ]
           },
         ],
-        algolia: {},
         sidebar: {
           '/zh/': getSidebar.sidebar('zh')
         }
