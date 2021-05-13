@@ -24,5 +24,3 @@ The main topics covered are:
 - [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision.
   The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
 - [Prometheus Autonomous Drone Project](https://github.com/amov-lab/Prometheus/blob/master/README_EN.md) - Prometheus is a ROS 1 based, BSD-3 licensed collection of autonomous drone software packages from [AMOVLab](https://github.com/amov-lab), which provides a full set of solutions for the intelligent and autonomous flight of drones, such as mapping, localization, planning, control, and target detection, fully integrated with the Gazebo Simulator.
-  This project is based on the PX4 Autopilot, and aims to provide PX4 developers with mature airborne computer terminal programs, bringing a more concise and faster development experience.
-  At present, modules such as mapping, localization, planning, control and target detection have been integrated, along with Gazebo simulation.
