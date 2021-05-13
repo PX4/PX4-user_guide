@@ -1,6 +1,6 @@
-# 멀티로터 가가속도 궤적
+# 멀티콥터 저크 제한 유형 궤적
 
-가가속도(jerk) 궤적은 사용자의 스틱 인풋 및 임무 변화에 기체가 보다 부드럽게 움직일 수 있도록 합니다. (촬영, 매핑, 운송 임무) It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+저크 제한 궤적 유형은 사용자 스틱 입력 또는 미션 변경 (예 : 촬영, 매핑,화물)에 응답하여 부드러운 동작을 제공합니다. 저크와 가속 제한이 항상 보장되는 부드러운 대칭 S-커브를 생성합니다.
 
 This trajectory type is always enabled in [Mission mode](../flight_modes/mission.md). To enable it in [Position mode](../flight_modes/position_mc.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
