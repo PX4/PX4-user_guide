@@ -12,7 +12,7 @@
 
 如果油门降至 0％（电机停止），飞机将滑行。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果释放横滚摇杆，则飞机将停止转动并自行调平（对于俯仰和偏航命令也是如此）。
 
-下图直观的显示了该模式（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+下图直观的显示了该模式（对于一个[美国手发射机](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![固定翼手动飞行](../../assets/flight_modes/manual_stabilized_FW.png)
 

@@ -42,7 +42,7 @@ You can use `param show-for-airframe` to show all parameters that have changed f
 
 ### Exporting and Loading Parameters
 
-You can save any parameters that have been *touched* since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have been changed, even if they have been changed back to their default).
+You can save any parameters that have been *changed* (that are different from airframe defaults).
 
 The standard `param save` command will store the parameters in the current default file:
 ```sh
@@ -75,8 +75,16 @@ param save
 param import /fs/microsd/vtol_param_backup  
 ```
 
+## Creating/Defining Parameters
 
-## Parameter Names
+Parameters definitions have two parts:
+- [Parameter metadata](#parameter-metadata) specifies the default value for each parameter in firmware along with other metadata for presentation (and editing) of parameters in ground control stations and documentation.
+- [C/C++ Code](#c-c-api) that provides access to get and/or subscribe to parameter values from within PX4 modules and drivers.
+
+Several approaches are described below for writing both the metadata and code. Where possible code should use newer [YAML metadata](yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
+
+
+### Parameter Names
 
 Parameter names must be no more than 16 ASCII characters.
 
@@ -85,7 +93,7 @@ By convention, every parameter in a group should share the same (meaningful) str
 The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
 
 
-## C / C++ API
+### C / C++ API
 
 There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
 
@@ -96,7 +104,7 @@ Synchronization is important because a parameter can be changed to another value
 In addition, the C++ version has also better type-safety and less overhead in terms of RAM. The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.
 
 
-### C++ API
+#### C++ API
 
 The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
@@ -133,7 +141,9 @@ First include the header to access the uORB parameter_update message:
 ```cpp
 #include <uORB/topics/parameter_update.h>
 ```
+
 Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
+
 ```cpp
 # Subscribe to parameter_update message
 int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
@@ -176,7 +186,7 @@ The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can
 The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
 :::
 
-### C API
+#### C API
 
 The C API can be used within both modules and drivers.
 
@@ -207,7 +217,7 @@ param_get(my_param_handle, &my_param);
 ```
 
 
-## Parameter Metadata
+### Parameter Metadata
 
 PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
@@ -224,7 +234,37 @@ After adding a *new* parameter file you should call `make clean` before building
 :::
 
 
-### c Parameter Metadata
+#### YAML Metadata
+
+:::note
+At time of writing YAML parameter definitions cannot be used in *libraries*.
+:::
+
+YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+
+- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
+- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+
+
+#### Multi-Instance (Templated) YAML Meta Data
+
+Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
+
+The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+```
+MY_PARAM_${i}_RATE:
+            description:
+                short: Maximum rate for instance ${i}
+```
+
+The following YAML definitions provide the start and end indexes.
+- `num_instances` (default 1): Number of instances to generate (>=1)
+- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+
+For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
+
+
+#### c Parameter Metadata
 
 The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
 
@@ -278,34 +318,7 @@ The lines in the comment block are all optional, and are primarily used to contr
  */
 ```
 
-### YAML Metadata
 
-:::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
-:::
-
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
-
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
-
-
-#### Multi-Instance (Templated) Meta Data
-
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
-
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
-```
-MY_PARAM_${i}_RATE:
-            description:
-                short: Maximum rate for instance ${i}
-```
-
-The following YAML definitions provide the start and end indexes.
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
-
-For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml)
 
 ## Further Information
 

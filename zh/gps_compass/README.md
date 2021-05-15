@@ -65,6 +65,10 @@ Pay attention to pinout when connecting the GPS module. While these are all soft
 
 The "standard" GPS/compass configuration is provided below. Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
+:::warning
+The GPS protocol defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected) The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
+:::
+
 ### Configuring the Primary GPS
 
 GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.

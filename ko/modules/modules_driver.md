@@ -125,10 +125,10 @@ batt_smbus <command> [arguments...]
 
    status        print status info
 ```
-## blinkm
+## bst
 Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
 
-<a id="blinkm_usage"></a>
+<a id="bst_usage"></a>
 
 ### Usage
 ```
@@ -184,29 +184,8 @@ fmu <command> [arguments...]
 
    status        print status info
 ```
-## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
-
-<a id="bst_usage"></a>
-
-### Usage
-```
-pwm_out_sim <command> [arguments...]
- Commands:
-   start         Start the task in mode_pwm16
-
- All of the mode_* commands will start the pwm sim if not running already
-
-   mode_pwm      use 8 PWM outputs
-
-   mode_pwm16    use 16 PWM outputs
-
-   stop
-
-   status        print status info
-```
-## sf1xx
-Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
+## dshot
+Source: [drivers/dshot](https://github.com/PX4/Firmware/tree/master/src/drivers/dshot)
 
 
 ### Description
@@ -308,13 +287,31 @@ dshot <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm
+## sf1xx
 Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
 
 
 ### Description
 
 <a id="fake_gps_usage"></a>
+
+### Usage
+```
+fake_gps <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## fmu mode_pwm
+Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
+
+
+### Description
+
+<a id="fake_gyro_usage"></a>
 
 ### Usage
 ```
@@ -330,26 +327,8 @@ vmount <command> [arguments...]
 
    status        print status info
 ```
-## fake_gyro
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
-
-
-### Description
-
-<a id="fake_gyro_usage"></a>
-
-### Usage
-```
-fake_gyro <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
+Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
 
 
 ### Description
@@ -372,9 +351,9 @@ Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gp
 
 
 ### Description
-GPS driver module that handles the communication with the device and publishes the position via uORB. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
-The module supports a secondary GPS device, specified via `-e` parameter. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
 ### Implementation
 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
@@ -383,12 +362,12 @@ There is a thread for each device polling for data. The GPS protocol classes are
 
 Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
 ```
-sf1xx stop
+gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
 Initiate warm restart of GPS device
 ```
-gps reset warm
+sf1xx stop
 ```
 
 <a id="gps_usage"></a>
@@ -396,6 +375,49 @@ gps reset warm
 ### Usage
 ```
 gps <command> [arguments...]
+ Commands:
+   start
+     [-d <val>]  GPS device
+                 values: <file:dev>, default: /dev/ttyS3
+     [-b <val>]  Baudrate (can also be p:<param_name>)
+                 default: 0
+     [-e <val>]  Optional secondary GPS device
+                 values: <file:dev>
+     [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
+                 default: 0
+     [-s]        Enable publication of satellite info
+     [-i <val>]  GPS interface
+                 values: spi|uart, default: uart
+     [-j <val>]  secondary GPS interface
+                 values: spi|uart, default: uart
+     [-p <val>]  GPS Protocol (default=auto select)
+                 values: ubx|mtk|ash|eml|fem
+
+   stop
+
+   status        print status info
+
+   reset         Reset GPS device
+     cold|warm|hot Specify reset type
+```
+## ina226
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
+
+
+### Description
+Driver for the INA226 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
+
+If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
+<a id="ina226_usage"></a>
+
+### Usage
+```
+ina226 <command> [arguments...]
  Commands:
    start
      [-d <val>]  GPS device
@@ -417,44 +439,8 @@ gps <command> [arguments...]
 
    status        print status info
 ```
-## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
-
-
-### Description
-Driver for the INA226 power monitor.
-
-Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
-
-I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
-
-If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
-
-<a id="ina226_usage"></a>
-
-### Usage
-```
-ina226 <command> [arguments...]
- Commands:
-   start
-     [-I]        Internal I2C bus(es)
-     [-X]        External I2C bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 65
-     [-k]        if initialization (probing) fails, keep retrying periodically
-     [-t <val>]  battery index for calibration values (1 or 2)
-                 default: 1
-
-   stop
-
-   status        print status info
-```
-## fmu mode_pwm3cap1
-Attempt to start driver on any bus (start on bus where first sensor found).
+## irlock
+Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
@@ -476,14 +462,29 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## pga460
-Stop driver
+## fmu mode_pwm3cap1
+Attempt to start driver on any bus (start on bus where first sensor found).
 
 
 ### Description
-Linux PWM output driver with board-specific backend implementation.
+Stop driver
 
 <a id="linux_pwm_out_usage"></a>
+
+### Usage
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## pga460
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
+
+<a id="lsm303agr_usage"></a>
 
 ### Usage
 ```
@@ -498,41 +499,15 @@ pga460 <command> [arguments...]
 
    help
 ```
-## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
-
-<a id="lsm303agr_usage"></a>
-
-### Usage
-```
-lsm303agr <command> [arguments...]
- Commands:
-   start
-     [-s]        Internal SPI bus(es)
-     [-S]        External SPI bus(es)
-     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
-                 (default=1))
-     [-c <val>]  chip-select index (for external SPI)
-                 default: 1
-     [-m <val>]  SPI mode
-     [-f <val>]  bus frequency in kHz
-     [-q]        quiet startup (no message if no device found)
-     [-R <val>]  Rotation
-                 default: 0
-
-   stop
-
-   status        print status info
-```
 ## newpixel
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
 
 
 ### Description
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 ### Examples
-It is typically started with:
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n
 ```
 neopixel -n 8
 ```
@@ -609,7 +584,7 @@ This module is responsible for generate pwm pulse with PCA9685 chip.
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 ### Implementation
-This module depends on ModuleBase and OutputModuleInterface. For boards without a separate IO chip (eg. Pixracer), it uses the main channels.
+This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
 ### Examples
 It is typically started with:
@@ -638,7 +613,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-In case of running in its own thread, the module polls on the actuator_controls topic.
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
@@ -659,7 +634,7 @@ pcf8583 <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
+In case of running in its own thread, the module polls on the actuator_controls topic.
 
 <a id="pmw3901_usage"></a>
 

@@ -9,6 +9,7 @@ PX4는 다양한 텔레메트리 무선 통신 방식을 지원합니다:
   * [HKPilot (SIK) 텔레메트리 라디오](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro (SIK) 텔레메트리 라디오](../telemetry/holybro_sik_radio.md)
 * [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
+* [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 
 PX4는 SiK Radio와 호환되는 프로토콜이며 일반적으로 상자에서 작동합니다 (적절한 커넥터를 변경 / 사용해야 할 수도 있음).
 

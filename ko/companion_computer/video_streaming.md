@@ -1,35 +1,34 @@
-# Video Streaming (Companion Computer/QGroundControl)
+# 동영상 스트리밍 (보조 컴퓨터/QGroundControl)
 
-PX4-based vehicles support video streaming using a camera connected to a companion computer. GStreamer is used to send the video to *QGroundControl* over an IP link.
+PX4 기반의 기체는 보조 컴퓨터에 연결된 카메라를 사용하여 비디오 스트리밍을 제공합니다. GStreamer는인터넷으로 *QGroundControl*에 비디오를 전송합니다.
 
-:::note
-You can't video stream directly from a camera connected to PX4.
+:::note PX4에 연결된 카메라에서 직접 비디오를 스트리밍 할 수 없습니다.
 :::
 
-To support streaming use cases you will need to install *GStreamer* development packages on both your companion computer and on the system running *QGroundControl*.
+보조 컴퓨터와 *QGroundControl*을 실행하는 시스템 모두에 *GStreamer* 패키지를 설치하여야 합니다.
 
-*QGroundControl* uses GStreamer 1.14.4 and a stripped down version of *QtGstreamer* to support UDP RTP and RSTP video streaming.
+*QGroundControl*은 GStreamer 1.14.4와 *QtGstreamer*의 제거 된 버전을 사용하여 UDP RTP 및 RSTP 비디오 스트리밍을 지원합니다.
 
-## Companion Computer Setup
+## 보조 컴퓨터 설정
 
-General instructions for installing *GStreamer* and starting the stream on your companion computer are provided in the [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
+*GStreamer* 설치 및 보조 컴퓨터에서 스트림 시작에 대한 일반적인 지침은 [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md)에서 제공됩니다.
 
-## QGC Setup
+## QGC 설정
 
-To setup and use video steaming with QGC:
+QGC로 비디오 스트리밍을 설정하고 사용하려면 :
 
-1. Install GStreamer before running QGC. On Ubuntu this is done with the command:
+1. QGC를 실행하기 전에 GStreamer를 설치하십시오. Ubuntu에서는 아래의 명령어로 설치합니다.
    ```
    sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
    ```
-   For other platforms follow the instructions in [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md).
-1. Enable video in *Fly View*: [QGroundControl > General Settings (Settings View) > Video](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video)
-1. If everything works, you should see the video stream displayed in the QGC Video Switcher (QGC Fly View bottom left corner). You can click on the video switcher to toggle the video full-screen, as shown in the screenshot below.
+   다른 플랫폼의 경우 [QGroundControl VideoReceiver README](https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md)의 지침을 참고하십시오.
+1. *Fly View*에서 동영상 설정: [QGroundControl > 일반 설정 (설정보기) > 비디오 ](https://docs.qgroundcontrol.com/master/en/SettingsView/General.html#video)
+1. 모든 것이 정상적으로 작동하게 되면, QGC 비디오 스위처 (QGC Fly View 왼쪽 하단 모서리)에 비디오 스트림이 표시됩니다. 아래 스크린 샷과 같이 비디오 스위처를 클릭하여 비디오를 전체 화면으로 전환  수 있습니다.
 
-   ![QGC displaying video stream](../../assets/videostreaming/qgc-screenshot.png)
+   ![QGC에서의 실시간 동영상 전송 화면](../../assets/videostreaming/qgc-screenshot.png)
 
 
 
-## Gazebo Simulation
+## 가제보 시뮬레이션
 
-Gazebo support video streaming from within the simulated environment. For more information see [Gazebo Simulation > Video Streaming](../simulation/gazebo.md#video-streaming).
+Gazebo는 시뮬레이션 환경에서 비디오 스트리밍을 지원합니다. 자세한 내용은 [가제보 시뮬레이션 > 비디오 스트리밍](../simulation/gazebo.md#video-streaming)을 참고하십시오.

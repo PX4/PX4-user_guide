@@ -8,6 +8,7 @@ PX4 supports a number of types of telemetry radios:
   * [HKPilot (SIK) Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * [Telemetry Wifi](../telemetry/telemetry_wifi.md)
+* [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 
 PX4 is protocol compatible with [SiK Radio](../telemetry/sik_radio.md) and will generally work out of the box (though you may need to change/use an appropriate connector).
 

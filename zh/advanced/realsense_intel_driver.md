@@ -1,31 +1,31 @@
 # 在 Ubuntu 上安装英特尔 RealSense R200 的驱动程序
 
-本教程旨在提供有关如何在 linux 环境中安装英特尔实感 r200 相机头的相机驱动程序的说明, 以便可以通过机器人操作系统 (ros) 访问收集到的图像。 实感 r200 相机头如下图所示:
+本教程旨在提供有关如何在 linux 环境中安装英特尔 RealSense R200 相机头的相机驱动程序的说明，以便可以通过机器人操作系统 ( ROS ) 访问收集到的图像。 RealSense R200 相机头如下图所示:
 
-![Intel Realsense Camera front view](../../assets/hardware/sensors/realsense/intel_realsense.png)
+![Intel Realsense Camera 前视图](../../assets/hardware/sensors/realsense/intel_realsense.png)
 
-驱动程序包的安装是在 Virtual Box 中作为虚拟机运行的 ubuntu 操作系统 (os) 上执行的。 运行 Virtual Box 的宿主机、虚拟机的规格如下:
+驱动程序包的安装是在 Virtual Box 中作为虚拟机运行的 Ubuntu 操作系统 (OS) 上执行的。 运行 Virtual Box 的宿主机、虚拟机的规格如下:
 
 - 主机操作系统：Windows 8
 - 处理器：Intel(R) Core(TM) i7-4702MQ CPU @ 2.20GHz
 - Virtual Box：Oracle VM。 版本 5.0.14 r105127
 - 扩展：安装了 Virtual Box 的扩展包（用于 USB3.0 支持）
-- 客户机操作系统：linux-ubuntu 14.04.3 LTS
+- 客户机操作系统：Linux - Ubuntu 14.04.3 LTS
 
-本教程按以下方式排序: 在第一部分中, 演示如何在 Virtual Box 中安装 ubuntu 14.04 作为客户机系统。 第二部分会演示如何安装 ROS Indigo 和相机驱动程序。 随后频繁使用的短语示意如下：
+本教程按以下方式排序: 在第一部分中, 演示如何在 Virtual Box 中安装 Ubuntu 14.04 作为客户机系统。 第二部分会演示如何安装 ROS Indigo 和相机驱动程序。 随后频繁使用的短语示意如下：
 - 虚拟框（VB）：运行不同虚拟机的程序。 此处使用 Oracle 虚拟机。
 - 虚拟机（VM）：作为来宾系统在虚拟框中运行的操作系统。 此处使用 Ubuntu。
 
-## 在虚拟机中安装 Ubuntu 14.04.3 LTS
+## 在 Virtual Box 中安装 Ubuntu 14.04.3 LTS
 
-- 创建新的虚拟机 (vm): linux 64位。
-- 下载 ubuntu 14.04.3 lts 的 iso 文件: ([ubuntu-14.04.3-desktop-amd64.iso](http://www.ubuntu.com/download/desktop))。
+- 创建一个新的虚拟机 (VM): Linux 64-Bit.
+- 下载Ubuntu 14.04.3 LTS 镜像文件: ([ubuntu-14.04.3-desktop-amd64.iso](http://www.ubuntu.com/download/desktop))。
 - Ubuntu 的安装:
   - 在安装过程中，保留以下两项:
     - 安装时下载更新
     - 安装此第三方软件
-- 安装完成后，您可能需要启用 Virtual Box 在整个桌面上显示 ubuntu：
-  -  Start VM Ubuntu and login, Click on **Devices->Insert Guest Additions CD image** in the menu bar of the Virtual Box.
+- 安装完成后，您可能需要启用 Virtual Box 在整个桌面上显示 Ubuntu：
+  -  启动虚拟机中的 Ubuntu 并登录，单击菜单栏中的 **Devices->Insert Guest Additions CD image**。
   -  点击 **Run** 并在 Ubuntu 弹出的窗口上输入密码。
   -  等待安装完成，然后重新启动。 现在，应该可以在整个桌面上显示 VM。
   -  如果 ubuntu 中弹出一个窗口, 询问是否更新, 请在此时拒绝更新。
@@ -70,7 +70,7 @@ Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
     ```
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
-  - The following error message that can appear at the end of the installation process should not lead to a malfunction of the driver: `rmmod: ERROR: Module uvcvideo is not currently loaded`
+  - 进程安装结束时如下错误信息会出现，但不应该导致驱动故障：
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
@@ -79,7 +79,7 @@ Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW) (NEW)
 
 - 测试摄像头驱动：
   - 使用 USB 线缆，一头连接电脑的 USB3 接口，另一端连接　Intel RealSense 相机。
-  - Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box, in order to forward the camera USB connection to the Virtual Machine.
+  - 在 Virtual Box 菜单栏中单击 Devices->USB-> Intel Corp Intel RealSense 3D Camera R200， 为了将相机 USB 连接到虚拟机。
   - 执行文件 [unpacked folder]/bin/dsreadcamerainfo：
     - 如果出现以下错误消息，请拔下相机 (从计算机物理上拔下 usb 电缆)。 If the following error message appears, unplug the camera (physically unplug USB cable from the computer). Plug it in again + Click on Devices->USB-> Intel Corp Intel RealSense 3D Camera R200 in the menu bar of the Virtual Box again and execute again the file [unpacked folder]/Bin/DSReadCameraInfo. `DSAPI call failed at ReadCameraInfo.cpp:134!`
       ```

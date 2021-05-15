@@ -1047,7 +1047,7 @@ This page lists all supported airframes and types including
 ### Vectored 6 DOF UUV
 
 <div>
-<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Vectored6DofUUV.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -1235,16 +1235,6 @@ This page lists all supported airframes and types including
 
 <div>
 <img src="../../assets/airframes/types/VTOLTiltRotor.svg" width="29%" style="max-height: 180px;"/>
-<table style="float: right; width: 70%; font-size:1.5rem;">
- <colgroup><col></colgroup>
- <thead>
-   <tr><th>Common Outputs</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: Tilt servo</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></td>
-</tr>
-</tbody></table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1255,7 +1245,7 @@ This page lists all supported airframes and types including
 <tbody>
 <tr id="vtol_vtol_tiltrotor_birdseyeview_aerobotics_firefly6">
  <td style="vertical-align: top;">BirdsEyeView Aerobotics FireFly6</td>
- <td style="vertical-align: top;"><p>Maintainer: Roman Bapst &lt;roman@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Front right motor bottom</li><li><b>MAIN2</b>: Front right motor top</li><li><b>MAIN3</b>: Back motor bottom</li><li><b>MAIN4</b>: Back motor top</li><li><b>MAIN5</b>: Front left motor bottom</li><li><b>MAIN6</b>: Front left motor top</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Roman Bapst &lt;roman@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Front right motor bottom</li><li><b>MAIN2</b>: Front right motor top</li><li><b>MAIN3</b>: Back motor bottom</li><li><b>MAIN4</b>: Back motor top</li><li><b>MAIN5</b>: Front left motor bottom</li><li><b>MAIN6</b>: Front left motor top</li><li><b>AUX1</b>: Tilt servo</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></p></td>
 
 </tr>
 <tr id="vtol_vtol_tiltrotor_cruiseader_claire">
@@ -1266,6 +1256,11 @@ This page lists all supported airframes and types including
 <tr id="vtol_vtol_tiltrotor_e-flite_convergence">
  <td style="vertical-align: top;">E-flite Convergence</td>
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 13012</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Motor right</li><li><b>MAIN2</b>: Motor left</li><li><b>MAIN3</b>: Motor back</li><li><b>MAIN4</b>: empty</li><li><b>MAIN5</b>: Tilt servo right</li><li><b>MAIN6</b>: Tilt servo left</li><li><b>MAIN7</b>: Elevon right</li><li><b>MAIN8</b>: Elevon left</li></ul></p></td>
+
+</tr>
+<tr id="vtol_vtol_tiltrotor_generic_quadplane_vtol_tiltrotor">
+ <td style="vertical-align: top;">Generic Quadplane VTOL Tiltrotor</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Motor tilt front left</li><li><b>AUX2</b>: Motor tilt front right</li><li><b>AUX3</b>: Motor tilt rear left</li><li><b>AUX4</b>: Motor tilt rear right</li><li><b>AUX5</b>: Aileron left</li><li><b>AUX6</b>: Aileron right</li><li><b>AUX7</b>: Elevator</li><li><b>AUX8</b>: Rudder</li></ul></p></td>
 
 </tr>
 </tbody></table>

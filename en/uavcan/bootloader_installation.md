@@ -1,14 +1,16 @@
 # UAVCAN Bootloader Installation
 
 :::warning
-UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
+UAVCAN devices typically ship with a bootloader pre-installed.
+Do not follow the instructions in this section unless you are developing UAVCAN devices.
 :::
 
 ## Overview
 
 The PX4 project includes a standard UAVCAN bootloader for STM32 devices.
 
-The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up. Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
+The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up.
+Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
 
 This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
 

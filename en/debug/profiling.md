@@ -1,6 +1,7 @@
 # Poor Man's Sampling Profiler
 
-This section describes how to assess performance of the PX4 system by means of profiling.
+This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4.
+This is an implementation of a known method originally invented by [Mark Callaghan and Domas Mituzas](https://poormansprofiler.org/).
 
 ## Approach
 
@@ -11,6 +12,40 @@ The result of *folding* is another text file that contains the same stack traces
 The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
 
 ## Basic Usage
+
+### Prerequisites
+
+The profiler relies on GDB to run PX4 on the embedded target.
+So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware.
+You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
+
+
+### Determine the Debugger Device
+
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/swd_debug.md#dronecode-probe).
+If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located.
+You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu.
+For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
+```
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+lrwxrwxrwx 1 root root  13 Apr 23 18:48 usb-3D_Robotics_PX4_FMU_v5.x_0-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if00 -> ../../ttyACM1
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
+```
+
+In this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`.
+But if you were using a different device you would be able discover the appropriate id from the listing above. 
+
+Then pass in the appropriate device using the `--gdbdev` argument like this:
+```bash
+./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --gdbdev=/dev/ttyACM2
+```
+
+
+### Running
 
 Basic usage of the profiler is available through the build system. 
 For example, the following command builds and profiles px4_fmu-v4pro target with 10000 samples (fetching *FlameGraph* and adding it to the path as needed).
@@ -49,10 +84,9 @@ Please watch out for them while using it:
   This does not affect single core embedded targets, since they always execute in one thread, but this limitation makes the profiler incompatible with many other applications.
   In the future the stack folder should be modified to support multiple stack traces per sample.
 
-<a id="implementation"></a>
 ## Implementation
 
-The script is located at `Debug/poor-mans-profiler.sh`.
+The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh)
 Once launched, it will perform the specified number of samples with the specified time interval.
 Collected samples will be stored in a text file in the system temp directory (typically `/tmp`).
 Once sampling is finished, the script will automatically invoke the stack folder, the output of which will be stored in an adjacent file in the temp directory.
@@ -84,8 +118,3 @@ Should you want to append to the old stacks rather than overwrite them, use the 
 As one might suspect, `--append` with `--nsamples=0` will instruct the script to only regenerate the SVG without accessing the target at all.
 
 Please read the script for a more in depth understanding of how it works.
-
-## Credits
-
-Credits for the idea belong to
-[Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/).

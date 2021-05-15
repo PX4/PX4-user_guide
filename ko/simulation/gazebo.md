@@ -1,8 +1,8 @@
-# Gazebo 시뮬레이션
+# Gazebo Simulation
 
-[가제보](http://gazebosim.org) 는 개체 회피 및 컴퓨터 시각 정보 처리 시험에 일부 적합한, 강력한 자동화 로봇용 3차원 모의 시험 환경입니다. 이 페이지에서는 SITL과 단일 기체와의 활용법을 설명합니다. 가제보는 또한 [HITL](../simulation/hitl.md)과 [다중 기체 모의 시험](../simulation/multi-vehicle-simulation.md)용으로 활용할 수 있습니다.
+[Gazebo](http://gazebosim.org) is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision. This page describes its use with SITL and a single vehicle. Gazebo can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md).
 
-**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine (coming soon!)
+**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
 
 :::warning
 Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
@@ -24,49 +24,46 @@ graph LR;
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
-<a id="installation"></a>
-
 ## Installation
 
-You can run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
-- **macOS:** [Development Environment on Mac](../setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Linux (Ubuntu 16.04) > jMAVSim/Gazebo Simulation](../setup/dev_env_linux.md#jmavsimgazebo-simulation)
+Gazebo 9 setup is included in our standard build instructions:
+- **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
+- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
 - **Windows:** Not supported.
 
 Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
 
 
-## 모의 시험 환경 실행
+## Running the Simulation
 
-PX4 SITL과 에어프레임 설정(멀티콥터, 비행체, 수직 이착륙기, 광류센서 및 다중 기체 모의 시험 지원)을 불러오는 명령으로 모의 시험환경을 시작하십시오.
+Run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *Firmware* repository and call `make` for the targets as shown in the following sections. 예를 들어, 쿼드로터 모의 시험을 시작(기본)하려면:
+The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
 ```sh
-cd ~/src/Firmware
+cd /path/to/PX4-Autopilot
 make px4_sitl gazebo
 ```
 
-지원 기체와 `make` 명령은 아래와 같습니다(기체 그림을 보려면 링크를 누르십시오).
+The supported vehicles and `make` commands are listed below (click links to see vehicle images).
 
 :::note
 For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
 :::
 
-| Vehicle                                                                                                                                 | Command                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                                 | `make clean
- make px4_sitl gazebo_typhoon_h480` |
-| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                                  | `make px4_sitl gazebo_iris_opt_flow`            |
-| [3DR Solo in Gazebo](../simulation/gazebo_vehicles.md#3dr_solo)                                                                         | `make px4_sitl gazebo_solo`                     |
-| !!crwdBlockTags_82_sgaTkcolBdwrc!![Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`             |
-| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                       | `make px4_sitl gazebo_plane`                    |
-| [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                       | `make px4_sitl gazebo_plane_catapult`           |
-| [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                         | `make px4_sitl gazebo_standard_vtol`            |
-| [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                     | `make px4_sitl gazebo_tailsitter`               |
-| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                                    | `make px4_sitl gazebo_rover`                    |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                             | `make px4_sitl gazebo_uuv_hippocampus`          |
-| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                            | `make px4_sitl gazebo_boat`                     |
-| [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                         | `make px4_sitl gazebo_cloudship`                |
+| Vehicle                                                                                                                            | Command                                |
+| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                            | `make px4_sitl gazebo`                 |
+| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                             | `make px4_sitl gazebo_iris_opt_flow`   |
+| [3DR Solo (Quadrotor)](../simulation/gazebo_vehicles.md#3dr_solo)                                                                  | `make px4_sitl gazebo_solo`            |
+| <span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`    |
+| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                  | `make px4_sitl gazebo_plane`           |
+| [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
+| [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo_standard_vtol`   |
+| [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo_tailsitter`      |
+| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                               | `make px4_sitl gazebo_rover`           |
+| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
+| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo_boat`            |
+| [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo_cloudship`       |
 
 
 :::note
@@ -74,15 +71,15 @@ The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful refer
 :::
 
 The commands above launch a single vehicle with the full UI. Other options include:
-- **Tip** You can use the [instructions below](#start_px4_sim_separately) to keep Gazebo running and only re-launch PX4. This is quicker than restarting both.
-- 가제보 인터페이스를 시작하지 않는 [헤드리스 모드](#headless)로 모의시험 환경을 실행합니다(자원을 훨씬 적게 차지하며 더 빠릅니다).
+- [Starting PX4 and Gazebo separately](#start_px4_sim_separately) so that you can keep Gazebo running and only re-launch PX4 when needed (quicker than restarting both).
+- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo UI (this uses fewer resources and is much faster).
 
 
-## 하늘로 띄우기
+## Taking it to the Sky
 
-위에서 언급한 `make` 명령은 PX4를 우선 빌드하고, 가제보 모의 시험 환경을 띄웁니다.
+The `make` commands above first build PX4, and then run it along with the Gazebo simulator.
 
-PX4를 시작하면 아래와 같이 PX4 셸을 실행합니다.
+Once PX4 has started it will launch the PX4 shell as shown below.
 
 ```
 ______  __   __    ___ 
@@ -115,13 +112,13 @@ Right-clicking the quadrotor model allows to enable follow mode from the context
 
 ![Gazebo UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
 
-Simply prefix the normal *make* command with `HEADLESS=1` as shown:
+You can bring it into the air by typing:
 
 ```sh
 pxh> commander takeoff
 ```
 
-## 사용법/설정 옵션
+## Usage/Configuration Options
 
 <a id="headless"></a>
 
@@ -140,7 +137,7 @@ HEADLESS=1 make px4_sitl gazebo_plane
 
 The takeoff location in SITL Gazebo can be set using environment variables. This will override both the default takeoff location, and any value [set for the world](#set_world_location).
 
-[&lt;Firmware>/Tools/sitl_gazebo/worlds/typhoon_h480.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/typhoon_h480.world)).
+The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
 
 For example:
 ```
@@ -151,9 +148,9 @@ make px4_sitl gazebo
 ```
 
 
-### 3DR Solo
+### Change Simulation Speed
 
-The current default world is the **iris.world** located in the directory [worlds](https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds). The default surrounding in the **iris.world** uses a heightmap as ground.
+The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
 
 ```
 export PX4_SIM_SPEED_FACTOR=2
@@ -193,6 +190,7 @@ The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://git
 
 This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
 
+
 <a id="gps_noise"></a>
 
 ### Simulating GPS Noise
@@ -202,7 +200,7 @@ Gazebo can simulate GPS noise that is similar to that typically found in real sy
 GPS noise is enabled if the target vehicle's SDF file contains a value for the `gpsNoise` element (i.e. it has the line: `<gpsNoise>true</gpsNoise>`). It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, **standard_vtol.sdf**, **delta_wing.sdf**, **plane.sdf**, **typhoon_h480**, **tailsitter.sdf**.
 
 To enable/disable GPS noise:
-1. Build any gazebo target in order to generate SDF files (for all vehicles). For example: `make px4_sitl gazebo_iris` > **Tip** The SDF files are not overwritten on subsequent builds.
+1. Build any gazebo target in order to generate SDF files (for all vehicles). For example:
    ```
    make px4_sitl gazebo_iris
    ```
@@ -211,16 +209,18 @@ The SDF files are not overwritten on subsequent builds.
 :::
 
 2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
-3. Search for the `gpsNoise` element: xml
+3. Search for the `gpsNoise` element:
    ```xml
-   <gui>
-         <plugin name="video_widget" filename="libgazebo_video_stream_widget.so"/>
-       </gui>
+   <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
+     <robotNamespace/>
+     <gpsNoise>true</gpsNoise>
+   </plugin>
    ```
    * If it is present, GPS is enabled. You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
    * If it is not preset GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
 
-Once the plugin is enabled you can run SITL with Gazebo in the normal way:
+The next time you build/restart Gazebo it will use the new GPS noise setting.
+
 
 <a id="set_world"></a>
 
@@ -232,7 +232,7 @@ You can load any of the worlds by specifying them as the final option in the PX4
 
 For example, to load the *warehouse* world, you can append it as shown:
 ```
-make px4_sitl gazebo_hippocampus
+make px4_sitl_default gazebo_plane_cam__warehouse
 ```
 
 :::note
@@ -249,7 +249,7 @@ If the loaded world does not align with the map, you may need to [set the world 
 
 ## Set World Location
 
-To enable the button:
+The vehicle gets spawned very close to the origin of the world model at some simulated GPS location.
 
 :::note
 The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
@@ -263,7 +263,7 @@ You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does
 
 The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
 
-This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.
+An example can be found in the [sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world):
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -282,6 +282,7 @@ The video below shows that the location of the environment is aligned with the g
 
 @[youtube](https://youtu.be/-a2WWLni5do)
 
+
 <a id="start_px4_sim_separately"></a>
 
 ## Starting Gazebo and PX4 Separately
@@ -292,7 +293,7 @@ In addition to the existing cmake targets that run `sitl_run.sh` with parameters
 
 To start Gazebo and PX4 separately:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal: `make px4_sitl gazebo_none_ide`
+* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
   ```sh
   make px4_sitl gazebo___ide
   ```
@@ -327,11 +328,11 @@ The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_ima
 
 <a id="flight_termination"></a>
 
-## Interfacing to ROS
+## Simulated Parachute/Flight Termination
 
 *Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
 
-The `if750a` target has a parachute attached to the vehicle. Simply open **Settings > General** and set **Video Source** to *UDP Video Stream* and **UDP Port** to *5600*:
+The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
 ```
 make px4_sitl gazebo_if750a
 ```
@@ -350,7 +351,7 @@ For more information see:
 PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model. When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
 
 The Gazebo camera sensor is supported/enabled on the following frames:
-* [&gt; **Tip** This section present in **typhoon_h480.world** - you just need to uncomment the section.](#typhoon_h480)
+* [Typhoon H480](#typhoon_h480)
 
 
 ### Prerequisites
@@ -358,14 +359,14 @@ The Gazebo camera sensor is supported/enabled on the following frames:
 *Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
 
 :::note FYI
-only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+only, the dependencies include: `gstreamer1.0-plugins-base`, `gstreamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
 :::
 
-### Gazebo GUI to Start/Stop Video Streaming
+### Start/Stop Video Streaming
 
 Video streaming is automatically started when supported by the target vehicle. For example, to start streaming video on the Typhoon H480:
 ```
-sudo apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk '{ print $1 }' | grep -v gstreamer1.0-hybris) -y
+make px4_sitl gazebo_typhoon_h480
 ```
 
 Streaming can be paused/restarted using the Gazebo UI *Video ON/OFF* button..
@@ -398,8 +399,8 @@ gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video
 SITL fails silently when there is something wrong with the gazebo model. You can enable more verbose logging using `VERBOSE_SIM`, as shown:
 
 ```
-make clean
-make px4_sitl gazebo_typhoon_h480
+export VERBOSE_SIM=1
+make px4_sitl gazebo
 ```
 
 or

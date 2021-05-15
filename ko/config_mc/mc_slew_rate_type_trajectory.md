@@ -1,18 +1,18 @@
-# Slew-rate Type Trajectory for Multicopters
+# 멀티콥터의 슬루율 유형 궤적
 
 :::tip
-The trajectory type can be enabled in [Position mode](../flight_modes/position_mc.md) (only) using the following parameter setting: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+궤적 유형은 [MPC_POS_MODE = 1](../advanced_config/parameter_reference.md#MPC_POS_MODE) 매개변수로 [위치 모드](../flight_modes/position_mc.md) (전용)에서 활성화됩니다.
 
-[MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) is an alternative trajectory that provides for smoother responses.
+[멀티콥터 저크 제한 궤적 조정](../config_mc/mc_jerk_limited_type_trajectory.md)은 더 부드러운 응답을 제공하는 대체 궤적입니다.
 :::
 
-The Slew Rate trajectory type is a simple implementation where the jerk and acceleration is limited using slew-rates (jerk and acceleration limits are not hard constraints).
+슬루율 궤적 유형은 슬루율을 사용하여 저크와 가속이 제한되는 간단한 궤적생성기입니다 (저크와 가속 제한은 엄격한 제약이 아님).
 
-It allows asymmetric profiles based on user intention (smooth acceleration and quick stop), and should be used when a quick (and potentially "jerky") response to stick input is more important than ensuring smooth acceleration and deceleration (e.g.: for aggressive flight with position hold).
+사용자의 의도 (부드러운 가속 및 빠른 정지)에 따라 비대칭 프로파일을 허용하며, 스틱 입력에 대한 빠른 (그리고 잠재적으로 "부끄러운") 반응이 부드러운 가속 및 감속을 보장하는 것보다 더 중요한 경우에 사용하여야 합니다 (예 : 위치 유지).
 
-This topic explains how the trajectory type can be tuned.
+궤적 유형을 조정 방법을 설명합니다.
 
-## Position Mode
+## 위치 모드
 
 In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
 

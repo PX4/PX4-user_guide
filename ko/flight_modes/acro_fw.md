@@ -10,9 +10,9 @@
 
 ## 기술적 설명
 
-RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+곡예 기동을 수행하는 RC 모드 (예 : 롤, 뒤집기, 포장 마차 및 곡예 인물)
 
-RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
+RPY 스틱 입력은 자동 조종 장치에 의해 안정화되는 각속도 명령으로 변환됩니다. Throttle은 출력 믹서에 직접 전달됩니다.
 
 ## 매개 변수
 

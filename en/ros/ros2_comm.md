@@ -177,8 +177,8 @@ We can do this by running the bridge against PX4 running in the simulator.
    accelerometer_integral_dt: 4739
    ```
 
-You can also verify the rate of the message using `rostopic hz`. <!-- how? -->
-For the case of `sensor_combined`:
+You can also verify the rate of the message using `ros2 topic hz`.
+E.g. in the case of `sensor_combined` use `ros2 topic hz /SensorCombined_PubSubTopic`:
    ```sh
    average rate: 248.187
    	min: 0.000s max: 0.012s std dev: 0.00147s window: 2724

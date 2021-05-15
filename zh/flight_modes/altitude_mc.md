@@ -10,7 +10,7 @@
 *高度模式*是对新手来说最安全的无 GPS 手动模式。 就像[手动/自稳](../flight_modes/manual_stabilized_mc.md)模式，但是在松开摇杆时也可以锁定无人机高度。
 :::
 
-下图直观的显示了模式行为（对于一个[模式 2 发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+下图直观的显示了该模式（对于一个[美国手的发射机](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![高度控制 MC - Mode2 RC 控制器](../../assets/flight_modes/altitude_control_mode_copter.png)
 

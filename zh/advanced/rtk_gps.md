@@ -1,63 +1,64 @@
-# RTK GPS（背景知识）
+# RTK GPS (PX4 集成)
 
-实时载波相位差分定位能够提供厘米级的定位信息。 这一章节将介绍RTK是如何集成到PX4中的。
+[实时载波相位差分定位](https://en.wikipedia.org/wiki/Real_Time_Kinematic) （RTK）能够提供厘米级的定位信息。 这一章节将介绍 RTK 是如何集成到 PX4 中的。
 
-RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
+::::tip RTK GPS *使用说明* 在  [硬件外设 > RTK GPS](../gps_compass/rtk_gps.md)中。 多个移动的用户可以共用同一个差分基准站发播的差分修正信息，移动用户离差分基准站的距离越近，差分定位更精确。
 
 ## 综述
 
-在PX4系统中，为达到RTK的差分效果，需要2个RTK GPS模块和一个数据链路。 固定在地面的RTK GPS模块称作基站，另一个在空中的模块称作移动站。
+RTK是使用导航信号的载波相位来进行测距的，而不是使用导航信号所搭载的信息。 它依靠一个单一的参考基站站实时校正，这种校正可以与多个流动站一起工作。
 
-Two RTK GPS modules and a datalink are required to setup RTK with PX4. The fixed-position ground-based GPS unit is called the *Base* and the in-air unit is called the *Rover*. The Base unit connects to *QGroundControl* (via USB) and uses the datalink to stream RTCM corrections to the vehicle (using the MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) message). On the autopilot, the MAVLink packets are unpacked and sent to the Rover unit, where they are processed to get the RTK solution.
+PX4 配置 RTK 需要两个 RTK GPS 模块和一个数传。 固定在地面端的 GPS 单元叫基站（ *Base*），在空中的单元叫移动站（*Rover*）。 基站通过 USB 连接到地面站*QGroundControl*，同时使用数传将 RTCM 校正流传给无人机（使用 MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 消息）。 在自驾仪上，MAVLink消息包被解包得到RTCM的修正信息，并把这些信息发送给移动站，移动站结合修正信息最终解算得到 RTK 解。
 
-PX4目前仅支持u-blox M8P单频（L1频点）RTK接收机。
+数据链通常能够处理上行数据率为300字节每秒的数据（更详细的信息参考下面的[上行数据速率](#uplink-datarate)章节）。
 
 ## 支持的 RTK GPS 模块
 
-The list of devices that we have tested can be found [in the user guide](../gps_compass/rtk_gps.md#supported-rtk-devices).
+下面列举的这些设备是经过我们测试的可以在 [用户手册](../gps_compass/rtk_gps.md#supported-rtk-devices) 找到。
 
 :::note
-Most devices come with two variants, a base and a rover. Make sure to select the correct variant.
+大多数设备都有两个变体, 一个基站和一个移动站。 确保选择正确的变体。
 :::
 
 ## 自动配置
 
-The PX4 GPS stack automatically sets up the GPS modules to send and receive the correct messages over the UART or USB, depending on where the module is connected (to *QGroundControl* or the autopilot).
+PX4 GPS 栈自动设置GPS 模块，通过UART或USB发送和接收正确的消息，取决于模块的连接位置 (到 *QGroundControl* 或自驾仪)。
 
-QGroundControl配置RTK基站输出依据RTCM3.2框架，每帧为1 Hz：
+一旦自动驾驶仪接收到` GPS_RTCM_DATA ` MAVLink 消息，它就会自动将 RTCM 数据转发到连接的 GPS模块。
 
 :::note
-The u-blox U-Center RTK module configuration tool is not needed/used!
+u-blox U-Center RTK 模块配置工具不需要/使用！
 :::
 
-The RTCM Base Position message (1005) is of length 22 bytes, while the others are all of variable length depending on the number of visible satellites and the number of signals from the satellite (only 1 for L1 units like M8P). Since at a given time, the *maximum* number of satellites visible from any single constellation is 12, under real-world conditions, theoretically an uplink rate of 300 B/s is sufficient. In practice, this means that support for new protocols and/or messages only need to be added to one place.
+:::note
+*QGroundControl* 和自驾仪固件共享相同 [PX4 GPS driver stack](https://github.com/PX4/GpsDrivers)。 In practice, this means that support for new protocols and/or messages only need to be added to one place.
 :::
 
 ### RTCM 报文
 
-QGroundControl configures the RTK base station to output the following RTCM3.2 frames, each with 1 Hz, unless otherwise stated:
+QGroundControl 配置RTK 基地站输出以下 RTCM3.2 帧, 每个帧均为 1 Hz, 除非另有说明：
 
-- **1005** - Station coordinates XYZ for antenna reference point (Base position), 0.2 Hz.
-- **1077** - Full GPS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1087** - Full GLONASS pseudo-ranges, carrier phases, Doppler and signal strength (high resolution).
-- **1230** - GLONASS code-phase biases.
-- **1097** - Full Galileo pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
-- **1127** - Full BeiDou pseudo-ranges, carrier phases, Doppler and signal strength (high resolution)
+- **1005** - 天线参考点的站坐标 XYZ (基站位置), 0.2 Hz。
+- **1077** - 完整的 GPS 伪距、载波相、多普勒和信号强度(高分辨率)。
+- **1087** - 所有 GLONASS 伪距、载波相、多普勒和信号强度(高分辨率)。
+- **1230** - GLONASS 代码相位差。
+- **1097** - 完整伽利略伪距、运载相、多普勒和信号强度(高分辨率)
+- **1127** - 完整的北斗伪距，载波相位，多普勒和信号强度(高分辨率)
 
 ## 上行数据速率
 
-The raw RTCM messages from the base are packed into a MAVLink `GPS_RTCM_DATA` message and sent over the datalink. The maximum length of each MAVLink message is 182 bytes. Depending on the RTCM message, the MAVLink message is almost never completely filled.
+来自基础的原始 RTCM 消息被打包到一个 MAVLink `GPS_RTCM_DATA` 消息，并且通过数据链接发送。 MAVLink 消息的最大长度是182字节。 根据RTCM的信息类型，MAVLink信息是不会填满的。
 
-MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console: 必须注意确保数传链在整个过程中使用 MAVLink 2。
+RTCM 基础位置消息(1005)长度为 22 字节， 而其他卫星的长度则因可见卫星的数量和卫星信号的数量而异（M8P等L1单元只有一个）。 在真实环境中，对于任一时刻，任何一个导航系统的可用卫星个数不超过12个，因此 300 B/s的上行速率就足够了。
 
-If *MAVLink 1* is used, a 182-byte `GPS_RTCM_DATA` message is sent for every RTCM message, irrespective of its length. As a result the approximate uplink requirement is around 700+ bytes per second. This can lead to link saturation on low-bandwidth half-duplex telemetry modules (e.g. 3DR Telemetry Radios).
+如果使用 *MAVLink 1* ，则不论其长度，每条 RTCM 消息都会发送182字节 `GPS_RTCM_DATA` 消息。 因此，大约每秒上行需求是700多个字节。 这可能导致低带宽半双轨遥测模块 (如3DR Telemetry Radios) 连接的饱和。
 
-If *MAVLink 2* is used then any empty space in the `GPS_RTCM_DATA message` is removed. The resulting uplink requirement is about the same as the theoretical value (~300 bytes per second).
+如果 *MAVLink 2* 被使用，则 `GPS_RTCM_DATA消息` 中的所有空格将被删除。 由此产生的上行链路需求与理论值 (约 300 字节/秒) 大致相同。
 
-:::tip PX4 automatically switches to MAVLink 2 if the GCS and telemetry modules support it.
+:::tip PX4 自动切换到 MAVLink 2，如果GCS 和遥测模块支持。
 :::
 
-MAVLink 2 must be used on low-bandwidth links for good RTK performance. Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. You can verify the protocol version by using the `mavlink status` command on the system console:
+MAVLink 2 必须用于低带宽链接以保证 RTK 性能。 Care must be taken to make sure that the telemetry chain uses MAVLink 2 throughout. 您可以使用系统控制台上的 `mavlink status` 命令验证协议版本：
 
 ```
 nsh> mavlink status

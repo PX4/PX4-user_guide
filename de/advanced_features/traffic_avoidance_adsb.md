@@ -64,10 +64,6 @@ Then reboot the vehicle.
 
 You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD), which must be set to 57600.
 
-:::note
-Prior to PX4 v1.9 you can set up the port using the deprecated parameter: `SYS_COMPANION`.
-:::
-
 ### Configure Traffic Avoidance
 
 Configure the action when there is a potential collision using the parameter below:

@@ -1,4 +1,4 @@
-# Computer Vision (VIO, Avoidance)
+# 计算机视觉 (光流，MoCap， VIO，避障)
 
 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision) 技术使计算机能够使用视觉数据来理解他们的环境。
 
@@ -14,41 +14,42 @@ Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and
 
 ## 运动捕捉 {#mocap}
 
-Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
+运动捕捉（MoCap）是一种使用无人机*外部的*定位机制来估算 3D <0>姿态* （位置和方向）的技术。 MoCap 系统最常使用红外摄像机检测运动，但也可以使用其他类型的摄像机，激光雷达或超宽带（UWB）。</p>
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position and orientation) of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors) or unreliable (e.g. when flying under a bridge). 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
+:::note
+MoCap 通常用于在没有 GPS 的情况下导航无人机（例如室内），并提供相对于 *本地* 坐标系的位置。 它通常用于在GPS不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）导航载具。
 
-VIO使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)来从视觉信息估计车辆*姿势*，结合来自IMU的惯性测量（以校正与载具快速移动导致不良的图像捕获）。
+有关 MoCap 的信息，请参阅：
 - [外部位置的估计](../ros/external_position_estimation.md)
 - [使用 Motion Capture 飞行（VICON，Optitrack）](../tutorials/motion-capture-vicon-optitrack.md)
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
 ## 视觉惯性测距法 {#vio}
 
-Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors) or unreliable (e.g. when flying under a bridge).
+视觉惯性测距（VIO）用于估算 3D *姿态* （位置和方向）和相对于*本地*起始位置的无人机运动*速度*。 它通常用于在 GPS 不存在（例如室内）或不可靠的情况下（例如在桥下飞行时）给无人机导航。
 
-[Optical Flow](https://docs.px4.io/en/sensor/optical_flow.html) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+VIO 使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)中的视觉信息来估算无人机*姿态*，融合 IMU 的惯性测量信息（为了矫正因不良的图像捕获导致的机身快速移动错误）。
 
-:::note
-On difference between VIO and [MoCap](#mocap) is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.
+:::note VIO
+和 [MoCap](#mocap) 之间的区别在于 VIO 相机或者 IMU 是基于无人机的，并且额外提供速度信息。
 :::
 
-For information about configuring VIO on PX4 see:
-- [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [T265 Setup guide](../peripherals/camera_t265_vio.md)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
+关于在 PX4 上配置 VIO 的信息，请参阅：
+- [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
+- [T265 安装指南](../peripherals/camera_t265_vio.md)
+- [Snapdragon > 安装 > 安装 Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
 ## 光流 {#optical_flow}
 
-[Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+[光流](../sensor/optical_flow.md)提供 2D 速度估计（使用向下的相机和向下的距离传感器）。
 
-For information about optical flow see:
+有关光流的信息，请参阅：
 - [光流](../sensor/optical_flow.md)
   - [PX4Flow 智能摄像机](../sensor/px4flow.md)
-- [EKF > Optical Flow](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
+- [EKF > 光流](../advanced_config/tuning_the_ecl_ekf.md#optical-flow)
 
-## External Resources
+## 外部资源
 
-- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 simulation environment for computer vision. The [XTDrone Manual](https://www.yuque.com/xtdrone/manual_en) has everything you need to get started!
+- [XTDrone](https://github.com/robin-shaun/XTDrone/blob/master/README.en.md) - ROS + PX4 计算机视觉模拟仿真环境。 [XTDrone 手册](https://www.yuque.com/xtdrone/manual_en) 有你需要开始的一切！

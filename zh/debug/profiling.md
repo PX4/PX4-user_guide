@@ -1,6 +1,6 @@
 # Poor Man's Sampling Profiler
 
-本节介绍如何通过分析来评估 PX4 系统的性能。
+This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4. This is an implementation of a known method originally invented by [Mark Callaghan and Domas Mituzas](https://poormansprofiler.org/).
 
 ## 方法
 
@@ -8,25 +8,53 @@ PMSP 是一种 shell 脚本,它通过定期中断固件的执行来运行，便�
 
 ## 基本用法
 
-探查器的基本用法可通过生成系统使用。 例如，下面的命令生成和探查出 px4_fmu-v4pro 目标的10000个样本（提取 *FlameGraph* 并根据需要将其添加到路径中）。
+### Prerequisites
 
+探查器的基本用法可通过生成系统使用。 例如，下面的命令生成和探查出 px4_fmu-v4pro 目标的10000个样本（提取 *FlameGraph* 并根据需要将其添加到路径中）。 You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
+
+
+### Determine the Debugger Device
+
+The `poor-mans-profiler.sh` automatically detects and uses the correct USB device if you use it with a [DroneCode Probe](../debug/swd_debug.md#dronecode-probe). If you use a different kind of probe you may need to pass in the specific _device_ on which the debugger is located. You can use the bash command `ls -alh /dev/serial/by-id/` to enumerate the possible devices on Ubuntu. For example the following devices are enumerated with a Pixhawk 4 and DroneCode Probe connected over USB:
 ```
-make px4_fmu-v4pro_default profile
+user@ubuntu:~/PX4-Autopilot$ ls -alh /dev/serial/by-id/
+total 0
+drwxr-xr-x 2 root root 100 Apr 23 18:57 .
+drwxr-xr-x 4 root root  80 Apr 23 18:48 ..
+lrwxrwxrwx 1 root root  13 Apr 23 18:48 usb-3D_Robotics_PX4_FMU_v5.x_0-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if00 -> ../../ttyACM1
+lrwxrwxrwx 1 root root  13 Apr 23 18:57 usb-Black_Sphere_Technologies_Black_Magic_Probe_BFCCB401-if02 -> ../../ttyACM2
 ```
 
-有关对生成过程的更多控制，包括设置样本数，请参阅 [Implementation](#implementation)。
+In this case, the script would automatically pick up the device named `*Black_Magic_Probe*-if00`. But if you were using a different device you would be able discover the appropriate id from the listing above.
 
-## 理解输出
+Then pass in the appropriate device using the `--gdbdev` argument like this:
+```bash
+./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000
+```
 
-下面提供了一个示例输出的屏幕截图（请注意，它在这里不是交互式的）：
 
-![FlameGraph 实例](../../assets/debug/flamegraph-example.png)
+### Running
 
 在火焰图上，水平水平表示堆叠帧，而每个帧的宽度与采样次数成正比。 反过来，函数最终被采样的次数也与其执行的持续时间频率成正比。
 
+```
+./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --append
+```
+
+For more control over the build process, including setting the number of samples, see the [Implementation](#implementation).
+
+## 理解输出
+
+A screenshot of an example output is provided below (note that it is not interactive here):
+
+![FlameGraph Example](../../assets/debug/flamegraph-example.png)
+
+PMSP 使用 GDB 收集堆栈跟踪。 目前，它使用 `arm-none-eabi-gdb`，今后可能会添加其他工具链。
+
 ## 可能的问题
 
-该脚本是作为一个临时解决方案开发的，因此存在一些问题。 使用时请注意：
+为了能够映射内存地址到符号，脚本需要被当前运行的文件中提及。 这个是在 `--elf=&lt;file&gt;` 的选项帮助下完成的，该选项需要一个指向当前执行ELF位置的路径来执行（相对于储存库的root）。
 
 * 如果 GDB 出现故障，脚本可能无法检测到该问题，并继续运行。 在这种情况下，显然不会产生可用的堆栈。 为了避免这种情况，用户应定期检查文件 `/tmp/pmpn-gdberr.log`，其中包含最近调用 GDB 的 stderr 输出。 将来，应修改脚本以在安静模式下调用 GDB，在安静模式下，它将通过其退出代码指示问题。
 
@@ -34,34 +62,28 @@ make px4_fmu-v4pro_default profile
 
 * 不支持多线程环境。 这不会影响单个核心嵌入式目标，因为它们总是在一个线程中执行，但这一限制使探查器与许多其他应用程序不兼容。 将来，应修改堆栈文件夹以支持每个示例的多个堆栈跟踪。
 
-<a id="implementation"></a>
-
 ## 实现
 
-该脚本位于 `Debug/poor-mans-profiler.sh`。 一旦启动，它将执行指定的时间间隔的样本数。 收集采样会保存在系统临时文件夹的文本文件（典型如`tmp`）。 一旦采样完成，脚本会自动调用栈文件夹，将输出内容保存在 temp 文件夹下的文件中。 如果栈成功收集，脚本会调用 *FlameGraph* 脚本并且将结果保存在 SVG 文件。 请注意，不是所有的镜像工具都支持：推荐使用网页浏览器打开 SVG 文件。
+The script is located at [/platforms/nuttx/Debug/poor-mans-profiler.sh](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) Once launched, it will perform the specified number of samples with the specified time interval. Collected samples will be stored in a text file in the system temp directory (typically `/tmp`). Once sampling is finished, the script will automatically invoke the stack folder, the output of which will be stored in an adjacent file in the temp directory. If the stacks were folded successfully, the script will invoke the *FlameGraph* script and store the result in an interactive SVG file. Please note that not all image viewers support interactive images; it is recommended to open the resulting SVG in a web browser.
 
-FlameGraph 脚本必须驻留在 `PATH`，否则 PMSP 将拒绝启动。
+The FlameGraph script must reside in the `PATH`, otherwise PMSP will refuse to launch.
 
-PMSP 使用 GDB 收集堆栈跟踪。 目前，它使用 `arm-none-eabi-gdb`，今后可能会添加其他工具链。
+PMSP uses GDB to collect the stack traces. Currently it uses `arm-none-eabi-gdb`, other toolchains may be added in the future.
 
-为了能够映射内存地址到符号，脚本需要被当前运行的文件中提及。 这个是在 `--elf=&lt;file&gt;` 的选项帮助下完成的，该选项需要一个指向当前执行ELF位置的路径来执行（相对于储存库的root）。
+In order to be able to map memory locations to symbols, the script needs to be referred to the executable file that is currently running on the target. This is done with the help of the option `--elf=<file>`, which expects a path (relative to the root of the repository) pointing to the location of the currently executing ELF.
 
-用法示例：
+该想法的功劳归属 [Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/)。
 
 ```bash
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000
 ```
 
-请注意，每次启动脚本都会覆盖旧堆栈。 如果你希望在后以前的栈后面追加而不是覆盖的话，使用选项 `--append`：
+Note that every launch of the script will overwrite the old stacks. Should you want to append to the old stacks rather than overwrite them, use the option `--append`:
 
 ```bash
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --append
 ```
 
-正如人们可能会怀疑的那样，`--append` 带 `--nsamples=0` 将指示脚本只重新生成 SVG 而根本不访问目标。
+As one might suspect, `--append` with `--nsamples=0` will instruct the script to only regenerate the SVG without accessing the target at all.
 
-请阅读脚本，以更深入地了解其工作原理。
-
-## 鸣谢
-
-该想法的功劳归属 [Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/)。
+Please read the script for a more in depth understanding of how it works.

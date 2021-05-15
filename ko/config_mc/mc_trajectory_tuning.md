@@ -1,61 +1,61 @@
-# 멀티로터 경로 조정하기 (궤적 생성기)
+# 멀티콥터 설정점 튜닝(궤적 생성기)
 
-This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
+*사용자 경험*(스틱 움직임이나 임무의 방향 변화에 기체의 반응 속도, 최대 허용 속도 등)을 변경하는 멀티콥터 튜닝 매개변수에 대한 개요를 제공합니다. 
 
-In other words, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
+기체의 설정 값을 *추적*하는 데 영향을 끼치는 매개변수가 아닌 *원하는 설정값*의 값에 영향을 끼치는 매개변수를 튜닝 방법을 설명합니다.
 
-The algorithm that generates those setpoints is called a "trajectory generator".
+이러한 설정값을 생성하는 알고리즘을 "궤적 생성기"라고 합니다.
 
 :::warning
-This guide is for advanced users/experts.
+이 가이드는 고급 사용자와 전문가를 위한 것입니다.
 :::
 
 :::tip
-Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here. Do not use these tuning parameters to fix bad tracking or vibration!
+여기에 설명된 튜닝을 수행하기 *전에* [멀티콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md) 지침을 따르십시오. 이러한 튜닝 매개변수를 사용하여 잘못된 추적이나 진동을 수정하지 마십시오!
 :::
 
-## Overview
+## 개요
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level tuning") aims to reduce the error between the desired setpoint and the estimate of the vehicle state.
+P/PID 컨트롤러에 대한 입력은 기체에서 추적하는 *목표 설정값*입니다. [PID 튜닝](../config_mc/pid_tuning_guide_multicopter.md) ( "낮은 레벨 튜닝")은 목표 설정 값과 기체 상태 추정값 사이의 오류를 줄이는 것을 목표로합니다.
 
-The *desired setpoint* passed to the P/PID controller is itself calculated from a *demanded setpoint* based on a stick position (in RC modes) or from a mission command. The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
+P/PID 컨트롤러로 전달되는 *목표 설정 값*은 스틱 위치 (RC 모드에서) 또는 임무 명령에서 *요구된 설정 값*에서 자체적으로 계산됩니다. 요구되는 설정값은 빨리 변경 될 수 있습니다 (예 : 사용자가 스틱을 "단계" 0에서 최대값으로 이동하는 경우). 원하는 설정값이 "램프"로 변경되면 기체의 비행 특성이 더 좋아집니다.
 
-*Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
+*설정점 값 조정* ( "높은 수준 조정")은 *요구*와 *목표</ 0> 설정점 간의 매핑을 지정합니다. "원하는 설정값은 요구된 설정 값을 따릅니다.</p> 
 
 :::tip
-Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+[P/PID 게인](../config_mc/pid_tuning_guide_multicopter.md)을 잘못 조정하면 불안정해 질 수 있습니다. 잘못 튜닝된 *설정값*은 불안정성을 초래하지는 않지만, 설정값 변경에 대한 반응은 매우 불안정하거나 응답하지 않을 수 있습니다.
 :::
 
 <span id="modes"></span>
 
-## Flight Modes Trajectory Support
+## 비행 모드 궤적 지원
 
-[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
+[미션 모드](../flight_modes/mission.md)는 항상 [저크 제한](../config_mc/mc_jerk_limited_type_trajectory.md) 궤적을 사용하였습니다.
 
-[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+[위치 모드](../flight_modes/position_mc.md)는 아래 나열된 모든 [궤적 유형](#trajectory_implementation)을 지원합니다. 기본적으로 [저크 제한](../config_mc/mc_jerk_limited_type_trajectory.md) 궤적을 사용합니다. 다른 유형은 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)를 사용하여 설정할 수 있습니다.
 
-[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+[고도 모드](../flight_modes/altitude_mc.md)는 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE)에서 선택한 [궤적 유형](#trajectory_implementation)을 유사하게 사용하지만, 수직 구성 요소를 *부드럽게 하는 데만* 사용합니다 (예 : 고도).
 
-No other modes support trajectory tuning.
+다른 모드는 궤도 튜닝을 지원하지 않습니다.
 
 <span id="trajectory_implementation"></span>
 
-## Trajectory Implementations
+## 궤적 구현
 
-The following list provides an *overview* of the different trajectory implementations:
+다음 목록은 다양한 궤적 구현에 대한 *개요*를 제공합니다.
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (Default) 
-  - Used when smooth motion is required (e.g.: filming, mapping, cargo).
-  - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
-  - May not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
-  - Set in position mode using `MPC_POS_MODE=3`.
+- [Jerk-제한](../config_mc/mc_jerk_limited_type_trajectory.md) (기본) 
+  - 부드러운 움직임이 필요할 때 사용합니다 (예 : 촬영, 매핑,화물).
+  - 저크 및 가속 제한이 항상 보장되는 대칭형 부드러운 S- 커브를 생성합니다.
+  - 더 빠른 응답이 필요한 기체(예 : 레이서 쿼드)에는 적합하지 않을 수 있습니다.
+  - `MPC_POS_MODE = 3`을 사용하여 위치 모드로 설정합니다.
 - [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md) 
-  - Used when quick response is more important than smooth motion (e.g.: aggressive flight with position hold).
-  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
-  - It allows asymmetric profiles based on user intention (smooth acceleration and quick stop). 
-  - The jerk and acceleration limits are not hard constraints.
-  - Set in position mode using `MPC_POS_MODE=1`.
-- **Simple position control** 
-  - Sticks map directly to velocity setpoints without smoothing.
-  - Useful for velocity control tuning.
-  - Set in position mode using `MPC_POS_MODE=0`.
+  - 부드러운 동작보다 빠른 반응이 더 중요한 경우에 사용됩니다 (예 : 위치를 유지하는 공격적인 비행).
+  - 이것은 슬루율을 사용하여 저크 및 가속이 제한되는 간단한 구현입니다.
+  - 사용자의 의도 (부드러운 가속 및 빠른 중지)에 따라 비대칭 프로필을 허용합니다. 
+  - 저크와 가속 제한은 엄격한 제약이 아닙니다.
+  - `MPC_POS_MODE = 1`을 사용하여 위치 모드로 설정합니다.
+- **간단한 위치 제어** 
+  - 스틱은 평활화없이 속도 설정점에 직접 매핑됩니다.
+  - 속도 제어 튜닝에 유용합니다.
+  - `MPC_POS_MODE = 0`을 사용하여 위치 모드로 설정합니다.

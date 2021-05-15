@@ -1,18 +1,18 @@
 # 소리 설명 (Pixhawk 시리즈)
 
-[ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [ LED ](../getting_started/led_meanings.md)를 사용하여 차량 상태와 이벤트 (예 : 무장 성공 및 실패, 배터리 부족 경고)를 표시합니다.
+[ Pixhawk 비행 컨트롤러 시리즈](../flight_controller/pixhawk_series.md)는 가청 톤/튜닝 및 [LED](../getting_started/led_meanings.md)를 사용하여 기체 상태와 이벤트(예 : 시동 성공 및 실패, 배터리 부족 경고 등)를 표시합니다.
 
 표준 사운드 세트는 다음과 같습니다.
 
 :::note
-** 개발자 : ** 곡은 [ /lib/tunes/tune_definition.desc ](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 정의되어 있으며 [ tune_control ](../modules/modules_system.md#tunecontrol) 모듈을 사용하여 테스트 할 수 있습니다.
+**개발자 :** 음향은 [ /lib/tunes/tune_definition.desc ](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc)에 정의되어 있으며 [ tune_control ](../modules/modules_system.md#tunecontrol) 모듈을 사용하여 테스트 할 수 있습니다.
 :::
 
 ## 부팅 / 시작
 
 이러한 곡은 부팅 과정에에 재생됩니다.<!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
 
-#### 시작 톤<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### 시작 톤 <audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 - MicroSD 카드가 마운트되었습니다 (부팅 중).
 
@@ -30,7 +30,7 @@
 - 마운트 실패 (포맷이 성공하면 부팅 시퀀스가 다시 마운트를 시도합니다).
 - MicroSD 카드가 없습니다.
 
-#### 포맷 실패<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### 포맷 실패 <audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 - MicroSD 카드 포맷에 실패했습니다 (이전 카드 마운트 시도 후).
 
@@ -100,7 +100,7 @@
 
 <!-- Does not appear to be used: TONE_PARACHUTE_RELEASE_TUNE -->
 
-#### EKF 경고<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
+#### EKF 경고 <audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> 브라우저가 오디오 기능을 지원하지 않습니다. </audio> 
 
 <!-- Does not appear to be used: TONE_EKF_WARNING_TUNE -->
 

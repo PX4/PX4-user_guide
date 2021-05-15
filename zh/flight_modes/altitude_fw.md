@@ -1,6 +1,6 @@
 # 定高模式（固定翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
 * 定高模式 *使操纵者更容易控制飞机高度，特别是到达并维持一个固定高度。 该模式不会试图抵抗风扰保持航向。
 
@@ -10,7 +10,7 @@
 
 当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约 50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
+下图直观的显示了该模式（对于一个[美国手的发射机](../getting_started/rc_transmitter_receiver.md#transmitter_modes)）。
 
 ![固定翼高度控制](../../assets/flight_modes/altitude_control_mode_fw.png)
 
@@ -38,7 +38,7 @@
 该模式受以下参数影响：<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
 
 <td>
-  在高度稳定模式下手动控制的最大俯仰角。 默认：45度
+  在高度稳定模式下手动控制的最大俯仰角。 默认：45 度。
 </td></tr> 
 
 <tr>
@@ -46,7 +46,7 @@
     <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
     
     <td>
-      在高度稳定模式下手动控制的最大滚转角。 默认：45度
+      在高度稳定模式下手动控制的最大滚转角。 默认：45 度。
     </td></tr> 
     
     <tr>
@@ -54,7 +54,7 @@
         <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
         
         <td>
-          维持指令高度和空速所需的滚转/偏航角也受固定翼L1控制参数的影响。
+          维持指令高度和空速所需的滚转/偏航角也受固定翼 L1 控制参数的影响。
         </td></tr> </tbody> </table> 
         
         <!-- 

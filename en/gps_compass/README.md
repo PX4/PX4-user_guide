@@ -21,21 +21,21 @@ On small vehicles an external compass is almost always required.
 
 Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
 :--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
-[Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) | M8N | &check; | | |
-[mRo GPS u-blox Neo-M8N Dual Compass](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) | M8N | LIS3MDL, IST8310 | | |
-[Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass)) | M9N | LIS3MDL | | |
-[Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future. | &check; | &cross; | | |
-[Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | |
-[Holybro Nano Ublox M8 5883 GPS Module](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | |
-[Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) | M8N | IST8310 | | |
-[Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | |
-[Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) | M8N | IST8310 | | |
-Hex Here GNSS GPS (M8N) (discontinued) | M8N | HMC5983, LIS3MDL | | |
-[Hex Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md) | M8N | ICM20948 | | |
+[Hobbyking u-blox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) | M8N | &check; | | | 
+[mRo GPS u-blox Neo-M8N Dual Compass](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) | M8N | LIS3MDL, IST8310 | | | 
+[Drotek DP0804](https://store-drotek.com/920-DP0804.html) (and other [Drotek u-blox GPS/Compasses](https://store-drotek.com/index.php?controller=search&s=ublox+compass)) | M9N | LIS3MDL | | | 
+[Emlid Reach M+](https://emlid.com/reach/)  - PX4 only supports "ordinary" GPS with this module. RTK support is expected in the near future. | &check; | &cross; | | | 
+[Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) | M8N | IST8310 | | | 
+[Holybro Nano Ublox M8 5883 GPS Module](https://shop.holybro.com/nano-ublox-m8-5883-gps-module_p1236.html) | UBX-M8030 | QMC5883 | | | 
+[Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) | M8N | IST8310 | | | 
+[Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) | M8N | IST8310 | | | 
+[Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) | M8N | IST8310 | | | 
+Hex Here GNSS GPS (M8N) (discontinued) | M8N | HMC5983, LIS3MDL | | | 
+[Hex Here2 GNSS GPS (M8N)](../gps_compass/gps_hex_here2.md) | M8N | ICM20948 | | | 
 [Zubax GNSS 2](https://zubax.com/products/gnss_2) | MAX-M8Q | LIS3MDL | | |
-[Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | |
+[Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) | SAM-M8Q | MMC5983MA | | | 
 3DR u-blox GPS with Compass kit (discontinued) | LEA-6H | &check; | | | 
-[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | |
+[CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | M8P/M8N | &check; | &check; | | 
 [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | M8U | LIS3MDL | &check; | | 
 [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) | FB672, FB6A0 | &check; | &check; | | 
 [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) | F9P | IST8310 | &check; | 
@@ -45,7 +45,7 @@ Hex Here GNSS GPS (M8N) (discontinued) | M8N | HMC5983, LIS3MDL | | |
 [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) | F9P |  &cross; | &check; | | &check;
 [Drotek SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) | F9P | RM3100 | &check; | | &check;
 [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm) | F9P | &cross; | &check; | | &check;
-[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P | &cross; | &check; | &check; | |  
+[Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md) | F9P | &cross; | &check; | &check; | | 
 [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) | &cross; | &check; | | | | 
 
 
@@ -76,6 +76,11 @@ While these are all software-compatible, there are several different pin orderin
 
 The "standard" GPS/compass configuration is provided below.
 Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
+
+:::warning
+The GPS protocol defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected)
+The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
+:::
 
 ### Configuring the Primary GPS
 

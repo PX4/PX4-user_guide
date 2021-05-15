@@ -185,6 +185,7 @@ $ ./micrortps_agent [options]
   -p &lt;poll_ms&gt;            UART设备轮询时间，单位ms， 缺省为 1ms。 缺省为 1ms。
   -r &lt;reception port&gt;     UDP 接收端口， 缺省为 2019。
   -s &lt;sending port&gt;       UDP发送端口， 缺省为 2020。
+  -n <set namespace>      Set a namespace for the micrortps_agent.
 ```
 
 To launch the *Agent*, run `micrortps_agent` with appropriate options for specifying the connection to the *Client* (the default options connect from a Linux device to the *Client* over a UART port).
@@ -218,7 +219,7 @@ cd /path/to/PX4/PX4-Autopilot
 cd build/px4_sitl_rtps/src/modules/micrortps_bridge
 mkdir micrortps_listener
 cd micrortps_listener
-fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
 This creates a basic subscriber and publisher, and a main-application that you can run. In order to print the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:
