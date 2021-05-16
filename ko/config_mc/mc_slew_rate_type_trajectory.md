@@ -1,4 +1,4 @@
-# 멀티콥터의 슬루율 유형 궤적
+# 멀티콥터의 슬루레이트 유형 궤적
 
 :::tip
 궤적 유형은 [MPC_POS_MODE = 1](../advanced_config/parameter_reference.md#MPC_POS_MODE) 매개변수로 [위치 모드](../flight_modes/position_mc.md) (전용)에서 활성화됩니다.
@@ -6,7 +6,7 @@
 [멀티콥터 저크 제한 궤적 조정](../config_mc/mc_jerk_limited_type_trajectory.md)은 더 부드러운 응답을 제공하는 대체 궤적입니다.
 :::
 
-슬루율 궤적 유형은 슬루율을 사용하여 저크와 가속이 제한되는 간단한 궤적생성기입니다 (저크와 가속 제한은 엄격한 제약이 아님).
+슬루레이트 궤적 유형은 슬루율을 사용하여 저크와 가속이 제한되는 간단한 궤적생성기입니다 (저크와 가속 제한은 엄격한 제약이 아님).
 
 사용자의 의도 (부드러운 가속 및 빠른 정지)에 따라 비대칭 프로파일을 허용하며, 스틱 입력에 대한 빠른 (그리고 잠재적으로 "부끄러운") 반응이 부드러운 가속 및 감속을 보장하는 것보다 더 중요한 경우에 사용하여야 합니다 (예 : 위치 유지).
 
@@ -44,7 +44,7 @@
 
 최대 스틱 입력 중에 속도 설정점은 속도 설정점 대신 `0 m/s `에서 `4 m/s` 바로 변경되지 않고 (일명 스텝 입력), 대신 속도 설정점이 경사 `MPC_ACC_HOR`을 갖는 경사값를 따라가게 됩니다. 그러나 기체의 실제 속도는 설정값을 완벽하게 추적하지 않고 뒤처질 것입니다. 지연은 `MPC_ACC_HOR`의 값이 클수록 더 중가합니다.
 
-![Slewrate Reset](../../assets/config/mc/slewrate_reset.svg)
+![슬루레이트 재설정](../../assets/config/mc/slewrate_reset.svg)
 
 재설정하지 않으면 (상단 그래프) 정지 요구 (스틱 0과 같음) 순간에 속도 설정 값이 `MPC_ACC_HOR_MAX`에 지정된 최대 속도로 감소합니다. 지연으로 인해 기체는 먼저 정지 요구 이전 방향으로 가속후 0을 향해 천천히 감속합니다. 속도 설정 값을 현재 속도로 재설정하면 정지 요구 중 지연으로 인한 지연을 극복할 수 있습니다.
 
@@ -59,4 +59,4 @@
 
 이 두 매개변수는 **속도 제어**에서 **위치 제어**로 전환중에만 효과가 있습니다. 이 두 매개변수의 목적은 전진 비행에서 호버링시 발생하는 저크를 최소화하는 것입니다 ([MPC_ACC_HOR와 MPC_DEC_HOR_SLOW](#mpc_acc_hor-and-mpc_dec_hor_slow) 참조).
 
-저크 매개변수는 가속 제한이 `MPC_ACC_HOR_MAX`로 변경될 수있는 속도 제한을 제어합니다. The actual jerk-value is a linear map from velocity speed to jerk where full speed maps to [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and zero speed to [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN). The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller than `MPC_JERK_MIN`.
+저크 매개변수는 가속 제한이 `MPC_ACC_HOR_MAX`로 변경될 수있는 속도 제한을 제어합니다. 실제 저크 값은 최대 속도가 [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX)에 매핑되고 제로 속도가 [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN)에 매핑되는 속도에서 저크까지의 선형 맵입니다. 스무딩은 `MPC_JERK_MAX`를 `MPC_JERK_MIN`보다 작은 값으로 설정하여 끌 수 있습니다.
