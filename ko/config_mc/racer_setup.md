@@ -1,41 +1,41 @@
-# Racer Setup
+# 레이서 설정
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
+최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위해 레이서를 설정법을 설명합니다.
 
-Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
+레이서들은 빠른 기동을 위해 설계된 기체임을 명심하십시오! 유경험자에게 도움을 받는 것이 좋습니다.
 
 :::tip
-Many things described here can also be applied to improve the flight performance of other types of multicopters.
+여기에 설명된 많은 사항을 적용하여 다른 유형의 멀티콥터의 비행 성능을 개선 할 수도 있습니다.
 :::
 
 :::note
-A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+레이서는 일반적으로 일부 센서 (예 : GPS)를 생략합니다. 결과적으로 더 적은 수의 안전 장치 옵션을 사용할 수 있습니다.
 :::
 
-## Build Options
+## 빌드 옵션
 
-A racer usually omits some sensors.
+일반적으로 레이서는 일부 센서들을 사용하지 않습니다.
 
-The minimal configuration is to use only a gyro and accelerometer sensor.
+자이로와 가속도계만을 사용하는 최소 구성을 할 수 있습니다.
 
 :::note
-If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
+보드에 내부 자력계가 있는 경우 사용해서는 안됩니다 (작은 레이서가 특히 강한 전자기 간섭을 받기 쉽습니다).
 :::
 
-Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break).
+레이서에는 일반적으로 중량 중가 문제와 충돌시 파손 문제로 인하여 GPS가 없습니다 (GPS + 외부 자력계는 자기 간섭을 피하기 위해 고전류에서 멀리 떨어진 GPS 마스트에 배치해야합니다. 이는 쉽게 파손될 수 있음을 의미합니다.)
 
-There are however some benefits in adding GPS, particularly for beginners:
+그러나 GPS를 추가시에는 초보자들에게 이로운 점이 몇 가지 있습니다.
 
-- You can go into position hold and the vehicle will just stay in one place. This is handy if you lose the orientation or need a brake. It can also be used to land safely.
-- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low battery failsafe.
-- You will have the last position when it crashes.
-- The log contains the flight track, which means you can review the flight (in 3D). This can help to improve your acrobatic flight skills.
+- 위치 유지모드에서 기체가 한 곳에 머물 수 있습니다. 방향을 잃거나 브레이크가 필요한 경우에 매우 편리합니다. 또한 안전하게 착륙할 수 있습니다.
+- [귀환 모드](../flight_modes/return.md) 스위치 또는 RC 손실 또는 배터리 부족시의 안전 장치로 사용할 수 있습니다.
+- 충돌시의 마지막 위치를 파악할 수 있습니다.
+- 로그에는 비행 트랙이 포함되어 있으므로 비행을 검토할 수 있습니다 (3D). 이것은 곡예 비행 기술을 향상에 많은 도움이 됩니다.
 
 :::note
-During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into [position mode](../flight_modes/position_mc.md) during that time, [altitude mode](../flight_modes/altitude_mc.md) will be used instead until the position becomes valid again.
+공격적인 곡예 기동 중에는 GPS가 잠시 동안 위치를 파악하지 못할 수도 있습니다. 이 시간 동안 [위치 모드](../flight_modes/position_mc.md)로 전환하면 위치 값이 유효해질 때 까지 [고도모드](../flight_modes/altitude_mc.md)가 대신 작용합니다.
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
 The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
 
