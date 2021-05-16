@@ -32,10 +32,10 @@
 - 로그에는 비행 트랙이 포함되어 있으므로 비행을 검토할 수 있습니다 (3D). 이것은 곡예 비행 기술을 향상에 많은 도움이 됩니다.
 
 :::note
-공격적인 곡예 기동 중에는 GPS가 잠시 동안 위치를 파악하지 못할 수도 있습니다. If you switch into [position mode](../flight_modes/position_mc.md) during that time, [altitude mode](../flight_modes/altitude_mc.md) will be used instead until the position becomes valid again.
+공격적인 곡예 기동 중에는 GPS가 잠시 동안 위치를 파악하지 못할 수도 있습니다. 이 시간 동안 [위치 모드](../flight_modes/position_mc.md)로 전환하면 위치 값이 유효해질 때 까지 [고도모드](../flight_modes/altitude_mc.md)가 대신 작용합니다.
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
 The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
 
