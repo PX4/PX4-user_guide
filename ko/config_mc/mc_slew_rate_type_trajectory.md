@@ -36,27 +36,27 @@
 
 속도 제어에서 속도 설정점에 대한 속도 제한은 스틱 입력에서 가속 한계까지 최대값은 [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) 이상 그리고 최소값은 [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW)로 선형 정보에서 추출됩니다. 예를 들어, 스틱 입력이 `MPC_HOLD_DZ`에 있는 경우, 제한 가속도는 `MPC_DEC_HOR_SLOW`입니다. 스틱 입력이 최대(=`1`) 인 경우 제한 가속도는 `MPC_ACC_HOR`이며 이 사이의 스틱 입력은 두 파라미터 간에 선형적으로 매핑됩니다. 또한, 사용자가 현재 비행 방향에서 감속을 요구할 때 `MPC_DEC_HOR_SLOW`은 속도 설정점의 변화를 제한합니다. 예를 들어, 스틱 입력이 최대(=`1`)에서 `0.5`로 변경되면, 속도 설정점 변경은 `MPC_DEC_HOR_SLOW`로 제한됩니다.
 
-**속도 제어**에서 **위치 제어**로 전환하는 동안, `MPC_ACC_HOR`에서 `MPC_ACC_HOR_MAX`로 변환하는 스위치, 그리고 속도 설정점에서 기체의 현재 속도로 전환하는 하드 스위치가 있습니다. The reset and the hard switch can both introduce a jerky flight performance during stopping. Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers.
+**속도 제어**에서 **위치 제어**로 전환하는 동안, `MPC_ACC_HOR`에서 `MPC_ACC_HOR_MAX`로 변환하는 스위치, 그리고 속도 설정점에서 기체의 현재 속도로 전환하는 하드 스위치가 있습니다. 리셋과 하드 스위치는 모두 정지 중에 비행 성능을 저하시킬 수 있습니다. 그럼에도 불구하고 평활화 매개변수로 인하여 설정 값이 지연되어 예기치 않은 비행 기동이 발생할 수 있으므로 재설정이 필요합니다.
 
-A simple example explaining why the reset is needed is given below.
+재설정이 필요한 이유를 설명하는 간단한 예제는 아래와 같습니다.
 
-Consider the case where a user demands full speed from hover followed by a stop request. This is equivalent to full stick input with maximum value of `1` followed by zero stick input. To simplify the example, assume that `MPC_ACC_HOR_MAX` is equal to `MPC_ACC_HOR` and therefore there is no hard switch in acceleration limit when switching from **velocity-control** to **position-control**. In addition, let's assume the maximum speed that can be demanded is `4 m/s`.
+사용자가 호버링에서 최고 속도를 요구한 후 중지 요청을하는 경우를 고려하여야 합니다. 이는 최대값이 `1` 인 풀 스틱 입력에 이어 제로 스틱 입력과 동일합니다. 이 예를 단순화하기 위해 `MPC_ACC_HOR_MAX`가 `MPC_ACC_HOR`과 같다고 가정하면, **속도 제어**에서 **위치 제어**로 전환할 때 가속 한도에 하드 스위치가 없습니다. 또한 요구 최대 속도를 `4m/s`라고 가정합니다.
 
-During full stick input, the velocity setpoint will not change directly from `0 m/s` to `4 m/s` (aka step input) - instead the velocity setpoint follows a ramp with slope `MPC_ACC_HOR`. The actual velocity of the vehicle, however, will not track the setpoint perfectly, but rather will lag behind. The lag will be more significant the larger the value of `MPC_ACC_HOR`.
+최대 스틱 입력 중에 속도 설정점은 속도 설정점 대신 `0 m/s `에서 `4 m/s` 바로 변경되지 않고 (일명 스텝 입력), 대신 속도 설정점이 경사 `MPC_ACC_HOR`을 갖는 경사값를 따라가게 됩니다. 그러나 기체의 실제 속도는 설정값을 완벽하게 추적하지 않고 뒤처질 것입니다. 지연은 `MPC_ACC_HOR`의 값이 클수록 더 중가합니다.
 
 ![Slewrate Reset](../../assets/config/mc/slewrate_reset.svg)
 
-Without the reset (the top graph), at the moment of the stop demand (stick equal 0) the velocity setpoint will ramp down with the maximum rate given by `MPC_ACC_HOR_MAX`. Due to the lag the vehicle will first continue to accelerate in the direction previous to the stop demand followed by slowly decelerating towards zero. With the reset of the velocity setpoint to the current velocity, the delay due to the lag during stop demand can be overcome.
+재설정하지 않으면 (상단 그래프) 정지 요구 (스틱 0과 같음) 순간에 속도 설정 값이 `MPC_ACC_HOR_MAX`에 지정된 최대 속도로 감소합니다. 지연으로 인해 기체는 먼저 정지 요구 이전 방향으로 가속후 0을 향해 천천히 감속합니다. 속도 설정 값을 현재 속도로 재설정하면 정지 요구 중 지연으로 인한 지연을 극복할 수 있습니다.
 
-#### MPC_ACC_UP_MAX and MPC_ACC_DOWN_MAX
+#### MPC_ACC_UP_MAX 및 MPC_ACC_DOWN_MAX
 
-`MPC_ACC_UP_MAX` >= `MPC_ACC_DOWN_MAX`, otherwise the firmware will overwrite the given values.
+`MPC_ACC_UP_MAX`> = `MPC_ACC_DOWN_MAX`, 그렇지 않으면 펌웨어가 주어진 값을 덮어 씁니다.
 
-- **position-control:** the limit in velocity setpoint change in z-direction is given by [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX).
-- **velocity-control:** the limit in velocity setpoint change for stick input is `MPC_ACC_UP_MAX` for upward and [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) for downward direction.
+- **위치 제어 :** z 방향의 속도 설정 값 변경 한계는 [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)에 의해 제공됩니다.
+- **속도 제어 :** 스틱 입력에 대한 속도 설정 값 변경 한계는 상향의 경우 `MPC_ACC_UP_MAX`이고 하향의 경우 [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)입니다.
 
-#### MPC_JERK_MAX and MPC_JERK_MIN
+#### MPC_JERK_MAX와 MPC_JERK_MIN
 
-These two parameters only have effect during the transition from **velocity-control** to **position-control**. The purpose of these two parameters are to minimize the jerk introduced from forward flight to hover (please see [MPC_ACC_HOR and MPC_DEC_HOR_SLOW](#mpc_acc_hor-and-mpc_dec_hor_slow)).
+이 두 매개변수는 **속도 제어**에서 **위치 제어**로 전환중에만 효과가 있습니다. 이 두 매개변수의 목적은 전진 비행에서 호버링시 발생하는 저크를 최소화하는 것입니다 ([MPC_ACC_HOR와 MPC_DEC_HOR_SLOW](#mpc_acc_hor-and-mpc_dec_hor_slow) 참조).
 
-The jerk-parameter controls the rate limit with which the acceleration limit can change to `MPC_ACC_HOR_MAX`. The actual jerk-value is a linear map from velocity speed to jerk where full speed maps to [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and zero speed to [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN). The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller than `MPC_JERK_MIN`.
+저크 매개변수는 가속 제한이 `MPC_ACC_HOR_MAX`로 변경될 수있는 속도 제한을 제어합니다. The actual jerk-value is a linear map from velocity speed to jerk where full speed maps to [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and zero speed to [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN). The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller than `MPC_JERK_MIN`.
