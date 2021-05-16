@@ -14,29 +14,29 @@
 
 ## 위치 모드
 
-In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
+[Position](../flight_modes/position_mc.md) 모드에서는 스틱 입력이 **위치 제어** 또는 **속도 제어**에 매핑됩니다.
 
 :::note
-The position controller ([diagram here](../flight_stack/controller_diagrams.md#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. Depending on the mode and situation either both loops are active or just the velocity control loop.
+위치 제어기 [다이어그램](../flight_stack/controller_diagrams.md#multicopter-position-controller)은 외부 **P** 위치 제어 루프와 내부 **PID** 속도 제어 루프로 구성됩니다. 모드와 상황에 따라 두 루프가 모두 활성화되거나 속도 제어 루프만 활성화됩니다.
 
-For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
+이 항목의 나머지 부분에 대해 **위치 제어** 용어는 두 루프가 모두 활성 상태이고 **속도 제어 장치**는 속도 제어 루프만 사용하는 경우를 의미합니다.
 :::
 
-Position-control is active when the stick inputs are within the deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ), and velocity-control otherwise.
+위치 제어는 스틱 입력이 데드존 [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ) 내에 있을 때, 속도 제어는 그렇지 않은 경우 활성화됩니다.
 
-All the parameters below are tuning parameters and cannot be mapped directly to the physical quantity.
+아래의 모든 매개변수는 튜닝 매개변수이므로 물리적 값에 직접 매핑할 수 없습니다.
 
 #### MPC_ACC_HOR_MAX
 
-This parameter is used for position-control in the horizontal direction, where the vehicle is supposed to stay at the current location. The limit for the rate of change of the velocity setpoint is defined by [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX). This parameter should be set larger than any of the other acceleration related parameters in the horizontal direction.
+이 매개변수는 기체의 현재 위치에 머무르는 곳에서 수평 위치 제어에 사용됩니다. 속도 설정점의 변화율에 대한 한계는 [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)로 정의합니다. 이 매개변수는 수평 방향의 다른 가속 관련 매개변수보다 크게 설정해야 합니다.
 
 <span id="mpc_acc_hor-and-mpc_dec_hor_slow"></span>
 
-#### MPC_ACC_HOR and MPC_DEC_HOR_SLOW
+#### MPC_ACC_HOR와 MPC_DEC_HOR_SLOW
 
-In velocity-control the rate limit for the velocity setpoint is extracted from a linear map from stick input to acceleration limit with maximum [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) and minimum [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW). For example, if the stick input is at `MPC_HOLD_DZ`, the limiting acceleration is `MPC_DEC_HOR_SLOW`. If the stick input is at maximum (=`1`), the limiting acceleration is `MPC_ACC_HOR` and any stick input in between is mapped linearly between the two parameters. In addition, `MPC_DEC_HOR_SLOW` also limits the change in velocity setpoint when the user demands a deceleration in the current flight direction. For instance, if the stick input changes from maximum (=`1`) to `0.5`, the velocity setpoint change will be limited by `MPC_DEC_HOR_SLOW`.
+속도 제어에서 속도 설정점에 대한 속도 제한은 스틱 입력에서 가속 한계까지 최대값은 [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) 이상 그리고 최소값은 [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW)로 선형 정보에서 추출됩니다. 예를 들어, 스틱 입력이 `MPC_HOLD_DZ`에 있는 경우, 제한 가속도는 `MPC_DEC_HOR_SLOW`입니다. 스틱 입력이 최대(=`1`) 인 경우 제한 가속도는 `MPC_ACC_HOR`이며 이 사이의 스틱 입력은 두 파라미터 간에 선형적으로 매핑됩니다. 또한, 사용자가 현재 비행 방향에서 감속을 요구할 때 `MPC_DEC_HOR_SLOW`은 속도 설정점의 변화를 제한합니다. 예를 들어, 스틱 입력이 최대(=`1`)에서 `0.5`로 변경되면, 속도 설정점 변경은 `MPC_DEC_HOR_SLOW`로 제한됩니다.
 
-During transition from **velocity-control** to **position-control**, there is a hard switch from `MPC_ACC_HOR` to `MPC_ACC_HOR_MAX` and a reset of the velocity setpoint to the current vehicle velocity. The reset and the hard switch can both introduce a jerky flight performance during stopping. Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers.
+**속도 제어**에서 **위치 제어**로 전환하는 동안, `MPC_ACC_HOR`에서 `MPC_ACC_HOR_MAX`로 변환하는 스위치, 그리고 속도 설정점에서 기체의 현재 속도로 전환하는 하드 스위치가 있습니다. The reset and the hard switch can both introduce a jerky flight performance during stopping. Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers.
 
 A simple example explaining why the reset is needed is given below.
 
