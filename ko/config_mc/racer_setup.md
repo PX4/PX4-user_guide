@@ -1,18 +1,18 @@
-# Racer Setup
+# 레이서 설정
 
-This page describes how to setup and configure a racer for optimal performance (in particular for [Acro mode](../flight_modes/acro_mc.md)).
+최적의 성능 (특히 [곡예 모드](../flight_modes/acro_mc.md))을 위해 레이서를 설정법을 설명합니다.
 
-Keep in mind that racers are fast vehicles, specifically designed to be overpowered! You should already have some experience, or let someone with experience help you.
+레이서들은 빠른 기동을 위해 설계된 기체임을 명심하십시오! 유경험자에게 도움을 받는 것이 좋습니다.
 
 :::tip
-Many things described here can also be applied to improve the flight performance of other types of multicopters.
+여기에 설명된 많은 사항을 적용하여 다른 유형의 멀티콥터의 비행 성능을 개선 할 수도 있습니다.
 :::
 
 :::note
-A racer usually omits some sensors (e.g. GPS). As a result, fewer failsafe options are available.
+레이서는 일반적으로 일부 센서 (예 : GPS)를 생략합니다. 결과적으로 더 적은 수의 안전 장치 옵션을 사용할 수 있습니다.
 :::
 
-## Build Options
+## 빌드 옵션
 
 A racer usually omits some sensors.
 
