@@ -77,35 +77,35 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 이를 선택하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 1로 설정하고 다음의 매개변수를 변경하십시오.
 
-- 시스템에 자력계가없는 경우 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)를 0으로 설정하십시오.
-- Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to 0 if the system does not have a barometer.
-- Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. You can tune these later if you wish.
+- 시스템에 자력계가 없는 경우 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)를 0으로 설정하십시오.
+- 시스템에 기압계가 없는 경우 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO)를 0으로 설정하십시오.
+- Q 추정기를 설정합니다. [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP)를 0으로, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC)를 0.4로, [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS)를 0으로 설정합니다. 필요한 경우에 차후에 튜닝할 수 있습니다.
 
-### Failsafe
+### 안전장치
 
-Configure [RC loss and low battery failsafe](../config/safety.md). If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors. Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
+[RC 손실 및 배터리 안전 장치](../config/safety.md)를 설정합니다. GPS를 사용하지 않는 경우 안전 장치를 **잠금**으로 설정하면 모터가 꺼집니다. 차량이 시동이 켜지면 리모컨을 꺼서 프로펠러를 제거한 다음에, 벤치에서 RC 손실을 테스트합니다.
 
-Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [arming switch](../config/safety.md#arming_switch). Test it and train to use it!
+[킬 스위치](../config/safety.md#kill_switch) 또는 [무장 스위치](../config/safety.md#arming_switch)를 지정하여야 합니다. 테스트하고 연습을 충분히 하여야 합니다.
 
-### PID Tuning
+### PID 튜닝
 
-:::note
-Make sure to calibrate the ESCs before doing any tuning.
+:::note PID
+튜닝을 전에 ESC를 먼저 튜닝하십시오.
 :::
 
-At this point you should be ready for a first test flight.
+이 시점에서 첫 번째 테스트 비행을 준비하여야 합니다.
 
-Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md). The vehicle needs to be **undertuned** (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). This is important for the [filter](#filters) tuning (there will be a second PID tuning round later).
+기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). 이것은 [필터](#filters) 튜닝에 중요합니다 (나중에 두 번째 PID 튜닝이 있습니다).
 
-### Control Latency
+### 제어 지연
 
-The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
+*제어 지연*은 모터가 변화에 반응할 때까지 기체의 물리적 장애로 인한 지연을 의미합니다.
 
 :::tip
-It is *crucial* to reduce the control latency as much as possible! A lower latency allows you to increase the rate **P** gains, which means better flight performance. Even one millisecond added to the latency makes a difference.
+제어 지연시간을 최대한 줄이는 것이 *중요*합니다! 지연 시간이 짧을수록 **P** 이득을 높일 수 있으며, 비행 성능 향상을 의미하는 것입니다. 지연 시간은 1/1000 초가 추가 되어도 현격한 차이를 나타냅니다.
 :::
 
-These are the factors that affect the latency:
+지연 시간에 영향을 미치는 요인은 다음과 같습니다.
 
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
