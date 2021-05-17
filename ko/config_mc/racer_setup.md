@@ -41,15 +41,15 @@
 
 ### 진동 설정
 
-진동을 줄이기 위한 다양한 장착 방법이 있습니다. For example, the flight controller can be mounted with vibration dampening foam, or using [O-rings](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
+진동을 줄이기 위한 여러가지 조립 방법이 있습니다. 예를 들어, 비행 컨트롤러는 진동 완화 폼이나 [O-링](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting)을 사용하여 조립할 수 있습니다.
 
-While there is no single best method, you will typically have fewer problems with vibrations if you use high-quality components (frame, motors, props) as for example used in the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
+최고의 방법은 없지만, [QAV-R 5 "KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md)에서 사용하는 고품질 부품(프레임, 모터, 소품)들을 사용하면 진동 문제가 일반적으로 적어집니다.
 
-Make sure to use **balanced props**.
+**균형 프로펠러**을 사용하십시오.
 
-### Center of Gravity
+### 무게 중심
 
-Make sure that the center of gravity is as close as possible to the center of thrust. Left-right balance is usually not a problem, but front-back balance may be. You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
+무게 중심이 추력 중심에서 최대한 가까워야 합니다. 좌우 균형은 일반적으로 문제가 되지 않지만, 전후 균형은 문제가 될 수 있습니다. 배터리의 적당한 위치를 표시하여 항상 같은 위치에 장착하는 것이 좋습니다.
 
 :::note
 The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
