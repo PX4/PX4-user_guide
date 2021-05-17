@@ -107,25 +107,25 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 지연 시간에 영향을 미치는 요인은 다음과 같습니다.
 
-- A soft airframe or soft vibration mounting increases latency (they act as a filter).
-- [Low-pass filters](../config_mc/filter_tuning.md) in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-- The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
+- 부드러운 기체 또는 부드러운 진동 장착은 지연 시간을 증가시킵니다 (필터 역할을 함).
+- 소프트웨어 및 센서 칩의 [저역 통과 필터](../config_mc/filter_tuning.md)는 지연시간 증가분을 상쇄하여 노이즈 필터링을 원활하게 합니다.
+- PX4 소프트웨어 내부 : 센서 신호를 드라이버에서 읽은 다음 컨트롤러를 통해 출력 드라이버로 전달하여야 합니다.
+- IO 칩 (MAIN 핀)은 AUX 핀 사용에 비해 약 5.4ms의 지연 시간을 추가합니다 (*Pixracer* 또는 *Omnibus F4*에는 적용되지 않지만 Pixhawk에는 적용됨) IO 지연을 방지하려면 [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO)를 비활성화하고 모터를 AUX 핀에 대신 연결하십시오.
+- PWM 출력 신호 : One-Shot을 활성화하여 지연 시간을 줄입니다 ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) = 0).
 
-### Filter Tuning
+### 필터 튜닝
 
-Filters trade off control latency and noise filtering, both of which impact performance. For information see: [Filter/Control Latency Tuning](../config_mc/filter_tuning.md)
+필터는 성능에 영향을 미치는 제어 대기 시간과 노이즈 필터링을 절충합니다. 자세한 내용은 [필터/제어 지연 시간 튜닝 ](../config_mc/filter_tuning.md)편을 참고하십시오.
 
-### PID Tuning (Second Round)
+### PID 튜닝 (두 번째 단계)
 
-Now do a second round of PID tuning, this time as tight as possible, and also tuning the thrust curve.
+이제 두 번째 PID 튜닝을 수행합니다. 이번에는 가능한 한 빡빡하게하고 추력 곡선도 튜닝합니다.
 
 :::tip
-You can use the approach described in [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md) to tune the frame, but you will need to use the [Advanced Multicopter PID Tuning Guide (Advanced/Detailed)](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve) to understand how to tune the thrust curve.
+[기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 접근 방식으로 프레임을 튜닝할 수 있으며, 자세한 방법은 [고급 멀티 콥터 PID 튜닝 가이드 (고급/상세) ](../config_mc/pid_tuning_guide_multicopter.md#thrust-curve)를 사용하여야 합니다. 추력 곡선을 조정합니다.
 
-### Airmode
+### 에어모드
 
-After you have verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
+기체가 낮은 스로틀과 높은 스로틀에서 잘 비행하는지 확인한 후 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) 매개변수로 [에어 모드](../config_mc/pid_tuning_guide_multicopter.md#airmode)를 활성화할 수 있습니다. 이 기능은 기체가 제어 가능하고 낮은 스로틀에서 속도를 추적하도록 합니다.
 
-Happy flipping :)
+행복한 뒤집기 :)
