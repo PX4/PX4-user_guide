@@ -1,4 +1,4 @@
-# Fixed-wing PID Tuning Guide
+# 고정익 튜닝 가이드
 
 This guide explains how to tune the fixed_wing PID loop.
 
