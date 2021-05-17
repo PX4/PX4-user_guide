@@ -9,7 +9,7 @@
 :::
 
 :::note
-레이서는 일반적으로 일부 센서 (예 : GPS)를 생략합니다. 결과적으로 더 적은 수의 안전 장치 옵션을 사용할 수 있습니다.
+레이서는 일반적으로 일부 센서(예 : GPS)를 사용하지 않을 수도 있습니다. 결과적으로 사용 가능한 안전 장치 옵션은 적어집니다.
 :::
 
 ## 빌드 옵션
@@ -73,11 +73,11 @@
 
 ### 추정기
 
-If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
+GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를 사용할 수 있습니다. 그렇지 않으면 자력계나 기압계를 사용하지 않는 Q 자세 추정기로 전환하여야 합니다.
 
-To select it, set [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) to 1, and change the following parameters:
+이를 선택하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 1로 설정하고 다음의 매개변수를 변경하십시오.
 
-- Set [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) to 0 if the system does not have a magnetometer.
+- 시스템에 자력계가없는 경우 [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)를 0으로 설정하십시오.
 - Set [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) to 0 if the system does not have a barometer.
 - Configure the Q estimator: set [ATT_ACC_COMP](../advanced_config/parameter_reference.md#ATT_ACC_COMP) to 0, [ATT_W_ACC](../advanced_config/parameter_reference.md#ATT_W_ACC) to 0.4 and [ATT_W_GYRO_BIAS](../advanced_config/parameter_reference.md#ATT_W_GYRO_BIAS) to 0. You can tune these later if you wish.
 
