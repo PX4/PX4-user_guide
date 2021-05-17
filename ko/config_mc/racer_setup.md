@@ -37,11 +37,11 @@
 
 ## 하드웨어 설정
 
-The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
+다음 단락에서는 기체 제작시 몇 가지 중요한 사항에 대하여 설명합니다. 자세한 조립 방법은 다음을 참고하십시오. [QAV-R 5 "KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 조립 방법
 
-### Vibration Setup
+### 진동 설정
 
-There are various mounting approaches to reduce vibrations. For example, the flight controller can be mounted with vibration dampening foam, or using [O-rings](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
+진동을 줄이기 위한 다양한 장착 방법이 있습니다. For example, the flight controller can be mounted with vibration dampening foam, or using [O-rings](../frames_multicopter/qav_r_5_kiss_esc_racer.md#mounting).
 
 While there is no single best method, you will typically have fewer problems with vibrations if you use high-quality components (frame, motors, props) as for example used in the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md).
 
