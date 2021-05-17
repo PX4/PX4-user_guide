@@ -52,26 +52,26 @@
 무게 중심이 추력 중심에서 최대한 가까워야 합니다. 좌우 균형은 일반적으로 문제가 되지 않지만, 전후 균형은 문제가 될 수 있습니다. 배터리의 적당한 위치를 표시하여 항상 같은 위치에 장착하는 것이 좋습니다.
 
 :::note
-The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
+적분항는 불균형 설정을 나타내는 것이며, 용자 정의 믹서는 더 정확하게 나타낼 수 있습니다. 그러나 기체 설정으로 불균형을 수정하는 방법이 제일 좋습니다.
 :::
 
-### Motor Ordering
+### 모터 순서
 
-If you plan to use a 4-in-1 ESC, such as the [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), you will notice that it uses a motor ordering that is different from the one that PX4 uses. PX4 allows you to change the motor ordering in software via [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) parameter. You can select the Betaflight/Cleanflight motor ordering that is typically used on these 4-in-1 ESCs.
+[Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588)과 같은 4-in-1 ESC의 모터 순서는 PX4의 모터 순서와 다릅니다. PX4에서는 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) 매개변수로 모터 순서를 변경할 수 있습니다. 4-in-1 ESC에서 일반적으로 사용되는 Betaflight/Cleanflight 모터 순서을 선택할 수 있습니다.
 
-## Software Setup
+## 소프트웨어 설정
 
-After having built the racer, you will need to configure the software.
+레이서를 조립 후에는 소프트웨어를 설정하여야 합니다.
 
-Go through the [Basic Configuration Guide](../config/README.md). In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
+[기본 설정 가이드](../config/README.md)를 참조하십시오. 특히, 자신의 프레임과 가장 일치하는 [Airframe](../config/airframe.md)을 설정합니다 (일반적으로 레이서 별 매개변수를 기본적으로 설정하는 [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) 기체를 선택합니다).
 
-These parameters are important:
+중요한 매개 변수는 다음과 같습니다.
 
-- Enable One-Shot (set [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
-- Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
-- The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
+- One-Shot ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)을 0으로 설정) 또는 DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG))을 활성화합니다.
+- 수동/안정화 모드의 최대 롤, 피치 및 요 속도를 설정합니다 : [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) 및 [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). 최대 기울기 각도는 [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX)로 설정합니다.
+- 최소 추력 [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN)은 0으로 설정합니다.
 
-### Estimator
+### 추정기
 
 If you use a GPS you can skip this section and use the default estimator. Otherwise you should switch to the Q attitude estimator, which works without a magnetometer or barometer.
 
