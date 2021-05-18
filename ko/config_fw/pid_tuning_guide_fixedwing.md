@@ -9,24 +9,24 @@
 :::note
 
 - 튜닝 게인을 잘못 설정하면 자세 제어가 불안정해질 수 있습니다. 조종사 튜닝 게인은 [수동](../flight_modes/manual_fw.md) 제어로 비행기를 비행하고 착륙할 수 있어야합니다.
-- Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
-- Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
+- 과도한 게인 (및 빠른 서보 모션)은 기체의 최대 힘을 위반할 수 있습니다. 게인을 신중하게 시켜야합니다.
+- 롤과 피치 튜닝의 순서는 같습니다. 차이점은 피치가 트림 오프셋에 더 민감하므로 [트리밍](../config_fw/trimming_guide_fixedwing.md)을 신중하게 수행해야하며, 적분 게인은 이를 보상하기 위하여 더 많은 주의가 필요합니다.
 :::
 
 :::tip
-All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md). The most important parameters are covered in this guide.
+모든 매개변수는 [매개변수 정의](../advanced_config/parameter_reference.md)편에 기술되어 있습니다. 이 가이드에서는 중요한 매개변수들을 설명합니다.
 :::
 
-## Establishing the Airframe Baseline
+## 기체 기준선 설정
 
-If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
+수동 비행이 가능하면, 수동 비행 시험에서 몇 가지 중요 시스템 속성을 설정하는 것이 가장 좋은 방법입니다. 이렇게 하려면, 충분한 비행 연습이 필요합니다. 모든 데이터를 종이에 즉시 기록할 수 없더라도, 로그 파일은 차후 튜닝시에 매우 유용합니다.
 
 :::note
-All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+아래의 모든 데이터는 자동으로 기록됩니다. 로그 파일을 보지 않고 직접 튜닝할 경우에만 데이터를 메모합니다.
 
-- Fly level with a convenient airspeed. Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
-- Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).
-- Descend with zero throttle and reasonable airspeed for 10-30 seconds (example: 18 m/s airspeed, descended 80 m in 30 seconds).
+- 편리한 속도로 수평 비행하십시오. 스로틀 스틱 위치와 대기 속도를 기록하십시오 (예 : 70 % → 0.7 스로틀, 15m/s 대기 속도).
+- 최대 스로틀과 10-30 초 동안 충분한 대기 속도로 상승하십시오 (예 : 12m/s 대기 속도, 30초에 100m 상승).
+- 스로틀이 0이고 적절한 대기 속도로 10-30초 동안 하강합니다 (예 : 18m/s 대기 속도, 30초에 80m 하강).
 - Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
 - Pitch up hard 45 degrees, pitch down hard 45 degrees.
 :::
