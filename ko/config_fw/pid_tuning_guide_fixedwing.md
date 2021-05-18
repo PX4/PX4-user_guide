@@ -53,41 +53,41 @@
 
 ### 속도 게인 조정
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - 0.06 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). Then reduce gain by 50%.
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - 0.06 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). 그런 다음 게인을 50% 줄입니다.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 적분기 게인으로 트림 오프셋 조정
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual roll value (this will most likely require looking at a log file).
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - 0.01의 값에서 시작합니다. 명령된 롤 값과 실제 롤 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## Tune Pitch
+## 피치 튜닝
 
-The pitch axis might need more integrator gain and a correctly set pitch offset.
+피치 축에는 더 많은 적분기 게인과 올바르게 설정된 피치 오프셋이 필요할 수 있습니다.
 
-### Tuning the Feedforward Gain
+### 피드포워드 게인 조정
 
-To tune this gain, set the other gains to zero.
+이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
 
-#### Gains to set to zero
+#### 0으로 설정하는 게인
 
-- FW_PR_I = 0
-- FW_PR_P = 0
-- FW_PSP_OFF = 0
+- FW_PR_I = 0 
+- FW_PR_P = 0 
+- FW_PSP_OFF = 0 
 
-#### Gains to tune
+#### 튜닝 대상 게인
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 0.4 값에서 시작합니다. 평면 피치가 만족스럽고 설정 값에 도달시 까지이 값을 늘립니다 (매번 두 배로 증가). 프로세스가 끝나면 게인을 20% 낮춥니 다.
 
-### Tuning the Rate Gain
+### 속도 게인 조정
 
-- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce value by 50%.
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - 0.04의 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). 그런 다음 게인을 50% 줄입니다.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 적분기 게인으로 트림 오프셋 조정
 
-- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
+- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - 0.01의 값에서 시작합니다. 명령된 피치 값과 실제 피치 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## Adjusting the Time Constant of the Outer Loop
+## 외부 루프의 시간 상수 조정
 
-The overall softness / hardness of the control loop can be adjusted by the time constant. The default of 0.5 seconds should be fine for normal fixed-wing setups and usually does not require adjustment.
+제어 루프의 전체적인 부드러움과 경도는 시간 상수로 조정할 수 있습니다. 기본값인 0.5 초는 일반적인 고정익 설정에 적합하며 일반적으로 조정할 필요는 없습니다.
 
-- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
-- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
+- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC)-기본값 0.5 초로 설정하고, 피치 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
+- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) -기본값 0.5 초로 설정하고, 롤 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
