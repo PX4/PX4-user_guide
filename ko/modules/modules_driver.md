@@ -306,12 +306,12 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm
-Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro)
+Source: [examples/fake_imu](https://github.com/PX4/Firmware/tree/master/src/examples/fake_imu)
 
 
 ### Description
 
-<a id="fake_gyro_usage"></a>
+<a id="fake_imu_usage"></a>
 
 ### Usage
 ```
