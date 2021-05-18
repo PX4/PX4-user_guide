@@ -27,17 +27,17 @@
 - 편리한 속도로 수평 비행하십시오. 스로틀 스틱 위치와 대기 속도를 기록하십시오 (예 : 70 % → 0.7 스로틀, 15m/s 대기 속도).
 - 최대 스로틀과 10-30 초 동안 충분한 대기 속도로 상승하십시오 (예 : 12m/s 대기 속도, 30초에 100m 상승).
 - 스로틀이 0이고 적절한 대기 속도로 10-30초 동안 하강합니다 (예 : 18m/s 대기 속도, 30초에 80m 하강).
-- Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
-- Pitch up hard 45 degrees, pitch down hard 45 degrees.
+- 60도 롤이 될 때까지 전체 롤 스틱을 사용하여 오른쪽으로 강하게 쌓은 다음 반대쪽에서 60도까지 전체 롤 스틱으로 왼쪽으로 강하게 저장합니다.
+- 45도를 높이고 45도를 낮춥니다.
 :::
 
-This guide will use these quantities to set some of the controller gains later on.
+이 가이드에서는 이러한 데이터를 사용하여 나중에 컨트롤러 게인중 일부를 설정합니다.
 
-## Tune Roll
+## 롤 튜닝
 
-Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
+먼저 롤 축을 튜닝후에 피치를 튜닝합니다. 롤 축 튜닝이 잘 못 되어도, 고도 손실은 발생하지 않으므로 롤 축 튜닝이 더 안전합니다.
 
-### Tuning the Feedforward Gain
+### 피드포워드 게인 조정
 
 To tune this gain, set the other gains to zero.
 
