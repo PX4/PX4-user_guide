@@ -39,21 +39,21 @@
 
 ### 피드포워드 게인 조정
 
-To tune this gain, set the other gains to zero.
+이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
 
-#### Gains to set to zero
+#### 0으로 설정하는 게인
 
 - FW_RR_I = 0
 - FW_RR_P = 0
 - FW_RSP_OFF = 0
 
-#### Gains to tune
+#### 튜닝 대상 게인
 
-- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane rolls satisfactorily and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - 0.4에서 시작합니다. 비행기가 만족스럽게 구르고 설정 값에 도달시까지 이 값을 늘립니다 (매번 두 배로 증가). 프로세스가 끝나면 게인을 20% 낮춥니 다.
 
-### Tuning the Rate Gain
+### 속도 게인 조정
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce gain by 50%.
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - 0.06 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). Then reduce gain by 50%.
 
 ### Tuning the Trim Offsets with the Integrator Gain
 
