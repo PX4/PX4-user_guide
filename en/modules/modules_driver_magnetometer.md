@@ -271,3 +271,25 @@ rm3100 <command> [arguments...]
 
    status        print status info
 ```
+## vcm5883
+Source: [drivers/magnetometer/vtrantech/vcm5883](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/vtrantech/vcm5883)
+
+<a id="vcm5883_usage"></a>
+### Usage
+```
+vcm5883 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
