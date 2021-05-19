@@ -1,9 +1,9 @@
-# Fixed-wing PID Tuning Guide
+# 고정익 튜닝 가이드
 
-This guide explains how to tune the fixed_wing PID loop.
+이 가이드는 고정익 PID 계수를 튜닝 방법을 설명합니다.
 
 :::warning
-This guide is for advanced users / experts only. Incorrect PID tuning may crash your aircraft.
+이 가이드는 고급 사용자와 전문가를 위한 것입니다. PID 튜닝이 잘못되면 기체가 충돌할 수 있습니다.
 :::
 
 :::note
