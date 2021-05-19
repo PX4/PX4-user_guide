@@ -6,7 +6,7 @@
 
 :::note
 
-* 该模式需要 GPS。
+* This mode requires a good position estimate (e.g. from GPS).
 * 使用此模式前必须先解锁。
 * 该模式是自动的 - 不 *需要* 用户干预即可控制无人机。
 * 遥控开关可以在任何无人机上更改飞行模式。
