@@ -1,32 +1,32 @@
 # 고급 고정익 위치 튜닝
 
-이 가이드는 비행 임무와 고도/위치 제어 모드에서 고정익 컨트롤러를 정밀 조정하는 데 도움이됩니다. PX4는 고도 및 대기 속도 제어에 TECS를 사용하고 수평 방향/위치 제어에 L1을 사용합니다.
+이 가이드는 비행 임무와 고도 및 위치 제어 모드에서 고정익 컨트롤러를 정밀 조정에 많은 도움이 됩니다. PX4는 고도 및 대기 속도 제어에 TECS를 사용하고 수평 방향/위치 제어에 L1을 사용합니다.
 
 :::warning
-This guide is for advanced users / experts only. If you don't understand TECS tuning you may crash your aircraft.
+이 가이드는 고급 사용자와 전문가를 위한 것입니다. TECS 튜닝을 이해하지 못하면, 항공기가 추락할 수 있습니다.
 :::
 
 :::note
-An incorrectly set gain during tuning can make altitude or heading control unstable. A pilot tuning the TECS gains should therefore be able to fly and land the plane in stabilized control mode.
+튜닝중 게인을 잘못 설정하면 고도 또는 방향 제어가 불안정해질 수 있습니다. 따라서 TECS 게인 조정시에는 안정된 제어 모드에서 비행기를 비행하고 착륙시킬 수 있어야합니다.
 :::
 
 :::tip
-All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md#fw-tecs). The most important parameters are covered in this guide.
+모든 매개변수는 [매개변수 정의](../advanced_config/parameter_reference.md#fw-tecs)편에 기술되어 있습니다. 이 가이드에서는 중요한 매개변수들을 설명합니다.
 :::
 
-## TECS Tuning (Altitude and Airspeed)
+## TECS 튜닝 (고도 및 대기 속도)
 
-TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircraft that coordinates throttle and pitch angle setpoints to control the aircraft's altitude and airspeed. For a detailed description of the TECS algorithm and the control diagram, see [Controller Diagrams](../flight_stack/controller_diagrams.md).
+TECS (Total Energy Control System)는 항공기의 고도 및 대기 속도를 제어하기 위해 스로틀과 피치 각도 설정점을 조정하는 고정익 가이드 알고리즘입니다. TECS 알고리즘과 제어 다이어그램에 대한 자세한 설명은 [컨트롤러 다이어그램](../flight_stack/controller_diagrams.md)을 참조하십시오.
 
-A well-tuned attitude controller is required before tuning TECS: [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+TECS를 조정하기 전에 잘 튜닝된 자세 컨트롤러가 필요합니다. [PID 조정 가이드](../config_fw/pid_tuning_guide_fixedwing.md).
 
-Tuning TECS is mainly about setting the airframe limitations correctly. Those limitations can be specified in terms of parameters that can be determined from a sequence of flight maneuvers, which are described below. Most of the maneuvers required the plane to be flown by a pilot in [Stabilized flight mode](../flight_modes/stabilized_fw.md).
+TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. 이러한 제한은 아래에 설명된 일련의 비행 기동으로부터 결정될 수있는 매개변수로 설정할 수 있습니다. 대부분의 기동은 [안정된 비행 모드](../flight_modes/stabilized_fw.md)에서 조종사가 비행기를 조종하여야 했습니다.
 
 :::tip
-It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers. To improve accuracy we also recommended that you verify the data obtained during flight with the data recorded in the flight logs.
+조종사가 조종하는 동안 원격 측정 데이터를 읽고 기록할 수있는 사람이 있으면 매우 좋습니다. 정확성을 높이기 위해 비행 중에 얻은 데이터를 비행 로그에 기록된 데이터로 확인하는 것이 좋습니다.
 :::
 
-#### 1st: Trim Conditions
+#### 1 차 : 트림 조건
 
 Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
 
