@@ -205,7 +205,7 @@ Please refer to [Pixhawk 4 Quick Start](../assembly/quick_start_pixhawk4.md) for
 That's it.
 The fully assembled kit is shown below:
 
-![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_assembled.png)
+![Assembled Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/X500_assembled_frame.jpg)
 
 
 
