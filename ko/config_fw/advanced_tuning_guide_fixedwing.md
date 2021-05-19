@@ -28,29 +28,29 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 
 #### 1 차 : 트림 조건
 
-Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and find trim values for both throttle and pitch angle for level flight at trim airspeed. Use throttle to adjust airspeed and pitch to keep level flight.
+[안정화 모드](../flight_modes/stabilized_fw.md)로 비행하고 트림 속도에서 수평 비행을 위한 스로틀 및 피치 각도 모두에 대한 트림 값을 찾습니다. 스로틀로 속도와 피치를 조정하여 수평 비행을 유지하십시오.
 
-Set the following parameters:
+다음 매개 변수를 설정하십시오.
 
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle required to fly at trim airspeed.
-- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - set to the pitch angle required to maintain level flight.
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) -기동비행시 원하는 트림 대기 속도로 설정합니다.
+- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - 트림 대기 속도로 비행에 필요한 스로틀을 설정합니다.
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - 수평 비행을 유지를 위한 피치 각도로 설정합니다.
 
-#### 2nd: Airspeed & Throttle Limits
+#### 2 차 : 대기 속도와 스로틀 제한
 
-Fly in [stabilized mode](../flight_modes/stabilized_fw.md) and increase throttle while maintaining level flight using pitch control - until the vehicle reaches the maximum allowed airspeed.
+기체 최대 허용 대기 속도에 도달시까지 [안정화 모드](../flight_modes/stabilized_fw.md)로 비행하고 피치 제어를 사용하여 수평 비행을 유지하면서 스로틀을 높입니다.
 
-Set the following parameters:
+다음 매개 변수를 설정하십시오.
 
-- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle you applied to reach maximum airspeed during level flight.
-- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the minimum throttle the plane should fly at.
-- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set to the maximum airspeed you achieved during level flight at `FW_THR_MAX`.
+- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) -수평 비행 중 최대 대기 속도에 도달하기 위해 적용한 스로틀로 설정합니다.
+- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - 비행 최소 스로틀을 설정합니다.
+- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - `FW_THR_MAX`에서 수평 비행 최대 대기 속도를 설정합니다.
 
-#### 3rd: Pitch & Climb Rate Limits
+#### 3 차 : 피치와 상승률 제한
 
-Fly in stabilized mode, apply full throttle (`FW_THR_MAX`) and slowly increase the pitch angle of the vehicle until the airspeed reaches `FW_AIRSPD_TRIM`.
+안정화 모드로 비행하고 최대 스로틀(`FW_THR_MAX`)을 적용하고 속도가 `FW_AIRSPD_TRIM`에 도달할 때까지 피치 각도를 천천히 높입니다.
 
-- [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - set to the pitch angle required to climb at trim airspeed when applying `FW_THR_MAX`.
+- [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - `FW_THR_MAX` 적용시 트림 속도로 상승에 필요한 피치 각도를 설정합니다.
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate achieved during the climb at `FW_AIRSPD_TRIM`.
 
 Fly in stabilized mode, reduce the throttle to `FW_THR_MIN` and slowly decrease the pitch angle until the vehicle reaches `FW_AIRSPD_MAX`.
