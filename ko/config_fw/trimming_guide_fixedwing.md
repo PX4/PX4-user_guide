@@ -1,12 +1,12 @@
-# Fixed-Wing Trimming Guide
+# 고정익 트리밍 가이드
 
-Trims are used to calibrate the control surfaces at trim conditions (relative airspeed, air density, angle of attack, aircraft configuration, etc.). A properly trimmed aircraft flying at trim conditions will keep its attitude without requiring any control inputs from the pilot or the stabilizing computer.
+트림은 트림 조건 (상대적 속도, 공기 밀도, 공격 각도, 항공기 구성 등)에서 제어 표면을 보정합니다. 트림 조건에서 적절하게 트림된 항공기는 조종사 또는 안정화 컴퓨터의 제어 입력 없이도 안정된 자세를 유지할 수 있습니다.
 
-General aviation, commercial and large unmanned planes trim their control surfaces using [trim tabs](https://en.wikipedia.org/wiki/Trim_tab) while small UAVs simply add an offset to the actuator of the control surface.
+일반 항공, 상업용 및 대형 무인 항공기는 [트림 탭](https://en.wikipedia.org/wiki/Trim_tab)을 사용하여 제어 표면을 다듬고, 소형 UAV는 제어 표면의 액추에이터에 오프셋을 추가합니다.
 
-The [Basic trimming](#basic-trimming) section explains the purpose of each trim parameter and how to find the correct value. The [Advanced Trimming](#advanced-trimming) section introduces parameters that can be set to automatically adjust the trims based on the measured airspeed and flap position.
+[기본 트리밍](#basic-trimming) 섹션에서는 각 트리밍 매개변수의 목적과 올바른 값을 설정하는 방법을 설명합니다. [고급 트리밍](#advanced-trimming) 섹션은 측정 대기 속도와 플랩 위치를 기반으로 트림을 자동으로 조정하는 매개변수를 설명합니다.
 
-## Basic Trimming
+## 기본 트리밍
 
 There are several parameters an operator might want to use in order to properly trim a fixed-wing aircraft. An overview of those parameters and their use case is shown below:
 
