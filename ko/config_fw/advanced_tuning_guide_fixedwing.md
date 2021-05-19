@@ -51,19 +51,19 @@ TECS 튜닝은 주로 기체 제한을 올바르게 설정하는 것입니다. �
 안정화 모드로 비행하고 최대 스로틀(`FW_THR_MAX`)을 적용하고 속도가 `FW_AIRSPD_TRIM`에 도달할 때까지 피치 각도를 천천히 높입니다.
 
 - [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - `FW_THR_MAX` 적용시 트림 속도로 상승에 필요한 피치 각도를 설정합니다.
-- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate achieved during the climb at `FW_AIRSPD_TRIM`.
+- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - `FW_AIRSPD_TRIM`에서 상승률을 설정합니다.
 
-Fly in stabilized mode, reduce the throttle to `FW_THR_MIN` and slowly decrease the pitch angle until the vehicle reaches `FW_AIRSPD_MAX`.
+안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고 기체가 `FW_AIRSPD_MAX`에 도달할 때까지 피치 각도를 천천히 줄입니다.
 
-- [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - set to the pitch angle required to reach `FW_AIRSPD_MAX` at `FW_THR_MIN`.
-- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - set to the sink rate achieved during the descent.
+- [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - `FW_THR_MIN`에서 `FW_AIRSPD_MAX`에 도달에 필요한 피치 각도를 설정합니다.
+- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX)-하강율을 설정합니다.
 
-Fly in stabilized mode, reduce throttle to `FW_THR_MIN` and adjust the pitch angle such that the plane maintains `FW_AIRSPD_TRIM`.
+안정화 모드로 비행하고 스로틀을 `FW_THR_MIN`으로 줄이고, 기체가 `FW_AIRSPD_TRIM`을 유지하도록 피치 각도를 설정합니다.
 
-- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
+- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - `FW_AIRSPD_TRIM`을 유지하면서 달성된 싱크 속도를 설정합니다.
 
-### L1 Controller Tuning (Position)
+### L1 컨트롤러 조정(위치)
 
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
+모든 L1 매개변수는 [여기](../advanced_config/parameter_reference.md#fw-l1-control)에 기술되어 있습니다.
 
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking point ahead of the aircraft it's following. A value of 25 meters works for most aircraft. A value of 16-18 will still work, and provide a sharper response. Shorten slowly during tuning until response is sharp without oscillation.
+- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - L1 거리이며 추종하는 항공기 전방의 추적 지점을 정의합니다. 25 미터 값은 대부분의 항공기에서 작동합니다. 16-18의 값은 여전히 작동하며 더 선명한 응답을 제공합니다. 진동없이 반응이 날카로울 때까지 튜닝하는 동안 천천히 줄입니다.
