@@ -250,8 +250,8 @@ It supports all the same metadata, along with new features like multi-instance d
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
 - A YAML file is registered in the cmake build system by adding
   ```
-	MODULE_CONFIG
-		module.yaml
+  MODULE_CONFIG
+  	module.yaml
   ```
   to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
 
@@ -331,8 +331,8 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
 ```
 
 
-
 ## Further Information
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
+- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
