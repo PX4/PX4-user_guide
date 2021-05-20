@@ -108,10 +108,19 @@ In addition, the C++ version has also better type-safety and less overhead in te
 
 The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
 
-First include **px4_platform_common/module_params.h** in the class header for your module or driver (to get the `DEFINE_PARAMETERS` macro):
-```cpp
-#include <px4_platform_common/module_params.h>
-```
+First include the required needed headers in the class header for your module or driver:
+- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+  ```cpp
+  #include <px4_platform_common/module_params.h>
+  ```
+- **parameter_update.h** to access the uORB `parameter_update` message:
+  ```cpp
+  #include <uORB/topics/parameter_update.h>
+  ```
+- **Subscription.hpp** for the uORB C++ subscription API:
+  ```cpp
+  #include <uORB/Subscription.hpp>
+  ```
 
 Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
 ```cpp
@@ -124,50 +133,31 @@ private:
 
     /**
      * Check for parameter changes and update them if needed.
-     * @param parameter_update_sub uorb subscription to parameter_update
      */
-    void parameters_update(int parameter_update_sub, bool force = false);
+    void parameters_update();
 
     DEFINE_PARAMETERS(
         (ParamInt<px4::params::SYS_AUTOSTART>) _sys_autostart,   /**< example parameter */
         (ParamFloat<px4::params::ATT_BIAS_MAX>) _att_bias_max  /**< another parameter */
     )
+
+    // Subscriptions
+    uORB::SubscriptionInterval _parameter_update_sub{ORB_ID(parameter_update), 1_s};
+
 };
 ```
 
+
 Update the cpp file with boilerplate to check for the uORB message related to parameter updates.
 
-First include the header to access the uORB parameter_update message:
-```cpp
-#include <uORB/topics/parameter_update.h>
-```
-
-Subscribe to the update message when the module/driver starts and un-subscribe when it is stopped. `parameter_update_sub` returned by `orb_subscribe()` is a handle we can use to refer to this particular subscription.
-
-```cpp
-# Subscribe to parameter_update message
-int parameter_update_sub = orb_subscribe(ORB_ID(parameter_update));
-...
-# Unsubscribe to parameter_update messages
-orb_unsubscribe(parameter_update_sub);
-```
-
-Call `parameters_update(parameter_update_sub);` periodically in code to check if there has been an update (this is boilerplate):
-```cpp
-void Module::parameters_update(int parameter_update_sub, bool force)
+Call `parameters_update();` periodically in code to check if there has been an update:
+```cpp 
+void Module::parameters_update()
 {
-    bool updated;
-    struct parameter_update_s param_upd;
+    if (_parameter_update_sub.updated()) {
+        parameter_update_s param_update;
+        _parameter_update_sub.copy(&param_update);
 
-    // Check if any parameter updated
-    orb_check(parameter_update_sub, &updated);
-
-    // If any parameter updated copy it to: param_upd
-    if (updated) {
-        orb_copy(ORB_ID(parameter_update), parameter_update_sub, &param_upd);
-    }
-
-    if (force || updated) {
         // If any parameter updated, call updateParams() to check if
         // this class attributes need updating (and do so). 
         updateParams();
@@ -175,10 +165,9 @@ void Module::parameters_update(int parameter_update_sub, bool force)
 }
 ```
 In the above method:
-- `orb_check()` tells us if there is *any* update to the `param_update` uORB message (but not what parameter is affected) and sets the `updated` bool.
-- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_upd`)
-- Then we call `ModuleParams::updateParams()`. This "under the hood" checks if the specific parameter attributes listed in our `DEFINE_PARAMETERS` list need updating, and then does so if needed.
-- This example doesn't call `Module::parameters_update()` with `force=True`. If you had other values that needed to be set up a common pattern is to include them in the function, and call it once with `force=True` during initialisation.
+- `_parameter_update_sub.updated()` tells us if there is *any* update to the `param_update` uORB message (but not what parameter is affected).
+- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
+- Then we call `ModuleParams::updateParams()`. This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
 
 The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
 
@@ -244,6 +233,12 @@ YAML meta data is intended as a full replacement for the **.c** definitions. It 
 
 - The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
 - An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+- A YAML file is registered in the cmake build system by adding
+  ```
+  MODULE_CONFIG
+    module.yaml
+  ```
+  to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
 
 
 #### Multi-Instance (Templated) YAML Meta Data
@@ -319,8 +314,8 @@ The lines in the comment block are all optional, and are primarily used to contr
 ```
 
 
-
 ## Further Information
 
 - [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
+- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
