@@ -84,7 +84,7 @@ Parameters definitions have two parts:
 - [C/C++ Code](#c-c-api) that provides access to get and/or subscribe to parameter values from within PX4 modules and drivers.
 
 Several approaches are described below for writing both the metadata and code.
-Where possible code should use newer [YAML metadata](yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
+Where possible code should use newer [YAML metadata](#yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
 
 
 ### Parameter Names
