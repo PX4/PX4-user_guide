@@ -125,11 +125,12 @@ If you need to use a different vehicle you can include the model in its configur
 - [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
         xml
         <include>
-          <uri>model://sonar</uri>
+          <uri>model://lidar</uri>
+          <pose>-0.12 0 0 0 3.1415 0</pose>
         </include>
-        <joint name="sonar_joint" type="revolute">
-          <child>sonar_model::link</child>
-          <parent>typhoon_h480::base_link</parent>
+        <joint name="lidar_joint" type="revolute">
+          <child>lidar::link</child>
+          <parent>iris::base_link</parent>
           <axis>
             <xyz>0 0 1</xyz>
             <limit>
@@ -142,12 +143,11 @@ If you need to use a different vehicle you can include the model in its configur
 - [typhoon_h480.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144) 
         xml
         <include>
-          <uri>model://lidar</uri>
-          <pose>-0.12 0 0 0 3.1415 0</pose>
+          <uri>model://sonar</uri>
         </include>
-        <joint name="lidar_joint" type="revolute">
-          <child>lidar::link</child>
-          <parent>iris::base_link</parent>
+        <joint name="sonar_joint" type="revolute">
+          <child>sonar_model::link</child>
+          <parent>typhoon_h480::base_link</parent>
           <axis>
             <xyz>0 0 1</xyz>
             <limit>

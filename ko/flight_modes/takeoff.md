@@ -6,7 +6,7 @@
 
 :::note
 
-* 이 모드는 GPS가 필요합니다.
+* This mode requires a good position estimate (e.g. from GPS).
 * 이 모드를 사용하려면 기체의 시동을 걸어야합니다.
 * 이 모드는 자동입니다. 기체를 제어하기 위해 사용자 개입이 *필요하지* 않습니다.
 * RC 제어 스위치는 기체의 비행 모드를 변경할 수 있습니다.

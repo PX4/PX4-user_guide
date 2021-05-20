@@ -8,86 +8,86 @@
 
 :::note
 
-- Incorrectly set gains during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in [manual](../flight_modes/manual_fw.md) (override) control.
-- Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe - increase gains carefully.
-- Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](../config_fw/trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
+- 튜닝 게인을 잘못 설정하면 자세 제어가 불안정해질 수 있습니다. 조종사 튜닝 게인은 [수동](../flight_modes/manual_fw.md) 제어로 비행기를 비행하고 착륙할 수 있어야합니다.
+- 과도한 게인 (및 빠른 서보 모션)은 기체의 최대 힘을 위반할 수 있습니다. 게인을 신중하게 시켜야합니다.
+- 롤과 피치 튜닝의 순서는 같습니다. 차이점은 피치가 트림 오프셋에 더 민감하므로 [트리밍](../config_fw/trimming_guide_fixedwing.md)을 신중하게 수행해야하며, 적분 게인은 이를 보상하기 위하여 더 많은 주의가 필요합니다.
 :::
 
 :::tip
-All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md). The most important parameters are covered in this guide.
+모든 매개변수는 [매개변수 정의](../advanced_config/parameter_reference.md)편에 기술되어 있습니다. 이 가이드에서는 중요한 매개변수들을 설명합니다.
 :::
 
-## Establishing the Airframe Baseline
+## 기체 기준선 설정
 
-If a pilot capable of manual flight is available, its best to establish a few core system properties on a manual trial. To do this, fly these maneuvers. Even if you can't note all the quantities immediately on paper, the log file will be very useful for later tuning.
+수동 비행이 가능하면, 수동 비행 시험에서 몇 가지 중요 시스템 속성을 설정하는 것이 가장 좋은 방법입니다. 이렇게 하려면, 충분한 비행 연습이 필요합니다. 모든 데이터를 종이에 즉시 기록할 수 없더라도, 로그 파일은 차후 튜닝시에 매우 유용합니다.
 
 :::note
-All these quantities will be automatically logged. You only need to take notes if you want to directly move on to tuning without looking at the log files.
+아래의 모든 데이터는 자동으로 기록됩니다. 로그 파일을 보지 않고 직접 튜닝할 경우에만 데이터를 메모합니다.
 
-- Fly level with a convenient airspeed. Note throttle stick position and airspeed (example: 70% → 0.7 throttle, 15 m/s airspeed).
-- Climb with maximum throttle and sufficient airspeed for 10-30 seconds (example: 12 m/s airspeed, climbed 100 m in 30 seconds).
-- Descend with zero throttle and reasonable airspeed for 10-30 seconds (example: 18 m/s airspeed, descended 80 m in 30 seconds).
-- Bank hard right with full roll stick until 60 degrees roll, then bank hard left with full roll stick until 60 degrees in the opposite side.
-- Pitch up hard 45 degrees, pitch down hard 45 degrees.
+- 편리한 속도로 수평 비행하십시오. 스로틀 스틱 위치와 대기 속도를 기록하십시오 (예 : 70 % → 0.7 스로틀, 15m/s 대기 속도).
+- 최대 스로틀과 10-30 초 동안 충분한 대기 속도로 상승하십시오 (예 : 12m/s 대기 속도, 30초에 100m 상승).
+- 스로틀이 0이고 적절한 대기 속도로 10-30초 동안 하강합니다 (예 : 18m/s 대기 속도, 30초에 80m 하강).
+- 60도 롤이 될 때까지 전체 롤 스틱을 사용하여 오른쪽으로 강하게 쌓은 다음 반대쪽에서 60도까지 전체 롤 스틱으로 왼쪽으로 강하게 저장합니다.
+- 45도를 높이고 45도를 낮춥니다.
 :::
 
-This guide will use these quantities to set some of the controller gains later on.
+이 가이드에서는 이러한 데이터를 사용하여 나중에 컨트롤러 게인중 일부를 설정합니다.
 
-## Tune Roll
+## 롤 튜닝
 
-Tune first the roll axis, then pitch. The roll axis is safer as an incorrect tuning leads only to motion, but not a loss of altitude.
+먼저 롤 축을 튜닝후에 피치를 튜닝합니다. 롤 축 튜닝이 잘 못 되어도, 고도 손실은 발생하지 않으므로 롤 축 튜닝이 더 안전합니다.
 
-### Tuning the Feedforward Gain
+### 피드포워드 게인 조정
 
-To tune this gain, set the other gains to zero.
+이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
 
-#### Gains to set to zero
+#### 0으로 설정하는 게인
 
 - FW_RR_I = 0
 - FW_RR_P = 0
 - FW_RSP_OFF = 0
 
-#### Gains to tune
+#### 튜닝 대상 게인
 
-- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane rolls satisfactorily and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_RR_FF](../advanced_config/parameter_reference.md#FW_RR_FF) - 0.4에서 시작합니다. 비행기가 만족스럽게 구르고 설정 값에 도달시까지 이 값을 늘립니다 (매번 두 배로 증가). 프로세스가 끝나면 게인을 20% 낮춥니 다.
 
-### Tuning the Rate Gain
+### 속도 게인 조정
 
-- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - start with a value of 0.06. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce gain by 50%.
+- [FW_RR_P](../advanced_config/parameter_reference.md#FW_RR_P) - 0.06 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). 그런 다음 게인을 50% 줄입니다.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 적분기 게인으로 트림 오프셋 조정
 
-- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual roll value (this will most likely require looking at a log file).
+- [FW_RR_I](../advanced_config/parameter_reference.md#FW_RR_I) - 0.01의 값에서 시작합니다. 명령된 롤 값과 실제 롤 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## Tune Pitch
+## 피치 튜닝
 
-The pitch axis might need more integrator gain and a correctly set pitch offset.
+피치 축에는 더 많은 적분기 게인과 올바르게 설정된 피치 오프셋이 필요할 수 있습니다.
 
-### Tuning the Feedforward Gain
+### 피드포워드 게인 조정
 
-To tune this gain, set the other gains to zero.
+이 게인을 조정하려면, 다른 게인을 0으로 설정하십시오.
 
-#### Gains to set to zero
+#### 0으로 설정하는 게인
 
-- FW_PR_I = 0
-- FW_PR_P = 0
-- FW_PSP_OFF = 0
+- FW_PR_I = 0 
+- FW_PR_P = 0 
+- FW_PSP_OFF = 0 
 
-#### Gains to tune
+#### 튜닝 대상 게인
 
-- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - start with a value of 0.4. Increase this value (doubling each time) until the plane pitches satisfactory and reaches the setpoint. Back down the gain 20% at the end of the process.
+- [FW_PR_FF](../advanced_config/parameter_reference.md#FW_PR_FF) - 0.4 값에서 시작합니다. 평면 피치가 만족스럽고 설정 값에 도달시 까지이 값을 늘립니다 (매번 두 배로 증가). 프로세스가 끝나면 게인을 20% 낮춥니 다.
 
-### Tuning the Rate Gain
+### 속도 게인 조정
 
-- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - start with a value of 0.04. Increase this value (doubling each time) until the system starts to wobble / twitch. Then reduce value by 50%.
+- [FW_PR_P](../advanced_config/parameter_reference.md#FW_PR_P) - 0.04의 값에서 시작합니다. 시스템이 흔들리거나 트위치를 시작할 때까지 이 값을 늘립니다 (매번 두 배로 증가). 그런 다음 게인을 50% 줄입니다.
 
-### Tuning the Trim Offsets with the Integrator Gain
+### 적분기 게인으로 트림 오프셋 조정
 
-- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
+- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - 0.01의 값에서 시작합니다. 명령된 피치 값과 실제 피치 값 사이에 오프셋이 없을 때까지이 값을 늘립니다 (매번 두 배로 증가) (로그 파일을 확인해야 할 가능성이 높음).
 
-## Adjusting the Time Constant of the Outer Loop
+## 외부 루프의 시간 상수 조정
 
-The overall softness / hardness of the control loop can be adjusted by the time constant. The default of 0.5 seconds should be fine for normal fixed-wing setups and usually does not require adjustment.
+제어 루프의 전체적인 부드러움과 경도는 시간 상수로 조정할 수 있습니다. 기본값인 0.5 초는 일반적인 고정익 설정에 적합하며 일반적으로 조정할 필요는 없습니다.
 
-- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the Pitch response softer, decrease to make the response harder.
-- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the Roll response softer, decrease to make the response harder.
+- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC)-기본값 0.5 초로 설정하고, 피치 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.
+- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) -기본값 0.5 초로 설정하고, 롤 응답을 부드럽게하려면 증가시키고, 응답을 둔화하려면 감소시킵니다.

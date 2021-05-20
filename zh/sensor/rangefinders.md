@@ -124,35 +124,35 @@ If you need to use a different vehicle you can include the model in its configur
 
 - [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
         xml
-        &lt;include&gt;
-          &lt;uri&gt;model://sonar&lt;/uri&gt;
-        &lt;/include&gt;
-        &lt;joint name="sonar_joint" type="revolute"&gt;
-          &lt;child&gt;sonar_model::link&lt;/child&gt;
-          &lt;parent&gt;typhoon_h480::base_link&lt;/parent&gt;
-          &lt;axis&gt;
-            &lt;xyz&gt;0 0 1&lt;/xyz&gt;
-            &lt;limit&gt;
-              &lt;upper&gt;0&lt;/upper&gt;
-              &lt;lower&gt;0&lt;/lower&gt;
-            &lt;/limit&gt;
-          &lt;/axis&gt;
-        &lt;/joint&gt;
+        <include>
+          <uri>model://lidar</uri>
+          <pose>-0.12 0 0 0 3.1415 0</pose>
+        </include>
+        <joint name="lidar_joint" type="revolute">
+          <child>lidar::link</child>
+          <parent>iris::base_link</parent>
+          <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+              <upper>0</upper>
+              <lower>0</lower>
+            </limit>
+          </axis>
+        </joint>
 
 - [typhoon_h480.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144) 
         xml
-        &lt;include&gt;
-          &lt;uri&gt;model://lidar&lt;/uri&gt;
-          &lt;pose&gt;-0.12 0 0 0 3.1415 0&lt;/pose&gt;
-        &lt;/include&gt;
-        &lt;joint name="lidar_joint" type="revolute"&gt;
-          &lt;child&gt;lidar::link&lt;/child&gt;
-          &lt;parent&gt;iris::base_link&lt;/parent&gt;
-          &lt;axis&gt;
-            &lt;xyz&gt;0 0 1&lt;/xyz&gt;
-            &lt;limit&gt;
-              &lt;upper&gt;0&lt;/upper&gt;
-              &lt;lower&gt;0&lt;/lower&gt;
-            &lt;/limit&gt;
-          &lt;/axis&gt;
-        &lt;/joint&gt;
+        <include>
+          <uri>model://sonar</uri>
+        </include>
+        <joint name="sonar_joint" type="revolute">
+          <child>sonar_model::link</child>
+          <parent>typhoon_h480::base_link</parent>
+          <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+              <upper>0</upper>
+              <lower>0</lower>
+            </limit>
+          </axis>
+        </joint>
