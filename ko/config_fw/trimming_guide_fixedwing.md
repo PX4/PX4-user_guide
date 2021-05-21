@@ -8,18 +8,18 @@
 
 ## 기본 트리밍
 
-There are several parameters an operator might want to use in order to properly trim a fixed-wing aircraft. An overview of those parameters and their use case is shown below:
+고정익을 적절히 트림하기 위해 사용할 수있는 매개변수가 있습니다. 트리밍 매개변수의 사용 사례에 대한 개요는 다음과 같습니다.
 
-- [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM) applies trim to the signal received from the RC transmitter. These parameters are set automatically during [RC calibration](../config/radio.md).
-- [PWM_MAIN_TRIMx](../advanced_config/parameter_reference.md#PWM_MAIN_TRIM1) applies trim to a PWM channel, after mixing. These are used to finely align the control surfaces to default angles before flying.
-- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) applies an offset to the pitch setpoint. This is used to set the angle of attack at which your aircraft needs to fly at cruise speed.
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) is used by the rate controllers to scale their output depending on the measured airspeed. See [Airspeed Scaling](../flight_stack/controller_diagrams.md#airspeed-scaling) for more details.
-- [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) and [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW) apply trim to the control signals *before* mixing. For example, if you have two servos for the elevator, `TRIM_PITCH` applies trim to both of them. These are used when your control surfaces are aligned but the aircraft pitches/rolls/yaws up/down/left/right during manual (not stabilized) flight or if the control signal has a constant offset during stabilized flight.
+- [RCx_TRIM](../advanced_config/parameter_reference.md#RC1_TRIM)은 RC 송신기에서 수신 신호에 트림을 적용합니다. 이 매개변수는 [RC 보정](../config/radio.md)중에 자동으로 설정됩니다.
+- [PWM_MAIN_TRIMx](../advanced_config/parameter_reference.md#PWM_MAIN_TRIM1)는 믹싱후 PWM 채널에 트림을 적용합니다. 이들은 비행 전에 제어 표면을 기본 각도로 미세하게 정렬하는 데 사용됩니다.
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF)는 피치 설정점에 오프셋을 적용합니다. 항공기가 순항 속도로 비행해야하는 공격 각도를 설정하는 데 사용됩니다.
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM)은 속도 컨트롤러에서 측정된 대기 속도에 따라 출력을 조정하는 데 사용됩니다. 자세한 내용은 [대기속도 스케일링](../flight_stack/controller_diagrams.md#airspeed-scaling)을 참조하십시오.
+- [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) 및 [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW)는 믹싱 *전* 제어 신호에 트림을 적용합니다. 예를 들어. 엘리베이터용 서보가 두 개인 경우 `TRIM_PITCH`는 두 서보 모두에 트림을 적용합니다. 조종면이 정렬되어 있지만 수동 (안정화되지 않은) 비행 중에 기체가 피치/롤/요잉 업/다운/왼쪽/오른쪽 또는 안정된 비행 중에 제어 신호에 일정한 오프셋이 있는 경우에 사용됩니다.
 
-The correct order to set the above parameters is:
+위의 매개 변수를 설정하는 올바른 순서는 다음과 같습니다.
 
-1. Trim the servos by physically adjusting the linkages lengths if possible and fine tune by trimming the PWM channels (use `PWM_MAIN/AUX_TRIMx`) on the bench to properly set the control surfaces to their theoretical position.
-2. Fly in stabilized mode at cruise speed and set the pitch setpoint offset (`FW_PSP_OFF`) to desired angle of attack. The required angle of attack at cruise speed corresponds to the pitch angle that the airplane needs to fly at in order to keep constant altitude during wing-leveled flight. If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
+1. 가능한 경우 연결 길이를 물리적으로 조정하여 서보를 트리밍하고 ,벤치에서 PWM 채널을 트리밍 (`PWM_MAIN/AUX_TRIMx` 사용)하여 제어 표면을 이론적 위치로 적절하게 설정하여 미세 조정합니다.
+2. 순항 속도로 안정화 모드로 비행하고 피치 설정 점 오프셋 (`FW_PSP_OFF`)을 원하는 공격 각도로 설정합니다. 순항 속도에서 필요한 공격 각도는 날개 높이 비행 중에 일정한 고도를 유지하기 위해 비행기가 비행해야 하는 피치 각도에 해당합니다. If you are using an airspeed sensor, also set the correct cruise airspeed (`FW_AIRSPD_TRIM`).
 3. Look at the actuator controls in the log file (upload it to [Flight Review](https://logs.px4.io) and check the *Actuator Controls* plot for example) and set the pitch trim (`TRIM_PITCH`). Set that value to the average offset of the pitch signal during wing-leveled flight.
 
 Step 3 can be performed before step 2 if you don't want to have to look at the log, or if you feel comfortable flying in manual mode. You can then trim your remote (with the trim switches) and report the values to `TRIM_PITCH` (and remove the trims from your transmitter) or update `TRIM_PITCH` directly during flight via telemetry and QGC.
