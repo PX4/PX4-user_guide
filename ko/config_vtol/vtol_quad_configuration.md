@@ -1,14 +1,14 @@
-# QuadPlane VTOL 구성 및 튜닝
+# QuadPlane VTOL 설정 및 튜닝
 
-181/5000 이것은 QuadPlane VTOL 설정 (Quadcopter와 결합 된 Plane)에 대한 설정 문서입니다. For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
+이것은 QuadPlane VTOL(Quadcopter와 결합된 비행기)에 대한 설정 문서입니다. 기체별 문서와 조립 방법은 [VTOL 프레임 조립](../frames_vtol/README.md)를 참고하십시오.
 
 ## 펌웨어 및 기본 설정
 
-1. Run *QGroundControl*
-2. 마스터 펌웨어를 플래시하십시오.
-3. 설정 탭에서 적절한 VTOL 기체를 선택하십시오. 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택하십시오.
+1. *QGroundControl*을 실행합니다
+2. 마스터 펌웨어 플래시
+3. 설정 탭에서 적절한 VTOL 기체를 선택하고, 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택합니다.
 
-### 비행 / 전환 모드 스위치
+### 비행/전환 모드 스위치
 
 In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
 
