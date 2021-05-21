@@ -330,6 +330,17 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
  */
 ```
 
+#### Metadata Synchronization
+All parameter metadata is collected in an XML or JSON file during build.
+Traditionally the XML file of the master branch was copied into the QGC source tree via CI.
+This is still used as fallback, and the current approach is using the [MAVLink COMPONENT_INFORMATION API](https://mavlink.io/en/services/component_information.html).
+It ensures that the metadata is up-to-date with the code running on the vehicle automatically.
+PX4 stores the metadata xz-compressed within the binary for all targets with enough FLASH available.
+Others (with `CONSTRAINED_MEMORY`) keep the metadata on `px4-travis.s3.amazonaws.com` (which means that parameter metadata is only available after merging code to master).
+This is also used as fallback (used for example to avoid a very slow download over a low-rate telemetry link).
+
+Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
+Metadata is uploaded using [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml).
 
 ## Further Information
 
