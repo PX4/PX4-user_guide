@@ -12,9 +12,9 @@
 
 *QGroundControl*에서 RC 보정 과정이나 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)를 설정에서 전환 기능에 리모컨 스위치를 할당합니다.
 
-This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
+이를 통하여 멀티콥터와 고정익 모드간의 전환이 가능해집니다. 오프 포지션의 스위치는 멀티콥터 모드로 비행하고 있음을 의미합니다.
 
-### 멀티 로터 / 고정 날개 튜닝
+### 멀티콥터 / 고정익 튜닝
 
 Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 잘 조정되지 않으면 사고가 일어날 수 있습니다.
 
