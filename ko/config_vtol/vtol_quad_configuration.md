@@ -40,19 +40,19 @@
 
 매개변수: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
 
-Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable. If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
+일반적으로 전진 추력이 바람직하지 않기 때문에 (대부분의 경우) 역 전환 스로틀을 0으로 설정할 수 있습니다. 그러나, 모터 컨트롤러가 역 추력을 지원하는 경우 음수 값을 설정하여 이를 달성할 수 있습니다.
 
-#### Forward Transition Pusher/Puller Ramp-up Time
+#### 순방향 전환 푸셔/풀러 램프 업 시간
 
-Parameter: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
+매개변수: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
 
-A forward transition refers to the transition from multirotor to fixed wing mode. This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+전방 전환은 멀티콥터에서 고정익 모드로 전환하는 것입니다. 스로틀을 목표값(`VT_F_TRANS_THR`에 의해 정의됨)까지 증가시키는 데 소요되는 시간(단위, 초)입니다. 값이 0이면, 전환 스로틀 값이 즉시 설정되도록 명령합니다. 스로틀을 부드럽게 하려면, 이 값을 3과 같이 더 큰 값으로 늘릴 수 있습니다.
 
-Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
+램프 업 기간이 종료되면, 스로틀은 목표 설정에 있으며 전환 속도에 도달할 때까지 유지됩니다.
 
 #### 블렌딩 속도
 
-Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+매개변수: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
 
