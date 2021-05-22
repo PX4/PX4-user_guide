@@ -18,21 +18,21 @@
 
 고정익 전환을 처음 시도하기 전에 VTOL이 멀티콥터 모드 튜닝 여부를 반드시 확인하여야 합니다. 그 이유는 전환과정에 문제가 생기면 복귀할 모드이며 매우 빠른 속도로 움직일 수 있기 때문입니다. 제대로 튜닝되지 않으면 사고가 발생할 수 있습니다.
 
-활주로에서 총중량이 과도하지 않으면 고정익을 튜닝하는 것이 바람직합니다. 그렇지 않은면, 고정익 모드로 전환시에 이것을 시도합니다. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
+활주로에서 총중량이 과도하지 않으면 고정익을 튜닝하는 것이 바람직합니다. 그렇지 않은면, 고정익 모드로 전환시에 이것을 시도합니다. 문제가 발생시에는 멀티콥터 모드로 다시 전환할 수있는 준비가 되어있어야 합니다.
 
-Follow the respective tuning guides on how to tune multirotors and fixed wings.
+멀티콥터와 고정익 튜닝 방법에 대한 가이드를 참고하십시오.
 
-### 전환 조정
+### 전환 튜닝
 
-While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition.
+두 가지 모드 (수직 이착륙을 위한 멀티콥터와 전진 비행을 위한 고정익)로 비행기능한 기체를 다루는 것처럼 보일 수 있지만, 튜닝이 필요한 추가 상태가 있습니다.
 
-Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
+전환 튜닝을 올바르게하는 것은 고정익 모드 전환 과정에 매우 중요합니다. 예를 들어, 전환시 속도가 너무 느리면 정지할 수 있습니다.
 
 <span id="transition_throttle"></span>
 
-#### Transition Throttle
+#### 전환 스로틀
 
-Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
+매개변수: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
 Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
 
