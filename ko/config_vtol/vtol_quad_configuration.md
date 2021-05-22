@@ -34,11 +34,11 @@
 
 매개변수: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
-Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
+전방 전환 스로틀은 전방 전환 중 푸셔/풀러 모터의 목표 스로틀을 정의합니다.
 
-This must be set high enough to ensure that the transition airspeed is reached. If your vehicle is equipped with an airspeed sensor then you can increase this parameter to make the front transition complete faster. For your first transition you are better off setting the value higher than lower.
+이는 전환 대기 속도에 도달할 수 있도록 충분히 높게 설정되어야 합니다. 기체에 대기 속도 센서가 장착된 경우이 매개변수를 늘려 전면 전환을 더 빠르게 완료할 수 있습니다. 첫 번째 전환의 경우 값을 더 낮게 설정하는 것이 좋습니다.
 
-Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
+매개변수: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
 
 Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable. If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
 
