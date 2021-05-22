@@ -16,9 +16,9 @@
 
 ### 멀티콥터 / 고정익 튜닝
 
-Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 잘 조정되지 않으면 사고가 일어날 수 있습니다.
+고정익 전환을 처음 시도하기 전에 VTOL이 멀티콥터 모드 튜닝 여부를 반드시 확인하여야 합니다. 그 이유는 전환과정에 문제가 생기면 복귀할 모드이며 매우 빠른 속도로 움직일 수 있기 때문입니다. 제대로 튜닝되지 않으면 사고가 발생할 수 있습니다.
 
-If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
+활주로에서 총중량이 과도하지 않으면 고정익을 튜닝하는 것이 바람직합니다. 그렇지 않은면, 고정익 모드로 전환시에 이것을 시도합니다. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
 Follow the respective tuning guides on how to tune multirotors and fixed wings.
 
