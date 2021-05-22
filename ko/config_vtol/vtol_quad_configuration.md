@@ -10,7 +10,7 @@
 
 ### 비행/전환 모드 스위치
 
-In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+*QGroundControl*에서 RC 보정 과정이나 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)를 설정에서 전환 기능에 리모컨 스위치를 할당합니다.
 
 This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
 
