@@ -8,7 +8,7 @@
 2. 마스터 펌웨어 플래시
 3. 설정 탭에서 적절한 VTOL 기체를 선택하고, 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택합니다.
 
-### 비행/전환 모드 스위치
+### 비행 / 전환 모드 스위치 
 
 *QGroundControl*에서 RC 보정 과정이나 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)를 설정에서 전환 기능에 리모컨 스위치를 할당합니다.
 
@@ -54,21 +54,21 @@
 
 매개변수: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
-By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
+기본적으로 대기 속도가 전환 속도에 가까워지면 멀티콤터 자세 제어가 감소하고 고정익 제어가 전환이 발생할 때까지 계속 증가하기 시작합니다.
 
-Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
+이 매개 변수를 0으로 설정하여 블렌딩을 비활성화하면, 전환이 발생할 때까지 완전한 멀티콥터 제어 및 제로 고정익 제어가 유지됩니다.
 
-#### 천이 속도
+#### 전환 대기속도
 
-Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+매개변수: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
-This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
+멀티콥터 모드에서 고정익 모드로 전환을 트리거하는 대기 속도입니다. 대기속도 센서를 적절하게 보정하는 것이 중요합니다. 현재는 확인되지 않았으므로, 기체 실속 속도(`FW_AIRSPD_MIN` 확인) 보다 편안한 속도를 선택하는 것도 중요합니다.
 
-#### 고정 날개 영구 안정화
+#### 고정익 영구 안정화
 
-Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+매개변수: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
-Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
+영구 안정화를 활성화하면 항상 자동조종장치에 의한 고정익 비행이 안정화됩니다. As soon as a transition to fixed wing occurs it will be stabilised.
 
 Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
 
