@@ -10,49 +10,49 @@
 
 ### 비행/전환 모드 스위치
 
-In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+*QGroundControl*에서 RC 보정 과정이나 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)를 설정에서 전환 기능에 리모컨 스위치를 할당합니다.
 
-This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
+이를 통하여 멀티콥터와 고정익 모드간의 전환이 가능해집니다. 오프 포지션의 스위치는 멀티콥터 모드로 비행하고 있음을 의미합니다.
 
-### 멀티 로터 / 고정 날개 튜닝
+### 멀티콥터 / 고정익 튜닝
 
-Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 잘 조정되지 않으면 사고가 일어날 수 있습니다.
+고정익 전환을 처음 시도하기 전에 VTOL이 멀티콥터 모드 튜닝 여부를 반드시 확인하여야 합니다. 그 이유는 전환과정에 문제가 생기면 복귀할 모드이며 매우 빠른 속도로 움직일 수 있기 때문입니다. 제대로 튜닝되지 않으면 사고가 발생할 수 있습니다.
 
-If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
+활주로에서 총중량이 과도하지 않으면 고정익을 튜닝하는 것이 바람직합니다. 그렇지 않은면, 고정익 모드로 전환시에 이것을 시도합니다. 문제가 발생시에는 멀티콥터 모드로 다시 전환할 수있는 준비가 되어있어야 합니다.
 
-Follow the respective tuning guides on how to tune multirotors and fixed wings.
+멀티콥터와 고정익 튜닝 방법에 대한 가이드를 참고하십시오.
 
-### 전환 조정
+### 전환 튜닝
 
-While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition.
+두 가지 모드 (수직 이착륙을 위한 멀티콥터와 전진 비행을 위한 고정익)로 비행기능한 기체를 다루는 것처럼 보일 수 있지만, 튜닝이 필요한 추가 상태가 있습니다.
 
-Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
+전환 튜닝을 올바르게하는 것은 고정익 모드 전환 과정에 매우 중요합니다. 예를 들어, 전환시 속도가 너무 느리면 정지할 수 있습니다.
 
 <span id="transition_throttle"></span>
 
-#### Transition Throttle
+#### 전환 스로틀
 
-Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
+매개변수: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
-Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
+전방 전환 스로틀은 전방 전환 중 푸셔/풀러 모터의 목표 스로틀을 정의합니다.
 
-This must be set high enough to ensure that the transition airspeed is reached. If your vehicle is equipped with an airspeed sensor then you can increase this parameter to make the front transition complete faster. For your first transition you are better off setting the value higher than lower.
+이는 전환 대기 속도에 도달할 수 있도록 충분히 높게 설정되어야 합니다. 기체에 대기 속도 센서가 장착된 경우이 매개변수를 늘려 전면 전환을 더 빠르게 완료할 수 있습니다. 첫 번째 전환의 경우 값을 더 낮게 설정하는 것이 좋습니다.
 
-Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
+매개변수: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
 
-Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable. If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
+일반적으로 전진 추력이 바람직하지 않기 때문에 (대부분의 경우) 역 전환 스로틀을 0으로 설정할 수 있습니다. 그러나, 모터 컨트롤러가 역 추력을 지원하는 경우 음수 값을 설정하여 이를 달성할 수 있습니다.
 
-#### Forward Transition Pusher/Puller Ramp-up Time
+#### 순방향 전환 푸셔/풀러 램프 업 시간
 
-Parameter: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
+매개변수: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
 
-A forward transition refers to the transition from multirotor to fixed wing mode. This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+전방 전환은 멀티콥터에서 고정익 모드로 전환하는 것입니다. 스로틀을 목표값(`VT_F_TRANS_THR`에 의해 정의됨)까지 증가시키는 데 소요되는 시간(단위, 초)입니다. 값이 0이면, 전환 스로틀 값이 즉시 설정되도록 명령합니다. 스로틀을 부드럽게 하려면, 이 값을 3과 같이 더 큰 값으로 늘릴 수 있습니다.
 
-Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
+램프 업 기간이 종료되면, 스로틀은 목표 설정에 있으며 전환 속도에 도달할 때까지 유지됩니다.
 
 #### 블렌딩 속도
 
-Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+매개변수: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
 
