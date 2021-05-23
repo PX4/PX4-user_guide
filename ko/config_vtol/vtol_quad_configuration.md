@@ -116,8 +116,8 @@
 
 **멀티콥터에서 고정익** (전환 스위치가 켜짐/고정익으로 전환)한 다음 전환이 발생하기 *전에* 스위치를 다시 되돌리면 (꺼짐/멀티콥터 위치) 즉시 멀티콥터 모드로 돌아갑니다.
 
-When transitioning from **fixed wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
+이 유형의 VTOL에 대해 **고정익에서 멀티콥터**로 전환시 전환이 즉시 이루어 지므로 틸트 로터 VTOL과 달리 여기에는 실제로 백 아웃 옵션이 없습니다. 고정익 모드로 돌아가려면 전체 전환을 거쳐야합니다. 고속 이동시에는 이 문제가 순식간에 발생합니다.
 
 ### 지원
 
-If you have any questions regarding your VTOL conversion or configuration please see <https://discuss.px4.io/c/px4/vtol>.
+VTOL 변환 또는 설정에 대한 질문이 있으시면<https://discuss.px4.io/c/px4/vtol>을 참조하십시오.
