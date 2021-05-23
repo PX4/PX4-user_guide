@@ -1,12 +1,12 @@
-# VTOL Back-transition Tuning
+# VTL 역전환 튜닝
 
 :::note
-Some of the following features will be available in PX4 version 1.7 and are currently only available on the experimental development branch.
+다음 기능 중 일부는 PX4 버전 1.7에서 사용할 수 있으며, 현재 실험 개발 브랜치에서만 사용할 수 있습니다.
 :::
 
-When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control. As of PX4 version 1.7, and on the current developer branch, the vehicle will consider the back-transition complete when the horizontal speed has reached multicopter cruise speed ([MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)) or when the back-transition duration ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) has passed (whichever comes first).
+VTOL이 역전환 (고정익 모드에서 멀티콥터 모드로 전환)을 수행시 멀티콥터가 적절한 제어를 할 수 있으려면 속도를 낮추어야 합니다. PX4 버전 1.7부터 현재 개발자 브랜치에서 기체는 수평 속도가 멀티 콥터 순항 속도 ([MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE))에 도달하거나 역전환 시간([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR))이 초과 되면 (둘 중 먼저 오는 쪽) 역전환이 완료된 것으로 간주합니다.
 
-## Back-transition duration
+## 역전환 시간
 
 Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down. During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.
 
