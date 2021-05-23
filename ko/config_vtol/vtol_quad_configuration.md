@@ -68,31 +68,31 @@
 
 매개변수: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
-영구 안정화를 활성화하면 항상 자동조종장치에 의한 고정익 비행이 안정화됩니다. As soon as a transition to fixed wing occurs it will be stabilised.
+영구 안정화를 활성화하면 항상 자동조종장치에 의한 고정익 비행이 안정화됩니다. 고정익 전환이 발생하는 즉시 안정화됩니다.
 
-Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
+고정익 모드를 아직 튜닝하지 않은 경우, 이 모드에서 제대로 작동하는 지 확인될 때까지 이 모드를 해제하여야 합니다.
 
 <span id="transitioning_tips"></span>
 
-### Transitioning Tips
+### 전환 팁
 
-As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
+이미 언급한 것처럼, 잘 튜닝된 멀티콥터터 모드가 있는지 확인하십시오. 전환 중에 문제가 발생하면, 이 모드로 다시 전환이 매우 원활하여야합니다.
 
-Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
+비행 전에 세 단계 (멀티콥터, 트랜지션, 고정익)에서 무엇을 할 것인지 계획을 세우십시오.
 
-Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
+배터리 잔량 : 비행 종료시 착륙을 위해 멀티콥터 전환을 위한 여유가 충분히 있어야 합니다. 착륙하려면 멀티콥터 모드에서 더 많은 전력이 필요하므로 배터리를 충분히 남아 있어야 합니다. 보수적으로 판단하여야 합니다.
 
 #### 전환: 준비하기
 
-Make sure you are at least 20 meters above ground and have enough room to complete a transition. It could be that your VTOL will lose height when it switches to fixed wing mode, especially if the airspeed isn’t high enough.
+지상에서 20 미터 이상 떨어져 있고 전환을 완료할 수있는 충분한 공간을 확인합니다. VTOL이 고정익 모드로 전환시, 특히 대기속도가 충분히 높지 않은 경우 높이가 낮아질 수 있습니다.
 
-Transition into the wind, whenever possible otherwise it will travel further from you before it transitions.
+적절한 풍속에서 전환하십시오. 그렇지 않으면 전환전에 멀리 이동합니다.
 
-Make sure the VTOL is in a stable hover before you start the transition.
+전환전에 VTOL이 안정적인 호버링 상태인 지 확인하십시오.
 
-#### Transition: Multirotor to Fixed Wing (Front-transition)
+#### 전환 : 멀티콥터에서 고정익 (전면 전환)
 
-Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
+전환을 시작하십시오. 50 ~ 100 미터 사이에서 전환하여야 합니다 If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
