@@ -8,7 +8,7 @@
 2. 마스터 펌웨어 플래시
 3. 설정 탭에서 적절한 VTOL 기체를 선택하고, 기체가 목록에 없으면 Fun Cub VTOL 기체를 선택합니다.
 
-### 비행/전환 모드 스위치
+### 비행 / 전환 모드 스위치 
 
 *QGroundControl*에서 RC 보정 과정이나 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)를 설정에서 전환 기능에 리모컨 스위치를 할당합니다.
 
@@ -54,70 +54,70 @@
 
 매개변수: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
-By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
+기본적으로 대기 속도가 전환 속도에 가까워지면 멀티콤터 자세 제어가 감소하고 고정익 제어가 전환이 발생할 때까지 계속 증가하기 시작합니다.
 
-Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
+이 매개 변수를 0으로 설정하여 블렌딩을 비활성화하면, 전환이 발생할 때까지 완전한 멀티콥터 제어 및 제로 고정익 제어가 유지됩니다.
 
-#### 천이 속도
+#### 전환 대기속도
 
-Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+매개변수: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
-This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
+멀티콥터 모드에서 고정익 모드로 전환을 트리거하는 대기 속도입니다. 대기속도 센서를 적절하게 보정하는 것이 중요합니다. 현재는 확인되지 않았으므로, 기체 실속 속도(`FW_AIRSPD_MIN` 확인) 보다 편안한 속도를 선택하는 것도 중요합니다.
 
-#### 고정 날개 영구 안정화
+#### 고정익 영구 안정화
 
-Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+매개변수: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
-Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
+영구 안정화를 활성화하면 항상 자동조종장치에 의한 고정익 비행이 안정화됩니다. 고정익 전환이 발생하는 즉시 안정화됩니다.
 
-Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
+고정익 모드를 아직 튜닝하지 않은 경우, 이 모드에서 제대로 작동하는 지 확인될 때까지 이 모드를 해제하여야 합니다.
 
 <span id="transitioning_tips"></span>
 
-### Transitioning Tips
+### 전환 팁
 
-As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
+이미 언급한 것처럼, 잘 튜닝된 멀티콥터터 모드가 있는지 확인하십시오. 전환 중에 문제가 발생하면, 이 모드로 다시 전환이 매우 원활하여야합니다.
 
-Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
+비행 전에 세 단계 (멀티콥터, 트랜지션, 고정익)에서 무엇을 할 것인지 계획을 세우십시오.
 
-Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
+배터리 잔량 : 비행 종료시 착륙을 위해 멀티콥터 전환을 위한 여유가 충분히 있어야 합니다. 착륙하려면 멀티콥터 모드에서 더 많은 전력이 필요하므로 배터리를 충분히 남아 있어야 합니다. 보수적으로 판단하여야 합니다.
 
 #### 전환: 준비하기
 
-Make sure you are at least 20 meters above ground and have enough room to complete a transition. It could be that your VTOL will lose height when it switches to fixed wing mode, especially if the airspeed isn’t high enough.
+지상에서 20 미터 이상 떨어져 있고 전환을 완료할 수있는 충분한 공간을 확인합니다. VTOL이 고정익 모드로 전환시, 특히 대기속도가 충분히 높지 않은 경우 높이가 낮아질 수 있습니다.
 
-Transition into the wind, whenever possible otherwise it will travel further from you before it transitions.
+적절한 풍속에서 전환하십시오. 그렇지 않으면 전환전에 멀리 이동합니다.
 
-Make sure the VTOL is in a stable hover before you start the transition.
+전환전에 VTOL이 안정적인 호버링 상태인 지 확인하십시오.
 
-#### Transition: Multirotor to Fixed Wing (Front-transition)
+#### 전환 : 멀티콥터에서 고정익 (전방 전환)
 
-Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
+전환을 시작하십시오. 50 ~ 100 미터 사이에서 전환하여야 합니다. 그렇지 않거나 안정적으로 비행하지 않는 경우 전환을 중단하고 (아래 참조) 착륙하거나 시작 위치로 다시 호버하여 착륙합니다. [전환 조절](#transition_throttle) (`VT_F_TRANS_THR`) 값을 늘려보십시오. 또한 속도 센서를 사용하지 않는 경우 전환 시간 (`VT_F_TRANS_DUR`)을 줄이는 것을 고려하십시오. 대기 속도 센서를 사용하는 경우 전환 대기 속도를 낮추되 실속 속도보다 훨씬 높게 유지하십시오.
 
-As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
+전환이 일어나는 것을 알아 차리자 마자 빠르게 스로틀을 포함할 수 있는 높이 손실을 처리 할 준비를하십시오.
 
 :::caution
-The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+다음 기능은 논의되었지만 아직 구현되지 않았습니다. 전환이 발생하면 멀티콥터 모터가 중지되고 푸셔/풀러 스로틀은 스로틀 스틱을 움직일 때까지 `VT_F_TRANS_THR` 수준을 유지하며 수동 모드에 있다고 가정합니다.
 :::
 
-#### Transition: Fixed Wing to Multirotor (Back-transition)
+#### 전환 : 고정익에서 멀티콥터로 (역 전환)
 
-When you transition back to multirotor mode bring your aircraft in on a straight level approach and reduce its speed, flip the transition switch and it will start the multirotor motors and stop the pusher/puller prop immediately and should result in a fairly smooth gliding transition.
+멀티콥터 모드로 다시 전환 할 때 기체를 똑바로 높이고 속도를 줄이면 전환 스위치를 켜고 멀티 로터 모터를 시작하고 푸셔/풀러 프롭을 즉시 중지하므로 상당히 부드러운 활주 전환이 이루어집니다.
 
-Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
+전환시 가지고있는 스로틀 값이 전환 순간에 멀티콥터가 가진 추력의 양을 명령한다는 것을 고려하십시오. 비행중이므로 호버링을 달성/유지하기 위해 스로틀을 조정할 시간은 충분합니다.
 
-For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
+역 전환의 고급 튜닝은 [역 전환 튜닝 가이드](vtol_back_transition_tuning.md)를 참조하십시오.
 
 <span id="aborting_a_transition"></span>
 
-#### Aborting a Transition
+#### 전환 중지
 
-It’s important to know what to expect when you revert a transition command *during* a transition.
+전환 *중* 전환 명령 취소시, 예상되는 사항을 아는 것이 중요합니다.
 
-When transitioning from **multirotor to fixed wing** (transition switch is on/fixed wing) then reverting the switch back (off/multirotor position) *before* the transition happens it will immediately return to multirotor mode.
+**멀티콥터에서 고정익** (전환 스위치가 켜짐/고정익으로 전환)한 다음 전환이 발생하기 *전에* 스위치를 다시 되돌리면 (꺼짐/멀티콥터 위치) 즉시 멀티콥터 모드로 돌아갑니다.
 
-When transitioning from **fixed wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
+이 유형의 VTOL에 대해 **고정익에서 멀티콥터**로 전환시 전환이 즉시 이루어 지므로 틸트 로터 VTOL과 달리 여기에는 실제로 백 아웃 옵션이 없습니다. 고정익 모드로 돌아가려면 전체 전환을 거쳐야합니다. 고속 이동시에는 이 문제가 순식간에 발생합니다.
 
 ### 지원
 
-If you have any questions regarding your VTOL conversion or configuration please see <https://discuss.px4.io/c/px4/vtol>.
+VTOL 변환 또는 설정에 대한 질문이 있으시면<https://discuss.px4.io/c/px4/vtol>을 참조하십시오.
