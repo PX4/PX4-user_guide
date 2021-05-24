@@ -1,25 +1,25 @@
-# 대기 속도 센서 미장착 VTOL
+# 대기속도 센서 미장착 VTOL 
 
 :::warning
-대기 속도 센서를 사용하는 것이 좋습니다. 대기 속도 센서없이 VTOL에 대한 지원은 실험적인 것으로 간주되며, 숙련된 조종사만 시도해야합니다.
+대기 속도 센서를 사용하는 것이 좋습니다. 대기속도 센서없이 VTOL에 대한 지원은 실험적인 것으로 간주되며, 숙련된 조종사만 시도해야합니다.
 :::
 
-고정익은 대기 속도 센서를 사용하여 비행기가 공중을 통과하는 속도를 측정합니다. 바람의 영향에 따라 지면 속도와 차이가 발생합니다. 모든 비행기는 정지하는 최저 속도가 있습니다. 온난한 기상 조건에서 실속 속도보다 훨씬 높은 설정으로 VTOL은 대기 속도 센서를 사용하지 않고도 작동할 수 있습니다. 설정은 비 VTOL 고정익에도 적용할 수 있지만, 테스트되지 않았습니다.
+고정익은 대기속도 센서를 사용하여 비행기가 공중을 통과하는 속도를 측정합니다. 바람의 영향에 따라 지면 속도와 차이가 발생합니다. 모든 비행기는 정지하는 최저 속도가 있습니다. 온난한 기상 조건에서 실속 속도보다 훨씬 높은 설정으로 VTOL은 대기속도 센서를 사용하지 않고도 작동할 수 있습니다. 설정은 비 VTOL 고정익에도 적용할 수 있지만, 테스트되지 않았습니다.
 
-이 가이드는 VTOL의 대기 속도 센서를 우회에 필요한 매개변수 설정 방법을 설명합니다.
+이 가이드는 VTOL의 대기속도 센서를 우회에 필요한 매개변수 설정 방법을 설명합니다.
 
 ## 준비
 
-Before attempting to eliminate an airspeed sensor you should first determine a safe throttle level. Also the duration for a front transition needs to be known. To do this you can either perform a reference flight with an airspeed sensor or fly the vehicle manually. In both cases the reference flight should be performed in very low wind conditions.
+대기속도 센서를 제거하기 전에 먼저 안전한 스로틀 수준을 결정해야합니다. 또한, 순방향 전환 기간을 알아야합니다. 이를 위해 대기속도 센서로 기준 비행을 수행하거나 기체를 수동으로 비행할 수 있습니다. 두 경우 모두 매우 낮은 바람에서 기준 비행을 수행하여야 합니다.
 
-The flight should be performed at a speed that would be sufficient to fly in high wind conditions and should consist of:
+비행은 강풍 조건에서 비행하기에 충분한 속도로 수행되어야 하며 아래와 같이 설정되어야 합니다.
 
-- Successful front transition
-- 직선 및 평평한 비행
-- 공격적인 차례
-- 높은 고도로 빠르게 올라간다.
+- 성공적인 순방향 전환
+- 직선 및 수평 비행
+- 적극적인 회전
+- 높은 고도로 고속 상승
 
-## Examining the Log
+## 로그 검사
 
 After the reference flight download the log and use [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
 
