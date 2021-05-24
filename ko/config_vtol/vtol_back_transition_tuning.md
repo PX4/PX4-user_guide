@@ -8,17 +8,17 @@ VTOL이 역전환 (고정익 모드에서 멀티콥터 모드로 전환)을 수�
 
 ## 역전환 시간
 
-Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down. During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.
+역전환 시간([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR))을 길게 설정하면 기체가 감속할 시간이 더 늘어납니다. 이 기간 동안 VTOL은 고정익 모터를 차단하고 활공하는 동안 멀티콥터모터를 천천히 올립니다. 이 시간이 길 수록 기체는 감속하는 동안 더 오래 미끄러집니다. 이 동작의 주의 사항은 기체가 이 시간 동안 위치가 아닌 고도만 제어하므로 일부 드리프트가 발생할 수 있는 것입니다.
 
-## Setting expected deceleration
+## 예상 감속 설정
 
-When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) waypoint the autopilot will attempt to calculate the proper distance at which to initiate the back-transition. It does this by looking at the current velocity (comparable to ground speed) and the expected deceleration. To get the vehicle to come out of back-transition very close to its landing point you can tune the expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)) parameter. Make sure you have a large enough back-transition duration to allow the vehicle to reach its intended position before this timeout kicks in.
+[VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) 웨이포인트를 사용하는 비행 임무를 수행시 자동조종장치는 역 전환을 시작할 적절한 거리를 계산을 시도합니다. 이는 현재 속도(지상 속도와 비교)와 예상 감속을 확인하여 수행합니다. 차량이 착지 지점에 매우 가까운 역 전환이 일어나도록 예상 감속 ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)) 매개변수를 조정할 수 있습니다. 이 타임 아웃이 시작되기 전에 기체가 의도한 위치에 도달할 수 있도록 충분한 역전환 시간이 있는지 확인하십시오.
 
-## Applying airbrakes
+## 에어브레이크 적용
 
-If your vehicle is equipped with airbrakes, and your selected airframe supports them (in code), you can set the airbrake position during back-transition in [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT). The values scale from 0 to 1, so a value of 0.7 equals 70% output.
+기체에 에어브레이크가 장착되어 있고 선택한 기체가 이를 지원하는 경우 (코드에서) [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT)에서 역 전환 중 에어브레이크 위치를 설정할 수 있습니다. 값은 0에서 1까지 확장되므로, 0.7 값은 70% 출력과 같습니다.
 
-## Applying reverse thrust on your fixed wing motor
+## 고정익 모터에 역 추력 적용
 
 To get the shortest possible back-transition, PX4 supports active breaking by reversing the fixed wing motor direction. To use this feature you will require an ESC that supports motor rotation reversing.
 
