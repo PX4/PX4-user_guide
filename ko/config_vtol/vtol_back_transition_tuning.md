@@ -54,5 +54,5 @@ VTOL이 역전환 (고정익 모드에서 멀티콥터 모드로 전환)을 수�
 - ESC : 모터 반전을 지원하는 고정익 ESC (예 : Hobbywing Platinum Pro 60A)
 - 예상 감속 값 (m/s/s) `VT_B_DEC_MSS` : 2.5
 - 역전환 기간 제한 시간 (초) `VT_B_TRANS_DUR` : 10
-- Set reverse channel high during back-transition `VT_B_REV_OUT`: 1.0
-- Apply 70% thrust during back-transition `VT_B_TRANS_THR`: 0.7
+- 역전환중 역방향 채널을 높게 설정 `VT_B_REV_OUT` : 1.0
+- 역 전환 중 70% 추력 적용 `VT_B_TRANS_THR` : 0.7
