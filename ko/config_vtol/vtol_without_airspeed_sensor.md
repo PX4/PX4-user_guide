@@ -21,29 +21,29 @@
 
 ## 로그 검사
 
-After the reference flight download the log and use [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
+기준 비행 후 로그를 다운로드하고 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (또는 다른 분석 도구)을 사용하여 로그를 분석합니다. 고도(`GPOS.Alt`), 추력(`ATC1.Thrust`), 지면 속도(식: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), 피치(`ATT.Pitch`) 및 롤 (`AT.Roll`)의 챠트를 그립니다.
 
-Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), during the ascend (increasing altitude) and when the vehicle is banking (more roll). The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
+기체가 수평일 때(피치와 롤이 없거나 거의 없음), 상승중(고도 상승) 및 기체가 제자리에 있을 때의(더 많이 롤링) 스로틀 레벨 (추력)을 검사합니다. 순항 속도로 사용할 초기값은 롤링 또는 상승 중에 적용되는 가장 높은 추력이어야하며, 속도를 더 낮추기로 결정한 경우 수평 비행 중 추력을 최소값으로 간주하여야 합니다.
 
-Also take note of the time it took for a front transition to complete. This will be used to set the minimum transition time. For safety reasons you should add +- 30% to this time.
+또한 전면 전환이 완료되는 데 걸린 시간도 기록합니다. 이 값은 최소 전환 시간을 설정하는 데 사용됩니다. 안전상의 이유로 이번에는 + 30%를 추가하여야 합니다.
 
-Finally take note of the groundspeed during cruise flight. This can be used to tune your throttle setting after the first flight without an airspeed sensor.
+마지막으로 크루즈 비행 중 지상 속도를 기록하십시오. 이것은 대기속도 센서 없이 첫 비행 후 스로틀 설정을 튜닝에 사용할 수 있습니다.
 
-## Setting the Parameters
+## 매개변수 설정
 
-To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
+비행 점검을 우회하려면, 대기속도 센서 ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK))의 회로 차단기를 162128로 설정해야합니다.
 
 :::note
-Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+`CBRK_AIRSPD_CHK`를 활성화하면 센서 드라이버가 시작되지 않고 보정이 방지됩니다 (즉, 비행 검사를 우회하는 것 이상을 수행합니다).
 :::
 
-To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
+비행 컨트롤러에게 대기속도 센서 없이 날고 있다는 것을 알리려면, 대기 속도 모드를 'Airspeed disabled'([FW_ARSP_MODE = 1](../advanced_config/parameter_reference.md#FW_ARSP_MODE))로 설정하여야 합니다.
 
-Set the cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from 1..100 and the thrust value from the log is scaled from 0..1. So a thrust of 0.65 should be entered as 65. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
+순항 스로틀([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE))을 기준 비행의 로그에서 결정된 백분율로 설정합니다. QGC는 이 값을 1..100에서 스케일하고, 로그의 추력 값은 0..1에서 스케일링합니다. 그러므로, 0.65의 추력을 65로 입력해야합니다. 안전상의 이유로 첫 번째 비행을 테스트하기 위해 결정된 값에 +10% 스로틀을 추가하는 것이 좋습니다.
 
-Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM)) to the number of seconds determined from the reference flight and add +- 30% for safety.
+최소 전면전환 시간([VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM))을 기준 비행에서 결정된 초 수로 설정하고 안전을 위해 +- 30%를 추가합니다.
 
-### Optional Recommended Parameters
+### 권장 매개 변수(선택 사항)
 
 Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'QuadChute' ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)). This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
 
