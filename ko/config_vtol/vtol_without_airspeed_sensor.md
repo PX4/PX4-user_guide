@@ -45,32 +45,32 @@
 
 ### 권장 매개 변수(선택 사항)
 
-Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'QuadChute' ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)). This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
+실속 위험이 실제적이므로 'QuadChute'([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT))로 불리는 '고정익 최소 고도'를 설정하는 것이 바람직합니다. 그러면, VTOL이 멀티콥터 모드로 다시 전환되고 특정 고도 아래에서 [복귀 모드](../flight_modes/return.md)가 시작됩니다. 이 값을 15 미터 또는 20 미터로 설정하여 멀티콥터가 실속에서 회복할 시간을 제공할 수 있습니다.
 
-The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
+이 모드에 대해 테스트된 위치 추정기는 EKF2입니다. [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP)을 변경하여 설정합니다.
 
-## First Flight Without Airspeed Sensor
+## 대기속도 센서가 없는 첫 비행
 
-The values apply to a position controlled flight (like [Hold mode](../flight_modes/hold.md) or [Mission mode](../flight_modes/mission.md) or Mission mode). It is therefor recommended that a mission is configured at a safe altitude, approximately 10m above the QuadChute threshold. Like for the reference flight, this flight should be performed in very low wind conditions. For the first flight the following is recommended:
+값은 위치 제어 비행에 적용됩니다 (예: [유지 모드](../flight_modes/hold.md) 또는 [임무 모드](../flight_modes/mission.md)). 따라서 임무는 QuadChute 임계치보다 약 10m 높은 안전한 고도로 설정하는 것이 좋습니다. 기준 비행과 같이, 이 비행은 풍속이 매우 작은 조건에서 수행되어야 합니다. 첫 비행의 경우 다음 사항들을 권장합니다.
 
-- 한 고도에 머물러 라.
-- Set the waypoints wide enough and in such a fashion that no sharp turns are required
-- Keep the mission small enough that it remains in sight should a manual override be required.
-- If the airspeed is very high, consider performing a manual back transition by switching to Altitude mode.
+- 같은 고도 유지
+- 웨이포인트를 충분히 넓고 급회전이 필요하지 않도록 설정하십시오.
+- 수동 조작이 필요한 경우 시야에 들어오도록 임무를 작게 유지하십시오.
+- 대기 속도가 매우 높으면 고도 모드로 전환하여 수동 역전환을 고려하십시오.
 
-If the mission finished successfully you should proceed to examine the log for the following:
+임무가 성공적으로 완료되면, 로그에서 다음 사항을 확인하여야 합니다.
 
-- The groundspeed should be considerably above the groundspeed from the reference flight.
-- The altitude should not have been significantly lower than the reference flight.
-- The pitch angle should not have consistently been different from the reference flight.
+- 지면 속도는 기준 비행에서 지면 속도보다 상당히 높아야 합니다.
+- 고도는 기준 비행보다 크게 낮아서는 안됩니다.
+- 피치 각도는 기준 비행과 일관되게 다르지 않아야합니다.
 
-If all these conditions have been met you can start to tune down the cruise throttle in small steps until the groundspeed matches that of the reference flight.
+이러한 모든 조건이 충족되면, 지면 속도가 기준 비행 속도와 일치할 때까지 작은 단계로 크루즈 스로틀을 조정할 수 있습니다.
 
-## 관련 매개 변수의 간략한 개요
+## 관련 매개 변수에 대한 간략한 개요
 
-- [FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE): Declare invalid (2)
-- [CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK): 162128
+- [FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE): 잘못된 선언 (2)
+- [CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK): 162128
 - [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP): EKF2 (2)
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE): determined (e.g. 70%)
-- [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): determined (e.g. 10 seconds)
+- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE): 결정됨 (예 : 70 %)
+- [VT_TRANS_MIN_TM](../advanced_config/parameter_reference.md#VT_TRANS_MIN_TM): 결정됨 (예: 10 초)
 - [VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT): 15
