@@ -1,12 +1,12 @@
-# 속도 센서가없는 VTOL
+# 대기 속도 센서 미장착 VTOL
 
 :::warning
-The use of an airspeed sensor is advised. Support for VTOL's without an airspeed sensor is considered experimental and should only be attempted by experienced pilots.
+대기 속도 센서를 사용하는 것이 좋습니다. 대기 속도 센서없이 VTOL에 대한 지원은 실험적인 것으로 간주되며, 숙련된 조종사만 시도해야합니다.
 :::
 
-Fixed wings use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed wings but this is currently untested.
+고정익은 대기 속도 센서를 사용하여 비행기가 공중을 통과하는 속도를 측정합니다. 바람의 영향에 따라 지면 속도와 차이가 발생합니다. 모든 비행기는 정지하는 최저 속도가 있습니다. 온난한 기상 조건에서 실속 속도보다 훨씬 높은 설정으로 VTOL은 대기 속도 센서를 사용하지 않고도 작동할 수 있습니다. 설정은 비 VTOL 고정익에도 적용할 수 있지만, 테스트되지 않았습니다.
 
-This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
+이 가이드는 VTOL의 대기 속도 센서를 우회에 필요한 매개변수 설정 방법을 설명합니다.
 
 ## 준비
 
