@@ -4,15 +4,15 @@
 이 지침은 [PWM ESC](../peripherals/pwm_escs_and_servo.md)에만 관련됩니다.
 :::
 
-전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도와 방향을 조절합니다. The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
+전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도와 방향을 조절합니다. ESC 입력 범위는 설정 가능하며, 동일한 모델 ESC간에도 응답 범위가 다를 수 있습니다.
 
-This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
+비행 컨트롤러에서 입력하는 최대/최소 PWM 입력값으로 ESC를 업데이트합니다. 결과적으로 모든 ESC/모터는 동일한 방식으로 (전체 입력 범위에 걸쳐) 비행 컨트롤러 입력에 반응합니다.
 
-Calibration is recommended for all ESCs, and in particular for low cost models.
+ESC는 특히 저비용 모델은 보정하는 것이 바람직합니다.
 
 ## 전제 조건
 
-The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
+시스템에는 전원 모듈이 포함되어야합니다. PX4는 측정된 전압으로 배터리 연결 여부를 판별합니다.
 
 ## 단계 
 
