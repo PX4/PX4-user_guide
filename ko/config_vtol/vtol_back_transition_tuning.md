@@ -8,51 +8,51 @@ VTOL이 역전환 (고정익 모드에서 멀티콥터 모드로 전환)을 수�
 
 ## 역전환 시간
 
-Setting a high back-transition time ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) will give the vehicle more time to slow down. During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.
+역전환 시간([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR))을 길게 설정하면 기체가 감속할 시간이 더 늘어납니다. 이 기간 동안 VTOL은 고정익 모터를 차단하고 활공하는 동안 멀티콥터모터를 천천히 올립니다. 이 시간이 길 수록 기체는 감속하는 동안 더 오래 미끄러집니다. 이 동작의 주의 사항은 기체가 이 시간 동안 위치가 아닌 고도만 제어하므로 일부 드리프트가 발생할 수 있는 것입니다.
 
-## Setting expected deceleration
+## 예상 감속 설정
 
-When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) waypoint the autopilot will attempt to calculate the proper distance at which to initiate the back-transition. It does this by looking at the current velocity (comparable to ground speed) and the expected deceleration. To get the vehicle to come out of back-transition very close to its landing point you can tune the expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)) parameter. Make sure you have a large enough back-transition duration to allow the vehicle to reach its intended position before this timeout kicks in.
+[VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) 웨이포인트를 사용하는 비행 임무를 수행시 자동조종장치는 역 전환을 시작할 적절한 거리를 계산을 시도합니다. 이는 현재 속도(지상 속도와 비교)와 예상 감속을 확인하여 수행합니다. 차량이 착지 지점에 매우 가까운 역 전환이 일어나도록 예상 감속 ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)) 매개변수를 조정할 수 있습니다. 이 타임 아웃이 시작되기 전에 기체가 의도한 위치에 도달할 수 있도록 충분한 역전환 시간이 있는지 확인하십시오.
 
-## Applying airbrakes
+## 에어브레이크 적용
 
-If your vehicle is equipped with airbrakes, and your selected airframe supports them (in code), you can set the airbrake position during back-transition in [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT). The values scale from 0 to 1, so a value of 0.7 equals 70% output.
+기체에 에어브레이크가 장착되어 있고 선택한 기체가 이를 지원하는 경우 (코드에서) [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT)에서 역 전환 중 에어브레이크 위치를 설정할 수 있습니다. 값은 0에서 1까지 확장되므로, 0.7 값은 70% 출력과 같습니다.
 
-## Applying reverse thrust on your fixed wing motor
+## 고정익 모터에 역 추력 적용 
 
-To get the shortest possible back-transition, PX4 supports active breaking by reversing the fixed wing motor direction. To use this feature you will require an ESC that supports motor rotation reversing.
+가능한 단시간의 역 전환을 위해 PX4는 고정익 모터 방향을 반대로 하여 능동적인 차단을 지원합니다. 이 기능을 사용하려면 모터 회전 반전을 지원하는 ESC가 필요합니다.
 
 :::note
-A typical fixed wing propeller is not optimized to spin in reverse, when the throttle during reverse thrust is set too high the propeller can stall.
+일반적인 고정익 프로펠러는 역 회전에 최적화되어 있지 않습니다. 역 추력중 스로틀이 너무 높게 설정되면 프로펠러가 정지할 수 있습니다.
 :::
 
-Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
+일반적으로 역방향 가능 ESC가 역 추력을 구현할 수 있는 방법은 두 가지가 있습니다.
 
-### Using throttle scaling (3D)
+### 스로틀 스케일링 (3D) 사용
 
-Normally the throttle stick is used purely for forward thrust.
+일반적으로 스로틀 스틱은 전진 추력에만 사용됩니다.
 
-3D ESCs assume 0 thrust at 50% throttle, positive (forward) thrust above 50% and negative thrust (reverse) below 50%. The airframe can be modified to implement this behaviour *only* during back transition, allowing reverse thrust to be applied during the transition.
+3D ESC는 50% 스로틀에서 0 추력, 50% 이상의 포지티브 (전진) 추력과 50% 미만의 음의 추력(역방향)을 가정합니다. 기체는 역전환중에*만* 이 동작을 구현하도록 수정할 수 있으며, 전환중 역 추력을 적용할 수 있습니다.
 
 :::warning
-Support for 3D throttle scaling during back-transition requires *code support* in the airframe.
+역전환 중 3D 스로틀 스케일링을 지원하려면 기체에서 *코드 지원*이 필요합니다.
 :::
 
-The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
+역전환중 음의 추력 양은 [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) 매개 변수를 사용하여 구성할 수 있습니다 (0과 -1 사이의 음수 값으로 설정).
 
-### On a control channel
+### 제어 채널
 
-ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346)) can use the airbrakes channel to apply reverse thrust during back-transition.
+모터 방향을 제어하기 위해 별도의 제어 채널을 사용하는 ESC(예 : [Hobbywing Platinum 시리즈](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346))는 에어브레이크 채널을 사용하여 역전환 중에 역 추력을 적용할 수 있습니다.
 
-Airframes that have been configured to support this behavior (like the DeltaQuad airframe) can be configured to do so by setting both [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) to 1 and [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) to the desired throttle level to apply for active breaking. The values scale from 0 to 1, so a value of 0.7 equals 70% throttle.
+이 동작을 지원하도록 구성된 기체(예 : DeltaQuad 기체)는 [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT)을 1로 설정하고 [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)을 적용할 원하는 스로틀 수준으로 설정하여 이를 수행하도록 설정할 수 있습니다. 값은 0에서 1까지 확장되므로 0.7 값은 70% 스로틀과 같습니다.
 
-## Typical setup
+## 일반적인 설정
 
-An example of a setup that employs most features listed above would be the following:
+위에 나열된 대부분의 기능을 사용하는 설정 예는 다음과 같습니다.
 
-- Airframe: Any VTOL supporting reverse thrust (e.g. DeltaQuad)
-- ESC: A fixed wing ESC that supports motor reversing (e.g. Hobbywing Platinum Pro 60A)
-- Estimated deceleration value in m/s/s `VT_B_DEC_MSS`: 2.5
-- Back-transition duration timeout in seconds `VT_B_TRANS_DUR`: 10
-- Set reverse channel high during back-transition `VT_B_REV_OUT`: 1.0
-- Apply 70% thrust during back-transition `VT_B_TRANS_THR`: 0.7
+- 기체 : 역 추력을 지원하는 모든 VTOL (예 : DeltaQuad)
+- ESC : 모터 반전을 지원하는 고정익 ESC (예 : Hobbywing Platinum Pro 60A)
+- 예상 감속 값 (m/s/s) `VT_B_DEC_MSS` : 2.5
+- 역전환 기간 제한 시간 (초) `VT_B_TRANS_DUR` : 10
+- 역전환중 역방향 채널을 높게 설정 `VT_B_REV_OUT` : 1.0
+- 역 전환 중 70% 추력 적용 `VT_B_TRANS_THR` : 0.7

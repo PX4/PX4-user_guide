@@ -1,10 +1,10 @@
 # ESC 캘리브레이션
 
 :::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
+이 지침은 [PWM ESC](../peripherals/pwm_escs_and_servo.md)에만 관련됩니다.
 :::
 
-Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC). The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
+전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도와 방향을 조절합니다. The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
 This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
 
