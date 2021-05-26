@@ -4,26 +4,27 @@
 These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
 :::
 
-Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC). The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
+전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도와 방향을 조절합니다. ESC 입력 범위는 설정 가능하며, 동일한 모델 ESC간에도 응답 범위가 다를 수 있습니다.
 
-This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
 
-Calibration is recommended for all ESCs, and in particular for low cost models.
+비행 컨트롤러에서 입력하는 최대/최소 PWM 입력값으로 ESC를 업데이트합니다. 결과적으로 모든 ESC/모터는 동일한 방식으로 (전체 입력 범위에 걸쳐) 비행 컨트롤러 입력에 반응합니다.
+
+ESC는 특히 저비용 모델은 보정하는 것이 바람직합니다.
 
 ## 전제 조건
 
-The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
+시스템에는 전원 모듈이 포함되어야합니다. PX4는 측정된 전압으로 배터리 연결 여부를 판별합니다.
 
 ## 단계 
 
-To calibrate the ESCs:
+ESC를 보정하려면 :
 
 1. 프로펠러를 분리하십시오.
     
 :::warning
-Never attempt ESC calibration with props on.
+프로펠러를 장착한 상태에서 ESC 보정을 하지 마십시오.
     
-    The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+    ESC 보정중에는 모터가 회전하지 않아야 합니다. 그러나, ESC가 보정 시퀀스를 제대로 지원/감지하지 않으면 모터를 최대 속도로 실행하여 PWM 입력에 응답합니다.
 :::
 
 2. 배터리를 분리하고 USB만을 사용하여 비행 컨트롤러를 연결하십시오.(그 외 다른 연결 방법을 사용하지 마십시오.)
@@ -45,5 +46,5 @@ Never attempt ESC calibration with props on.
     ![ESC 캘리브레이션 단계 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 :::note
-High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+고품질의 컨트롤러는 공장에서 보정후에 판매됩니다. *이론적으로* 캘리브레이션은 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)과 [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) 매개변수를 ESC 기술 사양에 기재된 값으로 설정하는 것으로 완료할 수 있습니다. 그러나, 실제로는 PWM 입력 범위가 고품질 컨트롤러에서도 (출고시 설정값과) 다를 수 있으므로 보정을 하는 것이 바람직합니다.
 :::
