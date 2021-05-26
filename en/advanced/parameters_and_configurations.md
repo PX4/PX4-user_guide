@@ -3,7 +3,7 @@
 PX4 uses the *param subsystem* (a flat table of `float` and `int32_t` values) and text files (for mixers and startup scripts) to store its configuration.
 
 This section discusses the *param* subsystem in detail.
-It covers how to list, save and load parameters, and how to define them.
+It covers how to list, save and load parameters, and how to define them and make them available to ground stations.
 
 :::tip
 [System startup](../concept/system_startup.md) and the way that [airframe configurations](../dev_airframes/adding_a_new_frame.md) work are detailed on other pages. 
@@ -85,6 +85,9 @@ Parameters definitions have two parts:
 
 Several approaches are described below for writing both the metadata and code.
 Where possible code should use newer [YAML metadata](#yaml-metadata) and [C++ API](#c-api) over the older C parameter/code definitions, as these are more flexible and robust.
+
+Parameter metadata is [compiled into the firmware](#publishing-parameter-metadata-to-a-gcs),
+and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
 
 
 ### Parameter Names
@@ -230,7 +233,7 @@ Correct metadata is critical for good user experience in a ground station.
 Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible).
 Typically it is stored alongside its associated module. 
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information used by ground stations.
+The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
 
 :::warning
 After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
@@ -330,17 +333,26 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
  */
 ```
 
-#### Metadata Synchronization
-All parameter metadata is collected in an XML or JSON file during build.
-Traditionally the XML file of the master branch was copied into the QGC source tree via CI.
-This is still used as fallback, and the current approach is using the [MAVLink COMPONENT_INFORMATION API](https://mavlink.io/en/services/component_information.html).
-It ensures that the metadata is up-to-date with the code running on the vehicle automatically.
-PX4 stores the metadata xz-compressed within the binary for all targets with enough FLASH available.
-Others (with `CONSTRAINED_MEMORY`) keep the metadata on `px4-travis.s3.amazonaws.com` (which means that parameter metadata is only available after merging code to master).
-This is also used as fallback (used for example to avoid a very slow download over a low-rate telemetry link).
+#### Publishing Parameter Metadata to a GCS
+
+Parameter metadata is collected into a JSON or XML file during each PX4 build.
+For all targets with enough FLASH available the JSON file is xz-compressed and stored within the generated binary.
+The file is then shared to ground stations using the [MAVLink Component Information Protocol](https://mavlink.io/en/services/component_information.html).
+This ensures that parameter metadata is always up-to-date with the code running on the vehicle.
+
+Binaries for flight controller targets with constrained memory (`CONSTRAINED_MEMORY`) do not store the *build-specific* parameter metadata in the binary, but instead reference metadata stored on `px4-travis.s3.amazonaws.com`.
+Versions of the metadata exist for the current master and each PX4 release.
+The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml) (and hence will only be available once parameters have been merged into master).
+
+:::note
+The metadata on `px4-travis.s3.amazonaws.com` is used as a fallback if parameter metadata is not present on the vehicle.
+It may also be used as a fallback, for example, to avoid a very slow download over a low-rate telemetry link.
+:::
 
 Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
-Metadata is uploaded using [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml).
+
+The XML file of the master branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component information service (this approach predates the existane of the component information protocol).
+
 
 ## Further Information
 
