@@ -55,6 +55,7 @@ dyn ./test.px4mod
 ```
 
 ## NuttX
+
 NuttX has an integrated shell interpreter ([NuttShell (NSH)](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410)), and thus scripts can be executed directly.
 
 ### Debugging the System Boot
@@ -79,7 +80,7 @@ In most cases customizing the default boot is the better approach, which is docu
 The best way to customize the system startup is to introduce a [new airframe configuration](../dev_airframes/adding_a_new_frame.md).
 If only tweaks are wanted (like starting one more application or just using a different mixer) special hooks in the startup can be used.
 
-:::caution
+:::warning
 The system boot files are UNIX FILES which require UNIX LINE ENDINGS. If editing on Windows use a suitable editor.
 :::
 
@@ -99,7 +100,7 @@ It is loaded after the main system has been configured and *before* it is booted
 The `extras.txt` can be used to start additional applications after the main system boot.
 Typically these would be payload controllers or similar optional custom components.
 
-:::caution
+:::warning
 Calling an unknown command in system boot files may result in boot failure.
 Typically the system does not stream mavlink messages after boot failure, in this case check the error messages that are printed on the system console.
 :::
