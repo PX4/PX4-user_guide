@@ -333,20 +333,25 @@ The purpose of each line is given below (for more detail see [module_schema.yaml
  */
 ```
 
-#### Publishing Parameter Metadata to a GCS
+## Publishing Parameter Metadata to a GCS
 
 Parameter metadata is collected into a JSON or XML file during each PX4 build.
-For all targets with enough FLASH available the JSON file is xz-compressed and stored within the generated binary.
+
+For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary.
 The file is then shared to ground stations using the [MAVLink Component Information Protocol](https://mavlink.io/en/services/component_information.html).
 This ensures that parameter metadata is always up-to-date with the code running on the vehicle.
 
-Binaries for flight controller targets with constrained memory (`CONSTRAINED_MEMORY`) do not store the *build-specific* parameter metadata in the binary, but instead reference metadata stored on `px4-travis.s3.amazonaws.com`.
-Versions of the metadata exist for the current master and each PX4 release.
-The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml) (and hence will only be available once parameters have been merged into master).
+Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`.
+This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md).
+The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
 
 :::note
-The metadata on `px4-travis.s3.amazonaws.com` is used as a fallback if parameter metadata is not present on the vehicle.
-It may also be used as a fallback, for example, to avoid a very slow download over a low-rate telemetry link.
+You can identify memory constrained boards because they specify `CONSTRAINED_MEMORY` in their [cmake definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.cmake#L11)).
+:::
+
+:::note
+The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle.
+It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
 :::
 
 Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
