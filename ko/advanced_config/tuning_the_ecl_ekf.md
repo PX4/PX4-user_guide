@@ -3,17 +3,17 @@
 이 튜토리얼은 ECL EKF 알고리즘에 관한 일반적인 질문에 대한 답변들입니다.
 
 :::tip
-The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+*PX4 Developer Summit 2019*의 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) 비디오 (Dr. Paul Riseborough) 추정기에 대한 개요와 2018/2019년의 주요 변경 사항과 2020년까지 개선 사항을 설명합니다.
 :::
 
-## What is the ecl EKF?
+## ECL EKF는 무엇입니까?
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+ECL(Estimation and Control Library)은 EKF(Extended Kalman Filter) 알고리즘을 사용하여 센서 측정을 처리하고 다음 상태의 추정치를 제공합니다.
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
-* Velocity at the IMU - North, East, Down (m/s)
-* Position at the IMU - North, East, Down (m)
-* IMU delta angle bias estimates - X, Y, Z (rad)
+* 북쪽, 동쪽, 아래쪽 지역 지구 프레임에서 X, Y, Z 몸체 프레임으로의 회전을 정의하는 쿼터니언
+* IMU의 속도 - 북쪽, 동쪽, 아래쪽 (m/s)
+* IMU에서의 위치 - 북쪽, 동쪽, 아래쪽 (m)
+* IMU 델타 각도 편향 추정값 - X, Y, Z (rad)
 * IMU delta velocity bias estimates - X, Y, Z (m/s)
 * Earth Magnetic field components - North,East,Down \(gauss\)
 * Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
