@@ -1446,7 +1446,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)</td>
- <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn't takeoff within the timout it disamrs again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
+ <td>Time-out for auto disarm if not taking off <p><strong>Comment:</strong> A non-zero, positive value specifies the time in seconds, within which the vehicle is expected to take off after arming. In case the vehicle didn't takeoff within the timeout it disarms again. A negative value disables autmoatic disarming triggered by a pre-takeoff timeout.</p>   </td>
  <td></td>
  <td>10.0</td>
  <td>s</td>
