@@ -122,7 +122,7 @@ EKF에는 다양한 센서 측정 조합으로 작동하는 여러가지 모드�
 
 멀티콥터의 경우 [Drag Specific Forces](#mc_wind_estimation_using_drag)의 융합을 활성화하고 조정하여 필요한 풍속 상태 추정치를 제공할 수 있습니다.
 
-The EKF2 module models the error as a body fixed ellipsoid that specifies the fraction of dynamic pressure that is added to/subtracted from the barometric pressure - before it is converted to a height estimate. See the following parameter documentation for information on how to use this feature:
+EKF2 모듈은 오류를 높이 추정치로 변환하기 전에, 기압에서 더하거나 빼는 동적 압력의 비율을 지정하는 신체 고정 타원체로 오류를 모델링합니다. 이 기능을 사용하는 방법에 대한 정보는 아래의 매개변수 문서를 참조하십시오.
 
 * [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
 * [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
@@ -132,7 +132,7 @@ The EKF2 module models the error as a body fixed ellipsoid that specifies the fr
 
 ### GPS
 
-#### Position and Velocity Measurements
+#### 위치 및 속도 측정
 
 GPS measurements will be used for position and velocity if the following conditions are met:
 
