@@ -6275,7 +6275,7 @@ table {
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td>-1 > 3 </td>
+ <td>-1 > 4 </td>
  <td>-1</td>
  <td></td>
 </tr>
