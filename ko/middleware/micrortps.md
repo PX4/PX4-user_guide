@@ -48,7 +48,7 @@ The *Agent* and any *Fast DDS* applications are connected via UDP and may be on 
 ## Code generation
 
 ### Dependencies
-Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 or later must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
+Fast DDS 2.0.0 or later and Fast-RTPS-Gen 1.0.4 (not later!) must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
 
 :::note RTPS
 has been adopted as the middleware for the ROS 2 (Robot Operating System).
