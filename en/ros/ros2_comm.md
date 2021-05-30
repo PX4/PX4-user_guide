@@ -58,7 +58,7 @@ To setup ROS 2 for use with PX4 you will need to:
 
 ### Install Fast DDS
 
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (or later) and their dependencies.
+Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
 
 :::note
 Check the guide to confirm the latest dependencies!
@@ -420,13 +420,13 @@ To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
    ```sh
    cd ~/px4_ros_com_ros2 && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure --event-handlers console_direct+
    ```
-   
+
    :::note
    The build process may consume a lot of memory resources.
    On a resource limited machine, reduce the number of jobs being processed in parallel (e.g. set environment variable `MAKEFLAGS=-j1`).
    For more details on the build process, see the build instructions on the [ros1_bridge](https://github.com/ros2/ros1_bridge) package page.
    :::
-   
+
 
 ### Cleaning the workspaces
 
