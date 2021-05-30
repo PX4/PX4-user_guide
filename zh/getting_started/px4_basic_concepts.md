@@ -16,7 +16,7 @@
 
 无人机的“大脑”被称为自动驾驶仪。 它由 *载具控制器*（“飞行控制器”）硬件和运行其上的 *飞行栈* 软件组成。
 
-<span id="autopilot"></span>
+<a id="autopilot"></a>
 
 ## PX4 自动驾驶仪
 
@@ -30,7 +30,7 @@ PX4 的一些主要功能包括：
 
 PX4 是一个大型无人机平台的核心部分，它们都包括 [QGC 地面站](#qgc)，[Pixhawk 硬件](https://pixhawk.org/)，还有[MAVSDK](http://mavsdk.mavlink.io) 用于与机载计算机集成，相机还有其他使用 MAVLink 协议的硬件。 PX4 由 [Dronecode 项目](https://www.dronecode.org/) 支持。
 
-<span id="qgc"></span>
+<a id="qgc"></a>
 
 ## QGroundControl
 
@@ -57,7 +57,7 @@ PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需�
 - [传感器](../getting_started/sensor_selection.md) 
 - [外设](../peripherals/README.md)
 
-<span id="outputs"></span>
+<a id="outputs"></a>
 
 ## 输出:电机，舵机，执行器
 
@@ -89,7 +89,7 @@ PX4使用*输出*来控制:电机速度(例如通过[ESC](#esc_and_motors))，�
 
 - `MAIN` 和 `AUX` 中仅有6-8个输出，因为大多数飞行控制器只有这么多的 PWM/Dshot/Oneshot 输出。 理论上来说，如果总线支持，可以有更多的输出（比如UAVCAN就不限于这几个节点）。
 
-<span id="esc_and_motors"></span>
+<a id="esc_and_motors"></a>
 
 ## 电调 & 电机
 
@@ -107,7 +107,7 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 有关电池和电池配置的信息，请参见[电池配置](../config/battery.md)和[基本组件](../assembly/README.md)（例如[ Pixhawk 4 接线快速入门>电源](../assembly/quick_start_pixhawk4.md#power)）。
 
-<span id="rc_systems"></span>
+<a id="rc_systems"></a>
 
 ## 无线电控制（遥控）
 
@@ -124,7 +124,7 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
 
-<span id="joystick"></span>
+<a id="joystick"></a>
 
 ## 地面站游戏手柄控制器
 
@@ -132,7 +132,7 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
-<span id="safety_switch"></span>
+<a id="safety_switch"></a>
 
 ## 安全开关
 
@@ -173,7 +173,7 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 - [推流日志](../dev_log/logging.md#log-streaming) 到另一个组件（机载计算机）。
 - 在 RAM/FLASH 中储存任务。<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-<span id="arming"></span>
+<a id="arming"></a>
 
 ## 解锁和加锁
 
@@ -182,16 +182,16 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 为了减少事故概率：
 
 - 当不在使用时， PX4 机体是 *加锁状态的*（未供电的），必须在起飞前进行 *解锁*。
-- 有些还有一个[安全开关](#safety_switch)，必须在解锁之前解除(通常这个开关是GPS的一部分)。
-- 机体如果不是在“健康”状态，则会解锁不通过。
-- 如果VTOL车辆处于固定翼飞机模式，则阻止解锁([默认情况](../advanced_config/parameter_reference.md#CBRK_VTOLARMING))。
-- 机体也会在着陆后或者飞手长时间未执行起飞时，自动切回到加锁状态。
+- A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
+- Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
 解锁默认情况下（美国手发射机）可以通过保持遥控油门+ YAW 摇杆到*右下角*一秒钟来解锁，要想加锁，则保持摇杆在左下角。 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送解锁命令）。
 
 还有更细节的解锁和加锁的配置的详细解读可以在这里找到：[预解锁，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。 
 
-<span id="flight_modes"></span>
+<a id="flight_modes"></a>
 
 ## 飞行模式
 
@@ -205,7 +205,7 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 
 可用飞行模式的概述可在 [这里](../getting_started/flight_modes.md)找到。 [飞行模式配置 ](../config/flight_mode.md)中提供了有关如何设置遥控开关以打开不同飞行模式的说明。
 
-<span id="safety"></span>
+<a id="safety"></a>
 
 ## 安全设置（故障保护）
 
