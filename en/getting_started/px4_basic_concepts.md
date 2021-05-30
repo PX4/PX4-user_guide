@@ -21,7 +21,7 @@ The "brain" of the drone is called an autopilot.
 It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
 
-<span id="autopilot"></span>
+<a id="autopilot"></a>
 ## PX4 Autopilot
 
 [PX4](http://px4.io/) is powerful open source autopilot *flight stack*. 
@@ -34,7 +34,7 @@ Some of PX4's key features are:
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol.
 PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
-<span id="qgc"></span>
+<a id="qgc"></a>
 ## QGroundControl
 
 The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).
@@ -63,7 +63,7 @@ For more information see:
 * [Peripherals](../peripherals/README.md)
 
 
-<span id="outputs"></span>
+<a id="outputs"></a>
 ## Outputs: Motors, Servos, Actuators
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
@@ -106,7 +106,7 @@ The (same) airframe mapping of outputs to nodes is used in this case.
   In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
 
 
-<span id="esc_and_motors"></span>
+<a id="esc_and_motors"></a>
 ## ESCs & Motors
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
@@ -128,7 +128,7 @@ Information about batteries and battery configuration can be found in [Battery C
 and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 
-<span id="rc_systems"></span>
+<a id="rc_systems"></a>
 ## Radio Control (RC)
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. 
@@ -146,7 +146,7 @@ PX4 does not require a remote control system for autonomous flight modes.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
-<span id="joystick"></span>
+<a id="joystick"></a>
 ## GCS Joystick Controller
 
 A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link).
@@ -156,7 +156,7 @@ Joysticks are also commonly used to fly the vehicle in simulation.
 ![Photo of MicroNav, a ground controller with integrated joysticks](../../assets/peripherals/joystick/micronav.jpg)
 
 
-<span id="safety_switch"></span>
+<a id="safety_switch"></a>
 ## Safety Switch
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn).
@@ -202,17 +202,17 @@ Flight controllers that do not include an SD Card slot may:
   <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
-<span id="arming"></span>
+<a id="arming"></a>
 ## Arming and Disarming
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
 To reduce the chance of accidents:
 - PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
 - Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left).
 It is alternatively possible to configure PX4 to arm using an RC switch or button (and arming MAVLink commands can also be sent from a ground station).
@@ -220,7 +220,7 @@ It is alternatively possible to configure PX4 to arm using an RC switch or butto
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 
-<span id="flight_modes"></span>
+<a id="flight_modes"></a>
 ## Flight Modes
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). 
@@ -240,7 +240,7 @@ An overview of the available flight modes [can be found here](../getting_started
 Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 
-<span id="safety"></span>
+<a id="safety"></a>
 ## Safety Settings (Failsafe)
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! 
