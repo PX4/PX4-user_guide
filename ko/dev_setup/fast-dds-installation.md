@@ -21,8 +21,8 @@ Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as
 
 :::note
 At time of writing you will need to install *from source* for:
-- **Ubuntu 18.04:** Fast RTPS 1.8.2 and Fast-RTPS-Gen 1.0.4 (or higher).
-- **Ubuntu 20.04:** Fast DDS 2.0.0 and Fast-RTPS-Gen 1.0.4 (or higher).
+- **Ubuntu 18.04:** Fast RTPS 1.8.2 (or later) and Fast-RTPS-Gen 1.0.4 (not later!).
+- **Ubuntu 20.04:** Fast DDS 2.0.0 (or later) and Fast-RTPS-Gen 1.0.4 (not later!).
 :::
 
 ### Java
@@ -170,4 +170,3 @@ $ sudo make install
   - Installation from Binaries
     - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html)
     - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html)
-
