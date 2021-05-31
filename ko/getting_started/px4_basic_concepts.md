@@ -16,7 +16,7 @@
 
 드론의 "뇌"에 해당하는 장치를 오토파일럿이라고 합니다. 자율 비행 프로그램은 비행 제어 장치에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
 
-<span id="autopilot"></span>
+<a id="autopilot"></a>
 
 ## PX4 오토파일럿 장치
 
@@ -30,7 +30,7 @@ PX4의 일부 주요 기능은 다음과 같습니다:
 
 PX4는 [QGroundControl](#qgc) 지상 관제 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터를 붙이는 [MAVSDK](http://mavsdk.mavlink.io), 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어가 어우러진 방대한 드론 플랫폼의 핵심 부분입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
-<span id="qgc"></span>
+<a id="qgc"></a>
 
 ## QGroundControl
 
@@ -57,7 +57,7 @@ PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기�
 - [센서](../getting_started/sensor_selection.md) 
 - [주변 장치](../peripherals/README.md)
 
-<span id="outputs"></span>
+<a id="outputs"></a>
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
@@ -89,7 +89,7 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은
 
 - `MAIN` 포트와 `AUX` 포트에는 PWM/Dshot/OneShot 출력 제어에 충분하도록 6개에서 8개의 출력 포트가 있읍니다. 이론적으로는 보드 버스에서 더 많은 출력 포트를 제공할 수 있습니다(UAVCAN 버스는 이러한 제한을 받지 않습니다).
 
-<span id="esc_and_motors"></span>
+<a id="esc_and_motors"></a>
 
 ## 전자변속기(ESC)와 모터
 
@@ -107,7 +107,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 조립](../assembly/README.md) (예: [픽스호크 4 배선 빠른 시작 > 전원](../assembly/quick_start_pixhawk4.md#power))안내서에서 찾아볼 수 있습니다.
 
-<span id="rc_systems"></span>
+<a id="rc_systems"></a>
 
 ## 무선 조종(RC)
 
@@ -124,7 +124,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 - [비행 첫걸음](../flying/basic_flying.md) - 원격 조종으로 비행하는 방법을 배웁니다.
 - [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 나오는 텔레메트리 정보 또는 상태 업데이트 정보를 수신할 무선 조종 송신기를 설정합니다.
 
-<span id="joystick"></span>
+<a id="joystick"></a>
 
 ## 지상 통제 장치의 조이스틱 제어장치
 
@@ -132,7 +132,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ![MicroNav와 지상제어프로그램에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
-<span id="safety_switch"></span>
+<a id="safety_switch"></a>
 
 ## 안전 스위치
 
@@ -173,7 +173,7 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 (보조)장치에 기록.
 - 비행 임무를 RAM/플래시에 저장. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-<span id="arming"></span>
+<a id="arming"></a>
 
 ## 시동 걸고 해제하기
 
@@ -182,16 +182,16 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 사고 발생 가능성을 줄이려면:
 
 - PX4 기체는 비행 중이 아닐 때는 *시동을 해제하고* (전원 차단), 이륙 전에는 제대로 *시동을 켜야*함.
-- 일부 기체에는 시동 성공 전에 제거해야 하는 [안전 스위치](#safety_switch)가 붙어있음(보통 GPS 수신기의 일부임).
-- 기체가 "정상" 상태가 아니면, 시동은 걸리지 않음.
-- 수직이착륙기를 고정익 모드로 설정하면 시동이 걸리지 않음([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
-- 기체 착륙 후 또는 충분히 빨리 이륙하지 않았을 경우, 보통 시동 끔 상태로 전환하기도 함.
+- A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
+- Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
 (모드 2 수신기의 경우) 추진력/방위각 조절 스틱을 *우측 하단*에 두어 1초 정도 유지하면 시동이 걸립니다(시동을 해제하려면, 좌측 하단으로 둠). PX4에서 무선 조종 스위치 또는 단추로 시동을 걸게끔 대신 설정할 수도 있습니다(그리고 MAVLink 시동 명령을 지상 통제 장치에서 보낼 수도 있음).
 
 시동을 걸고 해제하는 방식 설정의 구체적인 내용은 [시동 준비, 시동, 시동 해제](../advanced_config/prearm_arm_disarm.md)에 있습니다.
 
-<span id="flight_modes"></span>
+<a id="flight_modes"></a>
 
 ## 비행 모드
 
@@ -205,7 +205,7 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 
 여러가지 비행 모드에 대한 개요는 [여기](../getting_started/flight_modes.md)에서 확인할 수 있습니다. 다른 비행 모드를 변경하기 위하여 원격 스위치를 설정하는 방법은 [비행 모드 구성](../config/flight_mode.md)에 나와 있습니다.
 
-<span id="safety"></span>
+<a id="safety"></a>
 
 ## 안전 설정(사고 방지)
 
