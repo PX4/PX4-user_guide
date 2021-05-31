@@ -58,9 +58,9 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make airmind_mindpx-v2_default
-    
+```
+make airmind_mindpx-v2_default
+```
 
 ### Companion PC Connection
 

@@ -1,11 +1,10 @@
 # ESC 캘리브레이션
 
 :::note
-These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
+이 지침은 [PWM ESC](../peripherals/pwm_escs_and_servo.md)에만 관련됩니다.
 :::
 
 전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도와 방향을 조절합니다. ESC 입력 범위는 설정 가능하며, 동일한 모델 ESC간에도 응답 범위가 다를 수 있습니다.
-
 
 비행 컨트롤러에서 입력하는 최대/최소 PWM 입력값으로 ESC를 업데이트합니다. 결과적으로 모든 ESC/모터는 동일한 방식으로 (전체 입력 범위에 걸쳐) 비행 컨트롤러 입력에 반응합니다.
 
