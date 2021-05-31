@@ -11,7 +11,7 @@ The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully sta
 This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 :::
 
-## 总览
+## Quick Summary
 
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a *platform* rather than a flight controller.
 
@@ -29,10 +29,10 @@ The main hardware documentation is [here](http://mindpx.net/assets/accessories/m
 - Support IMU isolation
 - DroneCode<sup>&reg;</sup> standard compliance connector
 
-|                    Item                    |                          描述                           |
+|                    Item                    |                      Description                      |
 |:------------------------------------------:|:-----------------------------------------------------:|
 |        Flight controller/Processor         |                       F427VIT6                        |
-|                     重量                     |                          ~6g                          |
+|                   Weight                   |                          ~6g                          |
 |                 Dimension                  |                        35x35mm                        |
 |                PWM Outputs                 |                       maximum 6                       |
 |                    IMU                     |                         10DOF                         |
@@ -58,9 +58,9 @@ Most users will not need to build this firmware! It is pre-built and automatical
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
-
-    make airmind_mindpx-v2_default
-    
+```
+make airmind_mindpx-v2_default
+```
 
 ### Companion PC Connection
 
@@ -78,10 +78,10 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 :::
 
-## 在哪里买
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## 技术支持
+## Support
 
 Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
