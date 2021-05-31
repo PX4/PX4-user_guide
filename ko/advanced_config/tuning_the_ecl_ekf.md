@@ -1,9 +1,9 @@
 # ECL EKF 사용
 
-이 튜토리얼은 ECL EKF 알고리즘에 관한 일반적인 질문에 대한 답변들입니다.
+이 섹션은 ECL EKF 알고리즘에 관한 질문에 대한 답변들입니다.
 
 :::tip
-*PX4 Developer Summit 2019*의 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) 비디오 (Dr. Paul Riseborough) 추정기에 대한 개요와 2018/2019년의 주요 변경 사항과 2020년까지 개선 사항을 설명합니다.
+*PX4 Developer Summit 2019*의 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) 비디오 (Dr. Paul Riseborough) 추정기에 대한 개요와 2018년과 2019년의 주요 변경 사항과 2020년의 개선 사항을 설명합니다.
 :::
 
 ## ECL EKF는 무엇입니까?
@@ -158,37 +158,37 @@ EKF는 상태가 북동향 속도 및 편요각인 여러 3상 EKF(Extended Kalm
 
 #### 이중 수신기
 
-GPS 수신기의 데이터는 보고된 정확도를 기반으로 데이터에 가중치를 부여하는 알고리즘을 사용하여 혼합할 수 있습니다 (두 수신기가 동일한 속도로 데이터를 출력하고 동일한 정확도를 사용하는 경우가 가장 효과적입니다). 또한, 이 메커니즘은 수신기의 데이터가 손실된 경우 자동 장애 조치를 제공합니다 (예를 들어, 표준 GPS를보다 정확한 RTK 수신기에 대한 백업으로 사용할 수 있음). 이는 [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) 매개변수에 의해 제어됩니다.
+GPS 수신기의 데이터는 보고된 정확도를 기반으로 데이터에 가중치를 부여하는 알고리즘을 사용하여 혼합할 수 있습니다 (두 수신기가 동일한 속도로 데이터를 출력하고 동일한 정확도를 사용하는 경우가 가장 효과적입니다). 또한, 이 메커니즘은 수신기의 데이터가 손실된 경우 자동 장애 조치를 제공합니다 (예를 들어, 표준 GPS를보다 정확한 RTK 수신기에 대한 백업으로 사용할 수 있음). 이는 [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) 매개변수로 설정합니다.
 
-The [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution. Where different receiver models are used, it is important that the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable. This can be difficult with receivers from different manufacturers due to the different way that accuracy is defined, e.g. CEP vs 1-sigma, etc.
+[EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) 매개변수는 기본적으로 혼합을 비활성화하고 항상 첫 번째 수신기를 사용하도록 설정되어 있으므로 각 수신기 출력이 혼합에 기여하는 정도를 결정하는 데 사용되는 수신기 정확도 메트릭을 선택하도록 설정하여야 합니다. 다른 수신기 모델을 사용하는 경우에는 [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) 매개변수를 두 수신기에서 모두 지원하는 정확도 메트릭을 사용하는 값으로 설정하는 것이 중요합니다. 예를 들어, 두 수신기의 드라이버가 `vehicle_gps_position` 메시지의 `s_variance_m_s` 필드에 비교 가능한 값을 게시하지 않는 한 비트 위치 0을 `true`로 설정하지 마십시오. 정확도가 정의되는 방식(예: CEP 대 1- 시그마 등)이 다르므로, 제조업체가 다른 수신기에서는 정확하지 않을 수 있습니다.
 
-The following items should be checked during setup:
+설치 중에 다음 항목들을 확인하여야 합니다.
 
-* Verify that data for the second receiver is present. This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the *nsh console* using the command `listener vehicle_gps_position -i 1`. The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
-* Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used. If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommended. Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2. Bit position 2 would only be set if the GPS had been selected as a primary height source with the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter and both receivers output sensible `epv` data.
-* The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
-* Where receivers output at different rates, the blended output will be at the rate of slower receiver. Where possible receivers should be configured to output at the same rate.
+* 두 번째 수신기의 데이터가 있는 지 확인합니다. 이는 `vehicle_gps_position_1`으로 기록되며 `listener vehicle_gps_position -i 1` 명령을 사용하여 *nsh 콘솔*을 통해 연결되었을 때 확인할 수 있습니다. [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수를 올바르게 설정하여야 합니다.
+* 각 수신기에서 `s_variance_m_s`, `eph` 및 `epv` 데이터를 확인하고 사용할 수있는 정확도 메트릭을 결정합니다. 두 수신기가 모두 합리적인 `s_variance_m_s`와 `eph` 데이터를 출력하고 GPS 수직 위치가 내비게이션에 직접 사용되지 않는 경우 [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK)를 3으로 설정하는 것이 좋습니다. `eph` 데이터만 사용할 수 있고 두 수신기 모두 `s_variance_m_s` 데이터를 출력하지 않는 경우 [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK)를 2로 설정합니다. 비트 위치 2는 GPS가 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수를 사용하여 기본 고도 소스로 선택되었고 두 수신기 모두 합리적인 `epv` 데이터를 출력하는 경우에만 설정됩니다.
+* 혼합 수신기 데이터의 출력은 `ekf_gps_position`으로 기록되며, `listener ekf_gps_position` 명령을 사용하여 nsh 터미널을 연결하여 확인할 수 있습니다.
+* 수신기가 다른 속도로 출력하는 경우에는 혼합 출력은 더 느린 수신기의 속도로 결정됩니다. 가능한 경우 수신기는 동일한 속도로 출력하도록 설정하는 것이 바람직합니다.
 
-#### GNSS Performance Requirements
+#### GNSS 성능 요구 사항
 
-For the ECL to accept GNSS data for navigation, certain minimum requirements need to be satisfied over a period of time, defined by [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (10 seconds by default).
+ECL 탐색을 위한 GNSS 데이터를 허용하려면 [EKF2_REQ_GPS_H](../advanced_config/parameter_reference.md#EKF2_REQ_GPS_H) (기본적으로 10 초)에 정의 된 일정 기간 동안 특정 최소 요구 사항을 충족하여야 합니다.
 
-Minima are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters and each check can be en-/disabled using the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) parameter.
+최소값은 [EKF2_REQ _*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) 매개변수에 정의되어 있으며, 각 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 매개변수를 사용하여 활성화/비활성화 할 수 있습니다.
 
-The table below shows the different metrics directly reported or calculated from the GNSS data, and the minimum required values for the data to be used by ECL. In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. u-blox M8 series) - i.e. values that are considered good/acceptable.
+아래의 표는 GNSS 데이터에서 직접 보고되거나 계산된 다양한 메트릭과 ECL에서 사용할 데이터에 필요한 최소치를 나타냅니다. 또한 *평균값*은 표준 GNSS 모듈(예 : u-blox M8 시리즈)에서 합리적으로 얻을 수있는 일반적인 값(양호/허용되는 값)을 나타냅니다.
 
-| Metric               | Minimum required                                                                            | Average Value | Units                       | Notes                                                                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------- | ------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8           | m                           | Standard deviation of horizontal position error                                                                                             |
-| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5           | m                           | Standard deviation of vertical position error                                                                                               |
-| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14            | -                           |                                                                                                                                             |
-| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2           | m/s                         | Standard deviation of horizontal speed error                                                                                                |
-| fix type             | ≥&nbsp;3                                                                                    | 4             | -                           | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
-| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0           | -                           | Position dilution of precision                                                                                                              |
-| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s                         | Drift rate calculated from reported GNSS position (when stationary).                                                                        |
-| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | 2\] Velocity NED \(m/s\) | Drift rate calculated from reported GNSS altitude (when stationary).                                                                        |
-| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s                         | Filtered magnitude of reported GNSS horizontal velocity.                                                                                    |
-| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | m/s                         | Filtered magnitude of reported GNSS vertical velocity.                                                                                      |
+| 메트릭                  | 최소 요구 사항                                                                                    | 평균   | 단위                          | 참고                                                                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------- | ---- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8  | m                           | Standard deviation of horizontal position error                                                                                             |
+| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5  | m                           | Standard deviation of vertical position error                                                                                               |
+| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14   | -                           |                                                                                                                                             |
+| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s                         | Standard deviation of horizontal speed error                                                                                                |
+| fix type             | ≥&nbsp;3                                                                                    | 4    | -                           | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
+| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -                           | Position dilution of precision                                                                                                              |
+| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s                         | Drift rate calculated from reported GNSS position (when stationary).                                                                        |
+| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | 2\] Velocity NED \(m/s\) | Drift rate calculated from reported GNSS altitude (when stationary).                                                                        |
+| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s                         | Filtered magnitude of reported GNSS horizontal velocity.                                                                                    |
+| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s                         | Filtered magnitude of reported GNSS vertical velocity.                                                                                      |
 
 :::note
 The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
