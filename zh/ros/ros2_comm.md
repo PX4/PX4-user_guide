@@ -50,7 +50,7 @@ To setup ROS 2 for use with PX4 you will need to:
 
 ### Install Fast DDS
 
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (or later) and their dependencies.
+Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
 
 :::note
 Check the guide to confirm the latest dependencies! You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen have been installed.
