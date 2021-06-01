@@ -244,28 +244,28 @@ EAS(Equivalent Airspeed) 데이터는 [EKF2_ARSP_THR](../advanced_config/paramet
 
 비트 4(`EV_YAW`) 또는 비트 6(`EV_ROTATE`)은 true로 설정하여야 하고, 둘 다 함께 설정해서는 안 됩니다. 외부 비전 시스템과 함께 사용할 때, 다음 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 값이 지원됩니다.
 
-| EKF_AID_MASK 값 | 비트 설정                         | 설명                                                             |
-| ---------------- | ----------------------------- | -------------------------------------------------------------- |
-| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
-| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
-| 24               | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
-| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
-| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
-| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
+| EKF_AID_MASK 값 | 비트 설정                         | 설명                                             |
+| ---------------- | ----------------------------- | ---------------------------------------------- |
+| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**추천**)                  |
+| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*비추천*, 대신 `EV_VEL`을 추천함) |
+| 24               | EV_POS + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                           |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                           |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. 외부 비전 프레임                       |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                           |
 
-The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF는 시각적 포즈 추정에서 불확실성을 고려합니다. 이 불확실성 정보는 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지의 공분산 필드를 통해 전송하거나, 매개변수 [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) 및 [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE)을 통해 설정할 수 있습니다. . [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD)를 사용하여 불확실성 원인을 선택할 수 있습니다.
 
-## How do I use the 'ecl' library EKF?
+## ECL 라이브러리 EKF를 어떻게 사용합니까?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+ecl EKF를 사용하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 2로 설정하십시오.
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+## 다른 추정치들과 비교하여 ecl EKF의 장단점은 무엇입니까?
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
+모든 추정기와 마찬가지로 성능의 대부분은 센서 특성과 일치하도록 튜닝이 좌우합니다. 튜닝은 정확성과 견고성 사이의 절충안이며 대부분의 사용자의 요구를 충족하는 튜닝을 시도했지만, 튜닝 변경이 필요한 응용 프로그램이 있을 것입니다.
 
-For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
+이러한 이유로 `attitude_estimator_q` + `local_position_estimator`의 레거시 조합과 관련된 정확성에 대한 주장은 이루어지지 않았으며, 최적의 추정기 선택은 애플리케이션의 튜닝에 따라 달라집니다.
 
 ### Disadvantages
 
