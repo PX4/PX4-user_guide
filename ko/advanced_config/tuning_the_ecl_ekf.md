@@ -177,103 +177,103 @@ ECL 탐색을 위한 GNSS 데이터를 허용하려면 [EKF2_REQ_GPS_H](../advan
 
 아래의 표는 GNSS 데이터에서 직접 보고되거나 계산된 다양한 메트릭과 ECL에서 사용할 데이터에 필요한 최소치를 나타냅니다. 또한 *평균값*은 표준 GNSS 모듈(예 : u-blox M8 시리즈)에서 합리적으로 얻을 수있는 일반적인 값(양호/허용되는 값)을 나타냅니다.
 
-| 메트릭                  | 최소 요구 사항                                                                                    | 평균   | 단위                          | 참고                                                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------- | ---- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| eph                  | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8  | m                           | Standard deviation of horizontal position error                                                                                             |
-| epv                  | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5  | m                           | Standard deviation of vertical position error                                                                                               |
-| Number of satellites | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14   | -                           |                                                                                                                                             |
-| sacc                 | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s                         | Standard deviation of horizontal speed error                                                                                                |
-| fix type             | ≥&nbsp;3                                                                                    | 4    | -                           | 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: RTCM code differential, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, fixed, 8: Extrapolated |
-| PDOP                 | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -                           | Position dilution of precision                                                                                                              |
-| hpos drift rate      | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s                         | Drift rate calculated from reported GNSS position (when stationary).                                                                        |
-| vpos drift rate      | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | 2\] Velocity NED \(m/s\) | Drift rate calculated from reported GNSS altitude (when stationary).                                                                        |
-| hspd                 | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s                         | Filtered magnitude of reported GNSS horizontal velocity.                                                                                    |
-| vspd                 | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s                         | Filtered magnitude of reported GNSS vertical velocity.                                                                                      |
+| 메트릭             | 최소 요구 사항                                                                                    | 평균   | 단위  | 참고                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------- | ---- | --- | --------------------------------------------------------------------------------------------------------------- |
+| eph             | <&nbsp;3 ([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8  | 미터  | 수평 위치의 표준 편차                                                                                                    |
+| epv             | <&nbsp;5 ([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5  | 미터  | 수직 위치의 표준 편차                                                                                                    |
+| 위성 개수           | ≥6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))      | 14   | -   |                                                                                                                 |
+| sacc            | <&nbsp;0.5 ([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.2  | m/s | 수평 속도의 표준 편차                                                                                                    |
+| fix type        | ≥&nbsp;3                                                                                    | 4    | -   | 0-1: 수정 없음, 2: 2D 수정, 3: 3D 수정, 4: RTCM 차등 코드, 5: Real-Time Kinematic, float, 6: Real-Time Kinematic, 고정, 8: 외삽 |
+| PDOP            | <&nbsp;2.5 ([EKF2_REQ_PDOP](../advanced_config/parameter_reference.md#EKF2_REQ_PDOP))     | 1.0  | -   | 정밀도의 위치 희석                                                                                                      |
+| hpos drift rate | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 위치에서 계산된 드리프트 율 (정지시).                                                                                 |
+| vpos drift rate | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 고도에서 계산된 드리프트 율 (정지시).                                                                                 |
+| hspd            | <&nbsp;0.1 ([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | 보고된 GNSS 수평 속도의 필터링 크기.                                                                                         |
+| vspd            | <&nbsp;0.2 ([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | 보고된 GNSS 수직 속도의 필터링 크기.                                                                                         |
 
 :::note
-The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
+`hpos_drift_rate`, `vpos_drift_rate` 및 `hspd`는 10초 동안 계산되며 `ekf2_gps_drift` 토픽에 게시됩니다. `ekf2_gps_drift`는 로그에 기록되지 않습니다!
 :::
 
-### Range Finder
+### 거리 측정기
 
-Range finder distance to ground is used by a single state filter to estimate the vertical position of the terrain relative to the height datum.
+지면까지의 거리 측정기는 단일 상태 필터에서 높이 기준을 기준으로 지형의 수직 위치를 추정합니다.
 
-If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter to 2.
+높이가 0인 기준으로 사용할 수 있는 평평한 표면에서 작동하는 경우 EKF에서 직접 범위 파인더 데이터를 사용하여 [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수를 2로 설정하여 높이를 추정 할 수 있습니다.
 
-### Airspeed
+### 대기속도
 
-Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR) and the vehicle type is not rotary wing.
+EAS(Equivalent Airspeed) 데이터는 [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR)을 양수 값으로 설정하여 풍속을 추정하고 GPS 손실시 드리프트 감소에 사용할 수 있습니다. 대기 속도 데이터는 [EKF2_ARSP_THR](../advanced_config/parameter_reference.md#EKF2_ARSP_THR)에 대해 양의 값으로 설정된 임계 값을 초과하고 차량 유형이 회전익이 아닌 경우에 사용됩니다.
 
-### Synthetic Sideslip
+### 합성 사이드슬립
 
-Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
+고정익 플랫폼은 바람 속도 추정을 개선하기 위하여 가정된 측면 슬립 관측을 이용하여 풍속 센서없이 풍속 추정이 가능합니다. [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) 매개변수를 1로 설정하면 활성화됩니다.
 
 <span id="mc_wind_estimation_using_drag"></span>
 
-### Drag Specific Forces
+### 항력을 사용한 멀티콥터 바람 추정
 
-Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity. This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to true. The relationship between airspeed and specific force (IMU acceleration) along the X and Y body axes is controlled by the [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) and [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) parameters which set the ballistic coefficients for flight in the X and Y directions respectively. The amount of specific force observation noise is set by the [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) parameter.
+멀티콥터 플랫폼은 풍속의 북쪽/동쪽 속도를 추정하기 위하여 X 및 Y 본체축의 대기 속도와 항력 사이의 관계를 활용할 수 있습니다. 이는 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 5를 true로 설정하여 활성화됩니다. 본체의 X축과 Y축의 속도와 특정 힘(IMU 가속)간의 관계는 X와 Y 방향에서 비행에 대한 탄도 계수를 설정하는 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) 및 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) 매개변수에 의해 제어됩니다. 특정 힘의 관찰 소음은 [EKF2_DRAG_NOISE](../advanced_config/parameter_reference.md#EKF2_DRAG_NOISE) 매개변수로 설정됩니다.
 
-These can be tuned by flying the vehicle in [Position mode](../flight_modes/position_mc.md) repeatedly forwards/backwards between rest and maximum speed, adjusting [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X) so that the corresponding innovation sequence in the `ekf2_innovations_0.drag_innov[0]` log message is minimised. This is then repeated for right/left movement with adjustment of [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) to minimise the `ekf2_innovations_0.drag_innov[1]` innovation sequence. Tuning is easier if this testing is conducted in still conditions.
+[위치 모드](../flight_modes/position_mc.md)에서 기체를 휴식과 최대 속도 사이에서 반복적으로 앞/뒤로 비행하고 [EKF2_BCOEF_X](../advanced_config/parameter_reference.md#EKF2_BCOEF_X)를 조정하여 `ekf2_innovations_0drag_innov [0] `의 해당 혁신 시퀀스가 되도록 조정할 수 있습니다. 그런 다음 `ekf2_innovations_0.drag_innov [1]` 혁신 시퀀스를 최소화하기 위하여 [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y)의 조정으로 오른쪽/왼쪽 이동에 대하여 반복됩니다. 이 테스트가 정지 상태에서 수행되면 튜닝이 더 쉽습니다.
 
-If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE), have access to the development environment, and are able to build code, then we recommended you fly *once* and perform the tuning via [EKF2 Replay](../debug/system_wide_replay.md#ekf2-replay) of the flight log.
+[SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) 및 [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE)를 사용하여 부팅에서 드롭 아웃없이 데이터를 기록 할 수 있고 개발 환경에 액세스할 수 있고 코드를 빌드할 수 있는 경우 *한 번* 비행하고 비행 로그의 [EKF2 Replay](../debug/system_wide_replay.md#ekf2-replay)를 통해 튜닝을 수행하는 것이 좋습니다.
 
 :::note
-The recording and [EKF2 replay](../debug/system_wide_replay.md#ekf2-replay) of flight logs with multiple EKF instances is not supported. To enable recording for EKF replay you must set the parameters to enable a [single EKF instance](#running-a-single-ekf-instance).
+아중 EKF 인스턴스가 있는 비행 로그의 기록 및 [EKF2 재생](../debug/system_wide_replay.md#ekf2-replay)은 지원되지 않습니다. EKF 재생을 위해 녹화를 활성화하려면 [단일 EKF 인스턴스](#running-a-single-ekf-instance)를 활성화하도록 매개변수를 설정하여야 합니다.
 :::
 
-### Optical Flow
+### 광류
 
-[Optical flow](../sensor/optical_flow.md) data will be used if the following conditions are met:
+다음 조건이 충족되면 [광류](../sensor/optical_flow.md) 데이터가 사용됩니다.
 
-* Valid range finder data is available.
-* Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
+* 유효한 거리 센서 데이터를 사용할 수 있습니다.
+* [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 1이 참입니다.
+* 유량 센서가 반환하는 품질 메트릭이 [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) 매개변수로 설정된 최소 요구 사항보다 큽니다.
 
 <span id="ekf2_extvis"></span>
 
-### External Vision System
+### 외부 비전 시스템 
 
-Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
+외부 비전 시스템을 이용하여 위치, 속도 또는 방향 측정(예 : Vicon)을 할 수 있습니다.
 
-* External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision system vertical position data will be used if the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter is set to 3.
-* External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
-* External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 3이 참이면 외부 비전 시스템의 수평 위치 데이터가 사용됩니다.
+* [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) 매개변수가 3으로 설정된 경우 외부 비전 시스템의 수직 위치 데이터가 사용됩니다.
+* [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 8이 참이면 외부 비전 시스템의 속도 데이터가 사용됩니다.
+* [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 4가 참인 경우 외부 비전 시스템의 방향 데이터가 요 추정에 사용됩니다.
+* [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 6이 참인 경우 외부 비전 참조 프레임 오프셋이 추정되고 외부 비전 시스템 데이터를 회전하는 데 사용됩니다.
 
-Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
+비트 4(`EV_YAW`) 또는 비트 6(`EV_ROTATE`)은 true로 설정하여야 하고, 둘 다 함께 설정해서는 안 됩니다. 외부 비전 시스템과 함께 사용할 때, 다음 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 값이 지원됩니다.
 
-| EKF_AID_MASK value | Set bits                      | Description                                                    |
-| -------------------- | ----------------------------- | -------------------------------------------------------------- |
-| 321                  | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
-| 73                   | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
-| 24                   | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 72                   | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
-| 272                  | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 320                  | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
-| 280                  | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
-| 328                  | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
+| EKF_AID_MASK 값 | 비트 설정                         | 설명                                             |
+| ---------------- | ----------------------------- | ---------------------------------------------- |
+| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**추천**)                  |
+| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*비추천*, 대신 `EV_VEL`을 추천함) |
+| 24               | EV_POS + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                           |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. 외부 비전 프레임                       |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                           |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. 외부 비전 프레임                       |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                           |
 
-The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF는 시각적 포즈 추정에서 불확실성을 고려합니다. 이 불확실성 정보는 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지의 공분산 필드를 통해 전송하거나, 매개변수 [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) 및 [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE)을 통해 설정할 수 있습니다. . [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD)를 사용하여 불확실성 원인을 선택할 수 있습니다.
 
-## How do I use the 'ecl' library EKF?
+## ECL 라이브러리 EKF를 어떻게 사용합니까?
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+ecl EKF를 사용하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 2로 설정하십시오.
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+## 다른 추정치들과 비교하여 ecl EKF의 장단점은 무엇입니까?
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
+모든 추정기와 마찬가지로 성능의 대부분은 센서 특성과 일치하도록 튜닝이 좌우합니다. 튜닝은 정확성과 견고성 사이의 절충안이며 대부분의 사용자의 요구를 충족하는 튜닝을 시도했지만, 튜닝 변경이 필요한 응용 프로그램이 있을 것입니다.
 
-For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
+이러한 이유로 `attitude_estimator_q` + `local_position_estimator`의 레거시 조합과 관련된 정확성에 대한 주장은 이루어지지 않았으며, 최적의 추정기 선택은 애플리케이션의 튜닝에 따라 달라집니다.
 
-### Disadvantages
+### 단점
 
-* The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
-* The ecl EKF uses more RAM and flash space.
-* The ecl EKF uses more logging space.
+* ecl EKF는 확장칼만필터에 대한 이해와 탐색 문제를 적용한 튜닝이 필요한복잡한 알고리즘입니다. 따라서, 좋은 결과를 얻지 못한 사용자는 무엇을 변경해야하는지 파악하는 것이 더 어렵습니다.
+* ecl EKF는 더 많은 RAM과 플래시 공간을 사용합니다.
+* ecl EKF는 더 많은 로깅 공간을 사용합니다.
 
-### Advantages
+### 장점
 
 * The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic maneuvers once time delay parameters are set correctly.
 * The ecl EKF is capable of fusing a large range of different sensor types.
