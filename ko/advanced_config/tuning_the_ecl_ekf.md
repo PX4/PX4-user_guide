@@ -267,13 +267,13 @@ ecl EKF를 사용하려면 [SYS_MC_EST_GROUP](../advanced_config/parameter_refer
 
 이러한 이유로 `attitude_estimator_q` + `local_position_estimator`의 레거시 조합과 관련된 정확성에 대한 주장은 이루어지지 않았으며, 최적의 추정기 선택은 애플리케이션의 튜닝에 따라 달라집니다.
 
-### Disadvantages
+### 단점
 
-* The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
-* The ecl EKF uses more RAM and flash space.
-* The ecl EKF uses more logging space.
+* ecl EKF는 확장칼만필터에 대한 이해와 탐색 문제를 적용한 튜닝이 필요한복잡한 알고리즘입니다. 따라서, 좋은 결과를 얻지 못한 사용자는 무엇을 변경해야하는지 파악하는 것이 더 어렵습니다.
+* ecl EKF는 더 많은 RAM과 플래시 공간을 사용합니다.
+* ecl EKF는 더 많은 로깅 공간을 사용합니다.
 
-### Advantages
+### 장점
 
 * The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic maneuvers once time delay parameters are set correctly.
 * The ecl EKF is capable of fusing a large range of different sensor types.
