@@ -242,18 +242,18 @@ EAS(Equivalent Airspeed) 데이터는 [EKF2_ARSP_THR](../advanced_config/paramet
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 4가 참인 경우 외부 비전 시스템의 방향 데이터가 요 추정에 사용됩니다.
 * [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수의 비트 위치 6이 참인 경우 외부 비전 참조 프레임 오프셋이 추정되고 외부 비전 시스템 데이터를 회전하는 데 사용됩니다.
 
-Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
+비트 4(`EV_YAW`) 또는 비트 6(`EV_ROTATE`)은 true로 설정하여야 하고, 둘 다 함께 설정해서는 안 됩니다. 외부 비전 시스템과 함께 사용할 때, 다음 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 값이 지원됩니다.
 
-| EKF_AID_MASK value | Set bits                      | Description                                                    |
-| -------------------- | ----------------------------- | -------------------------------------------------------------- |
-| 321                  | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
-| 73                   | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
-| 24                   | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 72                   | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
-| 272                  | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 320                  | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
-| 280                  | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
-| 328                  | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
+| EKF_AID_MASK 값 | 비트 설정                         | 설명                                                             |
+| ---------------- | ----------------------------- | -------------------------------------------------------------- |
+| 321              | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
+| 73               | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
+| 24               | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
 
 The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
