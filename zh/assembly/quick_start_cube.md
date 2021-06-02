@@ -56,7 +56,7 @@ The Cube can be mounted using either vibration-damping foam pads (included in th
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-<span id="gps"></span>
+<a id="gps"></a>
 
 ## GPS + 罗盘 + 安全开关 + LED
 
@@ -80,7 +80,7 @@ The GPS module's integrated safety switch is enabled *by default* (when enabled,
 If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
 :::
 
-<span id="safety_switch"></span>
+<a id="safety_switch"></a>
 
 ## 安全开关
 
@@ -94,7 +94,7 @@ The buzzer provides audio signals to that indicate UAV status. This should be co
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-<span id="rc_control"></span>
+<a id="rc_control"></a>
 
 ## 无线电遥控
 
@@ -122,15 +122,18 @@ The Cube cannot directly connect to PPM or PWM receivers that have an *individua
 
 ## 电源
 
-Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 A typical power setup for a Multicopter vehicle is shown below.
 
 ![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-<!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
+:::Note The power (+) rail of **MAIN/AUX** is *not powered* by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
 
-<span id="telemetry"></span>
+This can be done by connecting the power rail to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate!
+:::
+
+<a id="telemetry"></a>
 
 ## 数传系统（可选）
 
