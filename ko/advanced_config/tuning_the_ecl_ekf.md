@@ -318,39 +318,39 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 공분산\[28\]을 참조하십시오. 상태\[28\]에 대한 공분산은 다음과 같습니다.
 
 * \[0 ... 3\] 쿼터니언
-* \[4 ... 6\] 속도 NED \(m/s\)
-* \[7 ... 9\] Position NED \(m^2\)
+* \[4 ... 6\] 속도 NED \(m/s\)^2
+* \[7 ... 9\] 위치 NED \(m^2\)
 * \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
 * \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)^2
-* \[16 ... 18\] Earth magnetic field NED \(gauss^2\)
-* \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
-* \[22 ... 23\] Wind velocity NE \(m/s\)^2
-* \[24 ... 28\] Not Used
+* \[16 ... 18\] 지구 자기장 NED \(gauss^2\)
+* \[19 ... 21\] 본체 자기장 XYZ \(gauss^2\)
+* \[22 ... 23\] 풍속 NE \(m/s\)^2
+* \[24 ... 28\] 사용되지 않음.
 
-### Observation Innovations
+### 관찰 혁신 & 혁신 분산
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg). The messages all have the same field names/types (but different units).
+관찰 `estimator_innovations`, `estimator_innovation_variances` 및 `estimator_innovation_test_ratios` 메시지 필드는 [estimator_innovations.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)에 정의되어 있습니다. 메시지는 모두 동일한 필드 이름과 유형을 가지며, 단위는 다를 수 있습니다.
 
 :::note
-The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
+메시지는 동일한 필드 정의에서 생성되기 때문에 동일한 필드를 갖습니다. `#TOPICS` 줄 ([파일](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) 끝에 있음)은 생성할 메시지 집합의 이름을 나열합니다.
 
     # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
     
 
 :::
 
-Some of the observations are:
+일부 관찰은 다음과 같습니다.
 
-* Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
+* 자력계 XYZ (gauss, gauss^2) : `mag_field[3]`
 * Yaw angle (rad, rad^2) : `heading`
-* True Airspeed (m/s, (m/s)^2) : `airspeed`
-* Synthetic sideslip (rad, rad^2) : `beta`
-* Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-* Height above ground (m, m^2) : `hagl`
-* Drag specific force ((m/s)^2): `drag`
-* Velocity and position innovations : per sensor
+* 실제 대기 속도 (m/s, (m/s)^2) : `airspeed`
+* 합성 사이드슬립 (rad, rad^2) : `beta`
+* 광류 XY (rad/sec, (rad/s)^2) : `flow`
+* 지상 고도 (m, m^2) : `hagl`
+* 드래그 특정력 ((m/s)^2): `drag`
+* 속도 및 위치 혁신 : 센서 당
 
-In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+또한, 각 센서에는 수평 및 수직 위치 및 속도(해당되는 경우)에 대한 자체 필드가 있습니다. 이들은 대부분 자체 문서화되어 있으며, 아래에서 재현되어 있습니다.
 
     # GPS
     float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
@@ -379,14 +379,14 @@ In addition, each sensor has its own fields for horizontal and vertical position
     float32    aux_vvel # vertical auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
     
 
-### Output Complementary Filter
+### 출력 보완 필터
 
-The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
+출력 보완 필터는 융합 시간 지평선에서 현재 시간으로 상태를 전달합니다. 융합 시간 지평에서 측정된 각도, 속도 및 위치 추적 오류의 크기를 확인하려면 `ekf2_innovations` 메시지의 `output_tracking_error [3]`를 참조하십시오.
 
-The index map is as follows:
+인덱스 맵은 다음과 같습니다.
 
-* [0] Angular tracking error magnitude (rad)
-* [1] Velocity tracking error magnitude (m/s). The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
+* [0] 각도 추적 오류 크기 (rad)
+* [1] 속도 추적 오류 크기 (m/s). The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
 * [2] Position tracking error magnitude \(m\). The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
 
 ### EKF Errors
