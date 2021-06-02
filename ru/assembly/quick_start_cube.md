@@ -90,7 +90,9 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 
 ## Buzzer
 
-The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
+The buzzer plays [tones and tunes](../getting_started/tunes.md) that provide audible notification of vehicle status (including tones that are helpful for debugging startup issues, and that notify of conditions that might affect safe operation of the vehicle).
+
+The buzzer should be connected to the USB port as shown (no further configuration is required).
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
@@ -188,6 +190,12 @@ Basic/common configuration information is covered in: [Autopilot Configuration](
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+
+### Bootloader Updates
+
+If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning tone after flashing PX4 firmware, you may need to update the bootloader.
+
+The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
 
 ## Further information
 
