@@ -56,7 +56,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ![Cube 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-<span id="gps"></span>
+<a id="gps"></a>
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
@@ -80,7 +80,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 구형 6핀 GPS 모듈을 사용하려면, GPS와 [안전 스위치](#safety_switch)를 모두 연결하는 데 사용할 수 있는 케이블이 키트에 함께 제공됩니다.
 :::
 
-<span id="safety_switch"></span>
+<a id="safety_switch"></a>
 
 ## 안전 스위치
 
@@ -94,7 +94,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-<span id="rc_control"></span>
+<a id="rc_control"></a>
 
 ## 무선 조종
 
@@ -122,67 +122,70 @@ Cube는 *각각의 채널이 개별적으로 배선된* PPM 또는 PWM 수신기
 
 ## 전원
 
-Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급받습니다. 전원 모듈은 보드에 안정적인 전원 공급 및 전압/전류 표시를 제공하며 멀티콥터 기체의 모터를 구동하는 데 사용되는 ESC에 개별적으로 전원을 공급할 수 있습니다.
+Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급받습니다. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 멀티콥터 기체의 일반적인 전원 설정은 다음과 같습니다.
 
 ![전원 설정 - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
-<!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
+:::Note The power (+) rail of **MAIN/AUX** is *not powered* by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
 
-<span id="telemetry"></span>
+This can be done by connecting the power rail to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Ensure the voltage of servo you are going to use is appropriate!
+:::
+
+<a id="telemetry"></a>
 
 ## 텔레메트리 시스템 (선택 사항)
 
-텔레메트리는 지상국 프로그램에서 비행중인 차량의 통신/제어에 사용할 수 있습니다 (예 : UAV를 특정 위치로 지시하거나 새 임무를 업로드 할 수 있음).
+A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-통신 채널은 [무선 텔레메트리](../telemetry/README.md)를 사용합니다. 기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 무선 장치들은 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+The communication channel is via [Telemetry Radios](../telemetry/README.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![무선 텔레메트리](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 카드 (선택 사항)
 
-SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다.
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
 
-![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 :::tip
-자세한 내용은 [기본 개념> SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참조하십시오.
+For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 :::
 
 ## 모터
 
-모터/서보는 [Airframe Reference](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 **MAIN** 및 **AUX** 포트에 연결됩니다.
+Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 :::note
-이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
+This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 :::
 
 :::caution
-매핑이 프레임간에 일관 되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 제대로 연결하였는지 다시 한 번 확인하십시오.
+The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 :::
 
 ## 기타 주변 장치
 
-많이 사용하지 않는 옵션 부품들의 배선 및 조립법은 개별 [주변 장치](../peripherals/README.md)에서 설명합니다.
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 :::note
-주변 장치를 `GPS2`로 표시된 포트에 연결하는 경우 하드웨어의 PX4 [직렬 포트 구성 매개 변수](../peripherals/serial_configuration.md)를 `TEL4` (GPS2 아님)에 할당합니다.
+If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 :::
 
 ## 설정
 
-설정은 [QgroundControl](http://qgroundcontrol.com/)을 사용해 이뤄집니다.
+Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
-*QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어 장치를 컴퓨터에 연결합니다.
+After downloading, installing and running *QGroundControl*, connect the board to your computer as shown.
 
-![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-더 자세한 일반 구성 정보는 [Autopilot 구성](../config/README.md)에서 다룹니다.
+Basic/common configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
