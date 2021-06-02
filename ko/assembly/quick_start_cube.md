@@ -90,43 +90,45 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ## 버저
 
-버저는 UAV 상태를 나타내는 소리로 나타냅니다. 버저는 아래와 같이 USB포트에 연결됩니다. (추가 설정은 필요없습니다)
+The buzzer plays [tones and tunes](../getting_started/tunes.md) that provide audible notification of vehicle status (including tones that are helpful for debugging startup issues, and that notify of conditions that might affect safe operation of the vehicle).
 
-![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
+The buzzer should be connected to the USB port as shown (no further configuration is required).
+
+![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 <a id="rc_control"></a>
 
 ## 무선 조종
 
-무선 조종기는 기체 *수동*제어시에 사용합니다 (PX4에는 자율 비행 모드에서는 무선 조종기가 필수는 아닙니다).
+A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-기체와 조종자가 서로 통신하기 위해 호환되는 송신기/수신기를 선택하고, 송신기와 수신기를 바인드해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-아래 지침은 다양한 유형의 수신기 연결법을 설명합니다.
+The instructions below show how to connect the different types of receivers.
 
 ### PPM-SUM / Futaba S.Bus 수신기
 
-제공된 3-와이어 서보 케이블로 접지(-), 전원(+) 및 신호(S) 와이어를 RC 핀에 연결합니다.
+Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
 ### Spektrum 위성 수신기
 
-Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 연결합니다.
+Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
 ### PWM 수신기
 
-Cube는 *각각의 채널이 개별적으로 배선된* PPM 또는 PWM 수신기에 바로 연결할 수 없습니다. PWM 수신기는 hex.aero 또는 proficnc.com에서 구매할 수 있는 *PPM 인코더 모듈*을 통해 **RCIN**포트에 연결해야 합니다.
+The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## 전원
 
-Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급받습니다. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board, and may *separately* supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
-멀티콥터 기체의 일반적인 전원 설정은 다음과 같습니다.
+A typical power setup for a Multicopter vehicle is shown below.
 
-![전원 설정 - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
+![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 :::Note The power (+) rail of **MAIN/AUX** is *not powered* by the power module supply to the flight controller. In order to drive servos for rudders, elevons, etc., it will need to be separately powered.
 
@@ -188,6 +190,12 @@ Basic/common configuration information is covered in: [Autopilot Configuration](
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+
+### Bootloader Updates
+
+If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning tone after flashing PX4 firmware, you may need to update the bootloader.
+
+The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
 
 ## 추가적인 정보
 
