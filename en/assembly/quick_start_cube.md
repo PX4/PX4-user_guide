@@ -95,11 +95,12 @@ The *dedicated* safety switch that comes with the Cube is only required if you a
 
 If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
+The safety switch also doubles as a means to force bootloader updates. Should there be a need to force a bootloader update after flashing PX4 firmware (e.g. "Program PX4IO" tone), hold down the safety switch, then power the Cube over USB to proceed.
 
 ## Buzzer
 
-The buzzer provides audio signals to that indicate UAV status. 
-This should be connected to the USB port as shown (no further configuration is required).
+The buzzer provides audio signals to that indicate UAV status and can offer much need clues when troubleshooting (e.g. firmware update issues). 
+This should be connected to the USB port as shown (no further configuration is required). You can see what the individual tones mean [here](../getting_started/tunes.md).
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
