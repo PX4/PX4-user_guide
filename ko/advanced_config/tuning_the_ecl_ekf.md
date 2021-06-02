@@ -395,27 +395,27 @@ EKF에는 악조건 상태와 공분산 업데이트에 대한 내부 오류 검
 
 ### 관측 오류
 
-There are two categories of observation faults:
+관찰 오류는 두 가지 범주로 나눌 수 있습니다.
 
-* Loss of data. An example of this is a range finder failing to provide a return.
-* The innovation, which is the difference between the state prediction and sensor observation is excessive. An example of this is excessive vibration causing a large vertical position error, resulting in the barometer height measurement being rejected.
+* 데이터 손실. 이에 대한 예는 반환을 제공이 되지 않는 범위 측정기입니다.
+* 상태 예측과 센서 관찰의 차이인 혁신은 과도합니다. 예를 들어 과도한 진동으로 인한 큰 수직 위치 오류가 발생하여 기압계 높이 측정이 거부됩니다.
 
-Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
+이 두 가지 모두 EKF가 센서 관찰을 사용하여 상태 재설정을 시도할 수 있을만큼 오랫동안 관찰 데이터가 거부될 수 있습니다. 모든 관찰에는 혁신에 적용된 통계적 신뢰 검사가 있습니다. 검사를위한 표준 편차의 수는 각 관찰 유형에 대한 `EKF2 _*_GATE` 매개변수에 의해 제어됩니다.
 
-Test levels are available in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) as follows:
+테스트 수준은 다음과 같이 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)에서 사용할 수 있습니다.
 
-* `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
-* `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
-* `pos_test_ratio`: ratio of the largest horizontal position innovation component to the innovation test limit
-* `hgt_test_ratio`: ratio of the vertical position innovation to the innovation test limit
-* `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
-* `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
+* `mag_test_ratio` : 혁신 테스트 한계에 대한 가장 큰 자력계 혁신 구성 요소의 비율
+* `vel_test_ratio` : 혁신 테스트 한계에 대한 가장 큰 속도 혁신 구성 요소의 비율
+* `pos_test_ratio` : 혁신 테스트 한계에 대한 최대 수평 위치 혁신 구성 요소의 비율
+* `hgt_test_ratio` : 혁신 테스트 한계에 대한 수직 위치 혁신의 비율
+* `tas_test_ratio` : 혁신 테스트 한계에 대한 실제 대기 속도 혁신의 비율
+* `hagl_test_ratio` : 혁신 테스트 한계에 대한 지상 혁신 높이의 비율
 
-For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
+각 센서에 대한 이진 통과/실패 요약은 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 Innovation\_check\_flags를 참조하십시오.
 
-### GPS Quality Checks
+### GPS 품질 검사
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
+EKF는 GPS 지원을 시작하기 전에, 여러 가지 GPS 품질 검사를 실시합니다. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다. 이러한 검사의 통과/실패 상태는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) .gps\_check\_fail\_flags 메시지에 기록됩니다. 이 정수는 모든 필수 GPS 검사가 통과되면 0이 됩니다. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
 
 ### EKF Numerical Errors
 
