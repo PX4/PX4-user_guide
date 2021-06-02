@@ -288,37 +288,37 @@ EKF 출력, 상태 및 상태 데이터는 비행 중에 SD 카드에 기록되�
 
 대부분의 EKF 데이터는 .ulog 파일에 기록된 [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg) 및 [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) uORB 메시지에서 조회할 수 있습니다.
 
-분석 플롯과 메타 데이터를 자동으로 생성하는 Python 스크립트는 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/process_logdata_ekf.py)를 참고 하십시오. To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
+분석 플롯과 메타 데이터를 자동으로 생성하는 Python 스크립트는 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/process_logdata_ekf.py)를 참고 하십시오. 이 스크립트 파일을 사용하려면 `Tools/ecl_ekf` 디렉토리로 이동하고 `python process_logdata_ekf.py<log_file.ulg>`을 입력합니다. 이렇게하면 성능 메타 데이터가 **<log_file> .mdat.csv**라는 csv 파일에 저장되고 `<log_file>.pdf`라는 pdf 파일에 플롯됩니다.
 
-Multiple log files in a directory can be analysed using the [batch\_process\_logdata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) script. When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch\_process\_metadata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
+디렉토리의 여러 로그 파일은 [batch\_process\_logdata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) 스크립트를 사용하여 분석할 수 있습니다. 이 작업이 완료되면 성능 메타 데이터 파일을 처리하여 [batch\_process\_metadata\_ekf.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) 스크립트를 사용하여 로그 모집단에서 추정기 성능에 대한 통계적 평가를 제공할 수 있습니다.
 
-### Output Data
+### 출력 데이터
 
-* Attitude output data is found in the [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) message.
-* Local position output data is found in the [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) message.
-* Global \(WGS-84\) output data is found in the [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) message.
-* Wind velocity output data is found in the [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/wind_estimate.msg) message.
+* 태도 출력 데이터는 [vehicle\_attitude](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_attitude.msg) 메시지에서 조회할 수 있습니다.
+* 로컬 위치 출력 데이터는 [vehicle\_local\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position.msg) 메시지에서 조회할 수 있습니다.
+* 글로벌 \(WGS-84\) 출력 데이터는 [vehicle\_global\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_global_position.msg) 메시지에 있습니다.
+* 풍속 출력 데이터는 [wind\_estimate](https://github.com/PX4/PX4-Autopilot/blob/master/msg/wind_estimate.msg) 메시지에서 조회할 수 있습니다.
 
-### States
+### 상태
 
-Refer to states\[32\] in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg). The index map for states\[32\] is as follows:
+[estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 states\[32\]를 참조하십시오. 상태\[32\]에 대한 인덱스 맵은 다음과 같습니다.
 
-* \[0 ... 3\] Quaternions
-* \[4 ... 6\] Velocity NED \(m/s\)
-* \[7 ... 9\] Position NED \(m\)
+* \[0 ... 3\] 쿼터니언
+* \[4 ... 6\] 속도 NED \(m/s\)
+* \[7 ... 9\] 위치 NED \(m\)
 * \[10 ... 12\] IMU delta angle bias XYZ \(rad\)
 * \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)
-* \[16 ... 18\] Earth magnetic field NED \(gauss\)
-* \[19 ... 21\] Body magnetic field XYZ \(gauss\)
-* \[22 ... 23\] Wind velocity NE \(m/s\)
-* \[24 ... 32\] Not Used
+* \[16 ... 18\] 지구 자기장 NED \(gauss\)
+* \[19 ... 21\] 본체 자기장 XYZ \(gauss\)
+* \[22 ... 23\] 풍속 NE \(m/s\)
+* \[24 ... 32\] 사용되지 않음.
 
-### State Variances
+### 상태 분산
 
-Refer to covariances\[28\] in [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
+[estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 공분산\[28\]을 참조하십시오. 상태\[28\]에 대한 공분산은 다음과 같습니다.
 
-* \[0 ... 3\] Quaternions
-* \[4 ... 6\] Velocity NED \(m/s\)^2
+* \[0 ... 3\] 쿼터니언
+* \[4 ... 6\] 속도 NED \(m/s\)
 * \[7 ... 9\] Position NED \(m^2\)
 * \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
 * \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)^2
