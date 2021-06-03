@@ -122,7 +122,6 @@
     * [멀티콥터 PID 튜닝 상세 가이드](config_mc/pid_tuning_guide_multicopter.md)
     * [멀티콥터 설정점 튜닝(궤적 생성기)](config_mc/mc_trajectory_tuning.md) 
       * [멀티콥터 Jerk-제한 유형 궤적](config_mc/mc_jerk_limited_type_trajectory.md)
-      * [멀티콥터 Slew-rate 유형 궤적](config_mc/mc_slew_rate_type_trajectory.md)
     * [멀티콥터 레이서 설정](config_mc/racer_setup.md)
   * [고정익 설정 및 튜팅](config_fw/README.md) 
     * [고정익 PID 튜닝 가이드](config_fw/pid_tuning_guide_fixedwing.md)
