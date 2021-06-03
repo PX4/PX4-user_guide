@@ -30,7 +30,7 @@
 
 이 매개변수는 기체의 현재 위치에 머무르는 곳에서 수평 위치 제어에 사용됩니다. 속도 설정점의 변화율에 대한 한계는 [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)로 정의합니다. 이 매개변수는 수평 방향의 다른 가속 관련 매개변수보다 크게 설정해야 합니다.
 
-<span id="mpc_acc_hor-and-mpc_dec_hor_slow"></span>
+<a id="mpc_acc_hor-and-mpc_dec_hor_slow"></a>
 
 #### MPC_ACC_HOR와 MPC_DEC_HOR_SLOW
 
