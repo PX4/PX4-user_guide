@@ -56,7 +56,7 @@ The steps for using the software are:
 
 ## Testing Tunes
 
-When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tunecontrol) library.
+When you're ready to try it out a new tune on PX4, use the [tune_control](../modules/modules_system.md#tune-control) library.
 For example, to test the tune we "created" above you would enter the following command on a console or shell (e.g. the [MAVLink Shell](../debug/mavlink_shell.md)):
 ```sh
 tune_control play -m "150L1O3DL16CL32<B>C<AEL16A"
