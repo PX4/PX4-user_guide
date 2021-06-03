@@ -21,7 +21,7 @@
 
 ## 로그 검사
 
-기준 비행 후 로그를 다운로드하고 [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (또는 다른 분석 도구)을 사용하여 로그를 분석합니다. 고도(`GPOS.Alt`), 추력(`ATC1.Thrust`), 지면 속도(식: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), 피치(`ATT.Pitch`) 및 롤 (`AT.Roll`)의 챠트를 그립니다.
+After the reference flight download the log and use [FlightPlot](../log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. 고도(`GPOS.Alt`), 추력(`ATC1.Thrust`), 지면 속도(식: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), 피치(`ATT.Pitch`) 및 롤 (`AT.Roll`)의 챠트를 그립니다.
 
 기체가 수평일 때(피치와 롤이 없거나 거의 없음), 상승중(고도 상승) 및 기체가 제자리에 있을 때의(더 많이 롤링) 스로틀 레벨 (추력)을 검사합니다. 순항 속도로 사용할 초기값은 롤링 또는 상승 중에 적용되는 가장 높은 추력이어야하며, 속도를 더 낮추기로 결정한 경우 수평 비행 중 추력을 최소값으로 간주하여야 합니다.
 
