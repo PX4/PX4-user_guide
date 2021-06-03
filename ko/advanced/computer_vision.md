@@ -39,7 +39,6 @@ MoCap 기술에 대해 더 알아보려면 다음을 참고하십시오:
 PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 - [EKF > 외부 비전 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 설정 안내서](../peripherals/camera_t265_vio.md)
-- [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
 ## Optical Flow
