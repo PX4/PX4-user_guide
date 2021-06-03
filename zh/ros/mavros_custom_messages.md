@@ -287,7 +287,7 @@ Follow *Source Installation* instructions from [mavlink/mavros](https://github.c
 
 ### PX4 编译
 
-1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx).
+1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
 
     For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
     ```sh
