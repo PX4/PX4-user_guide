@@ -65,7 +65,7 @@ The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TEL
 
 <!-- Would be good to show serial setup! -->
 
-<span id="serial_parameter_setup"></span>
+<a id="serial_parameter_setup"></a>
 
 ### Parameter Setup
 
