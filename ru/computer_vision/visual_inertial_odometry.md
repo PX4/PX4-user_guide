@@ -17,7 +17,8 @@ The [Auterion product video](https://auterion.com/enabling_uav_navigation_in_env
 This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
-<span id="supported_setup"></span>
+<a id="supported_setup"></a>
+
 ## Supported Setup
 
 The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
@@ -76,7 +77,8 @@ You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol
 :::
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
-<span id="ekf2_tuning"></span>
+<a id="ekf2_tuning"></a>
+
 ### PX4 Tuning
 
 The following parameters must be set to use external position information with EKF2.
@@ -92,7 +94,8 @@ These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (re
 
 For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
-<span id="tuning-EKF2_EV_DELAY"></span>
+<a id="tuning-EKF2_EV_DELAY"></a>
+
 #### Tuning EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
@@ -104,12 +107,13 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
-<span id="verify_estimate"></span>
+<a id="verify_estimate"></a>
+
 ## Check/Verify VIO Estimate
 
 Perform the following checks to verify that VIO is working properly *before* your first flight:
