@@ -506,7 +506,7 @@ minimum value they should spin.
 Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use
 `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
 
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MAIN_MIN for example.
+The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
 
 Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
 
