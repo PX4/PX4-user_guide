@@ -15,7 +15,7 @@ Cameras can also be connected directly to a flight controller using PWM or GPI o
 
 The following topics show how to *connect* your camera configure PX4:
 * [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
-* [Camera timing feedback](../peripherals/camera.md#camera_capture) via hotshoe input.
+* [Camera timing feedback](../peripherals/camera.md#camera-capture) via hotshoe input.
 
 
 ## Cargo Drones ("Actuator" Payloads)
