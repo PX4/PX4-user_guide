@@ -37,13 +37,13 @@
 
 ## 출력 연결
 
-| PWM 출력 | 액추에이터  |
-| ------ | ------ |
-| MAIN2  | 조향 서보  |
-| MAIN4  | ESC 입력 |
+| PWM 출력 | 액추에이터                |
+| ------ | -------------------- |
+| MAIN2  | 조향 서보                |
+| MAIN4  | Throttle (ESC input) |
 
 :::note
-[여기에있는 Airframe 참조](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd)에 설명되어 있습니다.
+As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
 :::
 
 ## 설정
