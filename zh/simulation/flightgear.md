@@ -184,7 +184,7 @@ The example above starts the simulation on the [Honolulu international airport](
 
 ### 模拟一个 Wifi 无人机
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
 
