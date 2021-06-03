@@ -116,7 +116,7 @@ At this point you should be ready for a first test flight.
 
 Assuming the vehicle is able to fly using the default settings, we then do a first pass of [Basic MC PID tuning](../config_mc/pid_tuning_guide_multicopter_basic.md).
 The vehicle needs to be **undertuned** (the **P** and **D** gains should be set too low), such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough).
-This is important for the [filter](#filters) tuning (there will be a second PID tuning round later).
+This is important for the [filter tuning](#filter-tuning) (there will be a second PID tuning round later).
 
 
 ### Control Latency
