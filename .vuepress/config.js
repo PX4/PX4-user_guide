@@ -24,6 +24,9 @@ module.exports = {
   },
   plugins: [
       '@vuepress/medium-zoom',
+	  ['check-md', {
+        pattern: 'en/**/*.md'
+	  }],
       ['container', {
         type: 'note',
         defaultTitle: {
