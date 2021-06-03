@@ -484,11 +484,11 @@ EKF는 아래의 매개변수를 변경하여 진동으로 인한 높이 발산�
 
 정상 작동 중에 모든 테스트 비율은 성공적인 비행에서 아래 예에 표시된 것처럼 이보다 가끔 스파이크만 0.5 미만으로 유지되어야합니다.
 
-![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
+![위치, 속도, 높이 및 자력계 테스트 비율](../../assets/ecl/test_ratios_-_successful.png)
 
 다음 플롯은 절연성이 우수한 멀티콥터에 대한 EKF 진동 메트릭을 나타냅니다. 착륙 충격과 이착륙시 증가된 진동을 볼 수 있습니다. 최대 임계 값에 대한 구체적인 조언을 제공하기 위해 이러한 메트릭으로 수집된 데이터가 충분하지 않습니다.
 
-![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
+![진동 메트릭 - 성공](../../assets/ecl/vibration_metrics_-_successful.png)
 
 IMU 샘플링 주파수 (대부분의 보드에서 1kHz)에 가까운 주파수에서 진동이 존재하면 고주파 진동 메트릭에 표시되지 않는 데이터에 오프셋이 나타나므로, 위의 진동 메트릭은 제한된 값입니다. 앨리어싱 오류를 감지하는 유일한 방법은 관성 탐색 정확도에 미치는 영향과 혁신 수준의 상승입니다.
 
@@ -502,55 +502,55 @@ IMU 샘플링 주파수 (대부분의 보드에서 1kHz)에 가까운 주파수�
 
 ### 과도한 자이로 바이어스 결정
 
-Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. Pre-flight checks performed by the commander should prevent arming if the position is diverging.
+큰 자이로 바이어스 오프셋은 일반적으로 비행 중 5E-4보다 큰 델타 각도 바이어스 값의 변화를 특징으로합니다(약 3도/ 초에 해당). 또한 요 축이 영향을받는 경우 자력계 테스트 비율이 크게 증가 할 수 있습니다. 고도는 일반적으로 극단적인 경우를 제외하고 영향을 받지 않습니다. 비행 전에 필터가 안정된 시간을 제공하는 경우 최대 초당 5도의 스위치 온 바이어스 값을 허용할 수 있습니다. 비행 사전 점검은 위치가 다른 경우 무장을 방지하여야 합니다.
 
-\(insert example plots showing bad gyro bias here\)
+\(여기에 잘못된 자이로 바이어스를 보여주는 예제 플롯 삽입\)
 
-### Determination of Poor Yaw Accuracy
+### 낮은 요 정확도 결정
 
-Bad yaw alignment causes a velocity test ratio that increases rapidly when the vehicle starts moving due inconsistency in the direction of velocity calculated by the inertial nav and the GPS measurement. Magnetometer innovations are slightly affected. Height is normally unaffected.
+잘못된 요 정렬은 관성 항법과 GPS로 계산된 속도 방향의 불일치로 인하여 기체가 움직이기 시작하면 속도 테스트 비율을 급속하게 증가시킵니다. 자력계 혁신은 약간의 영향을 받습니다. 고도는 일반적으로 영향을받지 않습니다.
 
-\(insert example plots showing bad yaw alignment here\)
+\(여기에 잘못된 요 정렬을 보여주는 예제 플롯 삽입\)
 
-### Determination of Poor GPS Accuracy
+### 낮은 GPS 정확도 결정
 
-Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
+낮은 GPS 정확도는 일반적으로 혁신의 증가와 함께 수신기의 보고된 속도 오류의 증가를 동반합니다. 다중 경로, 모호화와 간섭으로 인한 일시적인 오류가 더 일반적인 원인입니다. 다음은 멀티콥터가 위치 이탈을 시작하여 스틱을 사용하여 수정하여야 하는 일시적인 GPS 정확도 손실의 예입니다. [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio가 1보다 크게 증가하면 GP 속도가 다른 측정과 일치하지 않아 거부되었음을 나타냅니다.
 
-![GPS glitch - test ratios](../../assets/ecl/gps_glitch_-_test_ratios.png)
+![GPS 글리치 - 테스트 비율](../../assets/ecl/gps_glitch_-_test_ratios.png)
 
-This is accompanied with rise in the GPS receivers reported velocity accuracy which indicates that it was likely a GPS error.
+이것은 GPS 수신기가 GPS 오류일 가능성을 나타내는 속도 정확도를 보고를 동반합니다.
 
-![GPS Glitch - reported receiver accuracy](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
+![GPS Glitch - 보고된 수신기 정확도](../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png)
 
-If we also look at the GPS horizontal velocity innovations and innovation variances, we can see the large spike in North velocity innovation that accompanies this GPS 'glitch' event.
+또한, GPS 수평 속도 혁신과 혁신 분산을 살펴보면이 GPS '글리치'이벤트에 수반되는 북쪽 속도 혁신의 큰 스파이크를 볼 수 있습니다.
 
-![GPS Glitch - velocity innovations](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
+![GPS Glitch - 속도 혁신](../../assets/ecl/gps_glitch_-_velocity_innovations.png)
 
-### Determination of GPS Data Loss
+### GPS 데이터 손실 결정
 
-Loss of GPS data will be shown by the velocity and position innovation test ratios 'flat-lining'. If this occurs, check the other GPS status data in `vehicle_gps_position` for further information.
+GPS 데이터 손실은 속도와 위치 혁신 테스트 비율 '플랫 라이닝'으로 표시됩니다. 이 현상이 발생하면, `vehicle_gps_position`의 다른 GPS 상태 데이터에서 자세한 정보를 확인하십시오.
 
-The following plot shows the NED GPS velocity innovations `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, the GPS NE position innovations `ekf2_innovations_0.vel_pos_innov[3 ... 4]` and the Baro vertical position innovation `ekf2_innovations_0.vel_pos_innov[5]` generated from a simulated VTOL flight using SITL Gazebo.
+아래의 플롯은 NED GPS 속도 혁신을 보여줍니다. `ekf2_innovations_0.vel_pos_innov[0 ... 2]`, GPS NE 위치 혁신 `ekf2_innovations_0.vel_pos_innov[3 ... 4]`와 Baro 수직 위치 혁신 `ekf2_innovations_0.vel_pos_innov[5]`은 SITL Gazebo를 사용하여 시뮬레이션 된 VTOL 비행에서 생성되었습니다.
 
-The simulated GPS was made to lose lock at 73 seconds. Note the NED velocity innovations and NE position innovations 'flat-line' after GPS is lost. Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
+시뮬레이션 된 GPS는 73 초에 잠금을 잃도록 만들어졌습니다. GPS가 손실후의 NED 속도 혁신과 NE 위치 혁신 '플랫 라인'에 유의하십시오. GPS 데이터 없이 10 초 후에 EKF는 마지막으로 알려진 위치를 사용하여 정적 위치 모드로 되돌아 가고 NE 위치 혁신이 다시 변경되기 시작합니다.
 
-![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
+![GPS 데이터 손실 - SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
 
-### Barometer Ground Effect Compensation
+### 기압계 지면 효과 보상
 
-If the vehicle has the tendency during landing to climb back into the air when close to the ground, the most likely cause is barometer ground effect.
+기체가 착륙중 지면에 가까울 때 공중으로 다시 올라가는 경향이 있는 경우 가장 가능성이 높은 원인은 기압계 지면 효과입니다.
 
-This is caused when air pushed down by the propellers hits the ground and creates a high pressure zone below the drone. The result is a lower reading of pressure altitude, leading to an unwanted climb being commanded. The figure below shows a typical situation where the ground effect is present. Note how the barometer signal dips at the beginning and end of the flight.
+이것은 프로펠러에 의해 아래로 밀린 공기가 지면에 닿아 드론 아래에 고압 영역을 생성시 발생합니다. 그 결과 기압 고도가 낮아져 원치 않는 상승 명령이 내려집니다. 아래 그림은지면 효과가 있는 일반적인 상황을 나타냅니다. 기압계 신호가 비행의 시작과 끝에서 어떻게 감소하는 지 주목하십시오.
 
-![Barometer ground effect](../../assets/ecl/gnd_effect.png)
+![기압계 지면 효과](../../assets/ecl/gnd_effect.png)
 
-You can enable *ground effect compensation* to fix this problem:
+이 문제를 해결하면, *지상 효과 보정*을 활성화 할 수 있습니다.
 
-* From the plot estimate the magnitude of the barometer dip during takeoff or landing. In the plot above one can read a barometer dip of about 6 meters during landing.
-* Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 10 percent margin. Therefore, in this case a value of 6.6 meters would be a good starting point.
+* 플롯에서 이륙 또는 착륙중 기압계 하락의 크기를 추정합니다. 위의 플롯에서 착륙중 약 6 미터의 기압계 딥을 읽을 수 있습니다.
+* 그런 다음 [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) 매개변수를 해당 값으로 설정하고 10% 여백을 추가하십시오. 따라서, 이 경우 6.6 미터 값이 좋은 출발점이 됩니다.
 
-If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated. If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
+지형 추정치를 사용할 수 있는 경우 (예 : 기체에 거리 측정기가 장착되어 있음) 지면 효과 보상을 활성화해야 하는 위의 지상 고도 [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT)를 추가로 지정할 수 있습니다. 지형 추정을 사용할 수 없는 경우에는 이 매개변수는 효과가 없으며 시스템은 휴리스틱을 사용하여지면 효과 보정을 활성화 여부를 결정합니다.
 
-## Further Information
+## 추가 정보
 
 * [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), *PX4 Developer Summit 2019*, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20.
