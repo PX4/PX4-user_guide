@@ -33,7 +33,7 @@ For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 o
 
 ## Sharing the Log Files for Review by PX4 Developers
 
-The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs--issues).
+The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs-issues).
 
 
 ## Log Configuration

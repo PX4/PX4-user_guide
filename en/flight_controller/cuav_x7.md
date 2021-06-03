@@ -162,7 +162,7 @@ The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 
-For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+For more information see [Using JTAG for hardware debugging](#using-jtag-for-hardware-debugging).
 :::
 
 ## Supported Platforms / Airframes

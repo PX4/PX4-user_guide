@@ -29,7 +29,7 @@ The flight should be performed at a speed that would be sufficient to fly in hig
 
 ## Examining the Log
 
-After the reference flight download the log and use [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log.
+After the reference flight download the log and use [FlightPlot](../log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log.
 Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
 
 Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), 

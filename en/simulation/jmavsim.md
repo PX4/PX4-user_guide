@@ -101,7 +101,7 @@ For more information see: [Simulation > Run Simulation Faster than Realtime](../
 <a id="joystick"></a>
 ### Using a Joystick
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 
 ### Simulating a Wifi Drone

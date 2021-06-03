@@ -5,7 +5,7 @@
 :::note
 GPS can also be used as a source of yaw/heading information:
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
+- Some GPS output yaw (see table below).
 :::
 
 
@@ -16,7 +16,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 The RTK compatible devices below have been tested.
 The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 
-GPS | [Yaw Output](#rtk-gps-that-output-yaw) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
+GPS | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
 :--- | :---: | :---:
 [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md) | | 
 [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md) | | 
