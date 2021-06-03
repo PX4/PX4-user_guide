@@ -4,7 +4,7 @@
 The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
 :::
 
-This guide shows a Lumenier QAV-R 250 frame build with *Qualcomm Snapdragon Flight* and custom hardware mounts. The setup uses a conventional PWM ESC board and therefore needs to be built with the `atlflight_eagle_default` make target (see instructions [here](../dev_setup/building_px4.md#qurt--snapdragon-based-boards)).
+This guide shows a Lumenier QAV-R 250 frame build with *Qualcomm Snapdragon Flight* and custom hardware mounts. The setup uses a conventional PWM ESC board and therefore needs to be built with the `atlflight_eagle_default` make target (see instructions [here](../flight_controller/snapdragon_flight_software_installation.md#clone-px4-firmware-build)).
 
 :::tip
 The PX4 development team has built, tested and documented this specific setup.
