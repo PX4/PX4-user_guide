@@ -21,7 +21,7 @@ The flight should be performed at a speed that would be sufficient to fly in hig
 
 ## Examining the Log
 
-After the reference flight download the log and use [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
+After the reference flight download the log and use [FlightPlot](../log/flight_log_analysis.md#flightplot) (or another analysis tool) to examine the log. Plot the altitude (`GPOS.Alt`), thrust (`ATC1.Thrust`), groundspeed (Expression: `sqrt(GPS.VelN\^2 + GPS.VelE\^2)`), pitch (`ATT.Pitch`) and roll (`AT.Roll`).
 
 Examine the throttle level (thrust) when the vehicle is level (no or little pitch and roll), during the ascend (increasing altitude) and when the vehicle is banking (more roll). The initial value to use as cruise speed should be the highest thrust applied during a roll or ascend, the thrust during level flight should be considered the minimum value if you decide to further tune down your speed.
 
