@@ -30,7 +30,7 @@
 
 该参数用于水平方向的位置控制，即飞机理应停留的当前位置。 设定速度的变化速率由[MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)来限定。 此参数应设置为大于水平方向上任何其他加速度相关参数。
 
-<span id="mpc_acc_hor-and-mpc_dec_hor_slow"></span>
+<a id="mpc_acc_hor-and-mpc_dec_hor_slow"></a>
 
 #### MPC_ACC_HOR 和 MPC_DEC_HOR_SLOW
 
