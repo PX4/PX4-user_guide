@@ -458,35 +458,35 @@ EKF는 아래의 매개변수를 변경하여 진동으로 인한 높이 발산�
 * 높은 진동 수준. 
   * 자동조종장치의 기계적 격리를 개선합니다.
   * [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE)와 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 증가시키면 도움이 될 수 있지만, EKF가 GPS 결함에 더 취약해집니다.
-* Large gyro bias offsets. 
-  * Fix by re-calibrating the gyro. Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to slow the rate of temperature change.
-* Bad yaw alignment 
-  * Check the magnetometer calibration and alignment.
-  * Check the heading shown QGC is within 15 deg truth
-* Poor GPS accuracy 
-  * Check for interference
-  * Improve separation and shielding
-  * Check flying location for GPS signal obstructions and reflectors \(nearby tall buildings\)
-* Loss of GPS
+* 큰 자이로 바이어스 오프셋. 
+  * 자이로를 다시 튜닝합니다. 과도한 온도 감도를 확인하십시오 (콜드 스타트에서 예열하는 동안 > 3도/초 바이어스 변화). 온도 변화 속도를 늦추기 위하여 절연체의 영향을받는 경우 센서를 교체하십시오.
+* 잘못된 요 정렬 
+  * 자력계 보정과 정렬을 확인합니다.
+  * QGC가 15도 이내인 지 확인하십시오.
+* 낮은 GPS 정확도 
+  * 간섭을 확인합니다.
+  * 분리 및 차폐 개선
+  * 비행 위치에서 GPS 신호 방해와 반사경 확인 \(고층 빌딩 근처\)
+* GPS 손실
 
-Determining which of these is the primary cause requires a methodical approach to analysis of the EKF log data:
+이들 중 어느 것이 주요 원인인지 확인하려면 EKF 데이터에 대한 체계적인 로그 분석이 필요합니다.
 
-* Plot the velocity innovation test ratio - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio
-* Plot the horizontal position innovation test ratio - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio
-* Plot the height innovation test ratio - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio
-* Plot the magnetometer innovation test ratio - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio
-* Plot the GPS receiver reported speed accuracy - [vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s
-* Plot the IMU delta angle state estimates - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\], states\[11\] and states\[12\]
-* Plot the EKF internal high frequency vibration metrics: 
+* 속도 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vel\_test\_ratio 플롯합니다.
+* 수평 위치 혁신 테스트 비율 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).pos\_test\_ratio 플롯합니다.
+* 높이 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 플롯합니다.
+* 자력계 혁신 테스트 비율 - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).mag\_test\_ratio 플롯합니다.
+* GPS 수신기 보고 속도 정확도 - [vehicle\_gps\_position](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg).s\_variance\_m\_s를 플롯합니다.
+* IMU 델타 각도 상태 추정값 - [estimator\_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).states\[10\],states\[11\] 및 states\[12\] 를 플로팅합니다.
+* EKF 내부 고주파 진동 메트릭을 플로팅합니다. 
   * Delta angle coning vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[0\]
   * High frequency delta angle vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[1\]
   * High frequency delta velocity vibration - [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).vibe\[2\]
 
-During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
+정상 작동 중에 모든 테스트 비율은 성공적인 비행에서 아래 예에 표시된 것처럼 이보다 가끔 스파이크만 0.5 미만으로 유지되어야합니다.
 
 ![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
 
-The following plot shows the EKF vibration metrics for a multirotor with good isolation. The landing shock and the increased vibration during takeoff and landing can be seen. Insufficient data has been gathered with these metrics to provide specific advice on maximum thresholds.
+다음 플롯은 절연성이 우수한 멀티콥터에 대한 EKF 진동 메트릭을 나타냅니다. 착륙 충격과 이착륙시 증가된 진동을 볼 수 있습니다. 최대 임계 값에 대한 구체적인 조언을 제공하기 위해 이러한 메트릭으로 수집된 데이터가 충분하지 않습니다.
 
 ![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
 
