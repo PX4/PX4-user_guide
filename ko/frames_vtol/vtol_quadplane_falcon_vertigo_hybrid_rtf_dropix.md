@@ -241,7 +241,7 @@ GPS / 나침반 모듈은 기본 방향으로 날개에 이미 장착되어 있�
   <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="쿼드 모터 순서 / 방향" />
   
 :::note
-필요하면 QGroundControl의 `PWM_OUTPUT` 그룹 (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)에서 `PWM_REV` 매개 변수를 사용하여 서보 방향을 변경할 수 있습니다.
+If necessary the servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
 :::
 
 2. 차량이 예상 무게 중심 주변에서 균형을 이루는 지 확인하십시오.
