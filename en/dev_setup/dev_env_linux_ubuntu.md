@@ -8,7 +8,6 @@ This environment can be used to build PX4 for [most PX4 targets](../dev_setup/de
 * [Raspberry Pi](#raspberry-pi)
 * [ROS (1)](#ros-gazebo) (Robotics Operating System)
 * [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md#developer-setup-building-firmware) (Discontinued)
 
 :::tip
 This setup is supported by the PX4 dev team.
