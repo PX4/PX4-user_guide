@@ -30,7 +30,7 @@ PX4 supports servo and GPIO triggering via both RC and MAVLink commands.
 You can map up to three RC channels to control servos/actuators attached to the flight controller using the parameters [RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1) to [RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3).
 
 The RC channels are *usually* mapped to the `AUX1`, `AUX2`, `AUX3` outputs of your flight controller (using a [mixer file](../concept/mixing.md) defined in your airfame).
-You can confirm which outputs are used for RC AUX passthrough on your vehicle in the [Airframe Reference](../airframes/airframe_reference.html).
+You can confirm which outputs are used for RC AUX passthrough on your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 For example, [Quadrotor-X](../airframes/airframe_reference.md#quadrotor-x) has the normal mapping: "**AUX1:** feed-through of RC AUX1 channel", "**AUX2:** feed-through of RC AUX2 channel", "**AUX3:** feed-through of RC AUX3 channel".
 
 If your vehicle doesn't specify RC AUX feed-through outputs, then you can add them using using a custom [Mixer File](../concept/mixing.md) that maps [Control group 3](../concept/mixing.md#control-group-3-manual-passthrough) outputs 5-7 to your desired port(s).
@@ -52,7 +52,7 @@ All params/actuators that are not being controlled should be set to `NaN`.
 
 :::note
 MAVLink uses the same outputs as are configured for [RC AUX passthrough](#rc-triggering) (see prevous section).
-You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.html) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
+You can check which outputs are used in the [Airframe Reference](../airframes/airframe_reference.md) for your vehicle, and change them if needed using a [custom mixer file](../concept/mixing.md).
 :::
 
 

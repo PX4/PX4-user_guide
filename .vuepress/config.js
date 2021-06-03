@@ -24,6 +24,9 @@ module.exports = {
   },
   plugins: [
       '@vuepress/medium-zoom',
+	  ['check-md', {
+        pattern: 'en/**/*.md'
+	  }],
       ['container', {
         type: 'note',
         defaultTitle: {
@@ -127,13 +130,15 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        /*
-        algolia: {
+        algolia: process.env.BRANCH_NAME ?{
           apiKey: 'c944f3489b25a87a95e33d9386025057',
-          indexName: 'px4'
-        },
-        */
-        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+          indexName: 'px4',
+		  algoliaOptions: {
+            hitsPerPage: 10,
+		    facetFilters: [`version:master`],
+		  }
+        } : {},   
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
         nav: [
           {
             text: 'PX4',
@@ -207,13 +212,16 @@ module.exports = {
           }
         },
         // algolia docsearch options for current locale
-        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
-        /*
-        algolia: {
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+        // algolia docsearch options for current locale
+        algolia: process.env.BRANCH_NAME ?{
           apiKey: 'c944f3489b25a87a95e33d9386025057',
-          indexName: 'px4'
-        },
-        */
+          indexName: 'px4',
+		  algoliaOptions: {
+            hitsPerPage: 10,
+		    facetFilters: [`version:master`],
+		  }
+        } : {}, 
         nav: [
           {
             text: 'PX4',
@@ -280,7 +288,16 @@ module.exports = {
             buttonText: "刷新"
           }
         },
-        algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+        // algolia docsearch options for current locale
+        //algolia: process.env.BRANCH_NAME ? {apiKey: 'c944f3489b25a87a95e33d9386025057',indexName: 'px4'} : {} ,
+        algolia: process.env.BRANCH_NAME ?{
+          apiKey: 'c944f3489b25a87a95e33d9386025057',
+          indexName: 'px4',
+		  algoliaOptions: {
+            hitsPerPage: 10,
+		    facetFilters: [`version:master`],
+		  }
+        } : {}, 
         nav: [
           {
             text: 'PX4',

@@ -52,7 +52,7 @@ In *QGroundControl*:
    - `SENS_EN_BAT` to `true`, 
    - `BAT_SMBUS_MODEL` to `3:Rotoye`
 1. Open the [MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)
-1. Start the [batt_smbus driver](../modules/modules_driver.html) in the console.
+1. Start the [batt_smbus driver](../modules/modules_driver.md) in the console.
    For example, to run two BatMons on the same bus:
    ```sh 
    batt_smbus start -X -b 1 -a 11 # External bus 1, address 0x0b  

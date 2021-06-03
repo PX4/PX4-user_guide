@@ -13,7 +13,8 @@
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
     "docs:build": "yarn docs:build_ubuntu",
-    "start": "yarn docs:dev"
+    "start": "yarn docs:dev",
+	"linkcheck":"vuepress check-md . > linkinfo_check-md.log 2>&1"
   },
   "dependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
@@ -25,5 +26,8 @@
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-redirect": "^1.2.5",
     "vuepress-plugin-right-anchor": "^0.4.9"
+  },
+  "devDependencies": {
+    "vuepress-plugin-check-md": "^0.0.2"
   }
 }

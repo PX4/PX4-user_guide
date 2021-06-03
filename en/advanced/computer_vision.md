@@ -3,10 +3,10 @@
 [Computer vision](https://en.wikipedia.org/wiki/Computer_vision) techniques enable computers to use visual data to make sense of their environment.
 
 PX4 uses computer vision systems (primarily running on [Companion Computers](../companion_computer/pixhawk_companion.md)) in order to support the following features:
-- [Optical Flow](#optical_flow) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
-- [Motion Capture](#mocap) provides 3D pose estimation using a vision system that is *external* to the vehicle.
+- [Optical Flow](#optical-flow) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
+- [Motion Capture](#motion-capture) provides 3D pose estimation using a vision system that is *external* to the vehicle.
   It is primarily used for indoor navigation.
-- [Visual Inertial Odometry](#vio) provides 3D pose and velocity estimation using an onboard vision system and IMU.
+- [Visual Inertial Odometry](#visual-inertial-odometry-vio) provides 3D pose and velocity estimation using an onboard vision system and IMU.
   It is used for navigation when global position information is absent or unreliable.
 - [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) provides full navigation around obstacles when flying a planned path (currently missions are supported). This uses [PX4/avoidance](https://github.com/PX4/avoidance) running on a companion computer.
 - [Collision Prevention](../computer_vision/collision_prevention.md) is used to stop vehicles before they can crash into an obstacle (primarily when flying in manual modes).
@@ -16,7 +16,7 @@ The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md
 It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
 :::
 
-## Motion Capture {#mocap}
+## Motion Capture
 
 Motion Capture (MoCap) is a technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle.
 MoCap systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB)  may also be used.
@@ -31,7 +31,7 @@ For information about MoCap see:
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
-## Visual Inertial Odometry {#vio}
+## Visual Inertial Odometry (VIO)
 
 Visual Inertial Odometry (VIO) is used for estimating the 3D *pose* (position and orientation) and *velocity* of a moving vehicle relative to a *local* starting position.
 It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors) or unreliable (e.g. when flying under a bridge).
@@ -48,7 +48,7 @@ For information about configuring VIO on PX4 see:
 - [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
-## Optical Flow {#optical_flow}
+## Optical Flow
 
 [Optical Flow](../sensor/optical_flow.md) provides 2D velocity estimation (using a downward facing camera and a downward facing distance sensor).
 
