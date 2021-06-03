@@ -490,17 +490,17 @@ EKF는 아래의 매개변수를 변경하여 진동으로 인한 높이 발산�
 
 ![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
 
-The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency (1 kHz for most boards) will cause offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
+IMU 샘플링 주파수 (대부분의 보드에서 1kHz)에 가까운 주파수에서 진동이 존재하면 고주파 진동 메트릭에 표시되지 않는 데이터에 오프셋이 나타나므로, 위의 진동 메트릭은 제한된 값입니다. 앨리어싱 오류를 감지하는 유일한 방법은 관성 탐색 정확도에 미치는 영향과 혁신 수준의 상승입니다.
 
-In addition to generating large position and velocity test ratios of &gt; 1.0, the different error mechanisms affect the other test ratios in different ways:
+큰 위치 및 속도 테스트 비율을 생성하는 것 외에도 1.0 이상에서 다른 오류 메커니즘은 다른 방식으로 다른 테스트 비율에 영향을 미칩니다.
 
-### Determination of Excessive Vibration
+### 과도한 진동 여부 결정
 
-High vibration levels normally affect vertical position and velocity innovations as well as the horizontal components. Magnetometer test levels are only affected to a small extent.
+높은 진동 수준은 일반적으로 수평 구성 요소뿐 아니라 수직 위치 및 속도 혁신에 영향을 미칩니다. 자력계 테스트 수준은 약간만 영향을받습니다.
 
-\(insert example plots showing bad vibration here\)
+\(여기에 나쁜 진동을 보여주는 예제 플롯 삽입\)
 
-### Determination of Excessive Gyro Bias
+### 과도한 자이로 바이어스 결정
 
 Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
