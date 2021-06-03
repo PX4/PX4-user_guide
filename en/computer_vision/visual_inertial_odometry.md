@@ -184,4 +184,3 @@ This topic also explains how to configure VIO for use with the LPE Estimator (de
 ## Further Information
 
 - [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)

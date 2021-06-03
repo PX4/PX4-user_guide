@@ -45,7 +45,6 @@ On difference between VIO and [MoCap](#mocap) is that VIO cameras/IMU are vehicl
 For information about configuring VIO on PX4 see:
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 Setup guide](../peripherals/camera_t265_vio.md)
-- [Snapdragon > Installation > Install Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
 ## Optical Flow

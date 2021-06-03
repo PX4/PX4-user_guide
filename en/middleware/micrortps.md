@@ -161,10 +161,6 @@ cmake ..
 make
 ```
 
-:::note
-To cross-compile for the *Qualcomm Snapdragon Flight* platform see [this link](https://github.com/eProsima/PX4-FastRTPS-PoC-Snapdragon-UDP#how-to-use).
-:::
-
 The command syntax for the *Agent* is listed below:
 
 ```sh
