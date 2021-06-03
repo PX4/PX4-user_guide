@@ -162,4 +162,3 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 ## 추가 정보
 
 - [ECL/EKF 개요와 튜닝 > 외부 비젼 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
