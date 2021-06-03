@@ -20,7 +20,7 @@ A few of simple steps that may reduce vibrations are:
 - Use balanced propellers.
 - Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
 - Use a vibration-isolation method to mount the autopilot. Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
-- As a *last* measure, adjust the software filters (see [here](../config_mc/racer_setup.md#filters)). It is better to reduce the source of vibrations, rather than filtering them out in software.
+- As a *last* measure, adjust the [software filters](../config_mc/filter_tuning.md). It is better to reduce the source of vibrations, rather than filtering them out in software.
 
 ## References
 
