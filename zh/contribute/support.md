@@ -40,7 +40,7 @@ Discuss is better than slack in the first instance because questions and answers
 ## 每周开发通讯
 
 :::tip
-Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../README.md#calendar)) to engage more deeply with the project.
+Developers are most welcome to attend the [weekly dev call](../contribute/dev_call.md) (and other [developer events](../README.md#calendar-events)) to engage more deeply with the project.
 :::
 
 The [Dev Call](../contribute/dev_call.md) is a weekly meeting attended by the PX4 dev team to discuss platform technical details, coordinate activities and perform in-depth analysis.

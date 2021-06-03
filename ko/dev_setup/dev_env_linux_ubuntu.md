@@ -145,7 +145,7 @@ sudo -H pip install pandas jinja2 pyserial cerberus
 
 ### Gazebo
 
-First [install GCC](#gcc) (needed to use clang).
+First install GCC (needed to use clang).
 
 {% include "_gcc_toolchain_installation.md" %}
 ```

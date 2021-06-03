@@ -29,7 +29,7 @@ The other main difference is that the `px4_ros_com` and `px4_msgs` packages a se
 
 ## Installation & Setup
 
-Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2.md#installation-setup) to install ROS 2.
+Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2_comm.md#installation-setup) to install ROS 2.
 
 ### Build ROS (1) Workspace
 

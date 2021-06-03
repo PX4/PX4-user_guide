@@ -27,7 +27,7 @@ PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이�
 
 ## PX4 개발자가 검토할 로그 파일 공유
 
-[ Flight Review ](http://logs.px4.io) 로그 파일 링크는 [ 지원 포럼 ](../contribute/support.md#forums-and-chat) 또는 [ Github 문제 ](../README.md#reporting-bugs--issues)에서 토론을 위해 공유할 수 있습니다.
+The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs-issues).
 
 ## 로그 설정
 

@@ -68,7 +68,7 @@ You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` sh
    ```
 
 1. Build the `micrortps_agent`
-   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface)
+   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
    * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
 1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
