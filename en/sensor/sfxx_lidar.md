@@ -69,7 +69,7 @@ The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TEL
 
 <!-- Would be good to show serial setup! -->
 
-<span id="serial_parameter_setup"></span>
+<a id="serial_parameter_setup"></a>
 ### Parameter Setup
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
@@ -83,4 +83,4 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 ## Further Information
 
-- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx)
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](../modules/modules_driver_distance_sensor.md#sf1xx) 

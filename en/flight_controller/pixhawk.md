@@ -258,7 +258,7 @@ UART8 | SERIAL4
 
 ### Console Port
 
-The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-45-port).
+The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-4-5-port).
 
 :::tip
 A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. 

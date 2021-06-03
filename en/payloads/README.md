@@ -17,7 +17,7 @@ PX4 supports the following set of MAVLink commands/mission items for cameras tha
 
 The following topics show how to *connect* your camera configure PX4:
 * [Camera triggering](../peripherals/camera.md) from flight controller PWM or GPIO outputs, or via MAVLink.
-* [Camera timing feedback](../peripherals/camera.md#camera_capture) via hotshoe input.
+* [Camera timing feedback](../peripherals/camera.md#camera-capture) via hotshoe input.
 
 
 ## Cargo Drones ("Actuator" Payloads)

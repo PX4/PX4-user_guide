@@ -47,7 +47,7 @@ make px4_sitl gazebo_typhoon_h480
 ![Typhoon H480 in Gazebo](../../assets/simulation/gazebo/vehicles/typhoon.jpg)
 
 :::note
-This target also supports [video streaming simulation](#video).
+This target also supports [video streaming simulation](../simulation/gazebo.md#video-streaming).
 :::
 
 <a id="fixed_wing"></a>

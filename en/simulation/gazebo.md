@@ -186,7 +186,7 @@ You can see this how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](ht
 
 ### Using a Joystick
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystickgamepad-integration)).
+Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
 
 
 ### Improving Distance Sensor Performance

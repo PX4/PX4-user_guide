@@ -74,7 +74,7 @@ To build an example setup, follow the steps below:
    ```
 
 1. Build the `micrortps_agent`
-   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-a-ros-independent-offboard-fast-rtps-interface)
+   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
    * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
 
 1. Run `gazebo_sitl_multiple_run.sh`.

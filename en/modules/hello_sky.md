@@ -11,7 +11,7 @@ These are covered in [Application/Module Template](../modules/module_template.md
 ## Prerequisites
 
 You will require the following:
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md#documented-boards).
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md).
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../dev_setup/building_px4.md#download-the-px4-source-code) from Github
 
