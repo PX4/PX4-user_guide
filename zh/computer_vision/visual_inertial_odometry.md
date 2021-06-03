@@ -17,7 +17,8 @@ VIO 使用 [视觉里程计（Visual Odometry）](https://en.wikipedia.org/wiki/
 Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。 PX4 本身并不关心消息源，通过 [MAVLink接口](../ros/external_position_estimation.md#px4-mavlink-integration) 提供消息就行。
 :::
 
-<span id="supported_setup"></span>
+<a id="supported_setup"></a>
+
 ## 支持的配置
 
 :::tip
@@ -106,8 +107,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 - 在第一次飞行前 [确认 VIO 设置正确](#verify_estimate)！
 
-<span id="ekf2_tuning"></span> 
-
+<a id="ekf2_tuning"></a>
 
 ### PX4 调试
 
@@ -125,8 +125,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 更多详情/附加信息，见： [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)。
 
-<span id="tuning-EKF2_EV_DELAY"></span> 
-
+<a id="tuning-EKF2_EV_DELAY"></a>
 
 #### EKF2_EV_DELAY 调参
 
@@ -144,8 +143,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 可以通过更改参数来进一步调整该值，以找到在动态变化中最低的 EKF 更新值。
 
-<span id="verify_estimate"></span> 
-
+<a id="verify_estimate"></a>
 
 ## 检查/校验 VIO 估计
 
