@@ -7,7 +7,7 @@
 - 急停开关仍然可以立即停止电机。
 - 使用参数 [COM_MOT_TEST_EN](../advanced_config/parameter_reference.md#COM_MOT_TEST_EN) ，可以禁用电机测试。
 - On boards with an IO, only the MAIN pins can be tested.
-- On the shell, [motor_test](../modules/modules_command.md#motortest) can be used as well, which has additional options.
+- On the shell, [motor_test](../modules/modules_command.md#motor-test) can be used as well, which has additional options.
 
 If one or more of the motors do not turn in the correct direction according to the configured [airframe](../airframes/airframe_reference.md), they must be reversed. There are several options:
 - If using ESCs that support [DShot](../peripherals/dshot.md) you can reverse the direction via [DShot commands](../peripherals/dshot.md#commands).
