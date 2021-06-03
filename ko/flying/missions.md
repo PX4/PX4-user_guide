@@ -39,7 +39,7 @@
 회전 속도는 수용 반경 (= 회전 반경)과 최대 허용 가속도 및 저크 ([멀티콥터에 대한 저크 제한 유형 궤적](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) 참조)에 따라 자동으로 계산됩니다.
 
 :::tip
-웨이포인트 허용 반경에 대한 자세한 내용은 [미션 모드 > 웨이포인트간 궤적](../flight_modes/mission.md#inter-waypoint-trajectory)을 참조하십시오.
+For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory).
 :::
 
 ## 임무 비행
