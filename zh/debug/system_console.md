@@ -28,7 +28,7 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 
 - [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
   - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
+  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitor-console)
 
 <a id="pixhawk_debug_port"></a>
 
