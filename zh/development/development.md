@@ -21,7 +21,7 @@ It explains how to:
 
 ## Key Developer Links
 
-- [Support](contribute/support.md): Get help using the [discussion boards](http://discuss.px4.io/) and other support channels.
+- [Support](../contribute/support.md): Get help using the [discussion boards](http://discuss.px4.io/) and other support channels.
 - [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
 - [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
 - [Contributing](../contribute/README.md): How to work with our [source code](../contribute/code.md).
