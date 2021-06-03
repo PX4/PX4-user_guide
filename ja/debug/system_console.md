@@ -28,7 +28,7 @@ The System Console UART pinouts/debug ports are typically documented in [autopil
 
 - [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
   - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [DSP Debug Monitor/Console](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
+  - [DSP Debug Monitor/Console](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitor-console)
 
 <a id="pixhawk_debug_port"></a>
 
