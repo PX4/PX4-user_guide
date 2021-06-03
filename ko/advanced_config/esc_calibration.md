@@ -45,5 +45,5 @@ ESC를 보정하려면 :
     ![ESC 캘리브레이션 단계 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 :::note
-고품질의 컨트롤러는 공장에서 보정후에 판매됩니다. *이론적으로* 캘리브레이션은 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)과 [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) 매개변수를 ESC 기술 사양에 기재된 값으로 설정하는 것으로 완료할 수 있습니다. 그러나, 실제로는 PWM 입력 범위가 고품질 컨트롤러에서도 (출고시 설정값과) 다를 수 있으므로 보정을 하는 것이 바람직합니다.
+고품질의 컨트롤러는 공장에서 보정후에 판매됩니다. In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX) parameters to the values provided in the ESC technical specification. 그러나, 실제로는 PWM 입력 범위가 고품질 컨트롤러에서도 (출고시 설정값과) 다를 수 있으므로 보정을 하는 것이 바람직합니다.
 :::
