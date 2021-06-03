@@ -76,7 +76,7 @@ The diagram below shows a typical SITL simulation environment for any of the sup
 
 The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
 
-* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。 :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps).
+* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. SITL 和模拟器上的 PX4 可以在同一台计算机上运行，也可以在同一网络上运行不同的计算机。 :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
 :::
 * PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
   - Ground stations listen to PX4's remote UDP port: `14550`
