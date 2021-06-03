@@ -55,13 +55,13 @@ Enter this depending on your system:
 ##### Fedora:
 ```bash
 env LD_PRELOAD=/lib64/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
+pprof --pdf ../../bin/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
 ```
 
 ##### Ubuntu:
 ```bash
 env LD_PRELOAD=/usr/lib/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-google-pprof --pdf ../src/firmware/posix/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf 
+google-pprof --pdf ../../bin/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
 ```
 
 It will generate a pdf with a graph of the heap allocations. The numbers in the graph will all be zero, because they are in MB. Just look at the percentages instead. They show the live memory (of the node and the subtree), meaning the memory that was still in use at the end.
