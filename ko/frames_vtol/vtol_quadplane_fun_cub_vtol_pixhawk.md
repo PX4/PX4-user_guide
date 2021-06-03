@@ -37,7 +37,7 @@ Fun Cub QuadPlane VTOL은 QuadCopter 시스템으로 개조된 표준 테일 플
 Pixhawk의 출력은 다음과 같이 연결되어야합니다 ( "평면에 앉아 있는" 방향과 같음).
 
 :::tip
-*QGroundControl* (톱니 바퀴 탭, 왼쪽 메뉴의 마지막 항목)의 PWM_OUTPUT 그룹에서 PWM \ _REV 매개 변수를 사용하여 서보 방향을 반전할 수 있습니다.
+The servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu).
 :::
 
 | 포트     | 연결               |
