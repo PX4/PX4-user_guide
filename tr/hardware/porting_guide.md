@@ -43,7 +43,6 @@ This section describes the various middleware components, and the configuration 
 * The start script is located in [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/master/posix-configs). <!-- NEED px4_version -->
 * The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions).
 * The PX4 middleware configuration is located in [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards). <!-- NEED px4_version --> TODO: ADD BUS CONFIG
-* Reference config: Running `make eagle_default` builds the Snapdragon Flight reference config.
 
 
 ## RC UART Wiring Recommendations
