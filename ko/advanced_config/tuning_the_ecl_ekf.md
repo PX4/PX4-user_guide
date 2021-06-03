@@ -415,27 +415,27 @@ EKF에는 악조건 상태와 공분산 업데이트에 대한 내부 오류 검
 
 ### GPS 품질 검사
 
-EKF는 GPS 지원을 시작하기 전에, 여러 가지 GPS 품질 검사를 실시합니다. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다. 이러한 검사의 통과/실패 상태는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) .gps\_check\_fail\_flags 메시지에 기록됩니다. 이 정수는 모든 필수 GPS 검사가 통과되면 0이 됩니다. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).
+EKF는 GPS 지원을 시작하기 전에, 여러 가지 GPS 품질 검사를 실시합니다. 이 검사는 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 및 `EKF2_REQ _*` 매개변수에 의해 제어됩니다. 이러한 검사의 통과/실패 상태는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) .gps\_check\_fail\_flags 메시지에 기록됩니다. 이 정수는 모든 필수 GPS 검사가 통과되면 0이 됩니다. EKF가 GPS 정렬을 시작하지 않는 경우 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg)의 비트 마스크 정의 `gps_check_fail_flags`의 정수 값을 확인하십시오.
 
-### EKF Numerical Errors
+### EKF 수치 오류
 
-The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
+EKF는 모든 계산에 대해 단정밀도 부동 소수점 연산을 사용하고, 처리 요구 사항을 줄이기 위해 공분산 예측을 유도하고 방정식을 업데이트하기 위하여 1 차 근사치를 사용합니다. 즉, EKF를 다시 조정하여 공분산 행렬 연산이 상태 추정에서 발산 또는 심각한 오류를 유발할 수 있을 만큼 나쁘게되는 조건을 만날 수 있습니다.
 
-To prevent this, every covariance and state update step contains the following error detection and correction steps:
+이를 방지하기 위하여 모든 공분산 및 상태 업데이트 단계에는 다음의 오류 감지와 수정 단계가 포함됩니다.
 
-* If the innovation variance is less than the observation variance (this requires a negative state variance which is impossible) or the covariance update will produce a negative variance for any of the states, then: 
-  * The state and covariance update is skipped
-  * The corresponding rows and columns in the covariance matrix are reset
-  * The failure is recorded in the [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) filter\_fault\_flags message
-* State variances (diagonals in the covariance matrix) are constrained to be non-negative.
-* An upper limit is applied to state variances.
-* Symmetry is forced on the covariance matrix.
+* 혁신 분산이 관찰 분산보다 작거나 (불가능한 음의 상태 분산이 필요함) 공분산 업데이트가 모든 상태에 대해 음의 분산을 생성하는 경우 : 
+  * 상태 및 공분산 업데이트를 건너 뜁니다.
+  * 공분산 행렬의 해당 행과 열이 재설정됩니다.
+  * 실패는 [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg) filter\_fault\_flags 메시지에 기록됩니다.
+* 상태 분산(공분산 행렬의 대각선)은 음이 아닌 값으로 제한됩니다.
+* 상태 차이에는 상한값이 적용됩니다.
+* 공분산 행렬에 대칭이 적용됩니다.
 
-After re-tuning the filter, particularly re-tuning that involve reducing the noise variables, the value of `estimator_status.gps_check_fail_flags` should be checked to ensure that it remains zero.
+필터를 다시 조정 한 후, 특히 노이즈 변수 감소 튜닝후에는 `estimator_status.gps_check_fail_flags`의 값이 0으로 유지되는 지 확인하여야 합니다.
 
-## What should I do if the height estimate is diverging?
+## 높이 추정치가 다른 경우 어떻게 하여야 합니까?
 
-The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
+비행 중 EKF 높이가 GPS 및 고도계 측정 값에서 벗어나는 가장 일반적인 원인은 진동으로 인한 IMU 측정치의 클리핑 또는 앨리어싱입니다. 이것이 발생하는 경우, 데이터에서 다음 징후가 분명하여야 합니다.
 
 * [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
