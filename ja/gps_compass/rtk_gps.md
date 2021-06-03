@@ -6,7 +6,7 @@
 can also be used as a source of yaw/heading information:
 
 - [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- [GPS that Output Yaw](../gps_compass/README.md#gps-that-output-yaw).
+- Some GPS output yaw (see table below).
 :::
 
 ## Supported RTK Devices
@@ -15,19 +15,19 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 The RTK compatible devices below have been tested. The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
 
-| GPS                                                                                                                         | [Yaw Output](#rtk-gps-that-output-yaw) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) |
-|:--------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------:|:------------------------------------------------------------:|
-| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |                                        |                                                              |
-| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |                                        |                                                              |
-| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                              |                                        |                                                              |
-| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |                                        |                                                              |
-| [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                                                                     |                                        |                                                              |
-| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |                                        |                                                              |
-| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |                                        |                                                              |
-| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |                                        |                           &check;                            |
-| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |                                        |                           &check;                            |
-| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm)                                     |                                        |                           &check;                            |
-| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  |                &check;                 |                                                              |
+| GPS                                                                                                                         | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) |
+|:--------------------------------------------------------------------------------------------------------------------------- |:----------:|:------------------------------------------------------------:|
+| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |            |                                                              |
+| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |            |                                                              |
+| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                              |            |                                                              |
+| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |            |                                                              |
+| [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)                                                                     |            |                                                              |
+| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |            |                                                              |
+| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |            |                                                              |
+| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |            |                           &check;                            |
+| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |            |                           &check;                            |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm)                                     |            |                           &check;                            |
+| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  |  &check;   |                                                              |
 
 :::note
 Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
