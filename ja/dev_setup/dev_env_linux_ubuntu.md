@@ -140,7 +140,7 @@ sudo update-alternatives --config aarch64-linux-gnu-gcc
 
 ### Clang (optional)
 
-First [install GCC](#gcc) (needed to use clang).
+First install GCC (needed to use clang).
 
 We recommend you to get clang from the Ubuntu software repository, as shown below:
 ```
