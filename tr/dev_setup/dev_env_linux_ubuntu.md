@@ -21,7 +21,7 @@ The instructions should also work on other Debian Linux based systems, but this 
 
 ## Video Guide
 
-This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#gazebo-jmavsim-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.html).
+This video shows how to install the toolchain for NuttX and simulation targets ([as covered below](#gazebo-jmavsim-and-nuttx-pixhawk-targets)) along with the basic testing covered in [Building PX4 Software](../dev_setup/building_px4.md).
 
 @[youtube](https://youtu.be/OtValQdAdrU)
 
