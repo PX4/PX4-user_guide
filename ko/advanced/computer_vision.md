@@ -12,7 +12,7 @@ PX4는 다음 기능 지원을 목적으로 컴퓨터 비전 시스템([보조 �
 움직임 감지(Motion Capture, a.k.a MoCap)은 기체 *외부*의 위치 결정 방법으로, 3차원 *자세*(위치와 방향) 를 추정하는 기술입니다. MoCap 시스템은 보통 적외선 카메라로 움직임을 감지하나, 광선 레이더, 광대역 주파(UWB) 형태 기술을 활용할 수도 있습니다.
 :::
 
-## 움직임 감지(Motion Capture) {#mocap}
+## Motion Capture
 
 움직임 감지(Motion Capture, a.k.a MoCap)는 기체 *외부*의 위치 결정 방법으로, 3차원 *자세*(위치와 방향) 를 추정하는 기술입니다. MoCap 시스템은 보통 적외선 카메라로 움직임을 감지하나, 광선 레이더, 광대역 주파(UWB) 형태 기술을 활용할 수도 있습니다.
 
@@ -26,7 +26,7 @@ MoCap 기술에 대해 더 알아보려면 다음을 참고하십시오:
 - [EKF > 외부 비전 시스템](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 
-## 관성 주행 시각 측정 {#vio}
+## Visual Inertial Odometry (VIO)
 
 관성 주행 시각 측정(VIO) 기술은 *로컬* 시작점에서 상대 위치로 기체가 이동할 경우 3차원 *자세* (위치와 방향)와 *속도*를 추정할 때 활용합니다. 보통 GPS가 빠졌거나 (예: 실내) 신뢰할 수 없을 때(예: 다리 아래로 비행할 경우) 기체 운행에 활용합니다.
 
@@ -42,7 +42,7 @@ PX4의 VIO 설정 방법을 더 알아보려면 다음을 참고하십시오:
 - [스냅드래곤 > 설치 > Snap VIO 설치](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
-## 광류 센서 {#optical_flow}
+## Optical Flow
 
 [광류 센서(Optical Flow)](../sensor/optical_flow.md) 기술로 2차원 평면상의 속도를 추정합니다(아래 방향으로 향한 카메라와 아래 방향으로 향한 거리 센서 활용).
 

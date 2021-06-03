@@ -9,7 +9,7 @@
 
 It supports hardware like:
 
-- [ESC/Motor controllers](../uavcan/escs.html)
+- [ESC/Motor controllers](../uavcan/escs.md)
 - 항속 센서
   - [Thiemar 항속 센서](https://github.com/thiemar/airspeed)
 - GPS 및 GLONASS용 GNSS 리시버
@@ -31,7 +31,7 @@ It supports hardware like:
 
 처음 단계에서 할 일은 UAVCAN을 활성화한 모든 장치와 비행 제어 장치의 연결입니다. 다음 그림은 모든 부품에 대한 결선 방법을 보여줍니다.
 
-The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.html) and a UAVCAN GNSS.
+The following diagram shows this for a flight controller connected to [UAVCAN motor controllers (ESCs)](../uavcan/escs.md) and a UAVCAN GNSS.
 
 ![UAVCAN 결선](../../assets/uavcan/uavcan_wiring.png)
 
