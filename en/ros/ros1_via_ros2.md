@@ -1,6 +1,6 @@
 # ROS (1) via ROS 2 Bridge (User Guide)
 
-This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](..ros/ros2.md).
+This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](../ros/ros2.md).
 
 It provides an overview of the ROS-ROS2-PX4 architecture, along with instructions on how to install all the needed software and build ROS (1) applications.
 It also covers how to run/setup ROS 2 and ROS 1 workspaces at the same time.

@@ -47,11 +47,11 @@ Do not use vibration-isolation foam to mount the controller (double sided tape i
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
 Pix32 v5 is designed to work well with the [Pixhawk 4 GPS module](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html), which has an integrated compass, safety switch, buzzer and LED.
-It connects directly to the [GPS port](../flight_controller/holybro_pix32_v5.md#gps) using the 10 pin cable.
-
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+It connects directly to the **GPS port** using the 10 pin cable.
 
 ![Pix32 v5 with GPS](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
+
+The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 :::note
 The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
@@ -117,11 +117,11 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
 
-- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md#dsm-rc-port) input.
+- Spektrum/DSM receivers connect to the **DSM RC** input shown below.
 
   ![Pix32v5 rc receivers](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
   
-- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/holybro_pix32_v5.md#rc-in) input port (marked as RC IN)
+- PPM and S.Bus receivers connect to the **SBUS_IN/PPM_IN** input port (marked as RC IN):
 
   ![Pinouts](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 

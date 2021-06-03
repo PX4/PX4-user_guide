@@ -120,7 +120,7 @@ There are 2 different ways that a module can be executed:
 
 :::note
 Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`).
-Use [`work_queue status`](../modules/modules_system.md#workqueue) to display all active work queue items.
+Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
 :::
 
 ### Background Tasks
