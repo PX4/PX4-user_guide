@@ -19,7 +19,7 @@ This (supported) solution uses ROS for routing VIO information to PX4.
 PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 :::
 
-<span id="supported_setup"></span>
+<a id="supported_setup"></a>
 ## Supported Setup
 
 The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4.
@@ -83,7 +83,7 @@ To setup the Bridge, ROS and PX4:
 
 
 
-<span id="ekf2_tuning"></span>
+<a id="ekf2_tuning"></a>
 ### PX4 Tuning
 
 The following parameters must be set to use external position information with EKF2.
@@ -101,7 +101,7 @@ For more detailed/additional information, see: [ECL/EKF Overview & Tuning > Exte
 
 
 
-<span id="tuning-EKF2_EV_DELAY"></span>
+<a id="tuning-EKF2_EV_DELAY"></a>
 #### Tuning EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*.
@@ -116,13 +116,13 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../dev_log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
 
-<span id="verify_estimate"></span>
+<a id="verify_estimate"></a>
 ## Check/Verify VIO Estimate
 
 Perform the following checks to verify that VIO is working properly *before* your first flight:
