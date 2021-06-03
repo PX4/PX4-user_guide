@@ -17,7 +17,8 @@ VIO는 기체 IMU의 관성 측정과 결합된 카메라 이미지에서 기체
 이 (지원되는) 솔루션은 ROS를 사용하여 VIO 정보를 PX4로 라우팅합니다. PX4 자체는 적절한 [MAVLink 인터페이스](../ros/external_position_estimation.md#px4-mavlink-integration)를 통하여 제공되는 메시지 소스는 신경 쓰지 않습니다.
 :::
 
-<span id="supported_setup"></span>
+<a id="supported_setup"></a>
+
 ## 지원 가능한 설정
 
 지원 가능한 설정은 [T265 Intel Realsense 추적 카메라](../peripherals/camera_t265_vio.md) 및 ROS (보조 컴퓨터에서 실행)를 사용하여 PX4에 주행 거리 측정 정보를 제공합니다. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
@@ -76,7 +77,8 @@ catkin build px4_realsense_bridge
 :::
 - 첫 비행전에 [VIO가 올바르게 설정되었는지 확인하십시오](#verify_estimate).
 
-<span id="ekf2_tuning"></span>
+<a id="ekf2_tuning"></a>
+
 ### PX4 튜닝
 
 EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설정하여야 합니다.
@@ -92,7 +94,8 @@ EKF2에서 외부 위치 정보를 사용하려면 다음 매개 변수를 설�
 
 자세한 추가 정보는 [ECL/EKF 개요 & 튜닝 > 외부 비전 시스템 ](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)을 참고하십시오.
 
-<span id="tuning-EKF2_EV_DELAY"></span>
+<a id="tuning-EKF2_EV_DELAY"></a>
+
 #### Tuning EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)는 *IMU 측정에 대한 비전 위치 추정기 지연*입니다. 즉, 비전 시스템 타임스탬프와 IMU 클록 (EKF2의 "기본 클록")에 의해 기록된 "실제" 캡처 시간 간의 차이입니다.
@@ -109,7 +112,8 @@ IMU 속도와 EV 속도 사이의 오프셋을 확인하여 로그에서 대략�
 
 이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여 매개변수를 변경하여 추가로 조정할 수 있습니다.
 
-<span id="verify_estimate"></span>
+<a id="verify_estimate"></a>
+
 ## VIO 예상치 확인
 
 첫 비행 *전에* VIO가 정상 작동 여부를 확인하려면 다음 검사를 수행하십시오.

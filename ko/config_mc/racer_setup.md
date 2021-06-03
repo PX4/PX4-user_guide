@@ -95,7 +95,7 @@ GPS를 사용하는 경우에는 이 섹션을 건너 뛰고 기본 추정기를
 
 이 시점에서 첫 번째 테스트 비행을 준비하여야 합니다.
 
-기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). 이것은 [필터](#filters) 튜닝에 중요합니다 (나중에 두 번째 PID 튜닝이 있습니다).
+기체의 기본 설정으로 비행이 가능하면, [기본 MC PID 튜닝](../config_mc/pid_tuning_guide_multicopter_basic.md)의 첫 번째 과정을 수행합니다. 기체는 **저 조율**하여야 합니다 (**P** 및 **D** 게인은 낮게 설정함). 컨트롤러에서 발생하는 진동이 없어야합니다. 잡음으로 해석되어 질 수 있습니다 (기본 이득이 충분할 수 있음). This is important for the [filter tuning](#filter-tuning) (there will be a second PID tuning round later).
 
 ### 제어 지연
 

@@ -30,7 +30,7 @@ All the parameters below are tuning parameters and cannot be mapped directly to 
 
 This parameter is used for position-control in the horizontal direction, where the vehicle is supposed to stay at the current location. The limit for the rate of change of the velocity setpoint is defined by [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX). This parameter should be set larger than any of the other acceleration related parameters in the horizontal direction.
 
-<span id="mpc_acc_hor-and-mpc_dec_hor_slow"></span>
+<a id="mpc_acc_hor-and-mpc_dec_hor_slow"></a>
 
 #### MPC_ACC_HOR and MPC_DEC_HOR_SLOW
 
