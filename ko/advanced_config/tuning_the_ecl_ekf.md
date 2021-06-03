@@ -8,7 +8,7 @@
 
 ## ECL EKF는 무엇입니까?
 
-ECL(Estimation and Control Library)은 EKF(Extended Kalman Filter) 알고리즘을 사용하여 센서 측정을 처리하고 다음 상태의 추정치를 제공합니다.
+ECL(Estimation and Control Library)은 EKF(Extended Kalman Filter) 알고리즘으로 센서 측정 데이터를 처리하여 상태의 추정치를 제공합니다.
 
 * 북쪽, 동쪽, 아래쪽 지역 지구 프레임에서 X, Y, Z 본체의 회전을 정의하는 쿼터니언
 * IMU의 속도 - 북쪽, 동쪽, 아래쪽 (m/s)
@@ -437,27 +437,27 @@ EKF는 모든 계산에 대해 단정밀도 부동 소수점 연산을 사용하
 
 비행 중 EKF 높이가 GPS 및 고도계 측정 값에서 벗어나는 가장 일반적인 원인은 진동으로 인한 IMU 측정치의 클리핑 또는 앨리어싱입니다. 이것이 발생하는 경우, 데이터에서 다음 징후가 분명하여야 합니다.
 
-* [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
-* [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
+* [estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\]과[estimator_innovations](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\]는 같은 부호를 가집니다.
+* [estimator_status](https://github.com/PX4/PX4-Autopilot/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 는 1.0보다 큽니다.
 
-The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system. An isolation mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.
+권장되는 첫 번째 단계는 효과적인 격리 장착 시스템을 사용하여 자동조종장치가 기체에서 격리되었는지 확인하는 것입니다. 절연 마운트에는 6 개의 자유도가 있으므로 6 개의 공진 주파수가 존재합니다. 일반적으로 절연 마운트에있는 자동조종장치의 6 개의 공진 주파수는 자동조종장치 역학과의 상호 작용을 방지하고 모터 주파수보다 낮게 유지되도록 25Hz 이상이어야 합니다.
 
-An isolation mount can make vibration worse if the resonant frequencies coincide with motor or propeller blade passage frequencies.
+절연 마운트는 공진 주파수가 모터 또는 프로펠러 블레이드 통과 주파수와 일치하는 경우 진동을 악화시킬 수 있습니다.
 
-The EKF can be made more resistant to vibration induced height divergence by making the following parameter changes:
+EKF는 아래의 매개변수를 변경하여 진동으로 인한 높이 발산에 대한 내성을 강화할 수 있습니다.
 
-* Double the value of the innovation gate for the primary height sensor. If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
-* Increase the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially. If divergence is still occurring, increase in further increments of 0.1 but do not go above 1.0
+* 기본 높이 센서에 대한 혁신 게이트의 가치를 두 배로 늘립니다. 기압 높이를 사용하는 경우 이는 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)입니다.
+* 처음에는 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 값을 0.5로 증가시킵니다. 발산이 여전히 발생하는 경우 0.1씩 더 증가하지만 1.0을 초과하지 않는 것이 좋습니다.
 
-Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.
+이러한 변화의 영향으로 EKF는 GPS 수직 속도와 기압 오류에 더 민감하게 반응합니다.
 
-## What should I do if the position estimate is diverging?
+## 위치 추정치가 다른 경우 어떻게 하여야 합니까?
 
-The most common causes of position divergence are:
+위치 차이의 가장 일반적인 원인은 다음과 같습니다.
 
-* High vibration levels. 
-  * Fix by improving mechanical isolation of the autopilot.
-  * Increasing the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) and [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) can help, but does make the EKF more vulnerable to GPS glitches.
+* 높은 진동 수준. 
+  * 자동조종장치의 기계적 격리를 개선합니다.
+  * [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE)와 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 증가시키면 도움이 될 수 있지만, EKF가 GPS 결함에 더 취약해집니다.
 * Large gyro bias offsets. 
   * Fix by re-calibrating the gyro. Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to slow the rate of temperature change.
 * Bad yaw alignment 
