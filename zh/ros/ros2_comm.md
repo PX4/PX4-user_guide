@@ -43,7 +43,7 @@ You cannot use an agent generated as part of a "normal" PX4 build with ROS 2. Wh
 ## Installation & Setup
 
 To setup ROS 2 for use with PX4 you will need to:
-- [Install Fast DDS](##install-fast-dds)
+- [Install Fast DDS](#install-fast-dds)
 - [Install ROS2](#install-ros-2)
 - [Build ROS 2 Workspace](#build-ros-2-workspace)
 - [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
