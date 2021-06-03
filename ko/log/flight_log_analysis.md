@@ -109,39 +109,37 @@ PX4 비행 로그 분석 소프트웨어와 방법에 대하여 설명합니다.
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-<span id="flightplot"></span>
-
 ### FlightPlot
 
-[FlightPlot](https://github.com/PX4/FlightPlot)은 로그 분석을위한 데스크톱 기반 도구입니다. [FlightPlot 다운로드](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows)에서 다운로드 할 수 있습니다.
+[FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 
-주요 기능:
+Key features:
 
 * Java 기반, 다양한 플랫폼 지원.
 * 직관적인 GUI, 프로그래밍 지식이 필요하지 않습니다.
 * 신규 및 기존 PX4 로그 형식 (.ulg, .px4log, .bin) 모두 지원
 * 그래프를 이미지로 저장할 수 있습니다.
 
-![FlightPlot 챠트](../../assets/flight_log_analysis/flightplot_0.2.16.png)
+![FlightPlot Charts](../../assets/flight_log_analysis/flightplot_0.2.16.png)
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools)는 Python으로 작성된 PX4 자동 조종 장치 로그 분석도구입니다. 권장되는 설치 절차는 [anaconda3](https://conda.io/docs/index.html)를 사용하는 것입니다. 자세한 내용은 [px4tools github 페이지](https://github.com/dronecrew/px4tools)를 참조하세요.
+[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
 
-주요 기능:
+Key features:
 
 * 공유가 용이하며, Github \ (예 : [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb ](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb)\)에서 샘플 쥬피터 노트북이 제공됩니다.
 * Python 기반, 다중 플랫폼, anaconda2 및 anaconda3에서 작동
 * iPython/jupyter 노트북을 사용하여 분석과 공유가 편리합니다.
 * 상세한 분석이 가능한 고급 플로팅 기능
 
-![PX4Tools 기반 분석](../../assets/flight_log_analysis/px4tools.png)
+![PX4Tools-based analysis](../../assets/flight_log_analysis/px4tools.png)
 
 ### MAVGCL
 
-[MAVGC ](https://github.com/ecmnet/MAVGCL)은 PX4 용 기내 로그 분석기입니다. 다운로드 한 uLog 파일로 오프라인 모드에서도 사용할 수 있습니다.
+[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
 
-주요 기능:
+Key features:
 
 * MAVLink 메시지 또는 MAVLink를 통한 ULOG 데이터에 기반한 실시간 데이터 수집 (50ms 샘플링, 100ms 롤링 디스플레이)
 * 메시지 (MAVLink 및 ULog) 및 매개 변수 변경 (MAVLink 전용)으로 주석이 추가 된 타임 차트
@@ -156,25 +154,25 @@ PX4 비행 로그 분석 소프트웨어와 방법에 대하여 설명합니다.
 
 ### PlotJuggler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler)는 Qt5 데스크톱 애플리케이션입니다. 사용자가 시계열 형태로 표현 된 데이터를 쉽게 시각화하고 분석할 수 있습니다.
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
 
-2.1.4 버전부터 **ULog 파일** (. ulg)을 지원합니다.
+It supports **ULog files** (.ulg) since version 2.1.4.
 
-주요 기능:
+Key features:
 
 * 직관적 인 드래그 앤 드롭 인터페이스.
 * 여러 플롯, 탭 또는 창에 데이터를 정렬합니다.
 * 데이터를 정렬 한 후 "레이아웃"파일에 저장하고 여러 번 다시로드합니다.
 * 사용자 지정 "데이터 변환"을 사용하여 PlotJuggler 자체 내에서 데이터를 처리합니다.
 
-소스 코드 및 다운로드는 [Github](https://github.com/facontidavide/PlotJuggler)에서 제공합니다.
+Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
 
 ![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
 
 ### Data Comets
 
-[Data Comets](https://github.com/dsaffo/DataComets)는 비행 데이터를 비행 경로에 인코딩하고 시간별로 데이터를 필터링 및 브러싱 할 수있는 대화형 PX4 비행 로그 분석 도구입니다.
+[Data Comets](https://github.com/dsaffo/DataComets) is a interactive PX4 flight log analysis tool that allows you to encode flight data onto the flight path, filter and brush the data by time - and much more!
 
-작은 로그 파일 (<32Mb)에 대한 도구의 온라인 버전을 사용하거나 더 긴 비행을 분석하기 위해 로컬에서 실행할 수 있습니다.
+You can use the online version of the tool for small log files (< 32Mb), or run it locally in order to analyze longer flights.
 
 ![Data Comets](../../assets/flight_log_analysis/data_comets/data_comets_overview.gif)
