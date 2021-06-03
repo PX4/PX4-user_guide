@@ -91,7 +91,7 @@ See the first section of this page explains for other power connection considera
 
 Some ESCs need to see a special low value pulse before switching on (to protect users who have the throttle stick in the middle position on power-up).
 
-PX4 sends a value of [PWM_DISARMED](../advanced_config/parameter_reference.md#PWM_DISARMED) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. 
+PX4 sends a value of [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse when the vehicle is disarmed, which silences the ESCs when they are disarmed and ensures that ESCs initialise correctly. 
 
 This value should be set correctly for the ESC (correct values vary between roughly 1200 and 900 us). 
 
@@ -99,7 +99,7 @@ This value should be set correctly for the ESC (correct values vary between roug
 
 Some ESCs may time out (preventing motor activation) if they have not received a valid low pulse within a few seconds of power on. 
 
-PX4 flight stack sends the [PWM_DISARMED](../advanced_config/parameter_reference.md#PWM_DISARMED) pulse idle/disarmed pulse right after power on.
+PX4 flight stack sends the [PWM_MAIN_DISARM](../advanced_config/parameter_reference.md#PWM_MAIN_DISARM) pulse idle/disarmed pulse right after power on.
 Provided this is configured correctly, ESCs will not time out.
 
 ### Valid Pulse Shape, Voltage and Update Rate

@@ -79,7 +79,7 @@ Go through the [Basic Configuration Guide](../config/README.md).
 In particular, set the [Airframe](../config/airframe.md) that most closely matches your frame (typically you will choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which sets some racer-specific parameters by default).
 
 These parameters are important:
-- Enable One-Shot (set [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
+- Enable One-Shot (set [PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE) to 0) or DShot ([DSHOT_CONFIG](../advanced_config/parameter_reference.md#DSHOT_CONFIG)).
 - Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as
   desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX).
   The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
@@ -135,7 +135,7 @@ These are the factors that affect the latency:
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk).
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
-- PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0).
+- PWM output signal: enable One-Shot to reduce latency ([PWM_MAIN_RATE](../advanced_config/parameter_reference.md#PWM_MAIN_RATE)=0).
 
 ### Filter Tuning
 

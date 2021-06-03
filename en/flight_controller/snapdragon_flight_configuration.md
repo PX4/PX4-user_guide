@@ -97,4 +97,4 @@ sudo reboot
 | MC_RAWRATE_P      | 0.08                        |
 | EKF2_IMU_POS_Z    | 0.030m                      |
 | EKF2_EV_POS_Z     | 0.03m                       |
-| PWM_MIN           | 1150us                      |
+| PWM_MAIN_MIN      | 1150us                      |

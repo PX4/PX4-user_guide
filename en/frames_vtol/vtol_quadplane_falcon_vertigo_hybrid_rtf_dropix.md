@@ -259,7 +259,7 @@ The final assembly step is to check the vehicle is stable and that the motors ha
    <img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_35_quad_motor_directions.png" width="200px" title="Quad motor order/directions" />
 
    :::note
-   If necessary the servo direction can be reversed using the `PWM_REV` parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
+   If necessary the servo direction can be reversed using the [PWM_MAIN_REVn](../advanced_config/parameter_reference.md#PWM_MAIN_REV1) parameters in the `PWM_OUTPUT` group of QGroundControl (cogwheel tab, last item in the left menu).
    :::
  
 1. Check the vehicle is balanced around the expected centre of gravity
