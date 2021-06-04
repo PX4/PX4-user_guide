@@ -6,7 +6,7 @@
 
 <span id="betaflight_configurator"></span>
 
-### Bootloader Update using Betaflight Configurator
+### Betaflight Configurator로 부트로더 업데이트
 
 이제 보드에 PX4 펌웨어를 설치할 수 있습니다.
 
