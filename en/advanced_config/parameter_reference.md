@@ -4438,6 +4438,13 @@ table {
  <td>m/s</td>
 </tr>
 <tr>
+ <td><strong id="FW_T_CLMB_R_SP">FW_T_CLMB_R_SP</strong> (FLOAT)</td>
+ <td>Default target climbrate <p><strong>Comment:</strong> The default rate at which the vehicle will climb in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be increased.</p>   </td>
+ <td>0.5 > 15 (0.01)</td>
+ <td>3.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
  <td><strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)</td>
  <td>Height rate feed forward    </td>
  <td>0.0 > 1.0 (0.05)</td>
@@ -4490,6 +4497,13 @@ table {
  <td><strong id="FW_T_SINK_MIN">FW_T_SINK_MIN</strong> (FLOAT)</td>
  <td>Minimum descent rate <p><strong>Comment:</strong> This is the sink rate of the aircraft with the throttle set to THR_MIN and flown at the same airspeed as used to measure FW_T_CLMB_MAX.</p>   </td>
  <td>1.0 > 5.0 (0.5)</td>
+ <td>2.0</td>
+ <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="FW_T_SINK_R_SP">FW_T_SINK_R_SP</strong> (FLOAT)</td>
+ <td>Default target sinkrate <p><strong>Comment:</strong> The default rate at which the vehicle will sink in autonomous modes to achieve altitude setpoints. In manual modes this defines the maximum rate at which the altitude setpoint can be decreased.</p>   </td>
+ <td>0.5 > 15 (0.01)</td>
  <td>2.0</td>
  <td>m/s</td>
 </tr>
