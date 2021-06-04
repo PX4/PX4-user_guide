@@ -6497,7 +6497,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
- <td>Acceleration for auto and for manual <p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 1.</p>   </td>
+ <td>Acceleration for auto and for manual <p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 4.</p>   </td>
  <td>2.0 > 15.0 (1)</td>
  <td>3.0</td>
  <td>m/s^2</td>
@@ -6560,7 +6560,7 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
- <td>Maximum jerk limit <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1, 3 or 4.</p>   </td>
+ <td>Maximum jerk limit <p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 3 or 4.</p>   </td>
  <td>0.5 > 500.0 (1)</td>
  <td>8.0</td>
  <td>m/s^3</td>
