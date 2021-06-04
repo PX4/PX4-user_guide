@@ -7109,56 +7109,56 @@ table {
  <td><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
  <td>PWM aux 1 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
  <td>PWM aux 2 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
  <td>PWM aux 3 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
  <td>PWM aux 4 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
  <td>PWM aux 5 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
  <td>PWM aux 6 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
  <td>PWM aux 7 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
  <td>PWM aux 8 disarmed value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARM will be used</p>   </td>
  <td>-1 > 2150 </td>
- <td>0</td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
@@ -7171,57 +7171,57 @@ table {
 <tr>
  <td><strong id="PWM_AUX_FAIL1">PWM_AUX_FAIL1</strong> (INT32)</td>
  <td>PWM aux 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL2">PWM_AUX_FAIL2</strong> (INT32)</td>
  <td>PWM aux 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL3">PWM_AUX_FAIL3</strong> (INT32)</td>
  <td>PWM aux 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL4">PWM_AUX_FAIL4</strong> (INT32)</td>
  <td>PWM aux 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL5">PWM_AUX_FAIL5</strong> (INT32)</td>
  <td>PWM aux 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL6">PWM_AUX_FAIL6</strong> (INT32)</td>
  <td>PWM aux 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL7">PWM_AUX_FAIL7</strong> (INT32)</td>
  <td>PWM aux 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_AUX_FAIL8">PWM_AUX_FAIL8</strong> (INT32)</td>
  <td>PWM aux 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
@@ -7955,99 +7955,99 @@ table {
 <tr>
  <td><strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)</td>
  <td>PWM main 1 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL10">PWM_MAIN_FAIL10</strong> (INT32)</td>
  <td>PWM main 10 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL11">PWM_MAIN_FAIL11</strong> (INT32)</td>
  <td>PWM main 11 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL12">PWM_MAIN_FAIL12</strong> (INT32)</td>
  <td>PWM main 12 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL13">PWM_MAIN_FAIL13</strong> (INT32)</td>
  <td>PWM main 13 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL14">PWM_MAIN_FAIL14</strong> (INT32)</td>
  <td>PWM main 14 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL2">PWM_MAIN_FAIL2</strong> (INT32)</td>
  <td>PWM main 2 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL3">PWM_MAIN_FAIL3</strong> (INT32)</td>
  <td>PWM main 3 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL4">PWM_MAIN_FAIL4</strong> (INT32)</td>
  <td>PWM main 4 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL5">PWM_MAIN_FAIL5</strong> (INT32)</td>
  <td>PWM main 5 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL6">PWM_MAIN_FAIL6</strong> (INT32)</td>
  <td>PWM main 6 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL7">PWM_MAIN_FAIL7</strong> (INT32)</td>
  <td>PWM main 7 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL8">PWM_MAIN_FAIL8</strong> (INT32)</td>
  <td>PWM main 8 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
  <td><strong id="PWM_MAIN_FAIL9">PWM_MAIN_FAIL9</strong> (INT32)</td>
  <td>PWM main 9 failsafe value <p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)</p>   </td>
- <td>0 > 2150 </td>
- <td>0</td>
+ <td>-1 > 2150 </td>
+ <td>-1</td>
  <td>us</td>
 </tr>
 <tr>
