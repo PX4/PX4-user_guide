@@ -17730,28 +17730,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="UAVCAN_V1_BAT_ID">UAVCAN_V1_BAT_ID</strong> (INT32)</td>
- <td>UAVCAN v1 battery port ID    </td>
- <td>1 > 32767 </td>
- <td>4242</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UAVCAN_V1_BAT_MD">UAVCAN_V1_BAT_MD</strong> (INT32)</td>
- <td>UAVCAN v1 battery mode  <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disable</li> 
-
-<li><strong>1:</strong> Receive BMSStatus</li> 
-
-<li><strong>2:</strong> Send BMSStatus</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="UAVCAN_V1_BAUD">UAVCAN_V1_BAUD</strong> (INT32)</td>
  <td>UAVCAN/CAN v1 bus bitrate    <p><b>Reboot required:</b> true</p>
 </td>
@@ -17765,6 +17743,83 @@ table {
 </td>
  <td></td>
  <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
+ <td>DS-015 battery parameters port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_BS_PID">UCAN1_BMS_BS_PID</strong> (INT32)</td>
+ <td>DS-015 battery status port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_BMS_ES_PID">UCAN1_BMS_ES_PID</strong> (INT32)</td>
+ <td>DS-015 battery energy source port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC0_PID">UCAN1_ESC0_PID</strong> (INT32)</td>
+ <td>ESC0 port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
+ <td>UAVCAN v1 ESC port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS0_PID">UCAN1_GPS0_PID</strong> (INT32)</td>
+ <td>GPS 0 port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS1_PID">UCAN1_GPS1_PID</strong> (INT32)</td>
+ <td>GPS 1 port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
+ <td>UAVCAN v1 GPS port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_LG_BMS_PID">UCAN1_LG_BMS_PID</strong> (INT32)</td>
+ <td>UAVCAN v1 leagcy battery port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
+ <td>UAVCAN v1 Servo port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
+ <td>sensor_gps uORB over UAVCAN v1 port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
  <td></td>
 </tr>
 </tbody></table>
@@ -18347,83 +18402,6 @@ table {
  <td>    </td>
  <td></td>
  <td>0.1</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_BS_PID">UCAN1_BMS_BS_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_BMS_ES_PID">UCAN1_BMS_ES_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC0_PID">UCAN1_ESC0_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS0_PID">UCAN1_GPS0_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS1_PID">UCAN1_GPS1_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_LG_BMS_PID">UCAN1_LG_BMS_PID</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
- <td>    </td>
- <td></td>
- <td>0</td>
  <td></td>
 </tr>
 <tr>
