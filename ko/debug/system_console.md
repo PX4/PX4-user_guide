@@ -26,15 +26,11 @@ The System Console UART pinouts/debug ports are typically documented in [autopil
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
-- [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
-  - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitor-console)
-
 <a id="pixhawk_debug_port"></a>
 
 ### Connecting via FTDI 3.3V Cable
 
-Flight controllers that adhere to the Pixhawk Connector standard use the \[Pixhawk Standard Debug Port\]( https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
+Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 
 The port/FTDI mapping is shown below.
 
@@ -60,7 +56,6 @@ sudo apt-get install screen
 ```
 
 * Serial: Pixhawk v1 / Pixracer use 57600 baud
-* Serial: Snapdragon Flight uses 115200 baud
 
 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 

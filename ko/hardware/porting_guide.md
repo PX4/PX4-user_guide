@@ -43,7 +43,6 @@ This section describes the various middleware components, and the configuration 
 * Driver files are located in: [src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers). <!-- NEED px4_version -->
 * The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions).
 * The PX4 middleware configuration is located in [src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards). TODO: ADD BUS CONFIG
-* Reference config: Running `make eagle_default` builds the Snapdragon Flight reference config.
 
 
 ## RC UART Wiring Recommendations

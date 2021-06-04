@@ -10,5 +10,4 @@
 * [PX4 미들웨어](https://github.com/PX4/PX4-Autopilot) &mdash; BSD
 * [Pixhawk 하드웨어](https://github.com/PX4/Hardware) &mdash; CC-BY-SA 3.0
 * Snapdragon 하드웨어 &mdash; 퀄컴 상업용
-* [PX4 사용 설명서](https://github.com/PX4/px4_user_guide) (문서) &mdash;  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
   

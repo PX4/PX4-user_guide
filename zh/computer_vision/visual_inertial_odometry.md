@@ -23,6 +23,7 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 
 :::tip
 上面的[ Auterion 产品视频](https://auterion.com/enabling_uav_navigation_in_environments_with_limited_or_no_gps_signal/) 展示了一个无人机飞行使用了
+
 支持的设置</0>。 :::</p> 
 
 
@@ -207,4 +208,3 @@ Note 这个（支持的）解决方案使用 ROS 来路由 VIO 信息到 PX4 。
 ## 更多信息
 
 - [ECL/EKF 概述 & 调试 > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
-- [Snapdragon > 安装 > 安装 Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)

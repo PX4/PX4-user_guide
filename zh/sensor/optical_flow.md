@@ -43,7 +43,7 @@ Sensor data from the optical flow device is fused with other velocity data sourc
 
 ### Other Cameras/Sensors
 
-It is also possible to use a board/quad that has an integrated camera (e.g. Snapdragon Flight). For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
+It is also possible to use a board/quad that has an integrated camera. For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
 
 ## Range Finders
 

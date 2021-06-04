@@ -26,10 +26,6 @@ The system console can be accessed through the Dronecode probe or an FTDI cable.
 - [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
 - [Pixracer](../flight_controller/pixracer.md#debug-port)
 
-- [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
-  - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
-  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitor-console)
-
 <a id="pixhawk_debug_port"></a>
 
 ### Connecting via FTDI 3.3V Cable
@@ -60,7 +56,6 @@ sudo apt-get install screen
 ```
 
 * 串口：pixhawk v1/pixracer 使用 57600 波特率
-* 串口：骁龙飞控使用115200波特率
 
 Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 

@@ -38,7 +38,6 @@ VIO 使用[视觉测距](https://en.wikipedia.org/wiki/Visual_odometry)中的视
 关于在 PX4 上配置 VIO 的信息，请参阅：
 - [EKF > 外部视觉系统](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 - [T265 安装指南](../peripherals/camera_t265_vio.md)
-- [Snapdragon > 安装 > 安装 Snap VIO](../flight_controller/snapdragon_flight_software_installation.md#install-snap-vio)
 
 
 ## Optical Flow
