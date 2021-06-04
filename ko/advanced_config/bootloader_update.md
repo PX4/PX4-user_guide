@@ -5,28 +5,28 @@
 이 섹션은 픽스호크 부트로더를 업데이트 방법을 설명합니다.
 
 :::note
-하드웨어는 일반적으로 사전 설치된 적절한 부트로더 버전을 제공합니다. 업데이트가 필요한 경우는 FMUv2 펌웨어를 설치하는 최신 Pixhawk 보드입니다 : [펌웨어 > FMUv2 부트 로더 업데이트](../config/firmware.md#bootloader).
+하드웨어는 일반적으로 사전 설치된 적절한 부트로더 버전을 제공합니다. 업데이트가 필요한 경우는 FMUv2 펌웨어를 사용하는 최신 Pixhawk 보드입니다 : [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader).
 :::
 
 ## PX4 부트로더 직접 빌드
 
-Boards starting with FMUv6X (STM32H7) use the in-tree PX4 bootloader. Older boards use the bootloader from the legacy [PX4 bootloader](https://github.com/PX4/Bootloader) repository. Please refer to the instructions in the README to learn how to use it.
+FMUv6X STM32H7)로 시작하는 보드는 인트리 PX4 부트로더를 사용합니다. 이전 보드는 레거시 [PX4 부트로더](https://github.com/PX4/Bootloader) 저장소의 부트로더를 사용합니다. 사용 방법은 README의 지침을 참조하십시오.
 
-Build the new bootloader in the PX4-Autopilot folder with:
+다음을 사용하여 PX4-Autopilot 폴더에 새 부트로더를 빌드합니다.
 
     make px4_fmu-v6x_bootloader
     
 
-Which will build the bootloader binary as `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf` which can be flashed via SWD or DFU. If you are building the bootloader you should be familiar with one of these options already.
+부트로더 바이너리를 `build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf`로 빌드하며 SWD 또는 DFU를 통해 플래시 할 수 있습니다. 부트로더를 빌드하는 경우 이러한 옵션중 하나를 충분히 숙지하여야합니다.
 
-If you need a HEX file instead of an ELF file, use objcopy:
+ELF 파일 대신 HEX 파일이 필요한 경우에는 objcopy를 사용하십시오.
 
     arm-none-eabi-objcopy -O ihex build/px4_fmu-v6x_bootloader/px4_fmu-v6x_bootloader.elf px4_fmu-v6x_bootloader.hex
     
 
 <span id="qgc_bootloader_update"></span>
 
-## QGroundControl Bootloader Update
+## QGroundControl 부트로더 업데이트
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
