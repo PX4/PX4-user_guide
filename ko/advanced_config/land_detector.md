@@ -1,34 +1,34 @@
 # 착륙 감지기 설정
 
-착륙 감지기는 접지 및 착륙 상태의 모든 기체 핵심 상태를 나타내는 동적 기체 모델입니다. 이 주제에서는 기체의 착륙 활동을 개선하는 용도로 미세 조정할 수 있는 주요 매개변수를 설명합니다.
+착륙 감지기는 접지와 착륙 상태에서 기체의 핵심 상태를 나타내는 동적 기체 모델입니다. 이 섹션에서는 기체의 착륙 활동을 개선하는 용도로 미세 조정 가능한 주요 매개변수를 설명합니다.
 
-## 자동으로 시동 끄기
+## 자동 시동 끄기
 
 기체가 착륙하면 착륙 감지기에서 자동으로 시동을 끕니다.
 
 [ COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)를 설정하여 착륙 후 시스템의 시동이 꺼지는 시간(초)을 지정할 수 있습니다.(파라미터를 -1로 설정하여 자동으로 시동을 끄지 않을 수 있음). 
 
-## 멀티콥터 구성
+## 멀티콥터 설정 
 
-착륙 감지기 관련 매개변수는 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)가 붙어 있습니다(QGroundControl의 [매개변수 편집기](../advanced_config/parameters.md)에서 수정할 수 있습니다).
+착륙 감지기 관련 매개변수는 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)가 붙어 있습니다(QGroundControl의 [매개변수 편집기](../advanced_config/parameters.md)에서 수정 가능합니다).
 
 :::tip
-매개변수의 착륙 영향 관련 내용은 [착륙 감지 상태](#states)에서 살펴볼 수 있습니다.
+착륙 관련 매개변수들은 [착륙 감지 상태](#states)편을 참고하십시오.
 :::
 
-각 기체에서 착륙 동작을 개선할 목적으로 미세 조정해야 할 기타 핵심 매개변수는 다음과 같습니다:
+각 기체에서 착륙 동작 개선용 미세 조정 핵심 매개변수는 다음과 같습니다:
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - 시스템의 공중부양 추진력(기본값 50%). 고도를 좀 더 정확하게 제어하고 올바른 착륙 감지를 보장하도록 이 매개변수를 제대로 설정하는게 중요합니다. 적재 장치가 없는 레이서 또는 대형 카메라 드론은 좀 더 낮은 값을 설정해야합니다(예: 35%).
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - 시스템의 공중부양 추진력(기본값 50%). 고도를 정확하게 제어하고 올바른 착륙 감지를 보장하도록 이 매개변수를 정확하게 설정하여야 합니다. 적재 장치가 없는 레이서 또는 대형 카메라 드론은 좀 더 낮은 값을 설정하여야 합니다(예: 35%).
     
 :::note
-부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position 모드](../flight_modes/position_mc.md)나 [Altitude 모드](../flight_modes/altitude_mc.md)일 때 그렇습니다.) 이 현상은 기체의 "요동"(모터를 껐다가 즉시 모터가 켜지는) 현상을 유발합니다.
+부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [위치 모드](../flight_modes/position_mc.md)나 [고도 모드](../flight_modes/altitude_mc.md)에서 그렇습니다.) 이 현상은 기체의 "요동"(모터를 껐다가 즉시 모터가 켜지는) 현상을 유발합니다.
 :::
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 이 설정 값으로 제어 강하를 할 수 있어야 합니다.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 추진력. 제어 하강을 가능하게하기 위하여 설정되어야 합니다.
 
-## 고정익 구성
+## 고정익 설정 
 
-모든 관련 매개변수는 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 접두어가 붙어있습니다. 아래 매개변수 두가지는 때에 따라 약간 조정하시는게 좋습니다:
+관련 매개변수는 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 접두어가 붙어있습니다. 아래의 두 개의 매개변수는 수시로 약간씩 튜닝하는 것이 좋습니다.
 
 - [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 여전히 착륙했다고 간주할 수 있는 최대 항속. 기본값 8m/s는 대기속도 센서의 정확도와 착륙 감지기의 시작을 안정적으로 절충합니다. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
 - [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - 시스템이 착륙하는 것으로 간주되는 최대 수평 속도 
