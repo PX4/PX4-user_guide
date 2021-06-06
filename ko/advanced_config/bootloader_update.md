@@ -95,10 +95,10 @@ Dronecode 프로브를 FMU-DEBUG 포트에 연결하려면 케이스를 제거�
 
 9. 이제 바이너리를 픽스호크에 로드하십시오: ```(gdb) load```
 
-부트로더가 업데이트된 후 이제 *Qgroundcontrol*을 사용하여 [PX4 펌웨어를 로드할 수 있습니다](../config/firmware.md).
+부트로더가 업데이트된 후에는 *Qgroundcontrol*을 사용하여 [PX4 펌웨어를 로드할 수 있습니다](../config/firmware.md).
 
 ## 기타 보드 (Non-Pixhawk)
 
-[Pixhawk 시리즈](../flight_controller/pixhawk_series.md)가 아닌 보드는 자체 부트로더 업데이트 방식이 있습니다.
+[Pixhawk 시리즈](../flight_controller/pixhawk_series.md)가 아닌 보드는 자체적인 부트로더 업데이트 방식이 있습니다.
 
 Betaflight로 사전 플래싱된 보드에 대해서는 [Betaflight 시스템 부트로더 플래싱](bootloader_update_from_betaflight.md)을 참조하십시오.
