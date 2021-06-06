@@ -39,7 +39,7 @@ Pixhawk 시리즈 보드를 사용하는 경우 서보 레일에 별도로 전�
 
 안전 장치에 연결된 각각의 AUX포트 출력에 대해 다음을 설정하십시오. "n"은 PWM 포트 번호입니다:
 
-- [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)을 설정하여 failure detector를 활성화하십시오.
+- [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)을 설정하여 고장 감지기를 활성화하십시오.
 - [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude_trigger)는 *비행 중단*을 시작하는 한계 attitude를 구성하는 방법을 설명합니다. **참고** *이륙*중의 과한 attitude는 비행 중단 대신 *lockdown*(모터를 정지시키지만 낙하산을 발사하지 않음)을 시작합니다. lockdown은 `CBRK_FLIGHTTERM`의 값에 관계없이 항상 활성화됩니다.
 :::
 - [Safety > External Automatic Trigger System (ATS)](../config/safety.md#external_ats)은 외부 트리거 시스템을 설정하는 방법에 대해 설명합니다.
