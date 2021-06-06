@@ -40,34 +40,34 @@
 
 ### 멀티콥터 착륙 감지
 
-In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints. If a condition cannot be reached because of missing sensors, then the condition is true by default. For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
+멀티콥터는 착륙 감지에 3개의 서로 다른 상태를 거치게 됩니다. 각각의 상태는 이전 상태의 조건에 더해 엄격한 제약조건을 가지게 됩니다. 센서 손실로 인해 조건이 만족되지 않는다면, 기본값으로 그 조건은 참이 됩니다. 예를 들어, [곡예 모드](../flight_modes/acro_mc.md)에서 자이로스코프 센서를 제외한 다른 센서가 활성화되지 않았으면, 착륙 감지는 추력 출력값과 시간에 의존합니다.
 
-In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
+다음 상태로 넘어가려면, 미리 정해진 시간동안 각 조건들이 참인 상태를 유지하여야 합니다. 만약에 조건중 하나라도 만족하지 않으면, 착륙 감지기는 즉시 현재 상태를 벗어납니다.
 
 #### 접지
 
-다음 조건이 0.35초 동안 참이면 이 상태에 도달합니다:
+아래의 조건들이 0.35초 동안 참이면 접지 상태에 도달합니다:
 
 - 수직 방향으로 움직임이 없음 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 수평 방향으로 움직임이 없음 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, unless a hover thrust estimate is available, then 0.6), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-[MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * (0.3, 호버 추력 추정치를 사용할 수 없는 경우 0.6)나 속도 설정점보다 낮은 추력 지상 속도는 0.9이지만 기체의 수직 이동이 없습니다.
 
-If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
+기체가 위치나 속도 제어중에 지면 접촉을 감지하면, 위치 제어기는 기체의 x-y 축을 따르는 추력 벡터를 0으로 설정합니다.
 
 #### 착륙 예측
 
-다음 조건이 0.25초 동안 참이면 이 상태에 도달합니다:
+다음 조건이 0.25초 동안 참이면 착륙 예측 상태에 도달합니다:
 
 - 접지 조건이 모두 참일 경우
 - 기체 회전이 없을 경우 ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
 - 추력이 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`보다 낮을 경우
 
-If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
+만약 기체가 추력과 각가속도만을 알고 있다면, 다음 상태로 진입하기 위해서는 기체의 추력이 낮아야 하고, 8초 동안 회전하지 않아야 합니다.
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+만약 기체가 위치나 속도 제어중에 착륙 예측 상태를 감지하면, 위치 제어기는 기체의 추력 벡터를 0으로 설정합니다.
 
 #### 착륙
 
 다음 조건이 0.3초 동안 참이면 이 상태에 도달합니다:
 
-- maybe landed 조건이 모두 참일 경우
+- 착륙 예측 조건이 모두 참인 경우
