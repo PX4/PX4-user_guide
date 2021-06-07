@@ -1,20 +1,20 @@
-# 온도 교정 및 보상
+# 온도 교정과 보상
 
 PX4에는 센서 바이어스에 대한 센서 온도 변화의 영향에 대해 속도 자이로, 가속도계와 기압 센서를 보정합니다.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+[테스트 환경](#test_setup)과 [보정 절차](#calibration_procedures)에 대하여 자세히 설명합니다. 마지막에는 [구현](#implementation) 과정을 대하여 설명합니다.
 
 :::note
-After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+열 교정 후 열 교정 매개변수(`TC_*`)는 각 센서의 *모든* 교정과 보상에 사용됩니다. 따라서, 모든 후속 표준 보정은 "정상"`SYS_CAL_*` 보정 매개변수가 아닌 `TC_*` 매개변수를 업데이트합니다 (일부 경우, 이러한 매개변수가 재설정될 수 있음).
 :::
 
 :::note
-At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
+작성 시점에서 (PX4 v1.11) 자력계의 열 교정은 아직 지원되지 않습니다.
 :::
 
 <span id="test_setup"></span>
 
-## Test Setup/Best Practice
+## 테스트 설정 / 모범 사례
 
 The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
 
