@@ -68,6 +68,9 @@ ekf2 <command> [arguments...]
    stop
 
    status        print status info
+
+   select_instance Request switch to new estimator instance
+     <instance>  Specify desired estimator instance
 ```
 ## local_position_estimator
 Source: [modules/local_position_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/local_position_estimator)
