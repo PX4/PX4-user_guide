@@ -5,7 +5,7 @@ PX4에는 센서 바이어스에 대한 센서 온도 변화의 영향에 대해
 [테스트 환경](#test_setup)과 [보정 절차](#calibration_procedures)에 대하여 자세히 설명합니다. 마지막에는 [구현](#implementation) 과정을 대하여 설명합니다.
 
 :::note
-열 교정 후 열 교정 매개변수(`TC_*`)는 각 센서의 *모든* 교정과 보상에 사용됩니다. 따라서, 모든 후속 표준 보정은 "정상"`SYS_CAL_*` 보정 매개변수가 아닌 `TC_*` 매개변수를 업데이트합니다 (일부 경우, 이러한 매개변수가 재설정될 수 있음).
+열 교정 후 열 교정 매개변수(`TC_*`)는 각 센서의 *모든* 교정과 보상에 사용됩니다. 따라서, 모든 후속 표준 보정은 "정상"`SYS_CAL_*` 보정 매개변수가 아닌 `TC_*` 매개변수들을 수정합니다(일부 경우, 이러한 매개변수가 재설정될 수 있음).
 :::
 
 :::note
@@ -51,12 +51,12 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 온보드 보정을 수행하려면 :
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
-3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. If this parameter is too small, then the calibration will complete early and the temperature range for the calibration will not be sufficient to compensate when the board is fully warmed up. If this parameter is set too large, then the onboard calibrator will never complete. allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
-4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. This enables a lower cold soak ambient temperature to be used to reduce the cold soak time whilst maintaining control over the calibration minimum temperature. The data for a sensor will not be used by the calibrator if it is below the value set by this parameter.
-5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. If the starting temperature is higher than the value set by this parameter, the calibration will exit with an error. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
-6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
+1. 보정전에 프레임 유형이 설정되어 있는 지 확인하십시오. 그렇지 않으면, 보드가 설정시 보정 매개변수가 손실될 수 있습니다.
+2. 보드에 전원을 공급하고 `SYS_CAL_*` 매개변수를 1로 설정하여 다음 시작시 필요한 센서의 보정을 활성화합니다. [^1]
+3. [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) 매개변수를 온보드 캘리브레이터가 완료하는 데 필요한 온도 상승 정도로 설정합니다. 이 매개변수가 너무 작으면 보정이 일찍 완료되고, 보정 온도 범위가 보드가 완전히 예열될 때 보정하기에 충분하지 않습니다. 매개변수 값이 너무 크면, 온보드 캘리브레이터가 완료되지 않습니다. 이 매개 변수를 설정시 보드 자체 발열로 인한 온도 상승 부분을 허용하여야 합니다. 센서의 온도 상승량을 알 수 없는 경우에는 오프 보드 방식을 사용하는 것이 좋습니다.
+4. [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) 매개변수를 교정기가 사용할 최저 온도로 설정합니다. 이를 통해 교정 최소 온도에 대한 제어를 유지하면서 저온 흡수 시간을 줄이기 위하여 더 낮은 저온 흡수 주변 온도를 사용할 수 있습니다. 센서의 데이터가 이 매개변수로 설정된 값보다 낮으면, 캘리브레이터에서 사용되지 않습니다.
+5. [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) 매개변수를 교정기에서 허용 가능한 최고 시작 센서 온도로 설정합니다. 시작 온도가 이 매개변수로 설정된 값보다 높으면 오류가 발생하면서 보정이 종료됩니다. 서로 다른 센서에서 측정된 온도 변화가 `SYS_CAL_TMAX`와 `SYS_CAL_TMIN` 사이의 간격을 초과하면 보정을 시작할 수 없습니다.
+6. 전원을 제거하고 `SYS_CAL_TMIN` 매개변수에 지정된 시작 온도 이하로 보드를 냉각시킵니다. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
 7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
 8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
 9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
