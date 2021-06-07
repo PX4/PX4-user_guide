@@ -38,7 +38,7 @@ PX4에는 센서 바이어스에 대한 센서 온도 변화의 영향에 대해
 
 PX4는 두 가지 보정 절차를 지원합니다.
 
-* [온보드](#onboard_calibration) - 보드 자체에서 보정합니다. 이 방법을 사용하려면 테스트 설정으로 달성할 수있는 온도 상승값에 대한 지식이 필요합니다.
+* [온보드](#onboard_calibration) - 보드 자체에서 보정합니다. 이 방법을 사용하려면 테스트 설정으로 달성할 수있는 온도 상승 양에 대한 지식이 필요합니다.
 * [오프 보드](#offboard_calibration) - 보정 매개변수는 보정중 수집된 로그 정보를 기반으로 개발 컴퓨터에서 계산합니다. 이 방법으로 사용자는 데이터의 품질과 곡선 맞춤을 시각적으로 확인할 수 있습니다.
 
 오프 보드 접근 방식은 더 복잡하고 느리지만, 테스트 설정에 대한 지식이 덜 필요하고 검증하기가 용이합니다.
@@ -47,9 +47,9 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 ### 온보드 교정 절차
 
-Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup.
+온보드 보정은 전적으로 장치에서 실행됩니다. 테스트 설정으로 달성할 수있는 온도 상승 양에 대한 지식이 필요합니다.
 
-To perform and onboard calibration:
+온보드 보정을 수행하려면 :
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
 2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
