@@ -81,13 +81,13 @@ PX4는 두 가지 보정 절차를 지원합니다.
 <li><strong>Firmware/Tools</strong> 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다. 
 <pre><code>sh
 python process_sensor_caldata.py <full path name to .ulog file>`</pre> 그러면 측정된 데이터와 각 센서의 곡선 맞춤을 보여주는 **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
-3. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. Due to the number of parameters, loading them may take some time.
-4. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-5. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+3. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. 매개변수의 갯수가 많이지므로, 로드 시간이 길어질 수 있습니다.
+4. 매개변수 로드가 완료된 후 `SDLOG_MODE`를 1로 설정하여 일반 로깅을 다시 활성화하고 전원을 제거하십시오.
+5. *QGroundControl*을 사용하여 보드에 전원을 공급하고 일반적인 가속도계 센서 보정을 수행합니다. 보드의 교정 온도 범위 내에서, 이 단계를 수행하여야 합니다. 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란할 수 있고, 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 이 단계 후에는 보드에 전원을 공급하여야 합니다.
 
 <span id="implementation"></span>
 
-## Implementation Detail
+## 구현 상세
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
