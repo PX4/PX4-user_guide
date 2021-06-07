@@ -56,36 +56,34 @@ PX4는 두 가지 보정 절차를 지원합니다.
 3. [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) 매개변수를 온보드 캘리브레이터가 완료하는 데 필요한 온도 상승 정도로 설정합니다. 이 매개변수가 너무 작으면 보정이 일찍 완료되고, 보정 온도 범위가 보드가 완전히 예열될 때 보정하기에 충분하지 않습니다. 매개변수 값이 너무 크면, 온보드 캘리브레이터가 완료되지 않습니다. 이 매개 변수를 설정시 보드 자체 발열로 인한 온도 상승 부분을 허용하여야 합니다. 센서의 온도 상승량을 알 수 없는 경우에는 오프 보드 방식을 사용하는 것이 좋습니다.
 4. [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) 매개변수를 교정기가 사용할 최저 온도로 설정합니다. 이를 통해 교정 최소 온도에 대한 제어를 유지하면서 저온 흡수 시간을 줄이기 위하여 더 낮은 저온 흡수 주변 온도를 사용할 수 있습니다. 센서의 데이터가 이 매개변수로 설정된 값보다 낮으면, 캘리브레이터에서 사용되지 않습니다.
 5. [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) 매개변수를 교정기에서 허용 가능한 최고 시작 센서 온도로 설정합니다. 시작 온도가 이 매개변수로 설정된 값보다 높으면 오류가 발생하면서 보정이 종료됩니다. 서로 다른 센서에서 측정된 온도 변화가 `SYS_CAL_TMAX`와 `SYS_CAL_TMIN` 사이의 간격을 초과하면 보정을 시작할 수 없습니다.
-6. 전원을 제거하고 `SYS_CAL_TMIN` 매개변수에 지정된 시작 온도 이하로 보드를 냉각시킵니다. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
-7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
-8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
-9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
-10. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
+6. 전원을 제거하고 `SYS_CAL_TMIN` 매개변수에 지정된 시작 온도 이하로 보드를 냉각시킵니다. 센서가 안정화 될 수 있도록 보정이 시작되기 전에 시작시 10 초의 지연이 있으며 센서는이 기간 동안 내부적으로 예열됩니다.
+7. 보드를 고정 [^2]으로 유지한 체로 전원을 공급하고 `SYS_CAL_TDEL` 매개변수로 지정된 온도 상승을 달성 할 수있을 만큼 충분히 높은 온도로 예열합니다. 완료율은 보정중 시스템 콘솔에 표시됩니다. [^3]
+8. 보정이 완료되면 전원을 제거하고, 다음 단계를 수행하기 전에 보정 범위 내의 온도로 보드를 냉각합니다.
+9. `commander calibrate accel`을 사용하거나 *QGroundControl*을 통하여 시스템 콘솔을 통해 6 포인트 가속 보정을 수행합니다. 보드를 처음 설정하는 경우에는 자이로와 자력계 보정도 수행하여야 합니다.
+10. 보정중 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란스럽고 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 센서 보정 후 비행하기 전에 항상 보드에 전원을 다시 공급해야합니다. 
 
 <span id="offboard_calibration"></span>
 
-### Offboard Calibration Procedure
+### 오프보드 교정 절차
 
-Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
+오프보드 보정은 보정 테스트 중에 수집된 데이터를 사용하여 개발 컴퓨터에서 실행됩니다. 이 방법은 데이터 품질과 곡선 맞춤을 시각적으로 제공합니다.
 
-To perform an offboard calibration:
+오프보드 보정을 수행하려면 :
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
-3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) parameters to defaults.
-4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
-5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
-6. Cold soak the board to the minimum temperature it will be required to operate in.
-7. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script: 
-        sh
-        python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
-    
-    **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+1. 보정전에 프레임 유형이 설정되어 있는 지 확인하십시오. 그렇지 않으면, 보드가 설정시 보정 매개변수가 손실될 수 있습니다.
+2. 보드 전원을 켜고 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 및 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 `1</ 3>으로 설정합니다.</li>
+<li>모든 <a href="../advanced_config/parameter_reference.md#CAL_GYRO0_ID">CAL_GYRO*</a> 및 <a href="../advanced_config/parameter_reference.md#CAL_ACC0_ID">CAL_ACC*</a> 매개변수를 기본값으로 설정합니다.</li>
+<li><a href="../advanced_config/parameter_reference.md#SDLOG_MODE">SDLOG_MODE</a> 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다. </li>
+<li><em>열 교정</em>(비트 2)에 대한 <a href="../advanced_config/parameter_reference.md#SDLOG_PROFILE">SDLOG_PROFILE</a> 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.</li>
+<li>보드를 작동하는 데 필요한 최소 온도로 냉각합니다.</li>
+<li>전원을 공급하고 보드를 <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup></li>
+<li>전원을 제거하고 .ulog 파일을 추출하십시오.</li>
+<li><strong>Firmware/Tools</strong> 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다. 
+<pre><code>sh
+python process_sensor_caldata.py <full path name to .ulog file>`</pre> 그러면 측정된 데이터와 각 센서의 곡선 맞춤을 보여주는 **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
+3. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. Due to the number of parameters, loading them may take some time.
+4. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+5. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 <span id="implementation"></span>
 
