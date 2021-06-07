@@ -106,6 +106,16 @@ The `_default` suffix is the firmware _configuration_.
 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
+:::note
+If you encounter issues with `arm_none_eabi_gcc` during the build process, it may be due to a borked G++ toolchain installation. You may verify that this is the case by checking for missing dependecies using:
+```arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+arm-none-eabi-size --version
+```
+This can be resolved by removing and reinstalling the compiler, as described by the process found here (https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)
+:::
+
 
 ### Uploading Firmware (Flashing the board)
 
