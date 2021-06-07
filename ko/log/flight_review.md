@@ -66,7 +66,7 @@ y 축 스케일링은 기체마다 다르지만, 동일한 기체의 로그를 �
 ![저진동 QAV-R 5 Racer - FFT 그래프](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
 :::note
-The excellent vibration characteristics of the above frame mean that we can considerably increase the cutoff frequency of the [software filters](../config_mc/filter_tuning.md) (reducing control latency).
+위 프레임의 뛰어난 진동 특성은 [소프트웨어 필터](../config_mc/filter_tuning.md)의 차단 주파수를 상당히 증가시킬 수 있음을 의미합니다 (제어 지연 시간 감소).
 :::
 
 DJI F450 프레임(양호한 진동).

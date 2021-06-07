@@ -42,7 +42,7 @@ ELF 파일 대신 HEX 파일이 필요한 경우에는 objcopy를 사용하십�
     
     ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-3. 기체가 재부팅 될 때까지 기다리십시오.
+3. 기체가 재부팅될 때까지 기다리십시오.
 
 4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
 5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
