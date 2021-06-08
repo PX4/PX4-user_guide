@@ -71,19 +71,21 @@ PX4는 두 가지 보정 절차를 지원합니다.
 오프보드 보정을 수행하려면 :
 
 1. 보정전에 프레임 유형이 설정되어 있는 지 확인하십시오. 그렇지 않으면, 보드가 설정시 보정 매개변수가 손실될 수 있습니다.
-2. 보드 전원을 켜고 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 및 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 `1</ 3>으로 설정합니다.</li>
-<li>모든 <a href="../advanced_config/parameter_reference.md#CAL_GYRO0_ID">CAL_GYRO*</a> 및 <a href="../advanced_config/parameter_reference.md#CAL_ACC0_ID">CAL_ACC*</a> 매개변수를 기본값으로 설정합니다.</li>
-<li><a href="../advanced_config/parameter_reference.md#SDLOG_MODE">SDLOG_MODE</a> 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다. </li>
-<li><em>열 교정</em>(비트 2)에 대한 <a href="../advanced_config/parameter_reference.md#SDLOG_PROFILE">SDLOG_PROFILE</a> 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.</li>
-<li>보드를 작동하는 데 필요한 최소 온도로 냉각합니다.</li>
-<li>전원을 공급하고 보드를 <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup></li>
-<li>전원을 제거하고 .ulog 파일을 추출하십시오.</li>
-<li><strong>Firmware/Tools</strong> 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다. 
-<pre><code>sh
-python process_sensor_caldata.py <full path name to .ulog file>`</pre> 그러면 측정된 데이터와 각 센서의 곡선 맞춤을 보여주는 **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
-3. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. 매개변수의 갯수가 많이지므로, 로드 시간이 길어질 수 있습니다.
-4. 매개변수 로드가 완료된 후 `SDLOG_MODE`를 1로 설정하여 일반 로깅을 다시 활성화하고 전원을 제거하십시오.
-5. *QGroundControl*을 사용하여 보드에 전원을 공급하고 일반적인 가속도계 센서 보정을 수행합니다. 보드의 교정 온도 범위 내에서, 이 단계를 수행하여야 합니다. 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란할 수 있고, 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 이 단계 후에는 보드에 전원을 공급하여야 합니다.
+2. 보드 전원을 켜고 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 및 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 `1`으로 설정합니다.
+3. 모든 [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_ID) 및 [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_ID) 매개변수를 기본값으로 설정합니다.
+4. [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개변수를 2로 설정하여 부팅에서 데이터 로깅을 활성화합니다. 
+5. *열 교정*(비트 2)에 대한 [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 확인란을 설정하여 교정에 필요한 원시 센서 데이터를 기록합니다.
+6. 보드를 작동에 필요한 최소 온도로 냉각합니다.
+7. 전원을 공급하고 보드를 <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>로 유지하고, 필요한 최대 작동 온도까지 천천히 올립니다. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+8. 전원을 제거하고 .ulog 파일을 추출하십시오.
+9. **Firmware/Tools** 디렉토리에서 터미널 창을 열고 Python 보정 스크립트를 실행합니다. 
+        sh
+        python process_sensor_caldata.py <full path name to .ulog file> 그러면 측정된 데이터와 각 센서의 곡선 맞춤을 보여주는 
+    
+    **.pdf** 파일과 보정 매개변수가 포함된 **.params** 파일이 생성됩니다.
+10. 보드에 전원을 공급하고 *QGroundControl*을 연결하고 *QGroundControl*을 사용하여 생성된 **.params** 파일의 매개변수를 보드로 로드합니다. 매개변수의 갯수가 많이지므로, 로드 시간이 길어질 수 있습니다.
+11. 매개변수 로드가 완료된 후 `SDLOG_MODE`를 1로 설정하여 일반 로깅을 다시 활성화하고 전원을 제거하십시오.
+12. *QGroundControl*을 사용하여 보드에 전원을 공급하고 일반적인 가속도계 센서 보정을 수행합니다. 보드의 교정 온도 범위 내에서, 이 단계를 수행하여야 합니다. 갑작스러운 오프셋 변경으로 인하여 내비게이션 추정기가 혼란할 수 있고, 일부 매개변수는 다음 시작까지 이를 사용하는 알고리즘에 의해 로드되지 않기 때문에 이 단계 후에는 보드에 전원을 공급하여야 합니다.
 
 <span id="implementation"></span>
 
