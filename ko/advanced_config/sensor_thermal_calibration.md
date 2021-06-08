@@ -144,17 +144,17 @@ PX4는 두 가지 보정 절차를 지원합니다.
     corrected_measurement = (raw_measurement - offset) * scale_factor
     
 
-If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
+온도가 `*_TMIN` 및 `*_TMAX` 매개변수로 설정된 테스트 범위를 초과하면 측정 온도가 제한 범위 내에 유지되도록 클리핑됩니다.
 
-Correction of the accelerometer, barometers or rate gyroscope data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) or [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to 1 respectively.
+가속도계, 기압계 또는 속도 자이로 스코프 데이터의 수정은 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 또는 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 매개변수를 각각 1로 설정하여 활성화됩니다.
 
-### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
+### 레거시 `CAL_*` 매개변수 및 지휘관 제어 보정과의 호환성
 
-The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibration is performed by the commander module and involves adjusting offset, and in the case of accelerometer calibration, scale factor calibration parameters. The offset and scale factor parameters are applied within the driver for each sensor. These parameters are found in the [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration).
+레거시 온도에 구애받지 않는 PX4 속도 자이로 및 가속도계 센서 교정은 커맨더 모듈에 의해 수행되며 오프셋 조정이 포함되며 가속도계 교정의 경우 스케일 팩터 교정 매개변수가 포함됩니다. 오프셋 및 배율 매개변수는 각 센서의 드라이버 내에 적용됩니다. 이러한 매개변수는 [CAL 매개변수 그룹](../advanced_config/parameter_reference.md#sensor-calibration)에 있습니다.
 
-Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
+온보드 온도 보정은 이벤트 모듈에 의해 제어되며 센서 결합 uORB 주제가 게시되기 전에 센서 모듈 내에서 보정이 적용됩니다. 즉, 열 보정을 사용하는 경우 열 보정을 수행하기 전에 모든 해당 레거시 오프셋 및 배율 매개변수를 기본값 0 및 단일로 설정하여야 합니다. 온보드 온도 보정이 수행되면 자동으로 수행되지만 오프 보드 보정이 수행되는 경우 레거시 `CAL*OFF` 및 `CAL*SCALE`이 중요합니다. 매개변수는 교정 데이터가 기록되기 전에 재설정됩니다.
 
-If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
+`TC_G_ENABLE` 매개변수를 1로 설정하여 자이로 열 보정을 활성화한 경우 커맨더 제어 자이로 보정을 수행할 수 있지만, 필요한 양만큼 보정 곡선을 위아래로 이동하는 데 사용됩니다. 각도 속도 오프셋을 제로화합니다. X0 계수를 조정하여 이를 달성합니다.
 
 If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
 
