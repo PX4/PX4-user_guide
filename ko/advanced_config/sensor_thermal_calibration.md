@@ -91,9 +91,9 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 ## 구현 상세
 
-Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
+교정은 내부 온도 범위에서 센서 값의 변화를 측정하고 데이터에 대해 다항식 맞춤을 수행하여 센서 데이터를 수정에 사용하는 계수 세트 (매개변수로 저장됨)를 계산하는 프로세스를 의미합니다. 보상은 온도에 따른 오프셋 변경을 수정하기 위하여 센서 판독 값에서 차감되는 오프셋을 계산하기 위해 내부 온도를 사용하는 프로세스를 의미합니다.
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+관성 속도 자이로와 가속도계 센서 오프셋은 3차 다항식을 사용하여 계산되는 반면, 기압 센서 오프셋은 5차 다항식을 사용하여 계산됩니다. 맞춤 예시는 아래와 같습니다.
 
 ![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
 
@@ -101,18 +101,18 @@ The inertial rate gyro and accelerometer sensor offsets are calculated using a 3
 
 ![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
 
-### Calibration Parameter Storage
+### 교정 매개변수 저장
 
-With the existing parameter system implementation we are limited to storing each value in the struct as a separate entry. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
+기존 매개변수 시스템 구현에서는 구조체의 각 값을 별도의 항목으로 저장하는 것으로 제한됩니다. 이 제한을 해결하기 위하여 다음 논리적 명명 규칙이 [열 보상 매개변수](../advanced_config/parameter_reference.md#thermal-compensation)에 사용됩니다.
 
     TC_[type][instance]_[cal_name]_[axis]
     
 
-Where:
+여기서:
 
-* `type`: is a single character indicating the type of sensor where `G` = rate gyroscope, `A` = accelerometer and `B` = barometer.
-* `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
-* `cal_name`: is a string identifying the calibration value. It has the following possible values:
+* `type` : 센서 유형을 나타내는 단일 문자입니다. 여기서 `G` = 속도 자이로 스코프, `A` = 가속도계 및 `B` = 기압계.
+* `instance` : 정수 0,1 또는 2로 동일한 `type`의 센서를 최대 3 개까지 보정할 수 있습니다.
+* `cal_name` : 교정치 식별 문자열입니다. 다음의 값을 가질 수 있습니다.
     
     * `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
     * `SCL`: scale factor.
