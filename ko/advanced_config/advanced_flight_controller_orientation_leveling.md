@@ -1,9 +1,9 @@
-# 고급 비행 제어장치 방향 조정
+# 고급 비행 콘트롤러 방향 설정
 
-방향 및 수평 균형은 매개변수 값을 직접 설정하여 센서 모드의 미세 오정렬 또는 부차적 보정 오류를 잡아 수정할 수 있습니다.
+방향과 수평 평형은 센서 보드의 작은 정렬 불량이나 사소한 교정 오류를 수정하기 위하여 매개변수를 사용하여 수동으로 미세 조정 가능합니다.
 
 :::note
-These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
+이 지침은 일반 사용자에게는 권장되지 않습니다. For basic settings stick to the instructions linked below:
 
 - [비행 제어장치 방향](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md)
