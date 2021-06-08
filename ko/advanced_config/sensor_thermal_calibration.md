@@ -95,11 +95,11 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 관성 속도 자이로와 가속도계 센서 오프셋은 3차 다항식을 사용하여 계산되는 반면, 기압 센서 오프셋은 5차 다항식을 사용하여 계산됩니다. 맞춤 예시는 아래와 같습니다.
 
-![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
+![열 교정 자이로](../../assets/calibration/thermal_calibration_gyro.png)
 
-![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
+![열 교정 가속도](../../assets/calibration/thermal_calibration_accel.png)
 
-![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
+![열 교정 기압계](../../assets/calibration/thermal_calibration_baro.png)
 
 ### 교정 매개변수 저장
 
@@ -168,4 +168,4 @@ PX4는 두 가지 보정 절차를 지원합니다.
 
 [^2]: 기압 센서 오프셋을 보정하려면 안정적인 기압 환경이 필요합니다. 기압은 날씨에는 느리게 변하고 건물 내부에서는 외부 바람과 HVAC 작동으로 인해 빠르게 변할 수 있습니다.[&#8617;](#fnref2:2){.footnote-backref}
 
-[^3]: Care must be taken when warming a cold soaked board to avoid formation of condensation on the board that can cause board damage under some circumstances.[&#8617;](#fnref2:3){.footnote-backref}
+[^3]: 일부 상황에서 결로로 인하여 보드를 손상을 방지하기 위하여 냉각한 보드를 데울 때주의하여야합니다.[&#8617;](#fnref2:3){.footnote-backref}
