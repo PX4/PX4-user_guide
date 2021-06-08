@@ -14,7 +14,7 @@
 항공용, 지상용, 해양/수중용 드론이 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론의 "뇌"에 해당하는 장치를 오토파일럿이라고 합니다. 자율 비행 프로그램은 비행 제어 장치에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
+드론의 "뇌"에 해당하는 장치를 오토파일럿이라고 합니다. 자율 비행 프로그램은 비행제어 장치에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
 
 <a id="autopilot"></a>
 
@@ -177,15 +177,15 @@ SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행
 
 ## 시동 걸고 해제하기
 
-기체에 전원을 켜면 안전 사고를 유발할 수 있는 여러 부품이 있습니다(그 대표적인 부분이 바로 모터와 프로펠러입니다)!
+기체에 전원을 켜면 안전 사고를 유발하는 모터와 프로펠러와 같은 부품들이 있습니다.
 
 사고 발생 가능성을 줄이려면:
 
-- PX4 기체는 비행 중이 아닐 때는 *시동을 해제하고* (전원 차단), 이륙 전에는 제대로 *시동을 켜야*함.
-- A vehicle will automatically disarm if a pilot does not take off quickly enough, and after landing (the disarm time is configurable).
-- Some vehicles also have a [safety switch](#safety_switch) that must be disengaged before arming can succeed (often this switch is part of the GPS).
-- Arming is prevented if the vehicle is not in a "healthy" state.
-- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+- PX4 기체는 비행 중이 아닐 때는 *시동을 해제하고* (전원 차단), 이륙 전에는 제대로 *시동을 켜야*합니다.
+- 조종사가 빨리 이륙하지 않으면, 착륙후 기체는 자동으로 시동 해제됩니다. 시동 해제 시간은 설정 가능합니다.
+- 일부 기체에는 시동전에 조작하는 [안전 스위치](#safety_switch)(보통 GPS 수신기의 일부임)가 장착되어 있습니다.
+- 기체가 "정상" 상태가 아니면, 시동은 걸리지 않습니다.
+- 수직이착륙기를 고정익 모드로 설정하면 시동이 걸리지 않습니다.([기본 설정](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 
 (모드 2 수신기의 경우) 추진력/방위각 조절 스틱을 *우측 하단*에 두어 1초 정도 유지하면 시동이 걸립니다(시동을 해제하려면, 좌측 하단으로 둠). PX4에서 무선 조종 스위치 또는 단추로 시동을 걸게끔 대신 설정할 수도 있습니다(그리고 MAVLink 시동 명령을 지상 통제 장치에서 보낼 수도 있음).
 

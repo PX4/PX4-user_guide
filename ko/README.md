@@ -4,10 +4,10 @@
 
 [![배포](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![토론](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![슬랙](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4는 *전문적인 자율비행 프로그램* 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활동중인 단체의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박 등 다양한 운송체에 적용할 수 있습니다. 
+PX4는 *전문적인 자율비행 프로그램* 입니다. 세계적인 수준의 개발자들이 산업계와 학계에서 참여하여 개발하였으며, 여러 나라에서 활동중인 단체의 지원을 받을 수 있습니다. 레이싱 드론, 운송용 드론, 자동차와 선박 등의 다양한 운송체에 적용 가능합니다.
 
 :::tip
-이 안내서는 PX4를 이용한 기체 조립, 설정 및 비행 방법 등을 설명합니다. 기여를 하시려면, [개발](development/development.md)편을 참고하여 주십시오.
+이 안내서는 PX4를 이용한 기체 조립, 설정과 비행 방법 등을 설명합니다. 기여를 하시려면, [개발](development/development.md)편을 참고하여 주십시오.
 :::
 
 ## 시작하기
