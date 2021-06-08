@@ -2,7 +2,7 @@
 
 핸드 헬드 송신기로 차량을 * 수동으로 * 제어하려면 무선조종기(RC)가 필요합니다. 무선 조종기의 작동 방식, 차량에 적합한 무선 시스템 선택법 및 비행 제어기에 연결하는 법에 대하여 설명합니다.
 
-:::note PX4에서 자율 비행 모드 비행시에는 무선 조종기가 반드시 필요하지 않습니다. PX4에서 [매개 변수](../advanced_config/parameters.md) : [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 1로 설정하여 무선 조종기 사용을 비활성화 할 수 있습니다.
+:::note PX4에서 자율 비행 모드 비행시에는 무선 조종기가 반드시 필요하지 않습니다. PX4에서 [매개 변수](../advanced_config/parameters.md) [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 1로 설정하여 무선 조종기 사용을 비활성화 할 수 있습니다.
 :::
 
 ## 무선 조종기 작동 방법
