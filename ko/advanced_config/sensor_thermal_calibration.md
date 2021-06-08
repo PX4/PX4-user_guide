@@ -114,32 +114,32 @@ PX4는 두 가지 보정 절차를 지원합니다.
 * `instance` : 정수 0,1 또는 2로 동일한 `type`의 센서를 최대 3 개까지 보정할 수 있습니다.
 * `cal_name` : 교정치 식별 문자열입니다. 다음의 값을 가질 수 있습니다.
     
-    * `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
-    * `SCL`: scale factor.
-    * `TREF`: reference temperature (deg C).
-    * `TMIN`: minimum valid temperature (deg C).
-    * `TMAX`: maximum valid temperature (deg C).
+    * `Xn` : n은 계수의 차수인 다항식 계수입니다. `X3*(온도 - 기준 온도)** 3`.
+    * `SCL` : 축척 비율.
+    * `TREF` : 기준 온도(deg C).
+    * `TMIN` : 최소 유효 온도(deg C).
+    * `TMAX` : 최대 유효 온도(deg C).
 
-* `axis`: is an integer 0,1 or 2 indicating that the calibration data is for X,Y or Z axis in the board frame of reference. For the barometric pressure sensor, the `axis` suffix is omitted.
+* `axis` : 보정 데이터가 기준 보드 프레임의 X, Y 또는 Z 축을 나타내는 정수 0,1 또는 2입니다. 기압 센서의 경우 `axis` 접미사가 생략됩니다.
 
-Examples:
+예제:
 
-* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
-* [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) is the reference temperature for the second accelerometer.
+* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0)은 첫 번째 자이로 x 축에 대한 `^3` 계수입니다.
+* [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF)는 두 번째 가속도계의 기준 온도입니다.
 
-### Calibration Parameter Usage
+### 교정 매개 변수 사용법
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](../modules/modules_system.md#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+열 오프셋에 대한 수정(교정 매개변수 사용)은 [센서 모듈](../modules/modules_system.md#sensors)에서 수행됩니다. 측정 온도에서 기준 온도를 차감하여 다음과 같은 델타 온도를 얻습니다.
 
     delta = measured_temperature - reference_temperature
     
 
-The delta temperature is then used to calculate a offset, where:
+그런 다음 델타 온도를 사용하여 오프셋을 계산합니다.
 
     offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
     
 
-The offset and temperature scale factor are then used to correct the sensor measurement where:
+오프셋 및 온도 스케일 계수는 다음과 같은 경우 센서 측정을 수정하는 데 사용됩니다.
 
     corrected_measurement = (raw_measurement - offset) * scale_factor
     
