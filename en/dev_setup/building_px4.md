@@ -100,22 +100,9 @@ The following list shows the build commands for the [Pixhawk standard](../flight
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
-
-:::note
 The `_default` suffix is the firmware _configuration_.
 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
-
-:::note
-If you encounter issues with `arm_none_eabi_gcc` during the build process, it may be due to a borked G++ toolchain installation. You may verify that this is the case by checking for missing dependecies using:
-```arm-none-eabi-gcc --version
-arm-none-eabi-g++ --version
-arm-none-eabi-gdb --version
-arm-none-eabi-size --version
-```
-This can be resolved by removing and reinstalling the compiler, as described by the process found here (https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)
-:::
-
 
 ### Uploading Firmware (Flashing the board)
 
@@ -202,6 +189,24 @@ If you have build problems on this platform then try run the following command i
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
+
+### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+If you encounter issues with `arm_none_eabi_gcc` during the build process, it may be due to a broken g++ toolchain installation. You may verify that this is the case by checking for missing dependencies using:
+```arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+arm-none-eabi-size --version
+```
+
+Example of bash output with missing dependencies:
+```
+arm-none-eabi-gdb --version
+arm-none-eabi-gdb: command not found
+```
+
+This can be resolved by removing and reinstalling the compiler, as described by the process found here (https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+
+
 
 ### Failed to import Python packages
 
