@@ -99,6 +99,7 @@ The following list shows the build commands for the [Pixhawk standard](../flight
   :::
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
+:::note
 Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards) are provided in the documentation for the individual [flight controller boards](../flight_controller/README.md).
 The `_default` suffix is the firmware _configuration_.
 This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
