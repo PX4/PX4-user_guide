@@ -93,7 +93,6 @@ kk
 The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-
 ### Uploading Firmware (Flashing the board)
 
 The "px4" executable file is in the directory **build/emlid_navio2_cross/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
@@ -171,12 +170,31 @@ xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
+### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+
+Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+```bash
+cd Firmware
+make emlid_navio2_cross # for cross-compiler build
+```
+
+Example of bash output with missing dependencies:
+```bash
+arm-none-eabi-gdb --version
+arm-none-eabi-gdb: command not found
+```
+
+This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+
+
+
 ### Failed to import Python packages
 
 "Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
 ```
-cd Firmware
-make emlid_navio2_cross # for cross-compiler build
+Failed to import jinja2: No module named 'jinja2'
+You may need to install it using:
+    pip3 install --user jinja2
 ```
 If you have already installed these dependencies this may be because there is more than one Python version on the computer (e.g. Python 2.7.16 Python 3.8.3), and the module is not present in the version used by the build toolchain.
 
