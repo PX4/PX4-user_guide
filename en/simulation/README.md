@@ -274,7 +274,7 @@ There are a number of ways to make the UDP packets available on external interfa
 
 ### Enable MAV_BROADCAST
 
-Enable [MAV_BROADCAST](../advanced_config/parameter_reference.md#MAV_BROADCAST) to broadcast heartbeats on the local network.
+Enable [MAV_BROADCAST](../advanced_config/parameter_reference.md#MAV_BROADCAST) to broadcast heartbeats on the local network. 
 
 A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 
