@@ -16,7 +16,7 @@ HITL uses the normal configuration parameters of your flight controller.
 The *Data Link Loss* failsafe (unavailability of external data via MAVLink) is enabled by default.
 This makes the simulation only usable with a connected GCS, SDK, or other MAVLink application.
 
-Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior.
+Set the parameter [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) to the desired failsafe action to change the behavior. 
 For example, set to `0` to disable it.
 
 :::note
@@ -28,7 +28,7 @@ All parameters in SITL including this one get reset when you do `make clean`.
 The *RC Link Loss* failsafe (unavailability of data from a remote control) is enabled by default.
 This makes the simulation only usable with either an active MAVLink or remote control connection.
 
-Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior.
+Set the parameter [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to the desired failsafe action to change the behavior. 
 For example, set to `0` to disable it.
 
 :::note
