@@ -20,7 +20,7 @@
 
 ## PX4 자동비행장치
 
-[PX4](http://px4.io/)는 강력한 기능을 가진 오픈 소스 자동비행장치 *비행 스택*입니다.
+[PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
 
 PX4의 일부 주요 기능은 다음과 같습니다:
 
