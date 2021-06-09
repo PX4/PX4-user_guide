@@ -10,9 +10,6 @@ You can also test failsafes using [HITL simulation](../simulation/hitl.md).
 HITL uses the normal configuration parameters of your flight controller.
 :::
 
-:::tip
-The [SITL parameters](../advanced_config/parameter_reference.md#sitl) allow you to simulate other common sensor failure cases that are not covered here, including: loss of barometer, gyro and accelerometer, increased GPS noise etc.
-:::
 
 ## Data Link Loss
 
@@ -51,7 +48,25 @@ To control how fast the battery depletes to the minimal value use the parameter 
 By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
 :::
 
-## GPS Loss
+## Sensor/System Failure
 
-To simulate losing and regaining GPS information you can just stop the publication of GPS messages.
-This is done by running the `param set SIM_GPS_BLOCK 1` and `param set SIM_GPS_BLOCK 0` commands on your SITL instance *pxh shell* to block and unblock messages respectively.
+System failure injection can be used to simulate different types of failures in many sensors and systems (e.g. GPS, barometer, gyro, avoidance etc.):
+1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
+1. For example, to simulate losing and regaining GPS you might enter the following commands on the SITL instance *pxh shell* (or MAVLink console).
+   ```bash
+   # Turn (all) GPS off
+   failure gps off
+   
+   # Turn (all) GPS on
+   failure gps ok
+   ```
+
+The full syntax of the [failure](../modules/modules_command.md#failure) command is:
+```
+failure <component> <failure_type> [-i <instance_number>]
+```
+where:
+- _component_: `gyro` | `accel` | `mag` | `baro` | `gps` | `optical_flow` | `vio` | `distance_sensor` | `airspeed` | `battery` | `motor` | `servo` | `avoidance` | `rc_signal` | `mavlink_signal`
+- _failure_type_: `ok` | `off` | `stuck` | `garbage` | `wrong` | `slow` | `delayed` | `intermittent`
+- _instance number_ (optional): Instance number of affected sensor.
+   0 (default) indicates all sensors of specified type.   
