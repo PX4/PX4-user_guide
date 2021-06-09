@@ -1,6 +1,6 @@
 # Modules Reference: Airspeed Sensor (Driver)
 ## ets_airspeed
-Source: [drivers/differential_pressure/ets](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure/ets)
+Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)
 
 <a id="ets_airspeed_usage"></a>
 
@@ -21,7 +21,7 @@ ets_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms4525_airspeed
-Source: [drivers/differential_pressure/ms4525](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure/ms4525)
+Source: [drivers/differential_pressure/ms4525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4525)
 
 <a id="ms4525_airspeed_usage"></a>
 
@@ -44,7 +44,7 @@ ms4525_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms5525_airspeed
-Source: [drivers/differential_pressure/ms5525](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure/ms5525)
+Source: [drivers/differential_pressure/ms5525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms5525)
 
 <a id="ms5525_airspeed_usage"></a>
 
@@ -65,7 +65,7 @@ ms5525_airspeed <command> [arguments...]
    status        print status info
 ```
 ## sdp3x_airspeed
-Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure/sdp3x)
+Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/sdp3x)
 
 <a id="sdp3x_airspeed_usage"></a>
 
