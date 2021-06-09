@@ -1,6 +1,6 @@
 # 机架参考
 
-> **Note** **该列表是从源码自动生成的**。
+> **Note** **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
 > **AUX** 通道仅在Pixhawk飞控板上可用 (标签为 **AUX OUT**)。 如果有，PWM AUX通道一般标注为**AUX OUT**。
 
