@@ -136,11 +136,14 @@ Most users will not need to build this firmware!
 It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target, open up the terminal and enter:
 ```
 make cubepilot_cubeorange
 ```
 
+:::warning
+At time of writing (June 2021) you can't [build this target in VSCode](../dev_setup/vscode.md) as it specifies an invalid target (`cubepilot_cubeorange_test`).
+:::
 
 ## Further Information/Documentation
 
