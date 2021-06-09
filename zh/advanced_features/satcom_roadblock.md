@@ -8,7 +8,7 @@
 
 卫星通信链接需要以下组成部件：
 
-* 一个连接到Pixhawk的 [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) 模块，要求Pixhawk已烧写PX4固件。
+* A [RockBlock 9603](https://www.rock7.com/products/rockblock-9603-compact-plug-play-satellite-transmitter) module connected to a Pixhawk flashed with the PX4 Autopilot.
 * 运行 Ubuntu 系统的消息中继服务器。
 * 在 Ubuntu上运行 *QGroundControl* 的地面站
 
@@ -20,7 +20,7 @@
 The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
 
 * It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-* The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+* The [RockBlock MK2](https://www.rock7.com/products/rockblock-iridium-9602-satellite-modem) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
 :::
 
 ## Costs
@@ -42,7 +42,7 @@ Connect the RockBlock module to a serial port of the Pixhawk. Due to the power r
 
 The module can either use the internal antenna or an external one connected to the SMA connector. To [switch between the two antennas modes](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode) the position of a small RF link cable needs to changed. If an external antenna is used always make sure that the antenna is connected to the module before powering it up to avoid damage to the module.
 
-The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](http://www.rock7mobile.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+The default baud rate of the module is 19200. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
 
 1. Connect to the module with using a 19200/8-N-1 setting and check if the communication is working using the command: `AT`. The response should be: `OK`.
 2. Change the baud rate: ```AT+IPR=9```
