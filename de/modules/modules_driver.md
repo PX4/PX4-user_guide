@@ -81,6 +81,44 @@ atxxxx <command> [arguments...]
 
    status        print status info
 ```
+## batmon
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+
+
+### Description
+Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
+### Examples
+To start at address 0x0B, on bus 4
+```
+batmon start -X -a 11 -b 4
+```
+
+<a id="batmon_usage"></a>
+
+### Usage
+```
+batmon <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 11
+
+   man_info      Prints manufacturer info.
+
+   suspend       Suspends the driver from rescheduling the cycle.
+
+   resume        Resumes the driver from suspension.
+
+   stop
+
+   status        print status info
+```
 ## batt_smbus
 Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
