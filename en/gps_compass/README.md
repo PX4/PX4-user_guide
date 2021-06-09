@@ -132,9 +132,9 @@ Parameter | Setting
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
 The process is straightforward and will calibrate all connected magnetometers.
 
-Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters (where `x=0-3`).
-Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) which might be used to disable an internal compass).
-You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
+Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) parameters (where `x=0-3`).
+Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) which might be used to disable an internal compass).
+You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL_MAGn_ROT=-1](../advanced_config/parameter_reference.md#CAL_MAG0_ROT )) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
 
 
 ## Developer Information
