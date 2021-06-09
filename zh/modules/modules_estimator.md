@@ -1,7 +1,7 @@
 # 模块参考：估计器
 
 ## AttitudeEstimatorQ
-Source: [modules/attitude_estimator_q](https://github.com/PX4/Firmware/tree/master/src/modules/attitude_estimator_q)
+Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/attitude_estimator_q)
 
 
 ### 描述
@@ -92,7 +92,7 @@ local_position_estimator &lt;command&gt; [arguments...]
    status        打印状态信息
 ```
 ## mc_hover_thrust_estimator
-Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/mc_hover_thrust_estimator)
+Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_hover_thrust_estimator)
 
 
 ### 参数描述
