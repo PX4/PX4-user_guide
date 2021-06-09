@@ -12,11 +12,11 @@ This section shows how you can get help from the core dev team and the wider com
 
 The core development team and community are active on the following forums and chat channels.
 
-* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
+* [PX4 Discuss](https://discuss.px4.io//) (*recommended*)
 * [Slack](http://slack.px4.io) (sign up)
 
 :::tip
-Post on [PX4 Discuss](http://discuss.px4.io/) first! 
+Post on [PX4 Discuss](https://discuss.px4.io//) first! 
 If you don't get a response in a few days then ping us on Slack with a link to your question (on discuss).
 
 Discuss is better than slack in the first instance because questions and answers are permanent.
@@ -26,13 +26,13 @@ Discuss is better than slack in the first instance because questions and answers
 
 If you are unsure what the problem is and you need help diagnosing
 
-* Upload logs to [Flight Log Review](http://logs.px4.io/)
-* Open a discussion on [PX4 Discuss](http://discuss.px4.io/) with a flight report and links to logs.
+* Upload logs to [Flight Log Review](https://logs.px4.io/)
+* Open a discussion on [PX4 Discuss](https://discuss.px4.io//) with a flight report and links to logs.
 * If you find an issue or bug with PX4 [open a Github Issue](https://github.com/PX4/Devguide/issues)
 
 ## Issue & Bug Reporting
 
-* Upload logs to [Flight Log Review](http://logs.px4.io/)
+* Upload logs to [Flight Log Review](https://logs.px4.io/)
 * [Open a Github Issue](https://github.com/PX4/Devguide/issues) with a flight report with as much detail as possible and links to logs.
 
 
@@ -57,6 +57,6 @@ See [Test Flights](../test_and_ci/test_flights.md) for information about availab
 
 ## General Support
 
-* [Join our Slack community](http://slack.px4.io/)
-* [Open a discussion](http://discuss.px4.io)
+* [Join our Slack community](https://slack.px4.io/)
+* [Open a discussion](https://discuss.px4.io/)
 * [Open Github Issue](https://github.com/PX4/Devguide/issues)

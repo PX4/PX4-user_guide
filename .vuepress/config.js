@@ -144,14 +144,14 @@ module.exports = {
             text: 'PX4',
             ariaLabel: 'PX4 Menu',
             items: [
-              { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
+              { text: 'Website', link: 'https://px4.io/', ariaLabel: 'PX4 website link'  },
               { text: 'Support', link: 'https://docs.px4.io/master/en/contribute/support.html', rel:false, target:'_self', ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
           },
           { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
-          { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
+          { text: 'MAVSDK', link: 'https://mavsdk.mavlink.io/' , ariaLabel: 'MAVSDK' },
           { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
           {
             text: 'Docs',
@@ -227,14 +227,14 @@ module.exports = {
             text: 'PX4',
             ariaLabel: 'PX4 Menu',
             items: [
-              { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
+              { text: 'Website', link: 'https://px4.io/', ariaLabel: 'PX4 website link'  },
               { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
           },
           { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
-          { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
+          { text: 'MAVSDK', link: 'https://mavsdk.mavlink.io/' , ariaLabel: 'MAVSDK' },
           { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
           {
             text: 'Docs',
@@ -303,14 +303,14 @@ module.exports = {
             text: 'PX4',
             ariaLabel: 'PX4 Menu',
             items: [
-              { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
+              { text: 'Website', link: 'https://px4.io/', ariaLabel: 'PX4 website link'  },
               { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
           },
           { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
-          { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
+          { text: 'MAVSDK', link: 'https://mavsdk.mavlink.io/' , ariaLabel: 'MAVSDK' },
           { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
           {
             text: 'Docs',
