@@ -1,6 +1,6 @@
 # Modules Reference: Baro (Driver)
 ## bmp280
-Source: [drivers/barometer/bmp280](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/bmp280)
+Source: [drivers/barometer/bmp280](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/bmp280)
 
 <a id="bmp280_usage"></a>
 ### Usage
@@ -27,7 +27,7 @@ bmp280 <command> [arguments...]
    status        print status info
 ```
 ## bmp388
-Source: [drivers/barometer/bmp388](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/bmp388)
+Source: [drivers/barometer/bmp388](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/bmp388)
 
 <a id="bmp388_usage"></a>
 ### Usage
@@ -54,7 +54,7 @@ bmp388 <command> [arguments...]
    status        print status info
 ```
 ## dps310
-Source: [drivers/barometer/dps310](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/dps310)
+Source: [drivers/barometer/dps310](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/dps310)
 
 <a id="dps310_usage"></a>
 ### Usage
@@ -81,7 +81,7 @@ dps310 <command> [arguments...]
    status        print status info
 ```
 ## lps22hb
-Source: [drivers/barometer/lps22hb](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/lps22hb)
+Source: [drivers/barometer/lps22hb](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps22hb)
 
 <a id="lps22hb_usage"></a>
 ### Usage
@@ -106,7 +106,7 @@ lps22hb <command> [arguments...]
    status        print status info
 ```
 ## lps25h
-Source: [drivers/barometer/lps25h](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/lps25h)
+Source: [drivers/barometer/lps25h](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps25h)
 
 <a id="lps25h_usage"></a>
 ### Usage
@@ -131,7 +131,7 @@ lps25h <command> [arguments...]
    status        print status info
 ```
 ## lps33hw
-Source: [drivers/barometer/lps33hw](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/lps33hw)
+Source: [drivers/barometer/lps33hw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/lps33hw)
 
 <a id="lps33hw_usage"></a>
 ### Usage
@@ -159,7 +159,7 @@ lps33hw <command> [arguments...]
    status        print status info
 ```
 ## mpl3115a2
-Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/mpl3115a2)
+Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/mpl3115a2)
 
 <a id="mpl3115a2_usage"></a>
 ### Usage
@@ -179,7 +179,7 @@ mpl3115a2 <command> [arguments...]
    status        print status info
 ```
 ## ms5611
-Source: [drivers/barometer/ms5611](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/ms5611)
+Source: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611)
 
 <a id="ms5611_usage"></a>
 ### Usage
