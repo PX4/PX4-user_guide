@@ -123,7 +123,7 @@ Parameter | Setting
 
 
 :::tip
-- If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](#positioning-setup-configuration)).
+If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
 
