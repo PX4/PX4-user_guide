@@ -8,7 +8,7 @@ Subcategories:
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc)
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
 ### Description
@@ -29,7 +29,7 @@ adc <command> [arguments...]
    status        print status info
 ```
 ## ads1115
-Source: [drivers/adc/ads1115](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/ads1115)
+Source: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 
@@ -52,7 +52,7 @@ ads1115 <command> [arguments...]
    status        print status info
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx)
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
 ### Description
@@ -82,7 +82,7 @@ atxxxx <command> [arguments...]
    status        print status info
 ```
 ## batt_smbus
-Source: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus)
+Source: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
 
 ### Description
@@ -132,7 +132,7 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
@@ -155,7 +155,7 @@ bst <command> [arguments...]
    status        print status info
 ```
 ## dshot
-Source: [drivers/dshot](https://github.com/PX4/Firmware/tree/master/src/drivers/dshot)
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
 
 ### Description
@@ -258,7 +258,7 @@ dshot <command> [arguments...]
    status        print status info
 ```
 ## fake_gps
-Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
 ### Description
@@ -276,7 +276,7 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/Firmware/tree/master/src/examples/fake_imu)
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
 ### Description
@@ -294,7 +294,7 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master/src/examples/fake_magnetometer)
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
 ### Description
@@ -313,7 +313,7 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
 ### Description
@@ -367,7 +367,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
+Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
 
 ### Description
@@ -403,7 +403,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## irlock
-Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
@@ -426,7 +426,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/linux_pwm_out)
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
 ### Description
@@ -445,7 +445,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
@@ -471,7 +471,7 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
 ### Description
@@ -495,7 +495,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
@@ -521,7 +521,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685)
+Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
@@ -546,7 +546,7 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
 ### Description
@@ -584,7 +584,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
@@ -605,7 +605,7 @@ pcf8583 <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -631,7 +631,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out)
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
 ### Description
@@ -721,7 +721,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
 ### Description
@@ -746,7 +746,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
@@ -771,7 +771,7 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 
 ### Description
@@ -800,7 +800,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
@@ -823,7 +823,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/Firmware/tree/master/src/drivers/roboclaw)
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
 
 ### Description
@@ -868,7 +868,7 @@ roboclaw <command> [arguments...]
  Commands:
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/Firmware/tree/master/src/drivers/safety_button)
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
 
 ### Description
@@ -887,7 +887,7 @@ safety_button <command> [arguments...]
    status        print status info
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
 
 ### Description
@@ -906,7 +906,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## vmount
-Source: [modules/vmount](https://github.com/PX4/Firmware/tree/master/src/modules/vmount)
+Source: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
 
 
 ### Description
@@ -941,7 +941,7 @@ vmount <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
