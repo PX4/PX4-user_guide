@@ -24,7 +24,7 @@ It consists of *flight stack* software running on *vehicle controller* ("flight 
 <a id="autopilot"></a>
 ## PX4 Autopilot
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*. 
+[PX4](https://px4.io/) is powerful open source autopilot *flight stack*. 
 
 Some of PX4's key features are:
 - Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
