@@ -1,6 +1,6 @@
 # Modules Reference: Magnetometer (Driver)
 ## ak09916
-Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/akm/ak09916)
+Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak09916)
 
 <a id="ak09916_usage"></a>
 
@@ -23,7 +23,7 @@ ak09916 <command> [arguments...]
    status        print status info
 ```
 ## ak8963
-Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/akm/ak8963)
+Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak8963)
 
 <a id="ak8963_usage"></a>
 
@@ -46,7 +46,7 @@ ak8963 <command> [arguments...]
    status        print status info
 ```
 ## bmm150
-Source: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/bosch/bmm150)
+Source: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/bosch/bmm150)
 
 <a id="bmm150_usage"></a>
 
@@ -69,7 +69,7 @@ bmm150 <command> [arguments...]
    status        print status info
 ```
 ## hmc5883
-Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/hmc5883)
+Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/hmc5883)
 
 <a id="hmc5883_usage"></a>
 
@@ -98,7 +98,7 @@ hmc5883 <command> [arguments...]
    status        print status info
 ```
 ## ist8308
-Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/isentek/ist8308)
+Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/isentek/ist8308)
 
 <a id="ist8308_usage"></a>
 
@@ -121,7 +121,7 @@ ist8308 <command> [arguments...]
    status        print status info
 ```
 ## ist8310
-Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/isentek/ist8310)
+Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/isentek/ist8310)
 
 <a id="ist8310_usage"></a>
 
@@ -146,7 +146,7 @@ ist8310 <command> [arguments...]
    status        print status info
 ```
 ## lis2mdl
-Source: [drivers/magnetometer/lis2mdl](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lis2mdl)
+Source: [drivers/magnetometer/lis2mdl](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lis2mdl)
 
 <a id="lis2mdl_usage"></a>
 
@@ -174,7 +174,7 @@ lis2mdl <command> [arguments...]
    status        print status info
 ```
 ## lis3mdl
-Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lis3mdl)
+Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lis3mdl)
 
 <a id="lis3mdl_usage"></a>
 
@@ -204,7 +204,7 @@ lis3mdl <command> [arguments...]
    status        print status info
 ```
 ## lsm9ds1_mag
-Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm9ds1_mag)
+Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm9ds1_mag)
 
 <a id="lsm9ds1_mag_usage"></a>
 
@@ -230,7 +230,7 @@ lsm9ds1_mag <command> [arguments...]
    status        print status info
 ```
 ## qmc5883l
-Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/qmc5883l)
+Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/qmc5883l)
 
 <a id="qmc5883l_usage"></a>
 
@@ -253,7 +253,7 @@ qmc5883l <command> [arguments...]
    status        print status info
 ```
 ## rm3100
-Source: [drivers/magnetometer/rm3100](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/rm3100)
+Source: [drivers/magnetometer/rm3100](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/rm3100)
 
 <a id="rm3100_usage"></a>
 
@@ -283,7 +283,7 @@ rm3100 <command> [arguments...]
    status        print status info
 ```
 ## vcm1193l
-Source: [drivers/magnetometer/vtrantech/vcm1193l](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/vtrantech/vcm1193l)
+Source: [drivers/magnetometer/vtrantech/vcm1193l](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/vtrantech/vcm1193l)
 
 <a id="vcm1193l_usage"></a>
 
