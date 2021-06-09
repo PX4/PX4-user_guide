@@ -107,8 +107,7 @@ When using GPS for yaw fusion you will need to configure the following parameter
 | [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | Set bit position 7 "GPS yaw fusion" to `1` (i.e. add 128 to the parameter value).                                                                                                                               |
 
 :::tip
-
-- If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](#positioning-setup-configuration)).
+If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
 ### Compass Configuration
