@@ -29,7 +29,7 @@ VTOL 변환된 비행기의 중량은 LiPo를 포함하여 약 3.5kg 정도 증�
 - 3DR 호환 전원 모듈
 - GPS
 
-Hobbyking EU 및 전세계 매장 링크가 있는 전체 부품 목록은 [QuadRanger-VTOL-partslist](http://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)를 참조하십시오.
+For a full parts list with links to Hobbyking EU and International warehouse see: [QuadRanger-VTOL-partslist](https://px4.io/wp-content/uploads/2016/01/QuadRanger-VTOL-partslist-1.xlsx)
 
 아래 이미지는 한 날개에 필요한 부품을 보여줍니다.
 
