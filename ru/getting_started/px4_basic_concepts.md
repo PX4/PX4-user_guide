@@ -20,7 +20,7 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 
 ## PX4 Autopilot
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
 
 Some of PX4's key features are:
 
