@@ -11,10 +11,10 @@
 :::
 
 :::note
-While it is possible to remove the barometer from the altitude estimate (i.e. only use altitude from the GPS), this is not recommended. GPS is inaccurate in many environments, and particularly in urban environments where you have signal reflections off buildings.
+고도 추정치에서 기압계를 제거할 수 있지만 (예 : GPS의 고도만 사용) 권장하지 않습니다. GPS는 많은 환경, 특히 건물에서 신호가 반사되는 도시 환경에서는 정확하지 않습니다.
 :::
 
-## Airflow Analysis
+## 기류 분석
 
 You can modify the hull by drilling holes or filling them with foam.
 
