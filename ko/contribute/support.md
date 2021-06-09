@@ -57,6 +57,6 @@ Pull 요청, 주요 현안, Q&A를 의논하는 시간도 있습니다.
 
 ## 일반 지원
 
-* [Slack 커뮤니티 가입](http://slack.px4.io/)
-* [토론 개설](http://discuss.px4.io)
+* [Slack 커뮤니티 가입](https://slack.px4.io/)
+* [토론 개설](https://discuss.px4.io/)
 * [Github 이슈 작성 ](https://github.com/PX4/Devguide/issues)
