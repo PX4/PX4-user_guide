@@ -13560,6 +13560,29 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="BATMON_ADDR_DFLT">BATMON_ADDR_DFLT</strong> (INT32)</td>
+ <td>I2C address for BatMon battery 1    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>11</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BATMON_DRIVER_EN">BATMON_DRIVER_EN</strong> (INT32)</td>
+ <td>Parameter to enable BatMon module  <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Start on default I2C addr(BATMON_ADDR_DFLT)</li> 
+
+<li><strong>2:</strong> Autodetect I2C address (TODO)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 2 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="BAT_C_MULT">BAT_C_MULT</strong> (FLOAT)</td>
  <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
 </td>
