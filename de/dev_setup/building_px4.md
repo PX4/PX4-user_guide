@@ -95,7 +95,6 @@ Build commands for non-Pixhawk NuttX fight controllers (and for all other-boards
 The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-
 ### Uploading Firmware (Flashing the board)
 
 Append `upload` to the make commands to upload the compiled binary to the autopilot hardware via USB. For example
@@ -172,6 +171,26 @@ As of macOS Catalina 10.15.1 there may be problems when trying to build the simu
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
+
+### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+
+Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+```bash
+arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+arm-none-eabi-size --version
+```
+
+Example of bash output with missing dependencies:
+```bash
+arm-none-eabi-gdb --version
+arm-none-eabi-gdb: command not found
+```
+
+This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+
+
 
 ### Failed to import Python packages
 

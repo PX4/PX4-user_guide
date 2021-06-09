@@ -92,7 +92,6 @@ The first part of the build target `px4_fmu-v4` indicates the firmware for a par
 The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-
 ### 将固件烧录到飞控板
 
 "PX4" 可执行文件位于目录 **build/emlid_navio2_cross/** 中。 请确保您可以通过 ssh 连接到 RPi，请参阅 [介绍如何访问您的 RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start)。
@@ -172,8 +171,8 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
 
 ### 基于 QuRT / Snapdragon 的飞控板
 
-"Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
-```
+Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+```bash
 <br />______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
@@ -186,11 +185,30 @@ px4 starting.
 
 pxh&gt;
 ```
+
 运行 DSP 调试监控器：
+```bash
+arm-none-eabi-gdb --version
+arm-none-eabi-gdb: command not found
+```
+
+This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+
+
+
+### Failed to import Python packages
+
+"Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
+```
+Failed to import jinja2: No module named 'jinja2'
+You may need to install it using:
+    pip3 install --user jinja2
+```
+If you have already installed these dependencies this may be because there is more than one Python version on the computer (e.g. Python 2.7.16 Python 3.8.3), and the module is not present in the version used by the build toolchain.
 
 You should be able to fix this by explicitly installing the dependencies as shown:
 ```
-pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
+cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ```
 
 
@@ -212,7 +230,7 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 :::tip
 You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
 ```sh
-cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
+make list_config_targets
 ```
 :::
 

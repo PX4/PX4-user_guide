@@ -241,10 +241,10 @@ To flash the USB image to the *UP Core*:
 1 拔出U盘。
 
 1 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
-<span id="boot_mission_computer"></span> 
 
 
-### 开启机载计算机 {#boot_mission_computer}
+
+### Boot the Companion Computer
 
 PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
 
@@ -256,8 +256,7 @@ If you've already [installed the image on the companion computer](#install_image
 
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
-<span id="login_mission_computer"></span> 
-
+<a id="login_mission_computer"></a>
 
 ### 登录机载计算机
 
