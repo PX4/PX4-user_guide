@@ -87,9 +87,45 @@ atxxxx <command> [arguments...]
 
 ### 描述
 用于智能电池的BQ40Z50电量统计芯片
-
 ### 示例
-通过写入flash来设置它的参数。 address, number_of_bytes, byte0, ... , byteN
+To start at address 0x0B, on bus 4
+```
+batt_smbus -X write_flash 19069 2 27 0
+```
+
+<a id="batmon_usage"></a>
+
+### 描述
+```
+batmon <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 11
+
+   man_info      Prints manufacturer info.
+
+   unseal        解锁设备的flash来使能 write_flash 命令
+
+   seal          锁住设备的flash来失能 write_flash 命令.
+
+   suspend       从调度循环中挂起该设备
+```
+## batt_smbus
+Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+
+
+### 用法
+This will enable capturing on the 4th pin. Then do:
+
+### 用法
+To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
@@ -112,29 +148,31 @@ batt_smbus <command> [arguments...]
 
    man_info      Prints manufacturer info.
 
-   unseal        解锁设备的flash来使能 write_flash 命令
+   unseal        Unseals the devices flash memory to enable write_flash
+                 commands.
 
-   seal          锁住设备的flash来失能 write_flash 命令.
+   seal          Seals the devices flash memory to disbale write_flash commands.
 
-   suspend       从调度循环中挂起该设备
+   suspend       Suspends the driver from rescheduling the cycle.
 
-   resume        将该设备从挂起状态恢复
+   resume        Resumes the driver from suspension.
 
-   write_flash   写入flash。 必须先通过unseal 命令来解锁flash。
-     [address]   写入的起始地址
-     [number of bytes] 需要写入的字节数
-     [data[0]...data[n]] 具体的字节数据，使用空格隔开
+   write_flash   Writes to flash. The device must first be unsealed with the
+                 unseal command.
+     [address]   The address to start writing.
+     [number of bytes] Number of bytes to send.
+     [data[0]...data[n]] One byte of data at a time separated by spaces.
 
-   stop          停止设备
+   stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## bst
-Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
-### 用法
+### 示例
 ```
 bst <command> [arguments...]
  Commands:
@@ -152,8 +190,8 @@ bst <command> [arguments...]
 
    status        print status info
 ```
-## dshot
-This will enable capturing on the 4th pin. Then do:
+## sf1xx
+GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 
 ### 用法
@@ -165,7 +203,7 @@ It supports:
 - 通过命令行接口发送 DShot 命令
 
 ### 描述
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+Permanently reverse motor 1:
 ```
 dshot reverse -m 1
 dshot save -m 1
@@ -174,106 +212,37 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 
 <a id="dshot_usage"></a>
 
-### 示例
+### 描述
 ```
 dshot <command> [arguments...]
+ mc_att_control <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-
- All of the mode_* commands will start the module if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
-
-   telemetry     Enable Telemetry on a UART
-     <device>    UART device
-
-   reverse       Reverse motor direction
-     [-m <val>]  Motor index (1-based, default=all)
-
-   normal        Normal motor direction
-     [-m <val>]  Motor index (1-based, default=all)
-
-   save          Save current settings
-     [-m <val>]  Motor index (1-based, default=all)
-
-   3d_on         Enable 3D mode
-     [-m <val>]  Motor index (1-based, default=all)
-
-   3d_off        Disable 3D mode
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep1         Send Beep pattern 1
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep2         Send Beep pattern 2
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep3         Send Beep pattern 3
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep4         Send Beep pattern 4
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep5         Send Beep pattern 5
-     [-m <val>]  Motor index (1-based, default=all)
-
-   esc_info      Request ESC information
-     -m <val>    Motor index (1-based)
+   start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
-## sf1xx
+## fmu mode_pwm
 Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
-### 用法
+### 描述
 
 <a id="fake_gps_usage"></a>
 
 ### 描述
 ```
 fake_gps <command> [arguments...]
+ mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
-## fmu mode_pwm
+## fake_imu
 Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
@@ -281,64 +250,62 @@ Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src
 
 <a id="fake_imu_usage"></a>
 
-### 描述
+### 实现
 ```
 fake_imu <command> [arguments...]
- mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
-## fake_magnetometer
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
+## gps
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
-### 描述
-Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
+### 示例
+模块支持一个辅助（secondary） GPS 设备，可使用 `-e` 参数进行指定。 辅助 GPS 的位置信息会在第二个 uORB 主题实例上发布，但目前为止系统的其它部分暂未使用该数据（但该数据会被记录下来，以方便进行对比）。
 
 <a id="fake_magnetometer_usage"></a>
 
-### 描述
+### 用法
 ```
 fake_magnetometer <command> [arguments...]
- mc_att_control <command> [arguments...]
  Commands:
    start
 
    stop
 
-   status        打印状态信息
+   status        print status info
 ```
 ## gps
 Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
-### 实现
+### 描述
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
-模块支持一个辅助（secondary） GPS 设备，可使用 `-e` 参数进行指定。 辅助 GPS 的位置信息会在第二个 uORB 主题实例上发布，但目前为止系统的其它部分暂未使用该数据（但该数据会被记录下来，以方便进行对比）。
+The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
-### 示例
-每个设备都有一个线程轮询数据。 There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+### 描述
+There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
 
 ### 用法
 
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
+This module does the RC input parsing and auto-selecting the method. Supported methods are:
 ```
 gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
-pga460 &lt;command&gt; [arguments...] Commands: start &lt;device_path&gt; [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6 status stop help
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.
 ```
-sf1xx stop
+gps reset warm
 ```
 
 <a id="gps_usage"></a>
 
-### 描述
+### 用法
 ```
 gps <command> [arguments...]
  Commands:
@@ -367,21 +334,21 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
-
-
-### 描述
-This module does the RC input parsing and auto-selecting the method. Supported methods are:
-
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.
-
 Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
+
+
+### 使用
+Driver for the INA226 power monitor.
+
+Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+
+Attempt to start driver on any bus (start on bus where first sensor found).
 
 If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
 <a id="ina226_usage"></a>
 
-### 用法
+### 描述
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -402,12 +369,12 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
-## irlock
+## fmu mode_pwm3cap1
 Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
-### 用法
+### 描述
 ```
 irlock <command> [arguments...]
  Commands:
@@ -425,16 +392,16 @@ irlock <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm3cap1
-Attempt to start driver on any bus (start on bus where first sensor found).
+## pga460
+This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 
-### 使用
-Stop driver
+### 实现
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
 <a id="linux_pwm_out_usage"></a>
 
-### 描述
+### 示例
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -444,12 +411,12 @@ linux_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pga460
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
+## lsm303agr
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
 
 <a id="lsm303agr_usage"></a>
 
-### 描述
+### 使用
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -471,22 +438,22 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
 
 
-### 实现
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+### 使用
+This module is responsible for driving interfasing to the Neopixel Serial LED
 
-### 示例
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+### 使用
+通常使用如下命令：
 ```
 neopixel -n 8
 ```
-该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
+To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 使用
+### 描述
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -499,7 +466,7 @@ Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="paw3902_usage"></a>
 
-### 使用
+### 实现
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -521,11 +488,11 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-通常使用如下命令：
+Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
-### 使用
+### 示例
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -549,16 +516,16 @@ pca9685 <command> [arguments...]
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### 描述
+### 使用
 This module is responsible for generate pwm pulse with PCA9685 chip.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
-### 实现
+### 描述
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### 示例
-It is typically started with:
+### 使用
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 ```
 pca9685_pwm_out start -a 64 -b 1
 ```
@@ -583,7 +550,7 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pcf8583
+## pwm_out_sim
 Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
@@ -604,8 +571,8 @@ pcf8583 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
+## pmw3901
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -630,28 +597,28 @@ pmw3901 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out
+## rc_input
 Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
 ### 使用
 This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
 
 The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
 ### 描述
 By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
-### 使用
-源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+### 实现
+It is typically started with:
 ```
 pwm_out mode_pwm
 ```
-针对仿真模拟的 PWM 输出的驱动。
+To drive all available pins.
 
-Capture input (rising and falling edges) and print on the console: start pwm_out in one of the capture modes:
+源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 ```
 pwm_out mode_pwm3cap1
 ```
@@ -664,7 +631,7 @@ Use the `pwm` command for further configurations (PWM rate, levels, ...), and th
 
 <a id="pwm_out_usage"></a>
 
-### 使用
+### 示例
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -720,11 +687,11 @@ pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
-源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+## pwm_out_sim
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
-### 描述
+### Description
 Driver for simulated PWM outputs.
 
 Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
@@ -733,16 +700,13 @@ It is used in SITL and HITL.
 
 <a id="pwm_out_sim_usage"></a>
 
-### 实现
+### Usage
 ```
 pwm_out_sim <command> [arguments...]
- rc_input <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-     [-t]        Run as separate task instead of the work queue
-
-   bind          Send a DSM bind command (module must be running)
+   start         Start the module
+     [-m <val>]  Mode
+                 values: hil|sim, default: sim
 
    stop
 
@@ -753,7 +717,7 @@ Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree
 
 <a id="px4flow_usage"></a>
 
-### 示例
+### Usage
 ```
 px4flow <command> [arguments...]
  Commands:
