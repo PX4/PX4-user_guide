@@ -20,7 +20,7 @@
 
 ## PX4 自动驾驶仪
 
-[PX4](http://px4.io/) 是强大的开源自动驾驶仪 *飞行栈*。
+[PX4](https://px4.io/) is powerful open source autopilot *flight stack*.
 
 PX4 的一些主要功能包括：
 
