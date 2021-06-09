@@ -258,8 +258,7 @@ To flash the USB image to the *UP Core*:
 1. Restart the vehicle.
    The *UP Core* computer will now boot from internal memory (eMMC).
 
-<span id="boot_mission_computer"></span>
-### Boot the Companion Computer {#boot_mission_computer}
+### Boot the Companion Computer
 
 First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
 The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
@@ -273,7 +272,7 @@ The avoidance system should be up and running within around 30 seconds.
 
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
-<span id="login_mission_computer"></span>
+<a id="login_mission_computer"></a>
 ### Login to the Companion Computer
 
 To login to the companion computer:
