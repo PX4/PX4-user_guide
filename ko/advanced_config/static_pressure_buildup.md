@@ -1,13 +1,13 @@
-# Static Pressure Buildup
+# 정압 축적
 
-Air flowing over an enclosed vehicle can cause the *static pressure* to change within the canopy/hull. Depending on the location of holes/leaks in the hull, you can end up with under or overpressure (similar to a wing).
+밀폐된 차량 위로 공기가 흐르면 캐노피/선체 내에서 *정압*이 변경될 수 있습니다. 선체의 구멍/누출 위치에 따라 저압 또는 과압 (날개와 유사)이 발생할 수 있습니다.
 
-The change in pressure can affect barometer measurements, leading to an inaccurate altitude estimate. This might manifest as the vehicle losing altitude when it stops moving in [Altitude](../flight_modes/altitude_mc.md), [Position](../flight_modes/position_mc.md) or [Mission](../flight_modes/mission.md) modes (when the vehicle stops moving the static pressure drops, the sensor reports a higher altitude, and the vehicle compensates by descending).
+압력의 변화는 기압계 측정에 영향을 끼치므로, 고도 추정이 정확하지 않을 수 있습니다. 이것은 기체가 [고도](../flight_modes/altitude_mc.md), [위치](../flight_modes/position_mc.md) 또는 [미션](../flight_modes/mission.md) 모드에서 이동을 멈출 때 고도를 잃는 것으로 나타날 수 있습니다(기체가 움직이지 않으면 정압이 떨어집니다. 센서는 더 높은 고도를 보고하고 기체는 하강하여 보상합니다).
 
-One solution is to use foam-filled venting holes to reduce the buildup (as much as possible) and then attempt dynamic calibration to remove any remaining effects.
+한 가지 해결책은 거품으로 채워진 환기 구멍을 사용하여 축적을 최소화한 다음 (가능한 한 많이) 동적 보정을 시도하여 나머지 효과를 제거하는 것입니다.
 
 :::tip
-Before "fixing" the problem you should first check that the Z setpoint tracks the estimated altitude (to verify that there are no controller issues).
+문제를 "수정"하기 전에 먼저 Z 설정점이 예상 고도를 추적하는지 확인하여야 합니다 (컨트롤러 문제가 없는 지 확인하기 위해).
 :::
 
 :::note
