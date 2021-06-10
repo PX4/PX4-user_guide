@@ -340,7 +340,7 @@ The camera also supports/responds to the following MAVLink commands: [MAV_CMD_RE
 :::
 
 :::note
-The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp).
+The simulated camera is implemented in [PX4/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp](https://github.com/PX4/sitl_gazebo/blob/master/src/gazebo_geotagged_images_plugin.cpp). 
 :::
 
 <a id="flight_termination"></a>

@@ -1,6 +1,6 @@
 # LeddarOne Lidar
 
-[LeddarOne](https://leddartech.com/modules/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
+[LeddarOne](https://leddartech.com/solutions/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
 It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
