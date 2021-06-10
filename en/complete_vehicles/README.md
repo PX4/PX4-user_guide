@@ -24,7 +24,7 @@ You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) an
 <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 - Consumer drones run a custom version of PX4 (supported by their vendors):
   * Multicopter
-    * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus.html)
+    * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
     * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     * [Airlango Mystic](http://airlango.com/products/)
