@@ -14,6 +14,7 @@ It supports hardware like:
   - [Thiemar 항속 센서](https://github.com/thiemar/airspeed)
 - GPS 및 GLONASS용 GNSS 리시버
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
+  - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - 전력량계
   - [Pomegranate Systems 전원 모듈](../power_module/pomegranate_systems_pm.md)
   - [CUAV CAN PMU 전원 모듈](../power_module/cuav_can_pmu.md)
