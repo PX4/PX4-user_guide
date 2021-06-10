@@ -22,7 +22,7 @@
 
 - *시동 스위치*는 기체에 시동을 걸고 모터를 시동하는 데 사용할 수 있는 *RC 컨트롤러*의 스위치 또는 버튼입니다 (안전 스위치로 시동을 방지하지 않는 경우).
 
-- *시동 동작*은 시동 스위치 대신 사용할 수있는 *RC 컨트롤러*의 스틱 이동입니다.
+- *시동 제스쳐*은 시동 스위치 대신 사용할 수있는 *RC 컨트롤러*의 스틱 이동입니다.
 - MAVLink 명령은 지상국에서 기체의 시동을 걸거나 시동을 해제할 수 있습니다.
 
 PX4는 시동 후 일정 시간 내에 이륙하지 않고, 착륙 후 수동으로 시동 해제하지 않으면, 기체의 시동은 자동으로 해제됩니다. 이것은 시동이 걸린 기체가 지상에서 안전사고를 유발할 수 있는 시간을 줄입니다.
@@ -35,38 +35,38 @@ PX4에서는 다음 섹션에 설명된 대로 매개변수([매개변수 편집
 
 <span id="arm_disarm_gestures"></span>
 
-## 시동 움직임
+## 시동 제스쳐
 
-기본적으로, 기체는 무선 조종 장치의 추진 제어 스틱과 방위 제어 스틱을 움직인 후 잠깐 동안 또는 1초 동안 상태를 유지하여 시동을 걸거나 제동을 걸 수 있습니다.
+기본적으로, 기체는 무선조종장치의 추진 제어 스틱과 방위 제어 스틱을 움직인 후 잠깐 동안 또는 1초 동안 상태를 유지하면 시동을 걸거나 시동을 해제할 수 있습니다.
 
-- **시동:** 추진 모터 출력 최소, 방향타 최대 움직임
-- **제동:** 추진 모터 출력 최소, 방향타 최소 움직임
+- **시동:** 스로틀 최소, 요 최대
+- **시동 해제 :** 스로틀 최소, 요 최소
 
-무선 조종 장치는 [모드에 따라](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) 다른 움직임을 받습니다(제어 모드는 추진 제어와 방위 제어에 사용하는 스틱에 영향을 줌):
+무선조종장치는 [모드에 따라](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) 제어 방법이 다릅니다. 제어 모드는 추진 제어와 방위 제어에 사용하는 스틱이 달라집니다.
 
 - **모드 2**: 
   - *시동:* 왼쪽 스틱을 우하단으로 위치시킵니다. 
   - *시동 해제:* 왼쪽 스틱을 좌하단에 위치시킵니다.
 - **모드 1**: 
-  - *Arm:* Left-stick to right, right-stick to bottom.
-  - *Disarm:* Left-stick to left, right-stick to the bottom.
+  - *시동:* 왼쪽 스틱은 오른쪽, 오른쪽 스틱은 아래쪽입니다.
+  - *시동 해제:* 왼쪽 스틱은 왼쪽, 오른쪽 스틱은 아래쪽입니다.
 
-The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+필요한 보류 시간은 [COM_RC_ARM_HYST](#COM_RC_ARM_HYST)에서 설정합니다.
 
-| 매개변수                                                                                                    | 설명                                                                                                         |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
+| 매개변수                                                                                                    | 설명                                                           |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | 시동과 시동 해제가 발생하기 전에 RC 스틱이 시동/시동 해제 위치에 있어야하는 시간 (기본값 : 1 초). |
 
 <span id="arm_disarm_switch"></span>
 
-## 시동 단추/스위치
+## 시동 스위치
 
-An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
+*시동 버튼* 또는 "순간 스위치"는 [제스처 기반 무장](#arm_disarm_gestures) 대신 *시동/시동 해제*를 트리거하도록 설정할 수 있습니다. 시동 스위치를 설정하면 시동 해제 제스처를 사용할 수 없습니다. 시동 해제 (시동 해제시) 또는 시동 해제 (시동시)를 위하여([명목상](#COM_RC_ARM_HYST)) 1초 동안 버튼을 누르고 있어야 합니다.
 
-A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
+두 위치 스위치는 준비/시동 해제에도 사용할 수 있으며, 여기서 각 시동/시동 해제 명령은 스위치 *전환*에서 전송됩니다.
 
 :::tip
-Two-position arming switches are primarily used in/recommended for racing drones.
+이중 위치 시동 스위치는 주로 레이싱 드론에 사용/권장됩니다.
 :::
 
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
