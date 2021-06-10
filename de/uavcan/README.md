@@ -13,6 +13,7 @@ It supports hardware like:
 - Airspeed sensors
   - [Thiemar airspeed sensor](https://github.com/thiemar/airspeed)
 - GNSS receivers for GPS and GLONASS
+  - [CubePilot Here3](https://www.cubepilot.org/#/here/here3)
   - [Zubax GNSS](https://zubax.com/products/gnss_2)
 - Power monitors
   - [Pomegranate Systems Power Module](../uavcan/pomegranate_systems_pm.md)
