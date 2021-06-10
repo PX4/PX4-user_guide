@@ -132,7 +132,7 @@ INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port
 INFO  [logger] logger started (mode=all)
 INFO  [logger] Start file log (type: full)
 INFO  [logger] Opened full log file: ./log/2020-04-28/22_03_36.ulg
-INFO  [mavlink] MAVLink only on localhost (set param MAV_BROADCAST = 1 to enable network)
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [px4] Startup script returned successfully
 pxh> StatsHandler::StatsHandler() Setting up GL2 compatible shaders
 Now checking for plug-in osgPlugins-3.4.1/osgdb_nvtt.so
