@@ -1,7 +1,7 @@
 # 模块参考：系统
 
 ## battery_simulator
-Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator)
+Source: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
 
 
 ### 描述
@@ -188,7 +188,7 @@ dmesg <command> [arguments...]
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery)
+Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/esc_battery)
 
 
 ### 描述
@@ -270,7 +270,7 @@ heater <command> [arguments...]
    status        打印状态信息
 ```
 ## load_mon
-Source: [modules/land_detector](https://github.com/PX4/Firmware/tree/master/src/modules/land_detector)
+Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/land_detector)
 
 
 ### 用法
@@ -386,7 +386,7 @@ logger <command> [arguments...]
    status        print status info
 ```
 ## netman
-Source: [systemcmds/netman](https://github.com/PX4/Firmware/tree/master/src/systemcmds/netman)
+Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
   ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
@@ -444,7 +444,7 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Source: [modules/rc_update](https://github.com/PX4/Firmware/tree/master/src/modules/rc_update)
+Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
 
 ### 参数描述
@@ -467,7 +467,7 @@ rc_update <command> [arguments...]
    status        打印状态信息
 ```
 ## sensors
-Source: [modules/replay](https://github.com/PX4/Firmware/tree/master/src/modules/replay)
+Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
 ### 用法
@@ -578,7 +578,7 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control)
+Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
 ### 参数描述
@@ -618,7 +618,7 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue)
+Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
 ### Description

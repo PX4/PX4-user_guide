@@ -397,5 +397,5 @@ This includes, for example: <a href="../flight_controller/pixhawk.md">Pixhawk 1<
 <ul>
 <li><a href="https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry">FrSky Taranis 遥测回传</a></li>
 <li><a href="https://www.youtube.com/watch?v=x14DyvOU0Vc">Taranis X9D: 遥测回传设置</a> (视频教程)</li>
-<li><a href="http://discuss.px4.io/t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362">使用Pixhawk2 和 X8R 接收机进行Px4 FrSky 遥测回传设置 </a> (DIY 转接线)</li>
+<li><a href="https://discuss.px4.io//t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362">Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver</a> (DIY Cables)</li>
 </ul>

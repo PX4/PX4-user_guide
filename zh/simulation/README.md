@@ -176,17 +176,15 @@ Scripts are used to control which parameter settings to use or which modules to 
 
 其他模拟器可以使用相同的方法来实现相机支持。
 
-Additionally (and with some overlap), [Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes.
-
 
 ## HITL 仿真环境
 
-这不是 "开箱即用" 的，因为 PX4 在默认情况下不会将数据包路由到外部接口 (以避免垃圾邮件和不同的模拟相互干扰)。 相反，它将数据包路由到 "本地主机"。
+With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. The HITL Simulation Environment in documented in: [HITL Simulation](../simulation/hitl.md).
 
 
 ## 操纵杆／手柄集成
 
-*QGroundControl* desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+这不是 "开箱即用" 的，因为 PX4 在默认情况下不会将数据包路由到外部接口 (以避免垃圾邮件和不同的模拟相互干扰)。 相反，它将数据包路由到 "本地主机"。 If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
 
 For setup information see the *QGroundControl User Guide*:
 * [操纵杆设置](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
@@ -219,12 +217,12 @@ It is possible to run the simulator on one computer, and access it from another 
 
 This does not work "out of the box" because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to "localhost".
 
-ssh 是一个灵活的选项，因为模拟计算机和使用它的系统不需要在同一网络上。
+There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
 
 
 ### 启用 MAV_BROADCAST
 
-Enable [MAV_BROADCAST](../advanced_config/parameter_reference.md#MAV_BROADCAST) to broadcast heartbeats on the local network.
+Enable UDP broadcast of heartbeats on the local network by calling the [mavlink](../modules/modules_communication.md#mavlink) with the `-p` flag. This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 

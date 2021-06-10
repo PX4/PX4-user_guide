@@ -8,7 +8,7 @@ Subcategories:
 - [Magnetometer](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc)
+Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
 ### Description
@@ -55,7 +55,7 @@ sf1xx <command> [arguments...]
    info          Print driver information
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx)
+Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
 ### Description
@@ -75,8 +75,46 @@ tap_esc <command> [arguments...]
      [-n <val>]  Number of ESCs
                  default: 4
 ```
+## batmon
+Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+
+
+### Description
+Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
+### Examples
+To start at address 0x0B, on bus 4
+```
+batmon start -X -a 11 -b 4
+```
+
+<a id="batmon_usage"></a>
+
+### Usage
+```
+batmon <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 11
+
+   man_info      Prints manufacturer info.
+
+   suspend       Suspends the driver from rescheduling the cycle.
+
+   resume        Resumes the driver from suspension.
+
+   stop
+
+   status        print status info
+```
 ## batt_smbus
-Source: [drivers/batt_smbus](https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus)
+Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
 
 
 ### Description
@@ -126,66 +164,30 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
 ### Usage
 ```
-fmu <command> [arguments...]
+bst <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-     [-t]        Run as separate task instead of the work queue
-
- All of the mode_* commands will start the fmu if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
-
-   sensor_reset  Do a sensor reset (SPI bus)
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   peripheral_reset Reset board peripherals
-     [<ms>]      Delay time in ms between reset and re-enabling
-
-   i2c           Configure I2C clock rate
-     <bus_id> <rate> Specify the bus id (>=0) and rate in Hz
-
-   test          Test inputs and outputs
-
-   fake          Arm and send an actuator controls command
-     <roll> <pitch> <yaw> <thrust> Control values in range [-100, 100]
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 118
 
    stop
 
    status        print status info
 ```
-## dshot
-Source: [drivers/dshot](https://github.com/PX4/Firmware/tree/master/src/drivers/dshot)
+## sf1xx
+Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
 
 ### Description
@@ -208,87 +210,20 @@ After saving, the reversed direction will be regarded as the normal one. So to r
 
 ### Usage
 ```
-dshot <command> [arguments...]
+vmount <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
+   start
 
- All of the mode_* commands will start the module if not running already
-
-   mode_gpio
-
-   mode_pwm      Select all available pins as PWM
-
-   mode_pwm14
-
-   mode_pwm12
-
-   mode_pwm8
-
-   mode_pwm6
-
-   mode_pwm5
-
-   mode_pwm5cap1
-
-   mode_pwm4
-
-   mode_pwm4cap1
-
-   mode_pwm4cap2
-
-   mode_pwm3
-
-   mode_pwm3cap1
-
-   mode_pwm2
-
-   mode_pwm2cap2
-
-   mode_pwm1
-
-   telemetry     Enable Telemetry on a UART
-     <device>    UART device
-
-   reverse       Reverse motor direction
-     [-m <val>]  Motor index (1-based, default=all)
-
-   normal        Normal motor direction
-     [-m <val>]  Motor index (1-based, default=all)
-
-   save          Save current settings
-     [-m <val>]  Motor index (1-based, default=all)
-
-   3d_on         Enable 3D mode
-     [-m <val>]  Motor index (1-based, default=all)
-
-   3d_off        Disable 3D mode
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep1         Send Beep pattern 1
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep2         Send Beep pattern 2
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep3         Send Beep pattern 3
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep4         Send Beep pattern 4
-     [-m <val>]  Motor index (1-based, default=all)
-
-   beep5         Send Beep pattern 5
-     [-m <val>]  Motor index (1-based, default=all)
-
-   esc_info      Request ESC information
-     -m <val>    Motor index (1-based)
+   test          Test the output: set a fixed angle for one axis (vmount must
+                 not be running)
+     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
 
    stop
 
    status        print status info
 ```
-## sf1xx
-Source: [examples/fake_gps](https://github.com/PX4/Firmware/tree/master/src/examples/fake_gps)
+## fmu mode_pwm
+Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
 ### Description
@@ -305,8 +240,8 @@ fake_gps <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm
-Source: [examples/fake_imu](https://github.com/PX4/Firmware/tree/master/src/examples/fake_imu)
+## fake_imu
+Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
 ### Description
@@ -315,24 +250,20 @@ Source: [examples/fake_imu](https://github.com/PX4/Firmware/tree/master/src/exam
 
 ### Usage
 ```
-vmount <command> [arguments...]
+fake_imu <command> [arguments...]
  Commands:
    start
-
-   test          Test the output: set a fixed angle for one axis (vmount must
-                 not be running)
-     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
 
    stop
 
    status        print status info
 ```
 ## fake_magnetometer
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4): gps start -d /dev/ttyS3 -e /dev/ttyS4
+Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
 ### Description
-Publish the earth magnetic field as a fake magnetometer (sensor_mag). Requires vehicle_attitude and vehicle_gps_position.
+Publish the earth magnetic field as a fake magnetometer (sensor_mag). The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
 <a id="fake_magnetometer_usage"></a>
 
@@ -347,7 +278,7 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/Firmware/tree/master/src/drivers/gps)
+Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
 ### Description
@@ -367,7 +298,7 @@ gps start -d /dev/ttyS3 -e /dev/ttyS4
 
 Initiate warm restart of GPS device
 ```
-sf1xx stop
+gps reset warm
 ```
 
 <a id="gps_usage"></a>
@@ -401,7 +332,7 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/power_monitor/ina226](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226)
+Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
 
 
 ### Description
@@ -409,7 +340,7 @@ Driver for the INA226 power monitor.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
-Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
+Attempt to start driver on any bus (start on bus where first sensor found).
 
 If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
 
@@ -420,35 +351,6 @@ If the INA226 module is not powered, then by default, initialization of the driv
 ina226 <command> [arguments...]
  Commands:
    start
-     [-d <val>]  GPS device
-                 values: <file:dev>, default: /dev/ttyS3
-     [-b <val>]  Baudrate (can also be p:<param_name>)
-                 default: 0
-     [-e <val>]  Optional secondary GPS device
-                 values: <file:dev>
-     [-g <val>]  Baudrate (secondary GPS, can also be p:<param_name>)
-                 default: 0
-     [-f]        Fake a GPS signal (useful for testing)
-     [-s]        Enable publication of satellite info
-     [-i <val>]  GPS interface
-                 values: spi|uart, default: uart
-     [-p <val>]  GPS Protocol (default=auto select)
-                 values: ubx|mtk|ash
-
-   stop
-
-   status        print status info
-```
-## irlock
-Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
-
-<a id="irlock_usage"></a>
-
-### Usage
-```
-irlock <command> [arguments...]
- Commands:
-   start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
      [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
@@ -456,35 +358,19 @@ irlock <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 84
+                 default: 65
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
 
    stop
 
    status        print status info
 ```
 ## fmu mode_pwm3cap1
-Attempt to start driver on any bus (start on bus where first sensor found).
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
-
-### Description
-Stop driver
-
-<a id="linux_pwm_out_usage"></a>
-
-### Usage
-```
-linux_pwm_out <command> [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-```
-## pga460
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
-
-<a id="lsm303agr_usage"></a>
+<a id="irlock_usage"></a>
 
 ### Usage
 ```
@@ -499,15 +385,60 @@ pga460 <command> [arguments...]
 
    help
 ```
-## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/neopixel)
+## pga460
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
 ### Description
 Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
+<a id="linux_pwm_out_usage"></a>
+
+### Usage
+```
+linux_pwm_out <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## lsm303agr
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+
+<a id="lsm303agr_usage"></a>
+
+### Usage
+```
+lsm303agr <command> [arguments...]
+ Commands:
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-R <val>]  Rotation
+                 default: 0
+
+   stop
+
+   status        print status info
+```
+## newpixel
+Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
+
+
+### Description
+This module is responsible for driving interfasing to the Neopixel Serial LED
+
 ### Examples
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+It is typically started with:
 ```
 neopixel -n 8
 ```
@@ -524,7 +455,7 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
+Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
@@ -550,7 +481,7 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685)
+Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
@@ -575,7 +506,7 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out)
+Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
 ### Description
@@ -587,7 +518,7 @@ It listens on the actuator_controls topics, does the mixing and writes the PWM o
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
 ### Examples
-It is typically started with:
+In case of running in its own thread, the module polls on the actuator_controls topic.
 ```
 pca9685_pwm_out start -a 64 -b 1
 ```
@@ -613,7 +544,7 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
+Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
@@ -634,7 +565,7 @@ pcf8583 <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-In case of running in its own thread, the module polls on the actuator_controls topic.
+Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
@@ -660,7 +591,7 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out)
+Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
 ### Description
@@ -750,7 +681,7 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
 ### Description
@@ -775,7 +706,7 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
+Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
@@ -800,7 +731,7 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 
 ### Description
@@ -829,7 +760,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
@@ -852,7 +783,7 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/Firmware/tree/master/src/drivers/roboclaw)
+Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
 
 ### Description
@@ -897,7 +828,7 @@ roboclaw <command> [arguments...]
  Commands:
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/Firmware/tree/master/src/drivers/safety_button)
+Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
 
 ### Description
@@ -916,7 +847,7 @@ safety_button <command> [arguments...]
    status        print status info
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm)
+Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
 
 ### Description
@@ -935,7 +866,7 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## vmount
-Source: [modules/vmount](https://github.com/PX4/Firmware/tree/master/src/modules/vmount)
+Source: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
 
 
 ### Description
@@ -970,7 +901,7 @@ vmount <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 

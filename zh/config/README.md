@@ -35,7 +35,7 @@ The video below shows the calibration process in detail.
 
 ## 支持
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
+If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
 
 ## 更多信息
 

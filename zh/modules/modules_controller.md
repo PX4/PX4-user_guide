@@ -1,7 +1,7 @@
 # 模块参考：控制器
 
 ## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/Firmware/tree/master/src/modules/control_allocator)
+Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
 
 
 ### 描述
@@ -142,7 +142,7 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/mc_pos_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_pos_control)
+Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_pos_control)
 
 
 ### 参数描述
@@ -168,7 +168,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_rate_control
-Source: [modules/mc_rate_control](https://github.com/PX4/Firmware/tree/master/src/modules/mc_rate_control)
+Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_rate_control)
 
 
 ### 用法
@@ -190,7 +190,7 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/navigator](https://github.com/PX4/Firmware/tree/master/src/modules/navigator)
+Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/navigator)
 
 
 ### 实现
@@ -289,7 +289,7 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Source: [modules/uuv_pos_control](https://github.com/PX4/Firmware/tree/master/src/modules/uuv_pos_control)
+Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_pos_control)
 
 
 ### Description
@@ -319,7 +319,7 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Source: [modules/vtol_att_control](https://github.com/PX4/Firmware/tree/master/src/modules/vtol_att_control)
+Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vtol_att_control)
 
 
 ### Description

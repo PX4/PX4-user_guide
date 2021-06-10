@@ -45,5 +45,5 @@
     ![电调校准步骤 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 :::note
-高品质的电调带有出厂校准。 In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX) parameters to the values provided in the ESC technical specification. 实际上，即使在高质量控制器上，输入范围也可能不同，这就是建议校准的原因。
+高品质的电调带有出厂校准。 In *theory* this means that they can be configured by just setting the [PWM_MAIN_MINn](../advanced_config/parameter_reference.md#PWM_MAIN_MIN)/[PWM_AUX_MINn](../advanced_config/parameter_reference.md#PWM_AUX_MIN) and [PWM_MAIN_MAXn](../advanced_config/parameter_reference.md#PWM_MAIN_MAX)/[PWM_AUX_MAXn](../advanced_config/parameter_reference.md#PWM_AUX_MAX) parameters to the values provided in the ESC technical specification. 实际上，即使在高质量控制器上，输入范围也可能不同，这就是建议校准的原因。
 :::

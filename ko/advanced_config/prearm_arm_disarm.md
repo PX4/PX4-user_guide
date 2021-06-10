@@ -20,14 +20,14 @@ Note 시동 전 기체 상태를 지상 통제 장치에서는 *disarmed*로 나
 일단 기체에 시동이 걸리면 위험합니다. 안전 스위치는 갑작스럽게 시동을 거는 상황을 예방하는 추가 대책입니다.
 :::
 
-- An *arming switch* is a switch or button *on an RC controller* that can be used to arm the vehicle and start motors (provided arming is not prevented by a safety switch).
+- *시동 스위치*는 기체를 시동을 걸고 모터를 시동하는 데 사용할 수 있는 *RC 컨트롤러*의 스위치 또는 버튼입니다 (안전 스위치로 시동을 방지하지 않는 경우).
 
-- An *arming gesture* is a stick movement *on an RC controller* that can be used as an alternative to an arming switch.
-- MAVLink commands can also be sent by a ground control station to arm/disarm a vehicle.
+- *시동 동작*은 시동 스위치 대신 사용할 수있는 *RC 컨트롤러*의 스틱 이동입니다.
+- MAVLink 명령은 지상국에서 전송하여 기체를 시동/시동 해제 할 수 있습니다.
 
-PX4 will also automatically disarm the vehicle if it does not takeoff within a certain amount of time after arming, and if it is not manually disarmed after landing. This reduces the amount of time where an armed (and therefore dangerous) vehicle is on the ground.
+PX4는 시동 후 일정 시간 내에 이륙하지 않고 착륙 후 수동으로 시동 해제하지 않으면, 기체는 자동으로 시동 해제됩니다. 이것은 시동 기체가 지상에서 안전사고를 유발할 수 있는 위험한 상태로 있는 시간을 줄여줍니다.
 
-PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+PX4에서는 다음 섹션에 설명된대로 매개변수([매개변수 편집기](../advanced_config/parameters.md)를 통해 *QGroundControl*에서 편집 할 수 있음)를 사용하여 사전 준비, 준비 및 해제가 작동하는 방식을 설정할 수 있습니다.
 
 :::tip
 시동/제동 매개변수는 [매개변수 참고 > 명령](../advanced_config/parameter_reference.md#commander) 에서 찾을 수 있습니다(`COM_ARM_*` 과 `COM_DISARM_*`으로 검색).

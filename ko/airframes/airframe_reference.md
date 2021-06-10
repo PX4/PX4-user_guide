@@ -1,6 +1,6 @@
 # 에어프레임 참조
 
-> **Note** **이 목록은 소스 코드에서 가져온 데이터로 [자동 생성](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py)하였습니다**.
+> **Note** **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
 > 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT**으로 라벨이 있습니다.
 

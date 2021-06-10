@@ -105,7 +105,7 @@ failure [arguments...]
                  default: 0
 ```
 ## gpio
-Source: [systemcmds/gpio](https://github.com/PX4/Firmware/tree/master/src/systemcmds/gpio)
+Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
 ### 用法
@@ -149,7 +149,7 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-Source: [systemcmds/hardfault_log](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log)
+Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
 
 Hardfault utility
 
@@ -177,7 +177,7 @@ hardfault_log <command> [arguments...]
    reset         Reset the reboot counter
 ```
 ## i2cdetect
-Source: [systemcmds/i2cdetect](https://github.com/PX4/Firmware/tree/master/src/systemcmds/i2cdetect)
+Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
 Utility to scan for I2C devices on a particular bus.
 <a id="i2cdetect_usage"></a>
@@ -189,7 +189,7 @@ i2cdetect [arguments...]
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/Firmware/tree/master/src/systemcmds/led_control)
+Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
 
 
 ### Description
@@ -238,7 +238,7 @@ led_control <command> [arguments...]
                  default: 2
 ```
 ## listener
-Source: [systemcmds/topic_listener](https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener)
+Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
 
 
 Utility to listen on uORB topics and print the data to the console.
@@ -260,7 +260,7 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mfd
-Source: [systemcmds/mft](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mft)
+Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
 Utility interact with the manifest
 <a id="mfd_usage"></a>
@@ -272,7 +272,7 @@ mfd <command> [arguments...]
    query         Returns true if not existed
 ```
 ## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mixer)
+Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
 
 
 ### Description
@@ -293,7 +293,7 @@ mixer <command> [arguments...]
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
 ```
 ## motor_ramp
-Source: [systemcmds/motor_ramp](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_ramp)
+Source: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
 
 
 ### Description
@@ -329,7 +329,7 @@ motor_ramp [arguments...]
  WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test)
+Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
 
 
 Utility to test motors.
@@ -356,7 +356,7 @@ motor_test <command> [arguments...]
    iterate       Iterate all motors starting and stopping one after the other
 ```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd)
+Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
 
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
 <a id="mtd_usage"></a>
@@ -382,7 +382,7 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/nshterm)
+Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
 
 Start an NSH shell on a given port.
 
@@ -396,7 +396,7 @@ nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/Firmware/tree/master/src/systemcmds/param)
+Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
 
 
 ### Description
@@ -484,7 +484,7 @@ param <command> [arguments...]
      <param>     param name
 ```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf)
+Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
 Tool to print performance counters
 <a id="perf_usage"></a>
@@ -499,7 +499,7 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/Firmware/tree/master/src/systemcmds/pwm)
+Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
 
 
 ### Description
@@ -588,7 +588,7 @@ pwm <command> [arguments...]
      [-e]        Exit with 1 instead of 0 on error
 ```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
+Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
 
 Reboot the system
 <a id="reboot_usage"></a>
@@ -600,7 +600,7 @@ reboot [arguments...]
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-Source: [systemcmds/sd_bench](https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench)
+Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
 
 Test the speed of an SD Card
 <a id="sd_bench_usage"></a>
@@ -618,7 +618,7 @@ sd_bench [arguments...]
      [-u]        Test performance with unaligned data)
 ```
 ## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/Firmware/tree/master/src/systemcmds/system_time)
+Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
 ### Description
@@ -644,7 +644,7 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/Firmware/tree/master/src/systemcmds/top)
+Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
 
 Monitor running processes and their CPU, stack usage, priority and state
 <a id="top_usage"></a>
@@ -655,7 +655,7 @@ top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/Firmware/tree/master/src/systemcmds/usb_connected)
+Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
 Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
 <a id="usb_connected_usage"></a>
@@ -665,7 +665,7 @@ Utility to check if USB is connected. Was previously used in startup scripts. A 
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver)
+Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
 Tool to print various version information
 <a id="ver_usage"></a>

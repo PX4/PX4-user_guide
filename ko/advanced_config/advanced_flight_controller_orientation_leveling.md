@@ -16,15 +16,15 @@
 방향 매개변수를 변경하려면 :
 
 1. QGroundControl에서 다음 메뉴를 오픈합니다: **설정 > 매개변수 > 센서 보정**.
-2. 아래와 같이 매개변수 값을 변경합니다.![비행 제어장치 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
+2. 아래와 같이 매개변수 값을 변경합니다.![비행 제어장치 방향 QGC v2 ](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## 매개변수 정보
 
-The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself. What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
+**SENS_BOARD_ROT** 매개변수는 플랫폼에 상대적인 회전을 정의며, X, Y, Z 미세 조정 오프셋 값은 보드 자체에 상대적 고정값으로 저장합니다. 비행 제어장치의 Yaw, Pitch 및 Roll 방향의 전체 오프셋 각도를 가져올 용도로 미세 조정 오프셋 값을 SENS_BOOD_ROT 각도 값에 더합니다.
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
+이 매개변수는 플랫폼에 대한 FMU 보드의 회전을 정의합니다. 가능한 값은 다음과 같습니다.
 
 - 0 = 회전 없음
 - 1 = Yaw 45°
@@ -55,12 +55,12 @@ This parameter defines the rotation of the FMU board relative to the platform. P
 
 **SENS_BOARD_X_OFF**
 
-Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 X축 또는 Roll 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계반대 방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Y_OFF**
 
-Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 Y축 또는 Pitch 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
 
 **SENS_BOARD_Z_OFF**
 
-Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 Z축 또는 Yaw 축을 중심의 도(°) 단위의 회전 오프셋입니다. 양수 방향으로 증가하면 시계 반대방향으로, 음수 방향으로 증가하면 시계 방향으로 회전합니다.
