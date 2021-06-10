@@ -13,19 +13,19 @@ The following models are supported by PX4, and can be connected to either the I2
 | Model                                                                                  | Range (m) | Bus               | 参数描述                                                            |
 | -------------------------------------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
 | [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120       | Serial or I2C bus |                                                                 |
-| [LW20/B](https://lightware.co.za/products/lw20-b-50-m)                                 | 50        | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
 | [LW20/C](https://lightware.co.za/products/lw20-c-100-m)                                | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
 ### Discontinued
 
 The following models are no longer available from the manufacturer.
 
-| Model                                                                                              | 范围   | Bus           |
-| -------------------------------------------------------------------------------------------------- | ---- | ------------- |
-| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | Serial        |
-| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | Serial or I2C |
-| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | Serial or I2C |
-| SF10/C                                                                                             | 100m | Serial or I2C |
+| Model                                                                                              | 范围   | Bus                                                                       |
+| -------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------- |
+| [SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50   | Serial                                                                    |
+| [SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25   | Serial or I2C                                                             |
+| [SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50   | Serial or I2C                                                             |
+| SF10/C                                                                                             | 100m | Serial or I2C                                                             |
+| LW20/B                                                                                             | 50   | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
 ## I2C Setup
 
@@ -49,7 +49,7 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](http://manpages.ubuntu.com/manpages/bionic/en/man8/i2cdetect.8.html). If the I2C address is equal to `0x66` the sensor can be used with PX4.
 :::
 
-<span id="i2c_parameter_setup"></span>
+<a id="i2c_parameter_setup"></a>
 
 ### Parameter Setup
 
@@ -57,7 +57,7 @@ Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX)
 
 ## Serial Setup
 
-<span id="serial_hardware_setup"></span>
+<a id="serial_hardware_setup"></a>
 
 ### Hardware
 
