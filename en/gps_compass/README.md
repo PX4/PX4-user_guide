@@ -130,11 +130,18 @@ Parameter | Setting
 ### Compass Configuration
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
-The process is straightforward and will calibrate all connected magnetometers.
+The process is straightforward and will autodetect, prioritise and calibrate all connected magnetometers.
 
-Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) parameters (where `x=0-3`).
-Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) which might be used to disable an internal compass).
-You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL_MAGn_ROT==-1](../advanced_config/parameter_reference.md#CAL_MAG0_ROT ) indicates internal) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
+Further compass configuration should not be required.
+
+#### Compass Parameters
+
+Compass parameters are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID), where `x=0-3`.
+
+As stated above, generally these should not need to be changed.
+A possible exception is that vehicle developers might choose to disable an internal compass or experiment with adjusting the compass priority:
+- [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) can be read to determine if a compass is internal (`CAL_MAGn_ROT==1`)
+- [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) can be used to disable or change the relative priority of a compass.
 
 
 ## Developer Information
