@@ -26,7 +26,7 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
 - (벤더가 지원하는) 커스텀 버전의 PX4를 구동하는 소비자용 드론들:
   
   - Multicopter 
-    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus.html)
+    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
     - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     - [Airlango Mystic](http://airlango.com/products/)

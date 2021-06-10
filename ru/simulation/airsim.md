@@ -7,7 +7,7 @@
 
 ## PX4 Setup
 
-[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup/) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl/) and [HITL](https://microsoft.github.io/AirSim/px4_setup/#setting-up-px4-hardware-in-loop).
+[PX4 Setup for AirSim](https://microsoft.github.io/AirSim/px4_setup.html) describes how to use PX4 with AirSim using both [SITL](https://microsoft.github.io/AirSim/px4_sitl.html) and [HITL](https://microsoft.github.io/AirSim/px4_setup.html#setting-up-px4-hardware-in-loop).
 
 
 ## Videos

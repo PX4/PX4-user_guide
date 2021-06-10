@@ -128,7 +128,7 @@ Key features:
 
 Key features:
 
-* Easy to share, users can view notebooks on Github \(e.g. [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb)\)
+* Easy to share, users can view notebooks on Github (e.g. [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
 * Python based, cross platform, works witn anaconda 2 and anaconda3
 * iPython/ jupyter notebooks can be used to share analysis easily
 * Advanced plotting capabilities to allow detailed analysis
