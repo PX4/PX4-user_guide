@@ -215,7 +215,7 @@
       * [Holybro H-RTK-F9P](gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
       * [Holybro H-RTK-M8P](gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
-	  * [Hex Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
+      * [CubePilot Here+ (Discontined)](gps_compass/rtk_gps_hex_hereplus.md)
     * [Telemetry Radios](telemetry/README.md)
       * [SiK Radio](telemetry/sik_radio.md)
         * [RFD900 (SiK) Telemetry Radio](telemetry/rfd900_telemetry.md)
