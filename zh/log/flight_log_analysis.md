@@ -128,7 +128,7 @@ Key features:
 
 Key features:
 
-* 易于分享，用户可以查看笔记本电脑上的 Github (比如：[https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb))
+* Easy to share, users can view notebooks on Github (e.g. [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
 * 基于Python的，跨平台的，与 anaconda2 和 anaconda3 一起使用。
 * 使用 iPython/jupyter notebooks 可以方便地共享分析
 * 高级绘图功能，允许进行详细分析
