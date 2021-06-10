@@ -272,7 +272,8 @@ There are a number of ways to make the UDP packets available on external interfa
 
 ### Enable MAV_BROADCAST
 
-Enable [MAV_BROADCAST](../advanced_config/parameter_reference.md#MAV_BROADCAST) to broadcast heartbeats on the local network. 
+Enable UDP broadcast of heartbeats on the local network by calling the [mavlink](../modules/modules_communication.md#mavlink) with the `-p` flag.
+This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 
