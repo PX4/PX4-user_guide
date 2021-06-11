@@ -1,8 +1,8 @@
 # 시동 전, 시동, 제동 구성
 
-기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러와 같이 전원을 공급할 때 잠재적으로 위험합니다!
+기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러는 전원 공급시 위험할 수 있습니다.
 
-사고 위험을 줄이기 위하여, PX4에는 기체에 전원을 공급하는 상태들이 있습니다.
+사고의 위험을 줄이기 위하여, PX4는 명확한 상태에서만 부품들의 전원을 공급합니다.
 
 - **제동:** 모터와 액츄에이터에 전원을 인가하지 않음
 - **시동 전:** 모터와 프로펠러를 잠궈두었으나 액츄에이터에는 위험하지 않은 수준의 전원을 인가함(예: 보조익, 플랩 등).
@@ -66,27 +66,27 @@ PX4에서는 다음 섹션에 설명된 대로 매개변수([매개변수 편집
 두 위치 스위치는 준비/시동 해제에도 사용할 수 있으며, 여기서 각 시동/시동 해제 명령은 스위치 *전환*에서 전송됩니다.
 
 :::tip
-이중 위치 시동 스위치는 주로 레이싱 드론에 사용/권장됩니다.
+이중 위치 시동 스위치는 주로 레이싱 드론에 사용되고 권장됩니다.
 :::
 
-The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+스위치 또는 버튼은 [RC_MAP_ARM_SW](#RC_MAP_ARM_SW)를 사용하여 할당(및 활성화)되고 스위치 "유형"은 [COM_ARM_SWISBTN](#COM_ARM_SWISBTN)에서 설정합니다.
 
-| 파라미터                                                                                                    | 설명                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture.   
-**Note:**  
-- This setting *disables the stick gesture*!  
-- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via *QGroundControl*. |
-| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button.   
-- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.  
--`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                 |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm 스위치 채널 (기본값 : 0 - 할당되지 않음). 정의된 경우 지정된 RC 채널(버튼/스위치)이 스틱 제스처 대신 시동용으로 사용됩니다.   
+**참고:**   
+- 이 설정은 *스틱 제스처를 비활성화합니다*!   
+-이 설정은 RC 컨트롤러에 적용됩니다. *QGroundControl*을 통해 연결된 조이스틱 컨트롤러에는 적용되지 않습니다.              |
+| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | 시동 스위치는 순간적으로 동작하는 버튼입니다.   
+- `0`: 시동 스위치는 스위치 전환시 arm/disarm 명령이 전송되는 이중 위치 스위치입니다.   
+- `1` : 시동 스위치는 버튼입니다. 또는 설정된 시간 ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)) 동안 버튼을 누른 후 arm/disarm 명령 ae가 전송되는 순간 동작하는 버튼입니다. |
 
 
 :::note
-The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+스위치는 *QGroundControl* [비행 모드](../config/flight_mode.md)일부로 설정할 수도 있습니다.
 :::
 
-## 자동 제동
+## 자동 시동 해제
 
 By default vehicles will automatically disarm on landing, or if you take too long to take off after arming. The feature is configured using the following timeouts.
 
