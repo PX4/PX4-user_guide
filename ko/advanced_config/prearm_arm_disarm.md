@@ -1,8 +1,8 @@
 # 시동 전, 시동, 제동 구성
 
-기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러와 같이 전원을 공급할 때 잠재적으로 위험합니다!
+기체에는 움직이는 부품이 있으며, 그 중에는 특히 모터와 프로펠러는 전원 공급시 위험할 수 있습니다.
 
-사고 위험을 줄이기 위하여, PX4에는 기체에 전원을 공급하는 상태들이 있습니다.
+사고의 위험을 줄이기 위하여, PX4는 명확한 상태에서만 부품들의 전원을 공급합니다.
 
 - **제동:** 모터와 액츄에이터에 전원을 인가하지 않음
 - **시동 전:** 모터와 프로펠러를 잠궈두었으나 액츄에이터에는 위험하지 않은 수준의 전원을 인가함(예: 보조익, 플랩 등).
@@ -66,90 +66,90 @@ PX4에서는 다음 섹션에 설명된 대로 매개변수([매개변수 편집
 두 위치 스위치는 준비/시동 해제에도 사용할 수 있으며, 여기서 각 시동/시동 해제 명령은 스위치 *전환*에서 전송됩니다.
 
 :::tip
-이중 위치 시동 스위치는 주로 레이싱 드론에 사용/권장됩니다.
+이중 위치 시동 스위치는 주로 레이싱 드론에 사용되고 권장됩니다.
 :::
 
-The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+스위치 또는 버튼은 [RC_MAP_ARM_SW](#RC_MAP_ARM_SW)를 사용하여 할당(및 활성화)되고 스위치 "유형"은 [COM_ARM_SWISBTN](#COM_ARM_SWISBTN)에서 설정합니다.
 
-| 파라미터                                                                                                    | 설명                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm switch channel (default: 0 - unassigned). If defined, the specified RC channel (button/switch) is used for arming instead of a stick gesture.   
-**Note:**  
-- This setting *disables the stick gesture*!  
-- This setting applies to RC controllers. It does not apply to Joystick controllers that are connected via *QGroundControl*. |
-| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a momentary button.   
-- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on switch transitions.  
--`1`: Arm switch is a button or momentary button where the arm/disarm command ae sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).                                 |
+| 매개변수                                                                                                    | 설명                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW)     | RC arm 스위치 채널 (기본값 : 0 - 할당되지 않음). 정의된 경우 지정된 RC 채널(버튼/스위치)이 스틱 제스처 대신 시동용으로 사용됩니다.   
+**참고:**   
+- 이 설정은 *스틱 제스처를 비활성화합니다*!   
+-이 설정은 RC 컨트롤러에 적용됩니다. *QGroundControl*을 통해 연결된 조이스틱 컨트롤러에는 적용되지 않습니다.              |
+| <span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | 시동 스위치는 순간적으로 동작하는 버튼입니다.   
+- `0`: 시동 스위치는 스위치 전환시 arm/disarm 명령이 전송되는 이중 위치 스위치입니다.   
+- `1` : 시동 스위치는 버튼입니다. 또는 설정된 시간 ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)) 동안 버튼을 누른 후 arm/disarm 명령 ae가 전송되는 순간 동작하는 버튼입니다. |
 
 
 :::note
-The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
+스위치는 *QGroundControl* [비행 모드](../config/flight_mode.md)일부로 설정할 수도 있습니다.
 :::
 
-## 자동 제동
+## 자동 시동 해제
 
-By default vehicles will automatically disarm on landing, or if you take too long to take off after arming. The feature is configured using the following timeouts.
+기본적으로, 기체는 착륙시 시동 해제 되며, 시동후 이륙 시간이 너무 오래 걸리면 자동으로 시동 해제됩니다. 이 기능은 다음 시간 제한을 사용하여 설정됩니다.
 
-| 파라미터                                                                                                      | 설명                                                                              |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Time-out for auto disarm after landing. Default: 2s (-1 to disable).            |
-| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable). |
+| 매개변수                                                                                                      | 설명                                                           |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 해제 대기 시간. 기본값: 2s (-1 비활성화).                       |
+| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 이륙 속도가 너무 느리면 자동 시동 해제 시간이 초과됩니다. 기본값: 10s (<=0 to disable). |
 
 
-## 시동 절차: 시동 전 상태와 안전 단추
+## 시동 절차: 시동전 상태와 안전 버튼
 
-The arming sequence depends on whether or not there is a *safety switch*, and is controlled by the parameters [COM_PREARM_MODE](#COM_PREARM_MODE) (Prearm mode) and [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I/O safety circuit breaker).
+준비 순서는 *안전 스위치* 존재 여부에 따라 달라지며 [COM_PREARM_MODE](#COM_PREARM_MODE) (사전 준비 모드) 및 [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I / O 안전 회로 차단기).
 
-The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode is enabled ("safe"/non-throttling actuators are able to move):
+[COM_PREARM_MODE](#COM_PREARM_MODE) 매개변수는 사전 준비 모드가 활성화 여부와 시기를 정의합니다 (안전/비 추진 액추에이터가 움직일 수 있음) :
 
-- *Disabled*: Pre-arm mode disabled (there is no stage where only "safe"/non-throttling actuators are enabled).
-- *Safety Switch* (Default): The pre-arm mode is enabled by the safety switch. If there is no safety switch then pre-arm mode will not be enabled.
-- *Always*: Prearm mode is enabled from power up. 
+- *비활성화* : 시정전 모드 비활성화( 비 추진 액추에이터만 활성화되는 단계가 없음).
+- *안전 스위치* (기본값) : 안전 스위치에 의해 시동전 모드가 활성화됩니다. 안전 스위치가 없으면 시동전 모드가 활성화되지 않습니다.
+- *항상* : 전원을 켜면 시동전 모드가 활성화됩니다. 
 
-기본 설정에서는 시동 전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 이 스위치를 켜고 나서 모든 모터와 액츄에이터를 가동할 목적으로 시동을 걸 수 있습니다.
+기본 설정에서는 시동전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 스위치를 켠후, 모든 모터와 액츄에이터를 가동하기 위하여 시동을 걸 수 있습니다.
 
-기본 시동 절차는 다음과 같습니다:
+아래 섹션에서는 여러가지 설정의 시작 순서를 자세히 설명합니다.
 
-### 기본값: COM_PREARM_MODE=안전 및 안전 스위치
+### 기본값: COM_PREARM_MODE = Safety and Safety Switch
 
-The default configuration uses safety switch to prearm. From prearm you can then arm to engage all motors/actuators. It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+기본 설정에서는 시동전에 안전 스위치를 사용하도록 설정합니다. 시동전에 이 스위치를 켜면 모든 모터와 액츄에이터를 가동하기 위하여 시동을 걸 수 있습니다. 이에 해당하는 설정은 [COM_PREARM_MODE=1](#COM_PREARM_MODE) (안전 스위치 사용)과 [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (입출력 안전 회로 차단기 비활성)이 있습니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
-   - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
+   - 시스템이 시동전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
    - 시스템 안전 장치 꺼짐: 시동 가능
 3. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=비활성 및 안전 스위치
+### COM_PREARM_MODE = Disabled and Safety Switch
 
-When prearm mode is *Disabled*, engaging the safety switch does not unlock the "safe" actuators, though it does allow you to then arm the vehicle. This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+시동전 모드가 *비활성화*인 경우 안전 스위치를 작동하여도 "안전" 액추에이터의 잠금이 해제되지는 않지만 기체의 시동을 걸 수 있습니다. 이는 [COM_PREARM_MODE = 0](#COM_PREARM_MODE) (비활성화) 및 [CBRK_IO_SAFETY = 0](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 비활성화)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
-   - *모든 액츄에이터가 제동 상태로 잠김 (제동 상태와 동일).*
+   - *모든 액츄에이터가 시동 해제 상태로 잠김 (시동 해제 상태와 동일).*
    - 시스템 안전 장치 꺼짐: 시동 가능
 3. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Always and Safety Switch
+### COM_PREARM_MODE = Always and Safety Switch
 
-When prearm mode is *Always*, prearm mode is enabled from power up. To arm, you still need the safety switch. This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+시동전 모드가 *Always*이면 전원을 켤 때 시동전 모드가 활성화됩니다. 시동 걸기 위하여 여전히 안전 스위치가 필요합니다. 이는 [COM_PREARM_MODE = 2](#COM_PREARM_MODE) (항상) 및 [CBRK_IO_SAFETY = 0](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 비활성화 됨)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
+   - 시스템이 시동전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
    - 시스템 안전 장치 꺼짐: 시동 가능
@@ -157,27 +157,27 @@ When prearm mode is *Always*, prearm mode is enabled from power up. To arm, you 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Safety or Disabled and No Safety Switch
+### COM_PREARM_MODE = Safety or Disabled and No Safety Switch
 
-With no safety switch, when `COM_PREARM_MODE` is set to *Safety* or *Disabled* prearm mode cannot be enabled (same as disarmed). This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+안전 스위치가 없는 경우 `COM_PREARM_MODE`가 *안전* 또는 *비활성화*로 설정된 경우 사전 준비 모드를 활성화할 수 없습니다 (비활성화와 동일). 이는 [COM_PREARM_MODE = 0 또는 1](#COM_PREARM_MODE) (비활성화/안전 스위치) 및 [CBRK_IO_SAFETY = 22027](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 사용)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시스템 안전 장치 꺼짐: 시동 가능
 2. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Always and No Safety Switch
+### COM_PREARM_MODE = Always and No Safety Switch
 
-When prearm mode is *Always*, prearm mode is enabled from power up. This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+시동전 모드가 *Always*이면, 전원을 켤 때 시동전 모드가 활성화됩니다. 이는 [COM_PREARM_MODE = 2](#COM_PREARM_MODE) (항상) 및 [CBRK_IO_SAFETY = 22027](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 사용)에 해당합니다.
 
-The startup sequence is:
+시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
+   - 시스템이 시동전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
    - 시스템 안전 장치 꺼짐: 시동 가능
 2. 시동 명령 인가 
    - 시스템에 시동이 걸림
@@ -185,10 +185,10 @@ The startup sequence is:
 
 ### 매개변수
 
-| 매개변수                                                                                                    | 설명                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_PREARM_MODE"></span>[COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) | 시동 전 모드로 진입하는 상태입니다. `0`: 비활성, `1`: 안전 스위치(안전 스위치로 시동 전 모드 활성 가능, 스위치가 없으면 이 옵션을 사용할 수 없습니다), `2`: 항상(전원 인가 후 시동 전 모드를 켭니다). 기본값: `1` (안전 단추). |
-| <span id="CBRK_IO_SAFETY"></span>[CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY)   | 입출력 안전을 위한 회로 차단.                                                                                                                              |
+| 매개변수                                                                                                    | 설명                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="COM_PREARM_MODE"></span>[COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) | 시동전 모드로 진입하는 상태입니다. `0`: 비활성, `1`: 안전 스위치(안전 스위치로 시동 전 모드 활성 가능, 스위치가 없으면 이 옵션을 사용할 수 없습니다), `2`: 항상(전원 인가 후 시동 전 모드를 켭니다). 기본값: `1` (안전 단추). |
+| <span id="CBRK_IO_SAFETY"></span>[CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY)   | 입출력 안전을 위한 회로 차단.                                                                                                                             |
 
 
 <!-- Discussion:

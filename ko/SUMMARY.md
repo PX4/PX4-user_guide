@@ -143,7 +143,7 @@
   * [고급 컨트롤러 방향 설정](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [정압 축적](advanced_config/static_pressure_buildup.md)
   * [시동전, 시동, 시동 해제 설정](advanced_config/prearm_arm_disarm.md)
-  * [직렬포트 설정](peripherals/serial_configuration.md)
+  * [직렬 포트 설정 ](peripherals/serial_configuration.md)
   * [MAVLink 텔레메트리(OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [전체 매개변수 참고](advanced_config/parameter_reference.md)
 * [하드웨어(드론 및 부품)](hardware/drone_parts.md) 
