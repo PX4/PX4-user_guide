@@ -94,7 +94,15 @@ This consists of a single *C* file and a *cmake* definition (which tells the too
      `PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**).
      There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`.
      Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
-	 :::
+     :::
+     
+     :::tip `__EXPORT` keyword is an extension of the C/C++ standard that exports the compiled object file to the linker. The object file comes from the .cpp source file that was written; it is C/C++ code translated into machine code by the compiler. 
+     
+     Each .c/.cpp file is translated into it's own object file,typically named as object.o or object.obj. A linker is a program which combines the compiled object file and referenced libraries into a single executable.
+     
+     Links to information on [`__EXPORT`](https://digitalmars.com/ctg/ctgLanguageImplementation.html) and [C++ linker](https://www.learncpp.com/cpp-tutorial/introduction-to-the-compiler-linker-and-libraries/).
+     :::
+	 
 
 1. Create and open a new *cmake* definition file named **CMakeLists.txt**.
    Copy in the text below:
