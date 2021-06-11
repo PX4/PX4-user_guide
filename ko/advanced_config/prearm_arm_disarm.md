@@ -88,25 +88,25 @@ PX4에서는 다음 섹션에 설명된 대로 매개변수([매개변수 편집
 
 ## 자동 시동 해제
 
-By default vehicles will automatically disarm on landing, or if you take too long to take off after arming. The feature is configured using the following timeouts.
+기본적으로, 기체는 착륙시 시동 해제 되며, 시동후 이륙 시간이 너무 오래 걸리면 자동으로 시동 해제됩니다. 이 기능은 다음 시간 제한을 사용하여 설정됩니다.
 
-| 파라미터                                                                                                      | 설명                                                                              |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Time-out for auto disarm after landing. Default: 2s (-1 to disable).            |
-| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable). |
+| 매개변수                                                                                                      | 설명                                                           |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 착륙후 자동 시동 해제 대기 시간. 기본값: 2s (-1 비활성화).                       |
+| <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 이륙 속도가 너무 느리면 자동 시동 해제 시간이 초과됩니다. 기본값: 10s (<=0 to disable). |
 
 
-## 시동 절차: 시동 전 상태와 안전 단추
+## 시동 절차: 시동전 상태와 안전 버튼
 
-The arming sequence depends on whether or not there is a *safety switch*, and is controlled by the parameters [COM_PREARM_MODE](#COM_PREARM_MODE) (Prearm mode) and [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I/O safety circuit breaker).
+준비 순서는 *안전 스위치* 존재 여부에 따라 달라지며 [COM_PREARM_MODE](#COM_PREARM_MODE) (사전 준비 모드) 및 [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I / O 안전 회로 차단기).
 
-The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode is enabled ("safe"/non-throttling actuators are able to move):
+[COM_PREARM_MODE](#COM_PREARM_MODE) 매개변수는 사전 준비 모드가 활성화 여부와 시기를 정의합니다 (안전/비 추진 액추에이터가 움직일 수 있음) :
 
-- *Disabled*: Pre-arm mode disabled (there is no stage where only "safe"/non-throttling actuators are enabled).
-- *Safety Switch* (Default): The pre-arm mode is enabled by the safety switch. If there is no safety switch then pre-arm mode will not be enabled.
-- *Always*: Prearm mode is enabled from power up. 
+- *비활성화* : 시정전 모드 비활성화( 비 추진 액추에이터만 활성화되는 단계가 없음).
+- *안전 스위치* (기본값) : 안전 스위치에 의해 시동전 모드가 활성화됩니다. 안전 스위치가 없으면 시동전 모드가 활성화되지 않습니다.
+- *항상* : 전원을 켜면 시동전 모드가 활성화됩니다. 
 
-기본 설정에서는 시동 전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 이 스위치를 켜고 나서 모든 모터와 액츄에이터를 가동할 목적으로 시동을 걸 수 있습니다.
+기본 설정에서는 시동전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 스위치를 켠후, 모든 모터와 액츄에이터를 가동하기 위하여 시동을 걸 수 있습니다.
 
 기본 시동 절차는 다음과 같습니다:
 
