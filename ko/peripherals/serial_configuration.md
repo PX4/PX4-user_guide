@@ -1,21 +1,21 @@
 # 직렬 포트 설정
 
-Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
+Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합니다. 예 : `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART + I2C`).
 
-The configuration makes it easy to (for example):
+설정을 통하여 아래의 작업들이 용이해집니다.(예 :)
 
-* change the baudrate on a port.
-* run MAVLink on a different port, or change the streamed messages.
-* setup dual GPS.
-* enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
+* 포트의 전송 속도를 변경합니다.
+* 다른 포트에서 MAVLink를 실행하거나 스트리밍 메시지를 변경합니다.
+* 듀얼 GPS를 설정합니다.
+* 일부 [거리 센서](../sensor/rangefinders.md)와 같이 직렬 포트에서 실행되는 센서를 활성화합니다.
 
 :::note
-Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
+일부 포트는 RC 입력 또는 시스템 콘솔 (`SERIAL 5`)과 같이 특정 용도로 사용되므로, 설정이 불가능합니다.
 :::
 
 <span id="default_port_mapping"></span>
 
-## Pre-configured Ports
+## 사전 설정된 포트
 
 The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
 
