@@ -108,48 +108,48 @@ PX4에서는 다음 섹션에 설명된 대로 매개변수([매개변수 편집
 
 기본 설정에서는 시동전에 안전 스위치를 사용하도록 설정합니다. 시동 전에 스위치를 켠후, 모든 모터와 액츄에이터를 가동하기 위하여 시동을 걸 수 있습니다.
 
-기본 시동 절차는 다음과 같습니다:
+아래 섹션에서는 여러가지 설정의 시작 순서를 자세히 설명합니다.
 
-### 기본값: COM_PREARM_MODE=안전 및 안전 스위치
+### 기본값: COM_PREARM_MODE = Safety and Safety Switch
 
-The default configuration uses safety switch to prearm. From prearm you can then arm to engage all motors/actuators. It corresponds to: [COM_PREARM_MODE=1](#COM_PREARM_MODE) (safety switch) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+기본 설정에서는 시동전에 안전 스위치를 사용하도록 설정합니다. 시동전에 이 스위치를 켜면 모든 모터와 액츄에이터를 가동하기 위하여 시동을 걸 수 있습니다. 이에 해당하는 설정은 [COM_PREARM_MODE=1](#COM_PREARM_MODE) (안전 스위치 사용)과 [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (입출력 안전 회로 차단기 비활성)이 있습니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
-   - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
+   - 시스템이 시동전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
    - 시스템 안전 장치 꺼짐: 시동 가능
 3. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=비활성 및 안전 스위치
+### COM_PREARM_MODE = Disabled and Safety Switch
 
-When prearm mode is *Disabled*, engaging the safety switch does not unlock the "safe" actuators, though it does allow you to then arm the vehicle. This corresponds to [COM_PREARM_MODE=0](#COM_PREARM_MODE) (Disabled) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+시동전 모드가 *비활성화*인 경우 안전 스위치를 작동하여도 "안전" 액추에이터의 잠금이 해제되지는 않지만 기체의 시동을 걸 수 있습니다. 이는 [COM_PREARM_MODE = 0](#COM_PREARM_MODE) (비활성화) 및 [CBRK_IO_SAFETY = 0](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 비활성화)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
-   - *모든 액츄에이터가 제동 상태로 잠김 (제동 상태와 동일).*
+   - *모든 액츄에이터가 시동 해제 상태로 잠김 (시동 해제 상태와 동일).*
    - 시스템 안전 장치 꺼짐: 시동 가능
 3. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Always and Safety Switch
+### COM_PREARM_MODE = Always and Safety Switch
 
-When prearm mode is *Always*, prearm mode is enabled from power up. To arm, you still need the safety switch. This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=0](#CBRK_IO_SAFETY) (I/O safety circuit breaker disabled).
+시동전 모드가 *Always*이면 전원을 켤 때 시동전 모드가 활성화됩니다. 시동 걸기 위하여 여전히 안전 스위치가 필요합니다. 이는 [COM_PREARM_MODE = 2](#COM_PREARM_MODE) (항상) 및 [CBRK_IO_SAFETY = 0](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 비활성화 됨)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 시스템이 시동 전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
+   - 시스템이 시동전 상태로 전환: 추진 모터를 제외한 모든 액츄에이터 동작 가능(예: 보조익)
    - 시동 걸기 불가능
 2. 안전 스위치 누름 
    - 시스템 안전 장치 꺼짐: 시동 가능
@@ -157,22 +157,22 @@ When prearm mode is *Always*, prearm mode is enabled from power up. To arm, you 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Safety or Disabled and No Safety Switch
+### COM_PREARM_MODE = Safety or Disabled and No Safety Switch
 
-With no safety switch, when `COM_PREARM_MODE` is set to *Safety* or *Disabled* prearm mode cannot be enabled (same as disarmed). This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+안전 스위치가 없는 경우 `COM_PREARM_MODE`가 *안전* 또는 *비활성화*로 설정된 경우 사전 준비 모드를 활성화할 수 없습니다 (비활성화와 동일). 이는 [COM_PREARM_MODE = 0 또는 1](#COM_PREARM_MODE) (비활성화/안전 스위치) 및 [CBRK_IO_SAFETY = 22027](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 사용)에 해당합니다.
 
 시작 절차는 다음과 같습니다:
 
 1. 전원 인가 
-   - 모든 액츄에이터를 제동 상태로 두어 잠금
+   - 모든 액츄에이터를 시동 해제 상태로 잠금
    - 시스템 안전 장치 꺼짐: 시동 가능
 2. 시동 명령 인가 
    - 시스템에 시동이 걸림
    - 모든 모터와 액츄에이터를 움직일 수 있음
 
-### COM_PREARM_MODE=Always and No Safety Switch
+### COM_PREARM_MODE = Always and No Safety Switch
 
-When prearm mode is *Always*, prearm mode is enabled from power up. This corresponds to [COM_PREARM_MODE=2](#COM_PREARM_MODE) (Always) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
+시동전 모드가 *Always*이면, 전원을 켤 때 시동전 모드가 활성화됩니다. 이는 [COM_PREARM_MODE = 2](#COM_PREARM_MODE) (항상) 및 [CBRK_IO_SAFETY = 22027](#CBRK_IO_SAFETY) (I/O 안전 회로 차단기 사용)에 해당합니다.
 
 The startup sequence is:
 
