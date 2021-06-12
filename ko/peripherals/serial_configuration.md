@@ -9,20 +9,20 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 * 듀얼 GPS를 설정합니다.
 * 일부 [거리 센서](../sensor/rangefinders.md)와 같이 직렬 포트에서 실행되는 센서를 활성화합니다.
 
-:::note
-일부 포트는 RC 입력 또는 시스템 콘솔 (`SERIAL 5`)과 같이 특정 용도로 사용되므로, 설정이 불가능합니다.
+:::note RC
+입력이나 시스템 콘솔(`SERIAL 5`)과 같이 특정 용도로 사용되는 일부 포트는 설정할 수 없습니다.
 :::
 
 <span id="default_port_mapping"></span>
 
 ## 사전 설정된 포트
 
-The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
+아래의 기능들은 일반적으로 모든 보드에서 동일하게 특정 직렬 포트에 기본적으로 매핑됩니다.
 
-* MAVLink is mapped to the `TELEM 1` port with baudrate 57600 (for a [telemetry module](../telemetry/README.md)).
-* GPS 1 ([gps driver](../modules/modules_driver.md#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+* MAVLink는 전송 속도가 57600인 `TELEM 1` 포트에 매핑됩니다([원격 측정 모듈](../telemetry/README.md)의 경우).
+* GPS 1 ([gps 드라이버](../modules/modules_driver.md#gps))은 전송 속도가 *자동*인 `GPS 1` 포트에 매핑됩니다. 이 설정은 GPS 전송 속도를 자동으로 감지합니다(115200 전송 속도가 필요한 Trimble MB-Two 제외).
 
-All other ports have no assigned functions by default (are disabled).
+다른 모든 포트에는 할당된 기능이 없습니다(비활성화 됨).
 
 :::tip
 The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
