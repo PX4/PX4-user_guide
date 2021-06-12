@@ -59,18 +59,18 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 
 ### *QGroundControl*에서 누락된 설정 매개변수
 
-*QGroundControl* only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
+*QGroundControl*은 펌웨어의 서비스와 드라이버의 매개변수들만 표시합니다. 누락된 매개변수를 펌웨어에 추가할 수 있습니다.
 
-:::note PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
+:::note PX4 펌웨어는 기본적으로 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드에 드라이버를 대부분 포함합니다. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
-You can include the missing driver in firmware by uncommenting (or adding) the driver in the **default.cmake** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the sf0x driver, you would remove the `#` at the beginning of the line below.
+빌드하려는 [보드](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4)에 해당하는 **default.cmake** 설정 파일에서 드라이버의 주석을 제거하거나 추가하여 누락된 드라이버를 펌웨어에 포함시킬 수 있습니다. 예를 들어, sf0x 드라이버를 활성화하려면 아래 줄의 시작 부분에서 `#`을 제거합니다.
 
     #distance_sensor/sf0x
     
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
+그런 다음 [PX4 소프트웨어 빌드](../dev_setup/building_px4.md) 방법으로 플랫폼용 펌웨어를 빌드하여야 합니다.
 
-## Further Information
+## 추가 정보
 
-* [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
+* [MAVLink 주변 장치(OSD/GCS/보조 컴퓨터 등)](../peripherals/mavlink_peripherals.md)
