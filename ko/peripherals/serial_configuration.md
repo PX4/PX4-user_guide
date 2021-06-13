@@ -9,68 +9,68 @@ Pixhawk 보드의 직렬(UART) 포트들은 매개변수를 통하여 설정합�
 * 듀얼 GPS를 설정합니다.
 * 일부 [거리 센서](../sensor/rangefinders.md)와 같이 직렬 포트에서 실행되는 센서를 활성화합니다.
 
-:::note
-일부 포트는 RC 입력 또는 시스템 콘솔 (`SERIAL 5`)과 같이 특정 용도로 사용되므로, 설정이 불가능합니다.
+:::note RC
+입력이나 시스템 콘솔(`SERIAL 5`)과 같이 특정 용도로 사용되는 일부 포트는 설정할 수 없습니다.
 :::
 
 <span id="default_port_mapping"></span>
 
 ## 사전 설정된 포트
 
-The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
+아래의 기능들은 일반적으로 모든 보드에서 동일하게 특정 직렬 포트에 기본적으로 매핑됩니다.
 
-* MAVLink is mapped to the `TELEM 1` port with baudrate 57600 (for a [telemetry module](../telemetry/README.md)).
-* GPS 1 ([gps driver](../modules/modules_driver.md#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+* MAVLink는 전송 속도가 57600인 `TELEM 1` 포트에 매핑됩니다([원격 측정 모듈](../telemetry/README.md)의 경우).
+* GPS 1 ([gps 드라이버](../modules/modules_driver.md#gps))은 전송 속도가 *자동*인 `GPS 1` 포트에 매핑됩니다. 이 설정은 GPS 전송 속도를 자동으로 감지합니다(115200 전송 속도가 필요한 Trimble MB-Two 제외).
 
-All other ports have no assigned functions by default (are disabled).
+다른 모든 포트에는 할당된 기능이 없습니다(비활성화 됨).
 
 :::tip
-The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
+위의 포트 매핑은 [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) 및 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG)를 각각 *비활성화*로 설정할 수 있습니다.
 :::
 
-## How to Configure a Port
+## 포트를 설정 방법
 
-All the serial drivers/ports are configured in the same way:
+모든 직렬 드라이버와 포트는 동일한 방식으로 설정합니다.
 
-1. Set the configuration parameter for the service/peripheral to the port it will use.
+1. 서비스와 주변기기에 대한 매개변수를 사용할 포트로 설정하십시오.
     
 :::note
-Configuration parameter names follow the pattern `*_CONFIG` or `*_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware). At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG).
+설정 매개변수 이름은 <0 *_CONFIG</code> 또는 `*_ CFG` 패턴을 따릅니다. *QGroundControl*은 펌웨어에 있는 서비스와 드라이버에 대한 매개변수만 표시합니다. 이 문서 작성 시점의 세트는 다음과 같습니다: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG).
 :::
 
-2. Reboot the vehicle in order to make the additional configuration parameters visible.
+2. 추가 설정 매개변수를 표시하기 위하여 기체를 재부팅합니다.
 
-3. Set the baud rate parameter for the selected port to the desired value.
-4. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
+3. 선택한 포트의 전송속도 매개변수를 설정합니다.
+4. 모듈별 매개변수를 설정합니다(예 : MAVLink 스트림 및 데이터 속도 설정).
 
-The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in *QGroundControl* (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
+[GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) 섹션은 *QGroundControl*에서 포트 설정 방법실제 예를 제공합니다(`TELEM 2` 포트의 보조 GPS 사용을 위한 `GPS_2_CONFIG`를 사용 방법을 보여줍니다. ).
 
-## Deconficting Ports
+## 포트 충돌 해제
 
-Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port.
+포트 충돌은 시스템 시작에 의해 처리되므로 특정 포트에서 최대 하나의 서비스만 실행됩니다.
 
 :::warning
-At time of writing there is no user feedback about conflicting ports.
+이 글을 쓰는 시점에는 충돌하는 포트에 관련된 사용자 피드백은 없습니다.
 :::
 
-## Troubleshooting
+## 문제 해결
 
 <span id="parameter_not_in_firmware"></span>
 
-### Configuration Parameter Missing from *QGroundControl*
+### *QGroundControl*에서 누락된 설정 매개변수
 
-*QGroundControl* only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
+*QGroundControl*은 펌웨어의 서비스와 드라이버의 매개변수들만 표시합니다. 누락된 매개변수를 펌웨어에 추가할 수 있습니다.
 
-:::note PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
+:::note PX4 펌웨어는 기본적으로 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 보드에 드라이버를 대부분 포함합니다. 플래시 제한 보드는 드라이버를 주석 처리하거나 생략할 수 있습니다(작성 시점에는 FMUv2 기반 보드에만 영향을 미침).
 :::
 
-You can include the missing driver in firmware by uncommenting (or adding) the driver in the **default.cmake** config file that corresponds to the [board](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4) you want to build for. For example, to enable the sf0x driver, you would remove the `#` at the beginning of the line below.
+빌드하려는 [보드](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4)에 해당하는 **default.cmake** 설정 파일에서 드라이버의 주석을 제거하거나 추가하여 누락된 드라이버를 펌웨어에 포함시킬 수 있습니다. 예를 들어, sf0x 드라이버를 활성화하려면 아래 줄의 시작 부분에서 `#`을 제거합니다.
 
     #distance_sensor/sf0x
     
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md).
+그런 다음 [PX4 소프트웨어 빌드](../dev_setup/building_px4.md) 방법으로 플랫폼용 펌웨어를 빌드하여야 합니다.
 
-## Further Information
+## 추가 정보
 
-* [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
+* [MAVLink 주변 장치(OSD/GCS/보조 컴퓨터 등)](../peripherals/mavlink_peripherals.md)

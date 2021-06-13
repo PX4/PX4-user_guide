@@ -12,9 +12,9 @@ PX4는 *전문적인 자율비행 프로그램* 입니다. 세계적인 수준�
 
 ## 시작하기
 
-[시작](getting_started/README.md)편을 먼저 읽으실 것을 추천합니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)와 더불어 PX4의 전반적인 내용을 알려드립니다.
+[시작](getting_started/README.md)편을 먼저 읽으실 것을 추천합니다. 비행 스택(비행 모드 및 안전 기능)과 지원 하드웨어(비행 제어장치, 기체, 기체 프레임, 텔레메트리 시스템, 원격 조종 제어 시스템)와 더불어 PX4의 전반적인 내용을 설명합니다.
 
-이 안내서를 보실 때 도움이 되는 팁들은 다음과 같습니다.
+이 안내서를 위한 팁들은 아래과 같습니다.
 
 **가지고 있는 드론을 날리고 싶을 경우**
 
@@ -106,13 +106,13 @@ PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-
 
 이 라이브러리에서 사용하는 다음 아이콘은 별도의 라이센스를 적용합니다 (아래 그림 참조).
 
-<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>에서 만들었으며, <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>라이센스를 준용합니다.
 
-<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *camera-automatic-mode* icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *카메라 자동 모드* 아이콘은 [www.flaticon.com](https://www.flaticon.com/ "Flaticon")의 <a href="https://www.freepik.com" title="Freepik">Freepik</a>에서 만들었으며, <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a>라이센스가 준용됩니다.
 
 ## 운영 방법
 
-PX4는 [Dronecode 프로젝트](https://www.dronecode.org/) 주관으로 운영되고 관리합니다.
+PX4는 [Dronecode 프로젝트](https://www.dronecode.org/)의 주관으로 운영 및 관리됩니다.
 
 <a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>

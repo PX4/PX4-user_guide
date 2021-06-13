@@ -1,22 +1,22 @@
-# PX4 Vision Autonomy Development Kit
+# PX4 Vision Autonomy 개발 키트
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+[*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 차량용 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
+이 키트에는 *Pixhawk 4* 비행 컨트롤러, *UP Core* 보조 컴퓨터(4GB 메모리와 64GB eMMC), 후두부 *구조 코어* 깊이 카메라 센서가 장착된 거의 즉시 비행 가능한 탄소 섬유 쿼드 콥터가 포함되어 있습니다.
 
 :::note
-This vehicle comes with no pre-installed software. A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*. This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+이 제품에는 사전 설치된 소프트웨어가 없습니다. [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) 로컬 플래너 소프트웨어의 참조 구현이 포함된 사전 이미지화 된 USB 스틱은 *Auterion*에서 제공합니다. 이 소프트웨어는 PX4 Vision Autonomy Kit로 수행 가능 작업에 대한 매우 기본적인 예제들을 제공합니다. 개발자는이 키트를 사용하여 [PX4 회피](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 프로젝트에서 제공하는 다른 기능을 시험해보고, 기존 코드를 수정하거나, 새로운 컴퓨터 비전 기능을 실험할 수 있습니다.
 :::
 
-The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+이 가이드는 기체 비행 준비에 필요한 최소한의 추가 설정을 설명합니다(RC 시스템과 배터리 설치). 또한 처녀 비행과 컴퓨터 비전 코드 수정 방법을 설명합니다.
 
-## Purchase
+## 구매처
 
-- [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
+- [Holybro 웹사이트](https://shop.holybro.com/px4-vision_p1225.html?)
 
-## Px4 Vision Guide Content
+## Px4 비전 가이드 콘텐츠
 - [Warnings & Notifications](#warnings-and-notifications)
 - [What is Inside](#what-is-inside)
 - [What Else Do You Need](#what-else-do-you-need)
