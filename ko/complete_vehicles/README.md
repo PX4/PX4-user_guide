@@ -1,12 +1,11 @@
-# 완성된 기체들
+# 완제품 기체
 
-This section contains information about complete vehicles that run PX4.
+이 섹션에는 PX4를 실행하는 전체 기체에 대하여 설명합니다.
 
-:::note
-This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목을 참고할 수 있습니다.
 :::
 
-- PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
+- PX4를 "즉시" 실행 가능한 완제품 드론: 
   - 멀티콥터 
     - [Teal One](https://tealdrones.com/teal-one/)
     - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
@@ -14,18 +13,18 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
   - VTOL 
     - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
-- (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들:
+- 다른 비행 스택에서 업데이트하여 PX4 실행 가능한 완제품 드론:
   
-  - Multicopter 
+  - 멀티콥터 
     - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
     - [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
     - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
-  - Underwater Vehicles 
+  - 수중 차량 
     - [BlueROV2](../frames_sub/bluerov2.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 
-- (벤더가 지원하는) 커스텀 버전의 PX4를 구동하는 소비자용 드론들:
+- 공급 업체에서 지원하여 사용자 지정 버전의 PX4 실행 가능한 완제품 드론:
   
-  - Multicopter 
+  - 멀티콥터 
     - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
     - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
@@ -37,7 +36,7 @@ This is a small subset of vehicles that can run PX4. You can find others on [px4
   - VTOL 
     - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
     - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
-- Drone Development Kits 
-  - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
-- Drone Reference Platforms 
-  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (Discontinued)
+- 드론 개발 키트 
+  - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - PX4 컴퓨터 비전 개발을 위한 멀티콥터
+- 드론 레퍼런스 플랫폼 
+  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (단종됨)
