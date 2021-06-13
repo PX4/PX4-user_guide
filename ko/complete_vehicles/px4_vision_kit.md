@@ -1,6 +1,6 @@
-# PX4 Vision Autonomy Development Kit
+# PX4 Vision Autonomy 개발 키트
 
-The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-vision/) is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+[*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 차량용 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
