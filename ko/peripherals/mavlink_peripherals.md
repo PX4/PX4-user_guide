@@ -47,29 +47,29 @@ GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수
 매개변수를 사용하가 위하여 PX4를 재부팅합니다(예 : QGroundControl에서).
 :::</p>
 
-<p>The parameter used will depend on the <a href="../advanced_config/parameter_reference.md#serial">assigned serial port</a>  - for example: <code>SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
+<p>사용되는 매개변수는 <a href="../advanced_config/parameter_reference.md#serial">할당 직렬 포트</a>에 따라 다릅니다(예: <code>SER_GPS1_BAUD`, `SER_TEL2_BAUD` 등). 사용하는 값은 연결 유형과 연결된 MAVLink 주변 장치에 따라 달라집니다.
 
 <span id="default_ports"></span>
 
-## Default MAVLink Ports
+## 기본 MAVLink 포트
 
-The `TELEM 1` port is almost always used for the GCS telemetry stream.
+`TELEM 1` 포트는 대부분 GCS 원격 분석 스트림에 사용됩니다.
 
-To support this there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 0 as shown below:
+이를 지원하기 위하여 아래와 같은 MAVLink 인스턴스 0의 [기본 직렬 포트 매핑](../peripherals/serial_configuration.md#default_port_mapping)을 사용합니다.
 
 - [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) = `TELEM 1`
 - [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) = `Normal`
-- [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE)= `1200` Bytes/s
+- [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE)= `1200` 바이트/초
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
-## Example
+## 예
 
-For example, to use a companion computer on `TELEM 2` you might set parameters as shown:
+예를 들어, `TELEM 2`에서 보조 컴퓨터를 사용하려면 아래와 같은 매개변수를 설정합니다.
 
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
 - [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
-- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s :::tip This value might have to be tuned/reduced in the event of message losses.
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` 바이트/초 :::tip 이 값은 메시지 유실시 조정하거나 감소할 수 있습니다.
 :::
 - [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) = `True`
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` baud
