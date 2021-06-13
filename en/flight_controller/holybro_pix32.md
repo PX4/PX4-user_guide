@@ -7,7 +7,7 @@ Contact the [manufacturer](https://shop.holybro.com/) for hardware support or co
 
 The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
 This board is based on hardware version Pixhawk 2.4.6.
-It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
+It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
