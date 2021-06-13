@@ -18,36 +18,36 @@ GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수
 - <span id="MAV_X_MODE"></span>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - 원격 측정 모드와 대상(현재 인스턴스 및 해당 속도에 대한 스트리밍 메시지 집합)을 지정합니다. 기본값은 아래와 같습니다.
   
   - *일반* : GCS 표준 메시지 집합입니다. 
-  - *Custom* or *Magic*: Nothing (in the default PX4 implementation). Modes may be used for testing when developing a new mode.
-  - *Onboard*: Standard set of messages for a companion computer.
-  - *OSD*: Standard set of messages for an OSD system.
-  - *Config*: Standard set of messages and rate configuration for a fast link (e.g. USB).
-  - *Minimal*: Minimal set of messages for use with a GCS connected on a high latency link.
-  - *ExtVision* or *ExtVisionMin*: Messages for offboard vision systems (ExtVision needed for VIO).
-  - *Iridium*: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
+  - *사용자 정의* 또는 *매직* : 없음(기본 PX4 구현 방식). 모드는 새 모드를 개발시 테스트용으로 사용할 수 있습니다.
+  - *온보드* : 보조 컴퓨터 표준 메시지 집합입니다.
+  - *OSD* : OSD 시스템 표준 메시지 세트.
+  - *설정* : 고속 링크 표준 메시지 세트 및 속도 설정(예 : USB).
+  - *최소* : 대기 시간이 긴 링크에 연결된 GCS와 함께 사용하기 위한 최소 메시지 집합입니다.
+  - *ExtVision* 또는 *ExtVisionMin* : 오프보드 비전 시스템 메시지(VIO에 필요한 ExtVision).
+  - *이리듐* : [이리듐 위성 통신 시스템](../advanced_features/satcom_roadblock.md) 메시지입니다.
   
 :::note
-If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
+각 모드에 대한 특정 메시지 세트를 찾으려면 [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp)에서 `MAVLINK_MODE_`를 검색하십시오.
 :::
   
 :::tip
-The mode defines the *default* messages and rates. A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
+모드는 *기본* 메시지와 속도를 정의합니다. 연결된 MAVLink 시스템은 [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL)을 사용하여 원하는 스트림과 속도를 계속 요청할 수 있습니다.
 :::
 
-- [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the maximum *data rate* for this instance (bytes/second).
+- [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - 인스턴스의 최대 *데이터 속도*를 설정합니다 (바이트/초).
   
-  - This is the combined rate for all streams of individual message (the rates for individual messages are reduced if the total rate exceeds this value).
-  - The default setting will generally be acceptable, but might be reduced if the telemetry link becomes saturated and too many messages are being dropped.
-  - A value of 0 sets the data rate to half the theoretical value.
-- [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - Enable forwarding of MAVLink packets received by the current instance onto other interfaces. This might be used, for example, to transfer messages between a GCS and a companion computer so that the GCS can talk to a MAVLink enabled camera connected to the companion computer.
+  - 이는 개별 메시지의 모든 스트림에 대한 결합 비율입니다 (총 비율이이 값을 초과하면 개별 메시지에 대한 비율이 감소됨).
+  - 기본 설정은 일반적으로 허용되지만 원격 분석 링크가 포화 상태가 되고, 너무 많은 메시지가 삭제되는 경우에는 감소할 수 있습니다.
+  - 값이 0이면 데이터 속도가 이론적인 값의 절반으로 설정됩니다.
+- [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - 현재 인스턴스에서 수신한 MAVLink 패킷을 다른 인터페이스로 전달할 수 있습니다. 예를 들어 GCS가 보조 컴퓨터에 연결된 MAVLink 지원 카메라와 통신할 수 있도록 GCS와 보조 컴퓨터간에 메시지를 전송에 사용할 수 있습니다.
 
-Next you need to set the baud rate for the serial port you assigned above (in `MAV_X_CONFIG`).
+다음으로 위에서 할당한 직렬 포트의 전송 속도를 설정하여야 합니다 (`MAV_X_CONFIG /0>).</p>
 
-:::tip
-You will need to reboot PX4 to make the parameter available (i.e. in QGroundControl).
-:::
+<p>:::tip
+매개변수를 사용하가 위하여 PX4를 재부팅합니다(예 : QGroundControl에서).
+:::</p>
 
-The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
+<p>The parameter used will depend on the <a href="../advanced_config/parameter_reference.md#serial">assigned serial port</a>  - for example: <code>SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
 
 <span id="default_ports"></span>
 
