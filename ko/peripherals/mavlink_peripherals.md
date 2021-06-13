@@ -1,23 +1,23 @@
 # MAVLink 주변 장치(OSD/GCS/보조 컴퓨터 등)
 
-GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수신기와 기타 MAVLink 주변 장치는 서로 다른 직렬 포트를 통하여 전송되는 별도의 MAVLink 스트림ㅇ르 통하여 PX4와 상호 작용합니다. 이러한 통신 채널은 [MAVLink 매개변수](../advanced_config/parameter_reference.md#mavlink)를 사용하여 설정됩니다.
+GCS(Ground Control Station), OSD(On-Screen Display), 보조 컴퓨터, ADS-B 수신기와 기타 MAVLink 주변 장치들은 서로 다른 직렬 포트를 통하여 전송되는 별도의 MAVLink 스트림을 통하여 PX4와 상호 작용합니다. 이러한 통신 채널은 [MAVLink 매개변수](../advanced_config/parameter_reference.md#mavlink)를 사용하여 설정됩니다.
 
 ## MAVLink 인스턴스
 
-In order to assign a particular peripheral to a serial port we use the (abstract) concept of a *MAVLink instance*.
+특정 주변 장치를 직렬 포트에 할당하기 위하여 *MAVLink 인스턴스*를 사용합니다.
 
-Each instance can represent a particular set of streamed messages (see [MAV_X_MODE](#MAV_X_MODE) below); parameters are used to define the set of messages, the port used, data rate, etc.
+각 인스턴스는 특정 스트리밍 메시지 집합을 나타낼 수 있습니다 (아래 [MAV_X_MODE](#MAV_X_MODE) 참조). 매개변수는 메시지 세트, 사용된 포트, 데이터 속도 등을 정의합니다.
 
 :::note
-At time of writing three MAVLink *instances* are defined, which correspond to the 0, 1, 2 in the parameters listed below.
+이 문서의 작성시점에서는 3 개의 MAVLink *인스턴스*가 정의되어 있으며, 이는 아래 나열된 매개변수의 0, 1, 2 입니다.
 :::
 
-The parameters for each instance are:
+각 인스턴스의 매개변수는 아래와 같습니다.
 
-- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. It can be any unused port, e.g.: TELEM2, TELEM3, GPS2 etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
-- <span id="MAV_X_MODE"></span>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the telemetry mode/target (the set of messages to stream for the current instance and their rate). The default values are:
+- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - 인스턴스 "X"의 직렬 포트(UART)를 설정합니다. 여기서 X는 0, 1, 2입니다. 사용되지 않는 포트일 수 있습니다 (예 : TELEM2, TELEM3, GPS2 등). 자세한 내용은 [직렬 포트 설정](../peripherals/serial_configuration.md)을 참고하십시오.
+- <span id="MAV_X_MODE"></span>[MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - 원격 측정 모드와 대상(현재 인스턴스 및 해당 속도에 대한 스트리밍 메시지 집합)을 지정합니다. 기본값은 아래와 같습니다.
   
-  - *Normal*: Standard set of messages for a GCS. 
+  - *일반* : GCS 표준 메시지 집합입니다. 
   - *Custom* or *Magic*: Nothing (in the default PX4 implementation). Modes may be used for testing when developing a new mode.
   - *Onboard*: Standard set of messages for a companion computer.
   - *OSD*: Standard set of messages for an OSD system.
