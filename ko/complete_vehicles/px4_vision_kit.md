@@ -46,8 +46,8 @@
 
 <img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
 
-The PX4 Vision DevKit contains following components:
-- Core Components:
+PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
+- 핵심 구성 요소:
   - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
   - 1x PMW3901 optical flow sensor
   - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
