@@ -3,7 +3,7 @@
 * [소개](README.md)
 * [시작하기](getting_started/README.md) 
   * [기본 개념](getting_started/px4_basic_concepts.md)
-  * [기체 프레임](getting_started/frame_selection.md)
+  * [기체 선택](getting_started/frame_selection.md)
   * [비행 컨트롤러](getting_started/flight_controller_selection.md)
   * [센서](getting_started/sensor_selection.md)
   * [무선 조종기](getting_started/rc_transmitter_receiver.md)
