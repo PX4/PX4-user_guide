@@ -17,30 +17,29 @@
 - [Holybro 웹사이트](https://shop.holybro.com/px4-vision_p1225.html?)
 
 ## Px4 비전 가이드 콘텐츠
-- [Warnings & Notifications](#warnings-and-notifications)
-- [What is Inside](#what-is-inside)
-- [What Else Do You Need](#what-else-do-you-need)
-- [First-time Setup](#first-time-setup)
-- [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
-- [Development using the Kit](#development-using-the-kit)
-- [Px4 Vision Carrier Board Pinouts](#px4-vision-carrier-board-pinouts)
-- [Other Development Resources](#other-development-resources)
-- [How to get Technical Support](#how-to-get-technical-support)
+- [경고와 알림](#warnings-and-notifications)
+- [내부 내용](#what-is-inside)
+- [그 외 필요한 것](#what-else-do-you-need)
+- [최초 설정](#first-time-setup)
+- [드론 회피 비행](#fly-the-drone-with-avoidance)
+- [키트 개발](#development-using-the-kit)
+- [Px4 비전 캐리어 보드 핀아웃](#px4-vision-carrier-board-pinouts)
+- [기타 개발 리소스](#other-development-resources)
+- [기술 지원 방법](#how-to-get-technical-support)
 
-## Warnings and Notifications
+## 경고와 알림
 
-1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
-1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2.0* memory stick.
-1. PX4 Vision with ECN 010 or above (carrier board RC05 and up), the *UP Core* can be powered by either the DC plug or with battery. ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. 이 키트는 전방 카메라를 사용하는 컴퓨터 비전 프로젝트용입니다. 하향 또는 후방 깊이 카메라가 없습니다. 따라서, 추가 수정없이는 [안전 착륙](../computer_vision/safe_landing.md) 또는 하방향 카메라가 필요한 다른 기능들을 테스트할 수 없습니다.
+1. 임무에서 장애물 회피는 GPS를 사용시에 테스트 가능합니다. 임무 수행시에는 GPS 좌표를 사용합니다. 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
+1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
+1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
-:::warning
-For PX4 Vision with ECN below 010/carrier board below RC04, the *UP Core* should only be powered using the battery (do not remove the *UP Core power* socket safety cover).
+:::warning ECN이 RC04 아래 010/캐리어 보드 미만인 PX4 Vision의 경우 *UP Core*는 배터리로 전원을 공급하여야합니다. *UP Core 전원* 소켓 안전 커버를 제거하지 마십시오.
 
 ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
-## What is Inside
+## 내부 내용
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
