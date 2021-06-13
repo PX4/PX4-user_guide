@@ -1,12 +1,11 @@
-# 완성된 기체들
+# 완제품 기체
 
-This section contains information about complete vehicles that run PX4.
+이 섹션에는 PX4를 실행하는 전체 기체에 대하여 설명합니다.
 
-:::note
-This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목을 참고할 수 있습니다.
 :::
 
-- PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
+- 소비자용 드론은 PX4를 "즉시" 실행할 수 있습니다. 
   - 멀티콥터 
     - [Teal One](https://tealdrones.com/teal-one/)
     - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
