@@ -151,23 +151,23 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
    RC 컨트롤러 스위치는 다음에 대해 정의하는 것이 좋습니다.
    - [위치 모드](../flight_modes/position_mc.md)-충돌 방지를 테스트하는 데 사용할 수 있는 안전한 수동 비행 모드입니다.
    - [임무 모드](../flight_modes/mission.md) - 임무를 실행하고 장애물 회피를 테스트합니다.
-   - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
+   - [귀환 모드](../flight_modes/return.md) - 기체를 출발 지점으로 안전하게 복귀하여 착륙합니다.
 
 
-1. Attach the propellers with the rotations as shown:
+1. 그림과 같이 프로펠러를 부착합니다.
 
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
+   - 프로펠러 방향(*6045* (정상, 시계 반대 방향), _6045_ **R** (반전, 시계 방향)을 레이블에서 확인할 수 있습니다.
 
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
-   - Screw down firmly using the provided propellor nuts:
+   - 제공된 프로펠러 너트를 사용하여 단단히 조입니다.
 
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
-## Fly the Drone with Avoidance
+## 드론 회피 비행
 
 When the vehicle setup described above is complete:
 
