@@ -184,35 +184,35 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
    - *QGroundControl* 알림 로그에 **Avoidance system connected** 메시지가 표시됩니다.
 
      ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
-   - A red laser is visible on the front of the *Structure Core* camera.
-1. Wait for the GPS LED to turn green. This means that the vehicle has a GPS fix and is ready to fly!
-1. Connect the ground station to the vehicle WiFi network.
-1. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
+   - *Structure Core* 카메라 전면에 빨간색 레이저가 보입니다.
+1. GPS LED가 녹색으로 바뀔 때까지 기다리십시오. 이것은 기체에 GPS 준비가 완료되어 비행 준비가 완료되었음을 의미합니다!
+1. 지상국을 기체 WiFi에 연결합니다.
+1. PX4 비전을 테스트하기 위해 나무나 기타 편리한 장애물이 있는 비행하기에 안전한 실외 위치를 찾으십시오.
 
-1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle. The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
+1. [충돌 방지](../computer_vision/collision_prevention.md)를 테스트하려면 [위치 모드](../flight_modes/position_mc.md)를 활성화하고 수동으로 장애물을 향해 비행하십시오. 기체의 속도를 줄인 다음 장애물로부터 6m 이내에 정지해야합니다(거리는 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 매개 변수를 사용하여 [변경](../advanced_config/parameters.md) 할 수 있음).
 
-1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle. Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+1. [장애물 회피](../computer_vision/obstacle_avoidance.md)를 테스트 하려면 경로에 장애물이 있는 임무를 만드십시오. 그런 다음, [임무 모드](../flight_modes/mission.md)로 전환하여 임무를 실행하고 장애물을 돌아다니는 기체를 관찰한 다음 계획된 코스로 돌아갑니다.
 
 
-## Development using the Kit
+## 키트를 사용한 개발
 
-The following sections explain how to use the kit as an environment for developing computer vision software.
+다음 섹션에서는 컴퓨터 비전 소프트웨어를 개발 키트를 사용하는 방법에 대하여 설명합니다.
 
-### PX4 Avoidance Overview
+### PX4 회피 개요
 
-The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
+*PX4 회피* 시스템은 *비행 컨트롤러*에서 실행되는 PX4 비행 스택에 장애물과 경로 정보를 제공하는 보조 컴퓨터 (연결된 깊이 카메라 포함)에서 실행되는 컴퓨터 비전 소프트웨어로 구성됩니다.
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
-- The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
-- The *globalplanner* has not been tested with this kit.
-- The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
+동반 컴퓨터 비전/계획 소프트웨어에 대한 문서는 github에서 찾을 수 있습니다 : [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). 이 프로젝트는 다양한 플래너 구현 (ROS 노드로 패키징)을 제공합니다.
+- PX4 Vision Kit는 기본적으로 *localplanner*를 실행하며 이것은 소프트웨어에 권장되는 시작점입니다.
+- *globalplanner*는이 키트로 테스트되지 않았습니다.
+- *착륙 플래너*에는 아래쪽을 향한 카메라가 필요하며, 먼저 카메라 장착을 수정하지 않고는 사용할 수 없습니다.
 
-PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
-- [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
-- [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+PX4와 보조 컴퓨터는 다음 인터페이스를 사용하여 [MAVLink](https://mavlink.io/en/)를 통하여 데이터를 교환합니다.
+- [경로 계획 인터페이스](../computer_vision/path_planning_interface.md) - 자동 모드에서 회피 기능을 구현 API.
+- [충돌 방지 인터페이스](../computer_vision/collision_prevention.md) - 장애물 맵을 기반으로하는 수동 위치 모드에서 차량 기반 회피를위한 API (현재 충돌 방지에 사용됨).
 
 <span id="install_image_mission_computer"></span>
-### Installing the image on the Companion Computer
+### 보조 컴퓨터에 이미지 설치
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
