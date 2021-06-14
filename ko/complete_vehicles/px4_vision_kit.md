@@ -169,19 +169,19 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 ## 드론 회피 비행
 
-When the vehicle setup described above is complete:
+위의  기체 설정이 완료되면 :
 
-1. Connect the battery to power the vehicle.
+1. 기체에 전원 공급 배터리를 연결하십시오.
 
-1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
+1. 부팅 순서가 완료되고 회피 시스템이 시작될 때까지 기다리십시오 (부팅중에는 기체는은 무장 명령을 거부합니다).
 
 :::tip
-The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+부팅/시작 프로세스는 제공된 USB 스틱에서 약 1 분 (또는 [내부 메모리](#install_image_mission_computer)에서 30 초) 정도 소요됩니다.
 :::
 
-1. Check that the avoidance system has started properly:
+1. 회피 시스템이 제대로 시작되었는 지 확인하십시오.
 
-   - The *QGroundControl* notification log displays the message: **Avoidance system connected**.
+   - *QGroundControl* 알림 로그에 **Avoidance system connected** 메시지가 표시됩니다.
 
      ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
    - A red laser is visible on the front of the *Structure Core* camera.
