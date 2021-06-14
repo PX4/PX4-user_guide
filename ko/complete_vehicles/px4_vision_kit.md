@@ -123,34 +123,34 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. 완전히 충전된 배터리로 기체의 전원을 공급하십시오. :::note 배터리를 연결하기 전에 프로펠러가 제거되었는 지 확인하십시오.
 :::
-1. 다음 기본 인증을 사용하여 지상국을 기체 WiFi에 연결합니다 (몇 초 후).
+1. 아래의 로그인 정보를 사용하여 지상국을 기체 WiFi에 연결합니다 (몇 초 후).
    - **SSID:** pixhawk4
    - **비밀번호:** pixhawk4
 
 :::tip
-WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+연결 후(원하는 경우), 웹 브라우저에서 URL `http://192.168.4.1`을 열어 WiFi 네트워크 SSID, 암호 및 기타 로그인 정보를 변경할 수 있습니다. 전송 속도 921600을 변경하지 마십시오.
 :::
 
-1. Start *QGroundControl* on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle:
+1. 지상국에서 *QGroundControl*을 시작합니다.
+1. 차량 [설정 및 보정](../config/README.md) :
 
 :::note
-The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+기체는 사전 보정된 상태로 수령하여야합니다 (예 : 펌웨어, 기체, 배터리 및 센서가 모두 설정됨). 그러나, 방금 연결한 무선 시스템을 보정하여야 하며, 나침반 보정을 다시 수행하여야 하는 경우가 많습니다.
 :::
 
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
+   - [라디오 시스템 보정](../config/radio.md)
+   - [나침반 보정](../config/compass.md)
 
 
-1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
+1. (선택 사항) 조종기에서 [비행 모드 선택 스위치](../config/flight_mode.md)를 설정합니다.
 
 :::note
-Modes can also be changed using *QGroundControl*
+모드는 *QGroundControl*을 사용하여 변경할 수 있습니다.
 :::
 
-   We recommend RC controller switches are define for:
-   - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
+   RC 컨트롤러 스위치는 다음에 대해 정의하는 것이 좋습니다.
+   - [위치 모드](../flight_modes/position_mc.md)-충돌 방지를 테스트하는 데 사용할 수 있는 안전한 수동 비행 모드입니다.
+   - [임무 모드](../flight_modes/mission.md) - 임무를 실행하고 장애물 회피를 테스트합니다.
    - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
 
 
