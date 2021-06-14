@@ -56,7 +56,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
     - 스테레오 적외선 카메라
     - 온보드 IMU
     - 강력한 NU3000 멀티 코어 깊이 프로세서
-  - 1x *UP Core* 컴퓨터 (4GB 메모리 및 64GB eMMC, Ubuntu 및 PX4 avoidance)
+  - 1x *UP Core* 컴퓨터 (4GB 메모리 및 64GB eMMC, Ubuntu 및 PX4 회피 기능)
     - Intel® Atom ™ x5-z8350 (최대 1.92GHz)
     - 호환 OS : Microsoft Windows 10 정식 버전, Linux (ubilinux, Ubuntu, Yocto), Android
     - 비행 컨트롤러에 연결된 FTDI UART
@@ -83,28 +83,28 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - Auterion에서 제공하는 아래의 번들들이 사전 플래시된 소프트웨어가 포함된 USB2.0 스틱 :
   - Ubuntu 18.04 LTS
   - ROS Melodic
-  - Occipital Structure Core ROS driver
+  - 후두 구조 코어 ROS 드라이버
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+  - [PX4 회피 기능](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
 
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- 다양한 케이블, 8x 프로펠러, 2x 배터리 스트랩 (설치됨) 및 기타 액세서리 (추가 주변 장치 연결용으로 사용할 수 있음).
 
-## What Else Do You Need
+## 그 외 필요한 것
 
-The kit contains all the essential drone hardware except a battery and a radio control system, which must be purchased separately:
-- Battery:
-  - 4S LiPo with XT60 female connector
-  - Less than 115mm long (to fit between power connector and GPS mast)
-- Radio control system
-  - Any [PX4-compatible RC System](../getting_started/rc_transmitter_receiver.md) can be used.
-  - An *FrSky Taranis* transmitter with R-XSR receiver is one of the more popular setups.
-- An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
+이 키트에는 별도로 구매하여야 하는 배터리와 무선 제어 시스템을 제외한 필수적인 드론 하드웨어들이 포함되어 있습니다.
+- 배터리:
+  - XT60 암 커넥터가있는 4S LiPo
+  - 길이 115mm 미만 (전원 커넥터와 GPS 마스트 사이에 맞음)
+- 무선 제어 시스템
+  - 모든 [PX4 호환 RC 시스템](../getting_started/rc_transmitter_receiver.md)을 사용할 수 있습니다.
+  - R-XSR 수신기가 있는 *FrSky Taranis* 송신기는 많이 사용되는 설정입니다.
+- H2.0 Hex 키 (RC 수신기를 연결할 수 있도록 상단 플레이트 나사를 푸는 용도)
 
-In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+또한, 사용자는 지상국 하드웨어와 소프트웨어가 필요합니다.
+- [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)(QGC)을 실행 노트북 또는 태블릿.
 
-## First-time Setup
+## 최초 설정
 
 1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
    - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
