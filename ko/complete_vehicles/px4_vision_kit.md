@@ -50,37 +50,37 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
   - 1x Pixhawk 4 비행 컨트롤러(사용자 지정 PX4 펌웨어 포함)
   - 1x PMW3901 광학 유량 센서
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
-  - 1x Structure Core depth camera
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
-    - FTDI UART connected to flight controller
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
-    - `HDMI`: HDMI out
-    - SD card slot
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
+  - 1x TOF 적외선 거리 센서 (PSK‐CM8JL65‐CC5)
+  - 1x 구조 코어 깊이 카메라
+    - 160도 와이드 비전 카메라
+    - 스테레오 적외선 카메라
+    - 온보드 IMU
+    - 강력한 NU3000 멀티 코어 깊이 프로세서
+  - 1x *UP Core* 컴퓨터 (4GB 메모리 및 64GB eMMC, Ubuntu 및 PX4 avoidance)
+    - Intel® Atom ™ x5-z8350 (최대 1.92GHz)
+    - 호환 OS : Microsoft Windows 10 정식 버전, Linux (ubilinux, Ubuntu, Yocto), Android
+    - 비행 컨트롤러에 연결된 FTDI UART
+    - `USB1` : USB3.0 USB2.0 스틱에서 PX4 회피 환경을 부팅용 포트입니다(USB3.0 주변 장치를 연결하면 GPS 장애 발생할 수 있음).
+    - `USB2` : JST-GH 커넥터의 USB2.0 포트. 두 번째 카메라, LTE 등에 사용할 수 있습니다. (또는 개발용 키보드 / 마우스).
+    - `USB3` : 깊이 카메라에 연결된 USB2.0 JST-GH 포트
+    - `HDMI` : HDMI 출력
+    - SD 카드 슬롯
+    - WiFi 802.11 b/g/n @ 2.4GHz (외부 안테나 #1에 연결됨). 컴퓨터 인터넷 액세스와 업데이트를 위하여 홈 WiFi 네트워크에 액세스할 수 있습니다.
 
 
-- Mechanical Specification:
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
-  - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
+- 기계적 사양 :
+  - 프레임 : 전체 5mm 3k 탄소 섬유 능직
+  - 모터 : T-MOTOR F60 PROⅢ KV1750
+  - ESC : BEHEli-S 20A ESC
+  - 프로펠러 : T6045
+  - GPS : Pixhawk4 GPS 모듈
+  - 전원 모듈 : Holybro PM07
+  - 축거 : 286mm
+  - 중량 : 854g (배터리 또는 소품 제외)
+  - 텔레메트리 : 비행 컨트롤러에 연결된 ESP8266 (외부 안테나 #2에 연결됨). 지상국에 대한 무선 연결을 활성화합니다.
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- Auterion에서 제공하는 아래의 번들들이 사전 플래시된 소프트웨어가 포함된 USB2.0 스틱 :
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core ROS driver
