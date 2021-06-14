@@ -48,8 +48,8 @@
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
-  - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
-  - 1x PMW3901 optical flow sensor
+  - 1x Pixhawk 4 비행 컨트롤러(사용자 지정 PX4 펌웨어 포함)
+  - 1x PMW3901 광학 유량 센서
   - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
   - 1x Structure Core depth camera
     - 160 deg wide vision camera
