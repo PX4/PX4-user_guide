@@ -1,11 +1,11 @@
 # 완제품 기체
 
-이 섹션에는 PX4를 실행하는 전체 기체에 대하여 설명합니다.
+이 섹션에서는 PX4 실행이 가능한 완제품 기체에 대하여 설명합니다.
 
-:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목을 참고할 수 있습니다.
+:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목들을 참고할 수 있습니다.
 :::
 
-- PX4를 "즉시" 실행 가능한 완제품 드론: 
+- 즉시 실행 가능한 PX4 완제품 드론: 
   - 멀티콥터 
     - [Teal One](https://tealdrones.com/teal-one/)
     - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
