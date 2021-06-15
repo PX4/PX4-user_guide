@@ -1,10 +1,42 @@
 # Modules Reference: Distance Sensor (Driver)
+## afbrs50
+Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
+
+
+### 说明
+
+Driver for the Broadcom AFBRS50.
+
+### 示例
+
+Attempt to start driver on a specified serial device.
+```
+afbrs50 start
+```
+设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
+```
+afbrs50 stop
+```
+
+<a id="afbrs50_usage"></a>
+
+### 用法
+```
+afbrs50 <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-r <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop          Stop driver
+```
 ## gy_us42
 Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/gy_us42)
 
 <a id="gy_us42_usage"></a>
 
-### 说明
+### 参数描述
 ```
 gy_us42 <command> [arguments...]
  Commands:
@@ -23,20 +55,20 @@ gy_us42 <command> [arguments...]
    status        print status info
 ```
 ## leddar_one
-Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/leddar_one)
+停止驱动程序的运行
 
 
-### 示例
+### 描述
 
 Serial bus driver for the LeddarOne LiDAR.
 
-设置/使用 信息： https://docs.px4.io/master/en/sensor/leddar_one.html
+针对 Lightware SFxx 系列 LIDAR 测距仪的 I2C 总线驱动： SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20。
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/leddar_one.html
+设置/使用 信息： https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
-### 用法
+### 参数描述
 
-停止驱动程序的运行
+Attempt to start driver on a specified serial device.
 ```
 leddar_one start -d /dev/ttyS1
 ```
@@ -47,7 +79,7 @@ leddar_one stop
 
 <a id="leddar_one_usage"></a>
 
-### 参数描述
+### 示例
 ```
 leddar_one <command> [arguments...]
  Commands:
@@ -59,10 +91,10 @@ leddar_one <command> [arguments...]
    stop          Stop driver
 ```
 ## lightware_laser_i2c
-针对 Lightware SFxx 系列 LIDAR 测距仪的 I2C 总线驱动： SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20。
+Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c)
 
 
-### 描述
+### 用法
 
 设置/使用 信息： https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
@@ -89,20 +121,20 @@ lightware_laser_i2c <command> [arguments...]
    status        print status info
 ```
 ## lightware_laser_serial
-Source: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial)
+停止驱动程序的运行
 
 
-### 示例
+### 用法
 
 Serial bus driver for the LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c Laser rangefinders.
 
-设置/使用 信息： https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+Most boards are configured to enable/start the driver on a specified UART using the SENS_SF0X_CFG parameter.
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
 ### 用法
 
-停止驱动程序的运行
+设置/使用 信息： https://docs.px4.io/master/en/sensor/lidar_lite.html
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
@@ -113,7 +145,7 @@ lightware_laser_serial stop
 
 <a id="lightware_laser_serial_usage"></a>
 
-### 参数描述
+### 用法
 ```
 lightware_laser_serial <command> [arguments...]
  Commands:
@@ -128,17 +160,17 @@ lightware_laser_serial <command> [arguments...]
 Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
 
 
-### 用法
+### 示例
 
-I2C bus driver for LidarLite rangefinders.
+源码：[drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)
 
-设置/使用 信息： https://docs.px4.io/master/en/sensor/lidar_lite.html
+超声笔测距仪驱动，负责处理与设备的用心并通过 uORB 将距离信息发布出去。
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
-### 用法
+### 实现
 ```
 ll40ls <command> [arguments...]
  Commands:
@@ -158,7 +190,7 @@ ll40ls <command> [arguments...]
 
    status        print status info
 ```
-## mappydot
+## pga460
 Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mappydot)
 
 <a id="mappydot_usage"></a>
@@ -179,12 +211,12 @@ mappydot <command> [arguments...]
 
    status        print status info
 ```
-## pga460
-源码：[drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)
+## mb12xx
+Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mb12xx)
 
 <a id="mb12xx_usage"></a>
 
-### 示例
+### 用法
 ```
 mb12xx <command> [arguments...]
  Commands:
@@ -207,18 +239,18 @@ mb12xx <command> [arguments...]
    status        print status info
 ```
 ## pga460
-超声笔测距仪驱动，负责处理与设备的用心并通过 uORB 将距离信息发布出去。
+Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/pga460)
 
 
-### 实现
+### 使用
 Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
 
-### 用法
+### 参数描述
 This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
 
 <a id="pga460_usage"></a>
 
-### 用法
+### 使用
 ```
 pga460 <command> [arguments...]
  Commands:
@@ -236,7 +268,7 @@ Source: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tre
 
 <a id="srf02_usage"></a>
 
-### 使用
+### 描述
 ```
 srf02 <command> [arguments...]
  Commands:
@@ -266,7 +298,7 @@ Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tre
 
 <a id="srf05_usage"></a>
 
-### 参数描述
+### 示例
 ```
 srf05 <command> [arguments...]
  Commands:
@@ -315,7 +347,7 @@ teraranger <command> [arguments...]
    status        print status info
 ```
 ## tfmini
-Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/tfmini)
+停止驱动程序的运行
 
 
 ### 示例
@@ -326,20 +358,20 @@ Most boards are configured to enable/start the driver on a specified UART using 
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/tfmini.html
 
-### 使用
+### 描述
 
-停止驱动程序的运行
+Attempt to start driver on a specified serial device.
 ```
 tfmini start -d /dev/ttyS1
 ```
-Stop driver
+停止驱动程序的运行
 ```
 tfmini stop
 ```
 
 <a id="tfmini_usage"></a>
 
-### 描述
+### 用法
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -360,15 +392,15 @@ tfmini <command> [arguments...]
 Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ulanding_radar)
 
 
-### 示例
+### 用法
 
 Serial bus driver for the Aerotenna uLanding radar.
 
 Setup/usage information: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
 
-### 描述
+### Examples
 
-停止驱动程序的运行
+Attempt to start driver on a specified serial device.
 ```
 ulanding_radar start -d /dev/ttyS1
 ```
@@ -379,7 +411,7 @@ ulanding_radar stop
 
 <a id="ulanding_radar_usage"></a>
 
-### 用法
+### Usage
 ```
 ulanding_radar <command> [arguments...]
  Commands:
@@ -396,7 +428,7 @@ Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/t
 
 <a id="vl53l0x_usage"></a>
 
-### 用法
+### Usage
 ```
 vl53l0x <command> [arguments...]
  Commands:
