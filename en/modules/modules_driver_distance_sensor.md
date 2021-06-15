@@ -1,4 +1,35 @@
 # Modules Reference: Distance Sensor (Driver)
+## afbrs50
+Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
+
+
+### Description
+
+Driver for the Broadcom AFBRS50.
+
+### Examples
+
+Attempt to start driver on a specified serial device.
+```
+afbrs50 start
+```
+Stop driver
+```
+afbrs50 stop
+```
+
+<a id="afbrs50_usage"></a>
+### Usage
+```
+afbrs50 <command> [arguments...]
+ Commands:
+   start         Start driver
+     -d <val>    Serial device
+     [-r <val>]  Sensor rotation - downward facing by default
+                 default: 25
+
+   stop          Stop driver
+```
 ## gy_us42
 Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/gy_us42)
 
