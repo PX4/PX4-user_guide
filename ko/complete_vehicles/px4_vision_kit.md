@@ -214,34 +214,34 @@ PX4와 보조 컴퓨터는 다음 인터페이스를 사용하여 [MAVLink](http
 <span id="install_image_mission_computer"></span>
 ### 보조 컴퓨터에 이미지 설치
 
-You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
+*UP Core*에 이미지를 설치하고 내부 메모리(USB 스틱 대신)에서 부팅할 수 있습니다.
 
-This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick.
+내부 메모리 부팅이 훨씬 빠르며 USB 스틱보다 더 많은 메모리를 제공하며 USB 포트를 더 확보할 수 있습니다.
 
 :::note
-Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+내장 메모리에서 부팅은 약 30 초가 걸리며, 제공된 USB2 스틱으로 부팅은 약 1분 정도 걸립니다(다른 카드는 더 오래 걸릴 수 있음).
 :::
 
-To flash the USB image to the *UP Core*:
+USB 이미지를 *UP Core*로 플래시하려면 :
 
-1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
-1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process.
+1. 사전 플래시된 USB 드라이브를 `USB1`이라고 표시된 *UP Core* 포트에 삽입합니다.
+1. [보조 컴퓨터에 로그인](#login_mission_computer)합니다(위 설명 참조).
+1. 터미널에서 다음 명령어를 실행하여 이미지를 내부 메모리 (eMMC)에 복사합니다. 터미널은 깜박이는 프로세스동안에 여러가지 응답을 요청합니다.
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
-   sudo ./flash_emmc.sh
+sudo ./flash_emmc.sh
    ```
 
 :::note
-All information saved in the *UP Core* computer will be removed when executing this script.
+이 스크립트를 실행하면 *UP Core*에 저장된 모든 정보가 삭제됩니다.
 :::
 
-1. Pull out the USB stick.
-1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
+1. USB 스틱을 꺼냅니다.
+1. 기체를 재부팅합니다. 이제 *UP Core* 컴퓨터가 내부 메모리 (eMMC)에서 부팅됩니다.
 
-### Boot the Companion Computer
+### 보조 컴퓨터 부팅
 
-First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
+먼저 제공된 USB2.0 스틱을 `USB1`이라고 표시된 *UP Core* 포트에 삽입한 다음 4S 배터리를 사용하여 기체에 전원을 공급합니다. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
 
 :::tip
 [Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active.
