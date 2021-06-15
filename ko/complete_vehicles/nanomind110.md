@@ -1,32 +1,33 @@
-## NanoMind 110
+## NanoMind 110 
 
-![nanomind 11](../../assets/hardware/hardware-nanomind110.png)
+![nanomind 11
+](../../assets/hardware/hardware-nanomind110.png)
 
-### Summary
+### 요약
 
-Nano size (110mm diagonal) ready-to-fly quad copter for indoor flight/racing. NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight stack.
+실내 비행/레이싱을 위한 나노 크기(대각선 110mm)의 즉시 비행 가능한 쿼드콥터. NanoMind는 PX4/MindPX 비행 스택 비행 컨트롤러로 MindRacer를 사용합니다.
 
-### Highlights
+### 주요 특징
 
-1. 36g empty weight, with maximum 80g take-off Weight, heavy lifter.
-2. 6~7 minutes flight time.
-3. built-in options for PPM/S.Bus/Specktrum DSM receiver.
-4. Soldering-free, fully stackable structure with SEP/WEP sockets for easy stacking and functional expansion.
+1. 36g의 최소 중량, 최대 80g의 이륙 중량, 무거운 리프터.
+2. 비행 시간 6~7 분.
+3. PPM/S.Bus/Specktrum DSM 수신기를 위한 내장 옵션.
+4. 기능 확장을 위한 SEP/WEP 소켓이 있는 무납땜 조립이 가능한 구조.
 
-### User Guide
+### 사용자 가이드
 
 :::note
-The user guide is [here](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf).
+사용자 가이드는 [여기](http://mindpx.net/assets/accessories/NanoMind_110_user_manual.pdf)를 참고하십시오.
 :::
 
-### Flight video
+### 비행 비디오
 
-@[youtube](https://youtu.be/bLtKa--Buic)
+@[유투브](https://youtu.be/bLtKa--Buic)
 
-### Where to buy
+### 구매처
 
-NanoMind 110 is available at [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+NanoMind 110은 [AirMind<sup>&reg;</sup> Store](http://drupal.xitronet.com/?q=catalog)에서 구입할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
-### Support
+### 지원
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 <support@mindpx.net>에 이메일을 보내십시오.
