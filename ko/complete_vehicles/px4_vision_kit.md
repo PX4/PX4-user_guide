@@ -2,7 +2,7 @@
 
 [*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
 
-![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
+![개요](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
 이 키트에는 *Pixhawk 4* 비행 컨트롤러, *UP Core* 보조 컴퓨터(4GB 메모리와 64GB eMMC), 후두부 *구조 코어* 깊이 카메라 센서가 장착된 거의 즉시 비행 가능한 탄소 섬유 쿼드 콥터가 포함되어 있습니다.
 
@@ -32,19 +32,19 @@
 1. 이 키트는 전방 카메라를 사용하는 컴퓨터 비전 프로젝트용입니다. 하향 또는 후방 깊이 카메라가 없습니다. 따라서, 추가 수정없이는 [안전 착륙](../computer_vision/safe_landing.md) 또는 하방향 카메라가 필요한 다른 기능들을 테스트할 수 없습니다.
 1. 임무에서 장애물 회피는 GPS를 사용시에 테스트 가능합니다. 임무 수행시에는 GPS 좌표를 사용합니다. 충돌 방지는 GPS와 광학 흐름에서 위치 잠금시에 위치 모드에서 테스트할 수 있습니다.
 1. `USB1`로 표시된 포트는 *USB3* 주변 장치와  동시에 사용하는 경우에는 GPS를 방해할 수 있습니다(임무를 포함한 GPS 종속 기능 비활성화). 이로 인하여, 부팅 이미지가 *USB2.0* 메모리 스틱으로 제공됩니다.
-1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC Number](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN Number](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
+1. ECN 010 이상의 PX4 Vision(캐리어 보드 RC05 이상), *UP Core*는 DC 플러그 또는 배터리로 전원을 공급할 수 있습니다. ![RC 번호](../../assets/hardware/px4_vision_devkit/rc.png) ![ECN 번호](../../assets/hardware/px4_vision_devkit/Serial_Number_Update.jpg)
 
 :::warning ECN이 RC04 아래 010/캐리어 보드 미만인 PX4 Vision의 경우 *UP Core*는 배터리로 전원을 공급하여야합니다. *UP Core 전원* 소켓 안전 커버를 제거하지 마십시오.
 
-![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
+![경고 - 전원 포트를 연결하지 마십시오](../../assets/hardware/px4_vision_devkit/warning_power_port_update.png)
 :::
 
 ## 내부 내용
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
+![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
+![내부 내용](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
-<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
+<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 업라이트 이미지" />
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
@@ -116,11 +116,11 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 1. RC 지상 및 공중 유닛을 [바인딩](../getting_started/rc_transmitter_receiver.md#binding)합니다 (아직 수행하지 않은 경우). 바인딩 절차는 사용된 무선 시스템에 따라 다릅니다 (수신기 설명서 참조).
 1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다.
 
-   ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
+   ![GPS 마스트 올리기](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
 1. 키트에서 사전 이미징된 USB2.0 스틱을 `USB1` (아래 강조 표시됨)이라고 표시된 *UP Core* 포트에 삽입합니다.
 
-   ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
+   ![UP 코어 : USB1 포트 ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. 완전히 충전된 배터리로 기체의 전원을 공급하십시오. :::note 배터리를 연결하기 전에 프로펠러가 제거되었는 지 확인하십시오.
 :::
 1. 아래의 로그인 정보를 사용하여 지상국을 기체 WiFi에 연결합니다 (몇 초 후).
@@ -156,15 +156,15 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
 1. 그림과 같이 프로펠러를 부착합니다.
 
-   ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
+   ![모터 순서 다이어그램](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
    - 프로펠러 방향(*6045* (정상, 시계 반대 방향), _6045_ **R** (반전, 시계 방향)을 레이블에서 확인할 수 있습니다.
 
-     ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
+     ![프로펠러 식별](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
    - 제공된 프로펠러 너트를 사용하여 단단히 조입니다.
 
-     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
+     ![프로펠러 너트](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
 ## 드론 회피 비행
@@ -183,7 +183,7 @@ PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 
    - *QGroundControl* 알림 로그에 **Avoidance system connected** 메시지가 표시됩니다.
 
-     ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
+     ![회피 시스템이 시작되었음을 보여주는 QGC 로그](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
    - *Structure Core* 카메라 전면에 빨간색 레이저가 보입니다.
 1. GPS LED가 녹색으로 바뀔 때까지 기다리십시오. 이것은 기체에 GPS 준비가 완료되어 비행 준비가 완료되었음을 의미합니다!
 1. 지상국을 기체 WiFi에 연결합니다.
@@ -258,14 +258,14 @@ USB 이미지를 *UP Core*로 플래시하려면 :
 보조 컴퓨터에 로그인하려면 :
 1. 포트 `USB2`를 통하여 키보드와 마우스를 *UP Core*에 연결합니다.
 
-   ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+   ![UP 코어 : USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
    - 키트의 USB-JST 케이블을 사용하여 USB A 커넥터를 얻습니다.
 
-     ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
+     ![USB to JST 케이블](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
    - 키보드와 마우스에 별도의 커넥터가 있는 경우 USB 허브를 케이블에 연결할 수 있습니다.
 1. 모니터를 *UP Core* HDMI 포트에 연결합니다.
 
-   ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+   ![UP Core : HDMI 포트](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
    그러면 Ubuntu 로그인 화면이 모니터에 표시됩니다.
 1. 아래의 로그인 정보로 *UP Core*에 로그인합니다.
@@ -321,7 +321,7 @@ ROS 작업 공간은 `~/catkin_ws`에 있습니다. ROS에서 개발하고 catki
 
 PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firmware.md#custom) 할 수도 있습니다.
 - 펌웨어를 업데이트하려면 *QGroundControl*을 **USB를 사용하여** 키트 *Pixhawk 4*에 연결하여야 합니다.
-- 새 펌웨어를 로드 한 후 *PX4 Vision DevKit* 기체를 선택합니다. ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
+- 새 펌웨어를 로드 한 후 *PX4 Vision DevKit* 기체를 선택합니다. ![기체 선택 - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
 대부분의 컴퓨터 비전 사용 사례를 충족하기 위해 PX4 코드를 수정할 필요는 *없습니다 *. 인터페이스 또는 다른 기능을 통합하는 방법을 논의하려면 PX4 슬랙 채널 : # computer-vision에 가입하십시오.
@@ -329,22 +329,22 @@ PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firm
 
 ## Px4 비전 캐리어 보드 핀아웃
 
-The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
+캐리어 보드 핀아웃은 [Holybro 웹 사이트](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)에서 다운로드할 수 있습니다.
 
-## Other Development Resources
+## 기타 개발 리소스
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* companion computer technical information
-- [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
-- [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/avoidance)
-- [Path Planning Interface](../computer_vision/path_planning_interface.md)
-- [Px4 Vision Carrier Board Pinouts](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - *Up Core* 보조 컴퓨터 기술 정보
+- [후두 개발자 포럼](https://structure.io/developers) - *구조 코어* 카메라 정보
+- [Pixhawk  4 개요](../flight_controller/pixhawk4.md)
+- [PX4 회피 소프트웨어 / 문서](https://github.com/PX4/avoidance)
+- [경로 계획 인터페이스](../computer_vision/path_planning_interface.md)
+- [Px4 비전 캐리어 보드 핀아웃](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
 
-## How to get Technical Support
+## 기술 지원 방법
 
-For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
+하드웨어 문제는 Holybro([productservice@holybro.com](mailto:productservice@holybro.com))에 문의하십시오.
 
-For software issues, use the following community support channels:
-- [PX4 discuss: Computer Vision category.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
-- [PX4 slack](https://slack.px4.io/) channel: #avoidance
-- [Holybro PX4 Vision Wikifactory](https://wikifactory.com/+holybro/px4-vision)
+소프트웨어 문제는 아래의 커뮤니티 지원 채널을 사용하십시오.
+- [PX4 토론 : 컴퓨터 비전 카테고리.](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance)
+- [PX4 슬랙](https://slack.px4.io/) 채널 : #avoidance
+- [Holybro PX4 비전 위키 팩토리](https://wikifactory.com/+holybro/px4-vision)
