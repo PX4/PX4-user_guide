@@ -241,40 +241,40 @@ sudo ./flash_emmc.sh
 
 ### 보조 컴퓨터 부팅
 
-먼저 제공된 USB2.0 스틱을 `USB1`이라고 표시된 *UP Core* 포트에 삽입한 다음 4S 배터리를 사용하여 기체에 전원을 공급합니다. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
+먼저 제공된 USB2.0 스틱을 `USB1`이라고 표시된 *UP Core* 포트에 삽입한 다음 4S 배터리를 사용하여 기체에 전원을 공급합니다. 회피 시스템은 약 1 분 이내에 시작되어야 합니다(제공된 USB 스틱에 따라 다름).
 
 :::tip
-[Fly the Drone with Avoidance](#fly-the-drone-with-avoidance) additionally explains how to verify that the avoidance system is active.
+[Fly the Drone with avoidance](#fly-the-drone-with-avoidance)는 회피 시스템이 활성화 여부를 확인하는 방법을 추가로 설명합니다.
 :::
 
-If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
+이미 [보조  컴퓨터에 이미지를 설치](#install_image_mission_computer) 한 경우에는 기체에 전원을 공급하기만하면 됩니다(즉, USB 스틱이 필요하지 않음). 회피 시스템은 약 30 초 이내에 가동 및 실행되어야 합니다.
 
-Once started the companion computer can be used both as a computer vision development environment and for running the software.
+시작되면 보조 컴퓨터를 비전 개발 환경과 소프트웨어 실행 환경으로 사용할 수 있습니다.
 
 <a id="login_mission_computer"></a>
 
-### Login to the Companion Computer
+### 보조 컴퓨터 로그인
 
-To login to the companion computer:
-1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
+보조 컴퓨터에 로그인하려면 :
+1. 포트 `USB2`를 통하여 키보드와 마우스를 *UP Core*에 연결합니다.
 
    ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
-   - Use the USB-JST cable from the kit to get a USB A connector
+   - 키트의 USB-JST 케이블을 사용하여 USB A 커넥터를 얻습니다.
 
      ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
-   - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
-1. Connect a monitor to the *UP Core* HDMI port.
+   - 키보드와 마우스에 별도의 커넥터가 있는 경우 USB 허브를 케이블에 연결할 수 있습니다.
+1. 모니터를 *UP Core* HDMI 포트에 연결합니다.
 
    ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
-   The Ubuntu login screen should then appear on the monitor.
-1. Login to the *UP Core* using the credentials:
-   - **Username:** px4vision
-   - **Password:** px4vision
+   그러면 Ubuntu 로그인 화면이 모니터에 표시됩니다.
+1. 아래의 로그인 정보로 *UP Core*에 로그인합니다.
+   - **사용자 이름:** px4vision
+   - **비밀번호:** px4vision
 
 
 
-### Developing/Extending PX4 Avoidance
+### PX4 회피 기능 추가 개발
 
 The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS 2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
 
