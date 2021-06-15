@@ -2,7 +2,7 @@
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
 
-Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](http://nuttx.org) OS.
+Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
 Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
 

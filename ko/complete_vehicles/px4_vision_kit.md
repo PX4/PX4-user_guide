@@ -48,171 +48,171 @@
 
 PX4 Vision DevKit에는 아래의 내용물들이 포함되어 있습니다.
 - 핵심 구성 요소:
-  - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
-  - 1x PMW3901 optical flow sensor
-  - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
-  - 1x Structure Core depth camera
-    - 160 deg wide vision camera
-    - Stereo infrared cameras
-    - Onboard IMU
-    - Powerful NU3000 Multi-core depth Processor
-  - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
-    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
-    - FTDI UART connected to flight controller
-    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2.0 JST-GH port connected to depth camera
-    - `HDMI`: HDMI out
-    - SD card slot
-    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
+  - 1x Pixhawk 4 비행 컨트롤러(사용자 지정 PX4 펌웨어 포함)
+  - 1x PMW3901 광학 유량 센서
+  - 1x TOF 적외선 거리 센서 (PSK‐CM8JL65‐CC5)
+  - 1x 구조 코어 깊이 카메라
+    - 160도 와이드 비전 카메라
+    - 스테레오 적외선 카메라
+    - 온보드 IMU
+    - 강력한 NU3000 멀티 코어 깊이 프로세서
+  - 1x *UP Core* 컴퓨터 (4GB 메모리 및 64GB eMMC, Ubuntu 및 PX4 회피 기능)
+    - Intel® Atom ™ x5-z8350 (최대 1.92GHz)
+    - 호환 OS : Microsoft Windows 10 정식 버전, Linux (ubilinux, Ubuntu, Yocto), Android
+    - 비행 컨트롤러에 연결된 FTDI UART
+    - `USB1` : USB3.0 USB2.0 스틱에서 PX4 회피 환경을 부팅용 포트입니다(USB3.0 주변 장치를 연결하면 GPS 장애 발생할 수 있음).
+    - `USB2` : JST-GH 커넥터의 USB2.0 포트. 두 번째 카메라, LTE 등에 사용할 수 있습니다. (또는 개발용 키보드 / 마우스).
+    - `USB3` : 깊이 카메라에 연결된 USB2.0 JST-GH 포트
+    - `HDMI` : HDMI 출력
+    - SD 카드 슬롯
+    - WiFi 802.11 b/g/n @ 2.4GHz (외부 안테나 #1에 연결됨). 컴퓨터 인터넷 액세스와 업데이트를 위하여 홈 WiFi 네트워크에 액세스할 수 있습니다.
 
 
-- Mechanical Specification:
-  - Frame: Full 5mm 3k carbon fiber twill
-  - Motors: T-MOTOR F60 PROⅢ KV1750
-  - ESC: BEHEli-S 20A ESC
-  - Propellers: T6045
-  - GPS: Pixhawk4 GPS module
-  - Power module: Holybro PM07
-  - Wheelbase: 286mm
-  - Weight: 854 grams without battery or props
-  - Telemetry: ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
+- 기계적 사양 :
+  - 프레임 : 전체 5mm 3k 탄소 섬유 능직
+  - 모터 : T-MOTOR F60 PROⅢ KV1750
+  - ESC : BEHEli-S 20A ESC
+  - 프로펠러 : T6045
+  - GPS : Pixhawk4 GPS 모듈
+  - 전원 모듈 : Holybro PM07
+  - 축거 : 286mm
+  - 중량 : 854g (배터리 또는 소품 제외)
+  - 텔레메트리 : 비행 컨트롤러에 연결된 ESP8266 (외부 안테나 #2에 연결됨). 지상국에 대한 무선 연결을 활성화합니다.
 
 
-- A USB2.0 stick with pre-flashed software provided by Auterion that bundles:
+- Auterion에서 제공하는 아래의 번들들이 사전 플래시된 소프트웨어가 포함된 USB2.0 스틱 :
   - Ubuntu 18.04 LTS
   - ROS Melodic
-  - Occipital Structure Core ROS driver
+  - 후두 구조 코어 ROS 드라이버
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+  - [PX4 회피 기능](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
 
 
-- Assorted cables, 8x propellers, 2x battery straps (installed) and other accessories (these can be used to attach additional peripherals).
+- 다양한 케이블, 8x 프로펠러, 2x 배터리 스트랩 (설치됨) 및 기타 액세서리 (추가 주변 장치 연결용으로 사용할 수 있음).
 
-## What Else Do You Need
+## 그 외 필요한 것
 
-The kit contains all the essential drone hardware except a battery and a radio control system, which must be purchased separately:
-- Battery:
-  - 4S LiPo with XT60 female connector
-  - Less than 115mm long (to fit between power connector and GPS mast)
-- Radio control system
-  - Any [PX4-compatible RC System](../getting_started/rc_transmitter_receiver.md) can be used.
-  - An *FrSky Taranis* transmitter with R-XSR receiver is one of the more popular setups.
-- An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
+이 키트에는 별도로 구매하여야 하는 배터리와 무선 제어 시스템을 제외한 필수적인 드론 하드웨어들이 포함되어 있습니다.
+- 배터리:
+  - XT60 암 커넥터가있는 4S LiPo
+  - 길이 115mm 미만 (전원 커넥터와 GPS 마스트 사이에 맞음)
+- 무선 제어 시스템
+  - 모든 [PX4 호환 RC 시스템](../getting_started/rc_transmitter_receiver.md)을 사용할 수 있습니다.
+  - R-XSR 수신기가 있는 *FrSky Taranis* 송신기는 많이 사용되는 설정입니다.
+- H2.0 Hex 키 (RC 수신기를 연결할 수 있도록 상단 플레이트 나사를 푸는 용도)
 
-In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+또한, 사용자는 지상국 하드웨어와 소프트웨어가 필요합니다.
+- [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)(QGC)을 실행 노트북 또는 태블릿.
 
-## First-time Setup
+## 최초 설정
 
-1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
-   - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
-   - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
-   - Re-attach the top plate.
-   - Mount the RC receiver on the *UP Core* carrier board plate at the back of the vehicle (use zipties or double-sided tape).
-   - Ensure the antennas are clear of any obstructions and electrically isolated from the frame (e.g. secure them under the carrier board or to the vehicle arms or legs).
+1. 기체에 [RC 호환 수신기](../getting_started/rc_transmitter_receiver.md#connecting-receivers)를 부착합니다 (키트와 함께 제공되지 않음).
+   - H2.0 육각 도구를 사용하여 상단 플레이트 (배터리가가는 곳)를 분리합니다.
+   - [수신기를 비행 컨트롤러에 연결합니다](../assembly/quick_start_pixhawk4.md#radio-control).
+   - 상단 플레이트를 다시 부착합니다.
+   - RC 수신기를 기체 후면의 *UP Core* 캐리어 보드 플레이트에 장착합니다 (지퍼 또는 양면 테이프 사용).
+   - 안테나에 장애물이 없는 지, 프레임에서 전기적으로 절연되어 있는지 확인합니다 (예 : 캐리어 보드 아래 또는 기체 팔 또는 다리에 고정).
 
-1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done). The binding procedure depends on the specific radio system used (read the receiver manual).
-1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate.
+1. RC 지상 및 공중 유닛을 [바인딩](../getting_started/rc_transmitter_receiver.md#binding)합니다 (아직 수행하지 않은 경우). 바인딩 절차는 사용된 무선 시스템에 따라 다릅니다 (수신기 설명서 참조).
+1. GPS 마스트를 수직 위치로 올리고 덮개를 베이스 플레이트의 홀더에 조입니다.
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
-1. Insert the pre-imaged USB2.0 stick from the kit into the *UP Core* port labeled `USB1` (highlighted below).
+1. 키트에서 사전 이미징된 USB2.0 스틱을 `USB1` (아래 강조 표시됨)이라고 표시된 *UP Core* 포트에 삽입합니다.
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Power the vehicle with a fully charged battery. :::note Ensure propellers are removed before connecting the battery.
+1. 완전히 충전된 배터리로 기체의 전원을 공급하십시오. :::note 배터리를 연결하기 전에 프로펠러가 제거되었는 지 확인하십시오.
 :::
-1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
+1. 아래의 로그인 정보를 사용하여 지상국을 기체 WiFi에 연결합니다 (몇 초 후).
    - **SSID:** pixhawk4
-   - **Password:** pixhawk4
+   - **비밀번호:** pixhawk4
 
 :::tip
-WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+연결 후(원하는 경우), 웹 브라우저에서 URL `http://192.168.4.1`을 열어 WiFi 네트워크 SSID, 암호 및 기타 로그인 정보를 변경할 수 있습니다. 전송 속도 921600을 변경하지 마십시오.
 :::
 
-1. Start *QGroundControl* on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle:
+1. 지상국에서 *QGroundControl*을 시작합니다.
+1. 차량 [설정 및 보정](../config/README.md) :
 
 :::note
-The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+기체는 사전 보정된 상태로 수령하여야합니다 (예 : 펌웨어, 기체, 배터리 및 센서가 모두 설정됨). 그러나, 방금 연결한 무선 시스템을 보정하여야 하며, 나침반 보정을 다시 수행하여야 하는 경우가 많습니다.
 :::
 
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
+   - [라디오 시스템 보정](../config/radio.md)
+   - [나침반 보정](../config/compass.md)
 
 
-1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
+1. (선택 사항) 조종기에서 [비행 모드 선택 스위치](../config/flight_mode.md)를 설정합니다.
 
 :::note
-Modes can also be changed using *QGroundControl*
+모드는 *QGroundControl*을 사용하여 변경할 수 있습니다.
 :::
 
-   We recommend RC controller switches are define for:
-   - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
-   - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
+   RC 컨트롤러 스위치는 다음에 대해 정의하는 것이 좋습니다.
+   - [위치 모드](../flight_modes/position_mc.md)-충돌 방지를 테스트하는 데 사용할 수 있는 안전한 수동 비행 모드입니다.
+   - [임무 모드](../flight_modes/mission.md) - 임무를 실행하고 장애물 회피를 테스트합니다.
+   - [귀환 모드](../flight_modes/return.md) - 기체를 출발 지점으로 안전하게 복귀하여 착륙합니다.
 
 
-1. Attach the propellers with the rotations as shown:
+1. 그림과 같이 프로펠러를 부착합니다.
 
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
+   - 프로펠러 방향(*6045* (정상, 시계 반대 방향), _6045_ **R** (반전, 시계 방향)을 레이블에서 확인할 수 있습니다.
 
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
-   - Screw down firmly using the provided propellor nuts:
+   - 제공된 프로펠러 너트를 사용하여 단단히 조입니다.
 
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
-## Fly the Drone with Avoidance
+## 드론 회피 비행
 
-When the vehicle setup described above is complete:
+위의  기체 설정이 완료되면 :
 
-1. Connect the battery to power the vehicle.
+1. 기체에 전원 공급 배터리를 연결하십시오.
 
-1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
+1. 부팅 순서가 완료되고 회피 시스템이 시작될 때까지 기다리십시오 (부팅중에는 기체는은 무장 명령을 거부합니다).
 
 :::tip
-The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+부팅/시작 프로세스는 제공된 USB 스틱에서 약 1 분 (또는 [내부 메모리](#install_image_mission_computer)에서 30 초) 정도 소요됩니다.
 :::
 
-1. Check that the avoidance system has started properly:
+1. 회피 시스템이 제대로 시작되었는 지 확인하십시오.
 
-   - The *QGroundControl* notification log displays the message: **Avoidance system connected**.
+   - *QGroundControl* 알림 로그에 **Avoidance system connected** 메시지가 표시됩니다.
 
      ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
-   - A red laser is visible on the front of the *Structure Core* camera.
-1. Wait for the GPS LED to turn green. This means that the vehicle has a GPS fix and is ready to fly!
-1. Connect the ground station to the vehicle WiFi network.
-1. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
+   - *Structure Core* 카메라 전면에 빨간색 레이저가 보입니다.
+1. GPS LED가 녹색으로 바뀔 때까지 기다리십시오. 이것은 기체에 GPS 준비가 완료되어 비행 준비가 완료되었음을 의미합니다!
+1. 지상국을 기체 WiFi에 연결합니다.
+1. PX4 비전을 테스트하기 위해 나무나 기타 편리한 장애물이 있는 비행하기에 안전한 실외 위치를 찾으십시오.
 
-1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle. The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
+1. [충돌 방지](../computer_vision/collision_prevention.md)를 테스트하려면 [위치 모드](../flight_modes/position_mc.md)를 활성화하고 수동으로 장애물을 향해 비행하십시오. 기체의 속도를 줄인 다음 장애물로부터 6m 이내에 정지해야합니다(거리는 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 매개 변수를 사용하여 [변경](../advanced_config/parameters.md) 할 수 있음).
 
-1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle. Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+1. [장애물 회피](../computer_vision/obstacle_avoidance.md)를 테스트 하려면 경로에 장애물이 있는 임무를 만드십시오. 그런 다음, [임무 모드](../flight_modes/mission.md)로 전환하여 임무를 실행하고 장애물을 돌아다니는 기체를 관찰한 다음 계획된 코스로 돌아갑니다.
 
 
-## Development using the Kit
+## 키트를 사용한 개발
 
-The following sections explain how to use the kit as an environment for developing computer vision software.
+다음 섹션에서는 컴퓨터 비전 소프트웨어를 개발 키트를 사용하는 방법에 대하여 설명합니다.
 
-### PX4 Avoidance Overview
+### PX4 회피 개요
 
-The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
+*PX4 회피* 시스템은 *비행 컨트롤러*에서 실행되는 PX4 비행 스택에 장애물과 경로 정보를 제공하는 보조 컴퓨터 (연결된 깊이 카메라 포함)에서 실행되는 컴퓨터 비전 소프트웨어로 구성됩니다.
 
-Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
-- The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
-- The *globalplanner* has not been tested with this kit.
-- The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
+동반 컴퓨터 비전/계획 소프트웨어에 대한 문서는 github에서 찾을 수 있습니다 : [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). 이 프로젝트는 다양한 플래너 구현 (ROS 노드로 패키징)을 제공합니다.
+- PX4 Vision Kit는 기본적으로 *localplanner*를 실행하며 이것은 소프트웨어에 권장되는 시작점입니다.
+- *globalplanner*는이 키트로 테스트되지 않았습니다.
+- *착륙 플래너*에는 아래쪽을 향한 카메라가 필요하며, 먼저 카메라 장착을 수정하지 않고는 사용할 수 없습니다.
 
-PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
-- [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
-- [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+PX4와 보조 컴퓨터는 다음 인터페이스를 사용하여 [MAVLink](https://mavlink.io/en/)를 통하여 데이터를 교환합니다.
+- [경로 계획 인터페이스](../computer_vision/path_planning_interface.md) - 자동 모드에서 회피 기능을 구현 API.
+- [충돌 방지 인터페이스](../computer_vision/collision_prevention.md) - 장애물 맵을 기반으로하는 수동 위치 모드에서 차량 기반 회피를위한 API (현재 충돌 방지에 사용됨).
 
 <span id="install_image_mission_computer"></span>
-### Installing the image on the Companion Computer
+### 보조 컴퓨터에 이미지 설치
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
