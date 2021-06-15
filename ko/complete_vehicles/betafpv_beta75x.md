@@ -6,43 +6,43 @@
 
 ## 구매처
 
-The *Beta75X* can be bought from a number of vendors, including:
+*Beta75X*는 여러 곳에서 구매할 수 있습니다.
 
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
-- [Amazon](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
+- [아마존](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
-In addition you will need:
+추가로 다음과 같은 것들이 필요합니다.
 
-- An RC transmitter. *Beta75X* can ship with a number of receivers. PX4 is compatible with all of them, but make sure to select the version that matches your transmitter.
-- LiPo battery charger (vehicle ships with one battery, but you may want spares).
-- FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/).
+- RC 송신기. *Beta75X*는 수신기와 함께 배송될 수 있습니다. PX4는 이들과 호환되지만 송신기와 일치하는 버전을 선택하는 것이 좋습니다.
+- LiPo 배터리 충전기(배터리 1개와 함께 배송되지만 여분이 필요할 수 있습니다).
+- FPV를 비행하고 싶다면 FPV 고글. [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/)의 포함하여 많은 호환 옵션이 있습니다.
     
 :::note FPV
-support is completely independent of PX4/flight controller.
+지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
 :::
 
-## Flashing PX4 Bootloader
+## 부트로더 업드로하기
 
-The *Beta75X* comes preinstalled with Betaflight.
+*Beta75X*에는 Betaflight가 사전 설치되어 있습니다.
 
-Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the *Beta75X*).
+PX4 펌웨어를 업로드전에 PX4 부트 로더를 먼저 설치하여야 합니다. 부트 로더 설치 방법은 [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) 항목(*Beta75X*의 비행 컨트롤러 보드)를 참고하십시오.
 
 :::tip
-You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight) later if you want!
+필요하면 언제든지 [Betaflight를 설치](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight)할 수 있습니다!
 :::
 
-## Installation/Configuration
+## 설치 및 설정
 
-Once the bootloader is installed, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
+부트 로더가 설치되면 USB 케이블을 통해 기체를 *QGroundControl*에 연결할 수 있습니다.
 
 :::note
-At time of writing *Omnibus F4* is supported on the QGroundControl *Daily Build*, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
+이 문서 작성 시점에는 *Omnibus F4*는 QGroundControl *Daily Build*에서 지원되며 사전 빌드된 펌웨어는 마스터 브랜치에 대해서만 제공됩니다 (안정적인 릴리스는 아직 제공되지 않음).
 :::
 
-To install and configure PX4:
+PX4를 설치 및 설정:
 
-- [Load PX4 Firmware](../config/firmware.md). 
-- [Set the Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*.
+- [PX4 펌웨어 로드](../config/firmware.md). 
+- [Airframe](../config/airframe.md)을 *BetaFPV Beta75X 2S Brushless Whoop*로 설정합니다.
 - Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 
 ## Video
