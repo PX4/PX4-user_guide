@@ -229,7 +229,7 @@ USB 이미지를 *UP Core*로 플래시하려면 :
 1. 터미널에서 다음 명령어를 실행하여 이미지를 내부 메모리 (eMMC)에 복사합니다. 터미널은 깜박이는 프로세스동안에 여러가지 응답을 요청합니다.
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
-sudo ./flash_emmc.sh
+   sudo ./flash_emmc.sh
    ```
 
 :::note
@@ -278,44 +278,44 @@ sudo ./flash_emmc.sh
 
 PX4 비전의 *UP Core* 컴퓨터는 PX4 회피 소프트웨어를 확장을 위한 최적의 개발 환경을 제공합니다 (일반적으로 ROS 2를 사용하여 새로운 컴퓨터 비전 알고리즘을 개발함). 기체에서 소프트웨어를 개발/테스트, 자체 git 저장소에 동기화 및 github [PX4/Avoidance](https://github.com/PX4/avoidance) 저장소에서 PX4 커뮤니티와 수정 및 개선 사항을 공유할 수 있습니다.
 
-catkin 작업 공간은 `~/catkin_ws`에 있으며 PX4 회피 로컬 플래너를 실행하도록 사전에 설정되어 있습니다. 부팅에서 시작 파일(`avoidance.launch`)은 `px4vision_ros` 패키지에 있습니다 (실행되는 플래너를 변경하려면이 파일을 수정하십시오).
+catkin 작업 공간은 `~/catkin_ws`에 있으며 PX4 회피 로컬 플래너를 실행하도록 사전에 설정되어 있습니다. 부팅에서 시작 파일(`avoidance.launch`)은 `px4vision_ros` 패키지에 있습니다. 실행되는 플래너를 변경하려면 이 파일을 수정하십시오.
 
-The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
+회피 패키지는 부팅시 시작됩니다. 다른 플래너를 통합하려면이 기능을 비활성화하여야 합니다.
 
-1. Disable the avoidance process using the following command:
+1. 다음 명령을 사용하여 회피 프로세스를 비활성화 하십시오.
    ```sh
    systemctl stop avoidance.service
    ```
-   You can simply reboot the machine to restart the service.
+   시스템을 재부팅하여 서비스를 다시 시작할 수 있습니다.
 
-   Other useful commands are:
+   기타 유용한 명령은 다음과 같습니다.
    ```sh
-   # restart service
-   systemctl start avoidance.service
+   # 서비스 재시작
+systemctl start avoidance.service
 
-   # disable service (stop service and do not restart after boot)
-   systemctl disable avoidance.service
+# 서비스 비활성화 (서비스를 중지하고 부팅후 다시 시작하지 않음)
+systemctl disable avoidance.service
 
-   # enable service (start service and enable restart after boot)
-   systemctl enable avoidance.service  
+# 서비스 활성화 (서비스 시작 및 부팅후 재시작 활성화)
+systemctl enable avoidance.service  
    ```
 
-1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
+1. 장애물 회피 패키지의 소스 코드는 `~/catkin_ws/src/avoidance`에 있는 https://github.com/PX4/avoidance를 참고하십시오.
 
-1. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
+1. 코드를 변경하십시오! 최신 회피 코드를 얻으려면 회피 저장소에서 코드를 가져 오십시오.
    ```sh
    git pull origin
    git checkout origin/master
    ```
-1. Build the package
+1. 패키지 빌드
    ```
    catkin build local_planner
    ```
 
-The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+ROS 작업 공간은 `~/catkin_ws`에 있습니다. ROS에서 개발하고 catkin 작업 공간을 사용하는 방법에 대한 참조는 [ROS catkin 튜토리얼](http://wiki.ros.org/catkin/Tutorials)을 참고하십시오.
 
 
-### Developing PX4 Firmware
+### PX4 펌웨어 개발
 
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
