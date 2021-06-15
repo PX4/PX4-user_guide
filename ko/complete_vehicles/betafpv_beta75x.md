@@ -1,10 +1,10 @@
-# BetaFPV Beta75X 2S Brushless Whoop
+# BetaFPV Beta75X 2S 브러시리스 후프
 
-The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) is a very small quadrotor that can be flown indoors or outdoors, FPV or line-of-sight.
+[BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter)는 실내 또는 실외, FPV 또는 가시선으로 비행할 수있는 작은 쿼드콥터입니다.
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
-## Where to Buy
+## 구매처
 
 The *Beta75X* can be bought from a number of vendors, including:
 
