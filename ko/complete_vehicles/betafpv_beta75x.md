@@ -43,8 +43,8 @@ PX4를 설치 및 설정:
 
 - [PX4 펌웨어 로드](../config/firmware.md). 
 - [Airframe](../config/airframe.md)을 *BetaFPV Beta75X 2S Brushless Whoop*로 설정합니다.
-- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
+- 센서 보정과 무선 설정을 포함하여 [기본 설정](../config/README.md)을 진행합니다.
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/_-O0kv0Qsh4)
+@[유투브](https://youtu.be/_-O0kv0Qsh4)
