@@ -1,6 +1,6 @@
 # PX4 Vision Autonomy 개발 키트
 
-[*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 차량용 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
+[*PX4 Vision Autonomy 개발 키트*](http://www.holybro.com/product/px4-vision/)는 자율 비행 컴퓨터 비전 개발을 위한 견고하고 저렴한 키트입니다.
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
@@ -317,17 +317,17 @@ ROS 작업 공간은 `~/catkin_ws`에 있습니다. ROS에서 개발하고 catki
 
 ### PX4 펌웨어 개발
 
-The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
+이 키트는 보조 컴퓨터에서 실행되고 PX4의 유연한 경로 계획 및 충돌 방지 인터페이스와 통합되는 컴퓨터 비전 소프트웨어를 만들기 위하여 설계되었습니다.
 
-You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
-- You will need to connect *QGroundControl* to the kit's *Pixhawk 4* **via USB** in order to update firmware.
-- Select the *PX4 Vision DevKit* airframe after loading new firmware: ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
+PX4 자체를 수정하고 [사용자 지정 펌웨어로 설치](../config/firmware.md#custom) 할 수도 있습니다.
+- 펌웨어를 업데이트하려면 *QGroundControl*을 **USB를 사용하여** 키트 *Pixhawk 4*에 연결하여야 합니다.
+- 새 펌웨어를 로드 한 후 *PX4 Vision DevKit* 기체를 선택합니다. ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
 :::note
-Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+대부분의 컴퓨터 비전 사용 사례를 충족하기 위해 PX4 코드를 수정할 필요는 *없습니다 *. 인터페이스 또는 다른 기능을 통합하는 방법을 논의하려면 PX4 슬랙 채널 : # computer-vision에 가입하십시오.
 :::
 
-## Px4 Vision Carrier Board Pinouts
+## Px4 비전 캐리어 보드 핀아웃
 
 The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
 
