@@ -276,9 +276,9 @@ sudo ./flash_emmc.sh
 
 ### PX4 회피 기능 추가 개발
 
-The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS 2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
+PX4 비전의 *UP Core* 컴퓨터는 PX4 회피 소프트웨어를 확장을 위한 최적의 개발 환경을 제공합니다 (일반적으로 ROS 2를 사용하여 새로운 컴퓨터 비전 알고리즘을 개발함). 기체에서 소프트웨어를 개발/테스트, 자체 git 저장소에 동기화 및 github [PX4/Avoidance](https://github.com/PX4/avoidance) 저장소에서 PX4 커뮤니티와 수정 및 개선 사항을 공유할 수 있습니다.
 
-The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+catkin 작업 공간은 `~/catkin_ws`에 있으며 PX4 회피 로컬 플래너를 실행하도록 사전에 설정되어 있습니다. 부팅에서 시작 파일(`avoidance.launch`)은 `px4vision_ros` 패키지에 있습니다 (실행되는 플래너를 변경하려면이 파일을 수정하십시오).
 
 The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
