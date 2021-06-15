@@ -2,7 +2,7 @@
 
 ![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### 요약
 
 A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
 
