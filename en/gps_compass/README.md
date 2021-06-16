@@ -5,7 +5,8 @@ It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gp
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
-The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority).
+
+The system automatically chooses the best available compass based on their _priority_ (external magnetometers have a higher priority than internal magnetometers).
 If the primary compass fails in-flight, it will failover to the next one.
 If it fails before flight, arming will be denied.
 
@@ -17,7 +18,10 @@ The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is 
 On small vehicles an external compass is almost always required.
 :::
 
-## Supported GPS and/or Compass
+## Supported GNSS and/or Compass
+
+PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN.
+This list contains GNSS/Compass units that have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
 Device | GPS | Compass | [RTK](../gps_compass/rtk_gps.md) | [GPS Yaw Output](#configuring-gps-as-yaw-heading-source) | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md)
 :--- | :---: | :---:  | :---:  | :---:  | :---: | :---:
@@ -74,13 +78,13 @@ While these are all software-compatible, there are several different pin orderin
 :::
 
 
-## Configuration
+## GNSS Configuration
 
-The "standard" GPS/compass configuration is provided below.
+The "standard" GPS configuration is provided below.
 Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
 :::warning
-The GPS protocol defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected)
+The GPS protocol expected by PX4 defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected)
 The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
 :::
 
@@ -129,21 +133,29 @@ If using this feature, all other configuration should be setup up as normal (e.g
 :::
 
 
-### Compass Configuration
+## Compass Configuration
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md).
-The process is straightforward and will autodetect, prioritise and calibrate all connected magnetometers.
+The process is straightforward and will autodetect, calibrate and prioritise all connected magnetometers.
 
-Further compass configuration should not be required.
+Further compass configuration should generally not be required.
 
-#### Compass Parameters
+:::note
+All external compasses are given the same priority by default, which is higher than the prority shared by all internal compasses.
+:::
 
-Compass parameters are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID), where `x=0-3`.
+### Disable a Compass
 
-As stated above, generally these should not need to be changed.
-A possible exception is that vehicle developers might choose to disable an internal compass or experiment with adjusting the compass priority:
-- [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) can be read to determine if a compass is internal (`CAL_MAGn_ROT==1`)
-- [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) can be used to disable or change the relative priority of a compass.
+As stated above, generally no further configuration should be required.
+
+That said, developers can disable internal compasses if desired using the compass parameters.
+These are prefixed with [CAL\_MAGx\_](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
+
+To disable an internal compass:
+- Use [CAL_MAGn_ROT](../advanced_config/parameter_reference.md#CAL_MAG0_ROT) to determine which compasses are internal.
+  A compass is internal if `CAL_MAGn_ROT==1`.
+- Then use [CAL\_MAGx\_PRIO](../advanced_config/parameter_reference.md#CAL_MAG0_PRIO) to disable the compass.
+  This can also be used to change the relative priority of a compass.
 
 
 ## Developer Information
