@@ -1,25 +1,26 @@
 # Crazyflie 2.0
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.bitcraze.io/)에 문의하십시오.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
+Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.. Crazyflie 2.0의 개요는 [여기](https://www.bitcraze.io/crazyflie-2/)를 참고하십시오.
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## 간단한 요약 설명
+## 요약
 
 :::note
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+주요 하드웨어 문서는 여기를 참고하십시오. https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
-* Main System-on-Chip: STM32F405RG 
-  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  * RAM: 192 KB SRAM
-* nRF51822 radio and power management MCU
+* 메인 시스템온칩 : STM32F405RG 
+  * CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  * RAM : 192KB SRAM
+* nRF51822 무선 및 전력 관리 MCU
 * MPU9250 Accel / Gyro / Mag
 * LPS25H barometer
 
