@@ -346,7 +346,7 @@
     * [SWD/JLink Debug Interface](debug/swd_debug.md)
     * [Autopilot Debugging](debug/gdb_debugging.md)
     * [Eclipse/JLink Hardware Debugging](debug/eclipse_jlink.md)
-	* [Failure Injection](debug/failure_injection.md)
+    * [Failure Injection](debug/failure_injection.md)
     * [Sensor/Topic Debugging](debug/sensor_uorb_topic_debugging.md)
     * [Simulation Debugging](debug/simulation_debugging.md)
     * [Sending Debug Values](debug/debug_values.md)
