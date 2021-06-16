@@ -138,7 +138,7 @@ make cubepilot_cubeorange
 ```
 
 :::warning
-At time of writing (June 2021) you can't [build this target in VSCode](../dev_setup/vscode.md) as it specifies an invalid target (`cubepilot_cubeorange_test`).
+At time of writing (June 2021) you can't [build this target in VSCode](../dev_setup/vscode.md) as it specifies an invalid target (`cubepilot_cubeorange_test`). For more information see [PX4-Autopilot#17745](https://github.com/PX4/PX4-Autopilot/issues/17745).
 :::
 
 ## Further Information/Documentation
