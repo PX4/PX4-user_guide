@@ -49,7 +49,7 @@ Multiple sensors can be connected by plugging additional sensors into the ARK Fl
 
 General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
-<span id="mounting"></span>
+<a id="mounting"></a>
 ### Mounting/Orientation
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
@@ -108,3 +108,10 @@ The steps are:
    make ark_can-flow
    ```
 1. Follow instructions for [UAVCAN firmware updating](node_firmware.md) using the binary located in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
+
+## Video
+
+This video shows ARK Flow being used for position hold on PX4.
+
+@[youtube](https://youtu.be/aPQKgUof3Pc)
+<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->

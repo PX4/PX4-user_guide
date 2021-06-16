@@ -1,7 +1,10 @@
 # Optical Flow
 
 *Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.
-Optical Flow based navigation is enabled by the estimators: EKF2 and LPE (deprecated).
+
+
+@[youtube](https://youtu.be/aPQKgUof3Pc)
+<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
 ## Setup
 
@@ -69,8 +72,9 @@ The offsets are calculated relative to the vehicle orientation and center as sho
  
 ![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
+Optical Flow based navigation is enabled by both the availableestimators: EKF2 and LPE (deprecated).
 
-<span id="ekf2"></span>
+<a id="ekf2"></a>
 ### Extended Kalman Filter (EKF2)
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
