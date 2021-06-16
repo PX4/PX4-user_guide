@@ -36,34 +36,33 @@ Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.
 
 ## PX4 플래싱
 
-After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.0:
+PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
-1. Download the source code of the PX4 Bootloader: ```git clone https://github.com/PX4/Bootloader.git```
-2. Navigate into the top directory of the source code and compile it using: ```make crazyflie_bl```
-3. Put the Crazyflie 2.0 into DFU mode by following these steps:
+1. PX4 부트 로더 소스 코드를 다운로드합니다. ```git clone https://github.com/PX4/Bootloader.git```
+2. 소스 코드 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다. ```make crazyflie_bl```
+3. Crazyflie 2.0을 DFU 모드로 전환합니다.
   
-  * Ensure it is initially unpowered.
-  * Hold down the reset button (see figure below...). ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
-  * Plug into computer's USB port.
-  * After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
-  * Release button.
+  * 처음에는 전원이 꺼져 있는지 확인하십시오.
+  * 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
+  * 컴퓨터의 USB 포트에 연결합니다.
+  * 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
+  * 버튼을 뗍니다.
 
-4. Install *dfu-util*: 
+4. *dfu-util* 설치: 
   
       sudo apt-get update
        sudo apt-get install dfu-util
 
-5. Flash bootloader using *dfu-util* and unplug Crazyflie 2.0 when done: ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` When powering on the Crazyflie 2.0 the yellow LED should blink.
+5. *dfu-util*을 사용하여 부트 로더를 플래시하고 완료되면 Crazyflie 2.0을 분리합니다. ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` Crazyflie 2.0의 전원을 키면, 노란색 LED가 깜박입니다.
 
-6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/PX4-Autopilot.git```
+6. PX4 자동조종장치 소스 코드를 다운로드합니다. ```git clone https://github.com/PX4/PX4-Autopilot.git```
 
-7. Navigate into the top directory of the source code and compile it using: ```make bitcraze_crazyflie_default upload```
-8. When prompted to plug in device, plug in Crazyflie 2.0. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
-9. Wait for completion.
-10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
+7. 소스 코드의 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다. ```make bitcraze_crazyflie_default upload```
+8. 장치를 연결하라는 메시지가 표시되면 Crazyflie 2.0을 연결합니다. 노란색 LED가 깜박이기 시작하면 부트 로더 모드입니다. 그런 다음 빨간색 LED가 켜지면, 깜박이는 프로세스가 시작되었음을 나타냅니다.
+9. 완료될 때까지 기다리십시오.
+10. 완료되면, [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html)을 사용하여 센서를 보정합니다.
 
-:::note
-If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*:
+:::note QGroundControl이 기체와 연결되지 않으면 crazyflie의 [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig)에서 `# CONFIG_DEV_LOWCONSOLE이 설정되지 않음`이 `CONFIG_DEV_LOWCONSOLE = y`로 대체되었는 지 확인하십시오. This should be done using *menuconfig*:
 
     make bitcraze_crazyflie_default menuconfig
     
