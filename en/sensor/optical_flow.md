@@ -2,8 +2,8 @@
 
 *Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.
 
-
 @[youtube](https://youtu.be/aPQKgUof3Pc)
+*Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
 ## Setup

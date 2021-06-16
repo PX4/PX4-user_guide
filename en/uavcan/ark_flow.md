@@ -111,7 +111,6 @@ The steps are:
 
 ## Video
 
-This video shows ARK Flow being used for position hold on PX4.
-
 @[youtube](https://youtu.be/aPQKgUof3Pc)
 <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
+*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
