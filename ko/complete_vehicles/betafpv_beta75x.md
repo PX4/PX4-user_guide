@@ -15,20 +15,20 @@
 
 - RC 송신기. *Beta75X*는 수신기와 함께 배송될 수 있습니다. PX4는 이들과 호환되지만 송신기와 일치하는 버전을 선택하는 것이 좋습니다.
 - LiPo 배터리 충전기(배터리 1개와 함께 배송되지만 여분이 필요할 수 있습니다).
-- FPV를 비행하고 싶다면 FPV 고글. [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/)의 포함하여 많은 호환 옵션이 있습니다.
+- FPV를 비행하고 싶다면 FPV 고글을 사용하십시오. [Fatshark](https://www.fatshark.com/product/dominator-hd-v3-fpv-headset-goggles/)의 포함하여 많은 호환 옵션이 있습니다.
     
 :::note FPV
 지원은 PX4와 비행 컨트롤러와는 관련이 없습니다.
 :::
 
-## 부트로더 업드로하기
+## PX4 부트로더 플래싱하기
 
 *Beta75X*에는 Betaflight가 사전 설치되어 있습니다.
 
 PX4 펌웨어를 업로드전에 PX4 부트 로더를 먼저 설치하여야 합니다. 부트 로더 설치 방법은 [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) 항목(*Beta75X*의 비행 컨트롤러 보드)를 참고하십시오.
 
 :::tip
-필요하면 언제든지 [Betaflight를 설치](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight)할 수 있습니다!
+필요하면 언제든지 [Betaflight를 다시 설치](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight)할 수 있습니다!
 :::
 
 ## 설치 및 설정

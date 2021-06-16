@@ -1,80 +1,80 @@
 # Crazyflie 2.0
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://www.bitcraze.io/)와 상담하십시오.
+:::warning PX4에서는 이 자동항법장치를 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.bitcraze.io/)에 문의하십시오.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
+Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.. Crazyflie 2.0의 개요는 [여기](https://www.bitcraze.io/crazyflie-2/)를 참고하십시오.
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## 간단한 요약 설명
+## 요약
 
 :::note
-The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
+주요 하드웨어 문서는 여기를 참고하십시오. https://wiki.bitcraze.io/projects:crazyflie2:index
 :::
 
-* Main System-on-Chip: STM32F405RG 
-  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  * RAM: 192 KB SRAM
-* nRF51822 radio and power management MCU
-* MPU9250 Accel / Gyro / Mag
-* LPS25H barometer
+* 메인 시스템온칩 : STM32F405RG 
+  * CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  * RAM : 192KB SRAM
+* nRF51822 무선 및 전력 관리 MCU
+* MPU9250 가속 / 자이로 / 자력계
+* LPS25H 기압계
 
-## Where to Buy
+## 구매처
 
 * [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
-* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
-* [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
-* [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground. This will be useful for precise altitude control.
-* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
+* [Crazyradio PA 2.4GHz USB 동글](https://store.bitcraze.io/collections/kits/products/crazyradio-pa) : *QGroundControl*과 Crazyflie 2.0 간의 무선 통신에 사용됩니다.
+* [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 주변 장치를 연결용 브레이크아웃 확장 보드입니다.
+* [흐름 데크](https://store.bitcraze.io/collections/decks/products/flow-deck) :지면의 움직임을 측정하는 광류 센서와 지면까지의 거리를 측정하는 거리 센서가 포함되어 있습니다. 정확한 고도와 위치 제어에 유용합니다.
+* [Z- 레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)는지면까지의 거리를 측정하기 위해 Flow 데크와 동일한 거리 센서입니다. 정확한 고도와 위치 제어에 유용합니다.
+* [SD 카드 데크](https://store.bitcraze.io/collections/decks/products/sd-card-deck) : 마이크로 SD 카드는 고속의 온보드 로깅에 사용됩니다.
 * [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad).
 
-## Flashing PX4
+## PX4 플래싱
 
-After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.0:
+PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
-1. Download the source code of the PX4 Bootloader: ```git clone https://github.com/PX4/Bootloader.git```
-2. Navigate into the top directory of the source code and compile it using: ```make crazyflie_bl```
-3. Put the Crazyflie 2.0 into DFU mode by following these steps:
+1. PX4 부트 로더 소스 코드를 다운로드합니다. ```git clone https://github.com/PX4/Bootloader.git```
+2. 소스 코드 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다. ```make crazyflie_bl```
+3. Crazyflie 2.0을 DFU 모드로 전환합니다.
   
-  * Ensure it is initially unpowered.
-  * Hold down the reset button (see figure below...). ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
-  * Plug into computer's USB port.
-  * After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
-  * Release button.
+  * 처음에는 전원이 꺼져 있는지 확인하십시오.
+  * 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
+  * 컴퓨터의 USB 포트에 연결합니다.
+  * 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
+  * 버튼을 뗍니다.
 
-4. Install *dfu-util*: 
+4. *dfu-util* 설치: 
   
       sudo apt-get update
        sudo apt-get install dfu-util
 
-5. Flash bootloader using *dfu-util* and unplug Crazyflie 2.0 when done: ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` When powering on the Crazyflie 2.0 the yellow LED should blink.
+5. *dfu-util*을 사용하여 부트 로더를 플래시하고 완료되면 Crazyflie 2.0을 분리합니다. ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` Crazyflie 2.0의 전원을 키면, 노란색 LED가 깜박입니다.
 
-6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/PX4-Autopilot.git```
+6. PX4 자동조종장치 소스 코드를 다운로드합니다. ```git clone https://github.com/PX4/PX4-Autopilot.git```
 
-7. Navigate into the top directory of the source code and compile it using: ```make bitcraze_crazyflie_default upload```
-8. When prompted to plug in device, plug in Crazyflie 2.0. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
-9. Wait for completion.
-10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
+7. 소스 코드의 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다. ```make bitcraze_crazyflie_default upload```
+8. 장치를 연결하라는 메시지가 표시되면 Crazyflie 2.0을 연결합니다. 노란색 LED가 깜박이기 시작하면 부트 로더 모드입니다. 그런 다음 빨간색 LED가 켜지면, 깜박이는 프로세스가 시작되었음을 나타냅니다.
+9. 완료될 때까지 기다리십시오.
+10. 완료되면, [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html)을 사용하여 센서를 보정합니다.
 
-:::note
-If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*:
+:::note QGroundControl이 기체와 연결되지 않으면 crazyflie의 [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig)에서 `# CONFIG_DEV_LOWCONSOLE이 설정되지 않음`이 `CONFIG_DEV_LOWCONSOLE = y`로 대체되었는 지 확인하십시오. 이 작업은 *menuconfig*를 사용하여 수행하여야 합니다.
 
     make bitcraze_crazyflie_default menuconfig
     
 
-or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI):
+또는 *qconfig* (GUI의 *직렬 드라이버 지원*에서 *저수준 콘솔 지원* 확인) :
 
     make bitcraze_crazyflie_default qconfig
     
 
 :::
 
-## Wireless Setup Instructions
+## 무선 설정 지침
 
 The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
 

@@ -43,9 +43,11 @@ By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_
 
 ## Sensor/System Failure
 
-System failure injection can be used to simulate different types of failures in many sensors and systems (e.g. GPS, barometer, gyro, avoidance etc.):
+[Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
+
+For example, to simulate GPS failure:
 1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. For example, to simulate losing and regaining GPS you might enter the following commands on the SITL instance *pxh shell* (or MAVLink console).
+1. Enter the following commands on the SITL instance *pxh shell*:
    ```bash
    # Turn (all) GPS off
    failure gps off
@@ -54,11 +56,4 @@ System failure injection can be used to simulate different types of failures in 
    failure gps ok
    ```
 
-The full syntax of the [failure](../modules/modules_command.md#failure) command is:
-```
-failure <component> <failure_type> [-i <instance_number>]
-```
-where:
-- _component_: `gyro` | `accel` | `mag` | `baro` | `gps` | `optical_flow` | `vio` | `distance_sensor` | `airspeed` | `battery` | `motor` | `servo` | `avoidance` | `rc_signal` | `mavlink_signal`
-- _failure_type_: `ok` | `off` | `stuck` | `garbage` | `wrong` | `slow` | `delayed` | `intermittent`
-- _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.   
+See [System Failure Injection](../debug/failure_injection.md) for a list of supported target sensors and failure modes.

@@ -219,15 +219,7 @@ This does not work "out of the box" because PX4 does not route packets to extern
 
 There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
 
-
 ### 启用 MAV_BROADCAST
-
-Enable UDP broadcast of heartbeats on the local network by calling the [mavlink](../modules/modules_communication.md#mavlink) with the `-p` flag. This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
-
-A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
-
-
-### 使用 MAVLink 路由器
 
 The [mavlink-router](https://github.com/intel/mavlink-router) can be used to route packets from localhost to an external interface.
 
@@ -254,10 +246,20 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
 More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
 :::
 
+### 使用 MAVLink 路由器
+
+The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
+
+:::note UDP
+broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific computer](#enable-broadcast-to-specific-address)).
+:::
+
+This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+
 
 ### 修改外部广播的配置
 
-The [mavlink](../modules/modules_communication.md#mavlink_usage) module routes to *localhost* by default, but you can specify an external IP address to broadcast to using its `-t` option.
+The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you can specify an external IP address to broadcast to using its `-t` option. The specified remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
 
 This should be done in various configuration files where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
