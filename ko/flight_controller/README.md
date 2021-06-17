@@ -1,14 +1,14 @@
-# 비행 컨트롤러 (자동 조종 장치) 하드웨어
+# 비행 컨트롤러(자동 조종 장치) 하드웨어
 
-This section lists the autopilot hardware documented in this library (that can be used to run the PX4 flight stack). This list is not exhaustive - there are other compatible flight controllers and variants.
+문서화된 자동조종장치들이 나열되어 있습니다 (PX4 비행스택을 실행하는 데 사용할 수 있음). 이 목록은 전체 목록이 아닙니다. 여기에 기술되지 않은 비행 컨트롤러와 변형이 있을 수 있습니다.
 
 :::tip
-You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+[완제품 기체](../complete_vehicles/README.md)(PX4를 실행할 수있는 소비자 드론 및 참조 플랫폼)에서 PX4를 사용해 볼 수 있습니다.
 :::
 
-- [Pixhawk Series](../flight_controller/pixhawk_series.md) 
+- [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 
   - [Silicon Errata](../flight_controller/silicon_errata.md)
-- [Pixhawk Standard/Supported Autopilots](../flight_controller/autopilot_pixhawk_standard.md) 
+- [Pixhawk 표준/지원 자동조종장치](../flight_controller/autopilot_pixhawk_standard.md) 
   - [CUAV Pixhack v3 (FMUv3)](../flight_controller/pixhack_v3.md)
   - [Drotek Pixhawk 3 Pro (FMUv4pro)](../flight_controller/pixhawk3_pro.md)
   - [Hex Cube Black (FMUv3)](../flight_controller/pixhawk-2.md)
