@@ -16,13 +16,19 @@ Pixhawk/PX4 支持：
 
 若要在固件中包含驱动程序，必须将驱动程序添加到与要为其生成的目标相对应的 [cmake 配置文件](https://github.com/PX4/Firmware/tree/master/cmake/configs)：
 
-若要查找 I2C 驱动程序示例，请在 [/src/drivers/](https://github.com/PX4/Firmware/tree/master/src/drivers) 中搜索 **i2c.h**。
+To include a driver in firmware you must add the driver to the board-specific cmake file that corresponds to the target you want to build for. You can do this for a single driver:
 ```
 drivers/sf1xx
 ```
 
+You can also include all drivers of a particular type.
+```
+distance_sensor # all available distance sensor drivers
+```
+
+
 :::tip
-For example, you can see/search for this driver in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+For example, you can see/search for `distance_sensor` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
 :::
 
 ## I2C 驱动程序示例
@@ -32,6 +38,7 @@ To find I2C driver examples, search for **i2c.h** in [/src/drivers/](https://git
 Just a few examples are:
 * [drivers/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)-i2c 驱动程序，用于 [Lightware sf1xx lidar](https://docs.px4.io/en/sensor/sfxx_lidar.html)。
 * [drivers/ms5611](https://github.com/PX4/Firmware/tree/master/src/drivers/barometer/ms5611)-通过 I2C（或 SPI）连接的 MS5611 和 MS6507 气压传感器的 I2C 驱动程序。
+* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611) - I2C Driver for the MS5611 and MS6507 barometric pressure sensor connected via I2C (or SPI).
 
 ## 更多信息
 
