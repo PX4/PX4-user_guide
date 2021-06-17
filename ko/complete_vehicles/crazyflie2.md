@@ -76,47 +76,47 @@ PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
 ## 무선 설정 지침
 
-The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
+온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
 
-* A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-* To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
+* [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/)를 권장합니다.
+* Crazyflie 2.0을 블루투스 통신 비행 스마트폰 앱이 지원됩니다.
 
-Using the official Bitcraze **Crazyflie phone app**:
+공식 Bitcraze** Crazyflie 앱** 사용 :
 
-* Connect via Bluetooth.
-* Change mode in settings to 1 or 2.
-* Calibrate via QGroundControl.
+* 블루투스로 연결합니다.
+* 설정에서 모드를 1 또는 2로 변경합니다.
+* QGroundControl로 보정합니다.
 
-Connecting via **MAVLink**:
+**MAVLink** 연결 :
 
-* Use a Crazyradio PA alongside a compatible GCS.
-* Download the *crazyflie-lib-python* source code: ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
+* 호환되는 GCS와 함께 Crazyradio PA를 제어합니다.
+* *crazyflie-lib-python* 소스 코드를 다운로드합니다. ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
 
 :::note
-We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+[cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.0(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다. [C 기반 cfbridge](https://github.com/dennisss/cfbridge)는 현재 데이터 손실 문제가 있으므로 **cfbridge.py**를 사용하는 것이 좋습니다.
 :::
 
-* Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
-* Connect a Crazyradio PA via USB.
-* Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method: ```pip install tox --user```
-* Navigate to the crazyflie-lib-python folder and type: ```make venv```
-* Activate the virtual environment: ```source venv-cflib/bin/activate```
-* Install required dependencies: ```pip install -r requirements.txt --user```
+* USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. [여기](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions)에 나열된 단계를 따라 컴퓨터를 **재 부팅**하십시오.
+* USB를 통해 Crazyradio PA를 연결합니다.
+* 아래의 방법으로 [로컬 Python 가상 환경](https://virtualenv.pypa.io/en/latest/)을 빌드합니다. ```pip install tox --user```
+* crazyflie-lib-python 폴더로 이동하여 다음을 입력합니다. ```make venv```
+* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
+* 필요한 라이브러리들을 설치합니다. ```pip install -r requirements.txt --user```
 
-To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
+Crazyflie 2.0을 crazyradio와 연결하기 위하여 아래의 단계에 따라 **cfbridge를 시작**합니다.
 
-* Power off and power on Crazyflie 2.0 and wait for it to boot up.
-* Connect a Crazyflie radio device via USB.
-* Navigate to the crazyflie-lib-python folder.
-* Activate the environment: ```source venv-cflib/bin/activate```
-* Navigate to the examples folder: ```cd examples```
-* Launch cfbridge: ```python cfbridge.py```
+* Crazyflie 2.0의 전원을 껐다 켜고 부팅될 때까지 기다립니다.
+* USB를 통해 Crazyflie 라디오 장치를 연결합니다.
+* crazyflie-lib-python 폴더로 이동합니다.
+* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
+* examples 폴더로 이동하십시오. ```cd examples```
+* cfbridge를 시작합니다. ```python cfbridge.py```
   
 :::note
-*Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+*Cfbridge*는 기본적으로 채널 80과 crazyflie 주소 0xE7E7E7E7E7을 사용하여 무선 통신을 시작합니다. 같은 방에서 [여러 개의 crazyflies과 crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming)를 사용하고 있고 각각에 대해 다른 채널과 주소를 사용하려면, 먼저 USB 케이블을 통해 crazyflie를 QGroundControl과 연결하고 QGroundControl의 syslink 매개 변수(채널, 주소)를 변경합니다. 그런 다음, 첫 번째와 두 번째 인수와 동일한 채널 및 주소를 각각 제공하여 cfbridge를 시작합니다. 예 : `python cfbridge.py 90 0x0202020202`
 :::
 
-* Open QGroundControl.
+* QGroundControl을 실행합니다.
 
 * After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
 
