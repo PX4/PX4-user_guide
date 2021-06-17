@@ -177,21 +177,21 @@ Crazyflie 2.0 높이가 *고도 모드* 또는 *위치 모드*의 중간 스로�
 
 ## FrSky Taranis RC 송신기를 조이스틱으로 사용
 
-If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
+Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
-* Create a new model in Taranis.
+* Taranis에서 새 모델을 만듭니다.
   
   ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-* In *MODEL SETUP* menu page, turn off both internal and external TX modules.
+* *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
   
   ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-* In *OUTPUTS* menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
+* *OUTPUTS* 메뉴 페이지(일부 Taranis 송신기에서는 "SERVOS"페이지라고도 함)에서 스로틀 (CH1) 및 에일러론 (CH3)을 반전시킵니다.
   
   ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
-To use Taranis switches to arm/disarm and switch to different flight modes:
+Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
 
 * In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
   
