@@ -163,7 +163,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
                       </h2>
                       
                       <p>
-                        This product can be ordered at the <a href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm">mRobotics<sup>&reg;</sup> Store</a>.
+                        This product can be ordered at the <a href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm">mRobotics<sup>&reg;</sup> Store</a>.
                       </p>
                       
                       <h2>
