@@ -42,43 +42,43 @@ Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다.
 
 * [Crazyradio PA 2.4GHz USB 동글](https://store.bitcraze.io/collections/kits/products/crazyradio-pa) : *QGroundControl*과 Crazyflie 2.0 간의 무선 통신에 사용됩니다
 * [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 주변 장치 연결용 브레이크아웃 확장 보드입니다.
-* [Flow deck v2](https://store.bitcraze.io/collections/decks/products/flow-deck-v2): Optical flow sensor and a distance sensor for altitude and position control.
-* [Z-ranger deck v2](https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2): Distance sensor for altitude control (same sensor as the Flow deck).
-* [Multi-ranger deck](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck) Multi-direction object detection
-* [Buzzer deck](https://store.bitcraze.io/collections/decks/products/buzzer-deck) Audio feedback on system events, like low battery or charging completed.
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): Expansion board that gives you the ability to test new hardware easily without soldering.
-* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): High speed onboard logging to a micro SD card
-* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad)
+* [플로우 데크 v2](https://store.bitcraze.io/collections/decks/products/flow-deck-v2) : 고도 위치 제어를위한 광류 센서 및 거리 센서.
+* [Z- 레인저 데크 v2](https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2) : 고도 제어용 거리 센서(플로우 데크와 동일한 센서).
+* [다중 레인저 데크](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck) 다 방향 물체 감지
+* [부저 데크](https://store.bitcraze.io/collections/decks/products/buzzer-deck) 배터리 부족 또는 충전 완료와 같은 시스템 이벤트에 대한 오디오 피드백입니다.
+* [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 납땜없이 하드웨어를 쉽게 테스트 가능한 확장 보드입니다.
+* [SD 카드 데크](https://store.bitcraze.io/collections/decks/products/sd-card-deck) : 마이크로 SD 카드는 고속의 온보드 로깅에 사용됩니다
+* [Logitech 조이스틱](https://www.logitechg.com/en-ch/product/f310-gamepad)
 
-## Assemble Crazyflie 2.1
+## Crazyflie 2.1 조립
 
-* [Bitcraze crazyflie 2.1 getting started](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/).
+* [Bitcraze crazyflie 2.1 시작하기](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/).
 
-## Flashing PX4
+## PX4 플래싱
 
 :::note
-These instructions have only been tested on Ubuntu.
+Ubuntu에서만 테스트하였습니다.
 :::
 
-After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.1:
+PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
 
-1. Download the source code of the PX4 Bootloader:
+1. PX4 부트 로더 소스 코드를 다운로드합니다.
    ```
    git clone https://github.com/PX4/Bootloader.git --recurse-submodules
    ```
-1. Navigate into the top directory of the source code and compile it using:
+1. 소스 코드 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다.
    ```
    make crazyflie21_bl
    ```
-1. Put the Crazyflie 2.1 into DFU mode by following these steps:
-   - Ensure it is initially unpowered.
-   - Ensure battery is disconnected.
-   - Hold down the reset button (see figure below...). ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
-   - Plug into computer's USB port.
-   - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
-   - Release button.
+1. Crazyflie 2.1을 DFU 모드로 전환합니다.
+   - 처음에는 전원이 꺼져 있는지 확인하십시오.
+   - 배터리가 분리되었는지 확인하십시오.
+   - 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
+   - 컴퓨터 USB 포트에 연결합니다.
+   - 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
+   - 버튼을 뗍니다.
 
-1. Install *dfu-util*:
+1. *dfu-util* 설치:
    ```
    sudo apt-get update
    sudo apt-get install dfu-util
