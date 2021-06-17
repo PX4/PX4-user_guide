@@ -156,7 +156,7 @@
     * [홀리브로 코피스 2](complete_vehicles/holybro_kopis2.md)
     * [Bitcraze Crazyflie 2.0](complete_vehicles/crazyflie2.md)
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
-  * [비행 제어 장치(자동비행)](flight_controller/README.md) 
+  * [비행 컨트롤러(자동조종장치)](flight_controller/README.md) 
     * [픽스호크 시리즈](flight_controller/pixhawk_series.md) 
       * [실리콘 에라타](flight_controller/silicon_errata.md)
     * [픽스호크 표준 자동 항법 장치](flight_controller/autopilot_pixhawk_standard.md) 
