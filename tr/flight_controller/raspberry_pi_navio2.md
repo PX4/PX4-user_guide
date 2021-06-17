@@ -12,7 +12,7 @@ This is the developer "quickstart" for Raspberry Pi 2/3 Navio2 autopilots. It al
 
 ## OS Image
 
-Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/). The default image will have most of the setup procedures shown below already done.
+Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). The default image will have most of the setup procedures shown below already done.
 
 :::warning
 Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).

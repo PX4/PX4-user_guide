@@ -37,7 +37,7 @@ PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate
 You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
 :::
 
-The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2020/09/PicoConfig-1.7.zip) (Windows only).
+The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (Windows only).
 
 ![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
 

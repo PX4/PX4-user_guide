@@ -30,8 +30,8 @@ RTF 키트에는 RC 수신기와 텔레메트리를 제외하고 시스템에 �
 * 4 x 프로펠러 10”x 5”(쿼드 모터)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 프로펠러 10”x 5”1 개 (푸셔 모터)
-* 1 x [ESC 30A](http://rctimer.com/product-146.html)
-* [푸셔 모터 전원 시스템](http://airtekhobbies.com/c283410.html)
+* 1 x ESC 30A
+* Pusher motor power system
 * 탄소 섬유 튜브 및 마운트
 * G10 모터 마운트
 * 1 x [3700mah 4S 30C 리포 배터리](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)

@@ -76,52 +76,52 @@ PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 
 ## 무선 설정 지침
 
-The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
+온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
 
-* A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-* To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
+* [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/)를 권장합니다.
+* Crazyflie 2.0을 블루투스 통신 비행 스마트폰 앱이 지원됩니다.
 
-Using the official Bitcraze **Crazyflie phone app**:
+공식 Bitcraze** Crazyflie 앱** 사용 :
 
-* Connect via Bluetooth.
-* Change mode in settings to 1 or 2.
-* Calibrate via QGroundControl.
+* 블루투스로 연결합니다.
+* 설정에서 모드를 1 또는 2로 변경합니다.
+* QGroundControl로 보정합니다.
 
-Connecting via **MAVLink**:
+**MAVLink** 연결 :
 
-* Use a Crazyradio PA alongside a compatible GCS.
-* Download the *crazyflie-lib-python* source code: ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
+* 호환되는 GCS와 함께 Crazyradio PA를 제어합니다.
+* *crazyflie-lib-python* 소스 코드를 다운로드합니다. ```git clone https://github.com/bitcraze/crazyflie-lib-python.git```
 
 :::note
-We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+[cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.0(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다. [C 기반 cfbridge](https://github.com/dennisss/cfbridge)는 현재 데이터 손실 문제가 있으므로 **cfbridge.py**를 사용하는 것이 좋습니다.
 :::
 
-* Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
-* Connect a Crazyradio PA via USB.
-* Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method: ```pip install tox --user```
-* Navigate to the crazyflie-lib-python folder and type: ```make venv```
-* Activate the virtual environment: ```source venv-cflib/bin/activate```
-* Install required dependencies: ```pip install -r requirements.txt --user```
+* USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. [여기](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions)에 나열된 단계를 따라 컴퓨터를 **재 부팅**하십시오.
+* USB를 통해 Crazyradio PA를 연결합니다.
+* 아래의 방법으로 [로컬 Python 가상 환경](https://virtualenv.pypa.io/en/latest/)을 빌드합니다. ```pip install tox --user```
+* crazyflie-lib-python 폴더로 이동하여 다음을 입력합니다. ```make venv```
+* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
+* 필요한 라이브러리들을 설치합니다. ```pip install -r requirements.txt --user```
 
-To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
+Crazyflie 2.0을 crazyradio와 연결하기 위하여 아래의 단계에 따라 **cfbridge를 시작**합니다.
 
-* Power off and power on Crazyflie 2.0 and wait for it to boot up.
-* Connect a Crazyflie radio device via USB.
-* Navigate to the crazyflie-lib-python folder.
-* Activate the environment: ```source venv-cflib/bin/activate```
-* Navigate to the examples folder: ```cd examples```
-* Launch cfbridge: ```python cfbridge.py```
+* Crazyflie 2.0의 전원을 껐다 켜고 부팅될 때까지 기다립니다.
+* USB를 통해 Crazyflie 라디오 장치를 연결합니다.
+* crazyflie-lib-python 폴더로 이동합니다.
+* 가상 환경을 활성화합니다. ```source venv-cflib/bin/activate```
+* examples 폴더로 이동하십시오. ```cd examples```
+* cfbridge를 시작합니다. ```python cfbridge.py```
   
 :::note
-*Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+*Cfbridge*는 기본적으로 채널 80과 crazyflie 주소 0xE7E7E7E7E7을 사용하여 무선 통신을 시작합니다. 같은 방에서 [여러 개의 crazyflies과 crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming)를 사용하고 있고 각각에 대해 다른 채널과 주소를 사용하려면, 먼저 USB 케이블을 통해 crazyflie를 QGroundControl과 연결하고 QGroundControl의 syslink 매개 변수(채널, 주소)를 변경합니다. 그런 다음, 첫 번째와 두 번째 인수와 동일한 채널 및 주소를 각각 제공하여 cfbridge를 시작합니다. 예 : `python cfbridge.py 90 0x0202020202`
 :::
 
-* Open QGroundControl.
+* QGroundControl을 실행합니다.
 
-* After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
+* *cfbridge*를 사용 후 `CTRL + z`를 눌러 활성화 한 경우 virtualenv를 비활성화할 수 있습니다. 대부분의 경우에는 동일한 터미널에서 *cfbridge*를 다시 시작하면 crazyflie에 연결되지 않습니다.이 문제는 터미널을 닫고 새 터미널에서 *cfbridge*를 다시 시작하여 해결할 수 있습니다. 
 
 :::tip
-If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and run the script below to rebuild cflib.
+[crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python)에서 드라이버를 변경하거나 새 터미널에서 *cfbridge*를 실행하여도 crazyflie를 찾지 못하는 경우 crazyflie-lib-python 폴더로 이동해 볼 수 있습니다. 아래 스크립트를 실행하여 cflib를 다시 빌드하십시오.
 
     make venv
     
@@ -129,17 +129,17 @@ If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/c
 :::
 
 :::note
-To use Joystick, set `COM_RC_IN_MODE` in QGroundControl to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended). To be able to set the frequency, the advanced option should be enabled. This is the rate at which Joystick commands are sent from QGroundControl to Crazyflie 2.0 (to do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGroundControl source code (master) and build it).
+Joystick을 사용하려면 QGroundControl의 `COM_RC_IN_MODE`를 "Joystick/No RC Checks"로 설정하십시오. 조이스틱을 보정하고 QGroundControl의 조이스틱 메시지 주파수를 5~14Hz(10Hz 권장)로 설정합니다. 주파수를 설정하려면 고급 옵션을 활성화하여야 합니다. 이것은 조이스틱 명령이 QGroundControl에서 Crazyflie 2.0으로 전송되는 속도입니다 (이렇게하려면 [여기](https://github.com/mavlink/qgroundcontrol)의 지침에 따라 최신 QGroundControl 소스 코드 (마스터)를 얻고 빌드해야합니다).
 :::
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## 하드웨어 설정
 
-Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md).
+Crazyflie 2.0은 [안정화 모드](../flight_modes/manual_stabilized_mc.md), [고도 모드](../flight_modes/altitude_mc.md) 및 [위치 모드](../flight_modes/position_mc.md)에서 정확한 제어로 비행할 수 있습니다.
 
-* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in *Altitude* mode. If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
-* The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
+* *고도* 모드로 비행하려면 [Z 레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)가 필요합니다. *포지션* 모드에서도 비행하고 싶다면 통합 Z-레인저 센서가있는 [플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)를 구입하는 것이 좋습니다.
+* 온보드 기압계는 Crazyflie의 자체 프로펠러나 외부 바람에 매우 민감합니다. 따라서 우리는 기압계를 거품 조각으로 분리한 다음, 아래 그림과 같이 그 위에 거리 센서를 장착했습니다.
 
 ![Crazyflie barometer](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
@@ -147,51 +147,51 @@ Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight
 
 ![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
-In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
+비행세부정보를 기록하기 위하여 아래와 같이 crazyflie 위에 SD 카드 데크를 장착할 수 있습니다.
 
 ![Crazyflie SDCard](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
 
-Then, you need to stick the battery on top of the SD card deck using a double sided tape:
+양면 테이프를 사용하여 SD 카드 데크 위에 배터리를 부착합니다.
 
 ![Crazyflie battery setup](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
 
-## Altitude Control
+## 고도 제어
 
-Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck). According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
+Crazyflie는 [Z-레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)를 사용하면 *고도* 모드로 비행할 수 있습니다. 데이터 시트에 따르면 거리 측정기가 감지할 수있는 최대 고도(지면 위)는 2m입니다. 그러나, 어두운 바닥에서는 0.5m로 감소합니다. 밝은 바닥에서는 최대 1.3m까지 상승합니다. 즉, *고도* 또는 *위치* 비행 모드에서는 이 값 이상의 고도를 유지할 수 없습니다.
 
 :::tip
-If the Crazyflie 2.0 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
+Crazyflie 2.0 높이가 *고도 모드* 또는 *위치 모드*의 중간 스로틀 명령에서 드리프트되면 먼저 기체를 재부팅 하십시오. 그래도 문제가 해결되지 않으면, 가속계와 자기(나침반) 센서를 다시 보정하십시오.   
 :::
 
 :::note
-Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude.
+온보드 기압계는 Crazyflie의 자체 프로펠러 바람에 민감하기 때문에 고도 유지용으로 사용하는 것은 적절하지 않습니다.
 :::
 
-## Position Control
+## 위치 제어
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in *Position mode*. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in *Position mode*.
+[플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)을 사용하면 *위치 모드*에서 Crazyflie 2.0을 비행할 수 있습니다. PX4flow와 달리 플로우 데크에는 자이로가 없으므로 온보드 자이로가 유동 융합에 사용되어 로컬 위치 추정치를 찾습니다. 또한 플로우 데크는 SD 카드 데크와 동일한 SPI 버스를 공유하므로 *위치 모드*에서 비행시 SD 카드에 고속 로깅을 하지 않는 것이 좋습니다.
 
 :::note
-A ulog for flight in *Position* mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45). This can be used as a reference to compare your flight performance.
+*위치* 모드의 비행에 대한 ulog는 [여기](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45)에서 사용할 수 있습니다. 이것은 비행 성능을 비교하기 위하여 참고용으로 사용할 수 있습니다.
 :::
 
-## Using FrSky Taranis RC Transmitter as Joystick
+## FrSky Taranis RC 송신기를 조이스틱으로 사용
 
-If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
+Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
-* Create a new model in Taranis.
+* Taranis에서 새 모델을 만듭니다.
   
   ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-* In *MODEL SETUP* menu page, turn off both internal and external TX modules.
+* *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
   
   ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-* In *OUTPUTS* menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
+* *OUTPUTS* 메뉴 페이지(일부 Taranis 송신기에서는 "SERVOS"페이지라고도 함)에서 스로틀 (CH1) 및 에일러론 (CH3)을 반전시킵니다.
   
   ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
-To use Taranis switches to arm/disarm and switch to different flight modes:
+Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
 
 * In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
   
