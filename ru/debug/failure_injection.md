@@ -51,7 +51,7 @@ where:
   - `wrong`: Publish invalid values (that still look reasonable/aren't "garbage").
   - `slow`: Publish at a reduced rate.
   - `delayed`: Publish valid data with a significant delay.
-  - `intermittent`: Publish intermittently (sometimes correct, sometimes incorrect).
+  - `intermittent`: Publish intermittently.
 - _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
 
 

@@ -1,37 +1,36 @@
-# Pixhawk Series
+# Pixhawk 시리즈
 
-[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
+[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/)는 학업용/취미 및 산업계에서 쉽게 사용할 수 있는 저비용 고급 *자동조종 하드웨어 설계*를 제공하는 독립적인 개방형 하드웨어 프로젝트입니다.
 
-Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Pixhawk는 PX4용 기준 하드웨어 플랫폼이며 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
-Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
+제조업체는화물 운반에서 1인칭 시점(FPV) 레이서에 이르는 애플리케이션에 최적화 된 폼 팩터를 사용하여 개방형 디자인을 기반으로 다양한 보드를 제조하였습니다.
 
 :::tip
-For computationally intensive tasks (e.g. computer vision) you will need a separate companion computer (e.g. [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) or a platform with an integrated companion solution.
+계산집약적인 작업(예 : 컴퓨터 비전)에는 보조 컴퓨터(예: [라즈베리파이 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md))나 통합 보조 솔루션 플랫폼이 필요합니다.
 :::
 
-## Key Benefits
+## 주요 장점
 
-Key benefits of using a *Pixhawk series* controller include:
+*Pixhawk 시리즈* 컨트롤러의 주요 장점은 다음과 같습니다.
 
-* Software support - as PX4 reference hardware these are our best-maintained boards.
-* Flexibility in terms of hardware peripherals that can be attached.
-* High quality.
-* Highly customizable in terms of form factor.
-* Widely-used and thus well-tested/stable.
-* Automated update of latest firmware via *QGroundControl* (end-user friendly).
+* 소프트웨어 지원 - PX4 기준 하드웨어로서 가장 잘 관리되는 보드입니다.
+* 장착 가능한 하드웨어 주변 장치의 유연성.
+* 고품질
+* 폼 팩터 측면에서 정밀하게 수정할 수 있습니다.
+* 널리 사용되어 잘 테스트되고 안정적입니다.
+* *QGroundControl* (최종 사용자 친화적)을 통한 최신 펌웨어 자동 업데이트.
 
 <span id="recommended"></span>
 
-## Supported Boards
+## 지원 보드
 
-The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
+PX4 프로젝트는 [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md)를 기준 하드웨어로 사용합니다. Pixhawk 표준(상표 사용 포함)과 호환는 컨트롤러입니다.
 
-:::note
-The PX4 maintenance and test teams maintain and support these standard boards.
+:::note PX4 유지관리 테스트팀은 표준 보드를 유지 관리하고 지원합니다.
 :::
 
-The list of boards supported by the PX4 project is reproduced below:
+PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
@@ -43,25 +42,25 @@ The list of boards supported by the PX4 project is reproduced below:
 * [Holybro pix32](../flight_controller/holybro_pix32.md) (FMUv2)
 * [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
 
-Pixhawk-like boards that are not fully compliant with the specification may be [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md), [experimental/discontinued](../flight_controller/autopilot_experimental.md), or unsupported.
+사양을 준수하지 않는 Pixhawk 유사 보드는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md), [실험/중단](../flight_controller/autopilot_experimental.md)하거나 지원되지 않을 수 있습니다.
 
-The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
+이 섹션의 나머지 부분에서는 Pixhawk 시리즈에 대해 조금 더 설명하지만 반드시 읽어야하는 것은 아닙니다.
 
-## Background
+## 배경
 
-The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the form of schematics, which define a set of components (CPU, sensors, etc.) and their connections/pin mappings.
+[Pixhawk 프로젝트](https://pixhawk.org/)는 구성 요소 세트(CPU, 센서 등)와 해당 연결/핀 매핑을 정의하는 회로도로 개방형 하드웨어 설계합니다.
 
-Manufacturers are encouraged to take the [open designs](https://github.com/pixhawk/Hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
+제조업체는 [개방형 디자인](https://github.com/pixhawk/Hardware)을 사용하여 특정 시장 또는 사용 사례 (개방형 사양의 일부가 아닌 물리적 레이아웃/폼 팩터)에 가장 적합한 제품을 제조합니다. 동일한 디자인의 보드는 바이너리 수준에서 호환이 가능합니다.
 
 :::note
-While a physical connector standard is not mandated, newer products generally follow the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/).
+물리적 커넥터 표준은 필수가 아니지만, 최신 제품은 일반적으로 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 준수합니다.
 :::
 
-The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
+이 프로젝트 또한 개방형 설계를 기반으로 참고용 자동조종보드를 생성하고 동일한 [라이센스](#licensing-and-trademarks)를 공유합니다.
 
 <span id="fmu_versions"></span>
 
-### FMU Versions
+### FMU 버전
 
 The Pixhawk project has created a number of different open designs/schematics. All boards based on a design should be binary compatible (run the same firmware).
 
