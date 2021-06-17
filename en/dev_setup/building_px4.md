@@ -212,7 +212,7 @@ arm-none-eabi-gdb: command not found
 This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
 
 ### Ubuntu 18.04: "Visual Studio Code is unable to watch for file changes in this large workspace"
-This error surfaces on startup. On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot` You can increase this limit to avoid the error at the expense of memory consumption, by following the instructions [here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). A value of 65536 is more than sufficient for our purposes.
+See [troubleshooting](https://docs.px4.io/v1.test_r2/en/dev_setup/vscode.html#visual-studio-code-ide-vscode) section in VSCode setup page.
 
 ### Failed to import Python packages
 
