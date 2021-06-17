@@ -13,7 +13,7 @@ Crazyflie 2.1은 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md)
 
 Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다. Crazyflie 2.1의 개요는 [여기](https://www.bitcraze.io/products/crazyflie-2-1/)를 참고하십시오.
 
-![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
+![Crazyflie2 이미지](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
 
 ## 요약
@@ -73,7 +73,7 @@ PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
 1. Crazyflie 2.1을 DFU 모드로 전환합니다.
    - 처음에는 전원이 꺼져 있는지 확인하십시오.
    - 배터리가 분리되었는지 확인하십시오.
-   - 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
+   - 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 재설정 버튼](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
    - 컴퓨터 USB 포트에 연결합니다.
    - 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
    - 버튼을 뗍니다.
@@ -192,7 +192,7 @@ make venv
 :::note
 The Joystick menu in QGC, only appears after you connect the controller to the PC (for example a Playstation 3 controller).
 
-![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
+![QGC 조이스틱 메뉴](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
 :::
 
 ## 하드웨어 설정
@@ -201,7 +201,7 @@ Crazyflie 2.1은 [안정화 모드](../flight_modes/manual_stabilized_mc.md)에�
 
 비행세부정보를 기록하기 위하여 아래와 같이 crazyflie 위에 SD 카드 데크를 장착할 수 있습니다.
 
-![Crazyflie SDCard](../../assets/flight_controller/crazyflie21/crazyflie21_sd.jpeg)
+![Crazyflie SD 카드](../../assets/flight_controller/crazyflie21/crazyflie21_sd.jpeg)
 
 ## FrSky Taranis RC 송신기를 조이스틱으로 사용
 
@@ -209,43 +209,43 @@ Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
 - Taranis에서 새 모델을 만듭니다.
 
-  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
+  ![Taranis - 새 모델](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
 - *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
 
-  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
+  ![Taranis - 모델 설정](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
-- In *OUTPUTS* menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
+- *OUTPUTS* 메뉴 페이지(일부 Taranis 송신기에서는 "SERVOS"페이지라고도 함)에서 스로틀 (CH1) 및 에일러론 (CH3)을 반전시킵니다.
 
-  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
+  ![Taranis - 출력](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
 
-To use Taranis switches to arm/disarm and switch to different flight modes:
+Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
 
-- In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+- Taranis UI *MIXER* 메뉴 페이지에서 QGroundControl 조이스틱 설정의 버튼 0-7에 매핑되는 범위 채널 9-16의 채널에 스위치를 할당할 수 있습니다. 예를 들어, Taranis "SD"스위치는 Taranis UI에서 채널 9로 설정할 수 있습니다.
 
-  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
+  ![Taranis 스위치 설정](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
-- Connect Taranis to PC with a USB cable and Open QGroundControl.
-- In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
+- Taranis를 USB 케이블로 PC에 연결하고 QGroundControl을 실행합니다.
+- QGroundControl 조이스틱 설정에서 버튼을 켜면, 노란색으로 변하는 것을 볼 수 있습니다. 예를 들어, Taranis의 채널 9는 QGroundControl 조이스틱 설정의 버튼 0에 매핑됩니다. 이 버튼에 모든 모드(예:  *고도* 모드)를 설정할 수 있습니다. 이제 "SD"스위치를 내리면 비행 모드가 *고도 모드*로 변경됩니다.
 
-  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
+  ![조이스틱 설정](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
-To connect to Crazyflie 2.1 via MAVROS:
+MAVROS를 통해 Crazyflie 2.1에 연결하려면 :
 
-- Start up *cfbridge* using the above instructions.
-- Change the UDP port QGroundControl listens to:
-  - In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under *Autoconnect to the following devices*.
+- 위의 지침에 따라 *cfbridge*를 시작합니다.
+- QGroundControl의 수신 UDP 포트 변경 :
+  - QGroundControl에서 **애플리케이션 설정 &gt; 일반**으로 이동하여 *다음 장치에 자동 연결* 아래의 모든 확인란을 선택 취소합니다.
   - Add in **Comm Links** a link of type *UDP*, check the *Automatically Connect on Start* option, change the *Listening Port* to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
-- Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
-- Start MAVROS with command:
+- [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation)가 설치 여부를 확인합니다.
+- 다음 명령으로 MAVROS를 시작합니다.
   ```
   roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"
   ```
-- Restart QGroundControl if it doesn't connect.
+- 연결이 되지 않으면 QGroundControl을 다시 시작하십시오.
 
-## Flying
+## 비행
 
-@[youtube](https://www.youtube.com/watch?v=0qy7O3fVN2c)
+@[유투브](https://www.youtube.com/watch?v=0qy7O3fVN2c)
