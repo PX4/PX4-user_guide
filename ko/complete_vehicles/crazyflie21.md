@@ -36,12 +36,12 @@ Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다.
 
 ## 구매처
 
-The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
+다음 주소에서 구매할 수 있습니다 : [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
-Useful peripheral hardware includes:
+유용한 주변 장치는 다음과 같습니다.
 
-* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): Wireless communication between *QGroundControl* and Crazyflie 2.0
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): Breakout expansion board for connecting new peripherals.
+* [Crazyradio PA 2.4GHz USB 동글](https://store.bitcraze.io/collections/kits/products/crazyradio-pa) : *QGroundControl*과 Crazyflie 2.0 간의 무선 통신에 사용됩니다
+* [브레이크 아웃 데크](https://store.bitcraze.io/collections/decks/products/breakout-deck) : 주변 장치 연결용 브레이크아웃 확장 보드입니다.
 * [Flow deck v2](https://store.bitcraze.io/collections/decks/products/flow-deck-v2): Optical flow sensor and a distance sensor for altitude and position control.
 * [Z-ranger deck v2](https://store.bitcraze.io/collections/decks/products/z-ranger-deck-v2): Distance sensor for altitude control (same sensor as the Flow deck).
 * [Multi-ranger deck](https://store.bitcraze.io/collections/decks/products/multi-ranger-deck) Multi-direction object detection
