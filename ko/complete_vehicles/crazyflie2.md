@@ -9,7 +9,7 @@
 
 Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제작하였습니다.. Crazyflie 2.0의 개요는 [여기](https://www.bitcraze.io/crazyflie-2/)를 참고하십시오.
 
-![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
+![Crazyflie2 이미지](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
 ## 요약
 
@@ -43,7 +43,7 @@ PX4 개발 환경 설정후 Crazyflie 2.0에 PX4를 설치합니다.
 3. Crazyflie 2.0을 DFU 모드로 전환합니다.
   
   * 처음에는 전원이 꺼져 있는지 확인하십시오.
-  * 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
+  * 재설정 버튼을 누릅니다(아래 그림 참조).![Crazyflie2 재설정 버튼](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
   * 컴퓨터의 USB 포트에 연결합니다.
   * 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
   * 버튼을 뗍니다.
@@ -141,19 +141,19 @@ Crazyflie 2.0은 [안정화 모드](../flight_modes/manual_stabilized_mc.md), [�
 * *고도* 모드로 비행하려면 [Z 레인저 데크](https://store.bitcraze.io/collections/decks/products/z-ranger-deck)가 필요합니다. *포지션* 모드에서도 비행하고 싶다면 통합 Z-레인저 센서가있는 [플로우 데크](https://store.bitcraze.io/collections/decks/products/flow-deck)를 구입하는 것이 좋습니다.
 * 온보드 기압계는 Crazyflie의 자체 프로펠러나 외부 바람에 매우 민감합니다. 따라서 우리는 기압계를 거품 조각으로 분리한 다음, 아래 그림과 같이 그 위에 거리 센서를 장착했습니다.
 
-![Crazyflie barometer](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
+![Crazyflie 기압계](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
-![Crazyflie barometer foam](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
+![Crazyflie 기압계 폼](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
+![Crazyflie 광류](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
 비행세부정보를 기록하기 위하여 아래와 같이 crazyflie 위에 SD 카드 데크를 장착할 수 있습니다.
 
-![Crazyflie SDCard](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
+![Crazyflie SD 카드](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
 
 양면 테이프를 사용하여 SD 카드 데크 위에 배터리를 부착합니다.
 
-![Crazyflie battery setup](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
+![Crazyflie 배터리 설정](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
 
 ## 고도 제어
 
@@ -181,40 +181,40 @@ Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
 * Taranis에서 새 모델을 만듭니다.
   
-  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
+  ![Taranis - 새 모델](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
 * *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
   
-  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
+  ![Taranis - 모델 설정](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
 * *OUTPUTS* 메뉴 페이지(일부 Taranis 송신기에서는 "SERVOS"페이지라고도 함)에서 스로틀 (CH1) 및 에일러론 (CH3)을 반전시킵니다.
   
-  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
+  ![Taranis - 출력](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
 
 Taranis 스위치를 사용하여 시동/시동 해제 및 다른 비행 모드로 전환하려면 :
 
-* In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+* Taranis UI *MIXER* 메뉴 페이지에서 QGroundControl 조이스틱 설정의 버튼 0-7에 매핑되는 범위 채널 9-16의 채널에 스위치를 할당할 수 있습니다. 예를 들어, Taranis "SD"스위치는 Taranis UI에서 채널 9로 설정할 수 있습니다.
   
-  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
+  ![Taranis 스위치 설정](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
-* Connect Taranis to PC with a USB cable and Open QGroundControl.
+* Taranis를 USB 케이블로 PC에 연결하고 QGroundControl을 실행합니다.
 
-* In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
+* QGroundControl 조이스틱 설정에서 버튼을 켜면, 노란색으로 변하는 것을 볼 수 있습니다. 예를 들어, Taranis의 채널 9는 QGroundControl 조이스틱 설정의 버튼 0에 매핑됩니다. 이 버튼에 모든 모드(예: *고도* 모드)를 할당할 수 있습니다. 이제 "SD"스위치를 내리면 비행 모드가 *고도 모드*로 변경됩니다.
   
-  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
+  ![조이스틱 설정](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
-To connect to Crazyflie 2.0 via MAVROS:
+MAVROS를 통해 Crazyflie 2.0에 연결하려면 :
 
-* Start up *cfbridge* using the above instructions.
-* Change the UDP port QGroundControl listens to: 
-  * In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under *Autoconnect to the following devices*.
-  * Add in **Comm Links** a link of type *UDP*, check the *Automatically Connect on Start* option, change the *Listening Port* to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
-* Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
-* Start MAVROS with command: ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
-* Restart QGroundControl if it doesn't connect.
+* 위의 지침에 따라 *cfbridge*를 시작합니다.
+* QGroundControl의 수신 UDP 포트 변경 : 
+  * QGroundControl에서 **애플리케이션 설정 &gt; 일반**으로 이동하여 *다음 장치에 자동 연결* 아래의 모든 확인란을 선택 취소합니다.
+  * **Comm Links**에 *UDP* 유형의 링크를 추가하고 *시작시 자동으로 연결* 옵션을 선택하고 *수신 포트*를 변경합니다. 14557에 Target Hosts : 127.0.0.1을 추가 한 다음 **OK**를 누릅니다.
+* [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation)가 설치 여부를 확인합니다.
+* 다음 명령으로 MAVROS를 시작합니다. ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
+* 연결이 되지 않으면 QGroundControl을 다시 시작하십시오.
 
-## Flying
+## 비행
 
-@[youtube](https://youtu.be/2Bcy3k1h5uc)
+@[유투브](https://youtu.be/2Bcy3k1h5uc)
