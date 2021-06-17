@@ -11,30 +11,30 @@
 Crazyflie 2.1은 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md) 비행만 가능합니다.
 :::
 
-Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다. An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
+Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다. Crazyflie 2.1의 개요는 [여기](https://www.bitcraze.io/products/crazyflie-2-1/)를 참고하십시오.
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
 
-## Quick Summary
+## 요약
 
 :::note
-The main hardware documentation is [here](https://wiki.bitcraze.io/projects:crazyflie2:index)
+주요 하드웨어 문서는 [여기](https://wiki.bitcraze.io/projects:crazyflie2:index)를 참고하십시오.
 :::
 
-* Main System-on-Chip: STM32F405RG
-  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  * RAM: 192 KB SRAM
-* nRF51822 radio and power management MCU
-* BMI088 3 axis accelerometer / gyroscope
-* BMP388 high precision pressure sensor
-* uUSB connector
-* On-board LiPo charger with 100mA, 500mA and 980mA modes available
-* Full speed USB device interface
-* Partial USB OTG capability (USB OTG present but no 5V output)
+* 메인 시스템온칩 : STM32F405RG
+  * CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  * RAM : 192KB SRAM
+* nRF51822 무선 및 전력 관리 MCU
+* BMI088 3축 가속도계/자이로스코프
+* BMP388 고정밀 압력 센서
+* uUSB 커넥터
+* 100mA, 500mA 및 980mA 용량의 온보드 LiPo 충전기
+* 최고 속도의 USB 인터페이스
+* 부분 USB OTG 기능(USB OTG가 있지만 5V 출력이 없음)
 * 8KB EEPROM
 
-## Where to Buy
+## 구매처
 
 The vehicle can be purchased here: [Crazyflie 2.1](https://store.bitcraze.io/products/crazyflie-2-1) (store.bitcraze.io)
 
