@@ -17,7 +17,7 @@ It allows you to build PX4 and transfer to the RasPi, or build natively.
 
 ## OS Image
 
-Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/).
+Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi).
 The default image will have most of the setup procedures shown below already done.
 
 :::warning

@@ -57,7 +57,7 @@ This flight controller is [manufacturer supported](../flight_controller/autopilo
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1) |
 |                  | ICM-42688 (SPI2) |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6) |
-| Barometer        | [BMP388](https://www.bosch-sensortec.com/bst/products/all_products/bmp388) (I2C4) |
+| Barometer        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4) |
 | Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
 | microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards) |
 | Inputs           | GPS/Mag |
