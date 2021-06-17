@@ -26,7 +26,7 @@ The RTK compatible devices below that are expected to work with PX4 (it omits di
 | [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |            |                                                              |                            |
 | [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |            |                           &check;                            |                            |
 | [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |            |                           &check;                            |                            |
-| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/mr-m10020-a.htm)                                     |            |                           &check;                            |                            |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                         |            |                           &check;                            |                            |
 | [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  |  &check;   |                                                              |                            |
 
 :::note
