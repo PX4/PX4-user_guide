@@ -8,7 +8,8 @@
 
 *Kopis 2*는 여러 곳에서 구매 가능합니다.
 
-- [Holybro](https://shop.holybro.com/c/kopis_0480)
+- [Holybro](https://shop.holybro.com/c/kopis_0480) <!-- item code 30069, 30070 -->
+
 - [GetFPV](https://www.getfpv.com/holybro-kopis-2-fpv-racing-drone-pnp.html)
 
 추가로 다음과 같은 것들이 필요합니다.
