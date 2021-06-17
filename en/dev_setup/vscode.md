@@ -110,3 +110,16 @@ In order for the code completion to work (and other IntelliSense magic) you need
 Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
 
 ![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
+
+## Troubleshooting
+
+This section includes guidance on setup and build errors.
+
+### Ubuntu 18.04: "Visual Studio Code is unable to watch for file changes in this large workspace"
+
+This error surfaces on startup.
+On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot`.
+
+You can increase this limit to avoid the error, at the expense of memory consumption.
+Follow the [instructions here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc).
+A value of 65536 should be more than sufficient.
