@@ -190,7 +190,9 @@ arm-none-eabi-gdb: command not found
 
 This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
 
+### Ubuntu 18.04: Visual Studio Code is unable to watch for file changes in this large workspace
 
+See [Visual Studio Code IDE (VSCode) > Troubleshooting](../dev_setup/vscode.md#troubleshooting).
 
 ### Failed to import Python packages
 
