@@ -7,30 +7,30 @@ Pixhawk는 PX4용 기준 하드웨어 플랫폼이며 [NuttX](https://nuttx.apac
 제조업체는화물 운반에서 1인칭 시점(FPV) 레이서에 이르는 애플리케이션에 최적화 된 폼 팩터를 사용하여 개방형 디자인을 기반으로 다양한 보드를 제조하였습니다.
 
 :::tip
-계산집약적인 작업(예 : 컴퓨터 비전)의 경우 별도의 보조 컴퓨터(예: 라즈베리파이 2/3 Navio2 </ 0>) 또는 통합 보조 솔루션 플랫폼이 필요합니다. :::</p> 
+계산집약적인 작업(예 : 컴퓨터 비전)에는 보조 컴퓨터(예: [라즈베리파이 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md))나 통합 보조 솔루션 플랫폼이 필요합니다.
+:::
 
-## 주요 혜택
+## 주요 장점
 
-Key benefits of using a *Pixhawk series* controller include:
+*Pixhawk 시리즈* 컨트롤러의 주요 장점은 다음과 같습니다.
 
-* Software support - as PX4 reference hardware these are our best-maintained boards.
-* Flexibility in terms of hardware peripherals that can be attached.
-* High quality.
-* Highly customizable in terms of form factor.
-* Widely-used and thus well-tested/stable.
-* Automated update of latest firmware via *QGroundControl* (end-user friendly).
+* 소프트웨어 지원 - PX4 기준 하드웨어로서 가장 잘 관리되는 보드입니다.
+* 장착 가능한 하드웨어 주변 장치의 유연성.
+* 고품질
+* 폼 팩터 측면에서 정밀하게 수정할 수 있습니다.
+* 널리 사용되어 잘 테스트되고 안정적입니다.
+* *QGroundControl* (최종 사용자 친화적)을 통한 최신 펌웨어 자동 업데이트.
 
 <span id="recommended"></span>
 
-## Supported Boards
+## 지원 보드
 
-The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
+PX4 프로젝트는 [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md)를 기준 하드웨어로 사용합니다. Pixhawk 표준(상표 사용 포함)과 호환는 컨트롤러입니다.
 
-:::note
-The PX4 maintenance and test teams maintain and support these standard boards.
+:::note PX4 유지관리 테스트팀은 표준 보드를 유지 관리하고 지원합니다.
 :::
 
-The list of boards supported by the PX4 project is reproduced below:
+PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 
 * [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
 * [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
