@@ -1,16 +1,15 @@
-# Pixhawk Series
+# Pixhawk 시리즈
 
-[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
+[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/)는 학업용/취미 및 산업계에서 쉽게 사용할 수 있는 저비용 고급 *자동조종 하드웨어 설계*를 제공하는 독립적인 개방형 하드웨어 프로젝트입니다.
 
-Pixhawk is the reference hardware platform for PX4, and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+Pixhawk는 PX4용 기준 하드웨어 플랫폼이며 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
-Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
+제조업체는화물 운반에서 1인칭 시점(FPV) 레이서에 이르는 애플리케이션에 최적화 된 폼 팩터를 사용하여 개방형 디자인을 기반으로 다양한 보드를 제조하였습니다.
 
 :::tip
-For computationally intensive tasks (e.g. computer vision) you will need a separate companion computer (e.g. [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) or a platform with an integrated companion solution.
-:::
+계산집약적인 작업(예 : 컴퓨터 비전)의 경우 별도의 보조 컴퓨터(예: 라즈베리파이 2/3 Navio2 </ 0>) 또는 통합 보조 솔루션 플랫폼이 필요합니다. :::</p> 
 
-## Key Benefits
+## 주요 혜택
 
 Key benefits of using a *Pixhawk series* controller include:
 
