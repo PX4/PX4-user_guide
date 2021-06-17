@@ -42,7 +42,7 @@ VTOL이 역전환 (고정익 모드에서 멀티콥터 모드로 전환)을 수�
 
 ### 제어 채널
 
-모터 방향을 제어하기 위해 별도의 제어 채널을 사용하는 ESC(예 : [Hobbywing Platinum 시리즈](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346))는 에어브레이크 채널을 사용하여 역전환 중에 역 추력을 적용할 수 있습니다.
+ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](https://www.hobbywing.com/category.php?id=76&filter_attr=.0)) can use the airbrakes channel to apply reverse thrust during back-transition.
 
 이 동작을 지원하도록 구성된 기체(예 : DeltaQuad 기체)는 [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT)을 1로 설정하고 [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)을 적용할 원하는 스로틀 수준으로 설정하여 이를 수행하도록 설정할 수 있습니다. 값은 0에서 1까지 확장되므로 0.7 값은 70% 스로틀과 같습니다.
 
