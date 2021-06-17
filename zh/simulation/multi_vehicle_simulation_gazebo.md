@@ -89,6 +89,9 @@ Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), c
    micrortps_agent -t UDP -r 2024 -s 2023 &
    micrortps_agent -t UDP -r 2026 -s 2025 &
    ```
+:::note
+In order to communicate with the different instances of PX4 individually using ROS2, you can use the `-n <namespace>` option. For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0`. You can then subscribe and publish to each vehicle's topics individually.
+:::
 
 <a id="with_ros"></a>
 
