@@ -75,6 +75,12 @@ You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joy
 
 ## Usage/Configuration Options
 
+Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+
+### Simulating Sensor/Hardware Failure
+
+[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+
 ### Set Custom Takeoff Location
 
 The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
@@ -131,6 +137,7 @@ To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
+
 
 ## Multi-Vehicle Simulation
 

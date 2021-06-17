@@ -125,6 +125,12 @@ pxh> commander takeoff
 
 ## Usage/Configuration Options
 
+Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+
+### Simulating Sensor/Hardware Failure
+
+[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+
 <a id="headless"></a>
 ### Headless Mode
 
