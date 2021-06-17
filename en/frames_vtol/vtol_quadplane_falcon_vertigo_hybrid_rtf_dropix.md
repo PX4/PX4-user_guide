@@ -32,8 +32,8 @@ Almost everything you need is provided in the RTF kit (the links next to compone
 * 4 x propeller 10”x 5” (quad motors)
 * 4 x [ESC 25A](http://www.getfpv.com/tiger-motor-flame-25a-esc.html)
 * 1 x propeller 10” x 5” (pusher motor)
-* 1 x [ESC 30A](http://rctimer.com/product-146.html)
-* [Pusher motor power system](http://airtekhobbies.com/c283410.html)
+* 1 x ESC 30A
+* Pusher motor power system
 * Carbon fiber tubes and mounts
 * G10 motor mounts
 * 1 x [3700mah 4S 30C Lipo battery](https://www.overlander.co.uk/batteries/lipo-batteries/power-packs/3700mah-4s-14-8v-25c-lipo-battery-overlander-sport.html)
