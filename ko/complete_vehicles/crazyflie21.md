@@ -84,103 +84,103 @@ PX4 개발환경 설정후 Crazyflie 2.1에 PX4를 설치합니다.
    sudo apt-get install dfu-util
    ```
 
-1. Flash bootloader using *dfu-util* and unplug Crazyflie 2.1 when done:
+1. *dfu-util*을 사용하여 부트 로더를 플래시하고 완료되면 Crazyflie 2.1을 분리합니다.
    ```
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie21_bl/crazyflie21_bl.bin
    ```
-   When powering on the Crazyflie 2.1 the yellow LED should blink.
+   Crazyflie 2.1의 전원을 키면, 노란색 LED가 깜박입니다.
 
-1. Download the source code of the PX4 autopilot:
+1. PX4 자동조종장치 소스 코드를 다운로드합니다.
    ```
    git clone https://github.com/PX4/PX4-Autopilot.git
    ```
-1. Navigate into the top directory of the source code and compile it using:
+1. 소스 코드 최상위 디렉토리로 이동하여 다음 명령어를 실행하여 컴파일합니다.
    ```
    cd PX4-Autopilot/
    make bitcraze_crazyflie21_default upload
    ```
-1. When prompted to plug in device, plug in Crazyflie 2.1. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
-1. Wait for completion.
-1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
+1. 장치를 연결하라는 메시지가 나타나면, Crazyflie 2.1을 연결합니다. 노란색 LED가 깜박이기 시작하면 부트로더 모드를 나타냅니다. 그런 다음 빨간색 LED가 켜지면, 깜박이는 프로세스가 시작되었음을 나타냅니다.
+1. 완료될 때까지 기다리십시오.
+1. 완료되면,  [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html)을 사용하여 센서를 보정합니다.
 
-## Flashing Original Bitcraze Firmware
+## 원본 Bitcraze 펌웨어 플래싱
 
-1. Download the latest [Crazyflie 2.1 bootloader](https://github.com/bitcraze/crazyflie2-stm-bootloader/releases)
-1. Put the Crazyflie 2.1 into DFU mode by following these steps:
-   - Ensure it is initially unpowered.
-   - Ensure battery is disconnected.
-   - Hold down the reset button.
-   - Plug into computer's USB port.
-   - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
-   - Release button.
-1. Flash bootloader using *dfu-util* and unplug Crazyflie 2.1 when done:
+1. 최신 [Crazyflie 2.1 부트 로더](https://github.com/bitcraze/crazyflie2-stm-bootloader/releases)를 다운로드합니다.
+1. Crazyflie 2.1을 DFU 모드로 전환합니다.
+   - 처음에는 전원이 꺼져 있는지 확인하십시오.
+   - 배터리가 분리되었는지 확인하십시오.
+   - 재설정 버튼을 누릅니다.
+   - 컴퓨터 USB 포트에 연결합니다.
+   - 1초 후 파란색 LED가 깜박이기 시작하고, 5초 후 더 빠르게 깜박이기 시작합니다.
+   - 버튼을 뗍니다.
+1. *dfu-util*을 사용하여 부트 로더를 플래시하고 완료되면 Crazyflie 2.1을 분리합니다.
    ```
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D cf2loader-1.0.bin
    ```
-   When powering on the Crazyflie 2.1 the yellow LED should blink.
-1. Install the latest Bitcraze Crazyflie 2.1 Firmware using [this](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw) tutorial.
+   Crazyflie 2.1의 전원을 키면, 노란색 LED가 깜박입니다.
+1. [이 튜토리얼](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#latest-fw)을 사용하여 최신 Bitcraze Crazyflie 2.1 펌웨어를 설치합니다.
 
-## Wireless Setup Instructions
+## 무선 설정 방법
 
-The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
+온보드 nRF 모듈을 사용하여 Bluetooth나 2.4GHz Nordic ESB 프로토콜로 보드에 연결할 수 있습니다.
 
-- A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-- To fly the Crazyflie 2.1 right away, the Crazyflie phone app is supported via Bluetooth.
+- [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/)를 권장합니다.
+- Crazyflie 2.1을 블루투스 통신 비행 스마트폰 앱이 지원됩니다.
 
-Connecting via **MAVLink**:
+**MAVLink** 연결 :
 
-- Use a Crazyradio PA alongside a compatible GCS.
-- Download the *crazyflie-lib-python* source code:
+- 호환되는 GCS와 함께 Crazyradio PA를 제어합니다.
+- *crazyflie-lib-python* 소스 코드를 다운로드합니다.
    ```
    git clone https://github.com/bitcraze/crazyflie-lib-python.git
    ```
 
 :::note
-We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.1 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+[cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py)를 사용하여 Crazyflie 2.1(PX4로 깜박임)과 QGroundControl간의 무선 MAVlink 통신 링크를 설정합니다. *Cfbridge*를 사용하여 QGroundControl에서 crazyradio PA와 통신할 수 있습니다. [C 기반 cfbridge](https://github.com/dennisss/cfbridge)는 현재 데이터 손실 문제가 있으므로 **cfbridge.py**를 사용하는 것이 좋습니다.
 :::
 
-- Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
-- Connect a Crazyradio PA via USB.
-- Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method:
+- USB 라디오를 사용을 위한 udev 권한을 설정 여부를 확인하십시오. [여기](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions)에 나열된 단계를 따라 컴퓨터를 **재 부팅**하십시오.
+- USB를 통해 Crazyradio PA를 연결합니다.
+- 아래의 방법으로 [로컬 Python 가상 환경](https://virtualenv.pypa.io/en/latest/)을 빌드합니다.
     ```
     pip install tox --user
     ```
-- Navigate to the crazyflie-lib-python folder and type:
+- crazyflie-lib-python 폴더로 이동하여 다음을 입력합니다.
     ```
     make venv
     ```
-- Activate the virtual environment:
+- 가상 환경을 활성화합니다.
     ```
     source venv/bin/activate
     ```
-- Install required dependencies:
+- 필요한 라이브러리들을 설치합니다.
     ```
     pip install cflib
     pip install -r requirements.txt
     ```
 
-To connect Crazyflie 2.1 with crazyradio, **launch cfbridge** by following these steps:
-- Power off and power on Crazyflie 2.1 and wait for it to boot up.
-- Connect a Crazyflie radio device via USB.
-- Navigate to the crazyflie-lib-python folder.
-- Activate the environment:
+Crazyflie 2.1을 crazyradio와 연결하기 위하여 아래의 단계에 따라 **cfbridge를 시작**합니다.
+- Crazyflie 2.1의 전원을 껐다 켜고 부팅될 때까지 기다립니다.
+- USB를 통해 Crazyflie 라디오 장치를 연결합니다.
+- crazyflie-lib-python 폴더로 이동합니다.
+- 가상 환경을 활성화합니다.
     ```
     source venv/bin/activate
     ```
-- Navigate to the examples folder:
+- examples 폴더로 이동하십시오.
     ```
     cd examples
     ```
-- Launch cfbridge:
+- cfbridge를 시작합니다.
     ```
     python cfbridge.py
     ```
 
 :::note
-*Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as   the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+*Cfbridge*는 기본적으로 채널 80과 crazyflie 주소 0xE7E7E7E7E7을 사용하여 무선 통신을 시작합니다. 같은 방에서 [여러 개의 crazyflies과 crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced-swarming)를 사용하고 있고 각각에 대해 다른 채널과 주소를 사용하려면, 먼저 USB 케이블을 통해 crazyflie를 QGroundControl과 연결하고 QGroundControl의 syslink 매개 변수(채널, 주소)를 변경합니다. 그런 다음, 첫 번째와 두 번째 인수와 동일한 채널 및 주소를 각각 제공하여 cfbridge를 시작합니다. 예 : `python cfbridge.py 90 0x0202020202`
 :::
-- Open QGroundControl.
-- After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal.
+- QGroundControl을 실행합니다.
+- *cfbridge*를 사용 후 `CTRL + z`를 눌러 활성화 한 경우 virtualenv를 비활성화할 수 있습니다. 대부분의 경우에는 동일한 터미널에서 *cfbridge*를 다시 시작하면 crazyflie에 연결되지 않습니다.이 문제는 터미널을 닫고 새 터미널에서 *cfbridge*를 다시 시작하여 해결할 수 있습니다.
 
 :::tip
 If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and run the script below to rebuild cflib.
@@ -195,23 +195,23 @@ The Joystick menu in QGC, only appears after you connect the controller to the P
 ![QGC joystick menu](../../assets/flight_controller/crazyflie21/joystick_menu_qgc.png)
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
-Crazyflie 2.1 is only able to fly in [Stabilized mode](../flight_modes/manual_stabilized_mc.md).
+Crazyflie 2.1은 [안정화 모드](../flight_modes/manual_stabilized_mc.md)에서만 비행 가능합니다.
 
-In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
+비행세부정보를 기록하기 위하여 아래와 같이 crazyflie 위에 SD 카드 데크를 장착할 수 있습니다.
 
 ![Crazyflie SDCard](../../assets/flight_controller/crazyflie21/crazyflie21_sd.jpeg)
 
-## Using FrSky Taranis RC Transmitter as Joystick
+## FrSky Taranis RC 송신기를 조이스틱으로 사용
 
-If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
+Taranis RC 송신기를 USB 조이스틱으로 설정할 수 있습니다.
 
-- Create a new model in Taranis.
+- Taranis에서 새 모델을 만듭니다.
 
   ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
-- In *MODEL SETUP* menu page, turn off both internal and external TX modules.
+- *MODEL SETUP* 메뉴 페이지에서 내부와 외부 TX 모듈을 모두 끕니다.
 
   ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
