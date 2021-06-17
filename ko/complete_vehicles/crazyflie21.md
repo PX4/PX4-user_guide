@@ -1,16 +1,17 @@
 # Crazyflie 2.1
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
-:::
-
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.bitcraze.io/)에 문의하십시오.
 :::
 
 :::warning
-Crazyflie 2.1 is only able to fly in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md).
+이 비행 컨트롤러에 대한 PX4 지원은 [테스트중](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
+:::warning
+Crazyflie 2.1은 [수동/안정 모드](../flight_modes/manual_stabilized_mc.md) 비행만 가능합니다.
+:::
+
+Crazyflie 마이크로 쿼드 라인은 Bitcraze AB에서 제조하였습니다. An overview of the Crazyflie 2.1 can be [found here](https://www.bitcraze.io/products/crazyflie-2-1/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie21/crazyflie_2.1.jpg)
 
