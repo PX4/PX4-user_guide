@@ -17,7 +17,7 @@ The following example uses FMUv5 as it is a recent [reference configuration](../
 
 ## NuttX Menuconfig Setup
 
-To modify the NuttX OS configuration, you can use [menuconfig](https://bitbucket.org/nuttx/nuttx) using the PX4 shortcuts:
+To modify the NuttX OS configuration, you can use [menuconfig](https://bitbucket.org/patacongo/nuttx/src/master/) using the PX4 shortcuts:
 ```sh
 make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
