@@ -8,12 +8,12 @@ Pixhawk 보드 시리즈에 사용되는 타사 부품(마이크로 컨트롤러
 
 플래시 뱅크 2 및 전속 USB 장치 전용.
 
-rev 2까지의 실리콘 개정판(개정판 3은 영향을받지 않음)은 USB 데이터 라인중 하나 인 PA12에 활동이있는 동안 두 번째 플래시 뱅크에 액세스시 오류/데이터 손상을 일으킬 수 있습니다. 플래시 뱅크 #2를 사용하지 않는 것 외에는 해결 방법은 없습니다. 장치를 프로그래밍하려면 USB가 필요하기 때문에 실리콘 리비전 < rv3으로 제작된 픽사는 마이크로프로세서의 2MB 플래시 중 최대 1MB만 사용할 수 있습니다
+rev 2까지의 실리콘 개정판(개정판 3은 영향을받지 않음)은 USB 데이터 라인중 하나 인 PA12에 활동이있는 동안 두 번째 플래시 뱅크에 액세스시 오류/데이터 손상을 일으킬 수 있습니다. 플래시 뱅크 #2를 사용하지 않는 것 외에는 해결 방법은 없습니다. 장치를 프로그래밍시 USB가 필요하기 때문에 실리콘 개정판 &lt; 개정판 3으로 빌드 된 Pixhawk 개정판은 마이크로 프로세서의 2MB 플래시중 최대 1MB 만 사용할 수 있습니다.
 
 :::tip
-The errata is fixed in later versions, but this may not be detected if you are using an older bootloader. See [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader) for more information.
+정오표는 이후 버전에서 수정되었지만 이전 부트로더를 사용하는 경우 감지되지 않을 수 있습니다. 자세한 내용은 [펌웨어 &gt; FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)편을 참고하십시오.
 :::
 
-## FMU- 픽쇼크 실리콘 얼라타
+## FMUv1 / Pixhawk 실리콘 정오표
 
-No known issues.
+알려진 문제가 없습니다.
