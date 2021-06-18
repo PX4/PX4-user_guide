@@ -1,21 +1,21 @@
-# Pixhawk 3 Pro
+# Pixhawk 3 프로
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store-drotek.com/)에 문의하십시오.
 :::
 
-The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
+Pixhawk<sup>&reg;</sup> 3 Pro는 일부 업그레이드와 기능이 추가된 FMUv4 하드웨어 설계 (Pixracer)를 기반으로합니다. 이 보드는 [Drotek<sup>&reg;</sup>](https://drotek.com)과 PX4에 의해 설계되었습니다.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
 :::note
-The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
+주요 하드웨어 문서는 여기를 참고하십시오. https://drotek.gitbook.io/pixhawk-3-pro/hardware
 :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Quick Summary
+## 요약
 
 - Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
 - **ICM-20608-G** gyro / accelerometer
