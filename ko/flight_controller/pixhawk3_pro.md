@@ -17,45 +17,44 @@ Pixhawk<sup>&reg;</sup> 3 Pro는 일부 업그레이드와 기능이 추가된 F
 
 ## 요약
 
-- Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
-- **ICM-20608-G** gyro / accelerometer
-- **MPU-9250** gyro / accelerometer / magnetometer
-- **LIS3MDL** compass
-- Sensors connected via two SPI buses (one high rate and one low-noise bus)
-- Two I2C buses
-- Two CAN buses
-- Voltage / battery readings from two power modules
-- FrSky<sup>&reg;</sup> Inverter
-- 8 Main + 6 AUX PWM outputs (Separate IO chip, PX4IO)
-- microSD (logging)
-- S.BUS / Spektrum / SUMD / PPM input
-- JST GH user-friendly connectors: same connectors and pinouts as Pixracer
+- 마이크로컨트롤러 : **STM32F469**; 플래시 용량은 **2MiB**, RAM 용량은 **384KiB**입니다.
+- **ICM-20608-G** 자이로 / 가속도계
+- **MPU-9250** 자이로 / 가속도계 / 자력계
+- **LIS3MDL** 나침반
+- 2개의 SPI 버스를 통해 연결된 센서(고속 버스 1개와 저잡음 버스 1개)
+- 2개의 I2C 버스
+- CAN 버스 2 개
+- 2 개의 전원 모듈에서 전압 / 배터리 판독
+- FrSky<sup>&reg;</sup> 인버터
+- 메인 8 개 + AUX PWM 출력 6개(개별 IO 칩, PX4IO)
+- microSD (로깅)
+- S.BUS / Spektrum / SUMD / PPM 입력
+- JST GH 사용자 친화적 커넥터 : Pixracer와 동일한 커넥터와 핀배열
 
-## Where to buy
+## 구매처
 
-From [Drotek store](https://store.drotek.com/) (EU) :
+[Drotek 상점](https://store.drotek.com/)에서 구매 (EU) :
 
-- [Pixhawk 3 Pro (Pack)](https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html)
-- [Pixhawk 3 Pro](https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html)
+- [Pixhawk 3 프로 (패키지)](https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html)
+- [Pixhawk 3 프로](https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html)
 
-From [readymaderc](https://www.readymaderc.com) (USA) :
+[readymaderc](https://www.readymaderc.com)에서 구매 (미국) :
 
-- [Pixhawk 3 Pro](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
+- [Pixhawk 3 프로](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
 
     make px4_fmu-v4pro_default
     
 
-## Debug Port
+## 디버그 포트
 
-The board has FMU and IO debug ports as shown below.
+보드에는 아래와 같은 FMU와 IO 디버그 포트가 있습니다.
 
 ![Debug Ports](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
 
