@@ -61,80 +61,79 @@
 
 ## 핀배열
 
-Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+*Pixhawk 4 미니* 핀배열은 [여기](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf)에서 다운로드 합니다.
 
-## Dimensions
+## 크기
 
 ![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
-## Voltage Ratings
+## 정격 전압
 
-*Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
+*Pixhawk 4 미니*는 두 개의 전원이 공급되는 경우에도 전원 공급의 중복성을 가질 수 있습니다. 전원 레일은 **POWER**와 **USB**입니다.
 
 :::note
-The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
+**MAIN OUT**의 출력 전원 레일은 비행 컨트롤러 보드에 전원을 공급하지 않습니다(또한, 전원이 공급되지 않음). **POWER** 또는 **USB** 중 하나에 [전원을 공급](../assembly/quick_start_pixhawk4_mini.md#power)하여야 합니다. 그렇지 않으면, 보드에 전원이 공급되지 않습니다.
 :::
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 등급**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-1. **POWER** (4.75V to 5.5V)
-2. **USB** input (4.75V to 5.25V)
+1. **전원** (4.75V ~ 5.5V)
+2. **USB** 입력 (4.75V ~ 5.25V)
 
-**Absolute Maximum Ratings**
+**절대 최대 등급**
 
-Under these conditions the system will remain intact.
+이러한 조건에서 시스템은 그대로 유지됩니다.
 
-1. **POWER** input (0V to 6V undamaged)
-2. **USB** input (0V to 6V undamaged)
-3. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 24V undamaged)
+1. **POWER** 입력 (0V ~ 6V 손상되지 않음)
+2. **USB** 입력 (0V ~ 6V 손상되지 않음)
+3. 서보 입력 : **MAIN OUT**의 VDD_SERVO 핀 (0V ~ 24V 손상되지 않음)
 
-## Assembly/Setup
+## 조립 및 설정
 
-The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board, etc.
+[*Pixhawk 4 미니* 배선 개요](../assembly/quick_start_pixhawk4_mini.md)은 GPS, 전원 관리 보드 등을 포함하여 중요 주변기기를 조립방법을 설명합니다.
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
 
     make px4_fmu-v5_default
     
 
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다. 이 포트에 액세스하려면 * Pixhawk 4 미니* 케이스를 제거하여야 합니다.
 
 ![Pixhawk 4 Mini FMU Debug](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
-The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard [Pixhawk debug connector](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
+이런 포트 모두 표준 시리얼 핀아웃을 가지고 있고 표준 FTDI 케이블 (3.3V, but it's 5V tolerant) 또는 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하여 연결할 수 있습니다. 핀배열은 표준 [Pixhawk 디버그 커넥터 핀배열](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)을 사용합니다. 이 포트의 배선 방법은 [배선](../debug/system_console.md)편을 참고하십시오.
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                                  |
-| ------ | ---------- | ------------------------------------- |
-| UART1  | /dev/ttyS0 | GPS                                   |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
-| UART4  | /dev/ttyS3 | TELEM4                                |
-| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
-| UART7  | /dev/ttyS5 | Debug Console                         |
-| UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
+| UART   | 장치         | 포트                         |
+| ------ | ---------- | -------------------------- |
+| UART1  | /dev/ttyS0 | GPS                        |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)             |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)             |
+| UART4  | /dev/ttyS3 | TELEM4                     |
+| USART6 | /dev/ttyS4 | TX는 SBUS_RC 커넥터의 RC 입력입니다. |
+| UART7  | /dev/ttyS5 | 디버그 콘솔                     |
+| UART8  | /dev/ttyS6 | 연결되지 않음 (PX4IO 없음)         |
 
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Peripherals
+## 주변 장치
 
-* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [텔레메트리 라디오 모듈](../telemetry/README.md)
+* [거리계/거리 센서](../sensor/rangefinders.md)
 
-## Supported Platforms
+## 지원 플랫폼
 
 Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
