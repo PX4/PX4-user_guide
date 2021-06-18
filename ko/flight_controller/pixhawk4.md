@@ -57,12 +57,12 @@
 ![Pixhawk 4 커넥터](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
-**DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이것들은 전원이 공급됩니다! 서보를 전원공급장치나 배터리(또는 연결된 수신기)에 절대 연결하지 마십시오.
+**DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이 포트들에는 전원이 공급됩니다. 서보를 전원공급장치나 배터리(또는 연결된 수신기)에 절대 연결하지 마십시오.
 :::
 
 ## 핀배열
 
-*Pixhawk 4* 핀배열은 [여기](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)서 다운로드합니다.
+*Pixhawk 4* 핀배열은 [여기](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)에서 다운로드합니다.
 
 :::note
 커넥터 핀 할당은 왼쪽에서 오른쪽입니다(즉, 핀 1은 가장 왼쪽에있는 핀). 예외는 [디버그 포트](#debug_port)입니다 (아래에 표시된 것처럼 1번 핀이 맨 오른쪽에 있음).
@@ -125,7 +125,7 @@
 
 ## 디버그 포트
 
-[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행되며 I/O 콘솔 및 SWD 인터페이스는 ** I/O 디버그** 포트를 통하여 액세스할 수 있습니다.. 이 포트에 액세스하려면 * Pixhawk 4 </ 0> 케이스를 제거하여야 합니다.</p> 
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행되며 I/O 콘솔 및 SWD 인터페이스는 ** I/O 디버그** 포트를 통하여 액세스할 수 있습니다.. 이 포트에 액세스하려면 * Pixhawk 4* 케이스를 제거하여야 합니다.
 
 ![픽스호크4 디버그 포트](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
