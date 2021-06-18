@@ -84,37 +84,36 @@
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## Voltage Ratings
+## 정격 전압
 
-*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*Pixhawk 4*는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의 3중 중복이 가능합니다. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
 
 :::note
-The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+출력 전원 레일인 **FMU PWM OUT** 과 **I/O PWM OUT** (0V to 36V) 은 비행제어보드에 전원을 공급하지 않습니다.(공급받지도 않습니다). **POWER1**, **POWER2** 또는 **USB**중 하나에서 전원을 공급하여야 합니다.
 :::
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 등급**
 
-Under these conditions all power sources will be used in this order to power the system:
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-1. **POWER1** 과 **POWER2** 에 (4.9V to 5.5V) 를 입력
-2. **USB** 에 (4.75V to 5.25V) 입력
+1. **POWER1**과 **POWER2** 입력 (4.9V ~ 5.5V)
+2. **USB**에 4.75V ~ 5.25V 입력
 
-**Absolute Maximum Ratings**
+**절대 최대 등급**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
-1. **POWER1** 과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 비손상 범위0V ~ 10V)
-2. **USB** 입력 (작동 범위 4.1V to 5.7V, 비손상 범위 0V to 6V)
-3. 서보 입력: **FMU PWM OUT** 과 **I/O PWM OUT**의 VDD_SERVO 핀 (0V to 42V undamaged)
+1. **POWER1**과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 0V ~ 10V 손상되지 않음)
+2. **USB** 입력(작동 범위: 4.1V ~ 5.7V, 비손상 범위: 0V ~ 6V)
+3. 서보 입력 : **FMU PWM OUT** 및 **I/O PWM OUT**의 VDD_SERVO 핀 (0V ~ 42V 손상되지 않음)
 
-## Assembly/Setup
+## 조립 및 설정
 
-The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Pixhawk 4 배선 개요](../assembly/quick_start_pixhawk4.md)는 GPS, 전원 관리 보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
 To [build PX4](../dev_setup/building_px4.md) for this target:
