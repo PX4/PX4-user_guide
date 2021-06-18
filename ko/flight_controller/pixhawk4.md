@@ -7,7 +7,7 @@
 
 [Pixhawk-project](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 업라이트 이미지" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 이미지" />
 
 :::tip
 이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
@@ -54,7 +54,7 @@
 
 ## 커넥터
 
-![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
+![Pixhawk 4 커넥터](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
 **DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이것들은 전원이 공급됩니다! 서보를 전원공급장치나 배터리(또는 연결된 수신기)에 절대 연결하지 마십시오.
@@ -82,7 +82,7 @@
 
 ## 크기
 
-![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
+![Pixhawk 4 크기](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
 ## 정격 전압
 
@@ -116,37 +116,37 @@
 ::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
 
     make px4_fmu-v5_default
     
 
 <span id="debug_port"></span>
 
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행되며 I/O 콘솔 및 SWD 인터페이스는 ** I/O 디버그** 포트를 통하여 액세스할 수 있습니다.. 이 포트에 액세스하려면 * Pixhawk 4 </ 0> 케이스를 제거하여야 합니다.</p> 
 
-![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
+![픽스호크4 디버그 포트](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
-The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
+핀배열은 표준 [Pixhawk 디버그 커넥터 핀배열](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)을 사용합니다. 배선 정보는 다음을 참조하십시오.
 
-* [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port)
+* [시스템 콘솔 &gt; Pixhawk 디버그 포트](../debug/system_console.md#pixhawk_debug_port)
 
-## Peripherals
+## 주변 장치
 
-* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [텔레메트리 라디오 모듈](../telemetry/README.md)
+* [거리계/거리 센서](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 프레임 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-## Further info
+## 추가 정보
 
-* [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-* [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
-* [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-* [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+* [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+* [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+* [Pixhawk 4 배선 개요](../assembly/quick_start_pixhawk4.md)
+* [Pixhawk 4 핀배열](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+* [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
