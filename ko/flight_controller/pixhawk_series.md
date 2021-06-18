@@ -98,19 +98,19 @@ Pixhawk 프로젝트 회로도 파일(또는 참조 보드)에서 *파생된</ 0
 
 제조업체는 FMU 설계와 동일한 핀 매핑/구성 요소를 가진 새로운 회로도 파일을 먼저 생성하여 *완전히 독립적인 제품*을 제조할 수 있습니다(호환 가능). 독립적으로 제작된 회로도를 기반으로하는 제품은 원본 작품으로 간주되며, 필요에 따라 라이센스를 받을 수 있습니다.
 
-제품 이름/브랜드도 상표가 될 수 있습니다. Trademarked names may not be used without the permission of the owner.
+제품 이름/브랜드도 상표가 될 수 있습니다. 상표명은 소유자의 허가없이 사용할 수 없습니다.
 
 :::tip
-*Pixhawk* is a trademark, and cannot be used in product names without permission.
+*Pixhawk*는 상표이며 허가없이 제품 이름에 사용할 수 없습니다.
 :::
 
-## Additional Information
+## 추가 정보
 
-### LEDs
+### LED
 
-All *Pixhawk-series* flight controllers support:
+모든 *Pixhawk 시리즈* 컨트롤러는 아래의 내용들을 지원합니다.
 
-* A user facing RGB *UI LED* to indicate the current *readiness to fly* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the board (i.e. FMUv4 does not have one on board and typically uses an LED mounted on the GPS).
-* Three *Status LED*s that provide lower level power status, bootloader mode and activity, and error information.
+* RGB *UI LED*는 기체의 현재 *비행 준비* 상태를 나타냅니다. 이것은 일반적으로 보드에 장착되거나 장착되지 않을 수 있는 초고휘도 I2C 주변기기입니다(예 : FMUv4에는 보드에 장착되지 않으며, GPS에 장착된 LED를 사용함).
+* 낮은 수준의 전원 상태, 부트 로더 모드 및 활동, 오류 정보를 제공하는 3 개의 *상태 LED*.
 
-To interpret the LEDs see: [LED Meanings](../getting_started/led_meanings.md).
+LED 신호를 해석하려면 [LED 설명](../getting_started/led_meanings.md)편을 참고하십시오.
