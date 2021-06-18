@@ -1,65 +1,65 @@
-# Pixhawk 4 Mini
+# Pixhawk 4 미니
 
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-*Pixhawk<sup>&reg;</sup> 4 Mini* 자동조종장치는 *Pixhawk 4*을 이용하여 소규모 작업이 필요한 엔지니어와 애호가를 위해 설계되었습니다. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
+*Pixhawk<sup>&reg;</sup> 4 미니* 자동조종장치는 *Pixhawk 4*을 이용하여 소규모 작업이 필요한 엔지니어와 애호가를 위해 설계되었습니다. *Pixhawk 4 미니*는 *Pixhawk 4*에서 FMU 프로세서와 메모리 리소스에서 일반적으로 사용되지 않는 인터페이스를 제거합니다. *Pixhawk 4 미니*는 250mm 레이싱 드론에 장착이 가능한 소형 컨트롤러입니다.
 
-*Pixhawk 4 Mini* was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
+*Pixhawk 4 미니*는 Holybro<sup>&reg;</sup>와 Auterion<sup>&reg;</sup>에서 공동으로 설계개발하였습니다. [Pixhawk](https://pixhawk.org/) **FMUv5** 설계를 기반으로 PX4 비행제어 소프트웨어를 실행에 최적화되었습니다.
 
 ![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Quick Summary
+## 요약
 
-* Main FMU Processor: STM32F765 
+* 메인 FMU 프로세서: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* On-board sensors: 
-  * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* Interfaces: 
-  * 8 PWM outputs
-  * 4 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * 3 general purpose serial ports
-  * 2 I2C ports
-  * 3 SPI buses
-  * 1 CANBuses for CAN ESC
-  * Analog inputs for voltage / current of battery
-  * 2 additional analog input
-* Power System: 
-  * Power Brick Input: 4.75~5.5V
-  * USB Power Input: 4.75~5.25V
-  * Servo Rail Input: 0~24V
-  * Max current sensing: 120A
-* Weight and Dimensions: 
-  * Weight: 37.2g
-  * Dimensions: 38x55x15.5mm
-* Other Characteristics: 
-  * Operating temperature: -40 ~ 85°c
+* 온보드 센서 : 
+  * 가속도/자이로: ICM-20689
+  * 가속/자이로: BMI055
+  * 자력계 : IST8310
+  * 기압계: MS5611
+* GPS : u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
+* 인터페이스: 
+  * 8 PWM 출력
+  * FMU의 전용 PWM / 캡처 입력 4 개
+  * CPPM 전용 RC 입력
+  * 아날로그/PWM RSSI 입력이있는 Spektrum/DSM 및 S.Bus 전용 RC 입력
+  * 범용 시리얼 포트 3개
+  * I2C 포트 2개
+  * SPI 버스 3개
+  * CAN ESC용 CANBus 1개
+  * 배터리 전압/전류에 대한 아날로그 입력
+  * 2개의 추가 아날로그 입력
+* 전원 시스템 : 
+  * 파워 브릭 입력 : 4.75 ~ 5.5V
+  * USB 전원 입력: 4.75~5.25V
+  * 서보 레일 입력: 0~24V
+  * 최대 전류 감지 : 120A
+* 중량 및 크기 
+  * 중량: 37.2g
+  * 크기: 38x55x15.5mm
+* 기타 특성: 
+  * 작동 온도: -40 ~ 85°c
 
-Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+추가 정보는 [*Pixhawk 4 미니* 기술 데이터 시트](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)를 참고하십시오.
 
-## Purchase
+## 구매처
 
-Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
+[Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html)에서 주문 가능 합니다.
 
-## Interfaces
+## 인터페이스
 
 ![Pixhawk 4 Mini interfaces](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
 :::warning
-The **RC IN** and **PPM** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+**RC IN**과 **PPM** 포트는 RC 수신기 전용입니다. 이 포트들에는 전원이 공급됩니다. 서보를 전원공급장치나 배터리(또는 연결된 수신기)에 절대 연결하지 마십시오.
 :::
 
-## Pinouts
+## 핀배열
 
 Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
 
