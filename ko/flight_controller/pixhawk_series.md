@@ -72,22 +72,22 @@ PX4 *사용자*는 일반적으로 FMU 버전에 대해 자세하게 알 필요�
 * 일반적으로 FMU 버전이 아닌 물리적 제약과 폼 팩터에 의해서 컨트롤러를 선택합니다.
     
 :::note
-단, FMUv2 펌웨어를 사용하는 경우 [플래시 1MB로 제한](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata)됩니다. In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+단, FMUv2 펌웨어를 사용하는 경우 [플래시 1MB로 제한](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata)됩니다. 이 제한된 공간에 PX4를 맞추기 위하여, 다수의 모듈들이 비활성화되어 있습니다. 일부 [매개 변수가 누락](../advanced_config/parameters.md#missing)되거나, 일부 하드웨어가 "즉시" 작동하지 않을 수 있습니다.
 :::
 
-PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
+PX4 *개발자*는 맞춤형 하드웨어를 구축하는 데 필요하므로, 보드의 FMU 버전을 알아야합니다.
 
-At very high level, the main differences are:
+주요 차이점은 아래와 같습니다.
 
-* **FMUv2:** Single board with STM32427VI processor ([Pixhawk 1 (Discontinued)](../flight_controller/pixhawk.md), [pix32](../flight_controller/holybro_pix32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [Drotek DroPix](../flight_controller/dropix.md))
-* **FMUv3:** Identical to FMUv2, but usable flash doubled to 2MB ([Hex Cube Black](../flight_controller/pixhawk-2.md),[CUAV Pixhack v3](../flight_controller/pixhack_v3.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md))
-* **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
-* **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
-* **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+* **FMUv2:** STM32427VI 프로세서 단일 보드 ([Pixhawk 1 (Discontinued)](../flight_controller/pixhawk.md), [pix32](../flight_controller/holybro_pix32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [Drotek DroPix](../flight_controller/dropix.md)) 
+* **FMUv3:** FMUv2와 동일하지만 사용 가능한 플래시가 2MB로 두 배 증가하였습니다 ([Hex Cube Black](../flight_controller/pixhawk-2.md), [CUAV Pixhack v3](../flight_controller/pixhack_v3.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini(단종됨)](../flight_controller/pixhawk_mini.md))
+* **FMUv4:** RAM 증가. 더 빨라진 CPU. 더 많은 직렬 포트. IO 프로세서 없음 ([Pixracer](../flight_controller/pixracer.md))
+* **FMUv4-PRO:** 약간 증가된 RAM. 더 많은 직렬 포트. IO 프로세서 ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
+* **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. 더 많은 CAN 버스. 다양한 설정 가능([Pixhawk 4](../flight_controller/pixhawk4.md), [CUAV v5](../flight_controller/cuav_v5.md), [CUAV V5 +](../flight_controller/cuav_v5_plus.md), [CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
 
 <span id="licensing-and-trademarks"></span>
 
-### Licensing and Trademarks
+### 라이선스와 상표
 
 Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
 
