@@ -159,7 +159,7 @@
   * [비행 컨트롤러(자동조종장치)](flight_controller/README.md) 
     * [픽스호크 시리즈](flight_controller/pixhawk_series.md) 
       * [실리콘 정오표](flight_controller/silicon_errata.md)
-    * [픽스호크 표준 자동 항법 장치](flight_controller/autopilot_pixhawk_standard.md) 
+    * [표준 픽스호크 자동항법장치](flight_controller/autopilot_pixhawk_standard.md) 
       * [홀리브로 픽스호크 4 (FMUv5)](flight_controller/pixhawk4.md)
       * [홀리브로 픽스호크 4 미니 (FMUv5)](flight_controller/pixhawk4_mini.md)
       * [드로텍 픽스호크 3 프로 (FMUv4pro)](flight_controller/pixhawk3_pro.md)
