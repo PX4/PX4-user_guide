@@ -158,7 +158,7 @@
     * [Bitcraze Crazyflie 2.1](complete_vehicles/crazyflie21.md)
   * [비행 컨트롤러(자동조종장치)](flight_controller/README.md) 
     * [픽스호크 시리즈](flight_controller/pixhawk_series.md) 
-      * [실리콘 에라타](flight_controller/silicon_errata.md)
+      * [실리콘 정오표](flight_controller/silicon_errata.md)
     * [픽스호크 표준 자동 항법 장치](flight_controller/autopilot_pixhawk_standard.md) 
       * [홀리브로 픽스호크 4 (FMUv5)](flight_controller/pixhawk4.md)
       * [홀리브로 픽스호크 4 미니 (FMUv5)](flight_controller/pixhawk4_mini.md)
