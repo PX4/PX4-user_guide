@@ -89,17 +89,16 @@ PX4 *개발자*는 맞춤형 하드웨어를 구축하는 데 필요하므로, �
 
 ### 라이선스와 상표
 
-Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
+Pixhawk 프로젝트의 회로도와 설계도는 [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode) 라이센스가 부여됩니다.
 
-The license allows you to use, sell, share, modify and build on the files in almost any way you like - provided that you give credit/attribution, and that you share any changes that you make under the same open source license (see the [human readable version of the license](https://creativecommons.org/licenses/by-sa/3.0/) for a concise summary of the rights and obligations).
+이 라이선스를 사용하면 신용/기여를 제공하고 동일한 오픈 소스 라이선스에 따라 변경한 내용을 공유하는 경우 원하는 방식으로 파일을 사용, 판매, 공유, 수정 및 빌드할 수 있습니다(권리와 의무에 대한 간결한 요약은 [인간이 읽을 수있는 라이선스 버전](https://creativecommons.org/licenses/by-sa/3.0/)).
 
 :::note
-Boards that are *derived directly* from Pixhawk project schematic files (or reference boards) must be open sourced. They can't be commercially licensed as proprietary products.
-:::
+Pixhawk 프로젝트 회로도 파일(또는 참조 보드)에서 *파생된</ 0> 보드는 오픈 소스이어야합니다. 독점 제품으로 상업적 라이센스를 받을 수 없습니다. :::</p> 
 
-Manufacturers can create (compatible) *fully independent products* by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. Products that are based on independently created schematics are considered original works, and can be licensed as required.
+제조업체는 FMU 설계와 동일한 핀 매핑/구성 요소를 가진 새로운 회로도 파일을 먼저 생성하여 *완전히 독립적인 제품*을 제조할 수 있습니다(호환 가능). 독립적으로 제작된 회로도를 기반으로하는 제품은 원본 작품으로 간주되며, 필요에 따라 라이센스를 받을 수 있습니다.
 
-Product names/brands can also be trademarked. Trademarked names may not be used without the permission of the owner.
+제품 이름/브랜드도 상표가 될 수 있습니다. Trademarked names may not be used without the permission of the owner.
 
 :::tip
 *Pixhawk* is a trademark, and cannot be used in product names without permission.
