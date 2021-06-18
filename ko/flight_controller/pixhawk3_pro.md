@@ -5,7 +5,7 @@
 
 Pixhawk<sup>&reg;</sup> 3 Pro는 일부 업그레이드와 기능이 추가된 FMUv4 하드웨어 설계 (Pixracer)를 기반으로합니다. 이 보드는 [Drotek<sup>&reg;</sup>](https://drotek.com)과 PX4에 의해 설계되었습니다.
 
-![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
+![Pixhawk 3 프로 히어로 이미지](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
 :::note
 주요 하드웨어 문서는 여기를 참고하십시오. https://drotek.gitbook.io/pixhawk-3-pro/hardware
@@ -56,33 +56,33 @@ Pixhawk<sup>&reg;</sup> 3 Pro는 일부 업그레이드와 기능이 추가된 F
 
 보드에는 아래와 같은 FMU와 IO 디버그 포트가 있습니다.
 
-![Debug Ports](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
+![디버그 포트](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
 
-The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+핀배열과 커넥터는 [Pixhawk 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)(JST SM06B 커넥터)를 준수합니다.
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | VCC TARGET SHIFT | +3.3V |
-| 2 (blk) | CONSOLE TX (OUT) | +3.3V |
-| 3 (blk) | CONSOLE RX (IN)  | +3.3V |
-| 4 (blk) | SWDIO            | +3.3V |
-| 5 (blk) | SWCLK            | +3.3V |
-| 6 (blk) | GND              | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | VCC TARGET SHIFT | +3.3V |
+| 2 (흑) | CONSOLE TX (출력)  | +3.3V |
+| 3 (흑) | CONSOLE RX (입력)  | +3.3V |
+| 4 (흑) | SWDIO            | +3.3V |
+| 5 (흑) | SWCLK            | +3.3V |
+| 6 (흑) | GND              | GND   |
 
-For information about wiring and using this port see:
+이 포트의 배선과 사용 정보는 다음을 참조하십시오.
 
-- [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
-- [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md)
+- [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port) (참고, FMU 콘솔은 UART7에 매핑됨).
+- [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | WiFi                  |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | 와이파이           |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
