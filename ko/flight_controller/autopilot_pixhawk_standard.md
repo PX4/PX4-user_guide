@@ -1,4 +1,4 @@
-# Pixhawk Standard Autopilots
+# 표준 픽스호크 자동항법장치
 
 [Pixhawk series](../flight_controller/pixhawk_series.md) boards that fully comply with the [Pixhawk Standard](https://pixhawk.org/) (including use of the Pixhawk trademark), and that are still being manufactured, are supported by the PX4 project.
 
