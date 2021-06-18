@@ -1,9 +1,9 @@
 # Pixhawk 4
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-*Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
+*Pixhawk 4*<sup>&reg;</sup>는 Holybro<sup>&reg;</sup>와 PX4 팀이 협력하여 설계 및 제작한 고급 자동조종장치입니다. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
 
