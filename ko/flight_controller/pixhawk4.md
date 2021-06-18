@@ -3,84 +3,84 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-*Pixhawk 4*<sup>&reg;</sup>는 Holybro<sup>&reg;</sup>와 PX4 팀이 협력하여 설계 및 제작한 고급 자동조종장치입니다. It is optimized to run PX4 v1.7 and later, and is suitable for academic and commercial developers.
+*Pixhawk 4*<sup>&reg;</sup>는 Holybro<sup>&reg;</sup>와 PX4 팀이 협력하여 설계 및 제작한 고급 자동조종장치입니다. PX4 v1.7 이상의 버전 실행에 최적화되어 있으며, 학계와 업계 개발자에게 적합합니다.
 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+[Pixhawk-project](https://pixhawk.org/) **FMUv5** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## 빠른 요약
+## 요약
 
 * 메인 FMU 프로세서: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 * IO 프로세서: STM32F100 
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* 내장 센서: 
+* 온보드 센서 : 
   * 가속도/자이로: ICM-20689
   * 가속/자이로: BMI055
-  * 지자계: IST8310
+  * 자력계 : IST8310
   * 기압계: MS5611
-* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+* GPS : u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
 * 인터페이스: 
-  * PWM 출력 8-16개 (IO에서 8개, FMU에서 8개)
-  * FMU의 전용 PWM/캡처 입력 3 개
-  * CPPM 전용 R/C 입력
-  * 아날로그 / PWM RSSI 입력이있는 Spektrum / DSM 및 S.Bus 전용 R / C 입력
+  * PWM 출력 8-16개(IO에서 8개, FMU에서 8개)
+  * FMU의 전용 PWM / 캡처 입력 3 개
+  * CPPM 전용 RC 입력
+  * 아날로그/PWM RSSI 입력이있는 Spektrum/DSM 및 S.Bus 전용 RC 입력
   * 전용 S.Bus 서보 출력
-  * 범용 serial 포트 5개
+  * 범용 시리얼 포트 5개
   * I2C 포트 3개
   * SPI 버스 4개
   * 직렬 ESC를 사용하는 듀얼 CAN에 최대 2 개의 CAN 버스
-  * 배터리 2 개의 전압 / 전류를위한 아날로그 입력
+  * 배터리 2 개의 전압 / 전류에 대한 아날로그 입력
 * 전원시스템 
   * 전원 모듈 출력: 4.9~5.5V
   * USB 전원 입력: 4.75~5.25V
   * 서보 전원 입력: 0~36V
-* 무게와 치수 
+* 중량 및 크기 
   * 무게: 15.8g
-  * 치수: 44x84x12mm
+  * 크기: 44x84x12mm 
 * 기타 특성: 
   * 작동 온도: -40 ~ 85°c
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+추가적인 정보는 [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)을 참고하십시오.
 
-## 구입처
+## 구매처
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+[Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html)에서 주문 가능합니다.
 
-## 커넥터 Connectors
+## 커넥터
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 :::warning
-The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+**DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이것들은 전원이 공급됩니다! 서보를 전원공급장치나 배터리(또는 연결된 수신기)에 절대 연결하지 마십시오.
 :::
 
-## 핀아웃 Pinouts
+## 핀배열
 
-Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
+*Pixhawk 4* 핀배열은 [여기](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)서 다운로드합니다.
 
 :::note
-Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
+커넥터 핀 할당은 왼쪽에서 오른쪽입니다(즉, 핀 1은 가장 왼쪽에있는 핀). 예외는 [디버그 포트](#debug_port)입니다 (아래에 표시된 것처럼 1번 핀이 맨 오른쪽에 있음).
 :::
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | GPS                   |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | TELEM4                |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | PX4IO                 |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | GPS            |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  | /dev/ttyS3 | TELEM4         |
+| USART6 | /dev/ttyS4 | RC SBUS        |
+| UART7  | /dev/ttyS5 | 디버깅 콘솔         |
+| UART8  | /dev/ttyS6 | PX4IO          |
 
-## Dimensions
+## 크기
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
