@@ -62,17 +62,17 @@ PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 
 ### FMU 버전
 
-The Pixhawk project has created a number of different open designs/schematics. All boards based on a design should be binary compatible (run the same firmware).
+Pixhawk 프로젝트는 다양한 개방형 회로도를 디자인하였습니다. 같은 디자인의 보드들은 동일한 펌웨어가 바이너리 수준에서 호환되어야 합니다.
 
-Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). Higher FMU numbers indicate that the board is more recent, but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
+각 디자인의 이름은 FMUvX(예 : FMUv1, FMUv2, FMUv3, FMUv4 등)입니다. FMU 번호가 높을 수록 보드가 최신 버전이며, 반드시 성능 향상을 의미하지는 않습니다. 버전이 거의 동일할 수 있으며 커넥터 배선만 다를 수 있습니다.
 
-PX4 *users* generally do not need to know very much about FMU versions:
+PX4 *사용자*는 일반적으로 FMU 버전에 대해 자세하게 알 필요는 없습니다.
 
-* *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-* Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
+* *QGroundControl*은 연결된 자동조종장치에 적합한 펌웨어를 자동으로 다운로드합니다(FMU 버전 "내부"기반).
+* 일반적으로 FMU 버전이 아닌 물리적 제약과 폼 팩터에 의해서 컨트롤러를 선택합니다.
     
 :::note
-The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+단, FMUv2 펌웨어를 사용하는 경우 [플래시 1MB로 제한](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata)됩니다. In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
 :::
 
 PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
