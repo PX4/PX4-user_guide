@@ -164,7 +164,7 @@
       * [홀리브로 픽스호크 4 미니 (FMUv5)](flight_controller/pixhawk4_mini.md)
       * [드로텍 픽스호크 3 프로 (FMUv4pro)](flight_controller/pixhawk3_pro.md)
       * [mRo 픽스레이서 (FMUv4)](flight_controller/pixracer.md)
-      * [헥스 큐브 블랙 (FMUv3)](flight_controller/pixhawk-2.md)
+      * [헥스큐브블랙 (FMUv3)](flight_controller/pixhawk-2.md)
       * [mRo 픽스호크 (FMUv3)](flight_controller/mro_pixhawk.md)
       * [Holybro Pixhawk Mini (FMUv3)](flight_controller/pixhawk_mini.md)
     * [제조사 지원 자동 항법 장치](flight_controller/autopilot_manufacturer_supported.md) 
