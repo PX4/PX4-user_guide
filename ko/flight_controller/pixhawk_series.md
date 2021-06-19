@@ -62,56 +62,55 @@ PX4 프로젝트에서 지원하는 보드 목록은 다음과 같습니다.
 
 ### FMU 버전
 
-The Pixhawk project has created a number of different open designs/schematics. All boards based on a design should be binary compatible (run the same firmware).
+Pixhawk 프로젝트는 다양한 개방형 회로도를 디자인하였습니다. 같은 디자인의 보드들은 동일한 펌웨어가 바이너리 수준에서 호환되어야 합니다.
 
-Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). Higher FMU numbers indicate that the board is more recent, but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
+각 디자인의 이름은 FMUvX(예 : FMUv1, FMUv2, FMUv3, FMUv4 등)입니다. FMU 번호가 높을 수록 보드가 최신 버전이며, 반드시 성능 향상을 의미하지는 않습니다. 버전이 거의 동일할 수 있으며 커넥터 배선만 다를 수 있습니다.
 
-PX4 *users* generally do not need to know very much about FMU versions:
+PX4 *사용자*는 일반적으로 FMU 버전에 대해 자세하게 알 필요는 없습니다.
 
-* *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-* Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
+* *QGroundControl*은 연결된 자동조종장치에 적합한 펌웨어를 자동으로 다운로드합니다(FMU 버전 "내부"기반).
+* 일반적으로 FMU 버전이 아닌 물리적 제약과 폼 팩터에 의해서 컨트롤러를 선택합니다.
     
 :::note
-The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata). In order to fit PX4 into this limited space, many modules are disabled by default. You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+단, FMUv2 펌웨어를 사용하는 경우 [플래시 1MB로 제한](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata)됩니다. 이 제한된 공간에 PX4를 맞추기 위하여, 다수의 모듈들이 비활성화되어 있습니다. 일부 [매개 변수가 누락](../advanced_config/parameters.md#missing)되거나, 일부 하드웨어가 "즉시" 작동하지 않을 수 있습니다.
 :::
 
-PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
+PX4 *개발자*는 맞춤형 하드웨어를 구축하는 데 필요하므로, 보드의 FMU 버전을 알아야합니다.
 
-At very high level, the main differences are:
+주요 차이점은 아래와 같습니다.
 
-* **FMUv2:** Single board with STM32427VI processor ([Pixhawk 1 (Discontinued)](../flight_controller/pixhawk.md), [pix32](../flight_controller/holybro_pix32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [Drotek DroPix](../flight_controller/dropix.md))
-* **FMUv3:** Identical to FMUv2, but usable flash doubled to 2MB ([Hex Cube Black](../flight_controller/pixhawk-2.md),[CUAV Pixhack v3](../flight_controller/pixhack_v3.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md))
-* **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
-* **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
-* **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+* **FMUv2:** STM32427VI 프로세서 단일 보드 ([Pixhawk 1 (Discontinued)](../flight_controller/pixhawk.md), [pix32](../flight_controller/holybro_pix32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [Drotek DroPix](../flight_controller/dropix.md)) 
+* **FMUv3:** FMUv2와 동일하지만 사용 가능한 플래시가 2MB로 두 배 증가하였습니다 ([Hex Cube Black](../flight_controller/pixhawk-2.md), [CUAV Pixhack v3](../flight_controller/pixhack_v3.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini(단종됨)](../flight_controller/pixhawk_mini.md))
+* **FMUv4:** RAM 증가. 더 빨라진 CPU. 더 많은 직렬 포트. IO 프로세서 없음 ([Pixracer](../flight_controller/pixracer.md))
+* **FMUv4-PRO:** 약간 증가된 RAM. 더 많은 직렬 포트. IO 프로세서 ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
+* **FMUv5:** 새 프로세서 (F7). 훨씬 더 빨라짐. 더 많은 RAM. 더 많은 CAN 버스. 다양한 설정 가능([Pixhawk 4](../flight_controller/pixhawk4.md), [CUAV v5](../flight_controller/cuav_v5.md), [CUAV V5 +](../flight_controller/cuav_v5_plus.md), [CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
 
 <span id="licensing-and-trademarks"></span>
 
-### Licensing and Trademarks
+### 라이선스와 상표
 
-Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
+Pixhawk 프로젝트의 회로도와 설계도는 [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode) 라이센스가 부여됩니다.
 
-The license allows you to use, sell, share, modify and build on the files in almost any way you like - provided that you give credit/attribution, and that you share any changes that you make under the same open source license (see the [human readable version of the license](https://creativecommons.org/licenses/by-sa/3.0/) for a concise summary of the rights and obligations).
+이 라이선스를 사용하면 신용/기여를 제공하고 동일한 오픈 소스 라이선스에 따라 변경한 내용을 공유하는 경우 원하는 방식으로 파일을 사용, 판매, 공유, 수정 및 빌드할 수 있습니다(권리와 의무에 대한 간결한 요약은 [인간이 읽을 수있는 라이선스 버전](https://creativecommons.org/licenses/by-sa/3.0/)).
 
 :::note
-Boards that are *derived directly* from Pixhawk project schematic files (or reference boards) must be open sourced. They can't be commercially licensed as proprietary products.
-:::
+Pixhawk 프로젝트 회로도 파일(또는 참조 보드)에서 *파생된</ 0> 보드는 오픈 소스이어야합니다. 독점 제품으로 상업적 라이센스를 받을 수 없습니다. :::</p> 
 
-Manufacturers can create (compatible) *fully independent products* by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. Products that are based on independently created schematics are considered original works, and can be licensed as required.
+제조업체는 FMU 설계와 동일한 핀 매핑/구성 요소를 가진 새로운 회로도 파일을 먼저 생성하여 *완전히 독립적인 제품*을 제조할 수 있습니다(호환 가능). 독립적으로 제작된 회로도를 기반으로하는 제품은 원본 작품으로 간주되며, 필요에 따라 라이센스를 받을 수 있습니다.
 
-Product names/brands can also be trademarked. Trademarked names may not be used without the permission of the owner.
+제품 이름/브랜드도 상표가 될 수 있습니다. 상표명은 소유자의 허가없이 사용할 수 없습니다.
 
 :::tip
-*Pixhawk* is a trademark, and cannot be used in product names without permission.
+*Pixhawk*는 상표이며 허가없이 제품 이름에 사용할 수 없습니다.
 :::
 
-## Additional Information
+## 추가 정보
 
-### LEDs
+### LED
 
-All *Pixhawk-series* flight controllers support:
+모든 *Pixhawk 시리즈* 컨트롤러는 아래의 내용들을 지원합니다.
 
-* A user facing RGB *UI LED* to indicate the current *readiness to fly* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the board (i.e. FMUv4 does not have one on board and typically uses an LED mounted on the GPS).
-* Three *Status LED*s that provide lower level power status, bootloader mode and activity, and error information.
+* RGB *UI LED*는 기체의 현재 *비행 준비* 상태를 나타냅니다. 이것은 일반적으로 보드에 장착되거나 장착되지 않을 수 있는 초고휘도 I2C 주변기기입니다(예 : FMUv4에는 보드에 장착되지 않으며, GPS에 장착된 LED를 사용함).
+* 낮은 수준의 전원 상태, 부트 로더 모드 및 활동, 오류 정보를 제공하는 3 개의 *상태 LED*.
 
-To interpret the LEDs see: [LED Meanings](../getting_started/led_meanings.md).
+LED 신호를 해석하려면 [LED 설명](../getting_started/led_meanings.md)편을 참고하십시오.
