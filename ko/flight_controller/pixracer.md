@@ -13,39 +13,39 @@ Pixhawk<sup>&reg;</sup> XRacer 보드 제품군은 소형 레이싱 쿼드와 �
 
 ## 주요 특징
 
-* Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
-  * RAM: 256 KB SRAM (L1)
-* Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
-* Invensense<sup>&reg;</sup> ICM-20608 Accel / Gyro (4 KHz) / MPU9250 Accel / Gyro / Mag (4 KHz)
-* HMC5983 magnetometer with temperature compensation
-* Measurement Specialties MS5611 barometer
-* JST GH connectors
-* microSD (logging)
-* Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
-* FrSky<sup>&reg;</sup> telemetry port
-* OneShot PWM out (configurable)
-* Optional: Safety switch and buzzer
+* 메인 시스템 온 칩 : [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU : 단정밀도 FPU의 180MHz ARM Cortexex<sup>&reg;</sup> M4
+  * RAM : 256KB SRAM (L1)
+* 표준 FPV 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
+* Invensense<sup>&reg;</sup> ICM-20608 가속 / 자이로 (4KHz) / MPU9250 가속 / 자이로 / 마그 (4KHz)
+* 온도 보상 기능 HMC5983 자력계
+* Measurement Specialties MS5611 기압계
+* JST GH 커넥터
+* microSD (로깅)
+* Futaba S.BUS 및 S.BUS2 / Spektrum DSM2 및 DSMX / Graupner SUMD / PPM 입력 / Yuneec ST24
+* FrSky<sup>&reg;</sup> 텔레메트리 포트
+* OneShot PWM 출력 (구성 가능)
+* 옵션 : 안전 스위치 및 부저
 
-## Where to Buy
+## 구매처
 
-Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm).
+Pixracer는 [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm)에서 사용할 수 있습니다.
 
-Accessories include:
+액세서리에는 다음이 포함됩니다.
 
-* [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
-* [HKPilot Transceiver Telemetry Radio Set V2 (915Mhz - US Telemetry)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
-* [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
+* [디지털 대기속도 센서](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+* [HK 텔레프레전스 세트 V2 (915Mhz - US 텔레메트리)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
+* [Hobbyking<sup>&reg;</sup> OSD + EU 텔레메트리 (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
-## Kit
+## 키트
 
-The Pixracer is designed to use a separate avionics power supply. This is necessary to avoid current surges from motors or ESCs to flow back to the flight controller and disturb its delicate sensors.
+Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 설계되었습니다. 이는 모터 또는 ESC의 전류 서지가 비행 컨트롤러로 다시 흐르고 섬세한 센서를 방해하는 것을 방지하는 데 필요합니다.
 
-* Power module (with voltage and current sensing)
-* I2C splitter (supporting AUAV, Hobbyking and 3DR<sup>&reg;</sup> peripherals)
-* Cable kit for all common peripherals
+* 전원 모듈(전압 및 전류 감지 포함)
+* I2C 스플리터(AUAV, Hobbyking 및 3DR<sup>&reg;</sup> 주변 장치 지원)
+* 모든 일반 주변기기용 케이블 키트
 
-## Wifi (no USB required)
+## Wi-Fi(USB 필요 없음)
 
 One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
 
