@@ -1,23 +1,23 @@
-# mRo Pixhawk Flight Controller (Pixhawk 1)
+# mRo Pixhawk 비행 컨트롤러 (Pixhawk 1)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
-The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+*mRo Pixhawk<sup>&reg;</sup>*는 원래 [Pixhawk 1](../flight_controller/pixhawk.md)의 하드웨어 호환 버전입니다. PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.
 
 :::tip
-The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
+컨트롤러는 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md)의 드롭인 교체로 사용할 수 있습니다. 가장 큰 차이점은 [Pixhawk-project](https://pixhawk.org/) **FMUv3** 개방형 하드웨어 설계를 기반인 것입니다. 이는 원래 Pixhawk 1을 1MB의 플래시로 제한 버그를 수정합니다.
 :::
 
 ![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
-Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
+PX4 실행을 위한 조립 설정 방법은 여기를 참고하십시오. [Pixhawk 배선 개요](../assembly/quick_start_pixhawk.md)
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Key Features
+## 주요 특징
 
 * 마이크로 프로세서: 
   * FPU가있는 32 비트 STM32F427 코어 텍스 <sup> & reg; </ 0> M4 코어</li> 
