@@ -25,49 +25,49 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 주요 특징
 
-- 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
+- 32 비트 STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> 코어 (FPU 포함)
 - 168 MHz / 252 MIPS 
 - 256 KB RAM
-- 2 MB Flash \(fully accessible\)
-- 32 bit STM32F103 failsafe co-processor
-- 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
-- Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-- Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-- Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
-- Redundant power supply inputs and automatic failover
-- External safety switch
-- Multicolor LED main visual indicator
-- High-power, multi-tone piezo audio indicator
-- microSD card for high-rate logging over extended periods of time
+- 2MB 플래시 \(완전 액세스 가능\)
+- 32 비트 STM32F103 failsafe 코프로세서
+- 14 개 PWM/서보 출력(페일세이프 및 수동 오버라이드 포함 8 개, 보조, 고전력 호환 6 개)
+- 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
+- 전용 프로세서 및 독립형 전원 공급 장치(고정익 적용)로 비행중 복구 및 수동 오버라이드 통합 백업 시스템
+- 백업 시스템은 믹싱을 통합하여 일관된 자동조종장치와 수동 오버라이드 믹싱 모드를 제공합니다(고정익 적용).
+- 중복 전원공급장치 및 자동 장애 조치
+- 외부 안전 스위치
+- 다색 LED 주시각 표시기
+- 고전력 멀티톤 피에조 오디오 표시기
+- 장기간 고속 로깅용 microSD 카드
 
 <span id="stores"></span>
 
-## Where to Buy
+## 구매처
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 조립
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[큐브 배선 개요](../assembly/quick_start_cube.md)
 
-## Specifications
+## 사양
 
-### Processor
+### 프로세서
 
-- 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
+- 32 비트 STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) 코어 (FPU 포함)
 - 168 MHz / 252 MIPS 
 - 256 KB RAM
-- 2 MB Flash (fully accessible)
-- 32 bit STM32F103 failsafe co-processor
+- 2MB 플래시 (완전 액세스 가능)
+- 32 비트 STM32F103 failsafe 코프로세서
 
-### Sensors
+### 센서
 
 - TBA
 
-### Interfaces
+### 인터페이스
 
-- 5x UART (serial ports), one high-power capable, 2x with HW flow control
-- 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
+- 5x UART (직렬 포트), 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
+- 2x CAN (하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
 - Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
 - Futaba S.BUS® compatible input and output
 - PPM sum signal input
