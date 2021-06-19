@@ -5,7 +5,7 @@
 
 Pixhawk<sup>&reg;</sup> XRacer 보드 제품군은 소형 레이싱 쿼드와 비행기에 최적화되어 있습니다. [Pixfalcon](../flight_controller/pixfalcon.md)과 [Pixhawk](../flight_controller/pixhawk.md)와 달리 와이파이, 새로운 센서, 편리한 전체 서보 헤더, CAN 및 2M 플래시를 지원합니다.
 
-<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
+<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 회색" />
 
 :::tip
 이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
@@ -57,13 +57,13 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 ## 배선 다이어그램
 
-![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+![Grau setup pixracer 상단](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
+![Grau setup pixracer 하단](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
-![setup pixracer GPS](../../assets/flight_controller/pixracer/grau_setup_pixracer_gps.jpg)
+![pixracer GPS 설정](../../assets/flight_controller/pixracer/grau_setup_pixracer_gps.jpg)
 
-![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+![Grau b Pixracer FrSkyS.Port 연결](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
 
@@ -75,9 +75,9 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 ## 핀배열
 
-![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
+![Pixracer 상단 핀배열](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
-![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
+![Pixracer 하단 핀배열](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
 
@@ -204,4 +204,4 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 ## 개발진
 
-This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
+이 디자인은 Nick Arsov와 Phillip Kocmoud가 만들고, Lorenz Meier, David Sidrane와 Leonard Hall이 설계하였습니다.
