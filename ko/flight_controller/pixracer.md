@@ -71,7 +71,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 ## 커넥터
 
-모든 커넥터는 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 준수합니다. 명시되어 있지 않으면, 모든 커넥터는 JST GH입니다.
+모든 커넥터는 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 준수합니다. 명시된 것이 없으면, 모든 커넥터는 JST GH입니다.
 
 ## 핀배열
 
@@ -94,20 +94,20 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 #### GPS 포트
 
-| Pin     | Signal   | Volt  |
-| ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | I2C1 SCL | +3.3V |
-| 5 (blk) | I2C1 SDA | +3.3V |
-| 6 (blk) | GND      | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX (출력)  | +3.3V |
+| 3 (흑) | RX (입력)  | +3.3V |
+| 4 (흑) | I2C1 SCL | +3.3V |
+| 5 (흑) | I2C1 SDA | +3.3V |
+| 6 (흑) | GND      | GND   |
 
-#### FrSky Telemetry / SERIAL4
+#### FrSky 텔레메트리 / SERIAL4
 
-| Pin     | Signal   | Volt  |
+| 핀       | 신호       | 전압    |
 | ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
+| 1 (적)   | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
 | 3 (blk) | RX (IN)  | +3.3V |
 | 4 (blk) | GND      | GND   |
