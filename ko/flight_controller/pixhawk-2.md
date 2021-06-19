@@ -9,7 +9,7 @@
 
 [Hex Cube Black](http://www.proficnc.com/61-system-kits2) 비행 컨트롤러(이전의 Pixhawk 2.1)는 주로 상용 시스템 제조업체를 위한 자동조종장치입니다. [Pixhawk-project](https://pixhawk.org/) **FMUv3** 개방형 하드웨어 설계를 기반으로 [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
-![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
+![큐브 블랙](../../assets/flight_controller/cube/cube_black_hero.png)
 
 배선을 줄이고 신뢰성을 높이며 조립을 쉽게하기 위해 도메인 별 캐리어 보드와 함께 사용하도록 설계되었습니다. 예를 들어, 상용 검사 기체 캐리어보드에는 보조 컴퓨터용 연결이 포함될 수 있는 반면, 레이서 용 캐리어보드는 기체 프레임을 형성하는 ESC를 포함할 수 있습니다.
 
@@ -68,98 +68,97 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 - 5x UART (직렬 포트), 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
 - 2x CAN (하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
-- Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-- Futaba S.BUS® compatible input and output
-- PPM sum signal input
-- RSSI (PWM or voltage) input
-- I2C
+- Spektrum DSM / DSM2 / DSM-X® Satellite 호환 입력
+- Futaba S.BUS® 호환 입력 및 출력
+- PPM 합계 신호 입력
+- RSSI (PWM 또는 전압) 입력
+- I2C 
 - SPI
-- 3.3v ADC input
-- Internal microUSB port and external microUSB port extension
+- 3.3v ADC 입력
+- 내부 microUSB 포트 및 외부 microUSB 포트 확장
 
-### Power System and Protection
+### 전력 시스템 및 보호
 
-- Ideal diode controller with automatic failover
-- Servo rail high-power (max. 10V) and high-current (10A+) ready
-- All peripheral outputs over-current protected, all inputs ESD protected
+- 자동 복구 기능의 이상적인 다이오드 컨트롤러
+- ervo 레일 고출력 (최대 10V) 및 고전류 (10A +) 준비
+- 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
 
-### Voltage Ratings
+### 정격 전압
 
-Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
+Pixhawk 는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의 3중 중복이 가능합니다. 세 개의 레일은 전원 모듈 입력, 서보 레일 입력과 USB 입력입니다.
 
-#### Normal Operation Maximum Ratings
+#### 정상 작동 최대 정격 전압
 
-Under these conditions all power sources will be used in this order to power the system
+이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야합니다.
 
-- Power module input (4.8V to 5.4V)
-- Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
-- USB power input (4.8V to 5.4V)
+- 전원 모듈 입력 (4.8V ~ 5.4V)
+- 서보 레일 입력 (4.8V ~ 5.4V) **수동 오버라이드의 경우 최대 10V이지만 전력 모듈 입력이 없는 경우 자동 조종 장치 부품은 5.7V 이상에서 전원이 꺼집니다.**
+- USB 전원 입력 (4.8V ~ 5.4V)
 
-#### Absolute Maximum Ratings
+#### 절대 최대 정격 전압
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
 
-- Power module input (4.1V to 5.7V, 0V to 20V undamaged)
-- Servo rail input (4.1V to 5.7V, 0V to 20V)
-- USB power input (4.1V to 5.7V, 0V to 6V)
+- 전원 모듈 입력(4.1V ~ 5.7V, 0V ~ 20V 손상되지 않음)
+- 서보 레일 입력(4.1V ~ 5.7V, 0V ~ 20V)
+- USB 전원 입력(4.1V ~ 5.7V, 0V ~ 6V)
 
-## Pinouts and Schematics
+## 핀배열과 회로도
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
+보드 설계도와 문서는 [The Cube Project](https://github.com/proficnc/The-Cube)를 참고하십시오.
 
-## Ports
+## 포트
 
-### Top-Side (GPS, TELEM etc)
+### 위쪽 (GPS, TELEM 등)
 
-![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+![큐브 포트-상단 (GPS, TELEM 등) 및 메인/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
 <span id="serial_ports"></span>
 
-### Serial Port Mapping
+### 시리얼 포트 매핑
 
 
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | PX4IO                 |
-| UART7  | /dev/ttyS5 | CONSOLE               |
-| UART8  | /dev/ttyS6 | <!-- unknown -->      |
+| UART   | 장치         | 포트                 |
+| ------ | ---------- | ------------------ |
+| USART1 | /dev/ttyS0 | <!-- IO debug? --> |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)     |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)     |
+| UART4  | /dev/ttyS3 | GPS1               |
+| USART6 | /dev/ttyS4 | PX4IO              |
+| UART7  | /dev/ttyS5 | 콘솔                 |
+| UART8  | /dev/ttyS6 | <!-- unknown -->   |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 <!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART):  **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
-### Debug Ports
+### 디버그 포트
 
-![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
+![큐브 디버그 포트](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
-### USB/SDCard Ports
+### USB/SDCard 포트
 
-![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+![큐브 USB/SDCard 포트 ](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
 
     make px4_fmu-v3_default
     
 
-## Issues
+## 이슈
 
-CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice versa).
+Cube Black의 CAN1과 CAN2의 실크 스크린이 뒤집힙니다 (CAN1은 CAN2이고 그 반대의 경우도 마찬가지임).
 
-## Further Information/Documentation
+## 추가 정보 및 문서
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-- Cube Docs (Manufacturer): 
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+- [큐브 배선 개요](../assembly/quick_start_cube.md)
+- Cube 문서 (제조사) : 
+  - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [미니 캐리어 보드](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
