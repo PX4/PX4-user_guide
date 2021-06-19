@@ -47,15 +47,15 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 ## Wi-Fi(USB 필요 없음)
 
-One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
+보드의 주요 기능중 하나는 새 펌웨어, 시스템 설정과 기내 원격 측정을 위해 Wi-Fi를 사용할 수 있는 것입니다. 이를 통해 데스크탑 시스템이 필요없습니다.
 
-::note ToDo Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
+::note ToDo 설정 및 원격 측정이 사용 가능하며, 펌웨어 업그레이드는 기본 부트로더에서 지원되지만, 아직 활성화되지 않았습니다.
 :::
 
 * [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
-* [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
+* [맞춤형 ESP8266 MAVLink 펌웨어](https://github.com/dogmaphobic/mavesp8266)
 
-## Wiring Diagrams
+## 배선 다이어그램
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
@@ -69,11 +69,11 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-## Connectors
+## 커넥터
 
-All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
+모든 커넥터는 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 준수합니다. 명시되어 있지 않으면, 모든 커넥터는 JST GH입니다.
 
-## Pinouts
+## 핀배열
 
 ![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
@@ -81,18 +81,18 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
 
-#### TELEM1, TELEM2+OSD ports
+#### TELEM1, TELEM2+OSD 포트
 
-| Pin     | Signal    | Volt  |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX (출력)  | +3.3V |
+| 3 (흑) | RX (입력)  | +3.3V |
+| 4 (흑) | CTS (입력) | +3.3V |
+| 5 (흑) | RTS (출력) | +3.3V |
+| 6 (흑) | GND      | GND   |
 
-#### GPS port
+#### GPS 포트
 
 | Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
