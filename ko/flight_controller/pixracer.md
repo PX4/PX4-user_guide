@@ -105,104 +105,103 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 #### FrSky 텔레메트리 / SERIAL4
 
-| 핀       | 신호       | 전압    |
-| ------- | -------- | ----- |
-| 1 (적)   | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
-| 3 (blk) | RX (IN)  | +3.3V |
-| 4 (blk) | GND      | GND   |
+| 핀     | 신호      | 전압    |
+| ----- | ------- | ----- |
+| 1 (적) | VCC     | +5V   |
+| 2 (흑) | TX (출력) | +3.3V |
+| 3 (흑) | RX (입력) | +3.3V |
+| 4 (흑) | GND     | GND   |
 
-#### RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
+#### RC 입력 (PPM / S.BUS / Spektrum / SUMD / ST24 허용)
 
-| Pin     | Signal  | Volt  |
-| ------- | ------- | ----- |
-| 1 (red) | VCC     | +5V   |
-| 2 (blk) | RC IN   | +3.3V |
-| 3 (blk) | RSSI IN | +3.3V |
-| 4 (blk) | VDD 3V3 | +3.3V |
-| 5 (blk) | GND     | GND   |
+| 핀     | 신호      | 전압    |
+| ----- | ------- | ----- |
+| 1 (적) | VCC     | +5V   |
+| 2 (흑) | RC 입력   | +3.3V |
+| 3 (흑) | RSSI 입력 | +3.3V |
+| 4 (흑) | VDD 3V3 | +3.3V |
+| 5 (흑) | GND     | GND   |
 
 #### CAN
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 핀     | 신호    | 전압   |
+| ----- | ----- | ---- |
+| 1 (적) | VCC   | +5V  |
+| 2 (흑) | CAN_H | +12V |
+| 3 (흑) | CAN_L | +12V |
+| 4 (흑) | GND   | GND  |
 
-#### POWER
+#### 전원
 
-| Pin     | Signal  | Volt  |
-| ------- | ------- | ----- |
-| 1 (red) | VCC     | +5V   |
-| 2 (blk) | VCC     | +5V   |
-| 3 (blk) | CURRENT | +3.3V |
-| 4 (blk) | VOLTAGE | +3.3V |
-| 5 (blk) | GND     | GND   |
-| 6 (blk) | GND     | GND   |
+| 핀     | 신호  | 전압    |
+| ----- | --- | ----- |
+| 1 (적) | VCC | +5V   |
+| 2 (흑) | VCC | +5V   |
+| 3 (흑) | 전류  | +3.3V |
+| 4 (흑) | 전압  | +3.3V |
+| 5 (흑) | GND | GND   |
+| 6 (흑) | GND | GND   |
 
-#### SWITCH
+#### 스위치
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | SAFETY           | GND   |
-| 2 (blk) | !IO_LED_SAFETY | GND   |
-| 3 (blk) | VCC              | +3.3V |
-| 4 (blk) | BUZZER-          | -     |
-| 5 (blk) | BUZZER+          | -     |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | SAFETY           | GND   |
+| 2 (흑) | !IO_LED_SAFETY | GND   |
+| 3 (흑) | VCC              | +3.3V |
+| 4 (흑) | BUZZER-          | -     |
+| 5 (흑) | BUZZER+          | -     |
 
-#### Debug Port
+#### 디버그 포트
 
-This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+[Pixhawk 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B 커넥터)입니다.
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | VCC TARGET SHIFT | +3.3V |
-| 2 (blk) | CONSOLE TX (OUT) | +3.3V |
-| 3 (blk) | CONSOLE RX (IN)  | +3.3V |
-| 4 (blk) | SWDIO            | +3.3V |
-| 5 (blk) | SWCLK            | +3.3V |
-| 6 (blk) | GND              | GND   |
+| 핀     | 신호               | 전압    |
+| ----- | ---------------- | ----- |
+| 1 (적) | VCC TARGET SHIFT | +3.3V |
+| 2 (흑) | CONSOLE TX (출력)  | +3.3V |
+| 3 (흑) | CONSOLE RX (입력)  | +3.3V |
+| 4 (흑) | SWDIO            | +3.3V |
+| 5 (흑) | SWCLK            | +3.3V |
+| 6 (흑) | GND              | GND   |
 
-For information about wiring and using this port see:
+이 포트의 배선과 사용 정보는 다음을 참조하십시오.
 
-* [PX4 System Console](../debug/system_console.md#pixhawk_debug_port) (Note, the FMU console maps to UART7).
-* [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
+* [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port) (참고, FMU 콘솔은 UART7에 매핑됨).
+* [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | WiFi (ESP8266)        |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | WiFi (ESP8266) |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Schematics
+## 회로도
 
-The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
+참고 문서는 [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)에서 제공합니다. 
 
-The following PDF files are provided for *convenience only*:
+다음 PDF 파일은 *편의*를 위해서 제공됩니다.
 
 * [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
-* [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
+* [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 또는 RC14는 SDCard 소켓 옆에 인쇄됩니다.
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) :
 
     make px4_fmu-v4_default
     
 
-## Credits
+## 개발진
 
 This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
