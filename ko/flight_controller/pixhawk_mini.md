@@ -1,27 +1,27 @@
-# Holybro Pixhawk Mini
+# 홀리브로 Pixhawk 미니
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk. It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
+홀리브로 *Pixhawk<sup>&reg;</sup> 미니* 자동조종장치는 Pixhawk의 차세대 제품입니다. 원래 Pixhawk의 약 1/3 크기이며 더 강력한 프로세서와 센서를 제공합니다.
 
-The Pixhawk Mini is based on the PX4 open-hardware project and has been optimized for the PX4 flight stack.
+Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4 플라이트 스택에 최적화되었습니다.
 
 ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_hero.jpg)
 
-Wiring information is available [below](#wiring).
+배선 방법은 [아래](#wiring)를 참고하십시오.
 
 :::note
-This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+이 비행 컨트롤러는 HobbyKing<sup>&reg;</sup>와 3DR에서 공동으로 설계하였습니다. It was formerly known as the 3DR Pixhawk Mini.
 :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Specifications
+## 사양
 
-**Processors:**
+**프로세서:**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
