@@ -12,16 +12,16 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 배선 방법은 [아래](#wiring)를 참고하십시오.
 
 :::note
-This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>. It was formerly known as the 3DR Pixhawk Mini.
+이 비행 컨트롤러는 HobbyKing<sup>&reg;</sup>와 3DR에서 공동으로 설계하였습니다. It was formerly known as the 3DR Pixhawk Mini.
 :::
 
 :::tip
-This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+이 자동조종장치는 PX4 유지관리 및 테스트 팀에서 [지원](../flight_controller/autopilot_pixhawk_standard.md)합니다.
 :::
 
-## Specifications
+## 사양
 
-**Processors:**
+**프로세서:**
 
 - **Main Processor:** STM32F427 Rev 3
 - **IO Processor:** STM32F103
