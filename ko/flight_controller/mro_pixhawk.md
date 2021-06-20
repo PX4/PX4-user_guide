@@ -9,7 +9,7 @@
 컨트롤러는 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md)의 드롭인 교체로 사용할 수 있습니다. 가장 큰 차이점은 [Pixhawk-project](https://pixhawk.org/) **FMUv3** 개방형 하드웨어 설계를 기반인 것입니다. 이는 원래 Pixhawk 1을 1MB의 플래시로 제한 버그를 수정합니다.
 :::
 
-![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
+![mRo Pixhawk 이미지](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
 PX4 실행을 위한 조립 설정 방법은 여기를 참고하십시오. [Pixhawk 배선 개요](../assembly/quick_start_pixhawk.md)
 
@@ -54,51 +54,48 @@ PX4 실행을 위한 조립 설정 방법은 여기를 참고하십시오. [Pixh
   * 두께 : 15.5mm (.613 ")
   * 길이 : 81.5mm (3.21")
 
-## Availability
+## 유효성
 
-*  베어 본 (Bare Bones) </ 0> - 보드 만 (3DR Pixhawk 대체품으로 유용합니다)</li> 
+* [베어본 (Bare Bones)](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - 보드만(3DR Pixhawk 대체품으로 유용합니다)
+* [mRo Pixhawk 2.4.6 필수 키트](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - 텔레메트리 무선 통신을 제외한 모든 것
+*  mRo Pixhawk 2.4.6 쿨 키트 (한정판)</0> - 텔레 메 트리 라디오를 포함하여 필요한 모든 것</li> </ul> 
   
-  * [mRo Pixhawk 2.4.6 필수 키트!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - 텔레메트리 무선 통신을 제외한 모든 것
-  *  mRo Pixhawk 2.4.6 쿨 키트! (한정판) </ 0> - 텔레 메 트리 라디오를 포함하여 필요한 모든 것</li> </ul> 
-    
-    ## Building Firmware
-    
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+  ## 펌웨어 빌드
+  
+  ::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
-    
-    To [build PX4](../dev_setup/building_px4.md) for this target:
-    
-        make px4_fmu-v3_default
-        
-    
-    ## Debug Ports
-    
-    See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
-    
-    ## Pinouts
-    
-    See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
-    
-    ## Serial Port Mapping
-    
-    | UART   | Device     | Port                  |
-    | ------ | ---------- | --------------------- |
-    | UART1  | /dev/ttyS0 | IO debug              |
-    | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-    | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-    | UART4  |            |                       |
-    | UART7  | CONSOLE    |                       |
-    | UART8  | SERIAL4    |                       |
-    
-    <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-    
-    ## Schematics
-    
-    The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
-    
-    *  FMUv3 schematic </ 0> - 회로도 및 레이아웃</li> </ul> 
+  
+  이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+  
+      make px4_fmu-v3_default
       
-:::note
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+  
+  ## 디버그 포트
+  
+  [3DR Pixhawk 1 &gt; 디버그 포트](../flight_controller/pixhawk.md#debug-ports)를 참고하십시오.
+  
+  ## 핀배열
+  
+  [3DR Pixhawk 1 &gt; 핀배열](../flight_controller/pixhawk.md#pinouts)을 참고하십시오.
+  
+  ## 시리얼 포트 매핑
+  
+  | UART   | 장치         | 포트             |
+  | ------ | ---------- | -------------- |
+  | UART1  | /dev/ttyS0 | IO 디버그         |
+  | USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+  | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+  | UART4  |            |                |
+  | UART7  | 콘솔         |                |
+  | UART8  | SERIAL4    |                |
+  
+  <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+  
+  ## 회로도
+  
+  이 보드는 [ Pixhawk-project](https://pixhawk.org/) **FMUv3** 오픈 하드웨어 디자인을 기반으로합니다.
+  
+  * [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) - 회로도 및 레이아웃
+  
+  :::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 :::
