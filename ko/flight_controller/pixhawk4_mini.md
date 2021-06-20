@@ -61,7 +61,7 @@
 
 ## 핀배열
 
-*Pixhawk 4 미니* 핀배열은 [여기](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf)에서 다운로드 합니다.
+*Pixhawk 4 미니* 핀배열은 [여기](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf)에서 다운로드 하십시오.
 
 ## 크기
 
