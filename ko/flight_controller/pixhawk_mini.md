@@ -225,60 +225,60 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
-The *Pixhawk Mini* is powered through the **PM** port. When using a power module (as in this case) the port will also read analog voltage and current measurements.
+**전원 모듈** 포트를 통해 *Pixhawk 미니*에 전원이 공급됩니다. 전원 모듈 시용시 포트를 통하여 아날로그 전압과 전류를 측정합니다.
 
-Up to 4 ESCs can be separately powered from the power distribution board (though in this case we only have one connected).
+배전반에서 최대 4 개의 ESC에 개별적으로 전원을 공급할 수 있습니다 (이 경우 하나만 연결되어 있음).
 
-The control signals come from MAIN OUT. In this case there is only one control channel, which is connected to the ESC via the *8 Channel PWM Breakout Board*.
+제어 신호는 MAIN OUT에서 나옵니다. *8 채널 PWM 브레이크아웃 보드*를 통해 ESC에 연결된 제어 채널이 하나뿐입니다.
 
-The Pixhawk Mini output rail (MAIN OUT) cannot power attached devices (and does not need to in the circuit as shown). For vehicles where MAIN OUT is attached to devices that draw power (e.g. a servo used in a plane) then you will need to power the rail using a BEC (battery elimination circuit). The included breakout board allows one channel to provide power on the other outputs.
+Pixhawk 미니 출력 레일 (MAIN OUT)은 연결된 장치에 전원을 공급할 수 없습니다(그림과 같이 회로에 필요하지 않음). MAIN OUT이 전력을 끌어 오는 장치(예 : 비행기에서 사용되는 서보)에 연결된 차량의 경우 BEC (배터리 제거 회로)를 사용하여 레일에 전원을 공급하여야 합니다. 브레이크아웃 보드를 통해 한 채널이 다른 출력에 전원을 공급할 수 있습니다.
 
-### Radio Control
+### 무선 조종
 
-Pixhawk Mini supports many different radio receiver models:
+Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
-- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
+- Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결하여야 합니다.
   
     <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
-- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+- PPM-SUM과 S.버스 수신기는 **RCIN** 포트에 연결합니다.
   
     <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시**RCIN**포트에 *PPM 인코더를 통하여* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+무선 시스템 선택, 수신기 호환성 및 송신기/수신기 바인딩에 대한 자세한 내용은 다음을 참고하십시오. [ 원격 제어 송신기 & 수신기](../getting_started/rc_transmitter_receiver.md).
 
-### Safety switch (optional)
+### 안전 스위치(선택 사항)
 
-The controller has an integrated safety switch that you can use for motor activation once the autopilot is ready to take off. If this switch is hard to access on a particular vehicle you can attach the (optional) external safety button, as shown below.
+컨트롤러에는 자동조종장치가 이륙 준비가 되면 모터 활성화를 위한 안전 스위치가 있습니다. 특정 기체에서 이 스위치에 접근하기 어려운 경우에는 아래와 같이 외부 안전 버튼(선택 사항)을 장착할 수 있습니다.
 
 ![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
 
-### Telemetry Radios
+### 텔레메트리 무선 통신
 
-### Motors
+### 모터
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+지원되는 모든 기체의 MAIN/AUX 출력 포트와 모터/서보 간의 매핑은 [기체 정의서](../airframes/airframe_reference.md)에 기술되어 있습니다.
 
 :::caution
-The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+매핑이 프레임간에 일관되지 않습니다 (예 : 모든 평면 프레임에 대해 동일한 출력에있는 스로틀에 의존 할 수 없음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 제대로 연결하였는지 다시 한 번 확인하십시오.
 :::
 
 :::tip
-If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+프레임이 기체 참조 목록에 없으면, 올바른 유형의 "일반"기체를 사용하십시오.
 :::
 
-Notes:
+참고:
 
-* The output rail must be separately powered, as discussed in the [Power](#power) section above.
-* Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
+* 출력 레일은 위의 [전원](#power) 섹션에 설명과 같이 별도의 전원이 공급되어야 합니다.
+* Pixhawk 미니는 QuadPlane VTOL 기체에 사용할 수 없습니다. 이는 QuadPlane에 9 개의 출력(메인 4 개, AUX 5 개)이 필요하고, Pixhawk 미니에는 8 개의 출력 (8 메인)만 필요하기 때문입니다.
 
 <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
-### Other Peripherals
+### 기타 주변 장치
 
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
+선택적인 주변 장치의 배선과 설정은 개별 [주변 장치](../peripherals/README.md)에서 기술합니다.
 
 ### Configuration
 
