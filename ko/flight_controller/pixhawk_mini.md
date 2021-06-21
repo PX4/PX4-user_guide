@@ -156,11 +156,11 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 
 ### Pixhawk 미니와 Pixfalcon 비교
 
-- Improved sensors, both primary and secondary IMU MPU9250 and ICM20608 respectively. Expect better vibration handling and reliability.
-- CAN interface for UAVCAN support.
-- Includes 8-channel breakout servo rail for planes and other vehicles requiring powered PWM output.
-- Includes I2C breakout board for a total of 5 I2C connections.
-- Similar size.
+- 1차 및 2차 IMU MPU9250 및 ICM20608 개선된 센서. 더 나은 진동 처리와 신뢰성을 기대하십시오.
+- UAVCAN 지원 CAN 인터페이스.
+- 전력 PWM 출력이 필요한 비행기와 기타 차량용 8 채널 브레이크아웃 서보 레일이 포함되어 있습니다.
+- 총 5 개의 I2C 연결용 I2C 브레이크아웃 보드를 포함합니다.
+- 유사 크기.
 
 Pixhawk Mini features an advanced processor and sensor technology from ST Microelectronics® and a NuttX real-time operating system, delivering excellent performance, flexibility, and reliability for controlling any autonomous vehicle.
 
