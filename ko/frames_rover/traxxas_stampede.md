@@ -33,7 +33,8 @@
 로버와 함께 제공된 클립을 사용하여 상부 플레이트를 부착하였습니다. 두 개의 지지대가 3D 인쇄되었습니다. CAD 파일은 [여기](https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/rover/traxxas_stampede_vxl/plane_holders.zip)에서 제공됩니다.
 
 :::warning
-훈련 모드에서 ESC를 설정하는 것을 **적극 권장</ 0>하며 (Traxxas Stampede 매뉴얼 참조) 전력을 50 %로 줄입니다. :::</p> 
+훈련 모드에서 ESC를 설정하는 것을 **적극 권장**하며 (Traxxas Stampede 매뉴얼 참조) 전력을 50 %로 줄입니다.
+:::
 
 ## 출력 연결
 
@@ -43,7 +44,7 @@
 | MAIN4  | Throttle (ESC input) |
 
 :::note
-As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle).
+[여기에있는 Airframe 참조](../airframes/airframe_reference.md#rover_rover_generic_ground_vehicle)에 설명되어 있습니다.
 :::
 
 ## 설정
