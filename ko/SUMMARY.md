@@ -187,7 +187,7 @@
       * [ModalAI 플라이트 코어 v1](flight_controller/modalai_fc_v1.md)
       * [ModalAI VOXL Flight](flight_controller/modalai_voxl_flight.md)
       * [SPRacing SPRacingH7EXTREME](flight_controller/spracingh7extreme.md)
-    * [시험단계 자동비행장치](flight_controller/autopilot_experimental.md) 
+    * [실험중인 자동비행장치](flight_controller/autopilot_experimental.md) 
       * [비글본 블루](flight_controller/beaglebone_blue.md)
       * [큐브 오렌지 (큐브파일럿)](flight_controller/cubepilot_cube_orange.md)
       * [큐브 옐로 (큐브파일럿)](flight_controller/cubepilot_cube_yellow.md)
