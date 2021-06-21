@@ -213,14 +213,14 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 참고 - 두 포트를 모두 표시하는 삽입 이미지? 또는 GPS & I2C의 전면 이미지
 
-나침반은 최초 사용전에 보정해야합니다. [나침반 보정](../config/compass.md)
+나침반은 최초 사용전에 [보정](../config/compass.md)하여야 합니다. 
 
 ### 전원
 
-The image below shows typical power-supply wiring when using *Pixhawk Mini* in a Quadcopter. This uses the *Quad Power Distribution Board* that comes in the kit to supply both the Pixhawk Mini and the ESC/Motor from the battery (and can also power other accessories).
+아래의 이미지는 쿼드콥터에서 *Pixhawk 미니*를 사용시 일반적인 전원 배선을 나타냅니다. 키트에 포함 된 *쿼드 배전 보드*를 사용하여 배터리에서 Pixhawk 미니와 ESC/모터에 전원을 공급합니다. 다른 액세서리에도 전원을 공급할 수 있습니다.
 
 :::note
-The *Quad Power Distribution Board* includes a power module (PM) that is suitable for batteries <= 4S. The *3DR 10S Power Module* (Discontinued) is recommended if you need more power.
+*쿼드 배전반*에는 4S 이하의 배터리에 적합한 전원 모듈(PM)이 포함되어 있습니다. 더 많은 전력이 필요한 경우에는 *3DR 10S 전원 모듈*(단종)을 권장합니다.
 :::
 
 ![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
