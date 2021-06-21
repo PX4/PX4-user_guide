@@ -28,52 +28,52 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 
 **센서:**
 
-- **Accel/Gyro/Mag:** MPU9250 
-  - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
-- **Accel/Gyro:** ICM20608
-- **Barometer:** MS5611
+- **가속/자이로/자력:** MPU9250 
+  - PX4 펌웨어에서 [지원 중단](https://github.com/PX4/PX4-Autopilot/pull/7618)
+- **가속/자이로:** ICM20608
+- **기압계:** MS5611
 
-**Voltage ratings:**
+**정격 전압:**
 
-- **Power module output:** 4.1\~5.5V
-- **Max input voltage:** 45V (10S LiPo)
-- **Max current sensing:** 90A
-- **USB Power Input:** 4.1\`5.5V
-- **Servo Rail Input:** 0\~10V
+- **전원 모듈 출력:** 4.1\~5.5V
+- **최대 입력 전압:** 45V (10S LiPo)
+- **최대 전류 감지:** 90A
+- **USB 전원 입력:** 4.1\`5.5V
+- **서보 레일 입력:** 0\~10V
 
-**Interfaces:**
+**인터페이스:**
 
-- 1 x UART Serial Port (for GPS)
-- Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
-- Futaba S BUS® Compatible RC input
-- PPM Sum Signal RC Input
-- I2C (for digital sensors)
-- CAN (for digital motor control with compatible controllers)
-- ADC (for analog sensors)
-- Micro USB Port
+- UART 직렬 포트 (GPS 용) 1개
+- Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력
+- Futaba S BUS® 호환 RC 입력
+- PPM 합계 신호 RC 입력
+- I2C (디지털 센서용)
+- CAN (호환 컨트롤러 디지털 모터 제어용)
+- ADC (아날로그 센서용)
+- 마이크로 USB 소켓
 
-**Weight and dimensions:**
+**무게와 크기 :**
 
-- **Dimensions:** 38x43x12mm
-- **Weight:** 15.8g
+- **크기:** 38x43x12mm
+- **중량:** 15.8g
 
-**GPS module (supplied with kit):**
+**GPS 모듈 (키트와 함께 제공) :**
 
-- **GNSS receiver:** u-blox<sup>&reg;</sup> Neo-M8N; compass HMC5983
-- **Weight:** 22.4g
-- **Dimensions:** 37x37x12mm
+- **GNSS 수신기:** u-blox<sup>&reg;</sup> Neo-M8N; 나침반 HMC5983
+- **중량:** 22.4g
+- **크기:** 37x37x12mm
 
-## Purchase
+## 구매처
 
 [shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
 
-## Connector assignments
+## 커넥터 할당
 
 `<To be added>`
 
-## Features
+## 특징
 
-Key features of the Pixhawk Mini are:
+Pixhawk 미니의 주요 특징은 다음과 같습니다.
 
 - Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 - 8 PWM/servo outputs
