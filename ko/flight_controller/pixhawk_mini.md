@@ -144,17 +144,17 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 
 ## 제품 비교
 
-### Pixhawk 미니와 Pixhawk (원본)
+### Pixhawk 미니와 Pixhawk(원본) 비교
 
 - 크기의 1/3 - 50x81.5x15.5mm에서 38x43x12mm까지.
 - 2MB 플래시 메모리를 최대한 활용하기위한 Rev 3 프로세서.
 - 1차 및 2차 IMU MPU9250 및 ICM20608 모두 개선된 센서. 안정적인 비행과 내비게이션이 가능합니다.
 - GPS + 나침반 모듈이 포함되어 있습니다. GLONASS를 지원하는 Neo M8N이 특징입니다. 나침반 HMC5983. 더 빠르고 강력한 GPS 잠금을 기대하십시오.
 - DF-13 대체 마이크로 JST 커넥터. 작업이 훨씬 용이합니다.
-- Integrated piezo speaker and safety switch.
-- Natively supports 4S batteries with the included PDB.
+- 통합 피에조 스피커 및 안전 스위치.
+- 기본적으로 포함된 PDB로 4S 배터리를 지원합니다.
 
-### Pixhawk Mini vs Pixfalcon
+### Pixhawk 미니와 Pixfalcon 비교
 
 - Improved sensors, both primary and secondary IMU MPU9250 and ICM20608 respectively. Expect better vibration handling and reliability.
 - CAN interface for UAVCAN support.
