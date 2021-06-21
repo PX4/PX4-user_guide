@@ -1,19 +1,19 @@
-# CUAV X7 Flight Controller
+# CUAV X7 비행 컨트롤러
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.cuav.net)에 문의하십시오.
 :::
 
-The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+[CUAV X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> 비행 컨트롤러는 고성능 자동조종장치입니다. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상업용 제조업체에 공급됩니다.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
-The flight controller adopts a modular design and can be matched with different base plates. You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board). CUAV has also provided a variety of carrier boards for you to choose from.
+모듈식 설계를 채택하고 다른베이스 플레이트와 일치시킬 수 있습니다. 상용 시스템의 통합을 개선하고, 배선을 줄이며, 시스템 안정성을 개선하고, UAV 경쟁력을 향상시키기 위해 UAV용 전용 캐리어 보드를 설계할 수 있습니다 (예 : 캐리어 보드에 대기 속도 센서, 원격 측정 또는 보조 컴퓨터 통합). CUAV는 선택할 수있는 다양한 캐리어 보드를 제공합니다.
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Features
+## 특징
 
 * Internal shock absorption
 * Modular design, can be DIY carrier board
