@@ -1,20 +1,20 @@
 # BlueROV2 (UUV)
 
-The [BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2) is an affordable high-performance underwater vehicle that is perfect for inspections, research, and adventuring.
+[BlueROV2](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/BlueROV2)는 검사, 연구와 탐사에 적절한 경제적인 고성능 수중 차량입니다.
 
-PX4 provides [experimental support](README.md) for an 8-thrust vectored configuration, known as the *BlueROV2 Heavy Configuration*.
+PX4는 *BlueROV2 Heavy Configuration*으로 알려진 8 추력 벡터 설정에 대한 [실험적 지원](README.md)을 제공합니다.
 
 ![Hero](../../assets/airframes/sub/bluerov/bluerov_hero.jpg)
 
 
-## Purchase
+## 구매처
 
 [BlueROV2](https://bluerobotics.com/store/rov/bluerov2/) + [BlueROV2 Heavy Configuration Retrofit Kit](https://bluerobotics.com/store/rov/bluerov2-upgrade-kits/brov2-heavy-retrofit-r1-rp/)
 
 
-### Motor Mapping/Wiring
+### 모터 매핑과 배선
 
-The motors must be wired to the flight controller following the standard instructions supplied by BlueRobotics for this vehicle .
+모터는 BlueRobotics의 표준 지침에 따라 비행 컨트롤러에 연결되어야 합니다.
 
 The vehicle will then match the configuration documented in the [Airframe Reference](../airframes/airframe_reference.md#vectored-6-dof-uuv):
 
