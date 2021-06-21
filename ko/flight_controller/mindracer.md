@@ -49,7 +49,7 @@ MindRacer는 SEP(납땜 제거 포트) 및 WEP(배선 제거 프로토콜) 개�
 
 ### 핀배열 지도
 
-![Mindracer pinout](../../assets/hardware/hardware-mindracer-pinout.png)
+![Mindracer 핀배열](../../assets/hardware/hardware-mindracer-pinout.png)
 
 ### 빌드 방법
 
@@ -65,22 +65,22 @@ make airmind_mindpx-v2_default
 
 MindRacer에는 Adapt IO 보드가 부착되어 있습니다.
 
-![Attached Adapt IO board](../../assets/hardware/hardware-mindracer-conn.png)
+![부착된 Adapt IO 보드](../../assets/hardware/hardware-mindracer-conn.png)
 
-MindRacer에는 UART-USB 변환기가 내장되어 있습니다. 보조 컴퓨터를 연결하려면 인터페이스 보드에 MindRacer를 쌓고 보조 컴퓨터를 인터페이스 보드의 USB 포트에 연결합니다.
+MindRacer에는 UART-USB 변환기가 내장되어 있습니다. 보조 컴퓨터를 연결하려면 인터페이스 보드에 MindRacer를 적재후, 보조 컴퓨터를 인터페이스 보드의 USB 포트에 연결합니다.
 
-And the max BAUD rate is the same with px4 family, which is up to 921600.
+그리고, 최대 BAUD 속도는 px4 제품군과 동일하며 최대 921600입니다.
 
-### User Guide
+### 사용자 가이드
 
 :::note
-The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
+사용자 가이드는 [여기](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)를 참고하십시오
 :::
 
-## Where to Buy
+## 구매처
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon <sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
-## Support
+## 지원
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 [support@mindpx.net](mailto::support@mindpx.net)에 이메일을 보내십시오.
