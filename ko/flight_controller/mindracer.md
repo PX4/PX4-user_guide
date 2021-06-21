@@ -8,7 +8,7 @@ AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) 시리즈는 미니어처
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
 :::note
-이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
 ## 요약
