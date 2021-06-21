@@ -5,7 +5,8 @@
 
 AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) 시리즈는 Pixhawk<sup>&reg;</sup>에서 분기된 차세대 자동조종장치입니다.
 
-![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
+![MindPX 콘트롤러
+](../../assets/hardware/hardware-mindpx.png)
 
 :::note
 이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
@@ -36,85 +37,84 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
   
   * CNC 가공 가볍고 견고한 알루미늄 합금 케이스
   * 내장 IMU 이중화 내장
-  * 총 16 개의 PWM 출력 채널 (8 main + 8 aux)
-  * 플로우 연결을위한 여분의 I2C 포트 1 개.
-  * 컴패니언 컴퓨터 연결 용 추가 USB 포트 1 개 (내장 UART-USB 변환기)
-  * 개발 용으로 공개 된 디버그 포트 
+  * 총 16개의 PWM 출력 채널 (8 메인 + 8 보조)
+  * 플로우 연결을 위한 여분의 I2C 포트 1 개.
+  * 보조 컴퓨터 연결 용 추가 USB 포트 1 개(내장 UART-USB 변환기)
+  * 개발용 공개 디버그 포트 
 
-## 퀵 스타트
+## 빠른 시작
 
-### 설치
+### 장착
 
 ![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
 
-### Wiring
+### 배선
 
 ![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
 ![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
-### Pin
+### 핀
 
 ![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
-| Num. |    Description    | Num. |                 Description                 |
-|:----:|:-----------------:|:----:|:-------------------------------------------:|
-|  1   |       Power       |  9   |               I2C2 (MindFLow)               |
-|  2   | 디버그 (부트 로더 새로 고침) |  10  |              USB2 (직렬 2 - USB)              |
-|  3   | USB1 (펌웨어 새로 고침)  |  11  |                   UART4,5                   |
-|  4   |       다시 놓기       |  12  | UART1 (Telemetry) Context | Request Context |
-|  5   |    UART3 (GPS)    |  13  |                    할수있다                     |
-|  6   |   I2C1 (외부 나침반)   |  14  |                     ADC                     |
-|  7   |     TF 카드 슬롯      |  15  |                    삼색 빛                     |
-|  8   | NRF / SPI (원격 제어) |  16  |                     자벌레                     |
+| 번호. |        설명        | 번호. |                   설명                    |
+|:---:|:----------------:|:---:|:---------------------------------------:|
+|  1  |        전원        |  9  |             I2C2 (MindFLow)             |
+|  2  | 디버그 (부트로더 새로 고침) | 10  |            USB2 (직렬 2 - USB)            |
+|  3  | USB1 (펌웨어 새로 고침) | 11  |                 UART4,5                 |
+|  4  |       재설정        | 12  | UART1 (텔레메트리) Context | Request Context |
+|  5  |   UART3 (GPS)    | 13  |                   CAN                   |
+|  6  |  I2C1 (외부 나침반)   | 14  |                   ADC                   |
+|  7  |     TF 카드 슬롯     | 15  |                   삼색등                   |
+|  8  |  NRF/SPI(원격 제어)  | 16  |                 Looper                  |
 
 ### 라디오 수신기
 
-MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX. MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port.
+MindPX는 PPM/SBUS/DSM/DSM2/DSMX를 포함한 다양한 무선 수신기를 V2.6부터 지원합니다. MindPX는 FrSky<sup>&reg;</sup> 양방향 텔레메트리 D와 S.Port도 지원합니다.
 
-For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+자세한 핀 다이어그램은 [사용 설명서](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf)를 참조하십시오
 
-### Building Firmware
+### 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make airmind_mindpx-v2_default
     
 
-### 컴패니언 PC 연결
+### 보조 컴퓨터 PC 연결
 
-MindPX has a USB-TO-UART Bridge IC on the board. A micro-USB to USB type A cable is used for the connection. Connect micro-USB end to the 'OBC' port of MindPX and USB type A end to companion computer.
+MindPX에는 보드에는 USB-TO-UART 브리지 IC가 있습니다. 마이크로 USB-USB A형 케이블로 연결합니다. 마이크로 USB 끝을 MindPX의 'OBC'포트에 연결하고, USB 유형 A 끝을 보조 컴퓨터에 연결합니다.
 
-And the max BAUD rate is the same with px4 family, which is up to 921600.
+그리고, 최대 BAUD 속도는 px4 제품군과 동일하며 최대 921600입니다.
 
-## User Guide
+## 사용자 가이드
 
 :::note
-The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
+사용자 가이드는 [여기](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf)를 참고하십시오.
 :::
 
-## Where to Buy
+## 구매처
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon <sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port          |
-| ------ | ---------- | ------------- |
-| USART1 | /dev/ttyS0 | RC            |
-| USART2 | /dev/ttyS1 | TELEM1        |
-| USART3 | /dev/ttyS2 | TELEM2        |
-| UART4  | /dev/ttyS3 | GPS1          |
-| USART6 | /dev/ttyS4 | ?             |
-| UART7  | /dev/ttyS5 | Debug Console |
-| UART8  | /dev/ttyS6 | ?             |
+| UART   | 장치         | 포트     |
+| ------ | ---------- | ------ |
+| USART1 | /dev/ttyS0 | RC     |
+| USART2 | /dev/ttyS1 | TELEM1 |
+| USART3 | /dev/ttyS2 | TELEM2 |
+| UART4  | /dev/ttyS3 | GPS1   |
+| USART6 | /dev/ttyS4 | ?      |
+| UART7  | /dev/ttyS5 | 디버깅 콘솔 |
+| UART8  | /dev/ttyS6 | ?      |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Support
+## 지원
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+자세한 내용은 http://www.mindpx.org를 참고하십시오. 문의 사항이나 도움이 필요한 경우에는 <support@mindpx.net>에 이메일을 보내십시오.
