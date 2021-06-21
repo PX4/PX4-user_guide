@@ -1,17 +1,17 @@
-# MindRacer Hardware
+# MindRacer 하드웨어
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](http://mindpx.net)에 문의하십시오.
 :::
 
-The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs. The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
+AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) 시리즈는 미니어처 UAV를위한 완전 스택형 비행 *플랫폼*입니다. 현재 플랫폼에는 [MindRacer 210](../complete_vehicles/mindracer210.md)과 [NanoMind 110](../complete_vehicles/nanomind110.md)의 두 가지 RTF 기체가 있습니다.
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체에서 지원](../flight_controller/autopilot_manufacturer_supported.md)합니다.
 :::
 
-## Quick Summary
+## 요약
 
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a *platform* rather than a flight controller.
 
