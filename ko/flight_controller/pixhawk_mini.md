@@ -7,7 +7,7 @@
 
 Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4 플라이트 스택에 최적화되었습니다.
 
-![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_hero.jpg)
+![픽스호크 미니](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_hero.jpg)
 
 배선 방법은 [여기](#wiring)를 참고하십시오.
 
@@ -99,21 +99,21 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 
 *Pixhawk 미니</ 0>는 다음 내용물과 함께 배송됩니다.</p> 
 
-| 부품                                | 이미지                                                                                                                                  |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 픽스호크 미니 자동항법장치                    | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
-| GPS 모듈                            | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
-| 쿼드 배전 보드                          | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
-| 8 채널 PWM 브레이크 아웃 보드               | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
-| 4 핀 케이블 (I2C 용)                   | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
-| PPM/SBUS용 RC-in 케이블               | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
-| GPS 및 추가 I2C 장치용 6 ~ 6/4 ‘Y’ 어댑터  | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
-| 6 핀 케이블 (2) (배전반 및 나침반/gps 용)     | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
-| 레거시 원격 측정 라디오를 위한 6 핀 JST-DF13    | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
-| 안전 스위치                            | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
-| 8 채널 PWM 브레이크아웃 케이블               | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
-| 장착 폼                              | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
-| I2C 브레이크 아웃 보드? - 유인물에 나열되지 않은 부품 | -                                                                                                                                    |
+| 부품                                | 이미지                                                                                                                      |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 픽스호크 미니 자동항법장치                    | ![픽스호크 미니](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                         |
+| GPS 모듈                            | ![Compass + GPS 모듈](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                        |
+| 쿼드 배전 보드                          | ![쿼드 배전 보드](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png)          |
+| 8 채널 PWM 브레이크 아웃 보드               | ![8 채널 PWM 브레이크아웃 보드](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png) |
+| 4 핀 케이블 (I2C 용)                   | ![4핀 케이블 (I2C 용)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                      |
+| PPM/SBUS용 RC-in 케이블               | ![PPM/SBUS용 RC-in 케이블](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                 |
+| GPS 및 추가 I2C 장치용 6 ~ 6/4 ‘Y’ 어댑터  | ![6 ~ 6/4‘Y’ 어댑터](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)         |
+| 6 핀 케이블 (2) (배전반 및 나침반/gps 용)     | ![6 핀 케이블](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                             |
+| 레거시 원격 측정 라디오를 위한 6 핀 JST-DF13    | ![6 핀 JST-DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)             |
+| 안전 스위치                            | ![안전 스위치](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                            |
+| 8 채널 PWM 브레이크아웃 케이블               | ![8 채널 PWM 브레이크아웃 케이블](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png) |
+| 장착 폼                              | ![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                             |
+| I2C 브레이크 아웃 보드? - 유인물에 나열되지 않은 부품 | -                                                                                                                        |
    
 
 ## 옵션 액세서리
@@ -140,7 +140,7 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 
 ## 커넥터 핀 할당(핀 배열)
 
-![Pixhawk Mini - Connector Pinouts](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_pinout.png)
+![Pixhawk 미니 - 커넥터 핀아웃](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_pinout.png)
 
 ## 제품 비교
 
@@ -187,7 +187,7 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 아래 이미지는 *Pixhawk Mini Kit* 및 3DR Telemetry Radio를 사용하는 표준 *쿼드콥터* 배선을 나타냅니다 (ESC, 모터, 배터리 및 폰에서 실행되는 지상제어국 포함). 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
 
-![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
+![QAV250용 Pixhawk Mini 전자 배선(오프 프레임)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
 :::note
 출력 배선/전원은 차량 유형에 따라 약간의 차이가 있습니다. VTOL, Plane, Copter에 대해서는 아래에서 자세히 설명합니다.
@@ -197,9 +197,9 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 *Pixhawk 미니*는 진동 감쇠 폼 패드(키트에 포함)사용하여 프레임에 장착하여야 합니다. 기체의 무게 중심에 최대한 가깝게, 화살표가 차량 전면과 위쪽 방향을 향하여야 합니다.
 
-![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
+![Pixhawk Mini 추천 방향](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
-![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
+![장착 폼](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::note
 컨트롤러를 권장/기본 방향으로 장착하기 어려운 경우에는 (예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에 설정하여야 합니다([기체 콘트롤러 방향 ](../config/flight_controller_orientation.md) 참고).
@@ -209,7 +209,7 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 
 제공된 6핀 케이블을 사용하여 3DR GPS + Compass를 Pixhawk 미니의 **GPS & I2C** 포트(오른쪽 상단)에 연결합니다. GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착해야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
-![Connecting compass/GPS to Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
+![Pixhawk 미니에 나침반/GPS 연결](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
 
 참고 - 두 포트를 모두 표시하는 삽입 이미지? 또는 GPS & I2C의 전면 이미지
 
@@ -223,7 +223,7 @@ This quick start guide shows how power the [Pixhawk Mini](../flight_controller/p
 *쿼드 배전반*에는 4S 이하의 배터리에 적합한 전원 모듈(PM)이 포함되어 있습니다. 더 많은 전력이 필요한 경우에는 *3DR 10S 전원 모듈*(단종)을 권장합니다.
 :::
 
-![Pixhawk Mini - Powering](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
+![Pixhawk 미니 - 전원 공급](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_powering_quad_board.jpg)
 
 **전원 모듈** 포트를 통해 *Pixhawk 미니*에 전원이 공급됩니다. 전원 모듈 시용시 포트를 통하여 아날로그 전압과 전류를 측정합니다.
 
@@ -239,11 +239,11 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
 - Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결하여야 합니다.
   
-    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
+    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk  미니 - Spektrum 수신기용 라디오 포트" />
 
 - PPM-SUM과 S.버스 수신기는 **RCIN** 포트에 연결합니다.
   
-    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
+    <img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk  미니 - PPM 수신기용 라디오 포트" />
 
 - *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시**RCIN**포트에 *PPM 인코더를 통하여* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결하여야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
 
@@ -253,7 +253,7 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 
 컨트롤러에는 자동조종장치가 이륙 준비가 되면 모터 활성화를 위한 안전 스위치가 있습니다. 특정 기체에서 이 스위치에 접근하기 어려운 경우에는 아래와 같이 외부 안전 버튼(선택 사항)을 장착할 수 있습니다.
 
-![Pixhawk Mini - Optional Switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
+![Pixhawk 미니 - 선택 사항 스위치](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_wiring.jpg) 
 
 ### 텔레메트리 무선 통신
 
@@ -274,31 +274,30 @@ Pixhawk 미니는 다양한 무선 수신기 모델을 지원합니다.
 * 출력 레일은 위의 [전원](#power) 섹션에 설명과 같이 별도의 전원이 공급되어야 합니다.
 * Pixhawk 미니는 QuadPlane VTOL 기체에 사용할 수 없습니다. 이는 QuadPlane에 9 개의 출력(메인 4 개, AUX 5 개)이 필요하고, Pixhawk 미니에는 8 개의 출력 (8 메인)만 필요하기 때문입니다.
 
-<img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
+<img src="../../assets/flight_controller/pixhawk_mini/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk 미니 - 모터/서보용 포트" />
 
 ### 기타 주변 장치
 
 선택적인 주변 장치의 배선과 설정은 개별 [주변 장치](../peripherals/README.md)에서 기술합니다.
 
-### Configuration
+### 설정
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+더 자세한 일반 설정 방법은 [자동항법장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make px4_fmu-v3_default
     
 
-## Debug Port
+## 디버그 포트
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md).
+이 보드에는 디버그 포트가 없습니다 (즉, [시스템 콘솔](../debug/system_console.md) 또는 [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md) 접근 포트가 없습니다.
 
-Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
+개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.
