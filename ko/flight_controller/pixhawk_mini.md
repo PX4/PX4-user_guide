@@ -162,52 +162,52 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 - 총 5 개의 I2C 연결용 I2C 브레이크아웃 보드를 포함합니다.
 - 유사 크기.
 
-Pixhawk Mini features an advanced processor and sensor technology from ST Microelectronics® and a NuttX real-time operating system, delivering excellent performance, flexibility, and reliability for controlling any autonomous vehicle.
+Pixhawk 미니는 ST Microelectronics®의 고급 프로세서 및 센서 기술과 NuttX 실시간 운영체제로 자율 주행 차량을 제어에 뛰어난 성능, 유연성 및 안정성을 제공합니다.
 
-## Known issues
+## 알려진 문제
 
-- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable. 
-  - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609).
-  - To check whether a specific board is affected or not, leave the board disconnected for some time, then power it on and try to start the mpu9250 driver from the PX4 command line. If the board is affected, the driver will not start.
-  - The MPU9250 is [disabled by default](https://github.com/PX4/PX4-Autopilot/pull/7618) on the PX4 firmware.
-  - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
-  - When using an external GPS, [this is not a problem](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
+- 일부 Pixhawk 미니에는 내부 MPU9250 IMU를 신뢰할 수 없게 만드는 [하드웨어 결함](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917)이 있습니다. 
+  - 이 문제는 [제조업체에 의해 수정되었으며](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609), 이전 하드웨어 버전에만 존재합니다.
+  - 특정 보드가 영향 여부를 확인하려면, 보드를 잠시 분리한 상태에서 전원을 켜고 PX4 명령 줄에서 mpu9250 드라이버를 시작하십시오. 보드가 영향을 받으면, 드라이버가 시작되지 않습니다.
+  - MPU9250은 PX4 펌웨어에서 [기본적으로 비활성화되어 있습니다](https://github.com/PX4/PX4-Autopilot/pull/7618).
+  - 결함이 존재하는 Pixhawk 미니는 실내에서도 외부 자력계 또는 부착된 GPS 없이는 보정되지 않습니다.
+  - 외부 GPS를 사용하는 경우 보조 ICM20608은 가속도계와 자이로를 제공하고 외부 GPS는 자력계를 제공하므로 [문제가 되지않습니다](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082).
 
 <span id="wiring"></span>
 
-## Wiring Quick Start
+## 배선 개요
 
 :::warning
-The *Pixhawk Mini* is no longer manufactured or available from 3DR.
+*Pixhawk 미니*는 더 이상 3DR에서 제조되거나 제공되지 않습니다.
 :::
 
 This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals.
 
-### Standard Wiring Chart
+### 배선 개요 챠트
 
-The image below shows standard *quadcopter* wiring using the *Pixhawk Mini Kit* and 3DR Telemetry Radios (along with ESC, motor, battery and a ground control station running on a phone). We'll go through each main part in the following sections.
+아래 이미지는 *Pixhawk Mini Kit* 및 3DR Telemetry Radio를 사용하는 표준 *쿼드콥터* 배선을 나타냅니다 (ESC, 모터, 배터리 및 폰에서 실행되는 지상제어국 포함). 다음 섹션에서 각 장치에 대해 자세히 설명합니다.
 
 ![Pixhawk Mini Electronics Wiring for QAV250 (off frame)](../../assets/airframes/multicopter/lumenier_qav250_pixhawk_mini/qav250_wiring_image_pixhawk_mini.jpg)
 
 :::note
-The output wiring/powering is slightly different for other types of vehicles. This is covered in more detail below for VTOL, Plane, Copter.
+출력 배선/전원은 차량 유형에 따라 약간의 차이가 있습니다. VTOL, Plane, Copter에 대해서는 아래에서 자세히 설명합니다.
 :::
 
-### Mount and Orient Controller
+### 콘트롤러 장착 및 장착 방향
 
-The *Pixhawk Mini* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
+*Pixhawk 미니*는 진동 감쇠 폼 패드(키트에 포함)사용하여 프레임에 장착하여야 합니다. 기체의 무게 중심에 최대한 가깝게, 화살표가 차량 전면과 위쪽 방향을 향하여야 합니다.
 
 ![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
 ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)
 
 :::note
-If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+컨트롤러를 권장/기본 방향으로 장착하기 어려운 경우에는 (예 : 공간 제약으로 인해) 실제 장착한 방향을 소프트웨어에 설정하여야 합니다 ( [기체 콘트롤러 방향 ](../config/flight_controller_orientation.md) 참고).
 :::
 
-### GPS + Compass
+### GPS와 나침반
 
-Attach the 3DR GPS + Compass to the Pixhawk Mini's **GPS&I2C** port (top right) using the supplied 6 pin cable. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, facing the front of the vehicle (separating the compass from other electronics will reduce interference).
+제공된 6핀 케이블을 사용하여 3DR GPS + Compass를 Pixhawk 미니의 **GPS & I2C** 포트(오른쪽 상단)에 연결합니다. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, facing the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 ![Connecting compass/GPS to Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_with_compass.jpg)
 
