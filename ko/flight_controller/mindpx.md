@@ -46,17 +46,18 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
 
 ### 장착
 
-![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
+![MindPX 장착](../../assets/hardware/hardware-mindpx-mounting.png)
 
 ### 배선
 
-![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
+![MindPX 배선 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
-![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
+![MindPX 배선 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
 ### 핀
 
-![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
+![MindPX 핀배열
+](../../assets/hardware/hardware-mindpx-pin.png)
 
 | 번호. |        설명        | 번호. |                   설명                    |
 |:---:|:----------------:|:---:|:---------------------------------------:|
