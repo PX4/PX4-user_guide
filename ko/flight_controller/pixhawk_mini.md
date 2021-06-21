@@ -75,24 +75,24 @@ Pixhawk 미니는 PX4 오픈 하드웨어 프로젝트를 기반으로하며 PX4
 
 Pixhawk 미니의 주요 특징은 다음과 같습니다.
 
-- Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
-- 8 PWM/servo outputs
-- Multiple connectivity options for additional peripherals (UART, I2C, CAN)
-- Redundant power supply inputs and automatic failover
-- Integrated safety switch and optional external safety button for easy motor activation
-- Multicolor LED indicator
-- Integrated multi-tone piezo audio indicator
-- microSD card for long-time high-rate logging
-- Easy-to-use Micro JST connectors
+- NuttX RTOS 실행 고급 32 비트 ARM Cortex® M4 프로세서
+- PWM/Servo 출력 8개
+- 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
+- 중복 전원공급장치 및 자동 장애 조치
+- 간편한 모터 활성화를 위한 통합 안전 스위치 및 옵션 외부 안전 버튼
+- 다색 LED 표시기
+- 통합 멀티톤 피에조 오디오 표시기
+- 장기간 고속 로깅을 위한 microSD 카드
+- 사용하기 쉬운 Micro JST 커넥터
 
-The Pixhawk Mini is shipped with new **GPS module**:
+Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 
-- Based on the u-blox M8N
-- Concurrent reception of up to 3 GNSS (GPS, Galileo, GLONASS, BeiDou)
-- Industry leading –167 dBm navigation sensitivity
-- Security and integrity protection
-- Supports all satellite augmentation systems
-- Advanced jamming and spoofing detection
+- u-blox M8N 기반
+- 최대 3 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
+- 업계 최고의 –167dBm 탐색 감도
+- 보안 및 무결성 보호
+- 모든 위성 증강 시스템 지원
+- 고급 재밍 및 스푸핑 감지
 - Product variants to meet performance and cost requirements
 
 ## Kit package
