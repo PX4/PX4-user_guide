@@ -93,64 +93,64 @@ Pixhawk 미니는 새로운 **GPS 모듈**과 함께 제공됩니다.
 - 보안 및 무결성 보호
 - 모든 위성 증강 시스템 지원
 - 고급 재밍 및 스푸핑 감지
-- Product variants to meet performance and cost requirements
+- 성능 및 비용 요구 사항을 충족하는 제품 변형
 
-## Kit package
+## 키트 패키지
 
-The *Pixhawk Mini* is shipped with the following contents:
+*Pixhawk 미니</ 0>는 다음 내용물과 함께 배송됩니다.</p> 
 
-| Component                                                          | Image                                                                                                                                |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Pixhawk Mini Autopilot                                             | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
-| GPS module                                                         | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
-| Quad Power Distribution Board                                      | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
-| 8 Channel PWM Breakout board                                       | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
-| 4-pin cable (for I2C)                                              | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
-| RC-in cable for PPM/SBUS                                           | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
-| 6 to 6/4 ‘Y’ adapter for GPS and additional I2C devices            | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
-| 6 pin cable (2) (for power distribution board and for compass/gps) | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
-| 6 pin JST to DF13 for legacy telemetry radio                       | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
-| Safety switch                                                      | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
-| 8 Channel PWM Breakout cable                                       | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
-| Mounting foam                                                      | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
-| I2C breakout board ? - not listed parts on handout                 |  -                                                                                                                                   |
+| 부품                                | 이미지                                                                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 픽스호크 미니 자동항법장치                    | ![Pixhawk Mini](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_drawing.png)                                                |
+| GPS 모듈                            | ![Compass+GPS module](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_compass_drawing.png)                                  |
+| 쿼드 배전 보드                          | ![Quad Power Distribution Board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_quad_power_distribution_board_drawing.png) |
+| 8 채널 PWM 브레이크 아웃 보드               | ![8 Channel PWM Breakout board](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8_channel_pwm_breakout_board_drawing.png)   |
+| 4 핀 케이블 (I2C 용)                   | ![4-pin cable (for I2C)](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_4_pin_cable_drawing.png)                           |
+| PPM/SBUS용 RC-in 케이블               | ![RC-in cable for PPM/SBUS](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_rc_in_cable_drawing.png)                        |
+| GPS 및 추가 I2C 장치용 6 ~ 6/4 ‘Y’ 어댑터  | ![6 to 6/4 ‘Y’ adapter](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png)               |
+| 6 핀 케이블 (2) (배전반 및 나침반/gps 용)     | ![6 pin cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6_pin_cable_drawing.png)                                     |
+| 레거시 원격 측정 라디오를 위한 6 핀 JST-DF13    | ![6 pin JST to DF13](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)                    |
+| 안전 스위치                            | ![Safety switch](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_safety_switch_drawing.png)                                 |
+| 8 채널 PWM 브레이크아웃 케이블               | ![8 Channel PWM Breakout cable](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)    |
+| 장착 폼                              | ![Mounting foam](../../assets/hardware/mounting/3dr_anti_vibration_mounting_foam.png)                                                |
+| I2C 브레이크 아웃 보드? - 유인물에 나열되지 않은 부품 | -                                                                                                                                    |
    
 
-## Optional accessories
+## 옵션 액세서리
 
-- Telemetry Radio Sets: 915 MHz (USA), 433 MHz (European) :::note When installing the 3DR telemetry radios, use the connectors that come with Pixhawk Mini, rather than those that come with the radios.
+- 텔레메트리 라디오 세트 : 915MHz (미국), 433MHz (유럽) :::note 3DR 텔레메트리 설치시 함께 제공되는 커넥터가 아닌 Pixhawk Mini와 함께 제공되는 커넥터를 사용하십시오.
 :::
 
-- 3DR 10S Power Module
+- 3DR 10S 전원 모듈
 
-- WiFi Telemetry Radio
-- Digital Airspeed Sensor
+- WiFi 텔레메트리
+- 디지털 대기속도 센서
 
-## Compatibility
+## 호환성
 
-### RC radio
+### RC 라디오
 
-- PPM output RC receivers
-- Spektrum DSM RC receivers
-- Futaba S BUS RC receivers
+- PPM 출력 RC 수신기
+- Spektrum DSM RC 수신기
+- Futaba S BUS RC 수신기
 
-### ESCs
+### ESC
 
-- All standard PWM input ESC’s
+- 모든 표준 PWM 입력 ESC
 
-## Connector pin assignments (pin outs)
+## 커넥터 핀 할당(핀 배열)
 
 ![Pixhawk Mini - Connector Pinouts](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_pinout.png)
 
-## Product comparisons
+## 제품 비교
 
-### Pixhawk Mini vs Pixhawk (original)
+### Pixhawk 미니와 Pixhawk (원본)
 
-- One-third the size - from 50x81.5x15.5mm to 38x43x12mm.
-- Rev 3 processor for full utilization of 2MB flash memory.
-- Improved sensors, both primary and secondary IMU MPU9250 and ICM20608 respectively. The result is more stable, more reliable flight and navigation.
-- GPS+Compass module included. Features the Neo M8N with GLONASS support; compass HMC5983. Expect faster and stronger GPS lock.
-- Micro JST connectors instead of DF-13. These are much easier to work with.
+- 크기의 1/3 - 50x81.5x15.5mm에서 38x43x12mm까지.
+- 2MB 플래시 메모리를 최대한 활용하기위한 Rev 3 프로세서.
+- 1차 및 2차 IMU MPU9250 및 ICM20608 모두 개선된 센서. 안정적인 비행과 내비게이션이 가능합니다.
+- GPS + 나침반 모듈이 포함되어 있습니다. GLONASS를 지원하는 Neo M8N이 특징입니다. 나침반 HMC5983. 더 빠르고 강력한 GPS 잠금을 기대하십시오.
+- DF-13 대체 마이크로 JST 커넥터. 작업이 훨씬 용이합니다.
 - Integrated piezo speaker and safety switch.
 - Natively supports 4S batteries with the included PDB.
 
