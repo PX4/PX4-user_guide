@@ -1,6 +1,6 @@
-# Manufacturer-Supported Autopilots
+# 제조사 지원 자동항법장치
 
-Manufacturer-supported autopilots are maintained and supported by a board manufacturer (manufacturers commit to delivering compatibility with the current stable PX4 release within 4 months of the official release announcement).
+제조업체가 지원하는 자동조종장치는 제조업체에서 유지관리하고 지원합니다. 제조업체는 공식 발표후 4 개월 이내에 현재의 안정적인 PX4 릴리스와의 호환성을 제공을 약속합니다.
 
 :::tip
 For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
