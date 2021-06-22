@@ -19,28 +19,28 @@ CUAV *Pixhack V3* 비행 컨트롤러는 주로 상용 시스템 제조업체를
 
 * 마이크로 프로세서: 
   * STM32F427
-  * STM32F100 (Failsafe co-processor)
-* Sensors: 
-  * Accelerometers (3): LS303D, MPU6000, MPU9250/hmc5983
-  * Gyroscopes (3): L3GD20, MPU6000, MPU9250
-  * Compass (2): LS303D, MPU9250
-  * Barometer (2): MS5611 X2
-* Interfaces: 
+  * STM32F100 (오류복구 코프로세서)
+* 센서: 
+  * 가속도계 (3): LS303D, MPU6000, MPU9250/hmc5983
+  * 자이로스코프 (3): L3GD20, MPU6000, MPU9250
+  * 나침반 (2): LS303D, MPU9250
+  * 기압계 (2): MS5611 X2
+* 인터페이스: 
   * MAVLink UART (2)
   * GPS UART (2)
-  * DEBUG UART (1)
-  * RC IN (for PPM, SBUS, DSM/DSM2)
-  * RSSI IN: PWM OR 3.3ADC
+  * 디버그 UART (1)
+  * RC 입력(PPM, SBUS, DSM/DSM2 용)
+  * RSSI 입력: PWM 또는 3.3ADC
   * I2C (2)
-  * CAN BUS (1)
-  * ADC IN: 3.3V X1 , 6.6V X1
-  * PWM OUT: 8 PWM IO + 4 IO
-* Power System: 
-  * PM POWER IN: 4.5 ~ 5.5 V
-  * USB POWER IN: 5.0 V +- 0.25v
-* Weight and Dimensions: 
-  * Weight: 63g
-  * Width: 68mm
+  * CAN 버스 (1)
+  * ADC 입력: 3.3V X1 , 6.6V X1
+  * PWM 출력: 8 PWM IO + 4 IO
+* 전원 시스템: 
+  * PM 전원 입력: 4.5 ~ 5.5V
+  * USB 전원 입력: 5.0V +- 0.25v
+* 중량 및 크기 
+  * 중량: 63g
+  * 폭: 68mm
   * Thickness: 17mm
   * Length: 44mm
 * Other Characteristics: 
