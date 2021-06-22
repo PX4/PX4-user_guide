@@ -118,7 +118,7 @@ To create and build the workspace:
    ```
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
    ```sh
-   $ cd scripts
+   $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
    $ source build_ros2_workspace.bash
    ```
 
