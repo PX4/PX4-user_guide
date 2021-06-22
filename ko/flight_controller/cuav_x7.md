@@ -79,7 +79,7 @@
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7-size.jpg)
 
-![X7 pinouts](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
+![X7 핀배열](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
 
 :::warning
 `RCIN` 포트는 RC 수신기의 전원 공급으로 제한되며, 전원에 연결할 수 없습니다.
@@ -121,7 +121,7 @@ make cuav_x7pro_default
 
 시스템의 직렬 콘솔과 SWD 인터페이스는 **DSU7** 포트에서 작동합니다. FTDI 케이블을 DSU7 커넥터에 연결하기만 하면됩니다(제품 목록에는 CUAV FTDI 케이블이 포함되어 있음).
 
-![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
+![디버그 포트 (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
 
 
 [PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 **FMU 디버그** 포트에서 실행됩니다.
@@ -139,7 +139,7 @@ make cuav_x7pro_default
 
 CUAV는 `DSU7` 포트에 연결할 수 있는 전용 디버깅 케이블을 제공합니다. 이렇게 하면, [PX4 시스템 콘솔](../debug/system_console.md)을 컴퓨터 USB 포트에 연결하기 위한 FTDI 케이블과 SWD/JTAG 디버깅에 사용되는 SWD 핀이 분리됩니다. 제공된 디버그 케이블이 SWD 포트 `Vref` 핀 (1)에 연결되지 않습니다.
 
-![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+![CUAV 디버그 케이블](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
 
 :::warning SWD
 Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다!
@@ -147,12 +147,12 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 일부 JTAG 어댑터(SEGGER J-Link)는 Vref 전압을 사용하여 SWD 라인의 전압을 설정합니다. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 :::
 
-## Supported Platforms / Airframes
+## 지원 플랫폼과 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-## Further info
+## 추가 정보
 
-* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
-* [CUAV docs](http://doc.cuav.net)
-* [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+* [빠른 시작](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+* [CUAV 문서](http://doc.cuav.net)
+* [x7 회로도](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
