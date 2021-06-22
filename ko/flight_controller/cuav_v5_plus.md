@@ -16,71 +16,71 @@
 - PX4와 펌웨어 호환.
 - 모듈식 설계를 통해 사용자는 자신의 캐리어 보드를 설정할 수 있습니다.
 - 고성능 충격흡수 시스템을 갖춘 내장형 진동감쇠 시스템.
-- Multiple-redundant sensor and power systems for improved flight safety and stability.
+- 비행 안전 향상을 위한 다중 센서와 전원 시스템.
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Quick Summary
+## 요약
 
-* Main FMU Processor: STM32F765 
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO Processor: STM32F100 
-  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* On-board sensors:
+* 메인 FMU 프로세서: STM32F765 
+  * 32 비트 Arm® Cortex®-M7, 216MHz, 2MB 메모리, 512KB RAM
+* IO 프로세서: STM32F100 
+  * 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
+* 내장 센서 :
   
-  * Accelerometer/Gyroscope: ICM-20689
-  * Accelerometer/Gyroscope: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* Interfaces:
+  * 가속도계/자이로스코프 : ICM-20689
+  * 가속도계/자이로스코프 : BMI055
+  * 자력계 : IST8310
+  * 기압계: MS5611
+* 인터페이스:
   
-  * 8-14 PWM outputs (6 from IO, 8 from FMU)
-  * 3 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * analog / PWM RSSI input
-  * S.Bus servo output
-  * 5 general purpose serial ports
-  * 4 I2C ports
-  * 4 SPI buses
-  * 2 CANBuses with serial ESC
-  * Analog inputs for voltage / current of 2 batteries
-* Power System: 
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-* Weight and Dimensions: 
-  * Weight: 90g
-  * Dimensions: 85.5*42*33mm 
-* Other Characteristics: 
-  * Operating temperature: -20 ~ 80°c（Measured value）
+  * PWM 출력 8-14개(IO 6개, FMU 8개)
+  * FMU의 전용 PWM/캡처 입력 3 개
+  * CPPM 전용 RC 입력
+  * 아날로그/PWM RSSI 입력이있는 Spektrum/DSM 및 S.Bus 전용 RC 입력
+  * 아날로그/PWM RSSI 입력
+  * PWM Servo 출력
+  * 범용 시리얼 포트 5개
+  * I2C 포트 4개
+  * SPI 버스 4개
+  * 직렬 ESC가 있는 CANBuse 2 개
+  * 배터리 2 개의 전압 및 전류에 대한 아날로그 입력
+* 전원 시스템 : 
+  * 전원: 4.3~5.4V
+  * USB 입력: 4.75~5.25V
+* 중량 및 크기 
+  * 무게 : 90g
+  * 크기: 85.5*42*33mm 
+* 기타 특성: 
+  * 작동 온도: -20 ~ 80°c (측정치)
 
-## Purchase
+## 구매처
 
 <!-- [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1) -->
 
-[CUAV Aliexpress](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822) (International users)
+[CUAV 알리익스프레스](https://www.aliexpress.com/item/32890380056.html?spm=a2g0o.detail.1000060.1.7a7233e7mLTlVl&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.90158.0&scm_id=1007.13339.90158.0&scm-url=1007.13339.90158.0&pvid=d899bfab-a7ca-46e1-adf2-72ad1d649822)(국제 사용자)
 
-[CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
+[CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (중국 본토 사용자)
 
 :::note
-Autopilot may be purchased with included Neo GPS module
+Neo GPS 모듈과 함께 자동조종장치를 구매할 수 있습니다.
 :::
 
 <span id="connection"></span>
 
-## Connections (Wiring)
+## 배선
 
-[CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
+[CUAV V5+ 배선 개요](../assembly/quick_start_cuav_v5_plus.md)
 
-## Pinouts
+## 핀배열
 
-Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+[여기](http://manual.cuav.net/V5-Plus.pdf)에서 **V5+** 핀배열을 다운로드하세요.
 
-## Voltage Ratings
+## 정격 전압
 
-*V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
+*V5 + AutoPilot*은 중복 전원공급장치를 지원합니다. 최대 3개의 전원를 사용할 수 있습니다 : `Power1`, `Power2` 및 `USB`. You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
 :::note
 On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU. It is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
