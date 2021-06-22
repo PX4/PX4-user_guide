@@ -1,32 +1,32 @@
 # Kakute F7
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-The *Kakute F7* from Holybro is a flight controller board designed for racers.
+Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입니다.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
+## 주요 특징
 
-* Main System-on-Chip: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
-  * CPU: 216 MHz ARM Cortex M7 with single-precision FPU
-  * RAM: 320 KB SRAM
+* 메인 시스템 온칩: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
+  * CPU : 단정밀도 FPU의 216MHz ARM Cortex M7
+  * RAM : 320KB SRAM
   * FLASH: 1 MB
-* Standard racer form factor: 36x36 mm with standard 30.5 mm hole pattern
-* ICM20689 Accel / Gyro (Soft-mounted)
-* BMP280 Baro
-* microSD (for logging)
-* 6 UARTs
-* 1 I2C bus
-* 6 PWM outputs
-* Built-in OSD chip (AB7456 via SPI)
+* 표준 레이서 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
+* ICM20689 가속/자이로 (소프트 장착)
+* BMP280 기압계
+* microSD (로깅)
+* 6개의 UART
+* I2C 버스 1 개
+* 6 PWM 출력
+* 내장 OSD 칩(SPI를 통한 AB7456)
 
-## Where to Buy
+## 구매처
 
 The board can be bought from one of the following shops (for example):
 

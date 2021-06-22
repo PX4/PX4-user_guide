@@ -1,76 +1,75 @@
-# DroPix Flight Controller
+# DroPix 비행 컨트롤러
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.drotek.com/)에 문의하십시오.
 :::
 
-The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](https://nuttx.apache.org/) OS.
+Drotek<sup>&reg;</sup> *DroPix 자동조종장치*는 [Pixhawk<sup>&reg;</sup>-프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 디자인을 기반으로합니다. PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.
 
-The DroPix system includes integrated multithreading, a Unix/Linux-like programming environment, completely new autopilot functions such as Lua scripting of missions and flight behavior, and a custom PX4 driver layer ensuring tight timing across all processes.
+DroPix 시스템에는 통합 멀티 스레딩, Unix/Linux와 유사한 프로그래밍 환경, 임무 및 비행 동작의 Lua 스크립팅과 같은 완전히 새로운 자동 조종 기능, 모든 프로세스에 걸쳐 타이트한 타이밍을 보장하는 맞춤형 PX4 드라이버 레이어가 포함됩니다.
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
+## 주요 특징
 
-* Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
-* 14 PWM/servo outputs (8 with failsafe and manual override, 5 auxiliary, high-power compatible)
-* Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-* Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply
-* Backup system integrates mixing, providing consistent autopilot and manual override mixing modes
-* Redundant power supply inputs and automatic failover
-* External safety button for easy motor activation
-* Multicolor LED indicator
-* High-power, multi-tone piezo audio indicator
-* microSD card for long-time high-rate logging
-* Sensors 
-  * ST Micro L3GD20 3-axis 16-bit gyroscope
-  * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
-  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
-* Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
-* Dimensions 
-  * Size: 67*50*6 mm
-  * Weight: 15g (without connectors)
+* NuttX RTOS 실행 고급 32 비트 ARM Cortex® M4 프로세서
+* 14 개 PWM/서보 출력(페일세이프 및 수동 오버라이드 포함 8 개, 보조, 고전력 호환 5 개)
+* 추가 주변 장치(UART, I2C, CAN) 다양한 연결 옵션
+* 전용 프로세서 및 독립형 전원 공급 장치로 비행중 복구 및 수동 오버라이드 통합 백업 시스템
+* 백업 시스템은 믹싱을 통합하여 일관된 자동조종장치와 수동 오버라이드 믹싱 모드를 제공합니다.
+* 중복 전원공급장치 및 자동 장애 조치
+* 모터 간편 활성화를 위한 외부 안전 버튼
+* 다색 LED 표시기
+* 고전력 멀티톤 피에조 오디오 표시기
+* 장기간 고속 로깅을 위한 microSD 카드
+* 센서 
+  * ST Micro L3GD20 3축 16비트 자이로스코프
+  * ST Micro LSM303D 3축 14비트 가속도계/자력계
+  * Invensense<sup>&reg;</sup> MPU 6000 3축 가속도계/자이로스코프
+  * MEAS MS5611 기압계
+* 표준 MK 스타일 장착 구멍 45mm x 45mm (M3 구멍)
+* 크기 
+  * 크기: 67*50* 6mm
+  * 중량: 15g (커넥터 제외)
 
-## Where to buy
+## 구매처
 
 [DroPix Autopilots & Accessories](https://store.drotek.com/dropix-autopilots)
 
-## Documentation
+## 문서
 
-[DroPix User's Guide](https://drotek.gitbook.io/dropix-user-guide/)
+[DroPix 사용 설명서](https://drotek.gitbook.io/dropix-user-guide/)
 
-## Wiring Guides
+## 배선 가이드
 
-The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbook.io/dropix-user-guide/)).
+아래의 다이어그램은 Dropix 커넥터 정보를 보여줍니다(자세한 내용은 [drotek 문서](https://drotek.gitbook.io/dropix-user-guide/) 참조).
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" alt="front connectors" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" alt="전면 커넥터" width="500px" />
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="front connectors" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="전면 커넥터" width="500px" />
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make px4_fmu-v2_default
     
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | IO 디버그         |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
