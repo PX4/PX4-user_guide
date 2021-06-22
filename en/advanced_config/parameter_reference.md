@@ -3119,7 +3119,7 @@ table {
  <td><strong id="EKF2_GND_EFF_DZ">EKF2_GND_EFF_DZ</strong> (FLOAT)</td>
  <td>Baro deadzone range for height fusion <p><strong>Comment:</strong> Sets the value of deadzone applied to negative baro innovations. Deadzone is enabled when EKF2_GND_EFF_DZ > 0.</p>   </td>
  <td>0.0 > 10.0 </td>
- <td>0.0</td>
+ <td>4.0</td>
  <td>m</td>
 </tr>
 <tr>
