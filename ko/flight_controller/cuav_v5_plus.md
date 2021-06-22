@@ -169,57 +169,57 @@ Vref 핀 (1)은 Vref로 5V를 사용하지만, CPU는 3.3V에서 실행됩니다
 
 ## 참고
 
-#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
+#### 다른 유형의 전원모듈용 커넥터에 디지털 또는 아날로그 전원모듈을 연결하지 마십시오.
 
-If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus. Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
+아날로그 전원모듈을 디지털 전원모듈 커넥터에 연결하면 해당 버스의 모든 I2C 장치가 중지됩니다. 특히, 경합으로 인하여 GPS의 나침반이 중지되고, 장기적으로 FMU가 손상 될 수도 있습니다.
 
-Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
+마찬가지로, 아날로그 커넥터에 연결된 디지털 전원모듈은 작동하지 않으며, 장기적으로 전원 모듈이 손상될 수 있습니다.
 
-## Compatibility
+## 호환성
 
-CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
+CUAV는 몇 가지 차별화된 디자인을 채택하고, 아래에서 설명하는 일부 하드웨어와 호환되지 않습니다.
 
 <span id="compatibility_gps"></span>
 
-#### GPS not compatible with other devices
+#### 다른 장치와 호환되지 않는 GPS
 
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+*CUAV V5+*와 *CUAV V5 nano*와 함께 사용하도록 권장되는 *Neo v2.0 GPS*는 다른 Pixhawk 비행 컨트롤러(특히, 부저 부분이 호환되지 않으며 안전 스위치에 문제가 있을 수 있습니다.)
 
-The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html) can also be used, and is compatible with other flight controllers.
+UAVCAN [NEO V2 PRO GNSS 수신기](http://doc.cuav.net/gps/neo-series-gnss/en/neo-v2-pro.html)도 사용할 수 있으며, 다른 비행 컨트롤러와 호환됩니다.
 
 <span id="compatibility_jtag"></span>
 
-#### Using JTAG for hardware debugging
+#### 하드웨어 디버깅에 JTAG 사용
 
-`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+`DSU7` FMU 디버그 핀 1은 CPU의 3.3V가 아닌 5V입니다.
 
-Some JTAG use this voltage to set the IO levels when communicating to the target.
+일부 JTAG는이 전압을 사용하여 타겟과 통신시 IO 레벨을 설정합니다.
 
-For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+*Segger Jlink*에 직접 연결하려면 디버그 커넥터(`Vtref`)의 핀 1로 3.3 볼트의 DSM/SBUS/RSSI 핀 4를 사용하는 것이 좋습니다.
 
-## Known Issues
+## 알려진 문제
 
-The issues below refer to the *batch number* in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
+아래 문제는 처음 나타나는 *배치번호*를 나타냅니다. 배치번호는 V01 뒤의 4 자리 생산날짜이며 비행 컨트롤러 측면의 스티커에 표시되어 있습니다. 예를 들어, 일련 번호 Batch V011904((V01은 V5의 번호, 1904는 생산날짜, 즉 배치번호)입니다.
 
 <span id="pin1_unfused"></span>
 
-#### SBUS / DSM / RSSI interface Pin1 unfused
+#### SBUS / DSM / RSSI 인터페이스 Pin1 언퓨즈
 
 :::warning
-This is a safety issue.
+이것은 안전에 관련된 문제입니다.
 :::
 
-Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
+SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하지 마십시오. 장비가 손상될 수 있습니다.
 
-- *Found:* Batches V01190904xxxx
-- *Fixed:* Batches later than V01190904xxxx
+- *발견됨:* Batches V01190904xxxx
+- *수정됨:* Batches later than V01190904xxxx
 
-## Further Information
+## 추가 정보
 
-- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
-- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
+- [CUAV V5+ 매뉴얼](http://manual.cuav.net/V5-Plus.pdf)
+- [CUAV V5+ 문서](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
+- [FMUv5 레퍼런스 디자인 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
 - [CUAV Github](https://github.com/cuav)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
-- [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
-- [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
+- [베이스 보드 설계 참조](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
+- [CUAV V5+ 배선 개요](../assembly/quick_start_cuav_v5_plus.md)
+- [DJI FlameWheel450에서 CUAV v5 +를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5plus.md)
