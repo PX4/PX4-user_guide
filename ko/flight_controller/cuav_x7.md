@@ -15,26 +15,26 @@
 
 ## 특징
 
-* Internal shock absorption
-* Modular design, can be DIY carrier board
-* Support USB_HS, download logs faster (PX4 not yet supported)
-* Support more dshot output
-* Support IMU heating, make the sensor work better
-* Dedicated uavcan battery port
-* 3 sets of IMU sensors
-* Car-grade RM3100 compass
-* High performance processor
+* 내부 충격 흡수
+* 모듈식 설계, DIY 캐리어 보드 가능
+* USB_HS 지원, 로그 다운로드 속도 향상(PX4는 아직 지원되지 않음)
+* 더 많은 dshot 출력 지원
+* IMU 가열 지원, 센서 작동 개선
+* 전용 uavcan 배터리 포트
+* IMU 센서 3 세트
+* 자동차 등급 RM3100 나침반
+* 고성능 프로세서
 
 :::tip
-The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7. They should be used by preference as they contain the most complete and up to date information.
+제조업체 [CUAV 문서](https://doc.cuav.net/x7/en/x7.html)는 X7의 표준입니다. 가장 정확한 최신 정보를 포함하고 있습니다.
 :::
 
 
-## Quick Summary
+## 요약
 
-* Main FMU Processor: STM32H743
-* On-board sensors:
-  * Accelerometer/Gyroscope: ICM-20689
+* 메인 FMU 프로세서: STM32H743
+* 내장 센서 :
+  * 가속도계/자이로스코프 : ICM-20689
   * Accelerometer/Gyroscope: ICM-20649
   * Accelerometer/Gyroscope: BMI088
   * Magnetometer: RM3100
