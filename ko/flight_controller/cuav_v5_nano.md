@@ -1,30 +1,30 @@
-# CUAV V5 nano Autopilot
+# CUAV V5 nano 자동조종장치
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
 :::
 
-**V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
+**V5 nano**<sup>&reg;</sup>는 CUAV<sup>&reg;</sup>와 PX4 팀이 공동으로 설계한 공간 제약 애플리케이션용 자동조종장치입니다.
 
-The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for most drone use.
+이 자동조종장치는 220mm 레이싱 드론에서 사용할 수 정도로 소형이지만, 대부분의 드론에도 충분히 사용할 수 있습니다.
 
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
 :::note
-The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
+V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 올인원 폼 팩터가 있고 PWM 포트가 더 적으며(AUX 포트를 사용하는 [기체](../airframes/airframe_reference.md)에는 사용할 수 없음), 내부 댐핑이 없습니다.
 :::
 
-Some of its main features include:
+주요 기능은 다음과 같습니다.
 
-- Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
-- More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
-- Firmware-compatible with PX4.
-- Generous 2.6mm spacing for I/O pins, making it easier to use all the interfaces.
+- [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 설계 표준과 호환되며, 외부 인터페이스에 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 적용합니다.
+- 더 안정적이고 신뢰할 수 있는 센서와 함께 FMU v3보다 고급 프로세서, RAM 및 플래시 메모리.
+- PX4와 펌웨어 호환.
+- I/O 핀을 위한 넉넉한 2.6mm 간격으로 모든 인터페이스를 더 쉽게 사용할 수 있습니다.
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-### Quick Summary
+### 요약
 
 Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
 
