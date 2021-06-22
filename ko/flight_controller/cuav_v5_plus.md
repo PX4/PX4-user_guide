@@ -3,19 +3,19 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
 :::
 
-*V5+*<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>. It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
+*V5+*<sup>&reg;</sup>는 CUAV<sup>&reg;</sup>에서 제조한 고급 자동조종장치입니다. CUAV<sup>&reg;</sup>와 PX4 팀이 공동으로 설계하였습니다.
 
-The autopilot is recommended for commercial systems integration, but is also suitable for academic research and any other use.
+자동조종장치는 상용시스템 통합에 권장되지만, 학술 연구와 기타 용도에도 적합합니다.
 
 ![V5+ AutoPilot - hero image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
 
-Some of its main features include:
+주요 기능은 다음과 같습니다.
 
-- Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
-- More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
-- Firmware-compatible with PX4.
-- Modular design allows users to customize their own carrier board.
-- Built-in vibration dampening system with high performance shock absorption system.
+- [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv5** 설계 표준과 호환되며, 외부 인터페이스에 [Pixhawk 커넥터 표준](https://pixhawk.org/pixhawk-connector-standard/)을 적용합니다.
+- 더 안정적이고 신뢰할 수 있는 센서와 함께 FMU v3보다 고급 프로세서, RAM 및 플래시 메모리.
+- PX4와 펌웨어 호환.
+- 모듈식 설계를 통해 사용자는 자신의 캐리어 보드를 설정할 수 있습니다.
+- 고성능 충격흡수 시스템을 갖춘 내장형 진동감쇠 시스템.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
 :::note
