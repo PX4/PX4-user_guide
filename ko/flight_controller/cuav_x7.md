@@ -35,60 +35,59 @@
 * 메인 FMU 프로세서: STM32H743
 * 내장 센서 :
   * 가속도계/자이로스코프 : ICM-20689
-  * Accelerometer/Gyroscope: ICM-20649
-  * Accelerometer/Gyroscope: BMI088
-  * Magnetometer: RM3100
-  * Barometer: MS5611*2
+  * 가속도계/자이로스코프 : ICM-20649
+  * 가속도계/자이로스코프 : BMI088
+  * 자력계 : RM3100
+  * 기압계: MS5611*2
 
-* Interfaces:
-   * 14 PWM outputs （12 supports Dshot）
-   * Support multiple RC inputs (SBUs / CPPM / DSM)
-   * Analogue / PWM RSSI input
-   * 2 GPS ports(GPS and UART4 ports)
-   * 4 i2c buses(Two i2c dedicated ports)
-   * 2 CAN bus ports
-   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
-   * 2  ADC intput
-   * 1 USB ports
-* Power System:
-  * Power: 4.3~5.4V
-  * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
-* Weight and Dimensions:
-  * Weight: 101 g
-* Other Characteristics:
-  * Operating temperature: -20 ~ 80°c（Measured value）
-  * Three imus
-  * Supports temperature compensation
-  * Internal shock absorption
+* 인터페이스:
+   * PWM 출력 14개 (12개 Dshot 지원)
+   * 다중 RC 입력 지원 (SBU/CPPM/DSM)
+   * 아날로그/PWM RSSI 입력
+   * 2 개의 GPS 포트(GPS 및 UART4 포트)
+   * i2c 버스 4 개(i2c 전용 포트 2 개)
+   * CAN 버스 포트 2 개
+   * 2개의 전원 포트(전원 A는 일반적인 adc 인터페이스, 전원 C는 uavcan 배터리 인터페이스)
+   * 2개의 ADC 입력
+   * USB 포트 1 개
+* 전원시스템
+  * 전원: 4.3~5.4V
+  * USB 입력: 4.75~5.25V
+  * 서보 레일 입력: 0~36V
+* 중량 및 크기
+  * 무게 : 101g
+* 기타 특성:
+  * 작동 온도: -20 ~ 80°c (측정 값)
+  * 3개의 imus
+  * 온도 보상 지원
+  * 내부 충격 흡수
 
-:::note
-When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
+:::note PX4 펌웨어를 실행하면 8 pwm 만 작동하고, 나머지 6 pwm은 여전히 조정중이므로 현재 VOLT와 호환되지 않습니다.
 :::
 
-## Purchase
+## 구매처
 
-[CUAV Store](https://store.cuav.net)
+[CUAV 상점](https://store.cuav.net)
 
-[CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
+[CUAV 알리익스프레스](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
 
-## Connections (Wiring)
+## 배선
 
-[CUAV X7 Wiring Quickstart](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+[CUAV X7 배선 개요](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 
-## Size and Pinouts
+## 크기와 핀배열
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7-size.jpg)
 
 ![X7 pinouts](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
 
 :::warning
-The `RCIN` port is limited to powering the RC receiver and cannot be connected to any power/load.
+`RCIN` 포트는 RC 수신기의 전원 공급으로 제한되며, 전원에 연결할 수 없습니다.
 :::
 
-## Voltage Ratings
+## 정격 전압
 
-The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The power rails are: **POWERA**, **POWERC** and **USB**.
+*X7 AutoPilot*은 세 개의 전원이 공급되는 경우, 전원 공급 장치에서 3중 중복이 가능합니다. 전원 레일은 **POWERA**, **POWERC**와 **USB** 입니다.
 
 :::note
 The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered.
