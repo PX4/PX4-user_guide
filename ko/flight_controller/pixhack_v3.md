@@ -41,40 +41,39 @@ CUAV *Pixhack V3* 비행 컨트롤러는 주로 상용 시스템 제조업체를
 * 중량 및 크기 
   * 중량: 63g
   * 폭: 68mm
-  * Thickness: 17mm
-  * Length: 44mm
-* Other Characteristics: 
-  * Operating temperature: -20 ~ 60°C
+  * 두께: 17mm
+  * 길이: 44mm
+* 기타 특성: 
+  * 작동 온도: -20 ~ 60°c
 
-## Availability
+## 유효성
 
-The board can be purchased from:
+보드는 아래에서 구입할 수 있습니다.
 
 * [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 * [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make px4_fmu-v3_default
     
 
-## Pinouts and Schematics
+## 핀배열과 회로도
 
-* [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+* [문서/배선 가이드](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | IO 디버그         |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
