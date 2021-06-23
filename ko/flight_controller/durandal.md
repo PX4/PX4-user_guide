@@ -89,27 +89,27 @@
 포트 연결의 위치는 여기에 표시됩니다(아래에는 [핀배열 섹션](#pinouts)).
 
 ### 상단
-![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
+![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 ### 전면
-![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
+![Durandal - 핀배열 전면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 ### 후면
-![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - 핀배열 후면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 ### 우측
-![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
+![Durandal - 핀배열 우면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 
 ### 좌측
-![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
+![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 
 ## 크기
 
 모든 치수는 밀리미터 단위입니다.
 
-![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
+![Durandal 크기](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
 <!-- 
 ## Voltage Ratings
@@ -200,12 +200,12 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ### 상단 핀배열
 
-![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
+![Durandal - 핀배열 평면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 
 ### 전면 핀배열
 
-![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
+![Durandal - 핀배열 전면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
 #### SUBS 출력 포트
 
@@ -300,7 +300,7 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ### 후면 핀배열
 
-![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+![Durandal - 핀배열 후면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
 #### MAIN 출력
 
@@ -338,7 +338,7 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 ### 우면 핀배열
 
-![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
+![Durandal - 핀배열 우면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 #### CAN2 포트
 
@@ -368,51 +368,51 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 <span id="warn_sensor"></span>
 
 :::warning
-\++ Sensors connected to pins 8, 9 must not send a signal exceeding the indicated voltage.
+\ ++ 핀 8, 9에 연결된 센서는 표시된 전압을 초과하는 신호를 전송하지 않아야 합니다.
 :::
 
-### Left-side Pinouts
+### 좌면 핀배열
 
-![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
+![Durandal - 핀배열 좌면도(개략도)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 <span id="debug_port"></span>
-#### DEBUG port
+#### 디버그 포트
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VT     | +3.3V |
-| 2 (black) | TX     | +3.3V |
-| 3 (black) | RX     | +3.3V |
-| 4 (black) | SWDIO  | +3.3V |
-| 5 (black) | SWCLK  | +3.3V |
-| 6 (black) | GND    | GND   |
-
-
-#### SPI port
-
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCK    | +3.3V |
-| 3 (black) | MISO   | +3.3V |
-| 4 (black) | MOSI   | +3.3V |
-| 5 (black) | CS1    | +3.3V |
-| 6 (black) | CS2    | +3.3V |
-| 7 (black) | GND    | GND   |
+| 핀     | 신호    | 전압    |
+| ----- | ----- | ----- |
+| 1 (적) | VT    | +3.3V |
+| 2 (흑) | TX    | +3.3V |
+| 3 (흑) | RX    | +3.3V |
+| 4 (흑) | SWDIO | +3.3V |
+| 5 (흑) | SWCLK | +3.3V |
+| 6 (흑) | GND   | GND   |
 
 
-#### USB port
+#### SPI 포트
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VBUS   | +5V   |
-| 2 (black) | DM     | +3.3V |
-| 3 (black) | DP     | +3.3V |
-| 4 (black) | GND    | GND   |
+| 핀     | 신호   | 전압    |
+| ----- | ---- | ----- |
+| 1 (적) | VCC  | +5V   |
+| 2 (흑) | SCK  | +3.3V |
+| 3 (흑) | MISO | +3.3V |
+| 4 (흑) | MOSI | +3.3V |
+| 5 (흑) | CS1  | +3.3V |
+| 6 (흑) | CS2  | +3.3V |
+| 7 (흑) | GND  | GND   |
 
 
-## Further info
+#### USB 포트
 
-- [Durandal Wiring QuickStart](../assembly/quick_start_durandal.md)
-- [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
-- [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+| 핀     | 신호   | 전압    |
+| ----- | ---- | ----- |
+| 1 (적) | VBUS | +5V   |
+| 2 (흑) | DM   | +3.3V |
+| 3 (흑) | DP   | +3.3V |
+| 4 (흑) | GND  | GND   |
+
+
+## 추가 정보
+
+- [Durandal 배선 개요](../assembly/quick_start_durandal.md)
+- [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)
+- [Durandal 핀배열](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
