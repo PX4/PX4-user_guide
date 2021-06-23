@@ -37,77 +37,77 @@
 
 
 #### 인터페이스
-- 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-- 6 dedicated PWM/Capture inputs on FMU
-- Dedicated R/C input for Spektrum / DSM
-- Dedicated R/C input for CPPM and S.Bus
-- Dedicated S.Bus servo output and analog / PWM RSSI input
-- 5 general purpose serial ports
-  - 3 with full flow control
-  - 1 with separate 1.5A current limit
-- 3 I2C ports
-- 4 SPI buses
-  - 1 internal high speed SPI sensor bus with 4 chip  selects and 6 DRDYs
-  - 1 internal low noise SPI bus dedicated for XXX
-  - Barometer with 2 chip selects, no DRDYs
-  - 1 internal SPI bus dedicated for FRAM
-  - Supports temperature control located on sensor module
-  - 1 external SPI buses
-- Up to 2 CANBuses for dual CAN
-  - Each CANBus has individual silent controls or ESC RX-MUX control
-- Analog inputs for voltage / current of 2 batteries
-- 2 additional analog inputs
+- PWM 출력 8-13개(IO에서 8개, FMU에서 5개)
+- FMU의 전용 PWM/캡처 입력 6 개
+- Spektrum/DSM 전용 R/C 입력
+- CPPM 및 S.Bus 전용 RC 입력
+- 전용 S.Bus 서보 출력 및 아날로그/PWM RSSI 입력
+- 범용 시리얼 포트 5개
+  - 전체 흐름 제어 3개
+  - 1.5A 전류 제한이 있는 1 개
+- I2C 포트 3개
+- SPI 버스 4개
+  - 4 개의 칩 선택 및 6 개의 DRDY가 있는 내부 고속 SPI 센서 버스 1 개
+  - XXX 전용 내부 저잡음 SPI 버스 1 개
+  - 2 개의 칩 선택이 있는 기압계, DRDY 없음
+  - FRAM 전용 내부 SPI 버스 1 개
+  - 센서 모듈에 위치한 온도 제어 지원
+  - 외부 SPI 버스 1개
+- 듀얼 CAN을 위한 최대 2 개의 CAN 버스
+  - 각 CANBus에는 개별 무음 제어 또는 ESC RX-MUX 제어가 있습니다.
+- 배터리 2 개의 전압 및 전류에 대한 아날로그 입력
+- 추가 아날로그 입력 2개
 
-#### Electrical Data
-- Power module output: 4.9~5.5V
-- Max input voltage: 6V
-- Max current sensing: 120A
-- USB Power Input: 4.75~5.25V
-- Servo Rail Input: 0~36V
+#### 전기 데이터
+- 전원 모듈 출력: 4.9~5.5V
+- 최대 입력 전압: 6V
+- 최대 전류 감지: 120A
+- USB 전원 입력: 4.75~5.25V
+- 서보 레일 입력: 0~36V
 
-#### Mechanical Data
-- Dimensions: 80x45x20.5mm
-- Weight: 68.8g
+#### 기계식 부품
+- 크기: 80x45x20.5mm
+- 중량: 68.8g
 
-#### Other Characteristics
-- Operating temperature: ~40~85C
-- Storage temperature: -40~85C
+#### 기타 특성
+- 작동 온도 : ~ 40 ~ 85C
+- 보관 온도 : -40 ~ 85C
 - CE
 - FCC
-- RoHS compliant (lead-free)
+- RoHS 준수(무연)
 
-For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
+자세한 내용은 [Durandal 기술 데이터 시트](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf)를 참조하십시오.
 
 <span id="purchase"></span>
-## Purchase
+## 구매처
 
-Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
+[Holybro](https://shop.holybro.com/durandalbeta_p1189.html)에서 주문 가능 합니다.
 
 <span id="connections"></span>
-## Connections
+## 연결
 
-The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
+포트 연결의 위치는 여기에 표시됩니다(아래에는 [핀배열 섹션](#pinouts)).
 
-### Top
+### 상단
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
-### Front
+### 전면
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
-### Back
+### 후면
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-### Right
+### 우측
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
 
-### Left
+### 좌측
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 
-## Dimensions
+## 크기
 
-All dimensions are in millimeters.
+모든 치수는 밀리미터 단위입니다.
 
 ![Durandal Dimensions](../../assets/flight_controller/durandal/durandal_dimensions.jpg)
 
@@ -138,25 +138,24 @@ Under these conditions the system will not draw any power (will not be operation
 
 -->
 
-## Assembly/Setup
+## 조립 및 설정
 
-The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Durandal 배선 개요](../assembly/quick_start_durandal.md)는 GPS, 전원 관리 보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
 
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 ```
 make holybro_durandal-v1_default
 ```
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port          |
+| UART   | 장치         | 포트            |
 | ------ | ---------- | ------------- |
 | USART1 | /dev/ttyS0 | GPS1          |
 | USART2 | /dev/ttyS1 | TELEM1        |
