@@ -28,31 +28,31 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 
 ## 구매처
 
-The board can be bought from one of the following shops (for example):
+보드는 아래의 상점들에서 구매할 수 있습니다.
 
 - [Holybro](https://shop.holybro.com/kakute-f7_p1104.html) 
 - [getfpv](https://www.getfpv.com/holybro-kakute-f7-tekko32-f3-metal-65a-4-in-1-esc-combo.html)
 
 :::tip
-The *Kakute F7* is designed to work with the *Tekko32* 4-in-1 ESC and they can be bought in combination.
+*Kakute F7*은 *Tekko32* 4-in-1 ESC와 작동하도록 설계되었으며, 함께 구매할 수 있습니다.
 :::
 
-## Connectors and Pins
+## 커넥터 및 핀
 
-This is the silkscreen for the *Kakute F7*, showing the top of the board:
+다음은 *Kakute F7*의 실크 스크린으로, 보드 상단을 보여줍니다.
 
 ![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
 
-| Pin      | Function                                                             | PX4 default         |
+| 핀        | 기능                                                                   | 기본값                 |
 | -------- | -------------------------------------------------------------------- | ------------------- |
-| B+       | Battery positive voltage (2S-6S)                                     |                     |
-| 5V       | 5V output (2A max)                                                   |                     |
-| VO       | Video output to video transmitter                                    |                     |
-| VI       | Video input from FPV camera                                          |                     |
-| G or GND | Ground                                                               |                     |
-| SDA, SCL | I2C connection (for peripherals)                                     |                     |
-| R1, T1   | UART1 RX and TX                                                      | TELEM1              |
-| R2, T2   | UART2 RX and TX                                                      | TELEM2              |
+| B+       | 배터리 양극 전압 (2S-6S)                                                    |                     |
+| 5V       | 5V 출력 (최대 2A)                                                        |                     |
+| VO       | 비디오 송신기로 비디오 출력                                                      |                     |
+| VI       | FPV 카메라의 비디오 입력                                                      |                     |
+| G 또는 GND | 접지                                                                   |                     |
+| SDA, SCL | I2C 연결(주변장치용)                                                        |                     |
+| R1, T1   | UART1 RX 및 TX                                                        | TELEM1              |
+| R2, T2   | UART2 RX 및 TX                                                        | TELEM2              |
 | R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
 | R4, T4   | UART4 RX and TX                                                      | GPS1                |
 | R6, T6   | UART6 RX and TX                                                      | RC port             |
