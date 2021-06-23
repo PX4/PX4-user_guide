@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.cuav.net/)에 문의하십시오.
 :::
 
-**V5 nano**<sup>&reg;</sup>는 CUAV<sup>&reg;</sup>와 PX4 팀이 공동으로 설계한 공간 제약 애플리케이션용 자동조종장치입니다.
+**V5 nano**<sup>&reg;</sup>는 CUAV<sup>&reg;</sup>와 PX4팀이 공동으로 설계한 공간 제약 애플리케이션용 자동조종장치입니다.
 
 이 자동조종장치는 220mm 레이싱 드론에서 사용할 수 정도로 소형이지만, 대부분의 드론에도 충분히 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ V5 nano는 [CUAV V5+](../flight_controller/cuav_v5_plus.md)와 유사하지만 �
 
 * USB 전원 입력: 4.75~5.25V
 
-* 중량 및 크기
+* 중량과 크기
   
   * 크기: 60*40*14mm
 * 기타 특성: 
@@ -202,7 +202,7 @@ UAVCAN [NEO V2 PRO GNSS 수신기](http://doc.cuav.net/gps/neo-series-gnss/en/ne
 
 <span id="pin1_unfused"></span>
 
-#### SBUS / DSM / RSSI 인터페이스 Pin1 언퓨즈
+#### SBUS/DSM/RSSI 인터페이스 Pin1 언퓨즈
 
 :::warning
 이것은 안전에 관련된 문제입니다.
@@ -215,7 +215,7 @@ SBUS/DSM/RSSI 인터페이스에 다른 장비(RC 수신기 제외)를 연결하
 
 ## 추가 정보
 
-* 0>V5 nano 매뉴얼</a> (CUAV)
+* [V5 nano 매뉴얼](http://manual.cuav.net/V5-nano.pdf) (CUAV)
 * [FMUv5 참조 설계 핀배열](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 * [CUAV Github](https://github.com/cuav) (CUAV)
 * [DJI FlameWheel450에서 CUAV v5 nano를 사용하는 기체 빌드 로그](../frames_multicopter/dji_f450_cuav_5nano.md)
