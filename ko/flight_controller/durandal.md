@@ -155,91 +155,91 @@ make holybro_durandal-v1_default
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트            |
-| ------ | ---------- | ------------- |
-| USART1 | /dev/ttyS0 | GPS1          |
-| USART2 | /dev/ttyS1 | TELEM1        |
-| USART3 | /dev/ttyS2 | TELEM2        |
-| UART4  | /dev/ttyS3 | TELEM4/GPS2   |
-| USART6 | /dev/ttyS4 | TELEM3        |
-| UART7  | /dev/ttyS5 | Debug Console |
-| UART8  | /dev/ttyS6 | PX4IO         |
+| UART   | 장치         | 포트          |
+| ------ | ---------- | ----------- |
+| USART1 | /dev/ttyS0 | GPS1        |
+| USART2 | /dev/ttyS1 | TELEM1      |
+| USART3 | /dev/ttyS2 | TELEM2      |
+| UART4  | /dev/ttyS3 | TELEM4/GPS2 |
+| USART6 | /dev/ttyS4 | TELEM3      |
+| UART7  | /dev/ttyS5 | 디버깅 콘솔      |
+| UART8  | /dev/ttyS6 | PX4IO       |
 
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
 <span id="debug_port"></span>
-## Debug Port
+## 디버그 포트
 
-The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
+[PX4 시스템 콘솔](../debug/system_console.md)과 [SWD 인터페이스](../debug/swd_debug.md)는 *디버그* 포트에서 실행됩니다.
 
-The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
+이런 포트 모두 표준 시리얼 핀아웃을 가지고 있고 표준 FTDI 케이블 (3.3V, but it's 5V tolerant) 또는 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하여 연결할 수 있습니다. 핀아웃은 표준 Dronecode 디버그 커넥터 핀배열을 사용합니다. 이 포트의 배선 방법은 [배선](../debug/system_console.md)편을 참고하십시오.
 
 :::note
-No Debug port is exposed for the I/O board.
+I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 :::
 
 
-## Peripherals
+## 주변 장치
 
-* [Digital Airspeed Sensor](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
-
-
-## Supported Platforms / Airframes
-
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
-
-The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+* [디지털 대기속도 센서](https://store-drotek.com/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [텔레메트리 라디오 모듈](../telemetry/README.md)
+* [거리계/거리 센서](../sensor/rangefinders.md)
 
 
-## Pinouts
+## 지원 플랫폼 및 기체
 
-*Durandal* pinouts are listed below. These can also be downloaded from [here](http://www.holybro.com/manual/Durandal-Pinouts.pdf).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
 
-### Top Pinouts
+지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
+
+
+## 핀배열
+
+*Durandal* 핀배열은 다음과 같습니다. [여기](http://www.holybro.com/manual/Durandal-Pinouts.pdf)에서 다운로드 하십시오.
+
+### 상단 핀배열
 
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
 
 
-### Front Pinouts
+### 전면 핀배열
 
 ![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
 
-#### SUBS Out port
+#### SUBS 출력 포트
 
-| Pin        | Signal             | Volt  |
-| ---------- | ------------------ | ----- |
-| 1 (red)    | -                  | -     |
-| 2 (yellow) | SBUS_OUT/RSSI_IN | +3.3V |
-| 3 (black)  | GND                | GND   |
+| 핀     | 신호                 | 전압    |
+| ----- | ------------------ | ----- |
+| 1 (적) | -                  | -     |
+| 2 (황) | SBUS_OUT/RSSI_IN | +3.3V |
+| 3 (흑) | GND                | GND   |
 
-#### DSM RC port
+#### DSM RC 포트
 
-| Pin        | Signal  | Volt  |
-| ---------- | ------- | ----- |
-| 1 (red)    | VDD_3V3 | +3.3V |
-| 2 (yellow) | DSM_IN  | +3.3V |
-| 3 (black)  | GND     | GND   |
+| 핀     | 신호      | 전압    |
+| ----- | ------- | ----- |
+| 1 (적) | VDD_3V3 | +3.3V |
+| 2 (황) | DSM_IN  | +3.3V |
+| 3 (흑) | GND     | GND   |
 
-#### I2C A port
+#### I2C A 포트
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | SCL4   | +3.3V |
-| 3 (black) | SDA4   | +3.3V |
-| 4 (black) | GND    | GND   |
+| 핀     | 신호   | 전압    |
+| ----- | ---- | ----- |
+| 1 (적) | VCC  | +5V   |
+| 2 (흑) | SCL4 | +3.3V |
+| 3 (흑) | SDA4 | +3.3V |
+| 4 (흑) | GND  | GND   |
 
-#### CAN1 port
+#### CAN1 포트
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 핀         | 신호    | 전압    |
+| --------- | ----- | ----- |
+| 1 (적)     | VCC   | +5V   |
+| 2 (흑)     | CAN H | +3.3V |
+| 3 (black) | CAN L | +3.3V |
+| 4 (black) | GND   | GND   |
 
 
 <span id="gps"></span>
