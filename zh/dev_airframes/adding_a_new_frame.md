@@ -84,21 +84,20 @@ param set-default PWM_MAIN_DISARM 1000
 set MAV_TYPE 1
 ```
 
-Set the [mixer](#mixer-file) to use:
+设定使用的 [混控器](#mixer-file) :
 ```bash
 # 设定混控
 set MIXER wingwing
 ```
 
-Configure PWM outputs (specify the outputs to drive/activate, and the levels).
+配置 PWM 输出 (指定要驱动/激活的输出和级别).
 ```bash
 # 向 ESC 提供一个常值 1000 us 脉冲
 set PWM_OUT 4
 set PWM_DISARMED 1000
 ```
 
-:::warning
-If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`. The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
+:::警告 如果你想将某一个通道反相,千万不要在你的遥控器上这样做或者改变例如`RC1_ REV `这样的参数。 The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
 :::
 
 <a id="mixer-file"></a>
