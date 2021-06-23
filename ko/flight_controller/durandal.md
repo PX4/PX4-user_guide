@@ -8,35 +8,35 @@
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
 주요 기능은 다음과 같습니다.
-- Integrated temperature control for sensors.
-- Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
-- New sensors with higher temperature stability.
-- Internal vibration isolation system.
-- Dual high-performance, low-noise IMUs on board are designed for demanding stabilization applications.
+- 센서 통합 온도 제어.
+- 480MHz에서 실행되는 강력한 STM32H7 마이크로 컨트롤러. 2MB의 플래시 메모리 및 1MB의 RAM.
+- 온도 안정성이 높은 신규 센서.
+- 내부 진동 차단 시스템.
+- 듀얼 고성능, 저잡음 IMU 온보드는 까다로운 안정화 애플리케이션을 위해 설계되었습니다.
 
-A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
+주요 기능, [조립](../assembly/quick_start_durandal.md) 및 [구매](#purchase) 링크에 대한 요약은 아래에서 확인할 수 있습니다.
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
 
-## Quick Summary
+## 요약
 
-#### Technical Specifications
-- Main FMU Processor: STM32H743
-  - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
-- IO Processor: STM32F100
-  - 32 Bit Arm ® Cortex® -M3, 24MHz, 8KB SRAM
-- On-board sensors
-  - Accel/Gyro: ICM-20689
-  - Accel/Gyro: BMI088
-  - Mag: IST8310
-  - Barometer: MS5611
-- GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+#### 기술 사양
+- 메인 FMU 프로세서: STM32H743
+  - 32 비트 Arm® Cortex® -M7, 480MHz, 2MB 메모리, 1MB RAM
+- IO 프로세서: STM32F100
+  - 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
+- 내장 센서 :
+  - 가속도/자이로: ICM-20689
+  - 가속/자이로: BMI088
+  - 자력계: IST8310
+  - 기압계: MS5611
+- GPS: u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
 
 
-#### Interfaces
+#### 인터페이스
 - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
 - 6 dedicated PWM/Capture inputs on FMU
 - Dedicated R/C input for Spektrum / DSM
