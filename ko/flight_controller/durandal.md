@@ -1,13 +1,13 @@
 # Holybro Durandal
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-*Durandal*<sup>&reg;</sup> is the latest update to the successful family of Holybro flight controllers. It was designed and developed by Holybro.
+*Durandal*<sup>&reg;</sup>는 성공적인 Holybro 비행 컨트롤러 제품군에 대한 최신 업데이트입니다. Holybro가 설계하고 개발하였습니다.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)
 
-At high level, some of the key features are:
+주요 기능은 다음과 같습니다.
 - Integrated temperature control for sensors.
 - Powerful STM32H7 microcontroller running at 480MHz. 2 MB of Flash memory and 1 MB of RAM.
 - New sensors with higher temperature stability.
