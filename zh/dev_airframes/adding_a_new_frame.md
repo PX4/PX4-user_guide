@@ -7,7 +7,7 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 如果不想创建自己的配置文件，也可以用SD卡上的文本文件替换掉已有的自定义配置文件，具体细节请查看[自定义系统启动页。 ](../concept/system_startup.md)
 
 :::note
-为了决定哪些参数/值需要在配置文件中设置，你可以先指定一个通用机架并调整自驾仪，之后用[`param show-for-airframe`](../modules/modules_command.md#param)来列出参数改变的参数。
+为了决定哪些参数/值需要在配置文件中设置，你可以先指定一个通用机架并调整自驾仪，之后用[`param show-for-airframe`](../modules/modules_command.md#param)来列出改变的参数。
 :::
 
 ## 配置文件概述
@@ -19,7 +19,7 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 * 应该启动的控制器和应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
 * 系统（固定翼，飞翼或者多旋翼）的物理配置。 这叫[混控器](../concept/mixing.md)。
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
+一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
 第一部分是关于机身框架的文档说明。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
@@ -29,7 +29,7 @@ A typical configuration file is shown below ([original file here](https://github
 
 接下来的一部分指定车辆特定的参数，包括调参系数。
 
-The first section is the airframe documentation. This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
+第一部分是机身框架的文档说明 它将会被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*使用
 ```bash
 #!nsh
 #
