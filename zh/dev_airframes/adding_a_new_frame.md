@@ -7,16 +7,16 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 如果不想创建自己的配置文件，也可以用SD卡上的文本文件替换掉已有的自定义配置文件，具体细节请查看[自定义系统启动页。 ](../concept/system_startup.md)
 
 :::note
-To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
+为了决定哪些参数/值需要在配置文件中设置，你可以先指定一个通用机架并调整自驾仪，之后用[`param show-for-airframe`](../modules/modules_command.md#param)来列出参数改变的参数。
 :::
 
 ## 配置文件概述
 
-上述几个模块在很大程度上都是相互独立的，这就意味着很多配置共用同一套机架的物理结构、启动同样的应用，仅在参数整定增益上有较大区别。
+在配置文件和混控器文件下的配置由几个主要代码块组成:
 
 * 机架说明文档(被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*) 使用。
 * 飞机特定的参数设置，包括[tuning gains](#tuning-gains)。
-* 应该启动的应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
+* 应该启动的控制器和应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
 * 系统（固定翼，飞翼或者多旋翼）的物理配置。 这叫[混控器](../concept/mixing.md)。
 
 A typical configuration file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
