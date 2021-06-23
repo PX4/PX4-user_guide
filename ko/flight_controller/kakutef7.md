@@ -41,7 +41,7 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 
 다음은 *Kakute F7*의 실크 스크린으로, 보드 상단을 보여줍니다.
 
-![Kakute F7 Silkscreen](../../assets/flight_controller/kakutef7/silk.png)
+![Kakute F7 실크스크린](../../assets/flight_controller/kakutef7/silk.png)
 
 | 핀        | 기능                                                | 기본값          |
 | -------- | ------------------------------------------------- | ------------ |
@@ -87,43 +87,43 @@ Holybro의 *Kakute F7*은 레이서를 위해 설계된 비행 컨트롤러입�
 
 ## 설정
 
-[기본 설정](../config/README.md) 외에도 아래의 매개 변수가 중요합니다.
+[기본 설정](../config/README.md) 외에도 아래의 매개변수가 중요합니다.
 
-| 매개변수                                                                   | 설정                                                                                                           |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. You can enable it if you attach an external mag.                             |
-| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly. |
+| 매개변수                                                                   | 설정                                                                            |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. 외부 자력계를 연결하여 활성화 할 수 있습니다.                    |
+| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | Betaflight/Cleanflight 모터 할당과 함께 4-in-1 ESC를 사용하는 경우 이 매개변수를 적절하게 설정할 수 있습니다. |
 
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| USART1 | /dev/ttyS0 | TELEM1                |
-| USART2 | /dev/ttyS1 | TELEM2                |
-| USART3 | /dev/ttyS2 | Debug Console         |
-| UART4  | /dev/ttyS3 | GPS1                  |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
+| UART   | 장치         | 포트               |
+| ------ | ---------- | ---------------- |
+| USART1 | /dev/ttyS0 | TELEM1           |
+| USART2 | /dev/ttyS1 | TELEM2           |
+| USART3 | /dev/ttyS2 | 디버그 콘솔           |
+| UART4  | /dev/ttyS3 | GPS1             |
+| USART6 | /dev/ttyS4 | RC SBUS          |
+| UART7  | /dev/ttyS5 | ESC 텔레메트리(DShot) |
 
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Debug Port
+## 디버그 포트
 
-### System Console
+### 시스템 콘솔
 
-UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
+UART3 RX와 TX는 [시스템 콘솔](../debug/system_console.md)을 사용하도록 설정됩니다.
 
 ### SWD
 
-The [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
+[SWD 인터페이스](../debug/swd_debug.md)(JTAG) 핀은 아래와 같습니다.
 
-- `SWCLK`: Test Point 2 (Pin 72 on the CPU)
-- `SWDIO`: Test Point 3 (Pin 76 on CPU)
-- `GND`: As marked on board
-- `VDD_3V3`: As marked on board
+- `SWCLK`: 테스트 포인트 2(CPU의 핀 72)
+- `SWDIO`: 테스트 포인트 3(CPU의 핀 76)
+- `GND`: 보드에 표시됨.
+- `VDD_3V3`: 보드에 표시됨.
 
-These are shown below.
+이 내용을 아래의 그림으로 정리하였습니다.
 
-![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
+![Kakute F7의 SWD 핀 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![Kakute F7의 SWD 핀: GND 및 VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
