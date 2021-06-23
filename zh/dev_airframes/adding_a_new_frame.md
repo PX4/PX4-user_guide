@@ -21,7 +21,8 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 
 一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
-第一部分是关于机身框架的文档说明。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
+:::note
+新的机架文件只会在清理构建之后 (运行 `make clean`)被加入到编译系统。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
 <a id="config-file"></a>
 
