@@ -1,23 +1,23 @@
-# Holybro pix32 Flight Controller
+# Holybro pix32 비행 컨트롤러
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
-The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](https://nuttx.apache.org/) OS.
+Holybro<sup>&reg;</sup> [pix32 자동조종장치](https://shop.holybro.com/c/pixhawk-2_0460)("Pixhawk 2"라고도하며 이전에 HKPilot32라고도 함)는 [Pixhawk<sup>&reg;</sup>-프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 디자인을 기반으로합니다. 이 보드는 하드웨어 버전 Pixhawk 2.4.6을 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행합니다.
 
 ![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
+CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 
 :::tip
-The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되는 소프트웨어입니다. 커넥터와 호환되지는 않지만, 3DR Pixhawk 또는 mRo Pixhawk와 물리적으로 매우 유사합니다.
 :::
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
+## 주요 특징
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
