@@ -103,7 +103,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 | 5 (흑) | I2C1 SDA | +3.3V |
 | 6 (흑) | GND      | GND   |
 
-#### FrSky 텔레메트리 / SERIAL4
+#### FrSky 텔레메트리/SERIAL4
 
 | 핀     | 신호      | 전압    |
 | ----- | ------- | ----- |
@@ -112,7 +112,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 | 3 (흑) | RX (입력) | +3.3V |
 | 4 (흑) | GND     | GND   |
 
-#### RC 입력 (PPM / S.BUS / Spektrum / SUMD / ST24 허용)
+#### RC 입력(PPM/S.BUS/Spektrum/SUMD/ST24 허용)
 
 | 핀     | 신호      | 전압    |
 | ----- | ------- | ----- |
@@ -154,7 +154,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 #### 디버그 포트
 
-[Pixhawk 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B 커넥터)입니다.
+[Pixhawk 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)(JST SM06B 커넥터)입니다.
 
 | 핀     | 신호               | 전압    |
 | ----- | ---------------- | ----- |
@@ -167,7 +167,7 @@ Pixracer는 별도의 항공전자기기 전원공급장치를 사용하도록 �
 
 이 포트의 배선과 사용 정보는 다음을 참조하십시오.
 
-* [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port) (참고, FMU 콘솔은 UART7에 매핑됨).
+* [PX4 시스템 콘솔](../debug/system_console.md#pixhawk_debug_port)(참고, FMU 콘솔은 UART7에 매핑됨).
 * [SWD (JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md#pixhawk_debug_port_6_pin_sh)
 
 ## 시리얼 포트 매핑
