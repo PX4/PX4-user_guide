@@ -15,38 +15,38 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
 
 ## 요약
 
-* Main FMU Processor: STM32F765
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO Processor: STM32F100
-  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* On-board sensors:
-  * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* GPS: u-blox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* Interfaces:
-  * 8-16 PWM outputs (8 from IO, 8 from FMU)
-  * 3 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * Dedicated S.Bus servo output
-  * 5 general purpose serial ports
-    * 2 with full flow control
-    * 1 with separate 1.5A current limit
-  * 3 I2C ports
-  * 4 SPI buses
-    * 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
-    * 1 internal low noise SPI bus dedicated for
-    * Barometer with 2 chip selects, no DRDYs
-    * 1 internal SPI bus dedicated for FRAM
-    * Supports dedicated SPI calibration EEPROM located on sensor module
-    * 1 external SPI buses
-  * Up to 2 CANBuses for dual CAN with serial ESC
-    * Each CANBus has individual silent controls or ESC RX-MUX control
-    * Analog inputs for voltage / current of 2 batteries
-    * 2 additional analog inputs
-* Electrical System:
+* 메인 FMU 프로세서: STM32F765
+  * 32 비트 Arm® Cortex®-M7, 216MHz, 2MB 메모리, 512KB RAM
+* IO 프로세서: STM32F100
+  * 32 비트 Arm® Cortex®-M3, 24MHz, 8KB SRAM
+* 내장 센서 :
+  * 가속도/자이로: ICM-20689
+  * 가속/자이로: BMI055
+  * 자력계 : IST8310
+  * 기압계: MS5611
+* GPS: u-blox Neo-M8N GPS/GLONASS 수신기; 통합 자력계 IST8310
+* 인터페이스:
+  * PWM 출력 8-16개(IO에서 8개, FMU에서 8개)
+  * FMU의 전용 PWM/캡처 입력 3 개
+  * CPPM 전용 RC 입력
+  * Spektrum/DSM 및 S.Bus 전용 R/C 입력, 아날로그/PWM RSSI 입력
+  * Dedicated S.Bus Servo 출력
+  * 범용 시리얼 포트 5개
+    * 전체 흐름 제어 2개
+    * 1.5A 전류 제한이 있는 1 개
+  * I2C 포트 3개
+  * SPI 버스 4개
+    * 4 개의 칩 선택 및 6 개의 DRDY가 있는 내부 고속 SPI 센서 버스 1 개
+    * XXX 전용 내부 저잡음 SPI 버스 1 개
+    * 2 개의 칩 선택이 있는 기압계, DRDY 없음
+    * FRAM 전용 내부 SPI 버스 1 개
+    * 센서 모듈에 위치한 전용 SPI 교정 EEPROM 지원
+    * 외부 SPI 버스 1개
+  * 직렬 ESC를 사용하는 듀얼 CAN에 최대 2 개의 CAN 버스
+    * 각 CANBus에는 개별 무음 제어 또는 ESC RX-MUX 제어가 있습니다.
+    * 배터리 2 개의 전압 및 전류에 대한 아날로그 입력
+    * 추가 아날로그 입력 2개
+* 전기 시스템 :
   * Power module output: 4.9~5.5V
   * Max input voltage: 6V
   * Max current sensing: 120A
