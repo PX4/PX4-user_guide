@@ -32,7 +32,7 @@ MindRacer는 SEP(납땜 제거 포트) 및 WEP(배선 제거 프로토콜) 개�
 |         항목          |                          설명                           |
 |:-------------------:|:-----------------------------------------------------:|
 |    비행 컨트롤러/프로세서     |                       F427VIT6                        |
-|         중량          |                         ~ 6g                          |
+|         중량          |                         약 6g                          |
 |         크기          |                        35x35mm                        |
 |       PWM 출력        |                         최대 6                          |
 |         IMU         |                         10DOF                         |
@@ -79,7 +79,7 @@ MindRacer에는 UART-USB 변환기가 내장되어 있습니다. 보조 컴퓨�
 
 ## 구매처
 
-MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon <sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
+MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ## 지원
 

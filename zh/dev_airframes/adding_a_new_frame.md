@@ -7,21 +7,22 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 如果不想创建自己的配置文件，也可以用SD卡上的文本文件替换掉已有的自定义配置文件，具体细节请查看[自定义系统启动页。 ](../concept/system_startup.md)
 
 :::note
-To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
+为了决定哪些参数/值需要在配置文件中设置，你可以先指定一个通用机架并调整自驾仪，之后用[`param show-for-airframe`](../modules/modules_command.md#param)来列出改变的参数。
 :::
 
 ## 配置文件概述
 
-上述几个模块在很大程度上都是相互独立的，这就意味着很多配置共用同一套机架的物理结构、启动同样的应用，仅在参数整定增益上有较大区别。
+在配置文件和混控器文件下的配置由几个主要代码块组成:
 
 * 机架说明文档(被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*) 使用。
 * 飞机特定的参数设置，包括[tuning gains](#tuning-gains)。
-* 应该启动的应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
+* 应该启动的控制器和应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
 * 系统（固定翼，飞翼或者多旋翼）的物理配置。 这叫[混控器](../concept/mixing.md)。
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
+一个典型的配置文件如下所示 ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
-第一部分是关于机身框架的文档说明。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
+:::note
+新的机架文件只会在清理构建之后 (运行 `make clean`)被加入到编译系统。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 
 <a id="config-file"></a>
 
@@ -29,7 +30,7 @@ A typical configuration file is shown below ([original file here](https://github
 
 接下来的一部分指定车辆特定的参数，包括调参系数。
 
-The first section is the airframe documentation. This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
+第一部分是机身框架的文档说明 它将会被[Airframes Reference](../airframes/airframe_reference.md)和*QGroundControl*使用
 ```bash
 #!nsh
 #
@@ -83,21 +84,20 @@ param set-default PWM_MAIN_DISARM 1000
 set MAV_TYPE 1
 ```
 
-Set the [mixer](#mixer-file) to use:
+设定使用的 [混控器](#mixer-file) :
 ```bash
 # 设定混控
 set MIXER wingwing
 ```
 
-Configure PWM outputs (specify the outputs to drive/activate, and the levels).
+配置 PWM 输出 (指定要驱动/激活的输出和级别).
 ```bash
 # 向 ESC 提供一个常值 1000 us 脉冲
 set PWM_OUT 4
 set PWM_DISARMED 1000
 ```
 
-:::warning
-If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`. The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
+:::警告 如果你想将某一个通道反相,千万不要在你的遥控器上这样做或者改变例如`RC1_ REV `这样的参数。 The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
 :::
 
 <a id="mixer-file"></a>

@@ -59,16 +59,16 @@ MindPX는 총 PWM 출력 채널을 16 (8개의 주출력 + 8 aux 출력)으로 �
 ![MindPX 핀배열
 ](../../assets/hardware/hardware-mindpx-pin.png)
 
-| 번호. |        설명        | 번호. |                   설명                    |
-|:---:|:----------------:|:---:|:---------------------------------------:|
-|  1  |        전원        |  9  |             I2C2 (MindFLow)             |
-|  2  | 디버그 (부트로더 새로 고침) | 10  |            USB2 (직렬 2 - USB)            |
-|  3  | USB1 (펌웨어 새로 고침) | 11  |                 UART4,5                 |
-|  4  |       재설정        | 12  | UART1 (텔레메트리) Context | Request Context |
-|  5  |   UART3 (GPS)    | 13  |                   CAN                   |
-|  6  |  I2C1 (외부 나침반)   | 14  |                   ADC                   |
-|  7  |     TF 카드 슬롯     | 15  |                   삼색등                   |
-|  8  |  NRF/SPI(원격 제어)  | 16  |                 Looper                  |
+| 번호 |        설명        | 번호 |                   설명                    |
+|:--:|:----------------:|:--:|:---------------------------------------:|
+| 1  |        전원        | 9  |             I2C2 (MindFLow)             |
+| 2  | 디버그 (부트로더 새로 고침) | 10 |            USB2 (직렬 2 - USB)            |
+| 3  | USB1 (펌웨어 새로 고침) | 11 |                 UART4,5                 |
+| 4  |       재설정        | 12 | UART1 (텔레메트리) Context | Request Context |
+| 5  |   UART3 (GPS)    | 13 |                   CAN                   |
+| 6  |  I2C1 (외부 나침반)   | 14 |                   ADC                   |
+| 7  |     TF 카드 슬롯     | 15 |                   삼색등                   |
+| 8  |  NRF/SPI(원격 제어)  | 16 |                 Looper                  |
 
 ### 라디오 수신기
 
@@ -100,7 +100,7 @@ MindPX에는 보드에는 USB-TO-UART 브리지 IC가 있습니다. 마이크로
 
 ## 구매처
 
-MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon <sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
+MindRacer는 인터넷 [AirMind Store](http://drupal.xitronet.com/?q=catalog)에 구매할 수 있습니다. Amazon<sup>&reg;</sup> 또는 eBay<sup>&reg;</sup>에서도 MindRacer를 구매할 수 있습니다.
 
 ## 시리얼 포트 매핑
 

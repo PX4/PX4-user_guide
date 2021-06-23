@@ -1,6 +1,6 @@
 # DroPix 비행 컨트롤러
 
-:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.drotek.com/)에 문의하십시오.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.drotek.com/)에 문의하십시오.  
 :::
 
 Drotek<sup>&reg;</sup> *DroPix 자동조종장치*는 [Pixhawk<sup>&reg;</sup>-프로젝트](https://pixhawk.org/) **FMUv2** 개방형 하드웨어 디자인을 기반으로합니다. PX4를 [NuttX](https://nuttx.apache.org/) OS에서 실행합니다.

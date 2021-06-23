@@ -7,7 +7,7 @@
 PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从竞速和物流无人机到地面车辆和潜水艇的各种载具提供动力。
 
 :::tip
-本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 Interested in contributing? Check out the [Development](development/development.md) section.
+本指南包含了组装、配置和安全驾驶基于 PX4 的飞机所需的一切。 对贡献感兴趣吗 Check out the [Development](development/development.md) section.
 :::
 
 ## 如何开始？
