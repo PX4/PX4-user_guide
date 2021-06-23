@@ -234,135 +234,135 @@ I/O 보드에 대해 노출된 디버그 포트가 없습니다.
 
 #### CAN1 포트
 
-| 핀         | 신호    | 전압    |
-| --------- | ----- | ----- |
-| 1 (적)     | VCC   | +5V   |
-| 2 (흑)     | CAN H | +3.3V |
-| 3 (black) | CAN L | +3.3V |
-| 4 (black) | GND   | GND   |
+| 핀     | 신호    | 전압    |
+| ----- | ----- | ----- |
+| 1 (적) | VCC   | +5V   |
+| 2 (흑) | CAN H | +3.3V |
+| 3 (흑) | CAN L | +3.3V |
+| 4 (흑) | GND   | GND   |
 
 
 <span id="gps"></span>
-#### GPS port
+#### GPS 포트
 
-| Pin        | Signal              | Volt  |
-| ---------- | ------------------- | ----- |
-| 1 (red)    | VCC                 | +5V   |
-| 2 (black)  | TX (out)            | +3.3V |
-| 3 (black)  | RX (in)             | +3.3V |
-| 4 (black)  | SCL1                | +3.3V |
-| 5 (black)  | SDA1                | +3.3V |
-| 6 (black)  | SAFETY_SWITCH       | +3.3V |
-| 7 (black)  | SAFETY_SWITCH_LED | +3.3V |
-| 8 (black)  | VDD_3V3             | +3.3V |
-| 9 (black)  | BUZZER              | +5V   |
-| 10 (black) | GND                 | GND   |
+| 핀      | 신호                  | 전압    |
+| ------ | ------------------- | ----- |
+| 1 (적)  | VCC                 | +5V   |
+| 2 (흑)  | TX  (출력)            | +3.3V |
+| 3 (흑)  | RX  (입력)            | +3.3V |
+| 4 (흑)  | SCL1                | +3.3V |
+| 5 (흑)  | SDA1                | +3.3V |
+| 6 (흑)  | SAFETY_SWITCH       | +3.3V |
+| 7 (흑)  | SAFETY_SWITCH_LED | +3.3V |
+| 8 (흑)  | VDD_3V3             | +3.3V |
+| 9 (흑)  | BUZZER              | +5V   |
+| 10 (흑) | GND                 | GND   |
 
 
 <span id="telem4_i2cb"></span>
-#### TELEM4 I2CB ports
+#### TELEM4 I2CB 포트
 
-| Pin       | Signal   | Volt  |
-| --------- | -------- | ----- |
-| 1 (red)   | VCC      | +5V   |
-| 2 (black) | TX (out) | +3.3V |
-| 3 (black) | RX (in)  | -     |
-| 4 (black) | SCL2     | -     |
-| 5 (black) | SDA2     | +3.3V |
-| 6 (black) | GND      | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX  (출력) | +3.3V |
+| 3 (흑) | RX  (입력) | -     |
+| 4 (흑) | SCL2     | -     |
+| 5 (흑) | SDA2     | +3.3V |
+| 6 (흑) | GND      | GND   |
 
 
 <span id="telem1_2_3"></span>
-#### TELEM3, TELEM2, TELEM1 port
+#### TELEM3, TELEM2, TELEM1 포트
 
-| Pin       | Signal    | Volt  |
-| --------- | --------- | ----- |
-| 1 (red)   | VCC       | +5V   |
-| 2 (black) | TX (out)  | +3.3V |
-| 3 (black) | RX (in)   | +3.3V |
-| 4 (black) | CTS (in)  | +3.3V |
-| 5 (black) | RTS (out) | +3.3V |
-| 6 (black) | GND       | GND   |
+| 핀     | 신호       | 전압    |
+| ----- | -------- | ----- |
+| 1 (적) | VCC      | +5V   |
+| 2 (흑) | TX  (출력) | +3.3V |
+| 3 (흑) | RX  (입력) | +3.3V |
+| 4 (흑) | CTS (입력) | +3.3V |
+| 5 (흑) | RTS (출력) | +3.3V |
+| 6 (흑) | GND      | GND   |
 
 
 <span id="power"></span>
-#### POWER port
+#### POWER 포트
 
-| Pin       | Signal  | Volt  |
-| --------- | ------- | ----- |
-| 1 (red)   | VCC     | +5V   |
-| 2 (black) | VCC     | +5V   |
-| 3 (black) | CURRENT | +3.3V |
-| 4 (black) | VOLTAGE | +3.3V |
-| 5 (black) | GND     | GND   |
-| 6 (black) | GND     | GND   |
+| 핀     | 신호      | 전압    |
+| ----- | ------- | ----- |
+| 1 (적) | VCC     | +5V   |
+| 2 (흑) | VCC     | +5V   |
+| 3 (흑) | CURRENT | +3.3V |
+| 4 (흑) | VOLTAGE | +3.3V |
+| 5 (흑) | GND     | GND   |
+| 6 (흑) | GND     | GND   |
 
 
-### Back Pinouts
+### 후면 핀배열
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
-#### MAIN Out
+#### MAIN 출력
 
-| Pin | Signal | Volt  | +         | -   |
-| --- | ------ | ----- | --------- | --- |
-| 1   | IO_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | IO_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | IO_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | IO_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | IO_CH5 | +3.3V | VDD_SERVO | GND |
-| 6   | IO_CH6 | +3.3V | VDD_SERVO | GND |
-| 7   | IO_CH7 | +3.3V | VDD_SERVO | GND |
-| 8   | IO_CH8 | +3.3V | VDD_SERVO | GND |
-
-
-#### AUX Out
-
-| Pin | Signal  | Volt  | +         | -   |
-| --- | ------- | ----- | --------- | --- |
-| 1   | FMU_CH1 | +3.3V | VDD_SERVO | GND |
-| 2   | FMU_CH2 | +3.3V | VDD_SERVO | GND |
-| 3   | FMU_CH3 | +3.3V | VDD_SERVO | GND |
-| 4   | FMU_CH4 | +3.3V | VDD_SERVO | GND |
-| 5   | FMU_CH5 | +3.3V | VDD_SERVO | GND |
+| 핀 | 신호     | 전압    | +         | -   |
+| - | ------ | ----- | --------- | --- |
+| 1 | IO_CH1 | +3.3V | VDD_SERVO | GND |
+| 2 | IO_CH2 | +3.3V | VDD_SERVO | GND |
+| 3 | IO_CH3 | +3.3V | VDD_SERVO | GND |
+| 4 | IO_CH4 | +3.3V | VDD_SERVO | GND |
+| 5 | IO_CH5 | +3.3V | VDD_SERVO | GND |
+| 6 | IO_CH6 | +3.3V | VDD_SERVO | GND |
+| 7 | IO_CH7 | +3.3V | VDD_SERVO | GND |
+| 8 | IO_CH8 | +3.3V | VDD_SERVO | GND |
 
 
-#### RC IN
+#### AUX 출력
 
-| Pin | Signal           | Volt  |
-| --- | ---------------- | ----- |
-| S   | SBUS_IN/PPM_IN | +3.3V |
+| 핀 | 신호      | 전압    | +         | -   |
+| - | ------- | ----- | --------- | --- |
+| 1 | FMU_CH1 | +3.3V | VDD_SERVO | GND |
+| 2 | FMU_CH2 | +3.3V | VDD_SERVO | GND |
+| 3 | FMU_CH3 | +3.3V | VDD_SERVO | GND |
+| 4 | FMU_CH4 | +3.3V | VDD_SERVO | GND |
+| 5 | FMU_CH5 | +3.3V | VDD_SERVO | GND |
+
+
+#### RC 입력
+
+| 핀 | 신호               | 전압    |
+| - | ---------------- | ----- |
+| S | SBUS_IN/PPM_IN | +3.3V |
 + | VCC | +5V
 - | GND | GND
 
 
-### Right-side Pinouts
+### 우면 핀배열
 
 ![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
 
-#### CAN2 port
+#### CAN2 포트
 
-| Pin       | Signal | Volt  |
-| --------- | ------ | ----- |
-| 1 (red)   | VCC    | +5V   |
-| 2 (black) | CAN H  | +3.3V |
-| 3 (black) | CAN L  | +3.3V |
-| 4 (black) | GND    | GND   |
+| 핀     | 신호    | 전압    |
+| ----- | ----- | ----- |
+| 1 (적) | VCC   | +5V   |
+| 2 (흑) | CAN H | +3.3V |
+| 3 (흑) | CAN L | +3.3V |
+| 4 (흑) | GND   | GND   |
 
-#### CAP & ADC IN port
+#### CAP & ADC IN 포트
 
-| Pin        | Signal         | Volt                     |
-| ---------- | -------------- | ------------------------ |
-| 1 (red)    | VCC            | +5V                      |
-| 2 (black)  | FMU_CAP6       | +3.3V                    |
-| 3 (black)  | FMU_CAP5       | +3.3V                    |
-| 4 (black)  | FMU_CAP4       | +3.3V                    |
-| 5 (black)  | FMU_CAP3       | +3.3V                    |
-| 6 (black)  | FMU_CAP2       | +3.3V                    |
-| 7 (black)  | FMU_CAP1       | +3.3V                    |
-| 8 (black)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
-| 9 (black)  | ADC1_SPARE_2 | +6.6V [++](#warn_sensor) |
-| 10 (black) | GND            | GND                      |
+| 핀      | 신호             | 전압                       |
+| ------ | -------------- | ------------------------ |
+| 1 (적)  | VCC            | +5V                      |
+| 2 (흑)  | FMU_CAP6       | +3.3V                    |
+| 3 (흑)  | FMU_CAP5       | +3.3V                    |
+| 4 (흑)  | FMU_CAP4       | +3.3V                    |
+| 5 (흑)  | FMU_CAP3       | +3.3V                    |
+| 6 (흑)  | FMU_CAP2       | +3.3V                    |
+| 7 (흑)  | FMU_CAP1       | +3.3V                    |
+| 8 (흑)  | ADC1_SPARE_1 | +3.3V [++](#warn_sensor) |
+| 9 (흑)  | ADC1_SPARE_2 | +6.6V[++](#warn_sensor)  |
+| 10 (흑) | GND            | GND                      |
 
 
 <span id="warn_sensor"></span>
