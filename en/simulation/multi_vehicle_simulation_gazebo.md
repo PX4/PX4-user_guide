@@ -98,9 +98,9 @@ To build an example setup, follow the steps below:
    micrortps_agent -t UDP -r 2026 -s 2025 &
    ```
    :::note
-   In order to communicate with the different instances of PX4 individually using ROS2, you can use the `-n <namespace>` option.
+   In order to communicate with a specific instance of PX4 using ROS2, you must use the `-n <namespace>` option.
    For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0`.
-   You can then subscribe and publish to each vehicle's topics individually.
+   You can then subscribe and publish to just that vehicle's topics.
    :::
 
 <a id="with_ros"></a>
