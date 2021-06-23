@@ -7,7 +7,7 @@ CUAV *Pixhack V3* 비행 컨트롤러는 주로 상용 시스템 제조업체를
 
 이 보드는 SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) 비행 컨트롤러의 변형으로, 개방형 하드웨어 설계 [Pixhawk 프로젝트](https://pixhawk.org/) **FMUv3**를 기반으로합니다. [NuttX](https://nuttx.apache.org/) OS에서 PX4를 실행하며, PX4 또는 ArduPilot<sup>&reg;</sup> (APM) 펌웨어와 완벽하게 호환됩니다. 
 
-*Pixhack V3*는 더 나은 인터페이스 레이아웃과 진동감쇠 및 온도조절 시스템을 추가하였으며, 원 디자인 크게 개선하였습니다.
+*Pixhack V3*는 더 나은 인터페이스 레이아웃과 진동감쇠 및 온도조절 시스템을 추가하였으며, 원 디자인을 개선하였습니다.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
@@ -38,7 +38,7 @@ CUAV *Pixhack V3* 비행 컨트롤러는 주로 상용 시스템 제조업체를
 * 전원 시스템: 
   * PM 전원 입력: 4.5 ~ 5.5V
   * USB 전원 입력: 5.0V +- 0.25v
-* 중량 및 크기 
+* 중량과 크기 
   * 중량: 63g
   * 폭: 68mm
   * 두께: 17mm
