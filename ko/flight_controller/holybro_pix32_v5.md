@@ -122,7 +122,7 @@ make holybro_pix32v5_default
 
 <!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
-![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
+![FMU 디버그 포트 다이어그램](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
 
 핀배열은 표준 [Pixhawk 디버그 커넥터 핀배열](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)을 사용합니다. 배선 정보는 다음을 참조하십시오.
 - [시스템 콘솔 > Pixhawk 디버그 포트](../debug/system_console.md#pixhawk_debug_port).
