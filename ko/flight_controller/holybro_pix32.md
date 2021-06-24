@@ -85,13 +85,13 @@ Holybro pix32는 [3DR Pixhawk 1](../flight_controller/pixhawk.md)와 호환되�
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트                    |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO 디버그                |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | IO 디버그         |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  |            |                |
+| UART7  | 콘솔         |                |
+| UART8  | SERIAL4    |                |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
