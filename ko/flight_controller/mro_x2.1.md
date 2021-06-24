@@ -27,7 +27,7 @@
 
 아래 다이어그램은 Pixhawk 1과 비교한 것입니다. mRo는 거의 동일한 하드웨어와 연결 기능을 제공하지만, 설치 공간이 훨씬 작습니다. 주요 차이점은 업데이트된 센서와 Rev 3 FMU입니다.
 
-![Mro Pixhawk 1 vs X2.1 comparison](../../assets/flight_controller/mro/px1_x21.jpg)
+![Mro Pixhawk 1과 X2.1 비교](../../assets/flight_controller/mro/px1_x21.jpg)
 
 ## 연결성
 
@@ -72,7 +72,7 @@
 
 ## 배선 가이드
 
-![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
+![mRo_X2.1 배선](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
 ## 펌웨어 빌드
 
@@ -90,14 +90,14 @@
 
 ## 시리얼 포트 매핑
 
-| UART   | 장치         | 포트              |
-| ------ | ---------- | --------------- |
-| USART1 | /dev/ttyS0 | IO 디버그          |
-| USART2 | /dev/ttyS1 | SERIAL1         |
-| USART3 | /dev/ttyS2 | TELEM2          |
-| UART4  | /dev/ttyS3 | GPS/I2C         |
-| USART6 | /dev/ttyS4 | PX4IO           |
-| UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
-| UART8  | /dev/ttyS6 | SERIAL4         |
+| UART   | 장치         | 포트         |
+| ------ | ---------- | ---------- |
+| USART1 | /dev/ttyS0 | IO 디버그     |
+| USART2 | /dev/ttyS1 | SERIAL1    |
+| USART3 | /dev/ttyS2 | TELEM2     |
+| UART4  | /dev/ttyS3 | GPS/I2C    |
+| USART6 | /dev/ttyS4 | PX4IO      |
+| UART7  | /dev/ttyS5 | SERIAL5 콘솔 |
+| UART8  | /dev/ttyS6 | SERIAL4    |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
