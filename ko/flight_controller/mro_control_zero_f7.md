@@ -22,18 +22,18 @@
   - 216 MHz/512 KB RAM/2 MB 플래시
   - F-RAM Cypress MF25V02-G 256Kbit 비휘발성 메모리(RAM만큼 빠른 플래시 메모리)
 - 센서:
-  - [Bosch BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) 3-axis accelerometer/gyroscope (internally vibration dampened)
-  - [Invensense ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) 3-axis accelerometer/gyroscope
-  - [Invensense ICM-20948](https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/) 3-axis accelerometer/gyroscope/magnetometer
-  - [Infineon DPS310 barometer](https://www.infineon.com/cms/en/product/sensor/pressure-sensors/pressure-sensors-for-iot/dps310/) (So smooth and NO more light sensitivity)
+  - [Bosch BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) 3 축 가속도계/자이로스코프 (내부 진동 감쇠)
+  - [Invensense ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) 3 축 가속도계/자이로스코프
+  - [Invensense ICM-20948](https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/) 3 축 가속도계/자이로스코프/자력계
+  - [Infineon DPS310 기압계](https://www.infineon.com/cms/en/product/sensor/pressure-sensors/pressure-sensors-for-iot/dps310/)(부드럽고 감광성이 없음)
 
-- Interfaces:
-  - 6x UART (serial ports total), 3x with HW flow control, 1x FRSky Telemetry (D or X types), 1x Console and 1x GPS+I2C
-  - 8x PWM outputs (all DShot capable)
-  - 1x CAN
-  - 1x I2C
-  - 1x SPI
-  - Spektrum DSM / DSM2 / DSM-X® Satellite compatible input and binding
+- 인터페이스:
+  - 6x UART(총 직렬 포트), 3x(HW 흐름 제어 포함), 1x FRSky Telemetry(D 또는 X 유형), 1x 콘솔 및 1x GPS + I2C
+  - PWM 출력(모든 DShot 가능) 8개
+  - CAN 1개
+  - I2C 1개
+  - SPI 1개
+  - Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력 및 바인딩
   - Futaba S.BUS® & S.BUS2® compatible input
   - FRSky Telemetry port output
   - Graupner SUMD
