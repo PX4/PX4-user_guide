@@ -1,27 +1,27 @@
-# mRo Control Zero F7 Flight Controller
+# mRo Control Zero F7 비행 콘트롤러
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
-The *mRo Control Zero F7<sup>&reg;</sup>* is a new flight controller from mRo.
+*mRo Control Zero F7<sup>&reg;</sup>*는 mRo의 새로운 비행 컨트롤러입니다.
 
 ![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7.jpg)
 
-It is a no-compromise triple IMU commercial grade flight controller. It includes 8x PWM outputs (DShot capable), 3x IMUs, 1x Magnetometer, 1x Barometric Pressure Sensor (Altimeter), 6x UART, and SD Card, all packed into a 32mm x 20mm PCB. The PWMs are bidirectional, EMI protected, and level shifted to 5V logic levels. All accessed using front and rear 30pin Molex PicoClasp connectors. A durable plastic case, conformal board coating, and optional temperature calibration included.
+매우 우수한 트리플 IMU 상용 등급 비행 컨트롤러입니다. 8x PWM 출력(DShot 가능), 3x IMU, 1x 자력계, 1x 기압 센서 (고도계), 6x UART 및 SD 카드가 모두 32mm x 20mm PCB에 포장되어 있습니다. PWM은 양방향이고 EMI로 보호되며 레벨이 5V 로직 레벨로 이동합니다. 모두 전면 및 후면 30 핀 Molex Pico Clasp 커넥터를 사용하여 액세스합니다. 내구성이 강한 플라스틱 케이스, 컨 포멀 보드 코팅, 온도 보정 옵션이 포함되어 있습니다.
 
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
 
-## Key Features
+## 주요 특징
 
-- Microprocessor:
-  - 32-bit STM32F777 Cortex<sup>&reg;</sup> M4 core with FPU rev. 3
-  - 216 MHz/512 KB RAM/2 MB Flash
-  - F-RAM Cypress MF25V02-G 256-Kbit nonvolatile memory (Flash memory that performs as fast as RAM)
-- Sensors:
+- 마이크로 프로세서:
+  - FPU가있는 32 비트 STM32F777 코어 텍스<sup>&reg;</sup> M4 코어. 3
+  - 216 MHz/512 KB RAM/2 MB 플래시
+  - F-RAM Cypress MF25V02-G 256Kbit 비휘발성 메모리(RAM만큼 빠른 플래시 메모리)
+- 센서:
   - [Bosch BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) 3-axis accelerometer/gyroscope (internally vibration dampened)
   - [Invensense ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) 3-axis accelerometer/gyroscope
   - [Invensense ICM-20948](https://www.invensense.com/products/motion-tracking/9-axis/icm-20948/) 3-axis accelerometer/gyroscope/magnetometer
