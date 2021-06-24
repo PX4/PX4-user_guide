@@ -25,83 +25,79 @@
   * 장착 지점 : 직경 30.5mm x 30.5mm 3.2mm
   * 중량: 10.9g
 
-The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
+아래 다이어그램은 Pixhawk 1과 비교한 것입니다. mRo는 거의 동일한 하드웨어와 연결 기능을 제공하지만, 설치 공간이 훨씬 작습니다. 주요 차이점은 업데이트된 센서와 Rev 3 FMU입니다.
 
 ![Mro Pixhawk 1 vs X2.1 comparison](../../assets/flight_controller/mro/px1_x21.jpg)
 
-## Connectivity
+## 연결성
 
-* 2.54mm headers:
-* GPS (UART4) with I2C
-* CAN Bus
-* RC input
-* PPM input
-* Spektrum input
-* RSSI input
-* sBus input
-* sBus output
-* Power input
-* Buzzer output
-* LED output
-* 8 x Servo outputs
-* 6 x Aux outputs
+* 2.54mm 헤더 :
+* I2C가 장착 된 GPS(UART4)
+* CAN 버스
+* RC 입력
+* PPM 입력 
+* Spektrum 입력
+* RSSI 입력
+* sBus 입력
+* sBus 출력
+* 전원 입력
+* 부저 출력
+* LED 출력
+* Servo 출력 8개
+* Aux 출력 6개
 * 오프 보드 microUSB 커넥터
-* 강제 종료 핀 출력 * (현재 펌웨어에서 지원되지 않음) </ 0></li> 
-  
-  * AirSpeed 센서
-  * USART2 (Telem 1)
-  * USART3 (Telem 2)
-  * UART7 (Console)
-  * UART8 (OSD)</ul> 
-  
-  ## PX4 부트 로더 문제
-  
-  By default a mRo X2.1 might come preconfigured for ArduPilot<sup>&reg;</sup> rather than PX4. This can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
-  
-  In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip). If this correction is not carried out your compass direction will be wrong and the secondary IMU will not be detected.
-  
-  The update steps are:
-  
-  1.  BL_Update_X21.zip </ 0>을 다운로드하고 추출하십시오.</li> 
-    
-    * * BL_Update_X21 </ 0> 폴더를 찾으십시오. 여기에는 ** rc.txt </ 0> 파일이 들어있는 ** bin </ 0> 파일과 ** / etc </ 0>이라는 하위 폴더가 있습니다</li> 
-      
-      * 이 파일을 마이크로 SD 카드의 루트 디렉토리에 복사 한 다음 mRO x2.1에 삽입하십시오.
-      * Mro x2.1의 전원을 켜십시오. 부팅 할 때까지 기다렸다가 한 번 재부팅하십시오.</ol> 
-      
-      ## Availability
-      
-      This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm).
-      
-      ## Wiring Guide
-      
-      ![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
-      
-      ## Building Firmware
-      
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+* 강제 종료 핀 출력 *(현재 펌웨어에서 지원되지 않음)*
+* 항속 센서
+* USART2 (Telem 1)
+* USART3 (Telem 2)
+* UART7 (콘솔)
+* UART8 (OSD)
+
+## PX4 부트로더 문제
+
+기본적으로 mRo X2.1은 PX4가 아닌 ArduPilot<sup>&reg;</sup> 용으로 미리 설정되어 제공될 수 있습니다. 이는 보드가 X2.1 대신 FMUv2로 인식될 때 펌웨어 업데이트 중에 나타납니다.
+
+이 경우 [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip)을 사용하여 부트로더를 업데이트하여합니다 이 캘리브레이션을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않을 수 있습니다.
+
+업데이트 단계는 다음과 같습니다.
+
+1. [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip)을 다운로드하고 압축을 해제하십시오.
+2. *BL_Update_X21* 폴더를 찾으십시오. 여기에는 **rc.txt** 파일이 들어있는 **bin** 파일과 **/etc** 하위 폴더가 있습니다
+3. 이 파일을 마이크로 SD 카드의 루트 디렉토리에 복사하여 mRO x2.1에 삽입하십시오.
+4. Mro x2.1의 전원을 켜십시오. 부팅시까지 기다렸다가 한 번 재부팅하십시오.
+
+## 구매처
+
+이 제품은 [mRobotics<sup>&reg;</sup> 상점](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/m10021a.htm)에서 주문할 수 있습니다.
+
+## 배선 가이드
+
+![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
+
+## 펌웨어 빌드
+
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 이미 사전에 빌드 되어 있으며 *QGroundControl*가 설치되어 있다면 하드웨어가 적절히 연결되면 자동으로 설치됩니다.
 :::
-      
-      To [build PX4](../dev_setup/building_px4.md) for this target:
-      
-          make mro_x21_default
-          
-      
-      ## Schematics
-      
-      The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
-      
-      ## Serial Port Mapping
-      
-      | UART   | Device     | Port            |
-      | ------ | ---------- | --------------- |
-      | USART1 | /dev/ttyS0 | IO debug        |
-      | USART2 | /dev/ttyS1 | SERIAL1         |
-      | USART3 | /dev/ttyS2 | TELEM2          |
-      | UART4  | /dev/ttyS3 | GPS/I2C         |
-      | USART6 | /dev/ttyS4 | PX4IO           |
-      | UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
-      | UART8  | /dev/ttyS6 | SERIAL4         |
-      
-      <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
+
+    make mro_x21_default
+    
+
+## 회로도
+
+이 보드는 mRo 하드웨어 저장수 [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf)에 문서화되어 있습니다.
+
+## 시리얼 포트 매핑
+
+| UART   | 장치         | 포트              |
+| ------ | ---------- | --------------- |
+| USART1 | /dev/ttyS0 | IO 디버그          |
+| USART2 | /dev/ttyS1 | SERIAL1         |
+| USART3 | /dev/ttyS2 | TELEM2          |
+| UART4  | /dev/ttyS3 | GPS/I2C         |
+| USART6 | /dev/ttyS4 | PX4IO           |
+| UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
+| UART8  | /dev/ttyS6 | SERIAL4         |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
