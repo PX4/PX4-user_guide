@@ -47,6 +47,8 @@ sensor_mag 200 1
 ```
 This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz, all sensor_gyro instances at 5Hz and sensor_mag 1 at 5Hz.
 
+The logging rate of topics can also be be set using the [`SDLOG_PROFILE`](https://docs.px4.io/master/en/advanced_config/parameter_reference.html#SDLOG_PROFILE) parameter. This will automatically set the rates of the topics as specified in this [file](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/logger/logged_topics.cpp)
+
 ## Scripts
 There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
 
