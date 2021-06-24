@@ -2,7 +2,7 @@
 
 PX4 uses the term VTOL to refer to vehicles that support both forward flight like a fixed-wing aircraft ("airplane") and vertical take off and landing like a helicopter or multicopter.
 
-![Quantum Vector: Tiltroto VTOL](../../assets/airframes/vtol/quantum_vector/hero.png)
+![Vertical Technologies: Deltaquad QuadPlane VTOL](../../assets/airframes/vtol/vertical_technologies_deltaquad/hero.jpg)
 
 VTOL vehicles offer the benefits of both multicopter and fixed-wing flight:
 - **Vertical takeoff and landing:** Even inexperienced pilots can take off and land virtually anywhere.
@@ -14,7 +14,6 @@ This section contains build logs and instructions for assembling and configuring
 ## VTOL Types
 
 PX4 supports the three most important/main VTOL configurations.
-
 
 <style>
 .wrapper {
@@ -49,11 +48,12 @@ PX4 supports the three most important/main VTOL configurations.
   <div class="grid_item">
     <div class="grid_item_heading">Tailsitter</div>
     <div class="grid_text">
-    Rotors permanently in fixed wing-position. Takes off and lands on tail. Flips to fixed wing orientation for normal flight.
+    Rotors permanently in fixed wing-position.
+    Takes off and lands on tail. Flips to fixed wing orientation for normal flight.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
-	  <li>Simple and robust</li>
-	  <li>Fewer actuators</li>
+      <li>Simple and robust</li>
+      <li>Fewer actuators</li>
       <li>Can be hard to control, particularly in wind</li>
       <li>Poor hovering</li>
     </ul>
@@ -62,13 +62,14 @@ PX4 supports the three most important/main VTOL configurations.
 
 <div class="grid_item">
   <div class="grid_item_heading">Tiltrotor</div>
-  Rotors swivel 90 degrees to transition from multicopter to forward flight orientation. Takes off and lands on belly.
+  Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
+  Takes off and lands on belly.
   <div class="grid_text">
-  <img src="../../assets/airframes/vtol/birdseye_firefly6pro/hero.png" title="birdseye firefly6-pro" />
+  <img src="../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg" title="Eflight Confvergence" />
   <ul>
-	<li>Mechanically more complex with additional actuators</li>
+    <li>Mechanically more complex with additional actuators</li>
     <li>Easier to control than tailsitter</li>
-	<li>Can hover</li>
+    <li>Can hover</li>
   </ul>
   </div>
 </div>
@@ -77,18 +78,18 @@ PX4 supports the three most important/main VTOL configurations.
   <div class="grid_item_heading">Quadplane</div>
   <div class="grid_text">
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
-  <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/open_top.jpg" title="Vertical Technologies: Deltaquad" />
+  <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
   <ul>
     <li>Most complex. More things to go wrong but better redundancy.</li>
     <li>Easiest to control</li>
     <li>Can hover</li>
-	<li>Fuel engines can be used</li>
+    <li>Fuel engines can be used</li>
   </ul>
   </div>
  </div>
 </div>
 
-In general as mechanical complexity increases (from left to right) the frames become easier to use, but the cost and weight increase.
+In general, as mechanical complexity increases the vehicles are easier to fly, but the cost and weight increase.
 Each type has advantages and disadvantages, and there are successful commercial ventures based on all of them.
 
 The complete set of supported configurations can be seen in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
@@ -119,7 +120,6 @@ VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 [UAV Works VALAQ Patrol Tailsitter](https://www.valaqpatrol.com/tech-data/)
 
 @[youtube](https://youtu.be/pWt6uoqpPIw)
-
 
 
 [TBS Caipiroshka](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
