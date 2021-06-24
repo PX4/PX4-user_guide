@@ -1,30 +1,30 @@
 # Omnibus F4 SD
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the manufacturer for support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 지원 또는 규정준수 문제는 제조업체에 문의하십시오.
 :::
 
-The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
+*Omnibus F4 SD*는 레이서를 위해 설계된 컨트롤러입니다. 일반적인 레이서 보드와 달리 SD 카드와 고속 CPU 등이 추가되었습니다.
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
 
-These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
+다음은 [Pixracer](../flight_controller/pixracer.md)와 주요 차이점은 다음과 같습니다.
 
-* Lower price
-* Fewer IO ports (though it's still possible to attach a GPS or a Flow sensor for example)
-* Requires external pull up resistor on the I2C bus for external GPS, see [I2C](#i2c) below.
-* Less RAM (192 KB vs. 256 KB) and FLASH (1 MB vs. 2 MB)
-* Same board dimensions as a *Pixracer*, but slightly smaller form factor (because it has less connectors)
-* Integrated OSD (not yet implemented in software)
+* 저렴한 가격
+* 더 적은 IO 포트(예 : GPS 또는 Flow 센서를 연결은 가능함)
+* 외부 GPS용 I2C 버스에 외부 풀업 저항이 필요합니다. 아래 [I2C](#i2c)를 참조하십시오.
+* 적은 RAM (192 KB vs. 256 KB) and FLASH (1 MB vs. 2 MB)
+* *Pixracer*와 동일 보드 크기, 약간 더 작은 폼 팩터(커넥터가 적기 때문에)
+* 통합 OSD(아직 소프트웨어에서 구현되지 않음)
 
 :::tip
-All the usual PX4 features can still be used for your racer!
+모든 일반적인 PX4 기능은 여전히 레이서에 사용할 수 있습니다!
 :::
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
+## 주요 기능
 
 * Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html) 
   * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
