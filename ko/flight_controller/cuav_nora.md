@@ -3,7 +3,7 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.cuav.net)에 문의하십시오.
 :::
 
-[Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> 비행 컨트롤러는 고성능 자동조종장치입니다. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상업용 제조업체에 공급됩니다.
+[Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> 비행 컨트롤러는 고성능 자동조종장치입니다. 산업용 드론과 대형 대형 드론에 적합합니다. 주로 상용 제조업체에 공급됩니다.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
