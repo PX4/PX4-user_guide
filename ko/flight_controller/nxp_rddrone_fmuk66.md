@@ -7,9 +7,9 @@ RDDRONE-FMUK66 FMU는 2  자동차 이더넷 100BASET1 및 보안 요소 A71CH (
 
 [HoverGames](https://www.hovergames.com/)와 함께 사용하기 위한 공식 FMU입니다.
 
-![RDDRONE-FMUK66 FMU Hero Image1](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_020.jpg)
+![RDDRONE-FMUK66 FMU 대표 이미지 1](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_020.jpg)
 
-![RDDRONE-FMUK66 FMU Hero Image2](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_021.jpg)
+![RDDRONE-FMUK66 FMU 대표 이미지 2](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_021.jpg)
 
 NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니다.
 
@@ -35,7 +35,7 @@ NXP FMU와 포함된 주변 장치는 FCC/CE/RoHs/REACH 지침을 준수합니�
 
 이 FMU는 키트로만 제공되며 [Segger Jlink EDU 미니 디버거](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ 디버거 어댑터, USB-TTL-3V3 콘솔 케이블, HolyBro GPS 모듈, 배터리 전원 모듈, SDCard 및 케이스, 나사와 스티커를 포함하고 있습니다. 텔레메트리 라디오([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) 및 [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915))는 해당 국가에서 사용되는 ISM 대역 주파수와 일치하는 제품을 구매하여야 합니다.
 
-![RDDRONE-FMUK66 FMU Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/rddrone_fmu66_kit_img_contents.jpg)
+![RDDRONE-FMUK66 FMU 키트](../../assets/flight_controller/nxp_rddrone_fmuk66/rddrone_fmu66_kit_img_contents.jpg)
 
 전원 모듈, GPS, Jlink 또는 USB-TTL-3V3 콘솔 케이블 또는 SDCard를 포함하지 않는 "Lite" 버전 RDDRONE-FMUK66L도 사용할 수 있습니다. [아래로 스크롤하여 FMUK66 구매 페이지의 구매 섹션에서 FMUK66L을 확인하세요.](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66#buy)
 
@@ -90,7 +90,7 @@ make nxp_fmuk66-v3_default
 
 NXP의 DCD-LZ는 7핀 JST-GH 커넥터이며 nRST/MCU_RESET 핀을 [Pixhawk 6 핀 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)에 추가합니다.
 
-The DCD-LZ breakout adapter permits the use of a standard 10 pin JTAG/SWD interface (i.e. using the Segger Jlink) and a standard 5 pin FTDI USB-TTL-3V3 type cable.
+DCD-LZ 브레이크아웃 어댑터를 사용하면 표준 10핀 JTAG/SWD 인터페이스(예 : Segger Jlink 사용) 및 표준 5핀 FTDI USB-TTL-3V3 유형 케이블을 사용할 수 있습니다.
 
 <!--
 
@@ -100,21 +100,21 @@ The DCD-LZ breakout adapter permits the use of a standard 10 pin JTAG/SWD interf
 
 -->
 
-## Supported Platforms / Airframes
+## 지원 플랫폼 및 기체
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트. 지원되는 운송체의 설정은 [기체 정의서](../airframes/airframe_reference.md)를 참고하십시오.
 
-![HoverGames Drone Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_001.jpg)
+![HoverGames 드론 키트](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_001.jpg)
 
-:::tip
-The NXP [HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (shown above) is a complete drone development kit that includes everything needed to build a quadcopter. You only need to supply the 3S/4S LiPo battery.
+:::tip NXP
+[HoverGames Drone Kit](https://www.nxp.com/kit-hgdronek66) (위 그림 참조)는 쿼드콥터 제작에 필요한 것들이 포함된 드론 개발 키트입니다. 3S/4S LiPo 배터리만 추가로 구매하시면 됩니다.
 :::
 
-## Further info
+## 추가 정보
 
-- [HoverGames online documentation](https://nxp.gitbook.io/hovergames) PX4 user and programming guide, specific assembly, construction, debugging, programming instructions.
+- [HoverGames 온라인 문서](https://nxp.gitbook.io/hovergames) PX4 사용자 및 프로그래밍 가이드, 특정 어셈블리, 구성, 디버깅, 프로그래밍 지침.
 
-- 3DModels supporting HoverGames and RDDRONE-FMUK66 can be found on *Thingiverse* at these search links: [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant).
+- HoverGames 및 RDDRONE-FMUK66을 지원하는 3D 모델은 *Thingiverse*의 검색 링크 [fmuk66](https://www.thingiverse.com/search?q=fmuk66&type=things&sort=relevant), [hovergames](https://www.thingiverse.com/search?q=hovergames&type=things&sort=relevant)을 참고하십시오.
 
 !\[HoverGamesDronelogo\](../../assets/flight_controller/nxp_rddrone_fmuk66/The HoverGames_Colored-small.png)
 
