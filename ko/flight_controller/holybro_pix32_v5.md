@@ -70,7 +70,7 @@ Pix32 v5는 고출력, 유연하고 사용자 정의 가능한 비행제어 시�
 
 ## 조립 및 설정
 
-[Pix32 v5 배선 개요](../assembly/quick_start_holybro_pix32_v5.md)는 GPS, 전원 관리 보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
+[Pix32 v5 배선 개요](../assembly/quick_start_holybro_pix32_v5.md)는 GPS, 전원관리보드 등을 포함한 필수 주변 장치 조립방법을 설명합니다.
 
 ## 베이스 보드 레이아웃
 ![Pix32 v5 이미지](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_base_boards_layout.jpg)
