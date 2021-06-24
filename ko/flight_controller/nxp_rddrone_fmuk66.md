@@ -1,9 +1,9 @@
 # NXP RDDRONE-FMUK66 FMU
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.nxp.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://www.nxp.com/)에 문의하십시오.
 :::
 
-RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD). NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
+RDDRONE-FMUK66 FMU는 2  자동차 이더넷 100BASET1 및 보안 요소 A71CH (RevC) 또는 SE050 (RevD)을 추가하여 Pixhawk FMUv4 사양을 준수하는 NXP Semiconductor 구성 요소를 사용하는 참조 설계입니다. NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
 
 This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
