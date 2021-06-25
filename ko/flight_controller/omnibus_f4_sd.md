@@ -129,26 +129,26 @@ RC는 다음 포트중 하나에 연결됩니다.
 다음을 통해 사용 가능한 I2C 포트가 하나 있습니다.
 
 * SCL: MCU 핀 PB10 (TX3로 표시 될 수 있음)
-* SDA: MCU pin PB11 (might be labeled as RX3)
+* SDA: MCU 핀 PB11 (RX3로 표시 될 수 있음)
 
 :::note
-You will need external pullups on both signals (clock and data). You can use 2.2k pullups for example to attach an external mag.
+두 신호(클럭 및 데이터) 모두에 외부 풀업이 필요합니다. 예를 들어, 2.2k 풀업을 사용하여 외부 매거진을 연결할 수 있습니다.
 :::
 
-    - Airbot Omnibus F4 SD Pinout is on Port J10 (SCL [clock] / SCA [data]):
+    - Airbot Omnibus F4 SD 핀아웃은 포트 J10 (SCL [클럭] / SCA [데이터])에 있습니다.
     
 
 ![](../../assets/flight_controller/omnibus_f4_sd/uart6.jpg "Omnibus F4 SD UART6")
 
-Here is an example implementation. I used a Spektrum plug to get 3.3v from the DSM port, connecting only 3.3v + to each line via 2.2k resistor.
+다음은 구현의 예입니다. 저는 Spektrum 플러그를 사용하여 DSM 포트에서 3.3v를 얻었으며 2.2k 저항을 통해 각 라인에 3.3v+ 만 연결하였습니다.
 
 ![Omnibus F4 SD Pullup](../../assets/flight_controller/omnibus_f4_sd/pullup-schematic.jpg)
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port     |
+| UART   | 장치         | 포트       |
 | ------ | ---------- | -------- |
 | USART1 | /dev/ttyS0 | SerialRX |
 | USART4 | /dev/ttyS1 | TELEM1   |
@@ -156,41 +156,41 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## RC Telemetry
+## RC 텔레메트리
 
-The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
+Omnibus는 [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) 또는 [CRSF Crossfire 텔레메트리](#crsf_telemetry)를 사용하여 RC 전송기에 대한 원격측정을 지원합니다.
 
 <span id="crsf_telemetry"></span>
 
-### CRSF Crossfire Telemetry
+### CRSF Crossfire 텔레메트리
 
-TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
+TBS CRSF Crossfire 텔레메트리는 비행 콘트롤러(기체의 자세, 배터리, 비행 모드 및 GPS 데이터)에서 RC 송신기(Taranis)로 원격측정 데이터를 전송합니다.
 
-Benefits over FrSky telemetry include:
+FrSky 텔레메트리의 이점은 다음과 같습니다.
 
-* Only a single UART is needed for RC and telemetry.
-* The CRSF protocol is optimized for low latency.
-* 150 Hz RC update rate.
-* The signals are uninverted and thus no (external) inverter logic is required.
+* RC와 텔레메트리에는 단일 UART 만 필요합니다.
+* CRSF 프로토콜은 응답시간 느린 장치에 최적화되어 있습니다.
+* 150Hz RC 업데이트 속도.
+* 신호는 반전되지 않으므로 외부 인버터 로직이 필요하지 않습니다.
 
-For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), since it is specifically designed for small Quads.
+Omnibus는 소형 쿼드 용으로 특별히 설계되었으므로 [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx) 사용을 권장합니다.
 
-On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing). This can be plugged into the back of the RC controller.
+휴대용 컨트롤러(예 : Taranis)에서는 [송신기 모듈](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing)도 필요합니다. 이것은 RC 콘트롤러의 뒷면에 장착할 수 있습니다.
 
 :::note
-The referenced links above contains the documentation for the TX/RX modules.
+위의 참조 링크에는 TX/RX 모듈 문서가 포함되어 있습니다.
 :::
 
-#### Setup
+#### 설정
 
-Connect the Nano RX and Omnibus pins as shown:
+다음과 같이 Nano RX와 Omnibus 핀을 연결합니다.
 
 | Omnibus UART1 | Nano RX |
 | ------------- | ------- |
 | TX            | Ch2     |
 | RX            | Ch1     |
 
-Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected.
+PX4 비행 컨트롤러에서 다른 항목을 설정하지 않아도 됩니다. RC 프로토콜이 자동으로 감지됩니다.
 
 Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
