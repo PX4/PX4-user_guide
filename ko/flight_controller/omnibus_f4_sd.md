@@ -52,83 +52,83 @@
 
 아래의 보드들은 테스트되고 작동하는 것입니다.
 
-* [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636) :::note This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+* [Hobbywing XRotor 비행 콘트롤러 F4](http://www.hobbywing.com/goods.php?id=636) :::note 이 보드는 납땜이 필요없는 [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588)에 적합합니다. 이 ESC 보드는 또한 Omnibus 보드에 전원을 제공합니다.
 :::
   
-  Purchase from:
+  구매처:
   
-  * [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
+  * [Hobbywing XRotor F4 비행 콘트롤러 w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
 
-* Original Airbot Omnibus F4 SD
+* 오리지널 Airbot Omnibus F4 SD
   
-  Purchase from:
+  구매처:
   
-  * [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-  * [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+  * [Airbot (CN 제조업체)](https://store.myairbot.com/omnibusf4prov3.html)
+  * [Ready To Fly Quads(미국 리셀러)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
 
-Accessories include:
+액세서리에는 아래의 내용물이 포함됩니다.
 
-* [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
+* MAVLink 텔레메트리 [ESP8266 WiFi 모듈](../telemetry/esp8266_wifi_module.md). 다음 핀을 연결하여야합니다: GND, RX, TX, VCC 및 CH-PD (CH-PD ~ 3.3V). 전송 속도는 921600입니다.
 
-## Connectors
+## 커넥터
 
-Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
+이 설계를 기반으로 한 다른 공급 업체의 보드는 레이아웃이 상당히 다를 수 있습니다. 다양한 버전의 레이아웃/실크스크린이 아래와 같습니다.
 
-### Airbot Omnibus F4 SD
+### 에어 봇 옴니버스 F4 SD
 
-Below are silkscreens for the Airbot Omnibus F4 SD (V1), showing both top and bottom.
+아래는 상단과 하단을 모두 보여주는 Airbot Omnibus F4 SD (V1)의 실크 스크린입니다.
 
 ![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
-### Hobbywing XRotor Flight Controller F4
+### Hobbywing XRotor 비행 콘트롤러 F4
 
-Below are silkscreens for the Hobbywing XRotor Flight Controller F4.
+아래는 Hobbywing XRotor 비행 콘트롤러 F4의 실크스크린입니다.
 
 ![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
-## Pinouts
+## 핀배열
 
-### Radio Control
+### 무선 조종
 
-RC is connected to one of the following ports:
+RC는 다음 포트중 하나에 연결됩니다.
 
 * UART1
-* SBUS/PPM port (via inverter, internally goes to UART1)
+* SBUS/PPM 포트(인버터를 통해 내부적으로 UART1로 이동)
 
 :::note
-Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+일부 Omnibus F4 보드에는 MCU SBUS 및 PPM 중 하나 또는 둘 다를 단일 핀 헤더에 연결하는 점퍼가 있습니다. 사용하기 전에 점퍼 또는 솔더 브리지를 적절한 MCU 핀으로 설정하십시오.
 :::
 
-### UARTs
+### UART
 
-* UART6: GPS port
+* UART6: GPS 포트
   
-  * TX: MCU pin PC6
-  * RX: MCU pin PC7
+  * TX: MCU 핀 PC6
+  * RX: MCU 핀 PC7
   
-  * Airbot Omnibus F4 SD Pinout is on Port J10 (TX6/RX6):
+  * Airbot Omnibus F4 SD 핀아웃은 포트 J10(TX6 / RX6)에 있습니다.
   
   ![Omnibus F4 SD UART6](../../assets/flight_controller/omnibus_f4_sd/uart6.jpg)
 
 * UART4
   
-  * TX: MCU pin PA0
-  * RX: MCU pin PA1
-  * 57600 baud
-  * This can be configured as the `TELEM 2` port.
-  * Airbot Omnibus F4 SD Pinout: 
-    * TX: RSSI pin
-    * RX: PWM out 5
+  * TX: MCU 핀 PA0
+  * RX: MCU 핀 PA1
+  * 초당 전송속도: 57600
+  * 이것은 `TELEM 2` 포트로 설정할 수 있습니다.
+  * 에어 봇 옴니버스 F4 SD 핀배열: 
+    * TX: RSSI 핀
+    * RX: PWM 출력 5
   
   ![Omnibus F4 SD UART4](../../assets/flight_controller/omnibus_f4_sd/uart4.jpg)
   
   ![Omnibus F4 SD UART4 Top](../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg)
 
-### I2C
+### I2C 
 
-There is one I2C port available via:
+다음을 통해 사용 가능한 I2C 포트가 하나 있습니다.
 
-* SCL: MCU pin PB10 (might be labeled as TX3)
+* SCL: MCU 핀 PB10 (TX3로 표시 될 수 있음)
 * SDA: MCU pin PB11 (might be labeled as RX3)
 
 :::note
