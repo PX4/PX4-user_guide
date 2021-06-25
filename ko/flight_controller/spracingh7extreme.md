@@ -9,9 +9,9 @@
 
 4 개의 추가 모터 출력, SPI 및 UART 연결을 제공하는 12핀 스택 커넥터도 있습니다.
 
-![SPRacingH7EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
+![SPRacingH7EXTREME PCB 상단](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
 
-![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
+![SPRacingH7EXTREME PCB 하단](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 :::note
 이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
@@ -52,34 +52,38 @@
   * 통합 PDB.
   * 2-6S BEC
   * TVS 보호 다이오드
-  * Dedicated 500ma VREG for Gyros, with gyro noise filter capacitors.
-  * Second 500ma VREG for CPU, Baro, Microphone, etc.
-* Other features
-  * Status Led
-  * LED strip support (with well-placed connection pads).
-  * Bootable from SD Card or External flash.
-  * Flashable from SD Card.
-  * Solder-from-top design.
-  * PCB Cutouts for battery wires.
-  * No Compass, use an external GPS with a magnometer/compass sensor connected to the GPS IO port.
-  * Also runs Betaflight 4.x+, Cleanflight 4.x+.
-  * Designed by Dominic Clifton, the guy that created Cleanflight
-* Dimensions
-  * 36x36mm with 30.5*30.5 mouting pattern, M4 holes.
-  * Soft-mount M4 to M3 grommets supplied.
+  * 자이로 노이즈 필터 커패시터가 있는 자이로 전용 500ma VREG.
+  * CPU, Baro, 마이크 등을 위한 두 번째 500ma VREG
+* 기타 기능
+  * 상태 LED
+  * LED 스트립 지지대 (잘 배치된 연결 패드 포함).
+  * SD 카드나 외장 플래시에서 부팅 가능.
+  * SD 카드에서 플래시 가능.
+  * 상단 납땜 설계.
+  * 배터리 와이어용 PCB 컷아웃.
+  * 나침반 없음, GPS IO 포트에 연결된 자력계/나침반 센서가있는 외부 GPS를 사용하십시오.
+  * Betaflight 4.x+, Cleanflight 4.x+도 실행합니다.
+  * Cleanflight를 만든 사람인 Dominic Clifton이 디자인했습니다.
+* 크기
+  * 36x36mm, 30.5 * 30.5 장착 패턴, M4 구멍.
+  * 소프트 마운트 M4 ~ M3 그로밋이 제공됩니다.
 
-## Where to Buy
+## 구매처
 
-The SPRacingH7EXTREME is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
+SPRacingH7EXTREME은 [Seriously Pro 상점](https://shop.seriouslypro.com/sp-racing-h7-extreme)에서 구입할 수 있습니다.
 
 :::note
-Select the PX4 edition when purchasing!
+구매시 PX4 에디션을 선택하십시오.
 :::
 
-## Manual, Pinouts and Connection Diagrams
+## 매뉴얼, 핀배열 및 연결 다이어그램
 
-The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf). See the [SPRacingH7EXTREME website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
+핀배열과 설명서는
 
-## Credits
+여기</ 0>에서 다운로드할 수 있습니다. 다른 다이어그램은 [SPRacingH7EXTREME 웹 사이트](http://seriouslypro.com/spracingh7extreme)를 참조하십시오.</p> 
 
-This design was created by [Dominic Clifton](https://github.com/hydra) Initial PX4 support by [Igor-Misic](https://github.com/Igor-Misic)
+
+
+## 개발자
+
+이 디자인은 [Dominic Clifton](https://github.com/hydra)에 의해 만들어졌습니다. [Igor-Misic](https://github.com/Igor-Misic)의 초기 PX4 지원.
