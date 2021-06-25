@@ -81,67 +81,67 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
             ssh-copy-id root@beaglebone
             
     
-    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id root@<IP>```
-    4. When prompted if you trust: yes
-    5. Enter root password
+    3. 또는 beaglebone의 IP를 직접 사용할 수 있습니다. ```ssh-copy-id root@<IP>```
+    4. 확인 메시지가 표시되면 : yes
+    5. 루트 비밀번호 입력
 
-2. Cross Compile Setup
+2. 크로스 컴파일러 설정
     
-    1. Toolchain download
+    1. 툴체인 다운로드
         
-        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+        1. 먼저 툴체인을 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*에 설치합니다. 다음은 소프트 링크를 사용하여 사용할 도구 모음 버전을 선택하는 예입니다.
             
                 mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
                 chmod -R 777 /opt/bbblue_toolchain
                 
             
-            ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
-            
-:::tip GCC
-in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
-:::
-            
-            Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
-            
-            Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+            *BeagleBone Blue* 용 ARM 크로스 컴파일러는 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
             
 :::tip
-The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+툴체인의 GCC는 *BeagleBone Blue*의 커널과 호환되어야 합니다. 경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
 :::
             
-            General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
+            [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz)를 bbblue_toolchain 폴더에 다운로드하고 압축을 해제합니다.
+            
+            *BeagleBone Blue*를위한 다양한 ARM 크로스 컴파일러 버전은 [Linaro Toolchain Binaries 사이트](http://www.linaro.org/downloads/)에서 찾을 수 있습니다.
+            
+:::tip
+도구 모음의 GCC 버전은 *BeagleBone Blue* 커널과 호환되어야 합니다.
+:::
+            
+            경험상 일반적으로 GCC 버전이 *BeagleBone Blue*의 OS 이미지와 함께 제공되는 GCC 버전보다 높지 않은 도구 모음을 선택합니다.
         
-        2. Add it to the PATH in ~/.profile as shown below
+        2. 아래와 같이 ~/.profile의 PATH에 추가합니다
             
             ```sh
             export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
             ```
             
 :::note
-Logout and Login to apply the change, or execute the same line on your current shell.
+로그 아웃후 다시 로그인하여 변경 사항을 적용하거나 현재 셸에서 동일한 줄을 실행합니다.
 :::
             
-            Follow the [Development Environment Setup](../dev_setup/dev_env_linux_ubuntu.md) instructions.
+            [개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) 지침을 따릅니다.
             
-            You may have to edit the upload target to match with your setup:
+            설정과 일치하도록 업로드 대상을 편집해야 할 수 있습니다.
             
                 nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
                 
                 #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
                 
 
-### Cross Compile and Upload
+### 교차 컴파일 및 업로드
 
-Compile and Upload
+컴파일 및 업로드
 
     make beaglebone_blue_default upload
     
 
 :::note
-Without upload, files stored local in build folder.
+업로드하지 않으면, 파일이 로컬 빌드 폴더에 저장됩니다.
 :::
 
-To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
+업로드한 파일을 테스트하려면 *BeagleBone Blue* 보드에서 다음 명령을 실행합니다.
 
 ```sh
 cd /home/debian/px4 
@@ -149,12 +149,12 @@ sudo ./bin/px4 -s px4.config
 ```
 
 :::note
-Currently *librobotcontrol* requires root access.
+현재 *librobotcontrol*에는 루트 권한이 필요합니다.
 :::
 
 <span id="native_builds"></span>
 
-## Native Builds (optional)
+## 네이티브 빌드 (선택 사항)
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.
 
