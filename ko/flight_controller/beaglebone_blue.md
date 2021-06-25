@@ -154,37 +154,37 @@ sudo ./bin/px4 -s px4.config
 
 <span id="native_builds"></span>
 
-## 네이티브 빌드 (선택 사항)
+## 네이티브 빌드(선택 사항)
 
-You can also natively build PX4 builds directly on the BeagleBone Blue.
+BeagleBone Blue에서 직접 PX4를 빌드할 수 있습니다.
 
-After acquiring the pre-built library,
+사전 구축된 라이브러리를 설치후
 
-1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
+1. *librobotcontrol* 설치 디렉터리를 선택하고, 원하지 않는 다른 헤더가 포함되지 않도록 `LIBROBOTCONTROL_INSTALL_DIR` 환경변수를 설정합니다.
+2. **robotcontrol.h** 및 **rc/\***를 `$LIBROBOTCONTROL_INSTALL_DIR/include` 폴더에 설치합니다.
+3. 사전 빌드된 기본 (ARM) 버전의 librobotcontrol.\ *을 `$LIBROBOTCONTROL_INSTALL_DIR/lib` 폴더에 설치합니다.
 
-Run the following commands on the BeagleBone Blue (i.e. via SSH):
+BeagleBone Blue에서 다음 명령을 실행합니다 (예 : SSH를 통해).
 
-1. Install dependencies: 
+1. 종속성 설치: 
         sh
         sudo apt-get update
         sudo apt-get install cmake python-empy
 
-2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
+2. PX4 펌웨어를 BeagleBone Blue에 복제합니다.
+3. [표준 빌드 시스템 설치](../dev_setup/dev_env_linux.md)를 계속 진행합니다.
 
-## Chnages in config
+## 설정 변경
 
-All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
+모든 변경은 beaglebone의 px4.config 파일에서 직접 수행할 수 있습니다. 예를 들어 WIFI를 wlan으로 변경할 수 있습니다.
 
 :::note
-If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
+영구적으로 변경하려면, 빌드전에 빌드 머신에서 **PX4-Autopilot/posix-configs/bbblue/px4.config**를 변경하여야 합니다.
 :::
 
 ## 부팅 중 자동 시작
 
-Here is an example [/etc/rc.local]:
+다음은 [/etc/rc.local] 예제입니다.
 
 ```sh
 #!/bin/sh -e
@@ -210,7 +210,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-Below is a *systemd* service example [/lib/systemd/system/px4-quad-copter.service]:
+다음은 *systemd* 서비스 예제입니다. [/lib/systemd/system/px4-quad-copter.service] :
 
 ```sh
 [Unit]
@@ -231,13 +231,13 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### Miscellaneous
+### 기타
 
 #### 파워 서보 레일
 
-When PX4 starts, it automatically applies power to servos.
+PX4가 시작되면 자동으로 서보에 전원을 공급합니다.
 
-#### 언닉 피어스
+#### 독특한 기능
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
