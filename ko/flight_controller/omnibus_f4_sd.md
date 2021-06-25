@@ -78,13 +78,13 @@
 
 아래는 상단과 하단을 모두 보여주는 Airbot Omnibus F4 SD (V1)의 실크 스크린입니다.
 
-![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
+![Omnibus F4 SD v1 실크스크린 상단](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg) ![Omnibus F4 SD v1 실크스크린 하단](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
 ### Hobbywing XRotor 비행 콘트롤러 F4
 
 아래는 Hobbywing XRotor 비행 콘트롤러 F4의 실크스크린입니다.
 
-![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
+![Hobbywing XRotor 비행 콘트롤러 F4 실크스크린](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
 ## 핀배열
 
@@ -122,7 +122,7 @@ RC는 다음 포트중 하나에 연결됩니다.
   
   ![Omnibus F4 SD UART4](../../assets/flight_controller/omnibus_f4_sd/uart4.jpg)
   
-  ![Omnibus F4 SD UART4 Top](../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg)
+  ![Omnibus F4 SD UART4 상단](../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg)
 
 ### I2C 
 
@@ -142,9 +142,9 @@ RC는 다음 포트중 하나에 연결됩니다.
 
 다음은 구현의 예입니다. 저는 Spektrum 플러그를 사용하여 DSM 포트에서 3.3v를 얻었으며 2.2k 저항을 통해 각 라인에 3.3v+ 만 연결하였습니다.
 
-![Omnibus F4 SD Pullup](../../assets/flight_controller/omnibus_f4_sd/pullup-schematic.jpg)
+![Omnibus F4 SD 풀업](../../assets/flight_controller/omnibus_f4_sd/pullup-schematic.jpg)
 
-![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
+![Omnibus F4 SD 풀업 구현 ](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
 ## 시리얼 포트 매핑
 
@@ -192,44 +192,44 @@ Omnibus는 소형 쿼드 용으로 특별히 설계되었으므로 [TBS Crossfir
 
 PX4 비행 컨트롤러에서 다른 항목을 설정하지 않아도 됩니다. RC 프로토콜이 자동으로 감지됩니다.
 
-Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+다음으로 TX/RX 모듈을 업데이트하여 CRSF 프로토콜을 사용하고 텔레메트리를 설정합니다. 이에 대한 지침은 [TBS Crossfire 매뉴얼](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf)( 'CRSF용 라디오 설정' 검색)에 나와 있습니다.
 
-## Schematics
+## 회로도
 
-The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
+회로도는 [Airbot](https://myairbot.com/)에서 제공합니다: [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
 <span id="bootloader"></span>
 
-## PX4 Bootloader Update
+## 부트로더 업데이트
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
+보드에는 [Betaflight](https://github.com/betaflight/betaflight/wiki)가 사전 설치되어 있습니다. PX4 펌웨어를 설치하기 전에 *PX4 부트 로더*를 플래시하여야 합니다. [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) 부트로더 바이너리를 다운로드하고 [이 페이지](../advanced_config/bootloader_update_from_betaflight.md)에서 플래시 방법을 참고하십시오.
 
-## Building Firmware
+## 펌웨어 빌드
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make omnibus_f4sd_default
     
 
-## Installing PX4 Firmware
+## 펌웨어 설치
 
-The firmware can be installed in any of the normal ways:
+펌웨어는 일반적인 방법으로 설치할 수 있습니다.
 
-* Build and upload the source ```make omnibus_f4sd_default upload```
-* [Load the firmware](../config/firmware.md) using *QGroundControl*. You can use either pre-built firmware or your own custom firmware.
+* 소스 빌드 및 업로드 ```make omnibus_f4sd_default upload```
+* *QGroundControl*을 사용하여 [펌웨어를 로드](../config/firmware.md)합니다. 미리 빌드된 펌웨어나 사용자 지정 펌웨어를 사용할 수 있습니다.
 
-## Configuration
+## 설정
 
-In addition to the [basic configuration](../config/README.md), the following parameters are important:
+[기본 설정](../config/README.md) 외에도 아래의 매개변수가 중요합니다.
 
-| Parameter                                                                | Setting                                                                                                                 |
-| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
-| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
-| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING)   | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.            |
+| 매개변수                                                                     | 설정                                                                            |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | 보드에 내부 자력계가 없기 때문에 비활성화하여야 합니다. 외부 자력계를 연결하여 활성화 할 수 있습니다.                    |
+| [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | 보드에 기압계가 없는 경우에는 비활성화 하십시오.                                                   |
+| [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING)   | Betaflight/Cleanflight 모터 할당과 함께 4-in-1 ESC를 사용하는 경우 이 매개변수를 적절하게 설정할 수 있습니다. |
 
-## Further Info
+## 추가 정보
 
-A review with further information of the board can be found [here](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/).
+이 보드에 관한 리뷰는 [여기](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/)를 참고하십시오.
 
-[This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) also provides a nice overview with pinouts and setup instructions.
+[이 페이지](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/)는 핀배열, 설정 방법을 제공합니다.
