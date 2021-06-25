@@ -6680,14 +6680,14 @@ table {
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" and "MPC_LAND_SPEED" - horizontal velocity gets limited to a value between "MPC_VEL_MANUAL" and "MPC_LAND_VEL_XY" for a smooth descent and landing experience. Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
+ <td>Altitude for 1. step of slow landing (descend) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX_DN" and "MPC_LAND_SPEED" Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td>0 > 122 </td>
  <td>10.0</td>
  <td>m</td>
 </tr>
 <tr>
  <td><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
- <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to "MPC_LAND_SPEED" and "MPC_LAND_VEL_XY", respectively. Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
+ <td>Altitude for 2. step of slow landing (landing) <p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED". Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td>0 > 122 </td>
  <td>5.0</td>
  <td>m</td>
@@ -6697,13 +6697,6 @@ table {
  <td>Landing descend rate    </td>
  <td>0.6 > ? </td>
  <td>0.7</td>
- <td>m/s</td>
-</tr>
-<tr>
- <td><strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)</td>
- <td>Maximum horizontal position mode velocity when close to ground/home altitude <p><strong>Comment:</strong> Set the value higher than the otherwise expected maximum to disable any slowdown.</p>   </td>
- <td>0 > ? </td>
- <td>10.0</td>
  <td>m/s</td>
 </tr>
 <tr>
