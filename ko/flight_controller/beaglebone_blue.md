@@ -13,36 +13,35 @@
 
 ## OS 이미지
 
-*BeagleBone Blue* images can be found here:
+*BeagleBone Blue* 이미지는 여기에서 다운로드할 수 있습니다.
 
-- [가장 안정적인 OS 이미지 ](https://beagleboard.org/latest-images).
-- [ 테스트 OS 이미지 ](https://rcn-ee.net/rootfs/bb.org/testing/)(자주 업데이트됨).
+- [가장 안정적인 OS 이미지](https://beagleboard.org/latest-images).
+- [ 테스트 OS 이미지](https://rcn-ee.net/rootfs/bb.org/testing/)(자주 업데이트됨).
 
-Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
-
-:::tip
-Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
-:::
-
-The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
-
-## Cross Compiler Build (Recommend)
-
-The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
+플래시 OS 이미지에 대한 정보는 [이 페이지](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware)를 참고하십시오. 기타 유용한 정보는 [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;)을 참고하십시오.
 
 :::tip
-This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+실시간 커널로 업데이트 할 수 있으며, 업데이트 하는경우 *librobotcontrol*이 실시간 커널에서 제대로 작동하는지 다시 확인합니다.
 :::
 
-:::note
-The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+이 문서를 업데이트 시점의 최신 OS 이미지는 [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz)입니다.
+
+## 크로스 컴파일러 빌드 (권장)
+
+*BeagleBone Blue*에 대해 PX4를 구축 방법은 개발 컴퓨터에서 컴파일하여 PX4 실행 가능한 이진 파일을 BeagleBone Blue에 직접 업로드하는 것입니다.
+
+:::tip
+이 접근 방식은 배포 속도와 사용 편의성 때문에 [네이티브 빌드](#native_builds) 보다 권장됩니다.
 :::
 
-### Beaglebone Blue WIFI Setup
+:::note PX4 빌드에는 빌드에 자동으로 포함되는 [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/)이 필요합니다. 그러나, 필요한 경우 독립적으로 설치하고 테스트할 수 있습니다.
+:::
 
-For easy access to your board, you can connect it to your home network via wifi.
+### Beaglebone Blue WIFI 설정
 
-The steps are (execute on the board):
+보드에 쉽게 액세스하려면 Wi-Fi를 통해 네트워크에 연결할 수 있습니다.
+
+절차는 다음과 같습니다 (보드에서 실행).
 
 ```sh
 sudo su
@@ -55,20 +54,20 @@ connmanctl>connect <SSID>
 connmanctl>quit
 ```
 
-### SSH root Login on Beaglebone
+### Beaglebone에서 SSH 루트 로그인
 
-Root login can be enabled on the board with:
+아래의 명령어로 보드에서 루트 로그인을 활성화 할 수 있습니다.
 
 ```sh
 sudo su
 echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 ```
 
-### Cross Compiler Setup
+### 크로스 컴파일러 설정
 
-1. First set up *rsync* (this is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+1. 먼저 * rsync*를 설정합니다. WiFi 또는 이더넷과 같은 네트워크를 통해 개발 컴퓨터에서 대상 보드로 파일을 전송하는 데 사용됩니다. 키 인증을 사용하는 SSH를 통한 *rsync*의 경우 다음 단계를 따르세요 (개발 머신에서).
     
-    1. Generate an SSH key if you have not previously done so:
+    1. 이전에 생성하지 않은 경우 SSH 키를 생성합니다.
         
             ssh-keygen -t rsa
             
@@ -77,7 +76,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
         2. ENTER
         3. ENTER
     
-    2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
+    2. **/etc/hosts**에서 BeagleBone Blue 보드를 `beaglebone`으로 정의하고 암호없는 SSH 액세스를 위해 공개 SSH 키를 보드에 복사합니다.
         
             ssh-copy-id root@beaglebone
             
