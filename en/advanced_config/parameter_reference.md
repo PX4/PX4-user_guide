@@ -1838,6 +1838,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_OBS_AVOID">COM_OBS_AVOID</strong> (INT32)</td>
+ <td>Flag to enable obstacle avoidance    </td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
  <td>Time-out to wait when offboard connection is lost before triggering offboard lost action <p><strong>Comment:</strong> See COM_OBL_ACT and COM_OBL_RC_ACT to configure action.</p>   </td>
  <td>0 > 60 (0.01)</td>
@@ -1923,6 +1930,17 @@ table {
  <td>s</td>
 </tr>
 <tr>
+ <td><strong id="COM_RCL_EXCEPT">COM_RCL_EXCEPT</strong> (INT32)</td>
+ <td>RC loss exceptions <p><strong>Comment:</strong> Specify modes in which RC loss is ignored and the failsafe action not triggered.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Mission</li> 
+  <li><strong>1:</strong> Hold</li> 
+  <li><strong>2:</strong> Offboard</li> 
+</ul>
+ </td>
+ <td>0 > 31 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)</td>
  <td>RC input arm/disarm command duration <p><strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.</p>   </td>
  <td>100 > 1500 </td>
@@ -1976,11 +1994,61 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
+ <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Hold</li> 
+
+<li><strong>1:</strong> Mission (if valid)</li> 
+</ul>
+  </td>
+ <td></td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
  <td>Horizontal velocity error threshold <p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td></td>
  <td>1</td>
  <td>m/s</td>
+</tr>
+<tr>
+ <td><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
+ <td>Set data link loss failsafe mode <p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Hold mode</li> 
+
+<li><strong>2:</strong> Return mode</li> 
+
+<li><strong>3:</strong> Land mode</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+  </td>
+ <td>0 > 6 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
+ <td>Set RC loss failsafe mode <p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered.</p> <strong>Values:</strong><ul>
+<li><strong>1:</strong> Hold mode</li> 
+
+<li><strong>2:</strong> Return mode</li> 
+
+<li><strong>3:</strong> Land mode</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+  </td>
+ <td>1 > 6 </td>
+ <td>2</td>
+ <td></td>
 </tr>
 <tr>
  <td><strong id="RTL_FLT_TIME">RTL_FLT_TIME</strong> (FLOAT)</td>
@@ -6025,25 +6093,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="COM_OBS_AVOID">COM_OBS_AVOID</strong> (INT32)</td>
- <td>Flag to enable obstacle avoidance    </td>
- <td></td>
- <td>Disabled (0)</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
- <td>Action after TAKEOFF has been accepted <p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Hold</li> 
-
-<li><strong>1:</strong> Mission (if valid)</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
  <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>   </td>
  <td>0 > 10000 (100)</td>
@@ -6130,26 +6179,6 @@ table {
  <td>m</td>
 </tr>
 <tr>
- <td><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td>Set data link loss failsafe mode <p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Hold mode</li> 
-
-<li><strong>2:</strong> Return mode</li> 
-
-<li><strong>3:</strong> Land mode</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-  </td>
- <td></td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
  <td>Force VTOL mode takeoff and land    </td>
  <td></td>
@@ -6183,26 +6212,6 @@ table {
  <td>0.05 > 200.0 (0.5)</td>
  <td>0.8</td>
  <td>m</td>
-</tr>
-<tr>
- <td><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
- <td>Set RC loss failsafe mode <p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Hold mode</li> 
-
-<li><strong>2:</strong> Return mode</li> 
-
-<li><strong>3:</strong> Land mode</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-  </td>
- <td></td>
- <td>2</td>
- <td></td>
 </tr>
 <tr>
  <td><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
