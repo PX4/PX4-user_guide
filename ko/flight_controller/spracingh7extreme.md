@@ -3,55 +3,55 @@
 :::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.seriouslypro.com)에 문의하십시오.
 :::
 
-The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
+[SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme)는 DUAL ICM20602 자이로, H7 400/480Mhz (+) CPU, 고정밀 BMP388 기압계, SD 카드 소켓, 전류 센서, 쉽게 액세스 할 수있는 8 개의 모터 출력, OSD, 마이크, 오디오 출력 등이 포함된 FC/PDB입니다.
 
-It can be used easily for small to large quads, planes, octocoptors and more advanced frames. It's best used with separate ESCs as it features a built-in power distribution board (PDB). Wiring up a 4in1 ESC is easy too.
+소형에서 대형 쿼드, 평면, 옥토 콥터 및 고급 프레임에 쉽게 사용할 수 있습니다. 내장형 배전판(PDB)이 특징이므로 별도의 ESC와 함께 사용하는 것이 가장 좋습니다. 4in1 ESC 배선도 쉽습니다.
 
-There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity.
+4 개의 추가 모터 출력, SPI 및 UART 연결을 제공하는 12핀 스택 커넥터도 있습니다.
 
 ![SPRacingH7EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
 
 ![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 :::note
-This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+이 비행 컨트롤러는 [제조업체의 지원](../flight_controller/autopilot_manufacturer_supported.md)을 받을 수 있습니다.
 :::
 
-## Key Features
+## 주요 특징
 
-* Main System-on-Chip: [STM32H750VBT6 rev.y/v](https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html)
-  * CPU: 400/480Mhz(+) ARM Cortex M7 with single-precision FPU. (+ 480Mhz with Rev V CPUs)
+* 메인 시스템 온칩: [STM32H750VBT6 rev.y/v](https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html)
+  * CPU: 400/480Mhz (+) ARM Cortex M7 (단정밀도 FPU 포함). (Rev V CPU 사용시 + 480Mhz)
   * RAM: 1MB
-  * 16MB External Flash 4-bit QuadSPI in Memory Mapped mode for code *and* config.
-* On-board sensors:
-  * Dual Gyros (1xSPI each, with separate interrupt signals, 32khz capable, fsync capable)
-  * High-precision BMP388 Baro (I2C + interrupt)
-  * 110A Current Sensor
-* GPS via External 8 pin IO port.
-* Audio/Visual
-  * On-screen display OSD (dedicated SPI, character based, MAX7456)
-  * Microphone sensor
-  * Audio output from CPU DAC.
-  * Audio mixer for microphone/DAC outputs.
-* Interfaces
-  * SD Card (4-bit SDIO not 1-bit SPI)
-  * IR transponder (iLAP compatible)
-  * Buzzer circuitry
-  * RSSI (Analog/PWM)
-  * 12 motor outputs (4 by motor pads, 4 in the middle, and 4 on stacking connector).
-  * 1x SPI breakout onto stacking connector
-  * 6 Serial Ports (5x TX & RX, 1x TX-only bi-directional for telemetry)
-  * Boot Button (Side press)
-  * Bind/User Button (Side press)
-  * Receiver ports (all usual protocols, no inverter needed)
-  * CAM OSD control and Video IN on CAM socket.
-  * SWD debugging port.
-* Video OUT + Audio OUT on VTX socket.
-* USB with OTG capability (ID and VBUS connected to CPU)
-* Power System
-  * Integrated PDB.
+  * 코드와 *설정*에 관한 메모리 매핑 모드의 16MB 외장 플래시 4 비트 QuadSPI.
+* 내장 센서 :
+  * 듀얼 자이로(각각 1xSPI, 별도의 인터럽트 신호 포함, 32khz 가능, fsync 가능)
+  * 고정밀 BMP388 기압계(I2C + 인터럽트)
+  * 110A 전류 센서
+* 외부 8핀 IO 포트를 통한 GPS.
+* 시청각
+  * 온스크린 디스플레이 OSD(전용 SPI, 문자 기반, MAX7456)
+  * 마이크 센서
+  * CPU DAC에서 오디오 출력.
+  * 마이크/DAC 출력용 오디오 믹서.
+* 인터페이스
+  * SD 카드(1 비트 SPI가 아닌 4 비트 SDIO)
+  * IR 트랜스폰더(iLAP 호환)
+  * 부저 회로
+  * RSSI (아날로그/PWM)
+  * 12개의 모터 출력(모터 패드에 의해 4개, 중간에 4개, 스태킹 커넥터에 4개).
+  * 스태킹 커넥터에 대한 1x SPI 브레이크아웃
+  * 직렬 포트 6개 (TX 및 RX 5 개, 텔레메트리 TX 전용 양방향 1 개)
+  * 부팅 버튼 (측면 누름)
+  * 바인딩/사용자 버튼 (측면 누름)
+  * 수신기 포트 (모든 일반적인 프로토콜, 인버터 필요 없음)
+  * CAM 소켓의 CAM OSD 제어 및 비디오 입력.
+  * SWD 디버깅 포트.
+* VTX 소켓의 비디오 출력 + 오디오 출력.
+* OTG 기능이 있는 USB (CPU에 연결된 ID 및 VBUS)
+* 전원 시스템
+  * 통합 PDB.
   * 2-6S BEC
-  * TVS Protection Diode
+  * TVS 보호 다이오드
   * Dedicated 500ma VREG for Gyros, with gyro noise filter capacitors.
   * Second 500ma VREG for CPU, Baro, Microphone, etc.
 * Other features
