@@ -1,9 +1,9 @@
-# ModalAI Flight Core v1
+# ModalAI 플라이트 코어 v1
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://forum.modalai.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://forum.modalai.com/)에 문의하십시오.<br/>
 :::
 
-The ModalAI [Flight Core v1](https://modalai.com/flight-core) ([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA. The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl) ([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
+ModalAI [Flight Core v1](https://modalai.com/flight-core) ([데이터시트](https://docs.modalai.com/flight-core-datasheet))은 미국에서 제작된 PX4 용 비행 콘트롤러입니다. Flight Core는 장애물 회피와 GPS 거부 내비게이션을 위해 ModalAI [VOXL](https://modalai.com/voxl)([데이터시트](https://docs.modalai.com/voxl-datasheet/))과 페어링하거나 독립형 비행 콘트롤러로 독립적으로 사용할 수 있습니다.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
