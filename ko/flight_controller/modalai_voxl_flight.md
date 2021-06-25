@@ -82,64 +82,64 @@ ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([데이터시트](https:
 
 ## PX4 펌웨어 호환성
 
-*VOXL Flight* is fully compatible with the official PX4 Firmware from PX4 v1.11.
+*VOXL Flight*은 PX4 v1.11 펌웨어와 호환됩니다.
 
-ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
+ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmware/tree/modalai-1.11)을 유지합니다. 여기에는 UART ESC 지원과 업스트림 예정인 VIO와 VOA의 개선 사항이 포함됩니다.
 
-More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
-
-
-## QGroundControl Support
-
-This board supported in QGroundControl 4.0 and later.
+펌웨어에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/flight-core-firmware/)를 참고하십시오.
 
 
-## Availability
+## QGroundControl 지원
 
-- [VOXL Flight Complete Kit](https://modalai.com/voxl-flight)
-- [VOXL Flight Board](https://www.modalai.com/products/voxl-flight?variant=31707275362355) (only)
-- [VOXL Flight integrated with Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
-- [VOXL Flight in a ready to fly VOXL m500 Development Drone](https://www.modalai.com/collections/development-drones/products/voxl-m500) ([Datasheet](https://docs.modalai.com/voxl-m500-reference-drone-datasheet/))
+이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
 
 
-## Quick Start
+## 구매처
 
-A quickstart from the vendor is located [here](https://docs.modalai.com/voxl-flight-quickstart/).
+- [VOXL Flight Complete 키트](https://modalai.com/voxl-flight)
+- [VOXL Flight 보드](https://www.modalai.com/products/voxl-flight?variant=31707275362355) (전용)
+- [장애물 회피 카메라와 통합된 VOXL Flight(VOXL Flight Deck)](https://modalai.com/flight-deck) ([데이터시트](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
+- [VOXL Flight in a ready to fly VOXL m500 Development Drone](https://www.modalai.com/collections/development-drones/products/voxl-m500)  ([데이터시트](https://docs.modalai.com/voxl-m500-reference-drone-datasheet/))
+
+
+## 빠른 시작
+
+공급 업체의 빠른 시작 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart/)를 참고하십시오.
 
 ### voxl-vision-px4
 
-The VOXL Flight runs [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4) on the  companion computer portion of the hardware serving as a sort of MAVLink proxy. For details, the source code is available [here](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)
+VOXL Flight는 일종의 MAVLink 프록시 역할을하는 하드웨어의 보조 컴퓨터에서 [voxl-vision-px4](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)를 실행합니다. 자세한 내용은 [여기](https://gitlab.com/voxl-public/modal-pipe-architecture/voxl-vision-px4)에서 소스 코드를 참고할 수 있습니다.
 
-### Connectors
+### 커넥터
 
-Detailed information about the pinouts can be found [here](https://docs.modalai.com/voxl-flight-datasheet-connectors/).
+핀배열에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/voxl-flight-datasheet-connectors/)을 참고하십시오.
 
-#### Top
+#### 평면도
 
 ![VOXLFlightTop](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
 
-*Note: 1000 Series connectors accessible from the STM32/PX4*
+*참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터*
 
-| Connector | Summary                                | Used By                            |
-| --------- | -------------------------------------- | ---------------------------------- |
-| J2        | Hires 4k Image Sensor (CSI0)           | Snapdragon - Linux                 |
-| J3        | Stereo Image Sensor (CSI1)             | Snapdragon - Linux                 |
-| J6        | Cooling Fan Connector                  | Snapdragon - Linux                 |
-| J7        | BLSP6 (GPIO) and BLSP9 (UART)          | Snapdragon - Linux                 |
-| J13       | Expansion B2B                          | Snapdragon - Linux                 |
-| J14       | Integrated GNSS Antenna Connection     | Snapdragon - Linux                 |
-| J1001     | Programming and Debug/UART3            | STM32 - PX4                        |
-| J1002     | UART ESC, UART2/TELEM3                 | STM32 - PX4                        |
-| J1003     | PPM RC In                              | STM32 - PX4                        |
-| J1004     | RC Input, Spektrum/SBus/UART6          | STM32 - PX4                        |
-| J1006     | USB 2.0 Connector (PX4/QGroundControl) | STM32 - PX4                        |
-| J1007     | 8-Channel PWM/DShot Output             | STM32 - PX4                        |
-| J1008     | CAN Bus                                | STM32 - PX4                        |
-| J1009     | I2C3, UART4                            | STM32 - PX4                        |
-| J1010     | Telemetry (TELEM1)                     | STM32 - PX4                        |
-| J1011     | I2C2, Safety Button Input              | STM32 - PX4                        |
-| J1012     | External GPS & Mag, UART1, I2C1        | STM32 - PX4                        |
-| J1013     | Power Input, I2C3                      | STM32 - PX4 (powers whole  system) |
+| 커넥터   | 요약                                     | 사용처                                |
+| ----- | -------------------------------------- | ---------------------------------- |
+| J2    | 4k 이미지 센서 (CSI0) 고용                    | Snapdragon - 리눅스                   |
+| J3    | 스테레오 이미지 센서 (CSI1)                     | Snapdragon - 리눅스                   |
+| J6    | 냉각 팬 커넥터                               | Snapdragon - 리눅스                   |
+| J7    | BLSP6 (GPIO) and BLSP9 (UART)          | Snapdragon - 리눅스                   |
+| J13   | 확장 B2B                                 | Snapdragon - 리눅스                   |
+| J14   | 통합 GNSS 안테나 연결                         | Snapdragon - 리눅스                   |
+| J1001 | 프로그래밍 및 디버그/UART3                      | STM32 - PX4                        |
+| J1002 | UART ESC, UART2/TELEM3                 | STM32 - PX4                        |
+| J1003 | PPM RC In                              | STM32 - PX4                        |
+| J1004 | RC Input, Spektrum/SBus/UART6          | STM32 - PX4                        |
+| J1006 | USB 2.0 Connector (PX4/QGroundControl) | STM32 - PX4                        |
+| J1007 | 8-Channel PWM/DShot Output             | STM32 - PX4                        |
+| J1008 | CAN Bus                                | STM32 - PX4                        |
+| J1009 | I2C3, UART4                            | STM32 - PX4                        |
+| J1010 | Telemetry (TELEM1)                     | STM32 - PX4                        |
+| J1011 | I2C2, Safety Button Input              | STM32 - PX4                        |
+| J1012 | External GPS & Mag, UART1, I2C1        | STM32 - PX4                        |
+| J1013 | Power Input, I2C3                      | STM32 - PX4 (powers whole  system) |
 
 #### Bottom
 
