@@ -26,31 +26,31 @@
 
 ## 주요 기능
 
-* Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html) 
-  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-  * RAM: 192 KB SRAM
+* 메인 시스템 온칩: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html) 
+  * CPU : 단정밀도 FPU의 168MHz ARM Cortex M4
+  * RAM : 192KB SRAM
   * FLASH: 1 MB
-* Standard racer form factor: 36x36 mm with standard 30.5 mm hole pattern
-* MPU6000 Accel / Gyro
-* BMP280 Baro (not all boards have it mounted)
-* microSD (for logging)
-* Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
-* OneShot PWM out (configurable)
-* Built-in current sensor
-* Built-in OSD chip (AB7456 via SPI)
+* 표준 레이서 폼 팩터 : 36x36mm, 표준 30.5mm 구멍 패턴
+* MPU6000 가속/자이로
+* BMP280 기압계(모든 보드에 마운트된 것은 아님)
+* microSD(로깅)
+* Futaba S.BUS 및 S.BUS2/Spektrum DSM2 및 DSMX/Graupner SUMD/PPM 입력/Yuneec ST24
+* OneShot PWM 출력(설정 가능)
+* 내장 전류 센서
+* 내장 OSD 칩(SPI를 통한 AB7456)
 
-## Where to Buy
+## 구매처
 
-The board is produced by different vendors, with some variations (e.g. with or without a barometer).
+보드는 몇 가지 변형된 형태(예 : 기압계 포함 또는 제외)로 여러 공급 업체에서 생산합니다.
 
-:::tip PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
+:::tip PX4는 Betaflight OMNIBUSF4SD 대상을 지원하는 보드와 호환됩니다(제품 페이지에 *OMNIBUSF4SD*가 있는 경우, 보드는 PX4에서 작동해야 함).
 :::
 
 :::tip
-Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+모든 Omnibus F4 레이블 파생물(예 : 클론)도 작동합니다. 그러나, 이러한 보드의 배전은 품질이 다양합니다.
 :::
 
-These are the boards tested and known to work:
+아래의 보드들은 테스트되고 작동하는 것입니다.
 
 * [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=636) :::note This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
 :::
