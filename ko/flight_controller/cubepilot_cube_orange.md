@@ -95,7 +95,7 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ### 위쪽(GPS, TELEM 등)
 
-![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+![큐브 포트-상단 (GPS, TELEM 등) 및 메인/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
 
 ## 시리얼 포트 매핑
@@ -118,11 +118,11 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ### 디버그 포트
 
-![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
+![큐브 디버그 포트](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
 ### USB/SDCard 포트
 
-![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+![큐브 USB/SDCard 포트 ](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 
 ## 펌웨어 빌드
@@ -145,4 +145,4 @@ make cubepilot_cubeorange
 - Cube 문서 (제조사) :
   - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+  - [미니 캐리어 보드](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
