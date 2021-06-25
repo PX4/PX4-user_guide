@@ -22,6 +22,6 @@
 
 ## 실험 기체
 
-These are [complete vehicles](../complete_vehicles/README.md) that have a fully integrated autopilot and other hardware (i.e. unlike the other autopilots listed, you can't use them in your own builds). They are listed in this page because from a PX4 software perspective, they are another autopilot.
-- [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) ([Complete Vehicle](../complete_vehicles/README.md))
-- [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) ([Complete Vehicle](../complete_vehicles/README.md))
+이들은 통합된 자동조종장치 및 기타 하드웨어가있는 [완전한 기체](../complete_vehicles/README.md)입니다. 즉, 나열된 다른 자동조종장치와 달리 자신의 빌드에서 사용할 수 없습니다. PX4 소프트웨어 관점에서 볼 때 다른 자동조종장치이기 때문에 이 페이지에 나열되어 있습니다.
+- [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) ([완성형 기체](../complete_vehicles/README.md))
+- [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md) ([완성형 기체](../complete_vehicles/README.md))
