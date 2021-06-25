@@ -75,7 +75,7 @@ ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([데이터시트](https:
 
 ## 크기
 
-![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
+![FlightCoreV1 크기](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
 [3D STEP 파일](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
@@ -114,79 +114,79 @@ VOXL Flight는 일종의 MAVLink 프록시 역할을하는 하드웨어의 보�
 
 핀배열에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/voxl-flight-datasheet-connectors/)을 참고하십시오.
 
-#### 평면도
+#### 상단
 
-![VOXLFlightTop](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
+![VOXLFlight 상단](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-top.jpg)
 
 *참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터*
 
-| 커넥터   | 요약                                     | 사용처                                |
-| ----- | -------------------------------------- | ---------------------------------- |
-| J2    | 4k 이미지 센서 (CSI0) 고용                    | Snapdragon - 리눅스                   |
-| J3    | 스테레오 이미지 센서 (CSI1)                     | Snapdragon - 리눅스                   |
-| J6    | 냉각 팬 커넥터                               | Snapdragon - 리눅스                   |
-| J7    | BLSP6 (GPIO) and BLSP9 (UART)          | Snapdragon - 리눅스                   |
-| J13   | 확장 B2B                                 | Snapdragon - 리눅스                   |
-| J14   | 통합 GNSS 안테나 연결                         | Snapdragon - 리눅스                   |
-| J1001 | 프로그래밍 및 디버그/UART3                      | STM32 - PX4                        |
-| J1002 | UART ESC, UART2/TELEM3                 | STM32 - PX4                        |
-| J1003 | PPM RC In                              | STM32 - PX4                        |
-| J1004 | RC Input, Spektrum/SBus/UART6          | STM32 - PX4                        |
-| J1006 | USB 2.0 Connector (PX4/QGroundControl) | STM32 - PX4                        |
-| J1007 | 8-Channel PWM/DShot Output             | STM32 - PX4                        |
-| J1008 | CAN Bus                                | STM32 - PX4                        |
-| J1009 | I2C3, UART4                            | STM32 - PX4                        |
-| J1010 | Telemetry (TELEM1)                     | STM32 - PX4                        |
-| J1011 | I2C2, Safety Button Input              | STM32 - PX4                        |
-| J1012 | External GPS & Mag, UART1, I2C1        | STM32 - PX4                        |
-| J1013 | Power Input, I2C3                      | STM32 - PX4 (powers whole  system) |
+| 커넥터   | 요약                              | 사용처                        |
+| ----- | ------------------------------- | -------------------------- |
+| J2    | 4k 이미지 센서 (CSI0) 고용             | Snapdragon - 리눅스           |
+| J3    | 스테레오 이미지 센서 (CSI1)              | Snapdragon - 리눅스           |
+| J6    | 냉각 팬 커넥터                        | Snapdragon - 리눅스           |
+| J7    | BLSP6 (GPIO) and BLSP9 (UART)   | Snapdragon - 리눅스           |
+| J13   | 확장 B2B                          | Snapdragon - 리눅스           |
+| J14   | 통합 GNSS 안테나 연결                  | Snapdragon - 리눅스           |
+| J1001 | 프로그래밍 및 디버그/UART3               | STM32 - PX4                |
+| J1002 | UART ESC, UART2/TELEM3          | STM32 - PX4                |
+| J1003 | PPM RC 입력                       | STM32 - PX4                |
+| J1004 | RC 입력, Spektrum/SBus/UART6      | STM32 - PX4                |
+| J1006 | USB 2.0 커넥터(PX4/QGroundControl) | STM32 - PX4                |
+| J1007 | 8 채널 PWM/DShot 출력               | STM32 - PX4                |
+| J1008 | CAN 버스                          | STM32 - PX4                |
+| J1009 | I2C3, UART4                     | STM32 - PX4                |
+| J1010 | 텔레메트리 (TELEM1)                  | STM32 - PX4                |
+| J1011 | I2C2, 안전 버튼 입력                  | STM32 - PX4                |
+| J1012 | 외부 GPS 및 자력계, UART1, I2C1       | STM32 - PX4                |
+| J1013 | 전원 입력, I2C3                     | STM32 - PX4 (전체 시스템 전원 공급) |
 
-#### Bottom
+#### 하단
 
-![VOXLFlightBottom](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
+![VOXLFlight 하단](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-bottom.jpg)
 
-*Note: 1000 Series connectors accessible from the STM32/PX4*
+*참고 : STM32/PX4에서 액세스 가능한 1000 시리즈 커넥터*
 
-| Connector      | Summary                                 | Used By                     |
-| -------------- | --------------------------------------- | --------------------------- |
-| J4             | Tracking/Optic Flow Image Sensor (CSI2) | Snapdragon - Linux          |
-| J8             | USB 3.0 OTG                             | Snapdragon - Linux, **adb** |
-| J10            | BLSP7 UART and I2C off-board            | Snapdragon - Linux          |
-| J11            | BLSP12 UART and I2C off-board           | Snapdragon - Linux          |
-| VOXL microSD   |                                         | Snapdragon - Linux          |
-| PX4 microSD    | 32Gb Max                                | STM32 - PX4                 |
-| Wi-Fi Antennas | Included                                | Snapdragon - Linux          |
+| 커넥터          | 요약                     | 사용처                       |
+| ------------ | ---------------------- | ------------------------- |
+| J4           | 추적/광류 이미지 센서 (CSI2)    | Snapdragon - 리눅스          |
+| J8           | USB 3.0 OTG            | Snapdragon - 리눅스, **adb** |
+| J10          | BLSP7 UART 및 I2C 오프보드  | Snapdragon - 리눅스          |
+| J11          | BLSP12 UART 및 I2C 오프보드 | Snapdragon - 리눅스          |
+| VOXL microSD |                        | Snapdragon - 리눅스          |
+| PX4 microSD  | 32Gb Max               | STM32 - PX4               |
+| Wi-Fi 안테나    | 포함됨.                   | Snapdragon - 리눅스          |
 
-### User Guide
+### 사용자 가이드
 
-The full user guide is available [here](https://docs.modalai.com/voxl-flight-quickstart).
+전체 사용자 가이드는 [여기](https://docs.modalai.com/voxl-flight-quickstart)를 참고하십시오.
 
 
-### How to Build
+### 빌드 방법
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
 ```
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-*Note: mappings shown are for the PX4 controlled interfaces only*
+*참고: 표시된 매핑은 PX4 제어 인터페이스 전용입니다.*
 
-| UART   | Device     | Port                                    |
-| ------ | ---------- | --------------------------------------- |
-| USART1 | /dev/ttyS0 | GPS1 (J1012)                            |
-| USART2 | /dev/ttyS1 | TELEM3 (J1002)                          |
-| USART3 | /dev/ttyS2 | Debug Console (J1001)                   |
-| UART4  | /dev/ttyS3 | Expansion UART (J6)                     |
-| UART5  | /dev/ttyS4 | UART between PX4 and Companion Computer |
-| USART6 | /dev/ttyS5 | RC (J1004)                              |
-| UART7  | /dev/ttyS6 | TELEM1 (J1010)                          |
-| UART8  | /dev/ttyS7 | N/A                                     |
+| UART   | 장치         | 포트                 |
+| ------ | ---------- | ------------------ |
+| USART1 | /dev/ttyS0 | GPS1 (J1012)       |
+| USART2 | /dev/ttyS1 | TELEM3 (J1002)     |
+| USART3 | /dev/ttyS2 | 디버그 콘솔(J1001)      |
+| UART4  | /dev/ttyS3 | 확장 UART (J6)       |
+| UART5  | /dev/ttyS4 | PX4와 보조 컴퓨터간의 UART |
+| USART6 | /dev/ttyS5 | RC (J1004)         |
+| UART7  | /dev/ttyS6 | TELEM1 (J1010)     |
+| UART8  | /dev/ttyS7 | 해당 없음              |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Support
+## 지원
 
-Please visit the [ModalAI Forum](https://forum.modalai.com/category/8/voxl-flight) for more information.
+자세한 내용은 [ModalAI 포럼](https://forum.modalai.com/category/8/voxl-flight)을 참고하십시오.
