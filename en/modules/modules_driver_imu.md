@@ -387,9 +387,7 @@ icm20948_i2c_passthrough <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 57
-     [-R <val>]  Rotation
-                 default: 0
+                 default: 105
 
    stop
 
