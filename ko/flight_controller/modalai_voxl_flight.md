@@ -16,71 +16,71 @@ ModalAI [VOXL Flight](https://modalai.com/voxl-flight) ([데이터시트](https:
 
 ### 시스템
 
-| 기능 | 세부 정보 |
+| 항목 | 세부 정보 |
 |:-- |:----- |
 | 중량 | 26 g  |
 
 ### 보조 컴퓨터
 
-| 특징                    | Details                                                                                                                                                                                                                                                            |
-|:--------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Base Operation System | Linux Yocto Jethro with 3.18 kernel. Additional Linux Operating Systems can be used by running Docker on VOXL, details [here](https://docs.modalai.com/docker-on-voxl/)                                                                                            |
-| Compute               | Qualcomm Snapdragon 821 w/ 4GB LPDDR4 1866MHz, Snapdragon 821 [Datasheet](https://developer.qualcomm.com/download/sd820e/qualcomm-snapdragon-820e-processor-apq8096sge-device-specification.pdf), [Docs](https://developer.qualcomm.com/hardware/apq-8096sg/tools) |
-| CPU                   | Quad-core CPU up to 2.15GHz                                                                                                                                                                                                                                        |
-| GPU                   | Adreno 530 GPU at 624MHz                                                                                                                                                                                                                                           |
-| Compute DSP           | Hexagon compute DSP (cDSP) 825MHz                                                                                                                                                                                                                                  |
-| Sensor DSP            | Hexagon sensor DSP (sDSP) 700MHz                                                                                                                                                                                                                                   |
-| Video                 | 4k30 Video Capture h.264/5 w/ 720p FPV                                                                                                                                                                                                                             |
-| Camera Interaces      | Support for MIPI-CSI2, USB UVC, HDMI                                                                                                                                                                                                                               |
-| Wi-Fi                 | Pre-certified Wi-Fi module [QCNFA324 FCC ID:PPD-QCNFA324](https://fccid.io/PPD-QCNFA324), QCA6174A modem, 802.11ac 2x2 Dual-band, Bluetooth 4.2 (dual-mode)                                                                                                        |
-| 4G LTE                | [Optional add-on module](https://www.modalai.com/collections/voxl-add-ons/products/voxl-lte)                                                                                                                                                                       |
-| Microhard pDDL        | [Optional add-on module](https://www.modalai.com/collections/voxl-add-ons/products/voxl-microhard-modem-usb-hub)                                                                                                                                                   |
-| GNSS                  | WGR7640 10Hz                                                                                                                                                                                                                                                       |
-| I/O                   | 1x USB3.0 OTG (ADB port), 1x USB2.0 (expansion port), 2x UART, 3x I2C, additional GPIO and SPI can be configured                                                                                                                                                   |
-| Storage               | 32GB (UFS 2.0), Micro SD Card                                                                                                                                                                                                                                      |
-| Software              | Docker, OpenCV 2.4.11, 3.4.6, 4.2, ROS Indigo, Qualcomm Machine Vision SDK, see [GitLab](https://gitlab.com/voxl-public) for lots of open source examples!                                                                                                         |
-| IMUs                  | ICM-42688 (SPI10),  ICM-20948 (SPI1)                                                                                                                                                                                                                               |
-| Barometer             | BMP280                                                                                                                                                                                                                                                             |
+| 항목             | 세부 정보                                                                                                                                                                                                                                                         |
+|:-------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 기본 운영 시스템      | 3.18 커널을 사용하는 Linux Yocto Jethro. 추가 Linux 운영체제는 VOXL에서 Docker를 실행하여 사용할 수 있습니다. 자세한 내용은 [여기](https://docs.modalai.com/docker-on-voxl/)를 참조하십시오.                                                                                                              |
+| 계산             | Qualcomm Snapdragon 821(4GB LPDDR4 1866MHz 포함), Snapdragon 821 [데이터시트](https://developer.qualcomm.com/download/sd820e/qualcomm-snapdragon-820e-processor-apq8096sge-device-specification.pdf), [문서](https://developer.qualcomm.com/hardware/apq-8096sg/tools) |
+| CPU            | 최대 2.15GHz의 쿼드 코어 CPU                                                                                                                                                                                                                                         |
+| GPU            | 624MHz의 Adreno 530 GPU                                                                                                                                                                                                                                        |
+| DSP 컴퓨팅        | Hexagon compute DSP (cDSP) 825MHz                                                                                                                                                                                                                             |
+| 센서 DSP         | Hexagon 센서 DSP (sDSP) 700MHz                                                                                                                                                                                                                                  |
+| 비디오            | 4k30 비디오 캡처 h.264/5 w/ 720p FPV                                                                                                                                                                                                                               |
+| 카메라 인터페이스      | MIPI-CSI2, USB UVC, HDMI 지원                                                                                                                                                                                                                                   |
+| Wi-Fi          | 사전 인증된 Wi-Fi 모듈 [QCNFA324 FCC ID : PPD-QCNFA324](https://fccid.io/PPD-QCNFA324), QCA6174A 모뎀, 802.11ac 2x2 듀얼 밴드, Bluetooth 4.2(듀얼 모드)                                                                                                                        |
+| 4G LTE         | [옵션 추가 모듈](https://www.modalai.com/collections/voxl-add-ons/products/voxl-lte)                                                                                                                                                                                |
+| Microhard pDDL | [옵션 추가 모듈](https://www.modalai.com/collections/voxl-add-ons/products/voxl-microhard-modem-usb-hub)                                                                                                                                                            |
+| GNSS           | WGR7640 10Hz                                                                                                                                                                                                                                                  |
+| I/O            | 1x USB3.0 OTG (ADB 포트), 1x USB2.0 (확장 포트), 2x UART, 3x I2C, 추가 GPIO 및 SPI 설정 가능                                                                                                                                                                               |
+| 저장 장치          | 32GB (UFS 2.0), Micro SD 카드                                                                                                                                                                                                                                   |
+| 소프트웨어          | Docker, OpenCV 2.4.11, 3.4.6, 4.2, ROS Indigo, Qualcomm Machine Vision SDK, 많은 오픈 소스 예제는 [GitLab](https://gitlab.com/voxl-public)을 참조하십시오.                                                                                                                    |
+| 관성계            | ICM-42688 (SPI10),  ICM-20948 (SPI1)                                                                                                                                                                                                                          |
+| 기압계            | BMP280                                                                                                                                                                                                                                                        |
 
-### Flight Controller
+### 비행 콘트롤러
 
-| Feature          | Details                                                                                                                                                         |
-|:---------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MCU              | 216MHz, 32-bit ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html)                                                    |
-| Memory           | 256Kb FRAM                                                                                                                                                      |
-|                  | 2Mbit Flash                                                                                                                                                     |
-|                  | 512Kbit SRAM                                                                                                                                                    |
-| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
-| IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
-|                  | ICM-42688 (SPI2)                                                                                                                                                |
-|                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
-| Barometer        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4)                                                        |
-| Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
-| microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards)                                                                                                |
-| Inputs           | GPS/Mag                                                                                                                                                         |
-|                  | Spektrum                                                                                                                                                        |
-|                  | Telemetry                                                                                                                                                       |
-|                  | CAN bus                                                                                                                                                         |
-|                  | PPM                                                                                                                                                             |
-| Outputs          | 6 LEDs (2xRGB)                                                                                                                                                  |
-|                  | 8 PWM Channels                                                                                                                                                  |
-| Extra Interfaces | 3 serial ports                                                                                                                                                  |
-|                  | I2C                                                                                                                                                             |
-|                  | GPIO                                                                                                                                                            |
+| 항목         | 세부 정보                                                                                                                                                           |
+|:---------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCU        | 216MHz, 32 비트 ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html)                                                     |
+| 메모리        | 256Kb FRAM                                                                                                                                                      |
+|            | 2Mbit Flash                                                                                                                                                     |
+|            | 512Kbit SRAM                                                                                                                                                    |
+| 펌웨어        | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1)                                                                                    |
+| 관성계        | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1)                                                                       |
+|            | ICM-42688 (SPI2)                                                                                                                                                |
+|            | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6)                                                                             |
+| 기압계        | [BMP388](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp388/) (I2C4)                                                        |
+| 보안 요소      | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
+| microSD 카드 | [지원되는 카드 정보](../dev_log/logging.md#sd-cards)                                                                                                                    |
+| 입력         | GPS/자력계                                                                                                                                                         |
+|            | Spektrum                                                                                                                                                        |
+|            | 텔레메트리                                                                                                                                                           |
+|            | CAN 버스                                                                                                                                                          |
+|            | PPM                                                                                                                                                             |
+| 출력         | LED 6 개 (2xRGB)                                                                                                                                                 |
+|            | PWM 채널 8개                                                                                                                                                       |
+| 추가 인터페이스   | 시리얼포트 3개                                                                                                                                                        |
+|            | I2C                                                                                                                                                             |
+|            | GPIO                                                                                                                                                            |
 
 :::note
-More detailed hardware documentation can be found [here](https://docs.modalai.com/voxl-flight-datasheet/).
+자세한 하드웨어 문서는 [여기](https://docs.modalai.com/voxl-flight-datasheet/)를 참고하십시오.
 :::
 
 
-## Dimensions
+## 크기
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/voxl_flight/voxl-flight-dimensions.jpg)
 
-[3D STEP File](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
+[3D STEP 파일](https://storage.googleapis.com/modalai_public/modal_drawings/M0019_VOXL-Flight.zip)
 
 
-## PX4 Firwmare Compatibility
+## PX4 펌웨어 호환성
 
 *VOXL Flight* is fully compatible with the official PX4 Firmware from PX4 v1.11.
 
