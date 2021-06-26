@@ -13,54 +13,53 @@ Raspberry Pi 2/3 Navio2 자동조종장치의 개발 개요 문서입니다. 이
 
 ## 운영체제 이미지
 
-[Navio 2용 Emlid RT Raspbian 이미지](https://docs.emlid.com/navio2/configuring-raspberry-pi)를 사용하십시오. The default image will have most of the setup procedures shown below already done.
+[Navio 2용 Emlid RT Raspbian 이미지](https://docs.emlid.com/navio2/configuring-raspberry-pi)를 사용하십시오. 기본 이미지에는 아래 표시된 대부분의 설정이 완료되어 있습니다.
 
 :::warning
-Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
+시스템 커널을 업그레이드 하지마십시오. 업그레이드하면 필요한 HW 지원이 없는 새 커널을 설치할 수 있습니다. `ls /sys/class/pwm`으로 확인할 수 있습니다. 디렉토리가 비어 있으면 안됩니다.
 :::
 
-## Setting up Access
+## 접근 설정
 
-The Raspbian image has SSH setup already. Username is "pi" and password is "raspberry". You can connect to your RPi2/3 over a network (Ethernet is set to come up with DHCP by default) and then proceed to configure WiFi access. We assume that the username and password remain at their defaults for the purpose of this guide.
+Raspbian 이미지에는 이미 SSH 설정이 되어있습니다. 사용자 이름은 "pi"이고, 비밀번호는 "raspberry"입니다. 네트워크를 통해 RPi2/3에 연결한 다음(이더넷은 기본적으로 DHCP와 함께 제공되도록 설정 됨) WiFi 액세스 설정을 할 수 있습니다. 이 가이드에서는 사용자 이름과 암호가 기본값으로 유지된다고 가정합니다.
 
-To setup the RPi2/3 to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md).
+RPi2/3를 설정하여 로컬 Wi-Fi에 연결하려면 [이 가이드](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md)를 참고하십시오.
 
-Find the IP address of your Pi from your network, and then you can proceed to connect to it using SSH.
+네트워크에서 라즈베리파이의 IP 주소를 검색한 다음, SSH를 사용하여 연결할 수 있습니다.
 
 ```sh
 ssh pi@<IP-ADDRESS>
 ```
 
-## Expand the Filesystem
+## 파일시스템 확장
 
-After installing the OS and connecting to it, make sure to [expand the Filesystem](https://www.raspberrypi.org/documentation/configuration/raspi-config.md), so there is enough space on the SD Card.
+OS를 설치후 [파일시스템을 확장](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)하여 SD 카드에 전영역을 확보하십시오.
 
-## Disable Navio RGB Overlay
+## Navio RGB 오버레이 비활성화
 
-The existing Navio RGB overlay claims GPIOs used by PX4 for RGB Led. Edit `/boot/config.txt` by commenting the line enabling the `navio-rgb` overlay.
+기존 Navio RGB 오버레이는 PX4에서 RGB Led 용으로 사용하는 GPIO를 요구합니다. `navio-rgb` 오버레이를 활성화하는 줄에 주석을 달아 `/boot/config.txt`를 편집합니다.
 
     #dtoverlay=navio-rgb
     
 
-## Changing Hostnames
+## 호스트명 변경
 
-To avoid conflicts with any other RPis on the network, we advise you to change the default hostname to something sensible. We used "px4autopilot" for our setup. Connect to the Pi via SSH and follow the below instructions.
+네트워크에있는 다른 라즈베리파이와 충돌을 방지하려면 기본 호스트 이름을 변경하는 것이 좋습니다. 설정에 "px4 autopilot"을 사용했습니다. SSH를 통해 라즈베리파이에 연결하고 아래의 지침을 따르십시오.
 
-Edit the hostname file:
+호스트명 파일을 편집합니다.
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-Change `raspberry` to whatever hostname you want (one word with limited characters apply)
+`raspberry</ 0>를 원하는 호스트명으로 변경하십시오(제한된 문자가 있는 한 단어 적용).</p>
 
-Next you need to change the hosts file:
+<p>다음으로 호스트 파일을 변경해야합니다.</p>
 
-```sh
-sudo nano /etc/hosts
-```
+<pre><code class="sh">sudo nano /etc/hosts
+`</pre> 
 
-Change the entry `127.0.1.1 raspberry` to `127.0.1.1 <YOURNEWHOSTNAME>`
+`127.0.1.1 raspberry` 항목을 `127.0.1.1 <YOURNEWHOSTNAME>`로 변경합니다.
 
 Reboot the Pi after this step is completed to allow it to re-associate with your network.
 
