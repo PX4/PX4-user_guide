@@ -1,14 +1,14 @@
-# PilotPi with Ubuntu Server
+# 우분투 서버 기반 파일럿파이
 
 :::warning
-Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+라즈베리파이 4B의 우분투 서버는 많은 전류를 소비하고 많은 열을 발생합니다. 이 하드웨어를 사용시에는 고열 방출과 고전력 소비 환경을 고려하여 설계되었습니다.
 :::
 
-## Developer Quick Start
+## 개발자 가이드
 
-### OS Image
+### 운영체제 이미지
 
-Both armhf and arm64 arch are supported.
+armhf와 arm64 arch가 모두 지원됩니다.
 
 #### armhf
 
@@ -23,13 +23,13 @@ Both armhf and arm64 arch are supported.
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.2-preinstalled-server-arm64+raspi.img.xz)
 
-#### Latest OS
+#### 최신 운영체제
 
-Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
+새로운 업데이트 버전은 공식 [cdimage](https://cdimage.ubuntu.com/releases/) 페이지를 참조하십시오.
 
-### First boot
+### 최초 부팅
 
-When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
+라즈베리파이의 WiFi를 처음 설정시 홈 라우터와 라즈벡리파이, 모니터와 키보드 사이에 유선 이더넷 연결을 사용하는 것이 편리합니다.
 
 #### Before booting
 
