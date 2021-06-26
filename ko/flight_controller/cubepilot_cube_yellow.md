@@ -68,47 +68,47 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
   * **전원:**
     * 입력 전압: 4.1V ~ 5.7V
     * 정격 입력 전류: 2.5A
-    * Rated input/output power: 14W
-* **Dimensions:**
+    * 정격 입/출력 전력: 14W
+* **크기:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
-  - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-* **Interfaces**
-  * IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
-  * 5x UART (serial ports), one high-power capable, 2x with HW flow control
-  * 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
-  * **R/C inputs:**
-    - Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
-    - Futaba S.BUS® compatible input and output
-    - PPM-SUM signal input
-  * RSSI (PWM or voltage) input
+  - **캐리어:** 94.5mm x 44.3mm x 17.3mm
+* **인터페이스**
+  * IO 포트: 14개의 PWM 서보 출력(IO에서 8개, FMU에서 6개)
+  * UART (직렬 포트) 5개, 1 개의 고전력 지원, 2x (HW 흐름 제어 포함)
+  * CAN 2개(하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
+  * **RC 입력:**
+    - Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력
+    - Futaba S.BUS® 호환 입출력
+    - PPM 합계 신호 입력
+  * RSSI(PWM 또는 전압) 입력
   * I2C
   * SPI
-  * 3.3v ADC input
-  * Internal microUSB port and external microUSB port extension
+  * 3.3v ADC 입력
+  * 내부 microUSB 포트 및 외부 microUSB 포트 확장
 
-## Pinouts and Schematics
+## 핀배열과 회로도
 
-Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
-
-
-## Ports
-
-### Top-Side (GPS, TELEM etc)
-
-![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+보드 설계도와 문서는 [The Cube Project](https://github.com/proficnc/The-Cube)를 참고하십시오.
 
 
-## Serial Port Mapping
+## 포트
 
-| UART   | Device     | Port                                     |
+### 상단(GPS, TELEM 등)
+
+![큐브 포트-상단 (GPS, TELEM 등) 및 메인/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+
+
+## 시리얼 포트 매핑
+
+| UART   | 장치         | 포트                                       |
 | ------ | ---------- | ---------------------------------------- |
 | USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
 |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)                    |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)                    |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어)                           |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어)                           |
 | UART4  | /dev/ttyS3 | GPS1                                     |
 | USART6 | /dev/ttyS4 | PX4IO                                    |
-| UART7  | /dev/ttyS5 | CONSOLE                                  |
+| UART7  | /dev/ttyS5 | 콘솔                                       |
 | UART8  | /dev/ttyS6 | GPS2                                     |
   
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
@@ -116,34 +116,33 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 <!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
-### Debug Ports
+### 디버그 포트
 
-![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
+![큐브 디버그 포트](../../assets/flight_controller/cube/cube_ports_debug.jpg)
 
-### USB/SDCard Ports
+### USB/SDCard 포트
 
-![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+![큐브 USB/SDCard 포트 ](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 ```
 make cubepilot_cubeyellow
 ```
 
-## Issues
+## 문제점
 
-CAN1 and CAN2 silk screen on the Cube are flipped (CAN1 is CAN2 and vice versa).
+Cube의 CAN1과 CAN2의 실크 스크린이 뒤집힙니다. CAN1은 CAN2이고 그 반대의 경우도 마찬가지입니다.
 
-## Further Information/Documentation
+## 추가 정보 및 문서
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-- Cube Docs (Manufacturer):
-  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
-  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
-  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
+- [큐브 배선 개요](../assembly/quick_start_cube.md)
+- 큐브 문서 (제조사) :
+  - [큐브 모듈 개요](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [큐브 사용 설명서](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [미니 캐리어 보드](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
