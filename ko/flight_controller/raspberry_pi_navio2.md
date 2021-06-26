@@ -1,18 +1,19 @@
-# Raspberry Pi 2/3 Navio2 Autopilot
+# Raspberry Pi 2/3 Navio2 자동조종장치
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://emlid.com/)에 문의하십시오.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+이 비행 콘트롤러에 대한 PX4는 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-This is the developer "quickstart" for Raspberry Pi 2/3 Navio2 autopilots. It allows you to build PX4 and transfer to the RasPi, or build natively.
+Raspberry Pi 2/3 Navio2 자동조종장치의 개발 개요 문서입니다. 이를 통해 PX4를 빌드하고 Raspberry Pi로 전송하거나 빌드할 수 있습니다.
 
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
-## OS Image
+## 운영체제 이미지
 
-Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/configuring-raspberry-pi). The default image will have most of the setup procedures shown below already done.
+[Navio 2용 Emlid RT Raspbian 이미지](https://docs.emlid.com/navio2/configuring-raspberry-pi)를 사용하십시오. The default image will have most of the setup procedures shown below already done.
 
 :::warning
 Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
