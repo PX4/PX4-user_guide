@@ -21,53 +21,53 @@ Cube에는 2 개의 IMU에 진동 차단이 포함되어 있으며, 세 번째 �
 
 ## 주요 특징
 
-* 32bit STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
-* 32 bit STM32F103 failsafe co-processor <!-- check -->
-* 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
-* Abundant connectivity options for additional peripherals (UART, I2C, CAN)
-* Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
-* Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
-* Redundant power supply inputs and automatic failover
-* External safety switch
-* Multicolor LED main visual indicator
-* High-power, multi-tone piezo audio indicator
-* microSD card for high-rate logging over extended periods of time
+* 32 비트 STM32F777VI (32 비트 [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
+* 32 비트 STM32F103 장애복구 코프로세서 <!-- check -->
+* 14개 PWM/서보 출력(장애복구 및 수동 오버라이드 포함 8개, 보조, 고전력 호환 6개)
+* 다양한 추가 주변 장치(UART, I2C, CAN) 연결 옵션
+* 전용 프로세서와 독립형 전원 공급 장치(고정익 적용)로 비행중 복구 기능과 수동 오버라이드 통합 백업 시스템
+* 백업 시스템은 믹싱을 통합하여 일관된 자동조종장치와 수동 오버라이드 믹싱 모드를 제공합니다(고정익 적용).
+* 중복 전원공급장치 및 자동 장애 조치
+* 외부 안전 스위치
+* 다색 LED 주시각 표시기
+* 고전력 멀티톤 피에조 오디오 표시기
+* 장기간 고속 로깅용 microSD 카드
 
 <span id="stores"></span>
-## Where to Buy
+## 구매처
 
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 조립
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[큐브 배선 개요](../assembly/quick_start_cube.md)
 
-## Specifications
+## 사양
 
-* **Processor:**
-  * STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+* **프로세서:**
+  * STM32F777VI (32 비트 [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
   * 512 KB MB RAM
   * 2 MB Flash
-* **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
-  * STM32F100 (32bit *ARM Cortex-M3*)
+* **장애복구 코프러세서:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
+  * STM32F100 (32 비트 *ARM Cortex-M3*)
   * 24 MHz
   * 8 KB SRAM
-* **Sensors:** (all connected via SPI)
-  * **Accelerometer:** (3) ICM20948, ICM20649, ICM20602
-  * **Gyroscope:** (3) ICM20948, ICM20649, ICM20602
-  * **Compass:** (1) ICM20948
-  * **Barometric Pressure Sensor:** (2) MS5611
-* **Operating Conditions:**
-  * **Operating Temp:** -10C to 55C
-  * **IP rating/Waterproofing:** Not waterproof
-  * **Servo rail input voltage:** 3.3V / 5V
-  * **USB port input:**
-    * Voltage: 4V - 5.7V
-    * Rated current: 250 mA
-  * **POWER:**
-    * Input voltage: 4.1V - 5.7V
-    * Rated input current: 2.5A
+* **센서:** (모두 SPI를 통해 연결됨)
+  * **가속도계:** (3) ICM20948, ICM20649, ICM20602
+  * **자이로스코프:** (3) ICM20948, ICM20649, ICM20602
+  * **나침반:** (1) ICM20948
+  * **기압계:** (2) MS5611
+* **작동 조건:**
+  * **작동 온도:** -10C ~ 55C
+  * **IP 등급/방수:** 방수 아님
+  * **서보 레일 입력 전압:** 3.3V / 5V
+  * **USB 포트 입력:**
+    * 전압: 4V - 5.7V
+    * 정격 전류: 250 mA
+  * **전원:**
+    * 입력 전압: 4.1V ~ 5.7V
+    * 정격 입력 전류: 2.5A
     * Rated input/output power: 14W
 * **Dimensions:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
