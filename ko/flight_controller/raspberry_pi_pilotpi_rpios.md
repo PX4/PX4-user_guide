@@ -4,23 +4,23 @@
 
 ### 운영체제 이미지
 
-The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
+항상 최신의 공식 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 이미지를 사용하는 것을 권장합니다.
 
-To install you must already have a working SSH connection to RPi.
+설치를 위히 라즈베리파이에 SSH 연결이 가능하여야 합니다.
 
-### Setting up Access (Optional)
+### 접근 설정 (선택 사항)
 
-#### Hostname and mDNS
+#### 호스트명과 mDNS
 
-mDNS helps you connect to your RasPi with hostname instead of IP address.
+mDNS 사용하면, IP 주소 대신 호스트명으로 라즈베리파이에 연결할 수 있습니다.
 
 ```sh
 sudo raspi-config
 ```
 
-Navigate to **Network Options > Hostname**. Set and exit. You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
+**Network Options > Hostname**로 이동하십시오. 설정하고 종료합니다. [비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다.
 
-### Setting up OS
+### 운영체제 설정
 
 #### config.txt
 
@@ -28,7 +28,7 @@ Navigate to **Network Options > Hostname**. Set and exit. You may want to setup 
 sudo nano /boot/config.txt
 ```
 
-Replace the file with:
+파일을 다음의 내용으로 변경합니다.
 
 ```sh
 # enable sc16is752 overlay
@@ -51,45 +51,45 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-**Interfacing Options > Serial > login shell = No > hardware = Yes**. Enable UART but without a login shell on it.
+**Interfacing Options > Serial > login shell = No > hardware = Yes**. 로그인 셸없이 UART를 활성화합니다.
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-Append `isolcpus=2` after the last word. The whole file would be:
+마지막 단어 뒤에 `isolcpus=2`를 추가합니다. 전체 파일은 다음과 같습니다.
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-This tells the Linux kernel not to schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+이것은 리눅스 커널이 CPU 코어 2에서 프로세스를 예약하지 않도록 지시합니다. 나중에 해당 코어에서 PX4를 수동으로 실행합니다.
 
-Reboot and SSH onto your RasPi.
+재부팅하고 라즈베리파이에 SSH로 로그인합니다.
 
-Check UART interface:
+UART 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/tty*
 ```
 
-There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
+`/dev/ttyAMA0`, `/dev/ttySC0` 및 `/dev/ttySC1` 파일이 있어야합니다.
 
-Check I2C interface:
+I2C 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/i2c*
 ```
 
-There should be `/dev/i2c-0` and `/dev/i2c-1`
+`/dev/i2c-0` 와 `/dev/i2c-1` 파일이 있어야 합니다.
 
-Check SPI interface
+SPI 인터페이스를 확인합니다.
 
 ```sh
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+`/dev/spidev0.0` 파일이 있어야 합니다.
 
 #### rc.local
 
