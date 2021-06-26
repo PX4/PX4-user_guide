@@ -131,7 +131,7 @@ sudo raspi-config
 
 ### 코드 빌드
 
-To get the *very latest* version onto your computer, enter the following command into a terminal:
+터미널에 다음 명령을 실행하여 *최신* 버전의 소스를 복제하십시오.
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
