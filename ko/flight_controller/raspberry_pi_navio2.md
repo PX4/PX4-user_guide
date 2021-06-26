@@ -44,7 +44,7 @@ OS를 설치후 [파일시스템을 확장](https://www.raspberrypi.org/document
 
 ## 호스트명 변경
 
-네트워크에있는 다른 라즈베리파이와 충돌을 방지하려면 기본 호스트 이름을 변경하는 것이 좋습니다. 설정에 "px4 autopilot"을 사용했습니다. SSH를 통해 라즈베리파이에 연결하고 아래의 지침을 따르십시오.
+네트워크에있는 다른 라즈베리파이와 충돌을 방지하려면 기본 호스트 이름을 변경하는 것이 좋습니다. 설정 예제에서는 "px4autopilot"을 사용하였습니다. SSH를 통해 라즈베리파이에 연결하고 아래의 지침을 따르십시오.
 
 호스트명 파일을 편집합니다.
 
@@ -112,26 +112,26 @@ sudo /etc/init.d/avahi-daemon restart
 
 ## SSH 공개키 설정
 
-In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi. We use the public-key authentication method for this.
+PX4 실행 파일을 보드에 자동으로 푸시하려면 라즈베리파이에 암호가 필요없는 접근 방법을 설정하여야합니다. 이를 위하여 공개키 인증 방법을 사용합니다.
 
-To generate new SSH keys enter the following commands (Choose a sensible hostname such as `<YOURNANME>@<YOURDEVICE>`. Here we have used `pi@px4autopilot`)
+새 SSH 키를 생성하려면 다음 명령을 입력하십시오. `<YOURNANME>@<YOURDEVICE>`에 적절한 호스트 이름을 선택하십시오. 여기서는 `pi@px4autopilot`을 사용하였습니다.
 
-These commands need to be run on the HOST development computer!
+이 명령은 HOST 개발 컴퓨터에서 실행되어야합니다.
 
 ```sh
 ssh-keygen -t rsa -C pi@px4autopilot
 ```
 
-Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location ($HOME/.ssh/id_rsa) by just hitting Enter.
+이 명령을 입력하면 키를 저장할 위치를 묻는 메시지가 표시됩니다. Enter를 눌러 기본 위치($HOME/.ssh/id_rsa)에 저장하는 것이 좋습니다.
 
-Now you should see the files `id_rsa` and `id_rsa.pub` in your `.ssh` directory in your home folder:
+이제 홈 폴더의 `.ssh` 디렉토리에 `id_rsa`와 `id_rsa.pub` 파일이 표시됩니다.
 
 ```sh
 ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-The `id_rsa` file is your private key. Keep this on the development computer. The `id_rsa.pub` file is your public key. This is what you put on the targets you want to connect to.
+`id_rsa` 파일은 개인키입니다. 이 파일은 개발 컴퓨터에 보관하십시오. `id_rsa.pub` 파일은 공개키입니다. 이것은 연결 대상 컴퓨터에 보관됩니다.
 
 To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
 
