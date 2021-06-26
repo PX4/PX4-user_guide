@@ -194,7 +194,7 @@
       * [라즈베리 파이 2/3 나비오2](flight_controller/raspberry_pi_navio2.md)
       * [라즈베리 파이 2/3/4 파일럿파이](flight_controller/raspberry_pi_pilotpi.md) 
         * [라즈베리 파이 OS 기반 파일럿파이](flight_controller/raspberry_pi_pilotpi_rpios.md)
-        * [우분투 서버 기반 파일럿파이](flight_controller/raspberry_pi_pilotpi_ubuntu_server.md)
+        * [우분투 기반 파일럿파이](flight_controller/raspberry_pi_pilotpi_ubuntu_server.md)
     * [단종 자동비행장치와 기종](flight_controller/autopilot_discontinued.md) 
       * [에어로테나 OcPoC-Zynq 미니](flight_controller/ocpoc_zynq.md)
       * [CUAV V5](flight_controller/cuav_v5.md)

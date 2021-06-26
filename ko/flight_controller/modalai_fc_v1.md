@@ -47,92 +47,92 @@ Flight Core는 VOXL Companion Computer와 Flight Core를 단일 PCB에 통합하
 
 ## 크기
 
-![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
+![FlightCoreV1 크기](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
 
 
 ## PX4 펌웨어 호환성
 
-*Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
+*Flight Core v1*은 PX4 v1.11의 펌웨어와 완벽하게 호환됩니다.
 
-ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.11) for PX4 v1.11. This includes UART ESC support and improvements in VIO and VOA that are planned to be upstreamed.
+ModalAI는 PX4 v1.11용 [분기 PX4 버전](https://github.com/modalai/px4-firmware/tree/modalai-1.11)을 유지합니다. 여기에는 UART ESC 지원과 업스트림 예정인 VIO와 VOA의 개선 사항이 포함됩니다.
 
-More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
+펌웨어에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/flight-core-firmware/)를 참고하십시오.
 
-## QGroundControl Support
+## QGroundControl 지원
 
-This board supported in QGroundControl 4.0 and later.
+이 보드는 QGroundControl 4.0 이상에서 지원됩니다.
 
-## Availability
+## 구매처
 
 - [Flight Core Complete Kit](https://modalai.com/flight-core)
-- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (only)
-- [Flight Core integrated with VOXL Companion Computer on a single PCB](https://modalai.com/flight-core)
-- [Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
-- [Flight Core assembled with VOXL and cameras](https://shop.modalai.com/products/voxl-flight-deck-r1)
+- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (전용)
+- [단일 PCB에서 VOXL Companion Computer와 통합 Flight Core](https://modalai.com/flight-core)
+- [VOXL 보조 컴퓨터 및 장애물 회피 카메라(VOXL Flight Deck)와 통합 플라이트 코어](https://modalai.com/flight-deck) ([데이터시트](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
+- [VOXL와 카메라로 조립된 Flight Core](https://shop.modalai.com/products/voxl-flight-deck-r1)
 
-## Quick Start
+## 빠른 시작
 
-### Orientation
+### 방향
 
-The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11 (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
+아래 다이어그램은 PX4 v1.11(및 [ModalAI가 유지하는 PX4 v1.10 브랜치](https://github.com/modalai/px4-firmware/tree/modalai-1.10))부터 `ROTATION_NONE` 권장 방향을 나타냅니다.
 
-![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
+![FlightCoreV1 방향](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
 :::warning
-For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
+*QGroundControl*의 *PX4 v1.10* 안정 릴리스의 경우에는 위 방향으로 `ROTATION_YAW_180`을 사용합니다.
 :::
 
-### Connectors
+### 커넥터
 
-Detailed information about the pinouts can be found [here](https://docs.modalai.com/flight-core-datasheet-connectors).
+핀배열에 관련된 더 많은 정보는 [여기](https://docs.modalai.com/flight-core-datasheet-connectors)을 참고하십시오.
 
-![FlightCoreV1Top](../../assets/flight_controller/modalai/fc_v1/top.png)
+![FlightCoreV1 상단](../../assets/flight_controller/modalai/fc_v1/top.png)
 
-| Connector | Summary                                                    |
-| --------- | ---------------------------------------------------------- |
-| J1        | VOXL Communications Interface Connector (TELEM2)           |
-| J2        | Programming and Debug Connector                            |
-| J3        | USB Connector                                              |
-| J4        | UART2, UART ESC (TELEM3)                                   |
-| J5        | Telemetry Connector (TELEM1)                               |
-| J6        | VOXL-Power Management Input / Expansion                    |
-| J7        | 8-Channel PWM Output Connector                             |
-| J8        | CAN Bus Connector                                          |
-| J9        | PPM RC In                                                  |
-| J10       | External GPS & Magnetometer Connector                      |
-| J12       | RC input, Spektrum/SBus/UART Connector                     |
-| J13       | I2C Display (Spare Sensor Connector) / Safety Button Input |
+| 커넥터 | 요약                            |
+| --- | ----------------------------- |
+| J1  | VOXL 통신 인터페이스 커넥터 (TELEM2)    |
+| J2  | 프로그래밍 및 디버그 커넥터               |
+| J3  | USB 커넥터                       |
+| J4  | UART2, UART ESC (TELEM3)      |
+| J5  | 텔레메트리 커넥터 (TELEM1)            |
+| J6  | VOXL - 전원 관리 입력/확장            |
+| J7  | 8 채널 PWM 출력 커넥터               |
+| J8  | CAN 버스 커넥터                    |
+| J9  | PPM RC 입력                     |
+| J10 | 외부 GPS 및 자력계 커넥터              |
+| J12 | RC 입력, Spektrum/SBus/UART 커넥터 |
+| J13 | I2C 디스플레이(예비 센서 커넥터)/안전 버튼 입력 |
 
-![FlightCoreV1Bottom](../../assets/flight_controller/modalai/fc_v1/bottom.png)
+![FlightCoreV1 하단](../../assets/flight_controller/modalai/fc_v1/bottom.png)
 
-### User Guide
+### 사용자 가이드
 
-The full user guide is available [here](https://docs.modalai.com/flight-core-manual/).
+전체 사용자 가이드는 [여기](https://docs.modalai.com/flight-core-manual/)를 참고하십시오.
 
 
-### How to Build
+### 빌드 방법
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법:
 
 ```
 make modalai_fc-v1
 ```
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                                     |
-| ------ | ---------- | ---------------------------------------- |
-| USART1 | /dev/ttyS0 | GPS1 (J10)                               |
-| USART2 | /dev/ttyS1 | TELEM3 (J4)                              |
-| USART3 | /dev/ttyS2 | Debug Console (J2)                       |
-| UART4  | /dev/ttyS3 | Expansion UART (J6)                      |
-| UART5  | /dev/ttyS4 | TELEM2, Primary VOXL Communications (J1) |
-| USART6 | /dev/ttyS5 | RC (J12)                                 |
-| UART7  | /dev/ttyS6 | TELEM1 (J5)                              |
-| UART8  | /dev/ttyS7 | N/A                                      |
+| UART   | 장치         | 포트                      |
+| ------ | ---------- | ----------------------- |
+| USART1 | /dev/ttyS0 | GPS1 (J10)              |
+| USART2 | /dev/ttyS1 | TELEM3 (J4)             |
+| USART3 | /dev/ttyS2 | 디버깅 콘솔(J2)              |
+| UART4  | /dev/ttyS3 | 확장 UART (J6)            |
+| UART5  | /dev/ttyS4 | TELEM2, 기본 VOXL 통신 (J1) |
+| USART6 | /dev/ttyS5 | RC (J12)                |
+| UART7  | /dev/ttyS6 | TELEM1 (J5)             |
+| UART8  | /dev/ttyS7 | 해당없음                    |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Support
+## 지원
 
-Please visit the [ModalAI Forum](https://forum.modalai.com/category/10/flight-core) for more information.
+자세한 내용은 [ModalAI 포럼](https://forum.modalai.com/category/10/flight-core)을 참고하십시오.
