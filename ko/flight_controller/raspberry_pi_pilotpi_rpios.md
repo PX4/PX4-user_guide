@@ -93,13 +93,13 @@ ls /dev/spidev*
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**.
+이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-Append below content to the file above `exit 0`:
+`exit 0` 줄 위에 아래 내용을 추가합니다.
 
 ```sh
 echo "25" > /sys/class/gpio/export
@@ -111,16 +111,16 @@ fi
 echo "25" > /sys/class/gpio/unexport
 ```
 
-Save and exit.
+저장후 종료합니다.
 
 :::note
-Don't forget to turn off the switch when it is not needed.
+필요 없는 경우에는 스위치를 꺼는 것을 잊지 마십시오.
 :::
 
-#### CSI camera
+#### CSI 카메라
 
 :::note
-Enable CSI camera will stop anything works on I2C-0.
+Enable CSI 카메라는 I2C-0에서 작동하는 모든 것을 중지합니다.
 :::
 
 ```sh
@@ -129,7 +129,7 @@ sudo raspi-config
 
 **Interfacing Options > Camera**
 
-### Building the code
+### 코드 빌드
 
 To get the *very latest* version onto your computer, enter the following command into a terminal:
 
