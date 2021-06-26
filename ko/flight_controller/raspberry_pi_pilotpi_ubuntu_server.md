@@ -31,70 +31,105 @@ armhf와 arm64 arch가 모두 지원됩니다.
 
 라즈베리파이의 WiFi를 처음 설정시 홈 라우터와 라즈벡리파이, 모니터와 키보드 사이에 유선 이더넷 연결을 사용하는 것이 편리합니다.
 
-#### Before booting
+#### 부팅전 과정
 
-Mount the SD card onto your computer and modify the network settings. Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
+SD 카드를 컴퓨터에 장착하고 네트워크 설정을 수정합니다.
 
-Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
+공식 가이드</ 0>를 참고하십시오.</p> 
 
-#### WiFi region
+이제 SD 카드를 라즈베리파이에 삽입하고, 처음으로 부팅하십시오. 유선 이더넷을 통한 SSH 연결하거나 또는 키보드 및 모니터를 통하여 라즈베리파이 쉘 액세스 권한을 확인하십시오.
 
-First install required package:
+
+
+#### WiFi 지역
+
+먼저 필요한 패키지를 설치하십시오.
+
+
 
 ```sh
 sudo apt-get install crda
 ```
 
-Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+
+`/etc/default/crda` 파일을 편집하여 WiFi 지역을 설정하십시오. [참고 목록](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+
+
 
 ```sh
 sudo nano /etc/default/crda
 ```
 
-Then your Pi will able to join your WiFi network after reboot.
 
-#### Hostname and mDNS
+라즈베리파이는 재부팅후 WiFi 네트워크에 연결할 수 있습니다.
 
-Let's set up hostname at first.
+
+
+#### 호스트명과 mDNS
+
+먼저 호스트 이름을 설정합니다.
+
+
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-Change the hostname to whatever you like. Then install the package required by mDNS:
+
+호스트 이름을 적절하게 변경하십시오. 그런 다음 mDNS에 필요한 패키지를 설치합니다.
+
+
 
 ```sh
 sudo apt-get update
 sudo apt-get install avahi-daemon
 ```
 
-Perform a reboot.
+
+재부팅합니다.
+
+
 
 ```sh
 sudo reboot
 ```
 
-Regain the accessibility through WiFi connection after the above operation.
+
+위의 작업 후 WiFi 접근성을 회복하십시오.
+
+
 
 ```sh
 ssh ubuntu@pi_hostname.local
 ```
 
-#### Password-less Auth (Optional)
 
-You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
 
-### Setting up OS
+
+#### 무 비밀번호 인증 (선택 사항)
+
+[비밀번호 없는 인증](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)도 설정 가능합니다. 
+
+
+
+### 운영체제 설정
+
+
 
 #### config.txt
 
-The corresponding file in Ubuntu is `/boot/firmware/usercfg.txt`.
+우분투의 해당 파일은 `/boot/firmware/usercfg.txt` 입니다.
+
+
 
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
-Replace the file with:
+
+파일을 다음의 내용으로 변경합니다.
+
+
 
 ```sh
 # enable sc16is752 overlay
@@ -111,65 +146,93 @@ dtparam=i2c_vc=on
 dtoverlay=miniuart-bt
 ```
 
+
+
+
 #### cmdline.txt
 
-On Ubuntu Server 20.04:
+우분투 서버 20.04 에서:
+
+
 
 ```sh
 sudo nano /boot/firmware/cmdline.txt
 ```
 
-On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should both be modified.
+
+우분투 서버 18.04 이전 버전에서는 `nobtcmd.txt`와 `btcmd.txt`를 모두 수정하여야 합니다.
+
+
 
 ```sh
 sudo nano /boot/firmware/nobtcmd.txt
 ```
 
-Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
 
-Append `isolcpus=2` after the last word. The whole file will then look like:
+`console=/dev/ttyAMA0,115200`을 찾아 제거하여, 직렬 인터페이스에서 로그인 쉘을 비활성화합니다.
+
+마지막 단어 뒤에 `isolcpus=2`를 추가합니다. 그러면 전체 파일이 다음과 같이 표시됩니다.
+
+
 
 ```sh
 net.ifnames=0 dwc_otg.lpm_enable=0 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc isolcpus=2
 ```
 
-The above line tells the Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
 
-Reboot and SSH onto your Pi.
+위의 줄은 Linux 커널이 CPU 코어 2에서 프로세스를 예약하지 않음을 나타냅니다. 나중에 해당 코어에서 PX4를 수동으로 실행합니다.
 
-Check UART interface:
+재부팅하고 라즈베리파이에 SSH로 로그인합니다.
+
+UART 인터페이스를 확인합니다.
+
+
 
 ```sh
 ls /dev/tty*
 ```
 
-There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
-Check I2C interface:
+`/dev/ttyAMA0`, `/dev/ttySC0` 및 `/dev/ttySC1` 파일이 있어야합니다.
+
+I2C 인터페이스를 확인합니다.
+
+
 
 ```sh
 ls /dev/i2c*
 ```
 
-There should be `/dev/i2c-0` and `/dev/i2c-1`
 
-Check SPI interface:
+`/dev/i2c-0` 와 `/dev/i2c-1` 파일이 있어야 합니다.
+
+SPI 인터페이스를 확인합니다.
+
+
 
 ```sh
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+
+`/dev/spidev0.0` 파일이 있어야 합니다.
+
+
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**. Note that we need to create this file, as it is not present on a fresh Ubuntu OS.
+이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다. 이 파일은 새로운 Ubuntu OS에 없기 때문에 생성하여야합니다.
+
+
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
+
 Append the content below to the file:
+
+
 
 ```sh
 #!/bin/sh
@@ -185,15 +248,21 @@ echo "25" > /sys/class/gpio/unexport
 exit 0
 ```
 
+
 Save and exit. Then set the correct permissions:
+
+
 
 ```sh
 sudo chmod +x /etc/rc.local
 ```
 
+
 :::note
 Don't forget to turn off the switch when it is not needed!
 :::
+
+
 
 #### CSI camera
 
@@ -201,62 +270,94 @@ Don't forget to turn off the switch when it is not needed!
 Enable CSI camera will stop anything works on I2C-0.
 :::
 
+
+
 ```sh
 sudo nano /boot/firmware/usercfg.txt
 ```
 
+
 Append the following line at the end of file:
+
+
 
 ```sh
 start_x=1
 ```
 
+
+
+
 ### Building the code
 
 To get the *very latest* version onto your computer, enter the following command into a terminal:
+
+
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
+
 :::note
 This is all you need to do just to build the latest code.
 :::
+
+
 
 #### Set RPi upload target
 
 Set the IP (or hostname) of your RPi using:
 
+
+
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
+
 or
+
+
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
+
 Additionally, we need to set the username:
+
+
 
 ```sh
 export AUTOPILOT_USER=ubuntu
 ```
 
+
+
+
 #### Build for armhf target
 
 Build the executable file:
+
+
 
 ```sh
 cd Firmware
 make scumaker_pilotpi_default
 ```
 
+
 Then upload it with:
+
+
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
+
+
+
 
 #### Alternative build method for armhf (using docker)
 
@@ -264,9 +365,12 @@ If you are compiling for the first time with docker, please refer to the [offica
 
 Execute the command in firmware folder:
 
+
+
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
+
 
 :::note
 mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
@@ -278,9 +382,14 @@ If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. Yo
 
 It is also possible to just compile the code with command:
 
+
+
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
+
+
+
 
 #### Build for arm64 target
 
@@ -290,16 +399,24 @@ This step requires `aarch64-linux-gnu` tool-chain to be installed.
 
 Build the executable file:
 
+
+
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_arm64
 ```
 
+
 Then upload it with:
+
+
 
 ```sh
 make scumaker_pilotpi_arm64 upload
 ```
+
+
+
 
 #### Alternative build method for arm64 (using docker)
 
@@ -307,9 +424,12 @@ If you are compiling for the first time with docker, please refer to the [offica
 
 Execute the command in `PX4-Autopilot` folder:
 
+
+
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
+
 
 :::note
 mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
@@ -321,36 +441,52 @@ If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. Yo
 
 It is also possible to just compile the code with command:
 
+
+
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_arm64"
 ```
 
+
+
+
 #### Manually run PX4
 
 Connect over SSH and run it with:
+
+
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
+
 Now PX4 is started with multi-rotor configuration.
 
 If you encountered the similar problem executing `bin/px4` on your Pi as following:
+
+
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
+
 Then you should compile with docker instead.
 
 Before proceeding to next step, clear the existing building at first:
+
+
 
 ```sh
 rm -rf build/scumaker_pilotpi_*
 ```
 
+
 Then go back to the corresponding chapter above.
+
+
 
 ### Post-configuration
 
