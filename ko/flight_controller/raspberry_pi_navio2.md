@@ -61,24 +61,24 @@ sudo nano /etc/hostname
 
 `127.0.1.1 raspberry` 항목을 `127.0.1.1 <YOURNEWHOSTNAME>`로 변경합니다.
 
-Reboot the Pi after this step is completed to allow it to re-associate with your network.
+완료후 라즈베리파이를 재부팅하여 네트워크에 다시 연결합니다.
 
-## Setting up Avahi (Zeroconf)
+## Avahi 설정 (Zeroconf)
 
-To make connecting to the Pi easier, we recommend setting up Avahi (Zeroconf) which allows easy access to the Pi from any network by directly specifying its hostname.
+라즈베리파이에 쉽게 연결하려면 호스트 이름을 직접 지정하여 모든 네트워크에서 쉽게 접근할 수 있는 Avahi(Zeroconf)를 설정하는 것이 좋습니다.
 
 ```sh
 sudo apt-get install avahi-daemon
 sudo insserv avahi-daemon
 ```
 
-Next, setup the Avahi configuration file
+다음으로 Avahi 설정 파일을 편집합니다.
 
 ```sh
 sudo nano /etc/avahi/services/multiple.service
 ```
 
-Add this to the file :
+다음 내용을 파일에 추가하십시오.
 
 ```xml
 <?xml version="1.0" standalone='no'?>
@@ -98,19 +98,19 @@ Add this to the file :
 
 ```
 
-Restart the daemon
+데몬 다시 시작합니다.
 
 ```sh
 sudo /etc/init.d/avahi-daemon restart
 ```
 
-And that's it. You should be able to access your Pi directly by its hostname from any computer on the network.
+이제, 완료되었습니다. 네트워크의 모든 컴퓨터에서 호스트 이름으로 라즈베리파이에 직접 접근할 수 있어야 합니다.
 
 :::tip
-You might have to add .local to the hostname to discover it.
+검색하려면 호스트 이름에 .local을 추가해야 하는 경우도 있습니다.
 :::
 
-## Configuring a SSH Public-Key
+## SSH 공개키 설정
 
 In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi. We use the public-key authentication method for this.
 
