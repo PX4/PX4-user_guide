@@ -9,7 +9,7 @@
 
 Raspberry Pi 2/3 Navio2 자동조종장치의 개발 개요 문서입니다. 이를 통해 PX4를 빌드하고 Raspberry Pi로 전송하거나 빌드할 수 있습니다.
 
-![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
+![라즈베리파이 이미지](../../assets/hardware/hardware-rpi2.jpg)
 
 ## 운영체제 이미지
 
@@ -255,7 +255,7 @@ pxh>
 
 ## 자동 실행
 
-To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+px4를 자동으로 시작하려면 **/etc/rc.local** 파일의 `exit 0` 앞 줄에 아래 내용을 추가합니다. 네이티브 빌드를 사용하는 경우 적절하게 변경하십시오.
 
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
