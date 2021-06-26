@@ -53,9 +53,9 @@ Shield는 다음을 제공합니다.
 
 ## 권장 배선
 
-![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+![PilotPi PowerPart 배선](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
-![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
+![PilotPi SensorPart 배선](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
 ## 핀배열
 
@@ -117,60 +117,61 @@ RC는 RX 라인의 신호 인버터 스위치로 `/dev/ttyAMA0`에 매핑됩니�
 - ADC3는 아날로그 속도 센서에 연결할 수 있습니다.
 - ADC4에는 시스템 전압 레벨을 모니터링하기 위하여 ADC와 VCC 사이에 점퍼 캡이 있습니다.
 
-| 핀 | 신호   | 전압     |
-| - | ---- | ------ |
-| 1 | ADCx | 0V~+5V |
-| 2 | VCC  | +5V    |
-| 3 | GND  | GND    |
+| 핀 | 신호   | 전압       |
+| - | ---- | -------- |
+| 1 | ADCx | 0V ~ +5V |
+| 2 | VCC  | +5V      |
+| 3 | GND  | GND      |
 
-:::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+:::note ADC
+3과 4는 대체 VCC 소스가 있습니다. 'Vref' 스위치가 켜져 있으면 'VCC' 핀이 REF5050에 의해 구동됩니다.
 :::
 
-#### Unused GPIO available on top of the board
+#### 보드 상단의 미사용 GPIO
 
-| Shield Pin | BCM | WiringPi | RPi Pin |
-| ---------- | --- | -------- | ------- |
-| 1          | 3V3 | 3v3      | 3V3     |
-| 2          | 5V  | 5V       | 5V      |
-| 3          | 4   | 7        | 7       |
-| 4          | 14  | 15       | 8       |
-| 5          | 17  | 0        | 11      |
-| 6          | 27  | 2        | 13      |
-| 7          | 22  | 3        | 15      |
-| 8          | 23  | 4        | 16      |
-| 9          | 7   | 11       | 26      |
-| 10         | 5   | 21       | 29      |
-| 11         | 6   | 22       | 31      |
-| 12         | 12  | 26       | 32      |
-| 13         | 13  | 23       | 33      |
-| 14         | 16  | 27       | 36      |
-| 15         | 26  | 25       | 37      |
-| 16         | GND | GND      | GND     |
+| 실드 핀 | BCM | WiringPi | RPi 핀 |
+| ---- | --- | -------- | ----- |
+| 1    | 3V3 | 3V3      | 3V3   |
+| 2    | 5V  | 5V       | 5V    |
+| 3    | 4   | 7        | 7     |
+| 4    | 14  | 15       | 8     |
+| 5    | 17  | 0        | 11    |
+| 6    | 27  | 2        | 13    |
+| 7    | 22  | 3        | 15    |
+| 8    | 23  | 4        | 16    |
+| 9    | 7   | 11       | 26    |
+| 10   | 5   | 21       | 29    |
+| 11   | 6   | 22       | 31    |
+| 12   | 12  | 26       | 32    |
+| 13   | 13  | 23       | 33    |
+| 14   | 16  | 27       | 36    |
+| 15   | 26  | 25       | 37    |
+| 16   | GND | GND      | GND   |
 
-### Switches
+### 스위치
 
-#### RC Inverter
+#### RC 인버터
 
-This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
+이 스위치는 RX 라인의 신호 극성을 결정합니다. `UART_RX = SW xor RC_INPUT`
 
-* On: suitable with SBUS (signal inverted)
-* Off: preserved
+* 켜짐: SBUS (신호 반전)에 적합
+* 꺼짐: 보존됨
 
 #### Vref
 
-ADC 3 & 4 will have VCC driven by:
-* Vref output from REF5050 if on
-* 5V pin directly from RPi if off
+ADC 3과 4는 다음에 의해 구동되는 VCC를 갖습니다.
+* 켜진 경우 REF5050에서 Vref 출력
+* 꺼져있는 경우 라즈베리파이에서 직접 5V 핀
 
-#### Boot Mode
+#### 부팅 모드
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+이 스위치는 Pin22(BCM25)에 연결됩니다. 시스템 rc 스크립트는 해당 값을 확인하고, PX4가 시스템 부팅시 시작 여부를 결정합니다.
 
-* On: start PX4 automatically
-* Off: don' t start PX4
+* 켜짐: 자동으로 PX4 시작
+* 꺼짐: PX4를 시작하지 않습니다.
 
-## Developer Quick Start
+## 개발자 가이드
 
-Refer to specific instructions for the OS running on your RPi:
+라즈베리파이 OS에 대한 특정 지침을 참고하십시오.
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [우분투 서버 (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
