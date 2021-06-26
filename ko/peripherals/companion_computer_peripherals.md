@@ -76,4 +76,4 @@ LTE USB 모듈은 보조 컴퓨터에 연결하여 비행 컨트롤러와 인터
 동작하는 USB 모듈은 다음과 같습니다:
 
 - [화웨이 E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) , [화웨이 E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
-  - *E8372*에는 SIM이 보조 컴퓨터에 연결중에는 SIM을 설정하는 WiFi가 포함되어 있습니다 (개발 절차가 조금 더 쉬워짐). *E3372*에는 WiFi 기능이 빠져있어, 랩톱에 직접 연결하여 설정해야합니다.
+  - *E8372*에는 SIM이 보조 컴퓨터에 연결중에는 SIM을 설정하는 WiFi가 포함되어 있습니다 (개발 절차가 조금 더 쉬워짐). *E3372*에는 WiFi가 없으므로, 스틱을 노트북에 연결하여 설정하여야 합니다.
