@@ -221,7 +221,7 @@ ls /dev/spidev*
 
 #### rc.local
 
-이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다. 이 파일은 새로운 Ubuntu OS에 없기 때문에 생성하여야합니다.
+이 섹션에서는 **rc.local** 자동 시작 스크립트를 설정합니다. 이 파일은 Ubuntu OS에 설치시에는 존재하지 않으므로, 생성하여야합니다.
 
 
 
@@ -230,7 +230,7 @@ sudo nano /etc/rc.local
 ```
 
 
-Append the content below to the file:
+아래 내용을 파일에 추가하십시오.
 
 
 
@@ -249,7 +249,7 @@ exit 0
 ```
 
 
-Save and exit. Then set the correct permissions:
+저장후 종료합니다. 그런 다음 권한을 설정하십시오.
 
 
 
@@ -259,15 +259,15 @@ sudo chmod +x /etc/rc.local
 
 
 :::note
-Don't forget to turn off the switch when it is not needed!
+필요 없는 경우에는 전원 스위치를 꺼는 것을 잊지 마십시오!
 :::
 
 
 
-#### CSI camera
+#### CSI 카메라
 
 :::warning
-Enable CSI camera will stop anything works on I2C-0.
+Enable CSI 카메라는 I2C-0에서 작동하는 모든 것을 중지합니다.
 :::
 
 
@@ -277,7 +277,7 @@ sudo nano /boot/firmware/usercfg.txt
 ```
 
 
-Append the following line at the end of file:
+파일 끝에 다음 내용을 추가합니다.
 
 
 
@@ -288,9 +288,9 @@ start_x=1
 
 
 
-### Building the code
+### 코드 빌드
 
-To get the *very latest* version onto your computer, enter the following command into a terminal:
+터미널에 다음 명령을 실행하여 *최신* 버전의 소스를 복제하십시오.
 
 
 
@@ -300,14 +300,14 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 
 
 :::note
-This is all you need to do just to build the latest code.
+최신 코드를 빌드하는 과정입니다.
 :::
 
 
 
-#### Set RPi upload target
+#### 라즈베리파이 업로드 대상 설정
 
-Set the IP (or hostname) of your RPi using:
+다음을 사용하여 라즈베리파이의 IP(또는 호스트 이름)를 설정합니다.
 
 
 
@@ -316,7 +316,7 @@ export AUTOPILOT_HOST=192.168.X.X
 ```
 
 
-or
+또는
 
 
 
@@ -325,7 +325,7 @@ export AUTOPILOT_HOST=pi_hostname.local
 ```
 
 
-Additionally, we need to set the username:
+사용자 이름을 설정하여야 합니다.
 
 
 
@@ -336,9 +336,9 @@ export AUTOPILOT_USER=ubuntu
 
 
 
-#### Build for armhf target
+#### armhf 타겟용 빌드
 
-Build the executable file:
+실행 파일을 빌드하십시오.
 
 
 
@@ -348,7 +348,7 @@ make scumaker_pilotpi_default
 ```
 
 
-Then upload it with:
+다음 명령으로 업로드하십시오:
 
 
 
@@ -359,11 +359,11 @@ make scumaker_pilotpi_default upload
 
 
 
-#### Alternative build method for armhf (using docker)
+#### armhf용 대체 빌드 방법 (도커 사용)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
 
-Execute the command in firmware folder:
+firmware 폴더에서 다음 명령을 실행합니다.
 
 
 
@@ -373,14 +373,13 @@ Execute the command in firmware folder:
 
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. 업로드하지 않고도 컴파일할 수 있습니다. `upload` 대상을 제거하십시오.
 :::
 
-It is also possible to just compile the code with command:
+다음 명령으로 코드를 컴파일합니다.
 
 
 
@@ -391,13 +390,13 @@ It is also possible to just compile the code with command:
 
 
 
-#### Build for arm64 target
+#### arm64 타겟용 빌드
 
 :::note
-This step requires `aarch64-linux-gnu` tool-chain to be installed.
+이 단계에서는 `aarch64-linux-gnu` 도구 체인을 설치하여야 합니다.
 :::
 
-Build the executable file:
+실행 파일을 빌드하십시오.
 
 
 
@@ -407,7 +406,7 @@ make scumaker_pilotpi_arm64
 ```
 
 
-Then upload it with:
+다음 명령으로 업로드하십시오:
 
 
 
@@ -418,11 +417,11 @@ make scumaker_pilotpi_arm64 upload
 
 
 
-#### Alternative build method for arm64 (using docker)
+#### arm64용 대체 빌드 방법 (도커 사용)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
 
-Execute the command in `PX4-Autopilot` folder:
+`PX4-Autopilot` 폴더에서 다음 명령을 실행합니다.
 
 
 
@@ -432,14 +431,13 @@ Execute the command in `PX4-Autopilot` folder:
 
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+mDNS는 docker에서 지원하지 않습니다. 업로드시 마다 IP 주소를 설정하여야 합니다.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. `upload` 대상을 제거하면, 업로드하지 않고도 컴파일할 수 있습니다.
 :::
 
-It is also possible to just compile the code with command:
+다음 명령으로 코드를 컴파일합니다.
 
 
 
@@ -450,9 +448,9 @@ It is also possible to just compile the code with command:
 
 
 
-#### Manually run PX4
+#### 수동 PX4 실행
 
-Connect over SSH and run it with:
+ssh에서 다음을 명령어를 실행하십시오.
 
 
 
@@ -462,9 +460,9 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
 
-Now PX4 is started with multi-rotor configuration.
+이제 PX4는 다중로터 설정으로 시작합니다.
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+라즈베리파이에서 `bin/px4`를 실행시 다음과 같은 유사한 문제가 발생한 경우:
 
 
 
@@ -473,9 +471,9 @@ bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
 
-Then you should compile with docker instead.
+docker로 컴파일하여야 합니다.
 
-Before proceeding to next step, clear the existing building at first:
+다음 단계로 진행하기 전에 먼저 기존 빌드를 삭제합니다.
 
 
 
@@ -484,10 +482,10 @@ rm -rf build/scumaker_pilotpi_*
 ```
 
 
-Then go back to the corresponding chapter above.
+그런 다음 위의 해당 부분에서 계속 진행합니다.
 
 
 
-### Post-configuration
+### 사후 설정
 
 Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
