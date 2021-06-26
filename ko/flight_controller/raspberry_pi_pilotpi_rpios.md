@@ -230,9 +230,9 @@ mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
 
 사용 가능한 모든 믹서는 `etc/mixers`에 저장됩니다. 직접 만들 수도 있습니다.
 
-#### External compass
+#### 외부 나침반
 
-In the startup script(`*.config`), you will find
+시작 스크립트(`*. config`)에서 다음을 찾을 수 있습니다.
 
 ```sh
 # external GPS & compass
@@ -241,7 +241,7 @@ gps start -d /dev/ttySC0 -i uart -p ubx -s
 #ist8310 start -X
 ```
 
-Uncomment the correct one for your case. Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
+사용자의 환경에 맞추어 주석을 적절하게 제거하십시오. GPS 모듈과 함께 제공되는 나침반이 확실하지 않습니까? 다음 명령을 실행하고 출력을 확인합니다.
 
 ```sh
 sudo apt-get update
@@ -249,7 +249,7 @@ sudo apt-get install i2c-tools
 i2cdetect -y 0
 ```
 
-Sample output:
+샘플 출력:
 
 ```
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -263,8 +263,8 @@ Sample output:
 70: -- -- -- -- -- -- -- --
 ```
 
-`1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
+`1e`는 HMC5883 기반 나침반이 외부 I2C 버스에 장착되어 있음을 나타냅니다. 마찬가지로, IST8310의 값은 `0e`입니다.
 
 :::note
-Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+일반적으로 그중 하나에 나타납니다. 외부 I2C 버스에 연결된 경우 다른 장치도 여기에 같이 표시됩니다. (`/dev/i2c-0`)
 :::
