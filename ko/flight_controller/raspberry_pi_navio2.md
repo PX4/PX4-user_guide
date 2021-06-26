@@ -131,31 +131,31 @@ ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-`id_rsa` 파일은 개인키입니다. 이 파일은 개발 컴퓨터에 보관하십시오. `id_rsa.pub` 파일은 공개키입니다. 이것은 연결 대상 컴퓨터에 보관됩니다.
+`id_rsa` 파일은 개인키입니다. 이 파일은 개발 컴퓨터에 보관하십시오. `id_rsa.pub` 파일은 공개키입니다. 이것은 연결 대상 컴퓨터에 보관합니다.
 
-To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
+공개키를 라즈베리파이에 복사하려면 다음 명령을 사용하여 authorized_keys 파일에 공개키를 추가하고 SSH를 통해 전송합니다.
 
 ```sh
 cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
 ```
 
-Note that this time you will have to authenticate with your password ("raspberry" by default).
+이번에는 암호(기본적으로 "raspberry")로 인증하여야 합니다.
 
-Now try `ssh pi@px4autopilot` and you should connect without a password prompt.
+이제, `ssh pi@px4autopilot`을 실행하면 비밀번호 프롬프트없이 연결됩니다.
 
-If you see a message "`Agent admitted failure to sign using the key.`" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
+"`Agent admitted failure to sign using the key.`" 메시지가 표시되면 RSA 또는 DSA ID를 인증 에이전트 ssh-agent에 추가하고 다음 명령을 실행합니다.
 
 ```sh
 ssh-add
 ```
 
-If this did not work, delete your keys with `rm ~/.ssh/id*` and follow the instructions again.
+그래도 작동하지 않으면, `rm ~/.ssh/id*`로 키를 삭제하고 위의 과정을 다시 진행하십시오.
 
-## Testing file transfer
+## 파일 전송 테스트
 
-We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
+SCP를 사용하여 네트워크(WiFi 또는 이더넷)를 통하여 개발 컴퓨터에서 대상 보드로 파일을 전송합니다.
 
-To test your setup, try pushing a file from the development PC to the Pi over the network now. Make sure the Pi has network access, and you can SSH into it.
+설정을 테스트하려면 지금 네트워크를 통해 개발 PC에서 라즈베리파이로 파일을 푸시해보십시오. 라즈베리파이에 네트워크 접근 권한이 있는 지 확인후, SSH를 사용할 수 있습니다.
 
 ```sh
 echo "Hello" > hello.txt
@@ -163,40 +163,40 @@ scp hello.txt pi@px4autopilot:/home/pi/
 rm hello.txt
 ```
 
-This should copy over a "hello.txt" file into the home folder of your RPi. Validate that the file was indeed copied, and you can proceed to the next step.
+"hello.txt"파일을 라즈베리파이의 홈 폴더에 복사합니다. 파일이 실제로 복사되었는지 확인후, 다음 단계로 진행합니다.
 
-## Building the Code
+## 코드 빌드
 
-Either build the source code on your development computer ("cross-compiler" build) or build it on the RaPi ("native" build) as shown below.
+아래와 같이 개발 컴퓨터( "크로스 컴파일러" 빌드)에서 소스 코드를 빌드하거나, 라즈베리파이에서( "네이티브" 빌드)에서 빌드할 수 있습니다.
 
-### Cross-compiler Build
+### 크로스 컴파일러 빌드
 
-First install the [standard developer environment on your Ubunto development computer](../dev_setup/dev_env_linux.md).
+먼저 개발 컴퓨터에 [Ubunto 개발 환경](../dev_setup/dev_env_linux.md)을 설치하십시오.
 
-Set the IP (or hostname) of your RPi using:
+다음을 사용하여 라즈베리파이의 IP(또는 호스트 이름)를 설정합니다.
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-or
+또는
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.domain
 ```
 
 :::note
-The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
+환경변수는 빌드전에 설정하여야합니다. 그렇지 않으면, `make upload` 과정에서 라즈베리파이 컴퓨터를 검색할 수 없습니다.
 :::
 
-Build the executable file:
+실행 파일을 빌드하십시오.
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2 # for cross-compiler build
 ```
 
-The "px4" executable file is in the directory **build/emlid_navio2_default/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](#setting-up-access).
+px4 실행 파일은 **build/emlid_navio2_default/** 디렉토리에 위치합니다. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](#setting-up-access).
 
 Then upload it with:
 
