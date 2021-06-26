@@ -196,34 +196,34 @@ cd PX4-Autopilot
 make emlid_navio2 # for cross-compiler build
 ```
 
-px4 실행 파일은 **build/emlid_navio2_default/** 디렉토리에 위치합니다. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](#setting-up-access).
+px4 실행 파일은 **build/emlid_navio2_default/** 디렉토리에 위치합니다. ssh로 라즈베리파에에 연결 가능 여부를 확인하십시오. [라즈베리파이에 접근 방법](#setting-up-access)을 참고하십시오.
 
-Then upload it with:
+다음 명령으로 업로드하십시오.
 
 ```sh
 cd PX4-Autopilot
 make emlid_navio2 upload # for cross-compiler build
 ```
 
-Then, connect over ssh and run it with (as root):
+그리고 SSH로 루트 계정으로 접근하여 다음 명령을 실행하십시오.
 
 ```sh
 cd ~/px4
 sudo ./bin/px4 -s px4.config
 ```
 
-### Native Build
+### 네이티브 빌드
 
-A native build is one that you run directly on the Pi (the other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi).
+네이티브 빌드는 라즈베리파이에서 실행하는 빌드입니다. 다른 옵션은 크로스 컴파일한 PX4 실행 파일를 라즈베리파이에 직접 푸시하는 것입니다.
 
-Run these commands on the Pi to setup the build system on the Pi.
+Pi에서 아래의 명령을 실행하여 라즈베리파이에서 빌드 시스템을 설정합니다.
 
 ```sh
 sudo apt-get update
 sudo apt-get install cmake python-empy
 ```
 
-Clone the Firmware directly onto the Pi then build the native build target (`emlid_navio2_native`).
+펌웨어를 라즈베리파이에 직접 복제한 다음, 기본 대상(`emlid_navio2_native`)을 빌드합니다.
 
 ```sh
 git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -231,13 +231,13 @@ cd PX4-Autopilot
 make emlid_navio2_native
 ```
 
-The "px4" executable file is in the directory **build/emlid_navio2_native/**. Run it directly with:
+px4 실행 파일은 **build/emlid_navio2_native/** 디렉토리에 위치합니다. 다음 명령어를 실행하십시오:
 
 ```sh
 sudo ./build/emlid_navio2_native/px4 build/emlid_navio2_native/etc -s ./posix-configs/rpi/px4.config
 ```
 
-A successful build followed by executing px4 will give you something like this:
+px4를 실행한 성공적인 빌드 화면은 다음과 같습니다:
 
 ```sh
 <br />______  __   __    ___
@@ -253,7 +253,7 @@ px4 starting.
 pxh>
 ```
 
-## Autostart
+## 자동 실행
 
 To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
 
