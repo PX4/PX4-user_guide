@@ -1,10 +1,10 @@
 # 보조 컴퓨터 주변 장치
 
-This section contains information about companion computer peripherals. These include both components that might be connected to a companion computer (potentially triggered/accessed by PX4), and for connecting the computer to the flight controller.
+이 섹션에는 보조 컴퓨터의 주변 장치에 대하여 설명합니다. 여기에는 보조 컴퓨터(PX4에 의해 트리거/액세스될 수 있음)에 장착 가능한 부품과 컴퓨터를 비행 컨트롤러에 연결용 부품들을 설명합니다.
 
-## 보조 컴퓨터/픽스호크 통신
+## 보조 컴퓨터 / 픽스호크 통신
 
-보통 픽스호크와 함께 동작하는 보조 컴퓨터는 보조 컴퓨터와 픽스호크 하드웨어와 통신(예: 인텔 누크와 픽스호크 4)하는 보조 연결이 필요합니다.
+Pixhawk를 사용하는 일반적인 보조 컴퓨터에는 Pixhawk 하드웨어(예 : Intel NUC 및 Pixhawk 4)와 데이터를 송수신을 위한 링크가 필요합니다.
 
 FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가능한 몇가지 장치가 있습니다.
 
