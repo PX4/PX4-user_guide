@@ -1,38 +1,39 @@
-# RPi PilotPi Shield
+# 라즈베리파이 PilotPi 실드
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](mailto:lhf2613@gmail.com)에 문의하십시오.
 :::
 
-:::warning PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+:::warning
+이 비행 콘트롤러에 대한 PX4는 [테스트 단계](../flight_controller/autopilot_experimental.md)입니다.
 :::
 
-The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+*PilotPi* 실드는 라즈베리파이에서 직접 PX4 자동조종장치를 실행하는 솔루션입니다. 리눅스와 PX4 측면에서 지속적으로 업데이트되고 있는, 저비용 고확장성의 플랫폼입니다. 모든 구성 요소가 라즈베리파이와 PX4 커뮤니티의 업스트림 지원을 제공하므로, 독점 드라이버가 필요하지 않습니다. PCB와 회로도도 오픈 소스입니다.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## Quick Summary
+## 요약
 
-* Supported RPi boards:
-  * Raspberry Pi 2B/3B/3B+/4B
-* Supported OS:
-  * Raspberry Pi OS
-  * Ubuntu Server (armhf/arm64)
-* Accelerometer / Gyro:
+* 지원 라즈베리파이 보드:
+  * 라즈베리파이 2B/3B/3B+/4B
+* 지원 운영체제:
+  * 라즈베리파이 OS
+  * 우분투 서버 (armhf/arm64)
+* 가속도계/자이로
   * ICM42688P
-* Magnetometer:
+* 자력계:
   * IST8310
-* Barometer:
+* 기압계:
   * MS5611
 * PWM:
   * PCA9685
 * ADC:
   * ADS1115
-* Power:
-  * 3~6S battery with built-in voltage sensing.
-  * Power the Pi through USB cable
-* Availability: *preparing for shipping*
+* 전원:
+  * 전압감지기능이 내장 3~6S 배터리.
+  * USB 케이블 전원 공급
+* 구매처: *배송 준비중*
 
-## Connectivity
+## 연결성
 
 Shield provides:
 
