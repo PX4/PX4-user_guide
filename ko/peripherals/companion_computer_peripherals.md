@@ -8,46 +8,46 @@ Pixhawk를 사용하는 일반적인 보조 컴퓨터에는 Pixhawk 하드웨어
 
 FTDI USB 모듈과 레벨 시프터(하단 참조)같은 통신 브릿징이 가능한 몇가지 장치가 있습니다.
 
-:::note PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Other relevant topics/sections include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
+:::note MAVLink를 통한 보조 컴퓨터와 통신 설정은 [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example)를 참고하십시오. 기타 관련 주제/섹션에서는 [Pixhawk 시리즈용 보조 컴퓨터](../companion_computer/pixhawk_companion.md), [로보틱스](../robotics/README.md) 및 [RTPS/DDS 인터페이스: PX4-Fast RTPS (DDS) 브리지](../middleware/micrortps.md)가 포함됩니다.
 :::
 
 ### FTDI 장치
 
-FTDI USB 어댑터는 보조 컴퓨터와 픽스호크간 통신하는 일반적인 방편입니다. 보통 꼽으면 동작하며 입출력 어댑터는 3.3v로 설정합니다. 픽스호크 하드웨어에서 제공하는 직렬 링크의 완전한 기능성과 신뢰성을 확보하려면 흐름제어 설정을 추천합니다.
+FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신 방법입니다. 어댑터의 IO가 3.3v로 설정된 플러그앤플레이 방식입니다. Pixhawk 하드웨어에서 제공되는 직렬 링크의 전체 기능와 신뢰성을 위하여 흐름 제어가 권장됩니다.
 
 옵션은 다음과 같습니다:
 
 | 장치                                                                                                                      | 3.3v 입출력 (기본) | 흐름 제어 | Tx/Rx LED | JST-GH |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------- | ----- | --------- | ------ |
-| [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | 예             | 예     | 예         | 예      |
+| [PixDev FTDI JST-GH 브레이크아웃](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                                 | 예             | 예     | 예         | 예      |
 | [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | 가능            | 가능    | 아니요       | 예      |
-| [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | 예             | 아니요   | 예         | 아니요    |
+| [SparkFun FTDI 기본 브레이크아웃](https://www.sparkfun.com/products/9873)                                                       | 예             | 아니요   | 예         | 아니요    |
 
 ### 논리 레벨 시프터
 
 픽스호크 하드웨어는 3.3v 입출력 레벨에서 동작하나, 보조 컴퓨터의 경우 1.8v 또는 5v 레벨에서 하드웨어 수준 입출력을 보일 수 있습니다. 이 문제를 해결하려면 송수신 신호 전압 안전하게 변환할 레벨 시프터를 제작할 수 있습니다.
 
-선택지는 다음과 같습니다:
+옵션은 다음과 같습니다.
 
 - [SparkFun Logic Level Converter - 양방향](https://www.sparkfun.com/products/12009)
 - [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
 
 ## 카메라
 
-카메라는 정지 화상과 동영상을 잡아낼 때 활용하며 더 일반적으로는 [컴퓨터 시각 정보 처리](../computer_vision/README.md) 프로그램에 데이터를 제공하려는 목적입니다(이 경우 "카메라"는 원래 이미지가 아닌 처리한 데이터를 넘겨줍니다).
+카메라는 이미지와 비디오를 캡쳐하며, 일반적으로 [컴퓨터 비전](../computer_vision/README.md) 애플리케이션에 데이터를 제공합니다. 이 경우 "카메라"는 원시 이미지가 아닌 처리된 데이터를 제공할 수 있습니다.
 
 ### 스테레오 카메라
 
-스테레오 카메라는 보통 깊이 인식, 경로 계획, SLAM 용도로 활용합니다. 보조 컴퓨터에 붙어서 동작한다는 보장은 없습니다.
+일반적으로, 스테레오 카메라는 깊이 인식, 경로 계획과 SLAM에 사용됩니다. 보조 컴퓨터와 플러그앤플레이가 보장되지는 않습니다.
 
-잘 알려진 스테레오 카메라는 다음과 같습니다:
+인기있는 스테레오 카메라는 다음과 같습니다.
 
 - [인텔® 리얼센스™ 뎁스 카메라 D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
 - [인텔® 리얼센스™ 뎁스 카메라 D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
 - [아이언사이드](https://www.perceptin.io/products)
 - [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
-### 관성 주행 시각 측정 카메라/센서
+### 관성 주행 시각 측정 카메라 / 센서
 
 다음 센서는 [관성 주행 시각 측정(VIO)](../computer_vision/visual_inertial_odometry.md)에 활용할 수 있습니다:
 
@@ -57,7 +57,7 @@ FTDI USB 어댑터는 보조 컴퓨터와 픽스호크간 통신하는 일반적
 
 ## 데이터 통신 (LTE)
 
-LTE USB 모듈은 보조 컴퓨터에 붙일 수 있으며 MAVLink 트래픽을 비행 제어 장치와 인터넷 간에전달하는 용도로 활용할 수 있습니다.
+LTE USB 모듈은 보조 컴퓨터에 연결하여 비행 컨트롤러와 인터넷 사이에서 MAVLink 트래픽을 라우팅을 할 수 있습니다.
 
 지상 통제 장치와 보조 컴퓨터를 인터넷을 통해 연결하는 "표준 방식"은 없습니다. 보통 인터넷에 공용/정적 IP를 할당할 수 없기 때문에 이들 장치에 연결할 수 없습니다.
 
