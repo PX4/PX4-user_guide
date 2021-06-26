@@ -138,98 +138,97 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code.
+최신 코드를 빌드하는 과정입니다.
 :::
 
-#### Cross build for Raspberry Pi OS
+#### Raspberry Pi OS용 크로스 빌드
 
-Set the IP (or hostname) of your RPi using:
+다음을 사용하여 라즈베리파이의 IP(또는 호스트 이름)를 설정합니다.
 
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
 
-or
+또는
 
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
 
-Build the executable file:
+실행 파일을 빌드하십시오.
 
 ```sh
 cd PX4-Autopilot
 make scumaker_pilotpi_default
 ```
 
-Then upload it with:
+다음 명령으로 업로드하십시오.
 
 ```sh
 make scumaker_pilotpi_default upload
 ```
 
-Connect over ssh and run it with:
+ssh에서 다음을 명령어를 실행하십시오.
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now PX4 is started with multi-rotor configuration.
+이제 PX4는 다중로터 설정으로 시작합니다.
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+라즈베리파이에서 `bin/px4`를 실행시 다음과 같은 유사한 문제가 발생한 경우:
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Then you should compile with docker instead.
+docker로 컴파일하여야 합니다.
 
-Before proceeding to next step, clear the existing building at first:
+다음 단계로 진행하기 전에 먼저 기존 빌드를 삭제합니다.
 
 ```sh
 rm -rf build/scumaker_pilotpi_default
 ```
 
-### Alternative build method (using docker)
+### 대체 빌드 방법 (도커 사용)
 
-The following method can provide the same tool-sets deployed in CI.
+다음 방법은 CI에 배포된 동일한 도구 세트를 제공할 수 있습니다.
 
-If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
+docker로 처음 컴파일하는 경우에는 [공식 문서](../test_and_ci/docker.md#prerequisites)를 참조하십시오.
 
-Execute the command in PX4-Autopilot folder:
+PX4-Autopilot 폴더에서 다음 명령을 실행합니다.
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
 
 :::note
-mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
+mDNS는 docker에서 지원하지 않습니다. 업로드시에 올바른 IP 주소를 설정하여야합니다.
 :::
 
-:::note
-If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too. Just remove `upload` target.
+:::note IDE가 ninja 빌드를 지원하지 않는 경우 `NO_NINJA_BUILD = 1` 옵션을 사용하십시오. 업로드하지 않고도 컴파일할 수 있습니다. `upload` 대상을 제거하십시오.
 :::
 
-It is also possible to just compile the code with command:
+다음 명령으로 코드를 컴파일합니다.
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
-### Post-configuration
+### 사후 설정
 
-You need to check these extra items to get your vehicle work properly.
+기체가 제대로 작동하려면 이러한 추가 항목을 확인하여야 합니다.
 
-#### Mixer file
+#### 믹서 파일
 
-Mixer file is defined in `pilotpi_xx.conf`:
+믹서 파일은 `pilotpi_xx.conf`에 정의되어 있습니다.
 
 ```sh
 mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
 ```
 
-All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
+사용 가능한 모든 믹서는 `etc/mixers`에 저장됩니다. 직접 만들 수도 있습니다.
 
 #### External compass
 
