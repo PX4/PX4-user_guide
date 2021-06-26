@@ -1,8 +1,8 @@
-# PilotPi with Raspberry Pi OS
+# 라즈베리 파이 OS 기반 파일럿파이
 
-## Developer Quick Start
+## 개발자 가이드
 
-### OS Image
+### 운영체제 이미지
 
 The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
 
