@@ -35,93 +35,93 @@
 
 ## 연결성
 
-Shield provides:
+Shield는 다음을 제공합니다.
 
-* 16x PWM outputting channels
-* GPS connector
-* Telemetry connector
-* External I2C bus connector (**Note:** conflicts with CSI camera)
-* RC input port (SBUS)
-* 3x ADC channels range 0~5V
-* 2\*8 2.54mm unused GPIO connector
+* PWM 출력 채널 16개
+* GPS 커넥터
+* 텔레메트리 커넥터
+* 외부 I2C 버스 커넥터(**참고:** CSI 카메라와 충돌)
+* RC 입력 포트(SBUS)
+* ADC 채널 범위 0 ~ 5V 3개
+* 2\*8 2.54mm 미사용 GPIO 커넥터
 
-Direct accessible from RPi:
+라즈베리파이 직접 액세스
 
-* 4x USB connector
-* CSI connector(**Note:** conflict with external I2C bus)
-* etc.
+* USB 커넥터 4개
+* CSI 커넥터(**참고:** 외부 I2C 버스와 충돌)
+* 기타
 
-## Recommended Wiring
+## 권장 배선
 
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinout
+## 핀배열
 
 :::warning
-It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+구형 GH1.25 커넥터를 사용합니다. 배선은 Pixhawk 2.4.8과 호환됩니다.
 :::
 
-### Connectors
+### 커넥터
 
-#### GPS connector
+#### GPS 커넥터
 
-Mapped to `/dev/ttySC0`
+`/dev/ttySC0`에 매핑됨
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | NC     | +3v3 |
-| 5   | NC     | +3v3 |
-| 6   | GND    | GND  |
+| 핀 | 신호  | 전압   |
+| - | --- | ---- |
+| 1 | VCC | +5V  |
+| 2 | TX  | +3V3 |
+| 3 | RX  | +3V3 |
+| 4 | NC  | +3V3 |
+| 5 | NC  | +3V3 |
+| 6 | GND | GND  |
 
-#### Telemetry connector
+#### 텔레메트리 커넥터
 
-Mapped to `/dev/ttySC1`
+`/dev/ttySC1`에 매핑됨
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | CTS    | +3v3 |
-| 5   | RTS    | +3v3 |
-| 6   | GND    | GND  |
+| 핀 | 신호  | 전압   |
+| - | --- | ---- |
+| 1 | VCC | +5V  |
+| 2 | TX  | +3V3 |
+| 3 | RX  | +3V3 |
+| 4 | CTS | +3V3 |
+| 5 | RTS | +3V3 |
+| 6 | GND | GND  |
 
-#### External I2C connector
+#### 외부 I2C 커넥터
 
-Mapped to `/dev/i2c-0`
+`/dev/i2c-0`에 매핑됨
 
-| Pin | Signal | Volt          |
-| --- | ------ | ------------- |
-| 1   | VCC    | +5V           |
-| 2   | SCL    | +3v3(pullups) |
-| 3   | SDA    | +3v3(pullups) |
-| 4   | GND    | GND           |
+| 핀 | 신호  | 전압       |
+| - | --- | -------- |
+| 1 | VCC | +5V      |
+| 2 | SCL | +3v3(풀업) |
+| 3 | SDA | +3v3(풀업) |
+| 4 | GND | GND      |
 
-#### RC & ADC2/3/4
+#### RC 및 ADC2/3/4
 
-RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+RC는 RX 라인의 신호 인버터 스위치로 `/dev/ttyAMA0`에 매핑됩니다.
 
-| Pin | Signal | Volt     |
-| --- | ------ | -------- |
-| 1   | RC     | +3V3~+5V |
-| 2   | VCC    | +5V      |
-| 3   | GND    | GND      |
+| 핀 | 신호  | 전압         |
+| - | --- | ---------- |
+| 1 | RC  | +3V3 ~ +5V |
+| 2 | VCC | +5V        |
+| 3 | GND | GND        |
 
-- ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 is left unused.
-- ADC3 can be connected to an analog airspeed sensor.
-- ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+- ADC1은 배터리 전압 모니터링을 위해 전압 분배기에 내부적으로 연결됩니다.
+- ADC2는 사용되지 않습니다.
+- ADC3는 아날로그 속도 센서에 연결할 수 있습니다.
+- ADC4에는 시스템 전압 레벨을 모니터링하기 위하여 ADC와 VCC 사이에 점퍼 캡이 있습니다.
 
-| Pin | Signal | Volt   |
-| --- | ------ | ------ |
-| 1   | ADCx   | 0V~+5V |
-| 2   | VCC    | +5V    |
-| 3   | GND    | GND    |
+| 핀 | 신호   | 전압     |
+| - | ---- | ------ |
+| 1 | ADCx | 0V~+5V |
+| 2 | VCC  | +5V    |
+| 3 | GND  | GND    |
 
 :::note ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 :::
