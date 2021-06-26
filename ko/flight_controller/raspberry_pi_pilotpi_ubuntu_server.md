@@ -488,4 +488,4 @@ rm -rf build/scumaker_pilotpi_*
 
 ### 사후 설정
 
-Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
+[여기](raspberry_pi_pilotpi_rpios.md)의 지침을 참조하십시오.
