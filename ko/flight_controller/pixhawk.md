@@ -191,120 +191,119 @@ IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전�
   
   #### CAN
   
-  | 핀       | 신호    | 전압   |
-  | ------- | ----- | ---- |
-  | 1 (적)   | VCC   | +5V  |
-  | 2 (blk) | CAN_H | +12V |
-  | 3 (blk) | CAN_L | +12V |
-  | 4 (blk) | GND   | GND  |
+  | 핀     | 신호    | 전압   |
+  | ----- | ----- | ---- |
+  | 1 (적) | VCC   | +5V  |
+  | 2 (흑) | CAN_H | +12V |
+  | 3 (흑) | CAN_L | +12V |
+  | 4 (흑) | GND   | GND  |
   
   #### SPI
   
-  | Pin     | Signal         | Volt |
-  | ------- | -------------- | ---- |
-  | 1 (red) | VCC            | +5V  |
-  | 2 (blk) | SPI_EXT_SCK  | +3.3 |
-  | 3 (blk) | SPI_EXT_MISO | +3.3 |
-  | 4 (blk) | SPI_EXT_MOSI | +3.3 |
-  | 5 (blk) | !SPI_EXT_NSS | +3.3 |
-  | 6 (blk) | !GPIO_EXT      | +3.3 |
-  | 7 (blk) | GND            | GND  |
+  | 핀     | 신호             | 전압   |
+  | ----- | -------------- | ---- |
+  | 1 (적) | VCC            | +5V  |
+  | 2 (흑) | SPI_EXT_SCK  | +3.3 |
+  | 3 (흑) | SPI_EXT_MISO | +3.3 |
+  | 4 (흑) | SPI_EXT_MOSI | +3.3 |
+  | 5 (흑) | !SPI_EXT_NSS | +3.3 |
+  | 6 (흑) | !GPIO_EXT      | +3.3 |
+  | 7 (흑) | GND            | GND  |
   
-  #### POWER
+  #### 전원
   
-  | Pin     | Signal  | Volt  |
-  | ------- | ------- | ----- |
-  | 1 (red) | VCC     | +5V   |
-  | 2 (blk) | VCC     | +5V   |
-  | 3 (blk) | CURRENT | +3.3V |
-  | 4 (blk) | VOLTAGE | +3.3V |
-  | 5 (blk) | GND     | GND   |
-  | 6 (blk) | GND     | GND   |
+  | 핀     | 신호      | 전압    |
+  | ----- | ------- | ----- |
+  | 1 (적) | VCC     | +5V   |
+  | 2 (흑) | VCC     | +5V   |
+  | 3 (흑) | CURRENT | +3.3V |
+  | 4 (흑) | VOLTAGE | +3.3V |
+  | 5 (흑) | GND     | GND   |
+  | 6 (흑) | GND     | GND   |
   
-  #### SWITCH
+  #### 스위치
   
-  | Pin     | Signal           | Volt  |
-  | ------- | ---------------- | ----- |
-  | 1 (red) | VCC              | +3.3V |
-  | 2 (blk) | !IO_LED_SAFETY | GND   |
-  | 3 (blk) | SAFETY           | GND   |
+  | 핀     | 신호               | 전압    |
+  | ----- | ---------------- | ----- |
+  | 1 (적) | VCC              | +3.3V |
+  | 2 (흑) | !IO_LED_SAFETY | GND   |
+  | 3 (흑) | SAFETY           | GND   |
   
-  ## Serial Port Mapping
+  ## 시리얼 포트 매핑
   
-  | UART   | Device     | Port                  |
-  | ------ | ---------- | --------------------- |
-  | UART1  | /dev/ttyS0 | IO debug              |
-  | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-  | USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-  | UART4  |            |                       |
-  | UART7  | CONSOLE    |                       |
-  | UART8  | SERIAL4    |                       |
+  | UART   | 장치         | 포트             |
+  | ------ | ---------- | -------------- |
+  | UART1  | /dev/ttyS0 | IO 디버그         |
+  | USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+  | USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+  | UART4  |            |                |
+  | UART7  | 콘솔         |                |
+  | UART8  | SERIAL4    |                |
   
   <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
   
-  ## Debug Ports
+  ## 디버그 포트
   
-  ### Console Port
+  ### 콘솔 포트
   
-  The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-4-5-port).
+  [PX4 시스템 콘솔](../debug/system_console.md)은 [SERIAL4/5](#serial-4-5-port)로 표시된 포트에서 실행됩니다.
   
 :::tip
-A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port.
+콘솔에 연결하는 편리한 방법은 여러 다른 Pixhawk 장치와 함께 사용할 수있는 커넥터와 함께 제공되는 [Dronecode 프로브](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하는 것입니다. [Dronecode 프로브](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)의 6핀 DF13 1 : 1 케이블을 Pixhawk `SERIAL4/5` 포트에 연결만하면 됩니다.
   
   ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
 :::
   
-  The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+  이 핀배열은 [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) 케이블(5V 허용)에 연결하도록 설계된 표준입니다.
   
-  | 3DR Pixhawk 1 |           | FTDI                 |
-  | ------------- | --------- | -------------------- |
-  | 1             | +5V (red) | | N/C                |
-  | 2             | S4 Tx     | | N/C                |
-  | 3             | S4 Rx     | | N/C                |
-  | 4             | S5 Tx     | 5 | FTDI RX (yellow) |
-  | 5             | S5 Rx     | 4 | FTDI TX (orange) |
-  | 6             | GND       | 1 | FTDI GND (black) |
+  | 3DR Pixhawk 1 |         | FTDI              |
+  | ------------- | ------- | ----------------- |
+  | 1             | +5V (적) | | N/C             |
+  | 2             | S4 Tx   | | N/C             |
+  | 3             | S4 Rx   | | N/C             |
+  | 4             | S5 Tx   | 5 | FTDI RX (노랑)  |
+  | 5             | S5 Rx   | 4 | FTDI TX (오렌지) |
+  | 6             | GND     | 1 | FTDI GND (검정) |
   
-  The wiring for an FTDI cable to a 6-pos DF13 1:1 connector is shown in the figure below.
+  6 핀 DF13 1 : 1 커넥터에 대한 FTDI 케이블의 배선은 아래 그림과 같습니다.
   
   ![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
   
-  The complete wiring is shown below.
+  전체 배선은 아래와 같습니다.
   
   ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
   
 :::note
-For information on how to *use* the console see: [System Console](../debug/system_console.md).
+콘솔을 *사용*방법은 [시스템 콘솔](../debug/system_console.md)을 참고하십시오.
 :::
   
-  ### SWD Port
+  ### SWD 포트
   
-  The [SWD](../debug/swd_debug.md) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+  [SWD](../debug/swd_debug.md) (JTAG) 포트는 덮개 아래에 숨겨져 있습니다(하드웨어 디버깅을 위해 제거해야 함). 아래에 강조 표시된 것처럼 FMU와 IO를 위한 별도의 포트가 존재합니다.
   
   ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
   
-  The ports are ARM 10-pin JTAG connectors, which you will probably have to solder. The pinout for the ports is shown below (the square markers in the corners above indicates pin 1).
+  포트는 ARM 10핀 JTAG 커넥터이므로 납땜이 필요합니다. 포트의 핀배열은 아래와 같습니다(위 모서리의 사각형 마커는 핀 1을 나타냄).
   
   ![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
   
   <!-- For more information on SWD debugging see devguide [link to follow] -->
   
 :::note
-All Pixhawk FMUv2 boards have a similar SWD port.
+모든 Pixhawk FMUv2 보드에는 유사한 SWD 포트가 있습니다.
 :::
   
-  ## Building Firmware
+  ## 펌웨어 빌드
   
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+  ::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
   
-  To [build PX4](../dev_setup/building_px4.md) for this target:
+  이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
   
       make px4_fmu-v2_default
       
   
-  ## Parts / Housings
+  ## 부품 / 하우징
   
   * **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
     * JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with manufacturer). If so, you will need the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](http://www.samtec.com/suddenservice/samples/samples.aspx) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable.
