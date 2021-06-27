@@ -1,38 +1,38 @@
-# Pixfalcon Flight Controller (Discontinued)
+# Pixfalcon 비행 콘트롤러 (단종됨)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://shop.holybro.com/)에 문의하십시오.
 :::
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+이 비행 컨트롤러는 [단종](../flight_controller/autopilot_experimental.md)되었습니다.
 :::
 
-The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
+Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)에서 설계)는 FPV 레이서에 적용하기 위하여 공간에 최적화된 [Pixhawk 1](../flight_controller/pixhawk.md) 설계에서 파생된 바이너리 호환 (FMUv2)입니다. 소형화를 위하여 가진 IO가 적습니다.
 
 ![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
 
-## Quick Summary
+## 요약
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
-  * RAM: 256 KB SRAM (L1)
-* Failsafe System-on-Chip: STM32F100 
+* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU : 단정밀도 FPU의 180MHz ARM<sup>&reg;</sup> Cortexex<sup>&reg;</sup> M4
+  * RAM : 256KB SRAM (L1)
+* 페일세이프 시스템 온칩 : STM32F100 
   * CPU: 24 MHz ARM Cortex M3
-  * RAM: 8 KB SRAM
-* GPS: u-blox<sup>&reg;</sup> M8 (bundled)
+  * RAM : 8KB SRAM
+* GPS: u-blox<sup>&reg;</sup> M8 (번들)
 
-### Connectivity
+### 연결성
 
-* 1x I2C
-* 2x UART (one for Telemetry / OSD, no flow control)
-* 8x PWM with manual override
-* S.BUS / PPM input
+* I2C 1개
+* UART 2개(하나는 원격 측정/OSD 용, 흐름 제어 없음)
+* 수동 오버라이드 기능이 있는 PWM 8개
+* S.BUS / PPM 입력
 
-## 유효성:
+## 구매처:
 
-From distributor [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html)
+유통 업체 [Hobbyking<sup>&reg;</sup>](https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html)
 
-Optional hardware:
+하드웨어 옵션:
 
 * Optical flow: PX4 Flow unit from manufacturer [Holybro](http://www.holybro.com/product/px4flow/)
 * Digital Airspeed sensor from manufacturer [Holybro](http://www.holybro.com/product/digital-air-speed-sensor/) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
