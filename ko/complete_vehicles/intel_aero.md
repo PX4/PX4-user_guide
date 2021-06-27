@@ -6,20 +6,20 @@
 PX4 v1.11에서 이 플랫폼을 마지막으로 지원합니다.
 :::
 
-The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
+*Intel Aero Ready to Fly Drone*®은 UAV 개발 플랫폼입니다. 이 중 일부는 쿼드 코어 CPU에서 리눅스 실행 *Intel Aero Compute Board*입니다. 다른 부분은 연결된 STM32 마이크로 컨트롤러이며, NuttX에서 PX4를 실행합니다. 이들은 비전 액세서리 키트도 포함하는 *Intel Aero Ready to Fly Drone* 패키지에 통합되어 있습니다.
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## 소개
 
-The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
+[공식 위키](https://github.com/intel-aero/meta-intel-aero/wiki)에서는 보드 설정, 업데이트 및 연결 방법과 Linux 운영체제에서 개발 방법을 설명합니다. 이 문서에서는 개발 트리에서 마이크로 컨트롤러의 펌웨어를 업데이트 방법을 중점적으로 설명합니다.
 
-It's important to update to the latest image available since some instructions change between releases. You can check the BIOS and distro version by connecting to the board and running the following command:
+릴리스에 따라 지침이 일부 변경되어지므로, 사용 가능한 최신 이미지로 업데이트하는 것이 중요합니다. 보드에 연결하고 다음 명령을 실행하여 BIOS와 배포판 버전을 확인할 수 있습니다.
 
     get_aero_version.py
     
 
-The instructions here are tested with the following version:
+이 문서의 지침은 다음 버전에서 테스트되었습니다.
 
     BIOS_VERSION = Aero-01.00.13
     OS_VERSION = Poky Aero (Intel Aero Linux Distro) 1.5.1-dev (pyro)"
@@ -27,9 +27,9 @@ The instructions here are tested with the following version:
     FPGA_VERSION = 0xc1
     
 
-## Setup Intel Aero using Ubuntu
+## Ubuntu를 사용하여 Intel Aero 설정
 
-In order to install Ubuntu on Intel Aero, the following equipment is needed:
+Intel Aero에 Ubuntu를 설치하려면 다음의 장비가 필요합니다.
 
 1. Power supply (battery or network cable)
 2. Micro HDMI to HDMI cable to attach a monitor
