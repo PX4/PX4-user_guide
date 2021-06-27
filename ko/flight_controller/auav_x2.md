@@ -1,21 +1,21 @@
-# AUAV-X2 오토파일럿(계속)
+# AUAV-X2 자동조종장치 (단종됨)
 
-:::warning PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
+:::warning PX4에서는 이 제품을 제조하지 않습니다. 하드웨어 지원과 호환 문제는 [제조사](https://store.mrobotics.io/)에 문의하십시오.
 :::
 
 :::warning
-This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+이 비행 컨트롤러는 [단종](../flight_controller/autopilot_experimental.md)되었습니다.
 :::
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](https://nuttx.apache.org/) OS.
+[AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 자동조종장치*는 [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** 오픈 하드웨어 디자인 기반입니다. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
 
 ![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
-## 빠른 요약
+## 요약
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU: STM32F427VIT6 ARM 마이크로컨트롤러 - 개정 3
-  * IO: STM32F100C8T6 ARM 마이크로컨트롤러
+* 메인 시스템 온칩: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU : STM32F427VIT6 ARM 마이크로 컨트롤러 - 개정판 3
+  * IO: STM32F100C8T6 ARM 마이크로 컨트롤러
 * Sensors: 
   * MPU9250 9DOF
   * Invensense ICM-20608 6DOF
