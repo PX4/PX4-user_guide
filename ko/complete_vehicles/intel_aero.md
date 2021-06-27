@@ -92,28 +92,27 @@ PX4 장애물 회피 소프트웨어를 실행하기 위하여 catkin을 설치�
     apt install python-catkin-tools
     
 
-Create a catkin workspace and initialize it. Then clone the avoidance repository into the source space, or use a symbolic link to the source space. Build the package and start the ROS node using:
+catkin 작업 공간을 만들고 초기화합니다. 그런 다음 회피 저장소를 소스 공간에 복제하거나 소스 공간에 대한 심볼릭 링크를 사용합니다. 패키지를 빌드하고 다음 명령어로 ROS 노드를 시작합니다.
 
     catkin build local_planner
-    
     roslaunch local_planner local_planner_aero.launch
     
 
-## Flashing PX4 software
+## PX4 소프트웨어 플래싱
 
-After setting up the PX4 development environment, follow these steps update the PX4 software:
+PX4 개발 환경을 설정후, 다음 단계에서 PX4 소프트웨어를 업데이트합니다.
 
-1. Do a full update of all software on the vehicle (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
-2. Grab the [Firmware](https://github.com/PX4/PX4-Autopilot)
-3. Compile with `make intel_aerofc-v1_default`
-4. Configure the target hostname
+1. 기체의 모든 소프트웨어의 전체 업데이트를 수행합니다 (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release).
+2. [펌웨어](https://github.com/PX4/PX4-Autopilot)를 확보합니다.
+3. `make intel_aerofc-v1_default`로 컴파일합니다.
+4. 대상 호스트명을 설정합니다.
     
-    If your system resolves link local names you don't have to do anything and you can skip this step. You can test it by trying to ssh into `intel-aero.local` after connecting to it either via WiFi or USB:
+    시스템이 링크 로컬 이름을 확인하는 경우에는, 이 단계를 건너뛸 수 있습니다. WiFi 또는 USB로 연결하여 `intel-aero.local`에 ssh로 연결하여 테스트할 수 있습니다.
     
         ssh root@intel-aero.local
         
     
-    If it doesn't work you can try giving the IP that will be used by the upload script:
+    작동하지 않는 경우에는 업로드 스크립트에서 사용할 IP를 지정하십시오.
     
         # WiFi IP
         export AERO_HOSTNAME=192.168.8.1
@@ -122,29 +121,29 @@ After setting up the PX4 development environment, follow these steps update the 
         export AERO_HOSTNAME=192.168.7.2
         
 
-5. Upload with: `make intel_aerofc-v1_default upload`
+5. 다음 명령어로 업로드합니다. ` make intel_aerofc-v1_default upload`
 
-## Connecting QGroundControl via Network
+## 네트워크를 통한 QGroundControl 연결
 
-1. Make sure you are connected to the board with WiFi or USB Network
-2. SSH to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
-3. Start *QGroundControl* and it should automatically connect.
-4. Instead of starting *QGroundControl*, you can open a [MAVLink shell](../debug/mavlink_shell.md) using the script: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
+1. WiFi 또는 USB 네트워크로 보드에 연결되어 있는 지 확인하십시오.
+2. SSH를 보드에 연결하고 MAVLink 전달이 실행되는 지 확인합니다. 기본적으로 부팅시 자동으로 실행됩니다. 다음 명령어로 수동으로 실행할 수 있습니다. ```systemctl start mavlink-router```
+3. *QGroundControl*을 시작시 자동으로 연결됩니다.
+4. *QGroundControl*을 시작하는 대신 스크립트를 사용하여 [MAVLink 셸](../debug/mavlink_shell.md)을 오픈할 수 있습니다. ```./Tools/mavlink_shell.py 0.0.0.0:14550```
 
 <span id="leddarone"></span>
 
-## Connecting LeddarOne Range Finder
+## LeddarOne 거리 측정기 연결
 
-Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port (TELEM1) are as follows.
+[LeddarOne](../sensor/leddar_one.md)을 Aero 원격 측정 포트에 연결합니다. LeddarOne와 Aero 원격 측정 포트 (TELEM1)의 핀배열은 아래와 같습니다.
 
-| Pin | Aerofc TELEMETRY | LeddarOne |
-| --- | ---------------- | --------- |
-| 1   | VCC              | GND       |
-| 2   | TX               | -         |
-| 3   | RX               | VCC       |
-| 4   | SCL              | RX        |
-| 5   | SDA              | TX        |
-| 6   | GND              | -         |
+| 핀 | Aerofc 텔레메트리 | LeddarOne |
+| - | ------------ | --------- |
+| 1 | VCC          | GND       |
+| 2 | TX           | -         |
+| 3 | RX           | VCC       |
+| 4 | SCL          | RX        |
+| 5 | SDA          | TX        |
+| 6 | GND          | -         |
 
 To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) parameter to TELEM1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
