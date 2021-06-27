@@ -1,18 +1,18 @@
-# GPS & Compass
+# GPS와 나침반
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜이나 UAVCAN 통신 수신기를 사용하여 글로벌 내비게이션 위성시스템(GNSS)(GPS, GLONASS, Galileo, BeiDou, QZSS 및 SBAS 포함)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [실시간 운동학(RTK) GPS 수신기](../gps_compass/rtk_gps.md)를 지원합니다.
 
-PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI). Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
+PX4는 Bosch BMM 150 MEMS (I2C 버스를 통해), HMC5883/HMC5983 (I2C 또는 SPI), IST8310 (I2C) 및 LIS3MDL (I2C 또는 SPI)과 같은 나침반 부품(자기계)과 함께 사용할 수 있습니다. 최대 4 개의 내외부 자력계를 연결할 수 있지만, 실제로는 하나만 헤딩 소스로 사용됩니다.
 
-The system automatically chooses the best available compass based on their *priority* (external magnetometers have a higher priority than internal magnetometers). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
+시스템은 *우선 순위*에 따라 자동으로 가장 적합한 나침반을 선택합니다. 외부 자기계는 내부 자기계보다 우선 순위가 높습니다. 기본 나침반이 비행 중에 실패하면, 다음 나침반을 사용하여 장애를 조치합니다. 비행전에 작동하지 않으면, 시동을 걸 수 없습니다.
 
 ![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 :::tip
-When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 비행 콘트롤러를 사용하는 경우에는 일반적으로 고정익 받침대 또는 날개에 모터/ESC 전원 공급 라인에서 최대한 멀리 떨어진 곳에 장착된 *결합 GPS + 나침반*을 사용하는 것이 좋습니다. 내부 나침반은 전선에서 떨어진 곳에 Pixhawk를 장착하여 전자기 간섭을 줄일 수있는 대형 기체 (예 : VTOL)에 유용할 수 *있습니다*. 대부분의 소형 운송체에서는 외부 나침반이 필수 요구사항입니다.
 :::
 
-## Supported GNSS and/or Compass
+## 지원되는 GNSS 또는 나침반
 
 PX4 should work with any unit that communicates via the u-blox, MTK Ashtech or Emlid protocols, or via UAVCAN. This list contains GNSS/Compass units that have been tested by the PX4 dev team, or which are popular within the PX4 community.
 
