@@ -145,61 +145,61 @@ PX4 개발 환경을 설정후, 다음 단계에서 PX4 소프트웨어를 업�
 | 5 | SDA          | TX        |
 | 6 | GND          | -         |
 
-To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) parameter to TELEM1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
+거리계를 활성화하려면 [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) 매개 변수를 TELEM1로 설정하고 보드를 재부팅합니다 (매개변수 설정 지침은 [여기](../advanced_config/parameters.md)에서 확인 가능).
 
 <span id="lidar_lite"></span>
 
-## Connecting Lidar Lite Range Finder
+## Lidar Lite 거리 측정기 연결
 
 :::warning
-The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
+Lidar Lite는 측정 스파이크로 인하여 *Intel Aero Ready to Fly Drone*®과 함께 사용하지 않는 것이 좋습니다.
 :::
 
-The following instructions are for a [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
+다음 지침은 I2C를 통해 연결된 [Lidar Lite](../sensor/rangefinders.md#lidar-lite) V3를 설명합니다. Intel® Aero Ready to Fly Drone에는 I2C가있는 두 개의 포트가 있습니다. 하나는 COMPASS로 표시되고 다른 하나는 TELEMETRY입니다. 두 개의 핀배열은 아래에서 찾을 수 있습니다. 텔레메트리 포트는 사용하는 것을 추천합니다. TELEMETRY 포트가 이미 사용중인 경우 스플리터를 사용하여 I2C 연결을 공유할 수 있습니다 (모든 I2C 포트에서 작동). 스플리터 설정은 아래 이미지를 확인하십시오.
 
-In addition it is recommended to use a electrolytic capacitor for the Lidar Lite I2C connection to reduce spikes in the distance readings (see [here](https://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) on page 3).
+또한 Lidar Lite I2C 연결용 전해 커패시터를 사용하여 거리 판독 값의 스파이크를 줄이는 것이 좋습니다 ([3 페이지](https://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) 참조).
 
-The pinout for the Lidar Lite V3 and Aero telemetry port are as follows
+Lidar Lite V3와 Aero 텔레메트리 포트의 핀배열은 다음과 같습니다.
 
-| Pin | Aerofc TELEMETRY | Lidar Lite V3 |
-| --- | ---------------- | ------------- |
-| 1   | VCC              | VCC           |
-| 2   | TX               | -             |
-| 3   | RX               | -             |
-| 4   | SCL              | SCL           |
-| 5   | SDA              | SDA           |
-| 6   | GND              | GND           |
+| 핀 | Aerofc 텔레메트리 | Lidar Lite V3 |
+| - | ------------ | ------------- |
+| 1 | VCC          | VCC           |
+| 2 | TX           | -             |
+| 3 | RX           | -             |
+| 4 | SCL          | SCL           |
+| 5 | SDA          | SDA           |
+| 6 | GND          | GND           |
 
-| pin | Aerofc COMPASS | Lidar Lite V3 |
-| --- | -------------- | ------------- |
-| 1   | VCC            | VCC           |
-| 2   | SCL            | -             |
-| 3   | SDA            | -             |
-| 4   | GND            | SCL           |
-| 5   | -              | SDA           |
-| 6   | -              | GND           |
+| 핀 | Aerofc 나침반 | Lidar Lite V3 |
+| - | ---------- | ------------- |
+| 1 | VCC        | VCC           |
+| 2 | SCL        | -             |
+| 3 | SDA        | -             |
+| 4 | GND        | SCL           |
+| 5 | -          | SDA           |
+| 6 | -          | GND           |
 
 ![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
 ![Aero LidarLite](../../assets/hardware/intel_aero/aero_lidarlite.jpg)
 
-## Using Optical Flow on the Aero
+## Aero에서 광류 센서 사용
 
-The *Intel Aero Ready to Fly Drone*® comes with a preinstalled optical flow binary on the compute board (Linux OS version 1.6 or higher), which enables it to stably fly based on optical flow velocity estimation. In order to use optical flow, a range sensor has to be installed first (see above).
+*Intel Aero Ready to Fly Drone*®은 컴퓨팅 보드 (Linux OS 버전 1.6 이상)에 사전 설치된 광류 실행 파일과 함께 제공되어 광류 속도 추정을 이용하여 안정적으로 비행할 수 있습니다. 광류 센서를 사용하려면, 먼저 범위 센서를 설치하여야합니다 (위 참조).
 
-To use the optical flow, run the following command in a console on the vehicle's compute board:
+광류 센서를 사용하려면, 차량 컴퓨팅 보드의 콘솔에서 다음 명령을 실행하십시오.
 
     systemctl start aero-optical-flow
     
 
-If you want to start the optical flow binary at boot, use
+부팅시 광류 실행 파일을 시작하는 명령어는 다음과 같습니다.
 
     systemctl enable aero-optical-flow #use disable to undo
     
 
-In addition, the following parameter values should be set in the flight controller.
+또한, 비행 콘트롤러에서 다음 매개변수를 설정하여야 합니다.
 
-| Parameter                                                                  | Value |
-| -------------------------------------------------------------------------- | ----- |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2     |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2     |
+| 매개변수                                                                       | 값 |
+| -------------------------------------------------------------------------- | - |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2 |
+| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2 |
