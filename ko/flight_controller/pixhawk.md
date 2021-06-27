@@ -9,7 +9,7 @@
 
 *3DR Pixhawk<sup>&reg;</sup> 1* 자동조종장치는 [Pixhawk-project](https://pixhawk.org/) **FMUv2**를 기반의 인기있는 범용 비행 콘트롤러입니다. 하드웨어 설계에서 PX4FMU와 PX4IO의 기능을 결합하였습니다. PX4는 [NuttX](https://nuttx.apache.org/) OS에서 실행됩니다.
 
-![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
+![Pixhawk 이미지](../../assets/hardware/hardware-pixhawk.png)
 
 PX4 조립 및 설정 방법은 [Pixhawk 배선 개요](../assembly/quick_start_pixhawk.md)를 참고하십시오.
 
@@ -123,7 +123,7 @@ mRo Pixhawk 주문:
 IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전원 공급 장치 또는 배터리를 여기 또는 연결된 수신기에 **절대 연결하지 마십시오.**
 :::
   
-  ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+  ![Pixhawk  커넥터](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
   
   ## 핀배열
   
@@ -251,7 +251,7 @@ IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전�
 :::tip
 콘솔에 연결하는 편리한 방법은 여러 다른 Pixhawk 장치와 함께 사용할 수있는 커넥터와 함께 제공되는 [Dronecode 프로브](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하는 것입니다. [Dronecode 프로브](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)의 6핀 DF13 1 : 1 케이블을 Pixhawk `SERIAL4/5` 포트에 연결만하면 됩니다.
   
-  ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
+  ![드론코드 프로브](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
 :::
   
   이 핀배열은 [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) 케이블(5V 허용)에 연결하도록 설계된 표준입니다.
@@ -267,11 +267,11 @@ IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전�
   
   6 핀 DF13 1 : 1 커넥터에 대한 FTDI 케이블의 배선은 아래 그림과 같습니다.
   
-  ![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
+  ![콘솔 커넥터](../../assets/flight_controller/pixhawk1/console_connector.jpg)
   
   전체 배선은 아래와 같습니다.
   
-  ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
+  ![콘솔 디버그](../../assets/flight_controller/pixhawk1/console_debug.jpg)
   
 :::note
 콘솔을 *사용*방법은 [시스템 콘솔](../debug/system_console.md)을 참고하십시오.
@@ -285,7 +285,7 @@ IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전�
   
   포트는 ARM 10핀 JTAG 커넥터이므로 납땜이 필요합니다. 포트의 핀배열은 아래와 같습니다(위 모서리의 사각형 마커는 핀 1을 나타냄).
   
-  ![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
+  ![ARM 10핀 커넥터 핀배열](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
   
   <!-- For more information on SWD debugging see devguide [link to follow] -->
   
@@ -305,14 +305,14 @@ IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전�
   
   ## 부품 / 하우징
   
-  * **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
-    * JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with manufacturer). If so, you will need the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](http://www.samtec.com/suddenservice/samples/samples.aspx) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable.
-    * JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
-    * JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
+  * **ARM MINI JTAG (J6)**: 1.27mm 10pos 헤더 (SHROUDED), Black Magic Probe 용 : FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) 또는 Samtec FTSH-105-01-F- DV-K (미확인) 또는 Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) 또는 [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
+    * JTAG 어댑터 옵션 #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). 케이블 없이 제공될 수 있습니다 (제조업체에 확인). 그렇다면, **Samtec FFSD-05-D-06.00-01-N** 케이블 ([Samtec 샘플 서비스](http://www.samtec.com/suddenservice/samples/samples.aspx), [Digi-Key Link : SAM8218-ND)](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) 또는 [태그 연결 리본](http://www.tag-connect.com/CORTEXRIBBON10) 및 Mini-USB 케이블이 필요합니다.
+    * JTAG 어댑터 옵션 #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
+    * JTAG 어댑터 옵션 #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
   * **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
     * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
   * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3369-ND))
   
-  ## Supported Platforms / Airframes
+  ## 지원 플랫폼 및 기체
   
-  Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+  일반 RC 서보 또는 Futaba S-Bus 서보로 제어 가능한 모든 멀티콥터/비행기/로버 또는 보트.
