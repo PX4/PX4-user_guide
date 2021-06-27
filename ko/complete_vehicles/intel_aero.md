@@ -31,63 +31,63 @@ PX4 v1.11에서 이 플랫폼을 마지막으로 지원합니다.
 
 Intel Aero에 Ubuntu를 설치하려면 다음의 장비가 필요합니다.
 
-1. Power supply (battery or network cable)
-2. Micro HDMI to HDMI cable to attach a monitor
-3. Micro USB3 to USB2 female adapter
-4. USB Hub to attach mouse and keyboard
+1. 전원 공급 장치 (배터리 또는 네트워크 케이블)
+2. 모니터를 연결용 마이크로 HDMI-HDMI 케이블
+3. 마이크로 USB3-USB2 암 어댑터
+4. 마우스와 키보드를 연결하는 USB 허브
 
-Follow the linked instructions from [Intel Aero wiki > Installing Ubuntu on Intel Aero](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#installing-ubuntu-on-intel-aero):
+[Intel Aero wiki &gt; Intel Aero에 Ubuntu 설치](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#installing-ubuntu-on-intel-aero) 지침을 따라 설치하십시오.
 
-1. [Upgrade Yocto first](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#upgrade-yocto-first) (optional)
-2. [OS](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#os)
-3. [Intel Aero Repository](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository)
+1. [먼저 Yocto 업그레이드](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#upgrade-yocto-first) (선택 사항)
+2. [운영 체제](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#os)
+3. [인텔 에어로 저장소](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository)
 
-As soon as the steps under *Intel Aero Repository* (above) are completed the Aero kernel is installed. From this point forwards, always boot using this kernel.
+*Intel Aero Repository* (위)의 단계가 완료되면 Aero 커널이 설치됩니다. 이 시점부터는 항상 이 커널을 사용하여 부팅하십시오.
 
-Follow the instructions to flash the BIOS, FPGA and Flight Controller. Open the MAVLink router config file: **/etc/mavlink-router/main.conf**
+지침에 따라 BIOS, FPGA 및 비행 컨트롤러를 플래시합니다. MAVLink 라우터 구성 파일을 오픈합니다. **/etc/mavlink-router/main.conf**
 
-Include the laptop IP as a UDP Endpoint by adding the following lines to the configuration file. The IP address must be set to the one of the laptop. To find the IP address of the laptop, execute: `ifconfig`.
+구성 파일에 다음 줄을 추가하여 랩톱 IP를 UDP 끝점으로 포함합니다. IP 주소는 노트북중 하나로 설정되어야 합니다. `ifconfig`를 실행하여 랩탑의 IP 주소를 확인하십시오.
 
     [UdpEndpoint wifi]
     Mode = Normal
     Address = 192.168.8.255
     
 
-After all those steps are completed, the drone should automatically connect to *QGroundControl* running on the laptop.
+이 단계가 완료되면 드론은 노트북에서 실행되는 *QGroundControl*에 자동으로 연결됩니다.
 
-Next install ROS, by following the [instructions here](https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS).
+다음으로 [이 지침](https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS)을 따라 ROS를 설치합니다.
 
-### RealSense Camera
+### RealSense 카메라
 
 1. RealSense SDK
     
-    Follow the steps to install the RealSense SDK listed on the [aero wiki](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-realsense-sdk). When cloning the repository, the legacy branch needs to be used for the R200 model. If the D435 or D415 is used, the master branch needs to be cloned. All other steps are the same and the branches can be just switched back and forth if the camera is changed.
+    단계에 따라 [aero wiki](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-realsense-sdk)에 나열된 RealSense SDK를 설치합니다. 저장소 복제시 R200 모델에 레거시 브랜치를 사용하여야합니다. D435 또는 D415를 사용하는 경우에는 마스터 분기를 복제하여야 합니다. 다른 모든 단계는 동일하며 카메라가 변경되면 분기를 앞뒤로 전환할 수 있습니다.
     
-    If the RealSense R200 is used, it can already be started over a ROS node using:
+    RealSense R200을 사용하는 경우 다음을 사용하여 ROS 노드에서 이미 시작할 수 있습니다.
     
         roslaunch realsense_camera r200_nodelet_default.launch
         
     
-    If any D400 series camera is used, follow the next step to install a different ROS wrapper.
+    D400 시리즈 카메라를 사용하는 경우에는 다음 단계에서 다른 ROS 래퍼를 설치합니다.
 
-2. ROS Wrapper for D400 series RealSense
+2. D400 시리즈 RealSense용 ROS 래퍼
     
-    Follow the instructions in [Install Intel RealSense ROS from Sources](https://github.com/intel-ros/realsense#step-3-install-intel-realsense-ros-from-sources) to install a catkin workspace and clone the RealSense software.
+    [소스에서 Intel RealSense ROS 설치](https://github.com/intel-ros/realsense#step-3-install-intel-realsense-ros-from-sources) 지침에 따라 catkin 작업 공간을 설치하고 RealSense 소프트웨어를 복제합니다.
     
-    Install the udev rules using:
+    다음 명령어를 실행하여 udev 규칙을 설치합니다.
     
         sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
         sudo udevadm control --reload-rules && udevadm trigger
         
     
-    Now the RealSense can be started over a ROS node using:
+    이제 RealSense는 다음을 사용하여 ROS 노드에서 실행할 수 있습니다.
     
         roslaunch realsense2_camera rs_camera.launch
         
 
-### Obstacle Avoidance
+### 장애물 회피
 
-To run the PX4 obstacle avoidance software, install catkin first:
+PX4 장애물 회피 소프트웨어를 실행하기 위하여 catkin을 설치하십시오.
 
     apt install python-catkin-tools
     
