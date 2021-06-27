@@ -75,129 +75,128 @@ mRo Pixhawk 주문:
   * CAN 2개(하나는 내부 3.3V 트랜시버, 하나는 확장 커넥터에 있음)
   * Spektrum DSM/DSM2/DSM-X® Satellite 호환 입력
   * Futaba S.BUS® 호환 입출력
-  * PPM sum signal input
-  * RSSI (PWM or voltage) input
-  * I2C
+  * PPM 합계 신호 입력
+  * RSSI(PWM 또는 전압) 입력
+  * I2C 
   * SPI
-  * 3.3 and 6.6V ADC inputs
-  * Internal microUSB port and external microUSB port extension
+  * 3.3 및 6.6V ADC 입력
+  * 내부 microUSB 포트 및 외부 microUSB 포트 확장
   
-  @[youtube](https://youtu.be/gCCC5A-Bvv4)
+  @[유투브](https://youtu.be/gCCC5A-Bvv4)
   
-  ### Power System and Protection
+  ### 전력 시스템 및 보호
   
-  * Ideal diode controller with automatic failover
-  * Servo rail high-power (max. 10V) and high-current (10A+) ready
-  * All peripheral outputs over-current protected, all inputs ESD protected
+  * 자동복구 기능의 이상적인 다이오드 컨트롤러
+  * 서보 레일 고출력 (최대 10V) 및 고전류 (10A +) 준비
+  * 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
   
-  ## Voltage Ratings
+  ## 정격 전압
   
-  Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
+  Pixhawk 는 3 개의 전원이 공급되는 경우에는 전원 공급 장치의 3중 중복이 가능합니다. 세 개의 레일은 전원 모듈 입력, 서보 레일 입력과 USB 입력입니다.
   
-  ### Normal Operation Maximum Ratings
+  ### 정상 작동 최대 등급
   
-  Under these conditions all power sources will be used in this order to power the system
+  이러한 조건에서 전원은 아래의 순서대로 시스템에 전원을 공급하여야 합니다.
   
-  * Power module input (4.8V to 5.4V)
-  * Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
-  * USB power input (4.8V to 5.4V)
+  * 전원 모듈 입력 (4.8V ~ 5.4V)
+  * 서보 레일 입력 (4.8V ~ 5.4V) **수동 오버라이드의 경우 최대 10V이지만 전력 모듈 입력이 없는 경우 자동 조종 장치 부품은 5.7V 이상에서 전원이 꺼집니다.**
+  * USB 전원 입력 (4.8V ~ 5.4V)
   
-  ### Absolute Maximum Ratings
+  ### 절대 최대 정격 전압
   
-  Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+  아래의 조건에서 시스템은 전원을 사용하지 않지만(작동하지 않음), 그대로 유지됩니다.
   
-  * Power module input (4.1V to 5.7V, 0V to 20V undamaged)
-  * Servo rail input (4.1V to 5.7V, 0V to 20V)
-  * USB power input (4.1V to 5.7V, 0V to 6V) 
+  * 전원 모듈 입력(4.1V ~ 5.7V, 0V ~ 20V 손상되지 않음)
+  * 서보 레일 입력(4.1V ~ 5.7V, 0V ~ 20V)
+  * USB 전원 입력(4.1V ~ 5.7V, 0V ~ 6V) 
   
-  ## Schematics
+  ## 회로도
   
-  [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+  [FMUv2 + IOv2 회로도](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) - 회로도 및 레이아웃
   
-:::note
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+  :::note CC-BY-SA 3.0 라이센스 오픈 하드웨어 설계로 모든 회로도와 설계 파일을 [사용할 수 있습니다](https://github.com/PX4/Hardware).
 :::
   
-  ## Connectors
+  ## 커넥터
   
-:::tip
-The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
+:::tip RC
+IN 포트는 RC 수신기 전용이며, 전원을 제공합니다. 서보, 전원 공급 장치 또는 배터리를 여기 또는 연결된 수신기에 **절대 연결하지 마십시오.**
 :::
   
   ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
   
-  ## Pinouts
+  ## 핀배열
   
-  #### TELEM1, TELEM2 ports
+  #### TELEM1, TELEM2 포트
   
-  | Pin     | Signal    | Volt  |
-  | ------- | --------- | ----- |
-  | 1 (red) | VCC       | +5V   |
-  | 2 (blk) | TX (OUT)  | +3.3V |
-  | 3 (blk) | RX (IN)   | +3.3V |
-  | 4 (blk) | CTS (IN)  | +3.3V |
-  | 5 (blk) | RTS (OUT) | +3.3V |
-  | 6 (blk) | GND       | GND   |
+  | 핀     | 신호       | 전압    |
+  | ----- | -------- | ----- |
+  | 1 (적) | VCC      | +5V   |
+  | 2 (흑) | TX (출력)  | +3.3V |
+  | 3 (흑) | RX (입력)  | +3.3V |
+  | 4 (흑) | CTS (입력) | +3.3V |
+  | 5 (흑) | RTS (출력) | +3.3V |
+  | 6 (흑) | GND      | GND   |
   
-  #### GPS port
+  #### GPS 포트
   
-  | Pin     | Signal   | Volt  |
-  | ------- | -------- | ----- |
-  | 1 (red) | VCC      | +5V   |
-  | 2 (blk) | TX (OUT) | +3.3V |
-  | 3 (blk) | RX (IN)  | +3.3V |
-  | 4 (blk) | CAN2 TX  | +3.3V |
-  | 5 (blk) | CAN2 RX  | +3.3V |
-  | 6 (blk) | GND      | GND   |
+  | 핀     | 신호      | 전압    |
+  | ----- | ------- | ----- |
+  | 1 (적) | VCC     | +5V   |
+  | 2 (흑) | TX (출력) | +3.3V |
+  | 3 (흑) | RX (입력) | +3.3V |
+  | 4 (흑) | CAN2 TX | +3.3V |
+  | 5 (흑) | CAN2 RX | +3.3V |
+  | 6 (흑) | GND     | GND   |
   
-  #### SERIAL 4/5 port
+  #### SERIAL 4/5 포트
   
-  Due to space constraints two ports are on one connector.
+  공간 제약으로 인하여 두 개의 포트가 하나의 커넥터에 있습니다.
   
-  | Pin     | Signal  | Volt  |
-  | ------- | ------- | ----- |
-  | 1 (red) | VCC     | +5V   |
-  | 2 (blk) | TX (#4) | +3.3V |
-  | 3 (blk) | RX (#4) | +3.3V |
-  | 4 (blk) | TX (#5) | +3.3V |
-  | 5 (blk) | RX (#5) | +3.3V |
-  | 6 (blk) | GND     | GND   |
+  | 핀     | 신호      | 전압    |
+  | ----- | ------- | ----- |
+  | 1 (적) | VCC     | +5V   |
+  | 2 (흑) | TX (#4) | +3.3V |
+  | 3 (흑) | RX (#4) | +3.3V |
+  | 4 (흑) | TX (#5) | +3.3V |
+  | 5 (흑) | RX (#5) | +3.3V |
+  | 6 (흑) | GND     | GND   |
   
   #### ADC 6.6V
   
-  | Pin     | Signal | Volt        |
-  | ------- | ------ | ----------- |
-  | 1 (red) | VCC    | +5V         |
-  | 2 (blk) | ADC IN | up to +6.6V |
-  | 3 (blk) | GND    | GND         |
+  | 핀     | 신호     | 전압       |
+  | ----- | ------ | -------- |
+  | 1 (적) | VCC    | +5V      |
+  | 2 (흑) | ADC 입력 | 최대 +6.6V |
+  | 3 (흑) | GND    | GND      |
   
   #### ADC 3.3V
   
-  | Pin     | Signal | Volt        |
-  | ------- | ------ | ----------- |
-  | 1 (red) | VCC    | +5V         |
-  | 2 (blk) | ADC IN | up to +3.3V |
-  | 3 (blk) | GND    | GND         |
-  | 4 (blk) | ADC IN | up to +3.3V |
-  | 5 (blk) | GND    | GND         |
+  | 핀     | 신호     | 전압       |
+  | ----- | ------ | -------- |
+  | 1 (적) | VCC    | +5V      |
+  | 2 (흑) | ADC 입력 | 최대 +3.3V |
+  | 3 (흑) | GND    | GND      |
+  | 4 (흑) | ADC 입력 | 최대 +3.3V |
+  | 5 (흑) | GND    | GND      |
   
-  #### I2C
+  #### I2C 
   
-  | Pin     | Signal | Volt           |
-  | ------- | ------ | -------------- |
-  | 1 (red) | VCC    | +5V            |
-  | 2 (blk) | SCL    | +3.3 (pullups) |
-  | 3 (blk) | SDA    | +3.3 (pullups) |
-  | 4 (blk) | GND    | GND            |
+  | 핀     | 신호  | 전압        |
+  | ----- | --- | --------- |
+  | 1 (적) | VCC | +5V       |
+  | 2 (흑) | SCL | +3.3 (풀업) |
+  | 3 (흑) | SDA | +3.3 (풀업) |
+  | 4 (흑) | GND | GND       |
   
   #### CAN
   
-  | Pin     | Signal | Volt |
-  | ------- | ------ | ---- |
-  | 1 (red) | VCC    | +5V  |
-  | 2 (blk) | CAN_H  | +12V |
-  | 3 (blk) | CAN_L  | +12V |
-  | 4 (blk) | GND    | GND  |
+  | 핀       | 신호    | 전압   |
+  | ------- | ----- | ---- |
+  | 1 (적)   | VCC   | +5V  |
+  | 2 (blk) | CAN_H | +12V |
+  | 3 (blk) | CAN_L | +12V |
+  | 4 (blk) | GND   | GND  |
   
   #### SPI
   
