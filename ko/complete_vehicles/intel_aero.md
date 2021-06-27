@@ -179,9 +179,9 @@ Lidar Lite V3와 Aero 텔레메트리 포트의 핀배열은 다음과 같습니
 | 5 | -          | SDA           |
 | 6 | -          | GND           |
 
-![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
+![Aero I2C 스플리터](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
-![Aero LidarLite](../../assets/hardware/intel_aero/aero_lidarlite.jpg)
+![Aero Lidar Lite](../../assets/hardware/intel_aero/aero_lidarlite.jpg)
 
 ## Aero에서 광류 센서 사용
 
