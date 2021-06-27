@@ -9,7 +9,7 @@
 
 Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)에서 설계)는 FPV 레이서에 적용하기 위하여 공간에 최적화된 [Pixhawk 1](../flight_controller/pixhawk.md) 설계에서 파생된 바이너리 호환 (FMUv2)입니다. 소형화를 위하여 가진 IO가 적습니다.
 
-![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
+![Pixfalcon 대표 이미지](../../assets/hardware/hardware-pixfalcon.png)
 
 ## 요약
 
@@ -34,42 +34,41 @@ Pixfalcon 자동조종장치([Holybro<sup>&reg;</sup>](http://www.holybro.com/)�
 
 하드웨어 옵션:
 
-* Optical flow: PX4 Flow unit from manufacturer [Holybro](http://www.holybro.com/product/px4flow/)
-* Digital Airspeed sensor from manufacturer [Holybro](http://www.holybro.com/product/digital-air-speed-sensor/) or distributor [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
-* On screen display with integrated Telemetry: 
-  * [Hobbyking OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
-* Pure Telemetry options: 
-  * [Hobbyking Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-  * [HKPilot Micro Telemetry EU version (433 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html)
-  * [HKPilot Micro Telemetry EU version (915 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html)
+* 광류 센서: 제조업체 [Holybro](http://www.holybro.com/product/px4flow/)의 PX4 광류 센서
+* 제조업체 [Holybro](http://www.holybro.com/product/digital-air-speed-sensor/) 또는 유통 업체 [Hobbyking](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)의 디지털 대기속도 센서
+* 텔레메트리가 통합 화면 디스플레이 
+  * [Hobbyking OSD + EU 텔레메트리 (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
+* 순수 텔레메트리 옵션: 
+  * [Hobbyking 와이파이 텔레메트리](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
+  * [HKPilot Micro 텔레메트리 EU 버전 (433 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html)
+  * [HKPilot Micro 텔레메트리 EU 버전 (915 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html)
 
-## Building Firmware
+## 펌웨어 빌드
 
-:::tip
-Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+::::tip 대부분의 사용자들은 펌웨어를 빌드할 필요는 없습니다. 하드웨어가 연결되면 *QGroundControl*에 의해 사전 구축되고 자동으로 설치됩니다.
 :::
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+이 대상에 대한 [PX4 빌드](../dev_setup/building_px4.md) 방법 :
 
     make px4_fmu-v2_default
     
 
-## Debug Port
+## 디버그 포트
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or the [SWD interface](../debug/swd_debug.md) (JTAG).
+이 보드에는 디버그 포트가 없습니다. 즉, [시스템 콘솔](../debug/system_console.md) 이나 [SWD 인터페이스](../debug/swd_debug.md) (JTAG)에 접속 포트가 존재하지 않습니다.
 
-Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
+개발자는 SWD용 보드 테스트 패드와 STM32F4 (IC) TX와 RX에 와이어를 납땜하여 콘솔을 획득할 수 있습니다.
 
-## Serial Port Mapping
+## 시리얼 포트 매핑
 
-| UART   | Device     | Port                     |
-| ------ | ---------- | ------------------------ |
-| UART1  | /dev/ttyS0 | IO Debug                 |
-| USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
-| UART4  | /dev/ttyS2 | GPS                      |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | IO 디버그         |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| UART4  | /dev/ttyS2 | GPS            |
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 
-## Key Links
+## 주요 링크
 
-* [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)
+* [사용자 매뉴얼](http://www.holybro.com/manual/pixfalcon11.pdf)
