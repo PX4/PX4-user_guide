@@ -34,12 +34,12 @@
 
 
 :::note
-If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
+고정 기지국과 함께 RTK를 사용하는 경우 보조 GPS는 RTK 상태  w.r.t를 표시합니다.
 :::
 
 
 
-## Further Informaiton
+## 추가 정보
 
-- [ZED-F9P Moving base applications (Application note)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf) - General setup/instructions.
-- [GPS > Configuration > GPS as Yaw/Heading Source](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)
+- [ZED-F9P 무빙베이스 애플리케이션 (애플리케이션 노트)](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf) -일반 설정/지침.
+- [GPS > 설정 > GPS 요/방향각 소스로 사용](../gps_compass/README.md#configuring-gps-as-yaw-heading-source)
