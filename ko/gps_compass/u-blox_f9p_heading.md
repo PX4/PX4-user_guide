@@ -1,8 +1,8 @@
-# RTK GPS Heading with Dual u-blox F9P
+# 듀얼 u-blox F9P를 사용한 RTK GPS 헤딩
 
-Two u-blox F9P [RTK GPS](../gps_compass/rtk_gps.md) modules mounted on a vehicle can be used to accurately compute a heading angle (i.e. an alternative to compass-based heading estimation). The two GPS devices in this scenario are referred to as the *Moving Base* and *Rover*.
+기체에 장착한 두 개의 u-blox F9P [RTK GPS](../gps_compass/rtk_gps.md) 모듈을 사용하여 방향각을 정확하게 계산할 수 있습니다 (즉, 나침반 기반 방향 추정의 대안). 이 시나리오에서 두 개의 GPS 장치를 *무빙베이스*와 *로버*라고 합니다.
 
-## Supported Devices
+## 지원 장치
 
 This feature works on F9P devices that expose the GPS UART2 port (access to the port is required for setup).
 
