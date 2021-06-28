@@ -89,43 +89,43 @@ Pixhawk의 GPS 설정은 투명하게 처리됩니다. GPS 모듈을 **GPS**라�
 아래의 과정은 *QGroundControl*의 `TELEM 2` 포트에서 보조 GPS 설정 방법입니다.
 
 1. [찾기 및 설정](../advanced_config/parameters.md) 매개 변수 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)에서 **TELEM 2**까지. 
-  - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
-  - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
-2. Reboot the vehicle in order to make the other parameters visible.
-3. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+  - *QGroundControl*에서 **기체 설정 &gt; 매개변수** 섹션으로 이동합니다.
+  - **GPS** 탭 (1)을 선택한 다음 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 매개변수 (2)를 열고 드롭 다운 목록 (3)에서 *TELEM 2*를 선택합니다. ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+2. 다른 매개변수를 표시하려면 기체를 재부팅하십시오.
+3. **Serial** 탭을 선택하고 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 매개변수 (`TELEM 2` 포트 전송 속도)를 열어서 *Auto*로 설정합니다. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
-After setting up the second GPS port:
+보조 GPS 포트를 설정 후 :
 
-1. Configure the ECL/EKF2 estimator to blend data from both GPS systems. For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
+1. 두 GPS 시스템의 데이터를 혼합하도록 ECL/EKF2 추정기를 설정합니다. 자세한 지침은 [ECL EKF 사용 &gt; 이중 수신기](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers)를 참고하십시오.
 
-### Configuring GPS as Yaw/Heading Source
+### GPS를 Yaw/Heading 소스로 설정
 
-GPS can be used as a source for yaw fusion when using modules where *yaw output is supported by the device* (e.g. [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)) or when using some [RTK GPS Setups with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
+GPS는 *yaw 출력이 장치에서 지원되는* 모듈 (예 : [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md))을 사용하거나 일부 [듀얼 u-blox F9P RTK를 사용시 요 퓨전 소스로 사용할 수 있습니다.](../gps_compass/u-blox_f9p_heading.md).
 
-When using GPS for yaw fusion you will need to configure the following parameters:
+요 퓨전에 GPS를 사용시에는 다음 매개변수를 설정하여야 합니다.
 
-| Parameter                                                                    | Setting                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | The angle made by the *baseline* (the line between the two GPS antennas) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)). |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | Set bit position 7 "GPS yaw fusion" to `1` (i.e. add 128 to the parameter value).                                                                                                                               |
+| 매개변수                                                                         | 설정                                                                                                                                     |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) | 기체 x 축 ([여기](../config/flight_controller_orientation.md#calculating-orientation)에 표시된 앞/뒤 축)을 기준으로 *기준선* (두 GPS 안테나 사이의 선)이 이루는 각도입니다. |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)   | 비트 위치 7 "GPS yaw fusion"을 `1`로 설정합니다 (즉, 매개변수 값에 128을 추가).                                                                             |
 
 :::tip
-If using this feature, all other configuration should be setup up as normal (e.g. [RTK Positioning](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
+이 기능을 사용하는 경우에는 다른 모든 설정이 정상적으로 완료되어야 합니다 (예 : [RTK 포지셔닝](../gps_compass/rtk_gps.md#positioning-setup-configuration)).
 :::
 
-## Compass Configuration
+## 나침반 설정
 
-Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will autodetect, calibrate and prioritise all connected magnetometers.
+나침반 보정은 [나침반 설정](../config/compass.md)을 참고하십시오. 이 프로세스는 간단하며 연결된 모든 자력계를 자동 감지, 보정하고 우선 순위를 지정합니다.
 
-Further compass configuration should generally not be required.
+일반적으로 추가 나침반 설정은 필요하지 않습니다.
 
 :::note
-All external compasses are given the same priority by default, which is higher than the prority shared by all internal compasses.
+모든 외부 나침반에는 기본적으로 동일한 우선 순위가 부여되며, 이는 모든 내부 나침반이 공유하는 우선순위 보다 높습니다.
 :::
 
-### Disable a Compass
+### 이중 나침반
 
-As stated above, generally no further configuration should be required.
+위에서 언급한 것처럼, 추가 설정이 필요하지 않습니다.
 
 That said, developers can disable internal compasses if desired using the compass parameters. These are prefixed with [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_ID) (where `x=0-3`).
 
