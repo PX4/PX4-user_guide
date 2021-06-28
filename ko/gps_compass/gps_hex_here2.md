@@ -77,5 +77,5 @@ Here2 GPS 핀배열은 아래에서 제공합니다. 이것은 다른 자동조�
 - **사용 가능한 안테나:** Active Antenna 및 패시브 안테나
 - **신호 무결성:** SHA 256을 사용한 서명 기능
 - **프로토콜 및 인터페이스:** 
-  - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
-  - **STM32 Main Programming Interface:** JST_SUR
+  - **UART/I2C/CAN:** JST_GH 메인 인터페이스, 내부 스위치.
+  - **STM32 기본 프로그래밍 인터페이스:** JST_SUR
