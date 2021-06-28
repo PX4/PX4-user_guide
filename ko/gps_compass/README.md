@@ -55,41 +55,40 @@ PX4는 u-blox, MTK Ashtech 또는 Emlid 프로토콜 또는 UAVCAN 통신 장치
 
 ## 하드웨어 설정
 
-Instructions for connecting the GPS (and compass, if present) are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
+GPS(및 나침반 있는 경우) 연결 방법은 일반적으로 제조업체에서 제공합니다 (일반적인 [Autopilot 하드웨어](../flight_controller/README.md)의 경우).
 
-[Pixhawk Series](../flight_controller/pixhawk_series.md) controllers typically have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device).
+[Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에는 GPS 연결용으로 표시된 포트가 있으며, 나침반은 I2C 또는 SPI 포트/버스(장치에 따라 다름)에 연결됩니다.
 
-The [Zubax GNSS 2](https://zubax.com/products/gnss_2), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3), and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
+[Zubax GNSS 2](https://zubax.com/products/gnss_2), [CubePilot Here3 CAN GNSS GPS (M8N)](https://www.cubepilot.org/#/here/here3) 및 [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/)는 [UAVCAN을 통해 연결할 수도 있습니다](../uavcan/README.md).
 
-:::warning
-Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+:::warning GPS
+모듈을 연결시 핀배열에 주의하십시오. 모두 소프트웨어와 호환되지만, 핀 순서를 주의하여 연결하여야 합니다.
 :::
 
-## GNSS Configuration
+## GNSS 설정
 
-The "standard" GPS configuration is provided below. Additional device-specific configuration may be provided in PX4 or manufacturer device documentation (e.g. [Trimble MB-Two > Configuration](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
+"표준" GPS 설정은 다음과 같습니다. 추가 장치 설정은 PX4 또는 제조업체 장치설명서에서 제공될 수 있습니다 (예 : [Trimble MB-Two &gt; 설정](../gps_compass/rtk_gps_trimble_mb_two.md#configuration)).
 
-:::warning
-The GPS protocol expected by PX4 defaults to u-blox (by default other GPS types like Trimble, Emlid, MTK, will not be detected) The protocol can be configured with [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL).
+:::warning PX4의 GPS 프로토콜은 기본적으로 u-blox로 설정됩니다. 기본적으로 Trimble, Emlid, MTK와 같은 다른 GPS 유형은 자동으로 감지되지 않습니다. 프로토콜은 [GPS_x_PROTOCOL](../advanced_config/parameter_reference.md#GPS_1_PROTOCOL)에서 설정 가능합니다.
 :::
 
-### Configuring the Primary GPS
+### 메인 GPS 구성
 
-GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
+Pixhawk의 GPS 설정은 투명하게 처리됩니다. GPS 모듈을 **GPS**라고 표시된 포트에 연결하기 만하면 작동합니다.
 
 :::note
-The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+기본적인 [직렬 포트 설정](../peripherals/serial_configuration.md#default_port_mapping)은 대부분의 장치에서 작동합니다. *Trimble MB-Two*를 사용하는 경우에는 명시적으로 속도를 115200 baud로 설정하여야 합니다.
 :::
 
 <a id="dual_gps"></a>
 
-### Configuring a Secondary GPS (Dual GPS System)
+### 보조 GPS 설정(듀얼 GPS 시스템)
 
-To use a secondary GPS, attach it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
+보조 GPS를 사용하려면, 포트에 연결후 [직렬 포트 설정](../peripherals/serial_configuration.md)을 수행하여 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)를 선택 포트를 할당합니다.
 
-The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
+아래의 과정은 *QGroundControl*의 `TELEM 2` 포트에서 보조 GPS 설정 방법입니다.
 
-1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**. 
+1. [찾기 및 설정](../advanced_config/parameters.md) 매개 변수 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG)에서 **TELEM 2**까지. 
   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
 2. Reboot the vehicle in order to make the other parameters visible.
