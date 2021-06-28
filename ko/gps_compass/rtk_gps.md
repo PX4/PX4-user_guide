@@ -1,15 +1,14 @@
 # RTK GPS
 
-*RTK GPS* devices can be accurate to centimeter-level, allowing PX4 to be used in applications like precision surveying (where pinpoint accuracy is essential).
+PX4에서는 *RTK GPS* 장치의 센티미터 수준의 정확도로 정밀측량이 가능합니다.
 
-:::note GPS
-can also be used as a source of yaw/heading information:
+:::note GPS는 요/방향 정보의 소스로 사용할 수 있습니다.
 
-- [RTK GPS Heading with Dual u-blox F9P](../gps_compass/u-blox_f9p_heading.md).
-- Some GPS output yaw (see table below).
+- [듀얼 u-blox F9P를 사용한 RTK GPS 헤딩](../gps_compass/u-blox_f9p_heading.md).
+- 일부 GPS 출력 요 (아래 표 참조).
 :::
 
-## Supported RTK Devices
+## 지원되는 RTK 장치
 
 PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
 
