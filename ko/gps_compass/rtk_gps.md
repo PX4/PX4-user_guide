@@ -10,44 +10,44 @@ PX4에서는 *RTK GPS* 장치의 센티미터 수준의 정확도로 정밀측�
 
 ## 지원되는 RTK 장치
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS, and products that incorporate them.
+PX4는 [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) 및 [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS와 통합 제품을 지원합니다.
 
-The RTK compatible devices below that are expected to work with PX4 (it omits discontined devices). The table indicates devices that also output yaw, and that can provide yaw when two on-vehicle units are used.
+PX4에서 작동하는 RTK 호환 장치(단종 된 장치 제외)는 아래와 같습니다. 표는 편요각를 출력하는 장치를 나타내며 두 개의 장치를 사용하여 편요각를 제공할 수 있습니다.
 
-| GPS                                                                                                                         | Yaw Output | [Dual FP9 GPS Heading](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) |
-|:--------------------------------------------------------------------------------------------------------------------------- |:----------:|:------------------------------------------------------------:|:--------------------------:|
-| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |            |                                                              |                            |
-| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |            |                                                              |                            |
-| [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)                                                              |            |                                                              |                            |
-| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |            |                                                              |                            |
-| [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                                                   |            |                                                              |          &check;           |
-| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |            |                                                              |                            |
-| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |            |                                                              |                            |
-| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |            |                           &check;                            |                            |
-| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |            |                           &check;                            |                            |
-| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                         |            |                           &check;                            |                            |
-| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  |  &check;   |                                                              |                            |
-
-:::note
-Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
-:::
-
-## Positioning Setup/Configuration
-
-RTK positioning requires a *pair* of [RTK GPS devices](#supported-rtk-devices): a "base" for the ground station and a "rover" for the vehicle.
-
-In addition you will need:
-
-- A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
-- A vehicle with a WiFi or Telemetry radio link to the laptop.
+| GPS                                                                                                                         | 편요각 출력  | [듀얼 FP9 GPS 방향각](../gps_compass/u-blox_f9p_heading.md) | [CAN](../uavcan/README.md) |
+|:--------------------------------------------------------------------------------------------------------------------------- |:-------:|:------------------------------------------------------:|:--------------------------:|
+| [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)                                                                      |         |                                                        |                            |
+| [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)                                                                    |         |                                                        |                            |
+| [Femtones MINI2 수신기](../gps_compass/rtk_gps_fem_mini2.md)                                                                   |         |                                                        |                            |
+| [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)                                                                  |         |                                                        |                            |
+| [CubePilot Here3](https://www.cubepilot.org/#/here/here3)                                                                   |         |                                                        |          &check;           |
+| [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)                                                       |         |                                                        |                            |
+| [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)                                                       |         |                                                        |                            |
+| [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136)                                                |         |                        &check;                         |                            |
+| [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) |         |                        &check;                         |                            |
+| [mRo u-blox ZED-F9 RTK L1/L2 GPS](https://store.mrobotics.io/product-p/m10020d.htm)                                         |         |                        &check;                         |                            |
+| [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)                                                                  | &check; |                                                        |                            |
 
 :::note
-*QGroundControl* with a base module can theoretically enable RTK GPS for multiple vehicles/rover modules. At time of writing this use case has not been tested.
+일부 RTK 모듈은 특정 기능(베이스 또는 로버)으로만 사용할 수 있는 반면, 다른 모듈은 서로 교환하여 사용할 수 있습니다.
 :::
 
-### Hardware Setup
+## 포지셔닝 설정
 
-#### Rover RTK Module (Vehicle)
+RTK 포지셔닝에는 [RTK GPS 장치](#supported-rtk-devices)의 *쌍*이 필요합니다. 지상국을 위한 "베이스"와 차량을 위한 "로버"입니다.
+
+추가로 다음과 같은 것들이 필요합니다.
+
+- QGroundControl 실행 가능한 *노트북/PC* (Android/iOS 용 QGroundControl은 RTK를 지원하지 않음)
+- 노트북에 WiFi 또는 원격 텔레메트리 링크가 있는 기체.
+
+:::note
+기본 모듈이있는 *QGroundControl*은 이론적으로 여러 기체/로버 모듈에 RTK GPS를 활성화 가능합니다. 이 문서 작성 시점에서 이것의 사용 사례는 테스트되지 않았습니다.
+:::
+
+### 하드웨어 설정
+
+#### 로버 RTK 모듈 (차량)
 
 The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
 
