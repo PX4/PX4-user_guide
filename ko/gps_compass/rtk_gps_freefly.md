@@ -1,8 +1,8 @@
 # Freefly Systems RTK GPS
 
-The [Freefly Systems RTK GPS Module](https://store.freeflysystems.com/products/rtk-gps-ground-station) is a multiband [RTK GPS module](../gps_compass/rtk_gps.md) from Freefly Systems that provides highly reliable navigation. The modules can act as either rovers (when installed on an aircraft) or base stations (when plugged into a computer).
+[Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
 
-Main features include:
+주요 특징은 다음과 같습니다.
 - Multiband (L1/L2) receiver (u-blox ZED-F9P)
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
