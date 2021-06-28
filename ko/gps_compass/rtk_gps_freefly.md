@@ -3,33 +3,33 @@
 [Freefly Systems RTK GPS 모듈](https://store.freeflysystems.com/products/rtk-gps-ground-station)은 매우 안정적인 내비게이션을 제공하는 Freefly Systems의 다중 대역 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다. 모듈은 로버(항공기에 설치된 경우) 또는 기지국(컴퓨터에 연결된 경우)으로 작동할 수 있습니다.
 
 주요 특징은 다음과 같습니다.
-- Multiband (L1/L2) receiver (u-blox ZED-F9P)
-- Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
-- Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
+- Multiband (L1/L2) 수신기 (u-blox ZED-F9P)
+- 최대 4 개의 GNSS(GPS, Galileo, GLONASS, BeiDou) 동시 수신
+- 내장형 자력계(IST8310), 기압계(BMP388), RGB LED, 안전 스위치 및 안전 LED
 
 :::note
-This module can be used with PX4 v1.9 or above (support for the u-blox ZED-F9P was added in PX4 v1.9).
+이 모듈은 PX4 v1.9 이상에서 사용할 수 있습니다 (u-blox ZED-F9P에 대한 지원은 PX4 v1.9에서 추가됨).
 :::
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
 
-## Purchase
+## 구매
 
 * [Freefly Store](https://store.freeflysystems.com/products/rtk-gps-ground-station)
 
-## Kit Contents
+## 키트 내용물
 
-An RTK GPS kit includes:
-- 2x GPS modules with antennas
-- 3m USB C to A cable
-- Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
-- Screws to mount onto a Freefly AltaX
+RTK GPS 키트에는 다음 내용물들이 포함됩니다.
+- 안테나가 있는 GPS 모듈 2개
+- 3m USB C to A 케이블
+- 베이스 스테이션 모듈용 마그네틱 퀵 마운트 (삼각대 마운트용 1/ 4-20 스레드)
+- Freefly AltaX에 장착하는 나사
 
 
-## Configuration
+## 설정
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+*QGroundControl*을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그앤플레이입니다 \(자세한 내용은 [RTK GPS](../advanced_features/rtk-gps.md) 참조).
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
 
