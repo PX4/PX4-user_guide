@@ -1,8 +1,8 @@
 # HEX/ProfiCNC Here2 GPS
 
-The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
+[Here2 GPS 수신기](http://www.proficnc.com/all-products/152-gps-module.html)는 HEX의 Here GPS 모듈에 대한 업데이트입니다.
 
-Main features include:
+주요 특징은 다음과 같습니다.
 
 - Concurrent reception of upto 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
 - Industry Leading -167 dBm navigation sensitivity
