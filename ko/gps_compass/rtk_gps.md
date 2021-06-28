@@ -106,7 +106,7 @@ RTK GPS 연결은 기본적으로 플러그앤플레이입니다.
 
 RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
 
-![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
+![RTK GPS 설정](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
 이러한 설정은 RTK GPS 설정 프로세스 ( "Survey-In) 완료를 위한 최소 기간과 최소 정확도를 정의합니다.
 
