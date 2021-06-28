@@ -1,17 +1,18 @@
-# Femtones MINI2 Receiver
+# Femtones MINI2 수신기
 
-[MINI2 Receiver](http://www.femtomes.com) is an RTK GPS receiver that delivers high-rate and reliable RTK initialization for centimeter level positioning. It is intended for applications that requre high-precision positioning (e.g. navigation and mapping, etc.).
+[MINI2 수신기](http://www.femtomes.com)는 센티미터 레벨 포지셔닝을 위하여 빠르고 안정적인 RTK 초기화를 제공하는 RTK GPS 수신기입니다. 고정밀 위치 지정(예 : 내비게이션 및 매핑 등)이 필요한 애플리케이션을 위하여 개발되었습니다.
 
-The receiver is connected to PX4 via a serial port (UART) and may be configured over Ethernet using a standard web browser.
+수신기는 직렬 포트 (UART)를 통하여 PX4에 연결되며, 표준 웹 브라우저를 사용하여 설정할 수 있습니다.
 
 ![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
-:::note PX4 drivers for Ethernet, CAN and USB are under development.
+:::note
+이더넷, CAN 및 USB용 PX4 드라이버는 현재 개발 중입니다.
 :::
 
-## Required Firmware Options
+## 필수 펌웨어 옵션
 
-The following firmware options need to be selected when buying the device:
+장치 구매시 다음 펌웨어 옵션을 선택하여야 합니다.
 - 5Hz, 10Hz, 20Hz
 - INS
 - HEADING
@@ -19,17 +20,17 @@ The following firmware options need to be selected when buying the device:
 - RTK
 - BASE
 
-## Purchase
+## 구매처
 
-Contact [Femtones](http://www.femtomes.com) directly for sales quote:
-- **Email:** [sales@femtomes.com](mailto:sales@femtomes.com)
-- **Telephone:** +86-10-53779838
+판매 견적은 [Femtones](http://www.femtomes.com)에 문의하십시오.
+- **전자메일:** [sales@femtomes.com](mailto:sales@femtomes.com)
+- **전화:** +86-10-53779838
 
-## Functional Ports
+## 기능성 포트
 
 ![MINI II 1](../../assets/hardware/gps/rtk_fem_miniII_1.jpg)
 
-## Wiring and Connections
+## 배선
 
 The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flight controller (GPS port) for data. To power the module you will need a separate 12V power supply. The pins on the 12-pin connector are numbered as shown below.
 
