@@ -49,87 +49,87 @@ RTK 포지셔닝에는 [RTK GPS 장치](#supported-rtk-devices)의 *쌍*이 필�
 
 #### 로버 RTK 모듈 (차량)
 
-The connection method and cables/connectors required depends on the selected RTK module (and on the [flight controller](../flight_controller/README.md)).
+필요한 연결 방법과 케이블/커넥터는 선택한 RTK 모듈과 [비행 콘트롤러](../flight_controller/README.md)에 따라 달라집니다.
 
-Most are connected via the flight controller's GPS port, in the same way as any other GPS module. Some are connected to the [UAVCAN](../uavcan/README.md) bus.
+대부분은 다른 GPS 모듈과 같은 방식으로 비행 콘트롤러의 GPS 포트를 통해 연결됩니다. 일부는 [UAVCAN](../uavcan/README.md) 버스에 연결됩니다.
 
-See [documentation for the selected device](#supported-rtk-devices) and [UAVCAN](../uavcan/README.md) for more information on wiring and configuration.
+배선과 설정 방법에 대한 자세한 내용은 [선택한 장치에 대한 문서](#supported-rtk-devices)와 [UAVCAN](../uavcan/README.md)을 참고하십시오.
 
-#### Base RTK Module (Ground)
+#### 기본 RTK 모듈 (접지)
 
-Connect the base module to *QGroundControl* via USB. The base module must not be moved while it is being used.
+USB를 통해 기본 모듈을 *QGroundControl*에 연결합니다. 기본 모듈을 사용하는 동안 이동하면 안됩니다.
 
 :::tip
-Choose a position where the base module won't need to be moved, has a clear view of the sky, and is well separated from any buildings. Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+기본 모듈을 이동할 필요가 없는 하늘이 잘 보이고 건물과 잘 분리된 위치를 선택하십시오. 삼각대를 사용하거나 지붕에 장착하여 기본 GPS의 위치를 높이는 것이 도움이되는 경우가 많이 있습니다.
 :::
 
-#### Telemetry Radio/WiFi
+#### 텔레메트리 라디오/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
+기체 지상제어용 노트북은 [wifi 또는 무선 텔레메트리 링크](../telemetry/README.md)를 통하여 연결하여야 합니다.
 
-The link *must* use the MAVLink 2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
+링크는 채널을 보다 효율적으로 사용할 수 있도록 *반드시* MAVLink 2 프로토콜을 사용하여야 합니다. 기본적으로 설정되어야 하지만, 그렇지 않은 경우에는 아래 [MAVLink2 설정 방법](#mavlink2)을 따르십시오.
 
-### RTK Connection Process
+### RTK 연결 프로세스
 
-The RTK GPS connection is essentially plug and play:
+RTK GPS 연결은 기본적으로 플러그앤플레이입니다.
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
-2. Start the vehicle and make sure it is connected to *QGroundControl*.
+1. *QGroundControl*을 실행하고 USB를 통하여 기본 RTK GPS를 지상국에 연결합니다. 장치가 자동으로 인식됩니다.
+2. 차량의 시동을 걸고 *QGroundControl*에 연결되어 있는지 확인하십시오.
     
 :::tip
-*QGroundControl* displays an RTK GPS status icon in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
+*QGroundControl*은 RTK GPS 장치가 연결되어 있는 동안 상단 아이콘 표시줄에 RTK GPS 상태 아이콘을 표시합니다 (일반 GPS 상태 아이콘 추가). RTK가 설정되는 동안 아이콘은 빨간색으로 표시되고, RTK GPS가 활성화되면 흰색으로 바뀝니다. 아이콘을 클릭하여 현재 상태와 RTK 정확도를 확인할 수 있습니다.
 :::
 
-3. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
+3. 그런 다음 *QGroundControl*은 RTK 설정 프로세스( "Survey-In"이라고 함)를 시작합니다.
     
-    Survey-In is a startup procedure to get an accurate position estimate of the base station. The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+    Survey-In은 기지국의 정확한 위치 추정치를 획득을 위한 시작 절차입니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다 ([RTK 설정](#rtk-gps-settings)에 지정된 최소 시간 및 정확도에 도달하면 종료됨).
     
-    You can track the progress by clicking the RTK GPS status icon.
+    RTK GPS 상태 아이콘을 클릭하여 진행 상황을 추적할 수 있습니다.
     
     ![survey-in](../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png)
 
-4. Once Survey-in completes:
+4. Survey-in이 완료되면 :
 
-- The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
+- RTK GPS 아이콘이 흰색으로 변경되고, *QGroundControl*이 위치 데이터를 기체에 스트리밍하기 시작합니다.
     
-    ![RTK streaming](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
+    ![RTK 스트리밍](../../assets/qgc/setup/rtk/qgc_rtk_streaming.png)
 
-- Vehicle GPS switches to RTK mode. The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
+- 기체의 GPS가 RTK 모드로 전환됩니다. 새 모드는 *일반* GPS 상태 아이콘 (`3D RTK GPS 잠금`)에 표시됩니다.
     
-    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+    ![RTK GPS 상태](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-### Optional PX4 Configuration
+### 선택적 PX4 구성
 
-The following settings may need to be changed (using *QGroundControl*).
+다음 설정을 변경해야 할 수 있습니다 (*QGroundControl* 사용).
 
-#### RTK GPS settings
+#### RTK GPS 설정
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
+RTK GPS 설정은 *QGroundControl* [일반 설정](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView &gt; 일반 설정 &gt; RTK GPS **)에서 지정됩니다.
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
-These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
+이러한 설정은 RTK GPS 설정 프로세스 ( "Survey-In) 완료를 위한 최소 기간과 최소 정확도를 정의합니다.
 
 :::tip
-You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey. The values will then persist across QGC reboots until they are changed.
+시간을 절약하기 위해 기본 위치를 저장하고 재사용 할 수 있습니다. Survey-In을 한 번 수행하고 *지정된 기본 위치 사용*을 선택한 다음 **현재 기본 위치 저장**을 눌러 값을 복사합니다. 그러면 값이 변경시까지 QGC 재부팅시에도 유지됩니다.
 :::
 
 #### MAVLink2
 
-The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
+MAVLink2 프로토콜은 낮은 대역폭 채널을 보다 효율적으로 사용하기 때문에 사용하여야합니다. 이것은 최근 빌드에서 기본적으로 활성화되어야 합니다.
 
-To ensure MAVLink2 is used:
+MAVLink2가 사용되는 지 확인하려면 :
 
-- Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
-- Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
+- 텔레메트리 모듈 펌웨어를 최신 버전으로 업데이트합니다 ([ QGroundControl &gt; 설정&gt; 펌웨어](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html) 참조).
+- [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER)를 2로 설정합니다 ([QGroundControl 설정 &gt; 매개 변수](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) 참조).
 
-#### Tuning
+#### 튜닝
 
-You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
+GPS 정확도를 센티미터가 아닌 미터 단위로 가정하여 기본 매개변수가 조정되므로 일부 매개변수를 조정하여야 할 수도 있습니다. 예를 들어 [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE)와 [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE)를 0.2로 줄일 수 있습니다.
 
-#### Dual Receivers
+#### 이중 수신기
 
-A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
+두 번째 GPS 수신기는 백업으로 사용할 수 있습니다 (RTK 또는 비 RTK). [EKF2 GPS 설정](../advanced_config/tuning_the_ecl_ekf.md#gps) 섹션을 참고하십시오.
 
 <!--
 
@@ -137,11 +137,11 @@ A second GPS receiver can be used as a backup (either RTK or non RTK). See the [
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
-### Vehicle Setup Example
+### 기체 설정 예
 
-The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](../frames_multicopter/dji_flamewheel_450.md) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
+[거리 센서 및 RTK GPS가 있는 DJI Flamewheel 450](../frames_multicopter/dji_flamewheel_450.md)에서는 Here + RTK GPS와 Pixhawk 3 Pro를 사용한 기체 설정 방법에 대하여 설명합니다.
 
-## Further Information
+## 추가 정보
 
-- [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md): Developer information about integrating RTK-GPS support into PX4.
-- [Real Time Kinematic](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
+- [RTK-GPS (PX4-Integration)](../advanced/rtk_gps.md) : RTK-GPS 지원을 PX4에 통합에 대한 개발자 정보입니다.
+- [실시간 운동학](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (Wikipedia)
