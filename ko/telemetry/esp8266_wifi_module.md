@@ -29,18 +29,18 @@ ESP8266 모듈은 여러 곳에서 쉽게 구매할 수 있습니다. 몇 군데
 먼저 PX4 호환 ESP8266 펌웨어([아래 참조](#esp8266-flashing-firmware-advanced))로 라디오를 *업데이트*할 수 있습니다. 제조 매뉴얼에 업데이트가 필요한 지 확인하십시오.
 :::
 
-Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
+무료 UART에서 ESP8266을 Pixhawk 시리즈 비행 콘트롤러(예 : Pixracer)에 연결합니다.
 
-Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
+USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완전히 설정되지 않았으므로).
 
-Using *QGroundControl*:
+*QGroundControl* 사용법:
 
-* [Load recent PX4 firwmare onto the flight controller](../config/firmware.md).
-* [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266. Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
+* [최신 PX4 펌웨어를 비행 컨트롤러에 로드합니다](../config/firmware.md).
+* ESP8266 연결용 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. ESP8266에 설정된 값과 일치하려면 전송 속도를 921600으로 설정하여야 합니다.
 
-Once you have configured the flight controller serial port used for connecting to the radio, you can remove the physical USB connection between the ground station and the vehicle.
+무선 연결용 비행 콘트롤러 직렬 포트를 설정후에는 지상국과 기체간의 물리적 USB 연결을 해제할 수 있습니다.
 
-## Connect via ESP8266 to QGC
+## ESP8266을 통한 QGC 연결
 
 The module exposes a WiFi hotspot that your ground station computer can use to connect to the vehicle.
 
