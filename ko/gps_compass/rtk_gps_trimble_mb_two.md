@@ -17,33 +17,33 @@
 
 ## 안테나 케이블
 
-The Trimble MB-Two requires two dual-frequency (L1/L2) antennas. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
+Trimble MB-Two에는 2개의 이중 주파수(L1/L2) 안테나가 필요합니다. 좋은 예는 [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) 입니다. [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)에서 구매 가능합니다.
 
-The antenna connector type on the device is MMCX. Suitable cables for the above antennas (SMA connector) can be found here:
+장치의 안테나 커넥터 유형은 MMCX입니다. 위의 안테나(SMA 커넥터)에 적합한 케이블은 아래에서 참고하십시오.
 
 - [30 cm version](https://www.digikey.com/products/en?mpart=415-0073-012&v=24)
 - [45 cm version](https://www.digikey.com/products/en?mpart=415-0073-018&v=24)
 
-## Wiring and Connections
+## 배선
 
-The Trimble MB-Two is connected to a UART on the flight controller (GPS port) for data.
+Trimble MB-Two는 비행 콘트롤러(GPS 포트)의 UART에 연결됩니다.
 
-To power the module you will need a separate 3.3V power supply (the maximum consumption is 360mA).
+모듈에 전원을 공급용 3.3V 전원공급장치가 별도로 필요합니다 (최대 소비량은 360mA).
 
 :::note
-The module cannot be powered from a Pixhawk.
+모듈은 Pixhawk에서 전원을 공급 받을 수 없습니다.
 :::
 
-The pins on the 28-pin connector are numbered as shown below:
+28핀 커넥터 핀은 아래와 같은 번호가 지정됩니다:
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
-| Pin | Name     | Description                                          |
-| --- | -------- | ---------------------------------------------------- |
-| 6   | Vcc 3.3V | Power supply                                         |
-| 14  | GND      | Connect to power the supply and GND of the Autopilot |
-| 15  | TXD1     | Connect to RX of the Autopilot                       |
-| 16  | RXD1     | Connect to TX of the Autopilot                       |
+| 핀  | 이름       | Description                                          |
+| -- | -------- | ---------------------------------------------------- |
+| 6  | Vcc 3.3V | Power supply                                         |
+| 14 | GND      | Connect to power the supply and GND of the Autopilot |
+| 15 | TXD1     | Connect to RX of the Autopilot                       |
+| 16 | RXD1     | Connect to TX of the Autopilot                       |
 
 ## Configuration
 
