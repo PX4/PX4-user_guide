@@ -22,7 +22,7 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용 방법은 대부분 플�
 모든 H-RTK GNSS 모델에는 [Pixhawk 4](../flight_controller/pixhawk4.md)와 호환되는 GH 10 핀 커넥터/케이블이  제공됩니다.
 
 :::note
-다른 비행 콘트롤러에 연결하기 위하여 케이블/커넥터를 수정할 수 있습니다 (아래 [핀 맵](#pin-map) 참조).
+다른 비행 콘트롤러에 연결하기 위하여 케이블/커넥터를 수정하는 경우도 있습니다 (아래 [핀 맵](#pin-map) 참조).
 :::
 
 ## 핀 맵
@@ -34,7 +34,7 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용 방법은 대부분 플�
 
 ![h-rtk-f9p_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_spec.png)
 
-## GPS 액세서리
+## GPS 소품
 
 [H-RTK 마운트 (Holybro 웹사이트)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
 
