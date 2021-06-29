@@ -1,21 +1,21 @@
 # Trimble MB-Two
 
-The [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) is a high-end, dual-frequency [RTK GPS module](../gps_compass/rtk_gps.md) that can be configured as either base or rover.
+[Trimble MB-Two RTK GPS 수신기](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx)는 베이스 또는 로버로 구성할 수있는 하이엔드 듀얼 주파수 [RTK GPS 모듈](../gps_compass/rtk_gps.md)입니다.
 
-In addition to providing precise position information, the MB-Two can estimate heading angle (it has dual-antenna support). This is useful for situations where a compass cannot provide reliable heading information, for example when flying close to metal constructs.
+정확한 위치 정보를 제공하는 것만 아니라, MB-Two는 방향 각도를 추정할 수 있습니다 (이중 안테나 지원이 있음). 이것은 금속 구조물 근처에서 비행시 나침반 정보가 부정확한 상황에서 매우 유용합니다.
 
 ![MB-Two Hero image](../../assets/hardware/gps/rtk_trimble_two_gnss_hero.jpg)
 
-## Required Firmware Options
+## 필수 펌웨어 옵션
 
-The following firmware options need to be selected when buying the device:
+장치 구매시 다음 펌웨어 옵션을 선택하여야 합니다.
 
-- \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] for 20Hz position updates and RTK support, 1cm horizontal and 2cm vertical position accuracy
+- \[X\] \[2\] \[N\] \[G\] \[W\] \[Y\] \[J\] : 20Hz 위치 업데이트 및 RTK 지원, 수평 1cm 및 수직 2cm 위치 정확도
 - \[L\] LBAND
-- \[D\] DUO - Dual Antenna Heading
-- \[B\] BEIDOU + \[O\] GALILEO, if needed
+- \[D\] DUO - 이중 안테나 방향각
+- \[B\] BEIDOU + \[O\] GALILEO, 필요시
 
-## Antennas and Cable
+## 안테나 케이블
 
 The Trimble MB-Two requires two dual-frequency (L1/L2) antennas. A good example is the [Maxtenna M1227HCT-A2-SMA](http://www.maxtena.com/products/helicore/m1227hct-a2-sma/) (which can be bought, for instance, from [Farnell](https://uk.farnell.com/maxtena/m1227hct-a2-sma/antenna-1-217-1-25-1-565-1-61ghz/dp/2484959)).
 
