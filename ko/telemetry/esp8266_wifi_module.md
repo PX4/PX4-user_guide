@@ -1,32 +1,32 @@
 # ESP8266 WiFi 모듈
 
-The ESP8266 and its clones are low-cost and readily available Wi-Fi modules with full TCP/IP stack and microcontroller capability. They can be used with any Pixhawk series controller.
+ESP8266와 유사품은 전체 TCP/IP와 마이크로 컨트롤러 기능을 제공하는 저렴한 Wi-Fi 모듈입니다. 모든 Pixhawk 시리즈 콘트롤러에서 사용 가능합니다.
 
-:::tip ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+:::tip ESP8266은 [Pixracer](../flight_controller/pixracer.md)와 함께 사용되는 *실제적인* 기본 WiFi 모듈입니다 (일반적으로 번들로 함꼐 제공됨).
 :::
 
-## Where to Buy
+## 구매처
 
-The ESP8266 module is readily available from a number of suppliers. A few vendors are listed below.
+ESP8266 모듈은 여러 곳에서 쉽게 구매할 수 있습니다. 몇 군데의 구매처는 아래에 나열되어 있습니다.
 
-Most modules support 3.3 V input (only), while some flight controllers (e.g. Pixhawk 4) output at 5V (you will need to check compatibility and step down the voltage if needed).
+대부분의 모듈은 3.3V 입력 (전용)을 지원하지만 일부 비행 콘트롤러(예 : Pixhawk 4)는 5V에서 출력됩니다 (호환성을 확인하고 필요한 경우 전압을 낮추어야합니다).
 
-Modules that accept 3.3V supply:
+3.3V 사용 모듈:
 
 * [WRL-17146](https://www.sparkfun.com/products/13678) (Sparkfun)
-* [AI Cloud](https://us.gearbest.com/boards-shields/pp_009604906563.html) - discontinued (GearBeast)
+* [AI 클라우드](https://us.gearbest.com/boards-shields/pp_009604906563.html) - 단종됨 (GearBeast)
 
-Modules that accept 5.0V supply:
+5.0V 사용 모듈:
 
 * [AI Thinker](https://www.banggood.com/Wireless-Wifi-to-Uart-Telemetry-Module-With-Antenna-for-Mini-APM-Flight-Controller-p-1065339.html) (Banggood)
 * [AlphaUAVLink](https://www.banggood.com/MAVLink-Wifi-Bridge-2_4G-Wireless-Wifi-Telemetry-Module-with-Antenna-for-Pixhawk-APM-Flight-Controller-p-1428590.html) (Banggood)
 
 <span id="px4_config"></span>
 
-## Pixhawk/PX4 Setup & Configuration
+## Pixhawk/PX4 설정
 
 :::tip
-You *may* first need to update the radio with PX4-compatible ESP8266 firmware ([see below](#esp8266-flashing-firmware-advanced)). The manufacture instructions should explain if this is needed.
+먼저 PX4 호환 ESP8266 펌웨어([아래 참조](#esp8266-flashing-firmware-advanced))로 라디오를 *업데이트*할 수 있습니다. 제조 매뉴얼에 업데이트가 필요한 지 확인하십시오.
 :::
 
 Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
