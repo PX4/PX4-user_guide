@@ -34,7 +34,7 @@ _QGroundControl_을 통한 PX4의 RTK 설정 및 사용은 대부분 플러그�
 
 ![h-rtk_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-m8p_spec.png)
 
-## GPS 액세서리
+## GPS 소품
 
 [H-RTK 소품 (Holybro 웹사이트)](https://shop.holybro.com/c/h-rtk_0512)
 
