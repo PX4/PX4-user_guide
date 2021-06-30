@@ -5,26 +5,26 @@ CUAV<sup>&reg;</sup> *HV_PM* 전원 모듈은 CUAV에서 개발한 "고전압" �
 
 ## 사양
 
-- **Higher voltage input:** 10V-60V (3s~14s battery)
-- **Accurate battery monitor:**
-  - **Voltage detection accuracy:** +-0.1v;
-  - **Current detection accuracy:** +-0.2A
-- **BEC (5v) max current:** 5A
-- **Max (detection) current:** 60A
-- **Max output current (ESC/MOTOR PORT):** 60A
+- **고전압 입력:** 10V ~ 60V (3s ~ 14s 배터리)
+- **정확한 배터리 모니터:**
+  - **전압 감지 정확도:** +- 0.1v
+  - **전류 감지 정확도:** +- 0.2A
+- **BEC (5v) 최대 전류:** 5A
+- **최대 (감지) 전류:** 60A
+- **최대 출력 전류 (ESC/MOTOR PORT):** 60A
 
-## Purchase
+## 구매
 
-[CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
+[CUAV aliexpress 상점](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
-## Pinouts
+## 핀배열
 
 ![HV PM](../../assets/hardware/power_module/cuav_hv/hv_pm.jpg)
 
-## Enable HV PM
+## HV PM 활성화
 
-[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery and power module.
+[배터리 및 전원 모듈 설정](../config/battery.md)은 배터리와 전원 모듈 설정 방법을 설명합니다.
 
-The key configuration settings for `HV_PM` are:
-- **Voltage divider:** 18
-- **Amps per volt:** 24 A/V
+`HV_PM`의 주요 설정은 다음과 같습니다.
+- **전압 분배기:** 18
+- **볼트 당 암페어:** 24 A/V
