@@ -91,22 +91,22 @@ OpenTX 2.1.6 이상을 실행하는 Taranis 호환 수신기(예 : X9D Plus)는 
 
 스크립트 설치 방법은 [LuaPilot Taranis Telemetry 스크립트 &gt; Taranis Setup OpenTX 2.1.6 이상](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)을 참고하십시오.
 
-If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Suggested modifications include:
+텍스트 편집기로 `LuaPil.lua` 스크립트를 열어 설정을 편집할 수 있습니다. 제안된 수정 사항은 다음과 같습니다.
 
-* `local BattLevelmAh = -1` - Use the battery level calculation from the vehicle
-* `local SayFlightMode = 0` - There are no WAV files for the PX4 flight modes
+* `local BattLevelmAh = -1` - 기체 배터리 잔량을 계산합니다.
+* `local SayFlightMode = 0` - PX4 비행 모드 WAV 파일이 없습니다.
 
 <span id="messages"></span>
 
-## Telemetry Messages
+## 텔레메트리 메시지
 
-FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
+FrSky Telemetry는 PX4 유용한 상태 정보 대부분을 전송합니다. S-Port 및 D-Port 수신기는 다음 섹션에 나열된대로 서로 다른 메시지 세트를 전송합니다.
 
 <span id="s_port"></span>
 
 ### S-Port
 
-S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+S-Port 수신기는 PX4([여기](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)에서)에서 다음 메시지들을 전송합니다.
 
 * **AccX, AccY, AccZ:** Accelerometer values.
 * **Alt:** Barometer based altitude, relative to home location.
