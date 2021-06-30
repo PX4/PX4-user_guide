@@ -10,21 +10,21 @@
 
 ## 사양
 
-- **PCB Current:** total 120A outputs (MAX)
-- **UBEC 5v output current:** 3A
-- **UBEC input voltage:** 7~51v (2~12s LiPo)
-- **Dimensions:** 68*50*8 mm
-- **Mounting Holes:** 45x45mm
-- **Weight:** 36g
+- **PCB 전류:** 총 (최대) 120A 출력
+- **UBEC 5v 출력 전류:** 3A
+- **UBEC 입력 전압:** 7 ~ 51v (2 ~ 12s LiPo)
+- **크기:** 68*50*8 mm
+- **장착 구멍:** 45x45mm
+- **중량:** 36g
 
-## Package Contents
+## 패키지 내용물
 
 ![Package Contents](../../assets/hardware/power_module/holybro_pm07/package_contents.jpg)
 
-- PM07 board (1)
-- 80mm XT60 connector wire (1)
+- PM07 보드 (1)
+- 80mm XT60 연결 와이어 (1)
 
-## Purchase
+## 구매
 
 [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
 
