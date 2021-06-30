@@ -75,38 +75,38 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 
 ## 비표준 WiFi 연결 QGC 설정
 
-*QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to the "Pixracer" WiFi access point. For any other access point name you will need to manually create a custom comm link:
+*QGroundControl*은 지상국 컴퓨터가 "Pixracer"라는 이름의 WiFi에 연결되면 자동으로 기체에 연결됩니다. 다른 이름의 액세스 포인트에는 사용자 지정 통신 연결을 수동으로 생성하여야 합니다.
 
-1. Go to [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html)
-2. Add new connection with appropriate settings.
-3. Select the new connection, and click **Connect**.
-4. The vehicle should now connect
+1. [애플리케이션 설정 &gt; 통신 링크](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html)로 이동합니다.
+2. 적절한 설정으로 새 연결을 추가합니다.
+3. 새 연결을 선택하고, **연결**을 클릭합니다.
+4. 이제 기체에 연결되어야 합니다.
 
-## Verify
+## 확인
 
-You should now see HUD movement on your QGC computer via wireless link and be able to view the summary panel for the ESP8266 WiFi Bridge (as shown below).
+이제 무선 링크를 통해 QGC 컴퓨터에서 HUD 이동을 확인하고, ESP8266 WiFi 브리지에 대한 요약 패널을 볼 수 있습니다 (아래 그림 참조).
 
 ![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
-If you have any problem connecting, see [QGC Installation/Configuration Problems](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection).
+연결 문제가 발생하면 [QGC 설치/설정 문제](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection)를 참고하십시오.
 :::
 
-## ESP8266 Flashing/Firmware (Advanced)
+## ESP8266 플래싱/펌웨어 (고급)
 
-ESP8266 modules from different manufacturers may not have appropriate ESP8266 firmware pre-installed. The instructions below explain how to update radios with the correct version.
+다른 제조업체의 ESP8266 모듈에는 사전에 적절한 ESP8266 펌웨어가 설치되어 있지 않을 수 있습니다. 아래 지침은 적절한 버전으로 라디오를 업데이트 방법을 설명합니다.
 
-### Pre Built Binaries
+### 사전 빌드 바이너리
 
 [MavLink ESP8266 Firmware V 1.2.2](http://www.grubba.com/mavesp8266/firmware-1.2.2.bin)
 
-### Build From Sources
+### 소스 빌드
 
-The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the ESP8266 firmware.
+[펌웨어 저장소](https://github.com/dogmaphobic/mavesp8266)에는 ESP8266 펌웨어 빌드와 플래시 지침과 도구들이 있습니다.
 
-### Updating the Firmware OTA
+### 펌웨어 OTA 업데이트
 
-If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature. Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
+펌웨어 1.0.4 이상에서는 ESP의 *무선 업데이트* 기능을 사용하여 업데이트 가능합니다. AP WiFi 링크에 연결하고 `http://192.168.4.1/update`로 이동합니다. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
 
 :::tip
 This is the easiest way to update firmware!
