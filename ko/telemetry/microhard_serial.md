@@ -4,7 +4,7 @@
 
 기본 설정을 사용시, 출력이 1W로 설정의 대략적인 범위는 8km (5 마일)입니다. 단일 지상국 라디오를 사용하여 지점 대 다중 지점 또는 메시를 사용하여 여러 기체와 통신 가능합니다. 기체의 MAVLINK ID는 각기 달라야 합니다.
 
-![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
+![Microhard 라디오](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
 ## 구매:
 
@@ -20,7 +20,7 @@
 
 라디오의 출력 전력이 100mW 미만으로 설정된 경우에는 텔레메트리 케이블로 전원을 공급할 수 있습니다. 더 높은 출력의 라디오는 2 핀 Molex Nano-Fit (즉, 배터리에서)를 통하여 별도로 전원을 공급하여야 합니다.
 
-![Microhard Radio on Vehicle](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
+![기체의 Microhard 라디오](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
 
 ### 지상국 라디오
 
@@ -34,17 +34,17 @@ USB C를 통하여 지상 라디오를 지상국에 연결합니다. USB PD를 �
 PX4는 텔레메트리 라디오에 `TELEM1`을 사용하도록 설정되며, 기본전송속도는 57600 (권장)입니다. 이 포트 및 전송 속도를 사용하는 경우에는 추가로 PX4 설정할 필요는 없습니다.
 
 :::note
-You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+[MAVLink 주변기기](../peripherals/mavlink_peripherals.md) 지침에 따라 다른 직렬 포트로 설정하거나 전송속도를 변경할 수 있습니다.
 :::
 
-The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (Windows only).
+라디오는 [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip)를 사용하여 설정합니다 (Windows 에만 해당).
 
 ![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
 
-For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running *Pico Config* (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port). *Pico Config* will automatically detect the radio. Adjust the baud rate setting to match PX4 (and the ground station radio).
+차량 라디오 설정에는 라디오의 3핀 JST-GH Config 포트와 *Pico Config*를 실행하는 Windows PC 간에 FTDI 어댑터를 연결하여합니다 (라디오에 전원이 공급되어야 하며 배터리 또는 비행 콘트롤러의 `TELEM1` 포트에 대한 데이터 연결). *Pico Config*는 자동으로 라디오를 감지합니다. 전송속도를 PX4 (및 지상국 라디오)와 일치하도록 설정합니다.
 
-![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
+![Ark Microhard Serial - 포트](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
 
-The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data). *Pico Config* will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4.
+지상국 라디오 USB C 연결은 라디오 설정(및 원격 측정 데이터)에 사용할 수 있습니다. *Pico Config*는 설정 포트를 자동으로 감지하고 연결합니다. 전송속도가 PX4와 일치하도록 설정하십시오.
 
-Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio. *QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+라디오와 PX4가 동일한 전송속도로 설정되면, 라디오로 QGroundControl을 기체에 연결할 수 있습니다. *QGroundControl*은 라디오를 자동으로 감지하지 않으므로 먼저 [응용 프로그램 설정 > 통신 링크에서 새 "직렬 연결"을 만듭니다.](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (PX4/라디오에서 사용하는 것과 동일한 전송속도 설정).
