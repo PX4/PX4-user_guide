@@ -1,6 +1,6 @@
-# FrSky Telemetry
+# FrSky 텔레메트리
 
-FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
+FrSky 텔레메트리는 호환 RC 송신기의 기체 [텔레메트리/상태](#messages) 정보에 접근할 수 있습니다.
 
 Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
 
