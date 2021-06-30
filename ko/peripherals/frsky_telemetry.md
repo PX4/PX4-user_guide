@@ -108,9 +108,9 @@ FrSky Telemetry는 PX4 유용한 상태 정보 대부분을 전송합니다. S-P
 
 S-Port 수신기는 PX4([여기](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)에서)에서 다음 메시지들을 전송합니다.
 
-* **AccX, AccY, AccZ:** Accelerometer values.
-* **Alt:** Barometer based altitude, relative to home location.
-* **Curr:** Actual current consumption (Amps).
+* **AccX, AccY, AccZ:** 가속도
+* **Alt:** 홈 위치를 기준 기압계 기반 고도.
+* **Curr:** 실제 전류 소비 (Amps).
 * **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
 * **GAlt:** GPS altitude, sea level is zero.
 * **GPS:** GPS coordinates.
