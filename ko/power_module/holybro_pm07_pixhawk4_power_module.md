@@ -19,23 +19,23 @@
 
 ## 패키지 내용물
 
-![Package Contents](../../assets/hardware/power_module/holybro_pm07/package_contents.jpg)
+![패키지 내용물](../../assets/hardware/power_module/holybro_pm07/package_contents.jpg)
 
-- PM07 보드 (1)
-- 80mm XT60 연결 와이어 (1)
+- PM07 보드 1개
+- 80mm XT60 연결 와이어 1개
 
 ## 구매
 
-[Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
+[Pixhawk 4 전원 모듈 (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html)
 
 
-## Wiring/Connections
+## 배선
 
-Wiring and connection information can be found in: [Pixhawk 4 > Power](../assembly/quick_start_pixhawk4.md#power).
+배선 정보는 [Pixhawk 4 &gt; 전원](../assembly/quick_start_pixhawk4.md#power)을 참고하십시오.
 
-![Pixhawk 4 - Power Management Board](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
+![Pixhawk 4 - 전원 관리 보드](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
 
-## Further Information
+## 추가 정보
 
-[Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)
+[빠른 시작 가이드](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro)
