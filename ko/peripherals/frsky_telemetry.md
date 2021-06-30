@@ -111,18 +111,18 @@ S-Port 수신기는 PX4([여기](https://github.com/iNavFlight/inav/blob/master/
 * **AccX, AccY, AccZ:** 가속도
 * **Alt:** 홈 위치를 기준 기압계 기반 고도.
 * **Curr:** 실제 전류 소비 (Amps).
-* **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
-* **GAlt:** GPS altitude, sea level is zero.
-* **GPS:** GPS coordinates.
-* **GSpd:** Current horizontal ground speed, calculated by GPS.
-* **Hdg:** Heading (degrees - North is 0°).
-* **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
-* **VSpd:** Vertical speed (cm/s).
-* **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 25 - Takeoff, 29 - Land, 30 - Follow Me.
-* **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
+* **Fuel:** `battery_capacity` 변수 세트 및 변수 `smartport_fuel_percent = ON`인 경우 남은 배터리 비율, 그렇지 않으면 mAh가 표시됩니다.
+* **GAlt:** GPS 고도, 해수면은 0입니다.
+* **GPS:** GPS 좌표.
+* **GSpd:** GPS로 계산된 현재 수평 지면속도입니다.
+* **Hdg:** 방향 (도-북쪽은 0 °).
+* **VFAS:** 실제 배터리 전압(Voltage FrSky Ampere Sensor).
+* **VSpd:** 수직 속도 (cm/s).
+* **Tmp1:** [비행 모드](../getting_started/flight_modes.md), 정수로 전송 : 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 오프 보드, 20 - 안정화됨, 25 - 이륙, 29 - Land, 30 - Follow Me.
+* **Tmp2:** GPS 정보. 가장 오른쪽 숫자는 GPS 수정 유형입니다 (0 = 없음, 2 = 2D, 3 = 3D). 다른 숫자는 위성의 수입니다.
 
 :::note
-The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
+다음 "표준" S-Port 메시지는 PX4에서 지원되지 않습니다 : **ASpd**, **A4**.
 :::
 
 <!-- FYI: 
@@ -136,29 +136,29 @@ Lua map of flight modes:
 
 ### D-port
 
-D-Port receivers transmit the following messages (from [here](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)):
+D-Port 수신기는 다음 메시지를 전송합니다 ([여기](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)에서).
 
-* **AccX, AccY, AccZ:** Accelerometer values.
-* **Alt:** Barometer based altitude, init level is zero.
-* **Cels:** Average cell voltage value (battery voltage divided by cell number).
-* **Curr:** Actual current consumption (Amps).
-* **Fuel:** Remaining battery percentage if capacity is set, mAh drawn otherwise.
-* **Date:** Time since powered.
-* **GAlt:** GPS altitude, sea level is zero.
-* **GPS:** GPS coordinates.
-* **GSpd:** Current speed, calculated by GPS.
-* **Hdg:** Heading (degrees - North is 0°).
-* **RPM:** Throttle value if armed, otherwise battery capacity. Note that blade number needs to be set to 12 in Taranis.
-* **Tmp1:** Flight mode (as for S-Port).
-* **Tmp2:** GPS information (as for S-Port).
-* **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
-* **Vspd:** Vertical speed (cm/s).
+* **AccX, AccY, AccZ:** 가속도
+* **Alt:** 기압계 기반 고도, 초기화 수준은 0입니다.
+* **셀:** 평균 셀 전압 (배터리 전압을 셀 번호로 나눈 값).
+* **Curr:** 실제 전류 소비 (Amps).
+* **Fuel:** 용량이 설정된 경우 남은 배터리 비율, 그렇지 않으면 mAh가 표시됩니다.
+* **Date:** 전원 공급 이후 시간입니다.
+* **GAlt:** GPS 고도, 해수면은 0입니다.
+* **GPS:** GPS 좌표.
+* **GSpd:** GPS로 계산된 현재 속도입니다.
+* **Hdg:** 방향 (도-북쪽은 0 °).
+* **RPM:** 장착된 경우 스로틀 값, 그렇지 않으면 배터리 용량. Taranis에서 블레이드 번호는 12로 설정하여야 합니다.
+* **Tmp1:** 비행 모드 (S-Port의 경우).
+* **Tmp2:** GPS 정보 (S-Port의 경우).
+* **VFAS:** 실제 배터리 전압(Voltage FrSky Ampere Sensor).
+* **VSpd:** 수직 속도 (cm/s).
 
 <span id="receivers"></span>
 
-## FrSky Telemetry Receivers
+## FrSky 텔레메트리 수신기
 
-Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work).
+Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니다. 아래 표는 D/S.PORT 텔레메트리를 지원하는 FrSky 수신기들입니다 (이론상 모두 작동함).
 
 :::tip
 Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
