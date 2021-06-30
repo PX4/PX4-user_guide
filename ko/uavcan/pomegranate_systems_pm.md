@@ -1,6 +1,6 @@
 # Pomegranate 시스템 전원 모듈
 
-![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
+![모듈 이미지](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
 
 고해상도 전류 통합 기능과 전력 모니터링 기능이 있는 5V/2A 전원, 단일 UAVCAN v0 CANbus 인터페이스와 RGB 상태 LED가 있는 디지털 전원 모듈.
 
@@ -30,7 +30,7 @@
    - **XT60PW 커넥터 포함:** 16g
 
 
- ![Dimensions](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
+ ![크기](../../assets/hardware/power_module/pomegranate_systems_pm/mechanical.png)
 
 ## 설정
 
