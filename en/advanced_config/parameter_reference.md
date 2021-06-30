@@ -15074,6 +15074,19 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_OR_ADIS164X">SENS_OR_ADIS164X</strong> (INT32)</td>
+ <td>Analog Devices ADIS16448 IMU Orientation(external SPI)  <strong>Values:</strong><ul>
+<li><strong>0:</strong> ROTATION_NONE</li> 
+
+<li><strong>4:</strong> ROTATION_YAW_180</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 101 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_SF0X_CFG">SENS_SF0X_CFG</strong> (INT32)</td>
  <td>Serial Configuration for Lightware Laser Rangefinder (serial) <p><strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder (serial).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
