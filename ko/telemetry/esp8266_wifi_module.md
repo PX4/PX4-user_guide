@@ -42,39 +42,38 @@ USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완�
 
 ## ESP8266을 통한 QGC 연결
 
-The module exposes a WiFi hotspot that your ground station computer can use to connect to the vehicle.
+이 모듈은 지상국과 기체 연결용 WiFi 핫스팟을 노출합니다.
 
-:::note
-The settings for the ESP8266 hotspot should be provided with the board (e.g. typically printed on the reverse side of the board or on the packaging).
+:::note ESP8266 핫스팟 설정은 보드와 함께 제공됩니다. 일반적으로 보드 뒷면 또는 포장지에 인쇄되어 있습니다.
 
-A common factory network setting is:
+일반적인 공장 네트워크 설정은 다음과 같습니다.
 
 * **SSID:** PixRacer
-* **Password:** pixracer
+* **비밀번호:** pixracer
 * **WiFi Channel:** 11
-* **UART speed:** 921600
+* **UART 속도:** 921600
 
-Other modules may use settings like this:
+다른 모듈은 다음과 같은 설정을 사용할 수 있습니다.
 
 * **SSID:** IFFRC_xxxxxxxx
-* **Password:** 12345678
+* **비밀번호:** 12345678
 * **IP:** 192.168.4.1
-* **Port:** 6789 (TCP)
+* **포트:** 6789 (TCP)
 
-Examples of boards from AlphaUILink and DOITING are shown below:
+AlphaUILink 및 DOITING의 보드 예는 다음과 같습니다.
 
 <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - Front" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - Front" />
 :::
 
-On your wifi-enabled *QGroundControl* ground station computer/tablet, find and connect to the open wireless network for your ESP8266. On a Windows computer the connection settings for a network with name **Pixracer** and default password **pixracer** point will look like this:
+Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP8266용 무선 네트워크를 연결합니다. Windows 컴퓨터에서 이름이 **Pixracer**이고 암호가 **pixracer**인 네트워크 연결 설정은 다음과 같습니다.
 
 ![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
-*QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to a WiFi access point named "Pixracer".
+*QGroundControl*은 지상국 컴퓨터가 "Pixracer"라는 이름의 WiFi에 연결되면 자동으로 기체에 연결됩니다.
 
-If you're using a module with any other WiFi name you will need to manually set up the QGroundControl WiFi connection, as shown in the following section.
+다른 WiFi 이름을 가진 모듈을 사용하는 경우에는, 다음 섹션에 표시된대로 QGroundControl WiFi 연결을 수동으로 설정하여야 합니다.
 
-## Configure QGC with non-standard WiFi connections
+## 비표준 WiFi 연결 QGC 설정
 
 *QGroundControl* will automatically connect to the vehicle when the ground station computer is attached to the "Pixracer" WiFi access point. For any other access point name you will need to manually create a custom comm link:
 
