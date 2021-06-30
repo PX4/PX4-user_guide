@@ -51,45 +51,45 @@ UART의 TX핀중 하나를 SPort 반전 또는 비반전 핀에 연결하면됩�
 
 ## PX4 설정
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
+[TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)를 사용하여 FrSky 실행 모듈 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정하지 않아도 됩니다.
 
 :::note
-You can use any free UART, but typically `TELEM 2` is used for FrSky telemetry (except for [Pixracer](../flight_controller/pixracer.md), which is pre-configured to use the *FrSky* port by default).
+무료 UART를 사용할 수 있지만 일반적으로 FrSky 텔레메트리에는 `TELEM 2`가 사용됩니다 (*FrSky* 포트를 사용하도록 사전 설정된 [Pixracer](../flight_controller/pixracer.md) 제외)
 :::
 
-:::tip
-If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+:::note
+*QGroundControl*에서 설정 매개변수를 사용할 수 없는 경우에는 [펌웨어에 드라이버를 추가](../peripherals/serial_configuration.md#parameter_not_in_firmware)하여야 합니다.
 
     drivers/telemetry/frsky_telemetry
     
 
 :::
 
-No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
+추가 설정이 필요하지 않습니다. FrSky 텔레메트리는 연결되면 자동으로 시작되고 D 또는 S 모드를 감지합니다.
 
 <span id="transmitters"></span>
 
-## Compatible RC Transmitters
+## 호환 RC 송신기
 
-You will need an RC transmitter that can receive the telemetry stream (and that is bound to the FrSky receiver).
+텔레메트리 스트림을 수신 기능한 (FrSky 수신기에 바인딩된) RC 송신기가 필요합니다.
 
-Popular alternatives include:
+많이 사용되는 제품들은 다음과 같습니다.
 
-* FrSky Taranis X9D Plus (recommended)
+* FrSky Taranis X9D Plus (추천)
 * FrSky Taranis X9D
 * FrSky Taranis X9E
 * FrSky Taranis Q X7
 * Turnigy 9XR Pro
 
-The above transmitters can display telemetry data without any further configuration. The following section(s) explain how you can customise telemetry display (for example, to create a better UI/UX).
+위의 송신기는 추가 설정없이, 텔레메트리 데이터를 출력합니다. 다음 섹션에서는 텔레메트리 디스플레이를 설정 방법(예 : 더 나은 UI/UX 생성)을 설명합니다.
 
-### Taranis - LuaPilot Setup
+### Taranis - LuaPilot 설정
 
-Compatible Taranis receivers (e.g. X9D Plus) running OpenTX 2.1.6 or newer can use the LuaPilot script to modify the displayed telemetry (as shown in the screenshot below).
+OpenTX 2.1.6 이상을 실행하는 Taranis 호환 수신기(예 : X9D Plus)는 LuaPilot 스크립트를 사용하여 원격 측정 출력을 수정할 수 있습니다 (아래 스크린 샷 참조).
 
 ![Telemetry Screen on the Taranis](../../assets/hardware/telemetry/taranis_telemetry.jpg)
 
-Instructions for installing the script can be found here: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
+스크립트 설치 방법은 [LuaPilot Taranis Telemetry 스크립트 &gt; Taranis Setup OpenTX 2.1.6 이상](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)을 참고하십시오.
 
 If you open the `LuaPil.lua` script with a text editor, you can edit the configuration. Suggested modifications include:
 
