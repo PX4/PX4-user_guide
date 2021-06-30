@@ -62,12 +62,12 @@ USB로 비행 컨트롤러를 지상국에 연결합니다 (WiFi가 아직 완�
 
 AlphaUILink 및 DOITING의 보드 예는 다음과 같습니다.
 
-<img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - Front" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - Back" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - Front" />
+<img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_back.jpg" width="250px" alt="AlphaUAVLink - 뒷면" /> <img src="../../assets/peripherals/telemetry/esp8266/alpha_uavlink_front.jpg" width="250px" alt="AlphaUAVLink - 앞면" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_back.jpg" width="250px" alt="DOITING EPS 12F - 뒷면" /> <img src="../../assets/peripherals/telemetry/esp8266/doiting_eps_12f_front.jpg" width="250px" alt="DOITING EPS 12F - 앞면" />
 :::
 
 Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP8266용 무선 네트워크를 연결합니다. Windows 컴퓨터에서 이름이 **Pixracer**이고 암호가 **pixracer**인 네트워크 연결 설정은 다음과 같습니다.
 
-![Windows Network Setup: Connection](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows Network Setup: Security](../../assets/peripherals/pixracer_network_setup_security_windows.png)
+![Windows 네트워크 설정: 연결](../../assets/peripherals/pixracer_network_setup_connection_windows.png) ![Windows 네트워크 설정: 보안](../../assets/peripherals/pixracer_network_setup_security_windows.png)
 
 *QGroundControl*은 지상국 컴퓨터가 "Pixracer"라는 이름의 WiFi에 연결되면 자동으로 기체에 연결됩니다.
 
@@ -86,7 +86,7 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 
 이제 무선 링크를 통해 QGC 컴퓨터에서 HUD 이동을 확인하고, ESP8266 WiFi 브리지에 대한 요약 패널을 볼 수 있습니다 (아래 그림 참조).
 
-![QGC Summary showing Wifi Bridge](../../assets/qgc/summary/wifi_bridge.png)
+![Wi-Fi 브리지 QGC 요약](../../assets/qgc/summary/wifi_bridge.png)
 
 :::tip
 연결 문제가 발생하면 [QGC 설치/설정 문제](https://docs.qgroundcontrol.com/en/Support/troubleshooting_qgc.html#waiting_for_connection)를 참고하십시오.
@@ -106,40 +106,40 @@ Wi-Fi가 활성화된 *QGroundControl* 지상국 컴퓨터/태블릿에서 ESP82
 
 ### 펌웨어 OTA 업데이트
 
-펌웨어 1.0.4 이상에서는 ESP의 *무선 업데이트* 기능을 사용하여 업데이트 가능합니다. AP WiFi 링크에 연결하고 `http://192.168.4.1/update`로 이동합니다. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
+펌웨어 1.0.4 이상에서는 ESP의 *무선 업데이트* 기능을 사용하여 업데이트 가능합니다. AP WiFi 링크에 연결하고 `http://192.168.4.1/update`로 이동합니다. 위에서 다운로드한 펌웨어 파일을 WiFi 모듈에 업로드할 수 있습니다.
 
 :::tip
-This is the easiest way to update firmware!
+이것은 펌웨어를 업데이트하는 가장 손쉬운 방법입니다.
 :::
 
-### Flashing the ESP8266 Firmware
+### ESP8266 펌웨어 플래싱
 
-Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described below. If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment. If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
+플래싱전에 아래 설명대로 *플래시 모드*에서 ESP8266을 부팅합니다. [MavESP8266](https://github.com/dogmaphobic/mavesp8266) 저장소를 복제한 경우 제공된 [PlatformIO](http://platformio.org) 도구 및 환경을 사용하여 펌웨어를 빌드하고 플래시할 수 있습니다. 위에서 사전 빌드 펌웨어를 다운로드한 경우에는 [esptool](https://github.com/espressif/esptool) 유틸리티를 다운로드후 아래 명령어를 실행하십시오.
 
     esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
     
 
-Where:
+여기서:
 
-* **firmware_xxxxx.bin** is the firmware you downloaded above
-* **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
+* **firmware_xxxxx.bin**은 위에서 다운로드 한 펌웨어입니다.
+* **your_serial_port**는 ESP8266이 연결된 직렬 포트의 이름입니다 (예 : `/dev/cu.usbmodem`).
 
-### Wiring for Flashing the Firmware
+### 펌웨어 플래싱을 위한 배선
 
 :::warning
-Most ESP8266 modules support 3.3 volts (only), while some flight controllers (e.g. Pixhawk 4) output at 5V. Check compatibility and step down the voltage if needed.
+대부분의 ESP8266 모듈은 3.3V (전용)를 지원하지만, 일부 비행 콘트롤러(예 : Pixhawk 4)는 5V에서 출력됩니다. 호환성을 확인하고, 필요한 경우 전압을 낮추어야 합니다.
 :::
 
-There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
+ESP8266을 *플래시 모드*로 설정하는 다양한 방법이 있지만, 모든 USB/UART 어댑터가 자동 모드 전환에 필요한 모든 핀을 제공하는 것은 아닙니다. *플래시 모드*에서 ESP8266을 부팅하려면, GPIO-0 핀을 로우(GND)로 설정하고 CH_PD 핀을 하이(VCC)로 설정합니다. 설정 예은 다음과 같습니다.
 
-![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
+![esp8266 깜박이는 장비](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
-I built a cable where RX, TX, VCC, and GND are properly wired directly from the FTDI adapter to the ESP8266. From the ESP8266, I left two wires connected to GPIO-0 and CH_PD free so I can boot it either normally or in flash mode by connecting them to GND and VCC respectively.
+RX, TX, VCC 및 GND가 FTDI 어댑터에서 ESP8266으로 연결되는 케이블을 직접 제작하였습니다. ESP8266에서 GPIO-0 및 CH_PD에 연결된 두 개의 와이어를 여분으로 남겨 두었습니다. 각각 GND 및 VCC에 연결하여 플래시 모드로 부팅 가능합니다.
 
-#### ESP8266 (ESP-01) Pinout
+#### ESP8266 (ESP-01) 핀배열
 
-![esp8266 wifi module pinout](../../assets/hardware/telemetry/esp8266_pinout.jpg)
+![esp8266 wifi 모듈 핀배열](../../assets/hardware/telemetry/esp8266_pinout.jpg)
 
-#### Flashing Diagram using an FTDI USB/UART Adapter
+#### FTDI USB / UART 어댑터를 사용한 플래싱 다이어그램
 
-![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
+![esp8266 플래싱](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
