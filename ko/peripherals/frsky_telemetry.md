@@ -8,13 +8,13 @@ PX4는 [S.Port](#s_port) (신규) 및 D (이전) FrSky 텔레메트리 포트를
 
 ## 하드웨어 설정
 
-FrSky telemetry requires:
+FrSky 텔레메트리의 요구사항은 다음과 같습니다.
 
-* An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
-* An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
-* A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
+* FrSky Taranis X9D Plus와 같은 [FrSky 호환 RC 송신기](#transmitters).
+* XSR와 X8R과 같은 [FrSky 텔레메트리 수신기](#receivers).
+* FrSky 수신기 스마트 포트(SPort)는 비행 콘트롤러 UART에 연결 케이블입니다.
 
-First [connect the receiver for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
+먼저 [RC 채널용 수신기를 연결](../getting_started/rc_transmitter_receiver.md#connecting-receivers)합니다. 수신기와 비행 컨트롤러의 S.Bus 포트를 연결합니다.
 
 Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
