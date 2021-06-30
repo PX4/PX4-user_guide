@@ -39,7 +39,7 @@ Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequ
 
 ### Pixhawk FMUv5/STM32F7 이후
 
-Pixhawk FMUv5 이후 버전에서는 PX4는 반전된(또는 반전되지 않은) S.Port 신호를 직접 읽을 수 있으며, 특별한 케이블이 필요하지 않습니다.
+Pixhawk FMUv5와 이후 버전에서는 PX4는 반전된(또는 반전되지 않은) S.Port 신호를 직접 읽을 수 있으며, 특별한 케이블이 필요하지 않습니다.
 
 :::note
 보다 일반적으로 이것은 STM32F7 이상을 사용하는 자동 조종 장치에서 해당됩니다 (예 : [Durandal](../flight_controller/durandal.md)에는 STM32H7이 있으며 반전되거나 반전되지 않은 S.Port 신호를 직접 읽을 수 있음).
@@ -189,28 +189,28 @@ Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니�
 
 ## 기성품 케이블
 
-Ready-made cables for use with Pixhawk FMUv4 and earlier (except for Pixracer) are available from:
+Pixhawk FMUv4와 이전 버전 (Pixracer 제외)의 기성품 케이블은 아래에서 구매가능합니다.
 
-* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible *PicoBlade connectors* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and *JST-GH connectors* (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
+* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). 버전은 DF-13 호환 *PicoBlade 커넥터*(FMUv2/3DR Pixhawk, FMUv2/HKPilot32 용) 및 *JST-GH 커넥터*(FMUv3/Pixhawk 2, "The Cube" 및 FMUv4 / PixRacer v1 용)와 함께 제공됩니다.
     
     [![Purchase cable here from Craft and Theory](../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg)](http://www.craftandtheoryllc.com/telemetry-cable)
 
 <span id="diy_cables"></span>
 
-## DIY Cables
+## DIY 케이블
 
-It is possible to create your own adapter cables. You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
+자신만의 어댑터 케이블을 만들 수 있습니다. 자동조종장치에 적합한 커넥터(예 : FMUv3/Pixhawk 2 "The Cube" 및 FMUv4/PixRacer v1 용 *JST-GH 커넥터* 및 DF-13 호환 *PicoBlade 커넥터* 이전 자동 조종 장치의 경우).
 
-The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. These can be sourced from:
+Pixracer에는 S.PORT와 UART 간의 신호 변환 장치가 포함되어 있지만, 다른 보드의 경우 UART-S.PORT 어댑터가 필요합니다. 아래에서 구매 가능합니다.
 
 * [FrSky FUL-1](https://www.frsky-rc.com/product/ful-1/): [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
 * SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/) 
 
-More information about the connections for different boards is given below.
+다른 보드에서의 연결 방법은 아래에 기술되어 있습니다.
 
-### Pixracer to S-port Receivers
+### Pixracer S-port 변환 수신기
 
-Connect the Pixracer FrSky TX and RX lines together (solder the wires together) to the X series receiver's S.port pin. GND need not be attached as this will have been done when attaching to S.Bus (normal RC connection).
+Pixracer FrSky TX와 RX 라인을 X 시리즈 수신기의 S.port 핀에 함께 연결합니다 (전선을 함께 납땜). GND는 S.Bus(일반 RC 연결)에 연결시 수행되므로 연결할 필요가 없습니다.
 
 The S-port connection is shown below (using the provided I/O Connector).
 
