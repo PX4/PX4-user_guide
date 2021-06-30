@@ -2,11 +2,11 @@
 
 FrSky 텔레메트리는 호환 RC 송신기의 기체 [텔레메트리/상태](#messages) 정보에 접근할 수 있습니다.
 
-Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
+사용 가능한 텔레메트리 목록</ 0>에는 비행 모드, 배터리 잔량, RC 신호 강도, 속도, 고도 등이 기술되어 있습니다. 일부 송신기는 가청 및 진동 피드백을 추가로 제공 할 수 있으며, 이는 배터리부족과 기타 안전 관련 경고시에 매우 유용합니다.</p> 
 
-PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
+PX4는 [S.Port](#s_port) (신규) 및 D (이전) FrSky 텔레메트리 포트를 모두 지원합니다.
 
-## Hardware Setup
+## 하드웨어 설정
 
 FrSky telemetry requires:
 
