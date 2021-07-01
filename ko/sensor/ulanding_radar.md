@@ -12,16 +12,16 @@
 
 ## 하드웨어 설정
 
-The rangefinder is supported by any hardware which runs a NuttX or Posix OS and which can offer a serial port for the interface. Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
+거리계는 NuttX 또는 Posix OS에서 직렬 포트를 제공하는 하드웨어에서 지원됩니다. 대부분의 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러가 이에 해당됩니다.
 
-US-D1 can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
+LIDAR는 *직렬 포트* UART (예 : TELEM2, TELEM3, GPS2 등)에 연결됩니다.
 
-## Parameter Setup
+## 매개변수 설정
 
-[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
+[SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG)를 사용하여 LIDAR가 실행되는 [직렬 포트를 설정](../peripherals/serial_configuration.md)합니다. 포트 전송속도는 드라이버에 의해 설정되므로, 추가로 설정할 필요는 없습니다.
 
 :::note
-If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+*QGroundControl*에서 설정 매개변수를 사용할 수 없는 경우에는 [펌웨어에 드라이버를 추가](../peripherals/serial_configuration.md#parameter_not_in_firmware)하여야 합니다:
 
     drivers/distance_sensor/ulanding
     
