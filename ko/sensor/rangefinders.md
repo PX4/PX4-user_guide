@@ -76,51 +76,51 @@ PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One
 
 ### QGroundControl 분석 툴
 
-The *QGroundControl Analyze Tool* tool and *QGroundControl MAVLink Inspector* let you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+*QGroundControl 분석 도구*와 *QGroundControl MAVLink Inspector*를 사용하여거리계의 `DISTANCE_SENSOR` 정보를 포함하여 기체에서 보낸 메시지를 조회할 수 있습니다. 도구 간의 주요 차이점은 *분석* 도구에서 그래프를 지원하는 점입니다.
 
 :::note
-The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
+전송되는 메시지는 차량 설정에 따라 달라집니다. 연결된 기체에 거리계가 설치되어 있고, 센서 값을 게시하는 경우에만 `DISTANCE_SENSOR` 메시지가 표시됩니다.
 :::
 
-To view the rangefinder output:
+거리계 출력을 보려면 :
 
-1. Open the menu **Widgets > Analyze**:
+1. **위젯 &gt; 분석** 메뉴를 오픈합니다.
     
-    ![Menu for QGC Analyze Tool](../../assets/qgc/menu_analyze_tool.png)
+    ![QGC 분석 도구 메뉴](../../assets/qgc/menu_analyze_tool.png)
 
-2. Select the message `DISTANCE_SENSOR.current_value`. The tool will then plot the result: ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
+2. `DISTANCE_SENSOR.current_value` 메시지를 선택합니다. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
 
 ### QGroundControl MAVLink Console
 
-You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
+*QGroundControl MAVLink Console*을 사용하여 `distance_sensor` uORB 토픽을 관찰할 수 있습니다.
 
 ```sh
 listener distance_sensor 5
 ```
 
 :::note
-The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
+*QGroundControl MAVLink Console*은 Pixhawk 또는 다른 NuttX 타겟에 연결시 작동하지만 ,시뮬레이터에는 연결되지 않습니다. 시뮬레이터에서는 터미널에서 직접 명령을 실행할 수 있습니다.
 :::
 
-For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
+자세한 내용은 [개발 &gt; 디버깅/로깅 &gt; 리스너 명령을 사용한 센서/토픽 디버깅](../debug/sensor_uorb_topic_debugging.md)을 참고하십시오.
 
-## Simulation
+## 시뮬레이션
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../simulation/gazebo.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar 및 소나 거리계는 [Gazebo Simulator](../simulation/gazebo.md)에서 사용할 수 있습니다. 이렇게 하려면, 거리계가 포함된 기체 모델을 사용하여 시뮬레이터를 시작하여 합니다.
 
-The iris optical flow model includes a Lidar rangefinder:
+광류 모델에는 Lidar 거리계가 포함됩니다.
 
 ```sh
 make px4_sitl gazebo_iris_opt_flow
 ```
 
-The typhoon_h480 includes a sonar rangefinder:
+typhoon_h480에는 소나 거리계가 포함되어 있습니다.
 
 ```sh
 make px4_sitl gazebo_typhoon_h480
 ```
 
-If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
+다른 기체를 사용하는 경우에는 설정 파일에 모델을 포함할 수 있습니다. 각각의 Iris 및 Typhoon 설정 파일에서 방법을 확인할 수 있습니다.
 
 - [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
         xml
