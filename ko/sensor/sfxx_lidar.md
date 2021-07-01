@@ -8,12 +8,12 @@ LightWare는 UAV에 장착에 적합한 경량의 범용 레이저 고도계( "�
 
 아래의 모델들은 PX4에서 지원되며, I2C 또는 직렬 버스에 연결할 수 있습니다 (아래 표는 각 모델에 사용할 수 있는 버스를 나타냄).
 
-### Available
+### 이용 가능
 
-| Model                                                                                  | Range (m) | Bus               | Description                                                     |
-| -------------------------------------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
-| [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120       | Serial or I2C bus |                                                                 |
-| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)                                | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
+| 모델                                                                                     | 범위 (m) | 버스           | 설명                                                              |
+| -------------------------------------------------------------------------------------- | ------ | ------------ | --------------------------------------------------------------- |
+| [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120    | 직렬 또는 I2C 버스 |                                                                 |
+| [LW20/C](https://lightware.co.za/products/lw20-c-100-m)                                | 100    | I2C 버스       | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
 ### Discontinued
 
