@@ -1,27 +1,27 @@
 # Lidar-Lite
 
-LIDAR-Lite is a compact, high-performance optical distant measurement sensor solution for drone, robot or unmanned vehicle applications. It can be connected to either I2C or PWM.
+LIDAR-Lite는 드론, 로봇 또는 무인 차량용 소형 고성능 광학 원거리 측정 센서입니다. I2C 또는 PWM에 연결됩니다.
 
 ![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
 
-## Where to Buy
+## 구매처
 
 * [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
-## Pinouts
+## 핀배열
 
-The Lidar-Lite (v2, v3) pinout is shown below.
+Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 
-| Pin | Name                | Description                                                                                                                           |
-| --- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | POWER_IN            | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                    |
-| 2   | POWER_EN            | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
-| 3   | Mode Select Control | Provides trigger (high-low edge) PWM out (high)                                                                                       |
-| 4   | SCL                 | I2C Clock                                                                                                                             |
-| 5   | SDA                 | I2C Data                                                                                                                              |
-| 6   | GND                 | Signal/power ground.                                                                                                                  |
+| 핀 | 명칭       | 설명                                                                                                |
+| - | -------- | ------------------------------------------------------------------------------------------------- |
+| 1 | POWER_IN | 전원 공급. 4.75-5.5V DC 공칭, 최대 6V DC.                                                                 |
+| 2 | POWER_EN | 액티브 하이는 3.3V 마이크로 컨트롤러 레귤레이터의 작동을 가능하게 합니다. 낮음은 보드를 절전 모드로 전환하고 40μA 미만을 소모합니다. (내장 100K pull-up) |
+| 3 | 모드 선택 제어 | 트리거 (하이-로우 에지) PWM 출력 (하이) 제공                                                                     |
+| 4 | SCL      | I2C Clock                                                                                         |
+| 5 | SDA      | I2C 데이터                                                                                           |
+| 6 | GND      | 신호/전원 접지.                                                                                         |
 
-## Wiring
+## 배선
 
 The *Lidar-Lite v3* can be used with either PWM or I2C. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
