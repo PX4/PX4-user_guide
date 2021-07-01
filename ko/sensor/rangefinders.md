@@ -56,11 +56,11 @@ PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One
 
 거리계는 일반적으로 직렬 (PWM) 또는 I2C 포트 (장치 드라이버에 따라 다름)에 연결되며, 특정 매개변수로 포트에서 활성화됩니다.
 
-The hardware and software setup that is *specific to each distance sensor* is covered in their individual topics.
+*각 거리 센서에 특정한* 하드웨어와 소프트웨어 설정은 개별 주제에서 설명합니다.
 
-The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
+물리적 설정과 사용법을 모두 포함하는 *모든 거리 센서에 공통적* 인 일반적인 설정 방법은 다음과 같습니다.
 
-### Generic Configuration
+### 일반 설정
 
 The common rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters. These include (non exhaustively):
 
