@@ -17888,6 +17888,13 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
+ <td>actuator_outputs uORB over UAVCAN v1 port ID    </td>
+ <td>-1 > 6143 </td>
+ <td>-1</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
  <td>DS-015 battery parameters port ID    </td>
  <td>-1 > 6143 </td>
