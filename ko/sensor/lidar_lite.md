@@ -23,7 +23,7 @@ Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 
 ## 배선
 
-The *Lidar-Lite v3* can be used with either PWM or I2C. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
+*Lidar-Lite v3*는 PWM 또는 I2C와 함께 사용합니다. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
 :::note
 The I2C interface of non-blue-label Lidar-Lite (v1) devices has stability limitations and all silver-label generations of Lidar-Lite sensors are therefore excluded from the I2C interface. The use of the PWM interface (as detailed below) is advised for these sensors. The blue label (v2) devices can exhibit a constant offset if powered on with less than 5V under some conditions. This is currently (Q4/2015) under investigation by the manufacturer and potentially can be resolved by adhering to specific operational conditions. The recommended robust setup is a v1 device interfaced via PWM.
