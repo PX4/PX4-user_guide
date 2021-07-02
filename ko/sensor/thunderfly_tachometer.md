@@ -46,53 +46,53 @@ TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 �
 ```
 pcf8583 start -X -b <bus number>
 ```
-where:
-- `-X` means that it is an external bus.
-- `<bus number>` is the bus number to which the device is connected
+여기서:
+- `-X`는 외부 버스를 나타냅니다.
+- `<bus number>`은 연결된 장치의 버스 번호입니다.
 
 :::note
-The bus number in code `-b <bus number>` may not match the bus labels on the autopilot. For example, when using CUAV V5+ or CUAV Nano:
+코드 `-b <bus number>`의 버스 번호는 자동조종장치의 버스 레이블과 일치하지 않을 수 있습니다. 예를 들어 CUAV V5 + 또는 CUAV Nano를 사용하는 경우:
 
-| Autopilot label | -b number |
-| --------------- | --------- |
-| I2C1            | -X -b 4   |
-| I2C2            | -X -b 2   |
-| I2C3            | -X -b 1   |
+| 자동조종장치 레이블 | -b 번호   |
+| ---------- | ------- |
+| I2C1       | -X -b 4 |
+| I2C2       | -X -b 2 |
+| I2C3       | -X -b 1 |
 
-The `pcf8583 start` command outputs the corresponding autopilot bus name/label for each bus number.
+`pcf8583 start` 명령은 각 버스 번호에 해당하는 자동조종장치 버스 이름/레이블을 출력합니다.
 :::
 
-### Testing
+### 시험하기
 
-You can verify the counter is working using several methods
+여러 가지 방법을 사용하여 카운터가 작동 여부를 확인할 수 있습니다.
 
-#### PX4 (NuttX) MAVLink Console
+#### PX4 (NuttX) MAVLink 콘솔
 
-The [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) can also be used to check that the driver is running and the UORB topics it is outputing.
+[QGroundControl MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 사용하여 드라이버가 실행 여부와 출력되는 UORB 토픽을 확인할 수 있습니다.
 
-To check the status of the TFRPM01 driver run the command:
+TFRPM01 드라이버의 상태를 확인하려면 다음 명령을 실행하십시오.
 ```
 pcf8583 status
 ```
-If the driver is running, the I²C port will be printed along with other basic parameters of the running instance. If the driver is not running it can be started started using theprocedure described above.
+드라이버가 실행중인 경우 I²C 포트가 실행중인 인스턴스의 다른 기본 매개변수와 함께 인쇄됩니다. 드라이버가 실행 중이 아니면, 위에서 설명한 절차를 사용하여 시작할 수 있습니다.
 
-The [listener](../modules/modules_command.md#listener) command allows you to monitor RPM UORB messages from the running driver.
+[listener](../modules/modules_command.md#listener) 명령을 사용하면 실행중인 드라이버에서 RPM UORB 메시지를 모니터링할 수 있습니다.
 ```
 listener rpm
 ```
-For periodic display, you can add `-n 50` parameter after the command, which prints the next 50 messages.
+주기적으로 표시하려면 명령 뒤에 `-n 50` 매개변수를 추가하여 다음 50 개의 메시지를 인쇄 가능합니다.
 
-#### QGroundControl MAVLink Inspector
+#### QGroundControl MAVLink 검사기
 
-The QGroundControl [Mavlink Inspector](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html) can be used to observe MAVLink messages from PX4, including [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM) emitted by the driver:
+QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_inspector.html)를 사용하여 드라이버가 전송한 [RAW_RPM](https://mavlink.io/en/messages/common.html#RAW_RPM)을 포함하여 PX4의 MAVLink 메시지를 관찰할 수 있습니다.
 
-1. Start the inspector from the QGC menu: **Analyze tools > Mavlink Inspector**
-1. Check that `RAW_RPM` is present in the list of messages (if it is missing, check that the driver is running).
+1. QGC 메뉴에서 인스펙터를 시작합니다 : **분석 도구 > Mavlink 검사기**
+1. `RAW_RPM`이 메시지 목록에 있는 지 확인하십시오 (없으면 드라이버가 실행 중인 지 확인하십시오).
 
 
-### Parameter Setup
+### 매개변수 설정
 
-Usually, sensors can be used without configuration, but the RPM values should correspond to multiples of real RPM.  It is because the `PCF8583_MAGNET` parameter needs to correspond to the real number of pulses per single revolution of the sensed rotor. If needed, the following parameters should be tweaked:
+일반적으로 센서는 설정 없이도 사용할 수 있지만, RPM 값은 실제 RPM의 배수이어야 합니다.  이는 `PCF8583_MAGNET` 매개변수가 감지된 로터의 단일 회전당 실제 펄스 수와 일치하여야하기 때문입니다. 필요시 다음의 매개 변수들을 조정하여야 합니다.
 
 * [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — pooling interval between readout the counted number
 * [PCF8583_ADDR](../advanced_config/parameter_reference.md#PCF8583_ADDR) — I2C sensor address
