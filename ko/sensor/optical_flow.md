@@ -1,10 +1,10 @@
-# Optical Flow
+# 광류
 
-*Optical Flow* uses a downward facing camera and a downward facing distance sensor for velocity estimation.
+*광류*는 속도 추정을 위하여 하향 카메라와 하향 거리 센서를 사용합니다.
 
-@[youtube](https://youtu.be/aPQKgUof3Pc) *Video: PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
+@[유튜브](https://youtu.be/aPQKgUof3Pc) *동영상: 속도 추정을 위한 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md))* <!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
 
-## Setup
+## 설정
 
 An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR). These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
