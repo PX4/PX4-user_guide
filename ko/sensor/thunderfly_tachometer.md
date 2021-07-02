@@ -25,14 +25,14 @@ TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 �
 
 다양한 홀 효과 센서가 시판중입니다. 예를 들어, [5100 미니어처 플랜지 장착 근접 센서](https://m.littelfuse.com/~/media/electronics/datasheets/hall_effect_sensors/littelfuse_hall_effect_sensors_55100_datasheet.pdf.pdf)는 좋은 선택입니다.
 
-![Example of Hall effect probe](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
+![홀 효과 프로브의 예](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
 
 
 ### 광학 센서 프로브
 
 광학 센서도 사용할 수 있습니다 (측정 요구 사항에 따라 더 적합할 수 있음). 투과형 및 반사형 센서는 모두 펄스 생성에 사용될 수 있습니다.
 
-![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
+![광 투과 프로브의 예](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
 ## 소프트웨어 설정
 
@@ -94,15 +94,15 @@ QGroundControl [Mavlink 검사기](https://docs.qgroundcontrol.com/master/en/ana
 
 일반적으로 센서는 설정 없이도 사용할 수 있지만, RPM 값은 실제 RPM의 배수이어야 합니다.  이는 `PCF8583_MAGNET` 매개변수가 감지된 로터의 단일 회전당 실제 펄스 수와 일치하여야하기 때문입니다. 필요시 다음의 매개 변수들을 조정하여야 합니다.
 
-* [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — pooling interval between readout the counted number
-* [PCF8583_ADDR](../advanced_config/parameter_reference.md#PCF8583_ADDR) — I2C sensor address
-* [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — Counter value where the counted number should be reset to zero.
-* [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — Number of pulses per revolution e.g. number of magnets at a rotor disc.
+* [PCF8583_POOL](../advanced_config/parameter_reference.md#PCF8583_POOL) — 카운트 숫자 판독 사이의 풀링 간격
+* [PCF8583_ADDR](../advanced_config/parameter_reference.md#PCF8583_ADDR) — I2C 센서 주소
+* [PCF8583_RESET](../advanced_config/parameter_reference.md#PCF8583_RESET) — 계수된 숫자를 0으로 재설정해야하는 카운터 값입니다.
+* [PCF8583_MAGNET](../advanced_config/parameter_reference.md#PCF8583_MAGNET) — 회전당 펄스 수 (예 : 로터 디스크의 자석 수).
 
 :::note
-The parameters above appear in QGC after the driver/PX4 are restarted.
+위의 매개변수는 드라이버/PX4를 재부팅하면, QGC에 나타납니다.
 
-If the configuration parameters are not available after restart then you should check that the driver has started. It may be that the [driver is not present in the firmware](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol), in which case it must be added to the board configuration:
+재시작 후 설정 매개변수를 사용할 수 없는 경우에는 드라이버가 시작되었는 지 확인하십시오. [드라이버가 펌웨어에 없을 수 있습니다](../peripherals/serial_configuration.md#configuration-parameter-missing-from-qgroundcontrol).이 경우 보드에 추가하여야 합니다.
 ```
 drivers/rpm/pcf8583
 ```
