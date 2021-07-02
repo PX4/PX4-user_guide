@@ -1,49 +1,48 @@
 # ThunderFly TFRPM01 Revolution Counter
 
-The [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) tachometer is a small, and low system demanding revolution-counter.
+[TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) 회전 속도계는 회전 카운터를 요구하는 작고 낮은 시스템입니다.
 
-The board itself does not include the actual sensor but can be used with many different sensors/probe types for revolution counting. It has an I²C connector for connecting to PX4 and is connected to the actual sensor via a 3-pin connector. It also has an LED that offers basic diagnostic information.
+보드 자체에는 실제 센서가 포함되어 있지 않지만, 회전 계수를 위하여 다양한 센서/프로브 유형과 함께 사용할 수 있습니다. PX4 연결 I²C 커넥터가 있으며, 3핀 커넥터를 통하여 실제 센서에 연결됩니다. 기본 진단 정보를 제공하는 LED도 있습니다.
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-:::note
-The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
+:::note TFRPM01 센서는 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 판매중인 오픈 소스 하드웨어입니다 (제조 데이터는 [GitHub에서 사용 가능](https://github.com/ThunderFly-aerospace/TFRPM01)).
 :::
 
-## Hardware Setup
+## 하드웨어 설정
 
-The board is equipped with (two through pass) I²C connectors for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
-- TFRPM01 may be connected to any I²C port.
-- TFRPM01 has a 3pin pin-header connector (with pull-up equipped input) that can be connected to different probe types.
-  - The sensor/probe hardware needs a pulse signal. The signal input accepts +5V TTL logic or [open collector](https://en.wikipedia.org/wiki/Open_collector) outputs. The maximum pulse frequency is 20 kHz with a 50% duty cycle.
-  - The probe connector provides a +5V power supply from the I²C bus, the maximum power which could be used is limited by RC filter (see schematics for details).
+이 보드에는 PX4 연결 (투 스루 패스) I²C 커넥터가 장착되어 있으며, 다양한 센서에 연결용 3핀 커넥터가 있습니다.
+- TFRPM01은 모든 I²C 포트에 연결 가능합니다.
+- TFRPM01에는 다양한 프로브 유형에 연결 3핀 헤더 커넥터 (풀업 장착 입력 포함)가 있습니다.
+  - 센서/프로브 하드웨어에는 펄스 신호가 필요합니다. 신호 입력은 +5V TTL 로직 또는 [오픈 콜렉터](https://en.wikipedia.org/wiki/Open_collector) 출력을 받습니다. 최대 펄스 주파수는 50% 듀티 사이클에서 20kHz입니다.
+  - 프로브 커넥터는 I²C 버스에서 +5V 전원을 제공하며, 최대 전력은 RC 필터에 의해 제한됩니다 (자세한 내용은 회로도 참조).
 
-TFRPM01A electronics is equipped with signaling LED that can be used to check that the probe is connected properly. The LED lights up when the pulse input is grounded or exposed to logical 0, so you can check the probe is working correctly just by manually spinning a rotor.
+TFRPM01A 전자 장치에는 프로브가 연결 여부를 표시하는 LED가 있습니다. 펄스 입력이 접지되거나 논리 0에 노출되면 LED가 켜지므로 로터를 수동으로 회전하는 것만으로 프로브가 올바르게 작동하는 지 확인할 수 있습니다.
 
-### Hall-Effect Sensor Probe
+### 홀 효과 센서 프로브
 
-Hall-Effect sensors (magnetically operated) are ideal for harsh environments, where dirt, dust, and water can contact the sensed rotor.
+홀 효과 센서 (자기 적으로 작동)는 먼지, 먼지 및 물이 감지된 로터에 접촉할 수있는 열악한 환경에 이상적입니다.
 
-Many different hall effect sensors are commercially available. For example, a [5100 Miniature Flange Mounting Proximity Sensor](https://m.littelfuse.com/~/media/electronics/datasheets/hall_effect_sensors/littelfuse_hall_effect_sensors_55100_datasheet.pdf.pdf) is a good choice.
+다양한 홀 효과 센서가 시판중입니다. 예를 들어, [5100 미니어처 플랜지 장착 근접 센서](https://m.littelfuse.com/~/media/electronics/datasheets/hall_effect_sensors/littelfuse_hall_effect_sensors_55100_datasheet.pdf.pdf)는 좋은 선택입니다.
 
 ![Example of Hall effect probe](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
 
 
-### Optical Sensor Probe
+### 광학 센서 프로브
 
-An optical sensor can also be used (and may be a better fit, depending on the measurement requirements). Both transmissive and reflective sensor types may be used for pulse generation.
+광학 센서도 사용할 수 있습니다 (측정 요구 사항에 따라 더 적합할 수 있음). 투과형 및 반사형 센서는 모두 펄스 생성에 사용될 수 있습니다.
 
 ![Example of optical transmissive probe](../../assets/hardware/sensors/tfrpm/transmissive_probe.jpg)
 
-## Software Setup
+## 소프트웨어 설정
 
-### Starting driver
+### 드라이버 시작
 
-The driver is not started automatically (in any airframe). You will need to start it manually, either using the [QGroundControl MAVLink Console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) or by adding the driver to the [startup script](../concept/system_startup.md#customizing-the-system-startup) on an SD card.
+드라이버는 자동으로 시작되지 않습니다 (어떤 기체에서도). [QGroundControl MAVLink 콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)을 사용하거나 SD 카드의 [시작 스크립트](../concept/system_startup.md#customizing-the-system-startup)에 드라이버를 추가하여 수동으로 시작하여야 합니다.
 
-#### Start driver from console
+#### 콘솔에서 드라이버 시작
 
-Start the driver from the [console](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html) using the command:
+다음 명령을 사용하여 [콘솔](https://docs.qgroundcontrol.com/master/en/analyze_view/mavlink_console.html)에서 드라이버를 시작합니다.
 ```
 pcf8583 start -X -b <bus number>
 ```
