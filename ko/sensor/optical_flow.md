@@ -26,43 +26,43 @@
 
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
-광류 데이터는 다른 속도 데이터 소스와 융합됩니다. The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
+광류 데이터는 다른 속도 데이터 소스와 융합됩니다. 센서 데이터와 차량 중앙으로부터의 오프셋을 융합 방식은 [추정기](#estimators)에서 설정합니다.
 
-## Flow Sensors/Cameras
+## 유량 센서/카메라
 
 ### PX4Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
+[PX4Flow](../sensor/px4flow.md)는 조명 LED 없이 실내외의 조명이 낮은 환경에서 작동하는 광류 카메라입니다. 광류를 계산하는 간편하고 가장 확립된 방법 중 하나입니다.
 
-### ARK Flow
+### ARK Flow 
 
-[ARK Flow](../uavcan/ark_flow.md) is a [UAVCAN](../uavcan/README.md) optical flow sensor, [distance sensor](../sensor/rangefinders.md), and IMU. It has a PAW3902 optical flow sensor, Broadcom AFBR-S50LV85D 30 meter distance sensor, and BMI088 IMU.
+[ARK Flow](../uavcan/ark_flow.md)는 [UAVCAN](../uavcan/README.md) 옵티컬 플로우 센서, [거리 센서](../sensor/rangefinders.md) 및 IMU입니다. PAW3902 광학 유량 센서, Broadcom AFBR-S50LV85D 30m 거리 센서 및 BMI088 IMU가 있습니다.
 
-### PMW3901-Based Sensors
+### PMW3901 기반 센서
 
-[PMW3901](../sensor/pmw3901.md) is an optical flow tracking sensor similar to what you would find in a computer mouse, but adapted to work between 80 mm and infinity. It is used in a number of products, including some from: Bitcraze, Tindie, Hex, Thone and Alientek.
+[PMW3901](../sensor/pmw3901.md)은 컴퓨터 마우스와 유사한 광류 센서이지만, 80mm에서 무한대까지 작동합니다. Bitcraze, Tindie, Hex, Thone 및 Alientek의 일부 제품을 포함하여 여러 제품에 사용됩니다.
 
-### Other Cameras/Sensors
+### 기타 카메라 / 센서
 
-It is also possible to use a board/quad that has an integrated camera. For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
+카메라 통합 보드를 사용할 수 있습니다. [Optical Flow repo](https://github.com/PX4/OpticalFlow)를 사용할 수도 있습니다 ([snap_cam](https://github.com/PX4/snap_cam) 참조).
 
-## Range Finders
+## 거리 측정기
 
-You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
+더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오. 그러나 견고성과 정확성 측면에서는 음향 센서보다 LIDAR를 사용하는 것이 좋습니다.
 
-## Estimators
+## 추정기
 
-Estimators fuse data from the optical flow sensor and other sources. The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
+추정기는 광학 흐름 센서 및 기타 소스의 데이터를 융합합니다. 융합 방법 설정과 차량 중심에 대한 상대적 오프셋이 사용되는 추정기를 지정하여야합니다.
 
-The offsets are calculated relative to the vehicle orientation and center as shown below:
+오프셋은 아래와 같이 차량 방향 및 중심을 기준으로 계산됩니다.
 
 ![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
-Optical Flow based navigation is enabled by both the availableestimators: EKF2 and LPE (deprecated).
+광류 기반 탐색은 EKF2 및 LPE (더 이상 사용되지 않음) 추정기에서 활성화됩니다.
 
 <a id="ekf2"></a>
 
-### Extended Kalman Filter (EKF2)
+### 확장 칼만 필터 (EKF2)
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
 
