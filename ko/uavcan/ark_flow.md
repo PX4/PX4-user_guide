@@ -1,16 +1,16 @@
 # ARK Flow
 
-ARK Flow is an open source [UAVCAN](README.md) [optical flow](../sensor/optical_flow.md), [distance sensor](../sensor/rangefinders.md), and IMU module.
+ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md), [거리 센서](../sensor/rangefinders.md) 및 IMU 모듈입니다.
 
 ![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
-## Where to Buy
+## 구매처
 
-Order this module from:
+이 모듈을 아래에서 주문하십시오.
 
-* [ARK Electronics](https://arkelectron.com/product/ark-flow/) (US)
+* [ARK Electronics](https://arkelectron.com/product/ark-flow/) (미국)
 
-## Specifications
+## 사양
 
 * [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
 * Runs [PX4 Open Source Firmware](https://github.com/PX4/PX4-Autopilot/tree/master/boards/ark/can-flow)
