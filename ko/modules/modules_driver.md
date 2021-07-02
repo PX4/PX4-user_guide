@@ -368,9 +368,15 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm3cap1
-Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
 
-<a id="irlock_usage"></a>
+
+### Description
+IridiumSBD driver.
+
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+
+<a id="iridiumsbd_usage"></a>
 
 ### Usage
 ```
@@ -386,11 +392,34 @@ pga460 <command> [arguments...]
    help
 ```
 ## pga460
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+
+<a id="irlock_usage"></a>
+
+### Usage
+```
+irlock <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 84
+
+   stop
+
+   status        print status info
+```
+## linux_pwm_out
 Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
 ### Description
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
@@ -405,7 +434,7 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
@@ -510,7 +539,7 @@ Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/mast
 
 
 ### Description
-This module is responsible for generate pwm pulse with PCA9685 chip.
+In case of running in its own thread, the module polls on the actuator_controls topic.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
@@ -518,7 +547,7 @@ It listens on the actuator_controls topics, does the mixing and writes the PWM o
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
 ### Examples
-In case of running in its own thread, the module polls on the actuator_controls topic.
+It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
 ```
