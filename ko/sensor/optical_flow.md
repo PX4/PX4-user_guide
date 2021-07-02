@@ -6,28 +6,27 @@
 
 ## 설정
 
-An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR). These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
+광류에는 하향 카메라와 [거리 센서](../sensor/rangefinders.md)(LiDAR가 더 좋음)가 필요합니다. 이들은 MAVLink, I2C 또는 다른 버스로 연결 가능합니다.
 
-:::note
-If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+:::note MAVLink를 통해 PX4에 연결된 경우 광류 장치는 [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) 토픽을 퍼블리시 하여야하며, 거리 센서는 [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) 토픽에 게시하여야합니다.
 :::
 
-The output of the flow when moving in different directions must be as follows:
+다른 방향으로 이동할 때의 흐름 출력은 다음과 같아야합니다.
 
-| Vehicle movement | Integrated flow |
-| ---------------- | --------------- |
-| Forwards         | + Y             |
-| Backwards        | - Y             |
-| Right            | - X             |
-| Left             | + X             |
+| 기체 이동 | 통합 흐름 |
+| ----- | ----- |
+| 전방    | + Y   |
+| 후방    | - Y   |
+| 우측    | - X   |
+| 좌측    | + X   |
 
-For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
+순수 회전의 경우 `integrated_xgyro`와 `integrated_x` (각각 `integrated_ygyro`와 `integrated_y`)는 동일하여야 합니다.
 
-An popular setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sensor/lidar_lite.md), as shown below.
+보편적인 설정은 아래와 같은 [PX4Flow](../sensor/px4flow.md)와 [Lidar-Lite](../sensor/lidar_lite.md)입니다.
 
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
-Sensor data from the optical flow device is fused with other velocity data sources. The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
+광류 데이터는 다른 속도 데이터 소스와 융합됩니다. The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators).
 
 ## Flow Sensors/Cameras
 
