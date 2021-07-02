@@ -31,7 +31,7 @@ Lidar-Lite (v2, v3) 핀배열은 아래와 같습니다.
 
 Lidar-Lite 3([작동 설명서](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf)에서)의 표준 배선 방법은 다음과 같습니다. Lidar-Lite v2와 v3은 커넥터의 핀 순서가 역전된다는 점을 제외하면 동일합니다 (즉, 커넥터가 뒤집힌 것처럼).
 
-![LidarLite v3 - Standard Wiring from Garmin Specification](../../assets/hardware/sensors/lidar_lite/lidar_lite2_standard_wiring_spec.jpg)
+![LidarLite v3 - Garmin 사양의 표준 배선](../../assets/hardware/sensors/lidar_lite/lidar_lite2_standard_wiring_spec.jpg)
 
 ### PWM 인터페이스 배선
 
@@ -52,11 +52,11 @@ LidarLite를 *Pixhawk 1* AUX 포트 (PWM 인터페이스) 핀 연결은 아래�
 
 LidarLite v2의 배선은 아래와 같습니다. Lidar-Lite v3는 커넥터의 핀 번호가 반대라는 점을 제외에는 유사하게 연결됩니다.
 
-![Lidar Lite 2 Interface wiring](../../assets/hardware/sensors/lidar_lite/lidar_lite_2_interface_wiring.jpg)
+![Lidar Lite 2 인터페이스 배선](../../assets/hardware/sensors/lidar_lite/lidar_lite_2_interface_wiring.jpg)
 
-![Lidar Lite 2 Interface wiring](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_scheme_pixhawk.jpg)
+![Lidar Lite 2 인터페이스 배선](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_scheme_pixhawk.jpg)
 
-![Lidar Lite 2 pins/cabling](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_pins_cables.jpg)
+![Lidar Lite 2 핀/케이블](../../assets/hardware/sensors/lidar_lite/lidarlite_wiring_pins_cables.jpg)
 
 ### I2C 인터페이스 배선
 
@@ -67,9 +67,9 @@ I2C 배선은 다른 거리 센서에 대해서도 동일합니다. SLA, SLC, GN
 거리계/포트는 [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS)를 사용하여 활성화됩니다. PWM의 경우 `1`, I2C의 경우 `2`로 설정됩니다.
 
 :::note
-The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
+이 거리계의 드라이버는 펌웨어에서 제공됩니다. 존재하지 않으면, 보드 설정에 드라이버(`drivers/ll40ls`)를 추가하여야 합니다.
 :::
 
-## Further Information
+## 추가 정보
 
 * [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
