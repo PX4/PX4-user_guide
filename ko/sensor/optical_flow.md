@@ -24,7 +24,7 @@
 
 보편적인 설정은 아래와 같은 [PX4Flow](../sensor/px4flow.md)와 [Lidar-Lite](../sensor/lidar_lite.md)입니다.
 
-![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
+![광류 라이더 부착](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
 광류 데이터는 다른 속도 데이터 소스와 융합됩니다. 센서 데이터와 차량 중앙으로부터의 오프셋을 융합 방식은 [추정기](#estimators)에서 설정합니다.
 
@@ -56,7 +56,7 @@
 
 오프셋은 아래와 같이 차량 방향 및 중심을 기준으로 계산됩니다.
 
-![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
+![광류 오프셋](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
 
 광류 기반 탐색은 EKF2 및 LPE (더 이상 사용되지 않음) 추정기에서 활성화됩니다.
 
@@ -64,14 +64,14 @@
 
 ### 확장 칼만 필터 (EKF2)
 
-For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
+EKF2를 사용하는 광류 융합의 경우 아래 QGroundControl을 사용하여 표시된대로 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 매개변수에서 광류 플래그 사용을 설정합니다.
 
-![QGroundControl - Calibrate Sensors](../../assets/ekf2/qgc_ekf2_enable_flow.png)
+![QGroundControl - 센서 보정](../../assets/ekf2/qgc_ekf2_enable_flow.png)
 
-If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
+광류 센서가 차량 중앙에서 오프셋된 경우 다음 매개변수를 사용하여 설정합니다.
 
-| Parameter                                                                                           | Description                                                             |
-| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m). |
-| <span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m). |
-| <span id="EKF2_OF_POS_Z"></span>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m). |
+| 매개변수                                                                                                | 설명                                |
+| --------------------------------------------------------------------------------------------------- | --------------------------------- |
+| <span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | 바디 프레임에서 광류 초점의 X 위치 (기본값은 0.0m). |
+| <span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | 바디 프레임에서 광류 초점의 Y 위치 (기본값은 0.0m). |
+| <span id="EKF2_OF_POS_Z"></span>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | 바디 프레임에서 광류 초점의 Z 위치 (기본값은 0.0m). |
