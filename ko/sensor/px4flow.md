@@ -1,28 +1,28 @@
-# PX4FLOW Smart Camera
+# PX4FLOW 스마트 카메라
 
-PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera. It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity.
+PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기본 해상도는 752x480 픽셀이며, 400Hz에서 4x 비닝 및 잘린 영역에서 광학 흐름을 계산하여 매우 높은 감광도를 제공합니다.
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)
 
-Unlike many mouse sensors, it also works indoors and in low outdoor light conditions without the need for an illumination LED. It can be freely reprogrammed to perform any other basic, efficient low-level computer vision tasks.
+마우스 센서와 달리, 조명 LED 없이도 실내 및 낮은 실외 조명 조건에서도 작동합니다. 다른 기본적이고 효율적인 저수준 컴퓨터 비전 작업을 수행하도록 자유롭게 다시 프로그래밍 할 수 있습니다.
 
 - 168 MHz Cortex M4F CPU (128 + 64 KB RAM)
-- 752x480 MT9V034 image sensor, L3GD20 3D Gyro
-- 16 mm M12 lens (IR block filter)
-- Size 45.5 mm x 35mm
-- Power consumption 115mA / 5V
+- 752x480 MT9V034 이미지 센서, L3GD20 3D 자이로
+- 16mm M12 렌즈 (IR 블록 필터)
+- 크기: 45.5 mm x 35mm
+- 소비 전력: 115mA / 5V
 
-@[youtube](https://youtu.be/0Jpq6DU_HVg)
+@[유투브](https://youtu.be/0Jpq6DU_HVg)
 
-## Where to Buy
+## 구매처
 
-Order this module from:
+이 모듈을 아래에서 주문하십시오.
 
-- [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (UK)
-- [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (Germany & EU)
+- [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (영국)
+- [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (독일과 유럽)
 - [Drotek](https://store-drotek.com/798-optical-flow-kit-px4flow.html)
 
-## Specifications
+## 사양
 
 - MT9V034 machine vision CMOS sensor with global shutter
 - Optical flow processing at 4x4 binned image at **400 Hz**
