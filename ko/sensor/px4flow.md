@@ -40,52 +40,52 @@ PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기
 
 PX4Flow 보드를 사용하려면 I2C 버스(모든 Pixhawk 시리즈 컨트롤러)에 연결하고 [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW)를 사용하여 드라이버를 활성화합니다.
 
-:::warning PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
+:::warning PX4FLOW는 **1.9.0** 미만의 PX4 버전 FMUv5 (Pixhawk 4)에서는 작동하지 않습니다. 다른 모든 PX4/PX4-Autopilot 버전에서는 작동합니다.
 :::
 
-The steps are:
+단계는 아래와 같습니다:
 
-- In *QGroundControl*: 
-  - Update the firmware on PX4Flow (in the top left menu, click on CONFIG, then on Firmware Upgrade)
-  - Set the parameter [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW) and reboot (see [Parameters](../advanced_config/parameters.md) for information on finding and setting parameters).
-- Connect PX4Flow I2C to the Pixhawk I2C
+- *QGroundControl* 에서: 
+  - PX4Flow에서 펌웨어 업데이트 (왼쪽 상단 메뉴에서 CONFIG를 클릭한 다음 펌웨어 업그레이드를 클릭)
+  - 매개변수 [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW)를 설정하고 재부팅합니다 (매개변수 찾기 및 설정에 대한 정보는 [매개 변수](../advanced_config/parameters.md) 참조).
+- PX4Flow I2C를 Pixhawk I2C에 연결합니다.
 
-Once enabled, the module will be detected on boot. Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. Flow data is transmitted over wireless channels at a lower rate.
+활성화되면 부팅시 모듈이 감지됩니다. 자동 조종 장치가 **USB**로 연결되면, 흐름 데이터는 10Hz에서 전송되어야합니다. 흐름 데이터는 더 낮은 속도로 무선 채널에서 전송됩니다.
 
 <span id="mounting"></span>
 
-### Mounting/Orientation
+### 장착 및 방향
 
-The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
+권장 장착 방향은 다음 그림과 같이 **기체 전면**을 향하는 플로우 보드의 Y로 정의됩니다.
 
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
-On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the default).
+**PX4**에서는 [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) 매개변수로 방향을 설정합니다. 위의 방향은 [SENS_FLOW_ROT=270](#SENS_FLOW_ROT)도 (기본값)에 매핑됩니다.
 
-Make sure the PX4Flow board is well dampened.
+PX4Flow 보드가 잘 장착되었는 지 확인하십시오.
 
-:::warning PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+:::warning PX4Flow는 상당한 양의 전자기 방사를 방출하므로, 가능하면 다른 전자 장치 (특히 GPS 모듈)에서 멀리 떨어져 있어야 합니다 (자세한 내용은 [하드웨어/문제/8](https://github.com/PX4/Hardware/issues/8) 참조).
 :::
 
 <span id="px4_configuration"></span>
 
-## PX4 Configuration
+## PX4 설정
 
-The PX4Flow parameters that you may need to configure are listed below.
+설정 PX4Flow 매개변수는 다음과 같습니다.
 
-| Parameter                                                                                                 | Description                                                               |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| <span id="SENS_EN_PX4FLOW"></span>[SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW)   | Start the PX4 Flow driver.                                                |
-| <span id="SENS_FLOW_MAXHGT"></span>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.                 |
-| <span id="SENS_FLOW_MINHGT"></span>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.                 |
-| <span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR)     | Maximum angular flow rate reliably measurable by the optical flow sensor. |
-| <span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT)       | Yaw rotation of the PX4FLOW board relative to the vehicle body frame.     |
+| 매개변수                                                                                                      | 설명                           |
+| --------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| <span id="SENS_EN_PX4FLOW"></span>[SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW)   | PX4 Flow 드라이버를 시작합니다.        |
+| <span id="SENS_FLOW_MAXHGT"></span>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | 광학 흐름에 의존시 지상 최대 높이          |
+| <span id="SENS_FLOW_MINHGT"></span>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | 광학 흐름에 의존시 지상 최소 높이.         |
+| <span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR)     | 광류 센서로 안정적으로 측정 기능한 최대 각 유량. |
+| <span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT)       | 차체 프레임을 기준 PX4FLOW 보드의 요 회전. |
 
-If you're using flow with the ECL/EFK2 estimator you will also need to set the [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) parameters. These enable fusing optical flow measurements for velocity calculation and also allow you to define offsets if the sensor is not centred within the vehicle.
+ECL/EFK2 추정기와 함께 흐름을 사용하는 경우 [Optical Flow &gt; Estimators &gt; EKF2](../sensor/optical_flow.md#ekf2) 매개변수도 설정하여야 합니다. 이를 통하여 속도 계산을 위한 융합 광류 측정이 가능하며 센서가 차량 중앙에 있지 않은 경우 오프셋을 정의할 수 있습니다.
 
-### Connecting
+### 연결 
 
-The PX4flow is connected to the I2C bus. If you are connecting multiple devices to the same bus you will need to set each with a unique address. The next section explains how.
+PX4flow는 I2C 버스에 연결됩니다. 여러 장치를 동일한 버스에 연결하는 경우에는 각 장치를 고유 주소로 설정합니다. 다음 섹션에서 이 방법을 설명합니다.
 
 ### PX4FLOW I2C Device address
 
