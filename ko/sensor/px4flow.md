@@ -1,10 +1,10 @@
 # PX4FLOW 스마트 카메라
 
-PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기본 해상도는 752x480 픽셀이며, 400Hz에서 4x 비닝 및 잘린 영역에서 광학 흐름을 계산하여 매우 높은 감광도를 제공합니다.
+PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기본 해상도는 752x480 픽셀이며, 400Hz에서 4x 구간 영역에서 광학 흐름을 계산하여 매우 높은 감광도를 제공합니다.
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)
 
-마우스 센서와 달리, 조명 LED 없이도 실내 및 낮은 실외 조명 조건에서도 작동합니다. 다른 기본적이고 효율적인 저수준 컴퓨터 비전 작업을 수행하도록 자유롭게 다시 프로그래밍 할 수 있습니다.
+마우스 센서와 달리, 조명 LED 없이도 실내와 실외 낮은 조명에서도 작동합니다. 다른 기본적이고 효율적인 저수준 컴퓨터 비전 작업을 수행하도록 자유롭게 다시 프로그래밍 할 수 있습니다.
 
 - 168 MHz Cortex M4F CPU (128 + 64 KB RAM)
 - 752x480 MT9V034 이미지 센서, L3GD20 3D 자이로
@@ -24,21 +24,21 @@ PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기
 
 ## 사양
 
-- MT9V034 machine vision CMOS sensor with global shutter
-- Optical flow processing at 4x4 binned image at **400 Hz**
-- Superior light sensitivity with 24x24 μm super-pixels
-- Onboard 16bit gyroscope up to 2000°/s and 780 Hz update rate, default high precision-mode at 500°/s
-- Onboard sonar input and mount for [Maxbotix sonar sensors](../sensor/rangefinders.md#maxbotix-i2cxl-maxsonar-ez). (HRLV-EZ4 recommended, [SparkFun Product Link](https://www.sparkfun.com/products/11309))
-- USB bootloader
-- USB serial up to 921600 baud (including live camera view with [QGroundControl](http://qgroundcontrol.com/))
-- USB power option
-- **Does fit the MatrixVision Bluefox MV mounting holes (camera center off-centered)**
+- 글로벌 셔터가 있는 MT9V034 머신 비전 CMOS 센서
+- **400Hz**에서 4x4 구간 이미지에서 광류 처리
+- 24x24 μm 수퍼 픽셀로 뛰어난 감광도
+- 최대 2000°/s 및 780Hz 업데이트 속도의 온보드 16 비트 자이로스코프, 500°/s의 기본 고정밀 모드
+- 온보드 소나 입력 및 [Maxbotix 소나 센서](../sensor/rangefinders.md#maxbotix-i2cxl-maxsonar-ez)용 마운트. (HRLV-EZ4 권장, [SparkFun 제품 링크](https://www.sparkfun.com/products/11309))
+- USB 부트로더
+- 최대 921600 baud의 USB 직렬([QGroundControl](http://qgroundcontrol.com/)이있는 라이브 카메라 보기 포함)
+- USB 전원 옵션
+- **MatrixVision Bluefox MV 장착 구멍에 맞습니까? (카메라 중앙에서 벗어남)**
 
 ![PX4Flow Top](../../assets/hardware/sensors/px4flow/px4flow_top.jpg) ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
-## Pixhawk Setup
+## 픽스호크 설정
 
-In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
+PX4Flow 보드를 사용하려면 I2C 버스(모든 Pixhawk 시리즈 컨트롤러)에 연결하고 [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW)를 사용하여 드라이버를 활성화합니다.
 
 :::warning PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/PX4-Autopilot versions should work.
 :::
