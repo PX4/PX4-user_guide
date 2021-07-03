@@ -12,45 +12,45 @@ ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md
 
 ## 사양
 
-* [Open Source Schematic and BOM](https://github.com/ARK-Electronics/ARK_Flow)
-* Runs [PX4 Open Source Firmware](https://github.com/PX4/PX4-Autopilot/tree/master/boards/ark/can-flow)
-* Supports [UAVCAN](README.md) [Firmware Updating](node_firmware.md)
-* Dynamic [UAVCAN](README.md) node enumeration
-* Sensors
-    * PixArt PAW3902 Optical Flow Sensor
-    * Tracks under super low light condition of >9 lux
-    * Wide working range from 80mm up to infinity
-    * Up to 7.4 rad/s
-    * 40mW IR LED built onto board for improved low light operation
-  * Broadcom AFBR-S50LV85D Time-of-Flight Distance Sensor
-    * Integrated 850 nm laser light source
-    * Field-of-View (FoV) of 12.4° x 6.2° with 32 pixels
-    * Typical distance range up to 30m
-    * Operation of up to 200k Lux ambient light
-    * Works well on all surface conditions
-    * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
-* Bosch BMI088 6-Axis IMU
+* [오픈 소스 회로도와 BOM](https://github.com/ARK-Electronics/ARK_Flow)
+* [PX4 오픈 소스 펌웨어](https://github.com/PX4/PX4-Autopilot/tree/master/boards/ark/can-flow) 실행
+* [UAVCAN](README.md) [펌웨어 업데이트](node_firmware.md) 지원
+* 동적 [UAVCAN](README.md) 노드 열거
+* 센서
+    * PixArt PMW3901 광류 센서
+    * 9lux 이상의 매우 낮은 조명 조건에서 트랙
+    * 80mm에서 무한대까지 넓은 작업 범위
+    * 최대 7.4 rad/s
+    * 저조도 작동 개선을 위해 40mW IR LED 내장
+  * Broadcom AFBR-S50LV85D 비행시간 거리 센서
+    * 통합 850nm 레이저 광원
+    * 12.4  x 6.2°의 시야각 (FoV), 32 픽셀
+    * 최대 30m의 일반적인 거리 범위
+    * 최대 200k Lux 주변 조명 작동
+    * 모든 표면 조건에서 잘 작동
+    * 1~3 픽셀 사이를 비추는 2° x 2°의 송신기 빔
+* Bosch BMI088 6축 IMU
 * STM32F412CEU6 MCU
-* Two Pixhawk Standard CAN Connectors
-  * 4 Pin JST GH
-* Pixhawk Standard Debug Connector
-  * 6 Pin JST SH
-* Small Form Factor
+* Pixhawk 표준 CAN 커넥터 2 개
+  * 4 핀 JST GH
+* Pixhawk 표준 디버그 포트
+  * 6 핀 JST SH
+* 소형 폼 팩터
   * 3cm x 3cm x 1.4cm
-* LED Indicators
-* USA Built
+* LED 표시기
+* 미국에서 제작
 
 
 
-### Wiring/Connecting
+### 배선
 
-The ARK Flow is connected to the CAN bus using a Pixhawk standard 4 pin JST GH cable. Multiple sensors can be connected by plugging additional sensors into the ARK Flow's second CAN connector.
+ARK Flow는 Pixhawk 표준 4 핀 JST GH 케이블을 사용하여 CAN 버스에 연결됩니다. 추가 센서를 ARK Flow의 두 번째 CAN 커넥터에 연결하여 여러 센서를 연결할 수 있습니다.
 
-General instructions for UAVCAN wiring can also be found in [UAVCAN > Wiring](../uavcan/README.md#wiring).
+UAVCAN 배선 방법은 [UAVCAN > 배선](../uavcan/README.md#wiring)을 참고하십시오.
 
 <a id="mounting"></a>
 
-### Mounting/Orientation
+### 장착 및 방향
 
 The recommended mounting orientation is with the connectors on the board pointing towards **back of vehicle**, as shown in the following picture.
 
