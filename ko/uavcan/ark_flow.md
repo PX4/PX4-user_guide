@@ -2,7 +2,8 @@
 
 ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md), [거리 센서](../sensor/rangefinders.md) 및 IMU 모듈입니다.
 
-![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
+![ARK Flow
+](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 ## 구매처
 
@@ -54,7 +55,7 @@ UAVCAN 배선 방법은 [UAVCAN > 배선](../uavcan/README.md#wiring)을 참고�
 
 권장 장착 방향은 다음 그림과 같이 보드의 커넥터가 **차량 뒷면**을 향하는 것입니다.
 
-![ARK Flow align with Pixhawk](../../assets/hardware/sensors/optical_flow/ark_flow_orientation.png)
+![ARK Flow는 Pixhawk에 정렬](../../assets/hardware/sensors/optical_flow/ark_flow_orientation.png)
 
 이는 매개변수 [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT)의 기본값 (`0`)에 해당합니다. 다른 방향을 사용시에는 매개변수를 적절하게 변경하십시오.
 
@@ -104,10 +105,8 @@ Ark Flow는 최신 펌웨어로 빌드되어 판매됩니다. 최신 버전으�
    ```
    make ark_can-flow
    ```
-1. Follow instructions for [UAVCAN firmware updating](node_firmware.md) using the binary located in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**.
+1. **XX-X.X.XXXXXXXX.uavcan.bin**이라는 **build/ark_can-flow_default**에 있는 바이너리를 사용하여 [UAVCAN 펌웨어 업데이트](node_firmware.md)에 대한 지침을 따르십시오.
 
-## Video
+## 비디오
 
-@[youtube](https://youtu.be/aPQKgUof3Pc)
-<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+@[유튜브](https://youtu.be/aPQKgUof3Pc) <!-PX4 Optical Flow Position Hold가있는 ARK Flow : 20210605-> *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)* 
