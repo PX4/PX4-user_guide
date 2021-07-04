@@ -95,59 +95,59 @@ PX4Flow의 기본 I2C 주소는 0x42이지만 "I2C BUS ADDR"이라고 표시된 
 
 8개의 선택 가능 항목에 대한 주소 범위는 0x42 ~ 0x49입니다.
 
-| Address                      | Bit 2 | Bit 1 | Bit 0 |
-| ---------------------------- | ----- | ----- | ----- |
-| 7 Bit Address 0x42 (default) | 0     | 0     | 0     |
-| 7 Bit Address 0x43           | 0     | 0     | 1     |
-| :                            | :     | :     | :     |
-| 7 Bit Address 0x49           | 1     | 1     | 1     |
+| 주소                 | 비트 2 | 비트 1 | 비트 0 |
+| ------------------ | ---- | ---- | ---- |
+| 7 비트 주소 0x42 (기본값) | 0    | 0    | 0    |
+| 7 비트 주소 0x43       | 0    | 0    | 1    |
+| :                  | :    | :    | :    |
+| 7 비트 주소 0x49       | 1    | 1    | 1    |
 
 :::tip
-There are different I2C readouts available. Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+다양한 I2C 판독 값을 사용할 수 있습니다. **I2C 프레임**과 **I2C 통합 프레임**에 대한 자세한 내용은 드라이버 소스 코드에 있습니다.
 :::
 
-If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver with the correct address:
+PX4Flow의 I2C 주소를 수정하는 경우 올바른 주소로 PX4 드라이버를 시작하여야 합니다.
 
     px4flow start                  # address=0x42 (default)
     px4flow stop
     px4flow start -a 0x45          # address=0x45
     
 
-## Focusing the Lens
+## 렌즈 초점 맞추기
 
-In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*. Under the settings menu, select the PX4Flow and you should see a camera image. Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
+우수한 광류 품질을 보장하려면 카메라를 PX4Flow에 원하는 비행 높이로 초점을 맞추어야 합니다. 카메라 초점을 맞추려면 텍스트가 있는 개체 (예 : 책) PX4Flow를 USB에 연결하고 *QGroundControl*을 실행합니다. 설정 메뉴에서 PX4Flow를 선택하면 카메라 이미지가 표시됩니다. 고정 나사를 풀고 렌즈를 풀고 조여 초점이 맞는 위치를 찾아 렌즈의 초점을 맞춥니 다.
 
 :::note
-If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+3m 이상 비행하면 카메라가 무한대로 초점이 맞춰지며, 더 높은 비행을 위해 변경할 필요가 없습니다.
 :::
 
 ![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
 
-*Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
+*그림: 교과서를 사용하여 비행하려는 높이 (일반적으로 1-3 미터)에 흐름 카메라의 초점을 맞춥니 다. 3 미터 이상에서는 카메라가 무한대에 초점을 맞추고 모든 높은 고도에서 작동하여야 합니다.*
 
 ![Flow Focusing](../../assets/hardware/sensors/px4flow/flow_focusing.png)
 
-*Figure: The QGroundControl px4flow interface that can be used for focusing the camera*
+*그림: 카메라 초점을 맞추는 데 사용할 수있는 QGroundControl px4flow 인터페이스*
 
-## Accuracy
+## 정확도
 
-The ortho photo below shows that a flight on the park roads is accurately measured. This was done with a PX4FMU on a 7" quad flying at about 1.6 m altitude in manual flight. No GPS, only PX4FLOW integration of position.
+아래의 정사 사진은 공원 도로 위의 비행이 정확하게 측정되었음을 보여줍니다. 이것은 수동 비행에서 약 1.6m 고도에서 비행하는 7 "쿼드의 PX4FMU로 수행되었습니다. GPS 없음, 위치의 PX4FLOW 통합만.
 
 ![PX4FLOW trajectory](../../assets/hardware/sensors/px4flow/px4flow_trajectory.jpg)
 
-## Downloads
+## 다운로드
 
-### Manual and Schematics
+### 매뉴얼 및 회로도
 
-- [PX4FLOW v1.3 User Manual](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_manual_v1.3.pdf)
-- [PX4FLOW v1.3 Schematic and Layout](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_schematic_v1.3.pdf) 
-- Documentation in hardware repo: [PX4/Hardware/FLOWv1](https://github.com/PX4/Hardware/tree/master/FLOWv1)
+- [PX4FLOW v1.3 사용자 매뉴얼](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_manual_v1.3.pdf)
+- [PX4FLOW v1.3 회로도 및 레이아웃](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_schematic_v1.3.pdf) 
+- 하드웨어 저장소의 문서: [PX4/Hardware/FLOWv1](https://github.com/PX4/Hardware/tree/master/FLOWv1)
 
-### USB Driver
+### USB 드라이버
 
-Linux and MacOS come with the required drivers. Windows drivers can be downloaded from: [px4flow_win_drivers.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_win_drivers.zip)
+Linux와 MacOS에는 필수 드라이버가 함께 제공됩니다. Windows 드라이버는 [px4flow_win_drivers.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_win_drivers.zip)에서 다운로드할 수 있습니다.
 
-### Papers
+### 논문
 
 The flow module as been accepted as paper to the International Conference on Robotics and Automation (ICRA 2013) in Karlsruhe, Germany.
 
