@@ -174,53 +174,53 @@ Linux와 MacOS에는 필수 드라이버가 함께 제공됩니다. Windows 드�
 - **ARM MINI JTAG (J6**, //not populated per default//**)**: 1.27 mm 10pos header (SHROUDED, for Black Magic Probe: Samtec FTSH-105-01-F-DV-K or (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
   - JTAG 어댑터 옵션 #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). 케이블없이 제공될 수 있습니다 (공급 업체에 확인). 그렇다면 **Samtec FFSD-05-D-06.00-01-N** 케이블 ([Samtec 샘플 서비스](http://www.samtec.com/suddenservice/samples/samples.aspx) 또는 [Digi-Key Link : SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) 및 Mini-USB 케이블
   - JTAG 어댑터 옵션 #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/products/en?keywords=497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2) 
-    - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
+    - JTAG 어댑터 옵션 # 3 : [SparkFun 링크 : Olimex ARM-TINY](http://www.sparkfun.com/products/8278) 또는 기타 OpenOCD 호환 ARM Cortex JTAG 어댑터, ARM Mini JTAG 대 20pos 어댑터 필요 : [Digi-Key 링크 : 726- 1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
 
-### Optics
+### 광학
 
-The correct optics are delivered by 3D Robotics already mounted and focused.
+올바른 광학 장치는 이미 장착되고 초점이 맞춰진 3D Robotics에 의해 제공됩니다.
 
-- [Lens mount](http://www.lensation.de/de/shop/detail/27-accessories/flypage/418-s-mount-lens-holder-13mm-sh02m13.html?sef=hcfp)
-- 16 mm M12 (S-mount) lens (with IR-cut filter)
+- [렌즈 장착](http://www.lensation.de/de/shop/detail/27-accessories/flypage/418-s-mount-lens-holder-13mm-sh02m13.html?sef=hcfp)
+- 16mm M12 (S- 마운트) 렌즈 (IR 컷 필터 포함)
 
-The focal length influences the maximum measurable velocity.
+초점 거리는 측정 가능한 최대 속도에 영향을줍니다.
 
-    maximum velocity = +/- 4 pixels / (1second/internalupdaterate)*grounddistance/focal length in pixels
+    최대 속도 = +/- 4 픽셀 / (1 초 / 내부 업데이트 속도) *지면 거리 / 초점 거리 (픽셀)
     
 
-The internal update rate is 400 Hz.
+내부 업데이트 속도는 400Hz입니다.
 
-pixelsize is 24 micro meters, a 16mm lens has therefore a focal length of 0.016 meter / 24 micro meter per pixel = 666.666 pixels
+pixelize는 24 마이크로 미터이므로 16mm 렌즈의 초점 거리는 0.016 미터/픽셀 당 24 마이크로 미터 = 666.666 픽셀입니다.
 
-Max velocities for different focal length lenses and ground distances:
+다양한 초점 거리 렌즈와 지면 거리에 대한 최대 속도 :
 
-| Ground distance | 1m     | 3m      | 10m   |
-| --------------- | ------ | ------- | ----- |
-| 16mm lens       | 2.4m/s | 7.2m/s  | 24m/s |
-| 8mm lens        | 4.8m/s | 14.4m/s | 48m/s |
-| 6mm lens        | 6.4m/s | 19.2m/s | 64m/s |
-| 4mm lens        | 9.6m/s | 28.8m/s | 96m/s |
+| 지상 거리   | 1m     | 3m      | 10m   |
+| ------- | ------ | ------- | ----- |
+| 16mm 렌즈 | 2.4m/s | 7.2m/s  | 24m/s |
+| 8mm 렌즈  | 4.8m/s | 14.4m/s | 48m/s |
+| 6mm 렌즈  | 6.4m/s | 19.2m/s | 64m/s |
+| 4mm 렌즈  | 9.6m/s | 28.8m/s | 96m/s |
 
-    max_vel = 4/(1/400)*grounddistance/(focallength/0.000024)
+    max_vel = 4/(1/400) *지면 거리/(초점 길이/0.000024)
     
 
-## Configuration: Image Quality and Output
+## 설정: 이미지 품질 및 출력
 
-PX4FLOW is not designed as a camera, but does all processing on-chip. You can configure the image quality and output (the image output is only intended for focusing the lens).
+PX4FLOW는 카메라로 설계되지 않았지만, 모든 처리를 온칩으로 수행합니다. 이미지 품질과 출력을 설정할 수 있습니다 (이미지 출력은 렌즈의 초점을 맞추기 위한 것입니다).
 
 ![Video Downlink](../../assets/hardware/sensors/px4flow/qgc_video_downlink_px4flow.jpg)
 
-    - Download [QGroundControl](http://qgroundcontrol.com/#downloads)
-    - Unplug your flow sensor
-    - In *QGroundControl*, click on **Configuration > Firmware Update**. Hit the big green **Scan** button.
-    - Connect the flow sensor.
-      Click on upgrade once its detected (leave the default to “stable”)
-    - Maximize the *QGroundControl* window. Click on **Tool Widgets > Video Downlink**
-    - Enjoy the live view and **focus the camera by loosening the locking screw and turning the lens at an object at 3m distance**.
-    - If you want to get higher res to focus the sensor, go to **Config > Advanced Config** and set the [VIDEO_ONLY](#VIDEO_ONLY) parameter to 1.
+    -[QGroundControl] 다운로드 (http://qgroundcontrol.com/#downloads)
+    -유량 센서를 분리하십시오
+    -* QGroundControl *에서 ** Configuration > 펌웨어 업데이트 **. 큰 녹색 **스캔** 버튼을 누릅니다.
+    - 유량 센서를 연결합니다.
+      감지되면 업그레이드를 클릭합니다 (기본값은 "안정"으로 유지).
+    -* QGroundControl * 창을 최대화합니다. **도구 위젯 > 비디오 다운 링크 **
+    -라이브 뷰를 즐기고 ** 잠금 나사를 풀고 3m 거리에있는 물체에서 렌즈를 돌려 카메라 초점을 맞춥니 다 **.
+    - 센서 초점을 맞추기 위해 더 높은 해상도를 얻으려면 ** Config > 고급 구성 **을 선택하고 [VIDEO_ONLY] (# VIDEO_ONLY) 매개변수를 1로 설정합니다.
     
 
-## General Troubleshooting
+## 일반적인 문제 해결
 
 - Unplug the flow sensor if plugged
 - Start *QGroundControl*, select the PX4 startup mode go to **Config > Firmware Upgrade**. 
