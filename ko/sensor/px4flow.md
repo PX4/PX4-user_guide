@@ -149,19 +149,19 @@ Linux와 MacOS에는 필수 드라이버가 함께 제공됩니다. Windows 드�
 
 ### 논문
 
-The flow module as been accepted as paper to the International Conference on Robotics and Automation (ICRA 2013) in Karlsruhe, Germany.
+흐름 모듈은 독일 칼 스루에에서 열린 국제 로봇 및 자동화 회의 (ICRA 2013)의 논문으로 승인되었습니다.
 
 - Dominik Honegger, Lorenz Meier, Petri Tanskanen and Marc Pollefeys: [An Open Source and Open Hardware Embedded Metric Optical Flow CMOS Camera for Indoor and Outdoor Applications](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_paper.pdf)
 
-### Libraries
+### 라이브러리
 
-The following are third party libraries that can be used to integrate the flow module in your projects.
+다음은 프로젝트에서 흐름 모듈을 통합하는 타사 라이브러리입니다.
 
-- [mavros](https://github.com/vooon/mavros): A general MAVLink ROS interface, maintained by Vladimir Ermakov
-- \[px-ros-pkg]\](https://github.com/cvg/px-ros-pkg): A PX4FLOW ROS (Robot Operating System) interface, maintained by Lionel Heng (hengli@inf.ethz.ch).
-- [arduino-px4flow-i2c](https://github.com/eschnou/arduino-px4flow-i2c): An Arduino library wrapping the I2C interface, maintained by Laurent Eschenauer (laurent@eschenauer.be).
+- [mavros](https://github.com/vooon/mavros) : Vladimir Ermakov가 관리하는 일반적인 MAVLink ROS 인터페이스
+- \[px-ros-pkg]\](https://github.com/cvg/px-ros-pkg): Lionel Heng (hengli@inf.ethz.ch)에서 관리하는 PX4FLOW ROS (로봇 운영 체제) 인터페이스입니다.
+- [arduino-px4flow-i2c](https://github.com/eschnou/arduino-px4flow-i2c): Laurent Eschenauer (laurent@eschenauer.be)가 관리하는 I2C 인터페이스를 래핑 Arduino 라이브러리입니다.
 
-## Connectors
+## 커넥터
 
 - **USART2 (J2)**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
   - Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
@@ -172,8 +172,8 @@ The following are third party libraries that can be used to integrate the flow m
 - **USB (J5)**: Micro USB-B 
   - Mates: Cell phone data / charger cables, e.g. [Digi-Key Link: ASSMANN AK67421-0.5-R](https://www.digikey.com/products/en?keywords=AE10418-ND)
 - **ARM MINI JTAG (J6**, //not populated per default//**)**: 1.27 mm 10pos header (SHROUDED, for Black Magic Probe: Samtec FTSH-105-01-F-DV-K or (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
-  - JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with vendor). If so, needs the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](http://www.samtec.com/suddenservice/samples/samples.aspx) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) and a Mini-USB cable
-  - JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/products/en?keywords=497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2) 
+  - JTAG 어댑터 옵션 #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). 케이블없이 제공될 수 있습니다 (공급 업체에 확인). 그렇다면 **Samtec FFSD-05-D-06.00-01-N** 케이블 ([Samtec 샘플 서비스](http://www.samtec.com/suddenservice/samples/samples.aspx) 또는 [Digi-Key Link : SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) 및 Mini-USB 케이블
+  - JTAG 어댑터 옵션 #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/products/en?keywords=497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2) 
     - JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
 
 ### Optics
