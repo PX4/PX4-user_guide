@@ -281,19 +281,19 @@ done, rebooting.
 
 ## 문제 해결
 
-In case one doesn't see the aforementioned steps, the modem-manager should be removed by:
+앞 단계를 볼 수 없는 경우에는 모뎀 관리자를 다음과 같이 제거하여야 합니다.
 
 ```bash
 sudo apt-get remove modemmanager
 ```
 
-User also needs to be in the plugdev group:
+사용자는 또한 plugdev 그룹에 있어야 합니다.
 
 ```bash
 sudo usermod -a -G plugdev $USER
 ```
 
-## Focus Image
+## 이미지 초점
 
 Connect PX4FLOW to QGroundControl:
 
