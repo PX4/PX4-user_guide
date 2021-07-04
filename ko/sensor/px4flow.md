@@ -295,20 +295,20 @@ sudo usermod -a -G plugdev $USER
 
 ## 이미지 초점
 
-Connect PX4FLOW to QGroundControl:
+PX4FLOW를 QGroundControl에 연결합니다.
 
-- Connect PX4FLOW sensor over USB to PC
-- Open QGroundControl
-- Switch to Plot perspective: Perspectives/Plot 
-- Connect to PX4FLOW sensor: Communication/Add Link
+- PX4FLOW 센서를 USB로 PC에 연결합니다.
+- QGroundControl을 실행합니다
+- Plot 퍼스펙티브로 전환: Perspectives/Plot 
+- PX4FLOW 센서에 연결: 통신/링크 추가
 
 ![PX4 Onboard Parameters](../../assets/hardware/sensors/px4flow/px4flow_onboard_parameters.png)
 
-- Link Type: Serial
-- Protocol: MAVLink
-- Serial Port: corresponding Port (e.g. /dev/ttyACM* or COMM*)
+- 링크 유형: 직렬
+- 프로토콜: MAVLink
+- 직렬 포트: 해당 포트 (예: /dev/ttyACM* 또는 COMM*)
 
-Now a new unmanned system should appear and onboard parameters are loaded (click on "Get" if not)
+이제 새로운 무인 시스템이 나타나고, 온보드 매개변수가로드됩니다. 그렇지 않은 경우에는 "Get"을 클릭합니다.
 
 Change Parameter `VIDEO_ONLY` to 1 and press Set.
 
