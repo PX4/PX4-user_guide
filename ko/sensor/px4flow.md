@@ -350,33 +350,33 @@ PX4FLOW 모듈은 USB와 직렬 포트에서 [MAVLink](https://mavlink.io/en/) �
 | BFLOW_GYRO_COM | 0      | RW | 자이로 보상. 1: ON, 0: OFF.                                                                                                   |
 | BFLOW_LP_FIL   | 0      | RW | 유량 출력의 저역 통과 필터. 1: ON, 0: OFF.                                                                                          |
 | BFLOW_W_NEW    | 0.3    | RW | 흐름 저역 통과 필터 이득                                                                                                           |
-| BFLOW_MAX_PIX  | 8      | R  | Delete (parameter not used).                                                                                             |
-| BFLOW_RATE       | 10.0   | RW | Rate with which updates for optical flow are published                                                                   |
-| BRIGHT           | 20     | RW | Desired brightness level from camera                                                                                     |
-| DEBUG            | 1      | RW | Debug messages. 1: ON, 0: OFF                                                                                            |
-| EXPOSURE_MAX     | 500    | RW | Maximal exposure time (μs)                                                                                               |
-| GAIN_MAX         | 16     | RW | Maximal gain (units?)                                                                                                    |
-| GYRO_SENS_DPS  | 250    | RW | Gyroscope sensitivity: 250, 500, 2000 (dps)                                                                              |
-| GYRO_COMP_THR  | 0.01   | RW | Gyro compensation threshold (dps): Gyro data lower than this threshold is not compensated to prevent drift               |
-| HDR              | 1      | RW | Camera High Dynamic Range. 1: ON, 0: OFF                                                                                 |
-| IMAGE_HEIGHT     | 64     | R  | Image height (pixels)                                                                                                    |
-| IMAGE_WIDTH      | 64     | R  | Image width (pixels)                                                                                                     |
-| IMAGE_L_LIGHT  | 0      | RW | Delete (parameter not used).                                                                                             |
-| IMAGE_NOISE_C  | 1      | RW | Image sensor noise correction, 1: ON, 0: OFF                                                                             |
-| IMAGE_TEST_PAT | 0      | RW | Gray-shaded test pattern mode. 1: ON, 0: OFF                                                                             |
-| LENS_FOCAL_LEN | 16.0   | RW | Focal length of lens (mm)                                                                                                |
-| POSITION         | 0      | RW | 0: Only position 0 is used (Bottom: 0, Front: 1, Top: 2, Back: 3, Right: 4, Left: 5)                                     |
-| SHTR_W_1       | 443    | RW | Camera Shutter W_1 ?                                                                                                     |
-| SHTR_W_2       | 473    | RW | Camera Shutter W_2 ?                                                                                                     |
-| SHTR_W_TOT     | 480    | RW | Camera Shutter Total ?                                                                                                   |
-| SONAR_FILTERED   | 0      | RW | Kalman filter on sonar output. 1: ON, 0: OFF.                                                                            |
-| SONAR_KAL_L1   | 0.8461 | RW | Sonar Kalman gain L1 (for the position)                                                                                  |
-| SONAR_KAL_L2   | 6.2034 | RW | Sonar Kalman gain L2 (for the speed)                                                                                     |
-| SYS_ID           | 81     | RW | [MAVLink](https://mavlink.io/en/) System ID                                                                              |
-| SYS_COMP_ID    | 50     | RW | [MAVLink](https://mavlink.io/en/) Component ID                                                                           |
-| SYS_SENSOR_ID  | 77     | RW | [MAVLink](https://mavlink.io/en/) Sensor ID                                                                              |
-| SYS_TYPE         | 0      | RW | [MAVLink](https://mavlink.io/en/) System Type (0 means generic)                                                          |
-| SYS_AP_TYPE    | 0      | RW | [MAVLink](https://mavlink.io/en/) Autopilot Type (0 means generic)                                                       |
+| BFLOW_MAX_PIX  | 8      | R  | 삭제 (매개변수가 사용되지 않음).                                                                                                      |
+| BFLOW_RATE       | 10.0   | RW | 광학 흐름에 대한 업데이트가 게시되는 비율                                                                                                  |
+| BRIGHT           | 20     | RW | 카메라에서 원하는 밝기 수준                                                                                                          |
+| DEBUG            | 1      | RW | 디버깅 메시지. 1: ON, 0: OFF                                                                                                   |
+| EXPOSURE_MAX     | 500    | RW | 최대 노출 시간 (μs)                                                                                                            |
+| GAIN_MAX         | 16     | RW | 최대 이득 (단위?)                                                                                                              |
+| GYRO_SENS_DPS  | 250    | RW | 자이로스코프 감도: 250, 500, 2000 (dps)                                                                                          |
+| GYRO_COMP_THR  | 0.01   | RW | 자이로 보정 임계 값 (dps):이 임계 값보다 낮은 자이로 데이터는 드리프트를 방지하기 위하여 보정되지 않습니다.                                                         |
+| HDR              | 1      | RW | 카메라 HDR (High Dynamic Range). 1: ON, 0: OFF                                                                              |
+| IMAGE_HEIGHT     | 64     | R  | 이미지 높이 (픽셀)                                                                                                              |
+| IMAGE_WIDTH      | 64     | R  | 이미지 넓이 (픽셀)                                                                                                              |
+| IMAGE_L_LIGHT  | 0      | RW | 삭제 (매개변수가 사용되지 않음).                                                                                                      |
+| IMAGE_NOISE_C  | 1      | RW | 이미지 센서 노이즈 보정, 1 : ON, 0 : OFF                                                                                           |
+| IMAGE_TEST_PAT | 0      | RW | 회색 음영 테스트 패턴 모드. 1: ON, 0: OFF                                                                                           |
+| LENS_FOCAL_LEN | 16.0   | RW | 렌즈 초점 거리 (mm)                                                                                                            |
+| POSITION         | 0      | RW | 0 : 위치 0 만 사용됨 (아래: 0, 전면: 1, 위: 2, 후면: 3, 오른쪽: 4, 왼쪽: 5)                                                                |
+| SHTR_W_1       | 443    | RW | 카메라 셔터 W_1 ?                                                                                                             |
+| SHTR_W_2       | 473    | RW | 카메라 셔터 W_2 ?                                                                                                             |
+| SHTR_W_TOT     | 480    | RW | 카메라 셔터 합계 ?                                                                                                              |
+| SONAR_FILTERED   | 0      | RW | 소나 출력에 대한 칼만 필터. 1: ON, 0: OFF.                                                                                          |
+| SONAR_KAL_L1   | 0.8461 | RW | Sonar 칼만 게인 L1 (포지션 용)                                                                                                   |
+| SONAR_KAL_L2   | 6.2034 | RW | Sonar 칼만 게인 L2 (속도 용)                                                                                                    |
+| SYS_ID           | 81     | RW | [MAVLink](https://mavlink.io/en/) 시스템 ID                                                                                 |
+| SYS_COMP_ID    | 50     | RW | [MAVLink](https://mavlink.io/en/) 컴포넌트 ID                                                                                |
+| SYS_SENSOR_ID  | 77     | RW | [MAVLink](https://mavlink.io/en/) 센서 ID                                                                                  |
+| SYS_TYPE         | 0      | RW | [MAVLink](https://mavlink.io/en/) 시스템 유형 (0은 일반을 의미)                                                                     |
+| SYS_AP_TYPE    | 0      | RW | [MAVLink](https://mavlink.io/en/) Autopilot 유형 (0은 일반을 의미)                                                               |
 | SYS_SW_VER     | 13XX   | R  | Software Version                                                                                                         |
 | SYS_SEND_STATE | 1      | RW | Send [MAVLink](https://mavlink.io/en/messages/common.html#HEARTBEAT) Heartbeat. 1: ON, 0: OFF.                           |
 | SYS_SEND_LPOS  | 1      | RW | Send [MAVLink](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) Local position estimate. 1: ON, 0: OFF.    |
