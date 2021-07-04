@@ -222,46 +222,46 @@ PX4FLOW는 카메라로 설계되지 않았지만, 모든 처리를 온칩으로
 
 ## 일반적인 문제 해결
 
-- Unplug the flow sensor if plugged
-- Start *QGroundControl*, select the PX4 startup mode go to **Config > Firmware Upgrade**. 
-  - Click on SCAN (green button in the center)
-  - Connect the flow sensor now
-  - Flash the stable firmware
-- Click on **Advanced Config** in the left menu to see the parameters
-- Display the video stream with QGroundControl (**Tool Widgets > Video Downlink**) 
-  - Check that there are no stripes on the stream. If you get stripes, set `IMAGE_TEST_PAT` to 1. It should look like the examples above. If you have stripes in the image but no stripes when this mode is enabled, right-click into the image once in both modes and save and send an image of each mode to the manufacturer's support team.
-  - Check that you get a clear image (its a tele / zoom lens, so the visible area will be small)
-- Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
-- Check that the image is sharp at the operating distance (the typical flight altitude)
+- 연결되어있으면, 유량 센서를 분리합니다.
+- *QGroundControl*을 시작하고 PX4 시작 모드를 선택하고 **설정 &gt; 펌웨어 업그레이드**로 이동합니다. 
+  - 스캔을 클릭합니다 (중앙의 녹색 버튼).
+  - 유량 센서를 연결합니다.
+  - 펌웨어 안정버전을 플래시합니다.
+- 매개변수를 조회는 왼쪽 메뉴에서 **고급 설정**을 클릭하십시오.
+- QGroundControl로 비디오 스트림 표시 (**도구 위젯 &gt; 비디오 다운 링크**) 
+  - 스트림에 줄무늬가 있는 지 확인하십시오. 줄무늬가 있으면, `IMAGE_TEST_PAT`를 1로 설정하십시오. 위의 예제와 같아야 합니다. 이미지에 줄무늬가 있지만, 이 모드가 활성화되어 있으면, 줄무늬가 없는 경우 두 모드에서 이미지를 한 번 마우스 오른쪽 버튼으로 클릭하고 각 모드의 이미지를 저장하고 제조업체의 지원 팀에 전송합니다.
+  - 선명한 이미지 획득 여부를 확인하십시오 (망원/줌 렌즈이므로 가시 영역이 작습니다).
+- 고해상도 이미지를 얻으려면, `VIDEO_ONLY` 매개변수를 1로 설정하십시오.
+- 작동 거리 (일반 비행 고도)에서 이미지가 선명한 지 확인하십시오.
   
 :::tip
-[Ask for help](../contribute/support.md#forums-and-chat) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+아래 그림처럼 어두운 선이 보이는 왜곡된 이미지가있는 경우 [도움을 요청](../contribute/support.md#forums-and-chat) 하십시오. ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
 :::
 
 <span id="developer_guide"></span>
 
-# PX4FLOW Developer Guide
+# PX4FLOW 개발자 가이드
 
-## Hardware Setup
+## 하드웨어 설정
 
 - PX4FLOW Board v1.3
 - HRLV-MaxSonar-EZ (MB1043)
-- 16mm Lens
-- Micro USB cable
+- 16mm 렌즈
+- Micro USB 케이블
 
 ![PX4FLOW Testing](../../assets/hardware/sensors/px4flow/px4flow_testing.jpg)
 
-## Software / Build Source
+## 소프트웨어 / 빌드 소스
 
-- PC with *QGroundControl* installed
-- PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
+- *QGroundControl*이 설치 PC
+- PX4FLOW 펌웨어 (Github의 펌웨어 소스 코드: [PX4/Flow](https://github.com/PX4/Flow))
 
-:::note PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+:::note PX4 *드라이버* 코드는[PX4/ PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)를 참고하십시오.
 :::
 
-## Build
+## 빌드
 
-Install the [PX4 toolchain](../dev_setup/dev_env.md). Then and clone the sources from https://github.com/PX4/Flow using *git*.
+[PX4 도구 모음](../dev_setup/dev_env.md)을 설치합니다. *git*을 사용하여 https://github.com/PX4/Flow 에서 소스를 복제합니다.
 
 ```bash
 cd flow
@@ -269,17 +269,17 @@ make all
 make upload-usb
 ```
 
-Then connect the flow sensor. It should show these steps on a successful upload:
+유량 센서를 연결합니다. 성공적으로 업로드되면, 다음 단계가 표시됩니다.
 
 ```bash
-Found board 6,0 bootloader rev 3 on /dev/ttyACM1
-erase...
+/dev/ttyACM1에서 보드 6,0 부트 로더 rev 3을 찾았습니다.
+삭제...
 program...
 verify...
 done, rebooting.
 ```
 
-## Troubleshooting
+## 문제 해결
 
 In case one doesn't see the aforementioned steps, the modem-manager should be removed by:
 
