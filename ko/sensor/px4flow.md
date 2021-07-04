@@ -87,13 +87,13 @@ ECL/EFK2 추정기와 함께 흐름을 사용하는 경우 [Optical Flow &gt; Es
 
 PX4flow는 I2C 버스에 연결됩니다. 여러 장치를 동일한 버스에 연결하는 경우에는 각 장치를 고유 주소로 설정합니다. 다음 섹션에서 이 방법을 설명합니다.
 
-### PX4FLOW I2C Device address
+### PX4FLOW I2C 장치 주소
 
-The default I2C address of the PX4Flow is 0x42, but it can be incremented using the three solder jumpers labeled "I2C BUS ADDR". This is useful if another device has the same address.
+PX4Flow의 기본 I2C 주소는 0x42이지만 "I2C BUS ADDR"이라고 표시된 3개의 솔더 점퍼를 사용하여 증가시킬 수 있습니다. 다른 장치의 주소가 같은 경우 사용할 수 있는 방법입니다.
 
-The address increment is equal to the 3-bit value encoded by the jumpers. For example if jumper 0 and 1 are soldered and jumper 2 is unsoldered, the address is incremented by 1*1 + 1*2 + 0\*4 = 3, which gives address 0x45. If all jumpers are unsoldered, the camera will be automatically discovered by the autopilot firmware.
+주소 증분은 점퍼로 인코딩된 3 비트 값과 같습니다. 예를 들어 점퍼 0과 1이 납땜되고 점퍼 2가 납땜되지 않은 경우 주소는 1*1 + 1* 2 + 0\* 4 = 3만큼 증가하여 주소 0x45를 제공합니다. 모든 점퍼가 납땜되지 않은 경우, 자동조종장치 펌웨어에 의해 카메라가 자동으로 검색됩니다.
 
-The address range for the 8 possible choices is: 0x42 - 0x49.
+8개의 선택 가능 항목에 대한 주소 범위는 0x42 ~ 0x49입니다.
 
 | Address                      | Bit 2 | Bit 1 | Bit 0 |
 | ---------------------------- | ----- | ----- | ----- |
