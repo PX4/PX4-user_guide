@@ -34,7 +34,7 @@ PX4FLOW는 [광류](../sensor/optical_flow.md) 스마트 카메라입니다. 기
 - USB 전원 옵션
 - **MatrixVision Bluefox MV 장착 구멍에 맞습니까? (카메라 중앙에서 벗어남)**
 
-![PX4Flow Top](../../assets/hardware/sensors/px4flow/px4flow_top.jpg) ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+![PX4Flow 상단](../../assets/hardware/sensors/px4flow/px4flow_top.jpg) ![px4flow 하단](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
 ## 픽스호크 설정
 
@@ -58,7 +58,7 @@ PX4Flow 보드를 사용하려면 I2C 버스(모든 Pixhawk 시리즈 컨트롤�
 
 권장 장착 방향은 다음 그림과 같이 **기체 전면**을 향하는 플로우 보드의 Y로 정의됩니다.
 
-![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
+![PX4Flow를 Pixhawk에 정렬](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
 **PX4**에서는 [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) 매개변수로 방향을 설정합니다. 위의 방향은 [SENS_FLOW_ROT=270](#SENS_FLOW_ROT)도 (기본값)에 매핑됩니다.
 
@@ -121,11 +121,11 @@ PX4Flow의 I2C 주소를 수정하는 경우 올바른 주소로 PX4 드라이�
 3m 이상 비행하면 카메라가 무한대로 초점이 맞춰지며, 더 높은 비행을 위해 변경할 필요가 없습니다.
 :::
 
-![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
+![흐름 초점 책](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
 
 *그림: 교과서를 사용하여 비행하려는 높이 (일반적으로 1-3 미터)에 흐름 카메라의 초점을 맞춥니 다. 3 미터 이상에서는 카메라가 무한대에 초점을 맞추고 모든 높은 고도에서 작동하여야 합니다.*
 
-![Flow Focusing](../../assets/hardware/sensors/px4flow/flow_focusing.png)
+![흐름 집중](../../assets/hardware/sensors/px4flow/flow_focusing.png)
 
 *그림: 카메라 초점을 맞추는 데 사용할 수있는 QGroundControl px4flow 인터페이스*
 
@@ -133,7 +133,7 @@ PX4Flow의 I2C 주소를 수정하는 경우 올바른 주소로 PX4 드라이�
 
 아래의 정사 사진은 공원 도로 위의 비행이 정확하게 측정되었음을 보여줍니다. 이것은 수동 비행에서 약 1.6m 고도에서 비행하는 7 "쿼드의 PX4FMU로 수행되었습니다. GPS 없음, 위치의 PX4FLOW 통합만.
 
-![PX4FLOW trajectory](../../assets/hardware/sensors/px4flow/px4flow_trajectory.jpg)
+![PX4FLOW 궤적](../../assets/hardware/sensors/px4flow/px4flow_trajectory.jpg)
 
 ## 다운로드
 
@@ -208,7 +208,7 @@ pixelize는 24 마이크로 미터이므로 16mm 렌즈의 초점 거리는 0.01
 
 PX4FLOW는 카메라로 설계되지 않았지만, 모든 처리를 온칩으로 수행합니다. 이미지 품질과 출력을 설정할 수 있습니다 (이미지 출력은 렌즈의 초점을 맞추기 위한 것입니다).
 
-![Video Downlink](../../assets/hardware/sensors/px4flow/qgc_video_downlink_px4flow.jpg)
+![비디오 다운 링크](../../assets/hardware/sensors/px4flow/qgc_video_downlink_px4flow.jpg)
 
     -[QGroundControl] 다운로드 (http://qgroundcontrol.com/#downloads)
     -유량 센서를 분리하십시오
@@ -249,7 +249,7 @@ PX4FLOW는 카메라로 설계되지 않았지만, 모든 처리를 온칩으로
 - 16mm 렌즈
 - Micro USB 케이블
 
-![PX4FLOW Testing](../../assets/hardware/sensors/px4flow/px4flow_testing.jpg)
+![PX4FLOW 테스팅](../../assets/hardware/sensors/px4flow/px4flow_testing.jpg)
 
 ## 소프트웨어 / 빌드 소스
 
@@ -302,7 +302,7 @@ PX4FLOW를 QGroundControl에 연결합니다.
 - Plot 퍼스펙티브로 전환: Perspectives/Plot 
 - PX4FLOW 센서에 연결: 통신/링크 추가
 
-![PX4 Onboard Parameters](../../assets/hardware/sensors/px4flow/px4flow_onboard_parameters.png)
+![PX4 온보드 매개변수](../../assets/hardware/sensors/px4flow/px4flow_onboard_parameters.png)
 
 - 링크 유형: 직렬
 - 프로토콜: MAVLink
@@ -377,30 +377,30 @@ PX4FLOW 모듈은 USB와 직렬 포트에서 [MAVLink](https://mavlink.io/en/) �
 | SYS_SENSOR_ID  | 77     | RW | [MAVLink](https://mavlink.io/en/) 센서 ID                                                                                  |
 | SYS_TYPE         | 0      | RW | [MAVLink](https://mavlink.io/en/) 시스템 유형 (0은 일반을 의미)                                                                     |
 | SYS_AP_TYPE    | 0      | RW | [MAVLink](https://mavlink.io/en/) Autopilot 유형 (0은 일반을 의미)                                                               |
-| SYS_SW_VER     | 13XX   | R  | Software Version                                                                                                         |
-| SYS_SEND_STATE | 1      | RW | Send [MAVLink](https://mavlink.io/en/messages/common.html#HEARTBEAT) Heartbeat. 1: ON, 0: OFF.                           |
-| SYS_SEND_LPOS  | 1      | RW | Send [MAVLink](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) Local position estimate. 1: ON, 0: OFF.    |
+| SYS_SW_VER     | 13XX   | R  | 소프트웨어 버전                                                                                                                 |
+| SYS_SEND_STATE | 1      | RW | [MAVLink](https://mavlink.io/en/messages/common.html#HEARTBEAT) 하트 비트를 전송합니다. 1: ON, 0: OFF.                             |
+| SYS_SEND_LPOS  | 1      | RW | [MAVLink](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) 지역 위치 추정치를 전송합니다. 1: ON, 0: OFF.                |
 | USART_2_BAUD   | 115200 | R  | Baudrate USART 2                                                                                                         |
-| USART_3_BAUD   | 115200 | R  | Baudrate USART 3 (Data Output)                                                                                           |
-| USB_SEND_DEBUG | 1      | RW | Send debug msgs over USB. 1: ON, 0: OFF.                                                                                 |
-| USB_SEND_FLOW  | 1      | RW | Send flow over USB. 1: ON. 0: OFF.                                                                                       |
-| USB_SEND_FWD   | 0      | RW | Send forwarded flow over USB. 1: ON, 0: OFF.                                                                             |
-| USB_SEND_GYRO  | 1      | RW | Send gyro data over USB. 1: ON, 0: OFF.                                                                                  |
-| USB_SEND_VIDEO | 1      | RW | Send video over USB. 1: ON, 0: OFF.                                                                                      |
-| VIDEO_ONLY       | 0      | RW | High resolution video mode. 1: ON, 0: OFF                                                                                |
-| VIDEO_RATE       | 50     | RW | Time between images of video transmission (ms)                                                                           |
+| USART_3_BAUD   | 115200 | R  | Baudrate USART 3 (데이터 출력)                                                                                                |
+| USB_SEND_DEBUG | 1      | RW | USB를 통하여 디버그 메시지를 전송합니다. 1: ON, 0: OFF.                                                                                  |
+| USB_SEND_FLOW  | 1      | RW | USB를 통하여 흐름을 전송합니다. 1: ON. 0: OFF.                                                                                       |
+| USB_SEND_FWD   | 0      | RW | USB를 통하여 전달된 흐름을 전송합니다. 1: ON, 0: OFF.                                                                                   |
+| USB_SEND_GYRO  | 1      | RW | USB를 통하여 자이로 데이터를 전송합니다. 1: ON, 0: OFF.                                                                                  |
+| USB_SEND_VIDEO | 1      | RW | USB를 통하여 비디오를 전송합니다. 1: ON, 0: OFF.                                                                                      |
+| VIDEO_ONLY       | 0      | RW | 고해상도 비디오 모드. 1: ON, 0: OFF                                                                                               |
+| VIDEO_RATE       | 50     | RW | 비디오 전송 이미지 사이의 시간 (ms)                                                                                                   |
 
-## Modes
+## 모드
 
 <span id="VIDEO_ONLY"></span>
 
-### VIDEO ONLY Mode
+### 비디오 전용 모드
 
-Set `VIDEO_ONLY` to 1 for high resolution mode. In this mode the camera image is transmitted at a higher resolution to ease the lens focus process. No flow values are calculated in this mode.
+고해상도 모드의 경우 `VIDEO_ONLY`를 1로 설정합니다. 이 모드에서는 렌즈 초점 프로세스를 용이하게 하기 위하여 카메라 이미지가 더 높은 해상도로 전송됩니다. 이 모드에서는 유량 값이 계산되지 않습니다.
 
-### Test Pattern Mode
+### 패턴 테스트 모드
 
-If the parameter `IMAGE_TEST_PAT` is set to 1, the sensor inserts a vertical gray-shaded test pattern in the signal chain.
+매개변수 `IMAGE_TEST_PAT`이 1로 설정된 경우 센서는 신호 체인에 수직 회색 음영 테스트 패턴을 삽입합니다.
 
-- Test Pattern 64x64 (VIDEO ONLY Mode is OFF) ![test_pattern_64x64](../../assets/hardware/sensors/px4flow/test_pattern_64x64.png)
-- Test Pattern 376x240 (VIDEO ONLY Mode is ON) ![test_pattern_376x240](../../assets/hardware/sensors/px4flow/test_pattern_376x240.png)
+- 테스트 패턴 64x64 (비디오 전용 모드가 꺼짐)![test_pattern_64x64](../../assets/hardware/sensors/px4flow/test_pattern_64x64.png)
+- 테스트 패턴 376x240 (비디오 전용 모드가 켜짐)![test_pattern_376x240](../../assets/hardware/sensors/px4flow/test_pattern_376x240.png)
