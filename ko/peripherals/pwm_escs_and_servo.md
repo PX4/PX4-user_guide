@@ -1,8 +1,8 @@
-# PWM Servos and ESCs (Motor Controllers)
+# PWM 서보 및 ESC (모터 컨트롤러)
 
-This section describes how to connect and power PWM-based brushless motor controllers and servos.
+PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전원 공급 방법을 설명합니다.
 
-## ESC Connection Overview
+## ESC 연결 개요
 
 Each PWM Electronic Speed Controller (ESC) minimally has the following wires:
 
