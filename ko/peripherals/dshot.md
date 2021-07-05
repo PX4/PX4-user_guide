@@ -1,17 +1,17 @@
-# DShot ESCs
+# DShot ESC
 
-DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
-- Reduced latency.
-- Increased robustness via a checksum.
-- No need for ESC calibration as the protocol uses digital encoding.
-- Telemetry feedback is available/supported on some ESCs.
-- Can reverse motor spin directions via commands when needed (rather than physically moving wires/re-soldering).
-- Other useful commands are supported.
+DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 프로토콜입니다.
+- 지연 시간 감소
+- 체크섬을 통해 안정성이 향상되었습니다.
+- 프로토콜이 디지털 인코딩을 사용하므로, ESC 보정이 필요하지 않습니다.
+- 텔레메트리 피드백은 일부 ESC에서 사용 가능합니다.
+- 필요시 명령어로 모터 회전 방향을 병경할 수 있습니다 (물리적으로 와이어를 이동/재 납땜하는 대신).
+- 다른 유용한 명령어들이 지원됩니다.
 
-This topic shows how to connect and configure DShot ESCs.
+이 항목에서는 DShot ESC를 연결/설정 방법을 설명합니다.
 
 <span id="wiring"></span>
-## Wiring/Connections
+## 배선
 
 DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
 
