@@ -97,45 +97,44 @@ Mitochondrik 기반 드라이브 및 ESC:
 ## PX4 설정
 
 PX4에서 UAVCAN ESC를 사용하려면 UAVCAN 드라이버를 활성화하여야 합니다.
-1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller) and connect *QGroundControl*.
-1. Navigate to the **Vehicle Setup > Parameters** screen. :::note [Parameters](../advanced_config/parameters.md) explains how to find and set parameters.
+1. 배터리에서 기체에 전원을 공급하고 (비행 콘트롤러뿐만 아니라 전체 기체에 전원을 공급하여야 함) *QGroundControl*을 연결합니다.
+1. **기체 설정 > 매개 변수** 화면으로 이동합니다. :::note [매개변수](../advanced_config/parameters.md)에서 매개변수를 검색/설정 방법을 설명합니다.
 :::
-1. Set [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to the value *Sensors and Motors* (3) and then reboot the flight controller. This enables automatic enumeration of the motors (ESC) as described in the [next section](#esc-setup).
-1. (Optional) Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed. :::note Some systems will not benefit from this behavior, e.g. glider drones).
-:::
-
-
-## ESC Setup
-
-While UAVCAN devices are generally *plug'n'play* you will still need to enumerate (number) each of the ESC used in your system and set their direction so that they can be identified/controlled by PX4.
-
-:::note
-The ESC index and direction must match/map to the [Airframe Reference](../airframes/airframe_reference.md) for the vehicle type. ESC indexes from 0-7 map to MAIN 1-8, while ESC indexes 8-15 map to AUX 1-8.
+1. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE)을 *센서 및 모터* (3) 값으로 설정후, 비행 콘트롤러를 재부팅합니다. 이렇게 하면 [다음 섹션](#esc-setup)에 설명대로 모터(ESC)의 자동 열거가 가능합니다.
+1. (선택 사항) [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT)를 1로 설정하여 시스템이 준비된 동안 모터가 항상 최소한 유휴 스로틀에서 실행되도록 합니다. :::note 일부 시스템은이 동작의 장점을 사용하지 못합니다 (예: 글라이더 드론).
 :::
 
-The mechanism for enumerating each type of UAVCAN ESC is different (look up the instructions in your ESC's manual). Setup information for some UAVCAN ESCs is provided below.
 
+## ESC 설정
 
-### Sapog ESC Enumeration using QGroundControl
+UAVCAN 장치는 일반적으로 *플러그 앤 플레이*이지만, 시스템에 사용된 각 ESC를 열거 (번호)하고 PX4에서 식별/제어하도록 방향을 설정하여야 합니다.
 
-This section shows how to enumerate any [Sapog-based](https://github.com/PX4/sapog#px4-sapog)-based ESCs "automatically" using *QGroundControl*.
-
-:::tip
-You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
+:::note ESC
+색인과 방향은 기체 유형에 대한 [기체 정의서](../airframes/airframe_reference.md)와 일치/매핑되어야 합니다. 0-7의 ESC 인덱스는 MAIN 1-8에 매핑되고, ESC 인덱스 8-15는 AUX 1-8에 매핑됩니다.
 :::
 
-To enumerate the ESC:
-1. Power the vehicle with a battery and connect to *QGroundControl*
-1. Navigate to **Vehicle Setup > Power** in QGC.
-1. Start the process of ESC auto-enumeration by pressing the **Start Assignment** button, as shown on the screenshot below.
+UAVCAN ESC의 각 유형을 열거하는 메커니즘은 다릅니다 (ESC 설명서를 참고하십시오). 일부 UAVCAN ESC에 대한 설정 정보는 다음과 같습니다.
+
+
+### QGroundControl을 사용한 Sapog ESC 열거
+
+이 섹션에서는 *QGroundControl*을 사용하여 [Sapog 기반](https://github.com/PX4/sapog#px4-sapog) 기반 ESC를 "자동으로" 열거하는 방법을 설명합니다.
+
+:::tip ESC
+색인이 기본적으로 이미 0으로 설정되어 있으므로, 설정에 ESC가 하나만 있는 경우에는 이 섹션을 건너 뛸 수 있습니다.
+:::
+
+ESC를 열거하려면:
+1. 배터리로 기체에 전원을 공급하고 *QGroundControl*에 연결합니다.
+1. **기체 설정 > QGC 전력** 화면으로 이동합니다.
+1. 아래 스크린 샷과 같이 **Start Assignment** 버튼을 눌러서, ESC 자동 열거 프로세스를 시작합니다.
 
    ![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
 
-   You will hear a sound indicating that the flight controller has entered the ESC enumeration mode.
-1. Manually turn each motor in the correct direction of its rotation (as specified in the [Airframe Reference](../airframes/airframe_reference.md)), starting from the first motor and finishing with the last motor. Each time you turn a motor, you should hear a confirmation beep.
+   비행 컨트롤러가 ESC 열거 모드에 진입한 소리가 들립니다.
+1. 첫 번째 모터에서 시작하여 마지막 모터로 마무리하면서 각 모터를 올바른 회전 방향 ([Airframe Reference](../airframes/airframe_reference.md)에 지정된대로)으로 수동으로 돌립니다. 모터를 돌릴 때마다 확인음이 들려야합니다.
 
-:::note
-Make sure to turn each of the motors in the correct direction, as the ESC will automatically learn and remember the direction (i.e. motors that spin clockwise during normal operation must also be turned clockwise during enumeration).
+   :::note ESC가 자동으로 방향을 학습하고 기억하므로 각 모터를 올바른 방향으로 돌리십시오 (즉, 정상 작동 중에 시계 방향으로 회전하는 모터도 열거 중에 시계 방향으로 돌려야 함).
 :::
 
 1. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
