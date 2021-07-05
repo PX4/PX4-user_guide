@@ -37,41 +37,41 @@ PX4는 [UAVCAN](../uavcan/README.md) ESC를 지원합니다. [PWM ESC](../periph
 
 ## PX4 지원 ESC
 
-PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
+PX4는 모든 UAVCAN ESC와 호환됩니다 (UAVCAN은 일반적으로 플러그 앤 플레이 프로토콜을 의미합니다).
 
 :::note
-At time of writing PX4 supports UAVCAN v0 (not v1.0).
+작성 당시 PX4는 UAVCAN v0.x (v1.0 아님)를 지원합니다.
 :::
 
-The only difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different.
+설정 관점에서 UAVCAN ESC의 유일한 차이점은 모터 순서와 방향을 구성하는  커넥터와 소프트웨어가 다를 수 있다는 것입니다.
 
 
-Some popular UAVCAN ESC firmware/products include:
-- [Sapog](https://github.com/PX4/sapog#px4-sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
+널리 사용되는 UAVCAN ESC 펌웨어/제품은 다음과 같습니다.
+- [Sapog](https://github.com/PX4/sapog#px4-sapog) 펌웨어; 전기 무인 기체의 추진 시스템에 사용하도록 설계된 고급 오픈 소스 센서리스 PMSM/BLDC 모터 컨트롤러 펌웨어입니다.
   - [Zubax Orel 20](https://zubax.com/products/orel_20)
   - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
-- [Mitochondrik](https://zubax.com/products/mitochondrik) - integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
-  - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
-- [Myxa](https://zubax.com/products/myxa) - High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
-- [VESC Project ESCs](https://vesc-project.com/) (see also [Benjamin Vedder's blog](http://vedder.se) - project owner)
-- [OlliW’s UC4H ESC-Actuator Node](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
-- A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
+- [Mitochondrik](https://zubax.com/products/mitochondrik) - 통합 센서리스 PMSM/BLDC 모터 컨트롤러 칩 (ESC 및 통합 드라이브에 사용)
+  - [Zubax Sadulli 통합 드라이브](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
+- [Myxa](https://zubax.com/products/myxa) - 경량 무인 항공기 및 선박용 고급 PMSM/BLDC 모터 컨트롤러 (FOC ESC).
+- [VESC 프로젝트 ESC](https://vesc-project.com/) ([Benjamin Vedder의 블로그](http://vedder.se) - 프로젝트 소유자 참조)
+- [OlliW의 UC4H ESC - 액추에이터 노드](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
+- 그 외 다수가 [여기에 기술](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)되어 있습니다.
 
 :::note
-This list is *not exhaustive/complete*. If you know of another ESC, please add it to the list!
+이 목록은 *완전하지 않습니다*. 다른 ESC를 알고 있으시면, 목록에 추가하십시오!
 :::
 
-## Purchase
+## 구매
 
-Sapog-based ESCs:
+Sapog 기반 ESC:
 - [Zubax Orel 20](https://zubax.com/products/orel_20)
 - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
 
-Mitochondrik based drives and ESC:
-- [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
+Mitochondrik 기반 드라이브 및 ESC:
+- [Zubax Sadulli 통합 드라이브](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 
 :::note
-There are many other commercially available ESCs; please add new links as you find them!
+다른 상용 ESC가 많이 있습니다. 새 링크를 찾으면 추가하십시오!
 :::
 
 
@@ -83,20 +83,20 @@ There are many other commercially available ESCs; please add new links as you fi
 -->
 
 
-## Wiring/Connections
+## 배선
 
-Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes. The order in which the ESCs are connected/chained does not matter.
+모든 온보드 UAVCAN 장치를 체인에 연결하고, 버스가 끝 노드에서 종료되었는 지 확인합니다. ESC가 연결/체인 순서는 중요하지 않습니다.
 
-For more information see [UAVCAN > Wiring](../uavcan/README.md#wiring).
+자세한 정보는 [UAVCAN > 배선](../uavcan/README.md#wiring)을 참고하십시오.
 
 :::note
-All UAVCAN ESCs share the same connection architecture/are wired the same way. Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybro Kotleta20* use Dronecode standard connectors (JST-GH 4 Pin) - while VESCs do not).
+모든 UAVCAN ESC는 동일한 연결 아키텍처를 공유하며 동일한 방식으로 연결됩니다. 그러나, 실제 커넥터는 다릅니다 (예 : *Zubax Orel 20* 및 *Holybro Kotleta20*은 Dronecode 표준 커넥터 (JST-GH 4 핀)를 사용하지만 VESC는 사용하지 않음).
 :::
 
 
-## PX4 Configuration
+## PX4 설정
 
-In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
+PX4에서 UAVCAN ESC를 사용하려면 UAVCAN 드라이버를 활성화하여야 합니다.
 1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller) and connect *QGroundControl*.
 1. Navigate to the **Vehicle Setup > Parameters** screen. :::note [Parameters](../advanced_config/parameters.md) explains how to find and set parameters.
 :::
