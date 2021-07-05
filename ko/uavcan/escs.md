@@ -137,41 +137,41 @@ ESC를 열거하려면:
    :::note ESC가 자동으로 방향을 학습하고 기억하므로 각 모터를 올바른 방향으로 돌리십시오 (즉, 정상 작동 중에 시계 방향으로 회전하는 모터도 열거 중에 시계 방향으로 돌려야 함).
 :::
 
-1. After the last motor is enumerated, the confirmation sound should change to indicate that the enumeration procedure is complete.
-1. Reboot PX4 and the Sapog ESCs to apply the new enumeration IDs.
+1. 마지막 모터가 열거된 후에는 열거 절차가 완료되었음을 알리는 확인 소리가 변경되어야합니다.
+1. PX4와 Sapog ESC를 재부팅하여 새 열거 ID를 적용합니다.
 
-The following video demonstrates the process:
+다음 비디오는 프로세스를 보여줍니다.
 
-@[youtube](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+@[유투브](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
 
-### Manual ESC Enumeration using Sapog
+### Sapog를 사용한 수동 ESC 열거
 
 :::tip
-We recommend automated [Sapog ESC Enumeration using QGroundControl](#sapog-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
+수동 열거보다는 위에 표시된 자동화된 [Sapog ESC 열거](#sapog-esc-enumeration-using-qgroundcontrol)를 권장합니다 (더 쉽고 안전하기 때문입니다).
 :::
 
-You can manually configure the ESC index and direction using the [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/). This assigns the following Sapog configuration parameters for each enumerated ESC:
+[UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/)를 사용하여 ESC 색인과 방향을 수동으로 설정할 수 있습니다. 이렇게하면 열거된 각 ESC에 대하여, 다음 Sapog 설정 매개변수가 할당됩니다.
 - `esc_index`
 - `ctl_dir`
 
 :::note
-See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+매개변수에 대한 자세한 내용은 [Sapog 설명서](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)를 참조하십시오.
 :::
 
-### Myxa ESC Setup
+### Myxa ESC 설정
 
-Motor enumeration for Myxa [Telega-based ESCs](https://zubax.com/products/telega) is usually performed using the [Kucher tool](https://files.zubax.com/products/com.zubax.kucher/) (or less "GUI-friendly" [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/)).
+Myxa [Telega 기반 ESC](https://zubax.com/products/telega)에 대한 모터 열거는 일반적으로 [Kucher 도구](https://files.zubax.com/products/com.zubax.kucher/) (또는 덜 "GUI 친화적"인 [UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/))를 사용합니다.
 
-There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (Zubax blog).
+여기에 몇 가지 지침이 있습니다. [Myxa v0.1 빠른 시작 가이드](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (Zubax 블로그).
 
 
-### VESC ESC Setup
+### VESC ESC 설정
 
-For [VESC ESCs](https://vesc-project.com/) the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool). In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration. The recommended app setup is as follows:
+[VESC ESC](https://vesc-project.com/)의 경우 모터 열거에 선호되는 도구는 [VESC 도구](https://vesc-project.com/vesc_tool)입니다. VESC 도구에서 설정하는 일반 모터 설정 외에도 앱 구성을 올바르게 설정하여야 합니다. 권장되는 앱 설정은 다음과 같습니다.
 
-| Parameter               | Option                 |
+| 매개변수                    | 옵션                     |
 | ----------------------- | ---------------------- |
-| App to use              | `No App`               |
+| 사용할 앱                   | `No App`               |
 | VESC ID                 | `1,2,...`              |
 | Can Status Message Mode | `CAN_STATUS_1_2_3_4_5` |
 | CAN Baud Rate           | `CAN_BAUD_500K`        |
@@ -179,16 +179,16 @@ For [VESC ESCs](https://vesc-project.com/) the preferred tool for motor enumerat
 | UAVCAN ESC Index        | `0,1,...`              |
 
 
-VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc. However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`. For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
+VESC ID는 PX4 규칙과 동일한 모터 번호를 가져야합니다. 오른쪽 상단 모터의 경우 `1`, 왼쪽 하단 모터의 경우 `2`에서 시작합니다. 그러나, `UAVCAN ESC 인덱스`는 `0`에서 시작하므로 항상 `VESC ID`보다 낮은 인덱스입니다. 예를 들어, 쿼드 콥터에서 왼쪽 하단 모터는 `VESC ID=2` 및 `UAVCAN ESC Index=1`입니다.
 
-Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
+마지막으로 `CAN Baud Rate`는 [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE)에 설정된 값과 일치하여야 합니다.
 
 
-## Troubleshooting
+## 문제 해결
 
-#### Motors not spinning when armed
+#### 시동시 모터가 회전하지 않음
 
-If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs. If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
+PX4 펌웨어 암이 회전하지만 모터가 회전을 시작하지 않는 경우, UAVCAN ESC를 사용하려면 매개 변수 `UAVCAN_ENABLE=3`을 확인하십시오. 추력이 증가하기 전에 모터가 회전을 시작하지 않으면 `UAVCAN_ESC_IDLT=1`을 확인하십시오.
 
 #### UAVCAN devices dont get node ID/Firmware Update Fails
 
