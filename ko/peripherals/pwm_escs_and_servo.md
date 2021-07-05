@@ -71,7 +71,7 @@ ESC 서보 커넥터의 접지(검은 색 와이어)가 Pixhawk에 연결되어 
 
 아래 이미지는 GND가 연결되지 않은 경우, 신호에 발생하는 노이즈를 보여줍니다.
 
-![PWM without ground](../../assets/hardware/pwm_esc/pwm_without_gnd.png)
+![무접지 PWM](../../assets/hardware/pwm_esc/pwm_without_gnd.png)
 :::
 
 ### 전원 연결 / 광절연 ESC
@@ -97,13 +97,13 @@ PX4는 전원이 켜진 직후 [PWM_MAIN_DISARM](../advanced_config/parameter_re
 ### 유효한 펄스 모양, 전압 및 업데이트 속도
 
 :::note
-This should not be a problem, but is included for completeness
+이것은 문제가되지 않지만, 완전성을 위해 사용됩니다.
 :::
 
-Pixhawk uses active high pulses, as used by all the major brands (Futaba, Spektrum, FrSky).
+Pixhawk는 모든 주요 브랜드(Futaba, Spektrum, FrSky)에서 사용하는 활성 고펄스를 사용합니다.
 
-PWM interfaces are not formally standardised, however, the normal micro controllers all use TTL or CMOS voltage levels. TTL is defined as low < 0.8V and high > 2.0V with some manufacturers using > 2.4V for additional noise margin. CMOS logic is defined with similar voltage levels. 5V levels are **never** required to successfully switch to an *on* state.
+PWM 인터페이스는 공식적으로 표준화되어 있지 않지만, 일반 마이크로 컨트롤러는 모두 TTL 또는 CMOS 전압 레벨을 사용합니다. TTL은 낮은 <0.8V 및 높은> 2.0V로 정의되며, 일부 제조업체는 추가 노이즈 마진을 위해 2.4V 이상의 전압을 사용합니다. CMOS 로직은 유사한 전압 레벨로 정의됩니다. 5V 레벨은 *켜짐* 상태로 성공적으로 전환에는 **절대** 필요하지 않습니다.
 
 :::tip
-Futaba, FrSky and Spektrum receivers output 3.3V or 3.0V voltage levels, as they are well above 2.4V. Pixhawk has adopted this common industry pattern and outputs 3.3V levels on recent boards.
+Futaba, FrSky 및 Spektrum 수신기는 2.4V보다 훨씬 높은 3.3V 또는 3.0V 전압 레벨을 출력합니다. Pixhawk는 이러한 일반적인 산업 패턴을 채택하고, 최근 보드에서 3.3V 레벨을 출력합니다.
 :::
