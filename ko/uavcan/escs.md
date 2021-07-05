@@ -1,10 +1,10 @@
-# UAVCAN ESCs (Motor Controllers)
+# UAVCAN ESC (모터 컨트롤러)
 
-PX4 supports [UAVCAN](../uavcan/README.md) ESCs. These have a number of advantages over [PWM ESCs](../peripherals/pwm_escs_and_servo.md):
-- UAVCAN has been specifically designed to deliver robust and reliable connectivity over relatively large distances. It enables safe use of ESCs on bigger vehicles and communication redundancy.
-- The bus is bi-directional, enabling health monitoring and diagnostics.
-- Wiring is less complicated as you can have a single bus for connecting all your ESCs and other UAVCAN peripherals.
-- Setup is easier as you configure ESC numbering by manually spinning each motor (for most types of UAVCAN ESCs).
+PX4는 [UAVCAN](../uavcan/README.md) ESC를 지원합니다. [PWM ESC](../peripherals/pwm_escs_and_servo.md)와 비교하여 다음과 같은 장점들이 있습니다.
+- UAVCAN은 비교적 장거리에도 강력하고 안정적인 연결을 제공하도록 설계되었습니다. 더 큰 기체에서 ESC를 안전하게 사용하고, 통신 이중화가 가능합니다.
+- 버스는 양방향이므로, 상태 모니터링과 진단이 가능합니다.
+- 모든 ESC 및 기타 UAVCAN 주변 장치를 연결하기 위한 단일 버스를 가질 수 있으므로, 배선이 비교적 간단합니다.
+- (대부분의 UAVCAN ESC 유형의 경우) 각 모터를 수동으로 회전하여 ESC 번호 지정을 구성하면 설정이 더 용이합니다.
 
 <style>
 #image_container {
@@ -22,7 +22,7 @@ PX4 supports [UAVCAN](../uavcan/README.md) ESCs. These have a number of advantag
 <div id="image_container">
 
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg" alt="Sadulli - Top" /><br><a href="https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283">Zubax Sadulli Integrated Drive</a>
+    <img src="../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg" alt="Sadulli - Top" /><br><a href="https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283">Zubax Sadulli 통합 드라이브</a>
   </div>
   
   <div class="image_column">
@@ -35,7 +35,7 @@ PX4 supports [UAVCAN](../uavcan/README.md) ESCs. These have a number of advantag
 
 </div>
 
-## PX4 Supported ESC
+## PX4 지원 ESC
 
 PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
 
