@@ -4,28 +4,28 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 
 ## ESC 연결 개요
 
-Each PWM Electronic Speed Controller (ESC) minimally has the following wires:
+각 PWM ESC에는 최소한 다음과 같은 전선들을 가지고 있습니다.
 
-- Power VBAT (usually thick and red)
-- Power GND (usually thick and black)
+- Power VBAT (일반적으로 두껍고 빨간색)
+- Power GND (보통 두껍고 검정색)
 
-And on the servo plug:
+그리고 서보 플러그에서:
 
-- PWM signal (usually white or yellow)
-- GND (usually black or brown)
+- PWM 신호 (일반적으로 흰색 또는 노란색)
+- GND (일반적으로 검정색 또는 갈색)
 
-The servo plug *may* also have a +5V wire (usually red or orange). The purpose of this wire and how it is connected depends on particular ESC and vehicle type.
+서보 플러그에는 +5V 와이어 (일반적으로 빨간색 또는 주황색)도 *있을 수 있습니다*. 이 와이어의 목적과 연결 방법은 ESC와 기체 유형에 따라 달라집니다.
 
 :::tip
-In some cases (see below)the +5V line is not needed. Instead of cutting the +5V line you can gently lift of the locking tab of the plastic housing of the servo connector for that pin (e.g. using a cutter blade or small screw driver) and pull the pin out. Isolate it with electrical isolation tape and tape it to the servo cable. This allows you to easily undo the wire later if needed.
+일부 경우 (아래 참조) +5V 라인이 필요하지 않습니다. +5V 라인을 절단하는 대신 해당 핀용 서보 커넥터 플라스틱 하우징의 잠금 탭을 부드럽게 들어 올린 다음 (예 : 커터 블레이드 또는 소형 스크루 드라이버 사용) 핀을 빼낼 수 있습니다. 전기 절연 테이프로 분리하고 서보 케이블에 테이프로 붙입니다. 이렇게하면 나중에 필요한 경우 와이어를 쉽게 취소할 수 있습니다.
 :::
 
-## Power Connections
+## 전원 연결
 
-Always connect Power VBAT and GND to the battery, and the PWM signal and GND from the servo plug to the motor.
+항상 Power VBAT 및 GND를 배터리에 연결하고, PWM 신호 및 GND를 서보 플러그에서 모터로 연결하십시오.
 
 :::tip
-There is **no setup** that does not require signal ground to be connected!
+신호 접지를 연결할 필요가 없는 **설정은 없습니다**.
 :::
 
 The connection to the +5V wire (if present) depends on the ESC/Vehicle.
