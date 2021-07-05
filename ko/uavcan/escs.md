@@ -22,15 +22,15 @@ PX4는 [UAVCAN](../uavcan/README.md) ESC를 지원합니다. [PWM ESC](../periph
 <div id="image_container">
 
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg" alt="Sadulli - Top" /><br><a href="https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283">Zubax Sadulli 통합 드라이브</a>
+    <img src="../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg" alt="Sadulli - 상단" /><br><a href="https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283">Zubax Sadulli 통합 드라이브</a>
   </div>
   
   <div class="image_column">
-  <img src="../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg" alt="Orel20 - Top"/><br><a href="https://zubax.com/products/orel_20">Zubax Orel 20</a>
+  <img src="../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg" alt="Orel20 - 상단"/><br><a href="https://zubax.com/products/orel_20">Zubax Orel 20</a>
   </div>
 
   <div class="image_column">
-    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 top" /><br><a href="https://shop.holybro.com/kotleta20_p1156.html">Holybro Kotleta20</a>
+    <img src="../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_top.jpg" alt="Holybro Kotleta20 상단" /><br><a href="https://shop.holybro.com/kotleta20_p1156.html">Holybro Kotleta20</a>
   </div>
 
 </div>
@@ -129,7 +129,7 @@ ESC를 열거하려면:
 1. **기체 설정 > QGC 전력** 화면으로 이동합니다.
 1. 아래 스크린 샷과 같이 **Start Assignment** 버튼을 눌러서, ESC 자동 열거 프로세스를 시작합니다.
 
-   ![QGC - UAVCAN ESC auto-enumeration](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
+   ![QGC-UAVCAN ESC 자동 열거](../../assets/peripherals/esc_qgc/qgc_uavcan_settings.jpg)
 
    비행 컨트롤러가 ESC 열거 모드에 진입한 소리가 들립니다.
 1. 첫 번째 모터에서 시작하여 마지막 모터로 마무리하면서 각 모터를 올바른 회전 방향 ([Airframe Reference](../airframes/airframe_reference.md)에 지정된대로)으로 수동으로 돌립니다. 모터를 돌릴 때마다 확인음이 들려야합니다.
@@ -190,15 +190,15 @@ VESC ID는 PX4 규칙과 동일한 모터 번호를 가져야합니다. 오른�
 
 PX4 펌웨어 암이 회전하지만 모터가 회전을 시작하지 않는 경우, UAVCAN ESC를 사용하려면 매개 변수 `UAVCAN_ENABLE=3`을 확인하십시오. 추력이 증가하기 전에 모터가 회전을 시작하지 않으면 `UAVCAN_ESC_IDLT=1`을 확인하십시오.
 
-#### UAVCAN devices dont get node ID/Firmware Update Fails
+#### UAVCAN 장치가 노드 ID를 얻지 못함 / 펌웨어 업데이트 실패
 
-PX4 requires an SD card for UAVCAN node allocation and during firmware update (which happen during boot). Check that there is a (working) SD card present and reboot.
+PX4는 UAVCAN 노드 할당 및 펌웨어 업데이트 (부팅 중에 발생)를 위해 SD 카드가 필요합니다. (작동하는) SD 카드가 있는 지 확인하고 재부팅하십시오.
 
 
-## Further Information
+## 추가 정보
 
 - [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
-- [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
-- [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB)
-- [Using Sapog based ESC with PX4](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
+- [Sapog v2 설명서](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
+- [UAVCAN 장치 상호 연결](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB)
+- [PX4와 함께 Sapog 기반 ESC 사용](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
 
