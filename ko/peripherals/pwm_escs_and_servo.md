@@ -28,31 +28,31 @@ PWM 기반 브러시리스 모터 컨트롤러, 서보를 연결 방법과 전�
 신호 접지를 연결할 필요가 없는 **설정은 없습니다**.
 :::
 
-The connection to the +5V wire (if present) depends on the ESC/Vehicle.
++5V 와이어 (있는 경우)에 대한 연결은 ESC/기체에 따라 달라집니다.
 
-### Fixed Wing / VTOL
+### 고정익 / VTOL
 
-On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC).
+고정익(또는 VTOL) ESC에서 +5V 라인은 일반적으로 배터리제거회로(BEC)의 출력을 제공합니다.
 
-- This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
+- 이것은 Pixhawk 서보 레일에 연결되어 플랩, 에일러론 등의 서보에 전원을 공급에 사용할 수 있습니다.
     
 :::note
-It is unsafe to power servos or ESCs from the autopilot's avionics power supply. This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
+자동조종장치의 전원공급장치에서 서보 또는 ESC에 전원을 공급하는 것은 안전하지 않습니다. 이것은 **Pixhawk 시리즈** 비행 콘트롤러가 서보 레일에 전원을 제공하지 않는 이유입니다 (AUX 서보 레일은 전원이 공급되지 않고 1A로 제한됨).
 :::
 
-- As a rule of thumb you should only connect the *output of only one BEC* to the Pixhawk servo rail. (while it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model).
+- 경험상, Pixhawk 서보 레일에는 *하나의 BEC 출력*만 연결하여야 합니다. 여러 +5V 출력을 레일에 연결할 수 있지만, ESC 모델에 따라 다릅니다.
 
-### Multicopter
+### 멀티콥터
 
-On a multicopter, the +5V line might not be present or (if present) may not be connected.
+멀티 콥터에서 +5V 라인이 없거나 (있는 경우) 연결되지 않을 수 있습니다.
 
-- Multicopters often do not need servos, and hence do not need to power the Pixhawk servo rail (motors are usually separately powered from a power distribution board).
-- There is no harm (or benefit) in connecting the wire to the servo rail.
-- DJI ESCs typically include this wire, but it is not connected.
+- 멀티 콥터는 종종 서보가 필요하지 않으므로, Pixhawk 서보 레일에 전원을 공급할 필요가 없습니다 (모터는 일반적으로 배전 보드에서 별도로 전원이 공급됨).
+- 와이어를 서보 레일에 연결하여도 단점이나 장점은 없습니다.
+- DJI ESC는 일반적으로 이 와이어가 포함되어 있지만, 연결되어 있지는 않습니다.
 
-### Opto-isolated ESC
+### 광 절연 ESC
 
-On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC.
+BEC가 **없는** 광 절연 ESC에서 +5V 라인을 연결하고 전원을 공급해야 할 수 있습니다 (ESC 마이크로 컨트롤러에 전원을 공급하기 위하여). In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC.
 
 ## PWM Configuration
 
