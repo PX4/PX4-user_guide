@@ -13,14 +13,13 @@ DShot은 PWM 또는 OneShot에 비해 여러 가지 장점을 가진 ESC 대체 
 <span id="wiring"></span>
 ## 배선
 
-DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
+DShot ESC는 [PWM ESC](pwm_escs_and_servo.md)와 동일한 방식으로 연결되며, 소프트웨어 매개변수를 변경하면 프로토콜을 전환할 수 있습니다 (ESC는 시작시 선택한 프로토콜을 자동으로 감지함).
 
-If using a Pixhawk flight controller that only has a MAIN port, connect the pins according to the [airframe reference](../airframes/airframe_reference.md) for your vehicle.
+MAIN 포트만 있는 Pixhawk 비행 콘트롤러를 사용하는 경우에는 기체의 [기체 정의서](../airframes/airframe_reference.md)을 참고하여 핀을 연결하십시오.
 
-If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*.
+AUX 및 MAIN 레이블이 지정된 포트가 있는 Pixhawk를 사용하는 경우에는 [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO)을 설정하고 ESC를 AUX 레이블이있는 출력에 *MAIN 레이블이 지정된 것처럼* 연결합니다.
 
-:::note
-A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively. DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
+:::note FMU와 IO가 모두 있는 Pixhawk 비행 콘트롤러는 포트를 각각 AUX 및 MAIN으로 표시합니다. DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
 
 To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs. Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
 
