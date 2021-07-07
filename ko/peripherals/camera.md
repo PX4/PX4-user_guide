@@ -69,84 +69,74 @@ GPIO, PWM 또는 Seagull 기반 트리거링 (예 : MAVLink 카메라를 사용�
 
 ## 카메라 캡처
 
-Cameras can also (optionally) use the flight controller camera capture pin to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+카메라는 또한 (선택적으로) 비행 콘트롤러 카메라 캡처 핀을 사용하여 사진 프레임이 촬영되는 순간을 정확하게 알 수 있습니다. 이를 통하여 지오 태깅을위한 GPS 위치 또는 VIO 동기화를 위한 올바른 IMU 샘플 등에 이미지를 보다 정확하게 매핑할 수 있습니다.
 
-Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The capture pin used depends on the hardware:
+PX4에서 [CAM_CAP_FBACK=1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK)을 설정하면 카메라 캡처/피드백이 활성화됩니다. 사용되는 캡처 핀은 하드웨어에 따라 달라집니다.
 
-* Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
-* Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+* Pixhawk FMUv5x 보드는 보드별 카메라 캡처 핀 (PI0)을 사용합니다.
+* 다른 보드는 카메라 캡처를 위하여 FMU PWM 핀 6(하드 코딩 됨)을 사용합니다.
 
-PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V). If the camera isn't outputing an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 감지합니다 (Pixhawk 비행 콘트롤러의 경우 일반적으로 3.3V). 카메라가 적절한 전압을 출력하지 않는 경우에는, 신호 호환을 위한 추가 회로가 필요합니다.
 
-Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor. For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage. This slides into the flash slot on the top of the camera. The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
+핫슈 커넥터 (플래시 연결 용)가 있는 카메라는 일반적으로 핫슈 어댑터를 통하여 연결할 수 있습니다. 예를 들어, [Seagull # SYNC2 범용 카메라 핫슈 어댑터](https://www.seagulluav.com/product/seagull-sync2/)는 플래시 전압을 Pixhawk 전압으로 분리하고 이동하는 옵토 커플러입니다. 이것은 카메라 상단의 플래시 슬롯에 삽입됩니다. 빨간색 및 검은 색 출력은 서보 레일/접지에 연결되고, 흰색 와이어는 입력 캡처 핀에 연결됩니다.
 
 ![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
 
-:::note PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
+:::note PX4는 카메라 트리거와 카메라 캡처 모두에서 MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 카메라 캡처가 구성된 경우 카메라 캡처 드라이버의 타임스탬프가 사용되며 그렇지 않으면 트리거링 타임스탬프가 사용됩니다.
 :::
 
-## Command Interface
+## 명령 인터페이스
 
-**TODO : NEEDS UPDATING updating**
+**TODO : 업데이트 필요 업데이트**
 
-The camera trigger driver supports several commands:
+카메라 트리거 드라이버는 여러가지 명령어를 지원합니다.
 
-[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - "명령 제어" 모드에서 허용됩니다 (`TRIG_MODE` 1).
 
-트리거 사이클 시간 (밀리 초 단위) (` TRIG_INTERVAL </ 0> 매개 변수 설정)</td>
-</tr>
-<tr>
-  <td>Param #3</td>
-  <td>시퀀스 재설정 (이미지 시퀀스 번호를 재설정하려면 1로 설정하고 현재 시퀀스 번호를 유지하려면 0으로 설정)</td>
-</tr>
-</tbody>
-</table>
+| 명령어 매개변수 | 설명                                                            |
+| -------- | ------------------------------------------------------------- |
+| Param #1 | 트리거 활성화/비활성화 (비활성화의 경우 0으로 설정하고, 시작의 경우 1로 설정)                |
+| Param #2 | 트리거 사이클 시간 (밀리 초 단위) (`TRIG_INTERVAL` 매개변수 설정)                |
+| Param #3 | 시퀀스 재설정 (이미지 시퀀스 번호를 재설정하려면 1로 설정하고, 현재 시퀀스 번호를 유지하려면 0으로 설정) |
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL">MAV_CMD_DO_DIGICAM_CONTROL</a> - Accepted in all modes.
-This is used by the GCS to test-shoot the camera from the user interface.
-The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.</p>
+[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - 모든 모드에서 허용됩니다. 이것은 GCS에서 사용자 인터페이스에서 카메라를 테스트 촬영시에 사용됩니다. 트리거 드라이버는 아직 MAVLink 사양에 정의된 모든 카메라 제어 매개변수를 지원하지 않습니다.
 
-<table>
-<thead>
-<tr>
-  <th>Command Parameter</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Param #5</td>
-  <td>원샷 명령을 트리거합니다 (단일 이미지 프레임을 트리거하려면 1로 설정).</td>
-</tr>
-</tbody>
-</table>
+| 명령어 매개변수 | 설명                                        |
+| -------- | ----------------------------------------- |
+| Param #5 | 원샷 명령을 트리거합니다 (단일 이미지 프레임을 트리거하려면 1로 설정). |
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST">MAV_CMD_DO_SET_CAM_TRIGG_DIST</a> - Accepted in "mission controlled" mode (<code>TRIG_MODE` 4)</p> 
+ MAV_CMD_DO_SET_CAM_TRIGG_DIST </ 0> - "임무 통제"모드에서 허용됨 (` TRIG_MODE </> 4)</p>
 
-This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.
+<p>This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.</p>
 
-## Testing Trigger Functionality
+<h2>Testing Trigger Functionality</h2>
 
-1. PX4 콘솔에서 : ```카메라_트리거 테스트```
-2. From *QGroundControl*:
-    
-    Click on **Trigger Camera** in the main instrument panel. 이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.
-    
-    ![QGC 테스트 카메라](../../assets/camera/qgc_test_camera.png)
+<ol start="1">
+<li>PX4 콘솔에서 :
+```카메라_트리거 테스트```</li>
+<li><p>From <em>QGroundControl</em>:</p>
 
-## Sony QX-1 example (Photogrammetry)
+<p>Click on <strong>Trigger Camera</strong> in the main instrument panel.
+이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.</p>
 
-![photogrammetry](../../assets/camera/photogrammetry.png)
+<p><img src="../../assets/camera/qgc_test_camera.png" alt="QGC 테스트 카메라" /></p></li>
+</ol>
 
-In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
+<h2>Sony QX-1 example (Photogrammetry)</h2>
 
-### Trigger Settings
+<p><img src="../../assets/camera/photogrammetry.png" alt="photogrammetry" /></p>
 
-The recommended camera settings are:
+<p>In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.</p>
 
-* `TRIG_INTERFACE=2` (Seagull MAP2).
+<h3>Trigger Settings</h3>
+
+<p>The recommended camera settings are:</p>
+
+<ul>
+<li><code>TRIG_INTERFACE=2` (Seagull MAP2).</li> 
+
 * `TRIG_MODE=4` (Mission controlled).
-* Leave the remaining parameters at their defaults.
+* Leave the remaining parameters at their defaults.</ul> 
 
 You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
