@@ -1,48 +1,38 @@
 # 카메라 트리거 
 
-The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.
+카메라 트리거 드라이버를 사용하여 AUX 포트로 카메라를 트리거 펄스를 전송할 수 있습니다.
 
-In addition to a pulse being sent out, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp. This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+펄스가 전송되는 것 외에도 시퀀스 번호(즉, 현재 세션의 이미지 시퀀스 번호)와 해당 타임스탬프가 포함 된 MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지가 게시됩니다. 이 타임스탬프는 항공 측량을 위한 타임 스탬프 사진, 다중 카메라 시스템 동기화 또는 시각적 관성 내비게이션을 포함한 여러 응용 프로그램에 사용할 수 있습니다.
 
-Cameras can also (optionally) use the flight controller [camera capture pin](#camera-capture) to signal the exact moment that a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+카메라는 또한 (선택적으로) 비행 콘트롤러 [카메라 캡처 핀](#camera-capture)을 사용하여 사진 프레임이 촬영되는 정확한 순간을 알릴 수 있습니다. 이를 통하여 지오 태깅을위한 GPS 위치 또는 VIO 동기화를 위한 올바른 IMU 샘플 등에 이미지를 보다 정확하게 매핑할 수 있습니다.
 
-## Trigger Configuration
+## 트리거 설정
 
-Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
+카메라 트리거는 일반적으로 *QGroundControl* [기체 설정 &gt; 카메라](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) 섹션에서 설정합니다.
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger-modes), [backend interfaces](#trigger-interface-backends) and [hardware setup](#trigger-hardware-configuration) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+다양한 [트리거 모드](#trigger-modes), [백엔드 인터페이스](#trigger-interface-backends) 및 [하드웨어 설정](#trigger-hardware-configuration)이 아래에 설명되어 있습니다 (이는 [매개 변수](../advanced_config/parameters.md)에서 직접 설정할 수도 있음).
 
 :::note
-The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+카메라 모듈이 펌웨어에 자동으로 포함되지 않기 때문에 FMUv2 기반 비행 콘트롤러 (예 : 3DR Pixhawk)의 경우 기본적으로 카메라 설정 섹션을 사용할 수 없습니다. 자세한 내용은 [매개변수 검색/업데이트 &gt; 펌웨어에 없는 매개변수](../advanced_config/parameters.md#parameter-not-in-firmware)를 참고하십시오.
 :::
 
-## Trigger Modes
+## 트리거 모드
 
-Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
+네 가지 모드가 지원되며 [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) 매개변수로 설정됩니다.
 
-MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 비활성화 할 수있는 기본 간격계와 같은 기능을합니다. See <a href="#command-interface">command interface</a> for more details.</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>자동 노출계를 지속적으로 켭니다.
+| 모드 | 설명                                                                                                                              |
+| -- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | 카메라 트리거가 비활성화됩니다.                                                                                                               |
+| 1  | MAVLink 명령 `MAV_CMD_DO_TRIGGER_CONTROL`을 사용하여 활성화 및 비활성화 할 수 있는 기본 간격계처럼 작동합니다. 자세한 내용은 [명령 인터페이스](#command-interface)를 참고하십시오. |
+| 2  | 간격계를 계속 켭니다.                                                                                                                    |
+| 3  | 거리를 기반으로 트리거합니다. 설정 수평 거리를 초과시 마다 촬영됩니다. 그러나, 두 샷 사이의 최소 시간 간격은 설정된 트리거 간격에 의해 제한됩니다.                                           |
+| 4  | 임무 모드에서 비행시 측량은 자동으로 트리거됩니다.                                                                                                    |
 
-</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>거리를 기반으로 트리거합니다. 설정 한 수평 거리를 초과 할 때마다 촬영됩니다. 그러나 두 샷 사이의 최소 시간 간격은 설정된 트리거 간격에 의해 제한됩니다.</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>임무 모드에서 측량을 비행 할 때 자동으로 트리거됩니다.</td>
-</tr>
-</tbody>
-</table>
-
-<p>:::note
-If it is your first time enabling the camera trigger app, remember to reboot after changing the <code>TRIG_MODE` parameter. :::</p> 
+:::note
+If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
+:::
 
 ## Trigger Hardware Configuration
 
