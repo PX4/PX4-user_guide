@@ -17905,69 +17905,69 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
- <td>actuator_outputs uORB over UAVCAN v1 port ID    </td>
+ <td>actuator_outputs uORB over UAVCAN v1 publication port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
- <td>DS-015 battery parameters port ID    </td>
+ <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
+ <td>DS-015 battery parameters subscription  port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_BS_PID">UCAN1_BMS_BS_PID</strong> (INT32)</td>
- <td>DS-015 battery status port ID    </td>
+ <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
+ <td>DS-015 battery status subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_ES_PID">UCAN1_BMS_ES_PID</strong> (INT32)</td>
- <td>DS-015 battery energy source port ID    </td>
+ <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
+ <td>DS-015 battery energy source subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_ESC0_PID">UCAN1_ESC0_PID</strong> (INT32)</td>
- <td>ESC0 port ID    </td>
+ <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
+ <td>ESC 0 subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 ESC port ID    </td>
+ <td>UAVCAN v1 ESC publication port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_GPS0_PID">UCAN1_GPS0_PID</strong> (INT32)</td>
- <td>GPS 0 port ID    </td>
+ <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
+ <td>GPS 0 subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_GPS1_PID">UCAN1_GPS1_PID</strong> (INT32)</td>
- <td>GPS 1 port ID    </td>
+ <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
+ <td>GPS 1 subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 GPS port ID    </td>
+ <td>UAVCAN v1 GPS publication port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_LG_BMS_PID">UCAN1_LG_BMS_PID</strong> (INT32)</td>
+ <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
  <td>UAVCAN v1 leagcy battery port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
@@ -17975,14 +17975,14 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 Servo port ID    </td>
+ <td>UAVCAN v1 Servo publication port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 port ID    </td>
+ <td>sensor_gps uORB over UAVCAN v1 subscription port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
