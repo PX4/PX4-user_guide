@@ -31,40 +31,39 @@
 | 4  | 임무 모드에서 비행시 측량은 자동으로 트리거됩니다.                                                                                                    |
 
 :::note
-If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
+카메라 트리거 앱을 처음 활성화하는 경우 `TRIG_MODE` 매개변수를 변경 후 재부팅하여야 합니다.
 :::
 
-## Trigger Hardware Configuration
+## 트리거 하드웨어 설정
 
-The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
+GPIO, PWM 또는 Seagull 기반 트리거링 (예 : MAVLink 카메라를 사용하지 않는 경우)에 대한 이미지 캡처를 트리거하는 데 사용 핀은 [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) 매개변수에서 설정합니다. 기본값은 56이며, 이는 *FMU* 핀 5 및 6에서 트리거 활성화를 의미합니다.
 
-:::note
-On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
+:::note FMU
+및 I/O 보드가 모두있는 Pixhawk 비행 콘트롤러에서 이러한 FMU 핀은 `AUX5`와 `AUX6` (예 : Pixhawk 4, CUAV v5 +)에 매핑됩니다. FMU만 있는 콘트롤러에서는 핀이 `MAIN5`와 `MAIN6`에 매핑됩니다 (예 : Pixhawk 4 mini, CUAV v5 nano). 작성 시점에 트리거링은 FMU 핀에서만 작동합니다. I/O 보드의 핀을 사용하여 카메라를 트리거 할 수 없습니다.
 :::
 
 :::warning
-With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
+`TRIG_PINS=56` (기본값)으로 AUX 핀 1 ~ 4를 액추에이터 출력 (서보/ESC 용)으로 사용할 수 있습니다. `TRIG_PINS=78`을 사용하면 AUX 핀 1-6을 액추에이터 출력으로 사용할 수 있습니다. 다른 핀 조합을 선택할 수 있지만, 다른 FMU 핀을 출력으로 사용할 수 없습니다.
 :::
 
-## Trigger Interface Backends
+## 트리거 인터페이스 백엔드
 
-The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
+카메라 트리거 드라이버는 여러 백엔드를 지원합니다. 각 백엔드는 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) 매개변수에 의해 제어되는 특정 애플리케이션을 위한 것입니다.
 
-enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간마다 (` TRIG_POLARITY </ 0> 매개 변수에 따라) 높거나 낮게 펄스됩니다. 이것은 대부분의 표준 머신 비전 카메라를 직접 트리거하는 데 사용될 수 있습니다. PX4FMU 시리즈 하드웨어 (Pixhawk, Pixracer 등)에서 AUX 핀의 신호 레벨은 3.3v입니다.</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>Seagull MAP2 인터페이스를 활성화합니다. 이를 통해 <a href="http://www.seagulluav.com/product/seagull-map2/"> Seagull MAP2 </ 0>를 사용하여 지원되는 여러 카메라에 연결할 수 있습니다. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of <code>TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.</td> </tr> 
+| 번호 | 설명                                                                                                                                                                                                                                                                                                                                             |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | GPIO 인터페이스를 활성화합니다. AUX 출력은 [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) 시간마다 (`TRIG_POLARITY` 매개변수에 따라) 높거나 낮게 펄스됩니다. 이것은 대부분의 표준 머신비전 카메라를 직접 트리거 할 수 있습니다. PX4FMU 시리즈 하드웨어 (Pixhawk, Pixracer 등)에서 AUX 핀의 신호 레벨은 3.3v입니다.                                                                                       |
+| 2  | Seagull MAP2 인터페이스를 활성화합니다. 이를 통해 [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/)를 사용하여 지원되는 여러 카메라에 연결할 수 있습니다. MAP2의 핀/채널 1 (카메라 트리거) 및 핀/채널 2 (모드 선택기)는 각각 `TRIG_PINS`의 하위 및 상위 AUX 핀에 연결되어야합니다 (따라서 채널/핀 1에서 AUX 기본적으로 채널/핀 2에서 AUX 6으로). Seagull MAP2를 사용하는 PX4는 QX-1과 같은 Sony Multiport 카메라의 자동 전원 제어 및 연결 유지 기능도 지원합니다. |
+| 3  | MAVLink 인터페이스를 사용합니다. 이 모드에서는 실제 하드웨어 출력이 사용되지 않습니다. `CAMERA_TRIGGER` MAVLink 메시지는 자동 조종 장치에 의해 전송됩니다 (MAVLink 응용 프로그램이 `온보드` 모드인 경우 기본적으로). 그렇지 않으면, 사용자 정의 스트림을 활성화하여야 합니다.                                                                                                                                                                  |
+| 4  | 범용 PWM 인터페이스를 사용합니다. [적외선 트리거](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) 또는 서보가 카메라를 트리거 할 수 있습니다. 트리거 신호는 `TRIG_PINS`를 사용하여 지정된 두 핀에서 복제됩니다.                                                                                                                                                       |
 
-</tbody> </table> 
+## 기타 매개변수
 
-## 기타 패러미터들
-
-| Parameter                                                                  | Description                                                                                                                  |
-| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | GPIO 인터페이스를 사용하는 동안에 만 관련됩니다. 트리거 핀의 극성을 설정합니다. 액티브 하이는 핀이 로우로 정상적으로 당겨지고 트리거 이벤트에서 하이로 풀링됨을 의미합니다. 액티브 로우는 반대의 경우도 마찬가지입니다. |
-| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | 두 개의 연속 트리거 이벤트 사이의 시간을 밀리 초 단위로 정의합니다.                                                                                      |
-| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | 트리거 핀이 "활성"상태로 유지되어 중립으로 돌아 가기 전의 시간을 밀리 초 단위로 정의합니다. PWM 모드에서는 50Hz PWM 신호에 항상 활성화 펄스를 맞출 수 있도록 최소값이 40ms로 제한됩니다.           |
+| 매개변수                                                                       | 설명                                                                                                                          |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | GPIO 인터페이스를 사용하는 동안에만 관련됩니다. 트리거 핀의 극성을 설정합니다. 액티브 하이는 핀이 로우로 정상적으로 당겨지고 트리거 이벤트에서 하이로 풀링됨을 의미합니다. 액티브 로우는 반대의 경우도 마찬가지입니다. |
+| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | 두 개의 연속 트리거 이벤트 사이의 시간을 밀리 초 단위로 정의합니다.                                                                                     |
+| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | 트리거 핀이 "활성"상태로 유지되어 중립으로 돌아 가기 전의 시간을 밀리 초 단위로 정의합니다. PWM 모드에서는 50Hz PWM 신호에 항상 활성화 펄스를 맞출 수 있도록 최소값이 40ms로 제한됩니다.          |
 
 The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
 
