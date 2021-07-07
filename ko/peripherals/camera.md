@@ -1,4 +1,4 @@
-# 카메라 조작
+# 카메라 트리거 
 
 The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.
 
