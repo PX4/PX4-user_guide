@@ -13829,6 +13829,8 @@ table {
  <td>IMU gyro FFT length  <strong>Values:</strong><ul>
 <li><strong>256:</strong> 256</li> 
 
+<li><strong>512:</strong> 512</li> 
+
 <li><strong>1024:</strong> 1024</li> 
 
 <li><strong>4096:</strong> 4096</li> 
@@ -13836,7 +13838,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>1024</td>
+ <td>512</td>
  <td>Hz</td>
 </tr>
 <tr>
