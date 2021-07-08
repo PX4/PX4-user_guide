@@ -152,31 +152,31 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 * ISO는 가능한 한 낮게 설정합니다.
 * 풍경에 적합한 수동 화이트 밸런스를 설정합니다.
 
-### Mission Planning
+### 임무 계획
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
-### Geotagging
+### 지오태깅
 
-Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
+비행 로그 파일과 이미지를 다운로드 QGroundControl을 지정합니다. 그런 다음 "태깅 시작"을 클릭하십시오.
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
+[Pic2Map](https://www.pic2map.com/)과 같은 무료 온라인 서비스를 사용하여 지오 태깅을 확인할 수 있습니다. Pic2Map은 40 개의 이미지 제한이 있습니다.
 
-### Reconstruction
+### 재구성
 
-We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
+3D 재구성을 위해 [Pix4D](https://pix4d.com/)를 사용합니다.
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
-## Camera-IMU sync example (VIO)
+## 카메라-IMU 동기화 예 (VIO)
 
-In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
+이 예에서는 스테레오 VINS(Visual-Inertial Navigation System)를 구축하기 위하여 IMU 측정을 시각적 데이터와 동기화에 관련된 기본 사항을 설명합니다. 사진을 찍는 것과 동시에 IMU 측정을하는 것이 아니라 VIO 알고리즘에 정확한 데이터를 제공하기 위해 이미지에 정확한 타임 스탬프를 찍는 것입니다.
 
-The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
+자동비행장치와 보조 컴퓨터는 서로 다른 클럭 기반 (자동비행장치의 경우 부팅 시간, 보조 컴퓨터의 경우 UNIX epoch)을 갖기 때문에 시계를 보종하는 대신, 시계 간의 시간 오프셋을 관찰합니다. 이 오프셋은 미들웨어간 번역기 구성 요소(예: 보조 컴퓨터의 MAVROS 및 PX4의 `mavlink_receiver`)의 MAVLink 메시지(예: `HIGHRES_IMU`)의 타임스탬프에서 추가하거나 뺍니다. 실제 동기화 알고리즘은 NTP(Network Time Protocol) 알고리즘의 수정 버전이며, 지수 이동 평균을 사용하여 추적 시간 오프셋을 평활화합니다. 이 동기화는 MAVROS가 고대역폭 온보드 링크(MAVLink 모드 `온보드`)와 함께 사용되는 경우 자동으로 수행됩니다.
 
 For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
