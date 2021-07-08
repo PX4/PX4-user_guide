@@ -10,7 +10,7 @@
 
 카메라 트리거는 일반적으로 *QGroundControl* [기체 설정 &gt; 카메라](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) 섹션에서 설정합니다.
 
-![Trigger pins](../../assets/camera/trigger_pins.png)
+![트리거 핀](../../assets/camera/trigger_pins.png)
 
 다양한 [트리거 모드](#trigger-modes), [백엔드 인터페이스](#trigger-interface-backends) 및 [하드웨어 설정](#trigger-hardware-configuration)이 아래에 설명되어 있습니다 (이는 [매개 변수](../advanced_config/parameters.md)에서 직접 설정할 수도 있음).
 
@@ -124,7 +124,7 @@ PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 �
 
 <h2>Sony QX-1 예제 (사진 측량)</h2>
 
-<p><img src="../../assets/camera/photogrammetry.png" alt="photogrammetry" /></p>
+<p><img src="../../assets/camera/photogrammetry.png" alt="사진 측량법" /></p>
 
 <p>이 예에서는 Seagull MAP2 트리거 케이블로 Sony QX-1에 연결하여 자율 측량 임무를 수행한 후 정사 투영을 만드는 것입니다.</p>
 
@@ -154,7 +154,7 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 
 ### 임무 계획
 
-![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
+![QGC 측량 다각형](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
@@ -178,9 +178,9 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 
 자동비행장치와 보조 컴퓨터는 서로 다른 클럭 기반 (자동비행장치의 경우 부팅 시간, 보조 컴퓨터의 경우 UNIX epoch)을 갖기 때문에 시계를 보종하는 대신, 시계 간의 시간 오프셋을 관찰합니다. 이 오프셋은 미들웨어간 번역기 구성 요소(예: 보조 컴퓨터의 MAVROS 및 PX4의 `mavlink_receiver`)의 MAVLink 메시지(예: `HIGHRES_IMU`)의 타임스탬프에서 추가하거나 뺍니다. 실제 동기화 알고리즘은 NTP(Network Time Protocol) 알고리즘의 수정 버전이며, 지수 이동 평균을 사용하여 추적 시간 오프셋을 평활화합니다. 이 동기화는 MAVROS가 고대역폭 온보드 링크(MAVLink 모드 `온보드`)와 함께 사용되는 경우 자동으로 수행됩니다.
 
-For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
+동기화 된 이미지 프레임과 관성 측정을 획득 하기 위하여, 두 카메라의 트리거 입력을 자동조종장치의 GPIO 핀에 연결합니다. 노출 시작부터 관성 측정의 타임스탬프와 이미지 시퀀스 번호가 기록되어 보조 컴퓨터(`CAMERA_TRIGGER` 메시지)로 전송되어 패킷과 카메라 이미지 프레임을 버퍼링합니다. 시퀀스 번호(첫 번째 이미지 프레임은 시퀀스 0), 이미지 타임스탬프 (`CAMERA_TRIGGER` 메시지의 타임스탬프 포함)에 따라 일치후에 게시됩니다.
 
-The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
+다음 다이어그램은 이미지에 정확한 타임스탬프를 찍기 위하여 발생하는 일련의 이벤트를 나타냅니다.
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
@@ -201,24 +201,24 @@ end
 {/% endmermaid %/}
 -->
 
-### Step 1
+### 1 단계
 
-First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
+먼저 TRIG_MODE를 1로 설정하여 드라이버가 시작 명령을 기다리도록하고, 나머지 매개변수를 얻기 위해 FCU를 재부팅합니다.
 
-### Step 2
+### 2 단계
 
-For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
+이 예제의 목적을 위하여 30 FPS에서 실행되는 Point Grey Firefly MV 카메라와 함께 작동하도록 트리거를 설정합니다.
 
 * `TRIG_INTERVAL`: 33.33 ms
 * `TRIG_POLARITY`: 0 (active low)
-* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
-* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
-* `TRIG_PINS`: 56, Leave default.
+* `TRIG_ACT_TIME`: 0.5 ms. 매뉴얼에는 최소 1 마이크로 초면 충분하다고 명시되어 있습니다.
+* `TRIG_MODE` : 1, 트리거 시작전에 카메라 드라이버가 이미지를 수신할 준비가 되는 것이 좋습니다. 이것은 일련 번호를 처리에 필수적입니다.
+* `TRIG_PINS` : 56, 기본값 그대로 사용합니다.
 
-### Step 3
+### 3 단계
 
-Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
+접지 및 신호 핀을 적절한 위치에 연결하여 카메라를 AUX 포트에 연결합니다.
 
-### Step 4
+### 4 단계
 
-You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.
+위의 시퀀스 다이어그램을 따르려면 드라이버를 수정하여 합니다. [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) 카메라와 [IEEE1394 호환](https://github.com/andre-nguyen/camera1394) 카메라에 대한 공개 참조 구현을 사용하십시오.
