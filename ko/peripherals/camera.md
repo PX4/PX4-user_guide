@@ -122,35 +122,35 @@ PX4는 카메라 캡처 핀에서 적절한 전압 레벨로 상승 에지를 �
 <p><img src="../../assets/camera/qgc_test_camera.png" alt="QGC 테스트 카메라" /></p></li>
 </ol>
 
-<h2>Sony QX-1 example (Photogrammetry)</h2>
+<h2>Sony QX-1 예제 (사진 측량)</h2>
 
 <p><img src="../../assets/camera/photogrammetry.png" alt="photogrammetry" /></p>
 
-<p>In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.</p>
+<p>이 예에서는 Seagull MAP2 트리거 케이블로 Sony QX-1에 연결하여 자율 측량 임무를 수행한 후 정사 투영을 만드는 것입니다.</p>
 
-<h3>Trigger Settings</h3>
+<h3>트리거 설정</h3>
 
-<p>The recommended camera settings are:</p>
+<p>권장되는 카메라 설정은 다음과 같습니다.</p>
 
 <ul>
 <li><code>TRIG_INTERFACE=2` (Seagull MAP2).</li> 
 
-* `TRIG_MODE=4` (Mission controlled).
-* Leave the remaining parameters at their defaults.</ul> 
+* `TRIG_MODE=4` (임무 제어).
+* 나머지 매개 변수는 기본값으로 설정합니다.</ul> 
 
-You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
+Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니다. 핀 1은 `AUX 5`에, 핀 2는 `AUX 6`에 연결합니다. MAP2 케이블의 다른 쪽 끝은 QX-1의 "MULTI" 포트에 연결합니다.
 
-### Camera Configuration
+### 카메라 설정
 
-We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
+이 예제에서는 Sony QX-1에 16-50mm f3.5-5.6 렌즈를 사용합니다.
 
-To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
+카메라가 트리거시 자동 초점과 측광 지연을 방지하려면 다음 지침을 따르십시오.
 
-* Manual focus to infinity
-* Set camera to continuous shooting mode
-* Manually set exposure and aperture
-* ISO should be set as low as possible
-* Manual white balance suitable for scene
+* 수동으로 초점을 무한대로 설정합니다.
+* 카메라를 연속 촬영 모드로 설정합니다.
+* 노출과 조리개를 수동으로 설정합니다.
+* ISO는 가능한 한 낮게 설정합니다.
+* 풍경에 적합한 수동 화이트 밸런스를 설정합니다.
 
 ### Mission Planning
 
