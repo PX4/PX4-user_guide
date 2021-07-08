@@ -156,13 +156,13 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 
 ![QGC 측량 다각형](../../assets/camera/qgc_survey_polygon.jpeg)
 
-![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
+![QGC 측량 매개변수](../../assets/camera/qgc_survey_parameters.jpg)
 
 ### 지오태깅
 
 비행 로그 파일과 이미지를 다운로드 QGroundControl을 지정합니다. 그런 다음 "태깅 시작"을 클릭하십시오.
 
-![QGC Geotagging](../../assets/camera/qgc_geotag.png)
+![QGC 지오태깅](../../assets/camera/qgc_geotag.png)
 
 [Pic2Map](https://www.pic2map.com/)과 같은 무료 온라인 서비스를 사용하여 지오 태깅을 확인할 수 있습니다. Pic2Map은 40 개의 이미지 제한이 있습니다.
 
@@ -170,7 +170,7 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 
 3D 재구성을 위해 [Pix4D](https://pix4d.com/)를 사용합니다.
 
-![GeoTag](../../assets/camera/geotag.jpg)
+![지오태그](../../assets/camera/geotag.jpg)
 
 ## 카메라-IMU 동기화 예 (VIO)
 
@@ -182,7 +182,7 @@ Seagull MAP2를 자동조종장치의 보조/FMU 핀에 연결하여야 합니�
 
 다음 다이어그램은 이미지에 정확한 타임스탬프를 찍기 위하여 발생하는 일련의 이벤트를 나타냅니다.
 
-![Sequence diag](../../assets/camera/sequence_diagram.jpg)
+![시퀀스 다이어그램](../../assets/camera/sequence_diagram.jpg)
 
 <!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
 {/% mermaid %/}
