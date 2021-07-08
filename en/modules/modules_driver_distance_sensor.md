@@ -109,6 +109,8 @@ lightware_laser_i2c <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 102
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 
@@ -175,6 +177,8 @@ ll40ls <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 98
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 
@@ -219,8 +223,6 @@ mb12xx <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-a <val>]  I2C address
-                 default: 112
 
    set_address
      [-a <val>]  I2C address
@@ -273,6 +275,8 @@ srf02 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 112
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 
@@ -332,6 +336,8 @@ teraranger <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 48
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 
@@ -429,6 +435,8 @@ vl53l0x <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 41
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 
@@ -451,6 +459,8 @@ vl53l1x <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 41
      [-R <val>]  Sensor rotation - downward facing by default
                  default: 25
 

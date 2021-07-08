@@ -171,7 +171,7 @@ bmi088_i2c <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 118
+                 default: 24
      [-R <val>]  Rotation
                  default: 0
 

@@ -14,6 +14,8 @@ ak09916 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 12
      [-R <val>]  Rotation
                  default: 0
 
@@ -36,6 +38,8 @@ ak8963 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 12
      [-R <val>]  Rotation
                  default: 0
 
@@ -58,6 +62,8 @@ bmm150 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 16
      [-R <val>]  Rotation
                  default: 0
 
@@ -108,6 +114,8 @@ ist8308 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 12
      [-R <val>]  Rotation
                  default: 0
 
@@ -159,6 +167,8 @@ lis2mdl <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 30
      [-R <val>]  Rotation
                  default: 0
 
@@ -235,6 +245,8 @@ qmc5883l <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 13
      [-R <val>]  Rotation
                  default: 0
 

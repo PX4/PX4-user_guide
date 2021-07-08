@@ -14,6 +14,8 @@ ets_airspeed <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 117
 
    stop
 
@@ -56,6 +58,8 @@ ms5525_airspeed <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 118
 
    stop
 
