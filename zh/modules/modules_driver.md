@@ -530,6 +530,8 @@ pca9685 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 64
 
    reset
 
@@ -593,6 +595,8 @@ pcf8583 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 80
 
    stop
 
@@ -949,6 +953,8 @@ voxlpm [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 68
      [-T <val>]  Type
                  values: VBATT|P5VDC|P12VDC, default: VBATT
      [-k]        if initialization (probing) fails, keep retrying periodically
