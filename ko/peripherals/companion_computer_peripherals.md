@@ -47,7 +47,7 @@ FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신
 - [아이언사이드](https://www.perceptin.io/products)
 - [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
-### 관성 주행 시각 측정 카메라 / 센서
+### 관성 주행 시각 측정 카메라/센서 
 
 다음 센서는 [관성 주행 시각 측정(VIO)](../computer_vision/visual_inertial_odometry.md)에 활용할 수 있습니다:
 
@@ -55,7 +55,7 @@ FTDI USB 어댑터는 일반적인 보조 컴퓨터와 픽스호크간의 통신
 
 <span id="data_telephony"></span>
 
-## 데이터 통신 (LTE)
+## 데이터 통신(LTE)
 
 LTE USB 모듈은 보조 컴퓨터에 연결하여 비행 컨트롤러와 인터넷 사이에서 MAVLink 트래픽을 라우팅을 할 수 있습니다.
 
