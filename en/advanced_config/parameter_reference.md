@@ -13642,7 +13642,7 @@ table {
 <tr>
  <td><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
  <td>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation    </td>
- <td>0.1 > 100 </td>
+ <td>1.5 > 100 </td>
  <td>1.5</td>
  <td>mm</td>
 </tr>
