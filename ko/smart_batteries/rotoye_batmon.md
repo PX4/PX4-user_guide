@@ -21,7 +21,7 @@
 
 Rotoye Batmon 시스템은 I2C 핀이 있는 XT-90 배터리 커넥터와 광절연기 보드를 사용하여 데이터를 전송합니다.
 
-![Board connections](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png)
+![보드 연결](../../assets/hardware/smart_batteries/rotoye_batmon/smart-battery-rotoye-connection.png)
 
 자세한 내용은 [여기](https://github.com/rotoye/batmon_reader)를 참고하십시오.
 
