@@ -867,21 +867,6 @@ table {
  <td></td>
 </tr>
 <tr>
- <td><strong id="BAT_A_PER_V">BAT_A_PER_V</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_A_PER_V    </td>
- <td></td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_CAPACITY">BAT_CAPACITY</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_CAPACITY instead <p><strong>Comment:</strong> Defines the capacity of battery 1.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>-1.0 > 100000 (50)</td>
- <td>-1.0</td>
- <td>mAh</td>
-</tr>
-<tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -904,98 +889,6 @@ table {
  <td>0.12 > 0.5 (0.01)</td>
  <td>0.15</td>
  <td>norm</td>
-</tr>
-<tr>
- <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_N_CELLS instead <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unconfigured</li> 
-
-<li><strong>2:</strong> 2S Battery</li> 
-
-<li><strong>3:</strong> 3S Battery</li> 
-
-<li><strong>4:</strong> 4S Battery</li> 
-
-<li><strong>5:</strong> 5S Battery</li> 
-
-<li><strong>6:</strong> 6S Battery</li> 
-
-<li><strong>7:</strong> 7S Battery</li> 
-
-<li><strong>8:</strong> 8S Battery</li> 
-
-<li><strong>9:</strong> 9S Battery</li> 
-
-<li><strong>10:</strong> 10S Battery</li> 
-
-<li><strong>11:</strong> 11S Battery</li> 
-
-<li><strong>12:</strong> 12S Battery</li> 
-
-<li><strong>13:</strong> 13S Battery</li> 
-
-<li><strong>14:</strong> 14S Battery</li> 
-
-<li><strong>15:</strong> 15S Battery</li> 
-
-<li><strong>16:</strong> 16S Battery</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>0</td>
- <td>S</td>
-</tr>
-<tr>
- <td><strong id="BAT_R_INTERNAL">BAT_R_INTERNAL</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_R_INTERNAL instead <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>-1.0 > 0.2 </td>
- <td>-1.0</td>
- <td>Ohm</td>
-</tr>
-<tr>
- <td><strong id="BAT_SOURCE">BAT_SOURCE</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_SOURCE instead <p><strong>Comment:</strong> Battery monitoring source. This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Power Module</li> 
-
-<li><strong>1:</strong> External</li> 
-</ul>
-  </td>
- <td>0 > 1 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>(0.01)</td>
- <td>4.05</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT_V_DIV">BAT_V_DIV</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_DIV    </td>
- <td></td>
- <td>-1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>(0.01)</td>
- <td>3.5</td>
- <td>V</td>
-</tr>
-<tr>
- <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
- <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td>0.07 > 0.5 (0.01)</td>
- <td>0.3</td>
- <td>V</td>
 </tr>
 <tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
@@ -13680,6 +13573,29 @@ table {
  </thead>
 <tbody>
 <tr>
+ <td><strong id="BAT1_C_MULT">BAT1_C_MULT</strong> (FLOAT)</td>
+ <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT1_SMBUS_MODEL">BAT1_SMBUS_MODEL</strong> (INT32)</td>
+ <td>Battery device model  <strong>Values:</strong><ul>
+<li><strong>0:</strong> AutoDetect</li> 
+
+<li><strong>1:</strong> BQ40Z50 based</li> 
+
+<li><strong>2:</strong> BQ40Z80 based</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 2 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="BATMON_ADDR_DFLT">BATMON_ADDR_DFLT</strong> (INT32)</td>
  <td>I2C address for BatMon battery 1    <p><b>Reboot required:</b> true</p>
 </td>
@@ -13695,29 +13611,6 @@ table {
 <li><strong>1:</strong> Start on default I2C addr(BATMON_ADDR_DFLT)</li> 
 
 <li><strong>2:</strong> Autodetect I2C address (TODO)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_C_MULT">BAT_C_MULT</strong> (FLOAT)</td>
- <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT_SMBUS_MODEL">BAT_SMBUS_MODEL</strong> (INT32)</td>
- <td>Battery device model  <strong>Values:</strong><ul>
-<li><strong>0:</strong> AutoDetect</li> 
-
-<li><strong>1:</strong> BQ40Z50 based</li> 
-
-<li><strong>2:</strong> BQ40Z80 based</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
