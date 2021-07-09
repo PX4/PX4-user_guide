@@ -8,7 +8,7 @@
 
 다음 방법을 설명합니다.
 
-* <0개발자 최소 설정</a>, [PX4 소스 코드 빌드](../dev_setup/building_px4.md), [다양한 오토파일럿](../flight_controller/README.md) 펌웨어 배포 방법을 배웁니다.
+* [개발자 최소 설정](../dev_setup/config_initial.md), [PX4 소스 코드 빌드](../dev_setup/building_px4.md), [다양한 오토파일럿](../flight_controller/README.md) 펌웨어 배포 방법을 배웁니다.
 * [PX4 시스템 구조](../concept/architecture.md)와 핵심 개념을 이해합니다.
 * 플라이트 스택과 미들웨어 수정 방법을 배웁니다:
   - 비행 알고리즘 수정 및 새 [비행 상태](../concept/flight_modes.md) 추가.
