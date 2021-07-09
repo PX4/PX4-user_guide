@@ -4,7 +4,7 @@ PX4는 다양한 페이로드와 카메라를 지원합니다.
 
 ## 드론 매핑
 
-매핑 드론은 카메라를 사용하여 측량중 시간 또는 거리 간격으로 이미지를 캡처합니다.
+매핑 드론은 카메라를 사용하여  이미지를 캡쳐합니다.
 
 [MAVLink 카메라 프로토콜](https://mavlink.io/en/services/camera.html)을 지원하는 MAVLink 카메라는 PX4와 QGroundControl에서 최적의 통합을 제공합니다. MAVSDK는 [독립형 카메라 작업](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_camera.html)과 [임무](https://mavsdk.mavlink.io/main/en/cpp/api_reference/structmavsdk_1_1_mission_1_1_mission_item.html#structmavsdk_1_1_mission_1_1_mission_item_1a0299fbbe7c7b03bc43eb116f96b48df4) 모두에 이 프로토콜을 사용하기 위한 간단한 API를 제공합니다.
 

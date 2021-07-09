@@ -1,50 +1,50 @@
-# Microhard Serial Radio
+# Microhard 직렬 라디오
 
-[Microhard Pico Serial](http://microhardcorp.com/P900.php) radios enable MAVLink communication between a radio on a vehicle and a GCS. Microhard Pico Serial radios are (up to) 1 Watt output radios that support point to point, point to multi-point, and mesh modes. The Microhard Pico radios can also be ordered with AES-256 encryption.
+[Microhard Pico Serial](http://microhardcorp.com/P900.php) 무전기는 차량 무전기와 GCS 간의 MAVLink 통신이 가능합니다. Microhard Pico 직렬 라디오는 포인트 투 포인트, 포인트 투 멀티 포인트와 메시 모드를 지원하는 최대 1W 출력의 라디오입니다. Microhard Pico 라디오는 AES-256 암호화로 주문할 수도 있습니다.
 
-The approximate range with output power set to 1W is 8km (5miles) when using default settings. A single ground station radio can be used to communicate with multiple vehicles using point to multi-point or mesh. Vehicles must have different MAVLINK IDs.
+기본 설정을 사용시, 출력이 1W로 설정의 대략적인 범위는 8km (5 마일)입니다. 단일 지상국 라디오를 사용하여 지점 대 다중 지점 또는 메시를 사용하여 여러 기체와 통신 가능합니다. 기체의 MAVLINK ID는 각기 달라야 합니다.
 
-![Microhard Radio](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
+![Microhard 라디오](../../assets/hardware/telemetry/ark_microhard_serial.jpg)
 
-## Purchase:
+## 구매:
 
-* [1W 900MHz Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (vehicle)
-* [1W 900MHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (ground station)
-* [1W 2.4GHz Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-serial-telemetry-radio/) (vehicle)
-* [1W 2.4GHz USB Serial Telemetry Radio](https://arkelectron.com/product/1w-2400mhz-usb-serial-telemetry-radio/) (ground station)
+* [1W 900MHz 직렬 텔레메트리 라디오](https://arkelectron.com/product/1w-900mhz-serial-telemetry-air-radio/) (기체)
+* [1W 900MHz 직렬 텔레메트리 라디오](https://arkelectron.com/product/1w-900mhz-serial-telemetry-ground-radio/) (지상국)
+* [1W 2.4GHz 직렬 텔레메트리 라디오](https://arkelectron.com/product/1w-2400mhz-serial-telemetry-radio/) (기체)
+* [1W 2.4GHz 직렬 텔레메트리 라디오](https://arkelectron.com/product/1w-2400mhz-usb-serial-telemetry-radio/) (지상국)
 
-## Connecting
+## 연결
 
-### Vehicle Radio
-Connect the vehicle radio to the flight controller `TELEM1` port (any free serial port can be used). A Pixhawk-standard 6 pin JST GH telemetry cable is supplied for this purpose.
+### 기체 라디오
+차량 라디오를 비행 콘트롤러 `TELEM1` 포트에 연결합니다 (모든 무료 직렬 포트를 사용할 수 있음). 이를 위하여 Pixhawk 표준 6핀 JST GH 텔레메트리 케이블이 제공됩니다.
 
-The radio can be powered by the telemetry cable if the output power is set to less than 100mW. For higher output levels, the radio must be separately powered via the 2 Pin Molex Nano-Fit (i.e. from a battery).
+라디오의 출력 전력이 100mW 미만으로 설정된 경우에는 텔레메트리 케이블로 전원을 공급할 수 있습니다. 더 높은 출력의 라디오는 2 핀 Molex Nano-Fit (즉, 배터리에서)를 통하여 별도로 전원을 공급하여야 합니다.
 
-![Microhard Radio on Vehicle](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
+![기체의 Microhard 라디오](../../assets/hardware/telemetry/microhard_serial_on_vehicle.jpg)
 
-### Ground Station Radio
+### 지상국 라디오
 
-Connect the ground radio to the ground station via USB C. The radio does not need to be separately powered when using USB PD (1W power can be supplied).
+USB C를 통하여 지상 라디오를 지상국에 연결합니다. USB PD를 사용하는 경우에는 라디오에 별도로 전원을 공급할 필요가 없습니다 (1W 전원 공급 가능).
 
 
-## Setup/Configuration
+## 설정
 
-The ground radio, air radio, PX4, and QGroundControl must all be set to the same baud rate.
+지상 라디오, 에어 라디오, PX4와 QGroundControl은 모두 동일한 전송 속도로 설정되어야합니다.
 
-PX4 is configured to use `TELEM1` for telemetry radios, with a default baud rate of 57600 (recommended). No further PX4 configuration is required if you are using this port and baud rate.
+PX4는 텔레메트리 라디오에 `TELEM1`을 사용하도록 설정되며, 기본전송속도는 57600 (권장)입니다. 이 포트 및 전송 속도를 사용하는 경우에는 추가로 PX4 설정할 필요는 없습니다.
 
 :::note
-You can configure PX4 to use any other free serial port, or configure the baud rate, by following the instructions in [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
+[MAVLink 주변기기](../peripherals/mavlink_peripherals.md) 지침에 따라 다른 직렬 포트로 설정하거나 전송속도를 변경할 수 있습니다.
 :::
 
-The radios are configured using [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip) (Windows only).
+라디오는 [Pico Config](https://arkelectron.com/wp-content/uploads/2021/04/PicoConfig-1.7.zip)를 사용하여 설정합니다 (Windows 에만 해당).
 
 ![Pico Config](../../assets/hardware/telemetry/pico_configurator.png)
 
-For vehicle radio configuration you will have to connect an FTDI adapter between the radio's 3 pin JST-GH Config port and a Windows PC running *Pico Config* (the radio must be powered, which you can do from battery or the data connection to the flight-controller's `TELEM1` port). *Pico Config* will automatically detect the radio. Adjust the baud rate setting to match PX4 (and the ground station radio).
+차량 라디오 설정에는 라디오의 3핀 JST-GH Config 포트와 *Pico Config*를 실행하는 Windows PC 간에 FTDI 어댑터를 연결하여합니다 (라디오에 전원이 공급되어야 하며 배터리 또는 비행 콘트롤러의 `TELEM1` 포트에 대한 데이터 연결). *Pico Config*는 자동으로 라디오를 감지합니다. 전송속도를 PX4 (및 지상국 라디오)와 일치하도록 설정합니다.
 
-![Ark Microhard Serial - Ports](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
+![Ark Microhard Serial - 포트](../../assets/hardware/telemetry/ark_microhard_serial_ports.jpg)
 
-The ground station radio USB C connection can be used for configuring the radio (as well as for telemetry data). *Pico Config* will automatically detect and connect to the configuration port. Adjust the settings so that the baud rate matches PX4.
+지상국 라디오 USB C 연결은 라디오 설정(및 원격 측정 데이터)에 사용할 수 있습니다. *Pico Config*는 설정 포트를 자동으로 감지하고 연결합니다. 전송속도가 PX4와 일치하도록 설정하십시오.
 
-Once the radios and PX4 are all configured to use the same baud rate you can connect QGroundControl to the vehicle via the radio. *QGroundControl* will not automatically detect the radio, so first create a new "serial connection" in [Application Settings > Comm Links](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (set the same baud rate as used by PX4/radios).
+라디오와 PX4가 동일한 전송속도로 설정되면, 라디오로 QGroundControl을 기체에 연결할 수 있습니다. *QGroundControl*은 라디오를 자동으로 감지하지 않으므로 먼저 [응용 프로그램 설정 > 통신 링크에서 새 "직렬 연결"을 만듭니다.](https://docs.qgroundcontrol.com/master/en/SettingsView/SettingsView.html) (PX4/라디오에서 사용하는 것과 동일한 전송속도 설정).

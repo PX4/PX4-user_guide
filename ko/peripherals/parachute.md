@@ -1,14 +1,14 @@
-# Parachute
+# 낙하산
 
-PX4 can be configured to trigger a parachute connected to a free PWM output during [flight termination](../advanced_config/flight_termination.md).
+PX4는 [비행 종료](../advanced_config/flight_termination.md) 과정에서 여분의 PWM 출력에 낙하산을 연결할 수 있습니다.
 
-This topic provides the specific example of how to set up a parachute, using a spring-loaded launcher from [Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/).
+[Fruity Chutes](https://fruitychutes.com/buyachute/drone-and-uav-parachute-recovery-c-21/harrier-drone-parachute-launcher-c-21_33/)의 스프링 장착 런처로 낙하산을 설정하는 방법에 대한 구체적인 방법을 설명합니다.
 
 :::note
-In fact PX4 does not know that it is launching a parachute; during flight termination it just turns off all controllers and sets all PWM outputs to their failsafe values. You can therefore use this feature to activate multiple complementary safety devices. For more information see [Flight Termination Configuration](../advanced_config/flight_termination.md).
+사실 PX4는 낙하산을 발사하고 있다는 사실을 모릅니다. 비행 종료중에는 모든 콘트롤러를 끄고 모든 PWM 출력을 안전 장치 값으로 설정합니다. 이 기능을 사용하여 여러 보완 안전장치를 활성화할 수 있습니다. 자세한 내용은 [비행 종료 설정](../advanced_config/flight_termination.md)을 참고하십시오.
 :::
 
-## Using Parachutes
+## 낙하산 사용법
 
 Below are a few notes about using parachutes:
 

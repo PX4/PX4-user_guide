@@ -440,6 +440,33 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
+## iridiumsbd
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+
+
+### Description
+IridiumSBD driver.
+
+Creates a virtual serial port that another module can use for communication (e.g. mavlink).
+
+<a id="iridiumsbd_usage"></a>
+
+### Usage
+```
+iridiumsbd <command> [arguments...]
+ Commands:
+   start
+     -d <val>    Serial device
+                 values: <file:dev>
+     [-v]        Enable verbose output
+
+   test
+     [s|read|AT <cmd>] Test command
+
+   stop
+
+   status        print status info
+```
 ## irlock
 Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
@@ -574,6 +601,8 @@ pca9685 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 64
 
    reset
 
@@ -637,6 +666,8 @@ pcf8583 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 80
 
    stop
 
@@ -993,6 +1024,8 @@ voxlpm [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 68
      [-T <val>]  Type
                  values: VBATT|P5VDC|P12VDC, default: VBATT
      [-k]        if initialization (probing) fails, keep retrying periodically

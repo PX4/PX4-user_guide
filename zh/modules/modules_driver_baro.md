@@ -180,6 +180,8 @@ mpl3115a2 <command> [arguments...]
                  (default=1))
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 96
 
    stop
 
