@@ -10,18 +10,18 @@ PX4는 [비행 종료](../advanced_config/flight_termination.md) 과정에서 �
 
 ## 낙하산 사용법
 
-Below are a few notes about using parachutes:
+낙하산 사용에 대한 몇 가지 참고 사항은 아래와 같습니다.
 
-- Having a parachute does not guarantee that the vehicle will not be destroyed or cause harm!
+- 낙하산이 있다고 해서 기체가 파손되지 않는다는 보장은 없습니다!
     
 :::warning
-You must always fly with safety in mind.
+항상 안전을 염두에 두고 비행하여야 합니다.
 :::
 
-- Parachutes require careful usage to be effective - for example, they must be folded correctly.
+- 낙하산을 효과적으로 사용하려면 주의하여 사용하여야 합니다. 예를 들어, 낙하산이 올바르게 접혀져 있어야 합니다.
 
-- Parachutes have a minimum effective altitude.
-- A parachute may trigger while the vehicle is upside down. This will increase the time required to slow, and may even result in the drone collapsing the parachute.
+- 낙하산에는 최소 유효 고도가 있습니다.
+- 기체가 뒤집힌 상태에서 낙하산이 작동할 수 있습니다. 이것은 속도를 줄이는 데 필요한 시간을 증가시키고, 드론이 낙하산을 무너뜨리는 결과를 초래할 수 있습니다.
 - The system requires a working and powered flight controller. If something causes the flight stack to crash, the parachute will not deploy. 
 
 ## Parachute Setup
