@@ -18,11 +18,11 @@ PX4 개발 *지원 플랫폼*은 다음과 같습니다.
 | **시뮬레이션:** [가제보 SITL](../simulation/gazebo.md)                                                                                                                                                  |    &check;     | &check; |         |
 | **시뮬레이션:** [가제보 ROS](../simulation/ros_interface.md)                                                                                                                                            |    &check;     |         |         |
 
-개발 환경 설치는 아래에서 다룹니다.
+숙련된 Docker 사용자는 지속적 통합 시스템 [Docker Containers](../test_and_ci/docker.md)컨테이너로 빌드할 수 있습니다.
 
-## 개발 환경
+## 다음 단계
 
-Docker에 익숙하다면 준비된 컨테이너 중 하나인 [Docker Containers](../test_and_ci/docker.md)를 사용할 수도 있습니다.
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html)
-- Continue to [Building PX4 Software](../dev_setup/building_px4.md).
+위의 명령줄 도구 모음 중 하나를 설정하고, 다음 단계를 실행합니다.
+- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치
+- [PX4 소프트웨어를 구축](../dev_setup/building_px4.md)합니다.
