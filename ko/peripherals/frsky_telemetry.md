@@ -1,8 +1,8 @@
 # FrSky 텔레메트리
 
-FrSky 텔레메트리는 호환 RC 송신기의 기체 [텔레메트리/상태](#messages) 정보에 접근할 수 있습니다.
+FrSky 텔레메트리는 호환 RC 송신기의 기체 [텔레메트리](#messages) 정보에 접근할 수 있습니다.
 
-사용 가능한 텔레메트리 목록</ 0>에는 비행 모드, 배터리 잔량, RC 신호 강도, 속도, 고도 등이 기술되어 있습니다. 일부 송신기는 가청 및 진동 피드백을 추가로 제공 할 수 있으며, 이는 배터리부족과 기타 안전 관련 경고시에 매우 유용합니다.</p> 
+사용 가능한 [텔레메트리 목록](#messages)에는 비행 모드, 배터리 잔량, RC 신호 강도, 속도, 고도 등이 기술되어 있습니다. 일부 송신기는 가청 및 진동 피드백을 추가로 제공 할 수 있으며, 이는 배터리부족과 기타 안전 관련 경고시에 매우 유용합니다.
 
 PX4는 [S.Port](#s_port) (신규) 및 D (이전) FrSky 텔레메트리 포트를 모두 지원합니다.
 
@@ -191,7 +191,7 @@ Pixhawk/PX4는 D (이전) 및 S (신규) FrSky 텔레메트리를 지원합니�
 
 Pixhawk FMUv4와 이전 버전 (Pixracer 제외)의 기성품 케이블은 아래에서 구매가능합니다.
 
-* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). 버전은 DF-13 호환 *PicoBlade 커넥터*(FMUv2/3DR Pixhawk, FMUv2/HKPilot32 용) 및 *JST-GH 커넥터*(FMUv3/Pixhawk 2, "The Cube" 및 FMUv4 / PixRacer v1 용)와 함께 제공됩니다.
+* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). 버전은 DF-13 호환 *PicoBlade 커넥터*(FMUv2/3DR Pixhawk, FMUv2/HKPilot32 용) 및 *JST-GH 커넥터*(FMUv3/Pixhawk 2, "The Cube" 및 FMUv4/PixRacer v1 용)와 함께 제공됩니다.
     
     [![Craft and Theory에서 케이블 구매](../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg)](http://www.craftandtheoryllc.com/telemetry-cable)
 
