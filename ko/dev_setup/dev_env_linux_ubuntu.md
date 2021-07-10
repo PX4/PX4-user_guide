@@ -1,4 +1,4 @@
-# Ubuntu Development Environment
+# 우분투 개발 환경
 
 [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) (16.04) is the standard/preferred Linux development OS. It allows you to build for [all PX4 targets](../setup/dev_env.md#supported-targets) (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).
 * Pixhawk and other NuttX-based hardware
@@ -78,18 +78,13 @@ Information-only notes
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    bash ubuntu.sh
    ```
-:::
-
-<!-- Do we need to add to our scripts or can we assume correct version installs over?
+:::<!-- Do we need to add to our scripts or can we assume correct version installs over?
 Remove any old versions of the arm-none-eabi toolchain.
 ```sh
 sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
 sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 ```
--->
-
-
-<a id="raspberry-pi-hardware"></a>
+--><a id="raspberry-pi-hardware"></a>
 
 ## Raspberry Pi
 
