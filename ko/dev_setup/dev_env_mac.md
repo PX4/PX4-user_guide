@@ -1,43 +1,40 @@
-# MacOS Development Environment
+# MacOS 개발 환경
 
-The following instructions set up a PX4 development environment for macOS. This environment can be used to build PX4 for:
-* Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
+아래에서 macOS용 PX4 개발 환경 설정 방법을 설명합니다. PX4 빌드에 사용되어 집니다.
+* Pixhawk와 기타 NuttX 기반 하드웨어
+* [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
+* [가제보 시뮬레이션](../simulation/gazebo.md)
 
 :::details
-Apple M1 Macbook users! If you have an Apple M1 Macbook, make sure to run the terminal as x86 by setting up an x86 terminal:
-1. Locate the Terminal application within the Utilities folder (**Finder > Go menu > Utilities**)
-2. Select *Terminal.app* and right-click on it, then choose **Duplicate**.
-3. Rename the duplicated Terminal app, e.g. to *x86 Terminal*
-4. Now select the renamed *x86 Terminal* app and right-click and choose **Get Info*
-5. Check the box for **Open using Rosetta**, then close the window
-6. Run the *x86 Terminal*` as usual, which will fully support the current PX4 toolchain
+애플 M1 맥북 사용자 Apple M1 Macbook이 있는 경우 x86 터미널을 설정하여 터미널을 x86으로 실행해야 합니다.
+1. 유틸리티 폴더(**Finder > 이동 메뉴 > 유틸리티**)에서 터미널 애플리케이션을 찾습니다.
+2. *Terminal.app*을 선택하고 마우스 오른쪽 버튼으로 클릭한 다음 **복제**를 선택합니다.
+3. 복제된 터미널 앱의 이름을 변경합니다(예: *x86 터미널*으로)
+4. 이름이 변경된 *x86 Terminal* 앱을 선택하고 마우스 오른쪽 버튼을 클릭하고 **정보 입수*를 선택합니다.
+5. **Rosetta를 사용하여 열기** 확인란을 선택하고, 창을 닫습니다.
+6. 현재 PX4 도구 모음을 지원하는 *x86 터미널*을 실행합니다.
 :::
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported development environment](../advanced/dev_env_unsupported.md)).
+이 설정은 PX4 개발 팀에서 지원합니다. 다른 대상을 빌드하려면 [다른 OS](../dev_setup/dev_env.md#supported-targets)(또는 [지원되지 않는 개발 환경](../advanced/dev_env_unsupported.md))를 사용하여야 합니다.
 :::
 
-## Video Guide
+## 영상 가이드
 
-@[youtube](https://youtu.be/tMbMGiMs1cQ)
+@[유투브](https://youtu.be/tMbMGiMs1cQ)
 
-## Homebrew Installation
+## Homebrew 설치
 
-The installation of Homebrew is quick and easy: [installation instructions](https://brew.sh).
+Homebrew 설치는 빠르고 쉽습니다: [설치 방법](https://brew.sh).
 
-## Enable more open files (Handle "LD: too many open files" error)
+## 더 많은 열린 파일 활성화("LD: 너무 많은 열린 파일" 오류 처리)
 
-Create the `~/.zshenv` file or append it (by running `open ~/.zshenv` on the terminal) and add this line:
+`~/.zshenv` 파일을 생성하거나 추가하고(터미널에서 `open ~/.zshenv` 실행) 다음 줄을 추가합니다.
 ```sh
-brew tap PX4/px4
-brew install px4-dev
-# Optional, but recommended additional simulation tools:
-brew install px4-sim
+ulimit -S -n 2048
 ```
 
-## Enforce Python Version
+## Python 버전 시행
 
 Once you have finished setting up the environment, continue to the [build instructions](../setup/building_px4.md).
 
