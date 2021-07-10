@@ -36,21 +36,22 @@ ulimit -S -n 2048
 
 ## Python 버전 시행
 
-Once you have finished setting up the environment, continue to the [build instructions](../setup/building_px4.md).
+`~/.zshrc` 파일이 없으면 생성하여, 파일에 다음 줄을 추가합니다.
 
 ```sh
-brew cask install xquartz java
+# Point pip3 to MacOS system python 3 pip
+alias pip3=/usr/bin/pip3
 ```
 
-## Common Tools
+## 공통 도구
 
-After installing Homebrew, run these commands in your shell to install the common tools:
+Homebrew를 설치 후, 셸에서 다음 명령을 실행하여 공통 도구를 설치합니다.
 
 ```sh
-sudo easy_install pip
-sudo -H pip install pyserial empy toml numpy pandas jinja2 pyyaml
+brew tap PX4/px4
+brew install px4-dev
 ```
-Install the required Python packages
+필요한 파이썬 패키지들을 설치합니다.
 
 ```sh
 # install required packages using pip3
@@ -59,18 +60,18 @@ python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyro
 sudo -H python3 -m pip install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
-## Gazebo Simulation
+## 가제보 시뮬레이션
 
-To install SITL simulation with Gazebo:
+Gazebo로 SITL 시뮬레이션을 설치하려면:
 
 ```sh
 brew install --cask xquartz
 brew install px4-sim-gazebo
 ```
 
-## jMAVSim Simulation
+## jMAVSim 시뮬레이션
 
-To use SITL simulation with jMAVSim you need to install a recent version of Java (e.g. Java 15). You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
+jMAVSim과 함께 SITL 시뮬레이션을 사용하려면, 최신 버전의 Java(예: Java 15)를 설치합니다. You can download [Java 15 (or later) from Oracle](https://www.oracle.com/java/technologies/javase-downloads.html#JDK15) or use the AdoptOpenJDK tap:
 
 ```sh
 brew tap AdoptOpenJDK/openjdk
@@ -81,16 +82,15 @@ brew install --cask adoptopenjdk15
 brew install px4-sim-jmavsim
 ```
 
-:::warning
-jMAVSim for PX4 v1.11 and beyond we require at least JDK 15.
+:::warning PX4 v1.11 이상용 jMAVSim에는 JDK 15 이상의 버전이 필요합니다.
 
-For earlier versions macOS users might see the error `Exception in thread "main" java.lang.UnsupportedClassVersionError:`. You can find the fix in the [jMAVSim with SITL > Troubleshooting](../simulation/jmavsim.md#troubleshooting)).
+이전 버전의 경우 macOS 사용자는 `스레드 "main" java.lang.UnsupportedClassVersionError의 예외:` 오류가 발생할 수 있습니다. 여기에서 수정 방법을 참고하십시오: [SITL이 있는 jMAVSim > 문제 해결](../simulation/jmavsim.md#troubleshooting)).
 :::
 
-## Next Steps
+## 다음 단계
 
-Once you have finished setting up the command-line toolchain:
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that are hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+명령줄 도구 모음 설정후, 다음을 수행합니다.
+- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치 :::tip *일일 빌드*에는 릴리스 빌드에 숨겨진 개발 도구가 포함됩니다. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
