@@ -85,25 +85,25 @@ git config --global ...
 
 #### 유닉스 권한 실행 비트
 
-Unix에서는 각 파일의 권한에 파일이 실행 여부를 OS에 알려주는 플래그가 있습니다. Cygwin의 *git*은 해당 비트를 지원하고 처리합니다(Windows NTFS 파일 시스템에서 사용하지 않더라도). 이로 인해 *git*이 권한에서 "거짓 양성" 차이를 찾는 경우가 많습니다. The resulting diff might look like this:
+Unix에서는 각 파일의 권한에 파일이 실행 여부를 OS에 알려주는 플래그가 있습니다. Cygwin의 *git*은 해당 비트를 지원하고 처리합니다(Windows NTFS 파일 시스템에서 사용하지 않더라도). 이로 인해 *git*이 권한에서 "거짓 양성" 차이를 찾는 경우가 많습니다. diff 실행결과는 다음과 같을 수 있습니다.
 ```
 diff --git ...
 old mode 100644
 new mode 100755
 ```
 
-We recommend globally disabling the permission check on Windows to avoid the problem:
+문제를 방지하려면 Windows에서 권한 검사를 전역적으로 비활성화하는 것이 좋습니다.
 ```sh
-# disable execution bit check globally for the machine
+# 머신에 대해 전역적으로 실행 비트 검사를 비활성화합니다.
 git config --global core.fileMode false 
 ```
 
-For existing repositories that have this problem caused by a local configuration, additionally:
+로컬 설정으로 인하여 이 문제가 발생한 기존 저장소의 경우 추가로:
 ```sh
-# remove the local option for this repository to apply the global one
-git config --unset core.filemode 
+# 전역 옵션을 적용하려면 이 저장소에 대한 로컬 옵션을 제거합니다.
+git config --unset core.filemode
 
-# remove the local option for all submodules
+# 모든 하위 모듈에 대한 로컬 옵션 제거
 git submodule foreach --recursive git config --unset core.filemode 
 ```
 
