@@ -1,25 +1,25 @@
-# Windows Development Environment
+# Windows 개발 환경
 
-The following instructions explain how to set up a (Cygwin-based) PX4 development environment on Windows 10. This environment can be used to build PX4 for:
-* Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../simulation/jmavsim.md)
+다음 지침은 Windows 10에서 (Cygwin 기반) PX4 개발 환경 설정 방법을 설명합니다. 이 환경은 다음을 위한 PX4를 구축하는 데 사용합니다.
+* Pixhawk와 기타 NuttX 기반 하드웨어
+* [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
 
 :::tip
-This setup is supported by the PX4 dev team. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
+이 설정은 PX4 개발 팀에서 지원합니다. To build other targets you will need to use a [different OS](../dev_setup/dev_env.md#supported-targets) (or an [unsupported windows development environment](../advanced/dev_env_unsupported.md)).
 :::
 
 <a id="installation"></a>
 
-## Installation Instructions
+## 설치 방법
 
-1. Download the latest version of the ready-to-use MSI installer from [Github](https://github.com/PX4/windows-toolchain/releases) or [S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.5.msi)
-1. Run it, choose your desired installation location, let it install ![jMAVSimOnWindows](../../assets/toolchain/cygwin_toolchain_installer.png)
-1. Tick the box at the end of the installation to *clone the PX4 repository, build and run simulation with jMAVSim* (this simplifies the process to get you started). :::note If you missed this step you will need to [clone the PX4-Autopilot repository manually](#getting_started).
+1. [Github 릴리스](https://github.com/PX4/windows-toolchain/releases) 또는 [Amazon S3](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.9.msi)(빠른 다운로드)에서 바로 사용할 수 있는 MSI 설치 프로그램의 최신 버전을 다운로드합니다.
+1. 실행후, 설치 위치를 지정하고 설치하십시오:![jMAVSimOnWindows](../../assets/toolchain/cygwin_toolchain_installer.png)
+1. 설치가 끝날 때 상자를 선택하여 *PX4 리포지토리를 복제하고, jMAVSim으로 시뮬레이션을 빌드 및 실행*합니다(이렇게 하면 시작 프로세스가 간소화됨). :::note 이 단계를 놓친 경우 [PX4-Autopilot 저장소를 수동으로 복제](#getting_started)하여야 합니다.
 :::
 
 <a id="getting_started"></a>
 
-## Getting Started
+## 시작하기
 
 The toolchain uses a specially configured console window (started by running the **run-console.bat** script) from which you can call the normal PX4 build commands:
 
