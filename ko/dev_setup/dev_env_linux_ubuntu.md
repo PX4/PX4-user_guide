@@ -61,7 +61,7 @@
 ::: details
 정보용 참고사항
 - 스크립트는 Gazebo 9를 설치합니다([gazebosim.org 지침](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)에 따름). Gazebo 7, 8도 지원되지만 권장되지는 않습니다.
-- You can verify the NuttX installation by confirming the gcc version as shown:
+- 다음과 같이 gcc 버전을 확인하여 NuttX 설치를 확인할 수 있습니다.
   ```bash
    $arm-none-eabi-gcc --version
 
@@ -70,7 +70,7 @@
    This is free software; see the source for copying conditions.  There is NO
    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
-- You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) and then run **ubuntu.sh**:<!-- NEED px4_version -->   ```bash
+- 어쨌든 PX4 소스 코드가 필요합니다. 그러나 모든 소스 코드를 가져오지 않고 개발 환경을 설정하려는 경우 대신 [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) 및 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt)를 다운로드한 다음 **ubuntu.sh**를 실행할 수 있습니다.:<!-- NEED px4_version -->   ```bash
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    bash ubuntu.sh
@@ -83,9 +83,9 @@ sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 ```
 --><a id="raspberry-pi-hardware"></a>
 
-## Raspberry Pi
+## 라즈베리파이
 
-Install the dependencies for [jMAVSim Simulation](../simulation/jmavsim.md).
+다음 지침은 *Ubuntu 18.04*에서 라즈베리파이용 빌드 도구 설정 방법을 설명합니다.
 
 :::warning
 To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
