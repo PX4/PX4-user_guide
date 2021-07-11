@@ -88,117 +88,112 @@ sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 다음 지침은 *Ubuntu 18.04*에서 라즈베리파이용 빌드 도구 설정 방법을 설명합니다.
 
 :::warning
-To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS Developer Quick Start > Alternative build method using docker](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
+Ubuntu 20.04(focal)용으로 빌드하려면 docker를 사용하여야 합니다(Ubuntu 20.04의 GCC 도구 체인은 PX4를 빌드할 수 있지만 생성된 바이너리 파일은 실제 라즈베리파이에서 실행하기에는 너무 새롭습니다). 자세한 내용은 [PilotPi with Raspberry Pi OS 개발자 빠른 시작 > docker를 사용한 대체 빌드 방법](../flight_controller/raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker)을 참고하십시오.
 :::
 
-To get the common dependencies for Raspberry Pi:
+라즈베리파이에 대한 공통 종속성을 얻으려면:
 
-1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)<!-- NEED px4_version -->and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->    ```
+1. [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)와<!-- NEED px4_version -->PX4 소스 저장소의 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt)(**/Tools/setup/**)를 다운로드합니다: <!-- NEED px4_version -->    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    ```
-1. **Note** If you use an ubuntu-based distro and the command `rosdep install --from-paths src --ignore-src --rosdistro kinetic -y` fails, you can try to force the command to run by executing `rosdep install --from-paths src --ignore-src --rosdistro kinetic -y --os ubuntu:xenial`
+1. 터미널에서 **ubuntu.sh**를 실행하여 공통 종속성만 가져옵니다.
    ```bash
    bash ubuntu.sh --no-nuttx --no-sim-tools
    ```
-1. Then setup an cross-compiler (either GCC or clang) as described in the following sections.
+1. 그런 다음 다음 섹션에 설명된 대로 크로스 컴파일러(GCC 또는 clang)를 설정합니다.
 
-### How to use the scripts
+### GCC (armhf)
 
-Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with `gcc-9-arm-linux-gnueabihf` as its default installation which is not fully supported, so we must manually install `gcc-8-arm-linux-gnueabihf` and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic). The following instruction assumes you haven't installed any version of arm-linux-gnueabihf, and will set up the default executable with `update-alternatives`. Install them with the terminal command:
-
-```sh
-sudo usermod -a -G dialout $USER
-```
-
-Set them as default:
+Ubuntu 소프트웨어 리포지토리는 미리 컴파일된 도구 모음 세트를 제공합니다. Ubuntu Focal은 완전히 지원되지 않는 기본 설치로 `gcc-9-arm-linux-gnueabihf`를 제공하므로 `gcc-8-arm-linux-gnueabihf를 수동으로 설치`하고, 기본 도구 모음으로 설정합니다. 이 가이드는 이전 Ubuntu 릴리스(Bionic)에도 적용됩니다. 다음 지침에서는 arm-linux-gnueabihf 버전을 설치하지 않았다고 가정하고, `update-alternatives`를 사용하여 기본 실행 파일을 설정합니다. 터미널 명령을 사용하여 설치합니다.
 
 ```sh
-sudo apt-get remove modemmanager
+sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
 ```
 
-### jMAVSim
-
-If you want to build PX4 for ARM64 devices, this section is required.
+기본값으로 설정합니다.
 
 ```sh
-sudo apt-get update -y
-sudo apt-get install git zip qtcreator cmake \
-    build-essential genromfs ninja-build exiftool vim-common -y
-# Required python packages
-sudo apt-get install python-argparse \
-    python-empy python-toml python-numpy python-yaml \
-    python-dev python-pip -y
-sudo -H pip install --upgrade pip 
-sudo -H pip install pandas jinja2 pyserial cerberus
+sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
+sudo update-alternatives --config arm-linux-gnueabihf-gcc
 ```
 
-### Gazebo
+### GCC (aarch64)
 
-First install GCC (needed to use clang).
+ARM64 장치용 PX4를 빌드하려면 이 섹션이 필요합니다.
 
-{% include "_gcc_toolchain_installation.md" %}
-```
-# optional python tools
-sudo -H pip install pyulog
-```
-
-After setting up the build/simulation toolchain, see [Additional Tools](../setup/generic_dev_tools.md) for information about other useful tools.
 ```sh
-git clone https://github.com/raspberrypi/tools.git ${HOME}/rpi-tools
+sudo apt-get install -y gcc-8-aarch64-linux-gnu g++-8-aarch64-linux-gnu
+sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcc aarch64-linux-gnu-gcc /usr/bin/aarch64-linux-gnu-gcc-8 100 --slave /usr/bin/aarch64-linux-gnu-g++ aarch64-linux-gnu-g++ /usr/bin/aarch64-linux-gnu-g++-8
+sudo update-alternatives --config aarch64-linux-gnu-gcc
+```
 
-# test compiler
-$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc -v
+### Clang (선택 사항)
 
-# permanently update PATH variable by modifying ~/.profile
-echo 'export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin' >> ~/.profile
+먼저 GCC를 설치합니다(clang을 사용하여야 함).
 
-# update PATH variable only for this session
-export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
+아래와 같이 Ubuntu 소프트웨어 리포지토리에서 clang을 가져오는 것이 좋습니다.
+```
+sudo apt-get install clang
+```
+
+아래는 *CMake*를 사용하여 트리에서 PX4 펌웨어를 빌드하는 예제입니다.
+```sh
+cd <PATH-TO-PX4-SRC>
+mkdir build/px4_raspberrypi_default_clang
+cd build/px4_raspberrypi_default_clang
+cmake \
+-G"Unix Makefiles" \
+-DCONFIG=px4_raspberrypi_default \
+-UCMAKE_C_COMPILER \
+-DCMAKE_C_COMPILER=clang \
+-UCMAKE_CXX_COMPILER \
+-DCMAKE_CXX_COMPILER=clang++ \
+../..
 make
 ```
 
-### Detailed Information
+### 상세 정보
 
-Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
+라즈베리파이에서 PX4를 개발 정보(PX4 기본 빌드 포함)는 다음을 참고하십시오.
 
 - [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
 <a id="rosgazebo"></a>
 
-## FastRTPS installation
+## ROS/Gazebo
 
-This section explains how to install [ROS](../ros/README.md) "Melodic" and PX4 on Ubuntu 18.04.
+이 섹션에서는 Ubuntu 18.04에서 [ROS](../ros/README.md) "Melodic"과 PX4를 설치 방법을 설명합니다.
 
 :::warning ROS
-builds are tied to specific Ubuntu versions! ROS Melodic can *only* install on Ubuntu 18.04.
+빌드는 특정 Ubuntu 버전에 연결되어 있습니다! ROS Melodic은 Ubuntu 18.04에만 *설치*할 수 있습니다.
 :::
 
-To install the development toolchain:
+개발 툴체인을 설치하려면:
 
-1. Download the script in a bash shell:  <!-- NEED px4_version -->
+1. bash 셸에서 스크립트를 다운로드합니다.  <!-- NEED px4_version -->
    ```bash
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
-1. Download the desired script
+1. 스크립트를 실행하십시오:
    ```bash
    bash ubuntu_sim_ros_melodic.sh
    ```
-   You may need to acknowledge some prompts as the script progresses.
+   스크립트가 진행되는 동안 일부 프롬프트를 확인하여야 합니다.
 
 :::note
-* ROS Kinetic is installed with Gazebo7 by default (we have chosen to use the default rather than Gazebo 8 to simplify ROS development).
-* Your catkin (ROS build system) workspace is created at **~/catkin_ws/**.
-* The script uses instructions from the ROS Wiki "Melodic" [Ubuntu page](http://wiki.ros.org/melodic/Installation/Ubuntu).
+* ROS Melodic은 기본적으로 Gazebo9와 함께 설치됩니다.
+* catkin(ROS 빌드 시스템) 작업 공간은 **~/catkin_ws/**에 생성됩니다.
+* 스크립트는 ROS Wiki "Melodic" [Ubuntu 페이지](http://wiki.ros.org/melodic/Installation/Ubuntu)의 지침을 사용합니다.
 :::
 
 <a id="fast_dds"></a>
 <a id="fast_rtps"></a>
 
-## Fast DDS installation
+## Fast DDS 설치
 
-[eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is required if you're using PX4 with ROS2 (or some other RTPS/DDS system).
+ROS2(또는 일부 다른 RTPS/DDS 시스템)와 함께 PX4를 사용하는 경우 [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS)가 필요합니다.
 
 Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
 
