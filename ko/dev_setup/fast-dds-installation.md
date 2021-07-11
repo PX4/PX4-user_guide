@@ -17,25 +17,25 @@ Fast DDS는 이전에 FastRTPS로 명명되었습니다(버전 2.0.0에서는 �
 
 ## 준비 사항
 
-*eProsima Fast DDS* requires the following packages to work.
+*eProsima Fast DDS*가 작동하려면 다음 패키지가 필요합니다.
 
 :::note
-At time of writing you will need to install *from source* for:
-- **Ubuntu 18.04:** Fast RTPS 1.8.2 (or later) and Fast-RTPS-Gen 1.0.4 (not later!).
-- **Ubuntu 20.04:** Fast DDS 2.0.0 (or later) and Fast-RTPS-Gen 1.0.4 (not later!).
+작성시 다음을 위해 *소스에서* 설치하여야 합니다.
+- **Ubuntu 18.04:** Fast RTPS 1.8.2(또는 그 이상) 및 Fast-RTPS-Gen 1.0.4(이후는 아님!)
+- **Ubuntu 20.04:** Fast DDS 2.0.0(또는 그 이상) 및 Fast-RTPS-Gen 1.0.4(이후는 아님!)
 :::
 
 ### Java
 
-Java is required to use our built-in code generation tool - *fastrtpsgen*. [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) is recommended.
+내장 코드 생성 도구인 *fastrtpsgen*을 사용하기 위하여 Java가 필요합니다. [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)을 권장합니다.
 
 ### Gradle
 
-You also need to [install Gradle](https://gradle.org/install/) to build the source generators (Fast-RTPS-Gen), we recommend you install Gradle via [sdkman](https://sdkman.io).
+또한 소스 생성기(Fast-RTPS-Gen)를 빌드하려면 [Gradle을 설치](https://gradle.org/install/)하여야 합니다. [sdkman](https://sdkman.io)을 통하여 Gradle을 설치하는 것이 좋습니다.
 
-### Foonathan memory
+### Foonathan 메모리
 
-In order to build Fast DDS you need to install the Foonathan Memory dependency.
+Fast DDS를 구축하려면 Foonathan 메모리 종속성을 설치하여야 합니다.
 
 ```sh
 git clone https://github.com/eProsima/foonathan_memory_vendor.git
@@ -46,21 +46,21 @@ cmake --build . --target install
 ```
 
 :::note
-If the last step fails, try running the command with the proper user privileges (sudo)
+마지막 단계가 실패하면 적절한 사용자 권한(sudo)으로 실행하십시오.
 :::
 
-### Windows 7 32-bit and 64-bit
+### Windows 7 32 비트와 64 비트
 
-#### Visual C++ 2013 or 2015 Redistributable Package
+#### Visual C ++ 2013 또는 2015 재배포 가능 패키지
 
-*eProsima Fast DDS* requires the Visual C++ Redistributable packages for the Visual Studio version you chose during the installation or compilation. The installer gives you the option of downloading and installing them.
+*eProsima Fast DDS*를 사용하려면 설치 또는 컴파일 중에 선택한 Visual Studio 버전용 Visual C++ 재배포 가능 패키지가 필요합니다. 설치 프로그램은 다운로드 및 설치 옵션을 제공합니다.
 
 
-## Installation from Sources
+## 소스 코드로 설치하기
 
 ### Fast-RTPS (DDS)
 
-Clone the project from Github:
+Github에서 프로젝트를 복제합니다.
 
 ```sh
 $ git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.0 ~/FastDDS-2.0.0
