@@ -1,107 +1,108 @@
-# PX4 소프트웨어 제작
+# PX4 소프트웨어 빌드
 
-PX4는 시뮬레이션된 대상과 하드웨어 대상 모두에 대해 콘솔이나 IDE에서 개발될 수 있습니다.
+PX4는 시뮬레이션 대상과 하드웨어 대상을 콘솔이나 IDE에서 구축할 수 있습니다.
 
-PX4 소스 코드는 [PX4 / Firmware](https://github.com/PX4/Firmware) 저장소의 Github에 저장됩니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
+:::note
+이 지침을 따르기 전에 먼저 호스트 운영 체제와 대상 하드웨어에 대한 [개발자 도구 모음](../dev_setup/dev_env.md)을 설치하여야 합니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 
-For the first build we'll build for a simulated target using a console environment.
+:::tip
+일반적인 빌드 문제에 대한 해결 방법은 아래 [문제 해결](#troubleshooting)을 참고하십시오.
 :::
 
-## PX4 소스 코드 다운로드하기
+## PX4 소스 코드 다운로드
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다. *최신* 버전을 컴퓨터에 다운로드하려면 터미널에 다음 명령을 실행하십시오.
 
 ```sh
-sh
- git clone https://github.com/PX4/Firmware.git
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+이것이 최신 코드를 빌드하기 위해 필요합니다. [GIT 예제 > PX4에 코드 기여](../contribute/git_examples.md#contributing_code)는 PX4에 기여하기 위해 git을 사용 방법을 설명합니다.
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## 최초 빌드 (jMAVSim 시뮬레이션 활용)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+먼저 콘솔 환경에서 시뮬레이션 대상을 빌드합니다. 이를 통하여 실제 하드웨어와 IDE로 사용전에 시스템 설정을 검증할 수 있습니다.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+**PX4-Autopilot** 디렉토리로 이동하여, 다음 명령을 사용하여 [jMAVSim](../simulation/jmavsim.md)을 시작합니다.
 ```sh
 make px4_sitl jmavsim
 ```
 
-This will bring up the PX4 console below:
+그러면, 아래와 같은 PX4 콘솔이 나타납니다.
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-The drone can be flown by typing:
+다음 명령어로 드론을 날릴 수 있습니다.
 ```sh
 pxh> commander takeoff
 ```
 
 ![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **Firmware** directory and then call `make` with the build target for your board.
+드론은 `commander land`를 입력하여 착륙할 수 있으며, 전체 시뮬레이션은 **CTRL+C**(또는 `shutdown`)를 입력하여 중지할 수 있습니다.
 
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+지상 관제소로 시뮬레이션 비행이 기체의 실제 작동에 더 가깝습니다. 기체 비행중에 지도에서 위치를 클릭하고(이륙 비행 모드) 슬라이더를 활성화합니다. 이렇게 하면, 기체의 위치가 변경됩니다.
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
-:::tip PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g.
+:::tip PX4는 [Gazebo Simulation](../simulation/gazebo.md)와 [AirSim Simulation](../simulation/airsim.md)을 비롯하여 여러가지 [시뮬레이터](../simulation/README.md)와 함께 사용할 수 있습니다. 이것들은 또한 *make*로 시작됩니다.
 ```
--- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
-[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
+make px4_sitl gazebo
 ```
 :::
 
-## NuttX / Pixhawk Based Boards
+## NuttX/Pixhawk 기반 보드
 
-### Building for NuttX
+### NuttX용 빌드
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
+NuttX 또는 Pixhawk 기반 보드용으로 빌드하려면, **PX4-Autopilot** 디렉토리로 이동한 다음 보드용 빌드 타겟으로 `make`를 호출하십시오.
 
-For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
+예를 들어, [Pixhawk 4](../flight_controller/pixhawk4.md) 하드웨어용으로 빌드하려면 다음 명령을 사용할 수 있습니다.
 ```sh
-/data/ftp/internal_000/px4 -s /home/root/px4.config
+cd PX4-Autopilot
+make px4_fmu-v4_default
 ```
 
-A successful run will end with similar output to:
+성공적인 실행은 다음과 유사한 출력으로 종료됩니다.
 ```sh
--- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
+-- 빌드 파일은 /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default에 작성되었습니다.
 [954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-The first part of the build target `px4_fmu-v4` indicates the firmware for a particular flight controller hardware. The following list shows the build commands for the [Pixhawk standard](../flight_controller/autopilot_pixhawk_standard.md) boards:
-* On OS X, hit ⌘-space and search for 'terminal'.
-* On Ubuntu, click the launch bar and search for 'terminal'.
-* On Windows, find the PX4 folder in the start menu and click on 'PX4 Console'.
-* [HKPilot32](https://docs.px4.io/en/flight_controller/HKPilot32.html): `make px4_fmu-v2_default`
-* [Crazyflie 2.0](https://docs.px4.io/en/flight_controller/crazyflie2.html): `make bitcraze_crazyflie_default`
-* [Pixracer](https://docs.px4.io/en/flight_controller/pixracer.html): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](https://docs.px4.io/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](https://docs.px4.io/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
-* [Pixhawk 2](https://docs.px4.io/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
+빌드 대상 `px4_fmu-v4`의 첫 번째 부분은 특정 비행 콘트롤러 하드웨어의 펌웨어를 나타냅니다. 다음 목록은 [Pixhawk 표준](../flight_controller/autopilot_pixhawk_standard.md) 보드에 대한 빌드 명령을 보여줍니다.
+* [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
+* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+* [Pixhawk 2 (Cube Black)](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
+* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (2MB Flash 지원)
 * [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
-* [mRo Pixhawk](https://docs.px4.io/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+* [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default` :::warning 이 보드(예: [CI/docker](../test_and_ci/docker.md)에서 사용하는 것과 동일)를 빌드하거나 빌드에서 모듈을 제거하려면 지원되는 GCC 버전을 **반드시** 사용하여야 합니다. PX4가 보드의 1MB 플래시 제한에 가깝기 때문에, 지원되지 않는 GCC로 빌드가 실패할 수 있습니다.
 :::
-* Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
+* 2MB 플래시가 있는 Pixhawk 1: `make px4_fmu-v3_default`
 
-kk
+비 Pixhawk NuttX 전투 컨트롤러(및 기타 모든 보드)에 대한 빌드 명령은 개별 [비행 콘트롤러 보드](../flight_controller/README.md) 문서에서 제공합니다.
 
 :::note
-The `_default` suffix is the firmware _configuration_. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
+`_default` 접미사는 펌웨어 _configuration_입니다. This is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
 :::
 
-### Uploading Firmware (Flashing the board)
+### 펌웨어 업로드 (보드 플래싱)
 
-The "px4" executable file is in the directory **build/emlid_navio2_cross/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
+USB로 자동조종장치에 컴파일된 바이너리를 업로드하려면 make `upload` 명령어를 사용하십시오. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
 
 ```sh
 make px4_fmu-v4_default upload
 ```
 
-A successful run will end with this output:
+성공적인 실행은 다음 출력으로 종료됩니다.
 
 ```sh
 Erase  : [====================] 100.0%
@@ -112,7 +113,7 @@ Rebooting.
 [100%] Built target upload
 ```
 
-## Other Boards
+## 기타 보드
 
 Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
 
