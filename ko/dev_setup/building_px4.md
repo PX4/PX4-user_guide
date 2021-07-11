@@ -11,40 +11,39 @@ PX4는 시뮬레이션 대상과 하드웨어 대상을 콘솔이나 IDE에서 �
 
 ## PX4 소스 코드 다운로드
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4 소스 코드는 Github의 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소에 저장되어 있습니다. *최신* 버전을 컴퓨터에 다운로드하려면 터미널에 다음 명령을 실행하십시오.
 
 ```sh
-sh
- git clone https://github.com/PX4/Firmware.git
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 :::note
-This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4.
+이것이 최신 코드를 빌드하기 위해 필요합니다. [GIT 예제 > PX4에 코드 기여](../contribute/git_examples.md#contributing_code)는 PX4에 기여하기 위해 git을 사용 방법을 설명합니다.
 :::
 
-## First Build (Using the jMAVSim Simulator)
+## 최초 빌드 (jMAVSim 시뮬레이션 활용)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+먼저 콘솔 환경에서 시뮬레이션 대상을 빌드합니다. 이를 통하여 실제 하드웨어와 IDE로 사용전에 시스템 설정을 검증할 수 있습니다.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+**PX4-Autopilot** 디렉토리로 이동하여, 다음 명령을 사용하여 [jMAVSim](../simulation/jmavsim.md)을 시작합니다.
 ```sh
 make px4_sitl jmavsim
 ```
 
-This will bring up the PX4 console below:
+그러면, 아래와 같은 PX4 콘솔이 나타납니다.
 
 ![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
-The drone can be flown by typing:
+다음 명령어로 드론을 날릴 수 있습니다.
 ```sh
 pxh> commander takeoff
 ```
 
 ![jMAVSim UI](../../assets/toolchain/jmavsim_first_takeoff.png)
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **Firmware** directory and then call `make` with the build target for your board.
+드론은 `commander land`를 입력하여 착륙할 수 있으며, 전체 시뮬레이션은 **CTRL+C**(또는 `shutdown`)를 입력하여 중지할 수 있습니다.
 
-Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.
+지상 관제소로 시뮬레이션 비행이 기체의 실제 작동에 더 가깝습니다. 기체 비행중에 지도에서 위치를 클릭하고(이륙 비행 모드) 슬라이더를 활성화합니다. 이렇게 하면, 기체의 위치가 변경됩니다.
 
 ![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
 
