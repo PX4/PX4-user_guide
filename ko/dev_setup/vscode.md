@@ -21,15 +21,15 @@ IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 1. [VSCode 다운로드 및 설치](https://code.visualstudio.com/)(사용자의 OS에 맞는 버전이 제공됨).
 1. VSCode를 열고 PX4 소스 코드를 추가합니다.
-   - 시작 페이지에서 *폴더 열기 ...*를 클릭합니다(또는 메뉴: **파일 > 폴더 열기** 사용): ![Open Folder](../../assets/toolchain/vscode/welcome_open_folder.jpg)
+   - 시작 페이지에서 *폴더 열기 ...*를 클릭합니다(또는 메뉴: **파일 > 폴더 열기** 사용): ![폴더 열기](../../assets/toolchain/vscode/welcome_open_folder.jpg)
    - 파일 선택창이 나타납니다. **PX4-Autopilot** 디렉토리를 선택하고, **확인**을 누릅니다.
 
    그러면 프로젝트 파일과 설정이 *VSCode*에 로드됩니다.
-1. *이 작업 공간에는 확장 권장 사항이 있습니다* 프롬프트에서 **모두 설치**를 누릅니다(IDE의 오른쪽 하단에 표시됨). ![Install extensions](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
+1. *이 작업 공간에는 확장 권장 사항이 있습니다* 프롬프트에서 **모두 설치**를 누릅니다(IDE의 오른쪽 하단에 표시됨). ![확장 기능 설치](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
 
    VSCode는 설치 진행 상황을 볼 수 있도록 왼쪽에 *확장 프로그램* 패널을 엽니다.
 
-   ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
+   ![VSCode 탐색기에 로드된 PX4](../../assets/toolchain/vscode/installing_extensions.jpg)
 1. 오른쪽 하단에 여러 알림/프롬프트가 나타날 수 있습니다.
 
 :::tip
@@ -49,15 +49,15 @@ IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 빌드를 진행하려면:
 1. 빌드 대상 선택("cmake build config"):
-   - 현재 *cmake 빌드 대상*은 하단의 파란색 *구성* 표시줄에 표시됩니다(이미 원하는 대상인 경우 다음 단계로 건너뛰십시오). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
+   - 현재 *cmake 빌드 대상*은 하단의 파란색 *구성* 표시줄에 표시됩니다(이미 원하는 대상인 경우 다음 단계로 건너뛰십시오). ![Cmake 빌드 대상 선택](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
 :::note
 선택한 cmake 대상은 [빌드/디버깅](#debugging)시 제공되는 대상에 영향을 줍니다(즉, 하드웨어 디버깅의 경우 `px4_fmu-v5`와 같은 하드웨어 대상을 선택하여야 함).
 :::
    - 구성 표시줄에서 대상을 클릭하여 다른 옵션을 표시하고 원하는 옵션을 선택합니다(선택한 대상을 대체함).
-   - 그러면, *Cmake*가 프로젝트를 구성합니다(오른쪽 하단의 알림 참조). ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
+   - 그러면, *Cmake*가 프로젝트를 구성합니다(오른쪽 하단의 알림 참조). ![Cmake 설정 프로젝트](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
    - 구성이 완료될 때까지 기다리십시오. 이 작업이 완료되면 알림이 사라지고 빌드 위치가 표시됩니다.
-1. 그런 다음 구성 표시줄에서 빌드를 시작할 수 있습니다(**빌드** 또는 **디버그** 선택). ![Run debug or build](../../assets/toolchain/vscode/run_debug_build.jpg)
+1. 그런 다음 구성 표시줄에서 빌드를 시작할 수 있습니다(**빌드** 또는 **디버그** 선택). ![디버깅 또는 빌드 실행](../../assets/toolchain/vscode/run_debug_build.jpg)
 
 한 번 이상 빌드하면 이제 \[코드 완성\](#코드 완성) 및 기타 *VSCode* 기능을 사용할 수 있습니다.
 
@@ -69,7 +69,7 @@ IDE를 설정과 개발 방법에 대하여 설명합니다.
 ### SITL 디버깅
 
 SITL에서 PX4를 디버깅하려면:
-1. 사이드바에서 디버그 아이콘(빨간색으로 표시)을 선택하여 디버그 패널을 표시합니다.![Run debug](../../assets/toolchain/vscode/vscode_debug.jpg)
+1. 사이드바에서 디버그 아이콘(빨간색으로 표시)을 선택하여 디버그 패널을 표시합니다.![디버깅 실행](../../assets/toolchain/vscode/vscode_debug.jpg)
 
 1. 그런 다음 상단 표시줄 디버그 드롭다운(보라색 상자)에서 디버그 대상(예: *디버그 SITL(Gazebo Iris)*)을 선택합니다.
 
@@ -90,7 +90,7 @@ SWD 인터페이스에 연결한 후 VSCode의 하드웨어 디버깅은 디버�
 `jlink` 옵션을 보려면 [펌웨어 빌드를 위한 cmake 대상](#building-px4)을 선택하여야 합니다.
 :::
 
-![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
+![다양한 프로브에 대한 옵션이 있는 하드웨어 대상을 보여주는 이미지](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
 
 <a id="code completion"></a>
 
@@ -98,16 +98,16 @@ SWD 인터페이스에 연결한 후 VSCode의 하드웨어 디버깅은 디버�
 
 코드 완성(및 기타 IntelliSense 마법)이 작동하려면 활성화 설정후, [코드를 빌드](#building)하여야 합니다.
 
-Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
+이 작업이 완료되면 다른 작업을 수행할 필요가 없습니다. 툴체인은 입력시 자동으로 기호를 제공합니다.
 
-![IntelliSense](../../assets/toolchain/vscode/vscode_intellisense.jpg)
+![인텔리센스](../../assets/toolchain/vscode/vscode_intellisense.jpg)
 
-## Troubleshooting
+## 문제 해결
 
-This section includes guidance on setup and build errors.
+이 섹션에는 설정 및 빌드 오류에 대한 지침이 포함되어 있습니다.
 
-### Ubuntu 18.04: "Visual Studio Code is unable to watch for file changes in this large workspace"
+### Ubuntu 18.04: "Visual Studio Code는 이 큰 작업 영역에서 파일 변경 사항을 감시할 수 없습니다."
 
-This error surfaces on startup. On some systems, there is an upper-limit of 8192 file handles imposed on applications, which means that VSCode might not be able to detect file modifications in `/PX4-Autopilot`.
+이 오류는 시작시에 나타납니다. 일부 시스템에서는 애플리케이션에 적용되는 파일 핸들의 상한선이 8192개이므로 VSCode가 `/PX4-Autopilot`에서 파일 수정 사항을 감지하지 못할 수 있습니다.
 
-You can increase this limit to avoid the error, at the expense of memory consumption. Follow the [instructions here](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc). A value of 65536 should be more than sufficient.
+메모리 소비를 희생시키면서 오류를 방지하기 위해 이 제한을 늘릴 수 있습니다. [여기에 있는 지침](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)을 따르십시오. 값 65536이면 충분합니다.
