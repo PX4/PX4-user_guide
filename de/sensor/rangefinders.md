@@ -140,7 +140,7 @@ If you need to use a different vehicle you can include the model in its configur
           </axis>
         </joint>
 
-- [typhoon_h480.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144) 
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145) 
         xml
         <include>
           <uri>model://sonar</uri>
