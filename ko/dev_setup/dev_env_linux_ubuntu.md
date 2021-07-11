@@ -12,57 +12,55 @@
 이 설정은 PX4 개발 팀에서 지원합니다.
 :::
 
-:::note
-The supported OS versions for PX4 development are [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) 18.04 (Bionic Beaver) and 20.04 (Focal Fossa). For ROS (1) Ubuntu LTS 18.04 (only) is supported.
+:::note PX4 개발을 지원하는 OS 버전은 [Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) 18.04(Bionic Beaver)와 20.04(Focal Fossa)입니다. ROS(1)의 경우 Ubuntu LTS 18.04(전용)가 지원됩니다.
 
-The instructions should also work on other Debian Linux based systems, but this is not verified/officially supported.
+이 지침은 다른 Debian Linux 기반 시스템에서도 작동해야 하지만, 이는공식적으로 지원되지 않습니다.
 :::
 
-## Convenience Bash Scripts
+## 영상 가이드
 
-To use the scripts:
+이 동영상은 [PX4 소프트웨어 빌드](../dev_setup/building_px4.md)에서 다루는 기본 테스트와 함께 NuttX 및 시뮬레이션 대상([아래에서 설명](#gazebo-jmavsim-and-nuttx-pixhawk-targets))을 위한 도구 모음 설치 방법을 보여줍니다.
 
-@The user needs to be part of the group "dialout":
+@[유투브](https://youtu.be/OtValQdAdrU)
 
-## Permission Setup
+## Bash 스크립트
 
-Bash scripts are provided to help make it easy to install development environment for different target platforms. They are intended to be run on *clean* Ubuntu LTS installations.
+다양한 플랫폼에서 개발 환경을 쉽게 설치하는 Bash 스크립트가 제공됩니다. 그것들은 *깨끗한* Ubuntu LTS 설치본에서 실행하기 위한 것입니다.
 
-| Script                                                                                                                           | Description                                                                                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**                                          | Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) tools.<br>Does not include dependencies for [Fast DDS](#fast-dds-installation). <!-- NEED px4_version -->
+| 스크립트                                                                                                                             | 설명                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**                                          | [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터과 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구를 설치합니다. [Fast DDS](#fast-dds-installation)에 대한 종속성을 포함하지 않습니다. <!-- NEED px4_version -->
 |
-| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Installs [ROS "Melodic"](#rosgazebo) and PX4 on Ubuntu 18.04 LTS **only**.<br>Do not use on Ubuntu 20.04 or later!                                                                                                                                                                                  |
+| **[ubuntu_sim_ros_melodic.sh](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh)** | Ubuntu 18.04 LTS **에만** [ROS "Melodic"](#rosgazebo) 및 PX4를 설치합니다.<br>Ubuntu 20.04</2> 이상에서는 사용하지 마십시오!                                                                                                                                                    |
 
 :::note
-The scripts *may* not work if installed "on top" of an existing system, or on a different Ubuntu release.
+스크립트가 기존 시스템의 "상단에" 설치된 경우 또는 다른 Ubuntu 릴리스에 설치된 경우 작동하지 *않을 수 있습니다*.
 :::
 
-## Gazebo, JMAVSim and NuttX (Pixhawk) Targets
+## Gazebo, JMAVSim 및 NuttX(Pixhawk) 타겟
 
-Use the [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> script to set up a development environment that includes [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators, and/or the [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) toolchain.
+[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) 스크립트를 사용하여 [Gazebo 9](../simulation/gazebo.md) 및 [jMAVSim](../simulation/jmavsim.md) 시뮬레이터와 [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 도구 모음의 개발 환경을 설정합니다.
 
 :::warning ROS
-users must follow the instructions for: [ROS/Gazebo](#rosgazebo). <!-- ROS installs Gazebo automatically, as part of the ROS installation). -->
-:::
+사용자는 [ROS/Gazebo](#rosgazebo)에 대한 지침을 따라야 합니다.<!-- ROS installs Gazebo automatically, as part of the ROS installation). -->:::
 
-To install the toolchain:
+툴체인을 설치하려면:
 
-1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download>ubuntu_sim_common_deps.sh</a>**: [Common Dependencies](#common-dependencies), [jMAVSim](#jmavsim) simulator
+1. [PX4 소스 코드 다운로드합니다](../dev_setup/building_px4.md):
    ```bash
    git clone https://github.com/PX4/PX4-Autopilot.git --recursive
    ```
-1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download>ubuntu_sim_nuttx.sh</a>**: **ubuntu_sim.sh** + NuttX tools.
+1. 인수 없이 (bash 셸에서) **ubuntu.sh**를 실행합니다.
    ```bash
    bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
    ```
-   - Acknowledge any prompts as the script progress.
-   - We've created a number of bash scripts that you can use to install the Simulators and/or NuttX toolchain.
-1. This requires computer restart on completion.
+   - 스크립트가 진행되는 동안 모든 프롬프트를 확인합니다.
+   - `--no-nuttx` 및 `--no-sim-tools` 옵션을 사용하여 NuttX 및/또는 시뮬레이션 도구를 생략할 수 있습니다.
+1. 완료되면 컴퓨터를 재부팅합니다.
 
 ::: details
-Information-only notes
-- **Tip** PX4 works with Gazebo 7, 8, and 9. The [installation instructions](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) above are for installing Gazebo 9.
+정보용 참고사항
+- 스크립트는 Gazebo 9를 설치합니다([gazebosim.org 지침](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install)에 따름). Gazebo 7, 8도 지원되지만 권장되지는 않습니다.
 - You can verify the NuttX installation by confirming the gcc version as shown:
   ```bash
    $arm-none-eabi-gcc --version
@@ -72,8 +70,7 @@ Information-only notes
    This is free software; see the source for copying conditions.  There is NO
    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ```
-- You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) and then run **ubuntu.sh**: <!-- NEED px4_version -->
-   ```bash
+- You're going to need the PX4 source code anyway. But if you just wanted to set up the development environment without getting all the source code you could instead just download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) and then run **ubuntu.sh**:<!-- NEED px4_version -->   ```bash
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    bash ubuntu.sh
@@ -96,8 +93,7 @@ To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubun
 
 To get the common dependencies for Raspberry Pi:
 
-1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**):  <!-- NEED px4_version -->
-   ```
+1. Download [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)<!-- NEED px4_version -->and [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) from the PX4 source repository (**/Tools/setup/**): <!-- NEED px4_version -->    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    ```
@@ -181,7 +177,7 @@ builds are tied to specific Ubuntu versions! ROS Melodic can *only* install on U
 
 To install the development toolchain:
 
-1. Download the script in a bash shell: <!-- NEED px4_version -->
+1. Download the script in a bash shell:  <!-- NEED px4_version -->
    ```bash
    wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh
    ```
