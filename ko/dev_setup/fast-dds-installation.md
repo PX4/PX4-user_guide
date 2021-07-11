@@ -1,6 +1,6 @@
 # Fast DDS 설치
 
-<img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;" /> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS)는 OMG(Object Management Group) DDS(Data Distribution Service) 사양 및 RTPS(Real Time Publish Subscribe) 프로토콜의 C++ 구현입니다.
+<img alt="로고" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;" /> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS)는 OMG(Object Management Group) DDS(Data Distribution Service) 사양 및 RTPS(Real Time Publish Subscribe) 프로토콜의 C++ 구현입니다.
 
 Fast DDS는 PX4 uORB 주제가 동일한 DDS 도메인에 참여하는 로봇 공학 및 시뮬레이터 도구를 포함한 오프보드 구성 요소와 공유될 수 있도록 하는 RTPS/DDS 인터페이스를 활성화합니다. 특히 Fast DDS는 Robot Operating System 2(ROS 2)의 기본 미들웨어 구현이며 PX4와 ROS2를 통합에 필수적입니다.
 
@@ -68,7 +68,7 @@ $ cd ~/FastDDS-2.0.0
 $ mkdir build && cd build
 ```
 
-If you are on Linux, execute:
+Linux에서는 다음 명령어들을 실행하십시오.
 
 ```sh
 $ cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
@@ -76,27 +76,27 @@ $ make -j$(nproc --all)
 $ sudo make install
 ```
 
-This will install Fast DDS to `/usr/local`, with secure communications support. If you need to install to a custom location you can use: `-DCMAKE_INSTALL_PREFIX=<path>`.
+이렇게 하면 보안 통신 지원과 함께 Fast DDS가 `/usr/local`에 설치됩니다. 사용자 지정 위치에 설치해야 하는 경우 `-DCMAKE_INSTALL_PREFIX=<path>`을 사용할 수 있습니다.
 
-If you are on Windows, choose your version of *Visual Studio*:
+Windows를 사용하는 경우 *Visual Studio* 버전을 선택합니다.
 
 ```sh
 > cmake -G "Visual Studio 14 2015 Win64" -DTHIRDPARTY=ON -DSECURITY=ON ..
 > cmake --build . --target install
 ```
 
-#### Compile Options
+#### 컴파일 옵션
 
-The following additional arguments can be used when calling *CMake*:
+*CMake*를 호출시, 다음 추가 인수를 사용할 수 있습니다.
 
-- `-DCOMPILE_EXAMPLES=ON`: Compile the examples
-- `-DPERFORMANCE_TESTS=ON`: Compile the performance tests
+- `-DCOMPILE_EXAMPLES=ON`: 예제 컴파일
+- `-DPERFORMANCE_TESTS=ON`: 성능 테스트 컴파일
 
 ### Fast-RTPS-Gen
 
-*Fast-RTPS-Gen* is the Fast RTPS (DDS) IDL code generator tool. It should be installed after Fast RTPS (DDS) and made sure the `fastrtpsgen` application is in your `PATH`. You can check with `which fastrtpsgen`.
+*Fast-RTPS-Gen*은 Fast RTPS(DDS) IDL 코드 생성기입니다. It should be installed after Fast RTPS (DDS) and made sure the `fastrtpsgen` application is in your `PATH`. `어떤 fastrtpsgen`인지 확인할 수 있습니다.
 
-Then install Fast-RTPS-Gen 1.0.4 (Gradle is required for this):
+그런 다음 Fast-RTPS-Gen 1.0.4를 설치합니다(이를 위해서는 Gradle이 필요합니다).
 ```
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
     && cd ~/Fast-RTPS-Gen \
@@ -104,69 +104,69 @@ git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/F
     && sudo ./gradlew install
 ```
 
-## Installation from Binaries
+## 바이너리로 설치
 
 :::note
-Although the binaries are available, we recommend to build and install the code from source, given that the binaries may not come with required components and dependencies in place.
+바이너리를 사용할 수 있지만, 바이너리가 필수 구성 요소 및 종속성과 함께 제공되지 않을 수 있으므로, 소스를 빌드하고 설치하는 것이 좋습니다.
 :::
 
-The latest binary release of *eProsima Fast DDS* can be downloaded from the [company website](http://www.eprosima.com/).
+*eProsima Fast DDS*의 최신 바이너리 릴리스는 [회사 웹사이트](http://www.eprosima.com/)에서 다운로드할 수 있습니다.
 
-Documentation on how to do this can be found here: [Installation from Binaries on Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html) and [Installation from Binaries on Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html) (*eProsima Fast DDS* official documentation)
+이 작업을 수행하는 방법에 대한 문서는 [Linux의 바이너리에서 설치](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html)와 [Windows의 바이너리에서 설치](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html)(*eProsima Fast DDS* 공식 문서)에서 찾을 수 있습니다.
 
 
-### Windows 7 32-bit and 64-bit
+### Windows 7 32 비트와 64 비트
 
-Execute the installer and follow the instructions, choosing your preferred *Visual Studio* version and architecture when prompted.
+설치 프로그램을 실행하고 지침에 따라 메시지가 표시되면, 원하는 *Visual Studio* 버전과 아키텍처를 선택합니다.
 
-#### Environmental Variables
+#### 환경 변수
 
-*eProsima Fast DDS* requires the following environmental variable setup in order to function properly
+*eProsima Fast DDS*가 제대로 작동하려면, 다음과 같은 환경 변수 설정이 필요합니다.
 
-* `FASTRTPSHOME`: Root folder where *eProsima Fast DDS* is installed.
-* `FASTRTPSGEN_DIR`: Root folder where *eProsima Fast-RTPS-Gen* is installed.
-* Additions to the `PATH`: the **/bin** folder and the subfolder for your Visual Studio version of choice should be appended to the PATH.
+* `FASTRTPSHOME`: *eProsima Fast DDS*가 설치된 루트 폴더입니다.
+* `FASTRTPSGEN_DIR`: *eProsima Fast-RTPS-Gen*이 설치된 루트 폴더입니다.
+* `PATH`에 대한 추가 사항: 선택한 Visual Studio 버전의 **/bin** 폴더 및 하위 폴더가 PATH에 추가되어야 합니다.
 
-These variables are set automatically by checking the corresponding box during the installation process.
+이러한 변수는 설치 과정에서 해당 상자를 선택하여 자동으로 설정됩니다.
 
 
 ### Linux
 
-Extract the contents of the package. It will contain both *eProsima Fast DDS* and its required package *eProsima Fast CDR*. You will have follow the same procedure for both packages, starting with *Fast CDR*.
+패키지의 내용을 추출합니다. 여기에는 *eProsima Fast DDS*와 필수 패키지인 *eProsima Fast CDR*이 모두 포함됩니다. *빠른 CDR*부터 시작하여 두 패키지에 대해 동일한 절차를 따라야 합니다.
 
-Configure the compilation:
+컴파일 설정:
 
 ```sh
 $ ./configure --libdir=/usr/lib
 ```
 
-If you want to compile with debug symbols (which also enables verbose mode):
+디버그 기호로 컴파일하려면(자세한 정보 표시 모드도 활성화함):
 
 ```sh
 $ ./configure CXXFLAGS="-g -D__DEBUG"  --libdir=/usr/lib
 ```
 
-After configuring the project compile and install the library:
+프로젝트 설정후, 라이브러리를 컴파일하고 설치합니다.
 
 ```sh
 $ sudo make install
 ```
 
-#### Environmental Variables
+#### 환경 변수
 
-* `FASTRTPSGEN_DIR`: Root folder where *eProsima Fast-RTPS-Gen* is installed, usually set to `/usr/local`, which is the default installation directory. If the user sets a different install directory in the `gradle install` step, it must set it here as well.
-
-
-## Further Information
+* `FASTRTPSGEN_DIR`: *eProsima Fast-RTPS-Gen*이 설치된 루트 폴더로, 일반적으로 기본 설치 디렉토리인 `/usr/local`로 설정됩니다. 사용자가 `gradle 설치` 단계에서 다른 설치 디렉토리를 설정하였으면, 여기에도 설정하여야 합니다.
 
 
-- [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md)
-- [PX4-ROS 2 bridge](../ros/ros2_comm.md)
+## 추가 정보
 
-- Additional installation information can be found in the official [*eProsima Fast DDS* documentation](https://fast-dds.docs.eprosima.com/en/latest/) (from which this topic is derived):
-  - Installation from Sources
+
+- [RTPS/DDS 인터페이스: PX4-고속 RTPS(DDS) 브릿지](../middleware/micrortps.md)
+- [PX4-ROS 2 브릿지](../ros/ros2_comm.md)
+
+- 추가 설치 정보는 공식 [*eProsima Fast DDS* 문서](https://fast-dds.docs.eprosima.com/en/latest/)(이 주제에서 파생됨)를 참고하십시오.
+  - 소스로 설치하기
     - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_linux.html)
     - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/sources/sources_windows.html)
-  - Installation from Binaries
+  - 바이너리로 설치
     - [Linux](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_linux.html)
     - [Windows](https://fast-dds.docs.eprosima.com/en/latest/installation/binaries/binaries_windows.html)
