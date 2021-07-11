@@ -1,15 +1,15 @@
 # 우분투 개발 환경
 
-[Ubuntu Linux LTS](https://wiki.ubuntu.com/LTS) (16.04) is the standard/preferred Linux development OS. It allows you to build for [all PX4 targets](../setup/dev_env.md#supported-targets) (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).
-* Pixhawk and other NuttX-based hardware
-* [jMAVSim Simulation](../simulation/jmavsim.md)
-* [Gazebo Simulation](../simulation/gazebo.md)
-* [Raspberry Pi](#raspberry-pi)
-* [ROS (1)](#ros-gazebo) (Robotics Operating System)
-* [Fast DDS](../dev_setup/fast-dds-installation.md) - Required for ROS2
+아래에서 Ubuntu Linux 18.04 amd 20.04에서 PX4 개발 환경에 대하여 설명합니다. 이 환경은 [대부분의 PX4 타켓](../dev_setup/dev_env.md#supported-targets) 빌드에 사용됩니다.
+* Pixhawk와 기타 NuttX 기반 하드웨어
+* [jMAVSim 시뮬레이션](../simulation/jmavsim.md)
+* [가제보 시뮬레이션](../simulation/gazebo.md)
+* [라즈베리파이](#raspberry-pi)
+* [ROS(1)](#ros-gazebo)(로봇 운영 체제)
+* [Fast DDS](../dev_setup/fast-dds-installation.md) - ROS2에 필요
 
 :::tip
-This setup is supported by the PX4 dev team.
+이 설정은 PX4 개발 팀에서 지원합니다.
 :::
 
 :::note
