@@ -195,13 +195,13 @@ make
 
 ROS2(또는 일부 다른 RTPS/DDS 시스템)와 함께 PX4를 사용하는 경우 [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS)가 필요합니다.
 
-Follow the instructions in [Fast DDS Installation](../dev_setup/fast-dds-installation.md) to install it.
+[Fast DDS 설치](../dev_setup/fast-dds-installation.md) 방법에 따라 설치합니다.
 
 
-## Next Steps
+## 다음 단계
 
-Once you have finished setting up the command-line toolchain:
-- Install [VSCode](../dev_setup/vscode.md) (if you prefer using an IDE to the command line).
-- Install the [QGroundControl Daily Build](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) :::tip The *daily build* includes development tools that hidden in release builds. It may also provide access to new PX4 features that are not yet supported in release builds.
+명령줄 도구 모음 설정후, 다음을 수행합니다.
+- [VSCode](../dev_setup/vscode.md)를 설치합니다(명령줄에 IDE 사용을 선호하는 경우).
+- [QGroundControl 일일 빌드](https://docs.qgroundcontrol.com/en/releases/daily_builds.html) 설치 :::tip *일일 빌드*에는 릴리스 빌드에 숨겨진 개발 도구가 포함됩니다. 또한, 릴리스 빌드에서 아직 지원되지 않는 새로운 PX4 기능에 대한 액세스를 제공할 수도 있습니다.
 :::
-- Continue to the [build instructions](../dev_setup/building_px4.md).
+- [빌드 지침](../dev_setup/building_px4.md)을 계속 진행합니다.
