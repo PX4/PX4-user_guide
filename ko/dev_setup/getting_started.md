@@ -6,4 +6,4 @@
 * [툴체인 설치](../dev_setup/dev_env.md)
 * [코드 빌드하기](../dev_setup/building_px4.md)
 * [어플리케이션 작성하기](../modules/hello_sky.md)
-* [어플리케이션/모듈 템플릿](../modules/module_template.md)
+* [어플리케이션 모듈 템플릿](../modules/module_template.md)
