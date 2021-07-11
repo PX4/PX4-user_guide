@@ -49,54 +49,54 @@ IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 빌드를 진행하려면:
 1. 빌드 대상 선택("cmake build config"):
-   - The current *cmake build target* is shown on the blue *config* bar at the bottom (if this is already your desired target, skip to next step). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
+   - 현재 *cmake 빌드 대상*은 하단의 파란색 *구성* 표시줄에 표시됩니다(이미 원하는 대상인 경우 다음 단계로 건너뛰십시오). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
 :::note
-The cmake target you select affects the targets offered for when [building/debugging](#debugging) (i.e. for hardware debugging you must select a hardware target like `px4_fmu-v5`).
+선택한 cmake 대상은 [빌드/디버깅](#debugging)시 제공되는 대상에 영향을 줍니다(즉, 하드웨어 디버깅의 경우 `px4_fmu-v5`와 같은 하드웨어 대상을 선택하여야 함).
 :::
-   - Click the target on the config bar to display other options, and select the one you want (this will replace any selected target).
-   - *Cmake* will then configure your project (see notification in bottom right). ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
-   - Wait until configuration completes. When this is done the notification will disappear and you'll be shown the build location: ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project_done.jpg).
-1. You can then kick off a build from the config bar (select either **Build** or **Debug**). ![Run debug or build](../../assets/toolchain/vscode/run_debug_build.jpg)
+   - 구성 표시줄에서 대상을 클릭하여 다른 옵션을 표시하고 원하는 옵션을 선택합니다(선택한 대상을 대체함).
+   - 그러면, *Cmake*가 프로젝트를 구성합니다(오른쪽 하단의 알림 참조). ![Cmake config project](../../assets/toolchain/vscode/cmake_configuring_project.jpg)
+   - 구성이 완료될 때까지 기다리십시오. 이 작업이 완료되면 알림이 사라지고 빌드 위치가 표시됩니다.
+1. 그런 다음 구성 표시줄에서 빌드를 시작할 수 있습니다(**빌드** 또는 **디버그** 선택). ![Run debug or build](../../assets/toolchain/vscode/run_debug_build.jpg)
 
-After building at least once you can now use \[code completion\](#code completion) and other *VSCode* features.
+한 번 이상 빌드하면 이제 \[코드 완성\](#코드 완성) 및 기타 *VSCode* 기능을 사용할 수 있습니다.
 
 
-## Debugging
+## 디버깅
 
 <a id="debugging_sitl"></a>
 
-### SITL Debugging
+### SITL 디버깅
 
-To debug PX4 on SITL:
-1. Select the debug icon on the sidebar (marked in red) to display the debug panel. ![Run debug](../../assets/toolchain/vscode/vscode_debug.jpg)
+SITL에서 PX4를 디버깅하려면:
+1. 사이드바에서 디버그 아이콘(빨간색으로 표시)을 선택하여 디버그 패널을 표시합니다.![Run debug](../../assets/toolchain/vscode/vscode_debug.jpg)
 
-1. Then choose your debug target (e.g. *Debug SITL (Gazebo Iris)*) from the top bar debug dropdown (purple box).
+1. 그런 다음 상단 표시줄 디버그 드롭다운(보라색 상자)에서 디버그 대상(예: *디버그 SITL(Gazebo Iris)*)을 선택합니다.
 
 :::note
-The debug targets that are offered (purple box) match your build target (yellow box on the bottom bar). For example, to debug SITL targets, your build target must include SITL.
+제공되는 디버그 대상(보라색 상자)은 빌드 대상(하단 막대의 노란색 상자)과 일치합니다. 예를 들어, SITL 대상을 디버그하려면 빌드 대상에 SITL이 포함되어야 합니다.
 :::
-1. Start debugging by clicking the debug "play" arrow (next to the debug target in the top bar - pink box).
+1. 디버그 "재생" 화살표(상단 막대의 디버그 대상 옆 - 분홍색 상자)를 클릭하여 디버깅을 시작합니다.
 
-While debugging you can set breakpoints, step over code, and otherwise develop as normal.
+디버깅하는 동안 중단점을 설정하고, 코드를 건너뛰고, 그렇지 않으면 정상적으로 개발할 수 있습니다.
 
-### Hardware Debugging
+### 하드웨어 디버깅
 
-The instructions in [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md) explain how to connect to the SWD interface on common flight controllers (for example, using the Dronecode or Blackmagic probes).
+[SWD(JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)의 지침은 일반적인 비행 콘트롤러(예: Dronecode 또는 Blackmagic 프로브 사용)에서 SWD 인터페이스에 연결하는 방법을 설명합니다.
 
-After connecting to the SWD interface, hardware debugging in VSCode is then the same as for [SITL Debugging](#debugging_sitl) except that you select a debug target appropriate for your debugger type (and firmware) - e.g. `jlink (px4_fmu-v5)`.
+SWD 인터페이스에 연결한 후 VSCode의 하드웨어 디버깅은 디버거 유형(및 펌웨어)(예: `jlink (px4_fmu-v5)`)에 적합한 디버그 대상을 선택한다는 점을 제외하고 [SITL 디버깅](#debugging_sitl)과 동일합니다.
 
 :::tip
-To see the `jlink` option you must have selected a [cmake target for building firmware](#building-px4).
+`jlink` 옵션을 보려면 [펌웨어 빌드를 위한 cmake 대상](#building-px4)을 선택하여야 합니다.
 :::
 
 ![Image showing hardware targets with options for the different probes](../../assets/toolchain/vscode/vscode_hardware_debugging_options.png)
 
 <a id="code completion"></a>
 
-## Code Completion
+## 코드 완성
 
-In order for the code completion to work (and other IntelliSense magic) you need an active configuration and to have [built the code](#building).
+코드 완성(및 기타 IntelliSense 마법)이 작동하려면 활성화 설정후, [코드를 빌드](#building)하여야 합니다.
 
 Once that is done you don't need to do anything else; the toolchain will automatically offer you symbols as you type.
 
