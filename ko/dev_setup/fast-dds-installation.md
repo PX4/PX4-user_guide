@@ -1,21 +1,21 @@
-# Fast DDS Installation
+# Fast DDS 설치
 
-<img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;" /> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS) is a C++ implementation of the Object Management Group's (OMG) Data Distribution Service (DDS) specification and the Real Time Publish Subscribe (RTPS) protocol.
+<img alt="logo" src="../../assets/fastrtps/eprosima_logo.png" style="float:left;" /> [eProsima Fast DDS](https://github.com/eProsima/Fast-DDS)는 OMG(Object Management Group) DDS(Data Distribution Service) 사양 및 RTPS(Real Time Publish Subscribe) 프로토콜의 C++ 구현입니다.
 
-Fast DDS enables an RTPS/DDS interface that allows PX4 uORB topics to be shared with offboard components, including robotics and simulator tools, that participate in same DDS domain. In particular, Fast DDS is the default middleware implementation for Robot Operating System 2 (ROS 2), and is essential for integrating PX4 with ROS2.
+Fast DDS는 PX4 uORB 주제가 동일한 DDS 도메인에 참여하는 로봇 공학 및 시뮬레이터 도구를 포함한 오프보드 구성 요소와 공유될 수 있도록 하는 RTPS/DDS 인터페이스를 활성화합니다. 특히 Fast DDS는 Robot Operating System 2(ROS 2)의 기본 미들웨어 구현이며 PX4와 ROS2를 통합에 필수적입니다.
 
-This topic explains how to install Fast DDS for use with PX4.
+이 항목에서는 PX4와 함께 사용하기 위한 Fast DDS를 설치 방법을 설명합니다.
 
 :::tip
-Fast DDS is not an essential component of the PX4 Autopilot and should only be installed if you plan to use the PX4 Autopilot with another Fast RTPS/DDS system such as ROS 2.
+Fast DDS는 PX4 Autopilot의 필수 구성 요소가 아니며, ROS 2와 같은 다른 Fast RTPS/DDS 시스템과 함께 PX4 Autopilot을 사용할 계획인 경우에만 설치 합니다.
 :::
 
 :::note
-Fast DDS was previously named FastRTPS (the name was changed in version 2.0.0 as it now includes a full DDS implementation, rather than just the RTPS wire protocol).
+Fast DDS는 이전에 FastRTPS로 명명되었습니다(버전 2.0.0에서는 이제 RTPS 유선 프로토콜이 아닌 전체 DDS 구현을 포함하므로 이름이 변경됨).
 :::
 
 
-## Prerequisites
+## 준비 사항
 
 *eProsima Fast DDS* requires the following packages to work.
 
