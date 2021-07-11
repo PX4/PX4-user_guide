@@ -7,48 +7,48 @@ PX4 개발에 VSCode를 사용하는 데에는 많은 이유가 있습니다.
 - PX4 개발에 필요한 여러가지 도구를 지원하는 다양한 확장 시스템: C/C++(견고한 *cmake* 통합 포함), *Python*, *Jinja2* , ROS 메시지, 심지어 UAVCAN dsdl.
 - 뛰어난 Github 통합 기능
 
-This topic explains how to setup the IDE and start developing.
+IDE를 설정과 개발 방법에 대하여 설명합니다.
 
 :::note
-There are other powerful IDEs, but they typically take more effort to integrate with PX4. With *VScode*, configuration is stored in the PX4/PX4-Autopilot tree ([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode)) so the setup process is as simple as adding the project folder.
+다른 강력한 IDE가 있지만, 일반적으로 PX4와 통합에는 많은 어려움이 있습니다. *VScode*를 사용하면 설정이 PX4/PX4-Autopilot 트리([PX4-Autopilot/.vscode](https://github.com/PX4/PX4-Autopilot/tree/master/.vscode))에 저장되므로, 설정 프로세스는 프로젝트 폴더를 추가하는 것만큼 간단합니다.
 :::
 
-## Preconditions
+## 선행 조건
 
-You must already have installed the command line [PX4 developer environment](../dev_setup/dev_env.md) for your platform and downloaded the *Firmware* source code repo.
+플랫폼에 대한 명령줄 [PX4 개발자 환경](../dev_setup/dev_env.md)을 이미 설치하고, *펌웨어* 소스 코드 저장소를 복제하여야 합니다.
 
-## Installation & Setup
+## 설치 및 설정
 
-1. [Download and install VSCode](https://code.visualstudio.com/) (you will be offered the correct version for your OS).
-1. Open VSCode and add the PX4 source code:
-   - Select *Open folder ...* option on the welcome page (or using the menu: **File > Open Folder**): ![Open Folder](../../assets/toolchain/vscode/welcome_open_folder.jpg)
-   - A file selection dialog will appear. Select the **PX4-Autopilot** directory and then press **OK**.
+1. [VSCode 다운로드 및 설치](https://code.visualstudio.com/)(사용자의 OS에 맞는 버전이 제공됨).
+1. VSCode를 열고 PX4 소스 코드를 추가합니다.
+   - 시작 페이지에서 *폴더 열기 ...*를 클릭합니다(또는 메뉴: **파일 > 폴더 열기** 사용): ![Open Folder](../../assets/toolchain/vscode/welcome_open_folder.jpg)
+   - 파일 선택창이 나타납니다. **PX4-Autopilot** 디렉토리를 선택하고, **확인**을 누릅니다.
 
-   The project files and configuration will then load into *VSCode*.
-1. Press **Install All** on the *This workspace has extension recommendations* prompt (this will appear on the bottom right of the IDE). ![Install extensions](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
+   그러면 프로젝트 파일과 설정이 *VSCode*에 로드됩니다.
+1. *이 작업 공간에는 확장 권장 사항이 있습니다* 프롬프트에서 **모두 설치**를 누릅니다(IDE의 오른쪽 하단에 표시됨). ![Install extensions](../../assets/toolchain/vscode/prompt_install_extensions.jpg)
 
-   VSCode will open the *Extensions* panel on the left hand side so you can watch the progress of installation.
+   VSCode는 설치 진행 상황을 볼 수 있도록 왼쪽에 *확장 프로그램* 패널을 엽니다.
 
    ![PX4 loaded into VSCode Explorer](../../assets/toolchain/vscode/installing_extensions.jpg)
-1. A number of notifications/prompts may appear in the bottom right corner
+1. 오른쪽 하단에 여러 알림/프롬프트가 나타날 수 있습니다.
 
 :::tip
-If the prompts disappear, click the little "alarm" icon on the right of the bottom blue bar.
+메시지가 사라지면, 하단 파란색 막대 오른쪽에 있는 작은 "알람" 아이콘을 클릭합니다.
 :::
 
-   - If prompted to install a new version of *cmake*:
-     - Say **No** (the right version is installed with the [PX4 developer environment](../dev_setup/dev_env.md)).
-   - If prompted to sign into *github.com* and add your credentials:
-     - This is up to you! It provides a deep integration between Github and the IDE, which may simplify your workflow.
-   - Other prompts are optional, and may be installed if they seem useful. <!-- perhaps add screenshot of these prompts -->
+   - 새 버전의 *cmake*를 설치하라는 메시지가 표시되면:
+     - **아니요**라고 말합니다([PX4 개발자 환경](../dev_setup/dev_env.md)과 함께 올바른 버전이 설치됨).
+   - *github.com*에 로그인하고 자격 증명을 추가하라는 메시지가 표시되면:
+     - 이것은 당신에게 달려 있습니다! Github와 IDE 간의 긴밀한 통합을 제공하여 워크플로를 단순화할 수 있습니다.
+   - 다른 프롬프트는 선택 사항이며 유용하다고 생각되면 설치할 수 있습니다. <!-- perhaps add screenshot of these prompts -->
 
 
 <a id="building"></a>
 
-## Building PX4
+## PX4 빌드
 
-To build:
-1. Select your build target ("cmake build config"):
+빌드를 진행하려면:
+1. 빌드 대상 선택("cmake build config"):
    - The current *cmake build target* is shown on the blue *config* bar at the bottom (if this is already your desired target, skip to next step). ![Select Cmake build target](../../assets/toolchain/vscode/cmake_build_config.jpg)
 
 :::note
