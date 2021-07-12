@@ -28,25 +28,26 @@ again. -->
 소스 코드는 독립적인 모듈/프로그램으로 분할됩니다(다이어그램의 `고정 공간` 참조). 일반적으로 빌딩 블록은 하나의 모듈을 나타냅니다.
 
 :::tip
-런타임시 쉘에서 `top` 명령으로 실행되는 모듈을 검사할 수 있으며, 각 모듈은 `<module_name> 시작/중지`를 통하여 시작/중지할 수 있습니다. `top` 명령은 NuttX 셸에만 해당되지만, 다른 명령은 SITL 셸(pxh>)에서도 사용할 수 있습니다. 이러한 각 모듈에 대한 자세한 내용은 [모듈 & 명령](../modules/modules_main.md)을 참고하십시오.
+런타임시 쉘에서 `top` 명령으로 실행되는 모듈을 검사할 수 있으며, 각 모듈은 `<module_name> 시작/중지`를 통하여 시작/중지할 수 있습니다. `top` 명령은 NuttX 셸에만 해당되지만, 다른 명령은 SITL 셸(pxh>)에서도 사용할 수 있습니다. 각 모듈에 대한 자세한 내용은 [모듈 & 명령](../modules/modules_main.md)을 참고하십시오.
 :::
 
-Modules communicate with each other through a publish-subscribe message bus named [uORB](../middleware/uorb.md). In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
+화살표는 모듈 간의 *가장 중요한* 연결 정보를 나타냅니다. 표시된 것보다 더 많은 연결이 있으며, 일부 데이터(예: 매개변수)는 대부분의 모듈에서 액세스합니다.
 
-The flight stack is a collection of guidance, navigation and control algorithms for autonomous drones. It includes controllers for fixed wing, multirotor and VTOL airframes as well as estimators for attitude and position.
+모듈은 [uORB](../middleware/uorb.md)라는 게시-구독 메시지 버스로 서로 통신합니다. 발행-구독 체계의 사용은 다음을 의미합니다.
 
-- The system is reactive — it is asynchronous and will update instantly when new data is available
-- All operations and communication are fully parallelized
-- A system component can consume data from anywhere in a thread-safe fashion
+- 시스템은 반응형입니다. 비동기식이며, 새 데이터를 사용할 수 있을 때 즉시 업데이트합니다.
+- 모든 작업과 통신은 완전히 병렬화됩니다.
+- 시스템 구성 요소는 스레드로부터 안전하며, 어디서나 데이터를 사용할 수 있습니다.
 
-The following diagram shows an overview of the building blocks of the flight stack. It contains the full pipeline from sensors, RC input and autonomous flight control (Navigator), down to the motor or servo control (Actuators).
+:::note
+이 아키텍처를 사용하여, 런타임 시에도 이러한 블록을 모두 빠르고 쉽게 교체할 수 있습니다. It contains the full pipeline from sensors, RC input and autonomous flight control (Navigator), down to the motor or servo control (Actuators).
 
 
-### Flight Stack
+### 비행 스택
 
-The flight stack is a collection of guidance, navigation and control algorithms for autonomous drones. It includes controllers for fixed wing, multirotor and VTOL airframes as well as estimators for attitude and position.
+비행 스택은 자율 드론을 위한 안내, 탐색 및 제어 알고리즘의 모음입니다. 여기에는 고정익, 멀티콥터 및 VTOL 콘트롤러와 자세 및 위치 추정기가 포함됩니다.
 
-The following diagram shows an overview of the building blocks of the flight stack. It contains the full pipeline from sensors, RC input and autonomous flight control (Navigator), down to the motor or servo control (Actuators).
+다음 다이어그램은 비행 스택의 빌딩 블록에 대한 개요를 나타냅니다. 여기에는 센서, RC 입력 및 자율 비행 제어(내비게이터)에서 모터 또는 서보 제어(액추에이터)에 이르는 전체 파이프라인이 포함됩니다.
 
 ![PX4 High-Level Flight Stack](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg) <!-- This diagram can be updated from 
 [here](https://drive.google.com/a/px4.io/file/d/15J0eCL77fHbItA249epT3i2iOx4VwJGI/view?usp=sharing) 
