@@ -255,15 +255,14 @@ INFO  [px4_simple_app] Hello Sky!
 
 ## 센서 데이터 읽기
 
-To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands).
+유용한 작업을 수행하려면, 애플리케이션이 입력을 구독하고 출력(예: 모터 또는 서보 명령)을 게시해야 합니다.
 
-:::tip
-The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.
+:::tip PX4 하드웨어 추상화의 이점이 여기에 있습니다! 센서 드라이버와 어떤 식으로든 상호 작용할 필요가 없으며, 보드 또는 센서가 업데이트된 경우 앱을 업데이트할 필요도 없습니다.
 :::
 
-Individual message channels between applications are called [topics](../middleware/uorb.md). For this tutorial, we are interested in the [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) topic, which holds the synchronized sensor data of the complete system.
+애플리케이션 간의 개별 메시지 채널을 [주제](../middleware/uorb.md)라고 합니다. 이 튜토리얼에서는 전체 시스템의 동기화된 센서 데이터를 보유하는 [sensor_combined](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg) 주제를 예로 설명합니다.
 
-Subscribing to a topic is straightforward:
+주제 구독은 간단합니다.
 
 ```cpp
 #include <uORB/topics/sensor_combined.h>
@@ -271,9 +270,9 @@ Subscribing to a topic is straightforward:
 int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
 ```
 
-The `sensor_sub_fd` is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX system call.
+`sensor_sub_fd`는 주제 핸들이며 새 데이터에 대한 차단 대기를 매우 효율적으로 수행하는 데 사용할 수 있습니다. 현재 스레드는 절전 모드로 전환되고, 새 데이터를 사용할 수 있게 되면 스케줄러에 의해 자동으로 깨어나며 기다리는 동안 CPU 주기를 소비하지 않습니다. 이를 위하여, [poll()](http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html) POSIX 시스템 호출을 사용합니다.
 
-Adding `poll()` to the subscription looks like (*pseudocode, look for the full implementation below*):
+구독에 `poll()`을 추가하면 다음과 같습니다(*의사 코드, 아래에서 전체 구현 참조*).
 
 ```cpp
 #include <poll.h>
@@ -287,9 +286,9 @@ px4_pollfd_struct_t fds[] = {
 };
 
 while (true) {
-uORB/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-uORBint poll_ret = px4_poll(fds, 1, 1000);
-..
+    /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
+    int poll_ret = px4_poll(fds, 1, 1000);
+    ..
     if (fds[0].revents & POLLIN) {
         /* obtained data for the first file descriptor */
         struct sensor_combined_s raw;
@@ -303,21 +302,21 @@ uORBint poll_ret = px4_poll(fds, 1, 1000);
 }
 ```
 
-Compile the app again by entering:
+아래의 명령어로 앱을 다시 컴파일합니다.
 
 ```sh
 make
 ```
 
-### Testing the uORB Subscription
+### uORB 구독 테스트
 
-The final step is to start your application as a background process/task by typing the following in the nsh shell:
+마지막 단계는 nsh 셸에 다음을 입력하여 애플리케이션을 백그라운드 프로세스/작업으로 시작하는 것입니다.
 
 ```sh
 px4_simple_app &
 ```
 
-Your app will display 5 sensor values in the console and then exit:
+앱은 콘솔에 5개의 센서 값을 출력후 종료합니다.
 
 ```sh
 [px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
@@ -329,10 +328,10 @@ Your app will display 5 sensor values in the console and then exit:
 ```
 
 :::tip
-The [Module Template for Full Applications](../modules/module_template.md) can be used to write background process that can be controlled from the command line.
+[전체 애플리케이션용 모듈 템플릿](../modules/module_template.md)은 명령줄에서 제어할 수 있는 백그라운드 프로세스를 작성합니다.
 :::
 
-## Publishing Data
+## 데이터 게시
 
 To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
 
