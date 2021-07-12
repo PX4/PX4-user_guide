@@ -275,6 +275,7 @@
     * [PX4 Architecture](concept/px4_systems_architecture.md)
     * [PX4 Flight Stack Architecture](concept/architecture.md)
       * [Controller Diagrams](flight_stack/controller_diagrams.md)
+    * [Events Interface](concept/events_interface.md)
     * [Flight Modes](concept/flight_modes.md)
     * [Flight Tasks](concept/flight_tasks.md)
     * [Mixing and Actuators](concept/mixing.md)
