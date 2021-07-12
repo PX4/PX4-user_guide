@@ -115,26 +115,27 @@ Rebooting.
 
 ## 기타 보드
 
-Build commands for other boards are given the [board-specific flight controller pages](../flight_controller/README.md) (usually under a heading *Building Firmware*).
+다른 보드에 대한 빌드 명령어 정보는 [보드별 비행 콘트롤러 페이지](../flight_controller/README.md)에서 제공됩니다(일반적으로 *펌웨어 빌드* 제목 아래).
 
-You can also list all configuration targets using the command:
+다음 명령어는 모든 빌드 대상을 나열합니다.
 ```sh
 make list_config_targets
 ```
 
 
-## Compiling in a Graphical IDE
+## 그래픽 IDE에서의 컴파일
 
-[VSCode](../dev_setup/vscode.md) is the officially supported (and recommended) IDE for PX4 development. It is easy to set up and can be used to compile PX4 for both simulation and hardware environments.
+[VSCode](../dev_setup/vscode.md)는 PX4 개발을 위해 공식적으로 지원되고 권장되는 IDE입니다. 설정이 편하고, 시뮬레이션 및 하드웨어 환경 모두에 대하여 PX4를 컴파일할 수 있습니다.
 
 
-## Troubleshooting
+## 문제 해결
 
-### General Build Errors
+### 일반 빌드 오류
 
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
+많은 빌드 문제는 일치하지 않는 하위 모듈이나 불완전하게 정리된 빌드 환경으로 인하여 발생합니다. 하위 모듈을 업데이트하고 `distclean`을 수행하면 이 오류를 수정할 수 있습니다:
 ```
-sudo ./bin/px4 -s px4.config
+git submodule update --recursive
+make distclean
 ```
 
 ### Flash overflowed by XXX bytes
