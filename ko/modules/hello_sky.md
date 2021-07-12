@@ -82,98 +82,94 @@
      ```
 
 :::tip
-The main function must be named `<module_name>_main` and exported from the module as shown.
+기본 함수의 이름은 `<module_name>_main`이어야 하며 표시된 대로 모듈에서 출력하여야 합니다.
 :::
 
 :::tip
-`PX4_INFO` is the equivalent of `printf` for the PX4 shell (included from **px4_platform_common/log.h**). There are different log levels: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. Warnings and errors are additionally added to the [ULog](../dev_log/ulog_file_format.md) and shown on [Flight Review](https://logs.px4.io/).
+`PX4_INFO`는 PX4 셸의 `printf`와 동일합니다(**px4_platform_common/log.h**에 포함됨). 다양한 로그 수준이 있습니다: `PX4_INFO`, `PX4_WARN`, `PX4_ERR`, `PX4_DEBUG`. 경고 및 오류는 [ULog](../dev_log/ulog_file_format.md)에 추가로 추가되고 [비행 검토](https://logs.px4.io/)에 표시됩니다.
 :::
 
-1. Create and open a new *cmake* definition file named **CMakeLists.txt**. Copy in the text below:
+1. **CMakeLists.txt**라는 새 *cmake* 정의 파일을 만들고 오픈합니다. 아래 텍스트를 복사하십시오.
    ```cmake
-   Copy in the text below:
-
-    ```cmake
-    ############################################################################
-    #
-    #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+   ############################################################################
    #
-    # Redistribution and use in source and binary forms, with or without
-    # modification, are permitted provided that the following conditions
-    # are met:
-    #
-    # 1. Redistributions of source code must retain the above copyright
-    #    notice, this list of conditions and the following disclaimer.
+   #   Copyright (c) 2015 PX4 Development Team. All rights reserved.
+   #
+   # Redistribution and use in source and binary forms, with or without
+   # modification, are permitted provided that the following conditions
+   # are met:
+   #
+   # 1. Redistributions of source code must retain the above copyright
+   #    notice, this list of conditions and the following disclaimer.
    # 2. Redistributions in binary form must reproduce the above copyright
-    #    notice, this list of conditions and the following disclaimer in
-    #    the documentation and/or other materials provided with the
-    #    distribution.
+   #    notice, this list of conditions and the following disclaimer in
+   #    the documentation and/or other materials provided with the
+   #    distribution.
    # 3. Neither the name PX4 nor the names of its contributors may be
-    #    used to endorse or promote products derived from this software
-    #    without specific prior written permission.
+   #    used to endorse or promote products derived from this software
+   #    without specific prior written permission.
    #
-    # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-    # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-    # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-    # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-    # COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-    # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-    # BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    # OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-    # AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-    # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-    # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-    # POSSIBILITY OF SUCH DAMAGE.
+   # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   # "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+   # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+   # COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+   # INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+   # BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+   # OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+   # AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+   # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   # POSSIBILITY OF SUCH DAMAGE.
    #
-    ############################################################################
-    px4_add_module(
+   ############################################################################
+   px4_add_module(
     MODULE examples__px4_simple_app
     MAIN px4_simple_app
     STACK_MAIN 2000
     SRCS
         px4_simple_app.c
     DEPENDS
-        platforms__common
     )
    ```
-   The `px4_add_module()` method builds a static library from a module description.
-   - PX4 SITL (Simulator): [Firmware/boards/px4/sitl/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake)
-   - The `MAIN` block lists the name of the module - this registers the command with NuttX so that it can be called from the PX4 shell or SITL console.
+   `px4_add_module()` 메서드는 모듈 설명에서 정적 라이브러리를 빌드합니다.
+   - `MODULE` 블록은 모듈의 펌웨어 고유 이름입니다(관례에 따라 모듈 이름은 `src`에 대한 상위 디렉토리 접두어를 사용함).
+   - `MAIN` 블록은 PX4 셸 또는 SITL 콘솔에서 호출할 수 있도록 NuttX에 명령을 등록하는 모듈의 진입점을 나열합니다.
 
 :::tip
-The `px4_add_module()` format is documented in [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake). <!-- NEED px4_version -->
+`px4_add_module()` 형식은 [PX4-Autopilot/cmake/px4_add_module.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/cmake/px4_add_module.cmake)에 설명되어 있습니다. <!-- NEED px4_version -->
 
 :::
 
 :::note
-If you specify `DYNAMIC` as an option to `px4_add_module`, a *shared library* is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code). Your app will not become a builtin command, but ends up in a separate file called `examples__px4_simple_app.px4mod`. You can then run your command by loading the file at runtime using the `dyn` command: `dyn ./examples__px4_simple_app.px4mod`
+`DYNAMIC`을 `px4_add_module`에 대한 옵션으로 지정하면 POSIX 플랫폼에서 정적 라이브러리 대신 *공유 라이브러리*가 생성됩니다. PX4를 다시 컴파일하고 소스 코드가 아닌 바이너리로 공유함). 앱은 내장 명령이 되지 않지만, `examples__px4_simple_app.px4mod`라는 별도의 파일로 끝이 납니다. 그런 다음 `dyn` 명령을 사용하여 런타임에 파일을 로드하여 명령을 실행할 수 있습니다. `dyn ./examples__px4_simple_app.px4mod`
 :::
 
-## Build the Application/Firmware
+## 애플리케이션/펌웨어 빌드
 
-The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level *cmake* file for your target:
+이제 어플리케이션 제작이 완료되었습니다. 실행하려면 먼저 PX4의 일부로 빌드되었는지 확인합니다. 애플리케이션은 대상에 대한 적절한 보드 수준 *cmake* 파일의 빌드/펌웨어에 추가됩니다.
 
-* Pixhawk v1/2: [Firmware/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake)
+* PX4 SITL(시뮬레이터): [PX4-Autopilot/boards/px4/sitl/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/sitl/default.cmake)
 * Pixhawk v1/2: [PX4-Autopilot/boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake)
 * Pixracer (px4/fmu-v4): [PX4-Autopilot/boards/px4/fmu-v4/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake)
-* Other boards: [Building the Code](../setup/building_px4.md#building_nuttx)
+* 다른 보드의 *cmake* 파일은 [PX4-Autopilot/boards/](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에서 찾을 수 있습니다.
 
-To enable the compilation of the application into the firmware create a new line for your application somewhere in the *cmake* file:
+애플리케이션을 펌웨어로 컴파일하려면 *cmake* 파일에 애플리케이션에 대한 새로운 행을 만드십시오.
 
 ```
 examples/px4_simple_app
 ```
 
 :::note
-The line will already be present for most files, because the examples are included in firmware by default.
+예제는 기본적으로 펌웨어에 포함되어 있기 때문에, 대부분의 파일에는 이미 해당 줄이 있습니다.
 :::
 
-Build the example using the board-specific command:
+보드별 명령어를 사용하여, 예제를 빌드합니다.
 
-* jMAVSim Simulator: `make px4_sitl_default jmavsim`
-* Pixhawk v1/2: `make px4_fmu-v2_default` (or just `make px4_fmu-v2`)
+* jMAVSim 시뮬레이터: `make px4_sitl_default jmavsim`
+* Pixhawk v1/2: `make px4_fmu-v2_default` (혹은 `make px4_fmu-v2`)
 * Pixhawk v3: `make px4_fmu-v4_default`
-* *cmake* files for other boards can be found in [Firmware/boards/](https://github.com/PX4/Firmware/tree/master/boards)
+* 기타 보드: [코드 빌드](../dev_setup/building_px4.md#building-for-nuttx)
 
 
 ## Test App (Hardware)
