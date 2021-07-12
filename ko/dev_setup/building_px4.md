@@ -140,39 +140,38 @@ make distclean
 
 ### Flash overflowed by XXX bytes
 
-The `region 'flash' overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
+`XXXX바이트로 오버플로된 영역 '플래시'` 오류는 펌웨어가 대상 하드웨어 플랫폼에 비해 너무 크다는 것을 나타냅니다. 이는 플래시 크기가 1MB로 제한되는 `make px4_fmu-v2_default` 빌드에서 나타납니다.
 
-If you're building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../dev_setup/dev_env.md) instructions.
+*vanilla* 마스터 브랜치를 구축하는 경우, 가장 큰 원인은 지원되지 않는 GCC 버전을 사용하기 때문입니다. 이 경우, [개발자 도구 모음](../dev_setup/dev_env.md) 지침에 지정된 버전을 설치하십시오.
 
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don't need from the build.
+자체 브랜치를 구축하는 경우, 펌웨어 크기를 1MB 제한 이상으로 늘렸을 수 있습니다. 이 경우 빌드에서 필요하지 않은 드라이버 모듈을 제거하여야 합니다.
 
 
-### macOS: Too many open files error
+### macOS: 열린 파일이 너무 많음 오류
 
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
+MacOS는 실행 중인 모든 프로세스에서 기본적으로 최대 256개의 열린 파일을 허용합니다. PX4 빌드 시스템은 많은 수의 파일을 오픈하므로, 이 갯수를 초과할 수 있습니다.
 
-The build toolchain will then report `Too many open files` for many files, as shown below:
+그러면, 빌드 도구 모음에서 아래와 같이 많은 파일에 대해 `열린 파일이 너무 많음` 에러가 발생합니다.
 ```sh
-cd Firmware
-make emlid_navio2_native # for native build
+/usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
 ```
 
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh), or
-- Enter this command:
+해결책은 허용되는 최대 열린 파일 수를 늘리는 것입니다(예: 300). 각 세션에 대해 macOS *터미널*에서 이 작업을 수행할 수 있습니다:
+- [Tools/mac_set_ulimit.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh) 스크립트를 실행하거나,
+- 다음 명령어를 실행하십시오.
   ```sh
   ulimit -S -n 300
   ```
 
-### macOS Catalina: Problem running cmake
+### macOS Catalina: cmake 실행 문제
 
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
+macOS Catalina 10.15.1부터 *cmake*로 시뮬레이터를 빌드시 문제가 발생할 수 있습니다. 이 플랫폼에서 빌드 문제가 발생하면, 터미널에서 다음 명령을 실행하십시오:
 ```sh
 xcode-select --install
 sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
 ```
 
-### Ubuntu 18.04: Compile errors involving arm_none_eabi_gcc
+### Ubuntu 18.04: arm_none_eabi_gcc와 관련된 컴파일 오류
 
 Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
 ```bash
