@@ -1,164 +1,66 @@
 # 첫 번째 애플리케이션 튜토리얼(Hello Sky)
 
-This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.
+첫 번째 온보드 애플리케이션을 만들고 실행하는 방법을 설명합니다. PX4에서 앱 개발에 필요한 기본 개념과 API를 설명합니다.
 
 :::note
-For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in [Application/Module Template](../modules/module_template.md).
+시작/중지 기능과 명령줄 인수와 같은 고급 기능에 대한 설명은 생략되었습니다. 이것에 대해서는 [애플리케이션 모듈 템플릿](../modules/module_template.md)에서 설명합니다.
 :::
 
-## Prerequisites
+## 준비 사항
 
-The source code [Firmware/src/examples/px4_simple_app](https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](https://docs.px4.io/en/flight_controller/#documented-boards).
-* [PX4 Development Toolchain](../setup/dev_env.md) for the desired target.
-* [Download the PX4 Source Code](../setup/building_px4.md#get_px4_code) from Github
+다음과 같은 것이 필요합니다.
+* [PX4 SITL 시뮬레이터](../simulation/README.md) *또는* [PX4 호환 비행 콘트롤러](../flight_controller/README.md)
+* 목표 타켓에 대한 [PX4 개발 툴체인](../dev_setup/dev_env.md)
+* Github에서 [PX4 소스 코드 다운로드](../dev_setup/building_px4.md#download-the-px4-source-code)
 
-The source code [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) directory contains a completed version of this tutorial that you can review if you get stuck.
-* Rename (or delete) the **px4_simple_app** directory.
+소스 코드 [PX4-Autopilot/src/examples/px4_simple_app](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/px4_simple_app) 디렉토리에는 막혔을 때 검토할 수 있는 이 튜토리얼의 완성된 버전이 포함되어 있습니다.
+* **px4_simple_app** 디렉토리의 이름을 변경하거나 삭제합니다.
 
-## Minimal Application
+## 간단한 어플리케이션
 
-In this section we create a *minimal application* that just prints out `Hello Sky!`. This consists of a single *C* file and a *cmake* definition (which tells the toolchain how to build the application).
+이 섹션에서는 `Hello Sky!`를 출력하는 *최소한의 애플리케이션*을 제작합니다. 이것은 단일 *C* 파일과 *cmake* 정의(도구 체인에 애플리케이션 빌드 방법을 설명함)로 구성됩니다.
 
-1. Create a new directory **Firmware/src/examples/px4_simple_app**.
-1. Create a new C file in that directory named **px4_simple_app.c**:
+1. 새 디렉토리 **PX4-Autopilot/src/examples/px4_simple_app**을 생성합니다.
+1. **px4_simple_app.c**라는 디렉터리에 신규 C 파일을 생성합니다.
 
-   * Copy in the default header to the top of the page. This should be present in all contributed files!
+   * 기본 헤더를 페이지 상단에 복사합니다. 이것은 기여한 모든 파일에 첨부하여야 합니다.
 
      ```c
      /****************************************************************************
- *
-
- *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
       *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+      *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
+      *
+      * Redistribution and use in source and binary forms, with or without
+      * modification, are permitted provided that the following conditions
+      * are met:
+      *
+      * 1. Redistributions of source code must retain the above copyright
+      *    notice, this list of conditions and the following disclaimer.
       * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
+      *    notice, this list of conditions and the following disclaimer in
+      *    the documentation and/or other materials provided with the
+      *    distribution.
       * 3. Neither the name PX4 nor the names of its contributors may be
- *    used to endorse or promote products derived from this software
- *    without specific prior written permission.
+      *    used to endorse or promote products derived from this software
+      *    without specific prior written permission.
       *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
- * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
+      * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+      * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+      * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+      * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+      * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+      * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+      * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+      * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+      * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+      * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+      * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+      * POSSIBILITY OF SUCH DAMAGE.
       *
- ****************************************************************************/
-
-/**
- * @file px4_simple_app.c
- * Minimal application example for PX4 autopilot
- *
- * @author Example User <mail@example.com>
- */
-
-#include <px4_config.h>
-#include <px4_tasks.h>
-#include <px4_posix.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <poll.h>
-#include <string.h>
-#include <math.h>
-
-#include <uORB/uORB.h>
-#include <uORB/topics/sensor_combined.h>
-#include <uORB/topics/vehicle_attitude.h>
-
-__EXPORT int px4_simple_app_main(int argc, char *argv[]);
-
-int px4_simple_app_main(int argc, char *argv[])
-{
-    PX4_INFO("Hello Sky!");
-
-    /* subscribe to sensor_combined topic */
-    int sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    /* limit the update rate to 5 Hz */
-    orb_set_interval(sensor_sub_fd, 200);
-
-    /* advertise attitude topic */
-    struct vehicle_attitude_s att;
-    memset(&att, 0, sizeof(att));
-    orb_advert_t att_pub = orb_advertise(ORB_ID(vehicle_attitude), &att);
-
-    /* one could wait for multiple topics with this technique, just using one here */
-    px4_pollfd_struct_t fds[] = {
-        { .fd = sensor_sub_fd,   .events = POLLIN },
-        /* there could be more file descriptors here, in the form like:
-         * { .fd = other_sub_fd,   .events = POLLIN },
-         */
-    };
-
-    int error_counter = 0;
-
-    for (int i = 0; i < 5; i++) {
-        /* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */
-        int poll_ret = px4_poll(fds, 1, 1000);
-
-        /* handle the poll result */
-        if (poll_ret == 0) {
-            /* this means none of our providers is giving us data */
-            PX4_ERR("Got no data within a second");
-
-        } else if (poll_ret < 0) {
-            /* this is seriously bad - should be an emergency */
-            if (error_counter < 10 || error_counter % 50 == 0) {
-                /* use a counter to prevent flooding (and slowing us down) */
-                PX4_ERR("ERROR return value from poll(): %d", poll_ret);
-            }
-
-            error_counter++;
-
-        } else {
-
-            if (fds[0].revents & POLLIN) {
-                /* obtained data for the first file descriptor */
-                struct sensor_combined_s raw;
-                /* copy sensors raw data into local buffer */
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &raw);
-                PX4_INFO("Accelerometer:\t%8.4f\t%8.4f\t%8.4f",
-                     (double)raw.accelerometer_m_s2[0],
-                     (double)raw.accelerometer_m_s2[1],
-                     (double)raw.accelerometer_m_s2[2]);
-
-                /* set att and publish this information for other apps
-                 the following does not have any meaning, it's just an example
-                */
-                att.q[0] = raw.accelerometer_m_s2[0];
-                att.q[1] = raw.accelerometer_m_s2[1];
-                att.q[2] = raw.accelerometer_m_s2[2];
-
-                orb_publish(ORB_ID(vehicle_attitude), att_pub, &att);
-            }
-
-            /* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents & POLLIN) {}
-             */
-        }
-    }
-
-    PX4_INFO("exiting");
-
-    return 0;
-}
+      ****************************************************************************/
      ```
 
-   * Copy the following code below the default header. This should be present in all contributed files!
+   * 기본 헤더 아래에 다음 코드를 복사합니다. 이것은 기여한 모든 파일에 있어야 합니다!
 
      ```c
      /**
