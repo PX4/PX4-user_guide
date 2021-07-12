@@ -1,21 +1,21 @@
 # PX4 시스템 아키텍처
 
-The sections below provide high-level overview of the PX4 hardware and software stack for two "typical" PX4 systems; one that has just a flight controller, and another that has a flight controller and a companion computer (also known as a "mission computer").
+아래 섹션에서는 "일반적인" PX4 시스템의 하드웨어와 소프트웨어 개요를 제공합니다. 하나는 비행 콘트롤러만 있는 것이고 다른 하나는 비행 컨트롤러와 보조 컴퓨터("미션 컴퓨터"라고도 함)가 있습니다.
 
 :::note
-The [PX4 Architectural Overview](../concept/architecture.md) provides information about the flight stack and middleware. Offboard APIs are covered in [ROS](../ros/README.md) and [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html).
+[PX4 아키텍처 개요](../concept/architecture.md)는 플라이트 스택과 미들웨어 정보를 제공합니다. 오프보드 API는 [ROS](../ros/README.md)와 [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html)에서 설명합니다.
 :::
 
 
-## Flight Controller (only)
+## 비행 콘트롤러
 
-The diagram below provides a high level overview of a typical "simple" PX4 system based around a flight controller.
+아래 다이어그램은 비행 콘트롤러 기반 PX4 시스템 개요입니다.
 
 ![PX4 architecture - FC only system](../../assets/diagrams/px4_arch_fc.svg)
 
 <!-- Source for drawing: https://docs.google.com/drawings/d/1_2n43WrbkWTs1kz0w0avVEeebJbfTj5SSqvCmvSOBdU/edit -->
 
-The hardware consists of
+하드웨어 구성
 - [Flight controller](../flight_controller/README.md) (running the PX4 flight stack). This often includes internal IMUs, compass and barometer.
 - [Motor ESCs](../peripherals/esc_motors.md) connected to [PWM outputs](../peripherals/pwm_escs_and_servo.md), [UAVCAN](../peripherals/uavcan_escs.md) (UAVCAN allows two-way communication, not single direction as shown) or some other bus.
 - Sensors ([GPS](../gps_compass/README.md), [compass](../gps_compass/README.md), distance sensors, barometers, optical flow, barometers, ADSB transponders, etc.) connected via I2C, SPI, UAVCAN, UART etc.
