@@ -1,16 +1,16 @@
-# PX4 Architectural Overview
+# PX4 아키텍처 개요
 
-PX4 consists of two main layers: the [flight stack](#flight-stack) is an estimation and flight control system, and the [middleware](#middleware) is a general robotics layer that can support any type of autonomous robot, providing internal/external communications and hardware integration.
+PX4는 두 가지 주요 레이어로 구성됩니다. [비행 스택](#flight-stack)은 추정 및 비행제어시스템이며, [미들웨어](#middleware)는 자율 로봇을 지원할 수 있는 일반 로봇 계층으로 내외부 통신 및 하드웨어 통합을 제공합니다.
 
-All PX4 [airframes](../airframes/README.md) share a single codebase (this includes other robotic systems like boats, rovers, submarines etc.). The complete system design is [reactive](http://www.reactivemanifesto.org), which means that:
+모든 PX4 [기체](../airframes/README.md)는 단일 코드베이스를 공유합니다(여기에는 보트, 로버, 잠수함 등과 같은 다른 로봇 시스템이 포함됨). 전체 시스템 디자인은 [반응형](http://www.reactivemanifesto.org)이며 다음과 같습니다.
 
-- All functionality is divided into exchangeable and reusable components
-- Communication is done by asynchronous message passing
-- The system can deal with varying workload
+- 모든 기능은 대체 가능한 구성 요소와 재사용 가능한 구성 요소로 나누어 집니다.
+- 통신은 비동기 메시지 전달에 의해 수행됩니다.
+- 시스템은 다양한 작업 부하를 처리할 수 있습니다.
 
 <a id="architecture"></a>
 
-## High-Level Software Architecture{#architecture}
+## 고급 소프트웨어 아키텍처
 
 The diagram below provides a detailed overview of the building blocks of PX4. The top part of the diagram contains middleware blocks, while the lower section shows the components of the flight stack.
 
