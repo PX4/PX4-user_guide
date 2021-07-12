@@ -172,22 +172,22 @@ examples/px4_simple_app
 * 기타 보드: [코드 빌드](../dev_setup/building_px4.md#building-for-nuttx)
 
 
-## Test App (Hardware)
+## 앱 테스트(하드웨어)
 
-### Upload the firmware to your board
+### 보드에 펌웨어 업로드합니다.
 
-Enable the uploader and then reset the board:
+업로더를 활성화한 다음 보드를 재설정합니다.
 
 * Pixhawk v1/2: `make px4_fmu-v2_default upload`
 * Pixhawk v3: `make px4_fmu-v4_default upload`
 
-It should print before you reset the board a number of compile messages and at the end:
+보드 재설정전에 컴파일 메시지를 인쇄하고 마지막에 다음을 인쇄합니다.
 
 ```sh
 Loaded firmware for X,X, waiting for the bootloader...
 ```
 
-Once the board is reset, and uploads, it prints:
+보드가 재설정되고 업로드되면 다음이 인쇄됩니다.
 
 ```sh
 Erase  : [====================] 100.0%
@@ -198,15 +198,15 @@ Rebooting.
 [100%] Built target upload
 ```
 
-### Connect the Console
+### 콘솔을 연결합니다.
 
-Now connect to the [system console](../debug/system_console.md) either via serial or USB. Hitting **ENTER** will bring up the shell prompt:
+이제 직렬 또는 USB로 [시스템 콘솔](../debug/system_console.md)을 연결합니다. **ENTER** 키를 입력하면, 쉘 프롬프트가 나타납니다.
 
 ```sh
 nsh>
 ```
 
-Type ''help'' and hit ENTER
+'help'을 입력하고 Enter 키를 입력합니다.
 
 ```sh
 nsh> help
@@ -230,30 +230,30 @@ Builtin Apps:
   serdis
 ```
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../setup/building_px4.md#jmavsim_build)). Start it by typing `px4_simple_app` and ENTER:
+이제, `px4_simple_app`은 사용 가능한 명령의 일부입니다. `px4_simple_app`을 입력하고 Enter 키를 입력합니다.
 
 ```sh
 nsh> px4_simple_app
 Hello Sky!
 ```
 
-The application is now correctly registered with the system and can be extended to actually perform useful tasks.
+이제 어플리케이션이 시스템에 올바르게 등록되었으며, 실제 작업을 수행하도록 확장할 수 있습니다.
 
-## Test App (SITL)
+## 앱 테스트(SITL)
 
-If you're using SITL the *PX4 console* is automatically started (see [Building the Code > First Build (Using the jMAVSim Simulator)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator)). As with the *nsh console* (see previous section) you can type `help` to see the list of built-in apps.
+SITL을 사용하는 경우 *PX4 콘솔*이 자동으로 시작됩니다([코드 빌드 > 첫 번째 빌드(jMAVSim 시뮬레이터 사용)](../dev_setup/building_px4.md#first-build-using-the-jmavsim-simulator) 참조). *nsh 콘솔*(이전 섹션 참조)과 마찬가지로 `help`를 입력하여 내장 앱 목록을 조회합니다.
 
-Enter `px4_simple_app` to run the minimal app.
+`px4_simple_app`을 입력하여 앱을 실행합니다.
 
 ```sh
 pxh> px4_simple_app
 INFO  [px4_simple_app] Hello Sky!
 ```
 
-The application can now be extended to actually perform useful tasks.
+이제 응용 프로그램을 확장할 수 있습니다.
 
 
-## Subscribing to Sensor Data
+## 센서 데이터 읽기
 
 To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands).
 
