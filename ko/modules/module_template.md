@@ -47,13 +47,13 @@ PX4-Autopilot에는 *작업 대기열 작업*으로 실행되는 애플리케이
 
 PX4/PX4-Autopilot에는 자체 스택에서 작업으로 실행되는 애플리케이션(모듈)을 작성하기 위한 템플릿이 포함되어 있습니다. [src/templates/template_module](https://github.com/PX4/PX4-Autopilot/tree/master/src/templates/template_module).
 
-The template demonstrates the following additional features/aspects that are required or are useful for a full application:
+템플릿은 전체 애플리케이션에 필요하거나 유용한 다음과 같은 추가 기능/측면을 보여줍니다.
 
-- Accessing parameters and reacting to parameter updates.
-- uORB subscriptions and waiting for topic updates.
-- Controlling the task that runs in the background via `start`/`stop`/`status`. The `module start [<arguments>]` command can then be directly added to the [startup script](../concept/system_startup.md).
-- Command-line argument parsing.
-- Documentation: the `PRINT_MODULE_*` methods serve two purposes (the API is documented [in the source code](https://github.com/PX4/Firmware/blob/v1.8.0/src/platforms/px4_module.h#L381)):
-  - They are used to print the command-line usage when entering `module help` on the console.
-  - They are automatically extracted via script to generate the [Modules & Commands Reference](../modules/modules_main.md) page.
+- 매개변수에 액세스하고 매개변수 업데이트에 반응합니다.
+- uORB 구독 및 주제 업데이트 대기 중입니다.
+- `시작`/`중지`/`상태`를 통해 백그라운드에서 실행되는 작업을 제어합니다. 그런 다음 `module start [<arguments>]` 명령을 직접 추가할 수 있습니다. [시작 스크립트](../concept/system_startup.md).
+- 명령줄 인수 구문 분석.
+- 문서: `PRINT_MODULE_*` 메서드는 두 가지 용도로 사용됩니다(API는 [소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화됨):
+  - 콘솔에서 `module help`를 입력할 때 명령줄 사용법을 인쇄합니다.
+  - 스크립트를 통해 자동으로 추출되어 [모듈 & 명령 참조](../modules/modules_main.md) 페이지.
 
