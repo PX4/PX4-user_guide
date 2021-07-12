@@ -32,7 +32,7 @@ make px4_sitl jmavsim
 
 그러면, 아래와 같은 PX4 콘솔이 나타납니다.
 
-![PX4 Console (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
+![PX4 콘솔 (jMAVSim)](../../assets/toolchain/console_jmavsim.png)
 
 다음 명령어로 드론을 날릴 수 있습니다.
 ```sh
@@ -45,7 +45,7 @@ pxh> commander takeoff
 
 지상 관제소로 시뮬레이션 비행이 기체의 실제 작동에 더 가깝습니다. 기체 비행중에 지도에서 위치를 클릭하고(이륙 비행 모드) 슬라이더를 활성화합니다. 이렇게 하면, 기체의 위치가 변경됩니다.
 
-![QGroundControl GoTo](../../assets/toolchain/qgc_goto.jpg)
+![QGroundControl 바로 가기](../../assets/toolchain/qgc_goto.jpg)
 
 :::tip PX4는 [Gazebo Simulation](../simulation/gazebo.md)와 [AirSim Simulation](../simulation/airsim.md)을 비롯하여 여러가지 [시뮬레이터](../simulation/README.md)와 함께 사용할 수 있습니다. 이것들은 또한 *make*로 시작됩니다.
 ```
@@ -238,9 +238,9 @@ make list_config_targets
 :::tip
 `none`은 PX4를 시작하고 시뮬레이터(jmavsim, 전망대 또는 기타 시뮬레이터)를 기다리면, 사용할 수 있습니다. 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다.
 :::
-- **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](#scripts) to select appropriate parameters.
-- **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
-- **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
+- **모델:** 사용할 *기체* 모델(예: `iris`(*기본*), `rover` , `tailsitter` 등), 시뮬레이터에 의해 로드됩니다. 환경 변수 `PX4_SIM_MODEL`은 선택한 모델로 설정되며, 이 모델은 [시작 스크립트](../simulation/README.md#startup-scripts)에서 적절한 매개변수 선택합니다.
+- **디버거:** 사용할 디버거: `없음`(*기본*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. 자세한 내용은 [시뮬레이션 디버깅](../debug/simulation_debugging.md)을 참고하십시오.
+- **WORLD:** (Gazebo 만). 로드되는 세계([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds))를 설정합니다. 기본값은 [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)입니다. 자세한 내용은 [전망대 > 특정 세계 로드](../simulation/gazebo.md#set_world)를 참고하십시오.
 
 :::tip
 You can get a list of *all* available `VIEWER_MODEL_DEBUGGER_WORLD` options using the command below:
@@ -250,28 +250,28 @@ make px4_sitl list_vmd_make_targets
 :::
 
 Notes:
-- Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
-- You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo___gdb` is equivalent to `gazebo_iris_gdb`.
-- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
+- `CONFIGURATION_TARGET`과 `VIEWER_MODEL_DEBUGGER`에 있는 대부분의 값에는 기본값이 있으므로 선택사항입니다. 예를 들어, `gazebo`는 `gazebo_iris` 또는 `gazebo_iris_none`과 같습니다.
+- 두 개의 다른 설정 사이에 기본값을 지정하려는 경우에는, 세 개의 밑줄을 사용할 수 있습니다. 예를 들어, `gazebo___gdb`는 `gazebo_iris_gdb`와 동일합니다.
+- `VIEWER_MODEL_DEBUGGER`에 `없음` 값을 사용하여 PX4를 시작하고 시뮬레이터를 실행할 수 있습니다. 예를 들어 `make px4_sitl_default none`을 사용하여 PX4를 시작하고, `./Tools/jmavsim_run.sh -l`을 사용하여 jMAVSim을 시작합니다.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
+`VENDOR_MODEL_VARIANT` 옵션은 [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) 디렉토리 아래의 PX4 소스 트리에 있는 특정 *cmake* 설정 파일에 매핑됩니다. 특히 `VENDOR_MODEL_VARIANT`는 설정 파일 **boards/VENDOR/MODEL/VARIANT.cmake**에 매핑됩니다. (예: `px4_fmu-v5_default`는 [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)에 해당).
 
-Additional make targets are discussed in relevant sections:
+추가 make 대상은 관련 섹션에서 설명합니다.
 - `bloaty_compare_master`: [Binary Size Profiling]()
 - ...
 
 
-## List all releases (tags) sh git tag -l
+## 펌웨어 버전과 Git 태그
 
-The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup > Summary** airframe panel:
+*PX4 펌웨어 버전*과 *사용자 정의 펌웨어 버전*은 MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) 메시지를 사용하여 게시되고, *QGroundControl* < 2>설정 > 요약</strong> 기체 패널에서 출력됩니다.
 
-![Firmware info](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
+![펌웨어 정보](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
 
-These are extracted at build time from the active *git tag* for your repo tree. The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
+이들은 저장소 트리의 활성 *git 태그*에서 빌드시 추출됩니다. The git tag should be formatted as `<PX4-version>-<vendor-version>` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
 
 :::warning
-If you use a different git tag format, versions information may not be displayed properly.
+다른 git 태그 형식을 사용하는 경우에는 버전 정보가 정확하게 표시되지 않을 수 있습니다.
 :::
 
 
