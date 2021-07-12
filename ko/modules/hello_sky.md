@@ -333,13 +333,13 @@ px4_simple_app &
 
 ## 데이터 게시
 
-To use the calculated outputs, the next step is to *publish* the results. Below we show how to publish the attitude topic.
+계산된 출력을 위한 다음 단계는 결과를 *게시*하는 것입니다. 아래에서는 태도 주제를 게시하는 방법을 설명합니다.
 
 :::note
-We've chosen `attitude` because we know that the *mavlink* app forwards it to the ground control station - providing an easy way to look at the results.
+`attitude`를 선택한 이유는 *mavlink* 앱이 결과를 쉽게 볼 수 있는 지상 관제소로 전달하기 때문입니다.
 :::
 
-The interface is pretty simple: initialize the `struct` of the topic to be published and advertise the topic:
+인터페이스는 매우 간단합니다. 게시할 주제의 `구조체`를 초기화하고 주제를 광고합니다.
 
 ```c
 #include <uORB/topics/vehicle_attitude.h>
@@ -350,45 +350,47 @@ memset(&att, 0, sizeof(att));
 orb_advert_t att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &att);
 ```
 
-In the main loop, publish the information whenever its ready:
+메인 루프에서 정보가 준비시마다 게시합니다.
 
 ```c
 orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 ```
 
-## Full Example Code
+## 전체 예제 코드
 
-The [complete example code](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c) is now:
+[전체 예제 코드](https://github.com/PX4/PX4-Autopilot/blob/master/src/examples/px4_simple_app/px4_simple_app.c)는 다음과 같습니다:
 
 ```c
-* Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
- * 
-    * Redistribution and use in source and binary forms, with or without
-    * modification, are permitted provided that the following conditions
-    * are met:
-    * 
-    * 1. Redistributions of source code must retain the above copyright
-    * notice, this list of conditions and the following disclaimer.
+/****************************************************************************
+ *
+ *   Copyright (c) 2012-2019 PX4 Development Team. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
  * 2. Redistributions in binary form must reproduce the above copyright
-    * notice, this list of conditions and the following disclaimer in
-    * the documentation and/or other materials provided with the
-    * distribution.
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
  * 3. Neither the name PX4 nor the names of its contributors may be
-    * used to endorse or promote products derived from this software
-    * without specific prior written permission.
- * 
-    * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-    * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-    * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-    * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-    * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-    * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-    * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
-    * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-    * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-    * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-    * POSSIBILITY OF SUCH DAMAGE.
+ *    used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  *
  ****************************************************************************/
 
@@ -490,20 +492,20 @@ int px4_simple_app_main(int argc, char *argv[])
 }
 ```
 
-## Running the Complete Example
+## 전체 예제 실행
 
-And finally run your app:
+마지막으로 앱을 실행합니다.
 
 ```sh
 px4_simple_app
 ```
 
-If you start *QGroundControl*, you can check the sensor values in the real time plot ([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)).
+*QGroundControl*의 실시간 플롯([Analyze > MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html))에서 센서 값을 확인할 수 있습니다.
 
-## Wrap-Up
+## 마무리
 
-This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is [available here](https://github.com/PX4/PX4-Autopilot/tree/master/msg/) and that the headers are well documented and serve as reference.
+이 튜토리얼에서는 PX4 자동조종장치를 앱 개발에 필요한 내용들을 설명하였습니다. uORB 메시지/주제의 전체 목록은 [여기](https://github.com/PX4/PX4-Autopilot/tree/master/msg/)에서 볼 수 있으며, 헤더는 잘 문서화되어 있으며 참조용으로 사용됩니다.
 
-Further information and troubleshooting/common pitfalls can be found here: [uORB](../middleware/uorb.md).
+추가 정보 및 문제 해결/일반적인 함정은 [uORB](../middleware/uorb.md)을 참고하십시오.
 
-The next page presents a template for writing a full application with start and stop functionality.
+다음 페이지에서는 시작 및 중지 기능이 있는 전체 애플리케이션을 작성하기 위한 템플릿을 제공합니다.
