@@ -12,7 +12,7 @@ PX4는 두 가지 주요 레이어로 구성됩니다. [비행 스택](#flight-s
 
 ## 고급 소프트웨어 아키텍처
 
-The diagram below provides a detailed overview of the building blocks of PX4. The top part of the diagram contains middleware blocks, while the lower section shows the components of the flight stack.
+아래 다이어그램은 PX4의 빌딩 블록에 대한 개요를 나타냅니다. 다이어그램의 상단에는 미들웨어 블록이 포함되어 있고, 하단에는 플라이트 스택의 구성 요소가 표시되어 있습니다.
 
 ![PX4 Architecture](../../assets/diagrams/PX4_Architecture.svg)
 
@@ -25,9 +25,10 @@ Caution: it can happen that after exporting some of the arrows are wrong. In
 that case zoom into the graph until the arrows are correct, and then export
 again. -->
 
-The source code is split into self-contained modules/programs (shown in `monospace` in the diagram). Usually a building block corresponds to exactly one module.
+소스 코드는 독립적인 모듈/프로그램으로 분할됩니다(다이어그램의 `고정 공간` 참조). 일반적으로 빌딩 블록은 하나의 모듈을 나타냅니다.
 
-The arrows show the information flow for the *most important* connections between the modules. In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules. For more information about each of these modules see the [Modules & Commands Reference](../modules/modules_main.md).
+:::tip
+런타임시 쉘에서 `top` 명령으로 실행되는 모듈을 검사할 수 있으며, 각 모듈은 `<module_name> 시작/중지`를 통하여 시작/중지할 수 있습니다. `top` 명령은 NuttX 셸에만 해당되지만, 다른 명령은 SITL 셸(pxh>)에서도 사용할 수 있습니다. 이러한 각 모듈에 대한 자세한 내용은 [모듈 & 명령](../modules/modules_main.md)을 참고하십시오.
 :::
 
 Modules communicate with each other through a publish-subscribe message bus named [uORB](../middleware/uorb.md). In reality, there are many more connections than shown, and some data (e.g. for parameters) is accessed by most of the modules.
