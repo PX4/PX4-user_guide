@@ -173,54 +173,56 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
 
 ### Ubuntu 18.04: arm_none_eabi_gcc와 관련된 컴파일 오류
 
-Build issues related to `arm_none_eabi_gcc`may be due to a broken g++ toolchain installation. You can verify that this is the case by checking for missing dependencies using:
+`arm_none_eabi_gcc`와 관련된 빌드 문제는 손상된 g++ 도구 모음 설치로 인한 것일 수 있습니다. 다음을 사용하여 누락된 종속성을 확인하여 이러한 경우인지 확인할 수 있습니다.
 ```bash
-cd Firmware
-make emlid_navio2_cross # for cross-compiler build
+arm-none-eabi-gcc --version
+arm-none-eabi-g++ --version
+arm-none-eabi-gdb --version
+arm-none-eabi-size --version
 ```
 
-Example of bash output with missing dependencies:
+종속성이 누락된 bash 출력의 예:
 ```bash
 arm-none-eabi-gdb --version
 arm-none-eabi-gdb: command not found
 ```
 
-This can be resolved by removing and [reinstalling the compiler](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa).
+이 문제는 [컴파일러를 제거하고 다시 설치](https://askubuntu.com/questions/1243252/how-to-install-arm-none-eabi-gdb-on-ubuntu-20-04-lts-focal-fossa)하여 해결할 수 있습니다.
 
-### Ubuntu 18.04: Visual Studio Code is unable to watch for file changes in this large workspace
+### Ubuntu 18.04: Visual Studio Code는 이 큰 작업 영역에서 파일 변경 사항을 감시할 수 없습니다.
 
-See [Visual Studio Code IDE (VSCode) > Troubleshooting](../dev_setup/vscode.md#troubleshooting).
+[Visual Studio Code IDE(VSCode) > 문제 해결](../dev_setup/vscode.md#troubleshooting)을 참고하십시오.
 
-### Failed to import Python packages
+### Python 패키지를 가져오지 못했습니다.
 
-"Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
+`make px4_sitl jmavsim` 명령을 실행시, "가져오기 실패" 오류는 일부 Python 패키지가 설치되지 않았음을 나타냅니다(예상된 위치).
 ```
 Failed to import jinja2: No module named 'jinja2'
 You may need to install it using:
     pip3 install --user jinja2
 ```
-If you have already installed these dependencies this may be because there is more than one Python version on the computer (e.g. Python 2.7.16 Python 3.8.3), and the module is not present in the version used by the build toolchain.
+이러한 종속성을 이미 설치했다면 컴퓨터에 두 개 이상의 Python 버전이 있고(예: Python 2.7.16 Python 3.8.3) 빌드 툴체인에서 사용하는 버전에 모듈이 없는 문제일 수 있습니다.
 
-You should be able to fix this by explicitly installing the dependencies as shown:
+다음과 같이 종속성을 명시적으로 설치하여, 이 문제를 해결할 수 있습니다.
 ```
 pip3 install --user pyserial empy toml numpy pandas jinja2 pyyaml pyros-genmsg packaging
 ```
 
 
-## PX4 Make Build Targets
+## PX4 빌드 타겟 만들기
 
-The previous sections showed how you can call *make* to build a number of different targets, start simulators, use IDEs etc. This section shows how *make* options are constructed and how to find the available choices.
+이전 섹션에서는 *make*를 호출하여 다양한 대상을 빌드하고, 시뮬레이터를 시작하고, IDE를 사용 방법 등을 설명하였습니다. 이 섹션에서는 *make* 옵션 설정 방법과 사용 가능한 선택 항목 검색 방법을 설명합니다.
 
-The full syntax to call *make* with a particular configuration and initialization file is:
+특정 설정 및 초기화 파일로 *make*를 호출하는 전체 구문은 다음과 같습니다.
 ```sh
 make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 ```
 
-**VENDOR_MODEL_VARIANT**: (also known as `CONFIGURATION_TARGET`)
+**VENDOR_MODEL_VARIANT**: (`CONFIGURATION_TARGET`이라고도 함)
 
-- **VENDOR:** The manufacturer of the board: `px4`, `aerotenna`, `airmind`, `atlflight`, `auav`, `beaglebone`, `intel`, `nxp`, etc. The vendor name for Pixhawk series boards is `px4`.
-- **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
-- **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
+- **공급업체:** 보드 제조업체: `px4`, `aerotenna`, `airmind`, `atlflight` , `auav`, `beaglebone`, `intel`, `nxp` 등 Pixhawk 시리즈 보드의 공급업체 이름은 `px4`입니다.
+- **모델:** *보드 모델* "모델": `sitl`, `fmu-v2`, `fmu-v3< /2>, <code>fmu-v4`, `fmu-v5`, `navio2` 등
+- **변종:** 특정 구성을 나타냅니다. 예: `rtps`, `lpe`, `기본` 구성에 없는 구성요소를 포함합니다. 가장 일반적으로 이것은 `기본값`이며 생략 가능합니다.
 
 :::tip
 You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below:
@@ -231,10 +233,10 @@ make list_config_targets
 
 **VIEWER_MODEL_DEBUGGER_WORLD:**
 
-- **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim`, `none` <!-- , ?airsim -->
+- **VIEWER:** 이것은 `gazebo`, `jmavsim`, `none`을 실행하고 연결할 시뮬레이터("뷰어")입니다. <!-- , ?airsim -->
 
 :::tip
-`none` can be used if you want to launch PX4 and wait for a simulator (jmavsim, gazebo, or some other simulator). For example, `make px4_sitl none_iris` launches PX4 without a simulator (but with the iris airframe).
+`none`은 PX4를 시작하고 시뮬레이터(jmavsim, 전망대 또는 기타 시뮬레이터)를 기다리면, 사용할 수 있습니다. 예를 들어, `make px4_sitl none_iris`는 시뮬레이터 없이(그러나 홍채 기체가 있는) PX4를 시작합니다.
 :::
 - **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](#scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
