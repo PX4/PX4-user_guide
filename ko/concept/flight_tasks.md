@@ -5,26 +5,25 @@
 
 ## 개요
 
-A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode. Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior. The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
+비행 작업은 기본 클래스 [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp)에서 파생된 비행 작업 프레임워크의 클래스입니다. 목표는 각 작업이 특정 모드의 기체 동작을 구현하는 임의의 입력 데이터에서 콘트롤러에 대한 설정값을 생성하는 것입니다. 프로그래머는 일반적으로 기본 작업의 최소 구현을 호출하고 원하는 동작의 구현으로 확장하여 `activate()` 및 `update()` 가상 메서드를 재정의합니다. `activate()` 메서드는 작업 전환시에 호출되며, 상태를 초기화하고 이전 작업이 방금 적용한 전달된 설정점에서 부드럽게 인계되도록 합니다.
 
-`update()` is called on every loop iteration during the execution and contains the core behavior implementation producing setpoints.
+`update()`는 실행 중 모든 루프 반복에서 호출되며, 설정값을 생성하는 핵심 기능을 구현합니다.
 
-By convention tasks are contained in a subfolder of [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks) named after the task, and the source files are named with the prefix "FlightTask".
+규칙에 따라 작업은 작업 이름을 따서 명명된 [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks)의 하위 폴더에 포함되며, 소스 파일에는 접두사 "FlightTask"로 이름이 지정됩니다.
 
-:::note
-Video overviews from PX4 developer summits are [provided below](#video).
+:::note PX4 개발자 회의의 비디오 개요는 [아래에서](#video)  제공합니다.
 :::
 
 
-## Creating a Flight Task
+## 비행 작업 생성
 
-The instructions below might be used to create a task named *MyTask*:
+아래 지침을 사용하여 *MyTask*라는 작업을 만들 수 있습니다.
 
-1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks). By convention the directory is named after the task, so we will call it **/MyTask**.
+1. [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks)에 새 비행 작업에 대한 디렉터리를 생성합니다. 규칙에 따라 디렉토리 이름은 작업 이름을 따서 지정되므로 **/MyTask**라고 합니다.
    ```
    mkdir PX4-Autopilot/src/lib/flight_tasks/tasks/MyTask
    ```
-2. Create empty source code and *cmake* files for the new flight task in the *MyTask* directory using the prefix "FlightTask":
+2. "FlightTask" 접두사를 사용하여 *MyTask* 디렉토리에 새 비행 작업에 대한 빈 소스 코드 및 *cmake* 파일을 만듭니다.
    - CMakeLists.txt
    - FlightTaskMyTask.hpp
    - FlightTaskMyTask.cpp
