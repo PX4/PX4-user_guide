@@ -80,56 +80,56 @@ Request access from dev team. -->
 
 실제 속도와 높이를 동시에 제어하는 것은 쉽지 않습니다. 항공기 피치 각도를 높이면 높이가 증가하지만 속도도 감소합니다. 스로틀을 높이면 속도가 증가하지만, 양력 증가로 인하여 높이도 증가합니다. 따라서 제어 문제를 어렵게 만드는 두 개의 출력(대기 속도 및 고도)에 모두 영향을 미치는 두 개의 입력(피치 각도 및 스로틀)이 존재합니다.
 
-TECS는 원래 설정이 아닌 에너지 측면에서 문제를 표현하여 솔루션을 제공합니다. 항공기의 총 에너지는 운동 에너지와 위치 에너지의 합입니다. 추력(스로틀 제어를 통해)은 항공기의 총 에너지를 증가시킵니다. 주어진 총 에너지 상태는 위치 에너지와 운동 에너지의 조합입니다. 즉, 높은 고도에서 느린 속도로 비행하는 것은 총 에너지 측면에서 낮은 고도에서 더 빠른 속도로 비행하는 것과 동일합니다. 이를 특정 에너지 균형이라고 하며, 현재 고도와 실제 속도 설정값으로 계산합니다. 특정 에너지 균형은 항공기 피치 각도를 통하여 제어됩니다. 피치 각도의 증가는 운동을 위치 에너지로 전달하고, 음의 피치 각도는 그 반대로 전달합니다. The control problem was therefore decoupled by transforming the initial setpoints into energy quantities which can be controlled independently. We use thrust to regulate the specific total energy of the vehicle and pitch maintain a specific balance between potential (height) and kinetic (speed) energy.
+TECS는 원래 설정이 아닌 에너지 측면에서 문제를 표현하여 솔루션을 제공합니다. 항공기의 총 에너지는 운동 에너지와 위치 에너지의 합입니다. 추력(스로틀 제어를 통해)은 항공기의 총 에너지를 증가시킵니다. 주어진 총 에너지 상태는 위치 에너지와 운동 에너지의 조합입니다. 즉, 높은 고도에서 느린 속도로 비행하는 것은 총 에너지 측면에서 낮은 고도에서 더 빠른 속도로 비행하는 것과 동일합니다. 이를 특정 에너지 균형이라고 하며, 현재 고도와 실제 속도 설정값으로 계산합니다. 특정 에너지 균형은 항공기 피치 각도를 통하여 제어됩니다. 피치 각도의 증가는 운동을 위치 에너지로 변환하고, 음의 피치 각도는 그 반대로 변환합니다. 따라서, 제어 문제를 초기 설정값을 독립적으로 제어 가능한 에너지 양으로 변환하여 분리하였습니다. 추력을 사용하여 차량의 특정 총 에너지를 조절하고, 피치는 위치(높이)와 운동(속도) 에너지 사이의 균형을 유지합니다.
 
 
-#### Total energy control loop
+#### 총 에너지 제어 루프
 
 ![Energy loop](../../assets/diagrams/TECS_throttle.jpg)
 
 
-#### Total energy balance control loop
+#### 총 에너지 균형 제어 루프
 
 ![Energy balance loop](../../assets/diagrams/TECS_pitch.jpg)
 
-$$\bar{q} = \frac{1}{2} \rho V_T^2$$,
+항공기의 총 에너지는 운동 에너지와 위치 에너지의 합입니다.
 
 $$E_T = \frac{1}{2} m V_T^2 + m g h$$
 
-$$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$,
+시간에 대한 미분을 취하면 총 에너지 비율이 됩니다.
 
 $$\dot{E_T} = m V_T \dot{V_T} + m g \dot{h}$$
 
-$$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\ell_p}\:\frac{b}{2V_T} \: p \right ]$$.
+이로부터 특정 에너지율은 다음과 같습니다.
 
 $$\dot{E} = \frac{\dot{E_T}}{mgV_T}  = \frac{\dot{V_T}}{g} + \frac{\dot{h}}{V_T} = \frac{\dot{V_T}}{g} + sin(\gamma)$$
 
-where $\gamma{}$ is the flight plan angle. For small $\gamma{}$ we can approximate this as:
+여기서 $\gamma{}$는 비행 계획 각도입니다. 작은 $\gamma{}$의 경우 다음과 같이 근사할 수 있습니다.
 
-At a zero rates condition ($$p = 0$$), the damping term vanishes and a constant - instantaneous - torque can be generated using
+$$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
-$$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$.
+항공기의 동적 방정식에서 다음 관계를 얻습니다.
 
 $$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-where T and D are the thrust and drag forces. In level flight, initial thrust is trimmed against the drag and a change in thrust results thus in:
+여기서 T와 D는 추력과 항력입니다. 수평 비행에서 초기 추력은 항력에 대해 조정되고, 추력의 변화는 다음과 같은 결과를 나타냅니다.
 
 $$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-As can be seen, $\Delta T{}$ is proportional to $\dot{E}{}$, and thus the thrust setpoint should be used for total energy control.
+보시다시피 $\Delta T{}$는 $\dot{E}{}$에 비례하므로, 추력 설정값을 전체 에너지 제어에 사용합니다.
 
-Elevator control on the other hand is energy conservative, and is thus used for exchanging potentional energy for kinetic energy and vice versa. To this end, a specific energy balance rate is defined as:
+반면에 엘리베이터 제어는 에너지를 보존하므로, 위치 에너지를 운동 에너지로 또는 그 반대로 전환합니다. 이를 위하여, 특정 에너지 균형 비율은 다음과 같이 정의합니다.
 
 $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
-## Fixed-Wing Attitude Controller
+## 고정익 자세 콘트롤러
 
 ![FW Attitude Controller Diagram](../../assets/diagrams/px4_fw_attitude_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1ibxekmtc6Ljq60DvNMplgnnU-JOvKYLQ/view?usp=sharing
 Request access from dev team. -->
 
-The attitude controller works using a cascaded loop method. The outer loop computes the error between the attitude setpoint and the estimated attitude that, multiplied by a gain (P controller), generates a rate setpoint. The inner loop then computes the error in rates and uses a PI (proportional + integral) controller to generate the desired angular acceleration.
+자세 제어기는 계단식 루프 방식을 사용합니다. 외부 루프는 자세 설정값과 추정된 자세 사이의 오차를 계산하여 이득(P 콘트롤러)을 곱하여 속도 설정값을 계산합니다. The inner loop then computes the error in rates and uses a PI (proportional + integral) controller to generate the desired angular acceleration.
 
 The angular position of the control effectors (ailerons, elevators, rudders, ...) is then computed using this desired angular acceleration and a priori knowledge of the system through control allocation (also known as mixing). Furthermore, since the control surfaces are more effective at high speed and less effective at low speed, the controller - tuned for cruise speed - is scaled using the airspeed measurements (if such a sensor is used).
 
