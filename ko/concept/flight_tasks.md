@@ -1,9 +1,9 @@
-# Flight Tasks
+# 비행 작업
 
-*Flight Tasks* are used within [Flight Modes](../concept/flight_modes.md) to provide specific movement behaviours: e.g. follow me, or flight smoothing.
+*비행 작업*은 [비행 모드](../concept/flight_modes.md) 내에서 특정 이동 동작(예: 사람 추적, 비행 평활화)을 제공합니다.
 
 
-## Overview
+## 개요
 
 A flight task is a class in the flight task framework derived from the base class [FlightTask](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/flight_mode_manager/tasks/FlightTask/FlightTask.hpp). Its goal is to generate setpoints for the controller from arbitrary input data, where each task implements the desired vehicle behavior for a specific mode. Programmers typically override the `activate()` and `update()` virtual methods by calling the base task's minimal implementation and extending with the implementation of the desired behavior. The `activate()` method is called when switching to the task and allows to initialize its state and take over gently from the passed over setpoints the previous task was just applying.
 
