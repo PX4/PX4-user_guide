@@ -1,74 +1,74 @@
 # 콘트롤러 다이어그램
 
-This section contains diagrams for the main PX4 controllers.
+이 섹션에는 PX4 컨트롤러에 대한 주요 다이어그램들이 있습니다.
 
-The diagrams use the standard [PX4 notation](../contribute/notation.md) (and each have an annotated legend).
+다이어그램은 표준 [PX4 표기법](../contribute/notation.md)을 사용합니다(각각 주석이 달린 범례가 있음).
 
 <!--    The diagrams were created with LaTeX / TikZ.
         The code can be found in assets/diagrams/mc_control_arch_tikz.tex.
         The easiest way to generate the diagrams and edit them is to copy the code and paste it an Overleaf (www.overleaf.com/) document to see the output.
 -->
 
-## Multicopter Control Architecture
+## 멀티콥터 제어 아키텍처
 
 ![MC Controller Diagram](../../assets/diagrams/mc_control_arch.jpg)
 
-* Estimates come from [EKF2](../tutorials/tuning_the_ecl_ekf.md).
-* This is a standard cascaded position-velocity loop.
-* Estimates come from [EKF2](../advanced_config/tuning_the_ecl_ekf.md).
-* Depending on the mode, the outer (position) loop is bypassed (shown as a multiplexer after the outer loop). The position loop is only used when holding position or when the requested velocity in an axis is null.
+* 이것은 표준 계단식 제어 아키텍처입니다.
+* 컨트롤러는 P 및 PID 컨트롤러를 혼합한 것입니다.
+* 추정치는 [EKF2](../advanced_config/tuning_the_ecl_ekf.md)를 사용합니다.
+* 모드에 따라 외부(위치) 루프는 바이패스됩니다(외부 루프 뒤에 멀티플렉서로 표시됨). 위치 루프는 위치를 유지하거나, 축에서 요청한 속도가 null인 경우에만 사용됩니다.
 
-### Multicopter Angular Rate Controller
+### Multicopter 각속도 컨트롤러
 
 ![MC Rate Control Diagram](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
-* K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
-* The integral authority is limited to prevent wind up.
-* The outputs are limited (in the mixer), usually at -1 and 1.
-* A Low Pass Filter (LPF) is used on the derivative path to reduce noise (the gyro driver provides a filtered derivative to the controller).
+* K-PID 컨트롤러. 자세한 내용은 [속도 컨트롤러](../config_mc/pid_tuning_guide_multicopter.md#rate-controller)를 참고하십시오.
+* 통합 권한은 종료를 방지를 위하여 제한됩니다.
+* 출력은 (믹서에서) 일반적으로 -1과 1로 제한됩니다.
+* 저역 통과 필터(LPF)는 파생 경로에 사용되어 노이즈를 줄입니다(자이로 드라이버는 컨트롤러에 필터링된 파생물을 제공함).
 
-:::note
-The IMU pipeline is: gyro data > apply calibration parameters > remove estimated bias > notch filter (`IMU_GYRO_NF_BW` and `IMU_GYRO_NF_FREQ`) > low-pass filter (`IMU_GYRO_CUTOFF`) > vehicle_angular_velocity (*filtered angular rate used by the P and I controllers*) > derivative -> low-pass filter (`IMU_DGYRO_CUTOFF`) > vehicle_angular_acceleration (*filtered angular acceleration used by the D controller*)
+:::note IMU
+파이프라인은 다음과 같습니다. 자이로 데이터 > 보정 매개변수 적용 > 추정 편향 제거 > 노치 필터(`IMU_GYRO_NF_BW` 및 `IMU_GYRO_NF_FREQ`) > 저역 통과 필터(`IMU_GYRO_CUTOFF`) > 차량_각도_속도(*P 및 I 컨트롤러에서 사용하는 필터링된 각속도*) > 파생상품 -> 저역 통과 필터(`IMU_DGYRO_CUTOFF`) > vehicle_angular_acceleration(*D 컨트롤러에서 사용하는 필터링된 각가속도*)
 
   ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
 :::
   
   <!-- source for image is https://github.com/PX4/PX4-Autopilot/blob/850d0bc588af79186286652af4c8293daafd2c4c/src/lib/mixer/MultirotorMixer/MultirotorMixer.cpp#L323-L326 -->
 
-### Multicopter Attitude Controller
+### 멀티콥터 자세 컨트롤러
 
 ![MC Angle Control Diagram](../../assets/diagrams/mc_angle_diagram.jpg)
 
-* The attitude controller makes use of [quaternions](https://en.wikipedia.org/wiki/Quaternion).
-* The controller is implemented from this [article](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf).
-* When tuning this controller, the only parameter of concern is the P gain.
-* The rate command is saturated.
+* 자세 컨트롤러는 [쿼터니언](https://en.wikipedia.org/wiki/Quaternion)을 사용합니다.
+* 콘트롤러는 이 [문서](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf)에서 구현됩니다.
+* 이 컨트롤러를 조정시 고려할 유일한 매개변수는 P 게인입니다.
+* rate 명령은 포화됩니다.
 
-### Multicopter Velocity Controller
+### 멀티콥터 속도 컨트롤러
 
 ![MC Velocity Control Diagram](../../assets/diagrams/mc_velocity_diagram.jpg)
 
-* PID controller to stabilise velocity. Commands an acceleration.
-* The integrator in the inner loop (velocity) controller includes an anti-reset windup (ARW) using a clamping method.
-* The commanded acceleration is saturated.
+* 속도를 안정화하는 PID 컨트롤러. 가속을 명령합니다.
+* 적분기는 클램핑 방식을 사용하는 ARW(Anti-Reset Windup)를 포함합니다.
+* 가속도 명령어는 포화됩니다.
 
-### Multicopter Position Controller
+### 멀티콥터 위치 콘트롤러
 
 ![MC Position Control Diagram](../../assets/diagrams/mc_position_diagram.jpg)
 
-* Simple P controller that commands a velocity.
-* The commanded velocity is saturated to keep the velocity in certain limits.
+* 속도를 명령하는 간단한 P 컨트롤러.
+* 명령된 속도는 특정 한계에서 속도를 유지하기 위해 포화됩니다.
 
-#### Combined Position and Velocity Controller Diagram
+#### 결합된 위치 및 속도 컨트롤러 다이어그램
 
 ![MC Position Controller Diagram](../../assets/diagrams/px4_mc_position_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
 
-## Fixed-Wing Position Controller
+## 고정익 위치 콘트롤러
 
-### Total Energy Control System (TECS)
+### 총 에너지 제어 시스템(TECS)
 The PX4 implementation of the Total Energy Control System (TECS) enables simultaneous control of true airspeed and altitude of a fixed wing aircraft. The code is implemented as a library which is used in the fixed wing position control module.
 
 ![TECS](../../assets/diagrams/tecs_in_context.svg)
