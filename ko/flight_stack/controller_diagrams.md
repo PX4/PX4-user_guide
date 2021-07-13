@@ -1,4 +1,4 @@
-# Controller Diagrams
+# 콘트롤러 다이어그램
 
 This section contains diagrams for the main PX4 controllers.
 

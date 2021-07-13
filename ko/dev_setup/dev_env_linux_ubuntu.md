@@ -93,7 +93,7 @@ Ubuntu 20.04(focal)용으로 빌드하려면 docker를 사용하여야 합니다
 
 라즈베리파이에 대한 공통 종속성을 얻으려면:
 
-1. [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)와<!-- NEED px4_version -->PX4 소스 저장소의 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt)(**/Tools/setup/**)를 다운로드합니다: <!-- NEED px4_version -->    ```
+1. [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)와<!-- NEED px4_version -->PX4 소스 저장소의 [requirements.txt](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt) (**/Tools/setup/**)를 다운로드합니다. <!-- NEED px4_version -->    ```
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh
    wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
    ```
