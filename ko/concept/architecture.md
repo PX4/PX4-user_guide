@@ -14,7 +14,7 @@ PX4는 두 가지 주요 레이어로 구성됩니다. [비행 스택](#flight-s
 
 아래 다이어그램은 PX4의 빌딩 블록에 대한 개요를 나타냅니다. 다이어그램의 상단에는 미들웨어 블록이 포함되어 있고, 하단에는 플라이트 스택의 구성 요소가 표시되어 있습니다.
 
-![PX4 Architecture](../../assets/diagrams/PX4_Architecture.svg)
+![PX4 구조](../../assets/diagrams/PX4_Architecture.svg)
 
 
 <!-- This diagram can be updated from 
@@ -49,7 +49,7 @@ again. -->
 
 다음 다이어그램은 비행 스택의 빌딩 블록에 대한 개요를 나타냅니다. 여기에는 센서, RC 입력 및 자율 비행 제어(내비게이터)에서 모터 또는 서보 제어(액추에이터)에 이르는 전체 파이프라인이 포함됩니다.
 
-![PX4 High-Level Flight Stack](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg) <!-- This diagram can be updated from 
+![PX4 고수준 비행 스택](../../assets/diagrams/PX4_High-Level_Flight-Stack.svg) <!-- This diagram can be updated from 
 [here](https://drive.google.com/a/px4.io/file/d/15J0eCL77fHbItA249epT3i2iOx4VwJGI/view?usp=sharing) 
 and opened with draw.io Diagrams. You might need to request access if you
 don't have a px4.io Google account.
@@ -105,7 +105,7 @@ PX4는 POSIX-API(Linux, macOS, NuttX 또는 QuRT 등)를 제공하는 다양한 
 
 ### 백그라운드 작업
 
-On Linux or macOS, PX4 runs in a single process, and the modules run in their own threads (there is no distinction between tasks and threads as on NuttX).
+`px4_task_spawn_cmd()`는 호출(상위) 작업과 독립적으로 실행되는 새 작업(NuttX) 또는 스레드(POSIX - Linux/macOS)를 시작합니다.
 
 ```cpp
 independent_task = px4_task_spawn_cmd(
@@ -120,17 +120,17 @@ independent_task = px4_task_spawn_cmd(
 ```
 
 
-### OS-Specific Information
+### 운영체제별 정보
 
 #### NuttX
 
-[NuttX](https://nuttx.apache.org//) is the primary RTOS for running PX4 on a flight-control board. It is open source (BSD license), light-weight, efficient and very stable.
+[NuttX](https://nuttx.apache.org//)는 비행 제어 보드에서 PX4를 실행하는 핵심 RTOS입니다. 오픈 소스(BSD 라이선스)이며, 가볍고 효율적이며 매우 안정적입니다.
 
-Modules are executed as tasks: they have their own file descriptor lists, but they share a single address space. A task can still start one or more threads that share the file descriptor list.
+모듈은 작업으로 실행됩니다. 모듈에는 자체 파일 설명자 목록이 있지만, 단일 주소 공간을 공유합니다. 작업은 여전히 파일 설명자 목록을 공유하는 하나 이상의 스레드를 시작할 수 있습니다.
 
-Each task/thread has a fixed-size stack, and there is a periodic task which checks that all stacks have enough free space left (based on stack coloring).
+각 작업/스레드에는 고정된 크기의 스택이 있으며, 모든 스택에는 충분한 여유 공간이 남아 있는 지를 확인하는 주기적 작업이 있습니다(스택 색상 기준).
 
 
 #### Linux/macOS
 
-On Linux or macOS, PX4 runs in a single process, and the modules run in their own threads (there is no distinction between tasks and threads as on NuttX).
+Linux 또는 macOS에서 PX4는 단일 프로세스에서 실행되고 모듈은 자체 스레드에서 실행됩니다(NuttX에서와 같이 작업과 스레드간의 구분이 없음).
