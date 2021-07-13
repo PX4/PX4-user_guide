@@ -46,7 +46,7 @@
 
 ### 멀티콥터 속도 컨트롤러
 
-![MC Velocity Control Diagram](../../assets/diagrams/mc_velocity_diagram.jpg)
+![멀티콥터 속도 콘트롤 다이어그램](../../assets/diagrams/mc_velocity_diagram.jpg)
 
 * 속도를 안정화하는 PID 컨트롤러. 가속을 명령합니다.
 * 적분기는 클램핑 방식을 사용하는 ARW(Anti-Reset Windup)를 포함합니다.
@@ -54,14 +54,14 @@
 
 ### 멀티콥터 위치 콘트롤러
 
-![MC Position Control Diagram](../../assets/diagrams/mc_position_diagram.jpg)
+![멀티콥터 위치  콘트롤 다이어그램](../../assets/diagrams/mc_position_diagram.jpg)
 
 * 속도를 명령하는 간단한 P 컨트롤러.
 * 명령된 속도는 특정 한계에서 속도를 유지하기 위해 포화됩니다.
 
 #### 결합된 위치 및 속도 컨트롤러 다이어그램
 
-![MC Position Controller Diagram](../../assets/diagrams/px4_mc_position_controller_diagram.png)
+![멀티콥터 위치  콘트롤 다이어그램](../../assets/diagrams/px4_mc_position_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/open?id=13Mzjks1KqBiZZQs15nDN0r0Y9gM_EjtX
 Request access from dev team. -->
@@ -85,12 +85,12 @@ TECS는 원래 설정이 아닌 에너지 측면에서 문제를 표현하여 �
 
 #### 총 에너지 제어 루프
 
-![Energy loop](../../assets/diagrams/TECS_throttle.jpg)
+![에러지 루프](../../assets/diagrams/TECS_throttle.jpg)
 
 
 #### 총 에너지 균형 제어 루프
 
-![Energy balance loop](../../assets/diagrams/TECS_pitch.jpg)
+![에너지 균형 루프](../../assets/diagrams/TECS_pitch.jpg)
 
 항공기의 총 에너지는 운동 에너지와 위치 에너지의 합입니다.
 
@@ -124,7 +124,7 @@ $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 
 ## 고정익 자세 콘트롤러
 
-![FW Attitude Controller Diagram](../../assets/diagrams/px4_fw_attitude_controller_diagram.png)
+![고정익 자세 콘트롤러 다이어그램](../../assets/diagrams/px4_fw_attitude_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1ibxekmtc6Ljq60DvNMplgnnU-JOvKYLQ/view?usp=sharing
 Request access from dev team. -->
@@ -144,7 +144,7 @@ Request access from dev team. -->
 
 ## VTOL 콘트롤러
 
-![VTOL Attitude Controller Diagram](../../assets/diagrams/VTOL_controller_diagram.png)
+![VTOL 자세 콘트롤러 다이어그램](../../assets/diagrams/VTOL_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1tVpmFhLosYjAtVI46lfZkxBz_vTNi8VH/view?usp=sharing
 Request access from dev team. -->
