@@ -61,10 +61,10 @@ RTL_RETURN_ALT</ 1>([RTL_RETURN_ALT](../advanced_config/parameter_reference.md#R
     
     * **AUTO_MISSION** (미션) 
     * **모든 시스템 유형:** 기체는 지상관제소(GCS)에서 전송한 프로그래밍된 임무를 수행합니다. 임무를 수신하지 않으면, 기체는 현재 위치에서 배회합니다.
-  * **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).</ul> 
+  * **_OFFBOARD:_**(오프보드) 위치, 속도 또는 자세 기준/목표/설정점은 직렬 케이블과 MAVLink로 연결된 보조 컴퓨터에서 제공합니다. 오프보드 설정값은 [MAVSDK](http://mavsdk.mavlink.io) 또는 [MAVROS](https://github.com/mavlink/mavros)와 같은 API에서 제공할 수 있습니다.</ul> 
 
 
 
-## Flight Mode Evaluation Diagram
+## 비행 모드 평가 다이어그램
 
-![Commander Flow diagram](../../assets/diagrams/commander-flow-diagram.png)
+![지휘관 흐름도](../../assets/diagrams/commander-flow-diagram.png)
