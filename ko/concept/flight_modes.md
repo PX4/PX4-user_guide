@@ -1,13 +1,13 @@
 # 비행 모드
 
-*비행 모드*는 오토파일럿의 사용자 입력에 대한 응답 방식과 기체 동작 제어 방식을 정의합니다. They are loosely grouped into *manual*, *assisted* and *auto* modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a ground control station.
+*비행 모드*는 사용자 입력에 대한 자동조종장치의 응답 방식과 기체 제어 방식을 정의합니다. 자동조종장치가 제공하는 제어 수준/유형에 따라 *수동*, *보조* 및 *자동* 모드로 그룹화됩니다. 조종사는 리모콘 스위치를 사용하거나 지상 관제소를 사용하여 비행 모드를 전환할 수 있습니다.
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below). Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). The system will not allow transitions to those modes until the right conditions are met.
+모든 기체에서 모든 비행 모드가  있지 않고, 일부 모드는 기체 유형에 따라 작동 방식이 다릅니다(아래 설명 참조). 마지막으로, 일부 비행 모드는 특정 비행 전 및 비행 중 조건(예: GPS 잠금, 속도 센서, 축을 따라 감지하는 차량 자세 감지)에서만 의미가 있습니다. 시스템은 조건이 충족할 때까지, 해당 모드로의 전환을 허용하지 않습니다.
 
-The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
+아래 섹션에서는 모드 개요를 제공하고, PX4의 신규 모드 전환 조건을 나타내는 [비행 모드 평가 다이어그램](#flight-mode-evaluation-diagram)을 제공합니다.
 
 :::note
-User-facing flight mode documentation can be found in:
+사용자 대면 비행 모드 문서는 다음을 참고하십시오.
 - [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
 - [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
 :::
