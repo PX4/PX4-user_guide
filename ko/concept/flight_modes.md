@@ -8,17 +8,17 @@
 
 :::note
 사용자 대면 비행 모드 문서는 다음을 참고하십시오.
-- [Getting Started > Flight Modes](../getting_started/flight_modes.md): Beginner friendly explanation of all flight modes.
-- [Flying > Flight Modes](../flight_modes/README.md): Detailed documentation of each mode.
+- [시작 > 비행 모드](../getting_started/flight_modes.md): 모든 비행 모드에 기초적인 설명
+- [비행 > 비행 모드](../flight_modes/README.md): 각 비행 모드에 대한 설명
 :::
 
-## Flight Mode Summary
+## 비행 모드 개요
 
-### Manual flight modes
+### 수동 비행 모드
 
-"Manual" modes are those where the user has direct control over the vehicle via the RC control (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+"수동" 모드는 사용자가 RC 제어(또는 조이스틱)로 차량을 직접 제어하는 모드입니다. 기체의 움직임은 항상 스틱에 따라 움직이지만, 모드에 따라 반응의 정도나 유형이 달라집니다. 예를 들어, 숙련된 비행사는 액츄에이터에 스틱 위치를 직접 전달하는 모드를 사용할 수 있지만, 초보자는 갑작스러운 스틱 위치 변경에 덜 반응하는 모드를 사용하는 경우가 많습니다.
 
-* **Rovers / Boats:**
+* **로보/보트:**
   * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
 
 * **Fixed wing aircraft:**
