@@ -1,80 +1,80 @@
-# Mixing and Actuators
+# 혼합과 액추에이터
 
 <!-- there is a useful doc here that we should still mine to further improve this topic: https://docs.google.com/document/d/1xCEQh48uDWyo7TjqedW6gYxBxMtNyuYZ2Xkt2MBb2-w -->
 
-The PX4 architecture ensures that the airframe layout does not require special case handling in the core controllers.
+PX4 아키텍처는 기체 레이아웃이 코어 콘트롤러에서 특별한 케이스들을 처리 하지 않도록 합니다.
 
-Mixing means to take force commands (e.g. `turn right`) and translate them to actuator commands which control motors or servos. For a plane with one servo per aileron this means to command one of them high and the other low. The same applies for multicopters: Pitching forward requires changing the speed of all motors.
+혼합이란 강제 명령(예: `우회전`)을 받아 모터나 서보를 제어하는 액추에이터 명령으로 변환하는 것을 의미합니다. 에일러론당 하나의 서보가 있는 비행기에는 하나는 높게, 다른 하나는 낮게 명령하는 것을 의미합니다. 멀티콥터에도 동일하게 적용됩니다. 앞으로 나아가려면 모든 모터의 속도를 변경하여야 합니다.
 
-Separating the mixer logic from the actual attitude controller greatly improves reusability.
+실제 자세 콘트롤러에서 믹서 로직을 분리하면 재사용성이 크게 향상됩니다.
 
-## Control Pipeline
+## 파이프라인 콘트롤
 
-A particular controller sends a particular normalized force or torque demand (scaled from -1..+1) to the mixer, which then sets individual actuators accordingly. The output driver (e.g. UART, UAVCAN or PWM) then scales it to the actuators native units, e.g. a PWM value of 1300.
+특정 콘트롤러는 특정 정규화된 힘 또는 토크 요구(-1..+1에서 조정됨)를 믹서로 보내고, 이에 따라 개별 액추에이터를 설정합니다. 그런 다음 출력 드라이버(예: UART, UAVCAN 또는 PWM)를 액츄에이터 기본 단위로 확장합니다. PWM 값은 1300입니다.
 
 ![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 
 <!-- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19 --->
 
-## Control Groups
+## 콘트롤 그룹
 
-PX4 uses control groups (inputs) and output groups. Conceptually they are very simple: A control group is e.g. `attitude`, for the core flight controls, or `gimbal` for payload. An output group is one physical bus, e.g. the first 8 PWM outputs for servos. Each of these groups has 8 normalized (-1..+1) command ports, which can be mapped and scaled through the mixer. A mixer defines how each of these 8 signals of the controls are connected to the 8 outputs.
+PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으로 매우 간단합니다. 통제 그룹은 예를 들어 핵심 비행 제어의 경우 `attitude`, 페이로드의 경우 `gimbal` 입니다. 출력 그룹은 하나의 물리적 버스(예: 서보용 처음 8개의 PWM 출력)입니다. 이 그룹 각각에는 믹서를 통하여 매핑하고 확장할 수 있는 8개의 정규화된(-1..+1) 명령 포트가 있습니다. 믹서는 컨트롤의 이러한 8개 신호 각각이 8개의 출력에 연결되는 방식을 정의합니다.
 
-For a simple plane control 0 (roll) is connected straight to output 0 (aileron). For a multicopter things are a bit different: control 0 (roll) is connected to all four motors and combined with throttle.
+간단한 평면 제어의 경우 0(롤)은 출력 0(에일러론)에 직접 연결됩니다. 멀티콥터의 경우 상황이 약간 다릅니다. 컨트롤 0(롤)은 4개의 모터 모두에 연결되고 스로틀과 결합됩니다.
 
-### Control Group #0 (Flight Control)
+### 콘트롤 그룹 #0(비행 콘트롤)
 
 * 0: roll (-1..1)
 * 1: pitch (-1..1)
 * 2: yaw (-1..1)
-* 3: throttle (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 3: throttle(0..1 정상 범위, 가변 피치/추력 리버서의 경우 -1..1)
 * 4: flaps (-1..1)
 * 5: spoilers (-1..1)
 * 6: airbrakes (-1..1)
 * 7: landing gear (-1..1)
 
-### Control Group #1 (Flight Control VTOL/Alternate)
+### 콘트롤 그룹 #1(비행 제어 VTOL/대체)
 
 * 0: roll ALT (-1..1)
 * 1: pitch ALT (-1..1)
 * 2: yaw ALT (-1..1)
-* 3: throttle ALT (0..1 normal range, -1..1 for variable pitch / thrust reversers)
+* 3: throttle ALT(0..1 정상 범위, 가변 피치/추력 리버서의 경우 -1..1)
 * 4: reserved / aux0
 * 5: reserved / aux1
 * 6: reserved / aux2
 * 7: reserved / aux3
 
-### Control Group #2 (Gimbal)
+### 컨트롤 그룹 #2 (Gimbal)
 
 * 0: gimbal roll
 * 1: gimbal pitch
 * 2: gimbal yaw
 * 3: gimbal shutter
-* 4: reserved
+* 4: camera zoom
 * 5: reserved
 * 6: reserved
-* 7: reserved (parachute, -1..1)
+* 7: reserved (낙하산, -1..1)
 
-### Control Group #3 (Manual Passthrough)
+### 콘트롤 그룹 #3 (수동 통과)
 
 * 0: RC roll
 * 1: RC pitch
 * 2: RC yaw
 * 3: RC throttle
-* 4: RC mode switch
-* 5: RC aux1
-* 6: RC aux2
-* 7: RC aux3
+* 4: RC 모드 스위치([RC_MAP_FLAPS](../advanced_config/parameter_reference.md#RC_MAP_FLAPS)에 의해 매핑된 RC 채널의 통과)
+* 5: RC aux1([RC_MAP_AUX1](../advanced_config/parameter_reference.md#RC_MAP_AUX1)에 의해 매핑된 RC 채널의 통과)
+* 6: RC aux2([RC_MAP_AUX2](../advanced_config/parameter_reference.md#RC_MAP_AUX2)에 의해 매핑된 RC 채널의 통과)
+* 7: RC aux3([RC_MAP_AUX3](../advanced_config/parameter_reference.md#RC_MAP_AUX3)에 의해 매핑된 RC 채널의 통과)
 
 :::note
-This group is only used to define mapping of RC inputs to specific outputs during *normal operation* (see [quad_x.main.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7) for an example of AUX2 being scaled in a mixer). In the event of manual IO failsafe override (if the PX4FMU stops communicating with the PX4IO board) only the mapping/mixing defined by control group 0 inputs for roll, pitch, yaw and throttle are used (other mappings are ignored).
+이 그룹은 *일반 작동* 동안 특정 출력에 대한 RC 입력의 매핑을 정의하는 데만 사용됩니다(믹서에서 AUX2가 조정되는 예는 [quad_x.main.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7) 참조). 수동 IO 안전 장치 무시의 경우(PX4FMU가 PX4IO 보드와의 통신을 중지하는 경우) 롤, 피치, 요 및 스로틀에 대해 제어 그룹 0 입력으로 정의된 매핑/믹싱만 사용됩니다(다른 매핑은 무시됨).
 :::
 
 <a id="control_group_6"></a>
 
-### Control Group #6 (First Payload)
+### 컨트롤 그룹 #6 (첫째 페이로드)
 
-* 0: function 0 (default: parachute)
+* 0: function 0
 * 1: function 1
 * 2: function 2
 * 3: function 3
@@ -83,13 +83,13 @@ This group is only used to define mapping of RC inputs to specific outputs durin
 * 6: function 6
 * 7: function 7
 
-## Virtual Control Groups
+## 가상 콘트롤 그룹
 
 :::warning
-*Virtual Control Group*s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for "completeness".
+*가상 콘트롤 그룹*은 VTOL 코드를 생성하는 개발자에게만 관련이 있습니다. 믹서에 사용하면 안 되며, "완벽함"을 위해서만 제공됩니다.
 :::
 
-These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing and multicopter controller outputs into the VTOL governor module.
+이 그룹은 믹서 입력이 아니지만 고정익과 멀티콥터 컨트롤러 출력을 VTOL 거버너 모듈에 공급하는 메타 채널 역할을 합니다.
 
 ### Control Group #4 (Flight Control MC VIRTUAL)
 
