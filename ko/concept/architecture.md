@@ -91,19 +91,19 @@ PX4는 POSIX-API(Linux, macOS, NuttX 또는 QuRT 등)를 제공하는 다양한 
 :::
 
 모듈을 실행 방법은 두 가지가 있습니다.
-- **Tasks**: The module runs in its own task with its own stack and process priority (this is the more common way).
-- **Work queues**: The module runs on a shared task, meaning that it does not own a stack. Multiple tasks run on the same stack with a single priority per work queue.
-  - All the tasks must behave co-operatively as they cannot interrupt each other.
-  - Multiple *work queue tasks* can run on a queue, and there can be multiple queues.
-  - A *work queue task* is scheduled by specifying a fixed time in the future, or via uORB topic update callback.
+- **작업**: 모듈은 자체 스택 및 프로세스 우선 순위와 함께 자체 작업에서 실행됩니다.
+- **작업 대기열 작업**: 모듈은 공유 작업 대기열에서 실행되며, 대기열의 다른 모듈과 동일한 스택 및 작업 대기열 스레드 우선순위를 공유합니다.
+  - 모든 작업은 서로 방해할 수 없으므로, 협력적으로 작동해야 합니다.
+  - 여러 *작업 대기열 작업*이 한 대기열에서 실행될 수 있으며, 여러 대기열이 있을 수 있습니다.
+  - *작업 대기열 작업*은 미래의 고정 시간을 지정하거나, uORB 주제 업데이트 콜백을 통하여 예약됩니다.
 
-  The advantage is that it uses less RAM, but the task is not allowed to sleep or poll on a message. The disadvantages are that *work queue tasks* are not allowed to sleep or poll on a message, or do blocking IO (such as reading from a file). Long-running tasks (doing heavy computation) should potentially also run in a separate task or at least a separate work queue.
+  작업 대기열에서 모듈을 실행할 때의 이점은 RAM을 덜 사용하고 잠재적으로 작업 전환이 더 적은 것입니다. 단점은 *작업 대기열 작업*이 메시지를 잠자기 또는 폴링하거나 차단 IO(예: 파일 읽기)를 수행할 수 없는 것입니다. 장기 실행 작업(과중한 계산 수행)은 잠재적으로 별도의 작업 또는 최소한 별도의 작업 대기열에서 실행되어야 합니다.
 
 :::note
-Tasks running on a work queue do not show up in [`uorb top`](../modules/modules_communication.md#uorb) (only the work queues themselves can be seen - e.g. as `wq:lp_default`). Use [`work_queue status`](../modules/modules_system.md#work-queue) to display all active work queue items.
+작업 대기열에서 실행 중인 작업은 [`uorb top`](../modules/modules_communication.md#uorb)에 표시되지 않습니다(작업 대기열 자체만 볼 수 있음 - 예: `wq:lp_default`). 모든 활성 작업 대기열 항목을 표시하려면, [`work_queue status`](../modules/modules_system.md#work-queue)를 사용하십시오.
 :::
 
-### Background Tasks
+### 백그라운드 작업
 
 On Linux or macOS, PX4 runs in a single process, and the modules run in their own threads (there is no distinction between tasks and threads as on NuttX).
 
