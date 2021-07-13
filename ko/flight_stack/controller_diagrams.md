@@ -129,38 +129,38 @@ $$\dot{B} = \gamma - \frac{\dot{V_T}}{g}$$
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1ibxekmtc6Ljq60DvNMplgnnU-JOvKYLQ/view?usp=sharing
 Request access from dev team. -->
 
-자세 제어기는 계단식 루프 방식을 사용합니다. 외부 루프는 자세 설정값과 추정된 자세 사이의 오차를 계산하여 이득(P 콘트롤러)을 곱하여 속도 설정값을 계산합니다. The inner loop then computes the error in rates and uses a PI (proportional + integral) controller to generate the desired angular acceleration.
+자세 제어기는 계단식 루프 방식을 사용합니다. 외부 루프는 자세 설정값과 추정된 자세 사이의 오차를 계산하여 이득(P 콘트롤러)을 곱하여 속도 설정값을 계산합니다. 그런 다음 내부 루프는 비율의 오류를 계산하고 PI(비례 + 적분) 콘트롤러를 사용하여 목표치 각가속도를 생성합니다.
 
-The angular position of the control effectors (ailerons, elevators, rudders, ...) is then computed using this desired angular acceleration and a priori knowledge of the system through control allocation (also known as mixing). Furthermore, since the control surfaces are more effective at high speed and less effective at low speed, the controller - tuned for cruise speed - is scaled using the airspeed measurements (if such a sensor is used).
+제어 이펙터(에일러론, 엘리베이터, 방향타 등)의 각도 위치는 원하는 각도 가속도와 제어 할당(혼합이라고도 함)을 통해 시스템에 대한 사전 지식을 사용하여 계산됩니다. 또한 제어 표면은 고속에서 더 효과적이고 저속에서는 덜 효과적이기 때문에, 순항 속도에 맞게 조정된 컨트롤러는 속도 측정을 사용하여 조정됩니다(이러한 센서가 사용되는 경우).
 
 :::note
-If no airspeed sensor is used then gain scheduling for the FW attitude controller is  disabled (it's open loop); no correction is/can be made in TECS using airspeed feedback.
+속도 센서가 사용되지 않으면 고정익 자세 콘트롤러에 대한 게인 스케줄링이 비활성화됩니다(개방형 루프). 속도 피드백을 사용하여 TECS에서 수정할 수 없습니다.
 :::
 
-The feedforward gain is used to compensate for aerodynamic damping. Basically, the two main components of body-axis moments on an aircraft are produced by the control surfaces (ailerons, elevators, rudders, - producing the motion) and the aerodynamic damping (proportional to the body rates - counteracting the motion). In order to keep a constant rate, this damping can be compensated using feedforward in the rate loop.
+피드포워드 이득은 공기역학적 감쇠를 보상합니다. 기본적으로 항공기의 차체 축 모멘트의 두 가지 주요 구성 요소는 제어 표면(에일러론, 엘리베이터, 방향타, - 움직임 생성)과 공기역학적 감쇠(몸체 속도에 비례 - 움직임에 대응)에 의하여 생성됩니다. 일정한 속도를 유지하기 위하여, 이 댐핑은 속도 루프에서 피드포워드를 사용하여 보상할 수 있습니다.
 
-The roll and pitch controllers have the same structure and the longitudinal and lateral dynamics are assumed to be uncoupled enough to work independently. The yaw controller, however, generates its yaw rate setpoint using the turn coordination constraint in order to minimize lateral acceleration, generated when the aircraft is slipping. The yaw rate controller also helps to counteract adverse yaw effects (https://youtu.be/sNV_SDDxuWk) and to damp the [Dutch roll mode](https://en.wikipedia.org/wiki/Dutch_roll) by providing extra directional damping.
+롤 및 피치 컨트롤러는 동일한 구조를 가지며, 종방향 역학과 횡방향 역학은 독립적으로 작동하기에 충분히 분리되어 있다고 가정합니다. 그러나, 요 콘트롤러는 항공기가 미끄러질 때 생성되는 측면 가속도를 최소화하기 위해 선회 조정 제약 조건을 사용하여 요 각속도 설정점을 계산합니다. 요 각속도 콘트롤러는 또한 역방향 댐핑을 제공하여 역 요 효과(https://youtu.be/sNV_SDDxuWk)에 대응하고 [더치 롤 모드](https://en.wikipedia.org/wiki/Dutch_roll)를 댐핑하는 데 도움이 됩니다.
 
 
-## VTOL Flight Controller
+## VTOL 콘트롤러
 
 ![VTOL Attitude Controller Diagram](../../assets/diagrams/VTOL_controller_diagram.png)
 
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1tVpmFhLosYjAtVI46lfZkxBz_vTNi8VH/view?usp=sharing
 Request access from dev team. -->
 
-This section gives a short overview on the control structure of Vertical Take-off and Landing (VTOL) aircraft. The VTOL flight controller consists of both the multicopter and fixed-wing controllers, either running separately in the corresponding VTOL modes, or together during transitions. The diagram above presents a simplified control diagram. Note the VTOL attitude controller block, which mainly facilitates the necessary switching and blending logic for the different VTOL modes, as well as VTOL-type-specific control actions during transitions (e.g. ramping up the pusher motor of a standard VTOL during forward transition). The inputs into this block are called "virtual" as, depending on the current VTOL mode, some are ignored by the controller.
+이 섹션에서는 수직 이착륙기(VTOL) 제어 구조에 대한 간략한 개요를 제공합니다. VTOL 비행 컨트롤러는 멀티콥터와 고정익 컨트롤러로 구성되며, 해당 VTOL 모드에서 별도로 실행되거나 전환중에 동시에 실행됩니다. 위의 다이어그램은 간단한 제어 다이어그램입니다. VTOL 자세 컨트롤러 블록은 주로 다양한 VTOL 모드에 필요한 전환 및 혼합 논리를 용이하게 하고, 전환 중 VTOL 유형별 제어 작업(예: 순방향 전환 동안 표준 VTOL의 푸셔 모터 램프 업)을 용이하게 합니다. VTOL 현재 모드에 따라 일부는 콘트롤러에서 무시되므로, 이 블록에 대한 입력을 "가상"이라고 합니다.
 
-For a standard and tilt-rotor VTOL, during transition the fixed-wing attitude controller produces the rate setpoints, which are then fed into the separate rate controllers, resulting in torque commands for the multicopter and fixed-wing actuators. For tailsitters, during transition the multicopter attitude controller is running.
+표준 및 틸트로터 VTOL의 경우에는 전환 중에 고정익 자세 콘트롤러가 속도 설정값을 생성한 다음 별도의 속도 콘트롤러에 입력하여 멀티콥터와 고정익 액추에이터에 대한 토크 명령을 생성합니다. 테일시터의 경우 전환중에는 멀티콥터 자세 콘트롤러가 실행됩니다.
 
-The outputs of the VTOL attitude block are separate torque and force commands for the multicopter (typically `actuator_controls_0`) and fixed-wing (typically `actuator_controls_1`) actuators. These are handled in an airframe-specific mixer file (see [Mixing](../concept/mixing.md)).
+VTOL 자세 블록의 출력은 멀티콥터(일반적으로 `actuator_controls_0`) 및 고정익(일반적으로 `actuator_controls_1`) 액추에이터에 대한 별도의 토크와 힘 명령입니다. 이는 기체별 믹서 파일에서 처리됩니다([믹싱](../concept/mixing.md) 참조).
 
-For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](../config_vtol/README.md).
+VTOL 블록 내부의 전환 논리 조정에 대한 자세한 내용은 [VTOL 설정](../config_vtol/README.md)을 참고하십시오.
 
 
-### Airspeed Scaling
+### 풍속 조정
 
-The objective of this section is to explain with the help of equations why and how the output of the rate PI and feedforward (FF) controllers can be scaled with airspeed to improve the control performance. We will first present the simplified linear dimensional moment equation on the roll axis, then show the influence of airspeed on the direct moment generation and finally, the influence of airspeed during a constant roll.
+이 섹션에서는 속도 PI 및 피드포워드(FF) 컨트롤러의 출력이 제어 성능을 향상시키기 위하여, 속도에 따라 조정될 수 있는 이유와 방법을 방정식으로 설명합니다. 먼저, 롤 축에 대한 단순화된 선형 치수 모멘트 방정식을 제시한 다음, 직접 모멘트 생성에 대한 속도의 영향을 보여주고, 마지막으로 일정한 롤 동안 속도의 영향을 보여줍니다.
 
 As shown in the fixed-wing attitude controller above, the rate controllers produce angular acceleration setpoints for the control allocator (here named "mixer"). In order to generate these desired angular accelerations, the mixer produces torques using available aerodynamic control surfaces (e.g.: a standard airplane typically has two ailerons, two elevators and a rudder). The torques generated by those control surfaces is highly influenced by the relative airspeed and the air density, or more precisely, by the dynamic pressure. If no airspeed scaling is made, a controller tightly tuned for a certain cruise airspeed will make the aircraft oscillate at higher airspeed or will give bad tracking performance at low airspeed.
 
