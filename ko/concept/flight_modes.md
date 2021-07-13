@@ -19,18 +19,18 @@
 "수동" 모드는 사용자가 RC 제어(또는 조이스틱)로 차량을 직접 제어하는 모드입니다. 기체의 움직임은 항상 스틱에 따라 움직이지만, 모드에 따라 반응의 정도나 유형이 달라집니다. 예를 들어, 숙련된 비행사는 액츄에이터에 스틱 위치를 직접 전달하는 모드를 사용할 수 있지만, 초보자는 갑작스러운 스틱 위치 변경에 덜 반응하는 모드를 사용하는 경우가 많습니다.
 
 * **로보/보트:**
-  * **MANUAL/STABILIZED/ACRO:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
+  * **수동/안정화/곡예:** 조종사의 입력(RC 송신기의 원시 사용자 입력)은 출력 믹서로 직접 전달됩니다.
 
-* **Fixed wing aircraft:**
-  * **MANUAL:** The pilot's control inputs (raw user inputs from RC transmitter) are passed directly to the output mixer.
-  * **STABILIZED:** The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-  * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
+* **고정익:**
+  * **수동:** 조종사의 입력(RC 송신기의 원시 사용자 입력)은 출력 믹서로 직접 전달됩니다.
+  * **안정화** 조종사의 피치 및 롤 입력은 각도 명령으로 자동조종장치에 전달되는 반면, 요 입력은 출력 믹서를 통해 방향타로 직접 전달됩니다(수동 제어). RC 롤과 피치 스틱이 중앙에 있으면 자동조종장치가 롤과 피치 각도를 0으로 조절하여 바람의 방해에 대하여 자세를 안정화(평준화)합니다. 그러나, 이 모드에서는 기체의 위치가 자동조종장치에 의해 제어되지 않으므로, 바람에 의해 위치가 이동할 수 있습니다. 0이 아닌 롤 입력으로 기체는 제로 사이드슬립을 위하여 조정된 회전을 수행합니다(y 방향(측면)의 가속도는 0임). 조정 회전 동안 방향타를 사용하여 사이드 슬립을 제어하고, 여기에 수동 요 입력이 추가됩니다.
+  * **곡예:** 조종사의 입력은 자동조종장치에 롤, 피치 및 요 *속도* 명령으로 전달됩니다. 자동조종장치는 각속도를 제어합니다. 스로틀은 출력 믹서로 직접 전달됩니다.
 
-* **Multirotors:**
-  * **MANUAL/STABILIZED** The pilot's inputs are passed as roll and pitch *angle* commands and a yaw *rate* command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. However, in this mode the position of the vehicle is not controlled by the autopilot, hence the position can drift due to wind.
+* **멀티콥터:**
+  * **수동/안정화:** 조종사의 입력은 롤 및 피치 *각도* 명령과 요 *속도* 명령으로 전달됩니다. 스로틀은 출력 믹서로 직접 전달됩니다. 자동조종장치는 자세를 제어합니다. 즉, RC 스틱이 중앙에 있을 때, 롤 및 피치 각도를 0으로 조절하여 자세를 평평하게 만듭니다. 그러나, 이 모드에서는 기체 위치가 자동조종장치에 의해 제어되지 않으므로, 바람에 의해 위치가 이탈할 수 있습니다.
 
 :::note
-For Multirotors, Manual and Stabilized modes are the same.
+멀티콥터의 수동 모드와 안정화 모드는 동일합니다.
 :::
 
   * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
