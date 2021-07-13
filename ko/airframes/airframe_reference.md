@@ -894,39 +894,34 @@
  <td style="vertical-align: top;"><p>유지보수: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 4018</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_hobbyking_micro_pcb">
- <td style="vertical-align: top;">Hobbyking Micro PCB</td>
- <td style="vertical-align: top;"><p>유지보수: Thomas Gubler &lt;thomas@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_3dr_solo">
- <td style="vertical-align: top;">3DR 솔로</td>
- <td style="vertical-align: top;"><p>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
+ <td style="vertical-align: top;">3DR Solo</td>
+ <td style="vertical-align: top;"><p>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_3dr_diy_quad">
- <td style="vertical-align: top;">3DR DIY 쿼드</td>
- <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
+ <td style="vertical-align: top;">3DR DIY Quad</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
- <td style="vertical-align: top;">일반 250 레이서</td>
- <td style="vertical-align: top;"><p>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
+ <td style="vertical-align: top;">Generic 250 Racer</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_qav250">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
- <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4052</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;</p><p><code>SYS_AUTOSTART</code> = 4052</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_kopis_2">
  <td style="vertical-align: top;">Holybro Kopis 2</td>
- <td style="vertical-align: top;"><p>유지보수: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4053</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng &lt;beat@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4053</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_matrice_100">
  <td style="vertical-align: top;">DJI Matrice 100</td>
- <td style="vertical-align: top;"><p>유지보수: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
