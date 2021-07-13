@@ -16,31 +16,47 @@ logger help
 
 ## 구성
 
-SD 카드에 기록할 토픽 목록은 설정 파일로 개별 지정할 수 있습니다. SD 카드에 `etc/logging/logger_topics.txt` 파일을 만들어 토픽 목록을 넣으십시오(SITL용 파일은 `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`입니다).
+The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
+
+`<interval>` 항목은 선택 사항이나, 밀리초 단위로 이 토픽을 기록할 두 기록 내용 사이의 최소 간격 시간을 지정합니다. 지정하지 않으면, 토픽을 최대 기록율로 기록합니다.
+
+| SD 카드                                                                    | Description                                                                                                                                                          |
+| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 461                                                                                                                                                                  |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration). |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | 212                                                                                                                                                                  |
+
+`<instance>` 항목 역시 선택사항이나, 이 항목은 로그를 진행할 인스턴스를 지정합니다. 지정하지 않으면, 토픽의 모든 인스턴스를 로깅합니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다.
+
+### 진단
+
+Seperately, the list of logged topics can also be customized with a file on the SD card. Create a file `etc/logging/logger_topics.txt` on the card with a list of topics (For SITL, it's `build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt`):
 ```
 <topic_name> <interval> <instance>
 ```
-`<interval>` 항목은 선택 사항이나, 밀리초 단위로 이 토픽을 기록할 두 기록 내용 사이의 최소 간격 시간을 지정합니다. 지정하지 않으면, 토픽을 최대 기록율로 기록합니다.
+The `<interval>` is optional, and if specified, defines the minimum interval in ms between two logged messages of this topic. If not specified, the topic is logged at full rate.
 
-`<instance>` 항목 역시 선택사항이나, 이 항목은 로그를 진행할 인스턴스를 지정합니다. 지정하지 않으면, 토픽의 모든 인스턴스를 로깅합니다. `<instance>`를 지정하려면, `<interval>`을 반드시 지정해야합니다. 0 값을 설정하면 최대 기록율로 지정할 수 있습니다.
+The `<instance>` is optional, and if specified, defines the instance to log. If not specified, all instances of the topic are logged. To specify `<instance>`, `<interval>` must be specified. It can be set to 0 to log at full rate
 
-이 파일에 들어간 토픽 목록은 기본 로깅 토픽 종류를 바꿉니다.
+[pyulog](https://github.com/PX4/pyulog) 저장소에 로깅 파일을 분석하고 변환하는 다양한 스크립트가 있습니다.
 
-예 :
+로깅 손실은 그다지 반갑지 않은 상황이며, 이에 영향을 주는 몇가지 요인이 있습니다:
 ```
 sensor_accel 0 0
 sensor_accel 100 1
 sensor_gyro 200
 sensor_mag 200 1
 ```
-이 설정을 통해 sensor_accel 0 을 최대 기록율로, sensor_accel 1을 초당 10회, 모든 sensor_gyro 인스턴스를 초당 5회, sensor_mag 1을 초당 5회 기록합니다.
+This configuration will log sensor_accel 0 at full rate, sensor_accel 1 at 10Hz, all sensor_gyro instances at 5Hz and sensor_mag 1 at 5Hz.
+
+
 
 ## 스크립트
-[pyulog](https://github.com/PX4/pyulog) 저장소에 로깅 파일을 분석하고 변환하는 다양한 스크립트가 있습니다.
+There are several scripts to analyze and convert logging files in the [pyulog](https://github.com/PX4/pyulog) repository.
 
 
 ## 손실
-로깅 손실은 그다지 반갑지 않은 상황이며, 이에 영향을 주는 몇가지 요인이 있습니다:
+Logging dropouts are undesired and there are a few factors that influence the amount of dropouts:
 - 대부분 우리가 시험해본 SD 카드는 1분 단위로 관찰 했을 때 여러번 멈추었습니다. 이는 기록 명령을 처리함에 있어 수 100ms 정도의 지연이 있음을 보여줍니다. 이런 현상으로 인해 그동안 기록 버퍼가 차면 손실을 유발합니다. (아래와 같이) SD 카드에 따라 영향을 받습니다.
 - SD 카드를 포맷하면 손실을 어느정도 예방할 수 있습니다.
 - 로그 버퍼 크기를 늘리면 도움이 됩니다.
@@ -48,41 +64,41 @@ sensor_mag 200 1
 
 ## SD 카드
 
-다음 표에서는 제각기 다른 SD 카드의 성능 측정 결과를 보여줍니다. 픽스레이서에서 시험을 완료했습니다. 결과는 픽스호크에도 해당합니다.
+무엇보다도 우리가 가장 좋다고 알게된 카드의 모델은 **SanDisk Extreme U3 32GB**입니다. 순간적으로 증가하는 기록 시간이 없(어 패킷 손실이 없을거라고 생각할 수 있)기에 이 카드를 추천합니다.
 
 :::note
-NuttX의 최대 지원 SD 카드 용량은 32GB(SD 메모리 카드 명세 버전 2.0) 입니다.
+The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
 :::
 
-| SD 카드                                                         | 평균 주기 기록 속도 [KB/s] | 최대 기록 시간 / 블록 (평균) [ms] |
-| ------------------------------------------------------------- | ------------------ | ----------------------- |
-| SanDisk Extreme U3 32GB                                       | 461                | **15**                  |
-| Sandisk Ultra Class 10 8GB                                    | 348                | 40                      |
-| Sandisk Class 4 8GB                                           | 212                | 60                      |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                | 220                     |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 209                | 150                     |
-| Sandisk Ultra PLUS Class 10 16GB                              | 196                | 500                     |
-| Sandisk Pixtor Class 10 16GB                                  | 334                | 250                     |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332                | 150                     |
+| SD Card                                                       | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
+| ------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
+| SanDisk Extreme U3 32GB                                       | 461                          | **15**                                |
+| Sandisk Ultra Class 10 8GB                                    | 348                          | 40                                    |
+| Sandisk Class 4 8GB                                           | 212                          | 60                                    |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                          | 220                                   |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 209                          | 150                                   |
+| Sandisk Ultra PLUS Class 10 16GB                              | 196                          | 500                                   |
+| Sandisk Pixtor Class 10 16GB                                  | 334                          | 250                                   |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332                          | 150                                   |
 
-평균 기록속도보다 중요한 부분은 블록(4 KB)당 최대 기록 시간입니다. 블록은 최소 버퍼 크기를 정의합니다. 최대치가 커지면 버퍼 내용의 손실을 피하기 위해 더 큰 버퍼가 필요합니다. 기본 토픽 로깅 대역폭은 50 KB/s 이며, 모든 SD 카드에서 소화할 수 있습니다.
-
-무엇보다도 우리가 가장 좋다고 알게된 카드의 모델은 **SanDisk Extreme U3 32GB**입니다. 순간적으로 증가하는 기록 시간이 없(어 패킷 손실이 없을거라고 생각할 수 있)기에 이 카드를 추천합니다. 다른 카드 용량에 대해서도 비슷하게 잘 동작하지만, 보통 성능이 다릅니다.
-
-`sd_bench -r 50` 명령으로 SD 카드를 테스트하고 https://github.com/PX4/PX4-Autopilot/issues/4634 에 결과를 보고할 수 있습니다.
-
-## 로그 스트리밍
-
-태초로부터 지금까지 제대로 지원하는 로그 스트리밍 방법은 FMU에서 SD 카드를 활용하는 방법입니다. 그러나, 이 대안책으로, MAVLink로 동일한 로깅 데이터를 전송하는 로깅 스트리밍 방식이 있습니다. 이 방식은 FMU에 SD 카드 슬롯이 없을 경우(예: Intel® Aero Ready to Fly 드론)에 활용하거나, 단순히 SD 카드의 취급을 피하려 하고자 할 경우 진행할 수 있습니다. 두가지 방식은 동시에 제각각 활용할 수 있습니다.
+태초로부터 지금까지 제대로 지원하는 로그 스트리밍 방법은 FMU에서 SD 카드를 활용하는 방법입니다. 그러나, 이 대안책으로, MAVLink로 동일한 로깅 데이터를 전송하는 로깅 스트리밍 방식이 있습니다. 이 방식은 FMU에 SD 카드 슬롯이 없을 경우(예: Intel® Aero Ready to Fly 드론)에 활용하거나, 단순히 SD 카드의 취급을 피하려 하고자 할 경우 진행할 수 있습니다.
 
 필요 요소는 무선랜 연결처럼 초당 50KB를 제공할 수 있는 통신 수단입니다. 단일 클라이언트만 동시에 로그 스트리밍을 요청할 수 있습니다. 프로토콜에서 손실 패킷을 관리하기에 연결은 굳이 안정적이지 않아도 좋습니다.
 
 ulog 스트리밍을 지원하는 클라이언트는 여러가지가 있습니다.:
+
+## 로그 스트리밍
+
+The traditional and still fully supported way to do logging is using an SD card on the FMU. However there is an alternative, log streaming, which sends the same logging data via MAVLink. This method can be used for example in cases where the FMU does not have an SD card slot (e.g. Intel® Aero Ready to Fly Drone) or simply to avoid having to deal with SD cards. Both methods can be used independently and at the same time.
+
+The requirement is that the link provides at least ~50KB/s, so for example a WiFi link. And only one client can request log streaming at the same time. The connection does not need to be reliable, the protocol is designed to handle drops.
+
+There are different clients that support ulog streaming:
 - `mavlink_ulog_streaming.py` script in Firmware/Tools.
 - QGroundControl: ![QGC 로그 스트리밍](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
-### 진단
+### Diagnostics
 - 로그 실시간 전송을 시작하지 않았다면, `logger`를 실행 중인지(위 참고) 확인하고, 시작하는 동안 콘솔 출력을 살펴보십시오.
 - If it still does not work, make sure that Mavlink 2 is used. `MAV_PROTO_VER` 매개변수 값을 2로 강제 설정하십시오.
 - Log streaming uses a maximum of 70% of the configured mavlink rate (`-r` parameter). 더 큰 전송율이 필요하다면, 메세지가 사라집니다. 현재 MAVLink 패킷에서 로그가 차지하는 백분율은 `mavlink status` 명령으로 확인할 수 있습니다(이 예제에서는 1.8%).
