@@ -597,11 +597,6 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer</p><p><code>SYS_AUTOSTART</code> = 4018</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_hobbyking_micro_pcb">
- <td style="vertical-align: top;">Hobbyking Micro PCB</td>
- <td style="vertical-align: top;"><p>Maintainer: Thomas Gubler &lt;thomas@px4.io&gt;</p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_3dr_solo">
  <td style="vertical-align: top;">3DR Solo</td>
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;</p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
