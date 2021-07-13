@@ -86,10 +86,10 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 ## 가상 콘트롤 그룹
 
 :::warning
-*Virtual Control Group*s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for "completeness".
+*가상 콘트롤 그룹*은 VTOL 코드를 생성하는 개발자에게만 관련이 있습니다. 믹서에 사용하면 안 되며, "완벽함"을 위해서만 제공됩니다.
 :::
 
-These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing and multicopter controller outputs into the VTOL governor module.
+이 그룹은 믹서 입력이 아니지만 고정익과 멀티콥터 컨트롤러 출력을 VTOL 거버너 모듈에 공급하는 메타 채널 역할을 합니다.
 
 ### Control Group #4 (Flight Control MC VIRTUAL)
 
