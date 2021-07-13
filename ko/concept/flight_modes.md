@@ -33,32 +33,37 @@
 멀티콥터의 수동 모드와 안정화 모드는 동일합니다.
 :::
 
-  * **ACRO:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates, but not the attitude. Hence, if the RC sticks are centered the vehicle will not level-out. This allows the multirotor to become completely inverted. Throttle is passed directly to the output mixer.
+  * **곡예:** 조종사의 입력은 자동조종장치에 롤, 피치 및 요 *속도* 명령으로 전달됩니다. 자동조종장치는 각속도를 제어하지만, 자세는 제어하지 않습니다. 따라서, RC 스틱이 중앙에 위치하면 기체는 수평을 맞추지 않습니다. 이렇게 하면 멀티콥터가 완전히 뒤집힐 수 있습니다. 스로틀은 출력 믹서로 직접 전달됩니다.
 
-### Assisted flight modes
+### 보조 비행 모드
 
-"Assisted" modes are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind. Assisted modes often make it much easier to gain or restore controlled flight.
+"보조" 모드도 사용자가 제어할 수 있지만, 일정 수준의 "자동" 지원을 제공합니다(예: 바람에 대하여 자동으로 위치와 방향 유지). 보조 모드를 사용하 통제된 비행을 획득하거나 복원하기가 훨씬 쉬워집니다.
 
-* **ALTCTL** (Altitude Control)
-  * **Fixed wing aircraft:** When the roll, pitch and yaw (RPY) RC sticks are all centered (or less than some specified deadband range) the aircraft will return to straight and level flight and keep its current altitude. Its x and y position will drift with the wind.
-  * **Multirotors:** Roll, pitch and yaw inputs are as in Stabilised mode. Throttle inputs indicate climb or sink at a predetermined maximum rate. Throttle has large deadzone. Centered Throttle holds altitude steady. The autopilot only controls altitude so the x,y position of the vehicle can drift due to wind.
-* **POSCTL** (Position Control)
-  * **Fixed wing aircraft:** Neutral inputs (centered RC sticks) give level flight and it will crab against the wind if needed to maintain a straight line.
-  * **Multirotors** Roll controls left-right speed, pitch controls front-back speed over ground. Yaw controls yaw rate as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL mode. This means that the x, y, z position of the vehicle is held steady by the autopilot against any wind disturbances, when the roll, pitch and throttle sticks are centered.
+* **ALTCTL** (고도 제어)
+  * **고정익:** 롤, 피치 및 요(RPY) RC 스틱이 모두 중앙에 있을 때(또는 일부 지정된 데드밴드 범위 미만) 항공기는 직선 및 수평 비행으로 돌아가 현재 고도를 유지합니다. x와 y 위치는 바람에 따라 표류합니다.
+  * **멀티콥터:** 롤, 피치 및 요 입력은 안정화 모드와 같습니다. 스로틀 입력은 미리 결정된 최대 속도로 상승 또는 하강을 나타냅니다. 스로틀에 데드존이 큽니다. 중앙 스로틀은 고도를 안정적으로 유지합니다. 자동조종장치는 고도만 제어하므로 차량의 x,y 위치가 바람에 따라 표류할 수 있습니다.
+* **POSCTL** (위치 제어)
+  * **고정익:** 중립 입력(중앙 RC 스틱)은 수평 비행을 제공하고 직선을 유지하기 위하여 필요한 경우 바람에 맞서게 됩니다.
+  * **멀티콥터:** 롤은 좌우 속도를 제어하고 피치는 지면에서 앞뒤 속도를 제어합니다. Yaw는 수동 모드에서와 같이 요 레이트를 제어합니다. 스로틀은 ALTCTL 모드에서와 같이 상승 하강 속도를 제어합니다. 이는 롤, 피치 및 스로틀 스틱이 중앙에 있을 때, 기체의 x, y, z 위치가 자동조종장치에 의해 바람 방해에 대해 안정적으로 유지되는 것을 의미합니다.
 
-### Auto flight modes
+### 자동 비행 모드
 
-"Auto" modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
+"자동" 모드는 컨트롤러가 사용자 입력이 필요없는 모드입니다(예: 이륙, 착륙 및 비행 임무).
 
-* **AUTO_LOITER** (Loiter)
-  * **Fixed wing aircraft:** The aircraft loiters around the current position at the current altitude (or possibly slightly above the current altitude, good for 'I'm losing it').
-  * **Multirotors:**  The multirotor hovers / loiters at the current position and altitude.
-* **AUTO_RTL** (Return to Launch)
-  * **Fixed wing aircraft:** The aircraft returns to the home position and loiters in a circle above the home position.
-  * **Multirotors:** The multirotor returns in a straight line on the current altitude (if the current altitude is higher than the home position + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)) or on the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) (if the [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) is higher than the current altitude), then lands automatically.
-* **AUTO_MISSION** (Mission)
-  * **All system types:** The aircraft obeys the programmed mission sent by the ground control station (GCS). If no mission received, aircraft will LOITER at current position instead.
-  * **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).
+* **AUTO_LOITER** (로이터)
+  * **고정익:** 항공기가 현재 고도(또는 현재 고도보다 약간 높을 수 있음)에서 현재 위치 주위를 배회합니다.
+  * **멀티콥터:** 멀티콥터는 현재 위치와 고도에서 호버링 배회합니다.
+* **AUTO_RTL** (실행으로 돌아가기)
+  * **고정익:** 항공기가 홈 위치로 돌아가 홈 위치 위에서 원을 그리며 배회합니다.
+  * **멀티콥터:** 멀티콥터는 현재 고도(현재 고도가 홈 위치 + [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)보다 높은 경우) 또는
+
+RTL_RETURN_ALT</ 1>([RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)이 현재 고도보다 높은 경우), 자동으로 착륙합니다.</li> </ul></li> 
+    
+    * **AUTO_MISSION** (미션) 
+    * **모든 시스템 유형:** 기체는 지상관제소(GCS)에서 전송한 프로그래밍된 임무를 수행합니다. 임무를 수신하지 않으면, 기체는 현재 위치에서 배회합니다.
+  * **_OFFBOARD_** (Offboard) In this mode the position, velocity or attitude reference / target / setpoint is provided by a companion computer connected via serial cable and MAVLink. The offboard setpoint can be provided by APIs like [MAVSDK](http://mavsdk.mavlink.io) or [MAVROS](https://github.com/mavlink/mavros).</ul> 
+
+
 
 ## Flight Mode Evaluation Diagram
 
