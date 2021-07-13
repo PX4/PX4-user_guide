@@ -11,7 +11,7 @@
 
 ## 멀티콥터 제어 아키텍처
 
-![MC Controller Diagram](../../assets/diagrams/mc_control_arch.jpg)
+![멀티콥터 콘트롤러 다이어그램](../../assets/diagrams/mc_control_arch.jpg)
 
 * 이것은 표준 계단식 제어 아키텍처입니다.
 * 컨트롤러는 P 및 PID 컨트롤러를 혼합한 것입니다.
@@ -20,7 +20,7 @@
 
 ### Multicopter 각속도 컨트롤러
 
-![MC Rate Control Diagram](../../assets/diagrams/mc_angular_rate_diagram.jpg)
+![멀티콥터 레이트 콘트롤 다이어그램](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
 * K-PID 컨트롤러. 자세한 내용은 [속도 컨트롤러](../config_mc/pid_tuning_guide_multicopter.md#rate-controller)를 참고하십시오.
 * 통합 권한은 종료를 방지를 위하여 제한됩니다.
@@ -30,14 +30,14 @@
 :::note IMU
 파이프라인은 다음과 같습니다. 자이로 데이터 > 보정 매개변수 적용 > 추정 편향 제거 > 노치 필터(`IMU_GYRO_NF_BW` 및 `IMU_GYRO_NF_FREQ`) > 저역 통과 필터(`IMU_GYRO_CUTOFF`) > 차량_각도_속도(*P 및 I 컨트롤러에서 사용하는 필터링된 각속도*) > 파생상품 -> 저역 통과 필터(`IMU_DGYRO_CUTOFF`) > vehicle_angular_acceleration(*D 컨트롤러에서 사용하는 필터링된 각가속도*)
 
-  ![IMU pipeline](../../assets/diagrams/px4_imu_pipeline.png)
+  ![IMU 파이프라인](../../assets/diagrams/px4_imu_pipeline.png)
 :::
   
   <!-- source for image is https://github.com/PX4/PX4-Autopilot/blob/850d0bc588af79186286652af4c8293daafd2c4c/src/lib/mixer/MultirotorMixer/MultirotorMixer.cpp#L323-L326 -->
 
 ### 멀티콥터 자세 컨트롤러
 
-![MC Angle Control Diagram](../../assets/diagrams/mc_angle_diagram.jpg)
+![멀티콥터 각도 콘트롤 다이어그램](../../assets/diagrams/mc_angle_diagram.jpg)
 
 * 자세 컨트롤러는 [쿼터니언](https://en.wikipedia.org/wiki/Quaternion)을 사용합니다.
 * 콘트롤러는 이 [문서](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf)에서 구현됩니다.
@@ -112,7 +112,7 @@ $$\dot{E} \approx  \frac{\dot{V_T}}{g} + \gamma$$
 
 $$T - D = mg(\frac{\dot{V_T}}{g} + sin(\gamma)) \approx mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
-여기서 T와 D는 추력과 항력입니다. 수평 비행에서 초기 추력은 항력에 대해 조정되고, 추력의 변화는 다음과 같은 결과를 나타냅니다.
+여기서, T와 D는 추력과 항력입니다. 수평 비행에서 초기 추력은 항력에 대해 조정되고, 추력의 변화는 다음과 같은 결과를 나타냅니다.
 
 $$\Delta T = mg(\frac{\dot{V_T}}{g} + \gamma)$$
 
@@ -170,19 +170,19 @@ VTOL 블록 내부의 전환 논리 조정에 대한 자세한 내용은 [VTOL �
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2$$
 
-여기서 $\rho{}$는 공기 밀도이고, $V_T{}$는 실제 속도(TAS)입니다.
+여기서, $\rho{}$는 공기 밀도이고, $V_T{}$는 실제 속도(TAS)입니다.
 
 이 섹션의 나머지 부분에 대한 롤 축을 예로 들면 치수 롤 모멘트는 다음과 같이 표현할 수 있습니다.
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b C_\ell = \bar{q} S b C_\ell$$
 
-여기서 $\ell{}$는 롤 모멘트, $b{}$는 날개 스팬, 그리고 $S{}$는 참조 표면입니다.
+여기서, $\ell{}$는 롤 모멘트, $b{}$는 날개 스팬, 그리고 $S{}$는 참조 표면입니다.
 
 무차원 롤 모멘트 도함수 $C_\ell{}$는 에일러론 효과 도함수 $C_{\ell_{\delta_a}}{}$, 롤 댐핑 도함수 $C_{\ell_p}{}$ 및 2면체 도함수 $C_{\ell_\beta}{}$를 사용하여 모델링할 수 있습니다.
 
 $$C_\ell = C_{\ell_0} + C_{\ell_\beta}\:\beta + C_{\ell_p}\:\frac{b}{2V_T}\:p + C_{\ell_{\delta_a}} \:\delta_a$$
 
-여기서 $\beta{}$는 사이드슬립 각도, $p{}$는 차체 롤 비율, $\delta_a{}$는 에일러론 편향입니다.
+여기서, $\beta{}$는 사이드슬립 각도, $p{}$는 차체 롤 비율, $\delta_a{}$는 에일러론 편향입니다.
 
 대칭($C_{\ell_0} = 0{}$) 및 좌표($\beta = 0{}$) 항공기를 가정하면, 에일러론에 의해 생성된 롤레이트 댐핑과 롤 모멘트만 사용하여 방정식을 단순화할 수 있습니다.
 
@@ -192,62 +192,62 @@ $$\ell = \frac{1}{2}\rho V_T^2 S b \left [C_{\ell_{\delta_a}} \:\delta_a + C_{\e
 
 #### 정적 토크(PI) 조종
 
-At a zero rates condition ($p = 0{}$), the damping term vanishes and a constant - instantaneous - torque can be generated using:
+제로 레이트 조건($p = 0{}$)에서 댐핑 항은 사라지고, 일정-순간-토크는 다음을 사용하여 생성될 수 있습니다.
 
 $$\ell = \frac{1}{2}\rho V_T^2 S b \: C_{\ell_{\delta_a}} \:\delta_a = \bar{q} S b \: C_{\ell_{\delta_a}} \:\delta_a$$
 
-Extracting $\delta_a{}$ gives
+$\delta_a{}$를 추출하면
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}} \frac{1}{\rho V_T^2} \ell = \frac{bS}{C_{\ell_{\delta_a}}} \frac{1}{\bar{q}} \ell$$
 
-where the first fraction is constant and the second one depends on the air density and the true airspeed squared.
+여기서 첫 번째 부분은 일정하고, 두 번째 부분은 공기 밀도와 실제 속도의 제곱에 따라 달라집니다.
 
-Furthermore, instead of scaling with the air density and the TAS, it can be shown that the indicated airspeed (IAS, $V_I{}$) is inherently adjusted by the air density since at low altitude and speed, IAS can be converted to TAS using a simple density error factor
+또한, 공기 밀도 및 TAS로 스케일링하는 대신, 저고도 및 속도에서 IAS를 단순 밀도 오류 계수 사용하여 TAS로 변환할 수 있기 때문에, 표시된 대기 속도(IAS, $V_I{}$)가 본질적으로 공기 밀도에 의해 조정됨을 보여줄 수 있습니다.
 
-$$V_T = V_I \sqrt{\frac{\rho_0}{\rho}}$$
+단순 밀도 오류 계수 사용
 
-, where $\rho_o{}$ is the air density as sea level, 15°C.
+여기서, $\rho_o{}$는 공기 밀도(해수면 15°C)입니다.
 
-Squaring, rearranging and adding a 1/2 factor to both sides makes the dynamic pressure $\bar{q}{}$ expression appear
+제곱, 재정렬 및 양쪽에 1/2 인수를 추가하면 동적 압력 $\bar{q}{}$ 표현식이 나타납니다.
 
 $$\bar{q} = \frac{1}{2} \rho V_T^2 = \frac{1}{2} V_I^2 \rho_0$$
 
-We can now easily see that the dynamic pressure is proportional to the IAS squared:
+이제 동적 압력이 IAS 제곱에 비례한다는 것을 알 수 있습니다.
 
 $$\bar{q} \propto V_I^2$$
 
-The scaler previously containing TAS and the air density can finally be written using IAS only
+이전에 TAS 및 공기 밀도를 포함하는 스케일러는 최종적으로 IAS만 사용하여 작성할 수 있습니다.
 
 $$\delta_a = \frac{2bS}{C_{\ell_{\delta_a}}\rho_0} \frac{1}{V_I^2} \ell$$
 
-#### Rate (FF) scaling
+#### 비율(FF) 조종
 
-The main use of the feedforward of the rate controller is to compensate for the natural rate damping. Starting again from the baseline dimensional equation but this time, during a roll at constant speed, the torque produced by the ailerons should exactly compensate for the damping such as
+속도 컨트롤러의 피드포워드의 주요 용도는 자연 속도 감쇠를 보상하는 것입니다. 기준 치수 방정식에서 다시 시작하지만, 이번에는 일정한 속도로 회전하는 동안 에일러론에 의해 생성된 토크는 다음과 같은 감쇠를 정확히 보상하여야 합니다.
 
 $$- C_{\ell_{\delta_a}} \:\delta_a = C_{\ell_p} \frac{b}{2 V_T} \: p$$
 
-Rearranging to extract the ideal ailerons deflection gives
+이상적인 에일러론 편향을 추출하도록 재정렬하면
 
 $$\delta_a = -\frac{b \: C_{\ell_p}}{2 \: C_{\ell_{\delta_a}}} \frac{1}{V_T} \: p$$
 
-The first fraction gives the value of the ideal feedforward and we can see that the scaling is linear to the TAS. Note that the negative sign is then absorbed by the roll damping derivative which is also negative.
+첫 번째 부분은 이상적인 피드포워드의 값을 제공하며 스케일링이 TAS에 선형임을 알 수 있습니다. 음수 기호는 음수인 롤 감쇠 미분에 의해 흡수됩니다.
 
-#### Conclusion
+#### 결론
 
-The output of the rate PI controller has to be scaled with the indicated airspeed (IAS) squared and the output of the rate feedforward (FF) has to be scaled with the true airspeed (TAS)
+속도 PI 컨트롤러의 출력은 표시된 대기 속도(IAS)의 제곱으로 조정되어야 하며, 속도 피드포워드(FF)의 출력은 실제 속도(TAS)로 조정되어야 합니다.
 
 $$\delta_{a} = \frac{V_{I_0}^2}{V_I^2} \delta_{a_{PI}} + \frac{V_{T_0}}{V_T} \delta_{a_{FF}}$$
 
-where $V_{I_0}{}$ and $V_{T_0}{}$ are the IAS and TAS at trim conditions.
+여기서, $V_{I_0}{}$ 및 $V_{T_0}{}$는 트림 조건에서의 IAS 및 TAS입니다.
 
-Finally, since the actuator outputs are normalized and that the mixer and the servo blocks are assumed to be linear, we can rewrite this last equation as follows:
+마지막으로, 액츄에이터 출력이 정규화되고 믹서와 서보 블록이 선형으로 가정되므로 이 마지막 방정식을 다음과 같이 정리할 수 있습니다.
 
 $$\dot{\mathbf{\omega}}_{sp}^b = \frac{V_{I_0}^2}{V_I^2} \dot{\mathbf{\omega}}_{sp_{PI}}^b + \frac{V_{T_0}}{V_T} \dot{\mathbf{\omega}}_{sp_{FF}}^b$$
 
-and implement it directly in the rollrate, pitchrate and yawrate controllers.
+rollrate, pitchrate 및 yawrate 컨트롤러에서 직접 구현합니다.
 
-#### Tuning recommendations
+#### 조정 권장 사항
 
-The beauty of this airspeed scaling algorithm is that it does not require any specific tuning. However, the quality of the airspeed measurements directly influences its performance.
+이 속도 조정 알고리즘의 장점은 특정 조정이 필요하지 않다는 것입니다.</2> 그러나 속도 측정의 품질은 성능에 직접적인 영향을 미칩니다.
 
-Furthermore, to get the largest stable flight envelope, one should tune the attitude controllers at an airspeed value centered between the stall speed and the maximum airspeed of the vehicle (e.g.: an airplane that can fly between 15 and 25m/s should be tuned at 20m/s). This "tuning" airspeed should be set in the [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) parameter.
+또한, 가장 안정적인 비행 범위를 얻으려면 실속 속도와 차량의 최대 속도 사이에 중심을 둔 속도 값에서 자세 제어기를 조정해야 합니다(예: 15m/s에서 25m/s 사이를 비행할 수 있는 비행기는 20m/s로 조정). 이 "조정" 속도는 [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) 매개변수에서 설정합니다.
