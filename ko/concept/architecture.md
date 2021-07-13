@@ -59,37 +59,38 @@ again. -->
 
 **추정기**는 하나 이상의 센서 입력을 받아 결합하고, 차량 상태(예: IMU 센서 데이터의 자세)를 계산합니다.
 
-**콘트롤러**는 설정값과 측정값 또는 추정된 상태(프로세스 변수)를 입력으로 사용합니다. Its goal is to adjust the value of the process variable such that it matches the setpoint. The output is a correction to eventually reach that setpoint. For example the position controller takes position setpoints as inputs, the process variable is the currently estimated position, and the output is an attitude and thrust setpoint that move the vehicle towards the desired position.
+**콘트롤러**는 설정값과 측정값 또는 추정된 상태(프로세스 변수)를 입력으로 사용합니다. 설정값과 일치하도록 프로세스 변수 값을 조정하는 것이 목표입니다. 출력은 해당 설정점에 도달하기 위한 수정입니다. 예를 들어, 위치 콘트롤러는 위치 설정값을 입력으로 사용하고, 프로세스 변수는 현재 추정된 위치이며, 출력은 차량을 목표 위치로 이동시키는 자세와 추력 설정값입니다.
 
-A **mixer** takes force commands (e.g. turn right) and translates them into individual motor commands, while ensuring that some limits are not exceeded. This translation is specific for a vehicle type and depends on various factors, such as the motor arrangements with respect to the center of gravity, or the vehicle's rotational inertia.
+**믹서**는 강제 명령(예: 우회전)을 받아 개별 모터 명령으로 변환하는 동시에, 일부 제한을 초과하지 않도록 합니다. 이 변환은 차량 유형에 따라 차이가 나며, 무게 중심에 대한 모터 배열 또는 차량의 회전 관성과 같은 다양한 요인에 의해 결정됩니다.
 
 <a id="middleware"></a>
 
-### Middleware
+### 미들웨어
 
-The [middleware](../middleware/README.md) consists primarily of device drivers for embedded sensors, communication with the external world (companion computer, GCS, etc.) and the uORB publish-subscribe message bus.
+[미들웨어](../middleware/README.md)는 주로 내장 센서, 외부 세계(보조 컴퓨터, GCS 등)와의 통신 및 uORB 게시-구독 메시지 버스용 장치 드라이버로 구성됩니다.
 
-The message update rates can be [inspected](../middleware/uorb.md#urb-top-command) in real-time on the system by running `uorb top`.
+또한 미들웨어에는 PX4 비행 코드가 데스크톱 운영 체제에서 실행되며, 시뮬레이션된 "세계"에서 컴퓨터 모델링 기체를 제어하는 [시뮬레이션 레이어](../simulation/README.md)가 포함되어 있습니다.
 
 
-## Update Rates
+## 속도 업데이트
 
-Since the modules wait for message updates, typically the drivers define how fast a module updates. Most of the IMU drivers sample the data at 1kHz, integrate it and publish with 250Hz. Other parts of the system, such as the `navigator`, don't need such a high update rate, and thus run considerably slower.
+모듈은 메시지 업데이트를 기다리므로, 일반적으로 드라이버는 모듈 업데이트 속도를 정의합니다. 대부분의 IMU 드라이버는 1kHz에서 데이터를 샘플링 및 통합하고 250Hz로 게시합니다. `내비게이터`와 같은 시스템의 다른 부분은 높은 업데이트 속도가 필요하지 않으므로, 느리게 실행됩니다.
 
-The message update rates can be [inspected](../middleware/uorb.md) in real-time on the system by running `uorb top`.
+메시지 업데이트 비율은 `uorb top`을 실행하여 시스템에서 실시간으로 [검사](../middleware/uorb.md)할 수 있습니다.
 
 <a id="runtime-environment"></a>
 
-## Runtime Environment
+## 실행 환경
 
-PX4 runs on various operating systems that provide a POSIX-API (such as Linux, macOS, NuttX or QuRT). It should also have some form of real-time scheduling (e.g. FIFO).
+PX4는 POSIX-API(Linux, macOS, NuttX 또는 QuRT 등)를 제공하는 다양한 운영 체제에서 실행됩니다. 또한, 일종의 실시간 스케줄링(예: FIFO)이 있어야 합니다.
 
-The inter-module communication (using [uORB](../middleware/uorb.md)) is based on shared memory. The whole PX4 middleware runs in a single address space, i.e. memory is shared between all modules.
+모듈간 통신([uORB](../middleware/uorb.md) 사용)은 공유 메모리를 기반으로 합니다. 전체 PX4 미들웨어는 단일 주소 공간에서 실행됩니다. 즉, 메모리는 모든 모듈 간에 공유됩니다.
 
-[NuttX](http://nuttx.org/) is the primary RTOS for running PX4 on a flight-control board.
+:::note
+시스템은 별도의 주소 공간에서 각 모듈을 간단하게 실행할 수 있도록 설계되었습니다(변경할 부분은 `uORB`, `매개변수 인터페이스`, < 0>데이터맨</code> 및 `성능`).
 :::
 
-There are 2 different ways that a module can be executed:
+모듈을 실행 방법은 두 가지가 있습니다.
 - **Tasks**: The module runs in its own task with its own stack and process priority (this is the more common way).
 - **Work queues**: The module runs on a shared task, meaning that it does not own a stack. Multiple tasks run on the same stack with a single priority per work queue.
   - All the tasks must behave co-operatively as they cannot interrupt each other.
