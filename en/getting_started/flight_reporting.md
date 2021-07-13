@@ -40,7 +40,8 @@ The [Flight Review](http://logs.px4.io) log file link can be shared for discussi
 
 The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
 
-Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters or with a file on the SD card. Details on configuration can be found in the [logging configuration documentation](../dev_log/logging.md#configuration).
+Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters or with a file on the SD card.
+Details on configuration can be found in the [logging configuration documentation](../dev_log/logging.md#configuration).
 
 ## Key Links
 
