@@ -86,7 +86,7 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
     ```
     custom_app start
     ```
-  * `set +e` 명령과 `set -e` 명령으로 명령을 선택 실행할 수 있습니다.
+  * `set +e`과 `set -e` 명령어를 사용하여 선택적으로 명령을 지정할 수 있습니다.
     ```
     set +e
     optional_app start      # Will not result in boot failure if optional_app is unknown or fails
@@ -95,20 +95,20 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
     mandatory_app start     # Will abort boot if mandatory_app is unknown or fails
     ```
 
-#### 개별 믹서 시작
+#### 커스텀 믹서 시작하기
 
-By default the system loads the mixer from `/etc/mixers`. If a file with the same name exists in `/fs/microsd/etc/mixers` this file will be loaded instead. This allows to customize the mixer file without the need to recompile the Firmware.
+기본적으로 시스템은 `/etc/mixers`에서 믹서를 로드합니다. `/fs/microsd/etc/mixers`에 같은 이름의 파일이 있는 경우에는 이 파일이 대신 로드됩니다. 이를 통하여 펌웨어를 다시 컴파일할 필요 없이, 믹서 파일을 사용자가 정의할 수 있습니다.
 
 ##### 예제
 
-The following example shows how to add a custom aux mixer:
-  * SD 카드에 믹서 내용이 들어간 `etc/mixers/gimbal.aux.mix` 파일을 만드십시오.
-  * 그 다음 이 파일을 사용하려면, 아래 내용이 들어간 `etc/config.txt` 추가 파일을 만드십시오:
+다음 예는 사용자 지정 Aux 믹서를 추가하는 방법입니다.
+  * 믹서 콘텐츠로 SD 카드에 `etc/mixers/gimbal.aux.mix` 파일을 생성합니다.
+  * 이를 사용하기 위하여, 아래의 내용으로 추가 파일 `etc/config.txt`를 생성합니다.
     ```
     set MIXER_AUX gimbal
     set PWM_AUX_OUT 1234
     set PWM_AUX_DISARMED 1500
     set PWM_AUX_MIN 1000
     set PWM_AUX_MAX 2000
-    set PWM_AUX_RATE 50
+    set PWM_AUX_RATE 50 
     ```
