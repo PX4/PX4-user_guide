@@ -12,7 +12,7 @@ PX4 아키텍처는 기체 레이아웃이 코어 콘트롤러에서 특별한 �
 
 특정 콘트롤러는 특정 정규화된 힘 또는 토크 요구(-1..+1에서 조정됨)를 믹서로 보내고, 이에 따라 개별 액추에이터를 설정합니다. 그런 다음 출력 드라이버(예: UART, UAVCAN 또는 PWM)를 액츄에이터 기본 단위로 확장합니다. PWM 값은 1300입니다.
 
-![Mixer Control Pipeline](../../assets/concepts/mermaid_mixer_control_pipeline.png)
+![믹서 콘트롤 파이프라인](../../assets/concepts/mermaid_mixer_control_pipeline.png)
 
 <!-- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIGF0dF9jdHJsW0F0dGl0dWRlIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAwW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMF1cbiAgZ2ltYmFsX2N0cmxbR2ltYmFsIENvbnRyb2xsZXJdIC0tPiBhY3RfZ3JvdXAyW0FjdHVhdG9yIENvbnRyb2wgR3JvdXAgMl1cbiAgYWN0X2dyb3VwMCAtLT4gb3V0cHV0X2dyb3VwNVtBY3R1YXRvciA1XVxuICBhY3RfZ3JvdXAwIC0tPiBvdXRwdXRfZ3JvdXA2W0FjdHVhdG9yIDZdXG4gIGFjdF9ncm91cDJbQWN0dWF0b3IgQ29udHJvbCBHcm91cCAyXSAtLT4gb3V0cHV0X2dyb3VwMFtBY3R1YXRvciA1XVxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19 --->
 
@@ -125,7 +125,7 @@ PX4는 제어 그룹(입력)과 출력 그룹을 사용합니다. 개념적으�
 
 여러 제어 그룹(비행 제어, 페이로드 등)과 여러 출력 그룹(버스)이 있기 때문에 하나의 제어 그룹이 여러 출력 그룹에 명령을 전송할 수 있습니다.
 
-![Mixer Input/Output Mapping](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
+![믹서 입출력 매핑](../../assets/concepts/mermaid_mixer_inputs_outputs.png)
 <!--- Mermaid Live Version: https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVEQ7XG4gIGFjdHVhdG9yX2dyb3VwXzAtLT5vdXRwdXRfZ3JvdXBfNVxuICBhY3R1YXRvcl9ncm91cF8wLS0-b3V0cHV0X2dyb3VwXzZcbiAgYWN0dWF0b3JfZ3JvdXBfMS0tPm91dHB1dF9ncm91cF8wIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 -->
 
 :::note
@@ -334,16 +334,16 @@ S: <angle> <arm length> <scale> <offset> <lower limit> <upper limit>
 
 `<angle>`은 도 단위이며 0도는 코 방향입니다. 위에서 보면 양의 각도가 시계 방향입니다. `<arm length>`은 10000이 1인 정규화된 길이입니다. 모든 서보 암의 길이가 같은 경우 값은 10000이어야 합니다. 암 길이가 클수록 서보 편향이 감소하고, 암이 짧을수록 서보 편향이 증가합니다.
 
-서보 출력은 `<scale> / 10000`으로 조정됩니다. 스케일링 후 `<offset>`이 적용되며, 이는 -10000에서 +10000 사이여야 합니다. `<lower limit>`과 `<upper limit>`은 전체 서보 범위에 대해 -10000 및 +10000이어야 합니다.
+서보 출력은 `<scale> / 10000`으로 조정됩니다. 스케일링 후 `<offset>`이 적용되며, 이는 -10000에서 +10000 사이의 값이어야 합니다. `<lower limit>`과 `<upper limit>`은 전체 서보 범위에 대해 -10000 및 +10000이어야 합니다.
 
-The tail rotor can be controller by adding a [summing mixer](#summing_mixer):
+테일로터는 [합산 믹서](#summing_mixer)를 추가하여 콘트롤러가 될 수 있습니다.
 ```
 M: 1
 S: 0 2  10000  10000      0 -10000  10000
 ```
-By doing so, the tail rotor setting is directly mapped to the yaw command. This works for both servo-controlled tail-rotors, as well as for tail rotors with a dedicated motor.
+이렇게 하면, 테일로터 설정이 yaw 명령에 직접 매핑됩니다. 이는 서보 제어 테일로터와 전용 모터 테일로터에 모두 적용됩니다.
 
-The [blade 130 helicopter mixer](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix) can be viewed as an example.
+[blade 130 헬리콥터 믹서](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix)를 예로 들 수 있습니다.
 ```
 H: 3
 T:      0   3000   6000   8000  10000
@@ -357,25 +357,25 @@ S:    220  13054  10000      0  -8000   8000
 M: 1
 S: 0 2  10000  10000      0 -10000  10000
 ```
-- The throttle-curve starts with a slightly steeper slope to reach 6000 (0.6) at 50% thrust.
-- It continues with a less steep slope to reach 10000 (1.0) at 100% thrust.
-- The pitch-curve is linear, but does not use the entire range.
-- At 0% throttle, the collective pitch setting is already at 500 (0.05).
-- At maximum throttle, the collective pitch is only 4500 (0.45).
-- Using higher values for this type of helicopter would stall the blades.
-- The swash-plate servos for this helicopter are located at angles of 0, 140 and 220 degrees.
-- The servo arm-lenghts are not equal.
-- The second and third servo have a longer arm, by a ratio of 1.3054 compared to the first servo.
-- The servos are limited at -8000 and 8000 because they are mechanically constrained.
+- 스로틀 곡선은 약간 더 가파른 경사에서 시작하여 50% 추력에서 6000(0.6)에 도달합니다.
+- 100% 추력에서 10000(1.0)에 도달하기 위해 덜 가파른 경사로 계속됩니다.
+- 피치 곡선은 선형이지만, 전 범위를 사용하지는 않습니다.
+- 0% 스로틀에서 집합적 피치 설정은 이미 500(0.05)입니다.
+- 최대 스로틀에서 집합 피치는 4500(0.45)에 불과합니다.
+- 이 유형의 헬리콥터에 더 높은 값을 사용하면, 블레이드가 정지됩니다.
+- 이 헬리콥터의 스와시 플레이트 서보는 0, 140 및 220도 각도에 있습니다.
+- 서보 암 길이는 같지 않습니다.
+- 두 번째 및 세 번째 서보는 첫 번째 서보에 비하여 1.3054의 비율로 더 긴 팔을 가지고 있습니다.
+- 서보는 기계적으로 구속되기 때문에 -8000 및 8000으로 제한됩니다.
 
 <a id="vtol_mixer"></a>
 
-#### VTOL Mixer
+#### VTOL 믹서
 
-VTOL systems use a [multirotor mixer](#multirotor_mixer) for the multirotor outputs, and [summing mixers](#summing_mixer) for the fixed-wing actuators (and the tilting servos in case of a tiltrotor VTOL).
+VTOL은 멀티로터 출력을 위하여 [멀티로터 믹서](#multirotor_mixer)를 사용하고, 고정익 액추에이터(틸트로터 VTOL의 경우 틸팅 서보)를 위하여 [합산 믹서](#summing_mixer)를 사용합니다.
 
-The mixer system for a VTOL vehicle can be either combined into a single mixer, where all the actuators are connected to either the IO or the FMU port, or split into separate mixer files for IO and for AUX. If separated, we recommend that all the multicopter motors are on one port, and all the servos and the fixed-wing motor on the other.
+VTOL 믹서 시스템은 모든 액추에이터가 IO 또는 FMU 포트에 연결된 단일 믹서로 결합되거나, IO와 AUX용으로 별도의 믹서 파일로 분할될 수 있습니다. 분리된 경우에는 모든 멀티콥터 모터가 한 포트에 있고, 모든 서보 및 고정익 모터가 다른 포트에 있는 것이 좋습니다.
 
-:::note
-The FMU output can only be used for multirotor motors starting from PX4 v1.11. To use the FMU output set [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU) (otherwise they are not switched off when in fixed-wing flight mode).
+:::note FMU
+출력은 PX4 v1.11부터 멀티로터 모터에만 사용할 수 있습니다. FMU 출력을 사용하려면 [VT_MC_ON_FMU=1](../advanced_config/parameter_reference.md#VT_MC_ON_FMU)을 설정합니다(그렇지 않으면 고정익 비행 모드에서 꺼지지 않음).
 :::
