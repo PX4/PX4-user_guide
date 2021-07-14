@@ -278,7 +278,7 @@
     * [비행 모드](concept/flight_modes.md)
     * [비행 작업](concept/flight_tasks.md)
     * [믹싱과 액추에이터](concept/mixing.md)
-    * [기하 파일](concept/geometry_files.md)
+    * [지오메트리 파일](concept/geometry_files.md)
     * [PWM 한계 상태 기계](concept/pwm_limit.md)
     * [시스템 시작](concept/system_startup.md)
     * [SD 카드 배치](concept/sd_card_layout.md)
