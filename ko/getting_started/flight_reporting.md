@@ -33,17 +33,7 @@ The [Flight Review](http://logs.px4.io) log file link can be shared for discussi
 
 로깅 시스템은 기본적으로 [ Flight Review ](http://logs.px4.io)와 함께 사용하기 위해 합리적인 로그를 수집하도록 구성됩니다.
 
-로깅은 [ SD 로깅 ](../advanced_config/parameter_reference.md#sd-logging) 매개 변수를 사용하여 추가로 구성할 수 있습니다. 자주 변경하는 매개 변수는 다음과 같습니다.
-
-| 매개변수                                                                     | 설명                                                                                                                  |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 로깅 모드는 로깅 시작 및 중지시기를 정의합니다. -` 0 ` : 무장 해제 될 때까지 무장시 기록 (기본값). - ` 1 ` : 부팅 시점부터 disarm. - ` 2 ` : 부팅부터 종료까지 기록합니다. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | 로깅 프로파일. 이를 사용하여 덜 일반적인 로깅/분석을 활성화합니다 (예 : EKF2 재생, PID 및 필터 튜닝을위한 고속 로깅, 열 온도 교정).                                 |
-| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | 아주 작은 추가 "미션 로그"를 생성합니다. 이 로그는 * Flight Review *와 함께 사용할 수 * 없습니다 *.하지만 지오 태깅 또는 규정 준수를 위해 작은 로그가 필요할 때 유용합니다.      |
-
-:::note
-* 개발자 *는 [ logger ](../modules/modules_system.md#logger) 모듈을 통해 기록되는 정보를 추가로 구성 할 수 있습니다 (예 : 자신의 주제를 기록하려는 경우 이를 사용합니다). 자세한 정보는 [로그 작성](../dev_log/logging.md)을 참고하십시오.
-:::
+Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters or with a file on the SD card. Details on configuration can be found in the [logging configuration documentation](../dev_log/logging.md#configuration).
 
 ## 주요 링크
 
