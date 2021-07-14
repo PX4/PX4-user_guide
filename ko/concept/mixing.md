@@ -282,14 +282,14 @@ Z:
 
 #### 멀티콥터 믹서
 
-The multirotor mixer combines four control inputs (roll, pitch, yaw, thrust) into a set of actuator outputs intended to drive motor speed controllers.
+멀티로터 믹서는 4개의 제어 입력(롤, 피치, 요, 추력)을 모터 속도 콘트롤러를 구동하기 위하여 액추에이터 출력 세트로 결합합니다.
 
-The mixer definition is a single line of the form:
+믹서 정의는 다음 형식의 한 줄입니다.
 ```
 R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 ```
 
-The supported geometries include:
+지원되는 형상은 다음과 같습니다.
 
 * 4x - quadrotor in X configuration
 * 4+ - quadrotor in + configuration
