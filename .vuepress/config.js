@@ -171,7 +171,7 @@ module.exports = {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: '/' },
+              { text: 'master', link: 'https://docs.px4.io/master/en/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/en/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
@@ -255,7 +255,7 @@ module.exports = {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: '/' },
+              { text: 'master', link: 'https://docs.px4.io/master/ko/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/ko/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
@@ -331,7 +331,7 @@ module.exports = {
             text: 'Version',
             ariaLabel: 'Versions Menu',
             items: [
-              { text: 'master', link: '/' },
+              { text: 'master', link: 'https://docs.px4.io/master/zh/' },
               { text: 'v1.12', link: 'https://docs.px4.io/v1.12/zh/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
               { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
