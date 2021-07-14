@@ -4,31 +4,31 @@
 
 ## 신규 지오메트리 추가 방법
 
-1. Create new TOML geometry file (e.g. "foo.toml") in [/src/lib/mixer/MultirotorMixer/geometries](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/mixer/MultirotorMixer/geometries). The file must include a new **key** (e.g.: `key = "4fo"`). See [Geometry File Format](#geometry-file-format) for information on the required fields.
-1. Add the geometry file to [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/CMakeLists.txt).
-1. Create a new [mixer file](../concept/mixing.md) that uses the new geometry. For example you might create **ROMFS/px4fmu_common/mixers/foo.main.mix** with a line containing the new key (in this case `4fo`):
+1. [/src/lib/mixer/MultirotorMixer/geometry](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/mixer/MultirotorMixer/geometries)에 새 TOML 지오메트리 파일(예: "foo.toml")을 생성합니다. 파일에는 새로운 **키**가 포함되어야 합니다(예: `key = "4fo"`). 필수 필드에 대한 정보는 [기하학 파일 형식](#geometry-file-format)을 참고하십시오.
+1. [/src/lib/mixer/MultirotorMixer/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/CMakeLists.txt)에 지오메트리 파일을 추가합니다.
+1. 새 지오메트리를 사용하는 새로운 [믹서 파일](../concept/mixing.md)을 생성합니다. 예를 들어 새로운 키(이 경우 `4fo`)가 포함된 행으로 **ROMFS/px4fmu_common/mixers/foo.main.mix**를 만들 수 있습니다.
    ```
    R 4fo
    ```
-1. Set the new mixer in your [airframe configuration](../dev_airframes/adding_a_new_frame.md#add-new-airframe-to-qgroundcontrol) (e.g. **init.d/airframes/myconfig**)
+1. [기체 설정](../dev_airframes/adding_a_new_frame.md#add-new-airframe-to-qgroundcontrol)에서 새 믹서를 설정합니다(예: **init.d/airframes/myconfig**).
    ```
    set MIXER foo
    ```
 
-## Geometry File Format
+## 지오메트리 파일 형식
 
-Geometry files are plain-text files that are divided into sections deliniated by the headers: `[info]`, `[rotor_default]`, and `[[rotor]]` (there is a `[[rotor]]` section for each rotor in the geometry).
+지오메트리 파일은 `[info]`, `[rotor_default]` 및 `[[rotor]]` 헤더로 구분되는 섹션으로 구분되는 일반 텍스트 파일입니다(지오메트리의 각 로터에 대한 `[[rotor]]` 섹션이 있음).
 
-The fields allowed in each section are listed below (as defined in the [px_generate_mixers.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tools/px_generate_mixers.py) script).
+각 섹션에서 허용되는 필드는 아래에 나열되어 있습니다([px_generate_mixers.py](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tools/px_generate_mixers.py) 스크립트에 정의됨).
 
 
 ### [info] section
 
-The `[info]` section identifies the files for readers and for PX4.
+`[info]` 섹션은 리더 및 PX4용 파일을 식별합니다.
 
-It must define values for:
-- **key:** An arbitrary identifier to allow the file to be distinguished from other geometry files. By convention the key is usually the number of rotors followed by one or two letters (these letters _may_ hint at the configuration). For example: "4hb"
-- **description:** A human readable description of the configuration described by the geometry file. For example: "Generic Quadcopter in H configuration"
+다음 값들을 정의하여야 합니다.
+- **key:** 파일이 다른 기하 도형 파일과 구별될 수 있도록 하는 임의의 식별자입니다. 관례에 따라 키는 일반적으로 로터의 수와 그 뒤에 하나 또는 두 개의 문자가 있습니다(이 문자는 설정을 암시할 수 _있습니다_). 예: "4hb"
+- **description:** 지오메트리 파일에 설정에 대하여 사람이 읽을 수 있는 설명입니다. 예: "H 구성의 일반 쿼드콥터"
 
 
 
