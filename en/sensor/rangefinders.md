@@ -159,8 +159,7 @@ You can see how in the respective Iris and Typhoon configuration files:
       </axis>
     </joint>
    ```
-- [typhoon_h480.sdf](
-https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144)
+- [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145)
   ```xml
     <include>
       <uri>model://sonar</uri>
