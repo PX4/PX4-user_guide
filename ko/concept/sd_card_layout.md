@@ -18,4 +18,4 @@ PX4에서는 SD 카드에 구성 파일, 비행 로그, 임무 정보 등을 저
 | `/params`                     | 매개변수들 (FRAM/FLASH에 없을 경우)                                                                                 |
 | `/dataman`                    | 임무 저장 파일                                                                                                  |
 | `/fault_<datetime>.txt` | 하드폴트 파일                                                                                                   |
-| `/bootlog.txt`                | 부팅 기록 파일                                                                                                  |
+| `/bootlog.txt`                | 부팅 로그 파일                                                                                                  |
