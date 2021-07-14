@@ -1,23 +1,23 @@
 # 시스템 시작
 
-PX4 시작은 쉘 스크립트로 제어합니다. NuttX에서 쉘 스크립트는 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 있습니다. 일부 POSIX 계열(Linux/MacOS) 운영체제도 동일합니다. POSIX 전용 스크립트는 [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix)에 위치합니다.
+PX4 시작은 쉘 스크립트에 의해 제어됩니다. NuttX에서는 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 있습니다. 이 중 일부는 Posix(Linux/MacOS)에서도 사용됩니다. POSIX 전용 스크립트는 [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix)에 있습니다.
 
-숫자와 밑줄 문자로 시작하는 모든 파일(예: `00000_airplane`)은 사전 정의 기체 프레임 설정 파일입니다. 설정 값은 빌드 타임에 [QGroundControl](http://qgroundcontrol.com)에서 해석할 `airframes.xml` 파일로 내보내고 기체 선택 UI에 활용합니다. 새 설정 추가는 [여기](../dev_airframes/adding_a_new_frame.md)에서 다룹니다.
+숫자와 밑줄로 시작하는 모든 파일(예: `10000_airplane`)은 기체 설정을 미리 정의합니다. 빌드시 기체 선택 UI에 대해 [QGroundControl](http://qgroundcontrol.com)에 의해 구문 분석되는 `airframes.xml` 파일로 내보내집니다. 새로운 구성을 추가하는 방법은 [여기](../dev_airframes/adding_a_new_frame.md)를 참고하십시오.
 
-남아있는 파일은 공통 시작 로직의 일부입니다. 첫 실행 파일은 다른 모든 스크립트를 호출하는 [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS) 스크립트 (또는 POSIX에서 [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS))입니다.
+나머지 파일은 공통 시작 로직의 일부입니다. 첫 번째 실행 파일은 다른 모든 스크립트를 호출하는 [init.d/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS) 스크립트(또는 Posix의 경우 [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS))입니다.
 
-다음의 섹션은 PX4가 실행되는 운영체제에 따라 구분되어 있습니다.
+다음 섹션은 PX4가 실행되는 운영 체제에 따라 달라집니다.
 
 
 ## POSIX (Linux/MacOS)
 
-POSIX에서는 시스템 셸을 셸 인터프리터로 사용합니다 (예. /bin/sh는 우분투에서 대시로 심볼릭링크함) 동작하기 위한 몇가지 조건들이 있습니다.
-- PX4 모듈은 시스템에서 개별적으로 실행할 수 있어야합니다. 이 동작은 심볼릭 링크로 처리합니다. 빌드 폴더의 `bin` 디렉터리에 각 모듈의 `px4-<module> -> px4` 심볼릭 링크를 만듭니다. 이 심볼릭 링크를 실행하면 바이너리 경로를 확인(`argv[0]`) 하고, 모듈로 판명이 나면 (`px4-`), PX4 주 인스턴스로 명령을 보냅니다(하단 참조).
+Posix에서 시스템 셸은 스크립트 인터프리터로 사용됩니다(예: /bin/sh, Ubuntu에서 dash에 심볼릭 링크됨). 동작하기 위한 몇가지 조건이 있습니다.
+- PX4 모듈은 시스템에서 개별적으로 실행할 수 있어야합니다. 이 동작은 심볼릭 링크로 처리합니다. 각 모듈에 대해 심볼릭 링크 `px4-<module> -> px4`는 빌드 폴더의 `bin` 디렉토리에 생성됩니다. 실행시 바이너리 경로를 확인(`argv[0]`)하며, 모듈인 경우(`px4-`로 시작)에는 메인 px4 인스턴스(아래 참조)에 명령을 전송합니다.
 
 :::tip
-The `px4-` prefix is used to avoid conflicts with system commands (e.g. `shutdown`), and it also allows for simple tab completion by typing `px4-<TAB>`.
+`px4-` 접두사는 시스템 명령(예: `shutdown`)과의 충돌을 피하기 위해 사용되며, `px4-<TAB>`를 입력하여 간단한 탭 완성을 사용할 수 있습니다.
 :::
-- 쉘은 심볼릭 링크를 찾을 위치를 알아야합니다. 이 때문에 시동 스크립트를 실행하기 전 심볼릭 링크가 들어있는 `bin` 디렉터리를 `PATH` 환경 변수에 추가합니다.
+- 쉘은 심볼릭 링크를 찾을 위치를 알고 있어야 합니다. 이 때문에 시동 스크립트를 실행하기 전 심볼릭 링크가 들어있는 `bin` 디렉터리를 `PATH` 환경 변수에 추가합니다.
 - 셸에서는 각 모듈을 새 (클라이언트) 프로세스로 시작합니다. 각 클라이언트 프로세스는 PX4(서버)의 주 인스턴스와 통신해야 하는데, 실제 모듈은 스레드로 실행합니다. 이 일련의 과정은 [UNIX 소켓](http://man7.org/linux/man-pages/man7/unix.7.html)으로 처리합니다. 서버는 클라이언트가 연결하고 명령을 보낼 수 있는 소켓으로 수신 대기합니다. 그 다음 서버에서는 출력을 내보내고 클라이언트에 코드를 반환합니다.
 - 시동 스크립트는 `px4-` 접두어를 쓰지 않고 `commander start` 명령처럼 모듈을 직접 호출합니다. 이 과정은 alias로 진행합니다. `bin/px4-alias.sh` 파일 실행시 각 모듈에 대해 `alias <module>=px4-<module>` 모듈과 같은 모양새로 별칭을 만듭니다.
 - `rcS` 스크립트는 PX4 주 인스턴스에서 실행합니다. 어떤 모듈도 시작하지 않지만 `PATH` 환경 변수를 처음 업데이트하고 셸 상에서 단순하게 `rcS`  파일을 인자로 간주하여 실행합니다.
