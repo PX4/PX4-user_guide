@@ -188,11 +188,11 @@ mixer load /dev/pwm_output0 /fs/microsd/etc/mixers/test_mixer.mix
 
 믹서 파일은 하나 이상의 믹서 정의, 즉 입력과 출력간의 매핑 정의 텍스트 파일입니다.
 
-There are four types of mixers definitions: [multirotor mixer](#multirotor_mixer), [helicopter mixer](#helicopter_mixer), [summing mixer](#summing_mixer), and [null mixer](#null_mixer).
-- [Multirotor mixer](#multirotor_mixer) - Defines outputs for 4, 6, or 8 rotor vehicles with + or X geometry.
-- [Helicopter mixer](#helicopter_mixer) - Defines outputs for helicopter swash-plate servos and main motor ESCs (the tail-rotor is a separate [summing mixer](#summing_mixer).)
-- A simple mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.
-- [Null mixer](#null_mixer) - Generates a single actuator output that has zero output (when not in failsafe mode).
+믹서 정의에는 [멀티로터 믹서](#multirotor_mixer), [헬리콥터 믹서](#helicopter_mixer), [서밍 믹서](#summing_mixer) 및 [널 믹서](#null_mixer)의 네 가지 유형이 있습니다.
+- [멀티로터 믹서](#multirotor_mixer) - + 또는 X 지오메트리가 있는 4, 6 또는 8 로터 차량의 출력을 정의합니다.
+- [헬리콥터 믹서](#helicopter_mixer) - 헬리콥터 스와시 플레이트 서보 및 메인 모터 ESC의 출력을 정의합니다. (테일로터는 별도의 [서밍 믹서](#summing_mixer)입니다.)
+- [합산 믹서](#summing_mixer) - 0개 이상의 제어 입력을 단일 액추에이터 출력으로 결합합니다. 입력이 조정되고 혼합 기능이 출력 스케일러를 적용하기 전에 결과를 합산합니다.
+- [널 믹서](#null_mixer) - 출력이 0인 단일 액추에이터 출력을 생성합니다(안전 장치 모드가 아닐 때).
 
 :::tip
 Use *multirotor* and *helicopter mixers* for the respective types, the *summing mixer* for servos and actuator controls, and the *null mixer* for creating outputs that must be zero during normal use (e.g. a parachute has 0 normally, but might have a particular value during failsafe). A [VTOL Mixer](#vtol_mixer) combines the other mixer types.
