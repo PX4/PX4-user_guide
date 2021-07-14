@@ -54,33 +54,35 @@ NuttX에는 통합된 쉘 인터프리터([NuttShell(NSH)](https://cwiki.apache.
 
 ### 시스템 시작 변경
 
-대부분의 경우 기본 부팅을 사용자 지정하는 것이 더 나은 접근 방식이며, 아래에서 자세하게 설명합니다. 전체 부팅을 변경 하는 경우 microSD 카드의 `etc` 폴더에 `/fs/microsd/etc/rc.txt` 파일을 생성합니다. 이 파일이 시스템에 없다면 자동으로 시작합니다.
+대부분의 경우 기본 부팅을 사용자 지정하는 것이 더 나은 접근 방식이며, 아래에서 자세하게 설명합니다. 전체 부팅을 변경 하는 경우 microSD 카드의 `etc` 폴더에 `/fs/microsd/etc/rc.txt` 파일을 생성합니다. 이 파일이 없으면, 시스템에서는 아무 것도 자동으로 시작되지 않습니다.
 
-### 시스템 시동 개별 설정
+### 시스템 시작 사용자 정의
 
-시스템 시동 스크립트를 개별 설정하는 최상의 방법은 [새 기체프레임 설정](../dev_airframes/adding_a_new_frame.md)을 도입하는 방법입니다. 약간의 수정만이 필요하다면(프로그램을 하나 이상 시작하거나 다른 믹서를 사용하는 경우) 시동 과정에 특별한 훅을 활용할 수 있습니다.
+시스템 시작을 사용자가 정의하는 가장 좋은 방법은 [새로운 기체 구성](../dev_airframes/adding_a_new_frame.md)을 도입하는 것입니다. 약간의 변경만 하는 경우(예: 하나 이상의 응용 프로그램을 시작하거나 다른 믹서를 사용하는 경우)에는 시작시 특수 후크를 사용할 수 있습니다.
 
-세가지 주요 훅이 있습니다. 참고로 마이크로 SD 카드의 루트 폴더는 `/fs/microsd` 경로로 나타냅니다.
+:::warning
+시스템 부트 파일은 UNIX LINE ENDINGS가 필요한 UNIX FILES입니다. Windows에서 편집하는 경우 적절한 편집기를 사용하여야 합니다.
 :::
 
-`config.txt` 파일은 셸 변수 값을 바꿀때 활용할 수 있습니다. 부팅하기 *전에 * 주 시스템을 구성할 때 불러옵니다.
+세 가지 주요 후크가 있습니다. microsd 카드의 루트 폴더는 `/fs/microsd` 경로로 식별됩니다.
 
 * /fs/microsd/etc/config.txt
 * /fs/microsd/etc/extras.txt
 * /fs/microsd/etc/mixers/NAME_OF_MIXER
 
-#### 개별 구성 (config.txt)
+#### 구성 사용자 정의(config.txt)
 
-`extras.txt` 파일은 주 시스템 부팅 실행 후 프로그램을 추가로 시작할 때 활용할 수 있습니다. 보통 추가로 시작하는 프로그램은 적재 장치 제어 프로그램이거나, 이와 유사한 추가 개별 요소일 수 있습니다.
+`config.txt` 파일을 사용하여 쉘 변수를 수정할 수 있습니다. 기본 시스템이 구성후나 부팅 *전에* 로드됩니다.
 
-#### 추가 프로그램 시작
+#### 추가 응용 프로그램 시작
 
-The `extras.txt` can be used to start additional applications after the main system boot. Typically these would be payload controllers or similar optional custom components.
+`extras.txt`는 기본 시스템 부팅 후에, 추가로 애플리케이션을 시작할 수 있습니다. 일반적으로, 페이로드 콘트롤러나 유사한 선택적 사용자 지정 구성 요소들입니다.
 
-기본적으로 시스템은 `/etc/mixers`에서 믹서를 불러옵니다. `/fs/microsd/etc/mixers`에 동일한 이름이 들어간 파일이 있다면, 이 파일을 대신 불러옵니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
+:::warning
+시스템 부팅 파일에서 잘못된 명령을 실행하면, 부팅이 실패할 수 있습니다. 일반적으로 시스템은 부팅 실패 후 mavlink 메시지를 스트리밍하지 않습니다. 이 경우 시스템 콘솔에 인쇄된 오류 메시지를 확인하여야 합니다. 이 방식으로 펌웨어를 다시 컴파일하지 않고 믹서 파일을 개별 설정할 수 있습니다.
 
-다음 예제에서 개별 AUX 믹서를 추가하는 방법을 보여줍니다:
-  * SD 카드에 다음의 내용을 넣어 `etc/extras.txt` 파일을 만드십시오:
+다음 예는 사용자 정의 애플리케이션 시작 방법을 설명합니다.
+  * 다음 내용으로 SD 카드 `etc/extras.txt`에 파일을 생성합니다.
     ```
     custom_app start
     ```
