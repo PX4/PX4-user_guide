@@ -867,6 +867,21 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="BAT_A_PER_V">BAT_A_PER_V</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_A_PER_V    </td>
+ <td></td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_CAPACITY">BAT_CAPACITY</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_CAPACITY instead <p><strong>Comment:</strong> Defines the capacity of battery 1.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1.0 > 100000 (50)</td>
+ <td>-1.0</td>
+ <td>mAh</td>
+</tr>
+<tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -889,6 +904,98 @@ table {
  <td>0.12 > 0.5 (0.01)</td>
  <td>0.15</td>
  <td>norm</td>
+</tr>
+<tr>
+ <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
+ <td>This parameter is deprecated. Please use BAT1_N_CELLS instead <p><strong>Comment:</strong> Defines the number of cells the attached battery consists of.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unconfigured</li> 
+
+<li><strong>2:</strong> 2S Battery</li> 
+
+<li><strong>3:</strong> 3S Battery</li> 
+
+<li><strong>4:</strong> 4S Battery</li> 
+
+<li><strong>5:</strong> 5S Battery</li> 
+
+<li><strong>6:</strong> 6S Battery</li> 
+
+<li><strong>7:</strong> 7S Battery</li> 
+
+<li><strong>8:</strong> 8S Battery</li> 
+
+<li><strong>9:</strong> 9S Battery</li> 
+
+<li><strong>10:</strong> 10S Battery</li> 
+
+<li><strong>11:</strong> 11S Battery</li> 
+
+<li><strong>12:</strong> 12S Battery</li> 
+
+<li><strong>13:</strong> 13S Battery</li> 
+
+<li><strong>14:</strong> 14S Battery</li> 
+
+<li><strong>15:</strong> 15S Battery</li> 
+
+<li><strong>16:</strong> 16S Battery</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td>S</td>
+</tr>
+<tr>
+ <td><strong id="BAT_R_INTERNAL">BAT_R_INTERNAL</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_R_INTERNAL instead <p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>-1.0 > 0.2 </td>
+ <td>-1.0</td>
+ <td>Ohm</td>
+</tr>
+<tr>
+ <td><strong id="BAT_SOURCE">BAT_SOURCE</strong> (INT32)</td>
+ <td>This parameter is deprecated. Please use BAT1_SOURCE instead <p><strong>Comment:</strong> Battery monitoring source. This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Power Module</li> 
+
+<li><strong>1:</strong> External</li> 
+</ul>
+  </td>
+ <td>0 > 1 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>(0.01)</td>
+ <td>4.05</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_DIV">BAT_V_DIV</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_DIV    </td>
+ <td></td>
+ <td>-1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead <p><strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>(0.01)</td>
+ <td>3.5</td>
+ <td>V</td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead <p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0.07 > 0.5 (0.01)</td>
+ <td>0.3</td>
+ <td>V</td>
 </tr>
 <tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
@@ -2938,16 +3045,16 @@ table {
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_X">EKF2_BCOEF_X</strong> (FLOAT)</td>
- <td>X-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the forward/reverse axis when flying a multi-copter which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_X paraemter should be set initially to the ratio of mass / projected frontal area and adjusted together with EKF2_MCOEF to minimise variance of the X-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. Set this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
- <td>0.0 > 200.0 </td>
- <td>100.0</td>
+ <td>X-axis ballistic coefficient used by the multi-rotor specific drag force model <p><strong>Comment:</strong> This should be adjusted to minimise variance of the X-axis drag specific force innovation sequence.</p>   </td>
+ <td>1.0 > 100.0 </td>
+ <td>25.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
  <td><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
- <td>Y-axis ballistic coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by bluff body drag along the right/left axis when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The EKF2_BCOEF_Y paraemter should be set initially to the ratio of mass / projected side area and adjusted together with EKF2_MCOEF to minimise variance of the Y-axis drag specific force innovation sequence. The drag produced by this effect scales with speed squared. et this parameter to zero to turn off the bluff body drag model for this axis. The predicted drag from the rotors is specified separately by the EKF2_MCOEF parameter.</p>   </td>
- <td>0.0 > 200.0 </td>
- <td>100.0</td>
+ <td>Y-axis ballistic coefficient used by the multi-rotor specific drag force model <p><strong>Comment:</strong> This should be adjusted to minimise variance of the Y-axis drag specific force innovation sequence.</p>   </td>
+ <td>1.0 > 100.0 </td>
+ <td>25.0</td>
  <td>kg/m^2</td>
 </tr>
 <tr>
@@ -3321,13 +3428,6 @@ table {
  <td>0.0 > 1.0 </td>
  <td>0.25</td>
  <td>rad/s</td>
-</tr>
-<tr>
- <td><strong id="EKF2_MCOEF">EKF2_MCOEF</strong> (FLOAT)</td>
- <td>propeller momentum drag coefficient used for multi-rotor wind estimation <p><strong>Comment:</strong> This parameter controls the prediction of drag produced by the propellers when flying a multi-copter, which enables estimation of wind drift when enabled by the EKF2_AID_MASK parameter. The drag produced by this effect scales with speed not speed squared and is produced because some of the air velocity normal to the propeller axis of rotation is lost when passing through the rotor disc. This  changes the momentum of the flow which creates a drag reaction force. When comparing un-ducted propellers of the same diameter, the effect is roughly proportional to the area of the propeller blades when viewed side on and changes with propeller selection. Momentum drag is significantly higher for ducted rotors. For example, if flying at 10 m/s at sea level conditions produces a rotor induced drag deceleration of 1.5 m/s/s when the multi-copter levelled to zero roll/pitch, then EKF2_MCOEF would be set to 0.15 = (1.5/10.0). Set EKF2_MCOEF to a positive value to enable wind estimation using this drag effect. To account for the drag produced by the body which scales with speed squared, see documentation for the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters. The EKF2_MCOEF parameter should be adjusted together with EKF2_BCOEF_X and EKF2_BCOEF_Y to minimise variance of the X and y axis drag specific force innovation sequences.</p>   </td>
- <td>0 > 1.0 </td>
- <td>0.15</td>
- <td>1/s</td>
 </tr>
 <tr>
  <td><strong id="EKF2_MIN_OBS_DT">EKF2_MIN_OBS_DT</strong> (INT32)</td>
@@ -13580,29 +13680,6 @@ table {
  </thead>
 <tbody>
 <tr>
- <td><strong id="BAT1_C_MULT">BAT1_C_MULT</strong> (FLOAT)</td>
- <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
-</td>
- <td></td>
- <td>1.0</td>
- <td></td>
-</tr>
-<tr>
- <td><strong id="BAT1_SMBUS_MODEL">BAT1_SMBUS_MODEL</strong> (INT32)</td>
- <td>Battery device model  <strong>Values:</strong><ul>
-<li><strong>0:</strong> AutoDetect</li> 
-
-<li><strong>1:</strong> BQ40Z50 based</li> 
-
-<li><strong>2:</strong> BQ40Z80 based</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td>0 > 2 </td>
- <td>0</td>
- <td></td>
-</tr>
-<tr>
  <td><strong id="BATMON_ADDR_DFLT">BATMON_ADDR_DFLT</strong> (INT32)</td>
  <td>I2C address for BatMon battery 1    <p><b>Reboot required:</b> true</p>
 </td>
@@ -13618,6 +13695,29 @@ table {
 <li><strong>1:</strong> Start on default I2C addr(BATMON_ADDR_DFLT)</li> 
 
 <li><strong>2:</strong> Autodetect I2C address (TODO)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td>0 > 2 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_C_MULT">BAT_C_MULT</strong> (FLOAT)</td>
+ <td>Capacity/current multiplier for high-current capable SMBUS battery    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>1.0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_SMBUS_MODEL">BAT_SMBUS_MODEL</strong> (INT32)</td>
+ <td>Battery device model  <strong>Values:</strong><ul>
+<li><strong>0:</strong> AutoDetect</li> 
+
+<li><strong>1:</strong> BQ40Z50 based</li> 
+
+<li><strong>2:</strong> BQ40Z80 based</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13642,7 +13742,7 @@ table {
 <tr>
  <td><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
  <td>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation    </td>
- <td>1.5 > 100 </td>
+ <td>0.1 > 100 </td>
  <td>1.5</td>
  <td>mm</td>
 </tr>
@@ -13729,8 +13829,6 @@ table {
  <td>IMU gyro FFT length  <strong>Values:</strong><ul>
 <li><strong>256:</strong> 256</li> 
 
-<li><strong>512:</strong> 512</li> 
-
 <li><strong>1024:</strong> 1024</li> 
 
 <li><strong>4096:</strong> 4096</li> 
@@ -13738,7 +13836,7 @@ table {
   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
- <td>512</td>
+ <td>1024</td>
  <td>Hz</td>
 </tr>
 <tr>
@@ -17805,69 +17903,69 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_ACTR_PUB">UCAN1_ACTR_PUB</strong> (INT32)</td>
- <td>actuator_outputs uORB over UAVCAN v1 publication port ID    </td>
+ <td>actuator_outputs uORB over UAVCAN v1 port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_BP_SUB">UCAN1_BMS_BP_SUB</strong> (INT32)</td>
- <td>DS-015 battery parameters subscription  port ID    </td>
+ <td><strong id="UCAN1_BMS_BP_PID">UCAN1_BMS_BP_PID</strong> (INT32)</td>
+ <td>DS-015 battery parameters port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_BS_SUB">UCAN1_BMS_BS_SUB</strong> (INT32)</td>
- <td>DS-015 battery status subscription port ID    </td>
+ <td><strong id="UCAN1_BMS_BS_PID">UCAN1_BMS_BS_PID</strong> (INT32)</td>
+ <td>DS-015 battery status port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_BMS_ES_SUB">UCAN1_BMS_ES_SUB</strong> (INT32)</td>
- <td>DS-015 battery energy source subscription port ID    </td>
+ <td><strong id="UCAN1_BMS_ES_PID">UCAN1_BMS_ES_PID</strong> (INT32)</td>
+ <td>DS-015 battery energy source port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_ESC0_SUB">UCAN1_ESC0_SUB</strong> (INT32)</td>
- <td>ESC 0 subscription port ID    </td>
+ <td><strong id="UCAN1_ESC0_PID">UCAN1_ESC0_PID</strong> (INT32)</td>
+ <td>ESC0 port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_ESC_PUB">UCAN1_ESC_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 ESC publication port ID    </td>
+ <td>UAVCAN v1 ESC port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_GPS0_SUB">UCAN1_GPS0_SUB</strong> (INT32)</td>
- <td>GPS 0 subscription port ID    </td>
+ <td><strong id="UCAN1_GPS0_PID">UCAN1_GPS0_PID</strong> (INT32)</td>
+ <td>GPS 0 port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_GPS1_SUB">UCAN1_GPS1_SUB</strong> (INT32)</td>
- <td>GPS 1 subscription port ID    </td>
+ <td><strong id="UCAN1_GPS1_PID">UCAN1_GPS1_PID</strong> (INT32)</td>
+ <td>GPS 1 port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_GPS_PUB">UCAN1_GPS_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 GPS publication port ID    </td>
+ <td>UAVCAN v1 GPS port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
- <td><strong id="UCAN1_LG_BMS_SUB">UCAN1_LG_BMS_SUB</strong> (INT32)</td>
+ <td><strong id="UCAN1_LG_BMS_PID">UCAN1_LG_BMS_PID</strong> (INT32)</td>
  <td>UAVCAN v1 leagcy battery port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
@@ -17875,14 +17973,14 @@ table {
 </tr>
 <tr>
  <td><strong id="UCAN1_SERVO_PUB">UCAN1_SERVO_PUB</strong> (INT32)</td>
- <td>UAVCAN v1 Servo publication port ID    </td>
+ <td>UAVCAN v1 Servo port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="UCAN1_UORB_GPS">UCAN1_UORB_GPS</strong> (INT32)</td>
- <td>sensor_gps uORB over UAVCAN v1 subscription port ID    </td>
+ <td>sensor_gps uORB over UAVCAN v1 port ID    </td>
  <td>-1 > 6143 </td>
  <td>-1</td>
  <td></td>

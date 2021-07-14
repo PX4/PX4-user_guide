@@ -86,7 +86,7 @@ module.exports = {
     }
   },
   themeConfig: {
-    px4_version: 'master',
+    px4_version: 'v1.12',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
     logo: '/px4-logo.svg',
     searchMaxSuggestions: 10,
