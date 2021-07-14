@@ -34,15 +34,15 @@
 
 ### [rotor_default]
 
-The `[rotor_default]` section specifies default values will be applied to a rotor if the corresponding key is not provided in the `[[rotor]]` definition. For example, the rotation direction might be defined for every rotor, or a default might be specified in th
+`[rotor_default]` 섹션은 해당 키가 `[[rotor]]` 정의에 제공되지 않은 경우에는 로터에 기본값이 적용되도록 지정합니다. 예를 들어, 회전 방향은 모든 로터에 대해 정의되거나 기본값이 지정될 수 있습니다.
 
-The allowed keys are described in the `[[rotor]]` section below (noting that it doesn't make sense to define a default value for a key like *name* that is unique to each rotor).
+허용되는 키는 아래 `[[rotor]]` 섹션에 설명되어 있습니다(고유한 *name*과 같은 키에 대한 기본값을 정의하는 것은 의미가 없습니다.
 
 ### [[rotor]]
 
-Each `[rotor]` section describes the geometry values for a rotor. Default values may be supplied in `[rotor_default]` (the values in the rotor section take precedence).
+각 `[rotor]` 섹션은 로터의 지오메트리 값을 설명합니다. 기본값은 `[rotor_default]`에 제공될 수 있습니다(로터 섹션의 값이 우선함).
 
-The allowed keys are:
+허용되는 키는 다음과 같습니다.
 - **name:** Human-readable name for the rotor. For example: "front_right_top"
 - **position:** A vector describing the location of the rotor relative to the vehicle centre of gravity in the body frame (Forward-Right-Down). This can be any units (e.g. metres, fathoms, whatever) because the mixer is normalised (only only the ratio between the distances is really important).
 - **axis:** A vector in the in the body frame (Forward-Right-Down) describing the direction of the thrust produced by the rotor. For example `[1.0, 0.0, -1.0]` means that the rotor produces upward and forward thrust equally (i.e.: angle of 45 degrees).
