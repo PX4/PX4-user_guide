@@ -107,7 +107,7 @@ UAV 용 원격 제어 장치의 가장 인기있는 *유형은*은 아래와 같
 
 무선 시스템을 보정하여 사용하기 전에 수신기와 송신기를 * 바인딩 *하여 상호간에만 통신하도록 설정합니다. 송신기와 수신기 쌍을 바인딩하는 프로세스는 하드웨어에 따라 다릅니다 (지침은 설명서 참조).
 
-* Spektrum * 수신기를 사용하는 경우 * QGroundControl * : [ Radio Setup> Spectrum Bind ](../config/radio.md#spektrum_bind)를 사용하여 바인딩 모드로 전환 할 수 있습니다.
+* Spektrum * 수신기를 사용하는 경우 *QGroundControl* : [라디오 설정 &gt; 스펙트럼 바인딩](../config/radio.md#spektrum_bind)을 사용하여 바인딩 모드로 전환할 수 있습니다.
 
 ## 신호 손실 동작 설정
 
@@ -124,4 +124,4 @@ RC가 손실되었을 때 아무것도 방출하지 않는 수신기를 대부�
 ## 관련 주제
 
 * [ 무전기 설정 ](../config/radio.md) - PX4 무전기 조립법
-* [비행 첫걸음](../flying/basic_flying.md) - RC로 비행하는 법을 배웁니다.
+* [비행 첫걸음](../flying/basic_flying.md) - RC로 비행 방법을 설명합니다.
