@@ -744,7 +744,7 @@ The recommended airframe setups are given below. When setting up your radio, che
 should tilt to the left side and vice-versa, when the tricopter is viewed from the back.
 
 <div>
-<img src="../../assets/airframes/types/YPlus_alt.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/YPlus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -773,7 +773,7 @@ should tilt to the left side and vice-versa, when the tricopter is viewed from t
 ### Tricopter Y-
 
 <div>
-<img src="../../assets/airframes/types/YMinus_alt.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/YMinus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
