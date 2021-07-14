@@ -291,50 +291,50 @@ R: <geometry> <roll scale> <pitch scale> <yaw scale> <idlespeed>
 
 지원되는 형상은 다음과 같습니다.
 
-* 4x - quadrotor in X configuration
-* 4+ - quadrotor in + configuration
-* 6x - hexacopter in X configuration
-* 6+ - hexacopter in + configuration
-* 8x - octocopter in X configuration
-* 8+ - octocopter in + configuration
+* 4x - X 구성의 쿼드로터
+* 4+ - + 구성의 쿼드로터
+* 6x - X 구성의 헥사콥터
+* 6+ - + 구성의 헥사콥터
+* 8x - X 구성의 옥토콥터
+* 8+ - + 구성의 옥토콥터
 
-Each of the roll, pitch and yaw scale values determine scaling of the roll, pitch and yaw controls relative to the thrust control. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an factor of 0.5 is encoded as 5000.
+각각의 롤, 피치 및 요 스케일 값은 추력 제어와 관련된 롤, 피치 및 요 제어의 스케일링을 결정합니다. 계산은 부동 소수점 연산으로 수행되지만, 정의 파일에 저장된 값은 10000의 비율로 조정됩니다. 즉, 0.5의 인수는 5000으로 인코딩됩니다.
 
-Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the thrust input ranges from 0.0 to 1.0. Output for each actuator is in the range -1.0 to 1.0.
+롤, 피치 및 요 입력은 -1.0에서 1.0 사이의 범위로 예상되는 반면, 추력 입력은 0.0에서 1.0 사이입니다. 각 액추에이터의 출력 범위는 -1.0 ~ 1.0입니다.
 
-Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.
+대기속도의 범위는 0.0에서 1.0입니다. 대기속도는 모터의 최대 속도에 상대적이며, 모든 제어 입력이 0일 때 모터가 회전하도록 명령받는 속도입니다.
 
-In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.
+액추에이터가 포화되는 경우에는 포화 액추에이터가 1.0으로 제한되도록 모든 액추에이터 값이 다시 조정됩니다.
 
 <a id="helicopter_mixer"></a>
 
-#### Helicopter Mixer
+#### 헬리콥터 믹서
 
-The helicopter mixer combines three control inputs (roll, pitch, thrust) into four outputs (swash-plate servos and main motor ESC setting). The first output of the helicopter mixer is the throttle setting for the main motor. The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.
+헬리콥터 믹서는 3개의 제어 입력(롤, 피치, 추력)을 4개의 출력(스와시 플레이트 서보 및 메인 모터 ESC 설정)으로 결합합니다. 헬리콥터 믹서의 첫 번째 출력은 주 모터의 스로틀 설정입니다. 후속 출력은 스와시 플레이트 서보입니다. 테일로터는 간단한 믹서를 추가하여 제어할 수 있습니다.
 
-The thrust control input is used for both the main motor setting as well as the collective pitch for the swash-plate. It uses a throttle-curve and a pitch-curve, both consisting of five points.
+추력 제어 입력은 주 모터 설정과 사판의 집합 피치 모두에 사용됩니다. 스로틀 곡선과 피치 곡선을 사용하며, 둘 다 5개의 점으로 구성됩니다.
 
 :::note
-The throttle- and pitch- curves map the "thrust" stick input position to a throttle value and a pitch value (separately). This allows the flight characteristics to be tuned for different types of flying. An explanation of how curves might be tuned can be found in [this guide](https://www.rchelicopterfun.com/rc-helicopter-radios.html) (search on *Programmable Throttle Curves* and *Programmable Pitch Curves*).
+스로틀 및 피치 곡선은 "추력" 스틱 입력 위치를 스로틀 값과 피치 값(별도)에 매핑합니다. 이를 통하여 다양한 비행 유형의 비행 특성을 조정할 수 있습니다. 곡선을 조정하는 방법은 이 [가이드](https://www.rchelicopterfun.com/rc-helicopter-radios.html)를 참고하십시오(*프로그래밍 가능한 스로틀 곡선* 및 *프로그래밍 가능한 피치 곡선* 검색).
 :::
 
-The mixer definition begins with:
+믹서 정의는 다음으로 시작합니다.
 
 ```
 H: <number of swash-plate servos, either 3 or 4>
 T: <throttle setting at thrust: 0%> <25%> <50%> <75%> <100%>
 P: <collective pitch at thrust: 0%> <25%> <50%> <75%> <100%>
 ```
-`T:` defines the points for the throttle-curve. `P:`  defines the points for the pitch-curve. Both curves contain five points in the range between 0 and 10000. For simple linear behavior, the five values for a curve should be `0 2500 5000 7500 10000`.
+`T:`는 스로틀 곡선의 점들을 정의합니다. `P:` 피치 커브의 점들을 정의합니다. 두 곡선 모두 0에서 10000 사이의 범위에 있는 5개의 점을 포함합니다. 단순한 선형 동작의 경우에는 곡선의 5개 값은 `0 2500 5000 7500 10000`이어야 합니다.
 
-This is followed by lines for each of the swash-plate servos (either 3 or 4) in the following form:
+다음과 같은 형식으로 각 스와시 플레이트 서보(3 또는 4)에 대한 줄이 이어집니다.
 ```
 S: <angle> <arm length> <scale> <offset> <lower limit> <upper limit>
 ```
 
-The `<angle>` is in degrees, with 0 degrees being in the direction of the nose. Viewed from above, a positive angle is clock-wise. The `<arm length>` is a normalized length with 10000 being equal to 1. If all servo-arms are the same length, the values should al be 10000. A bigger arm length reduces the amount of servo deflection and a shorter arm will increase the servo deflection.
+`<angle>`은 도 단위이며 0도는 코 방향입니다. 위에서 보면 양의 각도가 시계 방향입니다. `<arm length>`은 10000이 1인 정규화된 길이입니다. 모든 서보 암의 길이가 같은 경우 값은 10000이어야 합니다. 암 길이가 클수록 서보 편향이 감소하고, 암이 짧을수록 서보 편향이 증가합니다.
 
-The servo output is scaled by `<scale> / 10000`. After the scaling, the `<offset>` is applied, which should be between -10000 and +10000. The `<lower limit>` and `<upper limit>` should be -10000 and +10000 for full servo range.
+서보 출력은 `<scale> / 10000`으로 조정됩니다. 스케일링 후 `<offset>`이 적용되며, 이는 -10000에서 +10000 사이여야 합니다. `<lower limit>`과 `<upper limit>`은 전체 서보 범위에 대해 -10000 및 +10000이어야 합니다.
 
 The tail rotor can be controller by adding a [summing mixer](#summing_mixer):
 ```
