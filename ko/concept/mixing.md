@@ -257,30 +257,30 @@ S: <group> <index> <-ve scale> <+ve scale> <offset> <lower limit> <upper limit>
 스로틀 입력(`<group>=0` 및 `<index>=3`이 있는 `S:` 라인)이 있는 모든 믹서 출력은 t 무장 해제 또는 준비 상태에서 작동합니다. 예를 들어, 4개의 입력(롤, 피치, 요, 스로틀)이 있는 서보는 롤/피치/요 신호가 있어도 무장 해제 상태에서 움직이지 않습니다.
 :::
 
-The `<group>` value identifies the control group from which the scaler will read, and the `<index>` value an offset within that group. These values are specific to the device reading the mixer definition.
+`<group>` 값은 스케일러가 읽을 제어 그룹을 식별하고, `<index>` 값은 해당 그룹 내의 오프셋을 식별합니다. 이 값은 믹서 정의를 읽는 장치에 따라 달라집니다.
 
-When used to mix vehicle controls, mixer group zero is the vehicle attitude control group, and index values zero through three are normally roll, pitch, yaw and thrust respectively.
+차량 제어를 혼합시, 믹서 그룹 0은 차량 자세 제어 그룹이고 인덱스 값 0에서 3은 일반적으로 각각 롤, 피치, 요 및 추력입니다.
 
-The remaining fields on the line configure the control scaler with parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.
+라인의 나머지 필드는 위에서 설명한 대로 매개변수를 사용하여 제어 스케일러를 설정합니다. 계산은 부동 소수점 연산으로 수행되지만 정의 파일에 저장된 값은 10000의 비율로 조정됩니다. 즉 -0.5의 오프셋은 -5000으로 인코딩됩니다.
 
-An example of a typical mixer file is explained [here](../dev_airframes/adding_a_new_frame.md#mixer-file).
+일반적인 믹서 파일의 예는 [여기](../dev_airframes/adding_a_new_frame.md#mixer-file)에 설명되어 있습니다.
 
 <a id="null_mixer"></a>
 
-#### Null Mixer
+#### 널 믹서
 
-A null mixer consumes no controls and generates a single actuator output with a value that is always zero.
+널 믹서는 컨트롤을 사용하지 않으며 항상 0인 값으로 단일 액추에이터 출력을 생성합니다.
 
-Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs. It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).
+일반적으로 널 믹서는 특정 패턴의 액추에이터 출력을 달성하기 위해 믹서 모음에서 자리 표시자로 사용됩니다. 또한, 비상 안전 장치에 사용되는 출력 값 제어에 사용할 수 있습니다(정상 사용 시 출력은 0이고 비상 안전 중에는 믹서가 무시되고 대신 비상 안전 값이 사용됨).
 
-The null mixer definition has the form:
+널 믹서 정의의 형식은 다음과 같습니다.
 ```
 Z:
 ```
 
 <a id="multirotor_mixer"></a>
 
-#### Multirotor Mixer
+#### 멀티콥터 믹서
 
 The multirotor mixer combines four control inputs (roll, pitch, yaw, thrust) into a set of actuator outputs intended to drive motor speed controllers.
 
