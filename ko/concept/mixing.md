@@ -173,10 +173,10 @@ PX4는 기본 설정에 따라 SD 카드 디렉토리 **/etc/mixers/**에서 적
 
 사용자 정의 믹서를 로드하려면 "일반" 믹서 파일과 동일한 이름을 지정해야 하며(비행기에서 로드할 파일) 컨트롤러의 SD 카드의 **etc/mixers** 디렉토리에 저장하여야 합니다.
 
-가장 일반적으로 현재 기체(RC 패스스루 믹서 - [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix)일 수 있음)에 대한 **AUX** 믹서 파일을 재정의/교체합니다. See above for more information on [mixer loading](#loading_mixer).
+가장 일반적으로 현재 기체(RC 패스스루 믹서 - [pass.aux.mix](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix)일 수 있음)에 대한 **AUX** 믹서 파일을 재정의합니다. [믹서 로딩](#loading_mixer)에 대한 자세한 내용은 위를 참고하십시오.
 
 :::tip
-You can also *manually* load a mixer at runtime using the [mixer load](../modules/modules_command.md#mixer) command  (thereby avoiding the need for a reboot). For example, to load a mixer **/etc/mixers/test_mixer.mix** onto the MAIN PWM outputs, you could enter the following command in a [console](../debug/consoles.md):
+또한 [mixer load](../modules/modules_command.md#mixer) 명령을 사용하여 런타임에 믹서를 *수동으로* 로드할 수 있습니다(따라서 재부팅할 필요가 없음). 예를 들어, 믹서 **/etc/mixers/test_mixer.mix**를 MAIN PWM 출력에 로드하려면 [콘솔](../debug/consoles.md)에 다음 명령어를 실행합니다.
 ```
 mixer load /dev/pwm_output0 /fs/microsd/etc/mixers/test_mixer.mix
 ```
@@ -184,9 +184,9 @@ mixer load /dev/pwm_output0 /fs/microsd/etc/mixers/test_mixer.mix
 
 <a id="mixer_syntax"></a>
 
-### Syntax
+### 구문
 
-Mixer files are text files that define one or more mixer definitions: mappings between one or more inputs and one or more outputs.
+믹서 파일은 하나 이상의 믹서 정의, 즉 입력과 출력간의 매핑 정의 텍스트 파일입니다.
 
 There are four types of mixers definitions: [multirotor mixer](#multirotor_mixer), [helicopter mixer](#helicopter_mixer), [summing mixer](#summing_mixer), and [null mixer](#null_mixer).
 - [Multirotor mixer](#multirotor_mixer) - Defines outputs for 4, 6, or 8 rotor vehicles with + or X geometry.
