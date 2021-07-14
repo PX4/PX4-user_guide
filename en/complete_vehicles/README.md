@@ -9,6 +9,9 @@ You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) an
 
 - Consumer drones run PX4 natively/"out of the box":
   * Multicopter
+    * [Holybro X500 Kit](http://www.holybro.com/product/x500-kit/)
+    * [Holybro S500 Kit](http://www.holybro.com/product/pixhawk4-s500-v2-kit/)
+    * [Holybro QAV250 Kit](http://www.holybro.com/product/pixhawk-4-mini-qav250-kit/)
     * [Teal One](https://tealdrones.com/teal-one/)
     * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
     * [ModalAI m500](https://modalai.com/products/voxl-m500)
