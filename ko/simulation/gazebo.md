@@ -310,51 +310,51 @@ Gazebo와 PX4를 별도로 시작하려면:
 * IDE에서 디버그할 대상 `px4_<mode>`을 선택합니다(예: `px4_iris`).
 * IDE에서 직접 디버그 세션을 시작합니다.
 
-This approach significantly reduces the debug cycle time because simulator (e.g. Gazebo) is always running in background and you only re-run the px4 process which is very light.
+이 접근 방식은 시뮬레이터(예: Gazebo)가 항상 백그라운드에서 실행되고 매우 가벼운 px4 프로세스만 다시 실행하기 때문에 디버그 주기 시간을 크게 줄여줍니다.
 
 
-## Simulated Survey Camera
+## 모의 측량 카메라
 
-The *Gazebo* survey camera simulates a [MAVLink camera](https://mavlink.io/en/services/camera.html) that captures geotagged JPEG images and sends camera capture information to a connected ground station. The camera also supports video streaming. It can be used to test camera capture, in particular within survey missions.
+*Gazebo* 측량 카메라는 위치 태그가 지정된 JPEG 이미지를 캡처하고 카메라 캡처 정보를 지상국으로 전송하는 [MAVLink 카메라](https://mavlink.io/en/services/camera.html)를 시뮬레이션합니다. 카메라는 비디오 스트리밍을 지원합니다. 특히 조사 임무에서 카메라 캡처를 테스트할 수 있습니다.
 
-The camera emits the [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) message every time an image is captured. The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
+카메라는 이미지가 캡처될 때마다 [CAMERA_IMAGE_CAPTURED](https://mavlink.io/en/messages/common.html#CAMERA_IMAGE_CAPTURED) 메시지를 전송합니다. The captured images are saved to: **PX4-Autopilot/build/px4_sitle_default/tmp/frames/DSC_n_.jpg** (where _n_ starts as 00000 and is iterated by one on each capture).
 
-To simulate a plane with this camera:
+카메라로 비행기를 시뮬레이션하려면:
 ```
 make px4_sitl_default gazebo_plane_cam
 ```
 
 :::note
-The camera also supports/responds to the following MAVLink commands: [MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
+카메라는 다음 MAVLink 명령을 지원하고 응답합니다.[MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS), [MAV_CMD_REQUEST_STORAGE_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_STORAGE_INFORMATION), [MAV_CMD_REQUEST_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_SETTINGS), [MAV_CMD_REQUEST_CAMERA_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_CAMERA_INFORMATION), [MAV_CMD_RESET_CAMERA_SETTINGS](https://mavlink.io/en/messages/common.html#MAV_CMD_RESET_CAMERA_SETTINGS), [MAV_CMD_STORAGE_FORMAT](https://mavlink.io/en/messages/common.html#MAV_CMD_STORAGE_FORMAT), [MAV_CMD_SET_CAMERA_ZOOM](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_ZOOM), [MAV_CMD_IMAGE_START_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_START_CAPTURE), [MAV_CMD_IMAGE_STOP_CAPTURE](https://mavlink.io/en/messages/common.html#MAV_CMD_IMAGE_STOP_CAPTURE), [MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION), [MAV_CMD_REQUEST_VIDEO_STREAM_STATUS](https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_VIDEO_STREAM_STATUS), [MAV_CMD_SET_CAMERA_MODE](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_CAMERA_MODE).
 :::
 
 :::note
-The simulated camera is implemented in [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp).
+시뮬레이션 카메라는 [PX4/PX4-SITL_gazebo/master/src/gazebo_camera_manager_plugin.cpp](https://github.com/PX4/PX4-SITL_gazebo/blob/master/src/gazebo_camera_manager_plugin.cpp)에서 구현됩니다.
 :::
 
 <a id="flight_termination"></a>
 
-## Simulated Parachute/Flight Termination
+## 낙하산/비행 종료 시뮬레이션
 
-*Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
+*Gazebo*는 [비행 종료](../advanced_config/flight_termination.md) 동안 [낙하산](../peripherals/parachute.md) 전개를 시뮬레이션할 수 있습니다. 비행 종료는 *Gazebo*에서 시뮬레이션된 PWM 명령에 의해 트리거됩니다.
 
-The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
+`if750a` 대상에는 낙하산이 차량에 부착되어 있습니다. 차량을 시뮬레이션하려면 다음 명령어를 실행하십시오.
 ```
 make px4_sitl gazebo_if750a
 ```
 
-To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
+차량을 비행 종료 상태로 전환하기 위하여, 비상 안전 조치로 비행 종료가 설정된 [안전 확인](../config/safety.md)을 강제로 실패하도록 할 수 있습니다. 예를 들어 강제로 [지오펜스 위반](../config/safety.md#geofence-failsafe)을 수행하여 이를 실행할 수 있습니다.
 
-For more information see:
-- [Flight Termination](../advanced_config/flight_termination.md)
-- [Parachute](../peripherals/parachute.md)
-- [Safety Configuration (Failsafes)](../config/safety.md)
+자세한 정보는 다음을 참고하십시오.
+- [비행 종료](../advanced_config/flight_termination.md)
+- [낙하산](../peripherals/parachute.md)
+- [안전장치 설정(사고 방지)](../config/safety.md)
 
 <a id="video"></a>
 
-## Video Streaming
+## 동영상 스트리밍
 
-PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model. When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
+Gazebo용 PX4 SITL은 차량 모델에 부착된 Gazebo 카메라 센서에서 UDP 비디오 스트리밍을 지원합니다. When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
 
 The Gazebo camera sensor is supported/enabled on the following frames:
 * [Typhoon H480](#typhoon_h480)
