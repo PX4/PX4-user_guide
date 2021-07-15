@@ -55,7 +55,7 @@
 
 소스에는 [/src/lib/mixer/Multirotor Mixer/geometry/](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/)와 같은 다양한 예제가 있습니다.
 
-트라이콥터 지오메트리([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml))는 아래에 재현되어 있습니다.
+트라이콥터 지오메트리([tri_y.toml](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/mixer/MultirotorMixer/geometries/tri_y.toml))는 다음과 같습니다.
 
 ```
 # Tri Y
