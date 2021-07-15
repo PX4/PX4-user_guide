@@ -281,7 +281,7 @@
     * [지오메트리 파일](concept/geometry_files.md)
     * [PWM 한계 상태 기계](concept/pwm_limit.md)
     * [시스템 시작](concept/system_startup.md)
-    * [SD 카드 배치](concept/sd_card_layout.md)
+    * [SD 카드 디렉토리 구조](concept/sd_card_layout.md)
   * [시뮬레이션](simulation/README.md) 
     * [jMAVSim 시뮬레이션](simulation/jmavsim.md) 
       * [jMAVSim 다중 비행체 모의시험](simulation/multi_vehicle_jmavsim.md)
