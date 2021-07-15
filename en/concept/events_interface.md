@@ -124,6 +124,7 @@ Text format for event message description:
       - C: temperature in degrees celcius
 
 ## Logging
+
 Events are logged according to the internal log level, and [Flight Review](../log/flight_review.md) displays events.
 
 :::note
@@ -132,9 +133,14 @@ Flight review downloads metadata based on PX4 master, so if a definition is not 
 
 
 ## Implementation
-During build, only the event ID, log level(s) and arguments (if any) are added to the binary by the compiler.
+
+During PX4 build, only the event ID, log level(s) and arguments (if any) are added to the binary by the compiler.
+
 At the same time, a python script scans the whole source code for event calls, extracts the metadata and assembles a JSON metadata file.
 
-As for parameter metadata, the events metadata is [compiled into the firmware](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs), and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
+### Publishing Event Metadata to a GCS
 
+The event metadata JSON file is compiled into firmware, and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
+This ensures that metadata is always up-to-date with the code running on the vehicle.
 
+This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs)
