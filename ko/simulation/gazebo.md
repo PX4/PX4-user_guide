@@ -10,7 +10,7 @@ Gazebo는 차량제어 자동화를 위한 툴킷/오프보드 API인 [ROS](../r
 
 @[유투브](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
-[![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+[![인어 그래프: Gazebo 플러그인](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
 
 <!-- original graph info
@@ -354,77 +354,77 @@ make px4_sitl gazebo_if750a
 
 ## 동영상 스트리밍
 
-Gazebo용 PX4 SITL은 차량 모델에 부착된 Gazebo 카메라 센서에서 UDP 비디오 스트리밍을 지원합니다. When streaming is enabled, you can connect to this stream from *QGroundControl* (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a *gstreamer* pipeline and can be enabled/disabled using a button in the Gazebo UI.
+Gazebo용 PX4 SITL은 차량 모델에 부착된 Gazebo 카메라 센서에서 UDP 비디오 스트리밍을 지원합니다. 스트리밍이 활성화되면, 실제 카메라와 같이 *QGroundControl*(UDP 포트 5600에서)에서 이 스트림에 연결하고 시뮬레이션된 차량의 Gazebo 비디오를 조회할 수 있습니다. 동영상은 *gstreamer* 파이프라인을 사용하여 스트리밍되며, Gazebo UI의 버튼을 사용하여 활성화/비활성화할 수 있습니다.
 
-The Gazebo camera sensor is supported/enabled on the following frames:
+Gazebo 카메라 센서는 다음 프레임에서 지원/활성화됩니다.
 * [Typhoon H480](#typhoon_h480)
 
 
-### Prerequisites
+### 준비 사항
 
-*Gstreamer 1.0* is required for video streaming. The required dependencies should already have been [installed when you set up Gazebo](#installation) (they are included in the standard PX4 installation scripts/instructions for macOS and Ubuntu Linux).
+동영상 스트리밍을 위해서는 *Gstreamer 1.0*이 필요합니다. 필수 종속 항목은 이미 [Gazebo를 설정시에 설치](#installation)되어야 합니다(MacOS 및 Ubuntu Linux용 표준 PX4 설치 스크립트/지침에 포함되어 있음).
 
-:::note FYI
-only, the dependencies include: `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`, `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`.
+:::note
+참고로 종속 항목에는 `gstreamer1.0-plugins-base`, g`streamer1.0-plugins-good`, `gstreamer1.0-plugins-bad`,  `gstreamer1.0-plugins-ugly`, `libgstreamer-plugins-base1.0-dev`가 포함됩니다.
 :::
 
-### Start/Stop Video Streaming
+### 동영상 스트리밍 시작/중지
 
-Video streaming is automatically started when supported by the target vehicle. For example, to start streaming video on the Typhoon H480:
+대상 차량이 지원하는 경우에는, 비디오 스트리밍이 자동으로 시작됩니다. Typhoon H480에서 비디오 스트리밍을 시작하려면 다음 명령어를 입력하십시오.
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
 
-Streaming can be paused/restarted using the Gazebo UI *Video ON/OFF* button..
+스트리밍은 Gazebo UI *동영상 ON/OFF* 버튼을 사용하여 일시 중지/다시 시작할 수 있습니다.
 
 ![Video ON/OFF button](../../assets/simulation/gazebo/sitl_video_stream.png)
 
 
-### How to View Gazebo Video
+### 가제보 동영상 조회 방법
 
-The easiest way to view the SITL/Gazebo camera video stream is in *QGroundControl*. Simply open **Application Settings > General** and set **Video Source** to *UDP h.264 Video Stream* and **UDP Port** to *5600*:
+SITL/Gazebo 카메라 비디오 스트림을 보는 가장 편리한 방법은 *QGroundControl*을 사용하는 것입니다. **애플리케이션 설정 > 일반** 및 **비디오 소스**를 *UDP h.264 비디오 스트림*으로 설정하고 **UDP 포트**를 *5600*으로 설정합니다.
 
 ![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
 
-The video from Gazebo should then display in *QGroundControl* just as it would from a real camera.
+그러면 Gazebo의 비디오가 실제 카메라에서와 같이 *QGroundControl*에 표시됩니다.
 
 ![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
 
 :::note
-The Typhoon world is not very interesting.
+Typhoon 세계는 그다지 흥미롭지 않습니다.
 :::
 
-It is also possible to view the video using the *Gstreamer Pipeline*. Simply enter the following terminal command:
+*Gstreamer Pipeline*을 사용하여 동영상 조회할 수 있습니다. 터미널에서 아래의 명령어를 입력하면 됩니다.
 ```sh
 gst-launch-1.0  -v udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 ```
 
-### Verbose Logging
+### 상세 로깅
 
-SITL fails silently when there is something wrong with the gazebo model. You can enable more verbose logging using `VERBOSE_SIM`, as shown:
+SITL은 Gazebo 모델에 문제가 있는 경우 조용히 실패/종료합니다. 다음과 같이 `VERBOSE_SIM`을 사용하여 더 자세한 로깅을 활성화할 수 있습니다.
 
 ```
 export VERBOSE_SIM=1
 make px4_sitl gazebo
 ```
 
-or
+또는
 
 ```
 VERBOSE_SIM=1 make px4_sitl gazebo
 ```
 
 
-## Extending and Customizing
+## 확장 및 사용자 정의
 
-To extend or customize the simulation interface, edit the files in the `Tools/sitl_gazebo` folder. The code is available on the [sitl_gazebo repository](https://github.com/px4/sitl_gazebo) on Github.
+시뮬레이션 인터페이스를 확장하거나 사용자 정의하려면 `Tools/sitl_gazebo` 폴더에서 파일을 편집하십시오. 코드는 Github의 [sitl_gazebo 저장소](https://github.com/px4/sitl_gazebo)에서 사용할 수 있습니다.
 
 :::note
-The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.
+빌드 시스템은 시뮬레이터를 포함하여 올바른 GIT 하위 모듈을 적용합니다. 디렉토리에 있는 파일의 변경 사항을 덮어쓰지 않습니다.
 :::
 
-## Further Information
+## 추가 정보
 
-* [ROS with Gazebo Simulation](../simulation/ros_interface.md)
-* [Gazebo Octomap](../simulation/gazebo_octomap.md)
+* [Gazebo 시뮬레이션이 있는 ROS](../simulation/ros_interface.md)
+* [Gazebo 옥토맵](../simulation/gazebo_octomap.md)
