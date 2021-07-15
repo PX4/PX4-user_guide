@@ -1,7 +1,13 @@
 # Events Interface
 
-The *Events Interface* provides a system-wide API to inform a user about certain events.
-It is meant to replace existing usage of `mavlink_log_*` calls.
+The *Events Interface* provides a system-wide API for notification of events, which are published to GCSs via the *MAVLink Events Service* (to GCSs) and also stored in [system logs](../dev_log/logging.md).
+
+The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
+
+:::note
+The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12.
+There will be an intermediate period where [both approaches are supported](#Backward-compatibility).
+:::
 
 ## Usage
 ### Basic
