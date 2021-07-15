@@ -34,7 +34,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 모든 시뮬레이터는 Simulator MAVLink API를 사용하여 PX4와 통신합니다. 이 API는 시뮬레이션된 세계에서 PX4로 센서 데이터를 제공하고, 시뮬레이션된 차량에 적용될 비행 코드에서 모터 및 액추에이터 값을 반환하는 MAVLink 메시지 세트를 정의합니다. 아래 이미지는 메시지 흐름을 나타냅니다.
 
-![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
+![시뮬레이터 MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
 :::note PX4 SITL 빌드는 [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp)를 사용하여 이러한 메시지를 처리하는 반면, HIL 모드의 하드웨어 빌드는 [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)를 사용합니다. 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
 :::
@@ -73,7 +73,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 아래 다이어그램은 지원되는 시뮬레이터에 대한 일반적인 SITL 시뮬레이션 환경을 나타냅니다.
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
+![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.svg)
 
 시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
@@ -296,8 +296,8 @@ mkfifo /tmp/udp2tcp
 netcat -lvup 14550 < /tmp/udp2tcp | netcat localhost 14551 > /tmp/udp2tcp
 ```
 
-The port number `14550` is valid for connecting to QGroundControl or another GCS, but should be adjusted for other endpoints (e.g. developer APIs etc.).
+포트 번호 `14550`은 QGroundControl 또는 다른 GCS에 연결하는 데 유효하지만, 다른 끝점(예: 개발자 API 등)에 맞게 조정하여야 합니다.
 
-The tunnel may in theory run indefinitely, but *netcat* connections may need to be restarted if there is a problem.
+터널은 이론적으로 무한정 실행되지만, 문제가 발생하면 *netcat* 연결을 다시 시작할 수 있습니다.
 
-The [QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) script can be run on the QGC computer to automatically setup/run the above instructions. The simulation must already be running on the remote server, and you must be able to SSH into that server.
+[QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) 스크립트를 QGC 컴퓨터에서 실행하여 위의 지침을 자동으로 설정/실행할 수 있습니다. 시뮬레이션은 원격 서버에서 실행 중이어야 하며, 해당 서버로 SSH 연결이 가능하여야 합니다.
