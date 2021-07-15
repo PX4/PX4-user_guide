@@ -77,18 +77,18 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
-* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. PX4 on SITL and the simulator can run on either the same computer or different computers on the same network. :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note 시뮬레이터는 또한 *microRTPS 브리지*([PX4-FastRTPS 브리지](../middleware/micrortps.md))를 사용하여 PX4와 직접 상호작용할 수 있습니다(즉, MAVLink가 아닌 [UORB 주제](../middleware/uorb.md)를 통하여). 이 접근 방법은 [Gazebo 다중 차량 시뮬레이션](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds)에서 *사용됩니다*.
 :::
-* PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
-  - Ground stations listen to PX4's remote UDP port: `14550`
-  - External developer APIs listen to PX4's remote UDP port: `14540`. For multi-vehicle simulations, PX4 sequentially allocates a separate remote port for each instance from `14540` to `14549` (additional instances all use port `14549`).
-* PX4 defines a number of *local* UDP ports (`14580`,`18570`), which are sometimes used when networking with PX4 running in a container or virtual machine. These are not recommended for "general" use and may change in future.
-* A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via *QGroundControl*.
+* PX4는 일반 MAVLink 모듈을 사용하여, MAVSDK 또는 ROS와 같은 외부 개발자 API와 지상국에 연결합니다.
+  - 지상국은 PX4의 원격 UDP 포트를 수신합니다: `14550`
+  - 외부 개발자 API는 PX4의 원격 UDP 포트인 `14540`을 수신합니다. 다중 차량 시뮬레이션의 경우 PX4는 `14540`에서 `14549`까지 각 인스턴스에 대해 별도의 원격 포트를 순차적으로 할당합니다(추가 인스턴스는 모두 포트 `14549` 사용).
+* PX4는 다수의 *로컬* UDP 포트(`14580`,`18570`)를 정의하며, 이는 컨테이너 또는 가상 머신에서 실행되는 PX4와 네트워킹시에 가끔 사용됩니다. 이는 "일반적인" 용도로는 권장되지 않으며, 향후 변경될 수 있습니다.
+* 직렬 연결로 *QGroundControl*을 통하여 [조이스틱/게임패드](../config/joystick.md)를 연결할 수 있습니다.
 
-If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
+일반 빌드 시스템 SITL `make` 구성 대상을 사용하는 경우(다음 섹션 참조), SITL과 시뮬레이터가 모두 동일 컴퓨터에서 실행되고 위의 포트가 자동으로 설정됩니다. 추가 MAVLink UDP 연결을 구성하거나 빌드 구성 및 초기화 파일에서 시뮬레이션 환경을 수정할 수 있습니다.
 
 
-### Starting/Building SITL Simulation
+### SITL 시뮬레이션 시작/구축
 
 The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. The syntax (simplified) looks like this:
 ```
