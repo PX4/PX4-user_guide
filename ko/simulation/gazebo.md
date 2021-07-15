@@ -38,48 +38,48 @@ Gazebo 9 설정은 표준빌드방법에 포함되어 있습니다.
 
 로드할 기체 환경에서 PX4 SITL 및 Gazebo를 시작하여 시뮬레이션을 실행합니다(멀티콥터, 비행기, VTOL, 광학 흐름 및 다중 차량 시뮬레이션 지원).
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
+가장 편리한 방법은 PX4 *PX4-Autopilot* 저장소의 루트 디렉토리에서 터미널을 열고 원하는 대상에 대해 `make`를 호출하는 것입니다. 예를 들어 쿼드로터 시뮬레이션을 시작하려면(기본값):
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl gazebo
 ```
 
-The supported vehicles and `make` commands are listed below (click links to see vehicle images).
+지원되는 차량 및 `make` 명령은 아래에 나열되어 있습니다. 차량 이미지를 보려면 링크를 클릭하십시오.
 
 :::note
-For the full list of build targets run `make px4_sitl list_vmd_make_targets` (and filter on those that start with `gazebo_`).
+빌드 대상의 전체 목록을 보려면 `make px4_sitl list_vmd_make_targets`를 실행하십시오(그리고 `gazebo_`로 시작하는 대상에서 필터링).
 :::
 
-| Vehicle                                                                                                                            | Command                                |
-| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| [Quadrotor](../simulation/gazebo_vehicles.md#quadrotor)                                                                            | `make px4_sitl gazebo`                 |
-| [Quadrotor with Optical Flow](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                             | `make px4_sitl gazebo_iris_opt_flow`   |
-| [3DR Solo (Quadrotor)](../simulation/gazebo_vehicles.md#3dr_solo)                                                                  | `make px4_sitl gazebo_solo`            |
-| <span id="typhoon_h480"></span>[Typhoon H480 (Hexrotor)](../simulation/gazebo_vehicles.md#typhoon_h480) (supports video streaming) | `make px4_sitl gazebo_typhoon_h480`    |
-| [Standard Plane](../simulation/gazebo_vehicles.md#standard_plane)                                                                  | `make px4_sitl gazebo_plane`           |
-| [Standard Plane (with catapult launch)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
-| [Standard VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                                    | `make px4_sitl gazebo_standard_vtol`   |
-| [Tailsitter VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                                | `make px4_sitl gazebo_tailsitter`      |
-| [Ackerman vehicle (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                               | `make px4_sitl gazebo_rover`           |
-| [HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
-| [Boat (USV: Unmanned Surface Vehicle)](../simulation/gazebo_vehicles.md#usv)                                                       | `make px4_sitl gazebo_boat`            |
-| [Cloudship (Airship)](../simulation/gazebo_vehicles.md#airship)                                                                    | `make px4_sitl gazebo_cloudship`       |
+| 차량                                                                                                              | 명령어                                    |
+| --------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| [쿼드콥터](../simulation/gazebo_vehicles.md#quadrotor)                                                              | `make px4_sitl gazebo`                 |
+| [광류센서 장착 쿼드콥터](../simulation/gazebo_vehicles.md#quadrotor_optical_flow)                                         | `make px4_sitl gazebo_iris_opt_flow`   |
+| [3DR Solo (쿼드콥터)](../simulation/gazebo_vehicles.md#3dr_solo)                                                    | `make px4_sitl gazebo_solo`            |
+| <span id="typhoon_h480"></span>[Typhoon H480(헥스로터)](../simulation/gazebo_vehicles.md#typhoon_h480)(동영상 스트리밍 지원) | `make px4_sitl gazebo_typhoon_h480`    |
+| [표준 항공기](../simulation/gazebo_vehicles.md#standard_plane)                                                       | `make px4_sitl gazebo_plane`           |
+| [표준 비행기 (투석기 발사 포함)](../simulation/gazebo_vehicles.md#standard_plane_catapult)                                  | `make px4_sitl gazebo_plane_catapult`  |
+| [표준 VTOL](../simulation/gazebo_vehicles.md#standard_vtol)                                                       | `make px4_sitl gazebo_standard_vtol`   |
+| [테일시터 VTOL](../simulation/gazebo_vehicles.md#tailsitter_vtol)                                                   | `make px4_sitl gazebo_tailsitter`      |
+| [Ackerman 차량 (UGV/Rover)](../simulation/gazebo_vehicles.md#ugv)                                                 | `make px4_sitl gazebo_rover`           |
+| [HippoCampus TUHH (UUV: 무인 수중 차량)](../simulation/gazebo_vehicles.md#uuv)                                        | `make px4_sitl gazebo_uuv_hippocampus` |
+| [보트 (USV: 무인 수상 차량)](../simulation/gazebo_vehicles.md#usv)                                                      | `make px4_sitl gazebo_boat`            |
+| [클라우드쉽 (비행선)](../simulation/gazebo_vehicles.md#airship)                                                         | `make px4_sitl gazebo_cloudship`       |
 
 
 :::note
-The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+[파일 및 코드 설치](../dev_setup/dev_env.md) 가이드는 빌드 오류가 있는 경우 참고하십시오.
 :::
 
-The commands above launch a single vehicle with the full UI. Other options include:
-- [Starting PX4 and Gazebo separately](#start_px4_sim_separately) so that you can keep Gazebo running and only re-launch PX4 when needed (quicker than restarting both).
-- Run the simulation in [Headless Mode](#headless), which does not start the Gazebo UI (this uses fewer resources and is much faster).
+위의 명령은 전체 UI로 단일 차량을 시작합니다. 기타 옵션은 다음과 같습니다.
+- [PX4와 Gazebo를 별도로 시작](#start_px4_sim_separately)하여 Gazebo를 계속 실행하고, 필요하면 PX4를 다시 시작할 수 있습니다(둘 다 다시 시작하는 것보다 빠름).
+- Gazebo UI를 시작하지 않는 [헤드리스 모드](#headless)에서 시뮬레이션을 실행합니다(이는 적은 리소스를 사용하고 훨씬 빠름).
 
 
-## Taking it to the Sky
+## 하늘로 띄우기
 
-The `make` commands above first build PX4, and then run it along with the Gazebo simulator.
+위의 `make` 명령은 먼저 PX4를 빌드한 다음, Gazebo 시뮬레이터를 실행합니다.
 
-Once PX4 has started it will launch the PX4 shell as shown below.
+PX4가 시작되면 아래와 같은 PX4 셸이 시작됩니다.
 
 ```
 ______  __   __    ___ 
@@ -103,32 +103,32 @@ http://gazebosim.org
 ...
 INFO  [ecl/EKF] 5188000: commencing GPS fusion
 ```
-The console will print out status as PX4 loads the airframe-specific initialisation and parameter files, waits for (and connects to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm.
+콘솔은 PX4가 기체 고유의 초기화 및 매개변수 파일을 로드하고, 시뮬레이터가 실행되기를 기다리며(연결할 때) 상태를 출력합니다. [ecl/EKF]가 `GPS 융합을 시작`한다는 정보가 인쇄되면 차량은 시동 준비가 된 것입니다.
 
 
 :::note
-Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.
+쿼드로터 모델을 마우스 오른쪽 버튼으로 클릭하면, 컨텍스트 메뉴에서 팔로우 모드를 활성화할 수 있어 보기에 편리합니다.
 :::
 
 ![Gazebo UI](../../assets/simulation/gazebo/gazebo_follow.jpg)
 
-You can bring it into the air by typing:
+다음을 입력하여 공중에 띄울 수 있습니다.
 
 ```sh
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## 사용법/설정 옵션
 
-Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+모든 시뮬레이터에 적용되는 옵션은 최상위 [시뮬레이션](../simulation/README.md#sitl-simulation-environment)에서 설명합니다(일부는 아래에서 중복될 수 있음).
 
-### Simulating Sensor/Hardware Failure
+### 센서/하드웨어 오류 시뮬레이션
 
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+[안전장치 시뮬레이션](../simulation/failsafes.md)에서는 GPS 오류와 배터리 소모와 같은 안전 비상안전장치를 트리거하는 방법을 설명합니다.
 
 <a id="headless"></a>
 
-### Headless Mode
+### 헤드리스 모드
 
 Gazebo can be run in a *headless* mode in which the Gazebo UI is not launched. This starts up more quickly and uses less system resources (i.e. it is a more "lightweight" way to run the simulation).
 
