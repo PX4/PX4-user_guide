@@ -230,46 +230,46 @@ GPS 노이즈를 활성화/비활성화하려면:
 
 <a id="set_world"></a>
 
-## Loading a Specific World
+## 특정 세계 로드
 
-PX4 supports a number of [Gazebo Worlds](../simulation/gazebo_worlds.md), which are stored in [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) By default Gazebo displays a flat featureless plane, as defined in [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world).
+PX4는 [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)에 저장된 다수의 [Gazebo Worlds](../simulation/gazebo_worlds.md)를 지원합니다. 기본적으로 Gazebo는 [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)에 정의된 것처럼 평평한 특징 없는 평면을 표시합니다.
 
-You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
+PX4 구성 대상에서 최종 옵션으로 지정하여 모든 세계를 로드할 수 있습니다.
 
-For example, to load the *warehouse* world, you can append it as shown:
+예를 들어, *창고* 세계를 로드하려면 다음과 같이 추가할 수 있습니다.
 ```
 make px4_sitl_default gazebo_plane_cam__warehouse
 ```
 
 :::note
-There are *two underscores* after the model (`plane_cam`) indicating that the default debugger is used (none). See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+기본 디버거가 사용됨(없음)을 나타내는 모델(`plane_cam`) 뒤에 *두 개의 밑줄*이 있습니다. See [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
 :::
 
-You can also specify the full path to a world to load using the `PX4_SITL_WORLD` environment variable. This is useful if testing a new world that is not yet included with PX4.
+`PX4_SITL_WORLD` 환경 변수를 사용하여, 로드할 세계의 전체 경로를 지정할 수 있습니다. 이것은 PX4에 아직 포함되지 않은 새로운 세계를 테스트할 때 유용합니다.
 
 :::tip
-If the loaded world does not align with the map, you may need to [set the world location](#set_world_location).
+로드된 세계가 지도와 일치하지 않으면 [세계 위치를 설정](#set_world_location)하여야 합니다.
 :::
 
 <a id="set_world_location"></a>
 
-## Set World Location
+## 세계 위치 설정
 
-The vehicle gets spawned very close to the origin of the world model at some simulated GPS location.
-
-:::note
-The vehicle is not spawned exactly at the Gazebo origin (0,0,0), but using a slight offset, which can highlight a number of common coding issues.
-:::
-
-If using a world that recreates a real location (e.g. a particular airport) this can result in a very obvious mismatch between what is displayed in the simulated world, and what is shown on the ground station map. To overcome this problem you can set the location of the world origin to the GPS co-ordinates where it would be in "real life".
+차량은 일부 시뮬레이션된 GPS 위치에서 월드 모델의 원점에 매우 가깝게 복제됩니다.
 
 :::note
-You can also set a [Custom Takeoff Location](#custom_takeoff_location) that does the same thing. However adding the location to the map is easier (and can still be over-ridden by setting a custom location if needed).
+차량은 Gazebo 원점(0,0,0)에서 정확히 생성되지 않지만, 약간의 오프셋을 사용하여 여러 일반적인 코딩 문제를 강조할 수 있습니다.
 :::
 
-The location of the world is defined in the **.world** file by specifying the location of the origin using the `spherical_coordinates` tag. The latitude, longitude, elevation must all be specified (for this to be a valid).
+실제 위치(예: 특정 공항)를 재현하는 세계를 사용하는 경우에는 시뮬레이션된 세계에 표시되는 것과 지상국 지도에 표시되는 것에 불일치가 발생할 수 있습니다. 이 문제를 극복하기 위해 세계 원점의 위치를 "실제" GPS 좌표로 설정할 수 있습니다.
 
-An example can be found in the [sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world):
+:::note
+동일한 작업을 수행하는 [맞춤 이륙 위치](#custom_takeoff_location)를 설정할 수 있습니다. 그러나, 지도에 위치를 추가하는 것이 더 편리합니다(필요한 경우 사용자 지정 위치를 설정할 수 있음).
+:::
+
+세계의 위치는 `spherical_coordinates` 태그를 사용하여, 원점의 위치를 지정하여 **.world** 파일에 정의합니다. 위도, 경도, 고도가 모두 지정되어야 합니다(이것이 유효하려면).
+
+예제는 [sonoma_raceway.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/sonoma_raceway.world)를 참고하십시오.
 ```
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -279,36 +279,36 @@ An example can be found in the [sonoma_raceway.world](https://github.com/PX4/sit
     </spherical_coordinates>
 ```
 
-You can test this by spawning a rover in the [Sonoma Raceway World](../simulation/gazebo_worlds.md#sonoma-raceway) using the following `make` command (note that spawning takes longer the first time as the model needs to be downloaded from the model database):
+다음 `make` 명령을 사용하여 [Sonoma Raceway World](../simulation/gazebo_worlds.md#sonoma-raceway)에서 로버를 생성하여 테스트할 수 있습니다. 모델 데이터베이스에서 다운로드하므로 최초 생성 시간이 오래 걸립니다.
 ```
 make px4_sitl gazebo_rover__sonoma_raceway
 ```
 
-The video below shows that the location of the environment is aligned with the gazebo world:
+아래 비디오는 환경의 위치가 전망대 세계와 일치함을 보여줍니다.
 
-@[youtube](https://youtu.be/-a2WWLni5do)
+@[유투브](https://youtu.be/-a2WWLni5do)
 
 
 <a id="start_px4_sim_separately"></a>
 
-## Starting Gazebo and PX4 Separately
+## Gazebo와 PX4를 각각 시작
 
-For extended development sessions it might be more convenient to start Gazebo and PX4 separately or even from within an IDE.
+확장된 개발 세션의 경우 Gazebo와 PX4를 별도로 시작하거나, IDE 내에서 시작하는 것이 더 편리할 수 있습니다.
 
-In addition to the existing cmake targets that run `sitl_run.sh` with parameters for px4 to load the correct model it creates a launcher targets named `px4_<mode>` that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.
+올바른 모델을 로드하기 위하여 px4에 대한 매개변수와 함께 `sitl_run.sh`를 실행하는 기존 cmake 대상 외에도  원래 sitl px4 앱과 유사한 얇은 래퍼인 `px4_<mode>`이라는 실행기 대상을 생성합니다. 이 얇은 래퍼는 현재 작업 디렉터리 및 모델 파일 경로와 같은 앱 인수를 포함합니다.
 
-To start Gazebo and PX4 separately:
+Gazebo와 PX4를 별도로 시작하려면:
 
-* Run gazebo (or any other sim) server and client viewers via the terminal specifing an `_ide` variant:
+* `_ide` 변형을 지정하는 터미널을 통해 가제보(또는 다른 시뮬레이션) 서버 및 클라이언트 뷰어를 실행합니다.
   ```sh
   make px4_sitl gazebo___ide
   ```
-  or
+  또는
   ```sh
   make px4_sitl gazebo_iris_ide
   ```
-* In your IDE select `px4_<mode>` target you want to debug (e.g. `px4_iris`)
-* Start the debug session directly from IDE
+* IDE에서 디버그할 대상 `px4_<mode>`을 선택합니다(예: `px4_iris`).
+* IDE에서 직접 디버그 세션을 시작합니다.
 
 This approach significantly reduces the debug cycle time because simulator (e.g. Gazebo) is always running in background and you only re-run the px4 process which is very light.
 
