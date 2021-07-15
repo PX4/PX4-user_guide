@@ -140,7 +140,7 @@ At the same time, a python script scans the whole source code for event calls, e
 
 ### Publishing Event Metadata to a GCS
 
-The event metadata JSON file is compiled into firmware, and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
+The event metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
 This ensures that metadata is always up-to-date with the code running on the vehicle.
 
 This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs)
