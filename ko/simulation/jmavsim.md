@@ -6,19 +6,19 @@ jMAVSim은 시뮬레이션된 세계에서 PX4를 실행하는 *콥터* 유형�
 
 * 쿼드콥터
 
-This topic shows how to set up jMAVSim to connect with a SITL version of PX4.
+jMAVSim에서 PX4 SITL과 연결 설정 방법을 설명합니다.
 
 :::tip
-jMAVSim can also be used for HITL Simulation ([as shown here](../simulation/hitl.md#jmavsim_hitl_configuration)).
+jMAVSim은 HITL 시뮬레이션이 가능합니다.([여기에 표시된 대로](../simulation/hitl.md#jmavsim_hitl_configuration)).
 :::
 
-## Installation
+## 설치
 
-jMAVSim setup is included in our [standard build instructions](../dev_setup/dev_env.md) (for macOS, Ubuntu Linux, Windows).
+jMAVSim 설정은 [표준 빌드 지침](../dev_setup/dev_env.md)(macOS, Ubuntu Linux, Windows용)에 설명되어 있습니다.
 
-## Simulation Environment
+## 시뮬레이션 환경
 
-Software in the Loop Simulation runs the complete system on the host machine and simulates the autopilot. It connects via local network to the simulator. The setup looks like this:
+루프 시뮬레이션 소프트웨어는 호스트 시스템에서 전체 시스템을 실행하고 자동조종장치를 시뮬레이션합니다. 로컬 네트워크에서 시뮬레이터에 연결합니다. 설정은 다음과 같습니다.
 
 [![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -29,21 +29,21 @@ graph LR;
   MAVLink-- >SITL;
 -->
 
-## Running SITL
+## SITL 실행
 
-After ensuring that the [simulation prerequisites](../dev_setup/dev_env.md) are installed on the system, just launch: The convenience make target will compile the POSIX host build and run the simulation.
+[시뮬레이션 전제 조건](../dev_setup/dev_env.md)이 시스템에 설치를 확인후 실행하면 됩니다. 편리한 make 대상은 POSIX 호스트 빌드를 컴파일하고 시뮬레이션을 실행합니다.
 
 ```sh
 make px4_sitl_default jmavsim
 ```
 
-This will bring up the PX4 shell:
+그러면 다음과 같은 PX4 셸이 출력됩니다.
 
 ```sh
 [init] shell id: 140735313310464
 [init] task name: px4
 
-______  __   __    ___ 
+______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -57,12 +57,12 @@ pxh>
 ```
 
 
-It will also bring up a window showing a 3D view of the [jMAVSim](https://github.com/PX4/jMAVSim) simulator:
+또한 [jMAVSim](https://github.com/PX4/jMAVSim) 시뮬레이터의 3D 보기를 보여주는 창이 나타납니다.
 
 ![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
 
 
-## Taking it to the Sky
+## 하늘로 띄우기
 
 The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: *EKF commencing GPS fusion*).
 
