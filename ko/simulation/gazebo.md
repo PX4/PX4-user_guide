@@ -1,14 +1,14 @@
 # Gazebo 시뮬레이션
 
-[Gazebo](http://gazebosim.org) is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision. This page describes its use with SITL and a single vehicle. Gazebo can also be used with [HITL](../simulation/hitl.md) and for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md).
+[Gazebo](http://gazebosim.org)는 물체 회피 및 컴퓨터 비전 테스트에 적합한 자율 로봇을 위한 강력한 3D 시뮬레이션 환경입니다. 이 페이지에서는 SITL과 단일 차량과 함께 사용하는 방법을 설명합니다. Gazebo는 [HITL](../simulation/hitl.md) 및 [다중 차량 시뮬레이션](../simulation/multi-vehicle-simulation.md)과 함께 사용할 수 있습니다.
 
-**Supported Vehicles:** Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine/UUV.
+**지원 차량:** 쿼드([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) 및 [솔로](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex(Typhoon H480), [일반 쿼드 델타 VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), 테일시터, 비행기, 로버, 잠수함/UUV.
 
 :::warning
-Gazebo is often used with [ROS](../ros/README.md), a toolkit/offboard API for automating vehicle control. If you plan to use PX4 with ROS you **should follow the** [ROS Instructions](../simulation/ros_interface.md) to install both ROS and Gazebo (and thereby avoid installation conflicts).
+Gazebo는 차량제어 자동화를 위한 툴킷/오프보드 API인 [ROS](../ros/README.md)와 함께 자주 사용됩니다. ROS와 함께 PX4를 사용하려면, [ROS 지침](../simulation/ros_interface.md)을 따라 ROS와 Gazebo를 모두 **설치**하여야 합니다(따라서 설치 충돌을 피해야 함).
 :::
 
-@[youtube](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
+@[유투브](https://www.youtube.com/watch?v=qfFF9-0k4KA&vq=hd720)
 
 [![Mermaid Graph: Gazebo plugin](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEdhemViby0tPlBsdWdpbjtcbiAgUGx1Z2luLS0-TUFWTGluaztcbiAgTUFWTGluay0tPlNJVEw7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
 
@@ -21,22 +21,22 @@ graph LR;
 -->
 
 :::note
-See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+시뮬레이터, 시뮬레이션 환경 및 시뮬레이션 설정(예: 지원 차량)에 대한 일반 정보는 [시뮬레이션](../simulation/README.md)을 참고하십시오.
 :::
 
-## Installation
+## 설치
 
-Gazebo 9 setup is included in our standard build instructions:
-- **macOS:** [Development Environment on Mac](../dev_setup/dev_env_mac.md)
-- **Linux:** [Development Environment on Ubuntu LTS / Debian Linux > Gazebo, JMAVSim and NuttX (Pixhawk) Targets](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
-- **Windows:** Not supported.
+Gazebo 9 설정은 표준빌드방법에 포함되어 있습니다.
+- **MacOS:** [Mac 개발 환경](../dev_setup/dev_env_mac.md)
+- **Linux:** [Ubuntu LTS/Debian Linux의 개발 환경 > Gazebo, JMAVSim 및 NuttX(Pixhawk) 대상](../dev_setup/dev_env_linux_ubuntu.md#gazebo-jmavsim-and-nuttx-pixhawk-targets)
+- **Windows:** 지원되지 않음.
 
-Additional installation instructions can be found on [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1).
+추가 설치 방법은 [gazebosim.org](http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b1)을 참고하십시오.
 
 
-## Running the Simulation
+## 시뮬레이션 실행
 
-Run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).
+로드할 기체 환경에서 PX4 SITL 및 Gazebo를 시작하여 시뮬레이션을 실행합니다(멀티콥터, 비행기, VTOL, 광학 흐름 및 다중 차량 시뮬레이션 지원).
 
 The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a quadrotor simulation (the default):
 ```sh
