@@ -114,55 +114,55 @@ make px4_sitl_default jmavsim
 
 ### Wi-Fi 드론 시뮬레이션
 
-There is a special target to simulate a drone connected via Wifi on the local network:
+로컬 네트워크에서 Wi-Fi로 연결된 드론을 시뮬레이션하는 특별한 대상이 있습니다.
 
 ```sh
 make broadcast jmavsim
 ```
 
-The simulator broadcasts its address on the local network as a real drone would do.
+시뮬레이터는 실제 드론처럼 로컬 네트워크에서 주소를 브로드캐스트합니다.
 
-### Start JMAVSim and PX4 Separately
+### JMAVSim과 PX4를 각각 시작
 
-You can start JMAVSim and PX4 separately:
+JMAVSim과 PX4를 별도로 시작할 수 있습니다.
 
 ```
 ./Tools/jmavsim_run.sh -l
 make px4_sitl none
 ```
 
-This allows a faster testing cycle (restarting jMAVSim takes significantly more time).
+이것은 더 빠른 주기로 테스트할 수 있습니다(jMAVSim은 재시작에 훨씬 더 많은 시간이 소요됨).
 
-### Headless Mode
+### 헤드리스 모드
 
-To start jMAVSim without the GUI, set the env variable `HEADLESS=1` as shown:
+GUI 없이 jMAVSim을 시작하려면, 다음과 같이 환경 변수 `HEADLESS=1`을 설정합니다.
 ```bash
 HEADLESS=1 make px4_sitl jmavsim
 ```
 
 
-## Multi-Vehicle Simulation
+## 다중 차량 시뮬레이션
 
-JMAVSim can be used for multi-vehicle simulation: [Multi-Vehicle Sim with JMAVSim](../simulation/multi_vehicle_jmavsim.md).
+JMAVSim은 다중 차량 시뮬레이션이 가능합니다. [JMAVSim이 있는 다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md).
 
-## Extending and Customizing
+## 확장 및 사용자 정의
 
-To extend or customize the simulation interface, edit the files in the **Tools/jMAVSim** folder. The code can be accessed through the[jMAVSim repository](https://github.com/px4/jMAVSim) on Github.
+시뮬레이션 인터페이스를 확장하거나 사용자 정의하려면 **Tools/jMAVSim** 폴더에서 파일을 편집하십시오. 코드는 Github의 [jMAVSim 저장소](https://github.com/px4/jMAVSim)에서 제공합니다.
 
 :::note
-The build system enforces the correct submodule to be checked out for all dependencies, including the simulator. It will not overwrite changes in files in the directory, however, when these changes are committed the submodule needs to be registered in the Firmware repo with the new commit hash. To do so, `git add Tools/jMAVSim` and commit the change. This will update the GIT hash of the simulator.
+빌드 시스템은 시뮬레이터를 포함하여 모든 종속성을 체크아웃할 하위 모듈에 적용합니다. 디렉토리에 있는 파일의 변경 사항을 덮어쓰지는 않지만, 이러한 변경 사항이 커밋될 때 하위 모듈은 새 커밋 해시를 사용하여 펌웨어 저장소에 등록하여야 합니다. 이렇게 하려면, `git add Tools/jMAVSim` 및 변경 사항을 커밋합니다. 시뮬레이터의 GIT 해시가 업데이트됩니다.
 :::
 
-## Interfacing to ROS
+## ROS 인터페이스
 
-The simulation can be [interfaced to ROS](../simulation/ros_interface.md) the same way as onboard a real vehicle.
+시뮬레이션은 실제 차량에 탑승하는 것과 같은 방식으로 [ROS에 인터페이스](../simulation/ros_interface.md)될 수 있습니다.
 
-## Important Files
+## 중요 파일
 
-* The startup script is in the [posix-configs/SITL/init](https://github.com/PX4/Firmware/tree/master/posix-configs/SITL/init) folder and named `rcS_SIM_AIRFRAME`, the default is `rcS_jmavsim_iris`.
-* The root file system (the equivalent of `/` as seen by the) is located inside the build directory: `build/px4_sitl_default/src/firmware/posix/rootfs/`
+* 시작 스크립트는 [시스템 시작](../concept/system_startup.md)에서 설명합니다.
+* 시뮬레이션된 루트 파일 시스템("`/`" 디렉토리)은 다음의 빌드 디렉토리 내에 생성됩니다: `build/px4_sitl_default/tmp/rootfs`.
 
-## Troubleshooting
+## 문제 해결
 
 ### java.long.NoClassDefFoundError
 
@@ -186,12 +186,12 @@ at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:566)
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 
-This error should no longer occur once the jMAVSim submodule is [updated to newer jar libs](https://github.com/PX4/jMAVSim/pull/119) and Java 11 or Java 14 should work fine.
+jMAVSim 하위 모듈이 [최신 jar 라이브러리로 업데이트](https://github.com/PX4/jMAVSim/pull/119)되고, Java 11 또는 Java 14가 제대로 실행되면 이 오류가 더 이상 발생하지 않습니다.
 
 
 ### An illegal reflective access operation has occured
 
-This warning can be ignored (it will probably be displayed but the simulation will still work correctly).
+이 경고는 무시할 수 있습니다(경고가 나타나도, 시뮬레이션은 정상적으로 작동함).
 
 ```
 WARNING: An illegal reflective access operation has occurred
@@ -225,19 +225,19 @@ at me.drton.jmavsim.Simulator.(Simulator.java:157)
 at me.drton.jmavsim.Simulator.main(Simulator.java:678)
 ```
 
-If you see this error, try this workaround:
+위의 오류가 나타나면, 다음 방법으로 해결하십시오.
 
-Edit the **accessibility.properties** file:
+**accessibility.properties** 파일을 수정합니다.
 ```
 sudo gedit /etc/java-8-openjdk/accessibility.properties
 ```
 
-and comment out the line indicated below:
+아래 표시된 줄을 주석 처리하십시오.
 ```
 #assistive_technologies=org.GNOME.Acessibility.AtkWrapper
 ```
 
-For more info, check [this GitHub issue](https://github.com/PX4/PX4-Autopilot/issues/9557). A contributor found the fix in [askubuntu.com](https://askubuntu.com/questions/695560).
+자세한 내용은 [GitHub 문제](https://github.com/PX4/PX4-Autopilot/issues/9557)를 확인하십시오. 기고자가 [skubuntu.com](https://askubuntu.com/questions/695560)에서 수정 사항을 찾았습니다.
 
 ### Exception in thread "main" java.lang.UnsupportedClassVersionError:
 When compiling jMAVsim, you might encounter the following error:
