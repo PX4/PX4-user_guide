@@ -90,13 +90,13 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 ### SITL 시뮬레이션 시작/구축
 
-The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. The syntax (simplified) looks like this:
+빌드 시스템으로 SITL에서 PX4를 빌드하여 시뮬레이터를 시작/연결할 수 있습니다. 구문(단순화)은 다음과 같습니다.
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../simulation/gazebo.md) supports many different types).
+여기서 `simulator`는 `gazebo`, `jmavsim` 또는 기타 시뮬레이터이고, vehicle-model은 해당 시뮬레이터에서 지원하는 특정 차량 유형입니다. [jMAVSim ](../simulation/jmavsim.md) 멀티콥터만 지원하는 반면에 [Gazebo](../simulation/gazebo.md)는 다양한 유형을 지원합니다.
 
-A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
+아래에는 여러가지 예가 있으며, 각 시뮬레이터의 개별 페이지에는 더 많은 예제들이 있습니다.
 
 ```sh
 # Start Gazebo with plane
@@ -112,43 +112,42 @@ make px4_sitl jmavsim
 make px4_sitl none_iris
 ```
 
-The simulation can be further configured via environment variables:
-- `PX4_ESTIMATOR`: This variable configures which estimator to use. Possible options are: `ekf2` (default), `lpe` (deprecated). It can be set via `export PX4_ESTIMATOR=lpe` before running the simulation.
+시뮬레이션은 환경 변수를 통하여 추가로 설정이 가능합니다.
+- `PX4_ESTIMATOR`: 사용할 추정기를 설정합니다. 가능한 옵션은 `ekf2`(기본값), `lpe`(더 이상 사용되지 않음)입니다. 시뮬레이션을 실행전에 `export PX4_ESTIMATOR=lpe`를 통하여 설정할 수 있습니다.
 
-The syntax described here is simplified, and there are many other options that you can configure via *make* - for example, to set that you wish to connect to an IDE or debugger. For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+여기에 설명된 구문은 단순화되었으며, *make*를 통해 구성할 수 있는 다른 옵션들이 많이 있습니다(예: IDE 또는 디버거에 연결하도록 설정). 자세한 내용은 [코드 작성 > PX4 빌드 타겟 만들기](../dev_setup/building_px4.md#px4-make-build-targets)를 참고하십시오.
 
 <a id="simulation_speed"></a>
 
-### Run Simulation Faster than Realtime
+### 실제보다 빠른 속도로 시뮬레이션 실행
 
-SITL can be run faster or slower than realtime when using jMAVSim or Gazebo.
+SITL은 jMAVSim 또는 Gazebo를 사용하여, 실시간보다 빠르거나 느리게 실행할 수 있습니다.
 
-The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`. For example, to run the jMAVSim simulation at 2 times the real time speed:
+속도 계수는 환경 변수 `PX4_SIM_SPEED_FACTOR`를 사용합니다. 예를 들어, 실시간 속도의 2배로 jMAVSim 시뮬레이션을 실행하려면:
 ```
 PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
 ```
-To run at half real-time:
+실시간 절반으로 실행하려면:
 ```
 PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
 ```
 
-You can apply the factor to all SITL runs in the current session using `EXPORT`:
+`EXPORT`를 사용하여 현재 세션의 모든 SITL 실행 요소를 적용할 수 있습니다.
 ```
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
 :::note
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically". Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다. 강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
 :::
 
-:::note
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
+:::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
 :::
 
-### Lockstep Simulation
+### 록스텝 시뮬레이션
 
-PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in *lockstep*. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *lockstep*으로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
 Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
