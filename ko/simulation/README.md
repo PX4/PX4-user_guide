@@ -1,95 +1,94 @@
 # 시뮬레이션
 
-Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated "world". You can interact with this vehicle just as you might with a real vehicle, using *QGroundControl*, an offboard API, or a radio controller/gamepad.
+시뮬레이터는 PX4 비행 코드가 시뮬레이션된 가상 "세계"에서 컴퓨터로 모델링된 기체를 제어합니다. *QGroundControl*, 오프보드 API 또는 무선 컨트롤러, 게임패드를 사용하여 실제 기체와 같이 상호 작용합니다.
 
 :::tip
-Simulation is a quick, easy, and most importantly, *safe* way to test changes to PX4 code before attempting to fly in the real world. It is also a good way to start flying with PX4 when you haven't yet got a vehicle to experiment with.
+시뮬레이션은 실제 세계에서 비행전에 PX4 코드 변경 사항을 테스트할 수 있는 빠르고 쉽고 *안전한* 방법입니다. 실험할 기체가 없은 경우 PX4로 비행을 시작하는 것도 좋은 방법입니다.
 :::
 
-PX4 supports both *Software In the Loop (SITL)* simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and *Hardware In the Loop (HITL)* simulation using a simulation firmware on a real flight controller board.
+PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크의 다른 컴퓨터)에서 실행되는 *SITL(Software In the Loop)* 시뮬레이션과 비행 콘트롤러의 시뮬레이션 펌웨어를 사용한 *Hardware In the Loop(HITL)* 시뮬레이션을 모두 지원합니다.
 
-Information about available simulators and how to set them up are provided in the next section. The other sections provide general information about how the simulator works, and are not required to *use* the simulators.
+사용 가능한 시뮬레이터와 설정 방법을 다음 섹션에서 설명합니다. 다른 섹션에서는 시뮬레이터 작동에 관현 정보를 제공하며, 시뮬레이터를 *사용*할 필요는 없습니다.
 
 
-## Supported Simulators
+## 지원되는 시뮬레이터
 
-The following simulators work with PX4 for HITL and/or SITL simulation.
+아래의 시뮬레이터들은 HITL과  SITL 시뮬레이션용으로 PX4와 연동됩니다.
 
-| Simulator                                                               | Description                                                                                                                                             |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Gazebo](../simulation/gazebo.md)                                       | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for [multi-vehicle simulation](../simulation/multi-vehicle-simulation.md) and is commonly used with [ROS](../simulation/ros_interface.md), a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad ([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) and [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex (Typhoon H480), [Generic quad delta VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), Tailsitter, Plane, Rover, Submarine </p>                                                                             |
-| [FlightGear](../simulation/flightgear.md)                               | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. [Multi-vehicle simulation](../simulation/multi_vehicle_flightgear.md) is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>                                                                                                      |
-| [JSBSim](../simulation/jsbsim.md)                                       | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>                                                                                                      |
-| [jMAVSim](../simulation/jmavsim.md)                                     | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for [multi-vehicle simulation](../simulation/multi_vehicle_jmavsim.md).</p><p><strong>Supported Vehicles:</strong> Quad</p> |
-| [AirSim](../simulation/airsim.md)                                       | <p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p>                                                                                                     |
-| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.</p><p><strong>Supported Vehicles:</strong> Quad</p>                                                                                                    |
+| 시뮬레이터                                                                   | 설명                                                                                         |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [Gazebo](../simulation/gazebo.md)                                       | <p><strong>이 시뮬레이터를 적극 권장합니다.</strong></p><p>물체 회피와 컴퓨터 비전 테스트에 매우 적합한 강력한 3D 시뮬레이션 환경입니다. [다중 차량시뮬레이션](../simulation/multi-vehicle-simulation.md)에도 사용할 수 있으며 일반적으로 차량 제어 자동화를 위한 도구 모음인 [ROS](../simulation/ros_interface.md)와 함께 사용됩니다. </p><p><strong>지원 차량:</strong> 쿼드([Iris](../airframes/airframe_reference.md#copter_quadrotor_wide_3dr_iris_quadrotor) 및 [Solo](../airframes/airframe_reference.md#copter_quadrotor_x_3dr_solo), Hex48(T0) [일반 쿼드 델타 VTOL](../airframes/airframe_reference.md#vtol_standard_vtol_generic_quad_delta_vtol), 테일시터, 비행기, 로버, 잠수함 </p>                |
+| [FlightGear](../simulation/flightgear.md)                               | <p>물리적, 시각적으로 사실적인 시뮬레이션을 제공합니다. 특히 뇌우, 눈, 비과 우박을 포함한 다양한 기상 조건을 시뮬레이션할 수 있으며, 열과 다양한 유형의 대기 흐름을 시뮬레이션할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)도 지원됩니다.</p> <p><strong>지원 차량:</strong> 비행기, 오토자이로, 로버</p>                                         |
+| [JSBSim](../simulation/jsbsim.md)                                       | <p>고급 비행 역학 모델 시뮬레이션을 제공합니다. 이것은 풍동 데이터를 기반으로 현실적인 비행 역학을 모델링할 수 있습니다.</p> <p><strong>지원 차량:</strong> 평면, 쿼드, 육각</p>                                         |
+| [jMAVSim](../simulation/jmavsim.md)                                     | *콥터* 유형의 차량을 비행할 수 있는 간단한 멀티콥터 시뮬레이터입니다. <p>설정이 간단하며, 기체가 이륙, 비행, 착륙할 수 있으며, 다양한 장애 조건(예: GPS 장애)에 적절하게 반응 여부를 테스트할 수 있습니다. [다중 차량 시뮬레이션](../simulation/multi_vehicle_jmavsim.md)에도 사용할 수 있습니다.</p><p><strong>지원 차량:</strong> 쿼드</p> |
+| [AirSim](../simulation/airsim.md)                                       | <p>물리적 및 시각적으로 사실적인 시뮬레이션을 제공하는 크로스 플랫폼 시뮬레이터입니다. 이 시뮬레이터는 리소스 집약적이며, 다른 시뮬레이터보다 강력한 컴퓨터가 필요합니다.</p><p><strong>지원 차량:</strong> Iris(MultiRotor 모델 및 X 구성의 PX4 QuadRotor 구성).</p>                                        |
+| [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>하드웨어 자동 조종 장치에서 직접 하드 실시간 시뮬레이션을 제공하는 HITL의 대안입니다.</p><p><strong>지원 차량:</strong> 쿼드</p>                                       |
 
-Instructions for how to setup and use the simulators are in the topics linked above.
+시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
 
 ---
-The remainder of this topic is a "somewhat generic" description of how the simulation infrastructure works. It is not required to *use* the simulators.
+이 항목의 나머지 부분은 시뮬레이션 인프라 작동 방식에 대한 "다소 일반적인" 설명입니다. 시뮬레이터를 *사용*할 필요는 없습니다.
 
 
 ## Simulator MAVLink API
 
-All simulators communicate with PX4 using the Simulator MAVLink API. This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle. The image below shows the message flow.
+모든 시뮬레이터는 Simulator MAVLink API를 사용하여 PX4와 통신합니다. 이 API는 시뮬레이션된 세계에서 PX4로 센서 데이터를 제공하고, 시뮬레이션된 차량에 적용될 비행 코드에서 모터 및 액추에이터 값을 반환하는 MAVLink 메시지 세트를 정의합니다. 아래 이미지는 메시지 흐름을 나타냅니다.
 
 ![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
-:::note
-A SITL build of PX4 uses [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp) to handle these messages while a hardware build in HIL mode uses [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp). Sensor data from the simulator is written to PX4 uORB topics. All motors / actuators are blocked, but internal software is fully operational.
+:::note PX4 SITL 빌드는 [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp)를 사용하여 이러한 메시지를 처리하는 반면, HIL 모드의 하드웨어 빌드는 [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)를 사용합니다. 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
 :::
 
-The messages are described below (see links for specific detail).
+메시지는 아래에 설명되어 있습니다(자세한 내용은 링크 참조).
 
-| Message                                                                                                        | Direction  | Description                                                                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED](https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED) | NA         | Mode flag when using simulation. All motors/actuators are blocked, but internal software is fully operational.                                                                                                                                |
-| [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)                    | PX4 to Sim | PX4 control outputs (to motors, actuators).                                                                                                                                                                                                   |
-| [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)                                            | Sim to PX4 | Simulated IMU readings in SI units in NED body frame.                                                                                                                                                                                         |
-| [HIL_GPS](https://mavlink.io/en/messages/common.html#HIL_GPS)                                                  | Sim to PX4 | The simulated GPS RAW sensor value.                                                                                                                                                                                                           |
-| [HIL_OPTICAL_FLOW](https://mavlink.io/en/messages/common.html#HIL_OPTICAL_FLOW)                              | Sim to PX4 | Simulated optical flow from a flow sensor (e.g. PX4FLOW or optical mouse sensor)                                                                                                                                                              |
-| [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim to PX4 | Contains the actual "simulated" vehicle position, attitude, speed etc. This can be logged and compared to PX4's estimates for analysis and debugging (for example, checking how well an estimator works for noisy (simulated) sensor inputs). |
-| [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim to PX4 | The RAW values of the RC channels received.                                                                                                                                                                                                   |
+| 메시지                                                                                                            | 방향         | 설명                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED](https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED) | 없음         | 시뮬레이션 모드 플래그입니다. 모든 모터/액추에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.                                                                       |
+| [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)                    | PX4 to Sim | PX4 제어 출력(모터, 액추에이터).                                                                                                            |
+| [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)                                            | Sim to PX4 | NED 본체 프레임의 SI 단위로 시뮬레이션된 IMU 판독값.                                                                                               |
+| [HIL_GPS](https://mavlink.io/en/messages/common.html#HIL_GPS)                                                  | Sim to PX4 | 시뮬레이션된 GPS RAW 센서 값입니다.                                                                                                          |
+| [HIL_OPTICAL_FLOW](https://mavlink.io/en/messages/common.html#HIL_OPTICAL_FLOW)                              | Sim to PX4 | 흐름 센서에서 시뮬레이션된 광류(예: PX4FLOW 또는 광학 마우스 센서)                                                                                       |
+| [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim to PX4 | 실제 "시뮬레이션된" 차량 위치, 자세, 속도 등이 포함됩니다. 이것은 분석 및 디버깅에 대한 PX4의 추정치와 비교 기록될 수 있습니다(예: 노이즈가 있는(시뮬레이션된) 센서 입력에 대해 추정기가 얼마나 잘 작동하는 지 확인). |
+| [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim to PX4 | 수신된 RC 채널의 RAW 값입니다.                                                                                                             |
 
 
-## Default PX4 MAVLink UDP Ports
+## 기본 PX4 MAVLink UDP 포트
 
-By default, PX4 uses commonly established UDP ports for MAVLink communication with ground control stations (e.g. *QGroundControl*), Offboard APIs (e.g. MAVSDK, MAVROS) and simulator APIs (e.g. Gazebo). These ports are:
+기본적으로 PX4는 지상제어국(예: *QGroundControl*), Offboard API(예: MAVSDK, MAVROS) 및 시뮬레이터 API(예: Gazebo)와 MAVLink 통신을 위하여 UDP 포트를 사용합니다. 해당 포트는 다음과 같습니다:
 
-* PX4's remote UDP Port **14550** is used for communication with ground control stations. GCS are expected to listen for connections on this port. *QGroundControl* listens to this port by default.
-* PX4's remote UDP Port **14540** is used for communication with offboard APIs. Offboard APIs are expected to listen for connections on this port. :::note Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549` (additional instances all use port `14549`).
+* PX4의 원격 UDP 포트 **14550**은 지상관제국 통신에 사용됩니다. GCS는 이 포트에서 연결 수신을 예상합니다. *QGroundControl*은 기본적으로 이 포트로 수신합니다.
+* PX4의 원격 UDP 포트 **14540**은 오프보드 API 통신에 사용됩니다. 오프보드 API는 이 포트에서 연결 수신을 예상합니다. :::note 다중 차량 시뮬레이션은 각 인스턴스에 대해 별도의 원격 포트를 사용하며 `14540`에서 `14549`까지 순차적으로 할당합니다. (추가 인스턴스는 모두 `14549` 포트를 사용합니다).
 :::
-* The simulator's local TCP Port **4560** is used for communication with PX4. PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.
+* 시뮬레이터의 로컬 TCP 포트 **4560**은 PX4 통신에 사용됩니다. PX4는 이 포트를 수신하고, 시뮬레이터는 이 포트에 데이터를 브로드캐스트하여 통신을 시작합니다.
 
-:::note
-The ports for the GCS and offboard APIs are set in configuration files, while the simulator broadcast port is hard-coded in the simulation MAVLink module.
+:::note GCS
+및 오프보드 API용 포트는 파일에서 설정되는 반면에, 시뮬레이터 브로드캐스트 포트는 시뮬레이션 MAVLink 모듈에서 하드 코딩되어 있습니다.
 :::
 
 
 <!-- A useful discussion about UDP ports here: https://github.com/PX4/PX4-user_guide/issues/1035#issuecomment-777243106 --> 
 
 
-## SITL Simulation Environment
+## SITL 시뮬레이션 환경
 
-The diagram below shows a typical SITL simulation environment for any of the supported simulators.
+아래 다이어그램은 지원되는 시뮬레이터에 대한 일반적인 SITL 시뮬레이션 환경을 나타냅니다.
 
 ![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
 
-The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.
+시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
-* PX4 uses a simulation-specific module to connect to the simulator's local TCP port 4560. Simulators then exchange information with PX4 using the [Simulator MAVLink API](#simulator-mavlink-api) described above. PX4 on SITL and the simulator can run on either the same computer or different computers on the same network. :::note Simulators can also use the *microRTPS bridge* ([PX4-FastRTPS Bridge](../middleware/micrortps.md)) to directly interact with PX4 (i.e. via [UORB topics](../middleware/uorb.md) rather than MAVLink). This approach *may* used by [Gazebo multi-vehicle simulation](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds).
+* PX4는 시뮬레이션 전용 모듈을 사용하여, 시뮬레이터의 로컬 TCP 포트 4560에 연결합니다. 그런 다음 시뮬레이터는 위에서 설명한 [시뮬레이터 MAVLink API](#simulator-mavlink-api)를 사용하여 PX4와 정보를 교환합니다. SITL 및 시뮬레이터의 PX4는 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서 실행할 수 있습니다. :::note 시뮬레이터는 또한 *microRTPS 브리지*([PX4-FastRTPS 브리지](../middleware/micrortps.md))를 사용하여 PX4와 직접 상호작용할 수 있습니다(즉, MAVLink가 아닌 [UORB 주제](../middleware/uorb.md)를 통하여). 이 접근 방법은 [Gazebo 다중 차량 시뮬레이션](../simulation/multi_vehicle_simulation_gazebo.md#build-and-test-rtps-dds)에서 *사용됩니다*.
 :::
-* PX4 uses the normal MAVLink module to connect to ground stations and external developer APIs like MAVSDK or ROS
-  - Ground stations listen to PX4's remote UDP port: `14550`
-  - External developer APIs listen to PX4's remote UDP port: `14540`. For multi-vehicle simulations, PX4 sequentially allocates a separate remote port for each instance from `14540` to `14549` (additional instances all use port `14549`).
-* PX4 defines a number of *local* UDP ports (`14580`,`18570`), which are sometimes used when networking with PX4 running in a container or virtual machine. These are not recommended for "general" use and may change in future.
-* A serial connection may be used to connect [Joystick/Gamepad](../config/joystick.md) hardware via *QGroundControl*.
+* PX4는 일반 MAVLink 모듈을 사용하여, MAVSDK 또는 ROS와 같은 외부 개발자 API와 지상국에 연결합니다.
+  - 지상국은 PX4의 원격 UDP 포트를 수신합니다: `14550`
+  - 외부 개발자 API는 PX4의 원격 UDP 포트인 `14540`을 수신합니다. 다중 차량 시뮬레이션의 경우 PX4는 `14540`에서 `14549`까지 각 인스턴스에 대해 별도의 원격 포트를 순차적으로 할당합니다(추가 인스턴스는 모두 포트 `14549` 사용).
+* PX4는 다수의 *로컬* UDP 포트(`14580`,`18570`)를 정의하며, 이는 컨테이너 또는 가상 머신에서 실행되는 PX4와 네트워킹시에 가끔 사용됩니다. 이는 "일반적인" 용도로는 권장되지 않으며, 향후 변경될 수 있습니다.
+* 직렬 연결로 *QGroundControl*을 통하여 [조이스틱/게임패드](../config/joystick.md)를 연결할 수 있습니다.
 
-If you use the normal build system SITL `make` configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.
+일반 빌드 시스템 SITL `make` 구성 대상을 사용하는 경우(다음 섹션 참조), SITL과 시뮬레이터가 모두 동일 컴퓨터에서 실행되고 위의 포트가 자동으로 설정됩니다. 추가 MAVLink UDP 연결을 구성하거나 빌드 구성 및 초기화 파일에서 시뮬레이션 환경을 수정할 수 있습니다.
 
 
-### Starting/Building SITL Simulation
+### SITL 시뮬레이션 시작/구축
 
 The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. The syntax (simplified) looks like this:
 ```
