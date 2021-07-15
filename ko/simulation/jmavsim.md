@@ -20,7 +20,7 @@ jMAVSim 설정은 [표준 빌드 지침](../dev_setup/dev_env.md)(macOS, Ubuntu 
 
 루프 시뮬레이션 소프트웨어는 호스트 시스템에서 전체 시스템을 실행하고 자동조종장치를 시뮬레이션합니다. 로컬 네트워크에서 시뮬레이터에 연결합니다. 설정은 다음과 같습니다.
 
-[![Mermaid graph: SITL Simulator](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+[![인어 그래프: SITL 시뮬레이터](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIFNpbXVsYXRvci0tPk1BVkxpbms7XG4gIE1BVkxpbmstLT5TSVRMOyIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 
 <!-- original graph
@@ -59,7 +59,7 @@ pxh>
 
 또한 [jMAVSim](https://github.com/PX4/jMAVSim) 시뮬레이터의 3D 보기를 보여주는 창이 나타납니다.
 
-![jMAVSim 3d View](../../assets/simulation/jmavsim.jpg)
+![jMAVSim 3D 보기](../../assets/simulation/jmavsim.jpg)
 
 
 ## 하늘로 띄우기
@@ -240,15 +240,15 @@ sudo gedit /etc/java-8-openjdk/accessibility.properties
 자세한 내용은 [GitHub 문제](https://github.com/PX4/PX4-Autopilot/issues/9557)를 확인하십시오. 기고자가 [skubuntu.com](https://askubuntu.com/questions/695560)에서 수정 사항을 찾았습니다.
 
 ### Exception in thread "main" java.lang.UnsupportedClassVersionError:
-When compiling jMAVsim, you might encounter the following error:
+jMAVsim을 컴파일시 다음 오류가 발생할 수 있습니다.
 
 ```
 Exception in thread "main" java.lang.UnsupportedClassVersionError: me/drton/jmavsim/Simulator has been compiled by a more recent version of the Java Runtime (class file version 59.0), this version of the Java Runtime only recognizes class file versions up to 58.0
 ```
 
-This error is telling you, you need a more recent version of Java in your environment. Class file version 58 corresponds to jdk14, version 59 to jdk15, etc.
+이 오류는 사용자 환경에 최신 버전의 Java가 필요함을 알려줍니다. 클래스 파일 버전 58은 jdk14에, 버전 59는 jdk15 등에 해당합니다.
 
-To fix it under macOS, we recommend installing OpenJDK through homebrew
+MacOS에서 이 문제를 해결하려면, homebrew를 사용하여 OpenJDK를 설치하는 것이 좋습니다.
 ```sh
 brew install --cask adoptopenjdk15
 ```
