@@ -95,8 +95,9 @@ Events can have a fixed set of arguments that can be shown in the message or des
 
 Valid types: `uint8_t`, `int8_t`, `uint16_t`, `int16_t`, `uint32_t`, `int32_t`, `uint64_t`, `int64_t` and `float`.
 
-It is also possible to define and use custom enumerations.
-These are defined in [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/events/enums.json), and can then be used as event argument in the form of `events::send<events::px4::enums::my_enum_t>(...)`.
+You can also use enumerations as arguments:
+- PX4-specific/custom enumerations for events should be defined in [src/lib/events/enums.json](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/events/enums.json), and can then be used as event argument in the form of `events::send<events::px4::enums::my_enum_t>(...)`.
+- MAVLink "common" events are defined in [mavlink/libevents/events/common.json](https://github.com/mavlink/libevents/blob/master/events/common.json) and can be used as event argument in the form of `events::send<events::common::enums::my_enum_t>(...)`.
 
 #### Text format
 
