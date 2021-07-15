@@ -64,29 +64,29 @@ pxh>
 
 ## 하늘로 띄우기
 
-The system will start printing status information. You will be able to start flying once you have a position lock (shortly after the console displays the message: *EKF commencing GPS fusion*).
+시스템이 상태 정보를 인쇄하기 시작합니다. 위치 잠금이 설정되면 비행을 시작할 수 있습니다(콘솔에 *EKF commending GPS fusion* 메시지가 표시된 직후).
 
-To takeoff enter the following into the console:
+이륙하려면 콘솔에 다음 명령어를 입력하십시오.
 
 ```sh
 pxh> commander takeoff
 ```
 
-You can use *QGroundControl* to fly a mission or to connect to a [joystick](#joystick).
+*QGroundControl*을 사용하여 임무를 수행하거나, [조이스틱](#joystick)에 연결할 수 있습니다.
 
-## Usage/Configuration Options
+## 사용법/설정 옵션
 
-Options that apply to all simulators are covered in the top level [Simulation](../simulation/README.md#sitl-simulation-environment) topic (some of these may be duplicated below).
+모든 시뮬레이터에 적용되는 옵션은 최상위 [시뮬레이션](../simulation/README.md#sitl-simulation-environment)편에서 설명합니다(일부는 아래에서 중복될 수 있음).
 
-### Simulating Sensor/Hardware Failure
+### 센서/하드웨어 오류 시뮬레이션
 
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+[안전장치 시뮬레이션](../simulation/failsafes.md)에서는 GPS 오류와 배터리 소모와 같은 안전 비상안전장치를 트리거하는 방법을 설명합니다.
 
-### Set Custom Takeoff Location
+### 사용자 지정 이륙 위치 설정
 
-The default takeoff location in can be overridden using the environment variables: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+기본 이륙 위치는 `PX4_HOME_LAT`, `PX4_HOME_LON` 및 `PX4_HOME_ALT` 환경변수를 사용하여 재정의할 수 있습니다.
 
-For example, to set the latitude, longitude and altitude:
+예를 들어 위도, 경도 및 고도를 설정은 아래와 같습니다.
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -94,25 +94,25 @@ export PX4_HOME_ALT=28.5
 make px4_sitl_default jmavsim
 ```
 
-### Change Simulation Speed
+### 시뮬레이션 속도 변경
 
-The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
+시뮬레이션 속도는 환경 변수 `PX4_SIM_SPEED_FACTOR`를 사용하여 실시간으로 증가 또는 감소할 수 있습니다.
 
 ```
-./Tools/jmavsim_run.sh
-make px4_sitl none
+export PX4_SIM_SPEED_FACTOR=2
+make px4_sitl_default jmavsim
 ```
 
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
+자세한 내용은 [시뮬레이션 > 실시간보다 빠른 시뮬레이션 실행](../simulation/README.md#simulation_speed)편을 참고하십시오.
 
 <a id="joystick"></a>
 
-### Using a Joystick
+### 조이스틱 사용법
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
+조이스틱과 썸 조이스틱 지원은 *QGroundControl*에서 지원됩니다([설정 방법](../simulation/README.md#joystick-gamepad-integration) 참고).
 
 
-### Simulating a Wifi Drone
+### Wi-Fi 드론 시뮬레이션
 
 There is a special target to simulate a drone connected via Wifi on the local network:
 
