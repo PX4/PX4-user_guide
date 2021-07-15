@@ -377,18 +377,18 @@ make px4_sitl gazebo_typhoon_h480
 
 스트리밍은 Gazebo UI *동영상 ON/OFF* 버튼을 사용하여 일시 중지/다시 시작할 수 있습니다.
 
-![Video ON/OFF button](../../assets/simulation/gazebo/sitl_video_stream.png)
+![비디오 ON/OFF 버튼](../../assets/simulation/gazebo/sitl_video_stream.png)
 
 
 ### 가제보 동영상 조회 방법
 
 SITL/Gazebo 카메라 비디오 스트림을 보는 가장 편리한 방법은 *QGroundControl*을 사용하는 것입니다. **애플리케이션 설정 > 일반** 및 **비디오 소스**를 *UDP h.264 비디오 스트림*으로 설정하고 **UDP 포트**를 *5600*으로 설정합니다.
 
-![QGC Video Streaming Settings for Gazebo](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
+![Gazebo에 대한 QGC 비디오 스트리밍 설정](../../assets/simulation/gazebo/qgc_gazebo_video_stream_udp.png)
 
 그러면 Gazebo의 비디오가 실제 카메라에서와 같이 *QGroundControl*에 표시됩니다.
 
-![QGC Video Streaming Gazebo Example](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
+![QGC 비디오 스트리밍 Gazebo 예](../../assets/simulation/gazebo/qgc_gazebo_video_stream_typhoon.jpg)
 
 :::note
 Typhoon 세계는 그다지 흥미롭지 않습니다.
