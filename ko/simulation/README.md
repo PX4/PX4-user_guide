@@ -145,49 +145,49 @@ make px4_sitl jmavsim
 :::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
 :::
 
-### Lockstep 시뮬레이션
+### 잠금단계시뮬레이션
 
-PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *lockstep*으로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *잠금단계*로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
-Lockstep을 사용하면 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)하며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
+잠금단계를 사용하여 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)할 수 있으며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
 :::
 
-잠금 단계의 단계 순서는 다음과 같습니다.
+잠금단계의 순서는 다음과 같습니다.
 1. 시뮬레이션은 타임스탬프 `time_usec`가 포함된 센서 메시지 [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)를 전송하여 PX4의 센서 상태와 시간을 업데이트합니다.
 1. PX4는 이것을 수신하고 상태 추정, 제어 등을 한 번 반복하고, 액추에이터 메시지 [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)를 전송합니다.
-1. 시뮬레이션은 액추에이터/모터 메시지를 수신시까지 기다린 다음, 물리 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
+1. 시뮬레이션은 액추에이터/모터 메시지를 수신후에, 물리적 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
 
-The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
+시스템은 시뮬레이션 시간을 포함하는 센서 메시지를 전송하는 "프리휠링" 기간으로 시작하므로, 초기화되고 액추에이터 메시지로 응답시까지 PX4를 실행합니다.
 
-#### Disable Lockstep Simulation
+#### 잠금단계 시뮬레이션 비활성화
 
-The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature. In this case the simulator and PX4 use the host system time and do not wait on each other.
+SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는 경우에는 잠금단계 시뮬레이션을 비활성화할 수 있습니다. 이 경우 시뮬레이터와 PX4는 호스트 시스템 시간을 사용하며 서로를 기다리지 않습니다.
 
-To disable lockstep in PX4, use `set(ENABLE_LOCKSTEP_SCHEDULER no)` in the [SITL board config](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104).
+PX4에서 잠금 단계를 비활성화하려면 [SITL 보드 설정](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104)에서 `set(ENABLE_LOCKSTEP_SCHEDULER no)`를 사용하십시오.
 
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>` (or for Iris edit the [xacro file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22).
+Gazebo에서 잠금 단계를 비활성화하려면 [모델 SDF 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449)을 편집하여 `<enable_lockstep>false</enable_lockstep>`를 설정합니다. Iris의 경우 [xacro 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22)을 편집합니다.
 
-To disable lockstep in jMAVSim, remove `-l` in [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75), or make sure otherwise that the java binary is started without the `-lockstep` flag.
-
-
-### Startup Scripts
-
-Scripts are used to control which parameter settings to use or which modules to start. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. See [System Startup](../concept/system_startup.md) for more information.
-
-### Simulating Failsafes and Sensor/Hardware Failure
-
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
+jMAVSim에서 잠금 단계를 비활성화하려면 [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75)에서 `-l`을 제거하거나, Java 바이너리가 `-lockstep` 플래그 없이 시작되었는지 확인하십시오.
 
 
-## HITL Simulation Environment
+### 시작 스크립트
 
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. The HITL Simulation Environment in documented in: [HITL Simulation](../simulation/hitl.md).
+스크립트는 매개변수 설정과 시작 모듈 제어에 사용됩니다. [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) 디렉토리에 있으며, `rcS` 파일이  진입점입니다. 자세한 내용은 [시스템 시작](../concept/system_startup.md)을 참고하십시오.
+
+### 안정장치 및 센서/하드웨어 오류 시뮬레이션
+
+[안전장치 시뮬레이션](../simulation/failsafes.md)에서는 GPS 오류 및 배터리 소모와 같은 안전 비상안전장치를 트리거 방법을 설명합니다.
 
 
-## Joystick/Gamepad Integration
+## HITL 시뮬레이션 환경
 
-*QGroundControl* desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어가 실제 하드웨어에서 실행됩니다. 문서화된 HITL 시뮬레이션 환경: [HITL 시뮬레이션](../simulation/hitl.md).
+
+
+## 조이스틱/게임패드 통합
+
+*QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
 
 For setup information see the *QGroundControl User Guide*:
 * [Joystick Setup](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
