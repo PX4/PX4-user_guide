@@ -130,22 +130,22 @@ pxh> commander takeoff
 
 ### 헤드리스 모드
 
-Gazebo can be run in a *headless* mode in which the Gazebo UI is not launched. This starts up more quickly and uses less system resources (i.e. it is a more "lightweight" way to run the simulation).
+Gazebo는 Gazebo UI가 실행되지 않는 *headless* 모드에서 실행될 수 있습니다. 헤드리스 모드는 시작이 빠르고 시스템 리소스를 적게 사용합니다(즉, 시뮬레이션을 실행하는 데 더 "가벼운" 방법입니다).
 
-Simply prefix the normal `make` command with `HEADLESS=1` as shown:
+다음과 같이 일반 `make` 명령에 `HEADLESS=1` 접두어를 붙이면 됩니다.
 ```bash
 HEADLESS=1 make px4_sitl gazebo_plane
 ```
 
 <a id="custom_takeoff_location"></a>
 
-### Set Custom Takeoff Location
+### 사용자 지정 이륙 위치 설정
 
-The takeoff location in SITL Gazebo can be set using environment variables. This will override both the default takeoff location, and any value [set for the world](#set_world_location).
+SITL Gazebo의 이륙 위치는 환경 변수를 사용하여 설정합니다. 기본 이륙 위치와 [세계에 대해 설정된](#set_world_location) 값이 모두 재정의됩니다.
 
-The variables to set are: `PX4_HOME_LAT`, `PX4_HOME_LON`, and `PX4_HOME_ALT`.
+설정할 변수는 `PX4_HOME_LAT`, `PX4_HOME_LON` 및 `PX4_HOME_ALT`입니다.
 
-For example:
+예:
 ```
 export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
@@ -154,21 +154,21 @@ make px4_sitl gazebo
 ```
 
 
-### Change Simulation Speed
+### 시뮬레이션 속도 변경
 
-The simulation speed can be increased or decreased with respect to realtime using the environment variable `PX4_SIM_SPEED_FACTOR`.
+시뮬레이션 속도는 환경 변수 `PX4_SIM_SPEED_FACTOR`를 사용하여 실시간으로 증가 또는 감소할 수 있습니다.
 
 ```
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default gazebo
 ```
 
-For more information see: [Simulation > Run Simulation Faster than Realtime](../simulation/README.md#simulation_speed).
+자세한 내용은 [시뮬레이션 > 실시간보다 빠른 시뮬레이션 실행](../simulation/README.md#simulation_speed)편을 참고하십시오.
 
 
-### Change Wind Speed
+### 풍속 변경
 
-To simulate wind speed, add this plugin to your world file and replace `SET_YOUR_WIND_SPEED` with the desired speed:
+풍속을 시뮬레이션하려면, 아래 플러그인을 월드 파일에 추가하고 `SET_YOUR_WIND_SPEED`를 원하는 속도로 변경하십시오.
 ```xml
   <plugin name='wind_plugin' filename='libgazebo_wind_plugin.so'>
       <frameId>base_link</frameId>
@@ -183,49 +183,49 @@ To simulate wind speed, add this plugin to your world file and replace `SET_YOUR
       <windPubTopic>world_wind</windPubTopic>
     </plugin>
 ```
-You can see this how this is done in [PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L26).
+[PX4/PX4-SITL_gazebo/worlds/windy.world](https://github.com/PX4/PX4-SITL_gazebo/blob/master/worlds/windy.world#L15-L26)에서 어떻게 실행되는지 볼 수 있습니다.
 
-### Using a Joystick
+### 조이스틱 사용법
 
-Joystick and thumb-joystick support are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
+조이스틱과 썸 조이스틱 지원은 *QGroundControl*에서 지원됩니다([설정 방법](../simulation/README.md#joystick-gamepad-integration) 참고).
 
 
-### Improving Distance Sensor Performance
+### 거리 센서 성능 향상
 
-The current default world is [PX4/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/sitl_gazebo/tree/master/worlds)), which uses a heightmap as ground.
+현재 기본 세계는 고도 맵을 지면으로 사용하는 [PX4/sitl_gazebo/worlds/**iris.world**](https://github.com/PX4/sitl_gazebo/tree/master/worlds))입니다.
 
-This can cause difficulty when using a distance sensor. If there are unexpected results we recommend you change the model in **iris.model** from `uneven_ground` to `asphalt_plane`.
+이는 거리 센서를 사용할 때 문제가 발생할 수 있습니다. 예상치 못한 결과가 발생하면, **iris.model**의 모델을 `uneven_ground`에서 `asphalt_plane`으로 변경하십시오.
 
 
 <a id="gps_noise"></a>
 
-### Simulating GPS Noise
+### GPS 노이즈 시뮬레이션
 
-Gazebo can simulate GPS noise that is similar to that typically found in real systems (otherwise reported GPS values will be noise-free/perfect). This is useful when working on applications that might be impacted by GPS noise - e.g. precision positioning.
+Gazebo는 실제 시스템에서 일반적으로 발견되는 것과 유사한 GPS 잡음을 시뮬레이션할 수 있습니다(그렇지 않으면 보고된 GPS 값은 잡음이 없고 완벽한 것입니다). 이것은 GPS 노이즈의 영향을 받을 수 있는 응용 프로그램(예: 정밀 포지셔닝)에서 작업할 때 유용합니다.
 
-GPS noise is enabled if the target vehicle's SDF file contains a value for the `gpsNoise` element (i.e. it has the line: `<gpsNoise>true</gpsNoise>`). It is enabled by default in many vehicle SDF files: **solo.sdf**, **iris.sdf**, **standard_vtol.sdf**, **delta_wing.sdf**, **plane.sdf**, **typhoon_h480**, **tailsitter.sdf**.
+대상 차량의 SDF 파일에 `gpsNoise` 요소 값이 포함된 경우(즉, `<gpsNoise>true</gpsNoise>` 행이 있음) GPS 노이즈가 활성화됩니다. 많은 차량 SDF 파일에서 기본적으로 활성화되어 있습니다: **solo.sdf**, **iris.sdf**, **standard_vtol.sdf**, **delta_wing.sdf **, **plane.sdf**, **typhoon_h480**, **tailsitter.sdf**.
 
-To enable/disable GPS noise:
-1. Build any gazebo target in order to generate SDF files (for all vehicles). For example:
+GPS 노이즈를 활성화/비활성화하려면:
+1. SDF 파일(모든 차량용)을 생성하기 위해 가제보 대상을 구축합니다. 예:
    ```
    make px4_sitl gazebo_iris
    ```
-:::tip
-The SDF files are not overwritten on subsequent builds.
+:::tip SDF
+파일은 후속 빌드에서 덮어 쓰지 않습니다.
 :::
 
-2. Open the SDF file for your target vehicle (e.g. **./Tools/sitl_gazebo/models/iris/iris.sdf**).
-3. Search for the `gpsNoise` element:
+2. 대상 차량에 대한 SDF 파일을 엽니다(예: **./Tools/sitl_gazebo/models/iris/iris.sdf**).
+3. `gpsNoise` 요소를 검색합니다.
    ```xml
    <plugin name='gps_plugin' filename='libgazebo_gps_plugin.so'>
      <robotNamespace/>
      <gpsNoise>true</gpsNoise>
    </plugin>
    ```
-   * If it is present, GPS is enabled. You can disable it by deleting the line: `<gpsNoise>true</gpsNoise>`
-   * If it is not preset GPS is disabled. You can enable it by adding the `gpsNoise` element to the `gps_plugin` section (as shown above).
+   * GPS가 있으면, GPS가 활성화된 것입니다. `<gpsNoise>true</gpsNoise>` 줄을 삭제하여 비활성화 됩니다.
+   * 사전 설정되어 있지 않으면, GPS가 비활성화됩니다. 위의 그림과 같이, `gps_plugin` 섹션에 `gpsNoise` 요소를 추가하여 활성화할 수 있습니다.
 
-The next time you build/restart Gazebo it will use the new GPS noise setting.
+다음에 Gazebo를 빌드/재시작하면 새로운 GPS 노이즈 설정이 사용됩니다.
 
 
 <a id="set_world"></a>
