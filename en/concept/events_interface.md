@@ -1,6 +1,6 @@
 # Events Interface
 
-The *Events Interface* provides a system-wide API for notification of events, which are published to GCSs via the *MAVLink Events Service* (to GCSs) and also stored in [system logs](../dev_log/logging.md).
+The *Events Interface* provides a system-wide API for notification of events, which are published to GCSs via the *MAVLink Events Service* (to GCSs and other components) and also stored in [system logs](../dev_log/logging.md).
 
 The interface can be used for publishing events for state changes or any other type of occurrence, including things like arming readiness, calibration completion, and reaching the target takeoff height.
 
@@ -57,7 +57,7 @@ events::send<uint8_t, float>(events::ID("event_name"),
 ```
 
 Explanations and requirements:
-- `/* EVENT`: this is an indicator for the parser that there is additional metadata following as comment.
+- `/* EVENT`: This tag indicates that a comment defines metadata for the following event.
 - **event_name**: the event name.
   - must be unique within the whole source code of PX4.
     As a general convention, prefix it with the module name, or the source file for larger modules.
@@ -83,11 +83,11 @@ Explanations and requirements:
 	There are cases it makes sense to have two different log levels.
 	For example an RTL failsafe action: the user should see it as Warning/Error, whereas in the log, it is an expected system response, so it can be set to `Info`.
 - **Event Message**:
-  - Single-line, short description of the event.
+  - Single-line, short message of the event.
     It may contain arguments (see below).
 - **Event Description**:
-  - detailed, optional event description.
-  - can be multiple lines/paragraphs.
+  - Detailed, optional event description.
+  - Can be multiple lines/paragraphs.
 
 #### Arguments and Enums
 
@@ -143,4 +143,4 @@ At the same time, a python script scans the whole source code for event calls, e
 The event metadata JSON file is compiled into firmware (or hosted on the Internet), and made available to ground stations via the [MAVLink Component Information service](https://mavlink.io/en/services/component_information.html).
 This ensures that metadata is always up-to-date with the code running on the vehicle.
 
-This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs)
+This process is the same as for [parameter metadata](../advanced/parameters_and_configurations.md#publishing-parameter-metadata-to-a-gcs).
