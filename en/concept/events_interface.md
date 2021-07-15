@@ -65,7 +65,8 @@ Explanations and requirements:
   - from that name, a 24 bit event ID is derived using a hash function.
     This means as long as the event name stays the same, so will the ID.
 - **Log Level**:
-  - valid log levels are (in descending importance):
+  - valid log levels are the same as used in the MAVLink [MAV_SEVERITY](https://mavlink.io/en/messages/common.html#MAV_SEVERITY) enum.
+    In order of descending importance these are:
     ```
 	Emergency,
 	Alert,
