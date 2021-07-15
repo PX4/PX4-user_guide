@@ -1,6 +1,6 @@
-# Gazebo Worlds
+# 가제보 월드
 
-This topic provides imagery/information about the [Gazebo](../simulation/gazebo.md) worlds supported by PX4.
+PX4에서 지원하는 [가제보](../simulation/gazebo.md) 세계에 대한 이미지/정보를 제공합니다.
 
 The [empty.world](#empty_world) is spawned by default, though this may be overridden by a [model specific world](#model_specific_worlds). Developers can also manually specify the world to load: [Gazebo Simulation > Loading a Specific World](../simulation/gazebo.md#set_world).
 
