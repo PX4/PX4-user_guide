@@ -218,21 +218,21 @@ PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영
 
 한 컴퓨터에서 시뮬레이터를 실행하고 동일 네트워크(또는 적절한 라우팅이 있는 다른 네트워크)의 다른 컴퓨터에서 시뮬레이터에 접근할 수 있습니다. 시뮬레이션 차량을 실행하는 실제 보조 컴퓨터에서 실행되는 드론 애플리케이션을 테스트하는 경우에 유용합니다.
 
-PX4는 기본적으로 패킷을 외부 인터페이스로 라우팅하지 않기 때문에 "즉시" 작동하지 않습니다(네트워크 스팸과 서로 다른 시뮬레이션이 서로 간섭하는 것을 방지하기 위하여). Instead it routes traffic internally - to "localhost".
+(네트워크 스팸과 서로 다른 시뮬레이션이 서로 간섭하는 것을 방지하기 위하여) PX4는 기본적으로 패킷을 외부 인터페이스로 라우팅하지 않기 때문에 "즉시" 작동하지 않습니다. 대신 내부적으로 트래픽을 "localhost"로 라우팅합니다.
 
-There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
+아래에 설명된 대로 외부 인터페이스에서 UDP 패킷을 사용하는 여러 방법이 있습니다.
 
-### Use MAVLink Router
+### MAVLink 라우터 사용
 
-The [mavlink-router](https://github.com/intel/mavlink-router) can be used to route packets from localhost to an external interface.
+[mavlink-router](https://github.com/intel/mavlink-router)는 localhost에서 외부 인터페이스로 패킷을 라우팅하는 데 사용할 수 있습니다.
 
-To route packets between SITL running on one computer (sending MAVLink traffic to localhost on UDP port 14550), and QGC running on another computer (e.g. at address `10.73.41.30`) you could:
+한 컴퓨터에서 실행 중인 SITL(UDP 포트 14550에서 localhost로 MAVLink 트래픽 전송)과 다른 컴퓨터에서 실행 중인 QGC(예: 주소 `10.73.41.30`) 간에 패킷을 라우팅하려면 다음을 수행할 수 있습니다.
 
-- Start *mavlink-router* with the following command:
+- 다음 명령으로 *mavlink-router*를 실행합니다.
   ```
   mavlink-routerd -e 10.73.41.30:14550 127.0.0.1:14550
   ```
-- Use a *mavlink-router* conf file.
+- *mavlink-router* conf 파일을 사용하십시오.
   ```
   [UdpEndpoint QGC]
   Mode = Normal
@@ -246,52 +246,51 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   ```
 
 :::note
-More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
+*mavlink-router* 설정 방법은 [여기](https://github.com/intel/mavlink-router/#running)를 참고하십시오.
 :::
 
-### Enable UDP Broadcasting
+### UDP 브로드캐스트 활성화
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you can enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
+[mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-p` 옵션을 사용하여 하트비트의 UDP 브로드캐스트를 활성화할 수 있습니다. 그러면, 네트워크의 모든 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
 :::note UDP
-broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
+브로드캐스팅은 네트워크에서 실행 중인 시뮬레이션이 하나만 있는 경우에 간단하게 연결되도록 합니다. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
-### Enable Streaming to Specific Address
+### 특정 주소로 스트리밍 활성화
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you can specify an external IP address to stream to using its `-t` option. The specified remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
+[mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-t` 옵션을 사용하여 스트리밍 외부 IP 주소를 지정합니다. 지정된 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
-This should be done in various configuration files where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
-### SSH Tunneling
+### SSH 터널링
 
-SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
+SSH 터널링을 사용하면 시뮬레이션 컴퓨터와 이를 사용하는 시스템이 동일 네트워크에 있지 않아도 됩니다.
 
 :::note
-You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
+유사하게 VPN을 사용하여 외부 인터페이스(동일 네트워크 또는 다른 네트워크에서)에 터널을 제공할 수 있습니다.
 :::
 
-One way to create the tunnel is to use SSH tunneling options. The tunnel itself can be created by running the following command on *localhost*, where `remote.local` is the name of a remote computer:
+터널을 만드는 한 가지 방법은 SSH 터널링 옵션을 사용하는 것입니다. 터널 자체는 *localhost*에서 다음 명령을 실행하여 만들 수 있습니다. 여기서 `remote.local`은 원격 컴퓨터의 이름입니다.
 ```
 ssh -C -fR 14551:localhost:14551 remote.local
 ```
 
-The UDP packets need to be translated to TCP packets so they can be routed over SSH. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
+UDP 패킷은 SSH를 통해 라우팅될 수 있도록 TCP 패킷으로 변환되어야 합니다. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
 
-:::tip QGC
-must be running before executing *netcat*.
+:::tip QGC가 *netcat*을 실행하기 전에 실행되어야 합니다.
 :::
 
-On the *QGroundControl* computer, UDP packet translation may be implemented by running following commands:
+*QGroundControl* 컴퓨터에서 UDP 패킷 변환은 다음 명령어로 구현할 수 있습니다.
 ```
 mkfifo /tmp/tcp2udp
 netcat -lvp 14551 < /tmp/tcp2udp | netcat -u localhost 14550 > /tmp/tcp2udp
 ```
-On the simulator side of the SSH tunnel, the command is:
+SSH 터널의 시뮬레이터 측에서 명령어는 다음과 같습니다.
 ```
 mkfifo /tmp/udp2tcp
 netcat -lvup 14550 < /tmp/udp2tcp | netcat localhost 14551 > /tmp/udp2tcp
