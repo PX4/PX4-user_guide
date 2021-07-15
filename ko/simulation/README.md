@@ -187,38 +187,38 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 
 ## 조이스틱/게임패드 통합
 
-*QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+*QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. 조이스틱이 없는 경우 QGroundControl의 화면 가상 썸스틱을 사용하여 차량을 제어할 수도 있습니다.
 
-For setup information see the *QGroundControl User Guide*:
-* [Joystick Setup](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
-* [Virtual Joystick](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
+설정 정보는 *QGroundControl 사용자 가이드*를 참고하십시오.
+* [조이스틱 설정](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
+* [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
 
-## Camera Simulation
+## 카메라 시뮬레이션
 
-PX4 supports capture of both still images and video from within the [Gazebo](../simulation/gazebo.md) simulated environment. This can be enabled/set up as described in [Gazebo > Video Streaming](../simulation/gazebo.md#video).
+PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영상과 동영상 캡처를 할 수 있습니다. 설정 방법은 [Gazebo > 비디오 스트리밍](../simulation/gazebo.md#video)을 참고하십시오.
 
-The simulated camera is a gazebo plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html)<!-- **PX4-Autopilot/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4 connects/integrates with this camera in *exactly the same way* as it would with any other MAVLink camera:
-1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested. For more information see [Camera](../peripherals/camera.md).
+시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 
-1. PX4 must forward all camera commands between the GCS and the (simulator) MAVLink Camera. You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
+1. PX4는 GCS와 (시뮬레이터) MAVLink 카메라 사이의 모든 카메라 명령을 전달하여야 합니다. 그림과 같이 `-f` 플래그로 [MAVLink](../modules/modules_communication.md#mavlink)를 시작하고 새 연결을 위한 UDP 포트를 지정하면 됩니다.
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 :::note
-More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+카메라 MAVLink 메시지 이상은 전달되지만, 카메라는 관련이 없는 것으로 간주되는 메시지들은 무시합니다.
 :::
 
-The same approach can be used by other simulators to implement camera support.
+다른 시뮬레이터에서도 동일한 접근 방식을 사용하여 카메라 지원을 구현할 수 있습니다.
 
-## Running Simulation on a Remote Server
+## 원격 서버에서 시뮬레이션 실행
 
-It is possible to run the simulator on one computer, and access it from another computer on the same network (or on another network with appropriate routing). This might be useful, for example, if you want to test a drone application running on real companion computer hardware running against a simulated vehicle.
+한 컴퓨터에서 시뮬레이터를 실행하고 동일 네트워크(또는 적절한 라우팅이 있는 다른 네트워크)의 다른 컴퓨터에서 시뮬레이터에 접근할 수 있습니다. 시뮬레이션 차량을 실행하는 실제 보조 컴퓨터에서 실행되는 드론 애플리케이션을 테스트하는 경우에 유용합니다.
 
-This does not work "out of the box" because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to "localhost".
+PX4는 기본적으로 패킷을 외부 인터페이스로 라우팅하지 않기 때문에 "즉시" 작동하지 않습니다(네트워크 스팸과 서로 다른 시뮬레이션이 서로 간섭하는 것을 방지하기 위하여). Instead it routes traffic internally - to "localhost".
 
 There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
 
