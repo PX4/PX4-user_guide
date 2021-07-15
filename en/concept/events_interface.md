@@ -134,9 +134,9 @@ Flight review downloads metadata based on PX4 master, so if a definition is not 
 
 ## Implementation
 
-During PX4 build, only the event ID, log level(s) and arguments (if any) are added to the binary by the compiler.
+During PX4 build, only the code is added directly to the binary by the compiler (i.e. the event ID, log level(s) and any arguments).
 
-At the same time, a python script scans the whole source code for event calls, extracts the metadata and assembles a JSON metadata file.
+The metadata for all events is built into a separate JSON metadata file (using a python script that scans the whole source code for event calls).
 
 ### Publishing Event Metadata to a GCS
 
