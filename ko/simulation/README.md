@@ -1,9 +1,9 @@
 # 시뮬레이션
 
-Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated "world". You can interact with this vehicle just as you might with a real vehicle, using *QGroundControl*, an offboard API, or a radio controller/gamepad.
+시뮬레이터는 PX4 비행 코드가 시뮬레이션된 가상 "세계"에서 컴퓨터로 모델링된 기체를 제어합니다. *QGroundControl*, 오프보드 API 또는 무선 컨트롤러, 게임패드를 사용하여 실제 기체와 같이 상호 작용합니다.
 
 :::tip
-Simulation is a quick, easy, and most importantly, *safe* way to test changes to PX4 code before attempting to fly in the real world. It is also a good way to start flying with PX4 when you haven't yet got a vehicle to experiment with.
+시뮬레이션은 실제 세계에서 비행전에 PX4 코드 변경 사항을 테스트할 수 있는 빠르고 쉽고 *안전한* 방법입니다. 실험할 기체가 없은 경우 PX4로 비행을 시작하는 것도 좋은 방법입니다.
 :::
 
 PX4 supports both *Software In the Loop (SITL)* simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and *Hardware In the Loop (HITL)* simulation using a simulation firmware on a real flight controller board.
