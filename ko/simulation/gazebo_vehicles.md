@@ -91,7 +91,7 @@ make px4_sitl gazebo_plane_catapult
 make px4_sitl gazebo_standard_vtol
 ```
 
-![Standard VTOL in Gazebo](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
+![가제보 표준 VTOL](../../assets/simulation/gazebo/vehicles/standard_vtol.png)
 
 <a id="tailsitter_vtol"></a>
 
@@ -101,7 +101,7 @@ make px4_sitl gazebo_standard_vtol
 make px4_sitl gazebo_tailsitter
 ```
 
-![Tailsitter VTOL in Gazebo](../../assets/simulation/gazebo/vehicles/tailsitter.png)
+![가제보 테일시터 VTOL](../../assets/simulation/gazebo/vehicles/tailsitter.png)
 
 <a id="ugv"></a>
 
@@ -115,7 +115,7 @@ make px4_sitl gazebo_tailsitter
 make px4_sitl gazebo_rover
 ```
 
-![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/rover.png)
+![가제보 탐사선](../../assets/simulation/gazebo/vehicles/rover.png)
 
 <a id="ugv_differential"></a>
 
@@ -125,7 +125,7 @@ make px4_sitl gazebo_rover
 make px4_sitl gazebo_r1_rover
 ```
 
-![Rover in Gazebo](../../assets/simulation/gazebo/vehicles/r1_rover.png)
+![가제보 탐사선](../../assets/simulation/gazebo/vehicles/r1_rover.png)
 
 <a id="uuv"></a>
 
@@ -139,7 +139,7 @@ make px4_sitl gazebo_r1_rover
 make px4_sitl gazebo_uuv_hippocampus
 ```
 
-![Submarine/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
+![잠수함/UUV](../../assets/simulation/gazebo/vehicles/hippocampus.png)
 
 <a id="usv"></a>
 
@@ -153,7 +153,7 @@ make px4_sitl gazebo_uuv_hippocampus
 make px4_sitl gazebo_boat
 ```
 
-![Boat/USV](../../assets/simulation/gazebo/vehicles/boat.png)
+![보트/USV](../../assets/simulation/gazebo/vehicles/boat.png)
 
 <a id="airship"></a>
 
@@ -167,4 +167,4 @@ make px4_sitl gazebo_boat
 make px4_sitl gazebo_cloudship
 ```
 
-![Airship](../../assets/simulation/gazebo/vehicles/airship.png)
+![비행선](../../assets/simulation/gazebo/vehicles/airship.png)
