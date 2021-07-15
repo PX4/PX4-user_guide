@@ -145,18 +145,18 @@ make px4_sitl jmavsim
 :::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
 :::
 
-### 록스텝 시뮬레이션
+### Lockstep 시뮬레이션
 
 PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *lockstep*으로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
-Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
+Lockstep을 사용하면 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)하며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
 :::
 
-The sequence of steps for lockstep are:
-1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
-1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
-1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
+잠금 단계의 단계 순서는 다음과 같습니다.
+1. 시뮬레이션은 타임스탬프 `time_usec`가 포함된 센서 메시지 [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)를 전송하여 PX4의 센서 상태와 시간을 업데이트합니다.
+1. PX4는 이것을 수신하고 상태 추정, 제어 등을 한 번 반복하고, 액추에이터 메시지 [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)를 전송합니다.
+1. 시뮬레이션은 액추에이터/모터 메시지를 수신시까지 기다린 다음, 물리 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
 
 The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
 
