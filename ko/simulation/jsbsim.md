@@ -1,4 +1,4 @@
-# JSBSim Simulation
+# JSBSim 시뮬레이션
 
 [JSBSim](http://jsbsim.sourceforge.net/index.html) is a open source flight simulator ("flight dynamics model (FDM)") that runs on Microsoft Windows, Apple Macintosh, Linux, IRIX, Cygwin (Unix on Windows), etc. Its features include: fully configurable aerodynamics and a propulsion system that can model complex flight dynamics of an aircraft. Rotational earth effects are also modeled into the dynamics.
 
