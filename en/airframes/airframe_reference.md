@@ -733,15 +733,6 @@ This page lists all supported airframes and types including
 </tbody></table>
 
 ### Tricopter Y+
-> **Note:** 
->
-> For both **TriY+** and **TriY-** setups, the direction of the propellers is not taken into account by the software.
-> The difference is in the tail (yaw) servo directions as defined in the mixer files [TriY+](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/tri_y_yaw%2B.main.mix) 
-> and [TriY-](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/tri_y_yaw-.main.mix). 
-
-The recommended airframe setups are given below. When setting up your radio, check that the **yaw** stick and the 
-**tail servo** operate in opposite directions. That is, if you move the **yaw** stick to the right, the **tail servo** 
-should tilt to the left side and vice-versa, when the tricopter is viewed from the back.
 
 <div>
 <img src="../../assets/airframes/types/YPlus.svg" width="29%" style="max-height: 180px;"/>
