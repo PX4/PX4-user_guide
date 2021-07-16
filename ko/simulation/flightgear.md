@@ -2,11 +2,11 @@
 
 [FlightGear](https://www.flightgear.org/)는 강력한 [FDM 엔진](http://wiki.flightgear.org/Flight_Dynamics_Model)이 탑재된 비행 시뮬레이터입니다. FlightGear는 다양한 기상 조건에서 회전익기를 시뮬레이션합니다. 이것이 원래 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 FlightGear를 개발한 이유입니다.
 
-이 페이지는 SITL에서 FlightGear의 단일 차량 시뮬레이션에 대하여 설명합니다. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../simulation/multi_vehicle_flightgear.md).
+이 페이지는 SITL에서 FlightGear의 단일 차량 시뮬레이션에 대하여 설명합니다. 다중 차량 사용에 대한 정보는 [FlightGear를 사용한 다중 차량 시뮬레이션](../simulation/multi_vehicle_flightgear.md)을 참고하십시오.
 
-**Supported Vehicles:** Autogyro, Plane, Rover.
+**지원 차량:** 오토자이로, 고정익, 로버
 
-@[youtube](https://youtu.be/iqdcN5Gj4wI)
+@[유투브](https://youtu.be/iqdcN5Gj4wI)
 
 [![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
@@ -19,77 +19,77 @@ graph LR;
 -->
 
 :::note
-See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
+시뮬레이터, 시뮬레이션 환경 및 시뮬레이션 설정(예: 지원 차량)에 정보는 [시뮬레이션](../simulation/README.md)을 참고하십시오.
 :::
 
 <a id="installation"></a>
 
-## Installation (Ubuntu Linux)
+## 설치(우분투 리눅스)
 
 :::note
-These instructions were tested on Ubuntu 18.04
+이 매뉴얼은 Ubuntu 18.04에서 테스트되었습니다.
 :::
 
-1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install FlightGear:
+1. 일반적인 [Ubuntu LTS/Debian Linux 개발 환경](../dev_setup/dev_env_linux_ubuntu.md)을 설치합니다.
+1. FlightGear를 설치합니다.
    ```sh
    sudo add-apt-repository ppa:saiarcot895/flightgear
    sudo apt update
    sudo apt install flightgear
    ```
-   This installs the latest stable FlightGear version from the PAA repository along with the FGdata package.
+   위 명령어들은 FGdata 패키지와 함께 PAA 리포지토리에서 최신 안정적인 FlightGear 버전이 설치됩니다.
 
 :::tip
-For some models (e.g. those with electric engines) the daily build with the newest features may be necessary. Install this using the [daily build PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge).
+일부 모델(예: 전기 엔진이 장착된 모델)의 경우 최신 기능으로 매일 빌드해야 할 수 있습니다. [일일 빌드 PPA](https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge)를 사용하여 설치합니다.
 :::
 
-1. Check that you are able to run FlightGear:
+1. FlightGear를 실행 여부를 확인하십시오.
    ```
    fgfs --launcher
    ```
-1. Set write permissions to the **Protocols** folder in the FlightGear installation directory:
+1. FlightGear 설치 디렉토리의 **Protocols** 폴더의 쓰기 권한을 설정합니다.
    ```
    sudo chmod a+w /usr/share/games/flightgear/Protocols
    ```
-   Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.
+   이 폴더에 PX4-FlightGear-Bridge 통신 정의 파일을 저장하기 때문에, 권한 설정이 필요합니다.
 
-Additional installation instructions can be found on [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA).   
+추가 설치 방법은 [FlightGear wiki](http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA)를 참고하십시오.   
 
 <a id="running"></a>
 
-## Running the Simulation
+## 시뮬레이션 실행
 
-Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.
+선택한 기체 구성을 지정하고, PX4 SITL을 시작하여 시뮬레이션을 실행합니다.
 
-The easiest way to do this is to open a terminal in the root directory of the PX4 *PX4-Autopilot* repository and call `make` for the desired target. For example, to start a plane simulation :
+가장 편리한 방법은 PX4 *PX4-Autopilot* 저장소의 루트 디렉토리에서 터미널을 열고 원하는 대상에 대해 `make`를 호출하는 것입니다. 예를 들어 평면 시뮬레이션을 시작하려면 다음 명령어를 실행하십시오.
 ```sh
 cd /path/to/PX4-Autopilot
 make px4_sitl_nolockstep flightgear_rascal
 ```
 
-The supported vehicles and `make` commands are listed below (click on the links to see the vehicle images).
+지원되는 차량과 `make` 명령은 아래에 나열되어 있습니다(차량 이미지를 보려면 링크를 클릭하십시오).
 
-| Vehicle                                                                  | Command                                      |
-| ------------------------------------------------------------------------ | -------------------------------------------- |
-| [Standard Plane](../simulation/flightgear_vehicles.md#standard_plane)    | `make px4_sitl_nolockstep flightgear_rascal` |
-| [Ackerman vehicle (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
-| [Autogyro](../simulation/flightgear_vehicles.md#autogyro)                | `make px4_sitl_nolockstep flightgear_tf-g1`  |
+| 차량                                                                  | 명령어                                          |
+| ------------------------------------------------------------------- | -------------------------------------------- |
+| [표준 항공기](../simulation/flightgear_vehicles.md#standard_plane)       | `make px4_sitl_nolockstep flightgear_rascal` |
+| [Ackerman 차량 (UGV/Rover)](../simulation/flightgear_vehicles.md#ugv) | `make px4_sitl_nolockstep flightgear_tf-r1`  |
+| [오토자이로 ](../simulation/flightgear_vehicles.md#autogyro)             | `make px4_sitl_nolockstep flightgear_tf-g1`  |
 
-The commands above launch a single vehicle with the full UI. *QGroundControl* should be able to automatically connect to the simulated vehicle.
+위의 명령은 전체 UI로 단일 차량을 시작합니다. *QGroundControl*은 시뮬레이션 차량에 자동으로 연결할 수 있어야 합니다.
 
 :::note
-For the full list of FlightGear build targets (highlighted) run:
+FlightGear 빌드 대상(강조 표시됨)의 전체 목록을 보려면 다음 명령어를 실행하십시오.
 ```
 make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 ```
-For additional information see: [FlightGear Vehicles](../simulation/flightgear_vehicles.md) (this includes information about "unsupported" vehicles, and adding new vehicles).
+추가 정보는 [FlightGear 차량](../simulation/flightgear_vehicles.md)을 참고하십시오(여기에는 "지원되지 않는" 차량 및 새 차량 추가에 대한 정보가 포함됨).
 :::
 
 :::note
-The [Installing Files and Code](../dev_setup/dev_env.md) guide is a useful reference if there are build errors.
+[파일 및 코드 설치](../dev_setup/dev_env.md) 가이드는 빌드 오류가 발생하면 참고하십시오.
 :::
 
-## Taking it to the Sky
+## 하늘로 띄우기
 
 The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
 
