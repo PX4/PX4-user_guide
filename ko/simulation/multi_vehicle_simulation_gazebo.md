@@ -1,10 +1,10 @@
-# Multi-Vehicle Simulation with Gazebo
+# Gazebo 다중 차량 시뮬레이션
 
-This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only). A different approach is used for simulation with and without ROS.
+이 항목에서는 Gazebo와 SITL(Linux만 해당)을 사용하여 다중 UAV 차량 시뮬레이션 방법을 설명합니다. ROS 유무에 따라 시뮬레이션 접근 방식이 달라집니다.
 
 <a id="no_ros"></a>
 
-## Multiple Vehicle with Gazebo (No ROS)
+## 다중 차량 Gazebo (ROS 없음)
 
 To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
 ```
