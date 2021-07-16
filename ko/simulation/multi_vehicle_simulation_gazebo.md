@@ -155,11 +155,11 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
 
 * **PX4 노드**: SITL PX4 앱입니다. Gazebo 차량 모델에 정의된 것과 동일한 UDP 포트(예: `mavlink_udp_port`)로 시뮬레이터 Gazebo와 통신합니다. PX4 SITL 앱 측에서 UDP 포트를 설정하려면, 앞서 논의한 `mavlink_udp_port`와 일치하도록 시작 파일의 `SITL_UDP_PRT` 매개변수를 설정합니다. [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46)를 참고하십시오. 시작 파일의 시작 파일 경로는 `차량` 및 `ID` 인수를 기반으로 생성됩니다. [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36)를 참고하십시오. 시작 파일의 각 차량에 대한 `MAV_SYS_ID`([여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4) 참고)는 [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25)의 시작 파일에 있는 해당 차량의 `ID`와 일치하여야 합니다. 이렇게 하면 시작 파일과 시작 파일 간에 구성을 일관되게 유지할 수 있습니다.
 
-* **MAVROS 노드** \(선택 사항\): 실행 파일에서 별도의 MAVROS 노드를 실행할 수 있습니다. 원하는 경우 [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41)를 참고하여 PX4 SITL 앱에 연결하세요. ROS를 통해 차량을 제어합니다. 시작 파일의 고유한 포트 집합에서 MAVLink 스트림을 시작하여야 합니다. [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68)를 참고하십시오. Those unique set of ports need to match those in the launch file for the MAVROS node, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26).
+* **MAVROS 노드** \(선택 사항\): 실행 파일에서 별도의 MAVROS 노드를 실행할 수 있습니다. 원하는 경우 [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41)를 참고하여 PX4 SITL 앱에 연결하세요. ROS를 통해 차량을 제어합니다. 시작 파일의 고유한 포트 집합에서 MAVLink 스트림을 시작하여야 합니다. [여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68)를 참고하십시오. 이러한 고유한 포트 세트는 MAVROS 노드의 시작 파일에 있는 포트 세트와 일치하여야 합니다([여기](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26) 참고).
 
-The launch file `multi_uav_mavros_sitl.launch`does the following,
+시작 파일 `multi_uav_mavros_sitl.launch`는 다음의 내용을 실행합니다.
 
-* loads a world in gazebo,
+* Gazebo에 세계를 로드합니다.
   ```
     <!-- Gazebo sim -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -170,9 +170,9 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
         <arg name="paused" value="$(arg paused)"/>
     </include>
   ```
-* for each vehicle,
+* 각 차량에 대하여
 
-  * creates urdf model from xacro, loads gazebo model and runs PX4 SITL app instance
+  * xacro에서 urdf 모델을 생성하고, 가제보 모델을 로드하고, PX4 SITL 앱 인스턴스를 실행합니다.
     ```
       <!-- PX4 SITL and vehicle spawn -->
       <include file="$(find px4)/launch/single_vehicle_spawn.launch">
@@ -189,7 +189,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
       </include>
     ```
 
-  * runs a mavros node
+  * mavros 노드를 실행합니다.
     ```
       <!-- MAVROS -->
       <include file="$(find mavros)/launch/px4.launch">
@@ -201,57 +201,57 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
     ```
 
 :::note
-The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
+각 차량의 완전한 블록은 차량의 ROS 네임스페이스를 구분하기 위해 `<group>` 태그 세트로 묶여 있습니다.
 :::
 
-To add a third iris to this simulation there are two main components to consider:
-* add `UAV3` to **multi_uav_mavros_sitl.launch**
-  * duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
-  * increment the `ID` arg to `3`
-  * select a different port for `mavlink_udp_port` arg for communication with Gazebo
-  * selects ports for MAVROS communication by modifying both port numbers in the `fcu_url` arg
-* create a startup file, and change the file as follows:
-  * make a copy of an existing iris rcS startup file (`iris_1` or `iris_2`) and rename it `iris_3`
-  * `MAV_SYS_ID` value to `3`
-  * `SITL_UDP_PRT` value to match that of the `mavlink_udp_port` launch file arg
-  * the first `mavlink start` port and the `mavlink stream` port values to the same values, which is to be used for QGC communication
-  * the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
+이 시뮬레이션에 세 번째 iris를 추가하려면, 두 가지 주요 구성 요소를 고려하여야 합니다.
+* **multi_uav_mavros_sitl.launch**에 `UAV3`를 추가합니다.
+  * 기존 차량(`UAV1` 또는 `UAV2`)의 그룹 복제
+  * `ID` 인수를 `3`으로 증가
+  * Gazebo와의 통신을 위해 `mavlink_udp_port` 인수에 대해 다른 포트를 선택하십시오.
+  * `fcu_url` 인수에서 두 포트 번호를 모두 수정하여 MAVROS 통신용 포트를 선택합니다.
+* 시작 파일을 만들고 파일을 다음과 같이 변경합니다.
+  * 기존 iris rcS 시작 파일(`iris_1` 또는 `iris_2`)의 복사본을 만들고, 이름을 `iris_3`으로 변경합니다.
+  * `MAV_SYS_ID` 값을 `3`으로 변경
+  * `mavlink_udp_port` 실행 파일 인수와 일치하는 `SITL_UDP_PRT` 값
+  * 첫 번째 `mavlink 시작` 포트와 `mavlink 스트림` 포트 값을 QGC 통신에 사용되는 동일한 값으로 설정
+  * 두 번째 `mavlink 시작` 포트는 시작 파일 `fcu_url` 인수에 사용된 포트와 일치하여야 합니다.
 
 :::note
-Be aware of which port is `src` and `dst` for the different endpoints.
+서로 다른 끝점에 대해 어떤 포트가 `src` 및 `dst`인지 확인하십시오.
 :::
 
 
-## Multiple Vehicles using SDF Models
+## SDF 모델의 다중 차량
 
-This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
+이 섹션에서는 개발자가 Gazebo SDF 파일에 정의된 차량 모델을 사용하여 여러 차량을 시뮬레이션할 수 있는 방법을 설명합니다(이 항목의 나머지 부분에서 설명하는 것처럼 ROS Xacro 파일에 정의된 모델을 사용하는 대신).
 
-The steps are:
+단계는 다음과 같습니다:
 
-1. Install *xmlstarlet* from your Linux terminal:
+1. Linux 터미널에서 *xmlstarlet*을 설치합니다.
    ```
    sudo apt install xmlstarlet
    ```
-1. Use *roslaunch* with the **multi_uav_mavros_sitl_sdf.launch** launch file:
+1. **multi_uav_mavros_sitl_sdf.launch** 실행 파일과 함께 *roslaunch*를 사용합니다.
    ````
    roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=<model_file_name>
    ````
 
 :::note
-Note that the vehicle model file name argument is optional (`vehicle:=<model_file_name>`); if omitted the [plane model](https://github.com/PX4/sitl_gazebo/tree/master/models/plane) will be used by default.
+차량 모델 파일 이름 인수는 선택 사항입니다(`vehicle:=<model_file_name>`). 생략하면 기본적으로 [평면 모델](https://github.com/PX4/sitl_gazebo/tree/master/models/plane)이 사용됩니다.
 :::
 
-This method is similar to using the xacro except that the SITL/Gazebo port number is automatically inserted by _xmstarlet_ for each spawned vehicle, and does not need to be specified in the SDF file.
+이 방법은 생성된 각 차량에 대해 SITL/Gazebo 포트 번호가 _xmstarlet_에 의해 자동으로 삽입되고 SDF 파일에 지정할 필요가 없다는 점을 제외하고 xacro를 사용하는 것과 유사합니다.
 
-To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo), and PX4 needs to have an appropriate corresponding startup script.
+새 차량을 추가하려면 모델을 검색 여부를 확인하여야 하고(Gazebo에서 생성하기 위해), PX4에 적절한 시작 스크립트가 있어야 합니다.
 
-1. You can choose to do either of:
-   * modify the **single_vehicle_spawn_sdf.launch** file to point to the location of your model by changing the line below to point to your model:
+1. 다음 중 하나를 실행하도록 선택할 수 있습니다.
+   * 모델을 지정하도록 아래 줄을 변경하여 **single_vehicle_spawn_sdf.launch** 파일을 수정하여 모델의 위치를 가리키도록 합니다.
      ```
      $(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf
      ```
 :::note
-Ensure you set the `vehicle` argument even if you hardcode the path to your model.
+모델 경로를 하드코딩한 경우에도, `차량` 인수를 설정하여야 합니다.
 :::
    * copy your model into the folder indicated above (following the same path convention).
 
