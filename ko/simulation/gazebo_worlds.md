@@ -2,13 +2,13 @@
 
 PX4에서 지원하는 [가제보](../simulation/gazebo.md) 세계에 대한 이미지/정보를 제공합니다.
 
-The [empty.world](#empty_world) is spawned by default, though this may be overridden by a [model specific world](#model_specific_worlds). Developers can also manually specify the world to load: [Gazebo Simulation > Loading a Specific World](../simulation/gazebo.md#set_world).
+[empty.world](#empty_world)는 기본적으로 생성되며, [모델별 세계](#model_specific_worlds)에 의해 재정의될 수 있습니다. 개발자는 로드할 세계를 수동으로 지정할 수 있습니다. [Gazebo Simulation > 특정 세계 로드](../simulation/gazebo.md#set_world).
 
-The source code for supported worlds can be found on GitHub here: [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds).
+지원되는 세계의 소스 코드는 GitHub의 [PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)을 참고하십시오.
 
 <a id="empty_world"></a>
 
-## Empty (Default)
+## 빈 월드 (기본)
 
 [PX4/sitl_gazebo/worlds/empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world)
 
