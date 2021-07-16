@@ -91,9 +91,9 @@ make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
 
 ## 하늘로 띄우기
 
-The `make` commands mentioned above first build PX4 and then run it along with the FlightGear simulator.
+위에서 언급한 `make` 명령은 먼저 PX4를 빌드후, FlightGear 시뮬레이터를 실행합니다.
 
-Once the PX4 has started it will launch the PX4 shell as shown below. You must select enter to get the command prompt.
+PX4가 시작되면 아래와 같은 PX4 셸이 시작됩니다. 명령 프롬프트를 표시하려면 Enter를 입력합니다.
 
 ```
 ______  __   __    ___
@@ -137,28 +137,28 @@ PX4 Communicator: PX4 Connected.
 pxh>
 ```
 
-The console will print out status as PX4 loads the airframe-specific initialization and parameter files, wait for (and connect to) the simulator. Once there is an INFO print that [ecl/EKF] is `commencing GPS fusion` the vehicle is ready to arm. At this point, you should see a FlightGear window with some view of aircraft.
+콘솔은 PX4가 기체별 초기화 및 매개변수 파일을 로드할 때 상태를 출력하고 시뮬레이터를 기다린후 연결합니다. [ecl/EKF]가 `GPS 융합을 시작`한다는 정보가 인쇄되면 차량은 시동 준비가 된 것입니다. 이 시점에서 항공기가 약간 보이는 FlightGear 창이 표시되어야 합니다.
 
 
 :::note
-You can change the view by pressing **Ctrl+V**.
+**Ctrl+V**를 눌러 보기를 변경할 수 있습니다.
 :::
 
 ![FlightGear UI](../../assets/simulation/flightgear/flightgearUI.jpg)
 
-You can bring it into the air by typing:
+다음을 입력하여 공중에 띄울 수 있습니다.
 
 ```sh
 pxh> commander takeoff
 ```
 
-## Usage/Configuration Options
+## 사용법/설정 옵션
 
-You can tune your FG installation/settings by the following environment variables:
+다음 환경 변수로 FG 설치/설정을 조정할 수 있습니다.
 
-- `FG\_BINARY` - absolute path to FG binary to run. (It can be an AppImage)
-- `FG\_MODELS\_DIR` - absolute path to the folder containing the manually-downloaded aircraft models which should be used for simulation.
-- `FG\_ARGS\_EX` - any additional FG parameters.
+- `FG\_BINARY` - 실행할 FG 바이너리의 절대 경로입니다. (AppImage일 수 있음)
+- `FG\_MODELS\_DIR` - 수동으로 다운로드한 항공기 모델이 포함된 폴더의 절대 경로입니다.
+- `FG\_ARGS\_EX` - 추가 FG 매개변수.
 
 <a id="frame_rate"></a>
 
