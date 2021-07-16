@@ -6,55 +6,55 @@
 
 ## 다중 차량 Gazebo (ROS 없음)
 
-To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
+Gazebo에서 다중 차량을 시뮬레이션하려면, 터미널에서 다음 명령어를 입력하십시오.(*펌웨어* 트리 루트에서).
 ```
 Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`.
-- `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
-- `<world>`: The [world](../simulation/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
-- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
+- `<model>`: 스폰할 [차량 유형/모델](../simulation/gazebo_vehicles.md), 예: `iris`(기본값), `plane`, `standard_vtol`
+- `<number_of_vehicles>`: 스폰할 차량의 수입니다. 기본값은 3. 최대값은 255.
+- `<world>`: 차량이 생성되어야 하는 [세계](../simulation/gazebo_worlds.md), 예: `empty` (기본값)
+- `<script>`: 여러 유형의 다중 차량을 생성합니다(`-m` 및 `-n`의 값 무시). 예:
 
    ```
    -s "iris:3,plane:2,standard_vtol:3"
    ```
-   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`.
-   - The number after the colon indicates the number of vehicles (of that type) to spawn.
-   - Maximum number of vehicles is 255.
+   - 지원되는 차량 유형은 `iris`, `plane`, `standard_vtol`입니다.
+   - 콜론 뒤의 숫자는 스폰할 차량(해당 유형)의 수를 나타냅니다.
+   - 최대 차량 수는 255대입니다.
 
- - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_rtps`
- - `<label>` : specific label for model, e.g: `rtps`
+ - `<target>`: 빌드 대상, 예: `px4_sitl_default`(기본값), `px4_sitl_rtps`
+ - `<label>` : 모델에 대한 특정 레이블, 예: `rtps`
 
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.). Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14540` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
+각 차량 인스턴스에는 고유한 MAVLink 시스템 ID(1, 2, 3 등)가 할당됩니다. 차량 인스턴스는 순차적으로 할당된 PX4 원격 UDP 포트: `14540` - `14548`에서 액세스됩니다(추가 인스턴스는 모두 동일한 원격 UDP 포트를 사용하여 액세스: `14549`)
 
 :::note
-The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112)
+255대의 차량 제한은 mavlink `MAV_SYS_ID`가 동일한 네트워크에서 255대의 차량만 지원하기 때문입니다. `MAV_SYS_ID` 및 다양한 UDP 포트는 SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112)에 할당됩니다.
 :::
 
 <a id="video_mc"></a>
 
-### Video: Multiple Multicopter (Iris)
+### 비디오: 다중 멀티콥터(Iris)
 
-@[youtube](https://youtu.be/Mskx_WxzeCk)
+@[유투브](https://youtu.be/Mskx_WxzeCk)
 
 <a id="video_fw"></a>
 
-### Video: Multiple Plane
+### 비디오: 다중 고정익
 
-@[youtube](https://youtu.be/aEzFKPMEfjc)
+@[유투브](https://youtu.be/aEzFKPMEfjc)
 
 <a id="video_vtol"></a>
 
-### Video: Multiple VTOL
+### 비디오: 다중 VTOL
 
-@[youtube](https://youtu.be/lAjjTFFZebI)
+@[유투브](https://youtu.be/lAjjTFFZebI)
 
 <a id="with_dds"></a>
 
-### Build and Test (RTPS/DDS)
+### 빌드 및 테스트(RTPS/DDS)
 
-To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
+Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 터미널에서 *PX4-Autopilot* 트리(위에 설명된 대로) 루트의 `-t px4_sitl_rtps` 옵션과 함께 `gazebo_sitl_multiple_run.sh` 명령을 사용합니다. 여기에서 `-t px4_sitl_rtps` 옵션을 사용합니다. 이 옵션은 MAVLink 시뮬레이션 API가 아닌 PX4와 통신하기 위해 RTPS를 사용하도록 설정합니다. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
 
 :::note
 You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
