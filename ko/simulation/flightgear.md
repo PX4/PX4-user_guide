@@ -8,7 +8,7 @@
 
 @[유투브](https://youtu.be/iqdcN5Gj4wI)
 
-[![Mermaid Graph ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
+[![인어 그래프 ](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9)
 
 
 <!-- Original mermaid graph
@@ -164,37 +164,37 @@ pxh> commander takeoff
 
 ### 프레임 속도 표시
 
-In FlightGear you can display the frame rate by enabling it in: **View > View Options > Show frame rate**.
+FlightGear에서 **보기 > 보기 옵션 > 프레임 속도 표시**에서 프레임 속도를 표시할 수 있습니다.
 
 <a id="custom_takeoff_location"></a>
 
-### Set Custom Takeoff Location
+### 사용자 지정 이륙 위치 설정
 
-Takeoff location in SITL FlightGear can be set using additional variables. Setting the variable will override the default takeoff location.
+SITL FlightGear의 이륙 위치는 추가 변수를 사용하여 설정할 수 있습니다. 변수를 설정하면 기본 이륙 위치가 무시됩니다.
 
-The variables which can be set are as follows: `--airport`, `--runway`, and `--offset-distance`. Other options can be found on [FlightGear wiki](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)
+설정할 수 있는 변수는 `--airport`, `--runway`, `--offset-distance`입니다. 다른 옵션은 [FlightGear 위키](http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation)를 참고하십시오.
 
-For example:
+예:
 ```
 FG_ARGS_EX="--airport=PHNL"  make px4_sitl_nolockstep flightgear_rascal
 ```
 
-The example above starts the simulation on the [Honolulu international airport](http://wiki.flightgear.org/Suggested_airports)
+위의 예는 [호놀룰루 국제공항](http://wiki.flightgear.org/Suggested_airports) 시뮬레이션입니다.
 
 <a id="joystick"></a>
 
-### Using a Joystick
+### 조이스틱 사용법
 
-Joystick and thumb-joystick are supported through *QGroundControl* ([setup instructions here](../simulation/README.md#joystick-gamepad-integration)).
+조이스틱과 썸 조이스틱은 *QGroundControl*을 통하여 지원됩니다([설정 방법은 여기](../simulation/README.md#joystick-gamepad-integration)).
 
-The joystick input in FlightGear should be disabled in otherwise there will be a "race condition" between the FG joystick input and PX4 commands.
-
-
-## Extending and Customizing
-
-To extend or customize the simulation interface, edit the files in the **Tools/flightgear_bridge* folder. The code is available in the [PX4-FlightGear-Bridge repository](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge) on Github.
+FlightGear의 조이스틱 입력은 비활성화 되어야 합니다. 그렇지 않으면 FG 조이스틱 입력과 PX4 명령 사이에 "경합 조건"이 발생합니다.
 
 
-## Further Information
+## 확장 및 사용자 정의
 
-* [PX4-FlightGear-Bridge readme](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
+시뮬레이션 인터페이스를 확장하거나 사용자 정의를 위하여 **Tools/flightgear_bridge* 폴더에서 파일을 편집합니다. 코드는 Github의 [PX4-FlightGear-Bridge 저장소](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)를 참고하십시오.
+
+
+## 추가 정보
+
+* [PX4-FlightGear-Bridge 추가 정보](https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge)
