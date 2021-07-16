@@ -27,29 +27,29 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 시뮬레이터를 설정 사용 방법에 대한 지침은 위에 링크를 참고하십시오.
 
 ---
-이 항목의 나머지 부분은 시뮬레이션 인프라 작동 방식에 대한 "다소 일반적인" 설명입니다. 시뮬레이터를 *사용*할 필요는 없습니다.
+이 항목의 나머지 부분은 시뮬레이션 인프라 작동 방식에 대한 "다소 일반적인" 설명입니다. 시뮬레이터를 *사용할* 필요는 없습니다.
 
 
 ## Simulator MAVLink API
 
 모든 시뮬레이터는 Simulator MAVLink API를 사용하여 PX4와 통신합니다. 이 API는 시뮬레이션된 세계에서 PX4로 센서 데이터를 제공하고, 시뮬레이션된 차량에 적용될 비행 코드에서 모터 및 액추에이터 값을 반환하는 MAVLink 메시지 세트를 정의합니다. 아래 이미지는 메시지 흐름을 나타냅니다.
 
-![Simulator MAVLink API](../../assets/simulation/px4_simulator_messages.png)
+![시뮬레이터 MAVLink API](../../assets/simulation/px4_simulator_messages.png)
 
 :::note PX4 SITL 빌드는 [simulator_mavlink.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/simulator/simulator_mavlink.cpp)를 사용하여 이러한 메시지를 처리하는 반면, HIL 모드의 하드웨어 빌드는 [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)를 사용합니다. 시뮬레이터의 센서 데이터는 PX4 uORB 주제에 기록됩니다. 모든 모터/액츄에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.
 :::
 
 메시지는 아래에 설명되어 있습니다(자세한 내용은 링크 참조).
 
-| 메시지                                                                                                            | 방향         | 설명                                                                                                                               |
-| -------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED](https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED) | 없음         | 시뮬레이션 모드 플래그입니다. 모든 모터/액추에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.                                                                       |
-| [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)                    | PX4 to Sim | PX4 제어 출력(모터, 액추에이터).                                                                                                            |
-| [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)                                            | Sim to PX4 | NED 본체 프레임의 SI 단위로 시뮬레이션된 IMU 판독값.                                                                                               |
-| [HIL_GPS](https://mavlink.io/en/messages/common.html#HIL_GPS)                                                  | Sim to PX4 | 시뮬레이션된 GPS RAW 센서 값입니다.                                                                                                          |
-| [HIL_OPTICAL_FLOW](https://mavlink.io/en/messages/common.html#HIL_OPTICAL_FLOW)                              | Sim to PX4 | 흐름 센서에서 시뮬레이션된 광류(예: PX4FLOW 또는 광학 마우스 센서)                                                                                       |
-| [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim to PX4 | 실제 "시뮬레이션된" 차량 위치, 자세, 속도 등이 포함됩니다. 이것은 분석 및 디버깅에 대한 PX4의 추정치와 비교 기록될 수 있습니다(예: 노이즈가 있는(시뮬레이션된) 센서 입력에 대해 추정기가 얼마나 잘 작동하는 지 확인). |
-| [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim to PX4 | 수신된 RC 채널의 RAW 값입니다.                                                                                                             |
+| 메시지                                                                                                            | 방향             | 설명                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [MAV_MODE:MAV_MODE_FLAG_HIL_ENABLED](https://mavlink.io/en/messages/common.html#MAV_MODE_FLAG_HIL_ENABLED) | 없음             | 시뮬레이션 모드 플래그입니다. 모든 모터/액추에이터가 차단되지만, 내부 소프트웨어는 완전하게 작동합니다.                                                                       |
+| [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)                    | PX4 &rarr; Sim | PX4 제어 출력(모터, 액추에이터).                                                                                                            |
+| [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)                                            | Sim &rarr; PX4 | NED 본체 프레임의 SI 단위로 시뮬레이션된 IMU 판독값.                                                                                               |
+| [HIL_GPS](https://mavlink.io/en/messages/common.html#HIL_GPS)                                                  | Sim &rarr; PX4 | 시뮬레이션된 GPS RAW 센서 값입니다.                                                                                                          |
+| [HIL_OPTICAL_FLOW](https://mavlink.io/en/messages/common.html#HIL_OPTICAL_FLOW)                              | Sim &rarr; PX4 | 흐름 센서에서 시뮬레이션된 광류(예: PX4FLOW 또는 광학 마우스 센서)                                                                                       |
+| [HIL_STATE_QUATERNION](https://mavlink.io/en/messages/common.html#HIL_STATE_QUATERNION)                      | Sim &rarr; PX4 | 실제 "시뮬레이션된" 차량 위치, 자세, 속도 등이 포함됩니다. 이것은 분석 및 디버깅에 대한 PX4의 추정치와 비교 기록될 수 있습니다(예: 노이즈가 있는(시뮬레이션된) 센서 입력에 대해 추정기가 얼마나 잘 작동하는 지 확인). |
+| [HIL_RC_INPUTS_RAW](https://mavlink.io/en/messages/common.html#HIL_RC_INPUTS_RAW)                            | Sim &rarr; PX4 | 수신된 RC 채널의 RAW 값입니다.                                                                                                             |
 
 
 ## 기본 PX4 MAVLink UDP 포트
@@ -73,7 +73,7 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 아래 다이어그램은 지원되는 시뮬레이터에 대한 일반적인 SITL 시뮬레이션 환경을 나타냅니다.
 
-![PX4 SITL overview](../../assets/simulation/px4_sitl_overview.svg)
+![PX4 SITL 개요](../../assets/simulation/px4_sitl_overview.svg)
 
 시스템의 차이점은 UDP를 통해 연결되며, 동일 컴퓨터 또는 동일 네트워크의 다른 컴퓨터에서도 실행됩니다.
 
@@ -90,13 +90,13 @@ PX4 비행 스택은 컴퓨터(동일한 컴퓨터 또는 동일한 네트워크
 
 ### SITL 시뮬레이션 시작/구축
 
-The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. The syntax (simplified) looks like this:
+빌드 시스템으로 SITL에서 PX4를 빌드하여 시뮬레이터를 시작/연결할 수 있습니다. 구문(단순화)은 다음과 같습니다.
 ```
 make px4_sitl simulator[_vehicle-model]
 ```
-where `simulator` is `gazebo`, `jmavsim` or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator ([jMAVSim](../simulation/jmavsim.md) only supports multicopters, while [Gazebo](../simulation/gazebo.md) supports many different types).
+여기서 `simulator`는 `gazebo`, `jmavsim` 또는 기타 시뮬레이터이고, vehicle-model은 해당 시뮬레이터에서 지원하는 특정 차량 유형입니다. [jMAVSim ](../simulation/jmavsim.md) 멀티콥터만 지원하는 반면에 [Gazebo](../simulation/gazebo.md)는 다양한 유형을 지원합니다.
 
-A number of examples are shown below, and there are many more in the individual pages for each of the simulators:
+아래에는 여러가지 예가 있으며, 각 시뮬레이터의 개별 페이지에는 더 많은 예제들이 있습니다.
 
 ```sh
 # Start Gazebo with plane
@@ -112,128 +112,127 @@ make px4_sitl jmavsim
 make px4_sitl none_iris
 ```
 
-The simulation can be further configured via environment variables:
-- `PX4_ESTIMATOR`: This variable configures which estimator to use. Possible options are: `ekf2` (default), `lpe` (deprecated). It can be set via `export PX4_ESTIMATOR=lpe` before running the simulation.
+시뮬레이션은 환경 변수를 통하여 추가로 설정이 가능합니다.
+- `PX4_ESTIMATOR`: 사용할 추정기를 설정합니다. 가능한 옵션은 `ekf2`(기본값), `lpe`(더 이상 사용되지 않음)입니다. 시뮬레이션을 실행전에 `export PX4_ESTIMATOR=lpe`를 통하여 설정할 수 있습니다.
 
-The syntax described here is simplified, and there are many other options that you can configure via *make* - for example, to set that you wish to connect to an IDE or debugger. For more information see: [Building the Code > PX4 Make Build Targets](../dev_setup/building_px4.md#px4-make-build-targets).
+여기에 설명된 구문은 단순화되었으며, *make*를 통해 구성할 수 있는 다른 옵션들이 많이 있습니다(예: IDE 또는 디버거에 연결하도록 설정). 자세한 내용은 [코드 작성 > PX4 빌드 타겟 만들기](../dev_setup/building_px4.md#px4-make-build-targets)를 참고하십시오.
 
 <a id="simulation_speed"></a>
 
-### Run Simulation Faster than Realtime
+### 실제보다 빠른 속도로 시뮬레이션 실행
 
-SITL can be run faster or slower than realtime when using jMAVSim or Gazebo.
+SITL은 jMAVSim 또는 Gazebo를 사용하여, 실시간보다 빠르거나 느리게 실행할 수 있습니다.
 
-The speed factor is set using the environment variable `PX4_SIM_SPEED_FACTOR`. For example, to run the jMAVSim simulation at 2 times the real time speed:
+속도 계수는 환경 변수 `PX4_SIM_SPEED_FACTOR`를 사용합니다. 예를 들어, 실시간 속도의 2배로 jMAVSim 시뮬레이션을 실행하려면:
 ```
 PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
 ```
-To run at half real-time:
+실시간 절반으로 실행하려면:
 ```
 PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
 ```
 
-You can apply the factor to all SITL runs in the current session using `EXPORT`:
+`EXPORT`를 사용하여 현재 세션의 모든 SITL 실행 요소를 적용할 수 있습니다.
 ```
 export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl jmavsim
 ```
 
 :::note
-At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down "automatically". Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.
+어느 시점에서 IO 또는 CPU는 컴퓨터의 가능한 속도를 제한하고 "자동으로" 느려집니다. 강력한 데스크탑 컴퓨터는 일반적으로 약 6-10x에서 시뮬레이션할 수 있으며, 노트북의 경우의 최고 속도는 약 3-4x 입니다.
 :::
+
+:::note PX4가 데이터 링크 시간 초과를 감지하지 않도록, 시뮬레이션 속도에 비례하여 매개변수 [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) 값을 증가시키십시오. 예를 들어 `COM_DL_LOSS_T`가 실시간으로 10인 경우 10배 시뮬레이션 속도에서 100으로 증가합니다.
+:::
+
+### 잠금단계시뮬레이션
+
+PX4 SITL과 시뮬레이터(jMAVSim 또는 Gazebo)는 *잠금단계*로 실행되도록 설정되었습니다. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
 
 :::note
-To avoid PX4 detecting data link timeouts, increase the value of param [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) proportional to the simulation rate. For example, if `COM_DL_LOSS_T` is 10 in realtime, at 10x simulation rate increase to 100.
+잠금단계를 사용하여 [실시간보다 빠르거나 느리게 시뮬레이션을 실행](#simulation_speed)할 수 있으며, 코드 단계별 실행을 위하여 일시 중지할 수 있습니다.
 :::
 
-### Lockstep Simulation
+잠금단계의 순서는 다음과 같습니다.
+1. 시뮬레이션은 타임스탬프 `time_usec`가 포함된 센서 메시지 [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR)를 전송하여 PX4의 센서 상태와 시간을 업데이트합니다.
+1. PX4는 이것을 수신하고 상태 추정, 제어 등을 한 번 반복하고, 액추에이터 메시지 [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS)를 전송합니다.
+1. 시뮬레이션은 액추에이터/모터 메시지를 수신후에, 물리적 시뮬레이션후에 PX4로 전송할 다음 센서 메시지를 계산합니다.
 
-PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in *lockstep*. What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.
+시스템은 시뮬레이션 시간을 포함하는 센서 메시지를 전송하는 "프리휠링" 기간으로 시작하므로, 초기화되고 액추에이터 메시지로 응답시까지 PX4를 실행합니다.
 
-:::note
-Lockstep makes it possible to [run the simulation faster or slower than realtime](#simulation_speed), and also to pause it in order to step through code.
-:::
+#### 잠금단계 시뮬레이션 비활성화
 
-The sequence of steps for lockstep are:
-1. The simulation sends a sensor message [HIL_SENSOR](https://mavlink.io/en/messages/common.html#HIL_SENSOR) including a timestamp `time_usec` to update the sensor state and time of PX4.
-1. PX4 receives this and does one iteration of state estimation, controls, etc. and eventually sends an actuator message [HIL_ACTUATOR_CONTROLS](https://mavlink.io/en/messages/common.html#HIL_ACTUATOR_CONTROLS).
-1. The simulation waits until it receives the actuator/motor message, then simulates the physics and calculates the next sensor message to send to PX4 again.
+SITL이 이 기능을 지원하지 않는 시뮬레이터와 함께 사용되는 경우에는 잠금단계 시뮬레이션을 비활성화할 수 있습니다. 이 경우 시뮬레이터와 PX4는 호스트 시스템 시간을 사용하며 서로를 기다리지 않습니다.
 
-The system starts with a "freewheeling" period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actuator message.
+PX4에서 잠금 단계를 비활성화하려면 [SITL 보드 설정](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104)에서 `set(ENABLE_LOCKSTEP_SCHEDULER no)`를 사용하십시오.
 
-#### Disable Lockstep Simulation
+Gazebo에서 잠금 단계를 비활성화하려면 [모델 SDF 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449)을 편집하여 `<enable_lockstep>false</enable_lockstep>`를 설정합니다. Iris의 경우 [xacro 파일](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22)을 편집합니다.
 
-The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature. In this case the simulator and PX4 use the host system time and do not wait on each other.
-
-To disable lockstep in PX4, use `set(ENABLE_LOCKSTEP_SCHEDULER no)` in the [SITL board config](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104).
-
-To disable lockstep in Gazebo, edit [the model SDF file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449) and set `<enable_lockstep>false</enable_lockstep>` (or for Iris edit the [xacro file](https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22).
-
-To disable lockstep in jMAVSim, remove `-l` in [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75), or make sure otherwise that the java binary is started without the `-lockstep` flag.
+jMAVSim에서 잠금 단계를 비활성화하려면 [jmavsim_run.sh](https://github.com/PX4/PX4-Autopilot/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75)에서 `-l`을 제거하거나, Java 바이너리가 `-lockstep` 플래그 없이 시작되었는지 확인하십시오.
 
 
-### Startup Scripts
+### 시작 스크립트
 
-Scripts are used to control which parameter settings to use or which modules to start. They are located in the [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) directory, the `rcS` file is the main entry point. See [System Startup](../concept/system_startup.md) for more information.
+스크립트는 매개변수 설정과 시작 모듈 제어에 사용됩니다. [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) 디렉토리에 있으며, `rcS` 파일이  진입점입니다. 자세한 내용은 [시스템 시작](../concept/system_startup.md)을 참고하십시오.
 
-### Simulating Failsafes and Sensor/Hardware Failure
+### 안정장치 및 센서/하드웨어 오류 시뮬레이션
 
-[Simulate Failsafes](../simulation/failsafes.md) explains how to trigger safety failsafes like GPS failure and battery drain.
-
-
-## HITL Simulation Environment
-
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. The HITL Simulation Environment in documented in: [HITL Simulation](../simulation/hitl.md).
+[안전장치 시뮬레이션](../simulation/failsafes.md)에서는 GPS 오류 및 배터리 소모와 같은 안전 비상안전장치를 트리거 방법을 설명합니다.
 
 
-## Joystick/Gamepad Integration
+## HITL 시뮬레이션 환경
 
-*QGroundControl* desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle. If you don't have a joystick you can alternatively control the vehicle using QGroundControl's onscreen virtual thumbsticks.
+HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어가 실제 하드웨어에서 실행됩니다. 문서화된 HITL 시뮬레이션 환경: [HITL 시뮬레이션](../simulation/hitl.md).
 
-For setup information see the *QGroundControl User Guide*:
-* [Joystick Setup](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
-* [Virtual Joystick](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
+
+## 조이스틱/게임패드 통합
+
+*QGroundControl* 데스크톱 버전은 USB 조이스틱/게임패드에 연결하여 MAVLink로 PX4에 이동 명령과 버튼 누름을 전송합니다. 이것은 SITL 및 HITL 시뮬레이션 모두에서 작동하며, 시뮬레이션 차량을 직접 제어할 수 있습니다. 조이스틱이 없는 경우 QGroundControl의 화면 가상 썸스틱을 사용하여 차량을 제어할 수도 있습니다.
+
+설정 정보는 *QGroundControl 사용자 가이드*를 참고하십시오.
+* [조이스틱 설정](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)
+* [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html)
 
 <!-- FYI Airsim info on this setting up remote controls: https://github.com/Microsoft/AirSim/blob/master/docs/remote_controls.md -->
 
 
-## Camera Simulation
+## 카메라 시뮬레이션
 
-PX4 supports capture of both still images and video from within the [Gazebo](../simulation/gazebo.md) simulated environment. This can be enabled/set up as described in [Gazebo > Video Streaming](../simulation/gazebo.md#video).
+PX4는 [Gazebo](../simulation/gazebo.md) 시뮬레이션 환경에서 정지 영상과 동영상 캡처를 할 수 있습니다. 설정 방법은 [Gazebo > 비디오 스트리밍](../simulation/gazebo.md#video)을 참고하십시오.
 
-The simulated camera is a gazebo plugin that implements the [MAVLink Camera Protocol](https://mavlink.io/en/protocol/camera.html)<!-- **PX4-Autopilot/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4 connects/integrates with this camera in *exactly the same way* as it would with any other MAVLink camera:
-1. [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) must be set to `3` to configure the camera trigger driver for use with a MAVLink camera :::tip In this mode the driver just sends a [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message whenever an image capture is requested. For more information see [Camera](../peripherals/camera.md).
+시뮬레이션 카메라는 [MAVLink 카메라 프로토콜](https://mavlink.io/en/protocol/camera.html)을 구현하는 gazebo 플러그인입니다. PX4는 다른 MAVLink 카메라와 *동일 방법*으로 카메라와 연결/통합합니다.
+1. MAVLink 카메라와 함께 사용할 카메라 트리거 드라이버를 구성하려면 [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)를 `3`으로 설정합니다. :::tip 이 모드에서 드라이버는 이미지 캡처가 요청시에 [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) 메시지를 전송합니다. 자세한 내용은 [카메라](../peripherals/camera.md)를 참고하십시오.
 :::
 
-1. PX4 must forward all camera commands between the GCS and the (simulator) MAVLink Camera. You can do this by starting [MAVLink](../modules/modules_communication.md#mavlink) with the `-f` flag as shown, specifying the UDP ports for the new connection.
+1. PX4는 GCS와 (시뮬레이터) MAVLink 카메라 사이의 모든 카메라 명령을 전달하여야 합니다. 그림과 같이 `-f` 플래그로 [MAVLink](../modules/modules_communication.md#mavlink)를 시작하고 새 연결을 위한 UDP 포트를 지정하면 됩니다.
    ```
    mavlink start -u 14558 -o 14530 -r 4000 -f -m camera
    ```
 :::note
-More than just the camera MAVLink messages will be forwarded, but the camera will ignore those that it doesn't consider relevant.
+카메라 MAVLink 메시지 이상은 전달되지만, 카메라는 관련이 없는 것으로 간주되는 메시지들은 무시합니다.
 :::
 
-The same approach can be used by other simulators to implement camera support.
+다른 시뮬레이터에서도 동일한 접근 방식을 사용하여 카메라 지원을 구현할 수 있습니다.
 
-## Running Simulation on a Remote Server
+## 원격 서버에서 시뮬레이션 실행
 
-It is possible to run the simulator on one computer, and access it from another computer on the same network (or on another network with appropriate routing). This might be useful, for example, if you want to test a drone application running on real companion computer hardware running against a simulated vehicle.
+한 컴퓨터에서 시뮬레이터를 실행하고 동일 네트워크(또는 적절한 라우팅이 있는 다른 네트워크)의 다른 컴퓨터에서 시뮬레이터에 접근할 수 있습니다. 시뮬레이션 차량을 실행하는 실제 보조 컴퓨터에서 실행되는 드론 애플리케이션을 테스트하는 경우에 유용합니다.
 
-This does not work "out of the box" because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to "localhost".
+(네트워크 스팸과 서로 다른 시뮬레이션이 서로 간섭하는 것을 방지하기 위하여) PX4는 기본적으로 패킷을 외부 인터페이스로 라우팅하지 않기 때문에 "즉시" 작동하지 않습니다. 대신 내부적으로 트래픽을 "localhost"로 라우팅합니다.
 
-There are a number of ways to make the UDP packets available on external interfaces, as outlined below.
+아래에 설명된 대로 외부 인터페이스에서 UDP 패킷을 사용하는 여러 방법이 있습니다.
 
-### Use MAVLink Router
+### MAVLink 라우터 사용
 
-The [mavlink-router](https://github.com/intel/mavlink-router) can be used to route packets from localhost to an external interface.
+[mavlink-router](https://github.com/intel/mavlink-router)는 localhost에서 외부 인터페이스로 패킷을 라우팅하는 데 사용할 수 있습니다.
 
-To route packets between SITL running on one computer (sending MAVLink traffic to localhost on UDP port 14550), and QGC running on another computer (e.g. at address `10.73.41.30`) you could:
+한 컴퓨터에서 실행 중인 SITL(UDP 포트 14550에서 localhost로 MAVLink 트래픽 전송)과 다른 컴퓨터에서 실행 중인 QGC(예: 주소 `10.73.41.30`) 간에 패킷을 라우팅하려면 다음을 수행할 수 있습니다.
 
-- Start *mavlink-router* with the following command:
+- 다음 명령으로 *mavlink-router*를 실행합니다.
   ```
   mavlink-routerd -e 10.73.41.30:14550 127.0.0.1:14550
   ```
-- Use a *mavlink-router* conf file.
+- *mavlink-router* conf 파일을 사용하십시오.
   ```
   [UdpEndpoint QGC]
   Mode = Normal
@@ -247,59 +246,58 @@ To route packets between SITL running on one computer (sending MAVLink traffic t
   ```
 
 :::note
-More information about *mavlink-router* configuration can be found [here](https://github.com/intel/mavlink-router/#running).
+*mavlink-router* 설정 방법은 [여기](https://github.com/intel/mavlink-router/#running)를 참고하십시오.
 :::
 
-### Enable UDP Broadcasting
+### UDP 브로드캐스트 활성화
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you can enable UDP broadcasting of heartbeats using its `-p` option. Any remote computer on the network can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
+[mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-p` 옵션을 사용하여 하트비트의 UDP 브로드캐스트를 활성화할 수 있습니다. 그러면, 네트워크의 모든 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
 :::note UDP
-broadcasting provides a simple way to set up the connection when there is only one simulation running on the network. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
+브로드캐스팅은 네트워크에서 실행 중인 시뮬레이션이 하나만 있는 경우에 간단하게 연결되도록 합니다. Do not use this approach if there are multiple simulations running on the network (you might instead [publish to a specific address](#enable-streaming-to-specific-address)).
 :::
 
-This should be done in an appropriate configuration file where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 적절한 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
-### Enable Streaming to Specific Address
+### 특정 주소로 스트리밍 활성화
 
-The [mavlink module](../modules/modules_communication.md#mavlink_usage) routes to *localhost* by default, but you can specify an external IP address to stream to using its `-t` option. The specified remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for *QGroundControl*).
+[mavlink 모듈](../modules/modules_communication.md#mavlink_usage)은 기본적으로 *localhost*로 라우팅되지만, `-t` 옵션을 사용하여 스트리밍 외부 IP 주소를 지정합니다. 지정된 원격 컴퓨터가 적절한 포트(예: *QGroundControl*의 경우 14550)를 수신하여 시뮬레이터에 연결할 수 있습니다.
 
-This should be done in various configuration files where `mavlink start` is called. For example: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
+`mavlink start`가 호출되는 설정 파일에서 이 작업을 수행하여야 합니다. 예: [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS).
 
 
-### SSH Tunneling
+### SSH 터널링
 
-SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.
+SSH 터널링을 사용하면 시뮬레이션 컴퓨터와 이를 사용하는 시스템이 동일 네트워크에 있지 않아도 됩니다.
 
 :::note
-You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).
+유사하게 VPN을 사용하여 외부 인터페이스(동일 네트워크 또는 다른 네트워크에서)에 터널을 제공할 수 있습니다.
 :::
 
-One way to create the tunnel is to use SSH tunneling options. The tunnel itself can be created by running the following command on *localhost*, where `remote.local` is the name of a remote computer:
+터널을 만드는 한 가지 방법은 SSH 터널링 옵션을 사용하는 것입니다. 터널 자체는 *localhost*에서 다음 명령을 실행하여 만들 수 있습니다. 여기서 `remote.local`은 원격 컴퓨터의 이름입니다.
 ```
 ssh -C -fR 14551:localhost:14551 remote.local
 ```
 
-The UDP packets need to be translated to TCP packets so they can be routed over SSH. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
+UDP 패킷은 SSH를 통해 라우팅될 수 있도록 TCP 패킷으로 변환되어야 합니다. The [netcat](https://en.wikipedia.org/wiki/Netcat) utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.
 
-:::tip QGC
-must be running before executing *netcat*.
+:::tip QGC가 *netcat*을 실행하기 전에 실행되어야 합니다.
 :::
 
-On the *QGroundControl* computer, UDP packet translation may be implemented by running following commands:
+*QGroundControl* 컴퓨터에서 UDP 패킷 변환은 다음 명령어로 구현할 수 있습니다.
 ```
 mkfifo /tmp/tcp2udp
 netcat -lvp 14551 < /tmp/tcp2udp | netcat -u localhost 14550 > /tmp/tcp2udp
 ```
-On the simulator side of the SSH tunnel, the command is:
+SSH 터널의 시뮬레이터 측에서 명령어는 다음과 같습니다.
 ```
 mkfifo /tmp/udp2tcp
 netcat -lvup 14550 < /tmp/udp2tcp | netcat localhost 14551 > /tmp/udp2tcp
 ```
 
-The port number `14550` is valid for connecting to QGroundControl or another GCS, but should be adjusted for other endpoints (e.g. developer APIs etc.).
+포트 번호 `14550`은 QGroundControl 또는 다른 GCS에 연결하는 데 유효하지만, 다른 끝점(예: 개발자 API 등)에 맞게 조정하여야 합니다.
 
-The tunnel may in theory run indefinitely, but *netcat* connections may need to be restarted if there is a problem.
+터널은 이론적으로 무한정 실행되지만, 문제가 발생하면 *netcat* 연결을 다시 시작할 수 있습니다.
 
-The [QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) script can be run on the QGC computer to automatically setup/run the above instructions. The simulation must already be running on the remote server, and you must be able to SSH into that server.
+[QGC_remote_connect.bash](https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash) 스크립트를 QGC 컴퓨터에서 실행하여 위의 지침을 자동으로 설정/실행할 수 있습니다. 시뮬레이션은 원격 서버에서 실행 중이어야 하며, 해당 서버로 SSH 연결이 가능하여야 합니다.

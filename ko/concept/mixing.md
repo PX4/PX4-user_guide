@@ -2,7 +2,7 @@
 
 <!-- there is a useful doc here that we should still mine to further improve this topic: https://docs.google.com/document/d/1xCEQh48uDWyo7TjqedW6gYxBxMtNyuYZ2Xkt2MBb2-w -->
 
-PX4 아키텍처는 기체 레이아웃이 코어 콘트롤러에서 특별한 케이스들을 처리 하지 않도록 합니다.
+PX4 아키텍처는 기체 레이아웃이 코어 콘트롤러에서 특별한 케이스들을 처리하지 않도록 합니다.
 
 믹싱이란 강제 명령(예: `우회전`)을 받아 모터나 서보를 제어하는 액추에이터 명령으로 변환하는 것을 의미합니다. 에일러론당 하나의 서보가 있는 비행기에는 하나는 높게, 다른 하나는 낮게 명령하는 것을 의미합니다. 멀티콥터에도 동일하게 적용됩니다. 앞으로 나아가려면 모든 모터의 속도를 변경하여야 합니다.
 

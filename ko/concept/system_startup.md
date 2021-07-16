@@ -1,6 +1,6 @@
 # 시스템 시작
 
-PX4 시작은 쉘 스크립트에 의해 제어됩니다. NuttX에서는 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 있습니다. 이 중 일부는 Posix(Linux/MacOS)에서도 사용됩니다. POSIX 전용 스크립트는 [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix)에 있습니다.
+PX4 시작은 쉘 스크립트에 의해 제어됩니다. NuttX에서는 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 있습니다. 이 중 일부는 Posix(Linux/MacOS)에서도 사용됩니다. POSIX 전용 스크립트는 [ROMFS/px4fmu_common/init.d-posix](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d-posix) 폴더에 있습니다.
 
 숫자와 밑줄로 시작하는 모든 파일(예: `10000_airplane`)은 기체 설정을 미리 정의합니다. 빌드시 기체 선택 UI에 대해 [QGroundControl](http://qgroundcontrol.com)에 의해 구문 분석되는 `airframes.xml` 파일로 내보내집니다. 새로운 구성을 추가하는 방법은 [여기](../dev_airframes/adding_a_new_frame.md)를 참고하십시오.
 

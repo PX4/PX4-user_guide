@@ -1,89 +1,89 @@
-# Multi-Vehicle Simulation with Gazebo
+# Gazebo 다중 차량 시뮬레이션
 
-This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only). A different approach is used for simulation with and without ROS.
+이 항목에서는 Gazebo와 SITL(Linux만 해당)을 사용하여 다중 UAV 차량 시뮬레이션 방법을 설명합니다. ROS 유무에 따라 시뮬레이션 접근 방식이 달라집니다.
 
 <a id="no_ros"></a>
 
-## Multiple Vehicle with Gazebo (No ROS)
+## 다중 차량 Gazebo (ROS 없음)
 
-To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the *Firmware* tree):
+Gazebo에서 다중 차량을 시뮬레이션하려면, 터미널에서 다음 명령어를 입력하십시오.(*펌웨어* 트리 루트에서).
 ```
 Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <world>] [-s <script>] [-t <target>] [-l <label>]
 ```
 
-- `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`.
-- `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
-- `<world>`: The [world](../simulation/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
-- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
+- `<model>`: 실행할 [차량 유형/모델](../simulation/gazebo_vehicles.md), 예: `iris`(기본값), `plane`, `standard_vtol`
+- `<number_of_vehicles>`: 실행할 차량의 수입니다. 기본값은 3. 최대값은 255.
+- `<world>`: 차량이 생성되어야 하는 [세계](../simulation/gazebo_worlds.md), 예: `empty` (기본값)
+- `<script>`: 여러 유형의 다중 차량을 생성합니다(`-m` 및 `-n`의 값 무시). 예:
 
    ```
    -s "iris:3,plane:2,standard_vtol:3"
    ```
-   - Supported vehicle types are: `iris`, `plane`, `standard_vtol`.
-   - The number after the colon indicates the number of vehicles (of that type) to spawn.
-   - Maximum number of vehicles is 255.
+   - 지원되는 차량 유형은 `iris`, `plane`, `standard_vtol`입니다.
+   - 콜론 뒤의 숫자는 실행할 차량(해당 유형) 대수를 나타냅니다.
+   - 최대 차량 대수는 255대입니다.
 
- - `<target>`: build target, e.g: `px4_sitl_default` (default), `px4_sitl_rtps`
- - `<label>` : specific label for model, e.g: `rtps`
+ - `<target>`: 빌드 대상, 예: `px4_sitl_default`(기본값), `px4_sitl_rtps`
+ - `<label>` : 모델에 대한 특정 레이블, 예: `rtps`
 
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.). Vehicle instances are accessed from sequentially allocated PX4 remote UDP ports: `14540` - `14548` (additional instances are all accessed using the same remote UDP port: `14549`).
+각 차량 인스턴스에는 고유한 MAVLink 시스템 ID(1, 2, 3 등)가 할당됩니다. 차량 인스턴스는 순차적으로 할당된 PX4 원격 UDP 포트: `14540` - `14548`에서 액세스됩니다(추가 인스턴스는 모두 동일한 원격 UDP 포트를 사용하여 액세스: `14549`)
 
 :::note
-The 255-vehicle limitation occurs because mavlink `MAV_SYS_ID` only supports 255 vehicles in the same network The `MAV_SYS_ID` and various UDP ports are allocated in the SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112)
+255대의 차량 제한은 mavlink `MAV_SYS_ID`가 동일한 네트워크에서 255대의 차량만 지원하기 때문입니다. `MAV_SYS_ID` 및 다양한 UDP 포트는 SITL rcS: [init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112)에 할당됩니다.
 :::
 
 <a id="video_mc"></a>
 
-### Video: Multiple Multicopter (Iris)
+### 비디오: 다중 멀티콥터(Iris)
 
-@[youtube](https://youtu.be/Mskx_WxzeCk)
+@[유투브](https://youtu.be/Mskx_WxzeCk)
 
 <a id="video_fw"></a>
 
-### Video: Multiple Plane
+### 비디오: 다중 고정익
 
-@[youtube](https://youtu.be/aEzFKPMEfjc)
+@[유투브](https://youtu.be/aEzFKPMEfjc)
 
 <a id="video_vtol"></a>
 
-### Video: Multiple VTOL
+### 비디오: 다중 VTOL
 
-@[youtube](https://youtu.be/lAjjTFFZebI)
+@[유투브](https://youtu.be/lAjjTFFZebI)
 
 <a id="with_dds"></a>
 
-### Build and Test (RTPS/DDS)
+### 빌드 및 테스트(RTPS/DDS)
 
-To simulate multiple vehicles based on RTPS/DDS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with PX4 rather than the MAVLink Simulation API. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
+Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 터미널에서 *PX4-Autopilot* 트리(위에 설명된 대로) 루트의 `-t px4_sitl_rtps` 옵션과 함께 `gazebo_sitl_multiple_run.sh` 명령을 사용합니다. 여기에서 `-t px4_sitl_rtps` 옵션을 사용합니다. 이 옵션은 MAVLink 시뮬레이션 API가 아닌 PX4와 통신하기 위해 RTPS를 사용하도록 설정합니다. 그러면 `iris_rtps` 모델(현재 RTPS와 함께 사용하기 위해 구현된 유일한 모델)이 빌드되고 실행됩니다.
 
 :::note
-You will need to have installed *eProsima Fast DDS* and the `micrortps_agent` should be run in the different terminals for each vehicle. For more information see: [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md).
+*eProsima Fast DDS*가 설치되어 있어야 하고, `micrortps_agent`가 각 차량의 다른 터미널에서 실행되어야 합니다. 자세한 내용은 [RTPS/DDS 인터페이스: PX4-고속 RTPS(DDS) 브리지](../middleware/micrortps.md)를 참고하십시오.
 :::
 
-To build an example setup, follow the steps below:
+예제 설정을 빌드하려면 아래 단계를 따라 진행하십시오.
 
-1. Clone the PX4/Firmware code, then build the SITL code:
+1. PX4/펌웨어 코드를 복제한 다음, SITL 코드를 빌드합니다.
    ```bash
    cd Firmware_clone
    git submodule update --init --recursive
    DONT_RUN=1 make px4_sitl_rtps gazebo
    ```
 
-1. Build the `micrortps_agent`
-   * To use the agent in ROS-independent RTPS/DDS applications, follow the [installation instructions here](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)
-   * To use the agent in ROS 2, follow the [instructions here](../ros/ros2_comm.md)
+1. `micrortps_agent`를 빌드합니다.
+   * ROS 독립적인 RTPS/DDS 애플리케이션에서 에이전트를 사용하려면 [여기에 있는 설치 방법](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)을 참고하십시오.
+   * ROS 2에서 에이전트를 사용하려면, [이 설치 방법](../ros/ros2_comm.md)을 참고하십시오.
 
-1. Run `gazebo_sitl_multiple_run.sh`. For example, to spawn 4 vehicles, run:
+1. `gazebo_sitl_multiple_run.sh`를 실행합니다. 예를 들어 4대의 차량을 생성하려면, 다음을 명령어를 실행하십시오.
 
    ```bash
    ./Tools/gazebo_sitl_multiple_run.sh -t px4_sitl_rtps -m iris -l rtps -n 4
    ```
 
 :::note
-Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).
+각 차량 인스턴스에는 고유한 MAVLink 시스템 ID(1, 2, 3 등)가 할당되고, 고유한 원격 UDP 포트(2019, 2021, 2023 등)에서 데이터를 수신하고, UDP 포트(2020, 2022, 2024 등)에서 데이터를 전송합니다.
 :::
 
-1. Run `micrortps_agent`. For example, to connect 4 vehicles, run:
+1. `micrortps_agent`를 실행합니다. 예를 들어 4대의 차량을 연결하려면, 다음을 명령어를 실행하십시오.
 
    ```bash
    micrortps_agent -t UDP -r 2020 -s 2019 &
@@ -91,25 +91,24 @@ Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), c
    micrortps_agent -t UDP -r 2024 -s 2023 &
    micrortps_agent -t UDP -r 2026 -s 2025 &
    ```
-:::note
-In order to communicate with a specific instance of PX4 using ROS2, you must use the `-n <namespace>` option. For example, running `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0` will result in the agent publishing all its topics with the namespace prefix `/vhcl0`. You can then subscribe and publish to just that vehicle's topics.
+   :::note ROS2를 사용하여 PX4의 특정 인스턴스와 통신하려면 `-n <namespace>` 옵션을 사용합니다. 예를 들어, `micrortps_agent -t UDP -r 2020 -s 2019 -n vhcl0`을 실행하면 에이전트가 네임스페이스 접두사 `/vhcl0`이 있는 모든 주제를 게시합니다. 그런 다음 해당 차량의 주제만 구독하고 게시할 수 있습니다.
 :::
 
 <a id="with_ros"></a>
 
-## Multiple Vehicles with ROS and Gazebo
+## 다중 차량 ROS 와 Gazebo
 
-This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world. You can then control the vehicles with *QGroundControl* and MAVROS in a similar way to how you would manage a single vehicle.
+이 예제는 빈 세계에서 두 개의 Iris 차량을 출력하는 Gazebo 클라이언트 GUI를 여는 설정을 설명합니다. 그런 다음 단일 차량을 관리하는 것과 유사한 방식으로 *QGroundControl* 및 MAVROS를 사용하여 차량을 제어할 수 있습니다.
 
-### Required
+### 필수 사항
 
-* Current [PX4 ROS/Gazebo development environment](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
+* 현 [PX4 ROS/Gazebo 개발 환경](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo)
 
 :::note
-At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gazebo Simulation](../simulation/gazebo.md).
+작성 당시에는  ROS Melodic/Gazebo 9가 포함된 Ubuntu 18.04을 사용하였습니다. [가제보 시뮬레이션](../simulation/gazebo.md)도 참고하십시오.
 :::
-* [MAVROS package](http://wiki.ros.org/mavros)
-* a clone of latest [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)
+* [MAVROS 패키지](http://wiki.ros.org/mavros)
+* 최신 [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) 저장소 복제
 
 ### Build and Test
 
