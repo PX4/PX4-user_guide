@@ -162,7 +162,7 @@ pxh> commander takeoff
 
 <a id="frame_rate"></a>
 
-### Display the frame rate
+### 프레임 속도 표시
 
 In FlightGear you can display the frame rate by enabling it in: **View > View Options > Show frame rate**.
 
