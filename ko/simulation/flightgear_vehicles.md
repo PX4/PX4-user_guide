@@ -1,39 +1,39 @@
 # FlightGear 차량
 
-This topic lists/displays the vehicles supported by the PX4 [FlightGear](../simulation/flightgear.md) simulation, and the `make` commands required to run them (the commands are run from terminal in the **PX4-Autopilot** directory). The supported types are: plane, autogyro and rover (there are specific frames within these types).
+PX4 [FlightGear](../simulation/flightgear.md) 시뮬레이션이 지원하는 차량과 실행 `make` 명령을 설명합니다. 명령은 **PX4-Autopilot** 디렉토리의 터미널에서 실행됩니다. 지원되는 차량 유형은 고정익, 오토자이로와 로버입니다(이러한 유형 내에 특정 프레임이 있음).
 
 :::tip
-For the full list of build targets run `make px4_sitl list_vmd_make_targets` (filter out those that start with `flightgear_`).
+빌드 대상의 전체 목록을 보려면 `make px4_sitl list_vmd_make_targets`를 실행하십시오(`flightgear_`로 시작하는 대상 필터링).
 :::
 
 :::note
-The [FlightGear](../simulation/flightgear.md) page shows how to install and use FlightGear in more detail (this page is a summary of vehicle-specific features).
+[FlightGear](../simulation/flightgear.md) 페이지에는 FlightGear 설치 및 사용 방법이 자세히 설명되어있습니다.(이 페이지는 차량별 기능 요약).
 :::
 
 <a id="standard_plane"></a>
 
-## Standard Plane
+## 표준 비행기
 
-FlightGear has models for many planes. The most suitable one for UAV development is currently the [Rascal RC plane](https://github.com/ThunderFly-aerospace/FlightGear-Rascal) (which also exists in multiple variants).
+FlightGear는 많은 비행기 모델을 지원합니다. UAV 개발에 가장 적합한 모델은 [Rascal RC 비행기](https://github.com/ThunderFly-aerospace/FlightGear-Rascal)입니다(여러가지 변형이 존재함).
 
 ![Rascal plane in FlightGear](../../assets/simulation/flightgear/vehicles/rascal110.jpg)
 
-The variants differ mainly by the [FDM](http://wiki.flightgear.org/Flight_Dynamics_Model) model. All variants have a common feature selection table that can be activated by pressing the `=` key on the computer keyboard.
+변형은 주로 [FDM](http://wiki.flightgear.org/Flight_Dynamics_Model) 모델에 따라 달라집니다. 모든 변형에는 컴퓨터 키보드에서 `=` 키를 눌러 활성화할 수 있는 공통 기능 선택 표가 있습니다.
 
-There is a pop-up table that could be used for advanced features activation.
+고급 기능 활성화에 사용할 수 있는 팝업 테이블이 있습니다.
 
 ![Rascal plane FlightGear advanced options](../../assets/simulation/flightgear/vehicles/rascal_options.jpg)
 
-The most relevant option is:
+가장 관련성이 높은 옵션은 다음과 같습니다.
 
-* Smoke - generates a smoke trail to enhance the visibility of aircraft in the air (smoke and particles option needs to be activated in **FG View > rendering options > Particles checkbox**).
-* Trajectory markers - displays orthogonal markers along the trajectory of flight.
+* 연기 - 공중에서 항공기의 가시성을 향상시키기 위해 연기 흔적을 생성합니다(연기와 입자 옵션은 **FG 보기 > 렌더링 옵션 > 입자 확인란**에서 활성화함).
+* 궤적 마커 - 비행 궤적을 따라 직교 마커를 표시합니다.
 
-Trajectory markers show the absolute flight path in the world coordinates, and the smoke trail shows the relative path in the air mass.
+궤적 마커는 세계 좌표의 절대 비행 경로를 보여주고, 연기 흔적은 기단의 상대 경로를 보여줍니다.
 
 ### Rascal 110 YASim
 
-The primary variant of the Rascal model has a combustion piston-engine model. This results in a non-zero idle power causing a rotation of propeller on idle engine RPM.
+Rascal 모델의 주요 변형에는 연소 피스톤 엔진 모델이 있습니다. This results in a non-zero idle power causing a rotation of propeller on idle engine RPM.
 
 The launch command is:
 
