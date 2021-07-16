@@ -253,13 +253,13 @@ Gazebo에서 RTPS/DDS를 기반으로 여러 차량을 시뮬레이션하려면 
 :::note
 모델 경로를 하드코딩한 경우에도, `차량` 인수를 설정하여야 합니다.
 :::
-   * copy your model into the folder indicated above (following the same path convention).
+   * 모델을 위에 표시된 폴더에 복사합니다(동일한 경로 규칙에 따라).
 
-1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory. For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/airframes/1030_plane). For this to work, the PX4 node in the launch file is passed arguments that specify the *rcS* file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`). For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
+1. `vehicle` 인수는 `PX4_SIM_MODEL` 환경 변수를 설정에 사용되며, 기본 rcS(시작 스크립트)에서 모델에 해당하는 시작 설정 파일을 찾는 데 사용됩니다. PX4 내에서 이러한 시작 파일은 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** 디렉토리에서 찾을 수 있습니다. 예를 들어 다음은 비행기 모델의 [시작 스크립트](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/airframes/1030_plane)입니다. 이것이 작동하려면 시작 파일의 PX4 노드에 *rcS* 파일(**etc/init.d/rcS**)과 rootfs 디렉토리(`$(find px4)/build_px4_sitl_default/etc`) 등의 위치를 지정하는 인수가 전달됩니다. 단순화를 위하여 모델의 시작 파일을 **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**에서 PX4와 함께 배치하는 것이 좋습니다.
 
 
-## Additional Resources
+## 추가 자료
 
-* See [Simulation](../simulation/README.md) for a description of the UDP port configuration.
-* See [URDF in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf) for more information about spawning the model with xacro.
-* See [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf) for more xacro models.
+* UDP 포트 설정은 [시뮬레이션](../simulation/README.md)을 참고하십시오.
+* xacro로 모델 생성에 대한 자세한 내용은 [Gazebo의 URDF](http://gazebosim.org/tutorials/?tut=ros_urdf)를 참고하십시오.
+* 더 많은 xacro 모델은 [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf)를 참고하십시오.
