@@ -1,8 +1,8 @@
 # FlightGear 시뮬레이션
 
-[FlightGear](https://www.flightgear.org/) is a flight simulator with powerful [FDM engines](http://wiki.flightgear.org/Flight_Dynamics_Model). This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by [ThunderFly s.r.o.](https://www.thunderfly.cz/)).
+[FlightGear](https://www.flightgear.org/)는 강력한 [FDM 엔진](http://wiki.flightgear.org/Flight_Dynamics_Model)이 탑재된 비행 시뮬레이터입니다. FlightGear는 다양한 기상 조건에서 회전익기를 시뮬레이션합니다. 이것이 원래 [ThunderFly s.r.o.](https://www.thunderfly.cz/)에서 FlightGear를 개발한 이유입니다.
 
-This page describes FlightGear's single-vehicle use in SITL. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../simulation/multi_vehicle_flightgear.md).
+이 페이지는 SITL에서 FlightGear의 단일 차량 시뮬레이션에 대하여 설명합니다. For information about multi-vehicle use see: [Multi-Vehicle Simulation with FlightGear](../simulation/multi_vehicle_flightgear.md).
 
 **Supported Vehicles:** Autogyro, Plane, Rover.
 
