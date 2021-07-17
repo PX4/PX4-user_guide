@@ -25,7 +25,7 @@ FMU 1~3세대는 개방형 하드웨어로 설계되었으나, FMU 4세대와 5�
 
 아래 다이어그램은 Pixhawk 시리즈 비행 콘트롤러의  FMU와 I/O 보드간 기능과 버스 분할을 나타냅니다(보드는 단일 물리적 모듈에 통합됨).
 
-![PX4 주요/입출력 기능 해부](../../assets/diagrams/px4_fmu_io_functions.png)
+![PX4 메인/IO 기능 분석](../../assets/diagrams/px4_fmu_io_functions.png)
 
 <!-- Draw.io version of file can be found here: https://drive.google.com/file/d/1H0nK7Ufo979BE9EBjJ_ccVx3fcsilPS3/view?usp=sharing -->
 
@@ -35,14 +35,14 @@ I/O 보드는 매개변수 [SYS_USE_IO=0](../advanced_config/parameter_reference
 - MAIN 믹서 파일은 FMU에 로드됩니다(그래서 [기체 정의서](../airframes/airframe_reference.md)에 나열된 "MAIN" 출력이 AUX라고 표시된 포트에 나타납니다). AUX 믹서 파일이 로드되지 않으므로, 이 파일에 정의된 출력이 사용되지 않습니다.
 - RC 입력은 IO 보드를 통하지 않고 FMU로 직접 입력됩니다.
 
-I/O 보드가 없는 비행 콘트롤러에는 `MAIN` 포트가 있지만, `AUX` 포트는 *없습니다*. 따라서 `AUX` 포트를 활용하지 않는 [에어프레임](../airframes/airframe_reference.md)에서만 사용할 수 있거나 덜 핵심적인 목적으로 활용할 수 있습니다(예: RC 전달). 대부분의 멀티콥터와 *완전* 자동화 기체(원격 조정을 통한 안전 항해 기능을 뺌)는 모터와 핵심부를 제어하는 `MAIN` 포트만을 사용하기 때문에 이 목적으로만 활용할 수 있습니다.
+I/O 보드가 없는 비행 콘트롤러에는 `MAIN` 포트가 있지만, `AUX` 포트는 *없습니다*. 따라서, `AUX` 포트를 사용하지 않거나 비필수적인 목적(예: RC 전달)으로만 사용하는 [기체](../airframes/airframe_reference.md)에만 사용할 수 있습니다. 일반적으로 모터/필수 제어용으로 `MAIN` 포트만 사용하기 때문에, 대부분의 멀티콥터와 *완전* 자율주행 차량(RC 제어를 사용하는 안전 조종사 없음)에 사용할 수 있습니다.
 
 :::warning
-입출력 보드가 빠진 비행체 제어 장치는 핵심 비행 제어부와 모터를 `AUX`포트에 연결하는 [에어프레임](../airframes/airframe_reference.md)에서 사용할 수 없습니다(`AUX` 포트가 없기 때문).
+I/O 보드가 없는 비행 콘트롤러는 `AUX` 포트가 없기 때문에, 모든 `AUX` 포트를 필수 비행 제어 또는 모터에 매핑하는 [기체](../airframes/airframe_reference.md)에서 사용할 수 없습니다.
 :::
 
 :::note
-I/O 보드가없는 제조업체 비행 컨트롤러 변형은 종종 I/O 보드가 포함 된 버전의 "소형"으로 명명됩니다. 예 : _Pixhawk 4_ **미니 ** _, _CUAV v5**나노**_.
+I/O 보드가 없는 제조업체 비행 콘트롤러 변형은 종종 I/O 보드를 포함하는 버전의 "소형"으로 명명됩니다. 예 : _Pixhawk 4_ **미니**_, _CUAV v5**나노**_.
 :::
 
-대부분의 PX4 PWM 출력은 믹서의  `MAIN` 또는 `AUX` 포트에 대응합니다. 일부 드문 경우, Dshot ESC, 카메라 촬영 핀을 FMU 핀에 직접 연결합니다(예: 비행체 제어 장치에 입출력 보드가 붙어있는지 여부에 따라 `MAIN`핀 또는 `AUX`핀 *어디로든* 출력함).
+대부분의 PX4 PWM 출력은 믹서의 `MAIN` 또는 `AUX` 포트에 매핑됩니다. 카메라 트리거링 및 Dshot ESC를 포함한 몇 가지 특별한 경우에는 FMU 핀에 직접 매핑됩니다. 예를 들면, 비행 컨트롤러에 I/O 보드 여부에 따라 `MAIN` 또는 `AUX`로 **출력됩니다.
