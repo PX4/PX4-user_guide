@@ -1,6 +1,6 @@
 # 하드웨어 루프 시뮬레이션 \(HITL\)
 
-Hardware-in-the-Loop(HITL 또는 HIL)은 일반 PX4 펌웨어가 실제 비행 컨트롤러 하드웨어에서 실행되는 시뮬레이션 모드입니다. 이 접근 방식은 실제 하드웨어에서 대부분의 실제 비행 코드를 테스트할 수 있습니다.
+HITL(Hardware-in-the-Loop)은 일반 PX4 펌웨어가 실제 비행 콘트롤러 하드웨어에서 실행되는 시뮬레이션 모드입니다. 이 접근 방식은 실제 하드웨어에서 대부분의 실제 비행 코드를 테스트할 수 있습니다.
 
 PX4는 멀티콥터(jMAVSim 또는 Gazebo 사용) 및 VTOL(Gazebo 사용)용 HITL을 지원합니다.
 
@@ -22,34 +22,34 @@ PX4는 멀티콥터(jMAVSim 또는 Gazebo 사용) 및 VTOL(Gazebo 사용)용 HIT
 
 ## HITL 시뮬레이션 환경
 
-With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. JMAVSim or Gazebo (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and *QGroundControl*.
+HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어가 실제 하드웨어에서 실행됩니다. JMAVSim 또는 Gazebo(개발 컴퓨터에서 실행)는 USB/UART를 통하여 비행 콘트롤러 하드웨어에 연결합니다. 시뮬레이터는 PX4와 *QGroundControl* 간에 MAVLink 데이터를 공유하는 게이트웨이 역할을 합니다.
 
 :::note
-The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable). For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found [here](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/rpi/px4_hil.config)).
+비행 콘트롤러에서 네트워크에서 안정적이고 대기 시간이 짧은 연결(예: 유선 이더넷 연결 - WiFi는 일반적으로 충분히 신뢰할 수 없음)을 사용하는 경우에는, 시뮬레이터를 UDP로 연결할 수 있습니다. 예를 들어, 이 설정은 이더넷으로 컴퓨터에 연결된 라즈베리파이에서 실행되는 PX4로 테스트되었습니다(jMAVSim 실행 명령이 포함된 시작 설정은 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/rpi/px4_hil.config)를 참고).
 :::
 
-The diagram below shows the simulation environment:
-* A HITL configuration is selected (via *QGroundControl*) that doesn't start any real sensors.
-* *jMAVSim* or *Gazebo* are connected to the flight controller via USB.
-* The simulator is connected to *QGroundControl* via UDP and bridges its MAVLink messages to PX4.
-* (Optional - Gazebo only) Gazebo can also connect to an offboard API and bridge MAVLink messages to PX4.
-* (Optional) A serial connection can be used to connect Joystick/Gamepad hardware via *QGroundControl*.
+아래 다이어그램은 시뮬레이션 환경을 나타냅니다.
+* 실제 센서를 시작하지 않는 HITL 설정이 선택되었습니다(*QGroundControl*를 통하여).
+* *jMAVSim* 또는 *Gazebo*는 USB로 비행 컨트롤러에 연결됩니다.
+* 시뮬레이터는 UDP로 *QGroundControl*에 연결되고, MAVLink 메시지를 PX4에 전송합니다.
+* *Gazebo*와 *jMAVSim*은 또한 오프보드 API에 연결하고 MAVLink 메시지를 PX4에 전송할 수 있습니다.
+* (선택 사항) 직렬 연결로 *QGroundControl*에서 조이스틱/게임패드 하드웨어를 연결할 수 있습니다.
 
 ![HITL Setup - jMAVSim and Gazebo](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
 
 
-## HITL vs SITL
+## HITL 대 SITL
 
-SITL runs on a development computer in a simulated environment, and uses firmware specifically generated for that environment. Other than simulation drivers to provide fake environmental data from the simulator the system behaves normally.
+SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에서 제작된 펌웨어를 사용합니다. 시뮬레이터에서 가공의 환경 데이터를 제공하는 시뮬레이션 드라이버 이외의 시스템은 정상적으로 작동합니다.
 
-By contrast, HITL runs normal PX4 firmware in "HITL mode", on normal hardware. The simulation data enters the system at a different point than for SITL. Core modules like commander and sensors have HITL modes at startup that bypass some of the normal functionality.
+이와 대조적으로, HITL은 일반 하드웨어의 "HITL 모드"에서 일반 PX4 펌웨어를 실행합니다. 시뮬레이션 데이터는 SITL과 다른 지점에서 시스템에 입력됩니다. 커맨더 및 센서와 같은 핵심 모듈에는 시작 시 정상적인 기능 중 일부를 우회하는 HITL 모드가 있습니다.
 
-In summary, HITL runs PX4 on the actual hardware using standard firmware, but SITL actually executes more of the standard system code.
+요약하면, HITL은 표준 펌웨어를 사용하여 실제 하드웨어에서 PX4를 실행하고, SITL은 실제로 더 많은 표준 시스템 코드를 실행합니다.
 
 
-## Setting up HITL
+## HITL 설정
 
-### PX4 Configuration
+### PX4 설정
 
 1. Connect the autopilot directly to *QGroundControl* via USB.
 1. Enable HITL Mode
