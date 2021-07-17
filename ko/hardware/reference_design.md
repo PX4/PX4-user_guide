@@ -1,6 +1,6 @@
-# PX4 참조 비행체 제어 장치 설계
+# PX4 참조 비행 콘트롤러 디자인
 
-PX4 참조 설계는 비행체 제어 장치의 [픽스호크 계열](../flight_controller/pixhawk_series.md)입니다. 2011년 처음 출시했으며, 현재 설계는 5번째 [세대](#reference_design_generations)입니다(6세대 보드 설계는 진행중).
+PX4 참조 디자인은 비행 콘트롤러의 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)입니다. 2011년에 처음 출시된 이 디자인은 현재 5세대 [세대](#reference_design_generations)입니다(6세대 보드 디자인 진행 중).
 
 ## 바이너리 호환성
 
