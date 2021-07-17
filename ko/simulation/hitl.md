@@ -51,19 +51,19 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
 
 ### PX4 설정
 
-1. Connect the autopilot directly to *QGroundControl* via USB.
-1. Enable HITL Mode
-   1. Open **Setup > Safety** section.
-   1. Enable HITL mode by selecting **Enabled** from the *HITL Enabled* list:
+1. USB로 자동조종장치를 *QGroundControl*에 연결합니다.
+1. HITL 모드를 활성화합니다.
+   1. **설정 열기 > 안전** 섹션을 오픈합니다.
+   1. *HITL 활성화* 목록에서 **활성화됨**을 선택하여 HITL 모드를 활성화합니다.
 
       ![QGroundControl HITL configuration](../../assets/gcs/qgc_hitl_config.png)
-1. Select Airframe
-   1. Open **Setup > Airframes**
-   1. Select a [compatible airframe](#compatible_airframe) you want to test. Then click "Apply and Restart" on top-right of the Airframe Setup page.
+1. 기체를 선택합니다.
+   1. **설정 > 기체**를 오픈합니다.
+   1. 테스트할 [호환 기체](#compatible_airframe)를 선택합니다. 그런 다음 *기체 설정* 페이지의 오른쪽 상단에 있는 **적용 및 재시작**을 클릭합니다.
 
       ![Select Airframe](../../assets/gcs/qgc_hil_config.png)
-1. Calibrate your RC or Joystick, if needed.
-1. Setup UDP
+1. 필요한 경우 RC 또는 조이스틱을 보정합니다.
+1. UDP를 설정합니다.
    1. Under the *General* tab of the settings menu, uncheck all *AutoConnect* boxes except for **UDP**.
 
       ![QGC Auto-connect settings for HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
