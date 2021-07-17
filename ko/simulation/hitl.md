@@ -1,26 +1,26 @@
 # 하드웨어 루프 시뮬레이션 \(HITL\)
 
-Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. This approach has the benefit of testing most of the actual flight code on the real hardware.
+Hardware-in-the-Loop(HITL 또는 HIL)은 일반 PX4 펌웨어가 실제 비행 컨트롤러 하드웨어에서 실행되는 시뮬레이션 모드입니다. 이 접근 방식은 실제 하드웨어에서 대부분의 실제 비행 코드를 테스트할 수 있습니다.
 
-PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and fixed wing (using Gazebo or X-Plane demo/full version).
+PX4는 멀티콥터(jMAVSim 또는 Gazebo 사용) 및 VTOL(Gazebo 사용)용 HITL을 지원합니다.
 
 <a id="compatible_airframe"></a>
 
-## HITL-Compatible Airframes
+## HITL 호환 기체
 
-The current set of compatible airframes vs Simulators is:
+현재 호환 가능한 기체와 시뮬레이터는 아래와 같습니다.
 
-| Airframe                                                                                                         | `SYS_AUTOSTART` | Gazebo | jMAVSim |
-| ---------------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
-| [HIL Airplane](../airframes/airframe_reference.md#simulation-plane)                                              | 1000            | Y      |         |
-| [HIL Quadcopter X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x)               | 1001            | Y      | Y       |
-| [HIL Standard VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | Y      |         |
-| [Generic Quadrotor x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) copter           | 4001            | Y      | Y       |
-| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_f450_w/_dji_escs)               | 4011            | Y      | Y       |
+| 기체                                                                                                         | `SYS_AUTOSTART` | Gazebo | jMAVSim |
+| ---------------------------------------------------------------------------------------------------------- | --------------- | ------ | ------- |
+| [HIL 고정익](../airframes/airframe_reference.md#simulation-plane)                                             | 1000            | 예      |         |
+| [HIL 쿼드콥터  X](../airframes/airframe_reference.md#copter_simulation_(copter)_hil_quadcopter_x)              | 1001            | 예      | 예       |
+| [HIL 표준 VTOL QuadPlane](../airframes/airframe_reference.md#vtol_standard_vtol_hil_standard_vtol_quadplane) | 1002            | 예      |         |
+| [일반 쿼드콥터 x](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) 콥터                   | 4001            | 예      | 예       |
+| [DJI Flame Wheel f450](../airframes/airframe_reference.md#copter_quadrotor_x_dji_f450_w/_dji_escs)         | 4011            | 예      | 예       |
 
 <a id="simulation_environment"></a>
 
-## HITL Simulation Environment
+## HITL 시뮬레이션 환경
 
 With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. JMAVSim or Gazebo (running on a development computer) are connected to the flight controller hardware via USB/UART. The simulator acts as gateway to share MAVLink data between PX4 and *QGroundControl*.
 
