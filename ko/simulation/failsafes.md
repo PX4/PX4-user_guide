@@ -32,21 +32,21 @@ SITL에서는 시뮬레이션 편리성을 위하여, 일부 안전 장치가 �
 
 시뮬레이션된 배터리는 에너지가 고갈되지 않도록 구현되며, 기본적으로 용량의 50%까지만 소모되므로 보고된 전압이 표시됩니다. *pxh shell*의 SITL 인스턴스에서 `param set SIM_GPS_BLOCK 1` 명령과 `param set SIM_GPS_BLOCK 0` 명령을 실행하여 GPS 메시지를 차단하고 해제하는 방식으로 시험해볼 수 있습니다.
 
-To change this minimal battery percentage value use the parameter [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT).
+이 최소 배터리 백분율은 매개변수 [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT)에서 설정합니다.
 
-To control how fast the battery depletes to the minimal value use the parameter [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN).
+배터리가 최소값으로 소모되는 속도는 매개변수 [SIM_BAT_DRAIN](../advanced_config/parameter_reference.md#SIM_BAT_DRAIN)에서 설정하십시오.
 
 :::tip
-By changing [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT) in flight, you can also test regaining capacity to simulate inaccurate battery state estimation or in-air charging technology.
+비행 중에 [SIM_BAT_MIN_PCT](../advanced_config/parameter_reference.md#SIM_BAT_MIN_PCT)를 변경하여 용량 회복을 테스트하여 부정확한 배터리 상태 추정 또는 기내 충전 기술을 시뮬레이션할 수 있습니다.
 :::
 
-## GPS 신호 유실
+## 센서/시스템 장애
 
-[Failure injection](../debug/failure_injection.md) can be used to simulate different types of failures in many sensors and systems. For example, this can be used to simulate absent or intermittent GPS, RC signal that has stopped or got stuck on a particular value, failure of the avoidance system, and much more.
+[고장 주입](../debug/failure_injection.md)은 많은 센서와 시스템의 여러가지 오류를 시뮬레이션합니다. GPS가 없거나 간헐적으로 발생하는 경우, 특정 값에서 멈추거나 멈추는 RC 신호, 회피 시스템의 오류 등을 시뮬레이션 할 수 있습니다.
 
-For example, to simulate GPS failure:
-1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the SITL instance *pxh shell*:
+GPS 오류를 시뮬레이션하려면 다음을 수행합니다.
+1. 매개변수 [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN)을 활성화합니다.
+1. SITL 인스턴스 *pxh 셸*에서 다음 명령어를 실행합니다.
    ```bash
    # Turn (all) GPS off
    failure gps off
@@ -55,4 +55,4 @@ For example, to simulate GPS failure:
    failure gps ok
    ```
 
-See [System Failure Injection](../debug/failure_injection.md) for a list of supported target sensors and failure modes.
+지원되는 센서와 오류 목록은 [시스템 오류 주입](../debug/failure_injection.md)을 참고하십시오.
