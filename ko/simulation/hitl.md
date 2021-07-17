@@ -35,7 +35,7 @@ HITL(Hardware-in-the-Loop) 시뮬레이션을 사용하여, 일반 PX4 펌웨어
 * *Gazebo*와 *jMAVSim*은 또한 오프보드 API에 연결하고 MAVLink 메시지를 PX4에 전송할 수 있습니다.
 * (선택 사항) 직렬 연결로 *QGroundControl*에서 조이스틱/게임패드 하드웨어를 연결할 수 있습니다.
 
-![HITL Setup - jMAVSim and Gazebo](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
+![HITL 설정 - jMAVSim 및 Gazebo](../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png)
 
 
 ## HITL 대 SITL
@@ -56,17 +56,17 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
    1. **설정 열기 > 안전** 섹션을 오픈합니다.
    1. *HITL 활성화* 목록에서 **활성화됨**을 선택하여 HITL 모드를 활성화합니다.
 
-      ![QGroundControl HITL configuration](../../assets/gcs/qgc_hitl_config.png)
+      ![QGroundControl HITL 설정](../../assets/gcs/qgc_hitl_config.png)
 1. 기체를 선택합니다.
    1. **설정 > 기체**를 오픈합니다.
    1. 테스트할 [호환 기체](#compatible_airframe)를 선택합니다. 그런 다음 *기체 설정* 페이지의 오른쪽 상단에 있는 **적용 및 재시작**을 클릭합니다.
 
-      ![Select Airframe](../../assets/gcs/qgc_hil_config.png)
+      ![기체 선택](../../assets/gcs/qgc_hil_config.png)
 1. 필요한 경우 RC 또는 조이스틱을 보정합니다.
 1. UDP를 설정합니다.
    1. 설정 메뉴의 *일반* 탭에서 **UDP**를 제외한 모든 *자동 연결* 상자의 선택을 취소합니다.
 
-      ![QGC Auto-connect settings for HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
+      ![QGC HITL 자동 연결 설정](../../assets/gcs/qgc_hitl_autoconnect.png)
 1. (선택 사항) 조이스틱과 안정장치를 설정합니다. RC 리모콘 송신기 대신 조이스틱을 사용하려면 이 [매개변수](../advanced_config/parameters.md)를 설정하십시오.
    * [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 "조이스틱/RC 검사 없음"으로 변경합니다. 이것은 조이스틱 입력을 허용하고, RC 입력을 비활성화합니다.
    * [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)를 '사용 안 함'으로 설정합니다. 무선 제어로 HITL을 실행하지 않으면, RC 안전장치가 간섭하지 않습니다.
@@ -117,18 +117,18 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
 *QGroundControl*이 실행되고 있는 지 확인하십시오!
 :::
 
-1. Connect the flight controller to the computer and wait for it to boot.
-1. Run jMAVSim in HITL mode:
+1. 비행 콘트롤러를 컴퓨터에 연결하고, 부팅시까지 기다립니다.
+1. jMAVSim를 HITL 모드에서 실행:
    ```sh
    ./Tools/jmavsim_run.sh -q -s -d /dev/ttyACM0 -b 921600 -r 250
    ```
 
 :::note
-Replace the serial port name `/dev/ttyACM0` as appropriate. On macOS this port would be `/dev/tty.usbmodem1`. On Windows (including Cygwin) it would be the COM1 or another port - check the connection in the Windows Device Manager.
+직렬 포트 이름 `/dev/ttyACM0`을 적절하게 변경합니다. MacOS에서 이 포트는 `/dev/tty.usbmodem1`입니다. Windows(Cygwin 포함)에서는 COM1 또는 다른 포트입니다. Windows 장치 관리자에서 확인하십시오.
 :::
-1. Start *QGroundControl*. It should autoconnect to PX4 and jMAVSim.
+1. *QGroundControl*을 실행합니다. PX4와 jMAVSim에 자동으로 연결되어야 합니다.
 
 
-## Fly an Autonomous Mission in HITL
+## HITL에서 자율 임무 비행
 
-You should be able to use *QGroundControl* to [run missions](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions) and otherwise control the vehicle.
+*QGroundControl*을 사용하여 [임무를 실행](https://docs.qgroundcontrol.com/master/en/FlyView/FlyView.html#missions)하고, 차량을 제어할 수 있습니다.
