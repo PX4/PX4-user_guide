@@ -2,7 +2,7 @@
 
 SIH(Simulation-In-Hardware)는 쿼드콥터용 [Hardware In The Loop 시뮬레이션(HITL)](../simulation/hitl.md)의 대안입니다. 이 설정에서는 콘트롤러, 상태 추정기와 시뮬레이터와 같은 것들이 임베디드 하드웨어에서 실행됩니다. 데스크톱 컴퓨터는 가상 차량을 출력에만 사용됩니다.
 
-![Simulator MAVLink API](../../assets/diagrams/SIH_diagram.png)
+![MAVLink API 시뮬레이터](../../assets/diagrams/SIH_diagram.png)
 
 SIH는 HITL에 비해 두 가지 이점이 있습니다.
 - 컴퓨터에 대한 양방향 연결을 하지 않으므로, 동기 타이밍을 보장합니다. 사용자는 고사양의 데스크탑 컴퓨터가 필요하지 않습니다.
@@ -37,21 +37,21 @@ SIH 기체가 선택되면 SIH 모듈이 자체적으로 시작되며 차량은 
    ```
    ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -r 250 -o
    ```
-   where the flags are
-   - `-q` to allow the communication to *QGroundControl* (optional).
-   - `-d` to start the serial device `/dev/ttyACM0` on Linux. On macOS this would be `/dev/tty.usbmodem1`.
-   - `-b` to set the serial baud rate to `2000000`.
-   - `-r` to set the refresh rate to `250` Hz (optional).
-   - `-o` to start jMAVSim in *display Only* mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
-1. After few seconds, *QGroundControl* can be opened again.
+   여기서 플래그들은 아래와 같습니다.
+   - `-q` - *QGroundControl*에 대한 통신 허용(선택 사항)
+   - `-d` Linux에서 직렬 장치 `/dev/ttyACM0`를 사용합니다. MacOS에서는 `/dev/tty.usbmodem1`를 사용합니다.
+   - `-b` 직렬 전송 속도를 `2000000`으로 설정합니다.
+   - `-r` 새로고침 빈도를 `250`Hz로 설정합니다(선택 사항).
+   - `-o` - jMAVSim을 *디스플레이 전용* 모드로 시작합니다(즉, 물리적 엔진이 꺼지고 jMAVSim은 SIH가 제공한 궤적만 실시간으로 표시함).
+1. 몇 초 후에 *QGroundControl*을 다시 오픈할 수 있습니다.
 
-At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
+이 시점에서 시스템은 시동후 비행할 수 있습니다. 차량은 jMAVSim과 QGC __Fly__ 보기에서 움직이는 것을 관찰할 수 있습니다.
 
 
-## Credits
+## 개발진
 
-The SIH was developed by Coriolis g Corporation, a Canadian company developing a new type of Vertical Takeoff and Landing (VTOL) Unmanned Aerial Vehicles (UAV) based on passive coupling systems.
+SIH는 패시브 커플링 시스템을 기반으로 하는 새로운 유형의 수직 이착륙(VTOL) 무인 항공기(UAV)를 개발하는 캐나다 회사인 Coriolis g Corporation에서 개발하였습니다.
 
-Specialized in dynamics, control, and real-time simulation, they provide the SIH as a simple simulator for quadrotors released for free under BSD license.
+역학, 제어 및 실시간 시뮬레이션을 전문으로 하는 이 SIH는 BSD 라이선스에 따라 무료로 출시된 간단한 쿼드콥터용 시뮬레이터로 SIH를 제공합니다.
 
-Discover their current platform at [www.vogi-vtol.com](http://www.vogi-vtol.com/).
+[www.vogi-vtol.com](http://www.vogi-vtol.com/)에서 현재 플랫폼을 확인하십시오.
