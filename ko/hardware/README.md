@@ -15,5 +15,5 @@ PX4에 *신규* 자동조종장치와 주변장치를 통합하는 방법을 설
 * [보조 컴퓨터](../companion_computer/pixhawk_companion.md)
 
 :::tip
-다른 섹션에서는 지원되는 [자동 조종 장치](../flight_controller/README.md) 및 [주변 장치](../peripherals/README.md) 하드웨어를 *사용*하고 *구성*하는 방법을 보여줍니다.
+다른 섹션에서는 지원 [자동조종장치](../flight_controller/README.md) 종류, [주변 장치](../peripherals/README.md) *사용법*과 *설정* 방법을 설명합니다.
 :::
