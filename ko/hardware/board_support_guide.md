@@ -1,4 +1,4 @@
-# Manufacturer's PX4 Board Support Guide
+# 제조사의 PX4 보드 지원 가이드
 
 The PX4 development and test teams fully support and maintain boards that are compliant with the [Pixhawk Standard](https://pixhawk.org/standards/). Manufacturers who wish to deviate from the standard or create completely new boards can do so, but will need to support any resulting compatibility differences.
 
