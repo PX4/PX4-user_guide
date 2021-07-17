@@ -1,4 +1,4 @@
-# Hardware in the Loop Simulation \(HITL\)
+# 하드웨어 루프 시뮬레이션 \(HITL\)
 
 Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. This approach has the benefit of testing most of the actual flight code on the real hardware.
 
