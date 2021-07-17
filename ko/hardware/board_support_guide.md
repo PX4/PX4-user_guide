@@ -105,24 +105,24 @@ _이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID�
 
 제조업체가 보드가 특정 범주에 속한다고 선언시, 보드는 해당 범주 및 일반 요구 사항에 대한 요구 사항을 준수한다고 가정합니다.
 
-When a new board is brought to market that falls into the manufacturer supported or experimental category, the manufacturer is responsible for updating the PX4 documentation and doing the board release process in PX4. We recommend the following steps:
+제조업체 지원 또는 실험 범주에 속하는 새 보드가 시장에 출시되면, 제조업체는 PX4 문서를 업데이트하고 PX4에서 보드 릴리스 프로세스를 수행할 책임이 있습니다. 다음 단계를 수행하는 것이 좋습니다.
 
-Contact PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) and request the following:
+PX4 보드 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 연락하여 다음을 요청하십시오.
 
-1. The assignment of a *board id* for bootloader and firmware selection in QGC.
-2. The assignment of REV and VER ID resistor values.
-3. If the board supports USB: Either request the assignment of a USB VID and PID or provide the USB VID and PID.
+1. QGC에서 부트로더 및 펌웨어 선택을 위한 *보드 ID* 할당
+2. REV 및 VER ID 저항 값 할당
+3. 보드가 USB를 지원하는 경우: USB VID 및 PID 할당을 요청하거나 USB VID 및 PID를 제공하십시오.
 
-Integrate the board according to the board porting release process described in the [porting guide](../hardware/porting_guide.md)
+[포팅 가이드](../hardware/porting_guide.md)에 설명된 보드 이식 릴리스 프로세스에 따라 보드를 통합합니다.
 
 :::warning
-The board support process may be changed and improved over time. Hardware manufacturers are encouraged to contribute to this process through the regular hardware call, the Discuss forum or Slack.
+보드 지원 프로세스는 시간이 지남에 따라 변경되거나 개선될 수 있습니다. 하드웨어 제조업체는 정기적인 하드웨어 통화, 토론 포럼 또는 Slack을 통해 이 프로세스에 기여하는 것이 좋습니다.
 :::
 
-## Support
+## 지원
 
-If parts of the board support guide/process are not clear:
+보드 지원 가이드/프로세스의 일부가 명확하지 않은 경우:
 
-- Ask the community for help on Slack channel `#hardware` or on the discuss forums
-- Attend the regular hardware call
-- Consultancy options are listed here: [https://px4.io/community/consultants/](https://px4.io/community/consultants/)
+- Slack 채널 `#hardware` 또는 토론 포럼에서 커뮤니티에 도움을 요청하십시오.
+- 정규 하드웨어 회의 참석
+- 컨설팅 옵션은 [https://px4.io/community/consultants/](https://px4.io/community/consultants/)을 참고하십시오.
