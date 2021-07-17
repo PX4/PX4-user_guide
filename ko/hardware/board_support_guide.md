@@ -40,21 +40,21 @@ PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)
 제조업체 지원 보드는 Pixhawk 보드보다 더 나은 지원을 받을 수 있습니다(예: 규모의 경제를 통해).
 :::
 
-## 픽스호크 표준
+## Pixhawk표준
 
-Pixhawk 보드는 Pixhawk 표준을 준수하는 보드입니다. These standards are laid out on [http://pixhawk.org](http://pixhawk.org/), but at high-level require that the board passes electrical tests mandated by the standard and the manufacturer has signed the Pixhawk adopter and trademark agreement.
+Pixhawk 보드는 Pixhawk 표준을 준수하는 보드입니다. 이러한 표준은 [http://pixhawk.org](http://pixhawk.org/)에 나와 있지만, 상위 수준에서는 보드가 표준에서 요구하는 전기 테스트를 통과하고 제조업체가 Pixhawk 채택자 및 상표 계약에 서명하여야 합니다.
 
-PX4 generally only supports boards that are commercially available, which typically means that board standards released within the last five years are supported.
+PX4는 일반적으로 상업적으로 사용 가능한 보드만 지원하므로, 일반적으로 지난 5년 이내에 출시된 보드 표준이 지원됩니다.
 
 <a id="ver_rev_id"></a>
 
-### VER and REV ID (Hardware Revision and Version Sensing)
+### VER 및 REV ID(하드웨어 개정 및 버전 감지)
 
-FMUv5 and onwards have an electrical sensing mechanism. This sensing coupled with optional configuration data will be used to define hardware’s configuration with respect to a mandatory device and power supply configuration. Manufacturers must obtain the VER and REV ID from PX4 board maintainers at [boards@px4.io](mailto:boards@px4.io) for releasing Pixhawk standard boards.
+FMUv5 이상에는 전기 감지 메커니즘이 있습니다. 선택적 구성 데이터와 결합된 이 감지는 필수 장치 및 전원 공급 장치 구성과 관련하여 하드웨어 구성을 정의합니다. 제조업체는 Pixhawk 표준 보드를 출시하기 위하여 [boards@px4.io](mailto:boards@px4.io)에서 PX4 보드 유지 관리자로부터 VER 및 REV ID를 얻어야 합니다.
 
-Because these boards are 100% compliant with the Pixhawk standard, the values assigned for VER and REV ID are the defaults for that FMUv Version.
+이 보드는 Pixhawk 표준과 100% 호환되기 때문에 VER 및 REV ID에 할당된 값은 해당 FMUv 버전의 기본값입니다.
 
-For example on FMUv5, the values are as listed below:
+예를 들어 FMUv5의 값은 다음과 같습니다.
 
 | REV | VER | &nbsp;     |
 | --- | --- | ---------- |
@@ -62,48 +62,48 @@ For example on FMUv5, the values are as listed below:
 | 0   | 4   | FMUV5 Mini |
 
 
-## Manufacturer Supported
+## 지원 제조업체
 
-These boards are supported by the manufacturer. To qualify for this category the board must work with the latest stable PX4 release within 4 months of that release.
+이러한 보드는 제조업체에서 지원합니다. 이 범주에 해당하려면 보드는 해당 릴리스로부터 4개월 이내에 최신 안정 PX4 릴리스에서 작동하여야 합니다.
 
-- Manufacture owns the support
-- Manufacturer must supply at least 2 boards to the core-dev team (for use on test rack and by test team)
+- 제조업체가 직접 지원합니다.
+- 제조업체는 코어 개발 팀에 최소 2개의 보드를 공급하여야 합니다(테스트 랙 및 테스트 팀에서 사용하기 위하여).
 
 :::tip
-While there is no commitment from the PX4 maintainers and the flight test team to support and test boards in this category, we strongly recommended PX4 and manufacturer teams build close working relationships. This will result in a better result for all parties.
+이 범주의 보드를 지원하고 테스트하기 위한 PX4 유지 관리자와 비행 테스트 팀의 약속은 없지만, PX4와 제조업체 팀이 긴밀한 협력 관계를 구축할 것을 강력히 권장합니다. 이것은 모든 당사자에게 더 나은 결과를 가져올 것입니다.
 :::
 
 :::note
-These boards will be assigned [VER and REV ID](#ver_rev_id) based on compatibility. A special assignment will be made by PX4 if the board is a variant of an FMU specification and capable of running the same binary, with minor differences supported by the manufacturer. Contact the PX4 maintainer at [boards@px4.io](mailto:boards@px4.io) to request more information.
+보드 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다. 보드가 FMU 사양의 변형이고 동일한 바이너리를 실행 가능하고 제조업체에서 지원하는 약간의 차이가 있는 경우에는 PX4에서 특별 할당을 수행합니다. 자세한 정보를 요청하려면 PX4 관리자에게 [boards@px4.io](mailto:boards@px4.io)로 문의하십시오.
 :::
 
-## Experimental
+## 실험
 
-These boards are all boards that don't fall in the above categories, or don't fall in those categories _anymore_. The following requirements apply:
+이 보드는 위의 범주에 속하지 않거나 _더 이상_ 해당 범주에 속하지 않는 모든 보드입니다. 다음 요구 사항이 적용됩니다.
 
-- The board must be working with at least one PX4 release for a defined vehicle type, but not necessarily the latest release.
+- 보드는 정의된 차량 유형에 대해 최소 하나의 PX4 릴리스에 작동하여야 하지만 반드시 최신 릴리스일 필요는 없습니다.
 
 :::note
-Experimental boards that were _previously_ Pixhawk or Manufacturer supported will have/retain their original IDs. *New* experimental boards are allocated [VER and REV IDs](#ver_rev_id) based on compatibility, in the same way as Manufacturer Supported boards. :::  
+_이전_ Pixhawk 또는 제조업체가 지원했던 실험 보드는 원래 ID를 갖거나 유지합니다. *신규* 실험 보드에는 제조업체 지원 보드와 동일한 방식으로 호환성에 따라 [VER 및 REV ID](#ver_rev_id)가 할당됩니다. :::  
 
 <a id="unsupported"></a>
 
-## Unsupported
+## 미지원
 
-This category includes all boards that aren't supported by the PX4 project or a manufacturer, and that fall outside the"experimental" support.
+이 범주에는 PX4 프로젝트 또는 제조업체에서 지원하지 않고 "실험적" 지원에 해당하지 않는 모든 보드가 포함됩니다.
 
-- Board is somewhat compatible on paper with something we already support, and it would take minimal effort to raise it to "experimental", but neither the dev-team or the manufacturer are currently pursuing this
-- Manufacturer/Owner of hardware violates our [Code of Conduct](https://discuss.px4.io/t/code-of-conduct/13655)
-- Closed source, where any of the necessary tools/libs/drivers/etc needed to add support for a board is deemed incompatible due to licensing restrictions
-- Board doesn't meet minimum requirements outlined in the General requirements
+- 보드는 우리가 이미 지원하는 것과 문서상 어느 정도 호환되며 "실험적"으로 올리려면, 최소한의 노력이 필요하지만 개발 팀이나 제조업체 모두 현재 이를 추구하지 않습니다.
+- 하드웨어 제조업체/소유자가 Google의 [행동 강령](https://discuss.px4.io/t/code-of-conduct/13655)을 위반함
+- 라이선스 제한으로 인해 보드 지원을 추가하는 데 필요한 도구/libs/drivers/etc가 호환되지 않는 것으로 간주되는 비공개 소스
+- 보드가 일반 요구 사항에 명시된 최소 요구 사항을 충족하지 않습니다.
 
 :::note
-Unsupported boards will NOT be assigned [VER and REV ID](#ver_rev_id) (and cannot run PX4 FMUvX firmware).
+지원되지 않는 보드에는 [VER 및 REV ID](#ver_rev_id)가 할당되지 않습니다(PX4 FMUvX 펌웨어를 실행할 수 없음).
 :::
 
-## Release Process
+## 릴리스 프로세스
 
-It is assumed that when a manufacturer declares that a board falls in a certain category, that the board is compliant with the requirements for that category and the general requirements.
+제조업체가 보드가 특정 범주에 속한다고 선언시, 보드는 해당 범주 및 일반 요구 사항에 대한 요구 사항을 준수한다고 가정합니다.
 
 When a new board is brought to market that falls into the manufacturer supported or experimental category, the manufacturer is responsible for updating the PX4 documentation and doing the board release process in PX4. We recommend the following steps:
 
