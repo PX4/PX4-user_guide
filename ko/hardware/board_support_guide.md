@@ -1,8 +1,8 @@
 # 제조사의 PX4 보드 지원 가이드
 
-PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)을 준수하는 보드를 완벽하게 지원하고 유지 관리합니다. Manufacturers who wish to deviate from the standard or create completely new boards can do so, but will need to support any resulting compatibility differences.
+PX4 개발 및 테스트 팀은 [Pixhawk 표준](https://pixhawk.org/standards/)을 준수하는 보드를 완벽하게 지원하고 유지 관리합니다. 표준을 준수하지 않거나 새로운 보드를 제작하는 업체에서는 호환성 차이를 지원하여야 합니다.
 
-This guide outlines the [general requirements](#general_requirements) for board support, along with the additional requirements for the different [board support categories](#board-support-categories).
+이 가이드는 다양한 [보드 지원 카테고리](#board-support-categories)에 대한 추가 요구사항과 함께 보드 지원에 대한 [일반 요구사항](#general_requirements)을 간략하게 설명합니다.
 
 :::note
 Boards that are not compliant with the requirements are [unsupported](#unsupported); they will not be listed on the PX4 website hardware list and will be removed from the codebase.
