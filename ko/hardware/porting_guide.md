@@ -1,8 +1,8 @@
-# Flight Controller Porting Guide
+# 비행 콘트롤러 포팅 가이드
 
-This topic is for developers who want to port PX4 to work with *new* flight controller hardware.
+이 섹션은 *신규* 비행 콘트롤러에 PX4를 포팅하는 개발자를 위한 것입니다.
 
-## PX4 Architecture
+## PX4 아키텍쳐
 
 PX4 consists of two main layers: The [board support and middleware layer](../middleware/README.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/Firmware/tree/master/src/modules)\).  Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
 
