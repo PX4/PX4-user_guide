@@ -64,57 +64,57 @@ SITL은 시뮬레이션 환경의 컴퓨터에서 실행되며, 해당 환경에
       ![Select Airframe](../../assets/gcs/qgc_hil_config.png)
 1. 필요한 경우 RC 또는 조이스틱을 보정합니다.
 1. UDP를 설정합니다.
-   1. Under the *General* tab of the settings menu, uncheck all *AutoConnect* boxes except for **UDP**.
+   1. 설정 메뉴의 *일반* 탭에서 **UDP**를 제외한 모든 *자동 연결* 상자의 선택을 취소합니다.
 
       ![QGC Auto-connect settings for HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
-1. (Optional) Configure Joystick and Failsafe. Set the following [parameters](https://docs.px4.io/en/advanced_config/parameters.html#finding-a-parameter) in order to use a joystick instead of an RC remote control transmitter:
-   * [COM_RC_IN_MODE](../advanced/parameter_reference.md#COM_RC_IN_MODE) to "Joystick/No RC Checks". This allows joystick input and disables RC input checks.
-   * [NAV_DLL_ACT](../advanced/parameter_reference.md#NAV_DLL_ACT) to "Disabled". This ensures that no RC failsafe actions interfere when not running HITL with a radio control.
+1. (선택 사항) 조이스틱과 안정장치를 설정합니다. RC 리모콘 송신기 대신 조이스틱을 사용하려면 이 [매개변수](../advanced_config/parameters.md)를 설정하십시오.
+   * [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)를 "조이스틱/RC 검사 없음"으로 변경합니다. 이것은 조이스틱 입력을 허용하고, RC 입력을 비활성화합니다.
+   * [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)를 '사용 안 함'으로 설정합니다. 무선 제어로 HITL을 실행하지 않으면, RC 안전장치가 간섭하지 않습니다.
 
 :::tip
-The *QGroundControl User Guide* also has instructions on [Joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) and [Virtual Joystick](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html) setup.
+*QGroundControl 사용 설명서*에는 [조이스틱](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html)과 [가상 조이스틱](https://docs.qgroundcontrol.com/en/SettingsView/VirtualJoystick.html) 설정 방법을 설명합니다.
 :::
 
-Follow the appropriate setup steps for your simulator in the following sections.
+설정 완료후에는 컴퓨터에서 비행 콘트롤러를 **닫고**, *QGroundControl*을 분리합니다.
 
-### X-Plane HITL Environment
+### 시뮬레이터별 설정
 
-Follow the appropriate setup steps for the specific simulator in the following sections.
+다음 섹션을 참고하여 특정 시뮬레이터에 대하여 설정하십시오.
 
 #### Gazebo
 
 :::note
-Make sure *QGroundControl* is not running!
+*QGroundControl*이 실행되고 있는 지 확인하십시오!
 :::
 
-1. Update the environment variables:
+1. Gazebo로 PX4를 빌드합니다(Gazebo 플러그인을 빌드하기 위하여).
    ```sh
    cd <Firmware_clone>
-    make px4_sitl_default gazebo
+   DONT_RUN=1 make px4_sitl_default gazebo
    ```
-1. Open the vehicle model's sdf file (e.g. **Tools/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
-1. Replace the `serialDevice` parameter (`/dev/ttyACM0`) if necessary.
+1. 차량 모델의 sdf 파일을 오픈합니다(예: **Tools/sitl_gazebo/models/iris_hitl/iris_hitl.sdf**).
+1. 필요한 경우 `serialDevice` 매개변수(`/dev/ttyACM0`)를 변경합니다.
 
 :::note
-The serial device depends on what port is used to connect the vehicle to the computer (this is usually `/dev/ttyACM0`). An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type `dmesg | grep "tty"`. The correct device will be the last one shown.
+직렬 장치는 차량을 컴퓨터에 연결 포트에 따라 달라집니다(일반적으로 `/dev/ttyACM0`). Ubuntu를 확인하는 쉬운 방법은 자동조종장치를 연결후, 터미널에서 `dmesg | grep "tty"`를 실행합니다.. 올바른 장치가 마지막에 표시됩니다.
 :::
 
-1. Set up the environment variables:
+1. 환경 변수를 설정합니다.
    ```sh
    source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
    ```
-   and run Gazebo in HITL mode:
+   Gazebo를 HITL 모드에서 실행합니다.
    ```sh
    gazebo Tools/sitl_gazebo/worlds/hitl_iris.world
    ```
-1. Start *QGroundControl*. It should autoconnect to PX4 and Gazebo.
+1. *QGroundControl*을 실행합니다. PX4와 Gazebo에 자동으로 연결되어야 합니다.
 
 <a id="jmavsim_hitl_configuration"></a>
 
-#### jMAVSim (Quadrotor only)
+#### jMAVSim(쿼드콥터 전용)
 
 :::note
-Make sure *QGroundControl* is not running!
+*QGroundControl*이 실행되고 있는 지 확인하십시오!
 :::
 
 1. Connect the flight controller to the computer and wait for it to boot.
