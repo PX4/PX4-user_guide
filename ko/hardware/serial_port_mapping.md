@@ -76,9 +76,9 @@ IO 보드가 있는 비행 콘트롤러의 경우 `PX4IO_SERIAL_DEVICE`를 검�
 ```
 따라서 PX4IO는 `ttyS6`에 있습니다(이전 섹션에서 이미 알고 있는 UART8에 매핑되는 것도 볼 수 있습니다).
 
-### Putting it all together
+### 결합
 
-The final mapping is:
+최종 매핑은 다음과 같습니다.
 ```
 ttyS0 CONFIG_STM32F7_USART1=y GPS1
 ttyS1 CONFIG_STM32F7_USART2=y TEL1
@@ -89,21 +89,21 @@ ttyS5 CONFIG_STM32F7_UART7=y DEBUG
 ttyS6 CONFIG_STM32F7_UART8=y PX4IO
 ```
 
-In the [flight controller docs](../flight_controller/pixhawk4.md#serial-port-mapping) the resulting table is:
+[비행 콘트롤러 문서](../flight_controller/pixhawk4.md#serial-port-mapping)의 결과 표는 다음과 같습니다.
 
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | GPS                   |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  | /dev/ttyS3 | TELEM4                |
-| USART6 | /dev/ttyS4 | RC SBUS               |
-| UART7  | /dev/ttyS5 | Debug Console         |
-| UART8  | /dev/ttyS6 | PX4IO                 |
+| UART   | 장치         | 포트             |
+| ------ | ---------- | -------------- |
+| UART1  | /dev/ttyS0 | GPS            |
+| USART2 | /dev/ttyS1 | TELEM1 (흐름 제어) |
+| USART3 | /dev/ttyS2 | TELEM2 (흐름 제어) |
+| UART4  | /dev/ttyS3 | TELEM4         |
+| USART6 | /dev/ttyS4 | RC SBUS        |
+| UART7  | /dev/ttyS5 | 디버그 콘솔         |
+| UART8  | /dev/ttyS6 | PX4IO          |
 
 
-## Other Architectures
+## 기타 아키텍처
 
 :::note
-Contributions welcome!
+기여를 환영합니다!
 :::
