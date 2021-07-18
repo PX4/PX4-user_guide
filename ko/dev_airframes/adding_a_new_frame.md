@@ -1,16 +1,16 @@
 # 신규 기체 구성 추가
 
-PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. The configurations are defined in [config files](#config-file) that are stored in the [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d) folder. The config files reference [mixer files](#mixer-file) that describe the physical configuration of the system, and which are stored in the [ROMFS/px4fmu_common/mixers](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/mixers) folder.
+PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구성은 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d) 폴더에 저장된 [구성 파일](#config-file)에 정의됩니다. 구성 파일은 시스템의 물리적 구성을 설명하고 [ROMFS/px4fmu_common/mixers](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/mixers) 폴더에 저장되는 [믹서 파일](#mixer-file)을 참조합니다.
 
-Adding a configuration is straightforward: create a new config file in the [init.d folder](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d) (prepend the filename with an unused autostart ID), then [build and upload](../setup/building_px4.md) the software.
+구성을 추가하는 것은 간단합니다. [init.d/airframes 폴더](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d/airframes)에 새 구성 파일을 만들고(파일 이름 앞에 사용하지 않은 자동 시작 ID 추가), 새 기체 구성 파일의 이름을 <1 관련 섹션에서 >CMakeLists.txt</a>를 찾은 다음 소프트웨어를 [빌드 및 업로드](../dev_setup/building_px4.md)합니다.
 
-Developers who do not want to create their own configuration can instead customize existing configurations using text files on the microSD card, as detailed on the [custom system startup](../concept/system_startup.md) page.
+자체 구성을 만들고 싶지 않은 개발자는 [맞춤 시스템 시작](../concept/system_startup.md) 페이지에 설명된 대로 microSD 카드의 텍스트 파일을 사용하여 기존 구성을 맞춤 설정할 수 있습니다.
 
 :::note
-To determine which parameters/values need to be set in the configuration file, you can first assign a generic airframe and tune the vehicle, and then use [`param show-for-airframe`](../modules/modules_command.md#param) to list the parameters that changed.
+구성 파일에서 설정하는 매개변수를 결정하려면, 먼저 일반 기체를 할당하고 차량을 조정한 다음 [`param show-for-airframe`](../modules/modules_command.md#param)을 사용하여 변경된 매개변수를 나열합니다.
 :::
 
-## Configuration File Overview
+## 구성 파일 개요
 
 The configuration in the config and mixer files consists of several main blocks:
 
