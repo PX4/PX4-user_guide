@@ -1,22 +1,22 @@
-# Serial Port Mapping
+# 시리얼 포트 매핑
 
-This topic shows how to determine the mapping between serial ports (UART), device (e.g. "ttyS0") and specific functions enabled by PX4 (e.g. TELEM1, TELEM2, GPS1, RC SBUS, Debug console).
+직렬 포트(UART), 장치(예: "ttyS0")와 PX4에서 활성화된 특정 기능(예: TELEM1, TELEM2, GPS1, RC SBUS, 디버그 콘솔)간의 매핑 방법을 설명합니다.
 
 :::note
-The instructions are used to generate serial port mapping tables in flight controller documentation. For example: [Pixhawk 4 > Serial Port Mapping](../flight_controller/pixhawk4.md#serial-port-mapping).
+지침은 비행 콘트롤러 문서에서 직렬 포트 매핑 테이블을 생성합니다. 예: [Pixhawk 4 > 직렬 포트 매핑](../flight_controller/pixhawk4.md#serial-port-mapping).
 :::
 
-## NuttX on STMxxyyy
+## STMxxyyy의 NuttX
 
 <!-- instructions from DavidS here: https://github.com/PX4/PX4-user_guide/pull/672#issuecomment-598198434 -->
 
-This section shows how to get the mappings for NuttX builds on STMxxyyy architectures by inspecting the board configuration files. The instructions use FMUv5, but can similarly be extended for other FMU versions/NuttX boards.
+보드 설정 파일을 검사하여 STMxxyyy 아키텍처에서 NuttX 빌드에 대한 매핑 획득 방법을 설명합니다. FMUv5를 사용하지만, 다른 FMU 버전/NuttX 보드에도 유사하게 확장할 수 있습니다.
 
 ### default.cmake
 
-The **default.cmake** lists a number of serial port mappings (search for the text "SERIAL_PORTS").
+**default.cmake**는 여러 직렬 포트 매핑을 나열합니다(텍스트 "SERIAL_PORTS" 검색).
 
-From [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake#L13-L17):
+[/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake#L13-L17)에서:
 
 ```
 SERIAL_PORTS
@@ -28,11 +28,11 @@ SERIAL_PORTS
 
 ### nsh/defconfig
 
-The *nsh/defconfig* allows you to determine which ports are defined, whether they are UART or USARTs, and the mapping between USART/UART and device. You can also determine which port is used for the [serial/debug console](../debug/system_console.md).
+*nsh/defconfig*를 사용하여 정의된 포트, UART인지, USART인지, USART/UART와 장치 간의 매핑을 결정할 수 있습니다. [직렬/디버그 콘솔](../debug/system_console.md)에 사용되는 포트를 결정할 수 있습니다.
 
-Open the board's defconfig file, for example: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L191-L197)
+보드의 defconfig 파일을 엽니다(예: [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L191-L197)).
 
-Search for the text "ART" until you find a section like with entries formatted like `CONFIG_STM32xx_USARTn=y` (where `xx` is a processor type and `n` is a port number). For example:
+`CONFIG_STM32xx_USARTn=y`와 같은 형식의 항목이 있는 섹션을 찾을 때까지 텍스트 "ART"를 검색합니다. 여기서 `xx`는 프로세서 유형이고 `n`은 포트 번호입니다. 예를 들면:
 
 ```
 CONFIG_STM32F7_UART4=y
@@ -44,9 +44,9 @@ CONFIG_STM32F7_USART3=y
 CONFIG_STM32F7_USART6=y
 ```
 
-The entries tell you which ports are defined, and whether they are UART or USART.
+항목은 정의된 포트와 UART인지 USART인지 알려줍니다.
 
-Copy the section above and reorder numerically by "n". Increment the device number _ttyS**n**_ alongside (zero based) to get the device-to-serial-port mapping.
+위의 섹션을 복사하고 "n"으로 번호를 재정렬 합니다. 장치 대 직렬 포트 매핑을 얻으려면, 장치 번호 _ttyS**n**_을 (0 기반)과 함께 증가시킵니다.
 ```
 ttyS0 CONFIG_STM32F7_USART1=y
 ttyS1 CONFIG_STM32F7_USART2=y
@@ -57,7 +57,7 @@ ttyS5 CONFIG_STM32F7_UART7=y
 ttyS6 CONFIG_STM32F7_UART8=y
 ```
 
-To get the DEBUG console mapping we search the [defconfig file](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212) for `SERIAL_CONSOLE`. Below we see that the console is on UART7:
+DEBUG 콘솔 매핑을 가져오기 위해 `SERIAL_CONSOLE`에 대한 [defconfig 파일](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig#L212)을 검색합니다. 아래에서 콘솔이 UART7에 있음을 알 수 있습니다.
 
 ```
 CONFIG_UART7_SERIAL_CONSOLE=y
@@ -65,16 +65,16 @@ CONFIG_UART7_SERIAL_CONSOLE=y
 
 ### board_config.h
 
-For flight controllers that have an IO board, determine the PX4IO connection from **board_config.h** by searching for `PX4IO_SERIAL_DEVICE`.
+IO 보드가 있는 비행 콘트롤러의 경우 `PX4IO_SERIAL_DEVICE`를 검색하여 **board_config.h**에서 PX4IO 연결을 확인합니다.
 
-For example, [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/board_config.h#L59):
+예: [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/board_config.h#L59)
 ```
 #define PX4IO_SERIAL_DEVICE            "/dev/ttyS6"
 #define PX4IO_SERIAL_TX_GPIO           GPIO_UART8_TX
 #define PX4IO_SERIAL_RX_GPIO           GPIO_UART8_RX
 #define PX4IO_SERIAL_BASE              STM32_UART8_BASE
 ```
-So the PX4IO is on `ttyS6` (we can also see that this maps to UART8, which we already knew from the preceding section).
+따라서 PX4IO는 `ttyS6`에 있습니다(이전 섹션에서 이미 알고 있는 UART8에 매핑되는 것도 볼 수 있습니다).
 
 ### Putting it all together
 
