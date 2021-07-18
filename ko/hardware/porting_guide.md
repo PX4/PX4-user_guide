@@ -4,20 +4,20 @@
 
 ## PX4 아키텍쳐
 
-PX4 consists of two main layers: The [board support and middleware layer](../middleware/README.md) on top of the host OS (NuttX, Linux or any other POSIX platform like Mac OS), and the applications (Flight Stack in [src/modules](https://github.com/PX4/Firmware/tree/master/src/modules)\).  Please reference the [PX4 Architectural Overview](../concept/architecture.md) for more information.
+PX4는 호스트 OS(NuttX, Linux 또는 Mac OS와 같은 기타 POSIX 플랫폼)의 상단의 [보드 지원 및 미들웨어](../middleware/README.md) 레이어와 애플리케이션([src/modules](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules)의 비행 스택)의 두 가지 주요 레이어로 구성됩니다.  자세한 내용은 [PX4 아키텍처 개요](../concept/architecture.md)를 참고하십시오.
 
-This guide is focused only on the host OS and middleware as the applications/flight stack will run on any board target.
+애플리케이션/플라이트 스택이 모든 보드 대상에서 실행되므로, 이 가이드에서는 호스트 OS와 미들웨어에만 초점을 맞추어 설명합니다.
 
-## Flight Controller Configuration File Layout
+## 비행 콘트롤러 설정  파일 구조
 
-Board-specific initialisation file: [/boards/px4/fmu-v5/init/rc.board](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/init/rc.board)
+보드 시작 및 설정 파일은 각 보드의 공급업체별 디렉토리(예: **boards/_VENDOR_/_MODEL_**)의 [boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards/) 폴더에 있습니다.
 
-For example, for FMUv5:
-* (All) Board-specific files: [/boards/px4/fmu-v5](https://github.com/PX4/Firmware/tree/master/boards/px4/fmu-v5).<!-- NEED px4_version -->
-* Build configuration: [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake).<!-- NEED px4_version -->
-* Board specific header: [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/nuttx-config/include/board.h). <!-- NEED px4_version -->
-  - A board-specific initialisation file is automatically included in startup scripts if found under the boards directory at **init/rc.board**.
-  - The file is used to start sensors (and other things) that only exist on a particular board. It may also be used to set a board's default parameters, UART mappings, and any other special cases.
+예 FMUv5 :
+* (전체) 보드별 파일: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4/fmu-v5).<!-- NEED px4_version -->
+* 빌드 설정: [/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake).<!-- NEED px4_version -->
+* 보드 초기화 파일: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
+  - 보드 초기화 파일은 **init/rc.board**의 보드 디렉토리 아래에 있는 경우에는 시작 스크립트에 자동으로 포함됩니다.
+  - 이 파일은 특정 보드에만 존재하는 센서(및 기타 항목)를 시작하는 데 사용됩니다. 또한 보드의 기본 매개변수, UART 매핑 및 기타 특수한 경우를 설정하는 데 사용할 수 있습니다.
   - For FMUv5 you can see all the Pixhawk 4 sensors being started, and it also sets a larger LOGGER_BUF, and in AUTOCNF section (fresh setups) it sets the [SYS_FMU_TASK](../advanced/parameter_reference.md#SYS_FMU_TASK) parameter.
 
 ## Host Operating System Configuration
