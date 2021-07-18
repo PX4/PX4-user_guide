@@ -12,32 +12,32 @@ PX4는 고정된 기체 구성을 기체의 시작점으로 사용합니다. 구
 
 ## 구성 파일 개요
 
-The configuration in the config and mixer files consists of several main blocks:
+구성 파일과 믹서 파일의 구성은 몇 가지 주요 블록으로 이루어집니다.
 
-* Airframe documentation (used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*).
-* Vehicle-specific parameter settings, including [tuning gains](#tuning-gains).
-* The controllers and apps it should start, e.g. multicopter or fixed wing controllers, land detectors etc.
-* The physical configuration of the system (e.g. a plane, wing or multicopter). This is called a [mixer](../concept/mixing.md).
+* 기체 문서([기체 정의서](../airframes/airframe_reference.md) 및 *QGroundControl*에서 사용됨).
+* [튜닝 게인](#tuning-gains)을 포함한 차량 매개변수 설정.
+* 시작해야 하는 컨트롤러 및 앱(예: 멀티콥터 또는 고정익 컨트롤러, 지면 탐지기 등)
+* 시스템 물리적 구성(예: 비행기, 날개 또는 멀티콥터). 이것을 [믹서](../concept/mixing.md)라고 합니다.
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
+이러한 측면은 대부분 독립적이므로, 많은 구성이 기체의 동일한 물리적 레이아웃을 공유하고 동일한 응용 프로그램을 시작하며 튜닝 이득이 가장 차이가 납니다.
 
 :::note
-New airframe files are only automatically added to the build system after a clean build (run `make clean`).
+새 기체 파일은 클린 빌드(`make clean` 실행) 이후에만, 빌드 시스템에 자동으로 추가됩니다.
 :::
 
 <a id="config-file"></a>
 
-### Config File
+### 설정 파일
 
-A typical configuration file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)).
+일반적인 구성 파일은 아래와 같습니다([원본 파일은 여기](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)).
 
-The first section is the airframe documentation. This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
+첫 번째 섹션은 기체 문서입니다. 이것은 [기체 정의서](../airframes/airframe_reference.md)와 *QGroundControl*에서 사용됩니다.
 ```bash
-#!nsh
+#!/bin/sh
 #
 # @name Wing Wing (aka Z-84) Flying Wing
 #
-# @url https://docs.px4.io/en/framebuild_plane/wing_wing_z84.html
+# @url https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html
 #
 # @type Flying Wing
 # @class Plane
@@ -52,9 +52,12 @@ The first section is the airframe documentation. This is used in the [Airframes 
 #
 # @maintainer Lorenz Meier <lorenz@px4.io>
 #
+# @board px4_fmu-v2 exclude
+# @board bitcraze_crazyflie exclude
+#
 ```
 
-The next section specifies vehicle-specific parameters, including [tuning gains](#tuning-gains):
+다음 섹션은 [튜닝 게인](#tuning-gains)을 포함하여, 차량 매개변수를 지정합니다.
 ```bash
 . ${R}etc/init.d/rc.fw_defaults
 
@@ -79,19 +82,19 @@ param set-default FW_RR_P 0.04
 param set-default PWM_MAIN_DISARM 1000
 ```
 
-Set frame type ([MAV_TYPE](https://mavlink.io/en/messages/common.html#MAV_TYPE)):
+기체 유형 설정([MAV_TYPE](https://mavlink.io/en/messages/common.html#MAV_TYPE)):
 ```bash
 # Configure this as plane
 set MAV_TYPE 1
 ```
 
-Set the [mixer](#mixer-file) to use:
+사용할 [믹서](#mixer-file) 설정:
 ```bash
 # Set mixer
 set MIXER wingwing
 ```
 
-Configure PWM outputs (specify the outputs to drive/activate, and the levels).
+PWM 출력을 구성합니다(구동/활성화할 출력 및 레벨 지정).
 ```bash
 set PWM_OUT 4
 ```
