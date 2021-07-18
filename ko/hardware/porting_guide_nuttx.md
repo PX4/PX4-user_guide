@@ -22,13 +22,13 @@ make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
 ```
 
-For fresh installs of PX4 onto Ubuntu using [ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh) <!-- NEED px4_version --> you will also need to install *kconfig* tools from [NuttX tools](https://bitbucket.org/nuttx/tools/src/master/).
+[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)을 사용하여 Ubuntu에 PX4를 설치하려면, [NuttX 도구](https://bitbucket.org/nuttx/tools/src/master/)에서 *kconfig* 도구를 설치하여야 합니다.
 
 :::note
-The following steps are not required if using the [px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) docker container or have installed to macOS using our normal instructions (as these include`kconfig-mconf`).
+[px4-dev-nuttx](https://hub.docker.com/r/px4io/px4-dev-nuttx/) 도커 컨테이너를 사용하거나 일반 지침(`kconfig-mconf` 포함)을 사용하여 MacOS에 설치한 경우에는 다음 단계가 필요하지 않습니다.
 :::
 
-Run the following commands from any directory:
+임의의 디렉터리에서 다음 명령어를 실행합니다.
 ```sh
 git clone https://bitbucket.org/nuttx/tools.git
 cd tools/kconfig-frontends
@@ -38,37 +38,37 @@ make
 sudo make install
 ```
 
-The `--prefix=/usr` determines the specific installation location (which must be in the `PATH` environment variable). The `--enable-mconf` and `--enable-qconf` options will enable the `menuconfig` and `qconfig` options respectively.
+`--prefix=/usr`은 특정 설치 위치를 결정합니다(`PATH` 환경 변수에 있어야 함). `--enable-mconf`와 `--enable-qconf` 옵션은 각각 `menuconfig`와 `qconfig` 옵션을 활성화합니다.
 
-To run `qconfig` you may need to install additional Qt dependencies.
+`qconfig`를 실행하려면, 추가 Qt 종속성을 설치하여야 합니다.
 
-### Bootloader
+### 부트로더
 
-First you will need a bootloader, which depends on the hardware target:
-- STM32H7: the bootloader is based on NuttX, and is included in the PX4 Firmware. See [here](https://github.com/PX4/PX4-Autopilot/tree/master/boards/holybro/durandal-v1/nuttx-config/bootloader) for an example.
-- For all other targets, https://github.com/PX4/Bootloader is used. See [here](https://github.com/PX4/Bootloader/pull/155/files) for an example how to add a new target. Then checkout the [buiding and flashing instructions](../software_update/stm32_bootloader.md).
+먼저 하드웨어 대상에 적합한 부트로더가 필요합니다.
+- STM32H7: 부트로더는 NuttX를 기반으로 하며, PX4 펌웨어에 포함되어 있습니다. 예를 보려면 [여기](https://github.com/PX4/PX4-Autopilot/tree/master/boards/holybro/durandal-v1/nuttx-config/bootloader)를 참고하십시오.
+- 다른 대상의 경우 https://github.com/PX4/Bootloader가 사용됩니다. 대상 추가 방법 예는 [여기](https://github.com/PX4/Bootloader/pull/155/files)를 참고하십시오. 그런 다음, [설정 및 플래시 방법](../software_update/stm32_bootloader.md)을 확인하십시오.
 
-### Firmware Porting Steps
+### 펌웨어 포팅 단계
 
-1. Make sure you have a working [development setup](../dev_setup/dev_env.md) and installed the NuttX menuconfig tool (see above).
-1. Download the source code and make sure you can build an existing target:
+1. 작동 중인 [개발 설정](../dev_setup/dev_env.md) 여부와 NuttX menuconfig 도구를 설치여부를 확인하십시오(위 참조).
+1. 소스 코드를 다운로드하고 기존 대상을 빌드할 수 있는 지 확인합니다.
    ```bash
    git clone --recursive https://github.com/PX4/PX4-Autopilot.git
    cd PX4-Autopilot
    make px4_fmu-v5
    ```
-1. Find an existing target that uses the same (or a closely related) CPU type and copy it. For example for STM32F7:
+1. 동일한(또는 유사한) CPU 유형을 사용하는 기존 대상을 복사합니다. 예: STM32F7의 경우
    ```bash
    mkdir boards/manufacturer
    cp -r boards/px4/fmu-v5 boards/manufacturer/my-target-v1
    ```
-   Change **manufacturer** to the manufacturer name and **my-target-v1** to your board name.
+   **manufacturer**를 제조업체 이름으로 변경하고, **my-target-v1**을 보드 이름으로 변경합니다.
 
-Next you need to go through all files under **boards/manufacturer/my-target-v1** and update them according to your board.
-1. **firmware.prototype**: update the board ID and name
-1. **default.cmake**: update the **VENDOR** and **MODEL** to match the directory names (**my-target-v1**). Configure the serial ports.
-1. Configure NuttX (**defconfig**) via `make manufacturer_my-target-v1 menuconfig`: Adjust the CPU and chip, configure the peripherals (UART's, SPI, I2C, ADC).
-1. **nuttx-config/include/board.h**: Configure the NuttX pins. For all peripherals with multiple pin options, NuttX needs to know the pin. They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
+다음으로 **boards/manufacturer/my-target-v1** 아래의 모든 파일을 살펴보고 보드에 따라 업데이트하여야 합니다.
+1. **firmware.prototype**: 보드 ID 및 이름 업데이트
+1. **default.cmake**: 디렉토리 이름(**my-target-v1**)과 일치하도록 **VENDOR**와 **MODEL**을 업데이트합니다. 직렬 포트를 설정합니다.
+1. `make Manufacturer_my-target-v1 menuconfig`를 통한 NuttX(**defconfig**) 설정: CPU와 칩을 조정하고 주변 장치(UART, SPI, I2C, ADC)를 설정합니다.
+1. **nuttx-config/include/board.h**: NuttX 핀을 설정합니다. For all peripherals with multiple pin options, NuttX needs to know the pin. They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
 1. **src**: go through all files under **src** and update them as needed, in particular **board_config.h**.
 1. **init/rc.board_sensors**: start the sensors that are attached to the board.
 
