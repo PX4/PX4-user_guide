@@ -1,22 +1,22 @@
-# Driver Development
+# 드라이버 개발
 
-NuttX device drivers are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/lib/drivers/device) framework.
+PX4 장치 드라이버는 [장치](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/drivers/device) 프레임워크를 기반으로 합니다.
 
-## Creating a Driver
+## 드라이버 생성
 
-PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
+PX4는 [uORB](../middleware/uorb.md)의 데이터를 거의 독점적으로 사용합니다. 일반적인 주변 장치 유형에 대한 드라이버는 올바른 uORB 메시지(예: 자이로, 가속도계, 압력 센서 등)를 게시하여야 합니다.
 
-The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers)).
+새 드라이버를 만드는 가장 좋은 방법은 템플릿과 유사한 드라이버로 시작하는 것입니다([src/drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers) 참조).
 
 :::note
-More detailed information about working with specific I/O busses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
+특정 I/O 버스 및 센서 작업에 대한 자세한 정보는 [센서 및 액추에이터 버스](../sensor_bus/README.md) 섹션을 참고하십시오.
 :::
 
 :::note
-Publishing the correct uORB topics is the only pattern that drivers *must* follow.
+올바른 uORB 주제를 게시하는 것은 드라이버가 *준수해야* 하는 유일한 패턴입니다.
 :::
 
-## Core Architecture
+## 핵심 아키텍처
 
 PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
 
