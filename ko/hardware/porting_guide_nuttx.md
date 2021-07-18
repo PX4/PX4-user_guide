@@ -1,22 +1,22 @@
 # NuttX 보드 포팅 가이드
 
-In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX. The NuttX project maintains an excellent [porting guide](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide) for porting NuttX to a new computing platform.
+NuttX의 PX4를 포팅하려면, 하드웨어가 NuttX를 지원하여야 합니다. NuttX 프로젝트는 NuttX를 새로운 플랫폼으로 포팅하기 위한 [포팅 가이드](https://cwiki.apache.org/confluence/display/NUTTX/Porting+Guide)를 제공합니다.
 
-The following guide assumes you are using an already supported hardware target or have ported NuttX (including the [PX4 base layer](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/px4)) already.
+다음 가이드에서는 기존 지원 하드웨어를 사용하거나, NuttX([PX4 기본 레이어](https://github.com/PX4/PX4-Autopilot/tree/master/platforms/nuttx/src/px4) 포함)를 이미 포팅하였다고 가정합니다.
 
-The configuration files for all boards, including linker scripts and other required settings, are located under [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards/) in a vendor- and board-specific directory (i.e. **boards/_VENDOR_/_MODEL_/**)).
+링커 스크립트와 기타 필수 설정을 포함한 모든 보드의 설정 파일은 공급업체의 보드별 디렉토리의 [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards/) 아래에 있습니다(예: **boards/_VENDOR</2 >/_MODEL_</strong>)).</p>
 
-The following example uses FMUv5 as it is a recent [reference configuration](../hardware/reference_design.md) for NuttX based flight controllers:
-* Running `make px4_fmu-v5_default` from the **PX4-Autopilot** directory will build the FMUv5 config
-* The base FMUv5 configuration files are located in: [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4/fmu-v5).
-  * Board specific header (NuttX pins and clock configuration): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/include/board.h).
-  * Board specific header (PX4 configuration): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/board_config.h).
-  * NuttX OS config (created with NuttX menuconfig): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
-  * Build configuration: [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake).
+다음 예는 NuttX 비행 콘트롤러에 대한 최근 [참조 설정](../hardware/reference_design.md)인 FMUv5를 사용합니다.
+* **PX4-Autopilot** 디렉토리에서 `make px4_fmu-v5_default`를 실행하면, FMUv5 설정이 빌드됩니다.
+* 기본 FMUv5 설정 파일은 [/boards/px4/fmu-v5](https://github.com/PX4/PX4-Autopilot/tree/master/boards/px4/fmu-v5) 폴더에 있습니다.
+  * 보드별 헤더(NuttX 핀 및 클록 구성): [/boards/px4/fmu-v5/nuttx-config/include/board.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/include/board.h).
+  * 보드별 헤더(PX4 구성): [/boards/px4/fmu-v5/src/board_config.h](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/board_config.h).
+  * NuttX OS 설정(NuttX menuconfig로 생성): [/boards/px4/fmu-v5/nuttx-config/nsh/defconfig](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig).
+  * 빌드 설정: [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake).
 
-## NuttX Menuconfig Setup
+## NuttX 메뉴 구성 설정
 
-To modify the NuttX OS configuration, you can use [menuconfig](https://bitbucket.org/patacongo/nuttx/src/master/) using the PX4 shortcuts:
+NuttX OS 구성을 수정하려면, PX4 단축키를 사용하여 [menuconfig](https://bitbucket.org/patacongo/nuttx/src/master/)를 사용할 수 있습니다.
 ```sh
 make px4_fmu-v5_default menuconfig
 make px4_fmu-v5_default qconfig
