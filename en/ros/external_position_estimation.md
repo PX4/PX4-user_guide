@@ -103,9 +103,9 @@ To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLO
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. However, neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) currently support this functionality.
+A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
+At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
