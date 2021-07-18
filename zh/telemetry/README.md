@@ -8,6 +8,7 @@ PX4支持多种类型数传电台：
   * [RFD900 遥测无线电](../telemetry/rfd900_telemetry.md)
   * [HKPilot（SIK）遥测无线电](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro（SIK）遥测无线电](../telemetry/holybro_sik_radio.md)
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * [WiFi 数传](../telemetry/telemetry_wifi.md)
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 
