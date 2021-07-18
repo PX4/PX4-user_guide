@@ -212,17 +212,17 @@ S: 0 3      0  20000 -10000 -10000  10000
 
 ```
 
-## Adding a New Airframe Group
+## 새 기체 그룹 추가
 
-Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html) and in the *Airframe Reference* documentation ([PX4 DevGuide](../airframes/airframe_reference.md) and [PX4 UserGuide](../airframes/airframe_reference.md)). Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes.
+기체 "그룹"은 [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html) 및 *기체 정의서* 문서([PX4 DevGuide](../airframes/airframe_reference.md) 및 [PX4 UserGuide](../airframes/airframe_reference.md))에서 선택하기 위하여 유사한 기체들을 그룹화합니다. 모든 그룹에는 그룹화된 기체에 대한 공통 지오메트리, 모터 수, 및 모터 회전 방향을 나타내는 이름과 연관된 svg 이미지가 있습니다.
 
-The airframe metadata files used by *QGroundControl* and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
+*QGroundControl*에서 사용하는 기체 메타데이터 파일과 문서 소스 코드는 `make airframe_metadata` 빌드 명령을 사용하여 스크립트를 통하여 기체 설명에서 생성됩니다.
 
-For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d).
+기존 그룹에 속한 새 기체의 경우 다음 위치 [ROMFS/px4fmu_common/init.d](https://github.com/PX4/PX4-Autopilot/tree/master/ROMFS/px4fmu_common/init.d)에 있는 기체 설명에 문서를 제공하는 것 외에는 아무 것도 할 필요가 없습니다.
 
-If the airframe is for a **new group** you additionally need to:
-1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
-1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/Firmware/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): def GetImageName(self): """ Get parameter group image base name (w/o extension) """ if (self.name == "Standard Plane"): return "Plane" elif (self.name == "Flying Wing"): return "FlyingWing" ... ...
+기체가 **새 그룹**을 위한 것이라면, 추가로 다음 작업을 수행하여야 합니다.
+1. 그룹에 대한 svg 이미지를 사용자 가이드 문서에 추가합니다(이미지가 제공되지 않은 경우 자리 표시자 이미지가 표시됨): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
+1. [srcparser.py](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/srcparser.py) 메소드 `GetImageName()`에서 새 그룹 이름과 이미지 파일 이름 간의 매핑을 추가합니다(아래 패턴을 따릅니다).
    ```
    def GetImageName(self):
        """
@@ -236,9 +236,9 @@ If the airframe is for a **new group** you additionally need to:
     ...
        return "AirframeUnknown"
    ```
-1. Update *QGroundControl*:
-   * Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   * Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
+1. *QGroundControl*을 업데이트 합니다.
+   * 그룹에 대한 svg 이미지를 [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)에 추가합니다.
+   * 아래 패턴에 따라 svg 이미지에 대한 참조를 [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc)에 추가합니다.
      ```
      <qresource prefix="/qmlimages">
         ...
@@ -249,31 +249,31 @@ If the airframe is for a **new group** you additionally need to:
         ...
      ```
 :::note
-The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
+나머지 기체 메타데이터는 펌웨어에 자동으로 포함되어야 합니다(**srcparser.py**가 업데이트되면).
 :::
 
 
-## Tuning Gains
+## 게인 튜닝
 
-The following topics explain how to tune the parameters that will be specified in the config file:
+구성 파일에 지정될 매개변수를 조정하는 방법을 설명합니다.
 
-* [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-* [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
-* [VTOL Configuration](../config_vtol/README.md)
+* [멀티콥터 PID 튜닝 가이드](../config_mc/pid_tuning_guide_multicopter.md)
+* [고정익 PID 튜닝 가이드](../config_fw/pid_tuning_guide_fixedwing.md)
+* [VTOL 설정](../config_vtol/README.md)
 
 
-## Add New Airframe to QGroundControl
+## QGroundControl에 신규 기체 추가
 
-To make a new airframe available for section in the *QGroundControl* [airframe configuration](../config/airframe.md):
+신규 기체를 *QGroundControl* [기체 구성](../config/airframe.md) 섹션에 사용할 수 있도록 하려면:
 
-1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
-1. Open QGC and select **Custom firmware file...** as shown below:
+1. 깨끗한 빌드 만들기(예: `make clean`을 실행한 다음 `make px4_fmu-v5_default` 실행)
+1. QGC를 열고 아래와 같이 **맞춤 펌웨어 파일...**을 선택합니다.
 
-  ![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
+  ![QGC 커스텀 펌웨어 플래시](../../assets/gcs/qgc_flash_custom_firmware.png)
 
-  You will be asked to choose the **.px4** firmware file to flash (this file is a zipped JSON file and contains the airframe metadata).
-1. Navigate to the build folder and select the firmware file (e.g. **Firmware/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
-1. Press **OK** to start flashing the firmware.
-1. Restart *QGroundControl*.
+  플래시할 **.px4** 펌웨어 파일을 선택하라는 메시지가 표시됩니다(이 파일은 압축된 JSON 파일이며 기체 메타데이터가 포함되어 있습니다).
+1. 빌드 폴더로 이동하여 펌웨어 파일을 선택합니다(예: **PX4-Autopilot/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
+1. **확인**을 눌러, 펌웨어 플래시를 시작합니다.
+1. *QGroundControl*을 재시작합니다.
 
-The new airframe will then be available for selection in *QGroundControl*.
+*QGroundControl*에서 신규 기체를 선택할 수 있습니다.
