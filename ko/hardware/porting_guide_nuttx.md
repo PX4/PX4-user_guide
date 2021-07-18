@@ -68,7 +68,7 @@ sudo make install
 1. **firmware.prototype**: 보드 ID 및 이름 업데이트
 1. **default.cmake**: 디렉토리 이름(**my-target-v1**)과 일치하도록 **VENDOR**와 **MODEL**을 업데이트합니다. 직렬 포트를 설정합니다.
 1. `make Manufacturer_my-target-v1 menuconfig`를 통한 NuttX(**defconfig**) 설정: CPU와 칩을 조정하고 주변 장치(UART, SPI, I2C, ADC)를 설정합니다.
-1. **nuttx-config/include/board.h**: NuttX 핀을 설정합니다. For all peripherals with multiple pin options, NuttX needs to know the pin. They are defined in the chip-specific pinmap header file, for example [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h).
-1. **src**: go through all files under **src** and update them as needed, in particular **board_config.h**.
-1. **init/rc.board_sensors**: start the sensors that are attached to the board.
+1. **nuttx-config/include/board.h**: NuttX 핀을 설정합니다. 여러 가지 핀 옵션이 있는 주변 장치에서는 NuttX는 핀 정보을 알아야 합니다. 칩별 핀맵 헤더 파일에 정의되어 있습니다(예: [stm32f74xx75xx_pinmap.h](https://github.com/PX4/NuttX/blob/px4_firmware_nuttx-8.2/arch/arm/src/stm32f7/hardware/stm32f74xx75xx_pinmap.h)).
+1. **src**: **src** 아래의 모든 파일을 살펴보고 필요에 따라 업데이트합니다(특히 **board_config.h**).
+1. **init/rc.board_sensors**: 보드에 부착된 센서를 시작합니다.
 
