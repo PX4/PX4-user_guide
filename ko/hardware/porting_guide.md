@@ -58,31 +58,31 @@ PX4 프로젝트는 [FMU 표준 참조 하드웨어](../hardware/reference_desig
 * CI를 통한 자동 검사 - 이 커뮤니티에서 가장 중요한 것은 안전입니다.
 * [비행 테스트](../test_and_ci/test_flights.md)
 
-We encourage board manufacturers to aim for full compatibility with the [FMU spec](https://pixhawk.org/). With full compatibility you benefit from the ongoing day-to-day development of PX4, but have none of the maintenance costs that come from supporting deviations from the specification.
+보드 제조업체는 완벽한 [FMU 사양](https://pixhawk.org/) 호환성을 목표로 하는 것이 좋습니다. 완전한 호환성을 통하여 PX4의 지속적인 일일 개발의 이점을 얻을 수 있지만, 사양에서 벗어난 지원으로 인한 유지 관리 비용은 없습니다.
 
 :::tip
-Manufacturers should carefully consider the cost of maintenance before deviating from the specification (the cost to the manufacturer is proportional to the level of divergence).
+제조업체는 사양에서 벗어나기 전에, 유지 관리 비용을 신중하게 고려해야 합니다(제조업체 비용은 차이에 비례합니다).
 :::
 
-We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our [Code of Conduct](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md) and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.
+[행동 강령](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md)을 준수할 의향이 있는 경우 지원되는 하드웨어에 포함할 포트를 제출하는 개인이나 회사를 환영합니다. Dev 팀과 협력하여 고객에게 안전하고 만족스러운 PX4 기술을 제공하십시오.
 
-It's also important to note that the PX4 dev team has a responsibility to release safe software, and as such we require any board manufacturer to commit any resources necessary to keep their port up-to-date, and in a working state.
+또한 PX4 개발 팀은 안전한 소프트웨어를 출시할 책임이 있으므로, 모든 보드 제조업체는 포트를 최신 상태 유지에 필요한 리소스를 투입하여야 합니다.
 
-If you want to have your board officially supported in PX4:
-* The start script is located in [posix-configs/](https://github.com/PX4/Firmware/tree/master/posix-configs).
-* Hardware must be made available to the PX4 Dev Team so that they can validate the port (contact <lorenz@px4.io> for guidance on where to ship hardware for testing).
-* The board must pass full [test suite](../test_and_ci/README.md) and [flight testing](../test_and_ci/test_flights.md).
+보드를 PX4에서 공식적으로 지원하려면:
+* 하드웨어는 시장에서 제한없이 구매할 수 있어야 합니다.
+* PX4 개발 팀이 포트를 확인할 수 있도록 하드웨어를 사용할 수 있어야 합니다(테스트를 위해 하드웨어를 배송할 위치에 대한 지침은 [lorenz@px4.io](mailto:lorenz@px4.io)에 문의).
+* 보드는 [단위 테스트](../test_and_ci/README.md)와 [비행 테스트](../test_and_ci/test_flights.md)를 통과하여야 합니다.
 
-**The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.**
+**PX4 프로젝트는 설정한 요구 사항을 충족하지 못하는 경우에는 새 포트 수락을 거부하거나 현재 포트를 제거할 권리가 있습니다.**
 
-You can reach out to the core developer team and community on the [official support channels](../contribute/support.md).
+[공식 지원 채널](../contribute/support.md)에서 핵심 개발자 팀과 커뮤니티에 연락할 수 있습니다.
 
 
-## Related Information
+## 관련 정보
 
-* [Device Drivers](../middleware/drivers.md) - How to support new peripheral hardware (device drivers)
-* [Building the Code](../setup/building_px4.md) - How to build source and upload firmware
-* Supported Flight Controllers:
-  * [Autopilot Hardware](../flight_controller/README.md)
-  * [Supported boards list](https://github.com/PX4/Firmware/#supported-hardware) (Github)
-* [Supported Peripherals](../peripherals/README.md)
+* [장치 드라이버](../middleware/drivers.md) - 새로운 주변장치(장치 드라이버)를 지원하는 방법
+* [코드 빌드](../dev_setup/building_px4.md) - 소스 빌드 및 펌웨어 업로드 방법
+* 지원 비행 콘트롤러:
+  * [자동조종장치 하드웨어](../flight_controller/README.md)
+  * [지원 보드 목록](https://github.com/PX4/PX4-Autopilot/#supported-hardware)(Github) - PX4-Autopilot에 특정 코드가 있는 보드
+* [지원 주변기기](../peripherals/README.md)
