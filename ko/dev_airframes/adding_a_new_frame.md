@@ -100,28 +100,28 @@ set PWM_OUT 4
 ```
 
 :::warning
-If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`. The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
+채널을 되돌리려면, RC 송신기나 `RC1_REV`와 같이 사용하지 마십시오. 채널은 수동 모드에서 비행시에만 반전되며, 자동 조종 비행 모드로 전환하면 채널 출력이 여전히 잘못됩니다(RC 신호만 반전됨). 따라서, 올바른 채널 할당을 위해 PWM 신호를 `PWM_MAIN_REV1`(예: 채널 1의 경우)으로 변경하거나 해당 믹서에서 출력 스케일링의 부호를 변경합니다(아래 참조).
 :::
 
 <a id="mixer-file"></a>
 
-### Mixer File
+### 믹서 파일
 
 :::note
-First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file.
+[개념 > 믹싱](../concept/mixing.md)을 먼저 참고하십시오. 이것은 믹서 파일을 해석에 필요한 배경 정보를 제공합니다.
 :::
 
-A typical mixer file is shown below ([original file here](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
+일반적인 믹서 파일은 아래에 나와 있습니다([원본 파일은 여기](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). 믹서 파일 이름(이 경우 `wingwing.main.mix`)은 기체 유형(`wingwing`), 출력 유형(`.main` 또는 `.aux`), 그리고 믹서 파일(`.mix`)에 대한 중요한 정보를 제공합니다.
 
-The mixer file contains several blocks of code, each of which refers to one actuator or ESC. So if you have e.g. two servos and one ESC, the mixer file will contain three blocks of code.
+믹서 파일에는 여러 코드 블록이 포함되어 있으며, 각 블록은 하나의 액추에이터 또는 ESC를 나타냅니다. 예를 들어 2개의 서보와 1개의 ESC, 믹서 파일에는 3개의 코드 블록이 포함됩니다.
 
 :::note
-The plugs of the servos / motors go in the order of the mixers in this file.
+서보/모터의 플러그는 이 파일의 믹서 순서대로 이동합니다.
 :::
 
-So MAIN1 would be the left aileron, MAIN2 the right aileron, MAIN3 is empty (note the Z: zero mixer) and MAIN4 is throttle (to keep throttle on output 4 for common fixed wing configurations).
+따라서 MAIN1은 왼쪽 에일러론, MAIN2는 오른쪽 에일러론, MAIN3은 비어 있고(Z: 제로 믹서 참고) MAIN4는 스로틀입니다(일반적인 고정익은 출력 4에서 스로틀을 유지하기 위하여).
 
-A mixer is encoded in normalized units from -10000 to 10000, corresponding to -1..+1.
+믹서는 -1..+1에 해당하는 -10000에서 10000까지의 정규화된 단위로 인코딩됩니다.
 
 ```
 M: 2
@@ -130,30 +130,27 @@ S: 0 0  -6000  -6000      0 -10000  10000
 S: 0 1   6500   6500      0 -10000  10000
 ```
 
-For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d).
+여기서 왼쪽에서 오른쪽으로 각 숫자는 다음을 의미합니다.
 
-* M: Indicates two scalers for two control inputs. It indicates the number of control inputs the mixer will receive.
-* O: Indicates the output scaling (*1 in negative, *1 in positive), offset (zero here), and output range (-1..+1 here).
-  * If you want to invert your PWM signal, the signs of the output scalings have to be changed.
+* M: 2개의 제어 입력에 대한 2개의 스케일러를 나타냅니다. 믹서가 수신할 컨트롤 입력의 수를 나타냅니다.
+* O: 출력 스케일링(음수에서 \*1, 양수에서 \*1), 오프셋(여기서는 0) 및 출력 범위(여기서는 -1..+1)를 나타냅니다.
+  * PWM 신호를 반전시키려면, 출력 스케일링 부호를 변경합니다.
     ```
-    (<code>O:      -10000  -10000      0 -10000  10000</code>)
+    O:      -10000  -10000      0 -10000  10000
     ```
-)
-    </code>
-  * This line can (and should) be omitted completely if it specifies the default scaling: `O:      10000  10000   0 -10000  10000`
+  * 이 줄은 기본 크기 조정을 지정하는 경우 완전히 생략할 수 있습니다(및 반드시 생략해야 함).
     ```
     O:      10000  10000   0 -10000  10000
     ```
-* S: Indicates the first input scaler: It takes input from control group #0 (Flight Control) and the first input (roll). It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units). It applies no offset (0) and outputs to the full range (-1..+1)
-* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1)
+* S: 첫 번째 입력 스케일러를 나타냅니다. 제어 그룹 #0(Flight Control)과 첫 번째 입력(roll)에서 입력을 받습니다. 롤 제어 입력의 크기를 * 0.6으로 조정하고 부호를 되돌립니다(-0.6은 축척 단위로 -6000이 됨). 오프셋을 적용하지 않고(0) 전체 범위(-1..+1)로 출력합니다.
+* S: 두 번째 입력 스케일러를 나타냅니다. 제어 그룹 #0(비행 제어) 및 두 번째 입력(피치)에서 입력을 받습니다. 피치 제어 입력 * 0.65를 조정합니다. 오프셋을 적용하지 않고(0) 전체 범위(-1..+1)로 출력합니다.
 
 :::note
-In short, the output of this mixer would be SERVO = ( (roll input \* -0.6 + 0)  \* 1 + (pitch input \* 0.65 + 0)  \* 1 ) \* 1 + 0
-:::
+간단히 요약하면, 이 믹서의 출력은 SERVO = ( (롤 입력 \* -0.6 + 0) \* 1 + (피치 입력 \* 0.65 + 0) \* 1 ) \* 1 + 0입니다.
 
-Behind the scenes, both scalers are added, which for a flying wing means the control surface takes maximum 60% deflection from roll and 65% deflection from pitch.
+무대 뒤에서 두 스케일러가 모두 추가되어 비행 날개의 경우 제어 표면이 롤에서 최대 60% 편향, 피치에서 65% 편향을 취합니다.
 
-To make a new airframe available for section in the *QGroundControl* [airframe configuration](https://docs.px4.io/en/config/airframe.html):
+믹서의 최종 형태는 다음과 같습니다.
 
 
 ```bash
