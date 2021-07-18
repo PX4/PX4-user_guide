@@ -18,45 +18,45 @@ PX4는 호스트 OS(NuttX, Linux 또는 Mac OS와 같은 기타 POSIX 플랫폼)
 * 보드 초기화 파일: [/boards/px4/fmu-v5/init/rc.board_defaults](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/init/rc.board_defaults) <!-- NEED px4_version -->
   - 보드 초기화 파일은 **init/rc.board**의 보드 디렉토리 아래에 있는 경우에는 시작 스크립트에 자동으로 포함됩니다.
   - 이 파일은 특정 보드에만 존재하는 센서(및 기타 항목)를 시작하는 데 사용됩니다. 또한 보드의 기본 매개변수, UART 매핑 및 기타 특수한 경우를 설정하는 데 사용할 수 있습니다.
-  - For FMUv5 you can see all the Pixhawk 4 sensors being started, and it also sets a larger LOGGER_BUF, and in AUTOCNF section (fresh setups) it sets the [SYS_FMU_TASK](../advanced/parameter_reference.md#SYS_FMU_TASK) parameter.
+  - FMUv5은 시작되는 모든 Pixhawk 4 센서를 볼 수 있으며, 더 큰 LOGGER_BUF도 설정합니다.
 
-## Host Operating System Configuration
+## 호스트 운영 체제 설정
 
-This section describes the purpose and location of the configuration files required for each supported host operating system to port them to new flight controller hardware.
+이 섹션에서는 지원되는 호스트 운영 체제에서 새 비행 콘트롤러 이식에 필요한 설정 파일의 목적과 위치에 대하여 설명합니다.
 
 ### NuttX
 
-See [NuttX Board Porting Guide](porting_guide_nuttx.md).
+[NuttX 보드 이식 가이드](porting_guide_nuttx.md)를 참고하십시오.
 
 ### Linux
 
-Linux boards do not include the OS and kernel configuration. These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).
+Linux 보드에는 OS와 커널 설정이 포함되어 있지 않습니다. Linux에는 이미 보드에 사용할 수 있는 Linux 이미지에 의해 제공됩니다(즉시 관성 센서를 지원해야 함).
 
-* The boot file system (startup script) is located in: [ROMFS/px4fmu\_common](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common) <!-- NEED px4_version -->
+* [boards/px4/raspberrypi/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/raspberrypi/default.cmake) - 라즈베리파이 교차 컴파일. <!-- NEED px4_version -->
 
-## Middleware Components and Configuration
+## 미들웨어 구성 요소 및 설정
 
-This section describes the various middleware components, and the configuration file updates needed to port them to new flight controller hardware.
+이 섹션에서는 다양한 미들웨어 구성 요소와 이를 새로운 비행 콘트롤러로 이식에 필요한 설정 파일 업데이트에 대하여 설명합니다.
 
 ### QuRT / Hexagon
 
-* Driver files are located in: [src/drivers](https://github.com/PX4/Firmware/tree/master/src/drivers). <!-- NEED px4_version -->
-* The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions).
-* The PX4 middleware configuration is located in [src/drivers/boards](https://github.com/PX4/Firmware/tree/master/src/drivers/boards). TODO: ADD BUS CONFIG
+* 시작 스크립트는 [posix-configs/](https://github.com/PX4/PX4-Autopilot/tree/master/posix-configs)에 있습니다. <!-- NEED px4_version -->
+* OS 구성은 기본 Linux 이미지의 일부입니다(TODO: LINUX IMAGE 및 플래시 지침의 위치 제공).
+* PX4 미들웨어 구성은 [src/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards)에 있습니다. TODO: ADD BUS CONFIG
 
 
-## RC UART Wiring Recommendations
+## RC UART 배선 권장 사항
 
-It is generally recommended to connect RC via separate RX and TX pins to the microcontroller. If however RX and TX are connected together, the UART has to be put into singlewire mode to prevent any contention. This is done via board config and manifest files. One example is [px4fmu-v5](https://github.com/PX4/Firmware/blob/master/src/drivers/boards/px4fmu-v5/manifest.c). <!-- NEED px4_version --> ## Officially Supported Hardware
+일반적으로 별도의 RX 및 TX 핀을 통해 RC를 마이크로 콘트롤러에 연결하는 것이 좋습니다. 그러나 RX와 TX가 함께 연결된 경우에는 UART의 경합 방지를 위하여, 단일 와이어 모드로 전환되어야 합니다. 이것은 보드 설정과 매니페스트 파일을 통하여 수행됩니다. 한 가지 예는 [px4fmu-v5](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/src/manifest.c)입니다. <!-- NEED px4_version --> ## 공식 지원 하드웨어
 
-The PX4 project supports and maintains the [FMU standard reference hardware](../debug/reference-design.md) and any boards that are compatible with the standard. This includes the [Pixhawk-series](https://docs.px4.io/en/flight_controller/pixhawk_series.html) (see the user guide for a [full list of officially supported hardware](https://docs.px4.io/en/flight_controller/)).
+PX4 프로젝트는 [FMU 표준 참조 하드웨어](../hardware/reference_design.md)와 호환되는 모든 보드를 지원 및 유지 관리합니다. 여기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)가 포함됩니다([공식적으로 지원되는 하드웨어의 전체 목록](../flight_controller/README.md)은 사용자 가이드를 참조).
 
-Every officially supported board benefits from:
-* PX4 Port available in the PX4 repository
-* Automatic firmware builds that are accessible from *QGroundControl*
-* Compatibility with the rest of the ecosystem
-* Automated checks via CI - safety remains paramount to this community
-* [Flight testing](../test_and_ci/test_flights.md)
+공식 지원 보드의 이점은 다음과 같습니다.
+* PX4 저장소에서 PX4 포트 사용 가능
+* *QGroundControl*에서 액세스할 수 있는 자동 펌웨어 빌드
+* 나머지 생태계와의 호환성
+* CI를 통한 자동 검사 - 이 커뮤니티에서 가장 중요한 것은 안전입니다.
+* [비행 테스트](../test_and_ci/test_flights.md)
 
 We encourage board manufacturers to aim for full compatibility with the [FMU spec](https://pixhawk.org/). With full compatibility you benefit from the ongoing day-to-day development of PX4, but have none of the maintenance costs that come from supporting deviations from the specification.
 
