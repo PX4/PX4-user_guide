@@ -1,4 +1,4 @@
-# Telemetry Radio/Modem Integration
+# 텔레메트리 라디오/모뎀 통합
 
 Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This section contains topics about advanced use of supported radios and integrating new telemetry systems into PX4.
 
