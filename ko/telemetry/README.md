@@ -8,6 +8,7 @@ PX4는 다양한 텔레메트리 라디오 타입을 지원합니다:
   * [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
   * [HKPilot (SIK) 텔레메트리 라디오](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro (SIK) 텔레메트리 라디오](../telemetry/holybro_sik_radio.md)
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
 * [Microhard 직렬 텔레메트리 라디오](../telemetry/microhard_serial.md)
 

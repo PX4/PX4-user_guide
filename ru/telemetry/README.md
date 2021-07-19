@@ -8,6 +8,7 @@ PX4 supports a number of types of telemetry radios:
   * [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
   * [HKPilot (SIK) Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
   * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 * [Telemetry Wifi](../telemetry/telemetry_wifi.md)
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
 
