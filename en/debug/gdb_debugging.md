@@ -1,5 +1,9 @@
 # Embedded Debugging
 
+## Handy console commands
+
+Below are a couple of commands which can be used in the [NuttShell](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=139629410) to get insights of the system.
+
 This NSH command provides the remaining free memory:
 
 ```bash
@@ -13,6 +17,24 @@ top
 ```
 
 Stack usage is calculated with stack coloring and thus is not the current usage, but the maximum since the start of the task.
+
+To see what is running in the work queues and at what rate, use:
+
+```
+work_queue status
+```
+
+And to debug uORB topics:
+
+```
+uorb top
+```
+
+And to inspect a specific uORB topic:
+
+```
+listener <topic_name>
+```
 
 ### Heap allocations
 
@@ -74,7 +96,7 @@ It was presented at the PX4 Developer Conference 2019.
 
 ### Debugging Hard Faults in NuttX
 
-A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack. 
+A typical scenario that can cause a hard fault is when the processor overwrites the stack and then the processor returns to an invalid address from the stack.
 This may be caused by a bug in code were a wild pointer corrupts the stack, or another task overwrites this task's stack.
 
 * NuttX maintains two stacks: The IRQ stack for interrupt processing and the user stack
