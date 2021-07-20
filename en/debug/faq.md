@@ -5,11 +5,6 @@
 
 ### Flash Overflow
 
-:::tip
-Use the FMUv4 architecture to obtain double the flash.
-The first available board from this generation is the [Pixracer](../flight_controller/pixracer.md).
-:::
-
 The amount of code that can be loaded onto a board is limited by the amount of flash memory it has.
 When adding additional modules or code its possible that the addition exceeds the flash memory.
 This will result in a "flash overflow". The upstream version will always build, but depending on what a developer adds it might overflow locally.
