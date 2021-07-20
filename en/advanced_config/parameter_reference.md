@@ -5081,7 +5081,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LNDMC_ALT_GND">LNDMC_ALT_GND</strong> (FLOAT)</td>
- <td>Ground effect altitude for multicopters <p><strong>Comment:</strong> The height above ground below which ground effect creates barometric altitude errors. A negative value indicates no ground effect.</p>   </td>
+ <td>Ground effect altitude for multicopters <p><strong>Comment:</strong> The height above the ground below which ground effect creates barometric altitude errors. A negative value indicates no ground effect.</p>   </td>
  <td>-1 > ? </td>
  <td>-1.0</td>
  <td>m</td>
@@ -5154,7 +5154,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
- <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values results in less agressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
+ <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
  <td></td>
  <td>0.005</td>
  <td>tan(rad)^2</td>
@@ -5194,7 +5194,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_VEL_UNC_IN">LTEST_VEL_UNC_IN</strong> (FLOAT)</td>
- <td>Initial landing target velocity uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y direction</p>   </td>
+ <td>Initial landing target velocity uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y directions</p>   </td>
  <td>0.001 > ? </td>
  <td>0.1</td>
  <td>(m/s)^2</td>
@@ -5451,7 +5451,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LPE_VIS_DELAY">LPE_VIS_DELAY</strong> (FLOAT)</td>
- <td>Vision delay compensaton <p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
+ <td>Vision delay compensation <p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
  <td>0 > 0.1 </td>
  <td>0.1</td>
  <td>s</td>
@@ -5830,17 +5830,17 @@ table {
  <td>MAVLink airframe type  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Generic micro air vehicle</li> 
 
-<li><strong>1:</strong> Fixed wing aircraft</li> 
+<li><strong>1:</strong> Fixed-wing aircraft</li> 
 
 <li><strong>2:</strong> Quadrotor</li> 
 
 <li><strong>3:</strong> Coaxial helicopter</li> 
 
-<li><strong>4:</strong> Normal helicopter with tail rotor</li> 
+<li><strong>4:</strong> Normal helicopter with a tail rotor</li> 
 
 <li><strong>5:</strong> Ground installation</li> 
 
-<li><strong>6:</strong> Operator control unit / ground control station</li> 
+<li><strong>6:</strong> Operator control unit/ground control station</li> 
 
 <li><strong>7:</strong> Airship, controlled</li> 
 
@@ -8517,7 +8517,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
- <td>Maximum number of search attempts <p><strong>Comment:</strong> Maximum number of times to seach for the landing target if it is lost during the precision landing.</p>   </td>
+ <td>Maximum number of search attempts <p><strong>Comment:</strong> Maximum number of times to search for the landing target if it is lost during the precision landing.</p>   </td>
  <td>0 > 100 </td>
  <td>3</td>
  <td></td>
@@ -8531,7 +8531,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PLD_SRCH_TOUT">PLD_SRCH_TOUT</strong> (FLOAT)</td>
- <td>Search timeout <p><strong>Comment:</strong> Time allowed to search for the landing target before falling back to normal landing.</p>   </td>
+ <td>Search timeout <p><strong>Comment:</strong> Time allowed to search for the landing target before falling back to a normal landing.</p>   </td>
  <td>0.0 > 100 (0.1)</td>
  <td>10.0</td>
  <td>s</td>
