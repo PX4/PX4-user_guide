@@ -1,15 +1,5 @@
 # Embedded Debugging
 
-The autopilots running PX4 support debugging via GDB or LLDB.
-
-## Identifying large memory consumers
-
-The command below will list the largest static allocations:
-
-```bash
-arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v2_default/px4_fmu-v2_default.elf | grep " [bBdD] "
-```
-
 This NSH command provides the remaining free memory:
 
 ```bash

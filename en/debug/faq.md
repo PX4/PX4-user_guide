@@ -21,6 +21,15 @@ To remove a module, just comment it out:
 #tune_control
 ```
 
+#### Identifying large memory consumers
+
+The command below will list the largest static allocations:
+
+```bash
+arm-none-eabi-nm --size-sort --print-size --radix=dec build/px4_fmu-v5_default/px4_fmu-v5_default.elf | grep " [bBdD] "
+```
+
+
 ## USB Errors
 
 ### The upload never succeeds
