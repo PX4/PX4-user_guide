@@ -29,7 +29,7 @@ To install *Eclipse*:
 
 To install the *Segger Jlink* tools:
 1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
-   - On Linux the tools are installed in **usr/bin**.
+   - On Linux the tools are installed in **/usr/bin**.
 
 For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install/
 
