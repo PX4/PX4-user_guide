@@ -1,10 +1,10 @@
-# SiK Radio Integration
+# SiK 라디오 통합
 
-[SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
+[SiK 라디오](https://github.com/LorenzMeier/SiK)는 텔레메트리 펌웨어와 도구들입니다.
 
-Information about *using* SiK Radio can be found it the *PX4 User Guide*: [Telemetry > SiK Radio](http://docs.px4.io/en/telemetry/sik_radio.html)
+SiK Radio *사용법*은 [주변장치 > 원격 측정 > SiK 라디오](../telemetry/sik_radio.md)를 참고하십시오.
 
-The ("developer") information below explains how to build SiK firmware from source and configure it using AT commands.
+아래의 "개발자" 정보는 소스에서 SiK 펌웨어를 빌드하고 AT 명령을 사용하여 구성하는 방법에 대하여 설명합니다.
 
 ## Supported Radio Hardware
 
