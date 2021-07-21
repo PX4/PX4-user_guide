@@ -34,8 +34,7 @@ Pixracer는 [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-
 액세서리에는 다음이 포함됩니다.
 
 * [디지털 대기속도 센서](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
-* [HK 텔레프레전스 세트 V2 (915Mhz - US 텔레메트리)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
-* [Hobbyking<sup>&reg;</sup> OSD + EU 텔레메트리 (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
+* [Hobbyking<sup>&reg;</sup> OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 
 ## 키트
 

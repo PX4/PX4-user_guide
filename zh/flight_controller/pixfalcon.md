@@ -40,8 +40,7 @@ Optional hardware:
   * [Hobbyking OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
 * Pure Telemetry options: 
   * [Hobbyking Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-  * [HKPilot Micro Telemetry EU version (433 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html)
-  * [HKPilot Micro Telemetry EU version (915 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html)
+  * [SIK Radios](/telemetry/sik_radio.md)
 
 ## 编译固件
 

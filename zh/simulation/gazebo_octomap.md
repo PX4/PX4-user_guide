@@ -44,7 +44,8 @@ rosed octomap_server octomap_tracking_server.launch
 <param name="frame_id" type="string" value="map" />
 ...
 <!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
-<!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->```
+<!--remap from="cloud_in" to="/rgbdslam/batch_clouds" /-->
+```
 
 to:
 ```sh

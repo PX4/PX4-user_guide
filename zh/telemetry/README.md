@@ -6,11 +6,13 @@ PX4支持多种类型数传电台：
 
 * [SiK 电台](../telemetry/sik_radio.md) 基础固件（更通用，任何带串口的电台都可以工作）。 
   * [RFD900 遥测无线电](../telemetry/rfd900_telemetry.md)
-  * [HKPilot（SIK）遥测无线电](../telemetry/hkpilot_sik_radio.md)
-  * [HolyBro（SIK）遥测无线电](../telemetry/holybro_sik_radio.md)
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
+  * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  * <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
+  * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
 * [WiFi 数传](../telemetry/telemetry_wifi.md)
 * [Microhard Serial Telemetry Radio](../telemetry/microhard_serial.md)
+* XBee Serial Telemetry Radio 
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 
 PX4 协议兼容 [SiK 电台](../telemetry/sik_radio.md)，并且可以即插即用（尽管你可能需要使用适当的连接器）。
 

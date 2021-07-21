@@ -7,8 +7,7 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
 - Adapter to connect Segger JLink to Flight Controller [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md) (debug port).
-- USB micro cable
-- Suitable cables to connect your target.
+- Micro USB cable
 
 ## Installation
 
@@ -29,9 +28,9 @@ To install *Eclipse*:
 
 To install the *Segger Jlink* tools:
 1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
-   - On Linux the tools are installed in **usr/bin**.
+   - On Linux the tools are installed in **/usr/bin**.
 
-For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install/
+For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
 
 ## First Use
 
