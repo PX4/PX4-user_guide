@@ -7,8 +7,7 @@ This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.g
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
 - Adapter to connect Segger JLink to Flight Controller [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md) (debug port).
-- USB micro cable
-- Suitable cables to connect your target.
+- Micro USB cable
 
 ## Installation
 
@@ -20,7 +19,7 @@ Setup PX4 by following the normal guidelines:
 
 ### Eclipse
 
-To install *Eclipse*: 
+To install *Eclipse*:
 1. Download [Eclipse CDT for C/C++ Developers](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/) (MCU GitHub).
 1. Extract the Eclipse folder and copy it anywhere (there is no need to run any install scripts).
 1. Run *Eclipse* and choose a location for your initial workbench.
@@ -29,9 +28,9 @@ To install *Eclipse*:
 
 To install the *Segger Jlink* tools:
 1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
-   - On Linux the tools are installed in **usr/bin**.
+   - On Linux the tools are installed in **/usr/bin**.
 
-For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install/
+For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
 
 ## First Use
 
@@ -44,23 +43,23 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
 1. Set the MCU settings: right-click on the top-level project in the Project Explorer, select *Properties* then under MCU choose *SEGGER J-Link Path*.
    Set it as shown in the screenshot below.
    ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
-1. Update packs: 
+1. Update packs:
    - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective.
      ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - Click the **update all** button.
-   
+
      :::tip
      This takes a VERY LONG TIME (10 minutes).
      Ignore all the errors about missing packages that pop up.
 	 :::
-     
+
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
    - The STM32Fxx devices are found in the Keil folder, install by right-clicking and then selecting **install** on the according device for F4 and F7.
-1. Setup debug configuration for target: 
+1. Setup debug configuration for target:
    - Right click project and open the *Settings* (menu: **C/C++ Build > Settings**)
    - Choose the *Devices* Tab, *Devices* section (Not *Boards*).
    - Find the FMU chip you wish to debug.
-   
+
    ![Eclipse: Select FMU in settings](../../assets/debug/eclipse_settings_devices_fmu.png)
 1. Select debug configurations with the small drop-down next to the bug symbol:
    ![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
@@ -72,7 +71,7 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
      :::note
      Remember that you must build the target from the command line before starting a debug session.
 	 :::
-     
+
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 1. The *Debugger* and *Startup* tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
 
@@ -84,7 +83,7 @@ For more information, see: https://gnu-mcu-eclipse.github.io/debug/jlink/install
 
 ### Target CPU not in Package Manager
 
-If the target CPU does not appear in the package manager you may need these steps to get the register view working. 
+If the target CPU does not appear in the package manager you may need these steps to get the register view working.
 
 :::tip
 This should not generally happen (but anecdotally has been reported when connecting to an STM F7 controller).

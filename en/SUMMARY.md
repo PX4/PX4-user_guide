@@ -344,9 +344,10 @@
     * [Consoles/Shells](debug/consoles.md)
       * [MAVLink Shell](debug/mavlink_shell.md)
       * [System Console](debug/system_console.md)
-    * [SWD/JLink Debug Interface](debug/swd_debug.md)
-    * [Autopilot Debugging](debug/gdb_debugging.md)
-    * [Eclipse/JLink Hardware Debugging](debug/eclipse_jlink.md)
+    * [Embedded Debugging](debug/gdb_debugging.md)
+    * [SWD/JTAG Debug Interface](debug/swd_debug.md)
+    * [GDB SWD Debugging](debug/swd_gdb.md)
+    * [Eclipse JLink Debugging](debug/eclipse_jlink.md)
     * [Failure Injection](debug/failure_injection.md)
     * [Sensor/Topic Debugging](debug/sensor_uorb_topic_debugging.md)
     * [Simulation Debugging](debug/simulation_debugging.md)
@@ -417,4 +418,3 @@
   * [Licenses](contribute/licenses.md)
 * [Releases](releases/README.md)
   * [1.12](releases/1.12.md)
-  
