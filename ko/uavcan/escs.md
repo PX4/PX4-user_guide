@@ -37,41 +37,40 @@ PX4는 [UAVCAN](../uavcan/README.md) ESC를 지원합니다. [PWM ESC](../periph
 
 ## PX4 지원 ESC
 
-PX4는 모든 UAVCAN ESC와 호환됩니다 (UAVCAN은 일반적으로 플러그 앤 플레이 프로토콜을 의미합니다).
+PX4 is compatible with any/all UAVCAN v0 ESCs. At time of writing PX4 does not yet support UAVCAN v1.0.
 
 :::note
-작성 당시 PX4는 UAVCAN v0.x (v1.0 아님)를 지원합니다.
-:::
+작성 당시 PX4는 UAVCAN v0.x (v1.0 아님)를 지원합니다. The main difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different.
 
 설정 관점에서 UAVCAN ESC의 유일한 차이점은 모터 순서와 방향을 구성하는  커넥터와 소프트웨어가 다를 수 있다는 것입니다.
-
-
-널리 사용되는 UAVCAN ESC 펌웨어/제품은 다음과 같습니다.
 - [Sapog](https://github.com/PX4/sapog#px4-sapog) 펌웨어; 전기 무인 기체의 추진 시스템에 사용하도록 설계된 고급 오픈 소스 센서리스 PMSM/BLDC 모터 컨트롤러 펌웨어입니다.
   - [Zubax Orel 20](https://zubax.com/products/orel_20)
   - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
-- [Mitochondrik](https://zubax.com/products/mitochondrik) - 통합 센서리스 PMSM/BLDC 모터 컨트롤러 칩 (ESC 및 통합 드라이브에 사용)
-  - [Zubax Sadulli 통합 드라이브](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
-- [Myxa](https://zubax.com/products/myxa) - 경량 무인 항공기 및 선박용 고급 PMSM/BLDC 모터 컨트롤러 (FOC ESC).
+- [Zubax Myxa](https://zubax.com/products/myxa) - High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft. :::note ESC based on the Zubax Telega sensorless FOC motor control technology (e.g., Zubax Myxa, Mitochondrik, Komar, etc.) require non-trivial tuning of the propulsion system in order to deliver adequate performance and ensure robust operation.
+
+  Users who lack the necessary tuning expertise are advised to either [purchase pre-tuned UAV propulsion kits](https://zubax.com/products/uav_propulsion_kits) or to use Zubax Robotic's professional tuning service. Questions on this matter should be addressed to: [support@zubax.com](mailto:support@zubax.com).
+:::
+- [Zubax Mitochondrik](https://zubax.com/products/mitochondrik) - integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
+  - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 - [VESC 프로젝트 ESC](https://vesc-project.com/) ([Benjamin Vedder의 블로그](http://vedder.se) - 프로젝트 소유자 참조)
 - [OlliW의 UC4H ESC - 액추에이터 노드](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
 - 그 외 다수가 [여기에 기술](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)되어 있습니다.
 
 :::note
-이 목록은 *완전하지 않습니다*. 다른 ESC를 알고 있으시면, 목록에 추가하십시오!
+This list is *not exhaustive/complete*. If you know of another ESC, please add it to the list!
 :::
 
 ## 구매
 
-Sapog 기반 ESC:
+Sapog-based ESCs:
 - [Zubax Orel 20](https://zubax.com/products/orel_20)
 - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
 
-Mitochondrik 기반 드라이브 및 ESC:
+Sapog 기반 ESC:
 - [Zubax Sadulli 통합 드라이브](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
 
 :::note
-다른 상용 ESC가 많이 있습니다. 새 링크를 찾으면 추가하십시오!
+There are many other commercially available ESCs; please add new links as you find them!
 :::
 
 
@@ -85,18 +84,17 @@ Mitochondrik 기반 드라이브 및 ESC:
 
 ## 배선
 
-모든 온보드 UAVCAN 장치를 체인에 연결하고, 버스가 끝 노드에서 종료되었는 지 확인합니다. ESC가 연결/체인 순서는 중요하지 않습니다.
+Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes. The order in which the ESCs are connected/chained does not matter.
 
-자세한 정보는 [UAVCAN > 배선](../uavcan/README.md#wiring)을 참고하십시오.
+For more information see [UAVCAN > Wiring](../uavcan/README.md#wiring).
 
 :::note
-모든 UAVCAN ESC는 동일한 연결 아키텍처를 공유하며 동일한 방식으로 연결됩니다. 그러나, 실제 커넥터는 다릅니다 (예 : *Zubax Orel 20* 및 *Holybro Kotleta20*은 Dronecode 표준 커넥터 (JST-GH 4 핀)를 사용하지만 VESC는 사용하지 않음).
+All UAVCAN ESCs share the same connection architecture/are wired the same way. Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybro Kotleta20* use Dronecode standard connectors (JST-GH 4 Pin) - while VESCs do not).
 :::
-
 
 ## PX4 설정
 
-PX4에서 UAVCAN ESC를 사용하려면 UAVCAN 드라이버를 활성화하여야 합니다.
+In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
 1. 배터리에서 기체에 전원을 공급하고 (비행 콘트롤러뿐만 아니라 전체 기체에 전원을 공급하여야 함) *QGroundControl*을 연결합니다.
 1. **기체 설정 > 매개 변수** 화면으로 이동합니다. :::note [매개변수](../advanced_config/parameters.md)에서 매개변수를 검색/설정 방법을 설명합니다.
 :::
@@ -107,24 +105,25 @@ PX4에서 UAVCAN ESC를 사용하려면 UAVCAN 드라이버를 활성화하여�
 
 ## ESC 설정
 
-UAVCAN 장치는 일반적으로 *플러그 앤 플레이*이지만, 시스템에 사용된 각 ESC를 열거 (번호)하고 PX4에서 식별/제어하도록 방향을 설정하여야 합니다.
+PX4에서 UAVCAN ESC를 사용하려면 UAVCAN 드라이버를 활성화하여야 합니다.
+
+:::note
+The ESC index and direction must match/map to the [Airframe Reference](../airframes/airframe_reference.md) for the vehicle type. ESC indexes from 0-7 map to MAIN 1-8, while ESC indexes 8-15 map to AUX 1-8.
+:::
 
 :::note ESC
 색인과 방향은 기체 유형에 대한 [기체 정의서](../airframes/airframe_reference.md)와 일치/매핑되어야 합니다. 0-7의 ESC 인덱스는 MAIN 1-8에 매핑되고, ESC 인덱스 8-15는 AUX 1-8에 매핑됩니다.
-:::
-
-UAVCAN ESC의 각 유형을 열거하는 메커니즘은 다릅니다 (ESC 설명서를 참고하십시오). 일부 UAVCAN ESC에 대한 설정 정보는 다음과 같습니다.
 
 
 ### QGroundControl을 사용한 Sapog ESC 열거
 
-이 섹션에서는 *QGroundControl*을 사용하여 [Sapog 기반](https://github.com/PX4/sapog#px4-sapog) 기반 ESC를 "자동으로" 열거하는 방법을 설명합니다.
+This section shows how to enumerate any [Sapog-based](https://github.com/PX4/sapog#px4-sapog)-based ESCs "automatically" using *QGroundControl*.
 
-:::tip ESC
-색인이 기본적으로 이미 0으로 설정되어 있으므로, 설정에 ESC가 하나만 있는 경우에는 이 섹션을 건너 뛸 수 있습니다.
+:::tip
+You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
 :::
 
-ESC를 열거하려면:
+To enumerate the ESC:
 1. 배터리로 기체에 전원을 공급하고 *QGroundControl*에 연결합니다.
 1. **기체 설정 > QGC 전력** 화면으로 이동합니다.
 1. 아래 스크린 샷과 같이 **Start Assignment** 버튼을 눌러서, ESC 자동 열거 프로세스를 시작합니다.
@@ -140,34 +139,33 @@ ESC를 열거하려면:
 1. 마지막 모터가 열거된 후에는 열거 절차가 완료되었음을 알리는 확인 소리가 변경되어야합니다.
 1. PX4와 Sapog ESC를 재부팅하여 새 열거 ID를 적용합니다.
 
-다음 비디오는 프로세스를 보여줍니다.
+ESC를 열거하려면:
 
-@[유투브](https://www.youtube.com/watch?v=4nSa8tvpbgQ)
+@다음 비디오는 프로세스를 보여줍니다.
 
 ### Sapog를 사용한 수동 ESC 열거
 
 :::tip
-수동 열거보다는 위에 표시된 자동화된 [Sapog ESC 열거](#sapog-esc-enumeration-using-qgroundcontrol)를 권장합니다 (더 쉽고 안전하기 때문입니다).
+We recommend automated [Sapog ESC Enumeration using QGroundControl](#sapog-esc-enumeration-using-qgroundcontrol) shown above rather than manual enumeration (as it is easier and safer).
 :::
 
-[UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/)를 사용하여 ESC 색인과 방향을 수동으로 설정할 수 있습니다. 이렇게하면 열거된 각 ESC에 대하여, 다음 Sapog 설정 매개변수가 할당됩니다.
+:::tip
+수동 열거보다는 위에 표시된 자동화된 [Sapog ESC 열거](#sapog-esc-enumeration-using-qgroundcontrol)를 권장합니다 (더 쉽고 안전하기 때문입니다). This assigns the following Sapog configuration parameters for each enumerated ESC:
 - `esc_index`
 - `ctl_dir`
 
-:::note
-매개변수에 대한 자세한 내용은 [Sapog 설명서](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)를 참조하십시오.
-:::
+[UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/)를 사용하여 ESC 색인과 방향을 수동으로 설정할 수 있습니다. 이렇게하면 열거된 각 ESC에 대하여, 다음 Sapog 설정 매개변수가 할당됩니다.
 
 ### Myxa ESC 설정
 
-Myxa [Telega 기반 ESC](https://zubax.com/products/telega)에 대한 모터 열거는 일반적으로 [Kucher 도구](https://files.zubax.com/products/com.zubax.kucher/) (또는 덜 "GUI 친화적"인 [UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/))를 사용합니다.
+Motor enumeration for Myxa [Telega-based ESCs](https://zubax.com/products/telega) is usually performed using the [Kucher tool](https://files.zubax.com/products/com.zubax.kucher/) (or less "GUI-friendly" [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/)).
 
-여기에 몇 가지 지침이 있습니다. [Myxa v0.1 빠른 시작 가이드](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (Zubax 블로그).
+Myxa [Telega 기반 ESC](https://zubax.com/products/telega)에 대한 모터 열거는 일반적으로 [Kucher 도구](https://files.zubax.com/products/com.zubax.kucher/) (또는 덜 "GUI 친화적"인 [UAVCAN GUI 도구](https://uavcan.org/GUI_Tool/Overview/))를 사용합니다.
 
 
 ### VESC ESC 설정
 
-[VESC ESC](https://vesc-project.com/)의 경우 모터 열거에 선호되는 도구는 [VESC 도구](https://vesc-project.com/vesc_tool)입니다. VESC 도구에서 설정하는 일반 모터 설정 외에도 앱 구성을 올바르게 설정하여야 합니다. 권장되는 앱 설정은 다음과 같습니다.
+For [VESC ESCs](https://vesc-project.com/) the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool). In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration. The recommended app setup is as follows:
 
 | 매개변수                    | 옵션                     |
 | ----------------------- | ---------------------- |
@@ -179,20 +177,20 @@ Myxa [Telega 기반 ESC](https://zubax.com/products/telega)에 대한 모터 열
 | UAVCAN ESC Index        | `0,1,...`              |
 
 
-VESC ID는 PX4 규칙과 동일한 모터 번호를 가져야합니다. 오른쪽 상단 모터의 경우 `1`, 왼쪽 하단 모터의 경우 `2`에서 시작합니다. 그러나, `UAVCAN ESC 인덱스`는 `0`에서 시작하므로 항상 `VESC ID`보다 낮은 인덱스입니다. 예를 들어, 쿼드 콥터에서 왼쪽 하단 모터는 `VESC ID=2` 및 `UAVCAN ESC Index=1`입니다.
+[VESC ESC](https://vesc-project.com/)의 경우 모터 열거에 선호되는 도구는 [VESC 도구](https://vesc-project.com/vesc_tool)입니다. VESC 도구에서 설정하는 일반 모터 설정 외에도 앱 구성을 올바르게 설정하여야 합니다. 권장되는 앱 설정은 다음과 같습니다.
 
-마지막으로 `CAN Baud Rate`는 [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE)에 설정된 값과 일치하여야 합니다.
+Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
 
 
 ## 문제 해결
 
 #### 시동시 모터가 회전하지 않음
 
-PX4 펌웨어 암이 회전하지만 모터가 회전을 시작하지 않는 경우, UAVCAN ESC를 사용하려면 매개 변수 `UAVCAN_ENABLE=3`을 확인하십시오. 추력이 증가하기 전에 모터가 회전을 시작하지 않으면 `UAVCAN_ESC_IDLT=1`을 확인하십시오.
+If the PX4 Firmware arms but the motors do not start to rotate, check that parameter `UAVCAN_ENABLE=3` to use UAVCAN ESCs. If the motors do not start spinning before thrust is increased, check `UAVCAN_ESC_IDLT=1`.
 
 #### UAVCAN 장치가 노드 ID를 얻지 못함 / 펌웨어 업데이트 실패
 
-PX4는 UAVCAN 노드 할당 및 펌웨어 업데이트 (부팅 중에 발생)를 위해 SD 카드가 필요합니다. (작동하는) SD 카드가 있는 지 확인하고 재부팅하십시오.
+PX4 펌웨어 암이 회전하지만 모터가 회전을 시작하지 않는 경우, UAVCAN ESC를 사용하려면 매개 변수 `UAVCAN_ENABLE=3`을 확인하십시오. 추력이 증가하기 전에 모터가 회전을 시작하지 않으면 `UAVCAN_ESC_IDLT=1`을 확인하십시오.
 
 
 ## 추가 정보
