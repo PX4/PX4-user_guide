@@ -222,6 +222,7 @@
         * [HolyBro (SIK) Telemetry Radio](telemetry/holybro_sik_radio.md)
       * [Wifi 텔레메트리](telemetry/telemetry_wifi.md) 
         * [ESP8266 WiFi 모듈](telemetry/esp8266_wifi_module.md)
+        * [ESP32 WiFi 모듈](telemetry/esp32_wifi_module.md)
         * [3DR 텔레메트리 WiFi (단종)](telemetry/3dr_telemetry_wifi.md)
       * [Microhard 직렬 텔레메트리 라디오](telemetry/microhard_serial.md)
       * [HolyBro XBP9X Telemetry Radio](telemetry/holybro_xbp9x_radio.md)

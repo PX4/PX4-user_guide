@@ -8,4 +8,5 @@ PX4 supports telemetry via UDP and Wifi. It broadcasts a heartbeat to port 14550
 兼容的 WiFi 数传模块有：
 
 * [ESP8266 WiFi 模块](../telemetry/esp8266_wifi_module.md)
+* [ESP32 WiFi 模块](../telemetry/esp32_wifi_module.md)
 * [3DR Wifi 数传](../telemetry/3dr_telemetry_wifi.md)（已停产）
