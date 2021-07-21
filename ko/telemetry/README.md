@@ -6,11 +6,13 @@ PX4는 다양한 텔레메트리 라디오 타입을 지원합니다:
 
 * [SiK 라디오 ](../telemetry/sik_radio.md) 기반 펌웨어 (일반적으로 UART 인터페이스에서 작동해야 함). 
   * [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
-  * [HKPilot (SIK) 텔레메트리 라디오](../telemetry/hkpilot_sik_radio.md)
-  * [HolyBro (SIK) 텔레메트리 라디오](../telemetry/holybro_sik_radio.md)
-  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
+  * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
+  * <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
+  * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
 * [텔레메트리 Wi-fi](../telemetry/telemetry_wifi.md)
 * [Microhard 직렬 텔레메트리 라디오](../telemetry/microhard_serial.md)
+* XBee Serial Telemetry Radio 
+  * [HolyBro XBP9X Telemetry Radio](../telemetry/holybro_xbp9x_radio.md)
 
 PX4는 [SiK 라디오](../telemetry/sik_radio.md) 프로토콜과 호환되며 즉시 사용할 수 있습니다. 적절한 커넥터를 변경해야 할 수도 있습니다.
 
