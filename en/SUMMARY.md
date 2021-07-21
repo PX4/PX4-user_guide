@@ -344,7 +344,7 @@
     * [Consoles/Shells](debug/consoles.md)
       * [MAVLink Shell](debug/mavlink_shell.md)
       * [System Console](debug/system_console.md)
-    * [Autopilot Debugging](debug/gdb_debugging.md)
+    * [Embedded Debugging](debug/gdb_debugging.md)
     * [SWD/JTAG Debug Interface](debug/swd_debug.md)
     * [GDB SWD Debugging](debug/swd_gdb.md)
     * [Eclipse JLink Debugging](debug/eclipse_jlink.md)
