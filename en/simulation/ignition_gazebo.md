@@ -11,7 +11,6 @@ Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo
 See [Simulation](../simulation/README.md) for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).
 :::
 
-<a id="installation"></a>
 ## Installation (Ubuntu Linux)
 
 :::note
@@ -27,7 +26,6 @@ These instructions were tested on Ubuntu 18.04 and Ubuntu 20.04
    apt install ignition-edifice
    ```
 
-<a id="running"></a>
 ## Running the Simulation
 
 Ignition Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
