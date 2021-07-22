@@ -1,5 +1,11 @@
 # Ignition Gazebo Simulation
 
+:::warning
+Ignition Gazebo has just been added to PX4 (July 2020) and only has basic support in PX4.
+It supports a single frame and world, and cannot be run in headless mode.
+:::
+
+
 [Ignition Gazebo](https://ignitionrobotics.org/libs/gazebo) is an open source robotics simulator from the [Ignition Robotics Project](https://ignitionrobotics.org/home).
 Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
 
@@ -18,7 +24,7 @@ These instructions were tested on Ubuntu 18.04 and Ubuntu 20.04
 :::
 
 1. Install the usual [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md).
-1. Install Ignition Gazebo following the installation [instructions]()
+1. Install Ignition Gazebo following the [installation instructions](https://github.com/Auterion/px4-simulation-ignition#readme) (`sudo` may be required):
    ```sh
    sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
    wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
@@ -29,7 +35,7 @@ These instructions were tested on Ubuntu 18.04 and Ubuntu 20.04
 ## Running the Simulation
 
 Ignition Gazebo SITL simulation can be conveniently run through a `make` command as shown below:
-```sh
+```bash
 cd /path/to/PX4-Autopilot
 make px4_sitl ignition
 ```
