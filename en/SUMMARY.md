@@ -222,6 +222,7 @@
         * [HolyBro (SIK) Telemetry Radio](telemetry/holybro_sik_radio.md)
       * [Telemetry Wifi](telemetry/telemetry_wifi.md)
         * [ESP8266 WiFi Module](telemetry/esp8266_wifi_module.md)
+        * [ESP32 WiFi Module](telemetry/esp32_wifi_module.md)
         * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
       * [Microhard Serial Telemetry Radio](telemetry/microhard_serial.md)
       * [HolyBro XBP9X Telemetry Radio](telemetry/holybro_xbp9x_radio.md)
