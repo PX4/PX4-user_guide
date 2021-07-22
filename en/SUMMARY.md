@@ -290,6 +290,7 @@
       * [Gazebo Vehicles](simulation/gazebo_vehicles.md)
       * [Gazebo Worlds](simulation/gazebo_worlds.md)
       * [Multi-Vehicle Sim with Gazebo](simulation/multi_vehicle_simulation_gazebo.md)
+    * [Ignition Gazebo Simulation](simulation/ignition_gazebo.md)
     * [FlightGear Simulation](simulation/flightgear.md)
       * [FlightGear Vehicles](simulation/flightgear_vehicles.md)
       * [Multi-Vehicle Sim with FlightGear](simulation/multi_vehicle_flightgear.md)
