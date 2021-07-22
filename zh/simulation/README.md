@@ -23,6 +23,7 @@ Information about available simulators and how to set them up are provided in th
 | [jMAVSim](../simulation/jmavsim.md)                                     | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>它易设置，可以用来测试您的工具是否可以起飞、飞行、降落、并对各种故障条件 (例如 gps 故障) 做出适当的反应。 它也可用于 [多机仿真 ](../simulation/multi_vehicle_jmavsim.md)。</p><p><strong>支持机型： </strong>四旋翼</p> |
 | [AirSim](../simulation/airsim.md)                                       | <p>A cross platform simulator that provides physically and visually realistic simulations. 这个模拟器需要大量的资源，需要一台比这里描述的其他仿真器更强大的计算机。</p><p><strong>支持机型: </0 >Iris （多转子模型和 x 配置中 px4 quadrotor 的配置）。</p>                                                                                                     |
 | [Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.</p><p><strong>支持机型： </strong>四旋翼</p>                                                                                                    |
+| [Ignition Gazebo](../simulation/ignition_gazebo.md)                     | <p>Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.</p><p><strong>Supported Vehicles:</strong> Quad</p>                                                                                                    |
 
 Instructions for how to setup and use the simulators are in the topics linked above.
 
