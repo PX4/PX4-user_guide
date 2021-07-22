@@ -1,13 +1,11 @@
 # Ignition Gazebo Simulation
 
 :::warning
-Ignition Gazebo has just been added to PX4 (July 2020) and only has basic support in PX4.
-It supports a single frame and world, and cannot be run in headless mode.
+Ignition Gazebo supports a single frame (quadcopter) and world, and cannot be run in headless mode (July 2021).
 :::
 
-
 [Ignition Gazebo](https://ignitionrobotics.org/libs/gazebo) is an open source robotics simulator from the [Ignition Robotics Project](https://ignitionrobotics.org/home).
-Ignition Gazebo is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
+It is derived from the popular robotics simulator [Gazebo](./gazebo.md), featuring more advanced rendering, physics and sensor models.
 
 **Supported Vehicles:** Quadrotor
 
