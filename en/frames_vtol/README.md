@@ -75,7 +75,7 @@ PX4 supports the three most important/main VTOL configurations.
 </div>
 
 <div class="grid_item">
-  <div class="grid_item_heading">Quadplane</div>
+  <div class="grid_item_heading">Standard VTOL</div>
   <div class="grid_text">
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
@@ -106,9 +106,38 @@ The flight modes for VTOL vehicles are the same as for [multicopter](../getting_
 
 The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 
+## Assembly
+
+:::note
+For information about commercial and kit VTOL vehicles see: [Complete Vehicles](../complete_vehicles/README.md) 
+:::
+
+PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
+
+The flight controller outputs are connected to the vehicle motor ESCS and/or flight control servos and actuators, which are separately powered.
+The mapping between flight controller outputs and specific controls/motors depends on the vehicle frame used, and is specified in the [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
+
+Assembly information is covered in several sections:
+- [Basic Assembly](../assembly/README.md) contains topics shows the setup of core components for a number of popular [flight controllers](../flight_controller/README.md).
+  Flight controllers for which we do not have guides are usually set up in much the same way (and almost always include similar setup guides).
+- [Peripherals](../peripherals/README.md) contains information about other peripherals, including [Airspeed Sensors](../sensor/airspeed.md).
+- [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol) explains which flight controller outputs must be connected to different flight controls (rememember that motors and servos must also be powered!)
+
+In addition, build logs showing how others have set up different types of vehicles provided as sub topics.
+For exmaple see [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md).
+
+## Configuration
+
+VTOL configuration is covered in a number of sections:
+- [Basic Configuration](../config/README.md) - Configuration that is common to all vehicle types (sensors, safety systems, batteries etc).
+- [VTOL Specific Configuration](../config_vtol/README.md)
+- [Peripheral Hardware](/peripherals/README.md) - Configuration for optional hardware and sensors.
+- [Advanced Configuration](../advanced_config/README.md): Additional configuration covering factory tuning and advanced and optional configuration.
+
 
 ## Videos
 
+### Educational
 VTOL Control & Airspeed Fault Detection (PX4 Developer Summit 2019)
 
 @[youtube](https://youtu.be/37BIBAzD6fE)
