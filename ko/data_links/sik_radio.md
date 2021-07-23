@@ -6,9 +6,9 @@ SiK Radio *사용법*은 [주변장치 > 원격 측정 > SiK 라디오](../telem
 
 아래의 "개발자" 정보는 소스에서 SiK 펌웨어를 빌드하고 AT 명령을 사용하여 구성하는 방법에 대하여 설명합니다.
 
-## Supported Radio Hardware
+## 지원 라디오 하드웨어
 
-The SiK repository includes bootloaders and firmware for the following telemetry radios (2020-02-25):
+SiK 저장소에는 다음 텔레메트리(2020-02-25)들의 부트로더와 펌웨어를 제공합니다.
 - HopeRF HM-TRP
 - HopeRF RF50-DEMO
 - RFD900
