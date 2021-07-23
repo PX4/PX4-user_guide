@@ -28,17 +28,17 @@ distance_sensor # all available distance sensor drivers
 
 
 :::tip
-For example, you can see/search for `distance_sensor` in the [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) configuration.
+예를 들어, [px4_fmu-v4_default](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v4/default.cmake) 설정에서 `distance_sensor`를 보거나 검색할 수 있습니다.
 :::
 
 ## I2C 드라이버 예제
 
-To find I2C driver examples, search for **i2c.h** in [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers).
+I2C 드라이버 샘플은 [/src/drivers/](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers)에서 **i2c.h**를 검색하십시오.
 
-Just a few examples are:
-* [drivers/sf1xx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/sf1xx) -  [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md)용 I2C 드라이버.
-* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611) - I2C(또는 SPI)로 연결하는 대기압 센서 MS5611과 MS6507용 I2C용 드라이버.
-* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611) - I2C Driver for the MS5611 and MS6507 barometric pressure sensor connected via I2C (or SPI).
+몇 가지 샘플은 다음과 같습니다.
+* [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c) - [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md)용 I2C 드라이버.
+* [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial) - [Lightware SF1XX LIDAR](../sensor/sfxx_lidar.md)용 직렬 드라이버.
+* [drivers/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611) - I2C(또는 SPI)로 연결된 MS5611와 MS6507 기압 센서용 I2C 드라이버.
 
 ## 추가 정보
 
