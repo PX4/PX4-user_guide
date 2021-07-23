@@ -19,18 +19,18 @@ SiK 저장소에는 다음 텔레메트리(2020-02-25)들의 부트로더와 펌
 - RFD900ue
 
 :::note
-The SiK repository does not currently firmware for RFD900x or RFD900ux telemetry radios. In order to update firmware on these radios (for instance, in order to support MAVLink v2.0), the following process is suggested:
+SiK 저장소는 RFD900x 와 RFD900ux의 텔레메트리 펌웨어를 현재는 제공하지 않습니다. 이러한 라디오의 펌웨어를 업데이트하려면(예: MAVLink v2.0을 지원하기 위해) 다음 프로세스를 참고하십시오.
 
-1. Download the appropriate firmware from the [RFDesign website](https://files.rfdesign.com.au/firmware/).
-1. On a Windows PC, download and install [RFD Modem Tools](https://files.rfdesign.com.au/tools/).
-1. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
+1. [RFDesign 웹사이트](https://files.rfdesign.com.au/firmware/)에서 적절한 펌웨어를 다운로드합니다.
+1. Windows PC에서 [RFD 모뎀 도구](https://files.rfdesign.com.au/tools/)를 다운로드하여 설치합니다.
+1. RFD 모뎀 도구 GUI를 사용하여, RFD900x 또는 RFD900ux 원격 측정 라디오에 펌웨어를 업로드합니다.
 :::
 
-## Build Instructions
+## 빌드 방법
 
-You will need to install the required 8051 compiler, as this is not included in the default PX4 Build toolchain.
+필수 8051 컴파일러는 기본 PX4 빌드 도구 체인에 포함되어 있지 않아서, 설치하여야 합니다.
 
-### Mac OS
+### 맥 OS
 
 Install the toolchain:
 
