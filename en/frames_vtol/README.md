@@ -54,7 +54,8 @@ PX4 supports the three most important/main VTOL configurations.
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
       <li>Simple and robust</li>
-      <li>Fewer actuators</li>
+      <li>Minimal set of actuators</li>
+
       <li>Can be hard to control, particularly in wind</li>
       <li>Poor hovering</li>
     </ul>
