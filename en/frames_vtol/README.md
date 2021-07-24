@@ -75,7 +75,6 @@ PX4 supports the three most important/main VTOL configurations.
 
     <li>Easier to control in hover than tailsitters due to more control authority</li>
 
-    <li>Can hover</li>
   </ul>
   </div>
 </div>
