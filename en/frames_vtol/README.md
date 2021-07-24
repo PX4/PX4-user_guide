@@ -57,7 +57,8 @@ PX4 supports the three most important/main VTOL configurations.
       <li>Minimal set of actuators</li>
 
       <li>Can be hard to control, particularly in wind</li>
-      <li>Poor hovering</li>
+      <li>Tradeoff between efficiency in hover and forward flight, as same actuators are used</li>
+
     </ul>
     </div>
   </div>
