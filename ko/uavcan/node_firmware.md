@@ -100,23 +100,23 @@ ROMFS 기반 업데이터는 해당 패턴을 따르지만 파일 이름 앞에 
 
 ## PX4 ROMFS 바이너리 복사
 
-PX4 플라이트 스택을 활용할 경우, '전원 설정' 절의 UAVCAN 기능을 켜고, UAVCAN 펌웨어 업그레이드를 시도하기 전에 시스템을 다시 부팅하십시오.
+최종 파일 위치는 다음과 같습니다.
 
 * S2740VC 전동 변속기: `ROMFS/px4fmu_common/uavcan/fw/com.thiemar.s2740vc-v1/1.0/_s2740vc-v1-1.0.<git hash>.bin`
-* 픽스호크 전동 변속기 1.6: `ROMFS/px4fmu_common/uavcan/fw/org.pixhawk.px4esc-v1/1.6/_px4esc-v1-1.6.<git hash>.bin`
+* Pixhawk 전동 변속기 1.6: `ROMFS/px4fmu_common/uavcan/fw/org.pixhawk.px4esc-v1/1.6/_px4esc-v1-1.6.<git hash>.bin`
 * Pixhawk 전동 변속기 1.4: `ROMFS/px4fmu_common/uavcan/fw/org.pixhawk.sapog-v1/1.4/_px4esc-v1-1.4.<git hash>.bin`
 * Zubax GNSS v1: `ROMFS/px4fmu_common/uavcan/fw/com.zubax.gnss/1.0/gnss-1.0.<git has>.bin`
 * Zubax GNSS v2: `ROMFS/px4fmu_common/uavcan/fw/com.zubax.gnss/2.0/gnss-2.0.<git has>.bin`
 
-대신, UAVCAN 펌웨어 업그레이드를 다음 명령으로 직접 시작할 수 있습니다:
+ROMFS/px4fmu_common 디렉토리는 Pixhawk의 /etc에 마운트됩니다.
 
-### 펌웨어 업그레이드 과정 시작
-
-
-When using the PX4 Flight Stack, enable UAVCAN in the 'Power Config' section and reboot the system before attempting an UAVCAN firmware upgrade.
+### 펌웨어 업그레이드 프로세스 시작
 
 
-Alternatively UAVCAN firmware upgrading can be started manually on NSH via:
+PX4 Flight Stack을 사용하는 경우에는, 'Power Config' 섹션에서 UAVCAN을 활성화하고 UAVCAN 펌웨어 업그레이드를 시도하기 전에 시스템을 재부팅하십시오.
+
+
+또는 다음을 통해 NSH에서 UAVCAN 펌웨어 업그레이드를 수동으로 시작할 수 있습니다.
 
 ```sh
 uavcan start
