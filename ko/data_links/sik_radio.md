@@ -32,13 +32,13 @@ SiK 저장소는 RFD900x 와 RFD900ux의 텔레메트리 펌웨어를 현재는 
 
 ### 맥 OS
 
-Install the toolchain:
+툴체인을 설치합니다:
 
 ```sh
 brew install sdcc
 ```
 
-Build the image for the standard SiK Radio / 3DR Radio:
+표준 SiK 라디오/3DR 라디오 이미지를 빌드합니다:
 
 ```sh
 git clone https://github.com/LorenzMeier/SiK.git
@@ -46,24 +46,24 @@ cd SiK/Firmware
 make install
 ```
 
-Upload it to the radio \(**change the serial port name**\):
+라디오에 업로드합니다 \(**직렬 포트 이름 변경**\):
 
 ```
-tools/uploader.py --port /dev/tty.usbserial-CHANGETHIS dst/radio~hm_trp.ihx
+라디오에 업로드 \(<0>직렬 포트 이름 변경</0>\):
 ```
 
-## Configuration Instructions
+## 설정 방법
 
-The radio supports AT commands for configuration.
+AT 명령을 사용하여 라디오를 설정합니다.
 
 ```sh
 screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 ```
 
-Then start command mode:
+그런 다음 명령 모드를 시작합니다:
 
-:::note DO
-NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
+:::note
+1초 전후에 아무 것도 입력하지 마십시오.
 :::
 
 
@@ -71,13 +71,13 @@ NOT TYPE ANYTHING ONE SECOND BEFORE AND AFTER
 +++
 ```
 
-List the current settings:
+현재 설정을 출력합니다.
 
 ```
 ATI5
 ```
 
-Then set the net ID, write settings and reboot radio:
+그런 다음 네트 ID를 설정하고, 설정을 저장한 다음 라디오를 재부팅합니다:
 
 ```
 ATS3=55
@@ -86,5 +86,5 @@ ATZ
 ```
 
 :::note
-You might have to power-cycle the radio to connect it to the 2nd radio.
+두 번째 라디오에 연결하려면, 라디오의 전원을 껐다가 켜야 할 수 있습니다.
 :::
