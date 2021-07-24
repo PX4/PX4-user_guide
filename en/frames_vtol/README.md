@@ -87,7 +87,8 @@ PX4 supports the three most important/main VTOL configurations.
   <ul>
     <li>Additional weight from separate hover/forward flight propulsion systems</li>
 
-    <li>Easiest to control</li>
+    <li>Easiest to control due to dedicated hover/forward flight actuators</li>
+
     <li>Can hover</li>
     <li>Fuel engines can be used</li>
   </ul>
