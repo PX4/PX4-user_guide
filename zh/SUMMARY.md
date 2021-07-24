@@ -65,7 +65,7 @@
     * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
     * [Ranger QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
     * [Convergence 倾转旋翼机（Pixfalcon）](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
-    * [TBS Caipiroshka (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
+    * [TBS Caipiroshka Tailsitter (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Falcon Vertigo 四旋翼 (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
   * [小车](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
