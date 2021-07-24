@@ -85,7 +85,8 @@ PX4 supports the three most important/main VTOL configurations.
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
   <ul>
-    <li>Most complex. More things to go wrong but better redundancy.</li>
+    <li>Additional weight from separate hover/forward flight propulsion systems</li>
+
     <li>Easiest to control</li>
     <li>Can hover</li>
     <li>Fuel engines can be used</li>
