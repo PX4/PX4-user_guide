@@ -1,13 +1,14 @@
 # UAVCAN 펌웨어 업그레이드
 
-전동 변속기 코드를 다운로드하십시오:
+PX4는 UAVCAN 노드의 일치하는 펌웨어가 있으면, 펌웨어를 자동으로 업그레이드합니다.
 
-UAVCAN으로 펌웨어 업그레이드를 진행하기 전, 픽스호크 전동 변속기 1.6에 UAVCAN 부트로더를 플래싱해야합니다. 부트로더를 빌드하려면 다음 명령을 실행하십시오:
+:::warning UAVCAN
+장치는 일반적으로 적절한 펌웨어가 사전 설치된 상태로 판매됩니다. 이러한 지침은 UAVCAN 장치를 개발할 때 주로 필요합니다.
 :::
 
-## Vectorcontrol 전동 변속기 코드 베이스 (픽스호크 전동 변속기 1.6과 S2740VC)
+## Vectorcontrol ESC 코드 베이스 (Pixhawk ESC  1.6과 S2740VC)
 
-Download the ESC code:
+ESC 코드를 다운로드합니다:
 
 ```sh
 git clone https://github.com/thiemar/vectorcontrol
@@ -16,23 +17,23 @@ cd vectorcontrol
 
 ### UAVCAN 부트로더 플래싱
 
-이 명령은 지원하는 전동 변속기용 UAVCAN 노드 펌웨어를 빌드합니다. 펌웨어 이미지는 `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin`과 `org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.bin`으로 들어갑니다.
+UAVCAN로 펌웨어를 업데이트하기 전에, Pixhawk ESC 1.6은 UAVCAN 부트로더를 플래시하여야 합니다. 부트로더를 빌드하가 위하여, 다음 명령어를 실행하십시오.
 
 ```sh
 make clean && BOARD=px4esc_1_6 make -j8
 ```
 
-After building, the bootloader image is located at `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at `openocd_px4esc_1_6.cfg`. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC.
+빌드 후 부트로더 이미지는 `firmware/px4esc_1_6-bootloader.bin`에 있으며 OpenOCD 구성은 `openocd_px4esc_1_6.cfg`에 있습니다. [이 지침](../uavcan/bootloader_installation.md)에 따라 ESC에 부트로더를 설치합니다.
 
-### 주요 바이너리 컴파일
+### 메인 바이너리 컴파일
 
 ```sh
 BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
 ```
 
-UAVCAN으로 펌웨어를 업데이트하기 전, 전동 변속기에 UAVCAN 부트로더를 플래싱해야합니다. 다음 명령어로 부트로더를 빌드할 수 있습니다:
+이렇게 하면 지원되는 두 ESC 모두에 대해 UAVCAN 노드 펌웨어가 빌드됩니다. 펌웨어 이미지는 `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` 및 `org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`에 있습니다.
 
-## Sapog 코드 베이스 (픽스호크 전동 변속기 1.4와 Zubax Orel 20)
+## Sapog 코드 베이스 (Pixhawk ESC 1.4와 Zubax Orel 20)
 
 Download the Sapog codebase:
 
