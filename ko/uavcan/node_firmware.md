@@ -35,7 +35,7 @@ BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
 
 ## Sapog 코드 베이스 (Pixhawk ESC 1.4와 Zubax Orel 20)
 
-Download the Sapog codebase:
+Sapog 코드 베이스를 다운로드하십시오:
 
 ```sh
 git clone https://github.com/PX4/sapog
@@ -45,7 +45,7 @@ git submodule update --init --recursive
 
 ### UAVCAN 부트로더 플래싱
 
-일부 GCC 신 버전에서 심볼 링크를 진행할 때  segmentation fault 오류가 나타날 수 있음을 염두에 두십시오. 이 글을 작성할 때 버전 4.9는 동작합니다.
+UAVCAN로 펌웨어를 업데이트하기 전에, ESC는 UAVCAN 부트로더를 플래시하여야 합니다. 부트로더는 다음과 같이 빌드할 수 있습니다.
 
 ```sh
 cd bootloader
@@ -53,52 +53,52 @@ make clean && make -j8
 cd ..
 ```
 
-펌웨어 빌드 및 플래싱 방법은 [프로젝트 페이지](https://github.com/Zubax/zubax_gnss)를 참고하십시오. Zubax GNSS는 UAVCAN 기능을 활용할 수 있는 부트로더가 딸려오기 때문에, 아래에서 설명하는대로 UAVCAN을 활용하는 단순 방식으로 펌웨어를 업데이트할 수 있습니다.
+부트로더 이미지는 `bootloader/firmware/bootloader.bin`에 있으며 OpenOCD 구성은 `openocd.cfg`에 있습니다. [이 지침](../uavcan/bootloader_installation.md)에 따라 ESC에 부트로더를 설치합니다.
 
-### 주요 바이너리 컴파일
+### 메인 바이너리 컴파일
 
 ```sh
 cd firmware
 make RELEASE=1 # RELEASE is optional; omit to build the debug version
 ```
 
-UAVCAN 노드 파일 이름은 픽스호크에서 제조사에 관계없이 어떤 이름으로 네트워크의 모든 UAVCAN 장치를 업데이트하는지 결정하는 작명 규칙을 따릅니다. 이 단계에서 만든 펌웨어 파일은 장치를 업데이트하기 위해 SD카드나 PX4 ROMFS 의 올바른 위치에 복사해야합니다. The firmware image will be located at `firmware/build/io.px4.sapog-1.1-1.7.<xxxxxxxx>.application.bin`, where `<xxxxxxxx>` is an arbitrary sequence of numbers and letters. There are two hardware version of the Zubax Orel 20 (1.0 and 1.1). Make sure you copy the binary to the correct folder in the subsequent description. The ESC firmware will check the hardware version and works on both products.1
+GCC의 일부 최신 버전은 연결하는 동안 segfaults로 이어집니다. 이 문서 작성시에는 버전 4.9는 작동하였습니다. 펌웨어 이미지는 `firmware/build/io.px4.sapog-1.1-1.7.<xxxxxxxx>.application.bin`에 위치합니다. 여기서 `<xxxxxxxx>`는 임의의 숫자와 문자 시퀀스입니다. Zubax Orel 20의 두 가지 하드웨어 버전(1.0 및 1.1)이 있습니다. 다음 설명에서 바이너리를 올바른 폴더에 복사하였는지 확인하십시오. ESC 펌웨어는 하드웨어 버전을 확인하고 두 제품 모두에서 작동합니다.
 
 ## Zubax GNSS
 
-Please refer to the [project page](https://github.com/Zubax/zubax_gnss) to learn how to build and flash the firmware. Zubax GNSS comes with a UAVCAN-capable bootloader, so its firmware can be updated in a uniform fashion via UAVCAN as described below.
+펌웨어 빌드 및 플래시 방법은 [프로젝트 페이지](https://github.com/Zubax/zubax_gnss)를 참조하세요. Zubax GNSS는 UAVCAN 지원 부트로더와 함께 제공되므로, 펌웨어는 아래 설명된 대로 UAVCAN을 통해 균일한 방식으로 업데이트할 수 있습니다.
 
-## 자동 항법 장치에 펌웨어 설치
+## 자동조종장치 펌웨어 설치
 
-The UAVCAN node file names follow a naming convention which allows the Pixhawk to update all UAVCAN devices on the network, regardless of manufacturer. The firmware files generated in the steps above must therefore be copied to the correct locations on an SD card or the PX4 ROMFS in order for the devices to be updated.
+UAVCAN 노드 파일 이름은 제조업체에 관계없이 Pixhawk가 네트워크의 모든 UAVCAN 장치를 업데이트를 위한 명명 규칙을 따릅니다. 따라서 위 단계에서 생성된 펌웨어 파일은 장치를 업데이트하려면 SD 카드 또는 PX4 ROMFS의 올바른 위치에 복사해야 합니다.
 
-그러나 용량과 성능의 제약 문제로 인해(이름 글자수는 28글자를 넘으면 안됨), UAVCAN 펌웨어 업데이터는 파일 이름을 다음과 같은 구조의 디렉터리에 쪼개어 저장합니다:
+펌웨어 이미지 명명 규칙은 다음과 같습니다.
 
 ```
 <uavcan name>-<hw version major>.<hw version minor>-<sw version major>.<sw version minor>.<version hash>.bin
 ```
 
-예:
+예: `com.thiemar.s2740vc-v1-1.0-1.0.68e34de6.bin`
 
-ROMFS 기반 업데이터는 다음과 같은 규칙을 따르나, 파일 이름 앞에 ``_ 문자가 붙어 펌웨어파일이 다음 위치에 들어갑니다:
+그러나, 공간/성능 제약으로 인하여(이름은 28자를 초과할 수 없음) UAVCAN 펌웨어 업데이터는 이러한 파일 이름을 분할하여 다음과 같은 디렉토리 구조에 저장합니다.
 
 ```
 /fs/microsd/fw/<node name>/<hw version major>.<hw version minor>/<hw name>-<sw version major>.<sw version minor>.<git hash>.bin
 ```
 
-최종 파일 위치는 다음과 같습니다.
+예:
 ```
 s2740vc-v1-1.0.68e34de6.bin 
 /fs/microsd/fw/io.px4.sapog/1.1/sapog-1.7.87c7bc0.bin
 ```
 
-ROMFS/px4fmu_common 디렉터리는 픽스호크의 /etc 로 마운트합니다.
+ROMFS 기반 업데이터는 해당 패턴을 따르지만 파일 이름 앞에 `_`을 추가하므로 다음 위치에 펌웨어를 추가합니다.
 
 ```
 /etc/uavcan/fw/<device name>/<hw version major>.<hw version minor>/_<hw name>-<sw version major>.<sw version minor>.<git hash>.bin
 ```
 
-## PX4 ROMFS에 바이너리 복사
+## PX4 ROMFS 바이너리 복사
 
 PX4 플라이트 스택을 활용할 경우, '전원 설정' 절의 UAVCAN 기능을 켜고, UAVCAN 펌웨어 업그레이드를 시도하기 전에 시스템을 다시 부팅하십시오.
 
