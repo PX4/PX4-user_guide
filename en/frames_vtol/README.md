@@ -49,7 +49,8 @@ PX4 supports the three most important/main VTOL configurations.
     <div class="grid_item_heading">Tailsitter</div>
     <div class="grid_text">
     Rotors permanently in fixed wing-position.
-    Takes off and lands on tail. Flips to fixed wing orientation for normal flight.
+    Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
+
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
       <li>Simple and robust</li>
