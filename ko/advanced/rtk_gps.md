@@ -1,15 +1,16 @@
 # RTK GPS (PX4 통합)
 
-[실시간 운동 감지](https://en.wikipedia.org/wiki/Real_Time_Kinematic) (RTK)는 센티미터 단위의 GPS 정확도를 확보해줍니다. 이 페이지에서는 실시간 운동 감지 기능을 PX4에 결합하는 방법을 설명합니다.
+[실시간 운동학](https://en.wikipedia.org/wiki/Real_Time_Kinematic)(RTK)은 센티미터 수준의 GPS 정확도를 제공합니다. RTK와 PX4 통합 방법을 설명합니다.
 
-실시간 운동 감지(RTK)는 신호 정보 내용 자체 보다는 신호 캐리어 파형의 위상 측정 값을 활용합니다.
+:::tip RTK
+GPS *사용법*은 [주변장치 > RTK GPS](../gps_compass/rtk_gps.md)를 참고하십시오.
 :::
 
 ## 개요
 
-PX4에 RTK를 설정하려면 RTK GPS 모듈 둘과 데이터 링크가 필요합니다. 고정 위치 지상 기반 GPS 장치를 *베이스*라 하고, 공중에 띄우는 장치를 *탐사선(Rover)*이라 합니다.
+RTK는 신호 보다는 신호의 반송파 위상을 사용합니다. 여러 모바일 스테이션에서 실시간 수정을 제공하기 위하여 단일 참조 스테이션에 의존합니다.
 
-PX4에 RTK를 설정하려면 RTK GPS 모듈 둘과 데이터 링크가 필요합니다. 고정 위치 지상 기반 GPS 장치를 *베이스*라 하고, 공중에 띄우는 장치를 *탐사선(Rover)*이라 합니다. 베이스 장치는 *QGroundControl*에 (USB로) 연결하며 기체로 RTCM 메시지를 지속 송수신(MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 메시지 활용)하도록 데이터링크를 활용합니다. autopilot에서는 MAVLink 패킷을 패키징 해제한 후 RTK 솔루션 획득을 처리할 수 있는 탐사선 유닛에 보냅니다.
+PX4로 RTK를 설정에는 2개의 RTK GPS 모듈과 데이터 링크가 필요합니다. 고정 위치 지상 기반 GPS 장치를 *베이스*라고 하며, 공중에 있는 장치를 *로버*라고 합니다. 베이스는 USB로 *QGroundControl*에 연결되며, 데이터 링크를 사용하여 RTCM 수정 정보를 기체에전송합니다 (MAVLink [GPS_RTCM_DATA](https://mavlink.io/en/messages/common.html#GPS_RTCM_DATA) 메시지 사용). autopilot에서는 MAVLink 패킷을 패키징 해제한 후 RTK 솔루션 획득을 처리할 수 있는 탐사선 유닛에 보냅니다.
 
 PX4는 현재 RTK 용으로 단일 주파(L1) u-blox M8P 기반 GNSS 수신기만을 지원합니다.
 
