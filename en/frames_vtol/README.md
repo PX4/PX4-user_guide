@@ -70,7 +70,9 @@ PX4 supports the three most important/main VTOL configurations.
   <div class="grid_text">
   <img src="../../assets/airframes/vtol/eflite_convergence_pixfalcon/hero.jpg" title="Eflight Confvergence" />
   <ul>
-    <li>Mechanically more complex with additional actuators</li>
+    <li>Additional actuators for motor tilts</li>
+    <li>Mechanically complex tilting mechanism</li>
+
     <li>Easier to control than tailsitter</li>
     <li>Can hover</li>
   </ul>
