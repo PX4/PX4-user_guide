@@ -121,7 +121,8 @@ For information about commercial and kit VTOL vehicles see: [Complete Vehicles](
 
 PX4 controlled vehicles generally share the same core components: a flight controller connected to a power system, GPS, external compass (highly recommended), radio control system (optional) and/or telemetry radio system (optional), and airspeed sensor (highly recommended for VTOL vehicles).
 
-The flight controller outputs are connected to the vehicle motor ESCS and/or flight control servos and actuators, which are separately powered.
+The flight controller outputs are connected to the vehicle motor ESCs and/or flight control servos and actuators, which are separately powered.
+
 The mapping between flight controller outputs and specific controls/motors depends on the vehicle frame used, and is specified in the [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol).
 
 Assembly information is covered in several sections:
