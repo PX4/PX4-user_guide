@@ -73,7 +73,8 @@ PX4 supports the three most important/main VTOL configurations.
     <li>Additional actuators for motor tilts</li>
     <li>Mechanically complex tilting mechanism</li>
 
-    <li>Easier to control than tailsitter</li>
+    <li>Easier to control in hover than tailsitters due to more control authority</li>
+
     <li>Can hover</li>
   </ul>
   </div>
