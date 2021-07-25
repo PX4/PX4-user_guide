@@ -12,9 +12,9 @@ PX4에는 입력과 출력이 다른 일반 마운트/짐벌 제어 드라이버
 
 입력([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN))과 출력([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 모드가 제일 중요합니다. 기본적으로, 입력은 비활성화되어 있으며 드라이버가 실행되지 않습니다. 입력 모드 선택 후, 차량을 재부팅하여 마운트 드라이버를 실행합니다.
 
-입력 상태를 `AUTO`(자동)로 설정하면, 가장 최근의 입력 상태로 자동으로 전환합니다. MAVLink에서 RC로 전환하려면, 스틱을 크게 움직여야 합니다.
+입력 모드를 `AUTO`로 설정하면, 최근 입력을 기준으로 모드가 자동 전환됩니다. MAVLink에서 RC로 전환하려면, 스틱을 크게 움직이십시오.
 
-## AUX 출력
+## MAVLink 짐벌(MNT_MODE_OUT=MAVLINK)
 
 MAVLink 짐벌 동작을 켜려면 우선 [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) 매개변수 값을 `MAVLINK_DO_MOUNT`로, [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) 매개변수 값을 `MAVLINK`로 설정하십시오.
 
