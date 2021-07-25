@@ -1,16 +1,16 @@
 # 짐벌 제어 설정
 
-기체에 카메라(또는 다른 장치)를 달아 장착하는 짐벌을 제어하려면, 어떻게 제어할 지, PX4가 어떻게 명령을 내릴지 설정해야합니다. 여기서는 설정 방법을 설명합니다.
+차량에 부착된 짐벌로 카메라(또는 다른 페이로드) 제어 방법과 PX4가 명어로 제어하기 위한 설정 방법을 설명합니다. 이 페이지에서는 설정 방법을 설명합니다.
 
-PX4에는 제각각의 입출력 방식을 가진 일반 마운트/짐벌 제어 드라이버가 있습니다.
-- 입력에서는 (임무 수행이나 조사 활동시) RC나 MAVLink 명령 중 짐벌 제어 방식을 정의합니다.
-- 출력에서는 MAVLink 명령 또는 비행 제어 장치 AUX PWM 포트 중 어떤 방식으로 짐벌을 연결할 지 정의합니다. 어떤 입력 방식이든 출력을 처리할 용도로 선택할 수 있으며, 두 방식 모두 매개변수로 구성해야합니다.
+PX4에는 입력과 출력이 다른 일반 마운트/짐벌 제어 드라이버가 포함되어 있습니다.
+- 입력은 RC 또는 MAVLink 명령(예: 임무 또는 조사)을 통하여 짐벌을 제어하는 방법을 정의합니다.
+- 출력은 MAVLink 명령이나 Flight Controller AUX PWM 포트를 사용하여 짐벌이 연결되는 방식을 정의합니다. 입력 방법을 선택하여 출력을 구동할 수 있으며, 입출력 모두 매개변수로 설정합니다.
 
 ## 매개변수
 
-[마운트](../advanced_config/parameter_reference.md#mount) 매개변수는 마운트 드라이버 구성애 활용합니다.
+[마운트](../advanced_config/parameter_reference.md#mount) 매개변수는 마운트 드라이버를 설정합니다.
 
-가장 중요한 부분은 입력([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)) 상태와 출력([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 상태입니다. 기본적으로 입력은 꺼져있으며 드라이버를 실행하지 않습니다. 입력 상태를 선택하고 나면, 기체 구동을 다시 시작하여 마운트 드라이버를 시작하십시오.
+입력([MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN))과 출력([MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)) 모드가 제일 중요합니다. 기본적으로, 입력은 비활성화되어 있으며 드라이버가 실행되지 않습니다. 입력 모드 선택 후, 차량을 재부팅하여 마운트 드라이버를 실행합니다.
 
 입력 상태를 `AUTO`(자동)로 설정하면, 가장 최근의 입력 상태로 자동으로 전환합니다. MAVLink에서 RC로 전환하려면, 스틱을 크게 움직여야 합니다.
 
