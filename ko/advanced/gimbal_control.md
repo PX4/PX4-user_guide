@@ -16,9 +16,9 @@ PX4에는 입력과 출력이 다른 일반 마운트/짐벌 제어 드라이버
 
 ## MAVLink 짐벌(MNT_MODE_OUT=MAVLINK)
 
-MAVLink 짐벌 동작을 켜려면 우선 [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN) 매개변수 값을 `MAVLINK_DO_MOUNT`로, [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT) 매개변수 값을 `MAVLINK`로 설정하십시오.
+MAVLink 짐벌을 활성화하려면, 매개변수 [MNT_MODE_IN](../advanced_config/parameter_reference.md#MNT_MODE_IN)을 `MAVLINK_DO_MOUNT`로 설정하고 [MNT_MODE_OUT](../advanced_config/parameter_reference.md#MNT_MODE_OUT)을 `MAVLINK`로 설정합니다.
 
-짐벌은 \[MAVLink 주변 기기 (GCS/OSD/보조)\](../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) 에서 다루는 방법과 같이 *어떤 여분의 직렬 포트*에든 연결할 수 있습니다([직렬 포트 구성](../peripherals/serial_configuration.md#serial-port-configuration)도 참고).
+짐벌은 [MAVLink 주변 장치(GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md)의 지침을 사용하여 *직렬 포트*에 연결할 수 있습니다([직렬 포트 설정](../peripherals/serial_configuration.md#serial-port-configuration) 참조).
 
 일반 구성은 비행 제어장치의 TELEM2 포트(TELEM2가 비어있다고 가정)에 짐벌을 직렬 연결하는 방식입니다. 이 구성을 진행하려면 다음과 같이 설정해야합니다:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) 매개변수 값을 **TELEM2**로 설정하십시오( `MAV_1_CONFIG`를 이미 보조 컴퓨터에서 쓰는 경우 `MAV_2_CONFIG` 매개변수를 활용하십시오).
