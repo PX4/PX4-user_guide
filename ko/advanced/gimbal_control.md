@@ -87,12 +87,12 @@ make px4_sitl gazebo_typhoon_h480
 ```
 make px4_sitl gazebo_typhoon_h480
 ```
-참고로 모의 환경 짐벌은 자체적으로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낼 경우 `stabilize` 플래그를 `false`로 설정하십시오.
+예를 들어 시동 여부를 확인하십시오. `commander takeoff` 명령어를 실행한 다음, 다음 명령을 사용하여 짐벌(예)을 제어합니다:
 ```
 vmount test yaw 30
 ```
 
-참고로 모의 환경 짐벌은 스스로 안정 상태로 돌아갑니다. 따라서 MAVLink 명령을 보낸다면 `stabilize` 플래그를 `false`로 설정하십시오.
+시뮬레이션된 짐벌은 자체적으로 안정적이므로, MAVLink 명령을 보내는 경우 `stabilize` 플래그를 `false`로 설정합니다.
 
-![Gazebo 짐벌 모의 시험](../../assets/simulation/gazebo/gimbal-simulation.png)
+![Gazebo 짐벌 시뮬레이션](../../assets/simulation/gazebo/gimbal-simulation.png)
 
