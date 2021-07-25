@@ -14,13 +14,14 @@ Typical WiFi range is ~50m-200m depending on the antennas. High gain directional
 ## Recommended Hardware
 Almost every ESP32 development board is capable to run DroneBridge for ESP32. Boards and modules with an external 
 antenna connector are recommended, since those will offer more range.
-**Most modules support 3.3V input (only), while some flight controllers (e.g. Pixhawk 4) output at 5V (you will need to 
+**Many ESP32 modules support 3.3V and 5V power supply input, while some flight controllers (e.g. Pixhawk 4) output at 5V (you will need to 
 check compatibility and step down the voltage if needed).**
-Modules and DevKits that accept 3.3V supply:
-* ESP32-WROOM-32UE
-* ESP32-WROOM-32E
+Modules and DevKits that accept 3.3V and 5V power supply:
 * AZDelivery DevKit C
-* NodeMCU style DevKit
+* [TinyPICO - ESP32 Development Board - V2](https://www.adafruit.com/product/4335)
+* [Adafruit HUZZAH32 – ESP32 Feather Board](https://www.adafruit.com/product/3405)
+* [Adafruit AirLift – ESP32 WiFi Co-Processor Breakout Board](https://www.adafruit.com/product/4201) (requires FTDI adapter for flashing firmware)
+* [Adafruit HUZZAH32](https://www.adafruit.com/product/4172) (requires FTDI adapter for flashing firmware)
 Boards with an IPEX port for an external antenna often also offer an onboard antenna that is activated by default. You 
   may need to resolder a resistor to activate the external antenna port.
 ## Downloading and Flashing the Firmware
@@ -78,6 +79,12 @@ guide does not go into detail here.
 :::tip
 Some manufacturers of ESP32 DevKits have wrong labels for the pins on their products. Make sure that the PINs on your 
 board are labeled correctly if you encounter issues.
+:::
+
+![Example for wiring an ESP32 to the TELEM port](https://raw.githubusercontent.com/DroneBridge/ESP32/master/wiki/Pixhawk_wiring.png)
+
+:::note
+Follow the ESP32 board manufacturers recommendations on power supply. Some boards might have issues if they are simultaneously connected to a 5V power source and have a USB cable connected to the USB/Serial bridge (USB socket of the ESP32 dev board).
 :::
 
 ## Configuring GCS like QGroundControl
