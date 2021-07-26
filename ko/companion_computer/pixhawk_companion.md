@@ -49,7 +49,7 @@ MAVLink를 수신하기위하여 보조 컴퓨터의 직렬 포트와 통신하�
 
 Linux에서 USB FTDI의 기본 이름은 `\dev\ttyUSB0` 입니다. USB 또는 Arduino에 연결된 두 번째 FTDI가 있는 경우에는 `\dev\ttyUSB1`으로 등록됩니다. 첫 번째 연결된 것과 두 번째 연결된 것 사이의 혼란을 피하기 위하여, USB 장치의 공급업체 및 제품 ID에 따라 `ttyUSBx`에서 친숙한 이름으로 심볼릭 링크를 만드는 것이 좋습니다.
 
-픽스호크 장비는 `Bus 003 Device 005: ID 26ac:0011`입니다.
+`lsusb`를 사용하여 공급업체 및 제품 ID를 조회할 수 있습니다.
 
 ```sh
 $ lsusb
@@ -66,28 +66,29 @@ Bus 001 Device 002: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n 
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-이 과정을 수행하여 `/etc/udev/rules.d/99-pixhawk.rules` 파일에 다음 내용에서 idVendor와 idProduct를 여러분의 장비에 맞게 바꾸어 추가한 새 UDEV 규칙을 만들 수 있습니다.
+Arduino는 `버스 003 장치 004: ID 2341:0042 Arduino SA Mega 2560 R3(CDC ACM)`을 사용합니다.
 
-마지막으로 **reboot**를 수행하면 방금 작성한 스크립트를 통해, 어떤 장치를 연결했을 때 `/dev/ttyUSB0` 대신 `/dev/ttyPixhawk`가 뜨는지 확인할 수 있습니다.
+Pixhawk는 `버스 003 장치 005: ID 26ac:0011`을 사용합니다.
 
 :::note
-If you do not find your device, unplug it, execute `lsusb`, plug it, execute `lsusb` again and see the added device.
+기기를 찾을 수 없으면, 플러그를 뽑은 다음 `lsusb`를 실행하고, 플러그를 꽂고 `lsusb`를 다시 실행하여 추가된 기기를 확인할 수 있습니다.
 :::
 
-Therefore, we can create a new UDEV rule in a file called `/etc/udev/rules.d/99-pixhawk.rules` with the following content, changing the idVendor and idProduct to yours.
+따라서, 다음 내용으로 `/etc/udev/rules.d/99-pixhawk.rules`라는 파일에 새 UDEV 규칙을 생성하여 idVendor 및 idProduct를 귀하의 것으로 변경할 수 있습니다.
 
 ```sh
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0042", SYMLINK+="ttyArduino"
 SUBSYSTEM=="tty", ATTRS{idVendor}=="26ac", ATTRS{idProduct}=="0011", SYMLINK+="ttyPixhawk"
 ```
 
-Finally, after a **reboot** you can be sure to know which device is what and put `/dev/ttyPixhawk` instead of `/dev/ttyUSB0` in your scripts.
+마지막으로, **재부팅** 후에 어떤 장치들이 사용되는 지를 알수 있으며, `/dev/ttyUSB0` 대신 `/dev/ttyPixhawk`를 스크립트에 추가하십시오.
 
 :::note
-Be sure to add yourself in the `tty` and `dialout` groups via `usermod` to avoid to have to execute scripts as root.
+루트로 스크립트를 실행할 필요가 없도록, `usermod`를 통해 `tty` 및 `dialout` 그룹을 현재 사용자에게 추가합니다.
 :::
 
 ```sh
 usermod -a -G tty ros-user
 usermod -a -G dialout ros-user
+newgrp ros-user
 ```
