@@ -14,18 +14,18 @@ The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_traject
 
 ## 创建自定义 MAVLink 消息
 
-The MAVLink developer guide explains how to define new messages and build them into new programming-specific libraries:
+MAVLink开发者指南解释了如何定义新消息，并将它们构建到新的特定编程库中:
 - [如何定义 MAVLink 消息（Messages）& 枚举（Enums）](https://mavlink.io/en/guide/define_xml_element.html)
 - [生成 MAVLink 库文件](https://mavlink.io/en/getting_started/generate_libraries.html)
 
-Your message needs to be generated as a C-library for MAVLink 2. Once you've [installed MAVLink](https://mavlink.io/en/getting_started/installation.html) you can do this on the command line using the command:
+Your message needs to be generated as a C-library for MAVLink 2. 一旦你安装了MAVLink，你可以在命令行中使用以下命令:
 ```sh
 python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated/include/mavlink/v2.0 message_definitions/v1.0/custom_messages.xml
 ```
 
-For your own use/testing you can just copy the generated headers into **PX4-Autopilot/mavlink/include/mavlink/v2.0**.
+如果只是自己使用/测试，那么你只需要直接将生成的头文件拷贝到 **Firmware/mavlink/include/mavlink/v2.0** 文件夹下。
 
-To make it easier for others to test your changes, a better approach is to add your generated headers to a fork of https://github.com/mavlink/c_library_v2. PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
+如果想让其他人可以更简单地测试你的修改，更好的做法则是将你生成的头文件加入 https://github.com/mavlink/c_library_v2 的一个分支中， PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
 
 
 ## 发送自定义MAVLink消息
