@@ -1,6 +1,6 @@
-# uORB Messaging
+# uORB 메시징
 
-## Introduction
+## 소개
 
 The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
 
