@@ -1,13 +1,13 @@
-# 픽스호크 시리즈용 보조 컴퓨터
+# 픽스호크 시리즈 보조 컴퓨터
 
-픽스호크 계열 보드에 보조 컴퓨터(라즈베리 파이, 오드로이드, 테그라 K1)를 붙이는 작업의 방식은 동일합니다. 보조 컴퓨터를 연결하려는 용도의 포트 `TELEM 2`에 직렬 포트로 연결하면 됩니다. 이 연결의 메시지 형식은 [MAVLink](https://mavlink.io/en/) 입니다.
+Pixhawk 보드에 연결된 보조 컴퓨터(라즈베리 파이, Odroid, Tegra K1)는  동일한 방식으로 작동합니다. 보조 컴퓨터 연결 직렬 포트 `TELEM 2`를 사용하여 연결합니다. 통신 포맷은 [MAVLink](https://mavlink.io/en/)입니다.
 
 ## 픽스호크 설정
 
-[설정 가능한 직렬 포트](../peripherals/serial_configuration.md)에 MAVLink를 활성화하십시오.
+[설정 가능한 직렬 포트](../peripherals/serial_configuration.md)에서 MAVLink를 활성화하십시오.
 
 :::tip
-Typically the `TELEM 2` port is used for a companion computer.
+일반적으로 `TELEM 2` 포트는 보조 컴퓨터에 사용됩니다.
 :::
 
 더 많은 정보는 [MAVLink 주변기기 편(GCS/OSD/보조기기)](../peripherals/mavlink_peripherals.md)을 참고하십시오.
