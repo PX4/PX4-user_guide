@@ -5,7 +5,7 @@
 ::: 提示 本节适用于软件开发者和 (新) 硬件集成商。 如果要构建现有的机身或者PX4已有的，可以跳过此章节。
 :::
 
-It explains how to:
+它解释了如何：
 
 * 了解到 [配置最小开发环境](../dev_setup/config_initial.md)，[用源码编译PX4](../dev_setup/building_px4.md) 以及部署到 [众多支持的自动驾驶仪](../flight_controller/README.md)。
 * 理解 [PX4 系统架构](../concept/architecture.md) 以及核心概念。
@@ -19,7 +19,7 @@ It explains how to:
 * 与外部机器人的 API 进行联调通信/集成。
 
 
-## Key Developer Links
+## 开发者可用的关键链接
 
 - [Support](../contribute/support.md): Get help using the [discussion boards](https://discuss.px4.io//) and other support channels.
 - [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
