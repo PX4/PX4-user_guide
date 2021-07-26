@@ -25,7 +25,7 @@ python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated
 
 如果只是自己使用/测试，那么你只需要直接将生成的头文件拷贝到 **Firmware/mavlink/include/mavlink/v2.0** 文件夹下。
 
-To make it easier for others to test your changes, a better approach is to add your generated headers to a fork of https://github.com/mavlink/c_library_v2. PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
+如果想让其他人可以更简单地测试你的修改，更好的做法则是将你生成的头文件加入 https://github.com/mavlink/c_library_v2 的一个分支中， PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
 
 
 ## 发送自定义MAVLink消息
