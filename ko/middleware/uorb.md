@@ -14,9 +14,9 @@ C++에서의 사용 방법은 [자습서](../modules/hello_sky.md)를 참고하�
 
 새 토픽을 추가하려면, `msg/` 디렉터리에 새 **.msg** 파일을 만들고 파일 이름을 `msg/CMakeLists.txt` 목록에 추가합니다. 이렇게 하면, 필요한 C/C++ 코드가 자동으로 생성됩니다.
 
-Have a look at the existing `msg` files for supported types. A message can also be used nested in other messages.
+지원되는 유형에 대한 기존 `msg` 파일을 살펴보십시오. 메시지는 다른 메시지에 중첩되어 사용될 수 있습니다.
 
-To each generated C/C++ struct, a field `uint64_t timestamp` will be added. This is used for the logger, so make sure to fill it in when publishing the message.
+생성된 각 C/C++ 구조체에 `uint64_t timestamp` 필드가 추가됩니다. This is used for the logger, so make sure to fill it in when publishing the message.
 
 To use the topic in the code, include the header:
 
