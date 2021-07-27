@@ -2,33 +2,33 @@
 
 [MAVLink](https://mavlink.io/en/)는 드론 생태계를 위하여 설계된 초경량 메시징 프로토콜입니다.
 
-PX4 uses *MAVLink* to communicate with *QGroundControl* (and other ground stations), and as the integration mechanism for connecting to drone components outside of the flight controller: companion computers, MAVLink enabled cameras etc.
+PX4는 *MAVLink*를 사용하여 *QGroundControl*(및 기타 지상국)과 통신하고, 비행 콘트롤러 외부의 드론 구성요소(보조 컴퓨터, MAVLink 지원 카메라)에 연결 통합 메커니즘으로 사용합니다.
 
-The protocol defines a number of standard [messages](https://mavlink.io/en/messages/) and [microservices](https://mavlink.io/en/services/) for exchanging data (many, but not all, messages/services have been implemented in PX4).
+이 프로토콜은 데이터 교환을 위한 다수의 표준 [메시지](https://mavlink.io/en/messages/) 및 [마이크로서비스](https://mavlink.io/en/services/)를 정의합니다(전부는 아니지만 다수의 메시지/서비스가 PX4에서 구현됨).
 
-This tutorial explains how you can add PX4 support for your own new "custom" messages.
+이 튜토리얼은 새로운 "사용자 정의" 메시지를 PX4에서 추가하는 방법을 설명합니다.
 
 :::note
-The tutorial assumes you have a [custom uORB](../middleware/uorb.md) `ca_trajectory` message in `msg/ca_trajectory.msg` and a custom MAVLink `ca_trajectory` message in `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`.
+튜토리얼에서는 `msg/ca_trajectory.msg`에 [맞춤 uORB](../middleware/uorb.md) `ca_trajectory` 메시지와 `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`에 맞춤 MAVLink `ca_trajectory` 메시지가 있다고 가정합니다.
 :::
 
-## Defining Custom MAVLink Messages
+## 사용자 정의 MAVLink 메시지 정의
 
-The MAVLink developer guide explains how to define new messages and build them into new programming-specific libraries:
-- [How to Define MAVLink Messages & Enums](https://mavlink.io/en/guide/define_xml_element.html)
-- [Generating MAVLink Libraries](https://mavlink.io/en/getting_started/generate_libraries.html)
+MAVLink 개발 가이드는 새 메시지를 정의 방법과 프로그래밍 라이브러리 빌드 방법을 설명합니다.
+- [MAVLink 메시지 정의/열거 방법](https://mavlink.io/en/guide/define_xml_element.html)
+- [MAVLink 라이브러리 생성](https://mavlink.io/en/getting_started/generate_libraries.html)
 
-Your message needs to be generated as a C-library for MAVLink 2. Once you've [installed MAVLink](https://mavlink.io/en/getting_started/installation.html) you can do this on the command line using the command:
+메시지는 MAVLink 2용 C 라이브러리로 생성되어야 합니다. [MAVLink를 설치](https://mavlink.io/en/getting_started/installation.html)후, 다음 명령을 사용하여 다음 작업을 수행합니다.
 ```sh
 python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated/include/mavlink/v2.0 message_definitions/v1.0/custom_messages.xml
 ```
 
-For your own use/testing you can just copy the generated headers into **PX4-Autopilot/mavlink/include/mavlink/v2.0**.
+사용/테스트를 위해 생성된 헤더를 **PX4-Autopilot/mavlink/include/mavlink/v2.0**에 복사합니다.
 
-To make it easier for others to test your changes, a better approach is to add your generated headers to a fork of https://github.com/mavlink/c_library_v2. PX4 developers can then update the submodule to your fork in the PX4-Autopilot repo before building.
+다른 사람들이 변경 사항을 더 쉽게 테스트할 수 있도록, https://github.com/mavlink/c_library_v2의 포크에 생성된 헤더를 추가하는 것이 좋습니다. PX4 개발자는 빌드전에 PX4-Autopilot 리포지토리에서 하위 모듈을 포크로 업데이트할 수 있습니다.
 
 
-## Sending Custom MAVLink Messages
+## 사용자 정의 MAVLink 메시지 전송
 
 Add the headers of the MAVLink and uORB messages to [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
 
