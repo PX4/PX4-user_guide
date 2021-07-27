@@ -2,17 +2,17 @@
 
 ## 소개
 
-The uORB is an asynchronous `publish()` / `subscribe()` messaging API used for inter-thread/inter-process communication.
+uORB는 스레드 간/프로세스 간 통신에 사용되는 비동기식 `publish()` / `subscribe()` 메시징 API입니다.
 
-Look at the [tutorial](../apps/hello_sky.md) to learn how to use it in C++.
+C++에서의 사용 방법은 [자습서](../modules/hello_sky.md)를 참고하십시오.
 
-uORB is automatically started early on bootup as many applications depend on it. It is started with `uorb start`. Unit tests can be started with `uorb_tests`.
+많은 응용 프로그램이 uORB에 의존하므로 uORB는 부팅시에 자동으로 시작됩니다. `uorb start` 로 시작합니다. 단위 테스트는 `uorb_tests`로 시작합니다.
 
-## Adding a new topic
+## 새로운 토픽 추가하기
 
-New uORB topics can be added either within the main PX4/Firmware repository, or can be added in an out-of-tree message definitions. For information on adding out-of-tree uORB message definitions, please see [this section](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions).
+새로운 uORB 토픽은 메인 PX4/PX4-Autopilot 저장소에 추가하거나 트리 외부 메시지 정의에 추가할 수 있습니다. 트리 외부 uORB 메시지 정의 추가에 대한 정보는 [이 섹션](../advanced/out_of_tree_modules.md#out-of-tree-uorb-message-definitions)을 참고하십시오.
 
-To add a new topic, you need to create a new **.msg** file in the `msg/` directory and add the file name to the `msg/CMakeLists.txt` list. From this, the needed C/C++ code is automatically generated.
+새 토픽을 추가하려면, `msg/` 디렉터리에 새 **.msg** 파일을 만들고 파일 이름을 `msg/CMakeLists.txt` 목록에 추가합니다. 이렇게 하면, 필요한 C/C++ 코드가 자동으로 생성됩니다.
 
 Have a look at the existing `msg` files for supported types. A message can also be used nested in other messages.
 
