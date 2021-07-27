@@ -16,46 +16,46 @@ C++에서의 사용 방법은 [자습서](../modules/hello_sky.md)를 참고하�
 
 지원되는 유형에 대한 기존 `msg` 파일을 살펴보십시오. 메시지는 다른 메시지에 중첩되어 사용될 수 있습니다.
 
-생성된 각 C/C++ 구조체에 `uint64_t timestamp` 필드가 추가됩니다. This is used for the logger, so make sure to fill it in when publishing the message.
+생성된 각 C/C++ 구조체에 `uint64_t timestamp` 필드가 추가됩니다. 이것은 로거에 사용되며, 메시지 게시시에 입력하여야 합니다.
 
-To use the topic in the code, include the header:
+코드에서 주제를 사용하려면 헤더를 포함하십시오.
 
 ```
 #include <uORB/topics/topic_name.h>
 ```
 
-By adding a line like the following in the `.msg` file, a single message definition can be used for multiple independent topics:
+`.msg` 파일에 다음과 같은 줄을 추가하여, 여러 개의 독립적인 토픽의 단일 메시지 정의를 사용할 수 있습니다.
 
 ```
 # TOPICS mission offboard_mission onboard_mission
 ```
 
-Then in the code, use them as topic id: `ORB_ID(offboard_mission)`.
+그런 다음 코드에서 토픽 ID로 사용합니다. `ORB_ID(offboard_mission)`.
 
 
-## Publishing
+## 퍼블리시(게시)
 
-Publishing a topic can be done from anywhere in the system, including interrupt context (functions called by the `hrt_call` API). However, advertising a topic is only possible outside of interrupt context. A topic has to be advertised in the same process as it's later published.
+토픽 게시는 인터럽트 컨텍스트(`hrt_call` API에 의해 호출되는 함수)를 포함하여 시스템의 어디에서나 수행할 수 있습니다. 그러나, 토픽 게시는 인터럽트 컨텍스트 외부에서만 가능합니다. 주제는 나중에 게시되는 것과 동일한 프로세스에서 광고되어야 합니다.
 
-## Listing Topics and Listening in
+## 토픽 나열 및 듣기
 
 :::note
-The `listener` command is only available on Pixracer (FMUv4) and Linux / OS X.
+`listener` 명령은 Pixracer(FMUv4)와 Linux/OS X에서만 사용할 수 있습니다.
 :::
 
-To list all topics, list the file handles:
+모든 토픽을 나열하려면, 파일 핸들을 나열하십시오.
 
 ```sh
 ls /obj
 ```
 
-To listen to the content of one topic for 5 messages, run the listener:
+5개의 메시지에 대해 한 토픽의 내용을 들으려면, 리스너를 실행하십시오.
 
 ```sh
 listener sensor_accel 5
 ```
 
-The output is n-times the content of the topic:
+출력은 주제 내용의 n배입니다.
 
 ```sh
 TOPIC: sensor_accel #3
@@ -88,12 +88,12 @@ scaling: 0
 ```
 
 :::tip
-On NuttX-based systems (Pixhawk, Pixracer, etc) the `listener` command can be called from within the *QGroundControl* MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: [Sensor/Topic Debugging](../debug/sensor_uorb_topic_debugging.md).
+NuttX 기반 시스템(Pixhawk, Pixracer 등)에서 *QGroundControl* MAVLink 콘솔 내에서 `listener` 명령을 호출하여 센서 및 기타 주제의 값을 검사할 수 있습니다. 이것은 QGC가 무선 틍신으로 연결된 경우에도(예: 차량이 비행 중일 때) 사용할 수 있는 강력한 디버깅 도구입니다. 자세한 내용은 [센서/주제 디버깅](../debug/sensor_uorb_topic_debugging.md)을 참고하십시오.
 :::
 
-### uorb top Command
+### uorb top 명령어
 
-The command `uorb top` shows the publishing frequency of each topic in real-time:
+`uorb top` 명령은 실시간으로 각 주제의 게시 빈도를 나타냅니다.
 
 ```sh
 update: 1s, num topics: 77
@@ -112,10 +112,10 @@ sensor_accel                         1    1  249    43 1
 sensor_baro                          0    1   42     0 1
 sensor_combined                      0    6  242   636 1
 ```
-The columns are: topic name, multi-instance index, number of subscribers, publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and queue size.
+각 칼럼은 주제 이름, 다중 인스턴스 인덱스, 구독자 수, 게시 빈도(Hz), 초당 손실된 메시지 수(모든 구독자가 결합된 경우) 및 대기열 크기입니다.
 
 
-## Multi-instance
+## 다중 인스턴스
 
 uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
 
