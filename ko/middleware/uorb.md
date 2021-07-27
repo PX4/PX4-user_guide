@@ -117,20 +117,20 @@ sensor_combined                      0    6  242   636 1
 
 ## 다중 인스턴스
 
-uORB provides a mechanism to publish multiple independent instances of the same topic through `orb_advertise_multi`. It will return an instance index to the publisher. A subscriber will then have to choose to which instance to subscribe to using `orb_subscribe_multi` (`orb_subscribe` subscribes to the first instance). Having multiple instances is useful for example if the system has several sensors of the same type.
+uORB는 `orb_advertise_multi`로 동일한 주제의 여러 독립 인스턴스를 게시하는 메커니즘을 제공합니다. 게시자에게 인스턴스 인덱스를 반환합니다. 그러면, 구독자는 `orb_subscribe_multi`를 사용하여, 구독할 인스턴스를 선택하여야 합니다(`orb_subscribe`는 첫 번째 인스턴스에 구독). 예를 들어, 시스템에 동일 유형의 센서가 여러 개 있는 경우에는 인스턴스가 여러 개 있으면 유용합니다.
 
-The following explains some common pitfalls and corner cases:
+동일한 주제에 대하여 `orb_advertise_multi`와 `orb_advertise`를 혼용하지 마십시오.
 
-The full API is documented in [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp).
+전체 API는 [platforms/common/uORB/uORBManager.hpp](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/uORB/uORBManager.hpp)를 참고하십시오.
 
 <a id="deprecation"></a>
 
-## Troubleshooting and common Pitfalls
-As there are external tools using uORB messages from log files, such as [Flight Review](https://github.com/PX4/flight_review), certain aspects need to be considered when updating existing messages:
+## 메시지/필드 지원 중단
+[비행 검토](https://github.com/PX4/flight_review)와 같이 로그 파일의 uORB 메시지를 사용하는 외부 도구가 있으므로, 기존 메시지를 업데이트할 때 다음과 같은 측면을 고려하여야 합니다.
 
-- Changing existing fields or messages that external tools rely on is generally acceptable if there are good reasons for the update. In particular for breaking changes to *Flight Review*, *Flight Review* must be updated before code is merged to `master`.
-- In order for external tools to reliably distinguish between two message versions, the following steps must be followed:
-  - Removed or renamed messages must be added to the `deprecated_msgs` list in [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189) and the **.msg** file needs to be deleted.
-  - Removed or renamed fields must be commented and marked as deprecated. For example `uint8 quat_reset_counter` would become `# DEPRECATED: uint8 quat_reset_counter`. This is to ensure that removed fields (or messages) are not re-added in future.
+- 업데이트에 대한 타당한 이유가 있는 경우에는, 외부 도구가 의존하는 기존 필드 또는 메시지를 변경하는 것이 일반적으로 허용됩니다. 특히 *비행 검토*에 대한 주요 변경사항의 경우에는, 코드가 `마스터`에 병합되기 전에 *비행 검토*를 업데이트하여야 합니다.
+- 외부 도구가 두 메시지 버전을 확실하게 구별하려면, 다음 단계를 따라야 합니다.
+  - 제거되거나 이름이 변경된 메시지는 [msg/CMakeLists.txt](https://github.com/PX4/PX4-Autopilot/blob/c5a6a60903455c3600f47e3c45ecaa48614559c8/msg/CMakeLists.txt#L189)의 `deprecated_msgs` 목록에 추가하여야 하며, **.msg** 파일을 삭제하여야 합니다.
+  - 제거되거나 이름이 변경된 필드는 주석을 달고 더 이상 사용되지 않는 것으로 표시하여야 합니다. 예를 들어, `uint8 quat_reset_counter`는 `# DEPRECATED: uint8 quat_reset_counter`가 됩니다. This is to ensure that removed fields (or messages) are not re-added in future.
   - In case of a semantic change (e.g. the unit changes from degrees to radians), the field must be renamed as well and the previous one marked as deprecated as above.
 
