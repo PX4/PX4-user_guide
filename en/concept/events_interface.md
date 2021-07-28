@@ -84,7 +84,7 @@ Explanations and requirements:
 	For example an RTL failsafe action: the user should see it as Warning/Error, whereas in the log, it is an expected system response, so it can be set to `Info`.
 - **Event Message**:
   - Single-line, short message of the event.
-    It may contain template placeholders for arguments (e.g. `{1}`). For more information see below..
+    It may contain template placeholders for arguments (e.g. `{1}`). For more information see below.
 - **Event Description**:
   - Detailed, optional event description.
   - Can be multiple lines/paragraphs.
