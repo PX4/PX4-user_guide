@@ -31,13 +31,15 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Get GH branch and pring
-        run: echo gh branch ${GITHUB_REF##*/}
+        
+        run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+        run: echo branch after settubg ${BRANCH_NAME}
 
       - name: Print BRANCH_NAME
-        run: echo gh BRANCH_NAME is  OR  ${BRANCH_NAME}
+        run: echo gh BRANCH_NAME of  ${BRANCH_NAME}
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo GH branch? ${GITHUB_REF##*/}
+          echo originalGH branch? ${GITHUB_REF##*/}
           echo test, and deploy your project.
