@@ -7,4 +7,5 @@ PX4는 UDP와 WiFi를 통한 텔레메트리를 지원합니다. 지상국에서
 호환 가능한 WiFi 텔레메트리 모듈은 아래와 같습니다.
 
 * [ESP8266 WiFi 모듈](../telemetry/esp8266_wifi_module.md)
-* [ 3DR 텔레메트리 WiFi ](../telemetry/3dr_telemetry_wifi.md) (단종)
+* [ESP32 WiFi Module](../telemetry/esp32_wifi_module.md)
+* [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)

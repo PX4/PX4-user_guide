@@ -56,7 +56,7 @@ events::send<uint8_t, float>(events::ID("event_name"),
 
 Explanations and requirements:
 - `/* EVENT`: This tag indicates that a comment defines metadata for the following event.
-- **event_name**: the event name.
+- **event_name**: the event name (`events::ID(event_name)`).
   - must be unique within the whole source code of PX4. As a general convention, prefix it with the module name, or the source file for larger modules.
   - must be a valid variable name, i.e. must not contain spaces, colons, etc.
   - from that name, a 24 bit event ID is derived using a hash function. This means as long as the event name stays the same, so will the ID.
@@ -75,14 +75,15 @@ Explanations and requirements:
     ```
   - Above we specify a separate external and internal log level, which are the levels displayed to GCS users and in the log file, respectively: `{events::Log::Error, events::LogInternal::Info}`. For the majority of cases you can pass a single log level, and this will be used for both exernal and internal cases. There are cases it makes sense to have two different log levels. For example an RTL failsafe action: the user should see it as Warning/Error, whereas in the log, it is an expected system response, so it can be set to `Info`.
 - **Event Message**:
-  - Single-line, short message of the event. It may contain arguments (see below).
+  - Single-line, short message of the event. It may contain template placeholders for arguments (e.g. `{1}`). For more information see below.
 - **Event Description**:
   - Detailed, optional event description.
   - Can be multiple lines/paragraphs.
+  - It may contain template placeholders for arguments (e.g. `{2}`) and supported tags (see below)
 
 #### Arguments and Enums
 
-Events can have a fixed set of arguments that can be shown in the message or description.
+Events can have a fixed set of arguments that can be inserted into the message or description using template placeholders (e.g. `{2:.1m}` - see next section).
 
 Valid types: `uint8_t`, `int8_t`, `uint16_t`, `int16_t`, `uint32_t`, `int32_t`, `uint64_t`, `int64_t` and `float`.
 
@@ -100,10 +101,10 @@ Text format for event message description:
   - Profiles: `<profile name="[!]NAME">CONTENT</profile>`
 
     `CONTENT` will only be shown if the name matches the configured profile. This can be used for example to hide developer information from end-users.
-  - URLs: `<a [href="URL"]>CONTENT</a>`. If href is not set, use `CONTENT` as `URL`
+  - URLs: `<a [href="URL"]>CONTENT</a>`. If `href` is not set, use `CONTENT` as `URL` (i.e.`<a>https://docs.px4.io</a>` is interpreted as `<a href="https://docs.px4.io">https://docs.px4.io</a>`)
   - Parameters: `<param>PARAM_NAME</param>`
   - no nested tags of the same type are allowed
-- arguments: following python syntax, with 1-based indexing (instead of 0)
+- arguments: template placeholders that follow python syntax, with 1-based indexing (instead of 0)
   - general form: `{ARG_IDX[:.NUM_DECIMAL_DIGITS][UNIT]}`
 
     UNIT:
@@ -112,6 +113,7 @@ Text format for event message description:
       - m^2: area in m^2
       - m/s: speed in m/s
       - C: temperature in degrees celcius
+  - `NUM_DECIMAL_DIGITS` only makes sense for real number arguments.
 
 ## Logging
 
