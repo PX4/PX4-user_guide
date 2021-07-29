@@ -309,7 +309,7 @@
     * [시리얼 포트 매핑](hardware/serial_port_mapping.md)
     * [기체](dev_airframes/README.md) 
       * [새 기체 추가](dev_airframes/adding_a_new_frame.md)
-    * [장치 드라이버](middleware/drivers.md)
+    * [장치 드라이버 개발](middleware/drivers.md)
     * [텔레메트리 라디오](data_links/telemetry.md) 
       * [SiK 라디오](data_links/sik_radio.md)
     * [센서와 액츄에이터 입출력](sensor_bus/README.md) 
