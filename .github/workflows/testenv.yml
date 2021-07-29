@@ -40,6 +40,4 @@ jobs:
       - name: Print BRANCH_NAME ENV.
         run: echo BRANCH_NAME ENV of ${{ env.BRANCH_NAME }}
         
-       - name: Print BRANCH_NAME ENV pt 2
-         run: echo BRANCH_NAME ENV of ${{ BRANCH_NAME }}       
 
