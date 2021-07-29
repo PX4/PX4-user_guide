@@ -38,5 +38,5 @@ jobs:
         run: yarn
         
       - name: Generate static vuepress files
-      - run: yarn docs:build
+        run: yarn docs:build
 
