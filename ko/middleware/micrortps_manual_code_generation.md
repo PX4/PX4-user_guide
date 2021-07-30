@@ -1,11 +1,11 @@
 # 클라이언트 및 에이전트 코드 수동 생성
 
-This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).
+클라이언트와 에이전트 코드를 수동으로 생성하는 방법을 설명합니다(PX4 펌웨어가 컴파일될 때 코드를 [자동으로 생성](../middleware/micrortps.md)하는 대신).
 
-The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.
+코드는 Python 스크립트 **/Tools/generate_microRTPS_bridge.py**를 사용하여 생성합니다.
 
 :::note
-This method should only be used for debugging purposes when creating new messages or if you just want to consume the generated code outside of the PX4 domain. Otherwise please use the *normal* method explained in [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which uses the PX4-Autopilot build system.
+이 방법은 새 메시지를 만들거나 PX4 도메인 외부에서 생성된 코드를 사용하려는 경우에 디버깅 목적으로 사용하여야 합니다. Otherwise please use the *normal* method explained in [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which uses the PX4-Autopilot build system.
 :::
 
 ## Disable automatic bridge code generation
