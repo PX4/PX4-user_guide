@@ -1,4 +1,4 @@
-# Manually Generate Client and Agent Code
+# 클라이언트 및 에이전트 코드 수동 생성
 
 This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 firmware is compiled).
 
