@@ -32,14 +32,14 @@ python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated
 
 사용자 지정 uORB 메시지를 사용법과 MAVLink 메시지 전송 방법을 설명합니다.
 
-Create a new class in [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)
+MAVLink와 uORB 메시지의 헤더를 다음에 추가합니다. [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink.h>
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+[mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)에서 새 클래스를 생성합니다.
 
 ```C
 class MavlinkStreamCaTrajectory : public MavlinkStream
@@ -53,7 +53,7 @@ public:
     {
         return "CA_TRAJECTORY";
     }
-    uint16_t get_id_static()
+    static uint16_t get_id_static()
     {
         return MAVLINK_MSG_ID_CA_TRAJECTORY;
     }
@@ -71,24 +71,21 @@ public:
     }
 
 private:
-    MavlinkOrbSubscription *_sub;
-    uint64_t _ca_traj_time;
+    uORB::Subscription _sub{ORB_ID(ca_trajectory)};
 
     /* do not allow top copying this class */
     MavlinkStreamCaTrajectory(MavlinkStreamCaTrajectory &);
     MavlinkStreamCaTrajectory& operator = (const MavlinkStreamCaTrajectory &);
 
 protected:
-    explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink),
-        _sub(_mavlink->add_orb_subscription(ORB_ID(ca_trajectory))),  // make sure you enter the name of your uORB topic here
-        _ca_traj_time(0)
+    explicit MavlinkStreamCaTrajectory(Mavlink *mavlink) : MavlinkStream(mavlink)
     {}
 
-    bool send(const hrt_abstime t)
+    bool send() override
     {
         struct ca_traj_struct_s _ca_trajectory;    //make sure ca_traj_struct_s is the definition of your uORB topic
 
-        if (_sub->update(&_ca_traj_time, &_ca_trajectory)) {
+        if (_sub.update(&_ca_trajectory)) {
             mavlink_ca_trajectory_t _msg_ca_trajectory;  //make sure mavlink_ca_trajectory_t is the definition of your custom MAVLink message
 
             _msg_ca_trajectory.timestamp = _ca_trajectory.timestamp;
@@ -97,15 +94,17 @@ protected:
             _msg_ca_trajectory.coefficients =_ca_trajectory.coefficients;
             _msg_ca_trajectory.seq_id = _ca_trajectory.seq_id;
 
-            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory)
+            mavlink_msg_ca_trajectory_send_struct(_mavlink->get_channel(), &_msg_ca_trajectory);
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 };
 ```
 
-Finally append the stream class to the `streams_list` at the bottom of [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+마지막으로 [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)파일의 맨 아래에 있는 `streams_list`에 스트림 클래스를 추가합니다.
 
 ```C
 StreamListItem *streams_list[] = {
