@@ -47,6 +47,6 @@ make px4_sitl ignition
 위의 명령은 전체 UI로 단일 차량을 시작합니다. *QGroundControl*은 시뮬레이션 차량에 자동으로 연결할 수 있어야 합니다.
 
 
-## Further Information
+## 추가 정보
 
 * [px4-simulation-ignition](https://github.com/Auterion/px4-simulation-ignition)
