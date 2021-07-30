@@ -29,7 +29,7 @@ RTPS는 비행 콘트롤러와 오프보드 부품간에 중요한 정보를 실
 
 *microRTPS* 브리지는 PX4와 DDS 참여 애플리케이션 간에 메시지를 교환하여, 각 시스템에서 사용하는 [uORB](../middleware/uorb.md)와 RTPS/DDS 메시지를 원활하게 변환합니다.
 
-![basic example flow](../../assets/middleware/micrortps/architecture.png)
+![기본 예제 흐름](../../assets/middleware/micrortps/architecture.png)
 
 아키텍처의 핵심 요소는 위의 다이어그램에 표시된 클라이언트와 에이전트 프로세스입니다.
 
@@ -323,19 +323,19 @@ export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
    ```
 
    표시된 메뉴에서 **인터페이스 옵션 > 직렬**로 이동합니다. *시리얼을 통해 로그인 셸에 액세스하시겠습니까?*에 대해 **아니요**를 선택합니다. 확인후 재부팅하십시오.
-1. Check UART in kernel:
+1. 커널에서 UART를 확인합니다.
 
    ```sh
    sudo vi /boot/config.txt
    ```
 
-   And make sure that the `enable_uart` value is set to 1:
+   `enable_uart` 값이 1로 설정되어 있는지 확인합니다.
    ```
     enable_uart=1
    ```
 
 
-## Helpful Resources
+## 유용한 리소스
 
-* [Fast DDS Installation](../dev_setup/fast-dds-installation.md)
-* [Manually Generate Client and Agent Code](micrortps_manual_code_generation.md)
+* [Fast DDS 설치](../dev_setup/fast-dds-installation.md)
+* [클라이언트 및 에이전트 코드 수동 생성](micrortps_manual_code_generation.md)
