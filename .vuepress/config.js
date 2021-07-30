@@ -7,8 +7,8 @@ module.exports = {
   base: process.env.BRANCH_NAME ? "/"+process.env.BRANCH_NAME+"/" : '/px4_user_guide/',
   patterns : ['README.md',
       'en/**/*.md',
-      'zh/**/*.md',
-      'ko/**/*.md',
+      //'zh/**/*.md',
+      //'ko/**/*.md',
       // 'de/**/*.md',
       // 'ja/**/*.md',
       // 'ru/**/*.md',
@@ -72,11 +72,6 @@ module.exports = {
     '/en/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
       title: 'PX4 User Guide',
-      description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
-    },
-    '/ko/': {
-      lang: 'ko-KR', // this will be set as the lang attribute on <html>
-      title: 'PX4 오토파일럿 사용자 설명서',
       description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/zh/': {

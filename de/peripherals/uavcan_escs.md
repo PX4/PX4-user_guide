@@ -1,1 +1,0 @@
-<Redirect to="../uavcan/escs" />
