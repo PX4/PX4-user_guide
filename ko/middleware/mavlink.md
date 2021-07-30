@@ -187,23 +187,23 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
 
 때로는 완전히 정의되지 않은 콘텐츠에 대한 사용자 정의 MAVLink 메시지가 필요합니다.
 
-예를 들어, MAVLink를 사용하여 임베디드 장치와 PX4를 인터페이스시에 자동조종장치와 장치간에 교환되는 메시지는 안정화되기 전에 여러 번 반복될 수 있습니다. 이 경우에는 MAVLink 헤더를 재생성하고 두 장치가 동일한 버전의 프로토콜을 사용하는지 확인하는 데 시간이 많이 걸리고 오류가 발생하기 쉽습니다.
+예를 들어, MAVLink를 사용하여 임베디드 장치와 PX4를 인터페이스시에 자동조종장치와 장치간에 교환되는 메시지는 안정화되기 전에 여러 번 반복될 수 있습니다. 이 경우에는 MAVLink 헤더를 재생성하고 두 장치가 동일한 버전의 프로토콜을 사용하는지 확인하는 데 시간이 많이 걸리고, 오류가 발생하기 쉽습니다.
 
-An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
+대안과 임시 솔루션은 디버그 메시지의 용도를 변경하는 것입니다. MAVLink 개별 메세지 `CA_TRAJECTORY`를 만드는 대신, `CA_TRAJ` 문자열 키와 `x`, `y`, `z` 필드에 데이터를  담은 `DEBUG_VECT` 메세지를 전송 가능합니다. 디버그 메시지의 사용 예는 이 [튜토리얼](../debug/debug_values.md)을  참고하십시오.
 
 :::note
-This solution is not efficient as it sends character string over the network and involves comparison of strings. It should be used for development only!
+이 솔루션은 네트워크에서 문자열을 전송하고 문자열 비교를 포함하므로 효율적이지 않습니다. 개발용으로만 사용하는 것이 좋습니다!
 :::
 
-## General
+## 일반
 
-### Set streaming rate
+### 스트리밍 속도 설정
 
-Sometimes it is useful to increase the streaming rate of individual topics (e.g. for inspection in QGC). This can be achieved by typing the following line in the shell:
+때로는 개별 주제의 스트리밍 속도를 높이는 것이 유용합니다(예: QGC에서 검사). 셸에서 다음 명령어를 실행하십시오.
 ```sh
 mavlink stream -u <port number> -s <mavlink topic name> -r <rate>
 ```
-You can get the port number with `mavlink status` which will output (amongst others) `transport protocol: UDP (<port number>)`. An example would be:
+`mavlink 상태`와 함께 포트 번호를 조회할 수 있습니다. 이 포트 번호는 (무엇보다도) `전송 프로토콜: UDP(<port number>)`를 출력합니다. 예제는 다음과 같습니다:
 ```sh
 mavlink stream -u 14556 -s OPTICAL_FLOW_RAD -r 300
 ```
