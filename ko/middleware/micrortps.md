@@ -13,33 +13,33 @@
 
 ## RTPS는 언제 사용해야 합니까?
 
-RTPS should be used when you need to reliably share time-critical/real-time information between the flight controller and offboard components. It is instrumental in cases where offboard software needs to become a *peer* of software components running in PX4 (sending and receiving uORB topics).
+RTPS는 비행 콘트롤러와 오프보드 부품간에 중요한 정보를 실시간 및 안정적으로 공유하는 경우에 사용합니다. It is instrumental in cases where offboard software needs to become a *peer* of software components running in PX4 (sending and receiving uORB topics).
 
-Possible use cases include communicating with robotics libraries for computer vision and other use cases where real-time data to/from actuators and sensors is essential for vehicle control.
+사용 사례에는 컴퓨터 비전 로봇 라이브러리와의 통신과 액추에이터와 센서간의 실시간 데이터가 차량 제어 등이 있습니다.
 
-*Fast DDS* is not intended as a replacement for MAVLink. [MAVLink](../middleware/mavlink.md) remains the most appropriate protocol for communicating with ground stations, gimbals, cameras, and other offboard components (although *Fast DDS* may open other opportunities for working with some peripherals at higher frequencies).
+*Fast DDS*는 MAVLink를 대체하는 것이 아닙니다. [MAVLink](../middleware/mavlink.md)는 지상국, 짐벌, 카메라 및 기타 오프보드 부품과 통신에 가장 적합한 프로토콜입니다(*Fast DDS*는 더 높은 주파수에서 일부 주변 장치와 작업할 수 있는 기회를 제공할 수 있지만).
 
 :::tip
-It is possible to use Fast RTPS(DDS) over slower links (e.g., radio telemetry) by being mindful of your link's extra constraints. Keep in mind you can easily overload your telemetry channel.
+링크의 추가 제약이 있는 느린 통신환경(예: 무선 원격 측정)에서 Fast RTPS(DDS)를 사용할 수 있습니다. 원격 분석 채널에 쉽게 과부하가 걸릴 수 있다는 점을 염두에 두십시오.
 :::
 
-## Architectural overview
+## 아키텍쳐 개요
 
-### microRTPS Bridge
+### microRTPS 브리지
 
-The *microRTPS* bridge exchanges messages between PX4 and DDS-participant applications, seamlessly converting between the [uORB](../middleware/uorb.md) and RTPS/DDS messages used by each system.
+*microRTPS* 브리지는 PX4와 DDS 참여 애플리케이션 간에 메시지를 교환하여, 각 시스템에서 사용하는 [uORB](../middleware/uorb.md)와 RTPS/DDS 메시지를 원활하게 변환합니다.
 
 ![basic example flow](../../assets/middleware/micrortps/architecture.png)
 
-The main elements of the architecture are the client and agent processes shown in the diagram above.
+아키텍처의 핵심 요소는 위의 다이어그램에 표시된 클라이언트와 에이전트 프로세스입니다.
 
-#### The microRTPS Client
-The *Client* is the PX4 Autopilot middleware daemon process that runs on the flight controller. This client subscribes to uORB topics published by other PX4 Autopilot components and sends any updates to the *Agent* (via a UART or UDP port), and also receives messages from the *Agent* and publishes them as uORB messages to the PX4 Autopilot.
+#### microRTPS 클라이언트
+*클라이언트*는 비행 콘트롤러에서 실행되는 PX4 자동항법장치의 미들웨어 데몬 프로세스입니다. 이 클라이언트는 다른 PX4 자동항법장치 구성 요소에서 게시한 uORB 주제를 구독하고, 모든 업데이트를 *에이전트*(UART 또는 UDP 포트를 통해)에 보내고, *에이전트* 및 PX4 자동항법장치에 uORB 메시지로 게시합니다.
 
-#### The microRTPS Agent
-The *Agent* runs as a daemon process on an offboard computer (outside the flight controller). This agent watches for uORB update messages from the *Client* and (re)publishes them over RTPS, and also subscribes to "uORB" RTPS/DDS messages from other DDS-participant applications and forwards them to the *Client*.
+#### microRTPS 에이전트
+*에이전트*는 오프보드 컴퓨터(비행 콘트롤러 외부)의 데몬 프로세스로 실행됩니다. This agent watches for uORB update messages from the *Client* and (re)publishes them over RTPS, and also subscribes to "uORB" RTPS/DDS messages from other DDS-participant applications and forwards them to the *Client*.
 
-#### microRTPS Agent/Client Communication
+#### microRTPS 에이전트/클라이언트 통신
 The *Agent* and *Client* are connected via a serial link (UART) or UDP network, and the uORB information is [CDR serialized](https://en.wikipedia.org/wiki/Common_Data_Representation) before being sent (*CDR serialization* provides a common format for exchanging serial data between different platforms).
 
 The *Agent* and any *Fast DDS* applications are connected via UDP and may be on the same or another device. In a typical configuration, they will be on the same system (e.g., a development computer, Linux companion computer, or compute board), connected to the *Client*. This can be through a Wifi link or USB.
