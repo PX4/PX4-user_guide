@@ -5,20 +5,20 @@
 코드는 Python 스크립트 **/Tools/generate_microRTPS_bridge.py**를 사용하여 생성합니다.
 
 :::note
-이 방법은 새 메시지를 만들거나 PX4 도메인 외부에서 생성된 코드를 사용하려는 경우에 디버깅 목적으로 사용하여야 합니다. Otherwise please use the *normal* method explained in [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md), which uses the PX4-Autopilot build system.
+이 방법은 새 메시지를 만들거나 PX4 도메인 외부에서 생성된 코드를 사용하려는 경우에 디버깅 목적으로 사용하여야 합니다. 그렇지 않으면, PX4-Autopilot 빌드 시스템을 사용하는 [PX4-Fast RTPS(DDS) Bridge](../middleware/micrortps.md)에 설명된 *일반* 방법을 사용하십시오.
 :::
 
-## Disable automatic bridge code generation
+## 자동 브리지 코드 생성 비활성화
 
-First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
+먼저, 브리지 코드 자동 생성을 비활성화합니다. 대상 플랫폼의 **.cmake** 파일에서 `GENERATE_RTPS_BRIDGE` 변수를 *off*로 설정합니다.
 
 ```sh
 set(GENERATE_RTPS_BRIDGE off)
 ```
 
-## Using generate_microRTPS_bridge.py
+## generate_microRTPS_bridge.py 사용
 
-The *generate_microRTPS_bridge* tool's command syntax is shown below:
+*generate_microRTPS_bridge* 스크립트의 명령 구문은 다음과 같습니다.
 
 ```sh
 $ cd /path/to/PX4/PX4-Autopilot/msg/tools
@@ -77,43 +77,43 @@ optional arguments:
 ```
 
 :::caution
-Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the `AGENTDIR` before creating new files and folders.
+`--delete-tree` 옵션과 함께 사용하면 새 파일과 폴더를 만들기 전에 `CLIENTDIR` 및 `AGENTDIR`의 내용이 지워집니다.
 :::
 
-- The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages.
-- The output appears in `CLIENTDIR` (`-o src/modules/micrortps_bridge/micrortps_client`, by default) and in the `AGENTDIR` (`-u src/modules/micrortps_bridge/micrortps_agent`, by default).
-- If no flag `-a` or `-c` is specified, both the client and the agent will be generated and installed.
-- The `-f` option may be needed if *Fast DDS* was not installed in the default location (`-f /path/to/fastdds/installation/bin`).
+- 인수 `--send/-s` 및 `--receive/-r`은 PX4에서 송수신하는 uORB 주제를 지정합니다. 코드는 지정된 메시지에 대해서만 생성됩니다.
+- 출력은 `CLIENTDIR`(기본적으로 `-o src/modules/micrortps_bridge/micrortps_client`) 및 `AGENTDIR`(`-u src/modules/micrortps_bridge/micrortps_agent` 기본값)에 표시됩니다.
+- 플래그 `-a` 또는 `-c`를 지정하지 않으면 클라이언트와 에이전트가 모두 생성되고 설치됩니다.
+- *Fast DDS*가 기본 위치(`-f /path/to/fastdds/installation/bin</0)에 설치되지 않은 경우 <code>-f` 옵션이 필요할 수 있습니다.
 
-The example below shows how you can generate bridge code to publish/subscribe just the `sensor_baro` single uORB topic.
+아래 예는 `sensor_baro` 단일 uORB 주제만 게시/구독하는 브리지 코드를 생성하는 방법을 보여줍니다.
 
 ```sh
 $ cd /path/to/PX4/Firmware
 $ python Tools/generate_microRTPS_bridge.py -s msg/sensor_baro.msg -r msg/sensor_combined.msg
 ```
 
-## Generated code
+## 생성된 코드
 
-Code is generated for the *Client*, *Agent*, *CDR serialization/deserialization* of uORB messages, and the definition of the associated RTPS messages (IDL files).
+uORB 메시지의 *클라이언트*, *에이전트*, *CDR 직렬화/역직렬화* 및 관련 RTPS 메시지(IDL 파일)를 정의하는 코드가 생성됩니다.
 
-Manually generated code for the bridge can be found here (by default):
+브리지에 대해 수동으로 생성된 코드는 여기(기본값)에서 찾을 수 있습니다.
 
-- *Client*: **src/modules/micrortps_bridge/micrortps_client/**
-- *Agent*: **src/modules/micrortps_bridge/micrortps_agent/**
+- *클라이언트*: **src/modules/micrortps_bridge/micrortps_client/**
+- *에이전트*: **src/modules/micrortps_bridge/micrortps_agent/**
 
 
-### uORB serialization code
+### uORB 직렬화 코드
 
-Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the *sensor_combined.msg*:
+직렬화 함수는 일반 PX4 컴파일 프로세스의 일부로 모든 uORB 주제에 대하여 생성됩니다(또한 수동 생성을 위하여). 예를 들어 *sensor_combined.msg*에 대해 다음 함수가 생성됩니다.
 
 ```sh
 void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
 void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, struct microCDR *microCDRReader);
 ```
 
-### RTPS message IDL files
+### RTPS 메시지 IDL 파일
 
-IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
+IDL 파일은 브리지 생성 시 uORB **.msg** 파일([선택한 uORB 주제에 대하여](../middleware/micrortps.md#supported-uorb-messages))에서 생성됩니다. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
 
 *Fast DDS* uses IDL files to define the structure of RTPS/DDS messages (in this case, RTPS/DDS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
 
