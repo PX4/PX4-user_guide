@@ -45,25 +45,20 @@ PX4 supports the three most important/main VTOL configurations.
 </style>
 
 <div class="wrapper">
-
   <div class="grid_item">
     <div class="grid_item_heading">Tailsitter</div>
     <div class="grid_text">
     Rotors permanently in fixed wing-position.
     Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
-
     <img src="../../assets/airframes/vtol/wingtraone/hero.jpg" title="wingtraone" />
     <ul>
       <li>Simple and robust</li>
       <li>Minimal set of actuators</li>
-
       <li>Can be hard to control, particularly in wind</li>
       <li>Tradeoff between efficiency in hover and forward flight, as same actuators are used</li>
-
     </ul>
     </div>
   </div>
-
 <div class="grid_item">
   <div class="grid_item_heading">Tiltrotor</div>
   Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
@@ -73,13 +68,10 @@ PX4 supports the three most important/main VTOL configurations.
   <ul>
     <li>Additional actuators for motor tilts</li>
     <li>Mechanically complex tilting mechanism</li>
-
     <li>Easier to control in hover than tailsitters due to more control authority</li>
-
   </ul>
   </div>
 </div>
-
 <div class="grid_item">
   <div class="grid_item_heading">Standard VTOL</div>
   <div class="grid_text">
@@ -87,12 +79,9 @@ PX4 supports the three most important/main VTOL configurations.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
   <ul>
     <li>Additional weight from separate hover/forward flight propulsion systems</li>
-
     <li>Easiest to control due to dedicated hover/forward flight actuators</li>
-
     <li>Can hover</li>
     <li>Fuel engines for forward flight propulsion can be used</li>
-
   </ul>
   </div>
  </div>

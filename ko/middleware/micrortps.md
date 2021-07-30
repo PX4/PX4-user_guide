@@ -1,13 +1,12 @@
-# RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge
+# RTPS/DDS 인터페이스: PX4-고속 RTPS(DDS) 브리지
 
-The *PX4-Fast RTPS(DDS) Bridge*, which is also referred to as as the *microRTPS Bridge*, adds a Real Time Publish Subscribe (RTPS) interface to the PX4 Autopilot, enabling the exchange of [uORB messages](../middleware/uorb.md) between the various PX4 Autopilot internal components and (offboard) *Fast DDS* applications in realtime.
+*microRTPS Bridge*라고 하는 *PX4-Fast RTPS(DDS) Bridge*는 PX4 Autopilot에 RTPS(Real Time Publish Subscribe) 인터페이스를 추가합니다. 다양한 PX4 Autopilot 내부 구성요소와 (오프보드) *Fast DDS* 애플리케이션 간의 [uORB 메시지](../middleware/uorb.md) 교환을 실시간으로 가능하게 합니다.
 
-This allows us to better integrate with applications running and linked in DDS domains (including ROS nodes), making it easy to share sensor data, commands, and other vehicle information.
+이를 통하여 DDS 도메인(ROS 노드 포함)에서 실행되고 연결된 애플리케이션과 통합되어 센서 데이터, 명령 및 기타 차량 정보를 쉽게 공유할 수 있습니다.
 
-The following guide describes the RTPS/DDS bridge architecture, and shows the reader how to write a simple *Fast DDS* application to subscribe to telemetry updates from the PX4 Autopilot.
+다음 가이드는 RTPS/DDS 브리지 아키텍처를 설명하고, PX4 Autopilot에서 원격 측정 업데이트를 구독하기 위하여 간단한 *Fast DDS* 애플리케이션을 작성하는 방법을 설명합니다.
 
-:::note RTPS
-is the underlying protocol of the Object Management Group's (OMG) Data Distribution Service (DDS) standard. It aims to enable scalable, real-time, dependable, high-performance and inter-operable data communication using the publish/subscribe pattern.
+:::note RTPS는 OMG(Object Management Group) DDS(Data Distribution Service) 표준의 기본 프로토콜입니다. It aims to enable scalable, real-time, dependable, high-performance and inter-operable data communication using the publish/subscribe pattern.
 
 *Fast DDS* is a very lightweight cross-platform implementation of the latest version of the RTPS protocol / DDS middleware.  It was previously named *Fast RTPS*.
 :::

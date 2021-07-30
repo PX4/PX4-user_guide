@@ -54,7 +54,7 @@ libsystem_kernel.dylib`__read_nocancel:
     0x7fff90f4430c <+12>: movq   %rax, %rdi
     0x7fff90f4430f <+15>: jmp    0x7fff90f3fc53            ; cerror_nocancel
     0x7fff90f44314 <+20>: retq
-(lldb)
+(lldb) 
 ```
 
 In order to not have the DriverFrameworks scheduling interfere with the debugging session `SIGCONT` should be masked in LLDB and GDB:
@@ -115,48 +115,3 @@ The targets that can be matched with these regular expressions can be printed wi
 ```sh
 make -C build/posix_sitl_* list_cmake_targets
 ```
-
-### Heap allocations
-
-Dynamic heap allocations can be traced on POSIX in SITL with [gperftools](https://github.com/gperftools/gperftools).
-
-#### Install Instructions
-
-##### Ubuntu:
-```bash
-sudo apt-get install google-perftools libgoogle-perftools-dev
-```
-
-#### Start heap profiling
-
-First of all, build the firmware and then start [jmavsim](../simulation/jmavsim/README.md), as shown:
-```bash
-make px4_sitl_default
-./Tools/jmavsim_run.sh -l
-```
-
-In another terminal, type:
-```bash
-cd build/px4_sitl_default/tmp/rootfs
-export HEAPPROFILE=/tmp/heapprofile.hprof
-export HEAP_PROFILE_TIME_INTERVAL=30
-```
-
-Enter the following commands (depending on your system):
-- On Fedora:
-  ```bash
-  env LD_PRELOAD=/lib64/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-  pprof --pdf ../../bin/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
-  ```
-- On Ubuntu:
-  ```bash
-  env LD_PRELOAD=/usr/lib/libtcmalloc.so PX4_SIM_MODEL=iris ../../bin/px4 ../../etc -s etc/init.d-posix/rcS
-  google-pprof --pdf ../../bin/px4 /tmp/heapprofile.hprof.0001.heap > heap.pdf
-  ```
-
-This will generate a pdf with a graph of the heap allocations.
-The numbers in the graph will all be zero, because they are in MB.
-Just look at the percentages instead.
-They show the live memory (of the node and the subtree), meaning the memory that was still in use at the end.
-
-See the [gperftools docs](https://htmlpreview.github.io/?https://github.com/gperftools/gperftools/blob/master/docs/heapprofile.html) for more information.
