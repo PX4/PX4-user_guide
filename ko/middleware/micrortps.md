@@ -6,12 +6,12 @@
 
 다음 가이드는 RTPS/DDS 브리지 아키텍처를 설명하고, PX4 Autopilot에서 원격 측정 업데이트를 구독하기 위하여 간단한 *Fast DDS* 애플리케이션을 작성하는 방법을 설명합니다.
 
-:::note RTPS는 OMG(Object Management Group) DDS(Data Distribution Service) 표준의 기본 프로토콜입니다. It aims to enable scalable, real-time, dependable, high-performance and inter-operable data communication using the publish/subscribe pattern.
+:::note RTPS는 OMG(Object Management Group) DDS(Data Distribution Service) 표준의 기본 프로토콜입니다. 발행/구독 패턴을 사용하여 확장 가능하고, 실시간 및 고성능의 상호 운용 데이터 통신이 목표입니다.
 
-*Fast DDS* is a very lightweight cross-platform implementation of the latest version of the RTPS protocol / DDS middleware.  It was previously named *Fast RTPS*.
+*Fast DDS*는 최신 버전의 RTPS 프로토콜/DDS 미들웨어를 가볍게 구현한 것입니다.  이전에는 *Fast RTPS*라는 이름이 붙었습니다.
 :::
 
-## When should RTPS be used?
+## RTPS는 언제 사용해야 합니까?
 
 RTPS should be used when you need to reliably share time-critical/real-time information between the flight controller and offboard components. It is instrumental in cases where offboard software needs to become a *peer* of software components running in PX4 (sending and receiving uORB topics).
 
