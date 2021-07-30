@@ -2,11 +2,11 @@
 
 [MAVLink](https://mavlink.io/en/)는 드론 생태계를 위하여 설계된 초경량 메시징 프로토콜입니다.
 
-PX4는 *MAVLink*를 사용하여 *QGroundControl*(및 기타 지상국)과 통신하고, 비행 콘트롤러 외부의 드론 구성요소(보조 컴퓨터, MAVLink 지원 카메라)에 연결 통합 메커니즘으로 사용합니다.
+PX4는 *MAVLink*를 사용하여 *QGroundControl*등의 지상국과 통신하고, 비행 콘트롤러 외부의 드론 구성요소(보조 컴퓨터, MAVLink 지원 카메라)에 연결 통합 메커니즘으로 사용합니다.
 
-이 프로토콜은 데이터 교환을 위한 다수의 표준 [메시지](https://mavlink.io/en/messages/) 및 [마이크로서비스](https://mavlink.io/en/services/)를 정의합니다(전부는 아니지만 다수의 메시지/서비스가 PX4에서 구현됨).
+이 프로토콜은 데이터 교환을 위한 다수의 표준 [메시지](https://mavlink.io/en/messages/)와 [마이크로서비스](https://mavlink.io/en/services/)를 정의합니다(전부는 아니지만 다수의 메시지/서비스가 PX4에서 구현됨).
 
-이 튜토리얼은 새로운 "사용자 정의" 메시지를 PX4에서 추가하는 방법을 설명합니다.
+이 튜토리얼은 PX4에 새로운 "사용자 정의" 메시지를 추가하는 방법을 설명합니다.
 
 :::note
 튜토리얼에서는 `msg/ca_trajectory.msg`에 [맞춤 uORB](../middleware/uorb.md) `ca_trajectory` 메시지와 `mavlink/include/mavlink/v2.0/custom_messages/mavlink_msg_ca_trajectory.h`에 맞춤 MAVLink `ca_trajectory` 메시지가 있다고 가정합니다.
@@ -30,7 +30,7 @@ python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated
 
 ## 사용자 정의 MAVLink 메시지 전송
 
-Add the headers of the MAVLink and uORB messages to [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+사용자 지정 uORB 메시지를 사용법과 MAVLink 메시지 전송 방법을 설명합니다.
 
 Create a new class in [mavlink_messages.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp#L2193)
 
