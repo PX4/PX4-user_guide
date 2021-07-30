@@ -171,37 +171,41 @@ $ ./micrortps_agent [options]
   -n <set namespace>      Set a namespace for the micrortps_agent.
 ```
 
-To launch the *Agent*, run `micrortps_agent` with appropriate options for specifying the connection to the *Client* (the default options connect from a Linux device to the *Client* over a UART port).
+*에이전트*를 시작하려면 *클라이언트*에 대한 연결을 지정하기 위한 적절한 옵션과 함께 `micrortps_agent`를 실행하십시오(기본 옵션은 Linux 기기에서 UART 포트를 통한 *클라이언트*).
 
-As an example, to start the *micrortps_agent* with connection through UDP, issue:
+예를 들어, UDP로 *micrortps_agent*를 시작하려면 다음을 실행합니다.
 
 ```sh
 ./micrortps_agent -t UDP
 ```
 
-## Creating a Fast DDS Listener application
+## Fast DDS 리스너 애플리케이션 생성
 
-Once the *Client* (on the flight controller) and the *Agent* (on an offboard computer) are running and connected, *Fast DDS* applications can publish and subscribe to uORB topics on the PX4 Autopilot using RTPS.
+*클라이언트*(비행 콘트롤러)와 *에이전트*(오프보드 컴퓨터)가 실행되고 연결되면, *Fast DDS* 애플리케이션이 게시하고 RTPS를 사용하여 PX4 Autopilot에서 uORB 주제를 구독하십시오.
 
-This example shows how to create a *Fast DDS* "listener" application that subscribes to the `sensor_combined` topic and prints out updates published from the PX4 Autopilot. A connected RTPS application can run on any computer on the same network as the *Agent*. For this example the *Agent* and *Listener application* will be on the same computer.
+이 예는 `sensor_combined` 주제를 구독하고 PX4 Autopilot에서 게시된 업데이트를 인쇄하는 *Fast DDS* "리스너" 애플리케이션을 만드는 방법을 보여줍니다. 연결된 RTPS 애플리케이션은 *에이전트*와 동일한 네트워크상의 모든 컴퓨터에서 실행할 수 있습니다. 이 예에서 *에이전트*와 *리스너 애플리케이션*은 같은 컴퓨터에 있습니다.
 
-The *fastrtpsgen* script can be used to generate a simple RTPS application from an IDL message file.
+*fastrtpsgen* 스크립트를 사용하여, IDL 메시지 파일에서 간단한 RTPS 애플리케이션을 생성할 수 있습니다.
 
 :::note RTPS
-messages are defined in IDL files and compiled to C++ using *fastrtpsgen*.
+메시지는 IDL 파일에 정의되고, *fastrtpsgen*을 사용하여 C++로 컴파일됩니다.
 
-When building the bridge code, IDL files are generated for the uORB messages that may be sent/received, these IDL files are needed when you create a Fast DDS application to communicate with the PX4 Autopilot.
+브리지 코드 빌드시에 송수신 uORB 메시지의 IDL 파일이 생성되며, 이러한 IDL 파일은 PX4 자동조종장치 통신용 Fast DDS 애플리케이션을 생성에 필요합니다.
 
-You can find them in following path per build target: **build/BUILDPLATFORM/src/modules/micrortps_bridge/micrortps_agent/idl/*.idl**.
+빌드 대상은 다음 디렉토리에서 찾을 수 있습니다: **build/BUILDPLATFORM/src/modules/micrortps_bridge/micrortps_agent/idl/*.idl**.
 :::
 
-Enter the following commands to create the application:
+다음 명령을 입력하여 애플리케이션을 생성합니다.
 
 ```sh
-$ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws> --px4_firmware_dir <path/to/PX4/Firmware>
+cd /path/to/PX4/PX4-Autopilot
+cd build/px4_sitl_rtps/src/modules/micrortps_bridge
+mkdir micrortps_listener
+cd micrortps_listener
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined.idl
 ```
 
-This creates a basic subscriber and publisher, and a main-application that you can run. In order to print the data from the `sensor_combined` topic, modify the `onNewDataMessage()` method in **sensor_combined_Subscriber.cxx**:
+이렇게 하면, 기본 구독자와 게시자, 실행할 수 있는 기본 응용 프로그램이 만들어집니다. `sensor_combined` 주제의 데이터를 인쇄하려면, **sensor_combined_Subscriber.cxx**에서 `onNewDataMessage()` 메소드를 수정하십시오.
 
 ```cpp
 void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
@@ -240,16 +244,14 @@ void sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
 }
 ```
 
-To build and run the application on Linux:
+Linux에서 애플리케이션을 빌드하고 실행합니다.
 
 ```sh
-cd /path/to/PX4/Firmware/src/modules/micrortps_bridge
-mkdir micrortps_listener
-cd micrortps_listener
-fastrtpsgen -example x64Linux2.6gcc ../micrortps_agent/idl/sensor_combined_.idl
+make -f makefile_x64Linux2.6gcc
+bin/*/sensor_combined_PublisherSubscriber subscriber
 ```
 
-Now you should see the sensor information being printed out:
+이제 출력되는 센서 정보를 조회할 수 있습니다.
 
 ```sh
 Sample received, count=10119
@@ -268,59 +270,59 @@ baro_temp_celcius: 43.93
 ```
 
 :::note
-Make sure the *Client* is running, if the *Listener application* does not print anything.
+*리스너 애플리케이션*이 아무 것도 출력하지 않으면, *클라이언트* 실행 여부를 확인하십시오.
 :::
 
-## Building the `px4_ros_com` package
+## 실제 하드웨어로 브리지 설정
 
-This section is work-in-progress.
+이 섹션은 작업 중입니다.
 
-## Troubleshooting
+## 문제 해결
 
-### Client reports that selected UART port is busy
+### 클라이언트가 선택한 UART 포트가 사용 중이라고 보고함
 
-If the selected UART port is busy, it's possible that the MAVLink application is already being used. If both MAVLink and RTPS connections are required you will have to either move the connection to use another port or using the available protocol splitter for PX4 and companion computers.
+선택한 UART 포트가 사용중이면, MAVLink 애플리케이션이 이미 사용중일 수 있습니다. MAVLink와 RTPS 연결이 모두 필요한 경우에는 다른 포트를 사용하거나 PX4와 보조 컴퓨터에서 사용 가능한 프로토콜 스플리터를 사용하도록 연결하여야 합니다.
 
 :::tip
-A quick/temporary fix to allow bridge testing during development is to stop MAVLink from *NuttShell*:
+개발 중 브리지 테스트를 허용하는 빠른/일시적인 수정은 *NuttShell*에서 MAVLink를 중지하는 것입니다.
 ```sh
 mavlink stop-all
 ```
 :::
 
-### Agent not built/fastrtpsgen is not found
+### 에이전트가 빌드되지 않음/fastrtpsgen을 찾을 수 없습니다.
 
 The *Agent* code is generated using a *Fast DDS* tool called *fastrtpsgen*.
 
-If you haven't installed Fast DDS in the default path then you must specify its installation directory by setting the `FASTRTPSGEN_DIR` environment variable before executing *make*.
+기본 경로에 Fast DDS를 설치하지 않은 경우에는 *make*를 실행하기 전에 `FASTRTPSGEN_DIR` 환경 변수를 설정하여 설치 디렉토리를 지정하여야 합니다.
 
-On Linux/Mac this is done as shown below:
+Linux/Mac 환경에서는 다음과 같이 설정합니다.
 
 ```sh
 export FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
 ```
 
 :::note
-This should not be a problem if [Fast DDS is installed in the default location](../dev_setup/fast-dds-installation.md).
+[기본 위치에 Fast DDS가 설치되어 있는 경우](../dev_setup/fast-dds-installation.md)에는 문제가 되지 않습니다.
 :::
 
-### Enable UART on a companion computer
+### 보조 컴퓨터의 UART 활성화
 
-For UART transport on a Raspberry Pi or any other companion computer you will have to enable the serial port:
+라즈베리파이 또는 다른 보조 컴퓨터에서 UART로 전송하려면 직렬 포트를 활성화합니다.
 
-1. Make sure the `userid` (default is pi on a Raspberry Pi) is a member of the `dialout` group:
+1. `userid`(기본값은 라즈베리파이의 경우 pi)가 `dialout` 그룹의 구성원인지 확인합니다.
 
    ```sh
    groups pi
    sudo usermod -a -G dialout pi
    ```
-1. For the Raspberry Pi in particular, you need to stop the GPIO serial console that is using the port:
+1. 특히 라즈베피파이에서는 사용중인 GPIO 직렬 콘솔을 중지하여야 합니다.
 
    ```sh
    sudo raspi-config
    ```
 
-   In the menu showed go to **Interfacing options > Serial**. Select **NO** for *Would you like a login shell to be accessible over serial?*. Valid and reboot.
+   표시된 메뉴에서 **인터페이스 옵션 > 직렬**로 이동합니다. *시리얼을 통해 로그인 셸에 액세스하시겠습니까?*에 대해 **아니요**를 선택합니다. 확인후 재부팅하십시오.
 1. Check UART in kernel:
 
    ```sh
