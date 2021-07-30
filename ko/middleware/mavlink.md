@@ -32,7 +32,7 @@ python -m pymavlink.tools.mavgen --lang=C --wire-protocol=2.0 --output=generated
 
 사용자 지정 uORB 메시지를 사용법과 MAVLink 메시지 전송 방법을 설명합니다.
 
-MAVLink와 uORB 메시지의 헤더를 다음에 추가합니다. [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)
+[mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)에 MAVLink와 uORB 메시지의 헤더를 추가합니다.
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
@@ -104,7 +104,7 @@ protected:
 };
 ```
 
-마지막으로 [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp)파일의 맨 아래에 있는 `streams_list`에 스트림 클래스를 추가합니다.
+마지막으로 [mavlink_messages.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_messages.cpp) 파일의 맨 아래에 있는 `streams_list`에 스트림 클래스를 추가합니다.
 
 ```C
 StreamListItem *streams_list[] = {
@@ -113,41 +113,41 @@ create_stream_list_item<MavlinkStreamCaTrajectory>(),
 ...
 ```
 
-Then make sure to enable the stream, for example by adding the following line to the [startup script](../concept/system_startup.md) (e.g. [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) on NuttX or [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)) on SITL. Note that `-r` configures the streaming rate and `-u` identifies the MAVLink channel on UDP port 14556).
+그런 다음 예를 들어 [시작 스크립트](../concept/system_startup.md)에 다음 줄을 추가하여 스트림을 활성화하여야 합니다(예: NuttX의 경우 [/ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) 또는 SITL의 [ROMFS/px4fmu_common/init.d-posix/rcS](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)). `-r`은 스트리밍 속도를 설정하고, `-u`는 UDP 포트 14556에서 MAVLink 채널을 식별합니다.
 
 ```
 mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
 ```
 
 :::tip
-You can use the `uorb top [<message_name>]` command to verify in real-time that your message is published and the rate (see [uORB Messaging](../middleware/uorb.md#uorb-top-command)). This approach can also be used to test incoming messages that publish a uORB topic (for other messages you might use `printf` in your code and test in SITL).
+`uorb top [<message_name>]` 명령을 사용하여 메시지가 게시 여부와 비율을 실시간으로 확인할 수 있습니다([uORB 메시지](../middleware/uorb.md#uorb-top-command) 참조). 이 접근 방식은 uORB 주제를 게시하는 수신 메시지를 테스트할 수 있습니다(다른 메시지의 경우 코드에서 `printf`를 사용하고 SITL에서 테스트할 수 있음).
 
-To see the message on *QGroundControl* you will need to [build it with your MAVLink library](https://dev.qgroundcontrol.com/en/getting_started/), and then verify that the message is received using [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html) (or some other MAVLink tool).
+*QGroundControl*에서 메시지를 보려면 [MAVLink 라이브러리로 빌드](https://dev.qgroundcontrol.com/en/getting_started/)한 다음 [MAVLink Inspector Widget](https://docs.qgroundcontrol.com/en/app_menu/mavlink_inspector.html)을 사용하여 메시지가 수신 여부를 확인합니다. (또는 다른 MAVLink 도구).
 :::
 
-## Receiving Custom MAVLink Messages
+## 사용자 지정 MAVLink 메시지 수신
 
-Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
+MAVLink 메시지 수신 방법과 uORB에 게시 방법을 설명합니다.
 
-Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp)
+[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L77)에 수신되는 MAVLink 메시지를 처리하는 기능을 추가합니다.
 
 ```C
 #include <uORB/topics/ca_trajectory.h>
 #include <v2.0/custom_messages/mavlink_msg_ca_trajectory.h>
 ```
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
+[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L140)의 `MavlinkReceiver` 클래스에서 수신되는 MAVLink 메시지를 처리하는 함수를 추가합니다.
 
 ```C
 void handle_message_ca_trajectory_msg(mavlink_message_t *msg);
 ```
-Add an uORB publisher in the `MavlinkReceiver` class in [mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)
+[mavlink_receiver.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.h#L195)의 `MavlinkReceiver` 클래스에 uORB 게시자 추가합니다.
 
 ```C
 uORB::Publication<ca_trajectory_s>          _flow_pub{ORB_ID(ca_trajectory)};
 ```
 
-Implement the `handle_message_ca_trajectory_msg` function in [mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)
+[mavlink_receiver.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp)에서 `handle_message_ca_trajectory_msg` 함수를 구현합니다.
 
 ```C
 void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
@@ -169,7 +169,7 @@ void MavlinkReceiver::handle_message_ca_trajectory_msg(mavlink_message_t *msg)
 }
 ```
 
-and finally make sure it is called in [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)
+마지막으로, [MavlinkReceiver::handle_message()](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_receiver.cpp#L228)에서 호출되는 지 확인합니다.
 
 ```C
 MavlinkReceiver::handle_message(mavlink_message_t *msg)
@@ -183,11 +183,11 @@ MavlinkReceiver::handle_message(mavlink_message_t *msg)
     }
 ```
 
-## Alternative to Creating Custom MAVLink Messages
+## 사용자 지정 MAVLink 메시지 생성에 대한 대안
 
-Sometimes there is the need for a custom MAVLink message with content that is not fully defined.
+때로는 완전히 정의되지 않은 콘텐츠에 대한 사용자 정의 MAVLink 메시지가 필요합니다.
 
-For example when using MAVLink to interface PX4 with an embedded device, the messages that are exchanged between the autopilot and the device may go through several iterations before they are stabilized. In this case, it can be time-consuming and error-prone to regenerate the MAVLink headers, and make sure both devices use the same version of the protocol.
+예를 들어, MAVLink를 사용하여 임베디드 장치와 PX4를 인터페이스시에 자동조종장치와 장치간에 교환되는 메시지는 안정화되기 전에 여러 번 반복될 수 있습니다. 이 경우에는 MAVLink 헤더를 재생성하고 두 장치가 동일한 버전의 프로토콜을 사용하는지 확인하는 데 시간이 많이 걸리고 오류가 발생하기 쉽습니다.
 
 An alternative - and temporary - solution is to re-purpose debug messages. Instead of creating a custom MAVLink message `CA_TRAJECTORY`, you can send a message `DEBUG_VECT` with the string key `CA_TRAJ` and data in the `x`, `y` and `z` fields. See [this tutorial](../debug/debug_values.md). for an example usage of debug messages.
 
