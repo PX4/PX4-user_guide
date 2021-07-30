@@ -327,7 +327,7 @@
     * [uORB 그라프](middleware/uorb_graph.md)
     * [MAVLink 메시징](middleware/mavlink.md)
     * [RTPS/DDS 인터페이스: PX4-고속 RTPS(DDS) 브릿지](middleware/micrortps.md) 
-      * [수동으로 클라이언트/에이전트 생성](middleware/micrortps_manual_code_generation.md)
+      * [클라이언트/에이전트 코드 수동 생성](middleware/micrortps_manual_code_generation.md)
   * [모듈과 명령](modules/modules_main.md) 
     * [명령](modules/modules_command.md)
     * [통신](modules/modules_communication.md)
