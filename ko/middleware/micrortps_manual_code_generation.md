@@ -113,27 +113,27 @@ void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, 
 
 ### RTPS 메시지 IDL 파일
 
-IDL 파일은 브리지 생성 시 uORB **.msg** 파일([선택한 uORB 주제에 대하여](../middleware/micrortps.md#supported-uorb-messages))에서 생성됩니다. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
+IDL 파일은 브리지 생성 시 uORB **.msg** 파일([선택한 uORB 주제에 대하여](../middleware/micrortps.md#supported-uorb-messages))에서 생성됩니다. 생성된 파일은**src/modules/micrortps_bridge/micrortps_agent/idl/** 에서 찾을 수 있습니다.
 
-*Fast DDS* uses IDL files to define the structure of RTPS/DDS messages (in this case, RTPS/DDS messages that map to uORB topics). They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
+*Fast DDS*는 IDL 파일을 사용하여 RTPS/DDS 메시지(이 경우 uORB 주제에 매핑되는 RTPS/DDS 메시지)의 구조를 정의합니다. They are used to generate code for the *Agent*, and *Fast DDS* applications that need to publish/subscribe to uORB topics.
 
 :::note IDL
-files are compiled to C++ by the *fastrtpsgen* tool.
+파일은 *fastrtpsgen* 도구에 의해 C++로 컴파일됩니다.
 :::
 
-## Verify code generation
+## 코드 생성 검증
 
-The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client-px4-firmware).
+출력 디렉토리가 아래 표시된 목록과 일치하는지 확인하여, 성공적인 코드 생성을 확인할 수 있습니다(Linux에서는 `tree` 명령을 사용하여 파일 구조를 나열할 수 있음).
 
-Agent directory:
+에이전트 디렉터리:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_agent
 src/modules/micrortps_bridge/micrortps_agent
 ├── build
 ├── CMakeLists.txt
 ├── idl
-│   ├── sensor_baro_.idl
-│   └── sensor_combined_.idl
+│   ├── sensor_baro_.idl
+│   └── sensor_combined_.idl
 ├── microRTPS_agent.cpp
 ├── microRTPS_timesync.cpp
 ├── microRTPS_timesync.h
@@ -156,7 +156,7 @@ src/modules/micrortps_bridge/micrortps_agent
  2 directories, 20 files
 ```
 
-Client directory:
+클라이언트 디렉토리:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_client
 src/modules/micrortps_bridge/micrortps_client
@@ -169,18 +169,18 @@ src/modules/micrortps_bridge/micrortps_client
  0 directories, 4 files
 ```
 
-## Build and use the code
+## 코드 빌드 및 사용
 
-The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client_firmware).
+수동으로 생성된 *클라이언트* 코드는 [자동으로 생성된 클라이언트 코드](../middleware/micrortps.md#client_firmware)와 같은 방식으로 *정확히* 빌드되고 사용됩니다.
 
-Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 Firmware as part of the normal build process. For example, to compile the code and include it in Firmware for NuttX/Pixhawk targets:
+특히, 수동으로 생성된 *클라이언트* 소스 코드는 컴파일되어 일반 빌드 프로세스의 일부로 PX4 펌웨어에 빌드됩니다. For example, to compile the code and include it in Firmware for NuttX/Pixhawk targets:
 
 ```sh
 make px4_fmu-v4_rtps upload
 ```
 
 :::note
-You must first [disable automatic bridge code generation](#disable-automatic-bridge-code-generation) so that the toolchain uses the manually generated source code (and does not attempt to regenerate it).
+도구 체인이 수동으로 생성된 소스 코드를 사용하고, 다시 생성을 시도하지 않도록 먼저 [자동 브리지 코드 생성을 비활성화](#disable-automatic-bridge-code-generation)하여야 합니다.
 :::
 
-The manually generated *Agent* code is also compiled and used in the same way as the [automatically generated code](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent). The only difference is that the manually source code is created in **src/modules/micrortps_bridge/micrortps_agent** instead of <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/**.
+수동으로 생성된 *에이전트* 코드도 [자동으로 생성된 코드](../middleware/micrortps.md#agent-in-an-offboard-fast-dds-interface-ros-independent)와 동일한 방식으로 컴파일되어 사용됩니다. 유일한 차이점은 수동 소스 코드가 <strong>build/BUILDPLATFORM</strong>**/src/modules/micrortps_bridge/micrortps_agent/ 대신 **src/modules/micrortps_bridge/micrortps_agent**에서 생성되는 점입니다.</p>
