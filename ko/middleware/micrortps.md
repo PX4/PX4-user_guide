@@ -133,22 +133,22 @@ make px4_sitl_rtps
 ```
 
 :::note
-By default the *Client* runs as a daemon, but it does not automatically start, and must be manually launched.
+기본적으로 *클라이언트*는 데몬으로 실행되지만, 자동으로 시작되지 않으며 수동으로 실행하여야 합니다.
 
-The PX4 Autopilot firmware initialization code may in future automatically start the *Client* as a permanent daemon process.
+PX4 Autopilot 펌웨어 초기화 코드는 향후 영구 데몬 프로세스로 *클라이언트*를 자동으로 시작할 수 있습니다.
 :::
 
-In order to install ROS Melodic and ROS2 Bouncy on a Ubuntu 18.04 machine, follow the links below, respectively:
+예를 들어, UDP로 에이전트에 연결하는 SITL로 *클라이언트* 데몬을 실행하려면 다음 명령어를 실행하십시오.
 
 ```sh
 micrortps_client start -t UDP
 ```
 
-## Agent in an Offboard Fast DDS interface (ROS-independent)
+## Offboard Fast DDS 인터페이스의 에이전트(ROS 독립)
 
-The *Agent* code is automatically *generated* when you build the associated PX4 Autopilot firmware, and you can find the source here: `build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent/`.
+연결된 PX4 Autopilot 펌웨어를 빌드할 때 *에이전트* 코드가 자동으로 *생성*되며, 소스 코드 폴더는 다음과 같습니다: `build/<target-platform>/src/modules/ micrortps_bridge/micrortps_client/micrortps_agent/`
 
-To build the *Agent* application, compile the code:
+*에이전트* 애플리케이션을 빌드합니다.
 
 ```sh
 cd build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent
@@ -157,7 +157,7 @@ cmake ..
 make
 ```
 
-The command syntax for the *Agent* is listed below:
+*에이전트*의 명령 구문은 다음과 같습니다.
 
 ```sh
 $ ./micrortps_agent [options]
