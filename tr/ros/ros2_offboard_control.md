@@ -26,8 +26,12 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
        id: 44
        receive: true
      ...
+     - msg: vehicle_local_position_setpoint
+       id: 97
+       receive: true
+     ...
      - msg: trajectory_setpoint
-       id: 186
+       id: 196
        alias: vehicle_local_position_setpoint
        receive: true
    ```
@@ -38,8 +42,12 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
        msg: OffboardControlMode
        receive: true
      ...
+     - msg: VehicleLocalPositionSetpoint
+       id: 97
+       receive: true
+     ...
      - alias: VehicleLocalPositionSetpoint
-       id: 186
+       id: 196
        msg: TrajectorySetpoint
        receive: true
    ```
