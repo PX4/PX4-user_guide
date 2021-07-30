@@ -40,39 +40,38 @@ RTPS는 비행 콘트롤러와 오프보드 부품간에 중요한 정보를 실
 *에이전트*는 오프보드 컴퓨터(비행 콘트롤러 외부)의 데몬 프로세스로 실행됩니다. This agent watches for uORB update messages from the *Client* and (re)publishes them over RTPS, and also subscribes to "uORB" RTPS/DDS messages from other DDS-participant applications and forwards them to the *Client*.
 
 #### microRTPS 에이전트/클라이언트 통신
-The *Agent* and *Client* are connected via a serial link (UART) or UDP network, and the uORB information is [CDR serialized](https://en.wikipedia.org/wiki/Common_Data_Representation) before being sent (*CDR serialization* provides a common format for exchanging serial data between different platforms).
+*에이전트*와 *클라이언트*는 직렬 통신(UART) 또는 UDP 네트워크로 연결되며, uORB 정보는 전송전에 [CDR 직렬화](https://en.wikipedia.org/wiki/Common_Data_Representation)됩니다(*CDR 직렬화*는 서로 다른 플랫폼 간에 직렬 데이터 교환을 위한 공통 형식입니다.)
 
-The *Agent* and any *Fast DDS* applications are connected via UDP and may be on the same or another device. In a typical configuration, they will be on the same system (e.g., a development computer, Linux companion computer, or compute board), connected to the *Client*. This can be through a Wifi link or USB.
+*에이전트*와 모든 *Fast DDS* 애플리케이션은 UDP로 연결되며, 동일한 기기 또는 다른 기기에 있을 수 있습니다. 일반적인 설정에서는 *클라이언트*에 연결된 동일 시스템(예: 개발 컴퓨터, Linux 보조 컴퓨터 또는 컴퓨팅 보드)에 있습니다. 이것은 Wi-Fi 링크 또는 USB로 가능합니다.
 
-## Code generation
+## 코드 생성
 
-### Dependencies
-Fast DDS 2.0.0 or later and Fast-RTPS-Gen 1.0.4 (not later!) must be installed in order to generate the required code, and continue to the next steps. [Follow the installation guide.](../dev_setup/fast-dds-installation.md)
+### 종속성
+필요 코드를 생성하고 다음 단계를 진행하기 위하여 Fast DDS 2.0.0 이상 및 Fast-RTPS-Gen 1.0.4(이후 아님!)를 설치합니다. [설치 가이드를 참고하십시오.](../dev_setup/fast-dds-installation.md)
 
-:::note RTPS
-has been adopted as the middleware for the ROS 2 (Robot Operating System).
+:::note RTPS는 ROS 2(Robot Operating System)의 미들웨어로 채택되었습니다.
 
-For information about how to use this interface within the ROS 2 applications and development workflows, see [PX4-ROS 2 bridge](../ros/ros2_comm.md).
+ROS 2 애플리케이션과 개발 워크플로에서의 자세한 사용 방법은 [PX4-ROS 2 브리지](../ros/ros2_comm.md)를 참고하십시오.
 :::
 
-### Fast RTPS(DDS) Applications (ROS Independent)
+### Fast RTPS(DDS) 애플리케이션(ROS 독립)
 
-All the code needed to create, build and use the bridge is automatically generated when PX4-Autopilot is compiled.
+브리지를 생성, 구축 및 사용하는 데 필요한 코드는 PX4-Autopilot이 컴파일시에 자동으로 생성됩니다.
 
-The *Client* application is also compiled and built into the firmware as part of the normal build process. The *Agent* must be separately/manually compiled for the target computer.
+*클라이언트* 애플리케이션도 일반 빌드 프로세스의 일부로 컴파일되고, 펌웨어에 빌드됩니다. *에이전트*는 대상 컴퓨터에서 수동으로 컴파일하여야 합니다.
 
 :::tip
-Most users will not need to do so. Still, the bridge can be [manually generated](micrortps_manual_code_generation.md), providing a more detailed overview of the build process and useful for troubleshooting.
+대부분의 사용자는 그렇게 할 필요가 없습니다. 그래도, 브리지는 [수동으로 생성](micrortps_manual_code_generation.md)할 수 있으므로 빌드 프로세스에 대한 보다 자세한 개요를 제공하고 문제 해결에 유용합니다.
 :::
 
-## Supported uORB messages
+## 지원 uORB 메시지
 
-The generated bridge code will enable a specified subset of uORB topics to be published/subscribed via RTPS, regardless if you are deploying a ROS application or not.
+생성된 브리지 코드는 ROS 애플리케이션을 배포 여부에 상관없이 RTPS를 통하여 uORB 주제의 지정된 하위 집합을 게시/구독할 수 있도록 합니다.
 
-For *automatic code generation* there's a *yaml* definition file in the PX4 **PX4-Autopilot/msg/tools/** directory called **uorb_rtps_message_ids.yaml**. This file defines the set of uORB messages to be used with RTPS, whether the messages are to be sent, received or both, and the RTPS ID for the message to be used in DDS/RTPS middleware.
+*자동 코드 생성*의 경우 **uorb_rtps_message_ids.yaml**이라는 PX4 **PX4-Autopilot/msg/tools/** 디렉토리에 *yaml* 정의 파일이 있습니다. 이 파일은 RTPS와 함께 사용할 uORB 메시지 세트, 메시지를 보내거나 받을지 또는 둘 다 할지 여부와 DDS/RTPS 미들웨어에서 사용할 메시지의 RTPS ID를 정의합니다.
 
 :::note
-It's essential to note that every RTPS message **needs** an ID to be set in this file.
+모든 RTPS 메시지는 이 파일에 ID 설정이 **필요**합니다.
 :::
 
 ```yaml
@@ -102,29 +101,28 @@ rtps:
 
 <a id="client_firmware"></a>
 
-## Client (PX4 Firmware)
+## 클라이언트 (PX4/PX4-Autopilot)
 
-The *Client* source code is generated, compiled and built into the PX4 Autopilot firmware as part of the normal build process.
+*클라이언트* 소스 코드는 일반 빌드 프로세스의 일부로 생성, 컴파일 및 PX4 Autopilot 펌웨어에 빌드됩니다.
 
-To build the PX4 Autopilot firmware for NuttX/Pixhawk flight controllers use the `_rtps` feature in the configuration target.
+NuttX/Pixhawk 비행 콘트롤러용 PX4 Autopilot 펌웨어를 빌드하려면 구성 대상에서 `_rtps` 기능을 사용하십시오.
 
-For example, to build RTPS for px4_fmu-v4:
+예를 들어, RTPS를 px4_fmu-v4에 빌드하려면:
 ```sh
 make px4_fmu-v4_rtps
 ```
 
-To build the firmware for a SITL target:
+SITL 대상 펌웨어를 빌드하려면:
 ```sh
 make px4_sitl_rtps
 ```
 
-The *Client* application can be launched from [NuttShell/System Console](../debug/system_console.md). The command syntax is shown below (you can specify a variable number of arguments):
+*클라이언트* 애플리케이션은 [NuttShell/System Console](../debug/system_console.md)에서 실행할 수 있습니다. 명령어 구문은 다음과 같습니다(가변 인수를 지정할 수 있음).
 
 ```sh
-> micrortps_client start|stop [options]
+> micrortps_client start|stop|status [options]
   -t <transport>          [UART|UDP] Default UART
   -d <device>             UART device. Default /dev/ttyACM0
-  -u <update_time_ms>     Time in ms for uORB subscribed topics update. Default 0
   -l <loops>              How many iterations will this program have. -1 for infinite. Default -1.
   -w <sleep_time_ms>      Time in ms for which each iteration sleep. Default 1ms
   -b <baudrate>           UART device baudrate. Default 460800
