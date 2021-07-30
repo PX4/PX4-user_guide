@@ -291,7 +291,7 @@
       * [Gazebo 차량](simulation/gazebo_vehicles.md)
       * [Gazebo 월드](simulation/gazebo_worlds.md)
       * [Gazebo 다중 차량 시뮬레이션](simulation/multi_vehicle_simulation_gazebo.md)
-    * [Ignition Gazebo Simulation](simulation/ignition_gazebo.md)
+    * [연소 Gazebo 시뮬레이션](simulation/ignition_gazebo.md)
     * [FlightGear 시뮬레이션](simulation/flightgear.md) 
       * [FlightGear 차량](simulation/flightgear_vehicles.md)
       * [FlightGear 다중 차량 시뮬레이션](simulation/multi_vehicle_flightgear.md)
