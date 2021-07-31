@@ -1,12 +1,12 @@
-# Modules Reference: Communication
+# 모듈 참조: 통신
 
 ## frsky_telemetry
-Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/frsky_telemetry)
+소스: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/frsky_telemetry)
 
-FrSky Telemetry support. Auto-detects D or S.PORT protocol.
+FrSky 텔레메트리를 지원합니다. D 또는 S.PORT 프로토콜을 자동으로 감지합니다.
 <a id="frsky_telemetry_usage"></a>
 
-### Usage
+### 사용법
 ```
 frsky_telemetry <command> [arguments...]
  Commands:
@@ -16,18 +16,15 @@ frsky_telemetry <command> [arguments...]
      [-t <val>]  Scanning timeout [s] (default: no timeout)
                  default: 0
      [-m <val>]  Select protocol (default: auto-detect)
-                 values: sport|sport_single|dtype, default: auto
-
-   stop
-
-   status
+                 values: sport|sport_single|sport_single_invert|dtype, default:
+                 auto
 ```
 ## mavlink
-Source: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink)
+소스: [modules/mavlink](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink)
 
 
-### Description
-This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
+### 설명
+이 모듈은 직렬 링크 또는 UDP 네트워크에서 사용할 수 있는 MAVLink 프로토콜을 구현합니다. It communicates with the system via uORB: some messages are directly handled in the module (eg. mission protocol), others are published via uORB (eg. vehicle_command).
 
 Streams are used to send periodic messages with a specific rate, such as the vehicle attitude. When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates. For a running instance, streams can be configured via `mavlink stream` command.
 
