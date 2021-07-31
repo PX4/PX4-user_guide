@@ -111,13 +111,13 @@ fw_pos_control_l1 <command> [arguments...]
 
 컨트롤러에는 각도 오류에 대한 P 루프가 있습니다.
 
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+간행물: 구현된 쿼터니언 태도 제어를 문서화, 제목: 비선형 쿼드로콥터 자세 제어(2013), 저자: Dario Brescianini, Markus Hehn and Raffaello D'Andrea 동적 시스템 및 제어 연구소(IDSC), ETH 취리히
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
 
 <a id="mc_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 mc_att_control <command> [arguments...]
  Commands:
@@ -129,17 +129,17 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## mc_pos_control
-Source: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_pos_control)
+소스: [modules/mc_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_pos_control)
 
 
-### Description
-The controller has two loops: a P loop for position error and a PID loop for velocity error. Output of the velocity controller is thrust vector that is split to thrust direction (i.e. rotation matrix for multicopter orientation) and thrust scalar (i.e. multicopter thrust itself).
+### 설명
+컨트롤러에는 위치 오류용 P 루프와 속도 오류용 PID 루프의 두 가지 루프가 있습니다. 속도 컨트롤러의 출력은 추력 방향(즉, 멀티콥터 방향에 대한 회전 행렬)과 추력 스칼라(즉, 멀티콥터 추력 자체)로 분할되는 추력 벡터입니다.
 
-The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
+컨트롤러는 작업에 오일러 각도를 사용하지 않으며, 보다 인간 친화적인 제어 및 로깅을 위해서만 생성됩니다.
 
 <a id="mc_pos_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 mc_pos_control <command> [arguments...]
  Commands:
@@ -151,7 +151,7 @@ mc_pos_control <command> [arguments...]
    status        print status info
 ```
 ## mc_rate_control
-Source: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_rate_control)
+소스: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_rate_control)
 
 
 ### Description
