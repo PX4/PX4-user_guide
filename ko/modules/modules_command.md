@@ -48,39 +48,45 @@ dyn [arguments...]
 ESC 보정 도구
 
 보정 절차(명령을 실행하면 안내 도움말이 표시됨):
-- Remove props, power off the ESC's
-- Stop attitude controllers: mc_att_control stop, fw_att_control stop
-- Make sure safety is off
-- Run this command
+- 프로펠러를 제거하고, ESC 전원을 끕니다.
+- 자세 및 속도 컨트롤러를 중지합니다: mc_rate_control stop, fw_att_control stop
+- 안전이 꺼져 있는 지 확인
+- 이 명령어를 실행하십시오
 
 <a id="esc_calib_usage"></a>
 
-### Usage
+### 사용법
 ```
-motor_ramp [arguments...]
-     ramp|sine|square mode
-     <min_pwm> <time> [<max_pwm>] pwm value in us, time in sec
-
- WARNING: motors will ramp up to full speed!
+esc_calib [arguments...]
+     [-d <val>]  Select PWM output device
+                 values: <file:dev>, default: /dev/pwm_output0
+     [-l <val>]  Low PWM value in us
+                 default: 1000
+     [-h <val>]  High PWM value in us
+                 default: 2000
+     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
+     [-a]        Select all channels
 ```
 ## failure
-Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
+소스: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
 
-### Description
-Inject failures into system.
+### 설명
+시스템에 장애를 주입합니다.
 
-### Implementation
-This system command sends a vehicle command over uORB to trigger failure.
+### 구현
+이 시스템 명령은 uORB로 차량 명령어를 전송하여 실패를 트리거합니다.
 
-### Examples
-Test the GPS failsafe by stopping GPS:
+### 예
+GPS를 중지하여, GPS 안전 장치를 테스트합니다.
 
 failure gps off
 
 <a id="failure_usage"></a>
 
-### Usage
+### 사용법
 ```
 failure [arguments...]
    help          Show this help text
@@ -92,36 +98,36 @@ failure [arguments...]
                  default: 0
 ```
 ## gpio
-Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+소스: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
-### Description
-This command is used to read and write GPIOs
+### 설명
+이 명령은 GPIO를 읽고 쓰는 데 사용됩니다.
 ```
 gpio read <PORT><PIN>/<DEVICE> [PULLDOWN|PULLUP] [--force]
 gpio write <PORT><PIN>/<DEVICE> <VALUE> [PUSHPULL|OPENDRAIN] [--force]
 ```
 
-### Examples
-Read the value on port H pin 4 configured as pullup, and it is high
+### 예
+풀업으로 구성된 포트 H 핀 4의 값을 읽습니다.
 ```
 gpio read H4 PULLUP
 ```
 1 OK
 
-Set the output value on Port E pin 7 to high
+포트 E 핀 7의 출력 값을 높음으로 설정합니다.
 ```
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpin1 to high
+/dev/gpin1 장치의 출력 값을 높음으로 설정합니다.
 ```
 gpio write /dev/gpin1 1
 ```
 
 <a id="gpio_usage"></a>
 
-### Usage
+### 사용법
 ```
 gpio [arguments...]
    read
@@ -136,15 +142,15 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+소스: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
 
-Hardfault utility
+하드폴트 유틸리티
 
-Used in startup scripts to handle hardfaults
+하드폴트를 처리하기 위해 시작 스크립트에서 사용됩니다.
 
 <a id="hardfault_log_usage"></a>
 
-### Usage
+### 사용법
 ```
 hardfault_log <command> [arguments...]
  Commands:
@@ -164,22 +170,21 @@ hardfault_log <command> [arguments...]
    reset         Reset the reboot counter
 ```
 ## i2cdetect
-Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
+소스: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
-Utility to scan for I2C devices on a particular bus.
-<a id="i2cdetect_usage"></a>
+특정 버스에서 I2C 장치를 검색하는 유틸리티입니다.<a id="i2cdetect_usage"></a>
 
-### Usage
+### 사용법
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+소스: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
 
 
-### Description
+### 설명
 Command-line tool to control & test the (external) LED's.
 
 To use it make sure there's a driver running, which handles the led_control uorb topic.
