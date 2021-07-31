@@ -185,21 +185,21 @@ i2cdetect [arguments...]
 
 
 ### 설명
-Command-line tool to control & test the (external) LED's.
+(외부) LED를 제어하고 콘트롤하는 명령어입니다.
 
-To use it make sure there's a driver running, which handles the led_control uorb topic.
+이 명령어를 사용하려면, led_control uorb 주제를 처리하는 드라이버가 실행중인 지 확인하십시오.
 
-There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
+예를 들어, 한 모듈은 낮은 우선 순위로 색상을 설정할 수 있고, 다른 모듈은 높은 우선 순위로 N 번 깜박일 수 있으며, 깜박임 후 LED는 자동으로 낮은 우선 순위 상태로 돌아갑니다. `reset` 명령을 사용하여 더 낮은 우선순위로 돌아갈 수도 있습니다.
 
-### Examples
-Blink the first LED 5 times in blue:
+### 예
+첫 번째 LED를 파란색으로 5번 깜박입니다.
 ```
 led_control blink -c blue -l 0 -n 5
 ```
 
 <a id="led_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 led_control <command> [arguments...]
  Commands:
@@ -230,16 +230,16 @@ led_control <command> [arguments...]
                  default: 2
 ```
 ## listener
-Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+소스: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
 
 
-Utility to listen on uORB topics and print the data to the console.
+uORB 주제를 듣고 콘솔에 데이터를 인쇄하는 유틸리티입니다.
 
-The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
+리스너는 Ctrl+C, Esc 또는 Q를 눌러 종료합니다.
 
 <a id="listener_usage"></a>
 
-### Usage
+### 사용법
 ```
 listener <command> [arguments...]
  Commands:
@@ -252,29 +252,28 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mfd
-Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+소스: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
-Utility interact with the manifest
-<a id="mfd_usage"></a>
+매니페스트와 상호 작용하는 유틸리티입니다.<a id="mfd_usage"></a>
 
-### Usage
+### 사용법
 ```
 mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
 ## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
+소스: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)/
 
 
-### Description
-Load or append mixer files to the ESC driver.
+### 설명
+믹서 파일을 ESC 드라이버에 로드하거나 추가합니다.
 
-Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
+드라이버는 NuttX의 경우와 같이 사용된 ioctl을 지원하여야 하지만, 예를 들어 라즈베리파이에서는 지원하지 않습니다.
 
 <a id="mixer_usage"></a>
 
-### Usage
+### 사용법
 ```
 mixer <command> [arguments...]
  Commands:
@@ -285,28 +284,28 @@ mixer <command> [arguments...]
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
 ```
 ## motor_ramp
-Source: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
+소스: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
 
 
-### Description
-Application to test motor ramp up.
+### 설명
+모터 램프 업을 테스트하기 위한 응용 프로그램입니다.
 
-Before starting, make sure to stop any running attitude controller:
+시작하기 전에 실행 중인 자세 컨트롤러를 중지하여야 합니다.
 ```
 mc_rate_control stop
 fw_att_control stop
 ```
 
-When starting, a background task is started, runs for several seconds (as specified), then exits.
+시작할 때 백그라운드 작업이 시작되고, 몇 초 동안(지정된 대로) 실행된 다음 종료됩니다.
 
-### Example
+### 예
 ```
 motor_ramp sine -a 1100 -r 0.5
 ```
 
 <a id="motor_ramp_usage"></a>
 
-### Usage
+### 사용법
 ```
 motor_ramp [arguments...]
      ramp|sine|square mode
@@ -321,16 +320,16 @@ motor_ramp [arguments...]
  WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
+소스: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
 
 
-Utility to test motors.
+모터를 테스트하는 유틸리티입니다.
 
-WARNING: remove all props before using this command.
+경고: 이 명령을 사용하기 전에 모든 프로펠러를 제거하십시오.
 
 <a id="motor_test_usage"></a>
 
-### Usage
+### 사용법
 ```
 motor_test <command> [arguments...]
  Commands:
@@ -348,12 +347,11 @@ motor_test <command> [arguments...]
    iterate       Iterate all motors starting and stopping one after the other
 ```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
+소스: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
 
-Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
-<a id="mtd_usage"></a>
+파티션을 마운트하고 테스트하는 유틸리티(보드에서 정의한 FRAM/EEPROM 스토리지 기반) 입니다.<a id="mtd_usage"></a>
 
-### Usage
+### 사용법
 ```
 mtd <command> [arguments...]
  Commands:
@@ -374,15 +372,15 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
+소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
 
-Start an NSH shell on a given port.
+주어진 포트에서 NSH 쉘을 시작합니다.
 
-This was previously used to start a shell on the USB serial port. Now there runs mavlink, and it is possible to use a shell over mavlink.
+이것은 이전에 USB 직렬 포트에서 셸을 시작하는 데 사용되었습니다. 이제 mavlink가 실행되고 mavlink를 통하여 쉘을 사용할 수 있습니다.
 
 <a id="nshterm_usage"></a>
 
-### Usage
+### 사용법
 ```
 nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
