@@ -11,7 +11,7 @@ The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 <style>
-table {
+table.common, table.generic {
    display: table;
    table-layout: fixed;
    margin-bottom: 5px;
