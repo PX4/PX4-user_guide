@@ -145,29 +145,29 @@ uORB는 모듈 간의 통신에 사용되는 내부 pub-sub 메시징 시스템�
 ### 구현
 구현은 비동기식이며 잠금이 없습니다. 게시자는 구독자를 기다리지 않으며, 그 반대도 마찬가지입니다. 이것은 발행자와 구독자 사이에 별도의 버퍼를 가짐으로써 달성됩니다.
 
-코드는 메모리 공간과 메시지 교환 대기 시간을 최소화하도록 최적화되어 있습니다.
+코드는 메모리 공간과 메시지 교환 대기 시간을 최소화하도록 최적화되었습니다.
 
-Messages are defined in the `/msg` directory. They are converted into C/C++ code at build-time.
+메시지는 `/msg` 디렉토리에 정의됩니다. 빌드 타임에 C/C++ 코드로 변환됩니다.
 
-If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which modules are allowed to publish which topics. Except for the publications, which use `orb_advert_t` handles, so that they can be used from interrupts as well (on NuttX).
+ORB_USE_PUBLISHER_RULES로 컴파일하면, uORB 게시 규칙이 있는 파일을 사용하여, 어떤 모듈이 어떤 주제를 게시할 수 있는 지 설정할 수 있습니다. 이것은 시스템 전체 재생에 사용됩니다.
 
-### Examples
-Monitor topic publication rates. Besides `top`, this is an important command for general system inspection:
+### 예
+주제 게시 비율을 모니터링합니다. `top` 외에 일반 시스템 검사를 위한 중요한 명령어입니다.
 ```
 uorb top
 ```
 
 <a id="uorb_usage"></a>
 
-### Usage
+### 사용법
 ```
 uorb <command> [arguments...]
  Commands:
-   start
-
    status        Print topic statistics
 
    top           Monitor topic publication rates
-     [-a]        print all instead of only currently publishing topics
+     [-a]        print all instead of only currently publishing topics with
+                 subscribers
+     [-1]        run only once, then exit
      [<filter1> [<filter2>]] topic(s) to match (implies -a)
 ```
