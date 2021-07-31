@@ -1,11 +1,11 @@
-# Modules Reference: Command
+# 모듈 참조: 명령
 
 ## bl_update
-Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
+소스: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
-Utility to flash the bootloader from a file<a id="bl_update_usage"></a>
+파일에서 부트로더를 플래시하는 유틸리티<a id="bl_update_usage"></a>
 
-### Usage
+### 사용법
 ```
 bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
@@ -14,31 +14,31 @@ bl_update [arguments...]
    <file>        Bootloader bin file
 ```
 ## dumpfile
-Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+소스: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
 
-Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
+덤프 파일 유틸리티. 바이너리 모드(LF를 CR LF로 바꾸지 않음) 파일의 크기와 내용을 표준 출력에 인쇄합니다.
 <a id="dumpfile_usage"></a>
 
-### Usage
+### 사용법
 ```
 dumpfile [arguments...]
      <file>      File to dump
 ```
 ## dyn
-Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
+소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
 
 
-### Description
-Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.
+### 설명
+PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.
 
-### Example
+### 예
 ```
 dyn ./hello.px4mod start
 ```
 
 <a id="dyn_usage"></a>
 
-### Usage
+### 사용법
 ```
 dyn [arguments...]
      <file>      File containing the module
