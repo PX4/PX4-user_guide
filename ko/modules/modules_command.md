@@ -386,22 +386,22 @@ nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
+소스: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
 
 
-### Description
-Command to access and manipulate parameters via shell or script.
+### 설명
+쉘 또는 스크립트를 통해 매개변수를 조작하는 명령어입니다.
 
-This is used for example in the startup script to set airframe-specific parameters.
+이것은 예를 들어 기체별 매개변수를 설정하기 위하여 시작 스크립트에서 사용됩니다.
 
-Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
+매개변수는 변경시(예: `매개변수 설정`으로) 자동으로 저장됩니다. 일반적으로 FRAM 또는 SD 카드에 저장됩니다. `param select`를 사용하여 후속 저장을 위한 저장 위치를 변경할 수 있습니다(이는 부팅할 때마다 (재)설정하여야 함).
 
-If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
+FLASH 기반 백엔드가 활성화된 경우(예: Intel Aero 또는 Omnibus의 경우 컴파일 시간에 수행됨) `param select`는 효과가 없으며, 기본값은 항상 FLASH 백엔드입니다. 그러나, `param save/load <file>`는 여전히 파일에 쓰거나 읽는 데 사용할 수 있습니다.
 
-Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
+각 매개변수에는 'used' 플래그가 있으며, 이는 부팅 중에 읽을 때 설정됩니다. 지상 관제소에 관련 매개변수만 표시하는 데 사용됩니다.
 
-### Examples
-Change the airframe and make sure the airframe's default parameters are loaded:
+### 예
+기체를 변경하고 기체의 기본 매개변수가 로드되었는 지 확인합니다.
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -410,7 +410,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### Usage
+### 사용법
 ```
 param <command> [arguments...]
  Commands:
@@ -474,7 +474,7 @@ param <command> [arguments...]
      <param>     param name
 ```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
+소스: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
 Tool to print performance counters
 <a id="perf_usage"></a>
