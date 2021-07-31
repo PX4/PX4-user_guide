@@ -214,10 +214,10 @@ IMU_GYRO_RATEMAX에서 `actuator_controls_0` 메시지를 게시합니다.
 
  * 완전 수동: 스로틀 및 편요각 제어가 액츄에이터에 직접 전달됩니다.
  * 자동 미션: 로버가 미션을 실행합니다.
- * Loiter: The rover will navigate to within the loiter radius, then stop the motors
+ * 배회: 로버가 배회 반경 내로 이동한 다음 모터를 중지합니다.
 
-### Examples
-CLI usage example:
+### 예
+CLI 사용 예:
 ```
 rover_pos_control start
 rover_pos_control status
@@ -226,7 +226,7 @@ rover_pos_control stop
 
 <a id="rover_pos_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 rover_pos_control <command> [arguments...]
  Commands:
@@ -237,22 +237,22 @@ rover_pos_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_att_control
-Source: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_att_control)
+소스: [modules/uuv_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_att_control)
 
 
-### Description
-Controls the attitude of an unmanned underwater vehicle (UUV).
+### 설명
+무인수중선(UUV)의 자세를 제어합니다.
 
-Publishes `actuator_controls_0` messages at a constant 250Hz.
+일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
 
-### Implementation
-Currently, this implementation supports only a few modes:
+### 구현
+현재 이 구현은 일부 모드만 지원합니다.
 
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
+ * 완전 수동: 롤, 피치, 요 및 스로틀 컨트롤이 액추에이터에 직접 전달됩니다.
+ * 자동 임무: 무인수중선이 임무를 실행합니다.
 
-### Examples
-CLI usage example:
+### 예
+CLI 사용 예:
 ```
 uuv_att_control start
 uuv_att_control status
@@ -261,7 +261,7 @@ uuv_att_control stop
 
 <a id="uuv_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 uuv_att_control <command> [arguments...]
  Commands:
@@ -272,17 +272,17 @@ uuv_att_control <command> [arguments...]
    status        print status info
 ```
 ## uuv_pos_control
-Source: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_pos_control)
+소스: [modules/uuv_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/uuv_pos_control)
 
 
-### Description
-Controls the attitude of an unmanned underwater vehicle (UUV). Publishes `actuator_controls_0` messages at a constant 250Hz.
-### Implementation
-Currently, this implementation supports only a few modes:
- * Full manual: Roll, pitch, yaw, and throttle controls are passed directly through to the actuators
- * Auto mission: The uuv runs missions
-### Examples
-CLI usage example:
+### 설명
+무인수중선(UUV)의 자세를 제어합니다. 일정한 250Hz에서 `actuator_controls_0` 메시지를 게시합니다.
+### 구현
+현재 이 구현은 일부 모드만 지원합니다.
+ * 완전 수동: 롤, 피치, 요 및 스로틀 컨트롤이 액추에이터에 직접 전달됩니다.
+ * 자동 임무: 무인수중선이 임무를 실행합니다.
+### 예
+CLI 사용 예:
 ```
 uuv_pos_control start
 uuv_pos_control status
@@ -291,7 +291,7 @@ uuv_pos_control stop
 
 <a id="uuv_pos_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 uuv_pos_control <command> [arguments...]
  Commands:
@@ -302,15 +302,15 @@ uuv_pos_control <command> [arguments...]
    status        print status info
 ```
 ## vtol_att_control
-Source: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vtol_att_control)
+소스: [modules/vtol_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vtol_att_control)
 
 
-### Description
-fw_att_control is the fixed wing attitude controller.
+### 설명
+fw_att_control은 고정익 자세 컨트롤러입니다.
 
 <a id="vtol_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 vtol_att_control <command> [arguments...]
  Commands:
