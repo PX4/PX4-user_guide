@@ -86,16 +86,16 @@ atxxxx <command> [arguments...]
 
 
 ### 설명
-Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
-### Examples
-To start at address 0x0B, on bus 4
+BatMon 지원 스마트 배터리와 SMBUS 통신용 드라이버 설정/사용 정보: https://rotoye.com/batmon-tutorial/
+### 예
+주소 0x0B에서 시작하려면 버스 4에서
 ```
 batmon start -X -a 11 -b 4
 ```
 
 <a id="batmon_usage"></a>
 
-### Usage
+### 사용법
 ```
 batmon <command> [arguments...]
  Commands:
@@ -120,21 +120,21 @@ batmon <command> [arguments...]
    status        print status info
 ```
 ## batt_smbus
-Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+소스: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
 
-### Description
-Smart battery driver for the BQ40Z50 fuel gauge IC.
+### 설명
+BQ40Z50 연료 게이지 IC용 스마트 배터리 드라이버.
 
-### Examples
-To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
+### 예
+매개변수를 설정하기 위해 플래시에 쓰기. 주소, number_of_bytes, byte0, ..., byteN
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
 
 <a id="batt_smbus_usage"></a>
 
-### Usage
+### 사용법
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -170,11 +170,11 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
+소스: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
-### Usage
+### 사용법
 ```
 bst <command> [arguments...]
  Commands:
@@ -192,51 +192,118 @@ bst <command> [arguments...]
 
    status        print status info
 ```
-## sf1xx
-Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
+## dshot
+소스: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
 
-### Description
-This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
+### 설명
+이것은 DShot 출력 드라이버입니다. fmu 드라이버와 유사하며, PWM 대신 ESC 통신 프로토콜로 DShot을 사용하기 위하여 사용할 수 있습니다.
 
-It supports:
+다음을 지원합니다.
 - DShot150, DShot300, DShot600, DShot1200
-- telemetry via separate UART and publishing as esc_status message
-- sending DShot commands via CLI
+- 별도의 UART를 통한 텔레메트리와 esc_status 메시지로 게시
+- CLI를 통해 DShot 명령 보내기
 
-### Examples
-Permanently reverse motor 1:
+### 예
+모터 1 영구 역회전 :
 ```
 dshot reverse -m 1
 dshot save -m 1
 ```
-After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.
+저장 후, 반대 방향은 정상 방향으로 간주됩니다. 동일한 명령을 반복하면, 회전 방향을 반전합니다.
 
 <a id="dshot_usage"></a>
 
-### Usage
+### 사용법
 ```
-vmount <command> [arguments...]
+dshot <command> [arguments...]
  Commands:
-   start
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
 
-   test          Test the output: set a fixed angle for one axis (vmount must
-                 not be running)
-     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
+ All of the mode_* commands will start the module if not running already
+
+   mode_gpio
+
+   mode_pwm      Select all available pins as PWM
+
+   mode_pwm14
+
+   mode_pwm12
+
+   mode_pwm8
+
+   mode_pwm6
+
+   mode_pwm5
+
+   mode_pwm5cap1
+
+   mode_pwm4
+
+   mode_pwm4cap1
+
+   mode_pwm4cap2
+
+   mode_pwm3
+
+   mode_pwm3cap1
+
+   mode_pwm2
+
+   mode_pwm2cap2
+
+   mode_pwm1
+
+   telemetry     Enable Telemetry on a UART
+     <device>    UART device
+
+   reverse       Reverse motor direction
+     [-m <val>]  Motor index (1-based, default=all)
+
+   normal        Normal motor direction
+     [-m <val>]  Motor index (1-based, default=all)
+
+   save          Save current settings
+     [-m <val>]  Motor index (1-based, default=all)
+
+   3d_on         Enable 3D mode
+     [-m <val>]  Motor index (1-based, default=all)
+
+   3d_off        Disable 3D mode
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep1         Send Beep pattern 1
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep2         Send Beep pattern 2
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep3         Send Beep pattern 3
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep4         Send Beep pattern 4
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep5         Send Beep pattern 5
+     [-m <val>]  Motor index (1-based, default=all)
+
+   esc_info      Request ESC information
+     -m <val>    Motor index (1-based)
 
    stop
 
    status        print status info
 ```
-## fmu mode_pwm
-Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
+## fake_gps
+소스: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
-### Description
+### 설명
 
 <a id="fake_gps_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_gps <command> [arguments...]
  Commands:
@@ -247,14 +314,14 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
+소스: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
-### Description
+### 설명
 
 <a id="fake_imu_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -265,10 +332,10 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
+소스: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
-### Description
+### 설명
 Publish the earth magnetic field as a fake magnetometer (sensor_mag). The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
 
 <a id="fake_magnetometer_usage"></a>
