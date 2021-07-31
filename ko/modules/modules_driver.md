@@ -11,75 +11,81 @@
 소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
-### Description
-ADC driver.
+### 설명
+ADC 드라이버
 
 <a id="adc_usage"></a>
 
-### Usage
+### 사용법
 ```
-rc_input <command> [arguments...]
+adc <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-     [-t]        Run as separate task instead of the work queue
+   start
 
-   bind          Send a DSM bind command (module must be running)
+   test
 
    stop
 
    status        print status info
 ```
-## fmu
-Source: [drivers/px4fmu](https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu)
+## ads1115
+소스: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 
-### Usage
+### 사용법
 ```
-sf1xx <command> [arguments...]
+ads1115 <command> [arguments...]
  Commands:
-   start         Start driver
-     [-a]        Attempt to start driver on all I2C buses
-     [-b <val>]  Start driver on specific I2C bus
-                 default: 1
-     [-R <val>]  Sensor rotation - downward facing by default
-                 default: 25
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 72
 
-   stop          Stop driver
+   stop
 
-   test          Test driver (basic functional tests)
-
-   reset         Reset driver
-
-   info          Print driver information
+   status        print status info
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
+소스: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
-### Description
-OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.
+### 설명
+예를 들어 OmnibusF4SD 보드에 장착된 ATXXXX 칩용 OSD 드라이버.
 
-It can be enabled with the OSD_ATXXXX_CFG parameter.
+OSD_ATXXXX_CFG 매개변수로 활성화합니다.
 
 <a id="atxxxx_usage"></a>
 
-### Usage
+### 사용법
 ```
-tap_esc <command> [arguments...]
+atxxxx <command> [arguments...]
  Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+
+   stop
+
+   status        print status info
 ```
 ## batmon
-Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+소스: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
 
 
-### Description
+### 설명
 Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
 ### Examples
 To start at address 0x0B, on bus 4
