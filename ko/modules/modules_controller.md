@@ -1,17 +1,17 @@
-# Modules Reference: Controller
+# 모듈 참조: 콘트롤러
 
 ## ODULE_NAM
-Source: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
+소스: [modules/control_allocator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/control_allocator)
 
 
-### Description
-This implements the multicopter attitude and rate controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+### 설명
+이것은 제어 할당을 구현합니다. 토크 및 추력 설정값을 입력으로 사용하고, 액추에이터 설정값 메시지를 출력합니다.
 
 <a id="ODULE_NAM_usage"></a>
 
-### Usage
+### 사용법
 ```
-mc_att_control <command> [arguments...]
+ODULE_NAM <command> [arguments...]
  Commands:
    start
 
@@ -20,38 +20,39 @@ mc_att_control <command> [arguments...]
    status        print status info
 ```
 ## airship_att_control
-Source: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/airship_att_control)
+소스: [modules/airship_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/airship_att_control)
 
 
-### Description
-This implements the airship attitude and rate controller. Ideally it would take attitude setpoints (`vehicle_attitude_setpoint`) or rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+### 설명
+이것은 비행선 자세 및 속도 컨트롤러를 구현합니다. 이상적으로는 자세 설정값 `vehicle_attitude_setpoint`) 또는 속도 설정값(`manual_control_setpoint` 주제를 통한 아크로 모드)을 입력 및 출력 액추에이터 제어 메시지로 사용합니다.
 
-Currently it is feeding the `manual_control_setpoint` topic directly to the actuators.
+현재 `manual_control_setpoint` 주제를 액츄에이터에 직접 공급하고 있습니다.
 
-### Implementation
-To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.
+### 구현
+제어 대기 시간을 줄이기 위하여, 모듈은 IMU 드라이버에서 게시한 자이로 주제를 직접 폴링합니다.
 
 <a id="airship_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 airship_att_control <command> [arguments...]
  Commands:
+   start
 
    stop
 
    status        print status info
 ```
 ## flight_mode_manager
-Source: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager)
+소스: [modules/flight_mode_manager](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager)
 
 
-### Description
-This implements the setpoint generation for all modes. It takes the current mode state of the vehicle as input and outputs setpoints for controllers.
+### 설명
+이것은 모든 모드에 대한 설정값 생성을 구현합니다. 차량의 현재 모드 상태를 컨트롤러에 대한 입력 및 출력 설정값으로 사용합니다.
 
 <a id="flight_mode_manager_usage"></a>
 
-### Usage
+### 사용법
 ```
 flight_mode_manager <command> [arguments...]
  Commands:
@@ -59,58 +60,56 @@ flight_mode_manager <command> [arguments...]
 
    stop
 
-   status        print status info
+   status        print status info 
 ```
 ## fw_att_control
-Source: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_att_control)
+소스: [modules/fw_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_att_control)
 
 
-### Description
-fw_att_control is the fixed wing attitude controller.
+### 설명
+fw_att_control은 고정익 자세 컨트롤러입니다.
 
 <a id="fw_att_control_usage"></a>
 
-### Usage
+### 사용법
 ```
-mc_pos_control <command> [arguments...]
+fw_att_control <command> [arguments...]
  Commands:
    start
+     [vtol]      VTOL mode
 
    stop
 
    status        print status info
 ```
 ## fw_pos_control_l1
-The controller has two loops: a P loop for angular error and a PID loop for angular rate error.
+소스: [modules/fw_pos_control_l1](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/fw_pos_control_l1)
 
 
-### Description
-fw_pos_control_l1 is the fixed wing position controller.
+### 설명
+fw_pos_control_l1은 고정익 위치 컨트롤러입니다.
 
 <a id="fw_pos_control_l1_usage"></a>
 
-### Usage
+### 사용법
 ```
-navigator <command> [arguments...]
+fw_pos_control_l1 <command> [arguments...]
  Commands:
    start
-
-   fencefile     load a geofence file from SD card, stored at etc/geofence.txt
-
-   fake_traffic  publishes 3 fake transponder_report_s uORB messages
+     [vtol]      VTOL mode
 
    stop
 
    status        print status info
 ```
 ## mc_att_control
-Source: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_att_control)
+소스: [modules/mc_att_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_att_control)
 
 
-### Description
-This implements the multicopter attitude controller. It takes attitude setpoints (`vehicle_attitude_setpoint`) as inputs and outputs a rate setpoint.
+### 설명
+이것은 멀티콥터 자세 컨트롤러를 구현합니다. 자세 설정값(`vehicle_attitude_setpoint`)을 입력으로 사용하고, 속도 설정값을 출력합니다.
 
-The controller has a P loop for angular error
+컨트롤러에는 각도 오류에 대한 P 루프가 있습니다.
 
 The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
 
