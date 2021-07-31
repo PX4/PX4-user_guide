@@ -588,12 +588,11 @@ reboot [arguments...]
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
+소스: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
 
-Test the speed of an SD Card
-<a id="sd_bench_usage"></a>
+SD 카드 속도를 테스트합니다.<a id="sd_bench_usage"></a>
 
-### Usage
+### 사용법
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
@@ -606,16 +605,16 @@ sd_bench [arguments...]
      [-u]        Test performance with unaligned data)
 ```
 ## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+소스: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### Description
+### 설명
 
-Command-line tool to set and get system time.
+시스템 시간을 설정하고 출력합니다.
 
-### Examples
+### 예
 
-Set the system time and read it back
+시스템 시간을 설정하고 다시 읽습니다.
 ```
 system_time set 1600775044
 system_time get
@@ -623,7 +622,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### Usage
+### 사용법
 ```
 system_time <command> [arguments...]
  Commands:
@@ -632,33 +631,31 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+소스: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
 
-Monitor running processes and their CPU, stack usage, priority and state
-<a id="top_usage"></a>
+실행 중인 프로세스와 해당 CPU, 스택 사용량, 우선 순위 및 상태를 모니터링합니다.<a id="top_usage"></a>
 
-### Usage
+### 사용법
 ```
 top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+소스: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
-Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
+USB가 연결되어 있는지 확인하는 유틸리티입니다. 이전에 시작 스크립트에서 사용되었습니다. 반환 값 0은 USB가 연결되었음을 의미하고, 그렇지 않으면 1입니다.
 <a id="usb_connected_usage"></a>
 
-### Usage
+### 사용법
 ```
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+소스: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-Tool to print various version information
-<a id="ver_usage"></a>
+다양한 버전 정보를 출력합니다.<a id="ver_usage"></a>
 
-### Usage
+### 사용법
 ```
 ver <command> [arguments...]
  Commands:
