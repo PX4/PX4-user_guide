@@ -8,10 +8,8 @@
 ### 사용법
 ```
 bl_update [arguments...]
-   setopt        Set option bits to unlock the FLASH (only needed if in locked
-                 state)
-
-   <file>        Bootloader bin file
+   setopt        옵션 비트를 설정하여 FLASH를 잠금 해제합니다(잠긴 상태인 경우에만 필요).
+   <file>        부트로더 바이너리 파일
 ```
 ## dumpfile
 소스: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
@@ -22,7 +20,7 @@ bl_update [arguments...]
 ### 사용법
 ```
 dumpfile [arguments...]
-     <file>      File to dump
+     <file>      덤프할 파일
 ```
 ## dyn
 소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
@@ -41,8 +39,8 @@ dyn ./hello.px4mod start
 ### 사용법
 ```
 dyn [arguments...]
-     <file>      File containing the module
-     [arguments...] Arguments to the module
+     <file>      모듈을 포함하는 파일
+     [arguments...] 모듈에 대한 인수
 ```
 ## esc_calib
 Source: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
