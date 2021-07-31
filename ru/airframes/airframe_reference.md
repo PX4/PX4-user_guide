@@ -9,7 +9,7 @@ This page lists all supported airframes and types including the motor assignment
 **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**. 
 
 <style>
-table {
+table.common, table.generic {
    display: table;
    table-layout: fixed;
    margin-bottom: 5px;
