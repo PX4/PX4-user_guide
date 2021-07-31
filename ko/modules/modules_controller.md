@@ -154,14 +154,14 @@ mc_pos_control <command> [arguments...]
 소스: [modules/mc_rate_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mc_rate_control)
 
 
-### Description
-This implements the multicopter rate controller. It takes rate setpoints (in acro mode via `manual_control_setpoint` topic) as inputs and outputs actuator control messages.
+### 설명
+이것은 멀티콥터 속도 컨트롤러를 구현합니다. 속도 설정값(`manual_control_setpoint` 항목을 통한 곡예 모드)을 입력으로 사용하고, 액추에이터 제어 메시지를 출력합니다.
 
-The controller has a PID loop for angular rate error.
+컨트롤러에는 각속도 오류에 대한 PID 루프가 있습니다.
 
 <a id="mc_rate_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 mc_rate_control <command> [arguments...]
  Commands:
@@ -173,20 +173,20 @@ mc_rate_control <command> [arguments...]
    status        print status info
 ```
 ## navigator
-Source: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/navigator)
+소스: [modules/navigator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/navigator)
 
 
-### Description
-Module that is responsible for autonomous flight modes. This includes missions (read from dataman), takeoff and RTL. It is also responsible for geofence violation checking.
+### 설명
+자율 비행 모드를 담당하는 모듈입니다. 여기에는 임무(데이터맨에서 읽기), 이륙 및 RTL이 포함됩니다. 또한, 지오펜스 위반 검사를 담당합니다.
 
-### Implementation
-The different internal modes are implemented as separate classes that inherit from a common base class `NavigatorMode`. The member `_navigation_mode` contains the current active mode.
+### 구현
+다른 내부 모드는 공통 기본 클래스 `NavigatorMode`에서 상속되는 별도의 클래스로 구현됩니다. `_navigation_mode` 구성원은 현재 활성 모드를 포함합니다.
 
-Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
+Navigator는 위치 설정점 트리플렛(`position_setpoint_triplet_s`)을 게시한 다음, 위치 컨트롤러에서 사용합니다.
 
 <a id="navigator_usage"></a>
 
-### Usage
+### 사용법
 ```
 navigator <command> [arguments...]
  Commands:
@@ -201,19 +201,19 @@ navigator <command> [arguments...]
    status        print status info
 ```
 ## rover_pos_control
-Source: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rover_pos_control)
+소스: [modules/rover_pos_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rover_pos_control)
 
 
-### Description
-Controls the position of a ground rover using an L1 controller.
+### 설명
+L1 컨트롤러를 사용하여 그라운드 로버의 위치를 제어합니다.
 
-Publishes `actuator_controls_0` messages at IMU_GYRO_RATEMAX.
+IMU_GYRO_RATEMAX에서 `actuator_controls_0` 메시지를 게시합니다.
 
-### Implementation
-Currently, this implementation supports only a few modes:
+### 구현
+현재 이 구현은 일부 모드만 지원합니다.
 
- * Full manual: Throttle and yaw controls are passed directly through to the actuators
- * Auto mission: The rover runs missions
+ * 완전 수동: 스로틀 및 편요각 제어가 액츄에이터에 직접 전달됩니다.
+ * 자동 미션: 로버가 미션을 실행합니다.
  * Loiter: The rover will navigate to within the loiter radius, then stop the motors
 
 ### Examples
