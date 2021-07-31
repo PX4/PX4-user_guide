@@ -1,14 +1,14 @@
-# Modules Reference: Driver
-Subcategories:
-- [Imu](modules_driver_imu.md)
-- [Source: [drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)](modules_driver_distance_sensor.md)
-- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
-- [Baro](modules_driver_baro.md)
-- [Optical Flow](modules_driver_optical_flow.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+# 모듈 참조: 드라이버
+하위 카테고리:
+- [관성 센서](modules_driver_imu.md)
+- [거리 센서](modules_driver_distance_sensor.md)
+- [항속 센서](modules_driver_airspeed_sensor.md)
+- [기압계](modules_driver_baro.md)
+- [광류 센서](modules_driver_optical_flow.md)
+- [지자계](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
+소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
 ### Description
