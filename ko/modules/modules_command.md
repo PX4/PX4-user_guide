@@ -43,11 +43,11 @@ dyn [arguments...]
      [arguments...] 모듈에 대한 인수
 ```
 ## esc_calib
-Source: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
+소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
 
-Tool for ESC calibration
+ESC 보정 도구
 
-Calibration procedure (running the command will guide you through it):
+보정 절차(명령을 실행하면 안내 도움말이 표시됨):
 - Remove props, power off the ESC's
 - Stop attitude controllers: mc_att_control stop, fw_att_control stop
 - Make sure safety is off
