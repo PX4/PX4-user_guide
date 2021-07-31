@@ -476,10 +476,9 @@ param <command> [arguments...]
 ## perf
 소스: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
-Tool to print performance counters
-<a id="perf_usage"></a>
+성능 카운터를 인쇄하는 도구입니다.<a id="perf_usage"></a>
 
-### Usage
+### 사용법
 ```
 perf [arguments...]
    reset         Reset all counters
@@ -489,31 +488,31 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
+소스: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
 
 
-### Description
-This command is used to configure PWM outputs for servo and ESC control.
+### 설명
+이 명령은 서보와 ESC 제어를 위한 PWM 출력을 설정합니다.
 
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
+기본 장치 `/dev/pwm_output0`은 메인 채널이고, AUX 채널은 `/dev/pwm_output1`(`-d` 매개변수) 입니다.
 
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
+PWM 매개변수(`PWM_*`)가 적용되었는 지 확인하기 위하여, 시작 스크립트에서 사용됩니다(또는 지정된 경우 기체 구성에서 제공하는 매개변수). `pwm status`는 현재 설정을 나타냅니다(트림 값은 오프셋이며 `PWM_MAIN_TRIMx` 및 `PWM_AUX_TRIMx`으로 구성됨).
 
-The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
+시동 해제 값은 모터가 회전하지 않도록 설정하여야 하며(킬 스위치에도 사용됨), 회전 최소값으로 설정하여야 합니다.
 
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
+채널은 그룹에 할당됩니다. 하드웨어 제한으로 인하여, 업데이트 속도는 그룹별로만 설정할 수 있습니다. `pwm status`를 사용하여 그룹을 표시합니다. `-c` 인수를 사용하는 경우, 포함된 그룹의 모든 채널이 포함되어야 합니다.
 
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
+매개변수 `-p` 및 `-r`은 정수를 지정하는 대신 매개변수로 설정할 수 있습니다. 예를 들어 -p p:PWM_MIN을 사용합니다.
 
-Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
+OneShot 모드에서 PWM 범위 [1000, 2000]은 자동으로 [125, 250]에 매핑되는 것을 참고하십시오.
 
-### Examples
-Set the PWM rate for all channels to 400 Hz:
+### 예
+모든 채널의 PWM 속도를 400 Hz로 설정합니다.
 ```
 pwm rate -a -r 400
 ```
 
-Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:
+출력을 테스트합니다. 채널 1과 3을 사용하고 PWM 값을 1200us로 설정합니다.
 ```
 pwm arm
 pwm test -c 13 -p 1200
@@ -521,7 +520,7 @@ pwm test -c 13 -p 1200
 
 <a id="pwm_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm <command> [arguments...]
  Commands:
@@ -578,12 +577,11 @@ pwm <command> [arguments...]
      [-e]        Exit with 1 instead of 0 on error
 ```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
+소스: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
 
-Reboot the system
-<a id="reboot_usage"></a>
+시스템을 재부팅합니다.<a id="reboot_usage"></a>
 
-### Usage
+### 사용법
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
