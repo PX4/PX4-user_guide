@@ -1,95 +1,101 @@
-# Modules Reference: Driver
-Subcategories:
-- [Imu](modules_driver_imu.md)
-- [Source: [drivers/distance_sensor/pga460](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460)](modules_driver_distance_sensor.md)
-- [Airspeed Sensor](modules_driver_airspeed_sensor.md)
-- [Baro](modules_driver_baro.md)
-- [Optical Flow](modules_driver_optical_flow.md)
-- [Magnetometer](modules_driver_magnetometer.md)
+# 모듈 참조: 드라이버
+하위 카테고리:
+- [관성 센서](modules_driver_imu.md)
+- [거리 센서](modules_driver_distance_sensor.md)
+- [항속 센서](modules_driver_airspeed_sensor.md)
+- [기압계](modules_driver_baro.md)
+- [광류 센서](modules_driver_optical_flow.md)
+- [지자계](modules_driver_magnetometer.md)
 
 ## adc
-Source: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
+소스: [drivers/adc/board_adc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/board_adc)
 
 
-### Description
-ADC driver.
+### 설명
+ADC 드라이버
 
 <a id="adc_usage"></a>
 
-### Usage
+### 사용법
 ```
-rc_input <command> [arguments...]
+adc <command> [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-     [-t]        Run as separate task instead of the work queue
+   start
 
-   bind          Send a DSM bind command (module must be running)
+   test
 
    stop
 
    status        print status info
 ```
-## fmu
-Source: [drivers/px4fmu](https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu)
+## ads1115
+소스: [drivers/adc/ads1115](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/adc/ads1115)
 
 <a id="ads1115_usage"></a>
 
-### Usage
+### 사용법
 ```
-sf1xx <command> [arguments...]
+ads1115 <command> [arguments...]
  Commands:
-   start         Start driver
-     [-a]        Attempt to start driver on all I2C buses
-     [-b <val>]  Start driver on specific I2C bus
-                 default: 1
-     [-R <val>]  Sensor rotation - downward facing by default
-                 default: 25
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 72
 
-   stop          Stop driver
+   stop
 
-   test          Test driver (basic functional tests)
-
-   reset         Reset driver
-
-   info          Print driver information
+   status        print status info
 ```
 ## atxxxx
-Source: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
+소스: [drivers/osd/atxxxx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/osd/atxxxx)
 
 
-### Description
-OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.
+### 설명
+예를 들어 OmnibusF4SD 보드에 장착된 ATXXXX 칩용 OSD 드라이버.
 
-It can be enabled with the OSD_ATXXXX_CFG parameter.
+OSD_ATXXXX_CFG 매개변수로 활성화합니다.
 
 <a id="atxxxx_usage"></a>
 
-### Usage
+### 사용법
 ```
-tap_esc <command> [arguments...]
+atxxxx <command> [arguments...]
  Commands:
-   start         Start the task
-     [-d <val>]  Device used to talk to ESCs
-                 values: <device>
-     [-n <val>]  Number of ESCs
-                 default: 4
+   start
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+
+   stop
+
+   status        print status info
 ```
 ## batmon
-Source: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
+소스: [drivers/smart_battery/batmon](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/smart_battery/batmon)
 
 
-### Description
-Driver for SMBUS Communication with BatMon enabled smart-battery Setup/usage information: https://rotoye.com/batmon-tutorial/
-### Examples
-To start at address 0x0B, on bus 4
+### 설명
+BatMon 지원 스마트 배터리와 SMBUS 통신용 드라이버 설정/사용 정보: https://rotoye.com/batmon-tutorial/
+### 예
+주소 0x0B에서 시작하려면 버스 4에서
 ```
 batmon start -X -a 11 -b 4
 ```
 
 <a id="batmon_usage"></a>
 
-### Usage
+### 사용법
 ```
 batmon <command> [arguments...]
  Commands:
@@ -114,21 +120,21 @@ batmon <command> [arguments...]
    status        print status info
 ```
 ## batt_smbus
-Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:
+소스: [drivers/batt_smbus](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/batt_smbus)
 
 
-### Description
-Smart battery driver for the BQ40Z50 fuel gauge IC.
+### 설명
+BQ40Z50 연료 게이지 IC용 스마트 배터리 드라이버.
 
-### Examples
-To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN
+### 예
+매개변수를 설정하기 위해 플래시에 쓰기. 주소, number_of_bytes, byte0, ..., byteN
 ```
 batt_smbus -X write_flash 19069 2 27 0
 ```
 
 <a id="batt_smbus_usage"></a>
 
-### Usage
+### 사용법
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -164,11 +170,11 @@ batt_smbus <command> [arguments...]
    status        print status info
 ```
 ## bst
-Source: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
+소스: [drivers/telemetry/bst](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/bst)
 
 <a id="bst_usage"></a>
 
-### Usage
+### 사용법
 ```
 bst <command> [arguments...]
  Commands:
@@ -186,51 +192,118 @@ bst <command> [arguments...]
 
    status        print status info
 ```
-## sf1xx
-Source: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
+## dshot
+소스: [drivers/dshot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/dshot)
 
 
-### Description
-This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.
+### 설명
+이것은 DShot 출력 드라이버입니다. fmu 드라이버와 유사하며, PWM 대신 ESC 통신 프로토콜로 DShot을 사용하기 위하여 사용할 수 있습니다.
 
-It supports:
+다음을 지원합니다.
 - DShot150, DShot300, DShot600, DShot1200
-- telemetry via separate UART and publishing as esc_status message
-- sending DShot commands via CLI
+- 별도의 UART를 통한 텔레메트리와 esc_status 메시지로 게시
+- CLI를 통해 DShot 명령 보내기
 
-### Examples
-Permanently reverse motor 1:
+### 예
+모터 1 영구 역회전 :
 ```
 dshot reverse -m 1
 dshot save -m 1
 ```
-After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.
+저장 후, 반대 방향은 정상 방향으로 간주됩니다. 동일한 명령을 반복하면, 회전 방향을 반전합니다.
 
 <a id="dshot_usage"></a>
 
-### Usage
+### 사용법
 ```
-vmount <command> [arguments...]
+dshot <command> [arguments...]
  Commands:
-   start
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
 
-   test          Test the output: set a fixed angle for one axis (vmount must
-                 not be running)
-     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
+ All of the mode_* commands will start the module if not running already
+
+   mode_gpio
+
+   mode_pwm      Select all available pins as PWM
+
+   mode_pwm14
+
+   mode_pwm12
+
+   mode_pwm8
+
+   mode_pwm6
+
+   mode_pwm5
+
+   mode_pwm5cap1
+
+   mode_pwm4
+
+   mode_pwm4cap1
+
+   mode_pwm4cap2
+
+   mode_pwm3
+
+   mode_pwm3cap1
+
+   mode_pwm2
+
+   mode_pwm2cap2
+
+   mode_pwm1
+
+   telemetry     Enable Telemetry on a UART
+     <device>    UART device
+
+   reverse       Reverse motor direction
+     [-m <val>]  Motor index (1-based, default=all)
+
+   normal        Normal motor direction
+     [-m <val>]  Motor index (1-based, default=all)
+
+   save          Save current settings
+     [-m <val>]  Motor index (1-based, default=all)
+
+   3d_on         Enable 3D mode
+     [-m <val>]  Motor index (1-based, default=all)
+
+   3d_off        Disable 3D mode
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep1         Send Beep pattern 1
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep2         Send Beep pattern 2
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep3         Send Beep pattern 3
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep4         Send Beep pattern 4
+     [-m <val>]  Motor index (1-based, default=all)
+
+   beep5         Send Beep pattern 5
+     [-m <val>]  Motor index (1-based, default=all)
+
+   esc_info      Request ESC information
+     -m <val>    Motor index (1-based)
 
    stop
 
    status        print status info
 ```
-## fmu mode_pwm
-Source: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
+## fake_gps
+소스: [examples/fake_gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_gps)
 
 
-### Description
+### 설명
 
 <a id="fake_gps_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_gps <command> [arguments...]
  Commands:
@@ -241,14 +314,14 @@ fake_gps <command> [arguments...]
    status        print status info
 ```
 ## fake_imu
-Source: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
+소스: [examples/fake_imu](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_imu)
 
 
-### Description
+### 설명
 
 <a id="fake_imu_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_imu <command> [arguments...]
  Commands:
@@ -259,15 +332,15 @@ fake_imu <command> [arguments...]
    status        print status info
 ```
 ## fake_magnetometer
-Source: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
+소스: [examples/fake_magnetometer](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/fake_magnetometer)
 
 
-### Description
-Publish the earth magnetic field as a fake magnetometer (sensor_mag). The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+### 설명
+가짜 자력계(sensor_mag)로 지구 자기장을 게시합니다. vehicle_attitude와 vehicle_gps_position이 필요합니다.
 
 <a id="fake_magnetometer_usage"></a>
 
-### Usage
+### 사용법
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -278,10 +351,10 @@ fake_magnetometer <command> [arguments...]
    status        print status info
 ```
 ## gps
-Source: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
+소스: [drivers/gps](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/gps)
 
 
-### Description
+### 설명
 GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
 
 The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).

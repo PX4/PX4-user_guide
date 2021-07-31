@@ -1,88 +1,92 @@
-# Modules Reference: Command
+# 모듈 참조: 명령
 
 ## bl_update
-Source: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
+소스: [systemcmds/bl_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/bl_update)
 
-Utility to flash the bootloader from a file<a id="bl_update_usage"></a>
+파일에서 부트로더를 플래시하는 유틸리티<a id="bl_update_usage"></a>
 
-### Usage
+### 사용법
 ```
 bl_update [arguments...]
-   setopt        Set option bits to unlock the FLASH (only needed if in locked
-                 state)
-
-   <file>        Bootloader bin file
+   setopt        옵션 비트를 설정하여 FLASH를 잠금 해제합니다(잠긴 상태인 경우에만 필요).
+   <file>        부트로더 바이너리 파일
 ```
 ## dumpfile
-Source: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
+소스: [systemcmds/dumpfile](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dumpfile)
 
-Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
+덤프 파일 유틸리티. 바이너리 모드(LF를 CR LF로 바꾸지 않음) 파일의 크기와 내용을 표준 출력에 인쇄합니다.
 <a id="dumpfile_usage"></a>
 
-### Usage
+### 사용법
 ```
 dumpfile [arguments...]
-     <file>      File to dump
+     <file>      덤프할 파일
 ```
 ## dyn
-Source: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
+소스: [systemcmds/dyn](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dyn)
 
 
-### Description
-Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.
+### 설명
+PX4 바이너리로 컴파일되지 않은 동적 PX4 모듈을 로드하고 실행합니다.
 
-### Example
+### 예
 ```
 dyn ./hello.px4mod start
 ```
 
 <a id="dyn_usage"></a>
 
-### Usage
+### 사용법
 ```
 dyn [arguments...]
-     <file>      File containing the module
-     [arguments...] Arguments to the module
+     <file>      모듈을 포함하는 파일
+     [arguments...] 모듈에 대한 인수
 ```
 ## esc_calib
-Source: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
+소스: [systemcmds/esc_calib](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/esc_calib)
 
-Tool for ESC calibration
+ESC 보정 도구
 
-Calibration procedure (running the command will guide you through it):
-- Remove props, power off the ESC's
-- Stop attitude controllers: mc_att_control stop, fw_att_control stop
-- Make sure safety is off
-- Run this command
+보정 절차(명령을 실행하면 안내 도움말이 표시됨):
+- 프로펠러를 제거하고, ESC 전원을 끕니다.
+- 자세 및 속도 컨트롤러를 중지합니다: mc_rate_control stop, fw_att_control stop
+- 안전이 꺼져 있는 지 확인
+- 이 명령어를 실행하십시오
 
 <a id="esc_calib_usage"></a>
 
-### Usage
+### 사용법
 ```
-motor_ramp [arguments...]
-     ramp|sine|square mode
-     <min_pwm> <time> [<max_pwm>] pwm value in us, time in sec
-
- WARNING: motors will ramp up to full speed!
+esc_calib [arguments...]
+     [-d <val>]  Select PWM output device
+                 values: <file:dev>, default: /dev/pwm_output0
+     [-l <val>]  Low PWM value in us
+                 default: 1000
+     [-h <val>]  High PWM value in us
+                 default: 2000
+     [-c <val>]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m <val>]  Select channels via bitmask (eg. 0xF, 3)
+     [-a]        Select all channels
 ```
 ## failure
-Source: [systemcmds/config](https://github.com/PX4/Firmware/tree/master/src/systemcmds/config)
+소스: [systemcmds/failure](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/failure)
 
 
-### Description
-Inject failures into system.
+### 설명
+시스템에 장애를 주입합니다.
 
-### Implementation
-This system command sends a vehicle command over uORB to trigger failure.
+### 구현
+이 시스템 명령은 uORB로 차량 명령어를 전송하여 실패를 트리거합니다.
 
-### Examples
-Test the GPS failsafe by stopping GPS:
+### 예
+GPS를 중지하여, GPS 안전 장치를 테스트합니다.
 
 failure gps off
 
 <a id="failure_usage"></a>
 
-### Usage
+### 사용법
 ```
 failure [arguments...]
    help          Show this help text
@@ -94,36 +98,36 @@ failure [arguments...]
                  default: 0
 ```
 ## gpio
-Source: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
+소스: [systemcmds/gpio](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/gpio)
 
 
-### Description
-This command is used to read and write GPIOs
+### 설명
+이 명령은 GPIO를 읽고 쓰는 데 사용됩니다.
 ```
 gpio read <PORT><PIN>/<DEVICE> [PULLDOWN|PULLUP] [--force]
 gpio write <PORT><PIN>/<DEVICE> <VALUE> [PUSHPULL|OPENDRAIN] [--force]
 ```
 
-### Examples
-Read the value on port H pin 4 configured as pullup, and it is high
+### 예
+풀업으로 구성된 포트 H 핀 4의 값을 읽습니다.
 ```
 gpio read H4 PULLUP
 ```
 1 OK
 
-Set the output value on Port E pin 7 to high
+포트 E 핀 7의 출력 값을 높음으로 설정합니다.
 ```
 gpio write E7 1 --force
 ```
 
-Set the output value on device /dev/gpin1 to high
+/dev/gpin1 장치의 출력 값을 높음으로 설정합니다.
 ```
 gpio write /dev/gpin1 1
 ```
 
 <a id="gpio_usage"></a>
 
-### Usage
+### 사용법
 ```
 gpio [arguments...]
    read
@@ -138,15 +142,15 @@ gpio [arguments...]
      [--force]   Force (ignore board gpio list)
 ```
 ## hardfault_log
-Source: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
+소스: [systemcmds/hardfault_log](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log)
 
-Hardfault utility
+하드폴트 유틸리티
 
-Used in startup scripts to handle hardfaults
+하드폴트를 처리하기 위해 시작 스크립트에서 사용됩니다.
 
 <a id="hardfault_log_usage"></a>
 
-### Usage
+### 사용법
 ```
 hardfault_log <command> [arguments...]
  Commands:
@@ -166,37 +170,36 @@ hardfault_log <command> [arguments...]
    reset         Reset the reboot counter
 ```
 ## i2cdetect
-Source: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
+소스: [systemcmds/i2cdetect](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/i2cdetect)
 
-Utility to scan for I2C devices on a particular bus.
-<a id="i2cdetect_usage"></a>
+특정 버스에서 I2C 장치를 검색하는 유틸리티입니다.<a id="i2cdetect_usage"></a>
 
-### Usage
+### 사용법
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
                  default: 1
 ```
 ## led_control
-Source: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
+소스: [systemcmds/led_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/led_control)
 
 
-### Description
-Command-line tool to control & test the (external) LED's.
+### 설명
+(외부) LED를 제어하고 콘트롤하는 명령어입니다.
 
-To use it make sure there's a driver running, which handles the led_control uorb topic.
+이 명령어를 사용하려면, led_control uorb 주제를 처리하는 드라이버가 실행중인 지 확인하십시오.
 
-There are different priorities, such that for example one module can set a color with low priority, and another module can blink N times with high priority, and the LED's automatically return to the lower priority state after the blinking. The `reset` command can also be used to return to a lower priority.
+예를 들어, 한 모듈은 낮은 우선 순위로 색상을 설정할 수 있고, 다른 모듈은 높은 우선 순위로 N 번 깜박일 수 있으며, 깜박임 후 LED는 자동으로 낮은 우선 순위 상태로 돌아갑니다. `reset` 명령을 사용하여 더 낮은 우선순위로 돌아갈 수도 있습니다.
 
-### Examples
-Blink the first LED 5 times in blue:
+### 예
+첫 번째 LED를 파란색으로 5번 깜박입니다.
 ```
 led_control blink -c blue -l 0 -n 5
 ```
 
 <a id="led_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 led_control <command> [arguments...]
  Commands:
@@ -227,16 +230,16 @@ led_control <command> [arguments...]
                  default: 2
 ```
 ## listener
-Source: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
+소스: [systemcmds/topic_listener](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/topic_listener)
 
 
-Utility to listen on uORB topics and print the data to the console.
+uORB 주제를 듣고 콘솔에 데이터를 인쇄하는 유틸리티입니다.
 
-The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
+리스너는 Ctrl+C, Esc 또는 Q를 눌러 종료합니다.
 
 <a id="listener_usage"></a>
 
-### Usage
+### 사용법
 ```
 listener <command> [arguments...]
  Commands:
@@ -249,29 +252,28 @@ listener <command> [arguments...]
                  default: 0
 ```
 ## mfd
-Source: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
+소스: [systemcmds/mft](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mft)
 
-Utility interact with the manifest
-<a id="mfd_usage"></a>
+매니페스트와 상호 작용하는 유틸리티입니다.<a id="mfd_usage"></a>
 
-### Usage
+### 사용법
 ```
 mfd <command> [arguments...]
  Commands:
    query         Returns true if not existed
 ```
 ## mixer
-Source: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)
+소스: [systemcmds/mixer](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mixer)/
 
 
-### Description
-Load or append mixer files to the ESC driver.
+### 설명
+믹서 파일을 ESC 드라이버에 로드하거나 추가합니다.
 
-Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
+드라이버는 NuttX의 경우와 같이 사용된 ioctl을 지원하여야 하지만, 예를 들어 라즈베리파이에서는 지원하지 않습니다.
 
 <a id="mixer_usage"></a>
 
-### Usage
+### 사용법
 ```
 mixer <command> [arguments...]
  Commands:
@@ -282,28 +284,28 @@ mixer <command> [arguments...]
      <file:dev> <file> Output device (eg. /dev/pwm_output0) and mixer file
 ```
 ## motor_ramp
-Source: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
+소스: [systemcmds/motor_ramp](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_ramp)
 
 
-### Description
-Application to test motor ramp up.
+### 설명
+모터 램프 업을 테스트하기 위한 응용 프로그램입니다.
 
-Before starting, make sure to stop any running attitude controller:
+시작하기 전에 실행 중인 자세 컨트롤러를 중지하여야 합니다.
 ```
 mc_rate_control stop
 fw_att_control stop
 ```
 
-When starting, a background task is started, runs for several seconds (as specified), then exits.
+시작할 때 백그라운드 작업이 시작되고, 몇 초 동안(지정된 대로) 실행된 다음 종료됩니다.
 
-### Example
+### 예
 ```
 motor_ramp sine -a 1100 -r 0.5
 ```
 
 <a id="motor_ramp_usage"></a>
 
-### Usage
+### 사용법
 ```
 motor_ramp [arguments...]
      ramp|sine|square mode
@@ -318,16 +320,16 @@ motor_ramp [arguments...]
  WARNING: motors will ramp up to full speed!
 ```
 ## motor_test
-Source: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
+소스: [systemcmds/motor_test](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/motor_test)
 
 
-Utility to test motors.
+모터를 테스트하는 유틸리티입니다.
 
-WARNING: remove all props before using this command.
+경고: 이 명령을 사용하기 전에 모든 프로펠러를 제거하십시오.
 
 <a id="motor_test_usage"></a>
 
-### Usage
+### 사용법
 ```
 motor_test <command> [arguments...]
  Commands:
@@ -345,12 +347,11 @@ motor_test <command> [arguments...]
    iterate       Iterate all motors starting and stopping one after the other
 ```
 ## mtd
-Source: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
+소스: [systemcmds/mtd](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/mtd)
 
-Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
-<a id="mtd_usage"></a>
+파티션을 마운트하고 테스트하는 유틸리티(보드에서 정의한 FRAM/EEPROM 스토리지 기반) 입니다.<a id="mtd_usage"></a>
 
-### Usage
+### 사용법
 ```
 mtd <command> [arguments...]
  Commands:
@@ -371,36 +372,36 @@ mtd <command> [arguments...]
                  /fs/mtd_params), use system default if not provided
 ```
 ## nshterm
-Source: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
+소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/nshterm)
 
-Start an NSH shell on a given port.
+주어진 포트에서 NSH 쉘을 시작합니다.
 
-This was previously used to start a shell on the USB serial port. Now there runs mavlink, and it is possible to use a shell over mavlink.
+이것은 이전에 USB 직렬 포트에서 셸을 시작하는 데 사용되었습니다. 이제 mavlink가 실행되고 mavlink를 통하여 쉘을 사용할 수 있습니다.
 
 <a id="nshterm_usage"></a>
 
-### Usage
+### 사용법
 ```
 nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
 ```
 ## param
-Source: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
+소스: [systemcmds/param](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/param)
 
 
-### Description
-Command to access and manipulate parameters via shell or script.
+### 설명
+쉘 또는 스크립트를 통해 매개변수를 조작하는 명령어입니다.
 
-This is used for example in the startup script to set airframe-specific parameters.
+이것은 예를 들어 기체별 매개변수를 설정하기 위하여 시작 스크립트에서 사용됩니다.
 
-Parameters are automatically saved when changed, eg. with `param set`. They are typically stored to FRAM or to the SD card. `param select` can be used to change the storage location for subsequent saves (this will need to be (re-)configured on every boot).
+매개변수는 변경시(예: `매개변수 설정`으로) 자동으로 저장됩니다. 일반적으로 FRAM 또는 SD 카드에 저장됩니다. `param select`를 사용하여 후속 저장을 위한 저장 위치를 변경할 수 있습니다(이는 부팅할 때마다 (재)설정하여야 함).
 
-If the FLASH-based backend is enabled (which is done at compile time, e.g. for the Intel Aero or Omnibus), `param select` has no effect and the default is always the FLASH backend. However `param save/load <file>` can still be used to write to/read from files.
+FLASH 기반 백엔드가 활성화된 경우(예: Intel Aero 또는 Omnibus의 경우 컴파일 시간에 수행됨) `param select`는 효과가 없으며, 기본값은 항상 FLASH 백엔드입니다. 그러나, `param save/load <file>`는 여전히 파일에 쓰거나 읽는 데 사용할 수 있습니다.
 
-Each parameter has a 'used' flag, which is set when it's read during boot. It is used to only show relevant parameters to a ground control station.
+각 매개변수에는 'used' 플래그가 있으며, 이는 부팅 중에 읽을 때 설정됩니다. 지상 관제소에 관련 매개변수만 표시하는 데 사용됩니다.
 
-### Examples
-Change the airframe and make sure the airframe's default parameters are loaded:
+### 예
+기체를 변경하고 기체의 기본 매개변수가 로드되었는 지 확인합니다.
 ```
 param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
@@ -409,7 +410,7 @@ reboot
 
 <a id="param_usage"></a>
 
-### Usage
+### 사용법
 ```
 param <command> [arguments...]
  Commands:
@@ -473,12 +474,11 @@ param <command> [arguments...]
      <param>     param name
 ```
 ## perf
-Source: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
+소스: [systemcmds/perf](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/perf)
 
-Tool to print performance counters
-<a id="perf_usage"></a>
+성능 카운터를 인쇄하는 도구입니다.<a id="perf_usage"></a>
 
-### Usage
+### 사용법
 ```
 perf [arguments...]
    reset         Reset all counters
@@ -488,31 +488,31 @@ perf [arguments...]
  Prints all performance counters if no arguments given
 ```
 ## pwm
-Source: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
+소스: [systemcmds/pwm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/pwm)
 
 
-### Description
-This command is used to configure PWM outputs for servo and ESC control.
+### 설명
+이 명령은 서보와 ESC 제어를 위한 PWM 출력을 설정합니다.
 
-The default device `/dev/pwm_output0` are the Main channels, AUX channels are on `/dev/pwm_output1` (`-d` parameter).
+기본 장치 `/dev/pwm_output0`은 메인 채널이고, AUX 채널은 `/dev/pwm_output1`(`-d` 매개변수) 입니다.
 
-It is used in the startup script to make sure the PWM parameters (`PWM_*`) are applied (or the ones provided by the airframe config if specified). `pwm status` shows the current settings (the trim value is an offset and configured with `PWM_MAIN_TRIMx` and `PWM_AUX_TRIMx`).
+PWM 매개변수(`PWM_*`)가 적용되었는 지 확인하기 위하여, 시작 스크립트에서 사용됩니다(또는 지정된 경우 기체 구성에서 제공하는 매개변수). `pwm status`는 현재 설정을 나타냅니다(트림 값은 오프셋이며 `PWM_MAIN_TRIMx` 및 `PWM_AUX_TRIMx`으로 구성됨).
 
-The disarmed value should be set such that the motors don't spin (it's also used for the kill switch), at the minimum value they should spin.
+시동 해제 값은 모터가 회전하지 않도록 설정하여야 하며(킬 스위치에도 사용됨), 회전 최소값으로 설정하여야 합니다.
 
-Channels are assigned to a group. Due to hardware limitations, the update rate can only be set per group. Use `pwm status` to display the groups. If the `-c` argument is used, all channels of any included group must be included.
+채널은 그룹에 할당됩니다. 하드웨어 제한으로 인하여, 업데이트 속도는 그룹별로만 설정할 수 있습니다. `pwm status`를 사용하여 그룹을 표시합니다. `-c` 인수를 사용하는 경우, 포함된 그룹의 모든 채널이 포함되어야 합니다.
 
-The parameters `-p` and `-r` can be set to a parameter instead of specifying an integer: use -p p:PWM_MIN for example.
+매개변수 `-p` 및 `-r`은 정수를 지정하는 대신 매개변수로 설정할 수 있습니다. 예를 들어 -p p:PWM_MIN을 사용합니다.
 
-Note that in OneShot mode, the PWM range [1000, 2000] is automatically mapped to [125, 250].
+OneShot 모드에서 PWM 범위 [1000, 2000]은 자동으로 [125, 250]에 매핑되는 것을 참고하십시오.
 
-### Examples
-Set the PWM rate for all channels to 400 Hz:
+### 예
+모든 채널의 PWM 속도를 400 Hz로 설정합니다.
 ```
 pwm rate -a -r 400
 ```
 
-Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:
+출력을 테스트합니다. 채널 1과 3을 사용하고 PWM 값을 1200us로 설정합니다.
 ```
 pwm arm
 pwm test -c 13 -p 1200
@@ -520,7 +520,7 @@ pwm test -c 13 -p 1200
 
 <a id="pwm_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm <command> [arguments...]
  Commands:
@@ -577,24 +577,22 @@ pwm <command> [arguments...]
      [-e]        Exit with 1 instead of 0 on error
 ```
 ## reboot
-Source: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
+소스: [systemcmds/reboot](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/reboot)
 
-Reboot the system
-<a id="reboot_usage"></a>
+시스템을 재부팅합니다.<a id="reboot_usage"></a>
 
-### Usage
+### 사용법
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
      [lock|unlock] Take/release the shutdown lock (for testing)
 ```
 ## sd_bench
-Source: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
+소스: [systemcmds/sd_bench](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/sd_bench)
 
-Test the speed of an SD Card
-<a id="sd_bench_usage"></a>
+SD 카드 속도를 테스트합니다.<a id="sd_bench_usage"></a>
 
-### Usage
+### 사용법
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
@@ -607,16 +605,16 @@ sd_bench [arguments...]
      [-u]        Test performance with unaligned data)
 ```
 ## system_time
-Source: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
+소스: [systemcmds/system_time](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/system_time)
 
 
-### Description
+### 설명
 
-Command-line tool to set and get system time.
+시스템 시간을 설정하고 출력합니다.
 
-### Examples
+### 예
 
-Set the system time and read it back
+시스템 시간을 설정하고 다시 읽습니다.
 ```
 system_time set 1600775044
 system_time get
@@ -624,7 +622,7 @@ system_time get
 
 <a id="system_time_usage"></a>
 
-### Usage
+### 사용법
 ```
 system_time <command> [arguments...]
  Commands:
@@ -633,33 +631,31 @@ system_time <command> [arguments...]
    get           Get the system time
 ```
 ## top
-Source: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
+소스: [systemcmds/top](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/top)
 
-Monitor running processes and their CPU, stack usage, priority and state
-<a id="top_usage"></a>
+실행 중인 프로세스와 해당 CPU, 스택 사용량, 우선 순위 및 상태를 모니터링합니다.<a id="top_usage"></a>
 
-### Usage
+### 사용법
 ```
 top [arguments...]
    once          print load only once
 ```
 ## usb_connected
-Source: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
+소스: [systemcmds/usb_connected](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/usb_connected)
 
-Utility to check if USB is connected. Was previously used in startup scripts. A return value of 0 means USB is connected, 1 otherwise.
+USB가 연결되어 있는지 확인하는 유틸리티입니다. 이전에 시작 스크립트에서 사용되었습니다. 반환 값 0은 USB가 연결되었음을 의미하고, 그렇지 않으면 1입니다.
 <a id="usb_connected_usage"></a>
 
-### Usage
+### 사용법
 ```
 usb_connected [arguments...]
 ```
 ## ver
-Source: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
+소스: [systemcmds/ver](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/ver)
 
-Tool to print various version information
-<a id="ver_usage"></a>
+다양한 버전 정보를 출력합니다.<a id="ver_usage"></a>
 
-### Usage
+### 사용법
 ```
 ver <command> [arguments...]
  Commands:
