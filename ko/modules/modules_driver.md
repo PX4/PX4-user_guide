@@ -674,11 +674,11 @@ pcf8583 <command> [arguments...]
    status        print status info
 ```
 ## pmw3901
-Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
+소스: [drivers/optical_flow/pmw3901](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/pmw3901)
 
 <a id="pmw3901_usage"></a>
 
-### Usage
+### 사용법
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -700,40 +700,40 @@ pmw3901 <command> [arguments...]
    status        print status info
 ```
 ## pwm_out
-Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
+소스: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
-### Description
-This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
+### 설명
+이 모듈은 출력을 구동하고 입력 핀을 읽는 역할을 합니다. 별도의 IO 칩이 없는 보드(예: Pixracer)의 경우에는 메인 채널을 사용합니다. IO 칩이 있는 보드(예: Pixhawk)에서는 AUX 채널을 사용하고, px4io 드라이버는 기본 채널에 사용됩니다.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+이것은 Actuator_controls 토픽을 듣고 믹싱을 하고 PWM을 출력합니다.
 
-The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
+모듈은 mode_* 명령어로 설정됩니다. 이 명령으로 드라이버에 할당할 최초의 N개의 핀을 정의합니다. 예를 들어, mode_pwm4를 사용하면 핀 5와 6을 카메라 트리거 드라이버나 PWM 거리 측정기 드라이버에서 사용할 수 있습니다. 또는 pwm_out을 캡처 모드 중 하나로 시작한 다음, 드라이버가 ioctl 호출로 캡처 콜백을 등록할 수 있습니다.
 
-### Implementation
-By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
+### 구현
+기본적으로 모듈은 uORB actuator_controls 주제에 대한 콜백을 사용하여 작업 대기열에서 실행됩니다.
 
-### Examples
-It is typically started with:
+### 예
+보통 다음 명령으로 시작합니다.
 ```
 pwm_out mode_pwm
 ```
-To drive all available pins.
+사용 가능한 모든 PIN을 구동합니다.
 
-Capture input (rising and falling edges) and print on the console: start pwm_out in one of the capture modes:
+입력(상승 및 하강 에지)을 캡처하고, 콘솔에 인쇄합니다. 캡처 모드 중 하나에서 pwm_out을 시작합니다.
 ```
 pwm_out mode_pwm3cap1
 ```
-This will enable capturing on the 4th pin. Then do:
+이렇게 하면 4번째 핀에서 캡처할 수 있습니다. 다음 명령어를 실행하십시오.
 ```
 pwm_out test
 ```
 
-Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load mixer files.
+추가 구성(PWM 속도, 레벨, ...)에는 `pwm` 명령을 사용하고, 믹서 파일을 로드하려면 `mixer` 명령을 사용하십시오.
 
 <a id="pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -790,19 +790,19 @@ pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pwm_out_sim
-Source: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
+소스: [drivers/pwm_out_sim](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out_sim)
 
 
-### Description
-Driver for simulated PWM outputs.
+### 설명
+시뮬레이션된 PWM 출력용 드라이버입니다.
 
-Its only function is to take `actuator_control` uORB messages, mix them with any loaded mixer and output the result to the `actuator_output` uORB topic.
+유일한 기능은 `actuator_control` uORB 메시지를 가져와서 로드된 믹서와 혼합하고, 결과를 `actuator_output` uORB 주제로 출력하는 것입니다.
 
-It is used in SITL and HITL.
+SITL 및 HITL에서 사용됩니다.
 
 <a id="pwm_out_sim_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -815,11 +815,11 @@ pwm_out_sim <command> [arguments...]
    status        print status info
 ```
 ## px4flow
-Source: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
+소스: [drivers/optical_flow/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 <a id="px4flow_usage"></a>
 
-### Usage
+### 사용법
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -840,10 +840,10 @@ px4flow <command> [arguments...]
    status        print status info
 ```
 ## rc_input
-Source: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
+소스: [drivers/rc_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rc_input)
 
 
-### Description
+### 설명
 This module does the RC input parsing and auto-selecting the method. Supported methods are:
 - PPM
 - SBUS
