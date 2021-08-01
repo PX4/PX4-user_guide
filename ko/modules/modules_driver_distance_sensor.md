@@ -1,26 +1,26 @@
 # 모듈 참조: 거리 센서(드라이버)
 ## afbrs50
-Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
+소스: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
 
 
-### Description
+### 설명
 
-Driver for the Broadcom AFBRS50.
+Broadcom AFBRS50용 드라이버입니다.
 
-### Examples
+### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 afbrs50 start
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 afbrs50 stop
 ```
 
 <a id="afbrs50_usage"></a>
 
-### Usage
+### 사용법
 ```
 afbrs50 <command> [arguments...]
  Commands:
@@ -32,11 +32,11 @@ afbrs50 <command> [arguments...]
    stop          Stop driver
 ```
 ## gy_us42
-Source: [drivers/distance_sensor/gy_us42](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/gy_us42)
+소스: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/gy_us42)
 
 <a id="gy_us42_usage"></a>
 
-### Usage
+### 사용법
 ```
 gy_us42 <command> [arguments...]
  Commands:
@@ -55,31 +55,31 @@ gy_us42 <command> [arguments...]
    status        print status info
 ```
 ## leddar_one
-Source: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/leddar_one)
+소스: [drivers/distance_sensor/leddar_one](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/leddar_one)
 
 
-### Description
+### 설명
 
-Serial bus driver for the LeddarOne LiDAR.
+LeddarOne LiDAR 직렬 버스 드라이버입니다.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_LEDDAR1_CFG parameter.
+대부분의 보드는 SENS_LEDDAR1_CFG 매개변수를 사용하여, 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/leddar_one.html
+설정/사용 정보: https://docs.px4.io/master/en/sensor/leddar_one.html
 
-### Examples
+### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 leddar_one start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 leddar_one stop
 ```
 
 <a id="leddar_one_usage"></a>
 
-### Usage
+### 사용법
 ```
 leddar_one <command> [arguments...]
  Commands:
@@ -91,18 +91,18 @@ leddar_one <command> [arguments...]
    stop          Stop driver
 ```
 ## lightware_laser_i2c
-Source: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c)
+소스: [drivers/distance_sensor/lightware_laser_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_i2c)
 
 
-### Description
+### 설명
 
-I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
+Lightware SFxx 시리즈 LIDAR 거리 측정기용 I2C 버스 드라이버: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
 <a id="lightware_laser_i2c_usage"></a>
 
-### Usage
+### 사용법
 ```
 lightware_laser_i2c <command> [arguments...]
  Commands:
@@ -123,31 +123,31 @@ lightware_laser_i2c <command> [arguments...]
    status        print status info
 ```
 ## lightware_laser_serial
-Source: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial)
+소스: [drivers/distance_sensor/lightware_laser_serial](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/lightware_laser_serial)
 
 
-### Description
+### 설명
 
-Serial bus driver for the LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c Laser rangefinders.
+LightWare SF02/F, SF10/a, SF10/b, SF10/c, SF11/c 레이저 거리 측정기용 직렬 버스 드라이버.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_SF0X_CFG parameter.
+대부분의 보드는 SENS_SF0X_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
+설정/사용 정보: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
-### Examples
+### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 lightware_laser_serial start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 lightware_laser_serial stop
 ```
 
 <a id="lightware_laser_serial_usage"></a>
 
-### Usage
+### 사용법
 ```
 lightware_laser_serial <command> [arguments...]
  Commands:
@@ -159,20 +159,20 @@ lightware_laser_serial <command> [arguments...]
    stop          Stop driver
 ```
 ## ll40ls
-Source: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
+소스: [drivers/distance_sensor/ll40ls](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ll40ls)
 
 
-### Description
+### 설명
 
-I2C bus driver for LidarLite rangefinders.
+LidarLite 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
-The sensor/driver must be enabled using the parameter SENS_EN_LL40LS.
+센서/드라이버는 매개변수 SENS_EN_LL40LS를 사용하여 활성화합니다.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/lidar_lite.html
+설정/사용 정보: https://docs.px4.io/master/en/sensor/lidar_lite.html
 
 <a id="ll40ls_usage"></a>
 
-### Usage
+### 사용법
 ```
 ll40ls <command> [arguments...]
  Commands:
@@ -195,11 +195,11 @@ ll40ls <command> [arguments...]
    status        print status info
 ```
 ## mappydot
-Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mappydot)
+소스: [drivers/distance_sensor/mappydot](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mappydot)
 
 <a id="mappydot_usage"></a>
 
-### Usage
+### 사용법
 ```
 mappydot <command> [arguments...]
  Commands:
@@ -216,11 +216,11 @@ mappydot <command> [arguments...]
    status        print status info
 ```
 ## mb12xx
-Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mb12xx)
+소스: [drivers/distance_sensor/mb12xx](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/mb12xx)
 
 <a id="mb12xx_usage"></a>
 
-### Usage
+### 사용법
 ```
 mb12xx <command> [arguments...]
  Commands:
@@ -241,14 +241,14 @@ mb12xx <command> [arguments...]
    status        print status info
 ```
 ## pga460
-Source: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/pga460)
+소스: [drivers/distance_sensor/pga460](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/pga460)
 
 
-### Description
-Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.
+### 설명
+장치와의 통신을 처리하고, uORB를 통해 거리를 게시하는 초음파 거리 측정기 드라이버입니다.
 
-### Implementation
-This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
+### 구현
+이 드라이버는 NuttX 작업으로 구현됩니다. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
 
 <a id="pga460_usage"></a>
 
