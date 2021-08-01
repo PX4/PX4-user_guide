@@ -251,27 +251,27 @@ heater <command> [arguments...]
    status        print status info
 ```
 ## land_detector
-Source: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/land_detector)
+소스: [modules/land_detector](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/land_detector)
 
 
-### Description
-**ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
+### 설명
+차량의 자유낙하와 착지상태를 감지하고, `vehicle_land_detected` 주제를 게시하는 모듈입니다. 각 차량 유형(멀티로터, 고정익, vtol, ...)은 명령 추력, 무장 상태 및 차량 모션과 같은 다양한 상태를 고려하여 자체 알고리즘을 제공합니다.
 
-### Implementation
-**maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The base class maintains a state (landed, maybe_landed, ground_contact). When maybe_landed is detected, the position controller sets the thrust setpoint to zero. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.
+### 구현
+모든 유형은 공통 기본 클래스를 사용하여 자체 클래스에서 구현됩니다. 기본 클래스는 상태를 유지합니다(착륙, 아마도_착륙, 지상_접촉). 가능한 각 상태는 파생 클래스에서 구현됩니다. 각 내부 상태의 히스테리시스 및 고정된 우선 순위에 따라 실제 land_detector 상태가 결정됩니다.
 
-#### Multicopter Land Detector
-**ground_contact**: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.
+#### 멀티콥터 착륙 감지기
+**ground_contact**: z 방향의 추력 설정점 및 속도는 GROUND_CONTACT_TRIGGER_TIME_US 시간에 대해 정의된 임계값 미만이어야 합니다. ground_contact가 감지되면, 위치 컨트롤러는 본체 x 및 y의 추력 설정값을 끕니다.
 
-**maybe_landed**: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. When maybe_landed is detected, the position controller sets the thrust setpoint to zero.
+**maybe_landed**: 더 엄격한 추력 설정값 임계값과 함께 ground_contact가 필요하며, 수평 방향으로 속도가 없습니다. 트리거 시간은 MAYBE_LAND_TRIGGER_TIME에 의해 정의됩니다. Maybe_landed가 감지되면 위치 컨트롤러는 추력 설정값을 0으로 설정합니다.
 
-**landed**: it requires maybe_landed to be true for time LAND_DETECTOR_TRIGGER_TIME_US.
+**착륙**: LAND_DETECTOR_TRIGGER_TIME_US 시간 동안 참이 되기 위해서는 may_landed가 필요합니다.
 
-The module runs periodically on the HP work queue.
+모듈은 HP 작업 대기열에서 주기적으로 실행됩니다.
 
 <a id="land_detector_usage"></a>
 
-### Usage
+### 사용법
 ```
 land_detector <command> [arguments...]
  Commands:
@@ -283,17 +283,17 @@ land_detector <command> [arguments...]
    status        print status info
 ```
 ## load_mon
-Source: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/load_mon)
+소스: [modules/load_mon](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/load_mon)
 
 
-### Description
-Background process running periodically on the low priority work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
+### 설명
+CPU 로드 및 RAM 사용량을 계산하고, `cpuload` 주제를 게시하기 위하여 낮은 우선순위 작업 대기열에서 주기적으로 실행되는 백그라운드 프로세스입니다.
 
-On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
+NuttX에서는 각 프로세스의 스택 사용량도 확인하고, 300바이트 미만으로 떨어지면 경고가 출력되고 로그 파일에도 기록됩니다.
 
 <a id="load_mon_usage"></a>
 
-### Usage
+### 사용법
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -304,21 +304,21 @@ load_mon <command> [arguments...]
    status        print status info
 ```
 ## logger
-Source: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
+소스: [modules/logger](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
 
 
-### Description
-System logger which logs a configurable set of uORB topics and system printf messages (`PX4_WARN` and `PX4_ERR`) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.
+### 설명
+설정 가능한 uORB 주제 세트와 시스템 printf 메시지(`PX4_WARN` 및 `PX4_ERR`)를 ULog 파일에 기록하는 시스템 로거입니다. 시스템 및 비행 성능 평가, 튜닝, 재생 및 충돌 분석에 사용할 수 있습니다.
 
-It supports 2 backends:
-- Files: write ULog files to the file system (SD card)
-- MAVLink: stream ULog data via MAVLink to a client (the client must support this)
+2개의 백엔드를 지원합니다.
+- 파일: ULog 파일을 파일 시스템(SD 카드)에 기록합니다.
+- MAVLink: MAVLink를 통해 ULog 데이터를 클라이언트로 스트리밍합니다(클라이언트가 이를 지원해야 함).
 
-Both backends can be enabled and used at the same time.
+두 백엔드를 동시에 활성화하고 사용할 수 있습니다.
 
-In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.
+파일 백엔드는 전체(일반 로그)와 미션 로그의 두 가지 유형의 로그 파일을 지원합니다. 임무 로그는 축소된 ulog 파일이며, 지오태깅 또는 차량 관리 등에 사용할 수 있습니다. SDLOG_MISSION 매개변수를 통하여 활성화 및 설정할 수 있습니다. 일반 로그는 항상 미션 로그의 상위 집합입니다.
 
-### Implementation
+### 구현
 The implementation uses two threads:
 - The main thread, running at a fixed rate (or polling on a topic if started with -p) and checking for data updates
 - The writer thread, writing data to the file
