@@ -439,19 +439,19 @@ rc_update <command> [arguments...]
 
 
 ### 설명
-This module is used to replay ULog files.
+이 모듈은 ULog 파일을 재생하는 데 사용됩니다.
 
-There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
-- `replay_mode=ekf2`: specific EKF2 replay mode. It can only be used with the ekf2 module, but allows the replay to run as fast as possible.
-- Generic otherwise: this can be used to replay any module(s), but the replay will be done with the same speed as the log was recorded.
+구성에 사용되는 두 가지 환경 변수가 있습니다. `재생`, ULog 파일 이름으로 설정해야 합니다. 재생될 로그 파일입니다. 두 번째는 `replay_mode`를 통해 지정된 모드입니다.
+- `replay_mode=ekf2`: 특정 EKF2 재생 모드. ekf2 모듈과 함께만 사용할 수 있지만, 가능한 한 빨리 재생할 수 있습니다.
+- 일반 그렇지 않으면 이것은 모든 모듈을 재생하는 데 사용할 수 있지만 재생은 로그가 기록된 것과 동일한 속도로 수행됩니다.
 
-The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.
+모듈은 일반적으로 uORB 게시자 규칙과 함께 사용되어 재생되어야 하는 메시지를 지정합니다. 재생 모듈은 로그에 있는 모든 메시지를 게시합니다. 또한 로그의 매개변수를 적용합니다.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
+재생 절차는 [시스템 전체 재생](https://dev.px4.io/master/en/debug/system_wide_replay.html) 페이지에 설명되어 있습니다.
 
 <a id="replay_usage"></a>
 
-### Usage
+### 사용법
 ```
 replay <command> [arguments...]
  Commands:
@@ -466,17 +466,17 @@ replay <command> [arguments...]
    status        print status info
 ```
 ## send_event
-Source: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
+소스: [modules/events](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/events)
 
 
-### Description
-Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.
+### 설명
+하우스키핑 작업을 수행하기 위하여 LP 작업 대기열에서 주기적으로 실행되는 백그라운드 프로세스입니다. 현재 RC Loss에 대한 톤 알람만 담당합니다.
 
-The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
+작업은 CLI 또는 uORB 주제(MAVLink의 차량 명령 등)를 통하여 시작할 수 있습니다.
 
 <a id="send_event_usage"></a>
 
-### Usage
+### 사용법
 ```
 send_event <command> [arguments...]
  Commands:
@@ -487,10 +487,10 @@ send_event <command> [arguments...]
    status        print status info
 ```
 ## sensors
-Source: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
+소스: [modules/sensors](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/sensors)
 
 
-### Description
+### 설명
 The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
 
 The provided functionality includes:
