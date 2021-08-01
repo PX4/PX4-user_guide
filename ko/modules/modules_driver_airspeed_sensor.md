@@ -1,4 +1,4 @@
-# Modules Reference: Airspeed Sensor (Driver)
+# 모듈 참조: 항속 센서(드라이버)
 ## ets_airspeed
 Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)
 
