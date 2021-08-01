@@ -319,26 +319,26 @@ load_mon <command> [arguments...]
 파일 백엔드는 전체(일반 로그)와 미션 로그의 두 가지 유형의 로그 파일을 지원합니다. 임무 로그는 축소된 ulog 파일이며, 지오태깅 또는 차량 관리 등에 사용할 수 있습니다. SDLOG_MISSION 매개변수를 통하여 활성화 및 설정할 수 있습니다. 일반 로그는 항상 미션 로그의 상위 집합입니다.
 
 ### 구현
-The implementation uses two threads:
-- The main thread, running at a fixed rate (or polling on a topic if started with -p) and checking for data updates
-- The writer thread, writing data to the file
+구현은 두 개의 스레드를 사용합니다.
+- 고정된 속도로 실행되는 메인 스레드(또는 -p로 시작된 경우 주제에 대한 폴링) 및 데이터 업데이트 확인
+- 작성자 스레드, 파일에 데이터 쓰기
 
-In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). It should be large to avoid dropouts.
+그 사이에는 구성 가능한 크기의 쓰기 버퍼가 있습니다(및 미션 로그를 위한 또 다른 고정 크기 버퍼). 드롭아웃을 방지하려면 크기가 커야 합니다.
 
-### Examples
-Typical usage to start logging immediately:
+### 예
+즉시 로깅을 시작하는 일반적인 사용법입니다.
 ```
 logger start -e -t
 ```
 
-Or if already running:
+또는, 이미 동작중일 경우
 ```
 logger on
 ```
 
 <a id="logger_usage"></a>
 
-### Usage
+### 사용법
 ```
 logger <command> [arguments...]
  Commands:
@@ -367,18 +367,18 @@ logger <command> [arguments...]
    status        print status info
 ```
 ## netman
-Source: [systemcmds/netman](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
+소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-  ### Description Network configuration manager saves the network settings in non-volatile memory. On boot the `update` option will be run. If a network configuration does not exist. The default setting will be saved in non-volatile and the system rebooted. On Subsequent boots, the `update` option will check for the existence of `net.cfg` in the root of the SD Card.  It will saves the network settings from `net.cfg` in non-volatile memory, delete the file and reboot the system.
+  ###설명 네트워크 구성 관리자는 네트워크 설정을 비휘발성 메모리에 저장합니다. 부팅시 `업데이트` 옵션이 실행됩니다. 네트워크 구성이 존재하지 않는 경우. 기본 설정은 비휘발성에 저장되고 시스템이 재부팅됩니다. 후속 부팅 시 `업데이트` 옵션은 SD 카드의 루트에 `net.cfg`가 있는 지 확인합니다.  `net.cfg`의 네트워크 설정을 비휘발성 메모리에 저장하고 파일을 삭제하고 시스템을 재부팅합니다.
 
-  The `save` option will `net.cfg` on the SD Card. Use this to edit the settings. The  `show` option will display the network settings  to the console.
+  `저장` 옵션은 SD 카드에 `net.cfg`됩니다. 이것을 사용하여 설정을 편집합니다. `show` 옵션은 네트워크 설정을 콘솔에 표시합니다.
 
-  ### Examples $ netman save           # Save the parameters to the SD card. $ netman show           # display current settings. $ netman update -i eth0 # do an update
+  ### 예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행
 
 <a id="netman_usage"></a>
 
-### Usage
+### 사용법
 ```
 netman <command> [arguments...]
  Commands:
@@ -392,15 +392,15 @@ netman <command> [arguments...]
                  default: eth0
 ```
 ## pwm_input
-Source: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
+소스: [drivers/pwm_input](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_input)
 
 
-### Description
-Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
+### 설명
+타이머 캡처 ISR을 통하여 AUX5(또는 MAIN5)의 PWM 입력을 측정하고, uORB 'pwm_input' 메시지를 통하여 게시합니다.
 
 <a id="pwm_input_usage"></a>
 
-### Usage
+### 사용법
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -413,18 +413,18 @@ pwm_input <command> [arguments...]
    status        print status info
 ```
 ## rc_update
-Source: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
+소스: [modules/rc_update](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/rc_update)
 
 
-### Description
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/en/debug/system_wide_replay.html) page.
+### 설명
+rc_update 모듈은 RC 채널 매핑을 처리합니다. 원시 입력 채널(`input_rc`)을 읽은 다음 보정을 적용하고 RC 채널을 구성된 채널에 매핑합니다. 모드를 전환한 다음 `rc_channels` 및 `manual_control_setpoint`로 게시합니다.
 
-### Implementation
-To reduce control latency, the module is scheduled on input_rc publications.
+### 구현
+제어 대기 시간을 줄이기 위하여 모듈은 input_rc 게시에 예약됩니다.
 
 <a id="rc_update_usage"></a>
 
-### Usage
+### 사용법
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -435,10 +435,10 @@ rc_update <command> [arguments...]
    status        print status info
 ```
 ## replay
-Source: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+소스: [modules/replay](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
 
 
-### Description
+### 설명
 This module is used to replay ULog files.
 
 There are 2 environment variables used for configuration: `replay`, which must be set to an ULog file name - it's the log file to be replayed. The second is the mode, specified via `replay_mode`:
