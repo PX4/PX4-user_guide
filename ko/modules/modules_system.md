@@ -178,34 +178,30 @@ dmesg <command> [arguments...]
 
 
 ### 설명
-Background process running periodically with 1 Hz on the LP work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
+ESC 상태의 정보를 사용하여 구현하고, 배터리 상태를 게시합니다.
 
 <a id="esc_battery_usage"></a>
 
-### Usage
+### 사용법
 ```
-replay <command> [arguments...]
+esc_battery <command> [arguments...]
  Commands:
-   start         Start replay, using log file from ENV variable 'replay'
-
-   trystart      Same as 'start', but silently exit if no log file given
-
-   tryapplyparams Try to apply the parameters from the log file
+   start
 
    stop
 
    status        print status info
 ```
 ## gyro_calibration
-On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
+소스: [modules/gyro_calibration](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gyro_calibration)
 
 
-### Description
-Simple online gyroscope calibration.
+### 설명
+간단한 온라인 자이로스코프 교정.
 
 <a id="gyro_calibration_usage"></a>
 
-### Usage
+### 사용법
 ```
 gyro_calibration <command> [arguments...]
  Commands:
@@ -216,14 +212,14 @@ gyro_calibration <command> [arguments...]
    status        print status info
 ```
 ## gyro_fft
-Source: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gyro_fft)
+소스: [modules/gyro_fft](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/gyro_fft)
 
 
-### Description
+### 설명
 
 <a id="gyro_fft_usage"></a>
 
-### Usage
+### 사용법
 ```
 gyro_fft <command> [arguments...]
  Commands:
@@ -234,17 +230,17 @@ gyro_fft <command> [arguments...]
    status        print status info
 ```
 ## heater
-Source: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/heater)
+소스: [drivers/heater](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/heater)
 
 
-### Description
-Background process running periodically on the LP work queue to regulate IMU temperature at a setpoint.
+### 설명
+설정점에서 IMU 온도를 조절하기 위하여 LP 작업 대기열에서 주기적으로 실행되는 백그라운드 프로세스입니다.
 
-This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
+이 작업은 부팅 시 SENS_EN_THERMAL을 설정하거나, CLI를 통하여 시작 스크립트에서 시작할 수 있습니다.
 
 <a id="heater_usage"></a>
 
-### Usage
+### 사용법
 ```
 heater <command> [arguments...]
  Commands:
