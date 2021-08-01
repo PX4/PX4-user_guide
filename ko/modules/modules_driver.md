@@ -917,13 +917,13 @@ UART의 지연 시간 때문에, 이 드라이버는 모든 단일 `actuator_con
 
 ### 예
 
-The command to start this driver is:
+이 드라이버를 시작하는 명령은 다음과 같습니다:
 
  $ roboclaw start <device> <baud>
 
-`<device>` is the name of the UART port. On the Pixhawk 4, this is `/dev/ttyS3`. `<baud>` is te baud rate.
+`<device>`은 UART 포트의 이름입니다. 픽스호크 4에서는 `/dev/ttyS3`입니다. `<baud>`는 초당 비트 전송율입니다.
 
-All available commands are:
+사용할 수 있는 명령어는 다음과 같습니다:
 
  - `$ roboclaw start <device> <baud>`
  - `$ roboclaw status`
@@ -931,21 +931,21 @@ All available commands are:
 
 <a id="roboclaw_usage"></a>
 
-### Usage
+### 사용법
 ```
 roboclaw <command> [arguments...]
  Commands:
 ```
 ## safety_button
-Source: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
+소스: [drivers/safety_button](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/safety_button)
 
 
-### Description
-This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.
+### 설명
+이 모듈은 안전 버튼을 담당합니다. 안전 버튼을 빠르게 3번 누르면, GCS 페어링 요청이 실행됩니다.
 
 <a id="safety_button_usage"></a>
 
-### Usage
+### 사용법
 ```
 safety_button <command> [arguments...]
  Commands:
@@ -956,15 +956,15 @@ safety_button <command> [arguments...]
    status        print status info
 ```
 ## tone_alarm
-Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
+소스: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
 
-### Description
-This module is responsible for the tone alarm.
+### 설명
+이 모듈은 톤 알람을 담당합니다.
 
 <a id="tone_alarm_usage"></a>
 
-### Usage
+### 사용법
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -975,16 +975,16 @@ tone_alarm <command> [arguments...]
    status        print status info
 ```
 ## vmount
-Source: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
+소스: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
 
 
-### Description
-Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
+### 설명
+마운트(짐벌) 콘트롤 드라이버입니다. 다양한 입력 방법(예: RC 또는 MAVLink)을 설정 출력(예: AUX 채널 또는 MAVLink)에 매핑합니다.
 
-Documentation how to use it is on the [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html) page.
+사용 방법은 [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html)을 참고하십시오.
 
-### Implementation
-Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
+### 구현
+각 메소드는 자체 클래스에서 구현되며 입력 및 출력에 대한 공통 기본 클래스가 있습니다. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
 
 ### Examples
 Test the output by setting a fixed yaw angle (and the other axes to 0):
