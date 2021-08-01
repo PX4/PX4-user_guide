@@ -1,108 +1,132 @@
-# Modules Reference: System
+# 모듈 참조: 시스템
 
 ## battery_simulator
-Source: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
+소스: [modules/simulator/battery_simulator](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/simulator/battery_simulator)
 
 
-### Description
+### 설명
 
 <a id="battery_simulator_usage"></a>
 
-### Usage
+### 사용법
 ```
-load_mon <command> [arguments...]
+battery_simulator <command> [arguments...]
  Commands:
-   start         Start the background task
+   start
 
    stop
 
    status        print status info
 ```
 ## battery_status
-Source: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/battery_status)
+소스: [modules/battery_status](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/battery_status)
 
 
-### Description
+### 설명
 
-The provided functionality includes:
-- Read the output from the ADC driver (via ioctl interface) and publish `battery_status`.
+제공 기능은 다음과 같습니다:
+- ADC 드라이버의 출력을 읽고(ioctl 인터페이스를 통해) `battery_status`를 게시합니다.
 
 
-### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+### 구현
+자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
 <a id="battery_status_usage"></a>
 
-### Usage
+### 사용법
 ```
-sensors <command> [arguments...]
+battery_status <command> [arguments...]
  Commands:
    start
-     [-h]        Start in HIL mode
 
    stop
 
    status        print status info
 ```
 ## camera_feedback
-Source: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/camera_feedback)
+소스: [modules/camera_feedback](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/camera_feedback)
 
 
-### Description
+### 설명
 
 <a id="camera_feedback_usage"></a>
 
-### Usage
+### 사용법
 ```
-land_detector <command> [arguments...]
+camera_feedback <command> [arguments...]
  Commands:
-   start         Start the background task
-     fixedwing|multicopter|vtol|ugv Select vehicle type
+   start
 
    stop
 
    status        print status info
 ```
 ## commander
-Source: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/commander)
+소스: [modules/commander](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/commander)
 
 
-### Description
-The commander module contains the state machine for mode switching and failsafe behavior.
+### 설명
+커맨더 모듈에는 모드 전환 및 안전 장치 동작을 위한 상태 머신이 포함되어 있습니다.
 
 <a id="commander_usage"></a>
 
-### Usage
+### 사용법
 ```
-send_event <command> [arguments...]
+commander <command> [arguments...]
  Commands:
-   start         Start the background task
+   start
+     [-h]        Enable HIL mode
 
-   temperature_calibration Run temperature calibration process
-     [-g]        calibrate the gyro
-     [-a]        calibrate the accel
-     [-b]        calibrate the baro (if none of these is given, all will be
-                 calibrated)
+   calibrate     Run sensor calibration
+     mag|accel|gyro|level|esc|airspeed Calibration type
+     quick       Quick calibration (accel only, not recommended)
+
+   check         Run preflight checks
+
+   arm
+     [-f]        Force arming (do not run preflight checks)
+
+   disarm
+
+   takeoff
+
+   land
+
+   transition    VTOL transition
+
+   mode          Change flight mode
+     manual|acro|offboard|stabilized|altctl|posctl|auto:mission|auto:loiter|auto
+                 :rtl|auto:takeoff|auto:land|auto:precland Flight mode
+
+   pair
+
+   lockdown
+     [off]       Turn lockdown off
+
+   set_ekf_origin
+     lat, lon, alt Origin Latitude, Longitude, Altitude
+
+   lat|lon|alt   Origin latitude longitude altitude
 
    stop
 
    status        print status info
 ```
 ## dataman
-Source: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/dataman)
+소스: [modules/dataman](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/dataman)
 
 
-### Description
-Module to provide persistent storage for the rest of the system in form of a simple database through a C API. Multiple backends are supported:
-- a file (eg. on the SD card)
-- RAM (this is obviously not persistent)
+### 설명
+C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저장소를 제공하는 모듈입니다. 다중 백엔드가 지원됩니다.
+- 파일(예: SD 카드)
+- RAM (영구적이지 않음)
 
-It is used to store structured data of different types: mission waypoints, mission state and geofence polygons. Each type has a specific type and a fixed maximum amount of storage items, so that fast random access is possible.
+임무 웨이포인트, 임무 상태 및 지오펜스 다각형과 같은 다양한 유형의 구조화된 데이터를 저장합니다. 각 유형은 특정 유형과 고정된 최대 저장 항목 수를 가지고 있어, 빠른 랜덤 액세스가 가능합니다.
 
-### Implementation
-Reading and writing a single item is always atomic. If multiple items need to be read/modified atomically, there is an additional lock per item type via `dm_lock`.
+### 구현
+단일 항목을 읽고 쓰는 것은 항상 원자적입니다. 여러 항목을 원자적으로 읽고 수정해야 하는 경우에는, `dm_lock`을 사용하여 항목 유형별로 추가 잠금이 있습니다.
 
-**DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct, which stores the number of items for these types. These items are always updated atomically in one transaction (from the mavlink mission manager). During that time, navigator will try to acquire the geofence item lock, fail, and will not check for geofence violations.
+**DM_KEY_FENCE_POINTS** 및 **DM_KEY_SAFE_POINTS** 항목: 첫 번째 데이터 요소는 이러한 유형의 항목 수를 저장하는 `mission_stats_entry_s` 구조체입니다. 이러한 항목은 항상 하나의 트랜잭션에서 원자적으로 업데이트됩니다(mavlink Mission Manager에서). During that time, navigator will try to acquire the geofence item lock, fail, and will not check for geofence violations.
 
 <a id="dataman_usage"></a>
 
