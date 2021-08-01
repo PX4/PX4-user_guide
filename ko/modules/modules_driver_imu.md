@@ -255,11 +255,11 @@ fxos8701cq <command> [arguments...]
    status        print status info
 ```
 ## icm20602
-Source: [drivers/imu/invensense/icm20602](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20602)
+소스: [drivers/imu/invensense/icm20602](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20602)
 
 <a id="icm20602_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20602 <command> [arguments...]
  Commands:
@@ -281,11 +281,11 @@ icm20602 <command> [arguments...]
    status        print status info
 ```
 ## icm20608g
-Source: [drivers/imu/invensense/icm20608g](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20608g)
+소스: [drivers/imu/invensense/icm20608g](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20608g)
 
 <a id="icm20608g_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20608g <command> [arguments...]
  Commands:
@@ -307,11 +307,11 @@ icm20608g <command> [arguments...]
    status        print status info
 ```
 ## icm20649
-Source: [drivers/imu/invensense/icm20649](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20649)
+소스: [drivers/imu/invensense/icm20649](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20649)
 
 <a id="icm20649_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20649 <command> [arguments...]
  Commands:
@@ -333,11 +333,11 @@ icm20649 <command> [arguments...]
    status        print status info
 ```
 ## icm20689
-Source: [drivers/imu/invensense/icm20689](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20689)
+소스: [drivers/imu/invensense/icm20689](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20689)
 
 <a id="icm20689_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20689 <command> [arguments...]
  Commands:
@@ -359,11 +359,11 @@ icm20689 <command> [arguments...]
    status        print status info
 ```
 ## icm20948
-Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20948)
+소스: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20948)
 
 <a id="icm20948_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20948 <command> [arguments...]
  Commands:
@@ -386,11 +386,11 @@ icm20948 <command> [arguments...]
    status        print status info
 ```
 ## icm20948_i2c_passthrough
-Source: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20948)
+소스: [drivers/imu/invensense/icm20948](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm20948)
 
 <a id="icm20948_i2c_passthrough_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm20948_i2c_passthrough <command> [arguments...]
  Commands:
@@ -409,11 +409,11 @@ icm20948_i2c_passthrough <command> [arguments...]
    status        print status info
 ```
 ## icm40609d
-Source: [drivers/imu/invensense/icm40609d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm40609d)
+소스: [drivers/imu/invensense/icm40609d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm40609d)
 
 <a id="icm40609d_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm40609d <command> [arguments...]
  Commands:
@@ -435,11 +435,11 @@ icm40609d <command> [arguments...]
    status        print status info
 ```
 ## icm42605
-Source: [drivers/imu/invensense/icm42605](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42605)
+소스: [drivers/imu/invensense/icm42605](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42605)
 
 <a id="icm42605_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm42605 <command> [arguments...]
  Commands:
@@ -461,11 +461,11 @@ icm42605 <command> [arguments...]
    status        print status info
 ```
 ## icm42688p
-Source: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42688p)
+소스: [drivers/imu/invensense/icm42688p](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/icm42688p)
 
 <a id="icm42688p_usage"></a>
 
-### Usage
+### 사용법
 ```
 icm42688p <command> [arguments...]
  Commands:
@@ -487,11 +487,11 @@ icm42688p <command> [arguments...]
    status        print status info
 ```
 ## l3gd20
-Source: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/l3gd20)
+소스: [drivers/imu/l3gd20](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/l3gd20)
 
 <a id="l3gd20_usage"></a>
 
-### Usage
+### 사용법
 ```
 l3gd20 <command> [arguments...]
  Commands:
@@ -517,11 +517,11 @@ l3gd20 <command> [arguments...]
    status        print status info
 ```
 ## lsm303d
-Source: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/lsm303d)
+소스: [drivers/imu/lsm303d](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/lsm303d)
 
 <a id="lsm303d_usage"></a>
 
-### Usage
+### 사용법
 ```
 lsm303d <command> [arguments...]
  Commands:
@@ -543,11 +543,11 @@ lsm303d <command> [arguments...]
    status        print status info
 ```
 ## lsm9ds1
-Source: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/st/lsm9ds1)
+소스: [drivers/imu/st/lsm9ds1](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/st/lsm9ds1)
 
 <a id="lsm9ds1_usage"></a>
 
-### Usage
+### 사용법
 ```
 lsm9ds1 <command> [arguments...]
  Commands:
@@ -569,11 +569,11 @@ lsm9ds1 <command> [arguments...]
    status        print status info
 ```
 ## mpu6000
-Source: [drivers/imu/invensense/mpu6000](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6000)
+소스: [drivers/imu/invensense/mpu6000](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6000)
 
 <a id="mpu6000_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpu6000 <command> [arguments...]
  Commands:
@@ -595,11 +595,11 @@ mpu6000 <command> [arguments...]
    status        print status info
 ```
 ## mpu9520
-Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6500)
+소스: [drivers/imu/invensense/mpu6500](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu6500)
 
 <a id="mpu9520_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpu9520 <command> [arguments...]
  Commands:
@@ -621,11 +621,11 @@ mpu9520 <command> [arguments...]
    status        print status info
 ```
 ## mpu9520_i2c
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
+소스: [drivers/imu/invensense/mpu9250](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/invensense/mpu9250)
 
 <a id="mpu9520_i2c_usage"></a>
 
-### Usage
+### 사용법
 ```
 mpu9520_i2c <command> [arguments...]
  Commands:
