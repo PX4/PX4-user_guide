@@ -891,6 +891,34 @@ table {
  <td>norm</td>
 </tr>
 <tr>
+ <td><strong id="BAT_N_CELLS">BAT_N_CELLS</strong> (INT32)</td>
+ <td>This parameter is deprecated. Please use BAT1_N_CELLS instead    </td>
+ <td></td>
+ <td>3</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_CHARGED instead    </td>
+ <td></td>
+ <td>4.05</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_EMPTY instead    </td>
+ <td></td>
+ <td>3.5</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
+ <td>This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead    </td>
+ <td></td>
+ <td>0.3</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="BAT_V_OFFS_CURR">BAT_V_OFFS_CURR</strong> (FLOAT)</td>
  <td>Offset in volt as seen by the ADC input of the current sensor <p><strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.</p>   </td>
  <td></td>
@@ -1050,7 +1078,7 @@ table {
  <td><strong id="TRIG_PINS_EX">TRIG_PINS_EX</strong> (INT32)</td>
  <td>Camera trigger pin extended <p><strong>Comment:</strong> This Bit mask selects which FMU pin is used (range: AUX9-AUX32) If the value is not 0 it takes precedence over TRIG_PINS. If bits above 8 are set that value is used as the selector for trigger pins. greater then 8. 0x00000300 Would be Pins 9,10. If the value is</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td>0 > 4294967040 </td>
+ <td>0 > 2147483647 </td>
  <td>0</td>
  <td></td>
 </tr>
