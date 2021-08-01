@@ -844,7 +844,7 @@ px4flow <command> [arguments...]
 
 
 ### 설명
-This module does the RC input parsing and auto-selecting the method. Supported methods are:
+이 모듈은 RC 입력 구문 분석과 프로토콜을 자동으로 선택합니다. 지원되는 프로토콜은 다음과 같습니다.
 - PPM
 - SBUS
 - DSM
@@ -854,7 +854,7 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 
 <a id="rc_input_usage"></a>
 
-### Usage
+### 사용법
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -869,11 +869,11 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
+소스: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
 <a id="rgbled_usage"></a>
 
-### Usage
+### 사용법
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -892,30 +892,30 @@ rgbled <command> [arguments...]
    status        print status info
 ```
 ## roboclaw
-Source: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
+소스: [drivers/roboclaw](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/roboclaw)
 
 
-### Description
+### 설명
 
-This driver communicates over UART with the [Roboclaw motor driver](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf). It performs two tasks:
+이 드라이버는 UART로 [Roboclaw 모터 드라이버](http://downloads.basicmicro.com/docs/roboclaw_user_manual.pdf)와 통신합니다. 두 가지 작업을 수행합니다.
 
- - Control the motors based on the `actuator_controls_0` UOrb topic.
- - Read the wheel encoders and publish the raw data in the `wheel_encoders` UOrb topic
+ - `actuator_controls_0` UOrb 주제를 기반으로 모터를 제어합니다.
+ - 휠 인코더를 읽고 `wheel_encoders` UOrb 주제에 원시 데이터를 게시합니다.
 
-In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and your flight controller's UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4, use the `UART & I2C B` port, which corresponds to `/dev/ttyS3`.
+이 드라이버를 사용하려면, Roboclaw를 패킷 직렬 모드(링크된 문서 참조)로 설정해야 하며, 문서에 표시된 대로 비행 컨트롤러의 UART 포트가 Roboclaw에 연결되어야 합니다. Pixhawk 4의 경우에는 `/dev/ttyS3`에 해당하는 `UART & I2C B` 포트를 사용합니다.
 
-### Implementation
+### 구현
 
-The main loop of this module (Located in `RoboClaw.cpp::task_main()`) performs 2 tasks:
+이 모듈의 메인 루프(`RoboClaw.cpp::task_main()`에 있음)는 2가지 작업을 수행합니다.
 
- 1. Write `actuator_controls_0` messages to the Roboclaw as they become available
- 2. Read encoder data from the Roboclaw at a constant, fixed rate.
+ 1. Roboclaw가 사용 가능해지면, `actuator_controls_0` 메시지를 Roboclaw에 작성하십시오.
+ 2. 일정한 속도로 Roboclaw에서 인코더 데이터를 읽습니다.
 
-Because of the latency of UART, this driver does not write every single `actuator_controls_0` message to the Roboclaw immediately. Instead, it is rate limited based on the parameter `RBCLW_WRITE_PER`.
+UART의 지연 시간 때문에, 이 드라이버는 모든 단일 `actuator_controls_0` 메시지를 즉시 Roboclaw에 쓰지 않습니다. 대신, `RBCLW_WRITE_PER` 매개변수에 따라 속도가 제한됩니다.
 
-On startup, this driver will attempt to read the status of the Roboclaw to verify that it is connected. If this fails, the driver terminates immediately.
+시작시, 이 드라이버는 Roboclaw의 상태를 읽고 연결 여부를 확인합니다. 이 과정이 실패하면, 드라이버는 즉시 종료됩니다.
 
-### Examples
+### 예
 
 The command to start this driver is:
 
