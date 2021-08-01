@@ -1,10 +1,10 @@
 # 모듈 참조: 관성 센서(드라이버)
 ## adis16448
-Source: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/analog_devices/adis16448)
+소스: [drivers/imu/analog_devices/adis16448](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/analog_devices/adis16448)
 
 <a id="adis16448_usage"></a>
 
-### Usage
+### 사용법
 ```
 adis16448 <command> [arguments...]
  Commands:
@@ -26,11 +26,11 @@ adis16448 <command> [arguments...]
    status        print status info
 ```
 ## adis16470
-Source: [drivers/imu/analog_devices/adis16470](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/analog_devices/adis16470)
+소스: [drivers/imu/analog_devices/adis16470](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/analog_devices/adis16470)
 
 <a id="adis16470_usage"></a>
 
-### Usage
+### 사용법
 ```
 adis16470 <command> [arguments...]
  Commands:
@@ -52,11 +52,11 @@ adis16470 <command> [arguments...]
    status        print status info
 ```
 ## adis16477
-Source: [drivers/imu/adis16477](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16477)
+소스: [drivers/imu/adis16477](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16477)
 
 <a id="adis16477_usage"></a>
 
-### Usage
+### 사용법
 ```
 adis16477 <command> [arguments...]
  Commands:
@@ -78,11 +78,11 @@ adis16477 <command> [arguments...]
    status        print status info
 ```
 ## adis16497
-Source: [drivers/imu/adis16497](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16497)
+소스: [drivers/imu/adis16497](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/adis16497)
 
 <a id="adis16497_usage"></a>
 
-### Usage
+### 사용법
 ```
 adis16497 <command> [arguments...]
  Commands:
@@ -104,11 +104,11 @@ adis16497 <command> [arguments...]
    status        print status info
 ```
 ## bmi055
-Source: [drivers/imu/bosch/bmi055](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi055)
+소스: [drivers/imu/bosch/bmi055](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi055)
 
 <a id="bmi055_usage"></a>
 
-### Usage
+### 사용법
 ```
 bmi055 <command> [arguments...]
  Commands:
@@ -132,11 +132,11 @@ bmi055 <command> [arguments...]
    status        print status info
 ```
 ## bmi088
-Source: [drivers/imu/bosch/bmi088](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088)
+소스: [drivers/imu/bosch/bmi088](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088)
 
 <a id="bmi088_usage"></a>
 
-### Usage
+### 사용법
 ```
 bmi088 <command> [arguments...]
  Commands:
@@ -160,11 +160,11 @@ bmi088 <command> [arguments...]
    status        print status info
 ```
 ## bmi088_i2c
-Source: [drivers/imu/bosch/bmi088/bmi088_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088/bmi088_i2c)
+소스: [drivers/imu/bosch/bmi088/bmi088_i2c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/bosch/bmi088/bmi088_i2c)
 
 <a id="bmi088_i2c_usage"></a>
 
-### Usage
+### 사용법
 ```
 bmi088_i2c <command> [arguments...]
  Commands:
@@ -187,11 +187,11 @@ bmi088_i2c <command> [arguments...]
    status        print status info
 ```
 ## fxas21002c
-Source: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxas21002c)
+소스: [drivers/imu/fxas21002c](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxas21002c)
 
 <a id="fxas21002c_usage"></a>
 
-### Usage
+### 사용법
 ```
 fxas21002c <command> [arguments...]
  Commands:
@@ -221,11 +221,11 @@ fxas21002c <command> [arguments...]
    status        print status info
 ```
 ## fxos8701cq
-Source: [drivers/imu/fxos8701cq](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxos8701cq)
+소스: [drivers/imu/fxos8701cq](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/imu/fxos8701cq)
 
 <a id="fxos8701cq_usage"></a>
 
-### Usage
+### 사용법
 ```
 fxos8701cq <command> [arguments...]
  Commands:
