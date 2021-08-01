@@ -984,10 +984,10 @@ tone_alarm <command> [arguments...]
 사용 방법은 [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html)을 참고하십시오.
 
 ### 구현
-각 메소드는 자체 클래스에서 구현되며 입력 및 출력에 대한 공통 기본 클래스가 있습니다. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
+각 메소드는 자체 클래스에서 구현되며, 입출력에 대한 공통 기본 클래스가 있습니다. `ControlData` 데이터 구조로 정의된 API를 통하여 연결됩니다. 이 방법은 각 입력 방법을 각 출력 방법과 함께 사용할 수 있고, 최소한의 노력으로 신규 입력/출력을 추가할 수 있습니다.
 
-### Examples
-Test the output by setting a fixed yaw angle (and the other axes to 0):
+### 예
+고정 방위각을 설정한 출력 값을 시험합니다(그리고 다른 축은 0 값을 잡아줍니다):
 ```
 vmount stop
 vmount test yaw 30
@@ -995,7 +995,7 @@ vmount test yaw 30
 
 <a id="vmount_usage"></a>
 
-### Usage
+### 사용법
 ```
 vmount <command> [arguments...]
  Commands:
@@ -1010,11 +1010,11 @@ vmount <command> [arguments...]
    status        print status info
 ```
 ## voxlpm
-Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
+소스: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
-### Usage
+### 사용법
 ```
 voxlpm [arguments...]
    start
