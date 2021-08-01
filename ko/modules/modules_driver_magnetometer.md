@@ -1,10 +1,10 @@
-# Modules Reference: Magnetometer (Driver)
+# 모듈 참조: 자기 센서(드라이버)
 ## ak09916
-Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak09916)
+소스: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak09916)
 
 <a id="ak09916_usage"></a>
 
-### Usage
+### 사용법
 ```
 ak09916 <command> [arguments...]
  Commands:
@@ -25,11 +25,11 @@ ak09916 <command> [arguments...]
    status        print status info
 ```
 ## ak8963
-Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak8963)
+소스: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/akm/ak8963)
 
 <a id="ak8963_usage"></a>
 
-### Usage
+### 사용법
 ```
 ak8963 <command> [arguments...]
  Commands:
@@ -50,11 +50,11 @@ ak8963 <command> [arguments...]
    status        print status info
 ```
 ## bmm150
-Source: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/bosch/bmm150)
+소스: [drivers/magnetometer/bosch/bmm150](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/bosch/bmm150)
 
 <a id="bmm150_usage"></a>
 
-### Usage
+### 사용법
 ```
 bmm150 <command> [arguments...]
  Commands:
@@ -75,11 +75,11 @@ bmm150 <command> [arguments...]
    status        print status info
 ```
 ## hmc5883
-Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/hmc5883)
+소스: [drivers/magnetometer/hmc5883](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/hmc5883)
 
 <a id="hmc5883_usage"></a>
 
-### Usage
+### 사용법
 ```
 hmc5883 <command> [arguments...]
  Commands:
@@ -104,11 +104,11 @@ hmc5883 <command> [arguments...]
    status        print status info
 ```
 ## ist8308
-Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/isentek/ist8308)
+소스: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/isentek/ist8308)
 
 <a id="ist8308_usage"></a>
 
-### Usage
+### 사용법
 ```
 ist8308 <command> [arguments...]
  Commands:
