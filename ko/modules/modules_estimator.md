@@ -1,17 +1,17 @@
-# Modules Reference: Estimator
+# 모듈 참조: 추정기
 
 ## AttitudeEstimatorQ
-Source: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/attitude_estimator_q)
+소스: [modules/attitude_estimator_q](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/attitude_estimator_q)
 
 
-### Description
-Attitude estimator q.
+### 설명
+자세 추정자 Q입니다.
 
 <a id="AttitudeEstimatorQ_usage"></a>
 
-### Usage
+### 사용법
 ```
-wind_estimator <command> [arguments...]
+AttitudeEstimatorQ <command> [arguments...]
  Commands:
    start
 
