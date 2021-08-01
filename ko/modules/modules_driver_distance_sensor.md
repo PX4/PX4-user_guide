@@ -360,24 +360,24 @@ teraranger <command> [arguments...]
 
 Benewake TFmini LiDAR용 직렬 버스 드라이버입니다.
 
-Most boards are configured to enable/start the driver on a specified UART using the SENS_TFMINI_CFG parameter.
+대부분의 보드는 SENS_TFMINI_CFG 매개변수를 사용하여 지정된 UART에서 드라이버를 활성화/시작하도록 설정합니다.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/tfmini.html
+설정/사용 정보: https://docs.px4.io/master/en/sensor/tfmini.html
 
-### Examples
+### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 tfmini start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 tfmini stop
 ```
 
 <a id="tfmini_usage"></a>
 
-### Usage
+### 사용법
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -395,29 +395,29 @@ tfmini <command> [arguments...]
    status        Print driver status
 ```
 ## ulanding_radar
-Source: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ulanding_radar)
+소스: [drivers/distance_sensor/ulanding_radar](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/ulanding_radar)
 
 
-### Description
+### 설명
 
-Serial bus driver for the Aerotenna uLanding radar.
+Aerotenna uLanding 레이더용 직렬 버스 드라이버입니다.
 
-Setup/usage information: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
+설정/사용 정보: https://docs.px4.io/v1.9.0/en/sensor/ulanding_radar.html
 
-### Examples
+### 예
 
-Attempt to start driver on a specified serial device.
+지정된 직렬 장치에서 드라이버를 시작하려고 합니다.
 ```
 ulanding_radar start -d /dev/ttyS1
 ```
-Stop driver
+드라이버를 중지합니다.
 ```
 ulanding_radar stop
 ```
 
 <a id="ulanding_radar_usage"></a>
 
-### Usage
+### 사용법
 ```
 ulanding_radar <command> [arguments...]
  Commands:
@@ -430,11 +430,11 @@ ulanding_radar <command> [arguments...]
    stop          Stop driver
 ```
 ## vl53l0x
-Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l0x)
+소스: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l0x)
 
 <a id="vl53l0x_usage"></a>
 
-### Usage
+### 사용법
 ```
 vl53l0x <command> [arguments...]
  Commands:
@@ -455,11 +455,11 @@ vl53l0x <command> [arguments...]
    status        print status info
 ```
 ## vl53l1x
-Source: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l1x)
+소스: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/vl53l1x)
 
 <a id="vl53l1x_usage"></a>
 
-### Usage
+### 사용법
 ```
 vl53l1x <command> [arguments...]
  Commands:
