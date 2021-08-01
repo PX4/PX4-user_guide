@@ -1,10 +1,10 @@
 # 모듈 참조: 항속 센서(드라이버)
 ## ets_airspeed
-Source: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)
+소스: [drivers/differential_pressure/ets](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ets)
 
 <a id="ets_airspeed_usage"></a>
 
-### Usage
+### 사용법
 ```
 ets_airspeed <command> [arguments...]
  Commands:
@@ -23,11 +23,11 @@ ets_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms4525_airspeed
-Source: [drivers/differential_pressure/ms4525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4525)
+소스: [drivers/differential_pressure/ms4525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms4525)
 
 <a id="ms4525_airspeed_usage"></a>
 
-### Usage
+### 사용법
 ```
 ms4525_airspeed <command> [arguments...]
  Commands:
@@ -46,11 +46,11 @@ ms4525_airspeed <command> [arguments...]
    status        print status info
 ```
 ## ms5525_airspeed
-Source: [drivers/differential_pressure/ms5525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms5525)
+소스: [drivers/differential_pressure/ms5525](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/ms5525)
 
 <a id="ms5525_airspeed_usage"></a>
 
-### Usage
+### 사용법
 ```
 ms5525_airspeed <command> [arguments...]
  Commands:
@@ -69,11 +69,11 @@ ms5525_airspeed <command> [arguments...]
    status        print status info
 ```
 ## sdp3x_airspeed
-Source: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/sdp3x)
+소스: [drivers/differential_pressure/sdp3x](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure/sdp3x)
 
 <a id="sdp3x_airspeed_usage"></a>
 
-### Usage
+### 사용법
 ```
 sdp3x_airspeed <command> [arguments...]
  Commands:
