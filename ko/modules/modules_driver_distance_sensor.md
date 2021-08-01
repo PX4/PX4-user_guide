@@ -1,4 +1,4 @@
-# Modules Reference: Distance Sensor (Driver)
+# 모듈 참조: 거리 센서(드라이버)
 ## afbrs50
 Source: [drivers/distance_sensor/broadcom/afbrs50](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/broadcom/afbrs50)
 
