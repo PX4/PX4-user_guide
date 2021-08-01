@@ -338,7 +338,7 @@
       * [거리 센서](modules/modules_driver_distance_sensor.md)
       * [관성 센서](modules/modules_driver_imu.md)
       * [자기 센서](modules/modules_driver_magnetometer.md)
-    * [추정자](modules/modules_estimator.md)
+    * [추정기](modules/modules_estimator.md)
     * [모의시험](modules/modules_simulation.md)
     * [시스템](modules/modules_system.md)
     * [템플릿](modules/modules_template.md)
