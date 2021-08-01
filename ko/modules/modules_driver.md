@@ -355,28 +355,28 @@ fake_magnetometer <command> [arguments...]
 
 
 ### 설명
-GPS driver module that handles the communication with the device and publishes the position via uORB. It supports multiple protocols (device vendors) and by default automatically selects the correct one.
+장치와의 통신을 처리하고 uORB를 통해 위치를 게시하는 GPS 드라이버 모듈입니다. 여러 프로토콜(장치 공급업체)을 지원하며, 기본적으로 적절한 프로토콜을 자동으로 선택합니다.
 
-The module supports a secondary GPS device, specified via `-e` parameter. The position will be published on the second uORB topic instance, but it's currently not used by the rest of the system (however the data will be logged, so that it can be used for comparisons).
+모듈은 `-e` 매개변수를 통하여 지정된 보조 GPS 장치를 지원합니다. 위치는 두 번째 uORB 주제 인스턴스에 게시되지만, 현재 시스템의 나머지 부분에서는 사용되지 않습니다(그러나 데이터는 비교용으로 사용할 수 있도록 기록됩니다).
 
-### Implementation
-There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks so that they can be used in other projects as well (eg. QGroundControl uses them too).
+### 구현
+데이터를 폴링하는 각 장치에 대한 스레드가 존재합니다. GPS 프로토콜 클래스는 다른 프로젝트에서도 사용할 수 있도록 콜백으로 구현됩니다(예: QGroundControl에서도 사용).
 
-### Examples
+### 예
 
-Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):
+2개의 GPS 장치 (/dev/ttyS3의 기본 GPS 및 /dev/ttyS4의 보조 GPS)를 시작합니다:
 ```
 gps start -d /dev/ttyS3 -e /dev/ttyS4
 ```
 
-Initiate warm restart of GPS device
+GPS 장치를 재시작합니다.
 ```
 gps reset warm
 ```
 
 <a id="gps_usage"></a>
 
-### Usage
+### 사용법
 ```
 gps <command> [arguments...]
  Commands:
@@ -405,11 +405,11 @@ gps <command> [arguments...]
      cold|warm|hot Specify reset type
 ```
 ## ina226
-Source: [drivers/distance_sensor/sf1xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/sf1xx)
+소스: [drivers/power_monitor/ina226](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina226)
 
 
-### Description
-Driver for the INA226 power monitor.
+### 설명
+INA226 전력 모니터용 드라이버.
 
 Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
 
