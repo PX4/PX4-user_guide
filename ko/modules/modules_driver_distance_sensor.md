@@ -248,11 +248,11 @@ mb12xx <command> [arguments...]
 장치와의 통신을 처리하고, uORB를 통해 거리를 게시하는 초음파 거리 측정기 드라이버입니다.
 
 ### 구현
-이 드라이버는 NuttX 작업으로 구현됩니다. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.
+이 드라이버는 NuttX 작업으로 구현됩니다. 이 구현은 work_queue에서 지원되지 않는 UART를 통해 메시지에 대한 폴링이 필요하기 때문에 선택되었습니다. 이 드라이버는 실행되는 동안 지속적으로 범위 측정을 수행합니다. 잘못된 판독값을 감지하는 간단한 알고리즘은 게시중인 데이터의 품질을 개선하기 위하여 드라이버 수준에서 구현됩니다. 드라이버는 센서 데이터가 유효하지 않거나 불안정하다고 판단되는 경우에는, 데이터를 게시하지 않습니다.
 
 <a id="pga460_usage"></a>
 
-### Usage
+### 사용법
 ```
 pga460 <command> [arguments...]
  Commands:
@@ -266,11 +266,11 @@ pga460 <command> [arguments...]
    help
 ```
 ## srf02
-Source: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf02)
+소스: [drivers/distance_sensor/srf02](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf02)
 
 <a id="srf02_usage"></a>
 
-### Usage
+### 사용법
 ```
 srf02 <command> [arguments...]
  Commands:
@@ -291,18 +291,18 @@ srf02 <command> [arguments...]
    status        print status info
 ```
 ## srf05
-Source: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf05)
+소스: [drivers/distance_sensor/srf05](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/srf05)
 
 
-  ### Description
+  설명
 
-  Driver for HY-SRF05 / HC-SR05 and HC-SR04 rangefinders.
+  HY-SRF05 / HC-SR05 및 HC-SR04 거리 측정기용 드라이버입니다.
 
-  The sensor/driver must be enabled using the parameter SENS_EN_HXSRX0X.
+  센서/드라이버는 SENS_EN_HXSRX0X 매개변수를 사용하여 활성화합니다.
 
 <a id="srf05_usage"></a>
 
-### Usage
+### 사용법
 ```
 srf05 <command> [arguments...]
  Commands:
@@ -319,20 +319,20 @@ srf05 <command> [arguments...]
    status        print status info
 ```
 ## teraranger
-Source: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/teraranger)
+소스: [drivers/distance_sensor/teraranger](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/teraranger)
 
 
-### Description
+### 설명
 
-I2C bus driver for TeraRanger rangefinders.
+TeraRanger 거리 측정기를 위한 I2C 버스 드라이버입니다.
 
-The sensor/driver must be enabled using the parameter SENS_EN_TRANGER.
+센서/드라이버는 SENS_EN_TRANGER 매개변수를 사용하여 활성화합니다.
 
-Setup/usage information: https://docs.px4.io/master/en/sensor/rangefinders.html#teraranger-rangefinders
+설정/사용 정보: https://docs.px4.io/master/en/sensor/rangefinders.html#teraranger-rangefinders
 
 <a id="teraranger_usage"></a>
 
-### Usage
+### 사용법
 ```
 teraranger <command> [arguments...]
  Commands:
@@ -353,12 +353,12 @@ teraranger <command> [arguments...]
    status        print status info
 ```
 ## tfmini
-Source: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/tfmini)
+소스: [drivers/distance_sensor/tfmini](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/distance_sensor/tfmini)
 
 
-### Description
+### 설명
 
-Serial bus driver for the Benewake TFmini LiDAR.
+Benewake TFmini LiDAR용 직렬 버스 드라이버입니다.
 
 Most boards are configured to enable/start the driver on a specified UART using the SENS_TFMINI_CFG parameter.
 
