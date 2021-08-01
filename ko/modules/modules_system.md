@@ -126,11 +126,11 @@ C API를 통해 간단한 데이터베이스 형태로 시스템에 영구 저�
 ### 구현
 단일 항목을 읽고 쓰는 것은 항상 원자적입니다. 여러 항목을 원자적으로 읽고 수정해야 하는 경우에는, `dm_lock`을 사용하여 항목 유형별로 추가 잠금이 있습니다.
 
-**DM_KEY_FENCE_POINTS** 및 **DM_KEY_SAFE_POINTS** 항목: 첫 번째 데이터 요소는 이러한 유형의 항목 수를 저장하는 `mission_stats_entry_s` 구조체입니다. 이러한 항목은 항상 하나의 트랜잭션에서 원자적으로 업데이트됩니다(mavlink Mission Manager에서). During that time, navigator will try to acquire the geofence item lock, fail, and will not check for geofence violations.
+**DM_KEY_FENCE_POINTS** 및 **DM_KEY_SAFE_POINTS** 항목: 첫 번째 데이터 요소는 이러한 유형의 항목 수를 저장하는 `mission_stats_entry_s` 구조체입니다. 이러한 항목은 항상 하나의 트랜잭션에서 원자적으로 업데이트됩니다(mavlink Mission Manager에서). 그 시간 동안 내비게이터는 지오펜스 항목 잠금을 획득하려고 시도하지만, 실패하며 지오펜스 위반을 확인하지 않습니다.
 
 <a id="dataman_usage"></a>
 
-### Usage
+### 사용법
 ```
 dataman <command> [arguments...]
  Commands:
@@ -151,33 +151,33 @@ dataman <command> [arguments...]
    status        print status info
 ```
 ## dmesg
-Source: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dmesg)
+소스: [systemcmds/dmesg](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/dmesg)
 
 
-### Description
+### 설명
 
-Command-line tool to show bootup console messages. Note that output from NuttX's work queues and syslog are not captured.
+부팅 콘솔 메시지를 출력합니다. NuttX의 작업 대기열 및 syslog의 출력은 캡처되지 않습니다.
 
-### Examples
+### 예
 
-Keep printing all messages in the background:
+백그라운드에서 모든 메시지를 출력합니다.
 ```
 dmesg -f &
 ```
 
 <a id="dmesg_usage"></a>
 
-### Usage
+### 사용법
 ```
 dmesg <command> [arguments...]
  Commands:
      [-f]        Follow: wait for new messages
 ```
 ## esc_battery
-Source: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/esc_battery)
+소스: [modules/esc_battery](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/esc_battery)
 
 
-### Description
+### 설명
 Background process running periodically with 1 Hz on the LP work queue to calculate the CPU load and RAM usage and publish the `cpuload` topic.
 
 <a id="esc_battery_usage"></a>
