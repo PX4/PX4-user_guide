@@ -411,15 +411,15 @@ gps <command> [arguments...]
 ### 설명
 INA226 전력 모니터용 드라이버.
 
-Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.
+각 인스턴스에 별도의 버스 또는 I2C 주소가 있는 경우에는 이 드라이버의 여러 인스턴스를 동시에 실행할 수 있습니다.
 
-Attempt to start driver on any bus (start on bus where first sensor found).
+예를 들어, 하나의 인스턴스는 버스 2의 주소 0x41에서 실행될 수 있고, 다른 인스턴스는 버스 2의 주소 0x43에서 실행할 수 있습니다.
 
-If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+INA226 모듈에 전원이 공급되지 않으면, 기본적으로 드라이버 초기화가 실패합니다. 이를 변경하려면, -f 플래그를 사용하십시오. 이 플래그가 설정되면, 초기화에 실패하면 드라이버는 0.5초마다 초기화를 계속 시도합니다. 이 플래그를 설정하면, 드라이버가 시작된 후 배터리를 연결하면 작동합니다. 이 플래그가 설정되지 않은 경우에는, 드라이버를 시작하기 전에 배터리를 연결해야 합니다.
 
 <a id="ina226_usage"></a>
 
-### Usage
+### 사용법
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -440,36 +440,39 @@ ina226 <command> [arguments...]
 
    status        print status info
 ```
-## fmu mode_pwm3cap1
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+## iridiumsbd
+소스: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
 
 
-### Description
-IridiumSBD driver.
+### 설명
+IridiumSBD 드라이버.
 
-Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+다른 모듈에서 통신용으로 사용할 수 있는 가상 직렬 포트를 생성합니다(예: mavlink).
 
 <a id="iridiumsbd_usage"></a>
 
-### Usage
+### 사용법
 ```
-pga460 <command> [arguments...]
+iridiumsbd <command> [arguments...]
  Commands:
-   start <device_path>
-     [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6
+   start
+     -d <val>    Serial device
+                 values: <file:dev>
+     [-v]        Enable verbose output
 
-   status
+   test
+     [s|read|AT <cmd>] Test command
 
    stop
 
-   help
+   status        print status info
 ```
-## pga460
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+## irlock
+소스: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
-### Usage
+### 사용법
 ```
 irlock <command> [arguments...]
  Commands:
@@ -488,15 +491,15 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
+소스: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
-### Description
-Linux PWM output driver with board-specific backend implementation.
+### 설명
+보드별 백엔드를 구현한 Linux PWM 출력 드라이버.
 
 <a id="linux_pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -507,11 +510,11 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
+소스: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
-### Usage
+### 사용법
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -533,22 +536,22 @@ lsm303agr <command> [arguments...]
    status        print status info
 ```
 ## newpixel
-Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
+소스: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
-### Description
-This module is responsible for driving interfasing to the Neopixel Serial LED
+### 설명
+이 모듈은 네오픽셀 직렬 LED에 인터페이싱을 구동합니다.
 
-### Examples
-It is typically started with:
+### 예
+보통 다음 명령으로 시작합니다.
 ```
 neopixel -n 8
 ```
-To drive all available leds.
+사용 가능한 모든 LED를 구동합니다.
 
 <a id="newpixel_usage"></a>
 
-### Usage
+### 사용법
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -557,11 +560,11 @@ newpixel <command> [arguments...]
    status        print status info
 ```
 ## paw3902
-Source: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
+소스: [drivers/optical_flow/paw3902](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/paw3902)
 
 <a id="paw3902_usage"></a>
 
-### Usage
+### 사용법
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -583,11 +586,11 @@ paw3902 <command> [arguments...]
    status        print status info
 ```
 ## pca9685
-Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
+소스: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
-### Usage
+### 사용법
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -610,28 +613,28 @@ pca9685 <command> [arguments...]
    status        print status info
 ```
 ## pca9685_pwm_out
-Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
+소스: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### Description
-In case of running in its own thread, the module polls on the actuator_controls topic.
+### 설명
+이 모듈은 PCA9685 칩으로 PWM 펄스를 생성합니다.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+이것은 Actuator_controls 토픽을 듣고 믹싱을 하고 PWM을 출력합니다.
 
-### Implementation
-This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
+### 구현
+이 모듈은 ModuleBase와 OutputModuleInterface에 의존합니다. IIC 통신은 CDev::I2C를 기반으로 합니다.
 
-### Examples
-It is typically started with:
+### 예
+보통 다음 명령으로 시작합니다.
 ```
 pca9685_pwm_out start -a 64 -b 1
 ```
 
-Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` The number X can be acquired by executing `pca9685_pwm_out status` when this driver is running.
+`mixer` 명령을 사용하여, 믹서 파일을 로드합니다. `mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix` 이 드라이버가 실행 중일 때 `pca9685_pwm_out status`를 실행하여 숫자 X를 얻을 수 있습니다.
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### Usage
+### 사용법
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -648,11 +651,11 @@ pca9685_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## pcf8583
-Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
+소스: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
-### Usage
+### 사용법
 ```
 pcf8583 <command> [arguments...]
  Commands:
