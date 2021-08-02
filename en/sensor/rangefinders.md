@@ -9,6 +9,11 @@ More detailed setup and configuration information is provided in the topics link
 
 ## Supported Rangefinders
 
+### Holybro ST VL53L1X Lidar
+
+[The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
+It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+
 ### Lidar-Lite
 
 [Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. 
