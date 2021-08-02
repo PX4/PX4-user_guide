@@ -10,57 +10,57 @@ SWD 인터페이스를 사용하여 완전히 비어 있는 보드(USB 부트로
 
 ## SWD 인터페이스 정의
 
-The SWD interface consists of the following pins.
+SWD 인터페이스는 다음과 같은 핀으로 구성됩니다.
 
-| Pin     | Signal Type | Description                                                                                                                                                                                             |
-| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Vref`  | Output      | Target reference voltage.<br>Some JTAG adapters require the `Vref` voltage to set the voltage on the SWD lines. For example, [SEGGER J-Link Debug Probes](#segger_jlink_edu_mini) require `Vref`. |
-| `SWDIO` | I/O         | Single bi-directional data pin.                                                                                                                                                                         |
-| `SWCLK` | Output      | Clock signal.                                                                                                                                                                                           |
-| `GND`   | -           | Ground pin.                                                                                                                                                                                             |
-
-
-While not "part" of SWD, an autopilot may also have an *Serial Wire Output (SWO)* trace output pin. If present this should also be connected.
-
-| Pin   | Signal Type | Description                                                                                                    |
-| ----- | ----------- | -------------------------------------------------------------------------------------------------------------- |
-| `SWO` | Output      | Serial  Wire Output trace output pin. This may be used in combination with *SWD* to emit real-time trace data. |
+| 핀       | 신호 형식 | 설명                                                                                                                                              |
+| ------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Vref`  | 출력    | 목표 기준 전압: <br>일부 JTAG 어댑터는 SWD 라인의 전압을 설정하기 위하여 `Vref` 전압이 필요합니다. 예를 들어, [SEGGER J-Link 디버그 프로브](#segger_jlink_edu_mini)에는 `Vref`가 필요합니다. |
+| `SWDIO` | 입출력   | 단일 양방향 데이터 핀.                                                                                                                                   |
+| `SWCLK` | 출력    | 클록 신호                                                                                                                                           |
+| `GND`   | -     | 접지 핀                                                                                                                                            |
 
 
-## Connecting SWD Debuggers to PX4 Hardware
+SWD의 "일부"는 아니지만, 자동조종장치에는 *직렬 와이어 출력(SWO)* 추적 출력 핀이 있을 수 있습니다. 이 핀이 있는 경우에는 이것을 연결하여야 합니다.
 
-Connect `SWDIO`, `SWCLK` and `GND` pins on the debug probe to the corresponding pins on the autopilot.
+| 핀     | 신호 형식 | 설명                                                          |
+| ----- | ----- | ----------------------------------------------------------- |
+| `SWO` | 출력    | 직렬 와이어 출력 트레이스 출력 핀. 실시간 추적 데이터를 내보내는 *SWD*와 함께 사용할 수 있습니다. |
 
-In addition:
-- Connect the `VRef` pin, if required by the debug adapter that is being used.
-- Connect the `SWO` pin, if present.
 
-Some SWD [debug probes](#debug_probes) come with adapters/cables for connecting to common Pixhawk [debug ports](#debug_ports). You can also create custom cables for connecting to different boards or probes.
+## SWD 디버거를 PX4 하드웨어에 연결
+
+디버그 프로브의 `SWDIO`, `SWCLK` 및 `GND` 핀을 자동조종장치의 해당 핀에 연결합니다.
+
+추가로:
+- 사용 중인 디버그 어댑터에 필요한 경우에는 `VRef` 핀을 연결합니다.
+- `SWO` 핀이 있으면, 연결합니다.
+
+일부 SWD [디버그 프로브](#debug_probes)는 일반적인 Pixhawk [디버그 포트](#debug_ports)에 연결용 어댑터/케이블과 함께 제공됩니다. 다른 보드나 프로브에 연결용 맞춤형 케이블을 제작할 수도 있습니다.
 
 :::note
-Some manufacturers provide cables to make it easy to connect the SWD interface and [System Console](../debug/system_console.md). For example the [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port) and [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port) include this debug cable:
+일부 제조업체에서는 SWD 인터페이스와 [시스템 콘솔](../debug/system_console.md)을 쉽게 연결하는 케이블을 제공합니다. 예를 들어, [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)와 [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)에는 다음 디버그 케이블이 포함됩니다.
 
 ![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
 :::
 
 
 :::tip
-Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers. This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.
+가능한 경우 SWD/JTAG 디버거 및 컴퓨터에 연결용 케이블 직접 만드는 것보다, 어댑터 보드를 만들거나 구매하는 것이 좋습니다. 이것은 디버깅 문제의 위험이나 잘못된 배선을 줄이고, 어댑터가 인기 있는 비행 콘트롤러에 연결하기 위한 공통 인터페이스를 제공하는 이점이 있습니다.
 :::
 
 <a id="debug_ports"></a>
 
-## Autopilot Debug Ports
+## 자동비행장치 디버그 포트
 
-Flight controllers commonly provide a debug port that exposes both the [SWD Interface](#swd_interface) and [System Console](../debug/system_console.md).
+비행 컨트롤러는 일반적으로 [SWD 인터페이스](#swd_interface)와 [시스템 콘솔](../debug/system_console.md)을 모두 노출하는 디버그 포트를 제공합니다.
 
-The [Pixhawk Connector Standards](#pixhawk_standard_debug_ports) attempts to standardise this port. However since many boards use different pinouts or connectors, we recommend you check the documentation for your autopilot to confirm port location and pinout.
+[Pixhawk 커넥터 표준](#pixhawk_standard_debug_ports)은 이 포트를 표준화하하고 있습니다. 그러나, 여러 보드가 서로 다른 핀 배치 또는 커넥터를 사용하므로, 자동조종장치 설명서에서 포트 위치와 핀 배치를 확인하는 것이 좋습니다.
 
-The debug port location and pinouts for a small subset of autopilots are linked below:
+자동조종장치의 작은 하위 집합에 대한 디버그 포트 위치 및 핀아웃은 아래에 링크되어 있습니다.
 
 <span id="port_information"></span>
 
-| Autopilot                                                                  | Connector                                                                                                                                                                                                                                   |
+| 자동조종장치                                                                     | 커넥터                                                                                                                                                                                                                                         |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                    | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: *mRo Pixhawk*, *HobbyKing HKPilot32*).                                                                                                                                     |
 | [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)             | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
