@@ -14,14 +14,14 @@ PX4 *시스템 콘솔*은 시스템에 대한 낮은 수준의 액세스, 디버
 - *저수준 디버깅/개발*에 사용: 부팅, NuttX, 시작 스크립트, 보드 불러오기, PX4의 중앙 부분(예: uORB) 개발.
 - 특히, 모든 부팅 출력(부팅 시 자동으로 시작되는 응용 프로그램에 대한 정보 포함)이 인쇄되는 유일한 장소입니다.
 
-Shells provide higher-level access to the system:
-- Used for basic module testing/running commands.
-- Only *directly* display the output of modules you start.
-- Cannot *directly* display the output of tasks running on the work queue.
-- Can't debug problems when the system doesn't start (as it isn't running yet).
+셸은 시스템에 대한 상위 수준의 접급을 제공합니다.
+- 기본 모듈 테스트와 명령어를 실행할 수 있습니다.
+- 시작하는 모듈의 출력만 *직접* 표시합니다.
+- 작업 대기열에서 실행 중인 작업의 출력을 *직접* 표시할 수 없습니다.
+- 시스템이 시작되지 않으면(아직 실행되지 않기 때문에) 문제를 디버그할 수 없습니다.
 
 :::note
-The `dmesg` command is now available through the shell on some boards, enabling much lower level debugging than previously possible. For example, with `dmesg -f &` you also see the output of background tasks.
+`dmesg` 명령은 이제 일부 보드의 셸을 통해 사용할 수 있으므로, 이전보다 훨씬 낮은 수준의 디버깅이 가능합니다. For example, with `dmesg -f &` you also see the output of background tasks.
 :::
 
 There can be several shells, either running on a dedicated UART, or via MAVLink. Since MAVLink provides more flexibility, currently only the [MAVLink Shell](../debug/mavlink_shell.md) is used.
