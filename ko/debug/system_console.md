@@ -1,16 +1,16 @@
-# PX4 System Console
+# PX4 시스템 콘솔
 
-The system console allows low-level access to the system, debug output and analysis of the system boot process.
+PX4 *시스템 콘솔*은 시스템에 대한 낮은 수준의 액세스, 디버그 출력 및 시스템 부팅 프로세스 분석을 제공합니다.
 
 :::tip
-The console should be used for debugging if the system won't boot. The [MAVLink Shell](../debug/mavlink_shell.md) may otherwise be more suitable, as it is much easier to set up and can be used for [many of the same tasks](../debug/consoles.md#console_vs_shell).
+시스템이 부팅되지 않으면, 콘솔을 디버깅에 사용해야 합니다. 그렇지 않으면, [MAVLink Shell](../debug/mavlink_shell.md)이 더 적합할 수 있습니다. 설정이 훨씬 쉽고 [동일한 여러 작업](../debug/consoles.md#console_vs_shell)에 사용할 수 있기 때문입니다.
 :::
 
-## Console Connector
+## 콘솔 배선
 
-The console is made available through a (board-specific) UART that can be connected to a computer USB port using a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable. This allows the console to be accessed using a terminal application.
+콘솔은 [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) 케이블을 사용하여, 컴퓨터 USB 포트에 연결할 수 있는 (보드별) UART를 통하여 사용할 수 있습니다. 이렇게 하면, 터미널 응용 프로그램을 사용하여 콘솔에 접근할 수 있습니다.
 
-Pixhawk controller manufacturers are expected to expose the console UART and SWD (JTAG) debug interfaces through a dedicated *debug port* that complies with the [Pixhawk Connector Standard](#pixhawk_debug_port). Unfortunately some boards predate this standard or a non-compliant.
+Pixhawk 콘트롤러 제조업체는 [Pixhawk 커넥터 표준](#pixhawk_debug_port)을 준수하는 전용 *디버그 포트*를 통해 콘솔 UART 및 SWD(JTAG) 디버그 인터페이스를 노출합니다. Unfortunately some boards predate this standard or a non-compliant.
 
 :::note
 Developers targeting a number of different boards may wish to use a *debug adapter* to simplify connecting multiple boards. For example, the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) comes with connectors for the [Pixhawk Debug Port](#pixhawk_debug_port) and several other boards.
