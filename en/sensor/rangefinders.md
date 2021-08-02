@@ -11,7 +11,8 @@ More detailed setup and configuration information is provided in the topics link
 
 ### Holybro ST VL53L1X Lidar
 
-[The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+[The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
+It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
 
 ### Lidar-Lite
 
