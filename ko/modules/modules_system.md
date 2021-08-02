@@ -370,11 +370,11 @@ logger <command> [arguments...]
 소스: [systemcmds/nshterm](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/netman)
 
 
-  ###설명 네트워크 구성 관리자는 네트워크 설정을 비휘발성 메모리에 저장합니다. 부팅시 `업데이트` 옵션이 실행됩니다. 네트워크 구성이 존재하지 않는 경우. 기본 설정은 비휘발성에 저장되고 시스템이 재부팅됩니다. 후속 부팅 시 `업데이트` 옵션은 SD 카드의 루트에 `net.cfg`가 있는 지 확인합니다.  `net.cfg`의 네트워크 설정을 비휘발성 메모리에 저장하고 파일을 삭제하고 시스템을 재부팅합니다.
+  설명 네트워크 구성 관리자는 네트워크 설정을 비휘발성 메모리에 저장합니다.  부팅시 `업데이트` 옵션이 실행됩니다. 네트워크 구성이 존재하지 않는 경우. 기본 설정은 비휘발성에 저장되고 시스템이 재부팅됩니다. 후속 부팅 시 `업데이트` 옵션은 SD 카드의 루트에 `net.cfg`가 있는 지 확인합니다.  `net.cfg`의 네트워크 설정을 비휘발성 메모리에 저장하고 파일을 삭제하고 시스템을 재부팅합니다.
 
   `저장` 옵션은 SD 카드에 `net.cfg`됩니다. 이것을 사용하여 설정을 편집합니다. `show` 옵션은 네트워크 설정을 콘솔에 표시합니다.
 
-  ### 예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행
+  예 $ netman save # 매개변수를 SD 카드에 저장합니다. $ netman show # 현재 설정을 표시합니다. $ netman update -i eth0 # 업데이트 수행
 
 <a id="netman_usage"></a>
 
@@ -491,19 +491,19 @@ send_event <command> [arguments...]
 
 
 ### 설명
-The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.
+센서 모듈은 전체 시스템의 중심입니다. 드라이버에서 낮은 수준의 출력을 가져와서, 사용 가능한 형식으로 바꾸고 나머지 시스템에 게시합니다.
 
-The provided functionality includes:
-- Read the output from the sensor drivers (`sensor_gyro`, etc.). If there are multiple of the same type, do voting and failover handling. Then apply the board rotation and temperature calibration (if enabled). And finally publish the data; one of the topics is `sensor_combined`, used by many parts of the system.
-- Make sure the sensor drivers get the updated calibration parameters (scale & offset) when the parameters change or on startup. The sensor drivers use the ioctl interface for parameter updates. For this to work properly, the sensor drivers must already be running when `sensors` is started.
-- Do preflight sensor consistency checks and publish the `sensor_preflight` topic.
+제공 기능은 다음과 같습니다:
+- 센서 드라이버(`sensor_gyro` 등)의 출력을 읽습니다. 동일한 유형이 여러 개 있는 경우 투표 및 장애 조치 처리를 수행합니다. 그런 다음, 보드 회전 및 온도 보정을 적용합니다(활성화된 경우). 마지막으로 데이터를 게시합니다. 주제 중 하나는 시스템의 많은 부분에서 사용되는 `sensor_combined`입니다.
+- 매개변수가 변경되거나 시작될 때 센서 드라이버가 업데이트된 보정 매개변수(스케일 및 오프셋)를 가져오는 지 확인하십시오. 센서 드라이버는 매개변수 업데이트를 위하여 ioctl 인터페이스를 사용합니다. 이것이 제대로 작동하려면, `센서`가 시작될 때 센서 드라이버가 이미 실행되고 있어야 합니다.
+- 센서 일관성 검사를 수행하고, `sensors_status_imu` 주제를 게시합니다.
 
-### Implementation
-It runs in its own thread and polls on the currently selected gyro topic.
+### 구현
+자체 스레드에서 실행되고, 현재 선택된 자이로 주제를 폴링합니다.
 
 <a id="sensors_usage"></a>
 
-### Usage
+### 사용법
 ```
 sensors <command> [arguments...]
  Commands:
@@ -515,15 +515,15 @@ sensors <command> [arguments...]
    status        print status info
 ```
 ## temperature_compensation
-Source: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
+소스: [modules/temperature_compensation](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/temperature_compensation)
 
 
-### Description
-The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_correction topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
+### 설명
+온도 보상 모듈을 사용하면 시스템의 모든 자이로(들), 가속(들) 및 바로(들)이 온도 보상을 받을 수 있습니다. 모듈은 센서에서 오는 데이터를 모니터링하고, 온도 변화가 감지될 때마다 관련 sensor_correction 주제를 업데이트합니다. 모듈은 또한 다음 부팅 시 계수 계산 루틴을 수행하도록 구성할 수 있으며, 이를 통하여 차량이 온도 주기를 겪는 동안 열 보정 계수를 계산할 수 있습니다.
 
 <a id="temperature_compensation_usage"></a>
 
-### Usage
+### 사용법
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -541,27 +541,27 @@ temperature_compensation <command> [arguments...]
    status        print status info
 ```
 ## tune_control
-Source: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
+소스: [systemcmds/tune_control](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/tune_control)
 
 
-### Description
+### 설명
 
-Command-line tool to control & test the (external) tunes.
+(외부) 음향 톤을 제어하고 테스트하기 위한 명령줄 도구입니다.
 
-Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.
+음향 톤은 가청 알림 및 경고를 제공합니다(예: 시스템이 작동할 때, 위치 잠금을 얻을 때 등). 이 도구를 사용하려면, tune_control uorb 주제를 처리할 수 있는 드라이버가 실행 중이어야 합니다.
 
-Information about the tune format and predefined system tunes can be found here: https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
+음향 톤 형식과 사전 정의된 시스템 조정에 대한 정보는 다음을 참고하십시오. https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc
 
-### Examples
+### 예
 
-Play system tune #2:
+시스템 소리 2번을 재생합니다.
 ```
 tune_control play -t 2
 ```
 
 <a id="tune_control_usage"></a>
 
-### Usage
+### 사용법
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -581,16 +581,16 @@ tune_control <command> [arguments...]
    stop          Stop playback (use for repeated tunes)
 ```
 ## work_queue
-Source: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
+소스: [systemcmds/work_queue](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/work_queue)
 
 
-### Description
+### 설명
 
-Command-line tool to show work queue status.
+작업 대기열 상태를 표시하는 명령줄 도구입니다.
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:
