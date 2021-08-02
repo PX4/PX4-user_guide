@@ -57,17 +57,17 @@ sudo apt-get install screen
 
 * 시리얼: Pixhawk v1 / Pixracer는 57600 보드를 사용합니다.
 
-화면을 BAUDRATE baud, 8 데이터 비트, 1 정지 비트를 오른쪽 직렬 포트에 연결합니다(`ls /dev/tty*`를 사용하고 USB 장치를 뽑거나 다시 꽂을 때 어떻게 변하는 지 관찰). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
+화면을 BAUDRATE baud, 8 데이터 비트, 1 정지 비트를 오른쪽 직렬 포트에 연결합니다(`ls /dev/tty*`를 사용하고 USB 장치를 뽑거나 다시 꽂을 때 어떻게 변하는 지 관찰). 일반적인 이름은 Linux의 경우 `/dev/ttyUSB0`와 `/dev/ttyACM0`이고, Mac OS의 경우 `/dev/tty.usbserial-ABCBD`입니다.
 
 ```bash
 screen /dev/ttyXXX BAUDRATE 8N1
 ```
 
-### Windows: PuTTY
+### 윈도우: PuTTY
 
-Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and start it.
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 다운로드하고 실행합니다.
 
-Then select 'serial connection' and set the port parameters to:
+'직렬 연결'을 선택하고, 포트 매개변수를 다음과 같이 설정합니다.
 
 * 57600 baud
 * 8 data bits
