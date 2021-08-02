@@ -30,34 +30,34 @@ Pixhawk 콘트롤러 제조업체는 [Pixhawk 커넥터 표준](#pixhawk_debug_p
 
 ### Pixhawk 디버그 포트
 
-Flight controllers that adhere to the Pixhawk Connector standard use the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
+Pixhawk 커넥터 표준을 준수하는 비행 콘트롤러는 [Pixhawk 표준 디버그 포트](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug)를 사용합니다.
 
-The port/FTDI mapping is shown below.
+포트/FTDI 매핑은 아래와 같습니다.
 
-| Pixracer / Pixhawk v3 | -         | FTDI | -                |
-| --------------------- | --------- | ---- | ---------------- |
-| 2                     | +5V (red) |      | N/C              |
-| 2                     | UART7 Tx  | 5    | FTDI RX (yellow) |
-| 3                     | UART7 Rx  | 4    | FTDI TX (orange) |
-| 4 (blk)               | SWDIO     |      | N/C              |
-| +5V (red)             | SWCLK     |      | N/C              |
-| 6                     | GND       | 1    | FTDI GND (black) |
+| Pixhawk 디버그 포트 | -                        | FTDI | -                       |
+| -------------- | ------------------------ | ---- | ----------------------- |
+| 1 (적)          | TARGET PROCESSOR VOLTAGE |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 2 (흑)          | CONSOLE TX (출력)          | 5    | FTDI RX (황)             |
+| 3 (흑)          | CONSOLE RX (입력)          | 4    | FTDI TX (적황)            |
+| 4 (흑)          | SWDIO                    |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 5 (흑)          | SWCLK                    |      | N/C (SWD/JTAG 디버깅에 사용됨) |
+| 6 (흑)          | GND                      | 1    | FTDI GND (흑)            |
 
-## Opening the Console
+## 콘솔 열기
 
-After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:
+콘솔 연결이 연결된 후, 선택한 기본 직렬 포트 도구 또는 아래에 설명된 기본값을 사용합니다.
 
-### Linux / Mac OS: Screen
+### Linux / Mac 운영체제: Screen
 
-Install screen on Ubuntu (Mac OS already has it installed):
+Ubuntu에 screen 명령어를 설치합니다. Mac OS에 이미 설치되어 있습니다.
 
 ```bash
 sudo apt-get install screen
 ```
 
-* Serial: Pixhawk v1 / Pixracer use 57600 baud
+* 시리얼: Pixhawk v1 / Pixracer는 57600 보드를 사용합니다.
 
-Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use `ls /dev/tty*` and watch what changes when unplugging / replugging the USB device). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
+화면을 BAUDRATE baud, 8 데이터 비트, 1 정지 비트를 오른쪽 직렬 포트에 연결합니다(`ls /dev/tty*`를 사용하고 USB 장치를 뽑거나 다시 꽂을 때 어떻게 변하는 지 관찰). Common names are `/dev/ttyUSB0` and `/dev/ttyACM0` for Linux and `/dev/tty.usbserial-ABCBD` for Mac OS.
 
 ```bash
 screen /dev/ttyXXX BAUDRATE 8N1
