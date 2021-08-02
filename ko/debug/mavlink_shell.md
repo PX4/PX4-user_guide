@@ -1,4 +1,4 @@
-# MAVLink Shell
+# MAVLink 쉘
 
 The MAVLink Shell is an *NSH console* that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).
 
