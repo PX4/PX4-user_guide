@@ -586,11 +586,11 @@ tune_control <command> [arguments...]
 
 ### 설명
 
-Command-line tool to show work queue status.
+작업 대기열 상태를 표시하는 명령줄 도구입니다.
 
 <a id="work_queue_usage"></a>
 
-### Usage
+### 사용법
 ```
 work_queue <command> [arguments...]
  Commands:
