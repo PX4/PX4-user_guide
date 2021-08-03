@@ -1,4 +1,4 @@
-# System-wide Replay
+# 시스템 전체 재생
 Based on ORB messages, it's possible to record and replay arbitrary parts of the system.
 
 Replay is useful to test the effect of different parameter values based on real data, compare different estimators, etc.
