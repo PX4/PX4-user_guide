@@ -98,19 +98,19 @@ make list_vmd_make_targets
 
 ## 컴파일러 최적화
 
-`posix_sitl_*`에 대해 구성할 때 주어진 실행 파일 및/또는 모듈(cmake에서 `add_executable` 또는 `add_library`로 추가)에 대한 컴파일러 최적화를 억제할 수 있습니다. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
+`posix_sitl_*`에 대해 구성할 때 주어진 실행 파일 및/또는 모듈(cmake에서 `add_executable` 또는 `add_library`로 추가)에 대한 컴파일러 최적화를 억제할 수 있습니다. 이것은 디버거를 사용하여 코드를 단계별로 실행하거나, 그렇지 않으면 최적화 변수를 인쇄시에 편리합니다.
 
-To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+그렇게 하려면 환경 변수 `PX4_NO_OPTIMIZATION`을 최적화 없이 컴파일하는 대상과 일치하는 세미콜론으로 구분된 정규식 목록으로 설정합니다. 이 환경변수는 설정이 `posix_sitl_*`이 아닌 경우에는 무시됩니다.
 
-For example,
+예를 들어,
 
 ```sh
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 ```
 
-The targets that can be matched with these regular expressions can be printed with the command:
+대상의 최적화를 억제합니다: 플랫폼\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, 예제\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB \\_tests 및 px4.
 
-The targets that can be matched with these regular expressions can be printed with the command:
+이러한 정규식과 일치할 수 있는 대상은 다음 명령으로 출력합니다.
 
 ```sh
 make -C build/posix_sitl_* list_cmake_targets
