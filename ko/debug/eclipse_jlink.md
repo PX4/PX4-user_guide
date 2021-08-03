@@ -1,30 +1,30 @@
 # PX4용 MCU Eclipse/J-Link 디버깅
 
-This topic explains how to setup and use [MCU Eclipse](https://gnu-mcu-eclipse.github.io/) with a *Segger Jlink adapter* to debug PX4 running on NuttX (e.g. Pixhawk series boards).
+NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 위하여 *Segger Jlink 어댑터*와 함께 [MCU Eclipse](https://gnu-mcu-eclipse.github.io/)를 설정하고 사용하는 방법을 설명합니다.
 
 
-## Required Hardware
+## 필요한 하드웨어
 
 - [J-Link EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)
-- Adapter to connect Segger JLink to Flight Controller [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md) (debug port).
-- Micro USB cable
+- Segger JLink를 Flight Controller [SWD(JTAG) 하드웨어 디버깅 인터페이스](../debug/swd_debug.md)(디버그 포트) 연결용 어댑터입니다.
+- Micro USB 케이블
 
-## Installation
+## 설치
 
 ### PX4
 
-Setup PX4 by following the normal guidelines:
-- [Setup the PX4 Developer Environment/Toolchain](../dev_setup/dev_env.md) for your platofrm (e.g. for Linux see: [Development Environment on Ubuntu LTS / Debian Linux](../dev_setup/dev_env_linux_ubuntu.md)).
-- [Download PX4](../dev_setup/building_px4.md) and optionally build it on the command line.
+일반 지침에 따라 PX4를 설정합니다.
+- 플랫폼에 대한 [PX4 개발자 환경/도구 체인 설정](../dev_setup/dev_env.md)(예: Linux의 경우 [Ubuntu LTS/Debian Linux의 개발 환경](../dev_setup/dev_env_linux_ubuntu.md) 참조).
+- [PX4를 다운로드](../dev_setup/building_px4.md)하고, 선택적으로 명령줄에서 빌드합니다.
 
 ### Eclipse
 
-To install *Eclipse*:
-1. Download [Eclipse CDT for C/C++ Developers](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/) (MCU GitHub).
-1. Extract the Eclipse folder and copy it anywhere (there is no need to run any install scripts).
-1. Run *Eclipse* and choose a location for your initial workbench.
+*Eclipse*를 설치하려면:
+1. [C/C++ 개발자를 위한 Eclipse CDT](https://github.com/gnu-mcu-eclipse/org.eclipse.epp.packages/releases/)(MCU GitHub)를 다운로드하십시오.
+1. Eclipse 폴더의 압축을 풀고 적당한 폴더에 복사합니다(설치 스크립트를 실행할 필요가 없음).
+1. *Eclipse*를 실행하고, 초기 워크벤치의 위치를 선택하십시오.
 
-### Segger Jlink Tools
+### Segger Jlink 도구
 
 To install the *Segger Jlink* tools:
 1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
