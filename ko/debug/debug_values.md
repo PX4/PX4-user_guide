@@ -26,17 +26,20 @@ MAVLink 디버그 메시지는 uORB 주제로/에서 번역됩니다. MAVLink �
 ```C
 #include <uORB/uORB.h>
 #include <uORB/topics/debug_key_value.h>
+#include <string.h>
 ```
 
-Then advertise the debug value topic (one advertisement for different published names is sufficient). Put this in front of your main loop:
+그런 다음 디버그 값 주제를 광고합니다(공개된 다른 이름에 대해 하나의 광고로 충분함). 이 코드를 메인 루프 앞에 추가합니다.
 
 ```C
 /* advertise debug value */
-struct debug_key_value_s dbg = { .key = "velx", .value = 0.0f };
+struct debug_key_value_s dbg;
+strncpy(dbg.key, "velx", sizeof(dbg.key));
+dbg.value = 0.0f;
 orb_advert_t pub_dbg = orb_advertise(ORB_ID(debug_key_value), &dbg);
 ```
 
-And sending in the main loop is even simpler:
+이렇게 하면 메인 루프에서 메시지 전송은 상당히 간단해 집니다.
 
 ```C
 dbg.value = position[0];
@@ -44,19 +47,19 @@ orb_publish(ORB_ID(debug_key_value), pub_dbg, &dbg);
 ```
 
 :::caution
-Multiple debug messages must have enough time between their respective publishings for Mavlink to process them. This means that either the code must wait between publishing multiple debug messages, or alternate the messages on each function call iteration.
+여러 디버그 메시지는 Mavlink가 처리할 수 있도록 각 게시 사이에 충분한 시간이 있어야 합니다. 이는 코드가 여러 디버그 메시지 게시 사이에 대기하거나, 각 함수 호출 반복에서 메시지를 대체하는 것을 의미합니다.
 :::
 
-The result in QGroundControl then looks like this on the real-time plot:
+QGroundControl의 결과는 실시간 플롯에서 다음과 같습니다.
 
-![QGC debugvalue plot](../../assets/gcs/qgc-debugval-plot.jpg)
+![QGC 디버그값 플롯](../../assets/gcs/qgc-debugval-plot.jpg)
 
 
-## Tutorial: Receive String / Float Pairs
+## 튜토리얼: 문자열 / 부동 소수점 쌍 수신
 
-The following code snippets show how to receive the `velx` debug variable that was sent in the previous tutorial.
+다음 코드는 이전 튜토리얼에서 전송된 `velx` 디버그 변수를 수신하는 방법을 설명합니다.
 
-First, subscribe to the topic `debug_key_value`:
+먼저 `debug_key_value` 주제를 구독하십시오.
 
 ```C
 #include <poll.h>
@@ -66,7 +69,7 @@ int debug_sub_fd = orb_subscribe(ORB_ID(debug_key_value));
 [...]
 ```
 
-Then poll on the topic:
+이후 토픽을 폴링 처리하십시오:
 
 ```C
 [...]
@@ -82,7 +85,7 @@ while (true) {
     [...]
 ```
 
-When a new message is available on the `debug_key_value` topic, do not forget to filter it based on its key attribute in order to discard the messages with key different than `velx`:
+`debug_key_value` 주제에서 새 메시지를 사용할 수 있는 경우 `velx`와 다른 키를 가진 메시지를 삭제하기 위하여, 키 속성을 기준으로 메시지를 필터링하는 것을 잊지 마십시오.
 
 ```C
     [...]
