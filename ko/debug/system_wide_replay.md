@@ -93,17 +93,17 @@ ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_repla
 INFO  [logger] Opened log file: rootfs/fs/microsd/log/2017-03-01/13_30_51_replayed.ulg
 ```
 
-When finished, use `unset replay; unset replay_mode` to exit the replay mode.
+완료되면 `설정되지 않은 재생`을 사용합니다. 재생 모드를 종료하려면 replay_mode를 설정 해제하십시오
 
-## Behind the Scenes
+## 무대 뒤에서
 
-Replay is split into 3 components:
-- a replay module
-- ORB publisher rules
-- time handling
+재생은 3가지 구성 요소로 이루어집니다.
+- 재현 모듈
+- ORB 게시자 규칙
+- 시간 처리
 
-The replay module reads the log and publishes the messages with the same speed as they were recorded. A constant offset is added to the timestamp of each message to match the current system time (this is the reason why all other timestamps need to be relative). The command `replay tryapplyparams` is executed before all other modules are loaded and applies the parameters from the log and user-set parameters. Then as the last command, `replay trystart` will again apply the parameters and start the actual replay. Both commands do nothing if the environment variable `replay` is not set.
+재생 모듈은 로그를 읽고 기록된 것과 동일한 속도로 메시지를 게시합니다. 현재 시스템 시간과 일치하도록 각 메시지의 타임스탬프에 상수 오프셋이 추가됩니다(이것이 다른 모든 타임스탬프가 상대적이어야 하는 이유입니다). `replay tryapplyparams` 명령은 다른 모든 모듈이 로드되기 전에 실행되고, 로그 및 사용자 설정 매개변수의 매개변수를 적용합니다. 그런 다음, 마지막 명령으로 `replay trystart`가 매개변수를 다시 적용하고, 실제 재생을 시작합니다. 환경 변수 `replay`가 설정되지 않은 경우, 두 명령 모두 아무 작업도 수행하지 않습니다.
 
-The ORB publisher rules allow to select which part of the system is replayed, as described above. They are only compiled for the posix SITL targets.
+ORB 게시자 규칙을 사용하면, 위에서 설명한 대로 시스템의 어느 부분을 재생할지 선택할 수 있습니다. POSIX SITL 대상에 대해서만 컴파일됩니다.
 
-The **time handling** is still an **open point**, and needs to be implemented.
+**시간 처리**는 여전히 **개방된 지점**이며 구현되어야 합니다.
