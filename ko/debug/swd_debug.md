@@ -40,7 +40,7 @@ SWD의 "일부"는 아니지만, 자동조종장치에는 *직렬 와이어 출�
 :::note
 일부 제조업체에서는 SWD 인터페이스와 [시스템 콘솔](../debug/system_console.md)을 쉽게 연결하는 케이블을 제공합니다. 예를 들어, [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)와 [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)에는 다음 디버그 케이블이 포함됩니다.
 
-![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
+![6핀 JST SH 케이블](../../assets/debug/cuav_v5_debug_cable.jpg)
 :::
 
 
@@ -132,7 +132,7 @@ Pixhawk 프로젝트에는 다양한 Pixhawk FMU 릴리스에 대한 표준 핀�
 
 [이와 같은 케이블](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A)을 사용하여 디버그 포트에 연결할 수 있습니다.
 
-![6-pin JST SH Cable](../../assets/debug/cable_6pin_jst_sh.jpg)
+![6핀 JST SH 케이블](../../assets/debug/cable_6pin_jst_sh.jpg)
 
 <a id="pixhawk_debug_port_10_pin_sh"></a>
 
@@ -163,7 +163,7 @@ Pixhawk 프로젝트에는 다양한 Pixhawk FMU 릴리스에 대한 표준 핀�
 
 [이와 같은 케이블](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A)을 사용하여 디버그 포트에 연결할 수 있습니다.
 
-![10-pin JST SH Cable](../../assets/debug/cable_10pin_jst_sh.jpg) <!-- better to have image showing proper connections for SWD+SWO -->
+![10핀 JST SH 케이블](../../assets/debug/cable_10pin_jst_sh.jpg) <!-- better to have image showing proper connections for SWD+SWO -->
 
 
 <a id="debug_probes"></a>
@@ -174,25 +174,25 @@ Pixhawk 프로젝트에는 다양한 Pixhawk FMU 릴리스에 대한 표준 핀�
 
 <a id="segger_jlink_edu_mini"></a>
 
-### Segger JLink EDU Mini Debug Probe
+### Segger JLink EDU 미니 디버그 프로브
 
-The [Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/) is an inexpensive and popular SWD debug probe. The probe's connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
+[Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)는 저렴하고 널리 사용되는 SWD 디버그 프로브입니다. The probe's connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
 
 ![connector_jlink_mini.png](../../assets/debug/connector_jlink_mini.png)
 
-The pin mapping to connect the J-Link Edu Mini to [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh) is shown below (note, the `-` indicates a pin that is not required for SWD).
+J-Link Edu Mini를 [Pixhawk 6-Pin SH 디버그 포트](#pixhawk_debug_port_6_pin_sh)에 연결하기 위한 핀 매핑은 아래와 같습니다(참고, `-`은 SWD에 필요하지 않은 핀을 나타냅니다.
 
-| Debug Port     | J-Link Mini |
-| -------------- | ----------- |
-| 1 (Vtref)      | 1           |
-| 2 (Console TX) | -           |
-| 3 (Console RX) | -           |
-| 4 (SWDIO)      | 2           |
-| 5 (SWDCLK)     | 4           |
-| 6 (GND)        | 3 or 5      |
+| 디버그 포트     | J-Link Mini |
+| ---------- | ----------- |
+| 1 (Vtref)  | 1           |
+| 2 (콘솔 TX)  | -           |
+| 3 (콘솔 RX)  | -           |
+| 4 (SWDIO)  | 2           |
+| 5 (SWDCLK) | 4           |
+| 6 (GND)    | 3 또는 5      |
 
 :::tip
-From the table above you can infer the connections for autopilots that do not use the standard port.
+위의 표에서 표준 포트를 사용하지 않는 자동조종장치에 대한 연결을 유추할 수 있습니다.
 :::
 
 <!-- Image of SWD cable and connector to debug port? --> 
@@ -200,39 +200,39 @@ From the table above you can infer the connections for autopilots that do not us
 
 <a id="dronecode_probe"></a>
 
-### Dronecode Probe
+### Dronecode 프로브
 
-The [Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) is a generic JTAG/SWD + UART console adapter compatible with most ARM Cortex based designs, and in particular with Pixhawk series flight controllers (and other hardware that PX4 supports).
+[Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)는 대부분의 ARM Cortex 기반 설계, 특히 Pixhawk 시리즈 비행 콘트롤러(및 PX4가 지원하는 기타 하드웨어)와 호환되는 일반 JTAG/SWD + UART 콘솔 어댑터입니다.
 
-The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](../debug/system_console.md) (UART) and the other for an embedded GDB server (SWD interface).
+프로브의 USB 인터페이스는 두 개의 개별 가상 직렬 포트 인터페이스를 노출합니다. 하나는 [시스템 콘솔](../debug/system_console.md)(UART)에 연결하기 위한 것이고, 다른 하나는 내장된 GDB 서버(SWD 인터페이스)에 연결하기 위한 것입니다.
 
-The probe provides a DCD-M connector cable for attaching to the [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh).
+프로브는 [Pixhawk 6핀 SH 디버그 포트](#pixhawk_debug_port_6_pin_sh)에 연결하기 위한 DCD-M 커넥터 케이블을 제공합니다.
 
 :::note
-The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
+프로브와 함께 제공되는 *6핀 DF13* 커넥터는 SWD 디버깅에 사용할 수 없습니다(시스템 콘솔에 사용하기 위한 것입니다).
 :::
 
 :::note
-The *Dronecode Probe* is based on the [Black Magic Probe](#black_magic_probe).
+*Dronecode 프로브*는 [Black Magic Probe](#black_magic_probe)를 기반으로 합니다.
 :::
 
 <a id="black_magic_probe"></a>
 
-### Black Magic Probe
+### Black Magic 프로브
 
-The [Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki) is much like the [Dronecode probe](#dronecode_probe) but does not come with the same adapters for directly connecting to Pixhawk series flight controllers.
+[Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki)는 [Dronecode 프로브](#dronecode_probe)와 매우 유사하지만 Pixhawk 시리즈 비행 콘트롤러에 직접 연결하기 위한 동일한 어댑터가 제공되지 않습니다.
 
-Adapters can be purchased separately:
-- [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
+어댑터는 별도로 구매할 수 있습니다.
+- [드론 코드 디버그 어댑터](https://1bitsquared.com/products/drone-code-debug-adapter)(1비트 제곱).
 
 <a id="debugging_topics"></a>
 
-## Next Steps
+## 다음 단계
 
-You've now connected the flight controller to an SWD debug probe!
+이제 비행 컨트롤러를 SWD 디버그 프로브에 연결하였습니다!
 
-The following topics explain how to start on-target debugging:
+다음 항목에서는 대상 디버깅을 시작하는 방법을 설명합니다.
 
-- [MCU Eclipse/J-Link Debugging for PX4](../debug/eclipse_jlink.md)
-- [Visual Studio Code IDE (VSCode)](../dev_setup/vscode.md)
+- [PX4용 MCU Eclipse/J-Link 디버깅](../debug/eclipse_jlink.md)
+- [비주얼 스튜디오 코드 IDE(VSCode)](../dev_setup/vscode.md)
 
