@@ -40,7 +40,7 @@ SWD의 "일부"는 아니지만, 자동조종장치에는 *직렬 와이어 출�
 :::note
 일부 제조업체에서는 SWD 인터페이스와 [시스템 콘솔](../debug/system_console.md)을 쉽게 연결하는 케이블을 제공합니다. 예를 들어, [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)와 [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)에는 다음 디버그 케이블이 포함됩니다.
 
-![6-pin JST SH Cable](../../assets/debug/cuav_v5_debug_cable.jpg)
+![6핀 JST SH 케이블](../../assets/debug/cuav_v5_debug_cable.jpg)
 :::
 
 
@@ -60,140 +60,139 @@ SWD의 "일부"는 아니지만, 자동조종장치에는 *직렬 와이어 출�
 
 <span id="port_information"></span>
 
-| 자동조종장치                                                                     | 커넥터                                                                                                                                                                                                                                         |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                    | ARM 10-pin JTAG Connector (also used for FMUv2 boards including: *mRo Pixhawk*, *HobbyKing HKPilot32*).                                                                                                                                     |
-| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)             | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
-| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                | 6-pin JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND) (vertical mount), [SM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (side mount) |
-| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port)    | [Pixhawk 6-pin SH Debug](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                      |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port)           | [Pixhawk 6-pin SH Debug](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                      |
-| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) | [Pixhawk 6-pin SH Debug](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                      |
-| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)           | Solder pads                                                                                                                                                                                                                                 |
-| [Holybro Durandal](../flight_controller/durandal.md#debug-port)            | [Pixhawk 6-pin SH Debug](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                                      |
+| 자동조종장치                                                                     | 커넥터                                                                                                                                                                                                                          |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [3DR Pixhawk](../flight_controller/pixhawk.md#swd-port)                    | ARM 10핀 JTAG 커넥터(*mRo Pixhawk*, *HobbyKing HKPilot32*를 포함한 FMUv2 보드에도 사용됨).                                                                                                                                                  |
+| [CUAV V5nano](../flight_controller/cuav_v5_nano.md#debug_port)             | 6핀 JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND)(수직 장착), [SM06B-GHS-TBT(LF)(SN) (N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (사이드 마운트) |
+| [CUAV V5+](../flight_controller/cuav_v5_plus.md#debug-port)                | 6핀 JST GH<br>Digikey: [BM06B-GHS-TBT(LF)(SN)(N)](https://www.digikey.com/products/en?keywords=455-1582-1-ND)(수직 장착), [SM06B-GHS-TBT(LF)(SN) (N)](https://www.digikey.com/products/en?keywords=455-1568-1-ND) (사이드 마운트) |
+| [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md#debug-port)    | [Pixhawk 6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                            |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md#debug_port)           | [Pixhawk 6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                            |
+| [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md#debug-port) | [Pixhawk 6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                            |
+| [Holybro Kakute F7](../flight_controller/kakutef7.md#debug-port)           | 납땜 판                                                                                                                                                                                                                         |
+| [Holybro Durandal](../flight_controller/durandal.md#debug-port)            | [Pixhawk 6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)                                                                                                                                                                            |
 
 :::tip
-Check the [autopilot topics](../flight_controller/README.md) if your flight controller is not listed.
+비행 콘트롤러가 목록에 없으면 [자동 조종 장치 항목](../flight_controller/README.md)을 참고하십시오.
 :::
 
 <a id="pixhawk_standard_debug_ports"></a>
 
-## Pixhawk Standard Debug Ports
+## Pixhawk 표준 디버그 포트
 
-The Pixhawk project has defines a standard pinout and connector type for different Pixhawk FMU releases:
+Pixhawk 프로젝트에는 다양한 Pixhawk FMU 릴리스에 대한 표준 핀배열 및 커넥터 유형이 정의되어 있습니다.
 
 :::tip
-Check your [specific board](#port_information) to confirm the port used.
+[특정 보드](#port_information)에서 사용된 포트를 확인하십시오.
 :::
 
-| FMU Version | Pixhawk Ver.                                                    | Debug Interface                                  |
-| ----------- | --------------------------------------------------------------- | ------------------------------------------------ |
-| FMUv2       | [Pixhawk / Pixhawk 1](../flight_controller/pixhawk.md#swd-port) | 10 pin ARM Debug                                 |
-| FMUv3       | Pixhawk 2                                                       | 6 pin SUR Debug                                  |
-| FMUv4       | Pixhawk 3                                                       | [6 pin SH Debug](#pixhawk_debug_port_6_pin_sh)   |
-| FMUv5       | Pixhawk 4 FMUv5                                                 | [6 pin SH Debug](#pixhawk_debug_port_6_pin_sh)   |
-| FMUv5X      | Pixhawk 5X                                                      | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
-| FMUv6       | Pixhawk 6                                                       | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
-| FMUv6X      | Pixhawk 6                                                       | [10 pin SH Debug](#pixhawk_debug_port_10_pin_sh) |
+| FMU 버전 | Pixhawk 버전                                                      | 디버그 인터페이스                                   |
+| ------ | --------------------------------------------------------------- | ------------------------------------------- |
+| FMUv2  | [Pixhawk / Pixhawk 1](../flight_controller/pixhawk.md#swd-port) | 10핀 ARM 디버그                                 |
+| FMUv3  | Pixhawk 2                                                       | 6핀 SUR 디버그                                  |
+| FMUv4  | Pixhawk 3                                                       | [6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)   |
+| FMUv5  | Pixhawk 4 FMUv5                                                 | [6핀 SH 디버그](#pixhawk_debug_port_6_pin_sh)   |
+| FMUv5X | Pixhawk 5X                                                      | [10핀 SH 디버그](#pixhawk_debug_port_10_pin_sh) |
+| FMUv6  | Pixhawk 6                                                       | [10핀 SH 디버그](#pixhawk_debug_port_10_pin_sh) |
+| FMUv6X | Pixhawk 6                                                       | [10핀 SH 디버그](#pixhawk_debug_port_10_pin_sh) |
 
-:::note
-There FMU and Pixhawk versions are (only) consistent after FMUv5X.
+:::note FMU와 Pixhawk 버전은 FMUv5X 이후 버전에만 일관성이 있습니다.
 :::
 
 <a id="pixhawk_debug_port_6_pin_sh"></a>
 
-### Pixhawk Debug Mini (6-Pin SH Debug Port)
+### Pixhawk 디버그 미니(6핀 SH 디버그 포트)
 
-The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf) defines a *6-Pin SH Debug Port* that provides access to both SWD pins and the [System Console](../debug/system_console.md).
+[Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)은 SWD 핀과 [시스템 콘솔](../debug/system_console.md)에 대한 액세스를 제공하는 *6핀 SH 디버그 포트*를 정의합니다.
 
 :::note
-This debug port is used in FMUv4 and FMUv5.
+이 디버그 포트는 FMUv4와 FMUv5에서 사용됩니다.
 :::
 
-The pinout is as shown below (SWD pins highlighted):
+핀 배열는 아래와 같습니다(SWD 핀이 강조 표시됨).
 
-| Debug Port | Pin        |
-| ---------- | ---------- |
-| 1          | `Vtref`    |
-| 2          | Console TX |
-| 3          | Console RX |
-| 4          | `SWDIO`    |
-| 5          | `SWDCLK`   |
-| 6          | `GND`      |
+| 디버그 포트 | 핀        |
+| ------ | -------- |
+| 1      | `Vtref`  |
+| 2      | 콘솔 TX    |
+| 3      | 콘솔 RX    |
+| 4      | `SWDIO`  |
+| 5      | `SWDCLK` |
+| 6      | `GND`    |
 
-The debug port definition includes the following solder pads (on board next to connector):
+디버그 포트 정의에는 다음 납땜 패드(커넥터 옆의 보드)가 포함됩니다.
 
-| Debug Port | Pin               | Voltage |
-| ---------- | ----------------- | ------- |
-| Pad        | Signal            | Volt    |
-| 1          | NRST (reset)      | +3.3V   |
-| 2          | GPIO1 (free GPIO) | +3.3V   |
-| 3          | GPIO2 (free GPIO) | +3.3V   |
+| 디버그 포트 | 핀                | 전압    |
+| ------ | ---------------- | ----- |
+| 패드     | 신호               | 볼트    |
+| 1      | NRST (reset)     | +3.3V |
+| 2      | GPIO1 (여분의 GPIO) | +3.3V |
+| 3      | GPIO2 (여분의 GPIO) | +3.3V |
 
-The socket is a *6-pin JST SH* - Digikey number: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND) (vertical mount), [SM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND)(side mount).
+소켓은 *6핀 JST SH*입니다. - Digikey 번호: [BM06B-SRSS-TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-2875-1-ND)(수직 장착), [SM06B-SRSS- TBT(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1806-1-ND)(사이드 마운트).
 
-You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A).
+[이와 같은 케이블](https://www.digikey.com/products/en?keywords=A06SR06SR30K152A)을 사용하여 디버그 포트에 연결할 수 있습니다.
 
-![6-pin JST SH Cable](../../assets/debug/cable_6pin_jst_sh.jpg)
+![6핀 JST SH 케이블](../../assets/debug/cable_6pin_jst_sh.jpg)
 
 <a id="pixhawk_debug_port_10_pin_sh"></a>
 
-### Pixhawk Debug Full (10-Pin SH Debug Port)
+### Pixhawk 디버그 전체(10핀 SH 디버그 포트)
 
-The [Pixhawk Connector Standard](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)  defines a *10-Pin SH Debug Port* that provides access to both SWD pins and the [System Console](../debug/system_console.md). This essentially moves the solder pads from beside the [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh) into the connector, and also adds an SWO pin.
+[Pixhawk 커넥터 표준](https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf)은 SWD 핀과 [시스템 콘솔](../debug/system_console.md)에 대한 액세스를 제공하는 *10핀 SH 디버그 포트*를 정의합니다. 이것은 [Pixhawk 6-Pin SH 디버그 포트](#pixhawk_debug_port_6_pin_sh) 옆에서 커넥터로 솔더 패드를 이동하고, SWO 핀도 추가합니다.
 
 :::note
-This port is specified for use in FMUv5x, FMUv6, FMUv6x.
+이 포트는 FMUv5x, FMUv6, FMUv6x에서 사용하도록 지정됩니다.
 :::
 
-The pinout is as shown below (SWD pins highlighted):
+핀 배열는 아래와 같습니다(SWD 핀이 강조 표시됨).
 
-| Debug Port | Pin        |
-| ---------- | ---------- |
-| 1          | `Vtref`    |
-| 2          | Console TX |
-| 3          | Console RX |
-| 4          | `SWDIO`    |
-| 5          | `SWDCLK`   |
-| 6          | *SWO*      |
-| 7          | NFC GPIO   |
-| 8          | PH11       |
-| 9          | nRST       |
-| 10         | `GND`      |
+| 디버그 포트 | 핀        |
+| ------ | -------- |
+| 1      | `Vtref`  |
+| 2      | 콘솔 TX    |
+| 3      | 콘솔 RX    |
+| 4      | `SWDIO`  |
+| 5      | `SWDCLK` |
+| 6      | *SWO*    |
+| 7      | NFC GPIO |
+| 8      | PH11     |
+| 9      | nRST     |
+| 10     | `GND`    |
 
-The socket is a *10-pin JST SH* - Digikey number: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND) (vertical mount) or [SM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND) (side mount).
+소켓은 *10핀 JST SH* - Digikey 번호: [BM10B-SRSS-TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1796-2-ND)(수직 장착) 또는 [SM10B-SRSS- TB(LF)(SN)](https://www.digikey.com/products/en?keywords=455-1810-2-ND)(측면 장착).
 
-You can connect to the debug port using a [cable like this one](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A).
+[이와 같은 케이블](https://www.digikey.com/products/en?keywords=A10SR10SR30K203A)을 사용하여 디버그 포트에 연결할 수 있습니다.
 
-![10-pin JST SH Cable](../../assets/debug/cable_10pin_jst_sh.jpg) <!-- better to have image showing proper connections for SWD+SWO -->
+![10핀 JST SH 케이블](../../assets/debug/cable_10pin_jst_sh.jpg) <!-- better to have image showing proper connections for SWD+SWO -->
 
 
 <a id="debug_probes"></a>
 
-## Debug Probes
+## 디버그 프로브
 
-The following section outlines some popular debug probes and adaptors for connecting them to autopilots running PX4.
+다음 섹션에서는 PX4를 실행 자동조종장치에 연결하기 위한 몇 가지 인기 있는 디버그 프로브 및 어댑터에 대해 간략히 설명합니다.
 
 <a id="segger_jlink_edu_mini"></a>
 
-### Segger JLink EDU Mini Debug Probe
+### Segger JLink EDU 미니 디버그 프로브
 
-The [Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/) is an inexpensive and popular SWD debug probe. The probe's connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
+[Segger JLink EDU Mini](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/)는 저렴하고 널리 사용되는 SWD 디버그 프로브입니다. The probe's connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like [FTSH-105-01-F-DV-K](https://www.digikey.com/products/en?keywords=SAM8796-ND)).
 
 ![connector_jlink_mini.png](../../assets/debug/connector_jlink_mini.png)
 
-The pin mapping to connect the J-Link Edu Mini to [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh) is shown below (note, the `-` indicates a pin that is not required for SWD).
+J-Link Edu Mini를 [Pixhawk 6-Pin SH 디버그 포트](#pixhawk_debug_port_6_pin_sh)에 연결하기 위한 핀 매핑은 아래와 같습니다(참고, `-`은 SWD에 필요하지 않은 핀을 나타냅니다.
 
-| Debug Port     | J-Link Mini |
-| -------------- | ----------- |
-| 1 (Vtref)      | 1           |
-| 2 (Console TX) | -           |
-| 3 (Console RX) | -           |
-| 4 (SWDIO)      | 2           |
-| 5 (SWDCLK)     | 4           |
-| 6 (GND)        | 3 or 5      |
+| 디버그 포트     | J-Link Mini |
+| ---------- | ----------- |
+| 1 (Vtref)  | 1           |
+| 2 (콘솔 TX)  | -           |
+| 3 (콘솔 RX)  | -           |
+| 4 (SWDIO)  | 2           |
+| 5 (SWDCLK) | 4           |
+| 6 (GND)    | 3 또는 5      |
 
 :::tip
-From the table above you can infer the connections for autopilots that do not use the standard port.
+위의 표에서 표준 포트를 사용하지 않는 자동조종장치에 대한 연결을 유추할 수 있습니다.
 :::
 
 <!-- Image of SWD cable and connector to debug port? --> 
@@ -201,39 +200,39 @@ From the table above you can infer the connections for autopilots that do not us
 
 <a id="dronecode_probe"></a>
 
-### Dronecode Probe
+### Dronecode 프로브
 
-The [Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) is a generic JTAG/SWD + UART console adapter compatible with most ARM Cortex based designs, and in particular with Pixhawk series flight controllers (and other hardware that PX4 supports).
+[Dronecode Probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)는 대부분의 ARM Cortex 기반 설계, 특히 Pixhawk 시리즈 비행 콘트롤러(및 PX4가 지원하는 기타 하드웨어)와 호환되는 일반 JTAG/SWD + UART 콘솔 어댑터입니다.
 
-The probe's USB interface exposes two separate virtual serial port interfaces: one for connecting to the [System Console](../debug/system_console.md) (UART) and the other for an embedded GDB server (SWD interface).
+프로브의 USB 인터페이스는 두 개의 개별 가상 직렬 포트 인터페이스를 노출합니다. 하나는 [시스템 콘솔](../debug/system_console.md)(UART)에 연결하기 위한 것이고, 다른 하나는 내장된 GDB 서버(SWD 인터페이스)에 연결하기 위한 것입니다.
 
-The probe provides a DCD-M connector cable for attaching to the [Pixhawk 6-Pin SH Debug Port](#pixhawk_debug_port_6_pin_sh).
+프로브는 [Pixhawk 6핀 SH 디버그 포트](#pixhawk_debug_port_6_pin_sh)에 연결하기 위한 DCD-M 커넥터 케이블을 제공합니다.
 
 :::note
-The *6-pos DF13* connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).
+프로브와 함께 제공되는 *6핀 DF13* 커넥터는 SWD 디버깅에 사용할 수 없습니다(시스템 콘솔에 사용하기 위한 것입니다).
 :::
 
 :::note
-The *Dronecode Probe* is based on the [Black Magic Probe](#black_magic_probe).
+*Dronecode 프로브*는 [Black Magic Probe](#black_magic_probe)를 기반으로 합니다.
 :::
 
 <a id="black_magic_probe"></a>
 
-### Black Magic Probe
+### Black Magic 프로브
 
-The [Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki) is much like the [Dronecode probe](#dronecode_probe) but does not come with the same adapters for directly connecting to Pixhawk series flight controllers.
+[Black Magic Probe](https://github.com/blacksphere/blackmagic/wiki)는 [Dronecode 프로브](#dronecode_probe)와 매우 유사하지만 Pixhawk 시리즈 비행 콘트롤러에 직접 연결하기 위한 동일한 어댑터가 제공되지 않습니다.
 
-Adapters can be purchased separately:
-- [Drone Code Debug Adapter](https://1bitsquared.com/products/drone-code-debug-adapter) (1 BIT SQUARED).
+어댑터는 별도로 구매할 수 있습니다.
+- [드론 코드 디버그 어댑터](https://1bitsquared.com/products/drone-code-debug-adapter)(1비트 제곱).
 
 <a id="debugging_topics"></a>
 
-## Next Steps
+## 다음 단계
 
-You've now connected the flight controller to an SWD debug probe!
+이제 비행 컨트롤러를 SWD 디버그 프로브에 연결하였습니다!
 
-The following topics explain how to start on-target debugging:
+다음 항목에서는 대상 디버깅을 시작하는 방법을 설명합니다.
 
-- [MCU Eclipse/J-Link Debugging for PX4](../debug/eclipse_jlink.md)
-- [Visual Studio Code IDE (VSCode)](../dev_setup/vscode.md)
+- [PX4용 MCU Eclipse/J-Link 디버깅](../debug/eclipse_jlink.md)
+- [비주얼 스튜디오 코드 IDE(VSCode)](../dev_setup/vscode.md)
 

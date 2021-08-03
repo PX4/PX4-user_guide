@@ -1,12 +1,12 @@
 # PX4 콘솔/쉘
 
-PX4에서는 [MAVLink 쉘](../debug/mavlink_shell.md)과 [시스템 콘솔](../debug/system_console.md)을 사용하여 시스템에 터미널에 접급 가능합니다.
+PX4에서는 [MAVLink 쉘](../debug/mavlink_shell.md)과 [시스템 콘솔](../debug/system_console.md)을 사용하여 시스템에 접근할 수 있습니다.
 
-이 페이지에서는 주요 차이점과 콘솔/쉘 사용 방법을 설명합니다.
+이 페이지에서는 콘솔과 쉘 사용 방법과 주용 차이점에 대하여 설명합니다.
 
 <a id="console_vs_shell"></a>
 
-## 시스템 콘솔 vs. 셸
+## 시스템 콘솔과 셸의 차이점
 
 PX4 *시스템 콘솔*은 시스템에 대한 낮은 수준의 액세스, 디버그 출력 및 시스템 부팅 프로세스 분석을 제공합니다.
 

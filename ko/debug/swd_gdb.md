@@ -1,13 +1,12 @@
-# SWD GDB Hardware Debugging
+# SWD GDB 하드웨어 디버깅
 
-This page documents how to connect the hardware target using GDB (from a terminal). To use an IDE instead, see the instructions for [Eclipse](../debug/eclipse_jlink.md) or [VSCode](../dev_setup/vscode.md#hardware-debugging).
+터미널에서 GDB를 사용하여 하드웨어 대상을 연결하는 방법을 설명합니다. IDE를 사용하려면 [Eclipse](../debug/eclipse_jlink.md) 또는 [VSCode](../dev_setup/vscode.md#hardware-debugging) 사용법을 참고하십시오.
 
-For the wiring interface setup, please see [this detailed information](../debug/swd_debug.md).
+인터페이스 배선에 대해서는 [이 세부 정보](../debug/swd_debug.md)를 참조하십시오.
 
-## Using Dronecode probe / Blackmagic probe
+## Dronecode 프로브 / Blackmagic 프로브 사용
 
-:::note
-To debug STM32F7 or later (FMUv5 and newer) the Dronecode probe / Blackmagic probe likely requires a firmware update. You can find how to update the [blackmagic probe here](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware).
+:::note STM32F7 이상(FMUv5 이상)을 디버그하려면, Dronecode 프로브/Blackmagic 프로브에 펌웨어 업데이트해야 할 수 있습니다. [blackmagic probe를 업데이트하는 방법은 여기](https://github.com/blacksphere/blackmagic/wiki/Upgrading-Firmware)를 참고하십시오.
 :::
 
 To use a Dronecode probe with GDB, start GDB with the exact ELF file that is currently flashed on the autopilot:
