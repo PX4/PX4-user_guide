@@ -40,27 +40,27 @@ failure <component> <failure_type> [-i <instance_number>]
     - `battery`: 배터리
     - `motor`: 모터
     - `servo`: 서보
-    - 0>avoidance</code>: 회피
+    - `avoidance`: 회피
     - `rc_signal`: RC 신호
-    - `mavlink_signal`: MAVLink signal (data telemetry).
+    - `mavlink_signal`: MAVLink 신호(데이터 텔레메트리)
 - _failure_type_:
-  - `ok`: Publish as normal (Disable failure injection).
-  - `off`: Stop publishing.
-  - `stuck`: Report same value every time (_could_ indicate a malfunctioning sensor).
-  - `garbage`: Publish random noise. This looks like reading uninitialized memory.
-  - `wrong`: Publish invalid values (that still look reasonable/aren't "garbage").
-  - `slow`: Publish at a reduced rate.
-  - `delayed`: Publish valid data with a significant delay.
-  - `intermittent`: Publish intermittently.
-- _instance number_ (optional): Instance number of affected sensor. 0 (default) indicates all sensors of specified type.
+  - `ok`: 정상적으로 게시합니다(실패 주입 비활성화).
+  - `off`: 게시를 중지합니다.
+  - `stuck`: 매번 같은 값을 보고합니다(센서 오작동을 _나타낼 수 있음_).
+  - `garbage`: 무작위 노이즈를 게시합니다. 초기화되지 않은 메모리를 읽는 것처럼 보입니다.
+  - `wrong`: 잘못된 값을 게시합니다(여전히 합리적으로 보이거나 "쓰레기"가 아님).
+  - `slow`: 낮은 속도로 게시합니다.
+  - `delayed`: 상당한 지연으로 유효한 데이터를 게시합니다.
+  - `intermittent`: 간헐적으로 게시합니다.
+- _instance number_(선택 사항): 영향을 받는 센서의 인스턴스 번호입니다. 0 (기본값) 지정된 유형의 모든 센서를 나타냅니다.
 
 
-### Example
+### 예
 
-To simulate losing RC signal without having to turn off your RC controller:
+RC 컨트롤러를 끄지 않고, RC 신호 손실을 시뮬레이션하려면:
 
-1. Enable the parameter [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN).
-1. Enter the following commands on the MAVLink console or SITL *pxh shell*:
+1. 매개변수 [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN)을 활성화합니다.
+1. MAVLink 콘솔 또는 SITL *pxh 셸*에서 다음 명령을 실행합니다.
    ```bash
    # Fail RC (turn publishing off)
    failure rc_signal off
@@ -69,8 +69,8 @@ To simulate losing RC signal without having to turn off your RC controller:
    failure rc_signal ok
    ```
 
-## MAVSDK Failure Plugin
+## MAVSDK 실패 플러그인
 
-The [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html) can be used to programmatically inject failures. It is used in [PX4 Integration Testing](../test_and_ci/integration_testing_mavsdk.md) to simulate failure cases (for example, see [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.cpp)).
+[MAVSDK 실패 플러그인](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html)을 사용하여, 프로그래밍 방식으로 실패를 주입할 수 있습니다. [PX4 통합 테스트](../test_and_ci/integration_testing_mavsdk.md)에서 실패 사례를 시뮬레이션하는 데 사용됩니다(예: [PX4-Autopilot/test/mavsdk_tests/autopilot_tester.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/autopilot_tester.cpp) 참조).
 
-The plugin API is a direct mapping of the failure command shown above, with a few additional error signals related to the connection.
+플러그인 API는 연결과 관련된 몇 가지 추가 오류 신호와 함께, 위에 표시된 실패 명령의 직접 매핑입니다.
