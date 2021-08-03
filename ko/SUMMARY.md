@@ -351,7 +351,7 @@
     * [SWD/JTAG 디버그 인터페이스](debug/swd_debug.md)
     * [GDB SWD 디버깅](debug/swd_gdb.md)
     * [이클립스 JLink 디버깅](debug/eclipse_jlink.md)
-    * [실패 주입](debug/failure_injection.md)
+    * [시스템 장애 주입](debug/failure_injection.md)
     * [센서/주제 디버깅](debug/sensor_uorb_topic_debugging.md)
     * [시뮬레이션 디버깅](debug/simulation_debugging.md)
     * [디버그 값 전송](debug/debug_values.md)

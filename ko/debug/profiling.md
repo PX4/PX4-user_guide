@@ -1,14 +1,14 @@
-# Poor Man's Sampling Profiler
+# 가난한 자의 샘플링 프로파일러
 
-This section describes how you can use the [Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh) (PMSP) shell script to assess the performance of PX4. This is an implementation of a known method originally invented by [Mark Callaghan and Domas Mituzas](https://poormansprofiler.org/).
+[Poor Man's Sampling Profiler](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/nuttx/Debug/poor-mans-profiler.sh)(PMSP) 셸 스크립트를 사용하여 PX4 성능 평가 방법을 설명합니다. 이것은 원래 [Mark Callaghan과 Domas Mituzas](https://poormansprofiler.org/)가 발명한 알려진 방법의 구현입니다.
 
-## Approach
+## 접근
 
-PMSP is a shell script that operates by interrupting execution of the firmware periodically in order to sample the current stack trace. Sampled stack traces are appended into a text file. Once sampling is finished (which normally takes about an hour or more), the collected stack traces are *folded*. The result of *folding* is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
+PMSP는 현재 스택 추적을 샘플링하기 위하여, 주기적으로 펌웨어 실행을 중단하여 작동하는 쉘 스크립트입니다. 샘플링된 스택 추적은 텍스트 파일에 추가됩니다. 샘플링이 완료되면(일반적으로 약 1시간 이상 소요) 수집된 스택 추적이 *접혀집니다*. *접기*의 결과는 모든 유사한 스택 추적이 함께 결합되고, 해당 발생 횟수가 기록된다는 점(프로그램의 같은 지점에서 얻은 것)을 제외하고 동일한 스택 추적을 포함하는 또 다른 텍스트 파일입니다. 그런 다음 접힌 스택이 시각화 스크립트에 제공되며, 이를 위하여 [FlameGraph - 오픈 소스 스택 추적 시각화 도구](http://www.brendangregg.com/flamegraphs.html)를 사용합니다.
 
-## Basic Usage
+## 기본 사용법
 
-### Prerequisites
+### 전제 조건
 
 The profiler relies on GDB to run PX4 on the embedded target. So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware. You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
 
