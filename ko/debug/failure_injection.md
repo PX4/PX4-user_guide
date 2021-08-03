@@ -1,47 +1,47 @@
 # 시스템 장애 주입
 
-System failure injection allows you to induce different types of sensor and system failures, either programmatically using the [MAVSDK failure plugin](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html), or "manually" via a PX4 console like the [MAVLink shell](../debug/mavlink_shell.md#mavlink-shell). This enables easier testing of [safety failsafe](../config/safety.md#safety-configuration-failsafes) behaviour, and more generally, of how PX4 behaves when systems and sensors stop working correctly.
+[MAVSDK 오류 플러그인](https://mavsdk.mavlink.io/main/en/cpp/api_reference/classmavsdk_1_1_failure.html)을 사용하는 프로그래밍 방식이나 [MAVLink 셸](../debug/mavlink_shell.md#mavlink-shell)과 같은 PX4 콘솔을 통하여, 수동으로 다양한 유형의 센서등과 같은 시스템 오류를 주입할 수 있습니다. 이를 통하여 [안전 안전장치](../config/safety.md#safety-configuration-failsafes) 동작 보다 일반적으로 시스템과 센서가 올바르게 작동하지 않을 때, PX4 동작 방식을 보다 쉽게 테스트할 수 있습니다.
 
-Failure injection is disabled by default, and can be enabled using the [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) parameter.
+실패 주입은 기본적으로 비활성화되어 있으며, [SYS_FAILURE_EN](../advanced_config/parameter_reference.md#SYS_FAILURE_EN) 매개변수를 사용하여 활성화할 수 있습니다.
 
 :::warning
-Failure injection still in development. At time of writing (PX4 v1.12):
-- It can only be used in simulation (support for both failure injection in real flight is planned).
-- Many failure types are not broadly implemented. In those cases the command will return with an "unsupported" message.
+실패 주입은 아직 개발 중입니다. 작성 당시(PX4 v1.12):
+- 시뮬레이션에서만 사용할 수 있습니다(실제 비행에서 실패 주입 모두 지원 예정).
+- 많은 실패 유형이 광범위하게 구현되지 않았습니다. 이러한 경우 명령은 "지원되지 않는" 메시지와 함께 반환됩니다.
 :::
 
 
 
 
 
-## Failure System Command
+## 장애 시스템 명령
 
-Failures can be injected using the [failure system command](../modules/modules_command.md#failure) from any PX4 console/shell, specifying both the target and type of the failure.
+모든 PX4 콘솔/셸에서 [failure system 명령](../modules/modules_command.md#failure)을 사용하여 실패 대상과 실패 유형을 모두 지정하여 실패를 주입할 수 있습니다.
 
-### Syntax
+### 구문
 
-The full syntax of the [failure](../modules/modules_command.md#failure) command is:
+[failure](../modules/modules_command.md#failure) 명령의 전체 구문은 다음과 같습니다.
 ```
 failure <component> <failure_type> [-i <instance_number>]
 ```
-where:
-- _component_:
-  - Sensors:
-    - `gyro`: Gyro.
-    - `accel`: Accelerometer.
-    - `mag`: Magnetometer
-    - `baro`: Barometer
+여기서:
+- _구성요소_:
+  - 센서:
+    - `gyro`: 자이로
+    - `accel`: 가속도계
+    - `mag`: 자기계
+    - `baro`: 기압계
     - `gps`: GPS
-    - `optical_flow`: Optical flow.
-    - `vio`: Visual inertial odometry.
-    - `distance_sensor`: Distance sensor (rangefinder).
-    - `airspeed`: Airspeed sensor.
-  - Systems:
-    - `battery`: Battery.
-    - `motor`: Motor.
-    - `servo`: Servo.
-    - `avoidance`: Avoidance.
-    - `rc_signal`: RC Signal.
+    - `optical_flow`: 광류 센서
+    - `vio`: 시각적 관성 주행 거리
+    - `distance_sensor`: 거리 센서(거리 측정기)
+    - `airspeed`: 대기속도 센서
+  - 시스템:
+    - `battery`: 배터리
+    - `motor`: 모터
+    - `servo`: 서보
+    - 0>avoidance</code>: 회피
+    - `rc_signal`: RC 신호
     - `mavlink_signal`: MAVLink signal (data telemetry).
 - _failure_type_:
   - `ok`: Publish as normal (Disable failure injection).
