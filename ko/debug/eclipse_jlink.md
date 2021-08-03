@@ -26,57 +26,57 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 
 ### Segger Jlink 도구
 
-To install the *Segger Jlink* tools:
-1. Download and run the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack) for your OS (Windows and Linux packages available).
-   - On Linux the tools are installed in **/usr/bin**.
+*Segger Jlink* 도구를 설치하려면:
+1. [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)을 운영체제에 해당(윈도우와 리눅스용이 있음)하는 버전으로 다운로드하고 설치하십시오.
+   - Linux에서 **/usr/bin**에 설치됩니다.
 
-For more information, see: [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/).
+자세한 내용은 [https://gnu-mcu-eclipse.github.io/debug/jlink/install/](https://gnu-mcu-eclipse.github.io/debug/jlink/install/)을 참고하십시오.
 
-## First Use
+## 첫 사용
 
-1. Connect the *Segger JLink* to the host computer and the [flight controller debug port](../debug/swd_debug.md) (via an adapter).
-1. Power the flight controller.
-1. Run *Eclipse*.
-1. Add a source by choosing **File > Import > C/C++ > Existing Code as Makefile Project** and click **Next**.
-1. Point it to the **PX4-Autopilot** folder and give it a name, then select *ARM Cross GCC* in the *Toolchain for Indexer Settings* and click **Finish**. Import takes a while, wait for it to complete.
-1. Set the MCU settings: right-click on the top-level project in the Project Explorer, select *Properties* then under MCU choose *SEGGER J-Link Path*. Set it as shown in the screenshot below. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
-1. Update packs:
-   - Click the small icon on the top right called *Open Perspective* and open the *Packs* perspective. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
-   - Click the **update all** button.
+1. *Segger JLink*를 어댑터를 통하여 호스트 컴퓨터와 [비행 컨트롤러 디버그 포트](../debug/swd_debug.md)에 연결합니다.
+1. 비행 콘트롤러에 전원을 공급합니다.
+1. *Eclipse*를 실행합니다.
+1. **파일 > 가져오기 C/C++ > 기존 코드를 Makefile 프로젝트**로 만들고 **다음**을 클릭합니다.
+1. **PX4-Autopilot** 폴더를 가리키고 이름을 지정한 다음 *인덱서 설정용 도구 모음*에서 *ARM Cross GCC*를 선택하고 <0 >마침</strong>을 클릭합니다. 가져오기는 시간이 걸리며, 완료될 때까지 기다립니다.
+1. MCU 설정: 프로젝트 탐색기에서 최상위 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 *속성*을 선택한 다음 MCU에서 *SEGGER J-Link 경로*를 선택합니다. 아래 스크린샷과 같이 설정합니다. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
+1. 패키지를 업데이트합니다.
+   - 우상단의 *Open Perspective*라는 작은 아이콘을 클릭하고, *Packs* Perspective를 엽니다. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
+   - **모두 업데이트** 버튼을 클릭합니다.
 
 :::tip
-This takes a VERY LONG TIME (10 minutes). Ignore all the errors about missing packages that pop up.
+이것은 10분정도의 시간이 소요됩니다. 누락된 패키지에 대한 오류를 무시하십시오.
 :::
 
      ![Eclipse: Workspace Packs Perspective](../../assets/debug/eclipse_packs_perspective.jpg)
-   - The STM32Fxx devices are found in the Keil folder, install by right-clicking and then selecting **install** on the according device for F4 and F7.
-1. Setup debug configuration for target:
-   - Right click project and open the *Settings* (menu: **C/C++ Build > Settings**)
-   - Choose the *Devices* Tab, *Devices* section (Not *Boards*).
-   - Find the FMU chip you wish to debug.
+   - STM32Fxx 장치는 Keil 폴더에 있습니다. 마우스 오른쪽 버튼을 클릭한 다음, F4 및 F7에 해당하는 장치에서 **설치**를 선택하여 설치합니다.
+1. 대상에 대한 디버깅 설정을 진행하십시오:
+   - 프로젝트를 마우스 오른쪽 버튼으로 클릭하고, *설정*을 엽니다(메뉴: **C/C++ 빌드 > 설정**).
+   - *기기* 탭, *기기* 섹션(*보드* 아님)을 선택합니다.
+   - 디버그하려는 FMU 칩을 찾으십시오.
 
    ![Eclipse: Select FMU in settings](../../assets/debug/eclipse_settings_devices_fmu.png)
-1. Select debug configurations with the small drop-down next to the bug symbol: ![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
-1. Then select *GDB SEGGER J-Link Debugging* and then the **New config** button on the top left. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
-1. Setup build config:
-   - Give it a name and set  the *C/C++ Application* to the corresponding **.elf** file.
-   - Choose *Disable Auto build* :::note Remember that you must build the target from the command line before starting a debug session.
+1. 버그 기호 옆에 있는 작은 드롭다운으로 디버그 설정을 선택합니다.![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
+1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
+1. 빌드 구성을 설정합니다.
+   - 이름을 지정하고 *C/C++ 애플리케이션*을 해당 **.elf** 파일로 설정합니다.
+   - *자동 빌드 비활성화* 선택합니다. :::note 디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
 :::
 
    ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
-1. The *Debugger* and *Startup* tabs shouldn’t need any modifications (just verify your settings with the screenshots below)
+1. *디버거* 및 *시작* 탭은 수정할 필요가 없습니다(아래 스크린샷으로 설정을 확인하기만 하면 됩니다).
 
    ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
 
-## Troubleshooting
+## 문제 해결
 
-### Target CPU not in Package Manager
+### 패키지 관리자에 없는 대상 CPU
 
-If the target CPU does not appear in the package manager you may need these steps to get the register view working.
+대상 CPU가 패키지 관리자에 표시되지 않으면, 레지스터 보기가 작동하도록 하려면 다음 단계가 필요할 수 있습니다.
 
 :::tip
-This should not generally happen (but anecdotally has been reported when connecting to an STM F7 controller).
+이것은 일반적으로 발생하지 않아야 합니다(그러나 STM F7 컨트롤러에 연결할 때 일화적으로 보고되었습니다).
 :::
 
 Adding missing SVD files for the *Peripheral View*:
