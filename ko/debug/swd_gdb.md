@@ -81,15 +81,15 @@ target remote :2331
 
 연결되면, 다음과 같은 일반적인 GDB 명령을 사용할 수 있습니다.
 - `continue` : 프로그램 실행을 계속 실행
-- `run` to start from the beginning
-- `backtrace` to see the backtrace
-- `break somewhere.cpp:123` to set a breakpoint
-- `delete somewhere.cpp:123` to remove it again
-- `info locals` to print local variables
-- `info registers` to print the registers
+- `run` : 처음부터 시작
+- `backtrace` : 역추적을 조회
+- `break somewhere.cpp:123` : 중단점 설정
+- `delete somewhere.cpp:123` 중단점 삭제
+- `info locals` : 지역 변수 조회
+- `info registers` : 리지스터 출력
 
-And much more, just use your favorite resource to learn more about GDB.
+그리고, 좋은 툴을 사용하여 GDB에 대하여 더 공부하십시오.
 
 :::tip
-To avoid having to type all commands to connect in GDB each time, you can write them into `~/.gdbinit`.
+매번 GDB에 연결하기 위하여, 모든 명령을 입력해야 하는 것을 피하기 위하여 `~/.gdbinit`에 작성할 수 있습니다.
 :::
