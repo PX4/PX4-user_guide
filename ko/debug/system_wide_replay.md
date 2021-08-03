@@ -33,59 +33,61 @@ ORB 메시지를 기반으로 시스템의 일정 부분을 기록하고 재생�
   module: replay
   ignore_others: true
   ```
-  This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
+  이렇게 하면 이러한 주제를 게시하는 모듈을 재생을 위하여 비활성화할 필요가 없습니다.
 
-- Optional: setup parameter overrides in the file `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt`. This file should contain a list of `<param_name> <value>`, like:
+- 선택 사항: `build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt` 파일에서 설정 매개변수를 재정의합니다. 이 파일에는 다음과 같은 `<param_name> <value>` 목록이 포함되어야 합니다.
   ```
   EKF2_GB_NOISE 0.001
   ```
-  By default, all parameters from the log file are applied. When a parameter changed during recording, it will be changed as well at the right time during replay. A parameter in the `replay_params.txt` will override the value and changes to it from the log file will not be applied.
-- - Optional: copy `dataman` missions file from the SD card to the build directory. Only necessary if a mission should be replayed.
-- Start the replay:
+  기본적으로, 로그 파일의 모든 매개변수가 적용됩니다. 녹음 중에 파라미터가 변경되면, 재생 중에도 적절한 시점에 변경됩니다. `replay_params.txt`의 매개변수가 값을 재정의하고, 로그 파일의 변경사항이 적용되지 않습니다.
+- 선택 사항: SD 카드에서 빌드 디렉토리로 `dataman` 미션 파일을 복사합니다. 임무를 다시 플레이해야 하는 경우에만 필요합니다.
+- 재생
   ```sh
   make px4_sitl_default jmavsim
   ```
-  This will automatically open the log file, apply the parameters and start to replay. Once done, it will be reported and the process can be exited. Then the newly generated log file can be analyzed, it has `_replayed` appended to its file name.
+  그러면, 자동으로 로그 파일이 열리고 매개변수가 적용되고 재생이 시작됩니다. 완료되면, 결과를 보고하고 프로세스를 종료할 수 있습니다. 그런 다음, 새로 생성된 로그 파일을 분석할 수 있으며, 파일 이름에 `_replayed`가 추가됩니다.
 
-  Note that the above command will show the simulator as well, but depending on what is being replayed, it will not show what's actually going on. It's possible to connect via QGC and e.g. view the changing attitude during replay.
+  위의 명령은 시뮬레이터도 표시하지만, 재생 중인 항목에 따라 실제로 진행 중인 작업은 표시되지 않습니다. QGC를 통해 연결하고 리플레이 중 태도 변화를 조회할 수 있습니다.
 
-- Finally, unset the environment variable, so that the normal build targets are used again:
+- 마지막으로, 일반 빌드 대상이 다시 사용되도록 환경 변수를 설정 해제합니다.
   ```sh
   unset replay
   ```
 
-### Important Notes
+### 중요 참고 사항
 
-- During replay, all dropouts in the log file are reported. These have a negative effect on replay and thus it should be taken care that dropouts are avoided during recording.
-- It is currently only possible to replay in 'real-time', meaning as fast as the recording was done. This is planned to be extended in the future.
-- A message that has a timestamp of 0 will be considered invalid and not be replayed.
+- 재생 중에 로그 파일의 모든 드롭아웃이 보고됩니다. 이는 재생에 부정적인 영향을 미치므로, 녹음 중에 드롭아웃이 발생하지 않도록 주의하여야합니다.
+- 현재로서는 '실시간'으로만 재생이 가능합니다. 이는 향후 추가할 예정입니다.
+- 타임스탬프가 0인 메시지는 유효하지 않은 것으로 간주되어 재생되지 않습니다.
 
-## EKF2 Replay
+## EKF2 재생
 
-This is a specialization of the system-wide replay for fast EKF2 replay. It will automatically create the ORB publisher rules and works as following:
+이것은 빠른 EKF2 재생을 위한 시스템 전체 재생의 전문화입니다. 자동으로 ORB 게시자 규칙을 만들고, 다음과 같이 작동합니다.
 
-* Optionally set `SDLOG_MODE` to 1 to start logging from boot
-* Record the log
-* To replay:
+* 선택적으로 `SDLOG_MODE`를 1로 설정하여 부팅에서 로깅을 시작합니다.
+* 로그를 기록합니다.
+* 재생하려면:
 
 ```
-ulog_params -i $replay -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
+export replay_mode=ekf2
+export replay=<abs_path_to_log.ulg>
+make px4_sitl none
 ```
 
-You can stop it after there's an output like:
+다음과 같은 출력이 나온 후, 중지할 수 있습니다.
 
 ```
 INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 ```
 
-The parameters can be adjusted as well. They can be extracted from the log with \(install pyulog with `sudo pip install pyulog` first\):
+매개변수도 조정할 수 있습니다. \(`sudo pip install pyulog` first\로 pyulog 설치\)를 사용하여 로그에서 추출할 수 있습니다.
 
 ```
 ulog_params -i "$replay" -d ' ' | grep -e '^EKF2' > build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
 ```
-Then edit the parameters in the file as needed and restart the replay process with `make px4_sitl none`. This will create a new log file.
+그런 다음 필요에 따라 파일의 매개변수를 편집하고, `make px4_sitl none`으로 재생 프로세스를 다시 시작합니다. 그러면 새 로그 파일이 생성됩니다.
 
-The location of the generated log is printed with a message like this:
+생성된 로그의 위치는 다음과 같은 메시지와 함께 출력됩니다.
 
 ```
 INFO  [logger] Opened log file: rootfs/fs/microsd/log/2017-03-01/13_30_51_replayed.ulg
