@@ -1,36 +1,37 @@
 # 시스템 전체 재생
-Based on ORB messages, it's possible to record and replay arbitrary parts of the system.
+ORB 메시지를 기반으로 시스템의 일정 부분을 기록하고 재생할 수 있습니다.
 
-Replay is useful to test the effect of different parameter values based on real data, compare different estimators, etc.
+재생은 실제 데이터를 기반으로 다른 매개변수의 효과를 테스트하고 다른 추정기 비교에 유용합니다.
 
-## Prerequisites
-The first thing that needs to be done is to identify the module or modules that should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB topics. For system-wide replay, this consists of all hardware input: sensors, RC input, mavlink commands and file system.
+## 전제 조건
+가장 먼저 해야 할 일은 재생 모듈을 식별하는 것입니다. 그런 다음 이 모듈에 대한 모든 입력, 즉 구독된 ORB 주제를 식별합니다. 시스템 전체 재생의 경우 센서, RC 입력, MAVLink 명령 및 파일 시스템과 같은 모든 하드웨어 입력으로 구성됩니다.
 
-All identified topics need to be logged at full rate (see [logging](../dev_log/logging.md)). For `ekf2` this is already the case with the default set of logged topics.
+식별된 모든 주제는 최대 속도로 기록되어야 합니다([로깅](../dev_log/logging.md) 참조). `ekf2`의 경우 이는 이미 기록된 주제의 기본 집합에 해당됩니다.
 
-It is important that all replayed topics contain only a single absolute timestamp, which is the automatically generated field `timestamp`. Should there be more timestamps, then they must be relative with respect to the main timestamp. For an example, see [sensor_combined.msg](https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg). Reasons for this are given below.
+재생된 모든 주제에는 자동으로 생성된 필드 `timestamp`인 단일 절대 타임스탬프만 포함되어야 합니다. 타임스탬프가 더 있는 경우 기본 타임스탬프와 관련하여 상대적이어야 합니다. 예는 [sensor_combined.msg](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_combined.msg)를 참고하십시오. 그 이유는 아래에서 설명합니다.
 
 
-## Usage
+## 사용법
 
-- First, choose the file to replay, and build the target (from within the Firmware directory): sh export replay=<absolute_path_to_log_file.ulg> make px4_sitl_default This will create the output in a separate build directory
+- 먼저 재생할 파일을 선택하고 대상을 빌드합니다(PX4-Autopilot 디렉토리 내에서).
   ```sh
-  export replay_mode=ekf2
-  export replay=<abs_path_to_log.ulg>
-  make px4_sitl none
+  export replay=<absolute_path_to_log_file.ulg>
+  make px4_sitl_default
   ```
-  `build/px4_sitl_default_replay` (so that the parameters don't interfere with normal builds). It's possible to choose any posix SITL build target for replay, the build system knows through the `replay` environment variable that it's in replay mode.
-- Add ORB publisher rules file in `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`. This file defines which module is allowed to publish which messages. It has the following format:
+  이것은 별도의 빌드 디렉토리에 출력을 생성합니다. `build/px4_sitl_default_replay`(매개변수가 일반 빌드를 방해하지 않도록). 재생을 위하여 posix SITL 빌드 대상을 선택할 수 있으며, 빌드 시스템은 `재생` 환경변수로 재생 모드임을 알 수 있습니다.
+- ORB 게시자 규칙 파일을 `build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules`에 추가합니다. 이 파일은 어떤 모듈이 어떤 메시지를 게시하는 지를 정의합니다. 형식은 다음과 같습니다.
   ```
-  restrict_topics:
+  restrict_topics: <topic1>, <topic2>, ..., <topicN>
+  module: <module>
+  ignore_others: <true/false>
   ```
-  It means that the given list of topics should only be published by `<module>` (which is the command name). Publications to any of these topics from another module are silently ignored. If `ignore_others` is `true`, then publications to other topics from `<module>` are ignored.
+  주어진 주제 목록은 `<module>`(명령 이름)으로만 게시되는 것을 의미합니다. 다른 모듈에서 이러한 주제에 대한 발행은 자동으로 무시됩니다. `ignore_others`가 `true`이면, `<module>`의 다른 주제에 대한 발행은 무시됩니다.
 
-  For replay, we only want the `replay` module to be able to publish the previously identified list of topics. So for replaying `ekf2`, the rules file looks like this:
+  재생의 경우 `재생` 모듈만 이전에 식별된 주제 목록을 게시할 수 있기를 바랍니다. 따라서, `ekf2`를 재생하는 경우 규칙 파일은 다음과 같습니다.
   ```
   restrict_topics: sensor_combined, vehicle_gps_position, vehicle_land_detected
-module: replay
-ignore_others: true
+  module: replay
+  ignore_others: true
   ```
   This allows that the modules, which usually publish these topics, don't need to be disabled for replay.
 
