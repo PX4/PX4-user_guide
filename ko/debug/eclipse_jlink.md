@@ -39,7 +39,7 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 1. *Eclipse*를 실행합니다.
 1. **파일 > 가져오기 C/C++ > 기존 코드를 Makefile 프로젝트**로 만들고 **다음**을 클릭합니다.
 1. **PX4-Autopilot** 폴더를 가리키고 이름을 지정한 다음 *인덱서 설정용 도구 모음*에서 *ARM Cross GCC*를 선택하고 <0 >마침</strong>을 클릭합니다. 가져오기는 시간이 걸리며, 완료될 때까지 기다립니다.
-1. MCU 설정: 프로젝트 탐색기에서 최상위 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 *속성*을 선택한 다음 MCU에서 *SEGGER J-Link 경로*를 선택합니다. 아래 스크린샷과 같이 설정합니다. ![Eclipse: Segger J-Link Path](../../assets/debug/eclipse_segger_jlink_path.png)
+1. MCU 설정: 프로젝트 탐색기에서 최상위 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 *속성*을 선택한 다음 MCU에서 *SEGGER J-Link 경로*를 선택합니다. 아래 스크린샷과 같이 설정합니다. ![Eclipse: Segger J-Link 경로](../../assets/debug/eclipse_segger_jlink_path.png)
 1. 패키지를 업데이트합니다.
    - 우상단의 *Open Perspective*라는 작은 아이콘을 클릭하고, *Packs* Perspective를 엽니다. ![Eclipse: Workspace](../../assets/debug/eclipse_workspace_perspective.png)
    - **모두 업데이트** 버튼을 클릭합니다.
@@ -55,18 +55,18 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
    - *기기* 탭, *기기* 섹션(*보드* 아님)을 선택합니다.
    - 디버그하려는 FMU 칩을 찾으십시오.
 
-   ![Eclipse: Select FMU in settings](../../assets/debug/eclipse_settings_devices_fmu.png)
-1. 버그 기호 옆에 있는 작은 드롭다운으로 디버그 설정을 선택합니다.![Eclipse: Debug config](../../assets/debug/eclipse_settings_debug_config.png)
-1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
+   ![Eclipse: 설정에서 FMU 선택](../../assets/debug/eclipse_settings_devices_fmu.png)
+1. 버그 기호 옆에 있는 작은 드롭다운으로 디버그 설정을 선택합니다.![Eclipse: 디버깅 설정](../../assets/debug/eclipse_settings_debug_config.png)
+1. 그런 다음, *GDB SEGGER J-Link 디버깅*을 선택한 다음, 왼쪽 상단의 **새 구성** 버튼을 선택합니다. ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger.png)
 1. 빌드 구성을 설정합니다.
    - 이름을 지정하고 *C/C++ 애플리케이션*을 해당 **.elf** 파일로 설정합니다.
    - *자동 빌드 비활성화* 선택합니다. :::note 디버그 세션을 시작하기 전에, 명령줄에서 대상을 빌드하여야 합니다.
 :::
 
-   ![Eclipse: GDB Segger Debug config](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
+   ![Eclipse: GDB Segger 디버깅 설정](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config.png)
 1. *디버거* 및 *시작* 탭은 수정할 필요가 없습니다(아래 스크린샷으로 설정을 확인하기만 하면 됩니다).
 
-   ![Eclipse: GDB Segger Debug config: debugger tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger Debug config: startup tab](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
+   ![Eclipse: GDB Segger 디버깅 설정: 디버거 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_debugger_tab.png) ![Eclipse: GDB Segger 디버깅 설정: 시작 탭](../../assets/debug/eclipse_settings_debug_config_gdb_segger_build_config_startup_tab.png)
 
 
 ## 문제 해결
@@ -79,8 +79,8 @@ NuttX(예: Pixhawk 시리즈 보드)에서 실행되는 PX4를 디버그하기 �
 이것은 일반적으로 발생하지 않아야 합니다(그러나 STM F7 컨트롤러에 연결할 때 일화적으로 보고되었습니다).
 :::
 
-Adding missing SVD files for the *Peripheral View*:
-1. Find out where MCU Eclipse stores its packages (**Preferences > C/C++ > MCU Packages**): ![Eclipse: MCU Packages](../../assets/debug/eclipse_mcu_packages.png)
-2. Download missing packages from: http://www.keil.com/dd2/Pack/
-3. Open downloaded pack with a decompression tool, and extract the **.SVD** files from: **/CMSIS/SVD**.
-4. Select desired **.SVD** file in: **Debug Options > GDB SEGGER JLink Debugging > SVD Path** ![Eclipse: SVD File path](../../assets/debug/eclipse_svd_file_path.png)
+*Peripheral View*에 대해 누락된 SVD 파일 추가:
+1. MCU Eclipse가 패키지를 저장하는 위치를 찾으십시오(**환경 설정 > C/C++ > MCU 패키지**). ![Eclipse: MCU 패키지](../../assets/debug/eclipse_mcu_packages.png)
+2. http://www.keil.com/dd2/Pack/ 에서 누락된 패키지를 다운로드하십시오
+3. 압축 해제 도구로 다운로드한 팩을 열고 **/CMSIS/SVD**에서 **.SVD** 파일의 압축을 풉니다.
+4. **디버그 옵션 > GDB SEGGER JLink 디버깅 > SVD 경로**에서 원하는 **.SVD** 파일을 선택하십시오. ![Eclipse: SVD 파일 경로](../../assets/debug/eclipse_svd_file_path.png)
