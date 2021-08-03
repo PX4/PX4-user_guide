@@ -4,11 +4,11 @@
 
 ## 접근
 
-PMSP는 현재 스택 추적을 샘플링하기 위하여, 주기적으로 펌웨어 실행을 중단하여 작동하는 쉘 스크립트입니다. 샘플링된 스택 추적은 텍스트 파일에 추가됩니다. 샘플링이 완료되면(일반적으로 약 1시간 이상 소요) 수집된 스택 추적이 *접혀집니다*. The result of *folding* is another text file that contains the same stack traces, except that all similar stack traces (i.e. those that were obtained at the same point in the program) are joined together, and the number of their occurrences is recorded. The folded stacks are then fed into the visualization script, for which purpose we employ [FlameGraph - an open source stack trace visualizer](http://www.brendangregg.com/flamegraphs.html).
+PMSP는 현재 스택 추적을 샘플링하기 위하여, 주기적으로 펌웨어 실행을 중단하여 작동하는 쉘 스크립트입니다. 샘플링된 스택 추적은 텍스트 파일에 추가됩니다. 샘플링이 완료되면(일반적으로 약 1시간 이상 소요) 수집된 스택 추적이 *접혀집니다*. *접기*의 결과는 모든 유사한 스택 추적이 함께 결합되고, 해당 발생 횟수가 기록된다는 점(프로그램의 같은 지점에서 얻은 것)을 제외하고 동일한 스택 추적을 포함하는 또 다른 텍스트 파일입니다. 그런 다음 접힌 스택이 시각화 스크립트에 제공되며, 이를 위하여 [FlameGraph - 오픈 소스 스택 추적 시각화 도구](http://www.brendangregg.com/flamegraphs.html)를 사용합니다.
 
-## Basic Usage
+## 기본 사용법
 
-### Prerequisites
+### 전제 조건
 
 The profiler relies on GDB to run PX4 on the embedded target. So before profiling a target, you must have the hardware you wish to profile, and you must compile and upload the firmware to that hardware. You will then need a [SWD (JTAG) Hardware Debugging Interface](../debug/swd_debug.md#debug-probes), such as the DroneCode Probe, to run the GDB server and interact with the board.
 
