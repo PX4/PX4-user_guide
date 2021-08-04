@@ -48,7 +48,7 @@ make px4_fmu-v4pro_default profile
 
 예제 출력의 스크린샷이 아래에 제공됩니다(여기에서는 대화형이 아님에 유의).
 
-![FlameGraph Example](../../assets/debug/flamegraph-example.png)
+![FlameGraph 예제](../../assets/debug/flamegraph-example.png)
 
 플레임 그래프에서 수평 레벨은 스택 프레임을 나타내는 반면, 각 프레임의 너비는 샘플링된 횟수에 비례합니다. 결과적으로 함수가 샘플링되는 횟수는 실행 빈도에 시간을 곱한 값에 비례합니다.
 
@@ -70,20 +70,20 @@ FlameGraph 스크립트는 `PATH`에 있어야 합니다. 그렇지 않으면 PM
 
 PMSP는 GDB를 사용하여 스택 추적을 수집합니다. 현재 `arm-none-eabi-gdb`를 사용하고 있으며, 향후 다른 도구 모음이 추가될 수 있습니다.
 
-메모리 위치를 기호에 매핑하려면, 스크립트가 현재 대상에서 실행 중인 실행 파일을 참조하여야 합니다. This is done with the help of the option `--elf=<file>`, which expects a path (relative to the root of the repository) pointing to the location of the currently executing ELF.
+메모리 위치를 기호에 매핑하려면, 스크립트가 현재 대상에서 실행 중인 실행 파일을 참조하여야 합니다. 이것은 현재 실행 중인 ELF의 위치를 가리키는 경로(저장소의 루트에 상대적)를 예상하는 옵션 `--elf=<file>`으로 실행됩니다.
 
-Credits for the idea belong to [Mark Callaghan and Domas Mituzas](https://dom.as/2009/02/15/poor-mans-contention-profiling/).
+사용 예:
 
 ```bash
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000
 ```
 
-Note that every launch of the script will overwrite the old stacks. Should you want to append to the old stacks rather than overwrite them, use the option `--append`:
+스크립트를 실행할 때마다 이전 스택을 덮어씁니다. 덮어쓰지 않고 이전 스택에 추가하려면, `--append` 옵션을 사용하십시오.
 
 ```bash
 ./poor-mans-profiler.sh --elf=build/px4_fmu-v4_default/px4_fmu-v4_default.elf --nsamples=30000 --append
 ```
 
-As one might suspect, `--append` with `--nsamples=0` will instruct the script to only regenerate the SVG without accessing the target at all.
+예상과 같이, `--append`와 함께 `--nsamples=0`은 대상에 전혀 액세스하지 않고 SVG만 재생성하도록 스크립트에 지시합니다.
 
-Please read the script for a more in depth understanding of how it works.
+어떻게 작동하는지 더 깊이 이해하려면 스크립트를 분석하십시오.
