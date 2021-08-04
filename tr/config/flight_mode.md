@@ -1,28 +1,24 @@
 # Flight Mode Configuration
 
-[Flight Modes](../flight_modes/README.md) provide different types of *autopilot-assisted flight*, and *fully autonomous flight* via missions or offboard (companion computer) control. Different flight modes allow new users to learn flying with a more forgiving platform than provided by basic RC control alone. They also enable automation of common tasks like taking off, landing and returning to the original launch position.
-
-PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
-
-This topic explains how to map flight modes to the switches on your radio control transmitter.
+This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
 
 :::tip
-You must already have [configured your radio](../config/radio.md) in order to set flight modes.
+You must already have [configured your radio](../config/radio.md) in order to assign flight modes and functions.
 :::
 
-## What Flight Modes Should I Set?
+:::note PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+:::
 
-You can set any (or none) of the flight modes [described here](../flight_modes/README.md).
+## What Flight Modes and Switches Should I Set?
 
-New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
+*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
 
-* **Stabilized** - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position).
-* **Position** - When sticks are released the vehicle will stop (and hold position against wind drift).
-* **Altitude** - Climb and drop are controlled to have a maximum rate.
+* **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
+* [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+* **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:
 
-* [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
 * [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
 * <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
