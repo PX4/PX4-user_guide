@@ -1,6 +1,6 @@
 # Simulation-In-Hardware (SIH)
 
-Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for a quadrotor or an airplane.
+Simulation-In-Hardware (SIH) is an alternative to [Hardware In The Loop simulation (HITL)](../simulation/hitl.md) for a quadrotor or a fixed-wing vehicle ("airplane").
 In this setup, everything is running on embedded hardware - the controller, the state estimator, and the simulator.
 The Desktop computer is only used to display the virtual vehicle.
 
@@ -18,20 +18,19 @@ The SIH can be used by new PX4 users to get familiar with PX4 and the different 
 
 The quadrotor dynamic model is described in this [pdf report](https://github.com/PX4/PX4-user_guide/raw/master/assets/simulation/SIH_dynamic_model.pdf).
 
-The aerodynamic model for the fixed-wing airplane is inspired from 
-> Khan, Waqas, supervised by Meyer Nahon "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." McGill University, PhD thesis, 2016.
+The aerodynamic model for the fixed-wing airplane is inspired from the PhD thesis:  
+> "Dynamics modeling of agile fixed-wing unmanned aerial vehicles." Khan, Waqas, supervised by Meyer Nahon, McGill University, PhD thesis, 2016.
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
 ## Requirements
 
-To run the SIH, you will need a [flight controller hardware](../flight_controller/README.md) (e.g. a Pixhawk-series board).
-If you are planning to use a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) you should have that too.
-Alternatively, using *QGroundControl*, a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) can be used to emulate a radio control system.
+To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board).
+you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
 
-The SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
-The SIH for quadrotr is available on the PX4-Autopilot release versions v1.9.0 and above.
-The SIH for airplane is available on PX4-Autopilot master branch (above v1.12).
+- SIH is compatible with all Pixhawk-series boards except those based on FMUv2.
+- SIH for quadrotor supported from PX4 v1.9.
+- SIH for fixed-wing (airplane) is supported in versions after PX v1.12 (currently in the master branch).
 
 ## Setting up SIH
 
@@ -41,14 +40,19 @@ The autopilot will then reboot.
 
 When the SIH airframe is selected, the SIH module starts by itself, the vehicle should be displayed on the ground control station map.
 
-Note: The airplane needs to takeoff in manual mode at full throttle. If the airplane hits the floor, the state estimator might lose its fix.
+:::warning
+The airplane needs to takeoff in manual mode at full throttle.
+If the airplane hits the floor, the state estimator might lose its fix.
+:::
 
 ## Setting up the Display
 
-The simulated Quadrotor can be displayed in jMAVSim from PX4 v1.11.
-The simulated Airplane can be displayed in jMAVSim from PX4 above v1.12.
+The simulated vehicle can be displayed in jMAVSim for the following PX4 versions:
+- Quadrotor from PX4 v1.11.
+- Fixed-wing from the PX4 master (or the release version after PX4 v1.12).
 
-1. Close *QGroundControl* (if opened).
+To display the simulated vehicle:
+1. Close *QGroundControl* (if open).
 1. Unplug and replug the hardware autopilot (allow a few seconds for it to boot).
 1. Start jMAVSim by calling the script **jmavsim_run.sh** from a terminal:
    ```
@@ -70,4 +74,7 @@ The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
 
 ## Credits
 
-The SIH was originally developed by Coriolis g Corporation, then the airplane model was added by Altitude R&D inc. Both Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) Unmanned Aerial Vehicles (UAV) based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/); Altitude R&D is specialized in dynamics, control, and real-time simulation. They provide the SIH as a simple simulator for quadrotors air airplanes released for free under BSD license.
+The SIH was originally developed by Coriolis g Corporation, then the airplane model was added by Altitude R&D inc.
+Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) Unmanned Aerial Vehicles (UAV) based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/);
+Altitude R&D is specialized in dynamics, control, and real-time simulation.
+They provide the SIH as a simple simulator for quadrotors air airplanes released for free under BSD license.
