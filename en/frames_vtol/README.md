@@ -45,7 +45,7 @@ PX4 supports the three most important/main VTOL configurations.
 
 <div class="wrapper">
   <div class="grid_item">
-    <div class="grid_item_heading">Tailsitter</div>
+    <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>Tailsitter</big></a></div>
     <div class="grid_text">
     Rotors permanently in fixed wing-position.
     Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
@@ -59,7 +59,7 @@ PX4 supports the three most important/main VTOL configurations.
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading">Tiltrotor</div>
+  <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>Tiltrotor</big></a></div>
   Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
   Takes off and lands on belly.
   <div class="grid_text">
@@ -72,7 +72,7 @@ PX4 supports the three most important/main VTOL configurations.
   </div>
 </div>
 <div class="grid_item">
-  <div class="grid_item_heading">Standard VTOL</div>
+  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>Standard VTOL</big></a></div>
   <div class="grid_text">
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
