@@ -1,6 +1,6 @@
-# 장거리 실시간 동영상 전송 및 원시 무선랜 전파를 통한 텔레메트리 통신
+# Raw Wi-Fi 라디오를 통한 장거리 비디오 스트리밍 및 텔레메트리
 
-이 페이지에서는 UAV에서 지상 통제 장치로 실시간으로 동영상을 전송하여 *QGroundControl*에 나타내도록 카메라(Logitech C920 또는 라즈베리 파이 카메라)가 붙은 보조 컴퓨터의 설정 방법을 알려드리겠습니다. 매커니즘에서는 양방향 텔레메트리 연결(SiK 무선 통신)을 제공합니다. 이 설정 과정에서는 미연결 (브로드캐스팅) 모드로 [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki)의 프로그램을 활용합니다.
+UAV에서 동영상을 지상 컴퓨터로 전송하고 *QGroundControl*에 표출하기 위하여 카메라(Logitech C920 또는 RaspberryPi 카메라)가 있는 보조 컴퓨터 설정 방법을 설명합니다. 이 메커니즘은 양방향 텔레메트리(예: SiK 라디오)통신을 제공합니다. 이 설정은 연결되지 않은(브로드캐스트) 모드의 Wi-Fi와 [Wifibroadcast 프로젝트](https://github.com/svpcom/wifibroadcast/wiki)의 소프트웨어를 사용합니다.
 
 :::note
 *Wifibroadcast*를 활용하기 전 사용자 여러분의 국가에서 합법적으로 WiFi 무선 통신을 활용할 수 있는지 확인하십시오.
