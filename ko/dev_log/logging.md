@@ -68,41 +68,41 @@ sensor_mag 200 1
 다음은 다양한 SD 카드에 대한 성능 테스트 결과입니다. 테스트는 Pixracer에서 수행되었습니다. 결과는 Pixhawk에도 적용됩니다.
 
 :::note
-The maximum supported SD card size for NuttX is 32GB (SD Memory Card Specifications Version 2.0).
+NuttX에 지원되는 최대 SD 카드 크기는 32GB(SD 메모리 카드 사양 버전 2.0)입니다.
 :::
 
-| SD Card                                                       | Mean Seq. Write Speed [KB/s] | Max Write Time / Block (average) [ms] |
-| ------------------------------------------------------------- | ---------------------------- | ------------------------------------- |
-| SanDisk Extreme U3 32GB                                       | 461                          | **15**                                |
-| Sandisk Ultra Class 10 8GB                                    | 348                          | 40                                    |
-| Sandisk Class 4 8GB                                           | 212                          | 60                                    |
-| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                          | 220                                   |
-| Lexar U1 (Class 10), 16GB High-Performance                    | 209                          | 150                                   |
-| Sandisk Ultra PLUS Class 10 16GB                              | 196                          | 500                                   |
-| Sandisk Pixtor Class 10 16GB                                  | 334                          | 250                                   |
-| Sandisk Extreme PLUS Class 10 32GB                            | 332                          | 150                                   |
+| SD 카드                                                         | 평균 시퀀스 기록 속도 [KB/s] | 최대 기록 시간 / 블록 (평균) [ms] |
+| ------------------------------------------------------------- | ------------------- | ----------------------- |
+| SanDisk Extreme U3 32GB                                       | 461                 | **15**                  |
+| Sandisk Ultra Class 10 8GB                                    | 348                 | 40                      |
+| Sandisk Class 4 8GB                                           | 212                 | 60                      |
+| SanDisk Class 10 32 GB (High Endurance Video Monitoring Card) | 331                 | 220                     |
+| Lexar U1 (Class 10), 16GB High-Performance                    | 209                 | 150                     |
+| Sandisk Ultra PLUS Class 10 16GB                              | 196                 | 500                     |
+| Sandisk Pixtor Class 10 16GB                                  | 334                 | 250                     |
+| Sandisk Extreme PLUS Class 10 32GB                            | 332                 | 150                     |
 
-태초로부터 지금까지 제대로 지원하는 로그 스트리밍 방법은 FMU에서 SD 카드를 활용하는 방법입니다. 그러나, 이 대안책으로, MAVLink로 동일한 로깅 데이터를 전송하는 로깅 스트리밍 방식이 있습니다. 이 방식은 FMU에 SD 카드 슬롯이 없을 경우(예: Intel® Aero Ready to Fly 드론)에 활용하거나, 단순히 SD 카드의 취급을 피하려 하고자 할 경우 진행할 수 있습니다.
+평균 쓰기 속도보다 더 중요한 것은 블록당 최대 쓰기 시간(4KB)입니다. 이것은 최소 버퍼 크기를 정의합니다. 이 최대값이 클수록 드롭아웃을 피하기 위하여 더 큰 로그 버퍼가 필요합니다. 기본 항목의 로깅 대역폭은 약 50KB/s로 모든 SD 카드가 충족합니다.
 
-필요 요소는 무선랜 연결처럼 초당 50KB를 제공할 수 있는 통신 수단입니다. 단일 클라이언트만 동시에 로그 스트리밍을 요청할 수 있습니다. 프로토콜에서 손실 패킷을 관리하기에 연결은 굳이 안정적이지 않아도 좋습니다.
+지금까지 우리가 알고 있는 최고의 SD 카드는 **SanDisk Extreme U3 32GB**입니다. 이 카드는 쓰기 시간 스파이크를 나타내지 않으므로(따라서 드롭아웃이 거의 없음) 권장됩니다. 다른 카드 크기도 똑같이 잘 작동할 수 있지만, 일반적으로 성능은 차이가 납니다.
 
-ulog 스트리밍을 지원하는 클라이언트는 여러가지가 있습니다.:
+`sd_bench -r 50`으로 자신의 SD 카드를 테스트하고, 결과를 https://github.com/PX4/PX4-Autopilot/issues/4634에 보고할 수 있습니다.
 
 ## 로그 스트리밍
 
-The traditional and still fully supported way to do logging is using an SD card on the FMU. However there is an alternative, log streaming, which sends the same logging data via MAVLink. This method can be used for example in cases where the FMU does not have an SD card slot (e.g. Intel® Aero Ready to Fly Drone) or simply to avoid having to deal with SD cards. Both methods can be used independently and at the same time.
+로깅을 수행하는 전통적인 완벽한 방법은 FMU에서 SD 카드를 사용하는 것입니다. 그러나, MAVLink를 통하여 동일한 로깅 데이터를 보내는 대체 로그 스트리밍이 있습니다. 이 방법은 예를 들어 FMU에 SD 카드 슬롯이 없는 경우(예: Intel® Aero Ready to Fly Drone) 또는 단순히 SD 카드를 처리할 필요가 없는 경우에 사용할 수 있습니다. 두 방법 모두 독립적으로 동시에 사용할 수 있습니다.
 
-The requirement is that the link provides at least ~50KB/s, so for example a WiFi link. And only one client can request log streaming at the same time. The connection does not need to be reliable, the protocol is designed to handle drops.
+요구 사항은 최소 ~50KB/s 네트웍 속도입니다(예: WiFi 링크). 그리고, 한 클라이언트만 동시에 로그 스트리밍을 요청할 수 있습니다. 연결이 안정적일 필요는 없으며, 프로토콜은 드롭을 처리하도록 설계되었습니다.
 
-There are different clients that support ulog streaming:
-- `mavlink_ulog_streaming.py` script in Firmware/Tools.
-- QGroundControl: ![QGC 로그 스트리밍](../../assets/gcs/qgc-log-streaming.png)
+ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
+- PX4-Autopilot/Tools의 `mavlink_ulog_streaming.py` 스크립트
+- QGroundControl![QGC 로그 스트리밍](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
-### Diagnostics
+### 진단
 - 로그 실시간 전송을 시작하지 않았다면, `logger`를 실행 중인지(위 참고) 확인하고, 시작하는 동안 콘솔 출력을 살펴보십시오.
-- If it still does not work, make sure that Mavlink 2 is used. `MAV_PROTO_VER` 매개변수 값을 2로 강제 설정하십시오.
-- Log streaming uses a maximum of 70% of the configured mavlink rate (`-r` parameter). 더 큰 전송율이 필요하다면, 메세지가 사라집니다. 현재 MAVLink 패킷에서 로그가 차지하는 백분율은 `mavlink status` 명령으로 확인할 수 있습니다(이 예제에서는 1.8%).
+- 그래도 작동하지 않으면, MAVLink 2를 사용하고 있는지 확인하십시오. `MAV_PROTO_VER` 매개변수 값을 2로 강제 설정하십시오.
+- 로그 스트리밍은 구성된 MAVLink 속도(`-r` 매개변수)의 최대 70%를 사용합니다. 더 큰 전송율이 요구되는 상황에서는, 메세지가 사라집니다. 현재 MAVLink 패킷에서 로그가 차지하는 백분율은 `mavlink status` 명령으로 확인할 수 있습니다(이 예제에서는 1.8%).
   ```
   instance #0:
           GCS heartbeat:  160955 us ago
