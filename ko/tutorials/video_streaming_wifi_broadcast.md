@@ -1,33 +1,33 @@
-# 장거리 실시간 동영상 전송 및 원시 무선랜 전파를 통한 텔레메트리 통신
+# Raw Wi-Fi 라디오를 통한 장거리 비디오 스트리밍 및 텔레메트리
 
-이 페이지에서는 UAV에서 지상 통제 장치로 실시간으로 동영상을 전송하여 *QGroundControl*에 나타내도록 카메라(Logitech C920 또는 라즈베리 파이 카메라)가 붙은 보조 컴퓨터의 설정 방법을 알려드리겠습니다. 매커니즘에서는 양방향 텔레메트리 연결(SiK 무선 통신)을 제공합니다. 이 설정 과정에서는 미연결 (브로드캐스팅) 모드로 [Wifibroadcast project](https://github.com/svpcom/wifibroadcast/wiki)의 프로그램을 활용합니다.
+UAV에서 동영상을 지상 컴퓨터로 전송하고 *QGroundControl*에 표출하기 위하여 카메라(Logitech C920 또는 RaspberryPi 카메라)가 있는 보조 컴퓨터 설정 방법을 설명합니다. 이 메커니즘은 양방향 텔레메트리(예: SiK 라디오)통신을 제공합니다. 이 설정은 연결되지 않은(브로드캐스트) 모드의 Wi-Fi와 [Wifibroadcast 프로젝트](https://github.com/svpcom/wifibroadcast/wiki)의 소프트웨어를 사용합니다.
 
 :::note
-*Wifibroadcast*를 활용하기 전 사용자 여러분의 국가에서 합법적으로 WiFi 무선 통신을 활용할 수 있는지 확인하십시오.
+*Wifibroadcast*를 사용하기 전에, 법적으로 허용되는 지 미리 확인하십시오.
 :::
 
-## wifibroadcast 개요
+## Wifibroadcast 개요
 
-고수준 관점에서 *wifibroadcast* 가 주는 장점은 다음과 같습니다:
+*Wifibroadcast 프로젝트*는 일반 IEEE 802.11 스택의 거리 및 대기 시간 제한을 해결할 수 있는 저수준의 WiFi 패킷을 사용하는 비디오 및 텔레메트리 전송 기술입니다.
 
-추가 정보는 하단 [자주 묻는 질문](#faq)에 있습니다.
+*Wifibroadcast*의 장점은 다음과 같습니다.
 
-- 지연 최소화를 위해 RTP를 IEEE 802.11 패킷으로 1:1 대응합니다(바이트 스트림으로 직렬화하지 않음).
-- 지능형 FEC 지원(FEC 파이프라인에 갭이 존재하지 않을 경우 동영상 디코더로 즉시 패킷을 넘겨줌).
-- [양방향 MAVLink 텔레메트리](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO) 전송을 지원합니다. MAVLink 상하향 송수신과 동영상 다운 링크 용도로 활용할 수 있습니다.
+- 최소 대기 시간을 위해 RTP를 IEEE 802.11 패킷에 1:1 매핑합니다(바이트 스팀으로 직렬화하지 않음).
+- 스마트 FEC 지원(간격이 없는 FEC 파이프라인인 경우 비디오 디코더에 패킷을 즉시 양보).
+- [양방향 MAVLink 텔레메트리](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO) MAVLink 송수신과 비디오 전송이 가능합니다.
 - 자동 TX 다변화(RX RSSI에 따라 TX 카드 선택).
 - 실시간 전송 데이터 암호화 및 인증 ([libsodium](https://download.libsodium.org/doc/)).
-- 분산 처리. 다양한 호스트의 카드에서 데이터를 수신할 수 있습니다. 따라서 단일 USB 버스의 대역폭에 제한을 받지 않습니다.
-- MAVLink 패킷 수신을 일원화합니다. 모든 MAVLink 패킷에 대해 무선랜 패킷을 보내지 않습니다.
+- 분산 작업. 다양한 호스트의 카드에서 데이터를 수신할 수 있습니다. 따라서 단일 USB 버스의 대역폭에 제한을 받지 않습니다.
+- MAVLink 패킷 수신을 일원화합니다. 모든 MAVLink 패킷에 대해 무선랜 패킷을 전송하지 않습니다.
 - 개선된 라즈베리 파이용 [OSD](https://github.com/svpcom/wifibroadcast_osd) (파이 제로에서 CPU에게 10% 부하를 안겨줌).
-- 어떤 스크린 해상도에든 호환됩니다. PAL에서 HD 화면으로의 화면 비율 보정을 지원합니다.
+- 다양한 화면 해상도와 호환됩니다. PAL에서 HD 화면으로의 화면 비율 보정을 지원합니다.
 
-하드웨어 설정은 다음 두 부분으로 나누어 구성했습니다:
+추가 정보는 아래 [FAQ](#faq)을 참고하십시오.
 
 
 ## 하드웨어 설정
 
-TX(무인 항공기) 측:
+The hardware setup consists of the following parts:
 
 RX(지상 통제 장치) 측:
 * [나노파이 네오2](http://www.friendlyarm.com/index.php?route=product/product&product_id=180)(그리고 파이 카메라 활용시 라즈베리 파이)
