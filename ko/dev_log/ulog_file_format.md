@@ -1,33 +1,33 @@
 # ULog 파일 형식
 
-ULog is the file format used for logging system data.
+ULog는 시스템 데이터 로깅의 파일 형식입니다.
 
-The format is self-describing, i.e. it contains the format and message types that are logged.
+형식은 자체 설명적입니다. 즉, 기록되는 형식과 메시지 유형이 포함됩니다. [시스템 로거](../dev_log/logging.md)를 사용하여 기록된 주제의 *기본 설정*을 SD 카드에서 변경할 수 있습니다..
 
-It can be used for logging device inputs (sensors, etc.), internal states (cpu load, attitude, etc.) and printf log messages.
+장치 입력(센서 등), 내부 상태(cpu 부하, 태도 등) 및 `printf` 로그 메시지를 로깅할 수 있습니다.
 
-The format uses Little Endian for all binary types.
+형식은 모든 바이너리 유형에 대해 Little Endian을 사용합니다.
 
-## Data types
+## 데이터 형식
 
-The following binary types are used. They all correspond to the types in C:
+다음 바이너리 형식을 사용합니다. C의 자료형에 해당합니다:
 
-| Type                | Size in Bytes |
-| ------------------- | ------------- |
-| int8_t, uint8_t   | 1             |
-| int16_t, uint16_t | 2             |
-| int32_t, uint32_t | 4             |
-| int64_t, uint64_t | 8             |
-| float               | 4             |
-| double              | 8             |
-| bool, char          | 1             |
+| 형식                  | 바이트 크기 |
+| ------------------- | ------ |
+| int8_t, uint8_t   | 1      |
+| int16_t, uint16_t | 2      |
+| int32_t, uint32_t | 4      |
+| int64_t, uint64_t | 8      |
+| float               | 4      |
+| double              | 8      |
+| bool, char          | 1      |
 
-Additionally all can be used as an array, eg. `float[5]`. In general all strings (`char[length]`) do not contain a `'\0'` at the end. String comparisons are case sensitive.
+또한 다음과 같이 배열에도 활용할 수 있습니다. `float[5]`. 일반적으로 모든 문자열(`char[length]`)은 끝에 `'\0'`을 포함하지 않습니다. 문자열 비교는 대소문자를 구분합니다.
 
 
-## File structure
+## 파일 구조
 
-The file consists of three sections:
+파일은 세 섹션으로 구성됩니다.
 ```
 ----------------------
 |       Header       |
@@ -38,9 +38,9 @@ The file consists of three sections:
 ----------------------
 ```
 
-### Header Section
+### 헤더 섹션
 
-The header is a fixed-size section and has the following format (16 bytes):
+헤더는 고정 크기 섹션이며, 다음 형식(16바이트)을 갖습니다.
 ```
 ----------------------------------------------------------------------
 | 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
@@ -48,14 +48,14 @@ The header is a fixed-size section and has the following format (16 bytes):
 ----------------------------------------------------------------------
 ```
 
-Version is the file format version, currently 1. Timestamp is a `uint64_t` integer, denotes the start of the logging in microseconds.
+버전은 파일 형식 버전이며, 현재 값은 1입니다. 타임스탬프는 `uint64_t` 정수형이며, 로깅을 시작한 시각을 마이크로초 단위로 표기합니다.
 
 
-### Definitions Section
+### 정의 섹션
 
-Variable length section, contains version information, format definitions, and (initial) parameter values.
+가변 길이 섹션에는 버전 정보, 형식 정의 및 (초기) 매개변수 값이 포함됩니다.
 
-The Definitions and Data sections consist of a stream of messages. Each starts with this header:
+데이터 섹션 정의는 메시지 스트림으로 구성됩니다. 각 데이터 섹션은 다음의 헤더로 시작합니다:
 ```c
 struct message_header_s {
     uint16_t msg_size;
@@ -63,22 +63,23 @@ struct message_header_s {
 };
 ```
 
-`msg_size` is the size of the message in bytes without the header (`hdr_size`= 3 bytes). `msg_type` defines the content and is one of the following:
+`msg_size`는 헤더가 없는 바이트 단위의 메시지 크기입니다(`hdr_size`= 3바이트). `msg_type`은 콘텐츠를 정의하며 다음 중 하나입니다.
 
-- 'B': Flag bitset message.
+- 'B': 비트 집합 메시지에 플래그를 지정합니다.
   ```
   struct ulog_message_flag_bits_s {
-      uint8_t compat_flags[8];
-      uint8_t incompat_flags[8];
-      uint64_t appended_offsets[3]; ///&#060; file offset(s) for appended data if appending bit is set
+    struct message_header_s;
+    uint8_t compat_flags[8];
+    uint8_t incompat_flags[8];
+    uint64_t appended_offsets[3]; ///< file offset(s) for appended data if appending bit is set
   };
   ```
-  This message **must** be the first message, right after the header section, so that it has a fixed constant offset.
+  이 메시지는 처음 메시지 **이어야 합니다**. 그 다음에는 고정 상수 오프셋 값이 들어간 헤더 섹션이 옵니다.
 
-  - `compat_flags`: compatible flag bits.
-    - `compat_flags[0]`, bit 0, *DEFAULT_PARAMETERS*: if set, the log contains parameter defaults (message 'Q').
+  - `compat_flags`: 호환 플래그 비트값
+    - `compat_flags[0]`, 비트 0, *DEFAULT_PARAMETERS*: 설정되면 로그에 매개변수 기본값(메시지 'Q')이 포함됩니다.
 
-    The rest of the bits is currently not defined and all must be set to 0. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
+    나머지 비트는 현재 정의되지 않았으며 ,모두 0으로 설정하여야 합니다. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
   - `incompat_flags`: incompatible flag bits. The LSB bit of index 0 is set to one if the log contains appended data and at lease one of the `appended_offsets` is non-zero. All other bits are undefined und must be set to 0. If a parser finds one of these bits set, it must refuse to parse the log. This can be used to introduce breaking changes that existing parsers cannot handle.
   - `appended_offsets`: File offsets (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message.
 
