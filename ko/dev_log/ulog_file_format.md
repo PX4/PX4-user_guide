@@ -1,4 +1,4 @@
-# ULog File Format
+# ULog 파일 형식
 
 ULog is the file format used for logging system data.
 
