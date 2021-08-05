@@ -220,16 +220,16 @@ struct message_header_s {
   ```
   `timestamp`: 마이크로초 단위, `log_level`: Linux 커널에서와 동일:
 
-| 이름      | 레벨  | 의미             |
-| ------- | --- | -------------- |
-| EMERG   | '0' | 시스템 사용 불가      |
-| ALERT   | '1' | 즉시 조치를 취해야 합니다 |
-| CRIT    | '2' | 임계 조건          |
-| ERR     | '3' | 오류 조건          |
-| WARNING | '4' | 경고 조건          |
-| NOTICE  | '5' | 정상적이지만 중요한 상태  |
-| INFO    | '6' | 정보 제공          |
-| DEBUG   | '7' | 디버그 수준 메시지     |
+| 이름      | 레벨  | 설명            |
+| ------- | --- | ------------- |
+| EMERG   | '0' | 시스템 사용 불가     |
+| ALERT   | '1' | 즉시 조치         |
+| CRIT    | '2' | 임계 조건         |
+| ERR     | '3' | 오류 조건         |
+| WARNING | '4' | 경고 조건         |
+| NOTICE  | '5' | 정상적이지만 중요한 상태 |
+| INFO    | '6' | 정보 제공         |
+| DEBUG   | '7' | 디버그 수준 메시지    |
 
 - 'C': 태그가 지정된 로깅된 문자열 메시지
   ```
@@ -258,29 +258,29 @@ struct message_header_s {
   };
   ```
 
-  `timestamp`: in microseconds `log_level`: same as in the Linux kernel:
+  `타임스탬프`: 마이크로초 `log_level`: Linux 커널과 동일
 
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
+| 이름      | 레벨  | 설명            |
+| ------- | --- | ------------- |
+| EMERG   | '0' | 시스템 사용 불가     |
+| ALERT   | '1' | 즉시 조치         |
+| CRIT    | '2' | 임계 조건         |
+| ERR     | '3' | 오류 조건         |
+| WARNING | '4' | 경고 조건         |
+| NOTICE  | '5' | 정상적이지만 중요한 상태 |
+| INFO    | '6' | 정보 제공         |
+| DEBUG   | '7' | 디버그 수준 메시지    |
 
-- 'S': synchronization message so that a reader can recover from a corrupt message by searching for the next sync message (not used currently).
+- 'S': 독자가 다음 동기화 메시지를 검색하여 손상된 메시지에서 복구할 수 있도록 동기화하는 메시지입니다.
   ```
   struct message_sync_s {
-      struct message_header_s header;
-      uint8_t sync_magic[8];
+    struct message_header_s header;
+    uint8_t sync_magic[8];
   };
   ```
-  `sync_magic`: to be defined.
+  `sync_magic`: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]
 
-- 'O': mark a dropout (lost logging messages) of a given duration in ms. Dropouts can occur e.g. if the device is not fast enough.
+- 'O': 주어진 기간(ms 단위)의 드롭아웃(로깅 메시지 손실)을 표시합니다. 장치가 충분히 빠르지 않은 경우에는 손실이 발생할 수 있습니다.
   ```
   struct message_dropout_s {
     struct message_header_s header;
@@ -288,33 +288,33 @@ struct message_header_s {
   };
   ```
 
-- 'I': information message. See above.
+- 'I': 정보 메세지. 위 참조.
 
-- 'M': information message multi. See above.
+- 'M': 다중 정보 메세지 위 참조.
 
-- 'P': parameter message. See above.
+- 'P': 매개변수 메세지 위 참조.
 
-- 'Q': parameter message. See above.
+- 'Q': 매개변수 메시지 위 참조.
 
-## Requirements for Parsers
+## 파서 요구 사항
 
-A valid ULog parser must fulfill the following requirements:
-- Must ignore unknown messages (but it can print a warning).
-- Parse future/unknown file format versions as well (but it can print a warning).
-- Must refuse to parse a log which contains unknown incompatibility bits set (`incompat_flags` of `ulog_message_flag_bits_s` message), meaning the log contains breaking changes that the parser cannot handle.
-- A parser must be able to correctly handle logs that end abruptly, in the middle of a message. The unfinished message should just be discarged.
-- For appended data: a parser can assume the Data section exists, i.e. the offset points to a place after the Definitions section.
+유효한 ULog 파서는 요구 사항은 다음과 같습니다.
+- 알 수 없는 메시지를 무시하여야 합니다(하지만 경고를 인쇄할 수 있음).
+- 미래의/알 수 없는 파일 형식 버전도 구문 분석합니다(하지만 경고를 인쇄할 수 있음).
+- 알 수 없는 비호환성 비트 세트(`ulog_message_flag_bits_s` 메시지의 `incompat_flags`)가 포함된 로그의 구문 분석을 거부해야 합니다. 이는 로그에 파서가 처리할 수 없는 주요 변경 사항이 포함되어 있음을 의미합니다.
+- 파서는 메시지 중간에 갑자기 끝나는 로그를 올바르게 처리할 수 있어야 합니다. 완료되지 않은 메시지는 무시하여야 합니다.
+- 추가된 데이터의 경우: 파서는 데이터 섹션이 존재한다고 가정할 수 있습니다. 즉 오프셋은 정의 섹션 뒤의 위치를 가리킵니다.
 
-  Appended data must be treated as if it was part of the regular Data section.
+  추가된 데이터는 일반 데이터 섹션의 일부인 것처럼 처리하여야 합니다.
 
 
-## Known Implementations
+## 알려진 구현
 
-- PX4 Firmware: C++
-  - [logger module](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
-  - [replay module](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
-  - [hardfault_log module](https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log): append hardfault crash data.
-- [pyulog](https://github.com/PX4/pyulog): python, ULog parser library with CLI scripts.
+- PX4-오토파일럿: C++
+  - [로거 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/logger)
+  - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
+  - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
+- [pyulog](https://github.com/PX4/pyulog): python, CLI 스크립트가 있는 ULog 파서 라이브러리
 - [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
 - [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, log plotter and 3D visualization tool based on pyulog.
 - [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
