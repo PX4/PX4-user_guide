@@ -96,13 +96,13 @@ NuttX에 지원되는 최대 SD 카드 크기는 32GB(SD 메모리 카드 사양
 
 ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
 - PX4-Autopilot/Tools의 `mavlink_ulog_streaming.py` 스크립트
-- QGroundControl![QGC 로그 스트리밍](../../assets/gcs/qgc-log-streaming.png)
+- QGroundControl![QGC 로그 스트리밍 ](../../assets/gcs/qgc-log-streaming.png)
 - [MAVGCL](https://github.com/ecmnet/MAVGCL)
 
 ### 진단
 - 로그 실시간 전송을 시작하지 않았다면, `logger`를 실행 중인지(위 참고) 확인하고, 시작하는 동안 콘솔 출력을 살펴보십시오.
 - 그래도 작동하지 않으면, MAVLink 2를 사용하고 있는지 확인하십시오. `MAV_PROTO_VER` 매개변수 값을 2로 강제 설정하십시오.
-- 로그 스트리밍은 구성된 MAVLink 속도(`-r` 매개변수)의 최대 70%를 사용합니다. 더 큰 전송율이 요구되는 상황에서는, 메세지가 사라집니다. 현재 MAVLink 패킷에서 로그가 차지하는 백분율은 `mavlink status` 명령으로 확인할 수 있습니다(이 예제에서는 1.8%).
+- 로그 스트리밍은 구성된 MAVLink 속도(`-r` 매개변수)의 최대 70%를 사용합니다. 더 큰 전송율이 요구되는 상황에서는, 메세지가 사라집니다. 현재 사용된 백분율은 `mavlink 상태`로 검사할 수 있습니다(이 예에서는 1.8%가 사용됨).
   ```
   instance #0:
           GCS heartbeat:  160955 us ago
@@ -117,6 +117,6 @@ ulog 스트리밍을 지원하는 다양한 클라이언트가 있습니다.
           ULog rate: 1.8% of max 70.0%
           accepting commands: YES
           MAVLink version: 2
-          transport protocol: UDP (14556)
+          transport protocol: UDP (14556) 
   ```
-  또한 `txerr` 값이 0에 머물러있는지 확인하십시오. 만약 이 값이 올라간다면, NuttX 전송 버퍼가 너무 작거나, 물리 링크 대역폭이 포화 상태이거나, 하드웨어가 데이터를 처리하기에 너무 느린 상황임을 의미합니다.
+  또한 `txerr` 값이 0에 머물러있는지 확인하십시오. 만약 이 값이 올라간다면, NuttX 전송 버퍼가 너무 작거나, 물리 링크 대역폭이 포화 상태이거나, 하드웨어가 데이터를 처리하기에 너무 느린 상황을 의미합니다.
