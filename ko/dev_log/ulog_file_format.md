@@ -121,40 +121,41 @@ struct message_header_s {
 
   사전 정의된 정보 메시지는 다음과 같습니다.
 
-| 키                                   | 설명                                          | 예제 값               |
-| ----------------------------------- | ------------------------------------------- | ------------------ |
-| char[value_len] sys_name          | 시스템 이름                                      | "PX4"              |
-| char[value_len] ver_hw            | 하드웨어 버전 (보드)                                | "PX4FMU_V4"        |
-| char[value_len] ver_hw_subtype    | 보드 하위 버전(변형판)                               | "V2"               |
-| char[value_len] ver_sw            | 소프트웨어 버전(git tag)                           | "7f65e01"          |
-| char[value_len] ver_sw_branch     | git branch                                  | "master"           |
-| uint32_t ver_sw_release           | 소프트웨어 버전 (아래 참고)                            | 0x010401ff         |
-| char[value_len] sys_os_name       | 운영체제 이름                                     | "Linux"            |
-| char[value_len] sys_os_ver        | 운영체제 버전 (git tag)                           | "9f82919"          |
-| uint32_t ver_os_release           | 운영체제 버전 (아래 참고)                             | 0x010401ff         |
-| char[value_len] sys_toolchain     | 툴체인 이름                                      | "GNU GCC"          |
-| char[value_len] sys_toolchain_ver | 툴체인 버전                                      | "6.2.1"            |
-| char[value_len] sys_mcu           | Chip name and revision                      | "STM32F42x, rev A" |
-| char[value_len] sys_uuid          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
-| char[value_len] log_type          | Type of the log (full log if not specified) | "mission"          |
-| char[value_len] replay              | File name of replayed log if in replay mode | "log001.ulg"       |
-| int32_t time_ref_utc              | UTC Time offset in seconds                  | -3600              |
+| 키                                   | 설명                      | 예제 값               |
+| ----------------------------------- | ----------------------- | ------------------ |
+| char[value_len] sys_name          | 시스템 이름                  | "PX4"              |
+| char[value_len] ver_hw            | 하드웨어 버전 (보드)            | "PX4FMU_V4"        |
+| char[value_len] ver_hw_subtype    | 보드 하위 버전(변형판)           | "V2"               |
+| char[value_len] ver_sw            | 소프트웨어 버전(git tag)       | "7f65e01"          |
+| char[value_len] ver_sw_branch     | git branch              | "master"           |
+| uint32_t ver_sw_release           | 소프트웨어 버전 (아래 참고)        | 0x010401ff         |
+| char[value_len] sys_os_name       | 운영체제 이름                 | "Linux"            |
+| char[value_len] sys_os_ver        | 운영체제 버전 (git tag)       | "9f82919"          |
+| uint32_t ver_os_release           | 운영체제 버전 (아래 참고)         | 0x010401ff         |
+| char[value_len] sys_toolchain     | 툴체인 이름                  | "GNU GCC"          |
+| char[value_len] sys_toolchain_ver | 툴체인 버전                  | "6.2.1"            |
+| char[value_len] sys_mcu           | 칩 이름과 버전                | "STM32F42x, rev A" |
+| char[value_len] sys_uuid          | 차량 고유 식별자(예: MCU ID)    | "392a93e32fa3"...  |
+| char[value_len] log_type          | 로그 형식(지정하지 않으면 전체 기록)   | "mission"          |
+| char[value_len] replay              | 재생 모드인 경우 재생된 로그의 파일 이름 | "log001.ulg"       |
+| int32_t time_ref_utc              | UTC 시간 오프셋(초)           | -3600              |
 
-  The format of `ver_sw_release` and `ver_os_release` is: 0xAABBCCTT, where AA is major, BB is minor, CC is patch and TT is the type. Type is defined as following: `>= 0`: development, `>= 64`: alpha version, `>= 128`: beta version, `>= 192`: RC version, `== 255`: release version. So for example 0x010402ff translates into the release version v1.4.2.
+  `ver_sw_release` 및 `ver_os_release` 형식은 0xAABBCCTT입니다. 여기서 AA는 메이저, BB는 마이너, CC는 패치, TT는 유형입니다. 유형은 다음과 같이 정의됩니다. `>= 0`: 개발, `>= 64`: 알파 버전, `>= 128`: 베타 버전, `>= 192`: RC 버전, `== 255`: 릴리스 버전. 예를 들어 0x010402ff는 릴리스 버전 v1.4.2로 변환됩니다.
 
-  This message can also be used in the Data section (this is however the preferred section).
+  이 메시지는 데이터 섹션에서도 사용할 수 있습니다(그러나 선호하는 섹션임).
 
 
-- 'M': information message multi.
+- 'M': 다중 정보 메세지.
   ```c
   struct ulog_message_info_multiple_header_s {
-      uint8_t is_continued; ///&#060; can be used for arrays
-      uint8_t key_len;
-      char key[key_len];
-      char value[header.msg_size-hdr_size-2-key_len]
+    struct message_header_s header;
+    uint8_t is_continued; ///< can be used for arrays
+    uint8_t key_len;
+    char key[key_len];
+    char value[header.msg_size-2-key_len]
   };
   ```
-  The same as the information message, except that there can be multiple messages with the same key (parsers store them as a list). The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key. Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
+  동일한 키를 가진 여러 메시지가 있을 수 있다는 점을 제외하고는 정보 메시지와 동일합니다(파서는 목록으로 저장함). The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key. Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
 
 - 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
 
