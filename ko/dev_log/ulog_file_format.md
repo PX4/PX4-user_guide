@@ -145,7 +145,7 @@ struct message_header_s {
   이 메시지는 데이터 섹션에서도 사용할 수 있습니다(그러나 선호하는 섹션임).
 
 
-- 'M': 다중 정보 메세지.
+- 'M': 다중 정보 메세지
   ```c
   struct ulog_message_info_multiple_header_s {
     struct message_header_s header;
@@ -157,9 +157,9 @@ struct message_header_s {
   ```
   동일한 키를 가진 여러 메시지가 있을 수 있다는 점을 제외하고는 정보 메시지와 동일합니다(파서는 목록으로 저장함). `is_continued`는 분할 메시지에 사용할 수 있습니다. 1로 설정하면 동일한 키를 가진 이전 메시지의 일부입니다. 파서는 다중 메시지를 로그에서 발생하는 메시지와 동일한 순서를 사용하여 2D 목록으로 저장할 수 있습니다.
 
-- 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
+- 'P': 매개변수 메세지 `message_info_s`와 동일한 형식입니다. 매개변수가 런타임 중에 동적으로 변경되는 경우에는 이 메시지는 데이터 섹션에서도 사용할 수 있습니다. 데이터 유형은 `int32_t`, `float`으로 제한됩니다.
 
-- 'Q': parameter default message.
+- 'Q': 매개변수 기본 메시지
   ```c
   struct ulog_message_parameter_default_header_s {
     struct message_header_s header;
@@ -169,76 +169,79 @@ struct message_header_s {
     char value[header.msg_size-2-key_len]
   };
   ```
-  `default_types` is a bitfield and defines to which group(s) the value belongs to. At least one bit must be set:
-  - `1<<0`: system wide default
-  - `1<<1`: default for the current configuration (e.g. an airframe)
+  `default_types`는 비트 필드이며 값이 속한 그룹을 정의합니다. 최소한 하나의 비트가 설정되어야 합니다.
+  - `1<<0`:: 시스템 전체 기본값
+  - `1<<1`: 현재 설정(예: 기체)의 기본값
 
-  A log may not contain default values for all parameters. In those cases the default is equal to the parameter value, and different default types are treated independently. This message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
+  로그에는 모든 매개변수에 대한 기본값이 포함되어 있지 않을 수 있습니다. 이러한 경우 기본값은 매개변수 값과 같고, 다른 기본 유형은 독립적으로 처리됩니다. 이 메시지는 데이터 섹션에서도 사용할 수 있습니다. 데이터 유형은 `int32_t`, `float`으로 제한됩니다.
 
-This section ends before the start of the first `message_add_logged_s` or `message_logging_s` message, whichever comes first.
+이 섹션은 첫 번째 `message_add_logged_s` 또는 `message_logging_s` 메시지가 시작되기 전에 끝납니다.
 
-### Data Section
+### 데이터 섹션
 
-The following messages belong to this section:
-- 'A': subscribe a message by name and give it an id that is used in `message_data_s`. This must come before the first corresponding `message_data_s`.
+다음 메시지는 이 섹션에 속합니다.
+- 'A': 이름으로 메시지를 구독하고 `message_data_s`에서 사용되는 ID를 지정합니다. 이것은 첫 번째 해당 `message_data_s`보다 이전에 위치하여야 합니다.
   ```c
   struct message_add_logged_s {
-      struct message_header_s header;
-      uint8_t multi_id;
-      uint16_t msg_id;
-      char message_name[header.msg_size-hdr_size-3];
+    struct message_header_s header;
+    uint8_t multi_id;
+    uint16_t msg_id;
+    char message_name[header.msg_size-3];
   };
   ```
-  `multi_id`: the same message format can have multiple instances, for example if the system has two sensors of the same type. The default and first instance must be 0. `msg_id`: unique id to match `message_data_s` data. The first use must set this to 0, then increase it. The same `msg_id` must not be used twice for different subscriptions, not even after unsubscribing. `message_name`: message name to subscribe to. Must match one of the `message_format_s` definitions.
+  `multi_id`: 동일한 메시지 형식에 여러 인스턴스가 있을 수 있습니다(예: 시스템에 동일한 유형의 센서가 두 개 있는 경우). 기본 및 첫 번째 인스턴스는 0이어야 합니다. `msg_id`: `message_data_s` 데이터와 일치하는 고유 ID입니다. 처음 사용할 때는 이것을 0으로 설정한 다음 증가시켜야 합니다. 구독 취소 후에도 동일한 `msg_id`를 다른 구독에 두 번 사용해서는 안 됩니다. `message_name`: 구독할 메시지 이름입니다. `message_format_s` 정의 중 하나와 일치하여야 합니다.
 
-- 'R': unsubscribe a message, to mark that it will not be logged anymore (not used currently).
+- 'R': 메시지를 구독 취소하여 더 이상 기록되지 않음을 표시합니다(현재 사용되지 않음).
   ```c
   struct message_remove_logged_s {
-      struct message_header_s header;
-      uint16_t msg_id;
+    struct message_header_s header;
+    uint16_t msg_id;
   };
   ```
 
-- 'D': contains logged data.
+- 'D': 기록된 데이터를 포함합니다.
   ```
   struct message_data_s {
-      struct message_header_s header;
-      uint16_t msg_id;
-      uint8_t data[header.msg_size-hdr_size];
+    struct message_header_s header;
+    uint16_t msg_id;
+    uint8_t data[header.msg_size-2];
   };
   ```
-  `msg_id`: as defined by a `message_add_logged_s` message. `data` contains the logged binary message as defined by `message_format_s`. See above for special treatment of padding fields.
+  `msg_id`: `message_add_logged_s` 메시지로 정의됩니다. `data`에는 `message_format_s`에 정의된 대로 기록된 바이너리 메시지가 포함됩니다. 패딩 필드의 특수 처리에 대해서는 위를 참고하십시오.
 
-- 'L': Logged string message, i.e. printf output.
+- 'L': 로깅 문자열 메시지, 즉 printf 출력.
   ```
   struct message_logging_s {
-      struct message_header_s header;
-      uint8_t log_level;
-      uint64_t timestamp;
-      char message[header.msg_size-hdr_size-9]
+    struct message_header_s header;
+    uint8_t log_level;
+    uint64_t timestamp;
+    char message[header.msg_size-9]
   };
   ```
-  `timestamp`: in microseconds, `log_level`: same as in the Linux kernel:
+  `timestamp`: 마이크로초 단위, `log_level`: Linux 커널에서와 동일:
 
-| Name    | Level value | Meaning                          |
-| ------- | ----------- | -------------------------------- |
-| EMERG   | '0'         | System is unusable               |
-| ALERT   | '1'         | Action must be taken immediately |
-| CRIT    | '2'         | Critical conditions              |
-| ERR     | '3'         | Error conditions                 |
-| WARNING | '4'         | Warning conditions               |
-| NOTICE  | '5'         | Normal but significant condition |
-| INFO    | '6'         | Informational                    |
-| DEBUG   | '7'         | Debug-level messages             |
+| 이름      | 레벨  | 의미             |
+| ------- | --- | -------------- |
+| EMERG   | '0' | 시스템 사용 불가      |
+| ALERT   | '1' | 즉시 조치를 취해야 합니다 |
+| CRIT    | '2' | 임계 조건          |
+| ERR     | '3' | 오류 조건          |
+| WARNING | '4' | 경고 조건          |
+| NOTICE  | '5' | 정상적이지만 중요한 상태  |
+| INFO    | '6' | 정보 제공          |
+| DEBUG   | '7' | 디버그 수준 메시지     |
 
-- 'C': Tagged Logged string message
+- 'C': 태그가 지정된 로깅된 문자열 메시지
   ```
-  struct message_dropout_s {
-      struct message_header_s header;
-      uint16_t duration;
+  struct message_logging_tagged_s {
+    struct message_header_s header;
+    uint8_t log_level;
+    uint16_t tag;
+    uint64_t timestamp;
+    char message[header.msg_size-9]
   };
   ```
-  `tag`: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture. For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a `uint16_t enum` into the tag attribute of `message_logging_tagged_s` struct as follows:
+  `tag`: 기록된 메시지 문자열의 소스를 나타내는 ID입니다. 시스템 아키텍처에 따라 프로세스, 스레드 또는 클래스를 나타낼 수 있습니다. 예를 들어, 다양한 페이로드, 외부 디스크, 직렬 장치 등을 제어하기 위해 여러 프로세스를 실행하는 온보드 컴퓨터에 대한 참조 구현은 `uint16_t 열거형`을 사용하여 이러한 프로세스 식별자를 `message_logging_tagged_s`의 태그 속성으로 인코딩할 수 있습니다. 구조체는 다음과 같습니다.
 
   ```
   enum class ulog_tag : uint16_t {
