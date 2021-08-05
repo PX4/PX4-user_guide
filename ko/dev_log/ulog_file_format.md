@@ -315,18 +315,18 @@ struct message_header_s {
   - [재생 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/replay)
   - [hardfault_log 모듈](https://github.com/PX4/PX4-Autopilot/tree/master/src/systemcmds/hardfault_log): hardfault 충돌 데이터를 추가합니다.
 - [pyulog](https://github.com/PX4/pyulog): python, CLI 스크립트가 있는 ULog 파서 라이브러리
-- [FlightPlot](https://github.com/PX4/FlightPlot): Java, log plotter.
-- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, log plotter and 3D visualization tool based on pyulog.
-- [MAVLink](https://github.com/mavlink/mavlink): Messages for ULog streaming via MAVLink (note that appending data is not supported, at least not for cut off messages).
-- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, ULog streaming via MAVLink and minimal parsing for GeoTagging.
-- [mavlink-router](https://github.com/01org/mavlink-router): C++, ULog streaming via MAVLink.
-- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, ULog streaming via MAVLink and parser for plotting and analysis.
-- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): C++/Qt application to plot logs and time series. Supports ULog since version 2.1.3.
-- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog reader and parser outputs log in JSON object format.
+- [FlightPlot](https://github.com/PX4/FlightPlot): 자바, 로그 플로터
+- [pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis): Python, pyulog 기반의 로그 플로터 및 3D 시각화 도구입니다.
+- [MAVLink](https://github.com/mavlink/mavlink): MAVLink를 통한 ULog 스트리밍용 메시지(적어도 잘린 메시지의 경우 데이터 추가는 지원되지 않습니다.)
+- [QGroundControl](https://github.com/mavlink/qgroundcontrol): C++, MAVLink를 통한 ULog 스트리밍 및 GeoTagging에 대한 최소한의 구문 분석
+- [mavlink-router](https://github.com/01org/mavlink-router): C++, MAVLink를 통한 ULog 스트리밍
+- [MAVGAnalysis](https://github.com/ecmnet/MAVGCL): Java, MAVLink를 통한 ULog 스트리밍 및 플로팅 및 분석용 파서
+- [PlotJuggler](https://github.com/facontidavide/PlotJuggler): 로그 및 시계열을 플롯하는 C++/Qt 응용 프로그램입니다. 버전 2.1.3부터 ULog를 지원합니다.
+- [ulogreader](https://github.com/maxsun/ulogreader): Javascript, ULog 리더 및 파서는 JSON 개체 형식의 로그를 출력합니다.
 
 
-## File Format Version History
+## 파일 형식 버전 이력
 
-### Changes in version 2
+### 버전 2의 변경 사항
 
-Addition of `ulog_message_info_multiple_header_s` and `ulog_message_flag_bits_s` messages and the ability to append data to a log. This is used to add crash data to an existing log. If data is appended to a log that is cut in the middle of a message, it cannot be parsed with version 1 parsers. Other than that forward and backward compatibility is given if parsers ignore unknown messages.
+`ulog_message_info_multiple_header_s` 및 `ulog_message_flag_bits_s` 메시지 추가 및 로그에 데이터 추가 기능. 기존 로그에 충돌 데이터를 추가하는 데 사용됩니다. 메시지 중간에 잘린 로그에 데이터가 추가되면, 버전 1 파서로 파싱할 수 없습니다. 그 외의 파서가 알 수 없는 메시지를 무시하면, 순방향 및 역방향 호환성이 제공됩니다.
