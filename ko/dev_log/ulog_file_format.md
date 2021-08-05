@@ -102,38 +102,38 @@ struct message_header_s {
 
   일부 필드 이름은 특별합니다.
   - `timestamp`: 기록된 모든 메시지(`message_add_logged_s`)에는 타임스탬프 필드가 포함되어야 합니다(첫 번째 필드일 필요는 없음). 유형은 `uint64_t`(현재 유일하게 사용됨), `uint32_t`, `uint16_t` 또는 `uint8_t`일 수 있습니다. 단위는 항상 마이크로초이며 `uint8_t` 단위는 밀리초입니다. 로그 작성기는 랩어라운드를 감지할 수 있을 만큼 충분히 자주 메시지를 기록해야 하고, 로그 판독기는 랩어라운드를 처리하여야 합니다(그리고 드롭아웃을 고려해야 함). 타임스탬프는 `msg_id`가 동일한 메시지 시리즈에 대해 항상 단조 증가해야 합니다.
-  - Padding: field names that start with `_padding` should not be displayed and their data must be ignored by a reader. These fields can be inserted by a writer to ensure correct alignment.
+  - 패딩: `_padding`으로 시작하는 필드 이름은 표시되지 않아야 하며, 해당 데이터는 독자가 무시하여야 합니다. 이 필드는 올바른 정렬을 보장하기 위하여 작성자가 삽입할 수 있습니다.
 
-    If the padding field is the last field, then this field will not be logged, to avoid writing unnecessary data. This means the `message_data_s.data` will be shorter by the size of the padding. However the padding is still needed when the message is used in a nested definition.
+    패딩 필드가 마지막 필드인 경우 불필요한 데이터 쓰기를 방지하기 위하여, 이 필드는 기록되지 않습니다. 즉, `message_data_s.data`가 패딩 크기만큼 짧아집니다. 그러나 메시지가 중첩 정의에서 사용될 때 패딩은 여전히 필요합니다.
 
-- 'I': information message.
+- 'I': 정보 메세지
   ```c
   struct message_info_s {
-  struct message_header_s header;
-  uint8_t key_len;
-  char key[key_len];
-  char value[header.msg_size-hdr_size-1-key_len]
-};
+    struct message_header_s header;
+    uint8_t key_len;
+    char key[key_len];
+    char value[header.msg_size-1-key_len]
+  };
   ```
-  `key` is a plain string, as in the format message (can also be a custom type), but consists of only a single field without ending `;`, eg. `float[3] myvalues`. `value` contains the data as described by `key`.
+  `key`는 형식 메시지에서와 같이 일반 문자열(사용자 정의 유형일 수도 있음)이지만, `;`으로 끝나지 않는 단일 필드로 구성됩니다. `float[3] myvalues`. `value`에는 `key`에 의해 설명된 데이터가 포함됩니다.
 
-  Note that an information message with a certain key must occur at most once in the entire log. Parsers can store information messages as a dictionary.
+  특정 키가 포함된 정보 메시지는 전체 로그에서 최대 한 번만 발생하여야 합니다. 파서는 정보 메시지를 사전으로 저장할 수 있습니다.
 
-  Predefined information messages are:
+  사전 정의된 정보 메시지는 다음과 같습니다.
 
-| key                                 | Description                                 | Example for value  |
+| 키                                   | 설명                                          | 예제 값               |
 | ----------------------------------- | ------------------------------------------- | ------------------ |
-| char[value_len] sys_name          | Name of the system                          | "PX4"              |
-| char[value_len] ver_hw            | Hardware version (board)                    | "PX4FMU_V4"        |
-| char[value_len] ver_hw_subtype    | Board subversion (variation)                | "V2"               |
-| char[value_len] ver_sw            | Software version (git tag)                  | "7f65e01"          |
+| char[value_len] sys_name          | 시스템 이름                                      | "PX4"              |
+| char[value_len] ver_hw            | 하드웨어 버전 (보드)                                | "PX4FMU_V4"        |
+| char[value_len] ver_hw_subtype    | 보드 하위 버전(변형판)                               | "V2"               |
+| char[value_len] ver_sw            | 소프트웨어 버전(git tag)                           | "7f65e01"          |
 | char[value_len] ver_sw_branch     | git branch                                  | "master"           |
-| uint32_t ver_sw_release           | Software version (see below)                | 0x010401ff         |
-| char[value_len] sys_os_name       | Operating System Name                       | "Linux"            |
-| char[value_len] sys_os_ver        | OS version (git tag)                        | "9f82919"          |
-| uint32_t ver_os_release           | OS version (see below)                      | 0x010401ff         |
-| char[value_len] sys_toolchain     | Toolchain Name                              | "GNU GCC"          |
-| char[value_len] sys_toolchain_ver | Toolchain Version                           | "6.2.1"            |
+| uint32_t ver_sw_release           | 소프트웨어 버전 (아래 참고)                            | 0x010401ff         |
+| char[value_len] sys_os_name       | 운영체제 이름                                     | "Linux"            |
+| char[value_len] sys_os_ver        | 운영체제 버전 (git tag)                           | "9f82919"          |
+| uint32_t ver_os_release           | 운영체제 버전 (아래 참고)                             | 0x010401ff         |
+| char[value_len] sys_toolchain     | 툴체인 이름                                      | "GNU GCC"          |
+| char[value_len] sys_toolchain_ver | 툴체인 버전                                      | "6.2.1"            |
 | char[value_len] sys_mcu           | Chip name and revision                      | "STM32F42x, rev A" |
 | char[value_len] sys_uuid          | Unique identifier for vehicle (eg. MCU ID)  | "392a93e32fa3"...  |
 | char[value_len] log_type          | Type of the log (full log if not specified) | "mission"          |
