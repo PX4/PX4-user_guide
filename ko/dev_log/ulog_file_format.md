@@ -79,16 +79,16 @@ struct message_header_s {
   - `compat_flags`: 호환 플래그 비트값
     - `compat_flags[0]`, 비트 0, *DEFAULT_PARAMETERS*: 설정되면 로그에 매개변수 기본값(메시지 'Q')이 포함됩니다.
 
-    나머지 비트는 현재 정의되지 않았으며 ,모두 0으로 설정하여야 합니다. These bits can be used for future ULog changes that are compatible with existing parsers. It means parsers can just ignore the bits if one of the unknown bits is set.
-  - `incompat_flags`: incompatible flag bits. The LSB bit of index 0 is set to one if the log contains appended data and at lease one of the `appended_offsets` is non-zero. All other bits are undefined und must be set to 0. If a parser finds one of these bits set, it must refuse to parse the log. This can be used to introduce breaking changes that existing parsers cannot handle.
-  - `appended_offsets`: File offsets (0-based) for appended data. If no data is appended, all offsets must be zero. This can be used to reliably append data for logs that may stop in the middle of a message.
+    나머지 비트는 현재 정의되지 않았으며 ,모두 0으로 설정하여야 합니다. 이 비트는 향후 기존 파서와 호환되는 ULog 변경에 사용할 수 있습니다. 이는 알 수 없는 비트 중 하나가 설정되어 있으면, 파서가 해당 비트를 무시할 수 있음을 의미합니다.
+  - `incompat_flags`: 비호환성 플래그 비트값. 로그에 추가 데이터가 포함되어 있고, `appended_offsets` 중 하나 이상이 0이 아닌 경우 인덱스 0의 LSB 비트가 1로 설정됩니다. 다른 모든 비트는 정의되지 않으며, 0으로 설정하여야 합니다. 파서는 이러한 비트 세트 중 하나를 찾으면, 로그 파싱을 거부합니다. 이것은 기존 파서가 처리할 수 없는 주요 변경 사항을 도입하는 데 사용할 수 있습니다.
+  - `appended_offsets`: 추가된 데이터에 대한 파일 오프셋(0부터 시작). 데이터가 추가되지 않은 경우에는 모든 오프셋은 0이어야 합니다. 이것은 메시지 중간에 멈출 수 있는 로그에 대한 데이터를 안정적으로 추가할 수 있습니다.
 
-    A process appending data should do:
-    - set the relevant `incompat_flags` bit,
-    - set the first `appended_offsets` that is 0 to the length of the log file,
-    - then append any type of messages that are valid for the Data section.
+    데이터를 추가하는 프로세스는 다음과 같습니다.
+    - 관련 `incompat_flags` 비트 값을 설정합니다.
+    - `append_offsets` 처음 값을 로그 파일 길이 값인 0으로 설정합니다.
+    - 그런 다음 데이터 섹션에 유효한 모든 유형의 메시지를 추가합니다.
 
-  It is possible that there are more fields appended at the end of this message in future ULog specifications. This means a parser must not assume a fixed length of this message. If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
+  향후 ULog 사양에서 이 메시지 끝에 추가 필드가 존재할 수 있습니다. This means a parser must not assume a fixed length of this message. If the message is longer than expected (currently 40 bytes), the exceeding bytes must just be ignored.
 
 
 - 'F': format definition for a single (composite) type that can be logged or used in another definition as a nested type.
