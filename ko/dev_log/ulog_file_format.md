@@ -155,7 +155,7 @@ struct message_header_s {
     char value[header.msg_size-2-key_len]
   };
   ```
-  동일한 키를 가진 여러 메시지가 있을 수 있다는 점을 제외하고는 정보 메시지와 동일합니다(파서는 목록으로 저장함). The `is_continued` can be used for split-up messages: if set to 1, it is part of the previous message with the same key. Parsers can store all information multi messages as a 2D list, using the same order as the messages occur in the log.
+  동일한 키를 가진 여러 메시지가 있을 수 있다는 점을 제외하고는 정보 메시지와 동일합니다(파서는 목록으로 저장함). `is_continued`는 분할 메시지에 사용할 수 있습니다. 1로 설정하면 동일한 키를 가진 이전 메시지의 일부입니다. 파서는 다중 메시지를 로그에서 발생하는 메시지와 동일한 순서를 사용하여 2D 목록으로 저장할 수 있습니다.
 
 - 'P': parameter message. Same format as `message_info_s`. If a parameter dynamically changes during runtime, this message can also be used in the Data section. The data type is restricted to: `int32_t`, `float`.
 
