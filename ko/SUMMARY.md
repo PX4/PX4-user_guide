@@ -408,7 +408,7 @@
       * [Gazebo 시뮬레이션이 포함된 ROS/MAVROS](simulation/ros_interface.md)
       * [ROS가 있는 Gazebo OctoMap 모델 (1)](simulation/gazebo_octomap.md)
       * [라즈베리파이에 ROS/MAVROS 설치](ros/raspberrypi_installation.md)
-      * [External Position Estimation (Vision/Motion based)](ros/external_position_estimation.md)
+      * [외부 위치 추정(비전/모션 기반)](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
 * [기여 및 온라인 미팅](contribute/README.md) 
   * [온라인 개발 미팅](contribute/dev_call.md)
