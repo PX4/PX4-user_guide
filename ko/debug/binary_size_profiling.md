@@ -3,7 +3,7 @@
 `bloaty_compare_master` 빌드 타겟을 사용하면, 변경 사항이 코드 크기에 미치는 영향을 더 잘 이해할 수 있습니다. 사용할 때 도구 체인은 특정 펌웨어의 성공적인 최신 마스터 빌드를 다운로드하고, 이를 로컬 빌드와 비교합니다(바이너리용 [bloaty](https://github.com/google/bloaty) 크기 프로파일러 사용).
 
 :::tip
-이렇게 하면 `px4_fmu-v2_default`가 1MB 플래시 제한에 도달할 수 있는 변경 사항을 분석에 도움이 됩니다.
+`px4_fmu-v2_default`가 1MB 플래시 제한에 도달할 수 있는 변경 사항을 분석합니다.
 :::
 
 *Bloaty*는 경로에 있어야 하며, *cmake* 구성시 발견되어야 합니다. PX4 [도커 파일](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic)은 다음과 같이 *bloaty*를 설치합니다.
