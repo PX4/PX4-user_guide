@@ -68,8 +68,8 @@ Alpha AWUS036ACH는 전송시에 과도한 전류를 사용하는 고전력 카�
       ```
       raspivid --nopreview --awb auto -ih -t 0 -w 1280 -h 720 -fps 49 -b 4000000 -g 147 -pf high -o - | gst-launch-1.0 fdsrc ! h264parse !  rtph264pay !  udpsink host=127.0.0.1 port=5602
       ```
-1. [설정 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)에 따라 무인 항공기의 무선랜 광역 전송을 설정하십시오
-1. 자동 항법 장치(px4 스택)에서 1500kbps 전송률로 텔레메트리 실시간 전송 데이터를 내보내도록 설정하십시오(기타 UART 속도는 네오2 주파수 분할 장치와 잘 맞지 않음). WFB간에 MAVLink 패킷을 주고받을 수 있도록 [mavlink-router](https://github.com/intel/mavlink-router)를 설정하십시오:
+1. [설정 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)에 따라 드론용 WFB를 설정합니다.
+1. 1500kbps에서 텔레메트리 데이터를 출력하도록 자동조종장치(px4 스택)를 설정합니다(다른 UART 속도는 NEO2 주파수 분배기와 일치하지 않음). WFB간에 MAVLink 패킷을 송수신하도록 [mavlink-router](https://github.com/intel/mavlink-router)를 설정하십시오:
    ```
    [UdpEndpoint wifibroadcast]
    Mode = Normal
@@ -77,18 +77,18 @@ Alpha AWUS036ACH는 전송시에 과도한 전류를 사용하는 고전력 카�
    Port = 14550
    ```
 
-### 지상 통제 장치 설정
+### 지상국 설정
 
-1. 동영상을 디코딩하려면 *QGroundStation*을 실행하거나 다음 명령을 실행하십시오:
+1. *QGroundControl*을 실행하거나 다음 명령을 사용하여 비디오를 디코딩하십시오.
    ```
    gst-launch-1.0 udpsrc port=5600 caps='application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264' \
              ! rtph264depay ! avdec_h264 ! clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false
    ```
-1. [설정 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)에 따라 지상 통제 장치의 무선랜 광역 전송을 설정하십시오.
+1. [설정 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)에 따라 지상국 WFB를 설정합니다.
 
-## 미세 전파 조정
+## 라디오 설정 튜닝
 
-간단한 경우를 예로 들어, 선형 양극화(무선랜 카드에 붙어있음) 또는 환엽형 양극화([환형 양극화 엽상 안테나](http://www.antenna-theory.com/antennas/cloverleaf.php)) 무지향성 안테나를 사용할 수 있습니다. 장거리 연결을 설정하려 한다면, 지항성 및 무지향성 안테나를 다중 무선랜 어댑터에 붙여 사용할 수 있습니다. 다중 어댑터에서는 송수신 다양성을 특별히 지원합니다(단지 `/etc/default/wifibroadcast`에 여러 NIC를 추가하면 됨). WiFi 어댑터에 (Alfa AWU036ACH 처럼)안테나가 둘 붙어있을 경우, TX 다향성은 [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code)로 구현합니다.
+기본 설정으로 WFB는 라디오 채널 165(5825MHz), 너비 20MHz, 긴 GI가 있는 MCS #1(QPSK 1/2)을 사용합니다. 장거리 연결을 설정하려 한다면, 지항성 및 무지향성 안테나를 다중 무선랜 어댑터에 붙여 사용할 수 있습니다. 다중 어댑터에서는 송수신 다양성을 특별히 지원합니다(단지 `/etc/default/wifibroadcast`에 여러 NIC를 추가하면 됨). WiFi 어댑터에 (Alfa AWU036ACH 처럼)안테나가 둘 붙어있을 경우, TX 다향성은 [STBC](https://en.wikipedia.org/wiki/Space%E2%80%93time_block_code)로 구현합니다.
 
 ## 안테나와 다양성
 
