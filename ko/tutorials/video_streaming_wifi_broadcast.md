@@ -51,20 +51,20 @@ Alpha AWUS036ACH는 전송시에 과도한 전류를 사용하는 고전력 카�
 ## 소프트웨어 설정
 
 (리눅스)개발 컴퓨터를 설치하려면:
-1. **libpcap**과 **libsodium** 개발 라이브러리와 **python2.7** + **python-twisted** 패키지를 설치하십시오.
-1. [wifibroadcast 소스 코드](https://github.com/svpcom/wifibroadcast)를 다운로드하십시오.
-1. [설치 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)을 참고하여 데비안, rpm, tar.gz 패키지를 빌드하고 설정하는 방법을 살펴보십시오.
+1. **libpcap**과 **libsodium** 개발 라이브러리와 **python2.7**에서 **python-twisted** 패키지를 설치합니다.
+1. [Wifibroadcast 소스 코드](https://github.com/svpcom/wifibroadcast)를 다운로드합니다.
+1. debian, rpm 또는 tar.gz 패키지를 빌드하고 구성하는 방법은 [설정 방법](https://github.com/svpcom/wifibroadcast/wiki/Setup-HOWTO)을 참고하십시오.
 
-### 무인 항공기 설정
+### UAV 설정
 
-1. 카메라에 RTP 실시간 전송 데이터 출력을 설정하십시오:
+1. RTP 스트림을 출력하도록 카메라를 설정합니다.
 
-   가. 로지텍 C920 카메라:
+   a.  로지텍 C920 카메라:
       ```
       gst-launch-1.0 uvch264src device=/dev/video0 initial-bitrate=4000000 average-bitrate=4000000 iframe-period=3000 name=src auto-start=true \
                src.vidsrc ! queue ! video/x-h264,width=1280,height=720,framerate=30/1 ! h264parse ! rtph264pay ! udpsink host=localhost port=5602
       ```
-   나. 라즈베리 파이 카메라:
+   나. 라즈베리파이 카메라:
       ```
       raspivid --nopreview --awb auto -ih -t 0 -w 1280 -h 720 -fps 49 -b 4000000 -g 147 -pf high -o - | gst-launch-1.0 fdsrc ! h264parse !  rtph264pay !  udpsink host=127.0.0.1 port=5602
       ```
