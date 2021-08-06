@@ -1,18 +1,18 @@
-# 리눅스에 원격 조종 수신기 연결 (S.Bus 포함)
+# Linux에서 RC 수신기 연결(S.Bus 포함)
 
-이 절에서는 [지원 원격 조종 수신기](../getting_started/rc_transmitter_receiver.md)를 임의의 직렬 포트에 연결하고 사용할 목적으로 리눅스 기반 오토파일럿을 설정하는 방법을 알려드립니다.
+직렬 포트에서 [지원되는 RC 수신기](../getting_started/rc_transmitter_receiver.md)를 연결하고 사용하도록, PX4 Linux 기반 자동조종장치 설정 방법을 설명합니다.
 
-S.Bus에 비해 원격 조종 형식은 수신기를 직렬 포트에 연결하거나 USB to TTY 직렬 케이블(PL2302 USB to Serial TTL 변환기)로 USB에 연결할 수 있습니다.
+S.Bus 이외의 RC 유형의 경우 수신기는 직렬 포트에 직접 연결하거나 USB-TTY 직렬 케이블(예: PL2302 USB-직렬 TTL 변환기)을 통하여 USB에 연결할 수 있습니다.
 
 :::note
-S.Bus 수신기(또는 후타바, 래디오링크 등의 인코더)를 사용하는 목적이라면 보통 [신호 반전 회로](#signal_inverter_circuit)를 거쳐 수신기와 장치를 연결해야겠지만, 이외의 경우 설정은 동일합니다.
+S.Bus 수신기(또는 인코더 - 예: Futaba, RadioLink 등)의 경우에는 일반적으로 [신호 인버터 회로](#signal_inverter_circuit)를 통하여 수신기와 장치를 연결 하지만, 이 외의 경우에는 설정이 동일합니다.
 :::
 
-원격 조종 드라이버를 각 UART 에서 시작하려면 (예: `/dev/ttS2`):
+그런 다음, 아래와 같이 기기에서 [PX4 RC 드라이버를 시작](#start_driver)합니다.
 
 <a id="start_driver"></a>
 
-## 드라이버 시작
+## Starting the Driver
 
 다른 드라이버 사용법을 보려면 [rc_input](../modules/modules_driver.md#rcinput)을 참고하십시오.
 ```
