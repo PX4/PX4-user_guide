@@ -101,30 +101,30 @@ PX4 모듈 및 드라이버에서 매개변수 사용할 수 있는 C 및 C++ AP
 
 API 간의 중요한 차이점 중 하나는 C++ 버전이 매개변수 값(예: GCS에서) 변경과 동기화하는 보다 효율적인 표준화 메커니즘이 있다는 것입니다.
 
-매개변수는 언제든지 다른 값으로 변경될 수 있으므로, 동기화가 중요합니다. 코드는 매개변수 저장소에서 최신 값을 *항상* 사용하여야 합니다. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+매개변수는 언제든지 다른 값으로 변경될 수 있으므로, 동기화가 중요합니다. 코드는 매개변수 저장소에서 최신 값을 *항상* 사용하여야 합니다. 최신 버전을 가져올 수 없는 경우에는, 매개변수를 변경한 후 재부팅합니다(`@reboot_required` 메타데이터를 사용하여 이 요구사항 설정).
 
-`ModuleParams` 클래스를 상송하고 매개변수 목록과 관련 매개변수 속성을 정의할 때 `DEFINE_PARAMETERS`를 활용하십시오. 매개변수 이름은 매개변수 메타데이터 정의와 정확히 일치해야합니다.
+또한, C++ 버전은 유형 안전성이 더 우수하고 메모리 사용량이 적습니다. 단점은 매개변수 이름을 컴파일 타임에 알아야 하는 반면에, C API는 동적으로 생성된 이름을 문자열로 사용할 수 있습니다.
 
 
-#### 다중 인스턴스 (서식화) 메타데이터
+#### C++ API
 
-The C++ API provides macros to declare parameters as *class attributes*. You add some "boilerplate" code to regularly listen for changes in the [uORB Topic](../middleware/uorb.md) associated with *any* parameter update. Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. In the rest of the code you can just use the defined parameter attributes and they will always be up to date!
+C++ API는 매개변수를 *클래스 속성*으로 선언하는 매크로를 제공합니다. *모든* 매개변수 업데이트와 관련된 [uORB 주제](../middleware/uorb.md)의 변경 사항을 정기적으로 수신하기 위하여 일부 "보일러 플레이트" 코드를 추가합니다. 그런 다음, 프레임워크 코드는 매개변수 속성에 영향을 미치는 uORB 메시지 추적을 처리하고 동기화 상태를 유지합니다. 나머지 코드에서는 정의된 매개변수 속성을 사용할 수 있으며, 항상 최신 상태를 유지합니다!
 
-First include the required needed headers in the class header for your module or driver:
-- **px4_platform_common/module_params.h** to get the `DEFINE_PARAMETERS` macro:
+제일 먼저, 모듈 또는 드라이버의 클래스 헤더에 필요한 필수 헤더를 포함합니다.
+- **px4_platform_common/module_params.h**를 사용하여 `DEFINE_PARAMETERS` 매크로를 가져옵니다.
   ```cpp
   #include <px4_platform_common/module_params.h>
   ```
-- **parameter_update.h** to access the uORB `parameter_update` message:
+- uORB `parameter_update` 메시지에 액세스하려면 **parameter_update.h**를 인클루드합니다.
   ```cpp
   #include <uORB/topics/parameter_update.h>
   ```
-- **Subscription.hpp** for the uORB C++ subscription API:
+- uORB C++ 구독 API용 **Subscription.hpp**를 인클루드합니다.:
   ```cpp
   #include <uORB/Subscription.hpp>
   ```
 
-Derive your class from `ModuleParams`, and use `DEFINE_PARAMETERS` to specify a list of parameters and their associated parameter attributes. The names of the parameters must be the same as their parameter metadata definitions.
+`ModuleParams`에서 클래스를 파생하고, `DEFINE_PARAMETERS`를 사용하여 매개변수 목록 및 관련 매개변수 속성을 지정합니다. 매개변수의 이름은 매개변수 메타데이터 정의와 동일하여야 합니다.
 ```cpp
 class MyModule : ..., public ModuleParams
 {
@@ -150,48 +150,52 @@ private:
 ```
 
 
-위 메서드에서:
+매개변수 업데이트와 관련된 uORB 메시지를 확인하기 위해 상용구로 cpp 파일을 업데이트합니다.
 
-Call `parameters_update();` periodically in code to check if there has been an update:
+코드에서 주기적으로 `parameters_update();`를 호출하여 업데이트합니다.
 ```cpp 
-class MyModule : ..., public ModuleParams
+void Module::parameters_update()
 {
-public:
-    ... 
-        private:
+    if (_parameter_update_sub.updated()) {
+        parameter_update_s param_update;
+        _parameter_update_sub.copy(&param_update);
 
-    /**
-     * Check for parameter changes and update them if needed.
+        // If any parameter updated, call updateParams() to check if
+        // this class attributes need updating (and do so). 
+        updateParams();
+    }
+}
 ```
-C API는 모듈과 드라이버 모두에서 활용할 수 있습니다.
-- `num_instances` (기본값 1): 생성할 인스턴스 갯수(하나 이상)
-- If there has been "some" parameter updated, we copy the update into a `parameter_update_s` (`param_update`), to clear the pending update.
-- Then we call `ModuleParams::updateParams()`. This "under the hood" updates all parameter attributes listed in our `DEFINE_PARAMETERS` list.
+위의 함수에서 :
+- `_parameter_update_sub.updated()`는 `param_update` uORB 메시지에 대한 *업데이트 여부를* 알려줍니다(영향을 받는 매개변수는 아님).
+- "일부" 매개변수가 업데이트된 경우에는, 보류 중인 업데이트를 지우기 위하여 업데이트를 `parameter_update_s`(`param_update`)에 복사합니다.
+- 그런 다음 `ModuleParams::updateParams()`를 호출합니다. 이 "내부"는 `DEFINE_PARAMETERS` 목록에 나열된 모든 매개변수 속성을 업데이트합니다.
 
-The parameter attributes (`_sys_autostart` and `_att_bias_max` in this case) can then be used to represent the parameters, and will be updated whenever the parameter value changes.
+그런 다음, 매개변수 속성(이 경우 `_sys_autostart` 및 `_att_bias_max`)을 사용하여 매개변수를 나타낼 수 있으며, 매개변수 변경시에 업데이트됩니다.
 
 :::tip
-The [Application/Module Template](../modules/module_template.md) uses the new-style C++ API but does not include [parameter metadata](#parameter-metadata).
+[애플리케이션/모듈 템플릿](../modules/module_template.md)은 새로운 스타일의 C++ API를 사용하지만, [매개변수 메타데이터](#parameter-metadata)는 포함하지 않습니다.
 :::
 
 #### C API
 
-The C API can be used within both modules and drivers.
+C API는 모듈과 드라이버 모두에서 사용할 수 있습니다.
 
-First include the parameter API:
+먼저 매개변수 API를 포함합니다.
 ```C
-#include <uORB/topics/parameter_update.h>
+#include <parameters/param.h>
 ```
 
-Then retrieve the parameter and assign it to a variable (here `my_param`), as shown below for `PARAM_NAME`. The variable `my_param` can then be used in your module code.
+그런 다음 `PARAM_NAME`에 대해 아래와 같이 매개변수를 검색하고, 변수(여기서는 `my_param`)에 할당합니다. The variable `my_param` can then be used in your module code.
 ```C
 int32_t my_param = 0;
 param_get(param_find("PARAM_NAME"), &my_param);
 ```
 
-`param_find()`은 "실행 시간이 조금 걸리는" 동작이며, 이 함수에서 나온 핸들 값은 `param_get()` 함수에서 사용할 수 있습니다. 매개변수를 여러줄에서 가져올 경우, 필요할 때 핸들 값을 캐싱한 다음 `param_get()` 값을 사용합니다.
+:::note
+`PARAM_NAME`이 매개변수 메타데이터에 선언된 경우 기본값이 설정되고, 매개변수를 찾기 위한 위의 호출은 항상 성공하여야 합니다. 매개변수를 여러줄에서 가져올 경우, 필요할 때 핸들 값을 캐싱한 다음 `param_get()` 값을 사용합니다.
 
-`param_find()` is an "expensive" operation, which returns a handle that can be used by `param_get()`. If you're going to read the parameter multiple times, you may cache the handle and use it in `param_get()` when needed
+`param_find()`는 `param_get()`에서 사용할 수 있는 핸들을 반환하는 "비싼" 작업입니다. 매개변수를 여러 번 읽으려는 경우에는, 핸들을 캐시하고 필요할 때 `param_get()`에서 사용할 수 있습니다.
 ```cpp
 # Get the handle to the parameter
 param_t my_param_handle = PARAM_INVALID;
@@ -203,7 +207,7 @@ param_get(my_param_handle, &my_param);
 ```
 
 
-### C 매개변수 메타데이터
+### 매개변수 메타데이터
 
 PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
 
