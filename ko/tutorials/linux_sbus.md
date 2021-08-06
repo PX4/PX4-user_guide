@@ -12,7 +12,7 @@ S.Bus 수신기(또는 인코더 - 예: Futaba, RadioLink 등)의 경우에는 �
 
 <a id="start_driver"></a>
 
-## Starting the Driver
+## 드라이버 시작
 
 다른 드라이버 사용법을 보려면 [rc_input](../modules/modules_driver.md#rcinput)을 참고하십시오.
 ```
