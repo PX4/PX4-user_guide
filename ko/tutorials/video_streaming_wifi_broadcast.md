@@ -27,14 +27,14 @@ UAV에서 동영상을 지상 컴퓨터로 전송하고 *QGroundControl*에 표�
 
 ## 하드웨어 설정
 
-The hardware setup consists of the following parts:
+하드웨어 설정은 다음과 같습니다.
 
-RX(지상 통제 장치) 측:
-* [나노파이 네오2](http://www.friendlyarm.com/index.php?route=product/product&product_id=180)(그리고 파이 카메라 활용시 라즈베리 파이)
-* [로지텍 C920 카메라](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34)  또는 [라즈베리 파이 카메라](https://www.raspberrypi.org/products/camera-module-v2/).
-* [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) 무선랜 모듈.
+TX(UAV) 측:
+* [NanoPI NEO2](http://nanopi.io/nanopi-neo2.html)(또는 라즈베리파이 카메라를 사용하는 경우)
+* [로지텍 C920 카메라](https://www.logitech.com/en-us/product/hd-pro-webcam-c920?crid=34)  또는 [라즈베리파이 카메라](https://www.raspberrypi.org/products/camera-module-v2/).
+* [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) Wi-Fi  모듈.
 
-고수준 신호세기 지원 카드가 필요하지 않으면 **rtl8812au** 칩셋이 달린 카드를 사용해도 됩니다.
+RX(지상국 측):
 * 리눅스를 설치한 아무 컴퓨터(페도라 25 x86_64 시험 완료).
 * [ALPHA AWUS036ACH](https://www.alfa.com.tw/products_detail/1.htm) 무선랜 모듈. 더 많은 지원 모듈 정보를 보려면 [wifibroadcast 위키 > 무선랜 하드웨어](https://github.com/svpcom/wifibroadcast/wiki/WiFi-hardware) 를 참고하십시오.
 
