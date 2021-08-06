@@ -209,60 +209,62 @@ param_get(my_param_handle, &my_param);
 
 ### 매개변수 메타데이터
 
-PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.
+PX4는 확장 매개변수 메타데이터 시스템을 사용하여 사용자에게 매개변수를 표시하고 펌웨어의 매개변수들의 기본값을 설정합니다.
 
 :::tip
-Correct metadata is critical for good user experience in a ground station.
+적절한 메타데이터는 지상국 사용자에게 매우 중요합니다.
 :::
 
-Parameter metadata can be stored anywhere in the source tree as either **.c** or **.yaml** parameter definitions (the YAML definition is newer, and more flexible). Typically it is stored alongside its associated module.
+매개변수 메타데이터는 소스 트리의 어느 위치에나 **.c** 또는 **.yaml** 매개변수 정의로 저장할 수 있습니다(YAML 정의가 더 새롭고 더 유연함). 일반적으로 연결된 모듈과 함께 저장됩니다.
 
-The build system extracts the metadata (using `make parameters_metadata`) to build the [parameter reference](../advanced_config/parameter_reference.md) and the parameter information [used by ground stations](#publishing-parameter-metadata-to-a-gcs).
+빌드 시스템은 메타데이터를 추출(`make parameters_metadata` 사용)하여 [매개변수 참조](../advanced_config/parameter_reference.md)와 [지상국에서 사용하는](#publishing-parameter-metadata-to-a-gcs) 매개변수 정보를 작성합니다.
 
 :::warning
-After adding a *new* parameter file you should call `make clean` before building to generate the new parameters (parameter files are added as part of the *cmake* configure step, which happens for clean builds and if a cmake file is modified).
+*new* 매개변수 파일을 추가한 후 새 매개변수를 생성하기 위하여 빌드전에 `make clean`을 호출하여야 합니다. 매개변수 파일은 *cmake* 설정 단계 일부(클린 빌드 및 cmake 파일이 수정된 경우에 발생하는 단계)로 추가됩니다.
 :::
 
 
-#### YAML Metadata
+#### YAML 메타데이터
 
 :::note
-At time of writing YAML parameter definitions cannot be used in *libraries*.
+이 문서 작성 시점에는 YAML 매개변수 정의는 *라이브러리*에서는 사용할 수 없습니다.
 :::
 
-YAML meta data is intended as a full replacement for the **.c** definitions. It supports all the same metadata, along with new features like multi-instance definitions.
+YAML 메타 데이터는 **.c** 정의를 대체합니다. 다중 인스턴스 정의와 같은 새로운 기능과 함께 동일한 메타데이터를 모두 지원합니다.
 
-- The YAML parameter metadata schema is here: [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml).
-- An example of YAML definitions being used can be found in the MAVLink parameter definitions: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
-- A YAML file is registered in the cmake build system by adding
+- YAML 매개변수 메타데이터 스키마는 [validation/module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에 있습니다.
+- 사용되는 YAML 정의의 예는 MAVLink 매개변수 정의에서 찾을 수 있습니다: [/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml).
+- YAML 파일은 다음을 추가하여 cmake 빌드 시스템에 등록됩니다.
   ```
   MODULE_CONFIG
     module.yaml
   ```
-  to the `px4_add_module` section of the `CMakeLists.txt` file of that module.
+  해당 모듈의 `CMakeLists.txt` 파일의 `px4_add_module` 섹션에 추가합니다.
 
 
-#### Multi-Instance (Templated) YAML Meta Data
+#### 다중 인스턴스(템플릿) YAML 메타 데이터
 
-Templated parameter definitions are supported in [YAML parameter definitions](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) (templated parameter code is not supported).
+템플릿 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원됩니다(템플릿 매개변수 코드는 지원되지 않음).
 
-The YAML allows you to define instance numbers in parameter names, descriptions, etc. using `${i}`. For example, below will generate MY_PARAM_1_RATE, MY_PARAM_2_RATE etc.
+YAML을 사용하면 `${i}`를 사용하여 매개변수 이름, 설명 등에 인스턴스 번호를 정의할 수 있습니다. 예를 들어 아래는 MY_PARAM_1_RATE, MY_PARAM_2_RATE 등을 생성합니다.
 ```
-#include <parameters/param.h>
+MY_PARAM_${i}_RATE:
+            description:
+                short: Maximum rate for instance ${i}
 ```
 
-The following YAML definitions provide the start and end indexes.
-- `num_instances` (default 1): Number of instances to generate (>=1)
-- `instance_start` (default 0): First instance number. If 0, `${i}` expands to [0, N-1]`.
+다음 YAML 정의는 시작과 끝 인덱스를 제공합니다.
+- `num_instances`(기본값 1): 생성할 인스턴스 수(>=1)
+- `instance_start`(기본값 0): 첫 번째 인스턴스 번호입니다. 0이면 `${i}`가 [0, N-1]`로 확장됩니다.
 
-서식화 매개변수 정의는 [YAML 매개변수 정의](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)에서 지원합니다(서식화 매개변수 코드는 지원하지 않습니다).
+전체 예는 MAVLink 매개변수 정의([/src/modules/mavlink/module.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/module.yaml))를 참조하십시오.
 
 
-#### c Parameter Metadata
+#### c 매개변수 메타데이터
 
-The legacy approach for defining parameter metadata is in a file with extension **.c** (at time of writing this is the approach most commonly used in the source tree).
+매개변수 메타데이터를 정의하기 위한 레거시 접근 방식은 확장자가 **.c**인 파일에 있습니다(작성 당시 소스 트리에서 가장 일반적으로 사용되는 접근 방식임).
 
-다음 YAML 정의에서는 시작, 끝 인덱스 번호를 제공합니다.
+매개변수 메타데이터 섹션은 다음 예와 같습니다.
 
 ```cpp
 /**
@@ -291,9 +293,9 @@ PARAM_DEFINE_FLOAT(MC_PITCH_P, 6.5f);
 PARAM_DEFINE_INT32(ATT_ACC_COMP, 1);
 ```
 
-The `PARAM_DEFINE_*` macro at the end specifies the type of parameter (`PARAM_DEFINE_FLOAT` or `PARAM_DEFINE_INT32`), the name of the parameter (which must match the name used in code), and the default value in firmware.
+끝에 있는 `PARAM_DEFINE_*` 매크로는 매개변수 유형(`PARAM_DEFINE_FLOAT` 또는 `PARAM_DEFINE_INT32`), 매개변수 이름(이름과 일치해야 함 코드에서 사용됨) 및 펌웨어의 기본값입니다.
 
-The lines in the comment block are all optional, and are primarily used to control display and editing options within a ground station. The purpose of each line is given below (for more detail see [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml)).
+주석 블록의 행은 모두 선택 사항이며, 주로 지상국에서 표시 및 편집 옵션을 제어합니다. 각 줄의 목적은 아래에 설명되어 있습니다.(자세한 내용은 [module_schema.yaml](https://github.com/PX4/PX4-Autopilot/blob/master/validation/module_schema.yaml) 참조).
 
 ```cpp
 /**
@@ -312,25 +314,25 @@ The lines in the comment block are all optional, and are primarily used to contr
  */
 ```
 
-## C / C++ API
+## GCS에 매개변수 메타데이터 게시
 
-Parameter metadata is collected into a JSON or XML file during each PX4 build.
+매개변수 메타데이터는 PX4 빌드중에 JSON 또는 XML 파일로 저장됩니다.
 
-For most flight controllers (as most have enough FLASH available), the JSON file is xz-compressed and stored within the generated binary. The file is then shared to ground stations using the [MAVLink Component Information Protocol](https://mavlink.io/en/services/component_information.html). This ensures that parameter metadata is always up-to-date with the code running on the vehicle.
+대부분의 비행 컨트롤러(대부분의 FLASH가 충분히 사용 가능)의 경우 JSON 파일은 xz 압축되어 생성된 바이너리 내에 저장됩니다. 그런 다음 파일은 [MAVLink 구성 요소 정보 프로토콜](https://mavlink.io/en/services/component_information.html)을 사용하여 지상국과 공유됩니다. 이렇게 하면 매개변수 메타데이터가 차량에서 실행되는 코드와 함께 항상 최신 상태를 유지합니다.
 
-Binaries for flight controller targets with constrained memory do not store the parameter metadata in the binary, but instead reference the same data stored on `px4-travis.s3.amazonaws.com`. This applies, for example, to the [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md). The metadata is uploaded via [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml) for all build targets (and hence will only be available once parameters have been merged into master).
+메모리가 제한된 비행 콘트롤러 대상의 바이너리는 매개변수 메타데이터를 바이너리에 저장하지 않고, `px4-travis.s3.amazonaws.com`에 저장된 동일한 데이터를 참조합니다. 이는 예를 들어 [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)에 적용됩니다. 메타데이터는 모든 빌드 대상에 대하여 [github CI](https://github.com/PX4/PX4-Autopilot/blob/master/.github/workflows/metadata.yml)를 사용하여 업로드합니다(따라서 매개변수가 마스터에 병합된 후에만 사용할 수 있음).
 
 :::note
-You can identify memory constrained boards because they specify `CONSTRAINED_MEMORY` in their [cmake definition file](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.cmake#L11)).
+메모리가 제한된 보드는 [cmake 정의 파일](https://github.com/PX4/PX4-Autopilot/blob/release/1.12/boards/omnibus/f4sd/default.cmake#L11)에 `CONSTRAINED_MEMORY`를 지정하기 때문에 식별할 수 있습니다.
 :::
 
 :::note
-The metadata on `px4-travis.s3.amazonaws.com` is used if parameter metadata is not present on the vehicle. It may also be used as a fallback to avoid a very slow download over a low-rate telemetry link.
+매개변수 메타데이터가 차량에 없는 경우 `px4-travis.s3.amazonaws.com`의 메타데이터가 사용됩니다. 또한 저속 텔레메트리 통신에서 느린 다운로드를 방지하기 위한 대체 수단으로 사용될 수 있습니다.
 :::
 
-Anyone doing custom development on a FLASH-constrained board can adjust the URL [here](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41) to point to another server.
+FLASH 제한 보드에서 자체 개발시에 [여기](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/component_information/CMakeLists.txt#L41)에서 URL을 조정하여 다른 서버를 지정할 수 있습니다.
 
-The XML file of the master branch is copied into the QGC source tree via CI and is used as a fallback in cases where no metadata is available via the component information service (this approach predates the existence of the component information protocol).
+마스터 분기의 XML 파일은 CI를 통해 QGC 소스 트리에 복사되고, 구성 요소 정보 서비스를 통해 사용할 수 있는 메타데이터가 없는 경우의 대체 수단으로 사용됩니다(이 접근 방식은 구성 요소 정보 프로토콜이 존재하기 이전).
 
 
 ## Further Information
