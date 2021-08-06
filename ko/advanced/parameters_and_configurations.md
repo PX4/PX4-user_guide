@@ -88,20 +88,20 @@ param import /fs/microsd/vtol_param_backup
 
 ### 매개변수 이름
 
-Parameter names must be no more than 16 ASCII characters.
+매개변수 이름은 ASCII 문자 16자 이하입니다.
 
-By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and `MC_` and `FW_` are used for parameters related specifically to Multicopter or Fixed wing systems. This convention is not enforced.
+관례에 따라, 그룹의 모든 매개변수는 동일한(의미 있는) 문자열 접두사 뒤에 밑줄이 와야 하며, 특히 멀티콥터 또는 고정익 관련 매개변수에는 `MC_` 및 `FW_`가 사용됩니다. 이 관례는 강제 사항은 아닙니다.
 
-The name must match in both code and [parameter metadata](#parameter-metadata) to correctly associate the parameter with its metadata (including default value in Firmware).
+매개변수를 해당 메타데이터(펌웨어의 기본값 포함)와 올바르게 연결하려면, 이름이 코드와 [매개변수 메타데이터](#parameter-metadata)에서 일치하여야 합니다.
 
 
-### C API
+### C / C++ API
 
-There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.
+PX4 모듈 및 드라이버에서 매개변수 사용할 수 있는 C 및 C++ API가 있습니다.
 
-One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).
+API 간의 중요한 차이점 중 하나는 C++ 버전이 매개변수 값(예: GCS에서) 변경과 동기화하는 보다 효율적인 표준화 메커니즘이 있다는 것입니다.
 
-Synchronization is important because a parameter can be changed to another value at any time. Your code should *always* use the current value from the parameter store. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
+매개변수는 언제든지 다른 값으로 변경될 수 있으므로, 동기화가 중요합니다. 코드는 매개변수 저장소에서 최신 값을 *항상* 사용하여야 합니다. If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the `@reboot_required` metadata).
 
 `ModuleParams` 클래스를 상송하고 매개변수 목록과 관련 매개변수 속성을 정의할 때 `DEFINE_PARAMETERS`를 활용하십시오. 매개변수 이름은 매개변수 메타데이터 정의와 정확히 일치해야합니다.
 
