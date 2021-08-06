@@ -335,8 +335,8 @@ FLASH 제한 보드에서 자체 개발시에 [여기](https://github.com/PX4/PX
 마스터 분기의 XML 파일은 CI를 통해 QGC 소스 트리에 복사되고, 구성 요소 정보 서비스를 통해 사용할 수 있는 메타데이터가 없는 경우의 대체 수단으로 사용됩니다(이 접근 방식은 구성 요소 정보 프로토콜이 존재하기 이전).
 
 
-## Further Information
+## 추가 정보
 
-- [Finding/Updating Parameters](../advanced_config/parameters.md)
-- [Parameter Reference](../advanced_config/parameter_reference.md)
-- [Param implementation](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/param.h#L129) (information on `.get()`, `.commit()`, and other methods)
+- [매개변수 검색 및수정](../advanced_config/parameters.md)
+- [매개변수 정의서](../advanced_config/parameter_reference.md)
+- [매개변수 구현](https://github.com/PX4/PX4-Autopilot/blob/master/platforms/common/include/px4_platform_common/param.h#L129)(`.get()`, `.commit()` 및 기타 메소드에 대한 정보)
