@@ -3,7 +3,7 @@
 :::warning
 **작성중입니다**.
 
-이 주제는 [외부 위치 추정(ROS)](../ros/external_position_estimation.md)과 크게 겹칩니다.
+This topic shares significant overlap with [External Position Estimation (ROS)](../ros/external_position_estimation.md).
 :::
 
 VICON이나 광추적 같은 실내 움직임 감지 체계는 기체 상태 추정시 위치와 자세 정보를 제공하거나, 분석시 실제 값으로 활용할 수 있습니다. 움직임 감지 데이터는 지역 원점을 기준으로 PX4의 지역 위치 추정치 업데이트에 활용할 수 있습니다. 선택에 따라 움직임 감지 체계의 방위(Yaw)값도 자세 추정기에 통합할 수 있습니다.
