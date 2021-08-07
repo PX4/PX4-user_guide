@@ -1,47 +1,47 @@
-# 윈도우즈 환경의 Cygwin 개발 환경 설정 (유지 보수 지침)
+# Windows Cygwin 개발 환경(유지 보수 지침)
 
-이 주제는 어떤 방식으로 [Cygwin 기반의 윈도우 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 구성하고 확장하는 방법을 설명해주는 글입니다.
+[Cygwin 기반 Windows 개발 환경](../dev_setup/dev_env_windows_cygwin.md)을 설정 방법을 설명합니다.
 
 
 ## 추가 정보
 
 <a id="features"></a>
 
-### 기능 / 문제
+### 기능 / 이슈
 
-다음과 같은 기능은 다음과 같은 버전에서 확실히 작동합니다. (Version 2.0):
+다음 기능이 (버전 2.0)에서 작동하는 것으로 알려져 있습니다.
 
-* SITL과 jMAVSim의 빌드 및 실행은 가상 머신에서의 동작보다 월등합니다. (이것은 윈도우 자체 바이너리를 만듭니다.  **px4.exe**).
+* 가상머신보다 훨씬 더 나은 성능으로 jMAVSim을 사용하여 SITL을 빌드하고 실행합니다(기본 Windows 바이너리 **px4.exe** 생성).
 * NuttX 빌드 및 업로드 (예:  px4_fmu-v2 and px4_fmu-v4)
-* *astyle*을 이용한 코드 검사(명령어: `make format`)
+* *astyle*을 사용한 스타일 검사(`make format` 명령 지원)
 * 명령행 자동 완성
-* 비침투적 설치 도구 해당 설치 프로그램은 사용자의 시스템과 전역 경로 설정에 어떤 영향도 주지 않습니다 (C:\PX4\와 같은 선택한 설치 디렉터리만 수정하며 임시 로컬 경로를 사용합니다).
+* 비침투적 설치 도구 해당 설치 프로그램은 사용자의 시스템과 전역 경로 설정에 어떤 영향도 주지 않습니다 (C:\PX4\와 같은 선택한 설치 디렉터리만 수정하여 임시 로컬 경로를 사용합니다).
 * 설치 마법사에서는 툴체인 폴더의 개별 설정을 유지하면서 새 버전으로 업데이트할 수 있습니다.
 
 미지원:
-* Simulation: Gazebo and ROS are not supported.
-* Only NuttX and JMAVSim/SITL builds are supported.
-* [Known problems](https://github.com/orgs/PX4/projects/6) (Also use to report issues).
+* 시뮬레이션: Gazebo와 ROS는 지원되지 않습니다.
+* NuttX와 JMAVSim/SITL 빌드만 지원됩니다.
+* [알려진 문제](https://github.com/orgs/PX4/projects/6) (또한 보고할 문제).
 
 <a id="script_setup"></a>
 
-### Shell Script Installation
+### 셸 스크립트 설치
 
-You can also install the environment using shell scripts in the Github project.
+Github 프로젝트에서 셸 스크립트를 사용하여 환경을 설치할 수 있습니다.
 
-1. Make sure you have [Git for Windows](https://git-scm.com/download/win) installed.
-1. Clone the repository https://github.com/PX4/windows-toolchain to the location you want to install the toolchain. Default location and naming is achieved by opening the `Git Bash` and executing:
+1. [Windows용 Git](https://git-scm.com/download/win)이 설치 여부를 체크합니다.
+1. 도구 체인을 설치하려는 위치에 https://github.com/PX4/windows-toolchain 저장소를 복제합니다. 기본 위치와 이름은 `Git Bash`를 열고, 다음을 실행하여 지정합니다.
 ```
 cd /c/
 git clone https://github.com/PX4/windows-toolchain PX4
 ```
-1. If you want to install all components navigate to the freshly cloned folder and double click on the script `install-all-components.bat` located in the folder `toolchain`. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. `toolchain\cygwin64` and click on the **install-XXX.bat** scripts to only fetch something specific.
-1. Continue with [Getting Started](../dev_setup/dev_env_windows_cygwin.md#getting-started).
+1. 모든 구성 요소를 설치하려면, 새로 복제된 폴더로 이동하여 `toolchain` 폴더에 있는 `install-all-components.bat` 스크립트를 두 번 클릭합니다. 특정 구성 요소만 필요하고 인터넷 트래픽 및/또는 디스크 공간을 보호하려면, 예를 들어 다음과 같은 다른 구성 요소 폴더로 이동할 수 있습니다. `toolchain\cygwin64` 및 **install-XXX.bat** 스크립트를 클릭하여 특정 항목만 가져옵니다.
+1. [시작하기](../dev_setup/dev_env_windows_cygwin.md#getting-started)를 계속합니다.
 
 
 <a id="manual_setup"></a>
 
-### Manual Installation (for Toolchain Developers)
+### 수동 설치 (툴체인 개발자용)
 
 This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.
 
