@@ -1,4 +1,4 @@
-# CentOS Development Environment
+# CentOS 개발 환경
 
 :::warning
 This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
