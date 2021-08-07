@@ -1,8 +1,8 @@
 # 시스템 알림음
 
-PX4는 중요한 시스템 상태와 문제를 음성으로 알리는 여러가지 [표준 알림음](../getting_started/tunes.md)을 지정해두었습니다(예시: 시스템 시작, 이륙 준비 완료, 배터리 경고 등)
+PX4는 중요한 시스템 상태와 문제(예: 시스템 시작, 준비 성공, 배터리 경고 등)들에 대한 오디오 알림을 위한 다양한 [표준 톤/곡](../getting_started/tunes.md)을 정의합니다.
 
-알림음은 문자열([안시 악보 표기](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt))로 정의하며 [튠즈](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/tunes) 라이브러리를 통해 코드로 재생합니다. 튠즈 라이브러리에는 기본 시스템 음 목록이 들어있습니다. 해당 내용은 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) 파일을 참고하십시오.
+알림음은 문자열([ANSI 음악 표기법](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt))을 사용하여 지정되고 [곡](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/tunes) 라이브러리를 사용하여 코드로 재생됩니다. 튠즈 라이브러리에는 기본 시스템 음 목록이 들어있습니다. 해당 내용은 [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) 파일을 참고하십시오.
 
 PX4에는 기본음 또는 사용자 지정음을 재생(시험)할 때 활용할 모듈이 있습니다.
 
