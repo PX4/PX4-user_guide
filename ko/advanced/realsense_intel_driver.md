@@ -52,7 +52,7 @@ sudo apt-get install git
     git clone https://github.com/bestmodule/RealSense_ROS.git
     ```
 - [이곳](https://github.com/bestmodule/RealSense_ROS/tree/master/r200_install)의 절차를 따르십시오.
-  - 다음 설치 꾸러미를 설치할 지 여부를 물어보면 엔터키를 누르십시오:
+  - 패키지 설치할 지 여부를 물어보면 엔터키를 입력하십시오.
     ```
     Intel Low Power Subsystem support in ACPI mode (MFD_INTEL_LPSS_ACPI) [N/m/y/?] (NEW)
     ```
@@ -63,12 +63,12 @@ sudo apt-get install git
     ```
     Dell Airplane Mode Switch driver (DELL_RBTN) [N/m/y/?] (NEW)
     ```
-  - 설치 과정 마지막에 다음 오류메시지가 나타날 수 있으나, 이 때문에 드라이버의 오동작이 나타나선 안됩니다:
+  - 설치 프로세스가 끝날 때 나타날 수 있는 다음 오류 메시지는 드라이버의 오작동으로 이어지지 않아야 합니다.
     ```
     rmmod: ERROR: Module uvcvideo is not currently loaded
     ```
 
-- 설치 과정이 끝나면 가상 머신을 다시 시작하십시오.
+- 설치 과정이 끝나면, 가상 머신을 다시 시작하십시오.
 
 - 카메라 드라이버 시험:
   - 인텔 리얼센스 카메라 헤드를 USB3 케이블로 USB3 방식을 따르는 컴퓨터의 포트에 연결하십시오.
@@ -78,10 +78,10 @@ sudo apt-get install git
       ```
       DSAPI call failed at ReadCameraInfo.cpp:134!
       ```
-    - 카메라 드라이버가 동작하고 Intel RealSense R200을 인식하면 Intel RealSense R200 카메라 헤드 정보를 살펴보아야 합니다.
+    - 카메라 드라이버가 동작하고 Intel RealSense R200을 인식하면, Intel RealSense R200 카메라 헤드 정보를 살펴보아야 합니다.
 
 - ROS 노들릿(nodlet) 설치 및 시험:
   - [이곳](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md)의 "설치" 부분에 언급한 설치 절차를 따라 ROS 노들릿을 설치하십시오.
   - [이곳](https://github.com/bestmodule/RealSense_ROS/blob/master/realsense_dist/2.3/doc/RealSense-ROS-R200-nodelet.md)의 "Running the R200 nodelet"  부분에 언급한 절차를 따라 ROS 노들릿과 Intel RealSense R200 카메라 헤드를 시험하십시오.
-    - 모든 기능이 동작하면 ROS 토픽에 Intel RealSense R200 카메라로부터 제각기 다른 데이터 스트림이 나옵니다.
+    - 모든 기능이 동작하면 ROS 토픽에 Intel RealSense R200 카메라로부터 제각기 다른 데이터 스트림이 나타납니다.
 
