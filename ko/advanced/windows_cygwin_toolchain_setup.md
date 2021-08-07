@@ -114,7 +114,7 @@ git clone https://github.com/PX4/windows-toolchain PX4
    * 윈도우 시스템에서 키트 설치를 제거할 수 있습니다. 툴체인에는 바이너리만 필요합니다.
 
 :::note
-이것이 도구 체인이 [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat)에서 하는 일입니다.
+이것이 툴체인이 [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat)에서 하는 일입니다.
 :::
 
 1. Windows용 바이너리의 zip 아카이브로 [**Apache Ant**](https://ant.apache.org/bindownload.cgi)를 다운로드하고, `C:\PX4\toolchain\apache-ant` 폴더에 압축을 해제합니다.
@@ -140,10 +140,10 @@ git clone https://github.com/PX4/windows-toolchain PX4
      make all
     ```
 
-    * Copy the resulting binary **genromfs.exe** one folder level out to: **C:\PX4\toolchain\genromfs**
+    * 결과 바이너리 **genromfs.exe**를 한 폴더 수준으로 복사합니다. **C:\PX4\toolchain\genromfs**
 
 :::note
-This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
+이것은 툴체인이 [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat)에서 수행하는 작업입니다.
 :::
 
-1. Make sure all the binary folders of all the installed components are correctly listed in the `PATH` variable configured by [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. 설치된 모든 구성요소의 모든 바이너리 폴더가 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)에 의해 구성된 `PATH` 변수에 올바르게 나열되어 있는지 확인하십시오.
