@@ -1,6 +1,6 @@
 # STM32 부트로더
 
-PX4 부트로더 코드는 깃허브 [Bootloader](https://github.com/px4/bootloader) 저장소에 있습니다.
+PX4 부트로더용 코드는 Github [Bootloader](https://github.com/px4/bootloader) 저장소에서 제공합니다.
 
 ## 지원 보드
 
@@ -21,13 +21,14 @@ git submodule update
 make
 ```
 
-위 과정을 거치면 Bootloader 디렉터리에서 지원하는 모든 보드의 elf파일을 만듭니다.
+위 과정을 거치면 Bootloader 디렉터리에서 지원하는 보드의 elf 파일을 생성합니다.
 
 ## 부트로더 플래싱
 
-다음 절차는 블랙매직 / 드론코드 프로브에 해당합니다. 기타 JTAG 프루브는 다르지만 비슷한 과정을 밟습니다. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지해야 합니다.
+:::warning
+일부 보드에서는 올바른 전원 시퀀스는 JTAG/SWD 액세스 과정에서 필수적입니다. 설명된 대로 정확히 다음 단계를 따르십시오. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지해야 합니다.
 
-The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
+아래 지침은 Blackmagic/Dronecode 프로브에 유효합니다. 다른 JTAG 프로브에는 유사한 단계가 필요합니다. 부트로더를 플래싱하는 개발자는 필요한 지식을 숙지하여야 합니다. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
 [J-Link GDB 서버](https://www.segger.com/jlink-gdb-server.html) 관련 절차입니다.
 1. JTAG 케이블 연결 제거
