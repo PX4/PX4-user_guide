@@ -62,10 +62,10 @@ Bash 세션마다 입력하지 않으려면, 이 줄을 Ubuntu **.bashrc** 파�
    ```
    그러면 JMAVSim UI가 아래와 같이 XMing에 표시됩니다.
 
-   ![jMAVSimOnWindows](../../assets/simulation/jmavsim_on_windows.png)
+   ![윈도우 환경의 jMAVSim](../../assets/simulation/jmavsim_on_windows.png)
 
 :::warning
-Gazebo can similarly be run within Ubuntu Bash for Windows, but too slow to be useful. To try this, follow the [ROS kinetic install guide](http://wiki.ros.org/kinetic/Installation/Ubuntu) and run Gazebo in the Bash shell as shown:
+Gazebo는 Windows용 Ubuntu Bash 내에서 실행할되지만, 너무 느려서 유용하지 않습니다. 이를 시도하려면 [ROS kinetic 설치 가이드](http://wiki.ros.org/kinetic/Installation/Ubuntu)를 따라, 다음과 같이 Bash 셸에서 Gazebo를 실행하십시오.
 ```sh
 export DISPLAY=:0
 export GAZEBO_IP=127.0.0.1
@@ -75,29 +75,30 @@ make px4_sitl gazebo
 
 <a id="build_script_details"></a>
 
-### Build Script Details
+### 빌드 스크립트 세부 정보
 
-The <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh">windows_bash_nuttx.sh</a> <!-- NEED px4_version --> build script modifies the Ubuntu build instructions to remove Ubuntu-specific and UI-dependent components, including the *Qt Creator* IDE and the simulators.
+<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh">windows_bash_nuttx.sh</a> <!-- NEED px4_version --> 빌드 스크립트는 Ubuntu 빌드 지침을 수정하여 Ubuntu 관련 구성 요소, *Qt Creator* IDE 및 시뮬레이터를 포함하여 UI 종속 구성 요소를 제거합니다.
 
-In addition, it uses a [64 bit arm-none-eabi compiler](https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git) since BashOnWindows doesn't run 32 bit ELF programs (and the default compiler from `https://launchpad.net/gcc-arm-embedded` is 32 bit).
+또한 BashOnWindows는 32비트 ELF 프로그램(및 `https://launchpad.net/gcc-의 기본 컴파일러)을 실행할 수 없으므로, <a href="https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git">64비트 arm-none-eabi 컴파일러</a>를 사용합니다. </p>
 
-To add this compiler to your environment manually:
+<p spaces-before="0">이 컴파일러를 환경에 수동으로 추가합니다.</p>
 
-1. Download the compiler:
-   ```sh
-   Download the compiler: 
-     sh
-     wget https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-/raw/master/gcc-arm-none-eabi-5_4-2017q2-20170512-linux.tar.bz2
-   ```
-1. Unpack it using this command line in the Bash On Windows console: sh tar -xvf gcc-arm-none-eabi-5_4-2017q2-20170512-linux.tar.bz2 This will unpack the arm gcc cross-compiler to: `gcc-arm-none-eabi-5_4-2017q2/bin`
+<ol start="1">
+<li><p spaces-before="0">컴파일러를 다운로드합니다.
+<pre><code class="sh">   wget https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-/raw/master/gcc-arm-none-eabi-5_4-2017q2-20170512-linux.tar.bz2
+`</pre></li>
+1
+Windows용 Bash 쉘에서 다음 명령어를 실행하여 압축을 해제합니다.
    ```sh
    tar -xvf gcc-arm-none-eabi-5_4-2017q2-20170512-linux.tar.bz2
    ```
-   This will unpack the arm gcc cross-compiler to:
+   이것은 arm gcc 크로스 컴파일러의 압축을 해제합니다.
    ```
    gcc-arm-none-eabi-5_4-2017q2/bin
    ```
-1. Add the to the environment (add the line to your bash profile to make the change permanent) `export PATH=$HOME/gcc-arm-none-eabi-5_4-2017q2/bin:\$PATH`
+1
+환경에 추가(변경 사항을 영구적으로 만들기 위해 bash 프로필에 행 추가)합니다.
    ```
    export PATH=$HOME/gcc-arm-none-eabi-5_4-2017q2/bin:$PATH
    ```
+</ol>
