@@ -43,19 +43,19 @@ git clone https://github.com/PX4/windows-toolchain PX4
 
 ### 수동 설치 (툴체인 개발자용)
 
-This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.
+이 섹션에서는 스크립트 기반 설치 저장소에서  해당 스크립트를 사용하여 수동으로 Cygwin 도구 체인을 설정하는 방법을 설명합니다. 결과는 스크립트를 활용하는 방법이나 MSI 설치 관리자를 활용하는 방법이나 동일합니다.
 
 :::note
-The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.
+툴체인은 유지 관리되므로, 이 지침은 향후 모든 변경 사항의 모든 세부 사항을 다루지 않습니다.
 :::
 
-1. Create the *folders*: **C:\PX4\**, **C:\PX4\toolchain\** and **C:\PX4\home\**
-1. Download the *Cygwin installer* file [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe) from the [official Cygwin website](https://cygwin.com/install.html)
-1. Run the downloaded setup file
-1. In the wizard choose to install into the folder: **C:\PX4\toolchain\cygwin64\**
-1. Select to install the default Cygwin base and the newest available version of the following additional packages:
+1. *폴더*를 생성합니다: **C:\PX4\**, **C:\PX4\toolchain\** 및 **C:\PX4\home\**
+1. [공식 Cygwin 웹사이트](https://cygwin.com/install.html)에서 *Cygwin 설치 프로그램* 파일 [setup-x86_64.exe](https://cygwin.com/setup-x86_64.exe)를 다운로드합니다.
+1. 다운로드한 설치 파일을 실행합니다.
+1. 마법사에서 **C:\PX4\toolchain\cygwin64\** 폴더에 설치하도록 선택합니다.
+1. 기본 Cygwin 기반과 다음 추가 패키지의 사용 가능한 최신 버전을 설치하려면 선택합니다.
 
-   * **Category:Packagename **
+   * **범주:패키지 이름 **
    * Devel:cmake (3.3.2 gives no deprecated warnings, 3.6.2 works but has the warnings)
    * Devel:gcc-g++
    * Devel:gdb
@@ -64,7 +64,7 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Devel:ninja
    * Devel:patch
    * Editors:xxd
-   * Editors:nano (unless you're the vim pro)
+   * Editors:nano (vim을 사용하지 않는 경우)
    * Python:python2
    * Python:python2-pip
    * Python:python2-numpy
@@ -77,20 +77,20 @@ The toolchain gets maintained and hence these instructions might not cover every
    * Web:wget
 
 :::note
-Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.
+이 목록에 없는 패키지를 가능한 선택하지 마십시오. 일부 패키지는 충돌하고 빌드를 손상시킵니다.
 :::
 
 :::note
-That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat) does.
+이것이 [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat)가 하는 일입니다.
 :::
 
-1. Write up or copy the **batch scripts** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat) and [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat).
+1. **배치 스크립트** [`run-console.bat`](https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat)와 [`setup-environment.bat`](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)를 작성하거나 복사합니다.
 
-   The reason to start all the development tools through the prepared batch script is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain's folder. This is done by always first calling the script [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) and the desired application like the console after that.
+   준비된 배치 스크립트를 통하여 모든 개발 도구를 시작하는 이유는 도구 체인의 폴더 내에서 로컬 이식 가능한 Cygwin 환경을 사용하도록 시작 프로그램을 미리 설정하기 때문입니다. 이것은 항상 먼저 스크립트 [**setup-environment.bat**](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat)를 호출하고, 그 후에 콘솔과 같은 원하는 애플리케이션을 호출하여 수행됩니다.
 
-   The script [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) locally sets environmental variables for the workspace root directory `PX4_DIR`, all binary locations `PATH`, and the home directory of the unix environment `HOME`.
+   [setup-environment.bat](https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat) 스크립트는 작업 환경 루트 디렉터리의 환경 변수 `PX4_DIR`, 전체 바이너리 경로 `PATH`, 유닉스 환경의 계정 루트 디렉터리 `HOME`을 설정합니다.
 
-1. Add necessary **python packages** to your setup by opening the Cygwin toolchain console (double clicking **run-console.bat**) and executing
+1. Cygwin 도구 모음 콘솔을 열고(**run-console.bat** 두 번 클릭) 다음을 실행하여 필요한 **python 패키지**를 설정에 추가합니다.
    ```
    pip2 install toml
    pip2 install pyserial
@@ -98,43 +98,43 @@ That's what [cygwin64/install-cygwin-px4.bat](https://github.com/MaEtUgR/PX4Tool
    ```
 
 :::note
-That's what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
+이것이 [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat)가 하는 일입니다.
 :::
 
-1. Download the [**ARM GCC compiler**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\gcc-arm`.
+1. [**ARM GCC 컴파일러**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)를 Windows용 바이너리의 zip 아카이브로 다운로드하고, `C:\PX4\toolchain\gcc-arm` 폴더에 압축을 해제합니다.
 
 :::note
-This is what the toolchain does in: [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat).
+도구 모음이 [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat)에서 수행하는 작업입니다.
 :::
 
-1. Install the JDK:
-   * Download Java 14 from [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) or [AdoptOpenJDK](https://adoptopenjdk.net/).
-   * Because sadly there is no portable archive containing the binaries directly you have to install it.
-   * Find the binaries and move/copy them to **C:\PX4\toolchain\jdk**.
-   * You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.
+1. JDK를 설치합니다.
+   * [Oracle](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) 또는 [AdoptOpenJDK](https://adoptopenjdk.net/)에서 Java 14를 다운로드합니다.
+   * 애석하게도, 바이너리를 포함하는 파일이 없기 때문에 설치하여야 합니다.
+   * 바이너리를 찾아 **C:\PX4\toolchain\jdk**로 이동/복사하십시오.
+   * 윈도우 시스템에서 키트 설치를 제거할 수 있습니다. 툴체인에는 바이너리만 필요합니다.
 
 :::note
-This is what the toolchain does in: [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat).
+이것이 도구 체인이 [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat)에서 하는 일입니다.
 :::
 
-1. Download [**Apache Ant**](https://ant.apache.org/bindownload.cgi) as zip archive of the binaries for Windows and unpack the content to the folder `C:\PX4\toolchain\apache-ant`.
+1. Windows용 바이너리의 zip 아카이브로 [**Apache Ant**](https://ant.apache.org/bindownload.cgi)를 다운로드하고, `C:\PX4\toolchain\apache-ant` 폴더에 압축을 해제합니다.
 
 :::tip
-Make sure you don't have an additional folder layer from the folder which is inside the downloaded archive.
+다운로드한 아카이브 내부에 있는 폴더에서 추가 폴더 레이어가 없는지 확인하십시오.
 :::
 
 :::note
-This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
+도구 모음이 [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat)에서 수행하는 작업입니다.
 :::
 
-1. Download, build and add *genromfs* to the path:
-   * Clone the source code to the folder **C:\PX4\toolchain\genromfs\genromfs-src** with
+1. *genromfs*를 다운로드하고, 빌드한 다음 PATH에 추가하십시오:
+   * 다음을 사용하여 **C:\PX4\toolchain\genromfs\genromfs-src** 폴더에 소스 코드를 복제합니다.
      ```
      cd /c/toolchain/genromfs
      git clone https://github.com/chexum/genromfs.git genromfs-src
      ```
 
-   * Compile it with:
+   * 다음 명령으로 컴파일합니다.
      ```
      cd genromfs-src
      make all
