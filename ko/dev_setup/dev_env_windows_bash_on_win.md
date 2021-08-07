@@ -1,11 +1,11 @@
-# Windows WSL-Based Development Environment
+# Windows WSL 기반 개발 환경
 
 :::warning
-This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+이 개발 환경은 [지원되지 않습니다](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
 :::
 
-The easiest way to setup the environment is to use the **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download>windows_bash_nuttx.sh</a>** script (details for script are [given below](#build_script_details)).
-* Build firmware for NuttX/Pixhawk targets.
+Windows 사용자는 대안으로 [Bash on Windows](https://github.com/Microsoft/BashOnWindows) 내에 *약간 수정된* Ubuntu Linux PX4 개발 환경을 설치하고 이를 사용하여 다음을 수행할 수 있습니다.
+* NuttX/Pixhawk 대상 펌웨어를 빌드합니다.
 * Run the PX4 JMAVSim simulation (using a Windows-hosted X-Windows app to display the UI)
 
 :::note
