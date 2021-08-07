@@ -373,7 +373,7 @@
     * [트리 외부 모듈](advanced/out_of_tree_modules.md)
     * [STM32 부트로더](software_update/stm32_bootloader.md)
     * [시스템 알림음](advanced/system_tunes.md)
-    * [고급 Linux 설치 사례](dev_setup/dev_env_advanced_linux.md)
+    * [고급 Linux 사용 사례](dev_setup/dev_env_advanced_linux.md)
     * [Windows Cygwin 툴체인 유지 관리](advanced/windows_cygwin_toolchain_setup.md)
     * [지원되지 않는 개발자 설정](advanced/dev_env_unsupported.md) 
       * [CentOS 리눅스](dev_setup/dev_env_linux_centos.md)
