@@ -8,7 +8,7 @@ PX4-Autopilot 저장소는 PX4 개발을 위하여 Arch Linux 설치 스크립�
 
 스크립트는 (기본적으로) NuttX 대상 PX4(RTPS 제외)를 빌드하고, *jMAVsim*으로 시뮬레이션용 도구를 설치합니다. 명령줄 인수 `--gazebo`를 지정하여 *Gazebo* 시뮬레이터를 추가로 설치할 수 있습니다.
 
-![Gazebo on Arch](../../assets/simulation/gazebo/arch-gazebo.png)
+![Arch Linux 가제보](../../assets/simulation/gazebo/arch-gazebo.png)
 
 :::note
 이 설명서는 Arch Linux 보다 설정하기 편리하여, [Manjaro](https://manjaro.org/)(Arch 기반 배포)에서 테스트하였습니다.
@@ -32,4 +32,4 @@ PX4-Autopilot 저장소는 PX4 개발을 위하여 Arch Linux 설치 스크립�
 :::
 
 - `--no-nuttx`: NuttX/Pixhawk 도구 모음을 설치하지 않습니다(즉, 시뮬레이션만 사용하는 경우).
-- `--no-sim-tools`: Do not install jMAVSim/Gazebo (i.e. if only targeting Pixhawk/NuttX targets)
+- `--no-sim-tools`: jMAVSim/Gazebo를 설치하지 않습니다(예: Pixhawk/NuttX 대상만 대상으로 하는 경우).
