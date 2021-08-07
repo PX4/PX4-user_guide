@@ -1,7 +1,7 @@
-# Development Environment on ArchLinux
+# Arch 리눅스 개발 환경
 
 :::warning
-This development environment is [not supported](../advanced/dev_env_unsupported.md). See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+이 개발 환경은 [지원되지 않습니다](../advanced/dev_env_unsupported.md). 지원되는 환경과 도구에 대한 정보는 [도구 모음 설치](../dev_setup/dev_env.md)를 참고하십시오!
 :::
 
 The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/arch.sh). <!-- NEED px4_version -->
