@@ -1,18 +1,18 @@
 # 시험 비행
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래됐습니다</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/test_and_ci/test_flights.html">여기에서  찾을 수 있습니다</a>.</p>
+  <div class="custom-block danger"><p class="custom-block-title">이 페이지는 오래되었습니다.</p> <p>최신 문서는 <a href="https://docs.px4.io/master/en/test_and_ci/test_flights.html">여기</a>를 참고하십시오.</p>
   </div>
 </div>
 
-시험 비행은 품질 보증에 중요한 과정입니다. 드론코드 시험 팀에서는 여러분이 보낸 pull 요청의 검토(시험 비행)를 지원할 수 있고 기록에 대한 의견을 제시할 수 있습니다.
+시험 비행은 품질 보증에 매우 중요한 과정입니다. Dronecode 테스트 팀은 pull 요청을 검토(테스트 비행)하고 피드백 및 로그를 제공하는 데 도움을 줄 수 있습니다.
 
 
 ## 시험 비행 요청 방법
 
-* 여러분이 바꾼 코드를 pull 요청에 추가하십시오
-* **@PX4/testflight** 태그로 댓글에 시험 팀을 호출하십시오
-* 시험 팀의 답변을 기다리십시오
+* 풀 리퀘스트에서 변경 사항에 대하여 자세한 설명을 추가합니다.
+* **@PX4/testflight**를 사용하여 댓글로 테스트 팀을 태그합니다.
+* 테스트 팀의 답변을 기다립니다.
 * 시험 팀은 [자신들이 할 일에 여러분이 제출한 PR/Issue를 추가합니다](https://github.com/PX4/PX4-Autopilot/projects/18)
 
 ## 응답 시간
