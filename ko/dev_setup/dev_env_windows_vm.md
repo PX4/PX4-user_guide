@@ -21,21 +21,21 @@ Windows 개발자는 Linux를 게스트 운영 체제로 사용하는 가상 머
 
 1. [VMWare 플레이어](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)를 다운로드합니다.
 1. 윈도우 시스템에 설치합니다.
-1. Download the desired version of [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop). (see [Linux Instructions Page](../setup/dev_env_linux.md) for recommended Ubuntu version).
-1. Open *VMWare Player*.
-1. Enable 3D acceleration in the VM's settings: **VM > Settings > Hardware > Display > Accelerate 3D graphics**
+1. 원하는 버전의 [Ubuntu Desktop ISO Image](https://www.ubuntu.com/download/desktop)를 다운로드합니다. (권장 Ubuntu 버전은 [Linux 지침 페이지](../dev_setup/dev_env_linux.md) 참조).
+1. *VMWare 플레이어*를 실행합니다.
+1. 가상 머신 설정에서 3D 가속 사용: **VM > 설정 > 하드웨어 > 디스플레이 > 3D 그래픽 가속화**
 
 :::note
-This option is required to properly run 3D simulation environments like jMAVSim and Gazebo. We recommend this is done before installing Linux in the virtual environment.
+이 옵션은 jMAVSim 및 Gazebo와 같은 3D 시뮬레이션 실행에 필요합니다. 가상 환경에 Linux를 설치하기 전에 이 작업을 수행하는 것이 좋습니다.
 :::
-1. Select the option to create a new virtual machine.
-1. In the VM creation wizard choose the downloaded Ubuntu ISO image as your installation medium and will automatically detect the operating system you want to use.
-1. Also in the wizard, select the resources you want to allocate to your virtual machine while it is running. Allocate as much memory and as many CPU cores as you can without rendering your host Windows system unusable.
-1. Run your new VM at the end of the wizard and let it install Ubuntu following the setup instructions. Remember all settings are only for within your host operating system usage and hence you can disable any screen saver and local workstation security features which do not increase risk of a network attack.
-1. Once the new VM is booted up make sure you install *VMWare tools drivers and tools extension* inside your guest system. This will enhance performance and usability of your VM usage:
-    * Significantly enhanced graphics performance
-    * Proper support for hardware device usage like USB port allocation (important for target upload), proper mouse wheel scrolling, sound suppport
-    * Guest display resolution adaption to the window size
-    * Clipboard sharing to host system
-    * File sharing to host system
-1. Continue with [PX4 environment setup for Linux](../dev_setup/dev_env_linux.md)
+1. 새 가상 머신을 생성하는 메뉴를 선택합니다.
+1. 가상 머신 생성 마법사에서 다운로드한 Ubuntu ISO 이미지를 설치 매체로 선택하면, 사용하려는 운영 체제가 자동으로 감지됩니다.
+1. 마법사에서 실행 중인 가상 머신에 할당할 리소스를 선택합니다. 가상 머신에 최대한 많은 메모리와 CPU 코어를 할당하십시오.
+1. 마법사가 종료시 새 가상 머신을 실행하고, 설정 지침에 따라 Ubuntu를 설치합니다. 모든 설정은 호스트 운영 체제에서 사용하기 위한 것이므로, 네트워크 공격의 위험을 증가시키지 않는 화면 보호기 및 로컬 워크스테이션 보안 기능을 비활성화할 수 있습니다.
+1. 새 가상 머신이 부팅되면, 게스트 운영체제에 *VMWare 도구 드라이버 및 도구 확장*을 설치하여야 합니다. 이렇게 하면 다음과 같은 VM 사용의 성능과 유용성들이 향상됩니다.
+    * 크게 향상된 그래픽 성능
+    * USB 포트 할당(대상 업로드에 중요), 적절한 마우스 휠 스크롤, 사운드 지원과 같은 하드웨어 장치 사용에 대한 적절한 지원
+    * 창 크기에 따른 게스트 디스플레이 해상도 조정
+    * 호스트 시스템 클립보드 공유
+    * 호스트 시스템 파일 공유
+1. [Linux용 PX4 환경 설정](../dev_setup/dev_env_linux.md)을 계속 진행합니다.
