@@ -1,18 +1,17 @@
-# ROS 2 User Guide (PX4-ROS 2 Bridge)
+# ROS 2 사용 설명서(PX4-ROS 2 브리지)
 
-This topic explains how to setup and use ROS 2 with PX4.
+PX4에서 ROS 2를 설정하고 사용하는 방법을 설명합니다.
 
-It provides an overview of the ROS2-PX4 bridge architecture and application pipeline, along with instructions on how to install all the needed software and build ROS 2 applications.
+필요한 소프트웨어를 설치하고 ROS 2 애플리케이션을 구축하는 방법에 대한 지침과 ROS2-PX4 브리지 아키텍처 및 애플리케이션 파이프라인에 대한 개요를 제공합니다.
 
 
-:::note
-The Fast DDS interface in the PX4 Autopilot can be leveraged by any applications running and linked in DDS domains (including ROS nodes).
+:::note PX4 Autopilot의 Fast DDS 인터페이스는 DDS 도메인(ROS 노드 포함)에서 실행 및 연결된 모든 애플리케이션에서 활용할 수 있습니다.
 
-For information about using the *microRTPS bridge* without ROS 2, see the [RTPS/DDS Interface section](../middleware/micrortps.md).
+ROS 2 없이 *microRTPS 브리지* 사용 방법은 [RTPS/DDS 인터페이스 섹션](../middleware/micrortps.md)을 참고하십시오.
 :::
 
-:::note
-For a more detailed and visual explanation on how to use PX4 with ROS 2 see these presentations from the PX4 maintainers:
+:::note ROS
+2에서 PX4를 사용하는 방법에 대한 보다 자세하고 시각적인 설명은 PX4 유지 관리자의 다음 프레젠테이션을 참조하십시오.
 1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
