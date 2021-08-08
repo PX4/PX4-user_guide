@@ -85,7 +85,7 @@ cd PX4-Autopilot
 
 ### 도커 수동 호출
 
-The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect *QGroundControl*. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
+일반적인 명령어 구문은 다음과 같습니다. 이것은 X 포워딩을 지원하는 Docker 컨테이너를 실행합니다(컨테이너 내부에서 시뮬레이션 GUI를 사용할 수 있게 함). 컴퓨터의 디렉토리 `<host_src>`을 컨테이너 내부의 `<container_src>`으로 매핑하고, *QGroundControl*을 연결하는 데 필요한 UDP 포트를 전달합니다. `--privileged` 옵션을 사용하면 호스트의 장치(예: 조이스틱 및 GPU)에 자동으로 액세스할 수 있습니다. 장치를 연결/연결 해제하는 경우에는 컨테이너를 다시 시작하여야 합니다.
 
 ```sh
 # enable access to xhost from the container
@@ -100,10 +100,10 @@ docker run -it --privileged \
     -p 14570:14570/udp \
     --name=<local_container_name> <container>:<tag> <build_command>
 ```
-아래의 보강 예제에서는 호스트 컴퓨터에서 배시 셸을 열고 **~/src/PX4-Autopilot**  디렉터리를 공유하는 방법을 보여줍니다.
-* `<host_src>`: The host computer directory to be mapped to `<container_src>` in the container. This should normally be the **PX4-Autopilot** directory.
-* `<container_src>`: The location of the shared (source) directory when inside the container.
-* `<local_container_name>`: A name for the docker container being created. This can later be used if we need to reference the container again.
+여기서,
+* `<host_src>`: 컨테이너에서 `<container_src>`에 매핑될 호스트 컴퓨터 디렉터리입니다. 이것은 일반적으로 **PX4-Autopilot** 디렉토리입니다.
+* `<container_src>`: 컨테이너 내부에서 공유(소스) 디렉토리의 위치입니다.
+* `<local_container_name>`: 생성 중인 도커 컨테이너의 이름입니다. 나중에 컨테이너를 다시 참조해야 하는 경우 사용할 수 있습니다.
 * `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
 * `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
 
