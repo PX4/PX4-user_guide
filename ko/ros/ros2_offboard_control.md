@@ -1,26 +1,26 @@
-# ROS 2 Offboard Control Example
+# ROS 2 오프보드 제어 예
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*오프보드* 제어는 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 하는 방법이 있어야 합니다.
 :::
 
-:::warning ROS
-2 interaction with PX4 through the [*microRTPS* bridge](../middleware/micrortps.md) requires that the user understands how the PX4 internals work! The same understanding is required for PX4 offboard control via ROS 2, where the user publishes directly to the required uORB topics (without any level of abstraction between ROS and PX4 data formats/conventions).
+:::warning
+[*microRTPS* 브리지](../middleware/micrortps.md)를 통해 PX4와 ROS 2 상호작용을 하려면, 사용자가 PX4 내부가 어떻게 작동하는지 이해하여야 합니다! 사용자가 필요한 uORB 주제에 직접 게시하는 ROS 2를 통한 PX4 오프보드 제어에도 동일한 이해가 필요합니다(ROS와 PX4 데이터 형식/관례 간의 추상화 수준 없이).
 
-If you are unsure of PX4 internals work, we recommend that you instead use a workflow that depends on the MAVLink microservices and abstraction layer to execute offboard control or any other kind of interaction through the *microRTPS* bridge.
+PX4 내부 작동이 확실하지 않은 경우에는 MAVLink 마이크로서비스 및 추상화 계층에 의존하는 워크플로를 대신 사용하여 오프보드 제어 또는 *microRTPS* 브리지를 통한 다른 종류의 상호 작용을 실행하는 것이 좋습니다.
 :::
 
-The following C++ example shows how to use the *microRTPS* bridge to do offboard position control from a ROS 2 node.
+다음 C++ 예제는 *microRTPS* 브리지를 사용하여 ROS 2 노드에서 오프보드 위치 제어를 수행하는 방법을 설명합니다.
 
-## Requirements
+## 요구 사항
 
-For this example, PX4 SITL is being used, so it is assumed, first of all, that the user has the simulation environment properly configured. Besides that:
+이 예에서는 PX4 SITL을 사용므로, 사용자가 미리 시뮬레이션 환경을 설정하여야합니다. 그 외:
 
-1. The user already has their ROS 2 environment properly configured Check the [PX4-ROS 2 bridge](../ros/ros2_comm.md) document for details on how to do it.
-1. `px4_msgs` and `px4_ros_com` should be already on your colcon workspace. See the link in the previous point for details.
-1. `offboard_control_mode` and `trajectory_setpoint` messages are configured in the `uorb_rtps_message_ids.yaml` file both in the PX4-Autopilot and *px4_ros_com* package to be *received* in the Autopilot.
+1. 사용자는 미리 ROS 2 환경을 설치하여야 합니다. 자세한 방법은 [PX4-ROS 2 브리지](../ros/ros2_comm.md) 문서를 참고하십시오.
+1. `px4_msgs`와 `px4_ros_com`은 이미 colcon 작업 공간에 있어야 합니다. 자세한 내용은 앞의 링크를 참고하십시오.
+1. `offboard_control_mode` 및 `trajectory_setpoint` 메시지는 PX4-Autopilot 및  자동 조종 장치에서 *수신*되는 *px4_ros_com* 패키지의 `uorb_rtps_message_ids.yaml` 파일에 설정되어 있습니다.
 
-   In *PX4-Autopilot/msg/tools/uorb_rtps_message_ids.yaml*:
+   *PX4-Autopilot/msg/tools/uorb_rtps_message_ids.yaml*
    ```yaml
      - msg: offboard_control_mode
        id: 44
@@ -36,7 +36,7 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
        receive: true
    ```
 
-   In *path_to_colcon_ws/src/px4_ros_com/templates/uorb_rtps_message_ids.yaml*:
+   *path_to_colcon_ws/src/px4_ros_com/templates/uorb_rtps_message_ids.yaml*
    ```yaml
      - id: 44
        msg: OffboardControlMode
@@ -53,10 +53,10 @@ For this example, PX4 SITL is being used, so it is assumed, first of all, that t
    ```
 
 :::note
-At time of writing, the above topics are already configured to be received.
+이 문서를 작성하는 시점에는 위의 주제는 이미 수신하도록 설정되어 있습니다.
 :::
 
-## Implementation
+## 구현
 
 The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp).
 
