@@ -43,25 +43,25 @@ PX4 펌웨어에는 빌드 시간 메시지 정의를 기반으로 하는 microR
 
 PX4에서 ROS 2를 설정하려면 다음이 필요합니다.
 - [Fast DDS 설치](#install-fast-dds)
-- [Install ROS2](#install-ros-2)
-- [Build ROS 2 Workspace](#build-ros-2-workspace)
-- [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
+- [ROS2 설치](#install-ros-2)
+- [ROS 2 작업 공간 빌드](#build-ros-2-workspace)
+- [설치 상태 확인](#sanity-check-the-installation)(선택 사항)
 
-### Install Fast DDS
+### Fast DDS 설치
 
-Follow the [Fast DDS Installation Guide](../dev_setup/fast-dds-installation.md) to install **Fast RTPS(DDS) 2.0.0** (or later) and **Fast-RTPS-Gen 1.0.4** (not later!) and their dependencies.
+[Fast DDS 설치 가이드](../dev_setup/fast-dds-installation.md)에 따라 **Fast RTPS(DDS) 2.0.0**(이상) 및 **Fast-RTPS-Gen 1.0.4**를 설치합니다.
 
 :::note
-Check the guide to confirm the latest dependencies! You won't be able to continue with this guide until the correct versions of **Fast RTPS(DDS)** and **Fast-RTPS-Gen have been installed.
+최신 종속성을 확인하려면 가이드를 확인하십시오. 올바른 버전의 **Fast RTPS(DDS)** 및 **Fast-RTPS-Gen이 설치될 때까지, 이 가이드를 계속 진행할 수 없습니다.
 :::
 
 
-### Install ROS 2
+### ROS2 설치
 
 <!-- what other toolchain needed? e.g. for ROS - gcc? does it all come with the ROS setup? -->
 
 :::note
-This install and build guide covers ROS 2 Foxy in Ubuntu 20.04.
+이 설치 및 빌드 가이드는 Ubuntu 20.04의 ROS 2 Foxy를 기준으로 합니다.
 :::
 
 To install ROS 2 and its dependencies:
