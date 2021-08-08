@@ -322,10 +322,10 @@ int main(int argc, char *argv[])
 
 ### 오프보드 제어
 
-For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
+PX4에서 오프보드 제어를 사용하는 전체 예제는 [ROS 2 오프보드 제어 예제](../ros/ros2_offboard_control.md)를 참고하십시오.
 
 
-## Manual Workspace Setup (FYI Only)
+## 수동 작업 공간 설정(참고용)
 
 :::note
 This is provided to help you better understand the build process. It is not needed to build or use ROS 2. It additionally includes instructions for building the `ros1_bridge` package, which is used in [ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md).
