@@ -18,31 +18,31 @@ ROS 2 없이 *microRTPS 브리지* 사용 방법은 [RTPS/DDS 인터페이스 �
 
 ## 개요
 
-The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS). The [microRTPS Bridge](../middleware/micrortps.md) consists of a client running on PX4 and an agent running on the ROS computer, which communicate to provide bi-direction message translation between UORB and ROS 2 message formats. This allows you to create ROS 2 listener or advertiser nodes that publish and subscribe directly to and from PX4 UORB data! This is shown in the diagram below.
+ROS 2의 애플리케이션 파이프라인은 기본 통신 미들웨어(DDS/RTPS) 덕분에 매우 간단합니다. [microRTPS Bridge](../middleware/micrortps.md)는 PX4에서 실행되는 클라이언트와 ROS 컴퓨터에서 실행되는 에이전트로 구성되며, UORB와 ROS 2간의 양방향 메시지 변환을 제공합니다. 이를 통하여, PX4 UORB 데이터에 직접 게시 및 구독하는 ROS 2 리스너 또는 광고주 노드를 생성할 수 있습니다! 이것을 아래 다이어그램에서 설명합니다.
 
 ![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
 
-ROS 2 uses the [`px4_msgs`](https://github.com/PX4/px4_msgs) and [`px4_ros_com`](https://github.com/PX4/px4_ros_com) packages to ensure that matching message definitions are used for creating both the client and the agent code (this is important), and also to remove the requirement for PX4 to be present when building ROS code.
-- `px4_msgs` contains PX4 client message definitions. When this project is built it generates the corresponding ROS 2-compatible IDL files.
-- `px4_ros_com` builds the `px4_msgs` project, and then uses the generated IDL files to create (and build) the ROS 2 agent.
+ROS 2는 [`px4_msgs`](https://github.com/PX4/px4_msgs) 및 [`px4_ros_com`](https://github.com/PX4/px4_ros_com) 패키지를 사용하여 일치하는 메시지 정의가 클라이언트와 에이전트 코드를 생성하는 데 사용되는지 확인하고(중요함), ROS 코드를 빌드시에는 PX4가 있어야 합니다.
+- `px4_msgs`에는 PX4 클라이언트 메시지 정의가 포함됩니다. 이 프로젝트가 빌드되면 해당 ROS 2 호환 IDL 파일이 생성됩니다.
+- `px4_ros_com`은 `px4_msgs` 프로젝트 빌드후 생성된 IDL 파일을 사용하여 ROS 2 에이전트를 생성(및 빌드)합니다.
 
-The PX4 Autopilot project automatically updates [`px4_msgs`](https://github.com/PX4/px4_msgs) with new message definitions whenever they are changed (in the master branch).
+PX4 Autopilot 프로젝트는 (마스터 분기에서) 변경될 때마다, 새 메시지 정의로 [`px4_msgs`](https://github.com/PX4/px4_msgs)를 자동으로 업데이트합니다.
 
-:::note
-The subset of uORB topics that will be accessible to ROS applications can be found in [px4_msgs/msg](https://github.com/PX4/px4_msgs/tree/master/msg).
+:::note ROS
+애플리케이션에 액세스할 수 있는 uORB 주제의 하위 집합은 [px4_msgs/msg](https://github.com/PX4/px4_msgs/tree/master/msg)에 위치합니다.
 :::
 
-PX4 firmware contains a microRTPS client based on its build-time message definitions. Astute readers will note that since the generated agent might not have been built to that same set of definitions (unless they were both built of the same 'master' commit). Right now this is not a problem because the PX4 message set/definitions are relatively stable. In the near future the intention is that branches will be created to match with specific PX4 releases.
+PX4 펌웨어에는 빌드 시간 메시지 정의를 기반으로 하는 microRTPS 클라이언트가 포함되어 있습니다. Astute readers will note that since the generated agent might not have been built to that same set of definitions (unless they were both built of the same 'master' commit). 현재 시점에서는 PX4 메시지 세트/정의가 비교적 안정적이기 때문에 문제가 되지 않습니다. 조만간, 특정 PX4 릴리스와 일치하도록 분기될 예정입니다.
 
-:::warning
-You cannot use an agent generated as part of a "normal" PX4 build with ROS 2. While microRTPS client is the same, the IDL files used by ROS 2 are slightly different than used by normal DDS. We use the `px4_msg` to generate appropriate IDL files.
+:::warning ROS
+2에서 "일반" PX4 빌드의 일부로 생성된 에이전트를 사용할 수 없습니다. microRTPS 클라이언트는 동일하지만, ROS 2에서 사용하는 IDL 파일은 일반 DDS에서 사용하는 것과 약간 차이가 납니다. `px4_msg`를 사용하여 적절한 IDL 파일을 생성합니다.
 :::
 
 
-## Installation & Setup
+## 설치 및 설정
 
-To setup ROS 2 for use with PX4 you will need to:
-- [Install Fast DDS](#install-fast-dds)
+PX4에서 ROS 2를 설정하려면 다음이 필요합니다.
+- [Fast DDS 설치](#install-fast-dds)
 - [Install ROS2](#install-ros-2)
 - [Build ROS 2 Workspace](#build-ros-2-workspace)
 - [Sanity Check the Installation](#sanity-check-the-installation) (Optional)
