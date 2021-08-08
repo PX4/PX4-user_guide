@@ -88,24 +88,24 @@ ROS 2와 해당 종속성을 설치합니다.
 
 ### ROS 2 작업 공간 빌드
 
-This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
+이 섹션에서는 *홈 디렉토리*에서 호스팅되는 ROS 2 작업 공간을 만드는 방법을 보여줍니다(필요에 따라 명령을 수정하여 소스 코드를 다른 곳에 배치). `px4_ros_com` 및 `px4_msg` 패키지가 작업 영역 폴더에 복제한 다음, 스크립트를 사용하여 작업 영역을 빌드합니다.
 
 :::note
-The build process will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.
+빌드 프로세스는 다른 환경 구성을 소싱하는 빌드 프로세스의 여러 단계에 해당하는 콘솔에서 새 탭을 엽니다.
 :::
 
-To create and build the workspace:
+작업 공간을 만들고 빌드합니다.
 
-1. Create a workspace directory using:
+1. 작업 공간 디렉토리를 생성합니다.
    ```sh
    $ mkdir -p ~/px4_ros_com_ros2/src
    ```
-1. Clone the ROS 2 bridge packages `px4_ros_com` and `px4_msgs` to the `/src` directory (the `master` branch is cloned by default):
+1. ROS 2 브리지 패키지 `px4_ros_com`와 `px4_msgs`를 `/src` 디렉토리에 복제합니다. `master` 분기는 기본적으로 복제됩니다.
    ```sh
    $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
    $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
    ```
-1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
+1. `build_ros2_workspace.bash` 스크립트를 사용하여 ROS 2 작업 공간(`px4_ros_com` 및 `px4_msgs` 포함)을 빌드합니다.
    ```sh
    $ cd ~/px4_ros_com_ros2/src/px4_ros_com/scripts
    $ source build_ros2_workspace.bash
@@ -113,17 +113,17 @@ To create and build the workspace:
 
 
 :::tip
-All script options can be listed by calling it with the `--help` argument. In particular the `--verbose` argument shows the full *colcon* build output.
+모든 스크립트 옵션은 `--help` 인수를 사용하여 출력합니다. 특히 `--verbose` 인수는 전체 *colcon* 빌드 출력을 보여줍니다.
 :::
 
 :::note
-The `px4_ros_com/scripts` directory contains multiple scripts for building different kinds of workspaces.
+`px4_ros_com/scripts` 디렉토리에는 다양한 종류의 작업 공간을 구축하기 위한 여러 스크립트가 포함되어 있습니다.
 :::
 
 
-### Sanity Check the Installation
+### 설치 상태 확인
 
-One way to check that the installation/setup succeeded is to test that the bridge can communicate with PX4. We can do this by running the bridge against PX4 running in the simulator.
+설치 성공 여부를 확인하는 방법은 브리지와 PX4 통신을 테스트하는 것입니다. We can do this by running the bridge against PX4 running in the simulator.
 
 1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
 1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
