@@ -158,76 +158,76 @@ docker rm 45eeb98f1dd9
 
 ### QGroundControl
 
-이 경우 호스트 시스템에 자체 그래픽 드라이버를 설치해야 합니다. 올바른 드라이버를 다운로드하시고 컨테이너 내부에 설치하십시오.
+시뮬레이션 인스턴스를 실행시에는 도커 컨테이너 내부의 SITL과 호스트에서 *QGroundControl*을 통해 제어하려면 네트워크를 수동으로 설정하여야 합니다. *QGroundControl*에 자동으로 연결되지 않습니다.
 
-:::note
-이중 중괄호 사이에 공백문자를 두어서는 안됩니다(gitbook의 인터페이스 렌더링 문제로 일부러 빈칸을 두었습니다). ::: The port depends on the used [configuration](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS) e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is `mycontainer`):
+*QGroundControl*에서 [설정](https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html)으로 이동하여 네트워크를 선택합니다. ::: 포트는 사용된 [구성](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS)에 따라 다릅니다. 예: SITL 구성을 위한 포트 14570 IP 주소는 도커 컨테이너 중 하나이며, 기본 네트워크는 172.17.0.1/16입니다. 도커 컨테이너의 IP 주소는 다음 명령으로 찾을 수 있습니다(컨테이너 이름이 `mycontainer`라고 가정).
 
 ```sh
 $ docker inspect -f '{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}' mycontainer
 ```
 
-컨테이너에서는 기본 사용자 권한으로 필요한 파일을 만듭니다. 보통 기본 사용자는 "root"입니다. 이렇게 하면 호스트 컴퓨터의 사용자가 컨테이너에서 만든 파일에 접근할 수 없는 권한 오류가 나타납니다.
+:::note
+위의 이중 중괄호 사이에는 공백이 없어야 합니다(gitbook에서 UI 렌더링 문제를 피하기 위해 필요함). 이렇게 하면 호스트 컴퓨터의 사용자가 컨테이너에서 만든 파일에 접근할 수 없는 권한 오류가 나타납니다.
 
 ### 문제 해결
 
-#### 권한 오류
+#### 권한 에러
 
-위 예제에서는 호스트 사용자와 동일한 UID로 컨테이너의 사용자를 만들 때 `--env=LOCAL_USER_ID="$(id -u)"` 행을 활용합니다. 이 명령을 사용하면 호스트에서 컨테이너에 만든 모든 파일을 접근할 수 있습니다.
+컨테이너는 기본 사용자(일반적으로 "루트") 계정으로 파일을 생성합니다. 이것 때문에, 호스트 컴퓨터의 사용자가 컨테이너에서 생성한 파일에 액세스할 수 없는 상황이 발생합니다.
 
-The example above uses the line `--env=LOCAL_USER_ID="$(id -u)"` to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.
+위의 예는 `--env=LOCAL_USER_ID="$(id -u)"` 줄을 사용하여 호스트의 사용자와 동일한 UID를 가진 사용자를 컨테이너에 생성합니다. 이렇게 하면 컨테이너 내에서 생성된 모든 파일을 호스트에서 액세스할 수 있습니다.
 
 
 #### 그래픽 드라이버 문제
 
-It's possible that running Gazebo will result in a similar error message like the following:
+Gazebo를 실행하면 다음과 같은 유사한 오류 메시지가 나타날 수 있습니다.
 
 ```sh
 libGL error: failed to load driver: swrast
 ```
 
-In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):
+이 경우 호스트 시스템의 기본 그래픽 드라이버를 설치합니다. 올바른 드라이버를 다운로드하여 컨테이너 내부에 설치합니다. Nvidia 드라이버의 경우 다음 명령어를 사용합니다(그렇지 않으면 설치 프로그램이 호스트에서 로드된 모듈을 보고 진행을 거부합니다).
 
 ```sh
 ./NVIDIA-DRIVER.run -a -N --ui=none --no-kernel-module
 ```
 
-다음 오류로 컴파일에 실패했을 경우:
+이에 대한 자세한 내용은 [여기](http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/)를 참고하십시오.
 
 <a id="virtual_machine"></a>
 
 ## 가상 머신 지원
 
-병렬 빌드가 아닌 단일 빌드로 진행해보십시오.
+최신 Linux 배포판에서는 정상적으로 작동하여야 합니다.
 
-The following configuration is tested:
+다음 설정은 테스트 되었습니다.
 
-  * OS X with VMWare Fusion and Ubuntu 14.04 (Docker container with GUI support on Parallels make the X-Server crash).
+  * VMWare Fusion 및 Ubuntu 14.04가 포함된 OS X(Parallels에서 GUI를 지원하는 Docker 컨테이너로 인해 X-Server가 충돌함).
 
-**Memory**
+**메모리**
 
-Use at least 4GB memory for the virtual machine.
+가상 머신에 최소 4GB 메모리를 사용하십시오.
 
-**Compilation problems**
+**컴파일 문제**
 
-동시 빌드가 아닌 단일 빌드로 진행해보십시오.
+다음과 같은 오류로 컴파일이 실패하는 경우:
 
 ```sh
 The bug is not reproducible, so it is likely a hardware or OS problem.
 c++: internal compiler error: Killed (program cc1plus)
 ```
 
-Try disabling parallel builds.
+병렬 빌드를 비활성화하십시오.
 
-**Allow Docker Control from the VM Host**
+**VM 호스트에서 Docker 제어를 허용합니다.**
 
-이제 호스트 운영체제에서 도커를 제어할 수 있습니다:
+`/etc/defaults/docker`에 다음 줄을 추가합니다.
 
 ```sh
 DOCKER_OPTS="${DOCKER_OPTS} -H unix:///var/run/docker.sock -H 0.0.0.0:2375"
 ```
 
-You can then control docker from your host OS:
+이제 호스트 운영체제에서 도커를 제어할 수 있습니다:
 
 ```sh
 export DOCKER_HOST=tcp://<ip of your VM>:2375
