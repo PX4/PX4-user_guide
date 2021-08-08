@@ -139,4 +139,4 @@ ROS(1)/MAVROS를 사용하여 새로운 파이썬 테스트를 PX4 테스트 스
         @"$(SRC_DIR)"/test/rostest_px4_run.sh mavros_posix_tests_<new_test>.test
     ```
 
-예:
+위에서 설명한 대로 테스트를 실행합니다.
