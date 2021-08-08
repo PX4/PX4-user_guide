@@ -1,4 +1,4 @@
-# Offboard Control
+# 오프보드 콘트롤
 
 :::warning
 [Offboard control](../flight_modes/offboard.md) is dangerous. This is done through the Mavlink protocol, specifically the [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) and the [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) messages.
