@@ -140,14 +140,14 @@ ROS 2와 해당 종속성을 설치합니다.
    ```sh
    pxh> micrortps_client start -t UDP
    ```
-1. Open a new terminal and start a "listener" using the provided launch file:
+1. 새 터미널을 열어서, 시작 파일을 사용하여 "수신기"를 시작합니다.
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
    ```
 
 
-   If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener:
+   브리지가 올바르게 작동하면, ROS 수신기를 시작한 터미널/콘솔에서 데이터가 인쇄되는 것을 확일할 수 있습니다.
 
    ```sh
    RECEIVED DATA FROM SENSOR COMBINED
@@ -164,7 +164,7 @@ ROS 2와 해당 종속성을 설치합니다.
    accelerometer_integral_dt: 4739
    ```
 
-You can also verify the rate of the message using `ros2 topic hz`. E.g. in the case of `sensor_combined` use `ros2 topic hz /SensorCombined_PubSubTopic`:
+`ros2 topic hz`를 사용하여 메시지 속도를 확인할 수 있습니다. 예: `sensor_combined`의 경우 `ros2 topic hz /SensorCombined_PubSubTopic` 사용:
    ```sh
    average rate: 248.187
     min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
@@ -182,22 +182,22 @@ You can also verify the rate of the message using `ros2 topic hz`. E.g. in the c
 
 
 
-## ROS 2 Example Applications
+## ROS 2 예제 애플리케이션
 
-### Creating a ROS 2 listener
+### ROS 2 리스너 생성
 
-With the `px4_ros_com` built successfully, one can now take advantage of the generated *microRTPS* agent app and also from the generated sources and headers of the ROS 2 msgs from `px4_msgs`, which represent a one-to-one matching with the uORB counterparts.
+`px4_ros_com`이 성공적으로 구축되면 이제 생성된 *microRTPS* 에이전트 앱과 `px4_msgs`에서 생성된 ROS 2 msgs의 소스 및 헤더를 활용할 수 있습니다.
 
-To create a listener node on ROS 2, lets take as an example the `sensor_combined_listener.cpp` node under `px4_ros_com/src/examples/listeners`.
+ROS 2에서 리스너 노드를 생성하는 `px4_ros_com/src/examples/listeners` 아래의 `sensor_combined_listener.cpp` 노드 예를 설명합니다.
 
-The code first imports the C++ libraries needed to interface with the ROS 2 middleware and the required message header file:
+코드는 먼저 ROS 2 미들웨어 및 필수 메시지 헤더 파일과 인터페이스하는 데 필요한 C++ 라이브러리를 가져옵니다.
 
 ```cpp
 #include <rclcpp/rclcpp.hpp>
 #include <px4_msgs/msg/sensor_combined.hpp>
 ```
 
-Then it creates a `SensorCombinedListener` class that subclasses the generic `rclcpp::Node` base class.
+그런 다음 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `SensorCombinedListener` 클래스를 생성합니다.
 
 ```cpp
 /**
@@ -207,7 +207,7 @@ class SensorCombinedListener : public rclcpp::Node
 {
 ```
 
-This creates a callback function for when the `sensor_combined` uORB messages are received (now as RTPS/DDS messages), and outputs the content of the message fields each time the message is received.
+이것은 `sensor_combined` uORB 메시지가 수신될 때(현재는 RTPS/DDS 메시지로) 콜백 함수를 생성하고 메시지가 수신될 때마다 메시지 필드의 내용을 출력합니다.
 
 ```cpp
 public:
@@ -233,7 +233,7 @@ public:
     }
 ```
 
-The lines below create a subscription to the `sensor_combined_topic` which can be matched with one or more compatible ROS publishers.
+아래 줄은 하나 이상의 호환 가능한 ROS 게시자와 일치시킬 수 있는 `sensor_combined_topic`에 대한 구독을 만듭니다.
 
 ```cpp
 private:
