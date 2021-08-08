@@ -1,18 +1,18 @@
-# MAVSDK 통합 시험
+# MAVSDK 통합 테스트
 
-PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 시험을 진행할 수 있습니다.
+PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 테스트를 할 수 있습니다.
 
-시험 절차는 이제부터 근본적으로 SITL을 대상으로 개발하며, 지속 통합 체계(CI)에서 실행합니다. 그러나, 실제 시험도 일반화할 수 있습니다.
+테스트는 주로 SITL에 대해 개발되고, CI(지속적 통합)에서 실행됩니다. 앞으로, 모든 플랫폼/하드웨어으로 일반화할 계획입니다.
 
-시스템 영역(예: `/usr/lib` 또는 `/usr/local/lib`)에 MAVSDK C++ 라이브러리를 설치해야 시험을 진행할 수 있습니다.
+아래 지침은 로컬에서 테스트를 설정하고 진행하는 방법을 설명합니다.
 
-## MAVSDK C++ 라이브러리 설치
+## 전제 조건
 
-### 모든 PX4 시험 절차 실행
+### 개발 환경 설정
 
-바이너리를 그대로 설치하거나 소스코드를 컴파일하여 설치하십시오:
-- Install the development toolchain for [Linux](../dev_setup/dev_env_linux_ubuntu.md) or [macOS](../dev_setup/dev_env_mac.md) (Windows not supported). Gazebo is required, and should be installed by default.
-- [Get the PX4 source code](../dev_setup/building_px4.md#download-the-px4-source-code):
+아직 하지 않은 경우:
+- [Linux](../dev_setup/dev_env_linux_ubuntu.md) 또는 [MacOS](../dev_setup/dev_env_mac.md)용 개발 도구 모음을 설치합니다(Windows는 지원되지 않음). Gazebo는 필수이며 기본적으로 설치되어야 합니다.
+- [PX4 소스 코드 받기](../dev_setup/building_px4.md#download-the-px4-source-code):
 
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -20,21 +20,21 @@ PX4는 [MAVSDK](https://mavsdk.mavlink.io)를 기반으로 종단간 통합 시�
   ```
 
 
-### Build PX4 for Testing
+### 테스트용 PX4 빌드
 
-PX4 코드를 빌드하려면 다음 명령을 내리십시오:
+시뮬레이터 테스트를 위한 PX4를 빌드하려면 다음 명령어를 실행하십시오.
 
 ```sh
 DONT_RUN=1 make px4_sitl gazebo mavsdk_tests 
 ```
 
-### Install the MAVSDK C++ Library
+### MAVSDK C++ 라이브러리 설치
 
-SITL 시험을 [sitl.json](https://github.com/PX4/PX4-Autopilot/blob/master/test/mavsdk_tests/configs/sitl.json)에 지정한대로 실행하려면 다음 명령을 내리십시오:
+테스트에는 시스템에 설치된 MAVSDK C++ 라이브러리가 필요합니다(예: `/usr/lib` 또는 `/usr/local/lib`).
 
-모든 가능한 명령행 인자를 살펴보려면 다음 내용을 살펴보십시오:
-- [MAVSDK > Installation > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): Install as a prebuilt library on supported platforms (recommended)
-- [MAVSDK > Contributing > Building from Source](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): Build  C++ library from source.
+바이너리 또는 소스에서 설치:
+- [MAVSDK > 설치 > C++](https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp): 지원되는 플랫폼에서 사전 빌드된 라이브러리로 설치(권장)
+- [MAVSDK > 기여 > 소스에서 빌드](https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp): 소스에서 C++ 라이브러리를 빌드합니다.
 
 ## PX4 코드 준비
 
