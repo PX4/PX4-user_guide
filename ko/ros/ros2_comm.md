@@ -123,20 +123,20 @@ ROS 2와 해당 종속성을 설치합니다.
 
 ### 설치 상태 확인
 
-설치 성공 여부를 확인하는 방법은 브리지와 PX4 통신을 테스트하는 것입니다. We can do this by running the bridge against PX4 running in the simulator.
+설치 성공 여부를 확인하는 방법은 브리지와 PX4 통신을 테스트하는 것입니다. 시뮬레이터에서 실행되는 PX4에 대하여 브리지를 실행하여 테스트할 수 있습니다.
 
-1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
-1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
+1. [PX4 Ubuntu Linux 개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) - 기본 지침은 최신 버전의 PX4 소스를 다운로드하고 도구들을 설치합니다.
+1. **PX4 Autopilot** 프로젝트의 루트에서 새 터미널을 열고, PX4 Gazebo 시뮬레이션을 실행합니다.
    ```sh
    make px4_sitl_rtps gazebo
    ```
-   Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md).
-1. On a *new* terminal, `source` the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
+   PX4가 시작되면, 터미널에 [NuttShell/System Console](../debug/system_console.md)이 표시됩니다.
+1. *새* 터미널에서 ROS 2 작업 공간을 `소싱`한 다음 UDP를 전송 프로토콜로 사용하여 `micrortps_agent` 데몬을 시작합니다.
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ micrortps_agent -t UDP
    ```
-1. On the original terminal (System console) start the `micrortps_client` daemon with UDP:
+1. 원래 터미널(시스템 콘솔)에서 UDP로 `micrortps_client` 데몬을 시작합니다.
    ```sh
    pxh> micrortps_client start -t UDP
    ```
