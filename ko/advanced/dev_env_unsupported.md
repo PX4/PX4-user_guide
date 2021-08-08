@@ -1,11 +1,11 @@
-# Unsupported Developer Toolchains
+# 지원되지 않는 개발 도구 모음
 
-This section contains topics about *unsupported* development platforms and tools (i.e. tools for which the code dev team are unlikely to be able to provide much advice).
+*지원되지 않는* 개발 플랫폼 및 도구(예: 코드 개발 팀에서 많은 조언을 제공할 수 없는 도구)에 대하여 설명합니다.
 
 :::tip
-See [Toolchain Installation](../dev_setup/dev_env.md) for information about the environments and tools we do support!
+우리가 지원하는 환경과 도구에 대한 정보는 [도구 모음 설치](../dev_setup/dev_env.md)를 참조하십시오!
 :::
 
 :::warning
-The environments and tools in this section are rarely tested and may not work. You should not use these unless you are and expert with the environment and capable of debugging the environment yourself.
+이 섹션의 환경과 도구는 충분히 테스트되지 않았으며, 작동하지 않을 수 있습니다. 환경 전문가가 아니거나, 환경을 디버깅할 수 있는 경우가 아니면, 사용하지 마십시오.
 :::

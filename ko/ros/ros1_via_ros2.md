@@ -1,8 +1,8 @@
-# ROS (1) via ROS 2 Bridge (User Guide)
+# ROS 2 Bridge를 통한 ROS(1)(사용 설명서)
 
-This topic explains how use ROS (1) with PX4, by bridging via [ROS 2](../ros/ros2.md).
+이 항목에서는 [ROS 2](../ros/ros2.md)로 브리지하여, PX4와 함께 ROS(1)를 사용하는 방법을 설명합니다.
 
-It provides an overview of the ROS-ROS2-PX4 architecture, along with instructions on how to install all the needed software and build ROS (1) applications. It also covers how to run/setup ROS 2 and ROS 1 workspaces at the same time.
+필요한 소프트웨어를 설치하고 ROS(1) 애플리케이션을 구축하는 방법과 ROS-ROS2-PX4 아키텍처에 대한 개요를 설명합니다. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 실행/설정하는 방법도 설명합니다.
 
 :::note
 Generally you might use this setup rather than bridging [ROS (1) with MAVROS](../ros/ros1.md) if you want deeper access to PX4 than granted by MAVLink, or if you want to use both ROS2 and ROS (1) applications.

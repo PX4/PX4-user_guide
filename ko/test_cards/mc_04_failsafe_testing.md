@@ -8,11 +8,11 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;❏ 안전 조치 동작은 회귀 지점 착륙 동작
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 경고 잔여량이 25%인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 경고 잔여량이 25% 인가
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 안전 장치 가동 잔여량이 20%인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 안전 장치 가동 잔여량이 20% 인가
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 응급 상태 잔여량이 15%인가
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 배터리 응급 상태 잔여량이 15% 인가
 
 ❏ 고도 제어 모드에서 이륙
 
