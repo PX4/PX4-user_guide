@@ -1,28 +1,28 @@
 # PX4 도커 컨테이너
 
-도커 컨테이너는 NuttX와 리눅스 기반 하드웨어 [가제보 모의시험](../simulation/gazebo.md), [ROS](../simulation/ros_interface.md)가 들어있는 완전한 [PX4 개발 툴체인](../dev_setup/dev_env.md#supported-targets)을 제공합니다.
+도커 컨테이너는 NuttX 및 Linux 기반 하드웨어, [Gazebo 시뮬레이션](../simulation/gazebo.md) 및 [ROS](../simulation/ros_interface.md)를 포함한 전체 [PX4 개발 툴체인](../dev_setup/dev_env.md#supported-targets)을 제공됩니다.
 
-이 주제에서는 로컬 리눅스 컴퓨터에서 빌드 환경에 접근할 수 있는 [가용 도커 컨테이너](#px4_containers) 활용법을 알려드리도록 하겠습니다.
+[도커 컨테이너](#px4_containers)를 사용하여 Linux 컴퓨터에서 빌드하는 방법을 설명합니다.
 
 :::note
-Dockerfile 과 README 는 [이 곳 Github](https://github.com/PX4/containers/blob/master/README.md)에 있습니다. 이 파일은 [도커 허브](https://hub.docker.com/u/px4io/)에 자동으로 만들어줍니다.
+Dockerfile와 README는 [Github](https://github.com/PX4/containers/blob/master/README.md)에서 찾을 수 있습니다. [Docker Hub](https://hub.docker.com/u/px4io/)에서 자동으로 빌드됩니다.
 :::
 
-## 준비 요건
+## 전제 조건
 
-:::note PX4 컨테이너는 현재 리눅스만 지원합니다(리눅스를 설치하지 않았다면 [가상 머신에서](#virtual_machine) 컨테이너를 실행할 수 있습니다). X 서버가 들어있지 않으므로 기본 리눅스 이미지에서 `boot2docker`를 실행하지 마십시오
+:::note PX4 컨테이너는 현재 Linux만 지원됩니다(Linux가 없는 경우 [가상 머신](#virtual_machine)에서 컨테이너를 실행할 수 있음). 기본 Linux 이미지에는 X-Server가 포함되어 있지 않으므로, `boot2docker`를 사용하지 마십시오.
 :::
 
-기본 설치시 *도커*를 루트 사용자로 실행해야 합니다(예: `sudo` 활용). 그러나 PX4 펌웨어를 빌드하려면 [비 루트 사용자 계정으로 도커를 실행](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) 하시는게 좋습니다.
+Linux 컴퓨터에 [Docker를 설치](https://docs.docker.com/installation/)합니다. 가급적이면 Docker에서 유지 관리하는 패키지 저장소를 사용하여 최신 안정 버전을 다운로드 하십시오. *엔터프라이즈 에디션* 또는 (무료) *커뮤니티 에디션*을 사용할 수 있습니다.
 
-가용 컨테이너는 아래와 같습니다([Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있음):
+*Ubuntu*에 비프로덕션 설정을 로컬로 설치하는 경우 Docker를 설치하는 가장 빠르고 쉬운 방법은 아래와 같이 [편리한 스크립트](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script)를 사용하는 것입니다(대체 설치 방법은 같은 페이지):
 
 ```sh
 curl -fsSL get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-`px4io/px4-dev-nuttx:latest`와 같이 `latest` 태그를 활용하면 가장 최근의 버전에 접근할 수 있습니다. (가용 태그는 *hub.docker.com*의 각 컨테이너에 들어있습니다. 예를 들면, [여기](https://hub.docker.com/r/px4io/px4-dev-nuttx/tags)에서는, *px4-dev-ros*태그를 찾아볼 수 있습니다). 이렇게 하면, 도커를 활용하면서 빌드 폴더를 루트 소유로 만들지 않습니다.
+기본 설치에서는 루트 사용자로 *Docker*를 호출하여야 합니다(예: `sudo` 사용). 그러나 PX4 펌웨어를 빌드하려면 [도커를 루트가 아닌 일반 사용자 계정을 사용](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)하는 것이 좋습니다. 그렇게하면, docker를 사용한 후 빌드 폴더를 관리자가 소유하지 않습니다.
 
 ```sh
 # Create docker group (may not be required)
@@ -36,7 +36,7 @@ sudo usermod -aG docker $USER
 
 ## 컨테이너 계층
 
-가용 컨테이너는 아래와 같습니다([Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있음):
+사용 가능한 컨테이너는 [Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있습니다.
 
 컨테이너를 활용하는 가장 쉬운 방법은 [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) 보조 스크립트를 활용한 방법입니다. 이 스크립트는 PX4 빌드 명령을 인자 값으로 취합니다 (예: `make tests`). For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
 
