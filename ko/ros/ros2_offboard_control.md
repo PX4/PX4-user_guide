@@ -58,9 +58,9 @@ PX4 내부 작동이 확실하지 않은 경우에는 MAVLink 마이크로서비
 
 ## 구현
 
-The source code of the offboard control example can be found in [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp).
+오프보드 제어 예제의 소스 코드는 [offboard_control.cpp](https://github.com/PX4/px4_ros_com/blob/master/src/examples/offboard/offboard_control.cpp)에 있습니다.
 
-Here are some details about the implementation:
+구현에 대한 몇 가지 세부정보는 다음과 같습니다.
 
 ```cpp
 timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_PubSubTopic",
@@ -70,7 +70,7 @@ timesync_sub_ = this->create_subscription<px4_msgs::msg::Timesync>("Timesync_Pub
     });
 ```
 
-The above is required in order to obtain a syncronized timestamp to be set and sent with the `offboard_control_mode` and `trajectory_setpoint` messages.
+`offboard_control_mode`와 `trajectory_setpoint` 메시지와 함께 설정되고 전송될 동기화된 타임스탬프를 얻으려면 위의 작업이 필요합니다.
 
 ```cpp
 auto timer_callback = [this]() -> void {
@@ -96,7 +96,7 @@ auto timer_callback = [this]() -> void {
     }
 ```
 
-The above is the main loop spining on the ROS 2 node. It first sends 10 setpoint messages before sending the command to change to offboard mode At the same time, both `offboard_control_mode` and `trajectory_setpoint` messages are sent to the flight controller.
+위 코드는 ROS 2 노드에서 실행되는 메인 루프입니다. 오프보드 모드로 변경하라는 명령을 보내기 전에 먼저 10개의 설정값 메시지를 전송합니다. 동시에 `offboard_control_mode`와 `trajectory_setpoint` 메시지가 비행 콘트롤러로 전송됩니다.
 
 ```cpp
 /**
@@ -133,10 +133,10 @@ void OffboardControl::publish_trajectory_setpoint() const {
 }
 ```
 
-The above functions exemplify how the fields on both `offboard_control_mode` and `trajectory_setpoint` messages can be set. Notice that the above example is applicable for offboard position control, where on the `offboard_control_mode` message, the `position` field is set to `true`, while all the others get set to `false`. Also, in this case, the `x`, `y`, `z` and `yaw` fields are hardcoded to certain values, but they can be updated dynamically according to an algorithm or even by a subscription callback for messages coming from another node.
+위의 함수는 `offboard_control_mode`와 `trajectory_setpoint` 메시지의 필드를 설정하는 방법을 설명합니다. 위의 예는 오프보드 위치 제어에 적용할 수 있습니다. 여기서 `offboard_control_mode` 메시지에서 `position` 필드는 `true`로 설정되고 모든 나머지는 `거짓`으로 설정됩니다. 또한 이 경우 `x`, `y`, `z` 및 `yaw` 필드는 특정 값으로 하드 코딩되지만, 알고리즘에 따라 또는 다른 노드에서 오는 메시지에 대한 구독 콜백에 의해 동적으로 업데이트될 수 있습니다.
 
 :::tip
-The position is already being published in the NED coordinate frame for simplicity, but in the case of the user wanting to subscribe to data coming from other nodes, and since the standard frame of reference in ROS/ROS 2 is ENU, the user can use the available helper functions in the [`frame_transform` library](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp).
+위치는 이미 단순성을 위해 NED 좌표 프레임에 게시되고 있지만, 사용자가 다른 노드에서 오는 데이터를 구독하려는 경우입니다. ROS/ROS 2의 표준 참조 프레임은 ENU이므로 사용자는 [`frame_transform` 라이브러리](https://github.com/PX4/px4_ros_com/blob/master/src/lib/frame_transforms.cpp)에서 사용 가능한 도우미 기능을 사용할 수 있습니다.
 :::
 
 ```cpp
@@ -163,21 +163,21 @@ void OffboardControl::publish_vehicle_command(uint16_t command, float param1,
 }
 ```
 
-As the description suggests, the above code serves the purpose of sending `vehicle_command_publisher` messages with commands to the flight controller.
+설명에서 알 수 있듯이, 위의 코드는 비행 콘트롤러에 명령과 함께 `vehicle_command_publisher` 메시지를 보내는 목적으로 사용됩니다.
 
 :::note
-By the time of writing, `vehicle_command_publisher` is also already configured to be received.
+이 문서 작성 시점에는 `vehicle_command_publisher`도 이미 수신하도록 설정되어 있습니다.
 :::
 
-## Usage
+## 사용법
 
-After building the colcon workspace, and after starting PX4 SITL and both the microRTPS bridge client and agent:
+colcon 작업 공간을 구축하고 PX4 SITL과 microRTPS 브리지 클라이언트 및 에이전트를 시작한 후:
 
 ```sh
 $ source path_to_colcon_workspace/install/setup.bash
 $ ros2 run px4_ros_com offboard_control
 ```
 
-## Demo with PX4 SITL and Gazebo
+## PX4 SITL과 Gazebo를 사용한 데모
 
-@[youtube](https://youtu.be/Nbc7fzxFlYo)
+@[유투브](https://youtu.be/Nbc7fzxFlYo)
