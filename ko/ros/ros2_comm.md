@@ -20,7 +20,7 @@ ROS 2 없이 *microRTPS 브리지* 사용 방법은 [RTPS/DDS 인터페이스 �
 
 ROS 2의 애플리케이션 파이프라인은 기본 통신 미들웨어(DDS/RTPS) 덕분에 매우 간단합니다. [microRTPS Bridge](../middleware/micrortps.md)는 PX4에서 실행되는 클라이언트와 ROS 컴퓨터에서 실행되는 에이전트로 구성되며, UORB와 ROS 2간의 양방향 메시지 변환을 제공합니다. 이를 통하여, PX4 UORB 데이터에 직접 게시 및 구독하는 ROS 2 리스너 또는 광고주 노드를 생성할 수 있습니다! 이것을 아래 다이어그램에서 설명합니다.
 
-![Architecture with ROS 2](../../assets/middleware/micrortps/architecture_ros2.png)
+![ROS 2를 사용한 아키텍처](../../assets/middleware/micrortps/architecture_ros2.png)
 
 ROS 2는 [`px4_msgs`](https://github.com/PX4/px4_msgs) 및 [`px4_ros_com`](https://github.com/PX4/px4_ros_com) 패키지를 사용하여 일치하는 메시지 정의가 클라이언트와 에이전트 코드를 생성하는 데 사용되는지 확인하고(중요함), ROS 코드를 빌드시에는 PX4가 있어야 합니다.
 - `px4_msgs`에는 PX4 클라이언트 메시지 정의가 포함됩니다. 이 프로젝트가 빌드되면 해당 ROS 2 호환 IDL 파일이 생성됩니다.
@@ -328,99 +328,99 @@ PX4에서 오프보드 제어를 사용하는 전체 예제는 [ROS 2 오프보�
 ## 수동 작업 공간 설정(참고용)
 
 :::note
-This is provided to help you better understand the build process. It is not needed to build or use ROS 2. It additionally includes instructions for building the `ros1_bridge` package, which is used in [ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md).
+이것은 빌드 프로세스를 더 잘 이해하는 목적으로 제공됩니다. It is not needed to build or use ROS 2. 여기에는 [ROS(1) via ROS 2 Bridge](../ros/ros1_via_ros2.md)에서 사용되는 `ros1_bridge` 패키지를 빌드하기 위한 지침이 추가로 포함되어 있습니다.
 :::
 
-This section describes the process to *manually* setup your workspace and build the `px4_ros_com`, `px4_msgs`, and `ros1_bridge` package. The topic effectively explains the operation of the `build_ros2_workspace.bash` script in the [installation instructions](#build-ros-2-workspace)).
+이 섹션에서는 작업 공간을 *수동으로* 설정하고, `px4_ros_com`, `px4_msgs` 및 `ros1_bridge` 패키지를 빌드하는 프로세스를 설명합니다. The topic effectively explains the operation of the `build_ros2_workspace.bash` script in the [installation instructions](#build-ros-2-workspace)).
 
 
-**To build the ROS 2 workspace only:**
+**ROS 2 작업 공간만 구축합니다.**
 
-1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment. Don't mind if it tells you that a previous workspace was set before:
+1. `cd`를 `px4_ros_com_ros2` 디렉토리에 넣고 ROS 2 환경을 소싱합니다. 이전 작업 공간이 이전에 설정되었다는 메시지가 표시되더라도 신경 쓰지 마십시오.
 
    ```sh
    cd ~/px4_ros_com_ros2
    source /opt/ros/foxy/setup.bash
    ```
 
-2. Build the workspace:
+2. 작업 공간을 빌드합니다.
 
    ```sh
    colcon build --symlink-install --event-handlers console_direct+
    ```
 
-To build both ROS 2 and ROS (1) workspaces (replacing the previous steps):
+ROS 2 및 ROS(1) 작업 공간을 모두 빌드합니다(이전 단계 대체).
 
-1. `cd` into `px4_ros_com_ros2` dir and source the ROS 2 environment. Don't mind if it tells you that a previous workspace was set before:
+1. `cd`를 `px4_ros_com_ros2` 디렉토리에 넣고 ROS 2 환경을 소싱합니다. 이전 작업 공간이 이전에 설정되었다는 메시지가 표시되더라도 신경 쓰지 마십시오.
 
    ```sh
    source /opt/ros/foxy/setup.bash
    ```
 
-1. Clone the `ros1_bridge` package so it can be built on the ROS 2 workspace:
+1. ROS 2 작업 영역에 빌드할 수 있도록 `ros1_bridge` 패키지를 복제합니다.
 
    ```sh
    git clone https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
    ```
 
-1. Build the `px4_ros_com` and `px4_msgs` packages, excluding the `ros1_bridge` package:
+1. `ros1_bridge` 패키지를 제외하고, `px4_ros_com`와 `px4_msgs` 패키지를 빌드합니다.
 
    ```sh
    colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
    ```
 
 :::note
-`--event-handlers console_direct+` only serve the purpose of adding verbosity to the `colcon` build process, and can be removed if one wants a more "quiet" build.
+`--event-handlers console_direct+`는 `colcon` 빌드 프로세스에 자세한 정보를 추가할 목적으로만 제공되며, 더 "조용한" 빌드를 원하는 경우 제거할 수 있습니다.
 :::
 
-1. Then build the ROS(1) packages side. First open a **new** terminal window and source the ROS(1) environment that was installed on the system:
+1. 그런 다음 ROS(1) 패키지를 빌드합니다. 먼저 **새** 터미널 창을 열고, 시스템에 설치된 ROS(1) 환경을 소싱합니다.
 
    ```sh
    source /opt/ros/melodic/setup.bash
    ```
 
-1. Build the `px4_ros_com` and `px4_msgs` packages on the ROS end (using the terminal opened in the previous step):
+1. ROS 쪽에서 `px4_ros_com`와 `px4_msgs` 패키지를 빌드합니다(이전 단계에서 연 터미널 사용).
 
    ```sh
    cd ~/px4_ros_com_ros1 && colcon build --symlink-install --event-handlers console_direct+
    ```
 
-1. Open another new terminal and then source the environments and workspaces in the order listed below:
+1. 다른 새 터미널을 열고, 아래 나열된 순서대로 환경과 작업 공간을 소싱합니다.
 
    ```sh
    source ~/px4_ros_com_ros1/install/setup.bash
    source ~/px4_ros_com_ros2/install/setup.bash
    ```
 
-1. Finally, build the `ros1_bridge`:
+1. 마지막으로 `ros1_bridge`를 빌드합니다.
 
    ```sh
    cd ~/px4_ros_com_ros2 && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure --event-handlers console_direct+
    ```
 
 :::note
-The build process may consume a lot of memory resources. On a resource limited machine, reduce the number of jobs being processed in parallel (e.g. set environment variable `MAKEFLAGS=-j1`). For more details on the build process, see the build instructions on the [ros1_bridge](https://github.com/ros2/ros1_bridge) package page.
+빌드 프로세스는 많은 메모리 리소스를 소비할 수 있습니다. 리소스가 제한된 시스템에서 병렬로 처리되는 작업의 수를 줄이십시오(예: 환경 변수 `MAKEFLAGS=-j1` 설정). 빌드 프로세스에 대한 자세한 내용은 [ros1_bridge](https://github.com/ros2/ros1_bridge) 패키지 페이지의 빌드 지침을 참고하십시오.
 :::
 
 
-### Cleaning the workspaces
+### 작업 공간 청소
 
-After building the workspaces there are many files that must be deleted before you can do a clean/fresh build (for example, after you have changed some code and want to rebuild).
+작업 공간을 빌드 후, 신규 빌드를 수행하기 전에 삭제하여야 하는 파일들이 많이 있습니다(예: 일부 코드를 변경하고 다시 빌드하려는 경우).
 
-Unfortunately *colcon* does not currently have a way of cleaning the generated **build**, **install** and **log** directories, so these directories must be deleted manually.
+불행히도 *colcon*에는 현재 생성된 **build**, **install** 및 **log** 디렉토리를 정리하는 방법이 없으므로, 이러한 디렉토리는 수동으로 삭제하여야 합니다.
 
-The **clean_all.bash** script (in **px4_ros_com/scripts**) is provided to ease this cleaning process, this script can be used to clean all of the workspace options listed above (ROS 2, ROS 1, and Both)
+**clean_all.bash** 스크립트(**px4_ros_com/scripts**에 있음)는 이 정리 프로세스를 쉽게 하기 위해 제공되며, 이 스크립트는 위에 나열된 모든 작업 공간 옵션 (ROS 2, ROS 1 및 둘 다)을 정리할 수 있습니다.
 
-The most common way of using it is by passing it the ROS (1) workspace directory path (since it's usually not on the default path):
+이를 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로를 전달하는 것입니다(일반적으로 기본 경로에 없기 때문에).
 
 ```sh
 $ source clean_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
 ```
 
 :::tip
-Like the build scripts, the `clean_all.bash` script also has a `--help` guide.
+빌드 스크립트와 마찬가지로 `clean_all.bash` 스크립트에도 `--help` 가이드가 있습니다.
 :::
 
-## Additional information
+## 추가 정보
 
-* [DDS and ROS middleware implementations](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)
+* [DDS와 ROS 미들웨어 구현](https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations)
