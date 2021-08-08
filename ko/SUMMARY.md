@@ -399,7 +399,7 @@
   * [ROS](ros/README.md) 
     * [ROS 2](ros/ros2.md) 
       * [ROS 2 사용자 가이드](ros/ros2_comm.md)
-      * [ROS 2 microRTPS 오프보드 제어 예제](ros/ros2_offboard_control.md)
+      * [ROS 2 오프보드 제어 예제](ros/ros2_offboard_control.md)
     * [ROS 2 브리지를 통한 ROS(1)](ros/ros1_via_ros2.md)
     * [MAVROS가 있는 ROS(1)](ros/ros1.md) 
       * [ROS/MAVROS 설치 가이드](ros/mavros_installation.md)
