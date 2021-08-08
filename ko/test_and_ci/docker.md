@@ -38,7 +38,7 @@ sudo usermod -aG docker $USER
 
 사용 가능한 컨테이너는 [Github](https://github.com/PX4/containers/blob/master/README.md#container-hierarchy)에 있습니다.
 
-컨테이너를 활용하는 가장 쉬운 방법은 [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) 보조 스크립트를 활용한 방법입니다. 이 스크립트는 PX4 빌드 명령을 인자 값으로 취합니다 (예: `make tests`). For example, below you can see that the docker container with nuttx build tools (`px4-dev-nuttx-focal`) does not include ROS 2, while the simulation containers do:
+이를 통하여 다양한 빌드 대상 및 구성을 테스트할 수 있습니다(포함된 도구는 이름에서 유추할 수 있음). 컨테이너는 상위 컨테이너의 기능을 갖도록 계층적입니다. 예를 들어, 아래에서 nuttx 빌드 도구(`px4-dev-nuttx-focal`)가 있는 도커 컨테이너에는 ROS 2가 포함되어 있지 않지만, 시뮬레이션 컨테이너에는 포함되어 있습니다.
 
 - px4io/px4-dev-base-focal
   - px4io/px4-dev-nuttx-focal
@@ -47,15 +47,15 @@ sudo usermod -aG docker $USER
     - px4io/px4-dev-ros2-foxy
 
 
-:::tip
-보통 최근의 컨테이너를 활용해야 하나, 최신이 필요한 것은 아닙니다 (변경이 너무 자주 일어나기 때문).
+가장 최신 버전은 `latest` 태그를 사용하여 액세스할 수 있습니다. `px4io/px4-dev-nuttx-bionic:latest` (사용 가능한 태그는 *hub.docker.com*의 각 컨테이너에 나열되어 있습니다.)
 :::
 
-다음 절차는 도커 컨테이너에서 실행하는 툴체인으로 호스트 컴퓨터에서 PX4 소스 코드를 빌드하는 방법을 보여줍니다. PX4 소스 코드를 다음과 같이 **src/PX4-Autopilot**에 이미 다운로드했음을 가정합니다:
+:::tip
+일반적으로 최근 컨테이너를 사용하여야 하지만 반드시 `최신 버전`일 필요는 없습니다(너무 자주 변경됨). PX4 소스 코드를 다음과 같이 **src/PX4-Autopilot**에 이미 다운로드했음을 가정합니다:
 
 ## 도커 컨테이너 활용
 
-보통 사용하는 명령의 문법은 다음과 같습니다. 이 명령은 X 포워딩을 지원하는 도커 컨테이너를 실행합니다(컨테이너에서 모의시험 GUI 환경을 사용할 수 있습니다).
+도커 컨테이너에서 실행되는 툴체인을 사용하여 호스트 컴퓨터에서 PX4 빌드 방법을 설명합니다. PX4 소스 코드를 **src/PX4-Autopilot**에 미리 다운로드하여야 합니다.
 
 ```sh
 mkdir src
@@ -66,23 +66,24 @@ cd PX4-Autopilot
 
 ### 보조 스크립트(docker_run.sh)
 
-The easiest way to use the containers is via the [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) helper script. This script takes a PX4 build command as an argument (e.g. `make tests`). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.
+컨테이너를 사용하는 가장 쉬운 방법은 [docker_run.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh) 도우미 스크립트를 사용하는 것입니다. 이 스크립트는 PX4 빌드 명령을 인수로 사용합니다(예: `make 테스트`). 적절한 컨테이너 및 합리적인 환경 설정의 최신 버전(하드 코딩됨)으로 도커를 시작합니다.
 
-아래의 보강 예제에서는 호스트 컴퓨터에서 배시 셸을 열고 **~/src/PX4-Autopilot**  디렉터리를 공유하는 방법을 보여줍니다.
+예를 들어, SITL을 빌드하려면 다음을 호출합니다(**/PX4-Autopilot** 디렉토리 내에서).
 
 ```sh
 ./Tools/docker_run.sh 'make px4_sitl_default'
 ```
-Or to start a bash session using the NuttX toolchain:
+또는 NuttX 도구 체인을 사용하여 bash 세션을 시작합니다.
 ```
 ./Tools/docker_run.sh 'bash'
 ```
 
-`docker run` 명령은 새 컨테이너를 만들 때만 사용합니다. 이 컨테이너로 돌아가려면 (바뀐 내용은 그대로 유지) 다음 명령을 실행하십시오: 컴퓨터의 `<host_src>` 디렉터리를 컨테이너의 `<container_src>` 디렉터리로 대응하며 *QGroundControl*에 연결할 UDP 포트 데이터를 전달합니다. `-–privileged` 옵션을 사용하면 호스트의 장치(예: 조이스틱, CPU)에 자동으로 접근합니다.
+:::tip
+스크립트 실행시에 *Docker*에 대하여 자세하게 알 필요는 없습니다. 그러나, 특별히 견고하지는 않습니다! [아래 섹션](#manual_start)에 설명된 수동 접근 방식이 더 유연하며, 스크립트에 문제가 있는 경우에 사용합니다. `-–privileged` 옵션을 사용하면 호스트의 장치(예: 조이스틱, CPU)에 자동으로 접근합니다.
 
 <a id="manual_start"></a>
 
-### 도커 직접 호출
+### 도커 수동 호출
 
 The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory `<host_src>` from your computer to `<container_src>` inside the container and forwards the UDP port needed to connect *QGroundControl*. With the `-–privileged` option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.
 
