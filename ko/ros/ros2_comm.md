@@ -241,7 +241,7 @@ private:
 };
 ```
 
-The instantiation of the `SensorCombinedListener` class as a ROS node is done on the `main` function.
+`SensorCombinedListener` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -257,28 +257,26 @@ int main(int argc, char *argv[])
 ```
 
 
-### Creating a ROS 2 advertiser
+### ROS 2 광고주 만들기
 
-A ROS 2 advertiser node publishes data into the DDS/RTPS network (and hence to the PX4 Autopilot).
+ROS 2 광고주 노드는 DDS/RTPS 네트워크(따라서 PX4 Autopilot)에 데이터를 게시합니다.
 
-Taking as an example the `debug_vect_advertiser.cpp` under `px4_ros_com/src/advertisers`, first we import required headers, including the `debug_vect` msg header.
+`px4_ros_com/src/advertisers` 아래의 `debug_vect_advertiser.cpp`를 예로 들면 먼저 `debug_vect` msg 헤더를 포함한 필수 헤더를 가져옵니다.
 
 ```cpp
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
 #include <px4_msgs/msg/debug_vect.hpp>
-
-using namespace std::chrono_literals;
 ```
 
-Then the code creates a `DebugVectAdvertiser` class that subclasses the generic `rclcpp::Node` base class.
+그런 다음 코드는 일반 `rclcpp::Node` 기본 클래스의 하위 클래스인 `DebugVectAdvertiser` 클래스를 생성합니다.
 
 ```cpp
 class DebugVectAdvertiser : public rclcpp::Node
 {
 ```
 
-The code below creates a function for when messages are to be sent. The messages are sent based on a timed callback, which sends two messages per second based on a timer.
+아래 코드는 메시지를 전송하는 함수를 만듭니다. 메시지는 타이머를 기반으로 초당 2개의 메시지를 보내는 시간 제한 콜백을 기반으로 전송됩니다.
 
 ```cpp
 public:
@@ -306,7 +304,7 @@ private:
 };
 ```
 
-The instantiation of the `DebugVectAdvertiser` class as a ROS node is done on the `main` function.
+`DebugVectAdvertiser` 클래스를 ROS 노드로 인스턴스화하는 작업은 `main` 함수에서 수행됩니다.
 
 ```cpp
 int main(int argc, char *argv[])
@@ -322,7 +320,7 @@ int main(int argc, char *argv[])
 ```
 
 
-### Offboard Control
+### 오프보드 제어
 
 For a complete reference example on how to use Offboard control with PX4, see: [ROS 2 Offboard control example](../ros/ros2_offboard_control.md).
 
