@@ -1,6 +1,6 @@
 # ROS 통합 테스트
 
-This topic explains how to run (and extend) PX4's ROS-based integration tests.
+PX4의 ROS 기반 통합 테스트 방법을 설명합니다.
 
 :::note
 [MAVSDK Integration Testing](../test_and_ci/integration_testing_mavsdk.md) is preferred when writing new tests. Use the ROS-based integration test framework for use cases that *require* ROS (e.g. object avoidance).
