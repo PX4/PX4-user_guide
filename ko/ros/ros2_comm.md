@@ -64,29 +64,29 @@ PX4에서 ROS 2를 설정하려면 다음이 필요합니다.
 이 설치 및 빌드 가이드는 Ubuntu 20.04의 ROS 2 Foxy를 기준으로 합니다.
 :::
 
-To install ROS 2 and its dependencies:
+ROS 2와 해당 종속성을 설치합니다.
 
-1. [Install ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
-1. The install process should also install the **`colcon`** build tools, but in case that doesn't happen, you can install the tools manually:
+1. [ROS 2 Foxy를 설치합니다.](https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/)
+1. 설치 과정에서 **`colcon`** 빌드 도구도 설치하여야 하지만, 도구를 수동으로 설치할 수 있습니다.
 
    ```sh
    sudo apt install python3-colcon-common-extensions
    ```
 
-1. **`eigen3_cmake_module`** is also required, since Eigen3 is used on the transforms library:
+1. Eigen3는 변환 라이브러리에서 사용되므로 **`eigen3_cmake_module`**도 필요합니다.
 
    ```sh
    sudo apt install ros-foxy-eigen3-cmake-module
    ```
 
-1. Some Python dependencies must also be installed (using **`pip`** or **`apt`**):
+1. 일부 Python 종속성도 설치하여야 합니다(**`pip`** 또는 **`apt`** 사용).
 
    ```sh
    sudo pip3 install -U empy pyros-genmsg setuptools
    ```
 
 
-### Build ROS 2 Workspace
+### ROS 2 작업 공간 빌드
 
 This section shows how create a ROS 2 workspace hosted in your *home directory* (modify the commands as needed to put the source code elsewhere). The `px4_ros_com` and `px4_msg` packages are cloned to a workspace folder, and then a script is used to build the workspace.
 
