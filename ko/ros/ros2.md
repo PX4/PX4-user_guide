@@ -9,24 +9,24 @@ Tip PX4 개발 팀은 이 버전의 ROS를 마이그레이션할 것을 적극 �
 ROS 2와 PX4 사이의 변환 레이어는 [PX4-ROS 2 브리지](../ros/ros2_comm.md)로 알려진 소프트웨어입니다. 이것은 PX4 UORB 메시지와 ROS 2 메시지 및 유형 사이에 브리지를 제공하여, ROS 2 워크플로 및 노드에서 PX4에 대한 직접 액세스를 효과적으로 허용합니다. 브리지는 UORB 메시지 정의 및 해당 IDL 유형을 사용하여, PX4 안팎으로 향하는 메시지를 직렬화 및 역직렬화하는 코드를 생성합니다.
 
 이 섹션의 주요 주제는 다음과 같습니다.
-- [ROS 2 User Guide](../ros/ros2_comm.md): an overview how to use ROS 2 with PX4 (covering the PX4-ROS2 bridge, installation/setup, and how to build ROS 2 applications for PX4).
-- [ROS 2 microRTPS Offboard Control Example](../ros/ros2_offboard_control.md)
+- [ROS 2 사용자 가이드](../ros/ros2_comm.md): PX4와 함께 ROS 2를 사용하는 방법에 대한 개요(PX4-ROS2 브리지, 설치/설정 및 PX4용 ROS 2 애플리케이션 구축 방법 포함)
+- [ROS 2 microRTPS 오프보드 제어 예](../ros/ros2_offboard_control.md)
 
 :::note ROS
-2 is officially supported only on Linux platforms. Ubuntu 20.04 LTS is the official supported distribution.
+2는 공식적으로 Linux 플랫폼만 지원합니다. Ubuntu 20.04 LTS는 공식적으로 지원되는 배포판입니다.
 :::
 
 :::note
-To use the [PX4-ROS 2 bridge](../ros/ros2_comm.md) effectively you must (at time of writing) have a reasonable understanding of the PX4 internal architecture and conventions.
+[PX4-ROS 2 브리지](../ros/ros2_comm.md)를 효과적으로 사용하려면, (작성 당시) PX4 내부 아키텍처 및 규칙을 합리적으로 이해하여야 합니다.
 
-This contrasts with ROS (1), which communicates with PX4 via MAVROS/MAVLink, hiding PX4's internal architecture and many of its conventions (e.g. frame and unit conversions).
+이것은 MAVROS/MAVLink를 통해 PX4와 통신하는 ROS(1)와 대조되며 PX4의 내부 아키텍처와 많은 규칙(예: 프레임 및 단위 변환)을 숨깁니다.
 
-ROS 2 (and the bridge) will become easier to use as the development team provide ROS 2 APIs to abstract PX4 conventions, along with examples demonstrating their use. These are planned in the near-term PX4 roadmap.
+ROS 2(및 브리지)는 개발 팀이 PX4 규칙을 추상화하는 ROS 2 API와 사용을 보여주는 예제를 제공함에 따라 사용하기가 더 쉬워질 것입니다. 단기 PX4 로드맵에서 이것을 계획하고 있습니다.
 :::
 
 
-## Further Reading/Information
+## 추가 읽기/정보
 
-- [microRTPS bridge](../middleware/micrortps.md): PX4 middleware that underlies the [PX4-ROS 2 bridge](../ros/ros2_comm.md).
-- **ROS 1 using ROS 2 as a bridge:** The official ROS 1 Bridge package ([ros1_bridge](https://github.com/ros2/ros1_bridge)) allows ROS 1 and ROS 2 applications to be used in a single setup.
+- [microRTPS 브리지](../middleware/micrortps.md): [PX4-ROS 2 브리지](../ros/ros2_comm.md)의 기반이 되는 PX4 미들웨어입니다.
+- **ROS 2를 브리지로 사용하는 ROS 1:** 공식 ROS 1 브리지 패키지([ros1_bridge](https://github.com/ros2/ros1_bridge))를 사용하면 단일 설정에서 ROS 1 및 ROS 2 애플리케이션을 사용할 수 있습니다.
 
