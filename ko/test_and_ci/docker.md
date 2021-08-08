@@ -103,11 +103,11 @@ docker run -it --privileged \
 여기서,
 * `<host_src>`: 컨테이너에서 `<container_src>`에 매핑될 호스트 컴퓨터 디렉터리입니다. 이것은 일반적으로 **PX4-Autopilot** 디렉토리입니다.
 * `<container_src>`: 컨테이너 내부에서 공유(소스) 디렉토리의 위치입니다.
-* `<local_container_name>`: 생성 중인 도커 컨테이너의 이름입니다. 나중에 컨테이너를 다시 참조해야 하는 경우 사용할 수 있습니다.
-* `<container>:<tag>`: The container with version tag to start - e.g.: `px4io/px4-dev-ros:2017-10-23`.
-* `<build_command>`: The command to invoke on the new container. E.g. `bash` is used to open a bash shell in the container.
+* `<local_container_name>`: 생성 중인 도커 컨테이너의 이름입니다. 나중에 컨테이너를 다시 참조해야 하는 경우에 사용할 수 있습니다.
+* `<container>:<tag>`: 시작할 버전 태그가 있는 컨테이너입니다(예: `px4io/px4-dev-ros:2017-10-23`).
+* `<build_command>`: 새 컨테이너에서 호출할 명령어입니다. 예: `bash`는 컨테이너에서 bash 쉘을 실행합니다.
 
-The concrete example below shows how to open a bash shell and share the directory **~/src/PX4-Autopilot** on the host computer.
+아래의 예는 호스트 컴퓨터에서 bash 셸을 열고, **~/src/PX4-Autopilot** 디렉터리를 공유하는 방법을 설명합니다.
 ```sh
 # enable access to xhost from the container
 xhost +
@@ -122,7 +122,7 @@ docker run -it --privileged \
 --name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
 ```
 
-도커 컨테이너에서 SITL과 같은 모의시험 인스턴스를 실행하고 호스트에서  *QGroundControl*로 제어할 때, 통신 링크는 직접 설정해야합니다. 여기서 *QGroundControl*의 자동 연결 기능은 동작하지 않습니다.
+모든 것이 잘 실행되면, 새로운 bash 쉘이 실행됩니다. 예를 들어 SITL을 실행하여 모든 것이 작동하는 지 확인하십시오.
 
 ```sh
 cd src/PX4-Autopilot    #This is <container_src>
@@ -132,7 +132,7 @@ make px4_sitl_default gazebo
 
 ### 컨테이너 재진입
 
-The `docker run` command can only be used to create a new container. To get back into this container (which will retain your changes) simply do:
+`docker run` 명령은 새 컨테이너를 생성합니다. 변경 사항을 유지하는 이 컨테이너로 돌아가려면 다음을 실행하십시오.
 
 ```sh
 # start the container
@@ -141,15 +141,15 @@ docker start container_name
 docker exec -it container_name bash
 ```
 
-If you need multiple shells connected to the container, just open a new shell and execute that last command again.
+컨테이너에 연결된 여러 셸이 필요한 경우에는 새 셸을 열고 마지막 명령을 다시 실행합니다.
 
 ### 컨테이너 정리
 
-Sometimes you may need to clear a container altogether. You can do so using its name:
+때로는 컨테이너를 완전히 비워야 합니다. 이름을 사용하여 정리할 수 있습니다.
 ```sh
 docker rm mycontainer
 ```
-If you can't remember the name, then you can list inactive container ids and then delete them, as shown below:
+이름이 기억나지 않으면, 아래와 같이 비활성 컨테이너 ID를 나열한 다음 삭제합니다.
 ```sh
 docker ps -a -q
 45eeb98f1dd9
