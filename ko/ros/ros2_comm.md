@@ -12,11 +12,11 @@ ROS 2 없이 *microRTPS 브리지* 사용 방법은 [RTPS/DDS 인터페이스 �
 
 :::note ROS
 2에서 PX4를 사용하는 방법에 대한 보다 자세하고 시각적인 설명은 PX4 유지 관리자의 다음 프레젠테이션을 참조하십시오.
-1. [ROS World 2020 - Getting started with ROS 2 and PX4](https://www.youtube.com/watch?v=qhLATrkA_Gw)
+1. [ROS World 2020 - ROS 2 및 PX4 시작하기](https://www.youtube.com/watch?v=qhLATrkA_Gw)
 1. [PX4 Dev Summit 2019 - "ROS 2 Powered PX4"](https://www.youtube.com/watch?v=2Szw8Pk3Z0Q)
 :::
 
-## Overview
+## 개요
 
 The application pipeline for ROS 2 is very straightforward, thanks to the native communications middleware (DDS/RTPS). The [microRTPS Bridge](../middleware/micrortps.md) consists of a client running on PX4 and an agent running on the ROS computer, which communicate to provide bi-direction message translation between UORB and ROS 2 message formats. This allows you to create ROS 2 listener or advertiser nodes that publish and subscribe directly to and from PX4 UORB data! This is shown in the diagram below.
 
