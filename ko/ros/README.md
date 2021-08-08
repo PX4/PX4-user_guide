@@ -11,10 +11,10 @@ tip [ROS 2](../ros/ros2.md)는 ROS의 "최신이자 최고의" 버전입니다. 
 
 ## ROS 설정
 
-PX4 supports both the "original" ROS and ROS 2, with the following configurations:
+PX4는 ROS와 ROS 2를 모두 지원합니다.
 
-- **[ROS 2](../ros/ros2.md): (Recommended)** PX4 and ROS 2 communicate over the [PX4-ROS 2 bridge](../ros/ros2_comm.md), an interface that provides a direct bridge between PX4 uORB messages and ROS 2 DDS messages/types. This effectively allows direct access to PX4 internals from ROS 2 workflows and nodes in realtime.
-- **[ROS (1) via ROS 2 Bridge](../ros/ros1_via_ros2.md):** PX4 connects first via the [PX4-ROS 2 bridge](../ros/ros2_comm.md) and then via a second bridge ([ros1_bridge](https://github.com/ros2/ros1_bridge)) between ROS 2 and ROS 1.
+- **[ROS 2](../ros/ros2.md): (권장)** PX4와 ROS 2는 PX4 uORB 메시지와 ROS 2 DDS 메시지간의 직접 브리지를 제공하는 인터페이스인 [PX4-ROS 2 브리지](../ros/ros2_comm.md)를 통하여 통신합니다. 이를 통하여 실시간으로 ROS 2 워크플로 및 노드에서 PX4 내부에 직접 액세스할 수 있습니다.
+- **[ROS 2 브리지를 통한 ROS(1)](../ros/ros1_via_ros2.md):** PX4는 먼저 [PX4-ROS 2 브리지](../ros/ros2_comm.md)로 연결한 다음, ROS 2와 ROS 1 사이의 두 번째 브리지([ros1_bridge](https://github.com/ros2/ros1_bridge))를 통하여 연결합니다.
 - **[ROS (1) via MAVROS](../ros/ros1.md):** PX4 and ROS (1) communicate over [MAVLink](../middleware/mavlink.md), using the [MAVROS](../ros/mavros_installation.md) package to bridge ROS topics to MAVLink.
 
 
