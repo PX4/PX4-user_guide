@@ -13,43 +13,42 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
   cd ~/wherever/
   git clone https://github.com/<your git name>/PX4-Autopilot.git
   ```
-* 새 디렉터리로 이동, 초기화, 하위 모듈을 업데이트한 후, 원본 업스트림 펌웨어를 추가하십시오<br>
+* 복제한 디렉토리로 이동하여, 하위 모듈을 초기화 및 업데이트하고, 원 업스트림 PX4-Autopilot URL을 추가합니다.<br>
   ```sh
-  cd Firmware
-git submodule update --init --recursive
-git remote add upstream https://github.com/PX4/Firmware.git
+  cd PX4-Autopilot
+  git submodule update --init --recursive
+  git remote add upstream https://github.com/PX4/PX4-Autopilot.git
   ```
-* You should have now two remote repositories: One repository is called upstream that points to the PX4 Firmware, and one repository that points to your forked repository of the PX4 repository.
-* This can be checked with the following command:
+* 이제 두 개의 원격 저장소가 있어야 합니다. 하나의 저장소는 PX4/PX4-Autopilot 업스트림이고, 다른 하나는 PX4 분기 저장소입니다.
+* 이것은 다음 명령어로 확인할 수 있습니다.
   ```sh
   git remote -v
   ```
-* Make the changes that you want to add to the current master.
-* Create a new branch with a meaningful name that represents your feature<br>
+* 현재 마스터에 변경 작업을 추가합니다.
+* 기능을 나타내는 의미 있는 이름으로 새 분기를 생성합니다.<br>
   ```sh
   git checkout -b <your feature branch name>
   ```
-  You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/Firmware.git`  
-There you should see the message that a new branch has been pushed to your forked repository.
-* * Add your changes that you want to be part of the commit by adding the respective files<br>
+  `git branch` 명령어로 분기를 확인할 수 있습니다.
+* 해당 파일을 추가하여 커밋의 변경 사항을 추가합니다.<br>
   ```sh
   git add <file name>
   ```
-  git add -p](http://nuclearsquid.com/writings/git-add/).
-* * Commit the added files with a meaningful message explaining your changes<br>
+  GUI로 파일을 추가하려면 [Gitk](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces) 또는 [`git add -p`](http://nuclearsquid.com/writings/git-add/)를 참조하십시오.
+* 변경 사항을 설명하는 메시지와 함께 추가된 파일을 커밋합니다.<br>
   ```sh
   git commit -m "<your commit message>"
   ```
-For a good commit message, please refer to [Contributing](../contribute/README.md) section.
-* * Some time might have passed and the [upstream master](https://github.com/PX4/Firmware.git) has changed. PX4 prefers a linear commit history and uses [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing). To include the newest changes from upstream in your local branch, switch to your master branch<br>
+적절한 커밋 메시지 예들은 [기여](../contribute/README.md) 섹션을 참고하십시오.
+* 시간이 지나서, [업스트림 마스터](https://github.com/PX4/PX4-Autopilot.git)가 변경되었을 수 있습니다. PX4는 선형 커밋 기록을 선호하며, [git rebase](https://git-scm.com/book/de/v1/Git-Branching-Rebasing)를 사용합니다. 업스트림의 최신 변경 사항을 로컬 브랜치에 포함하려면, 마스터 브랜치로 전환합니다.<br>
   ```sh
   git checkout master
   ```
-  Then pull the newest commits from upstream master<br>
+  그런 다음, 업스트림 마스터에서 최신 커밋을 가져옵니다.<br>
   ```sh
   git pull upstream master
   ```
-  Now your local master is up to date. Switch back to your feature branch<br>
+  이제 로컬 마스터 브랜치는 최신입니다. 기능을 추가하는 브랜치로 되돌아 갑니다.<br>
   ```sh
   git checkout <your feature branch name>
   ```
