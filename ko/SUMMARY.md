@@ -407,7 +407,7 @@
       * [ROS/MAVROS 사용자 정의 메시지 전송](ros/mavros_custom_messages.md)
       * [ROS Gazebo 시뮬레이션](simulation/ros_interface.md)
       * [ROS Gazebo OctoMap 모델 (1)](simulation/gazebo_octomap.md)
-      * [라즈베리파이에 ROS/MAVROS 설치](ros/raspberrypi_installation.md)
+      * [라즈베리파이에 ROS 설치](ros/raspberrypi_installation.md)
       * [외부 위치 추정(비전/모션 기반)](ros/external_position_estimation.md)
   * [DroneKit](robotics/dronekit.md)
 * [기여 및 온라인 미팅](contribute/README.md) 
