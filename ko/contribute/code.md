@@ -6,28 +6,28 @@ PX4 프로젝트는 3가지 Git 분기 모델을 사용합니다.
 
 * [master](https://github.com/PX4/PX4-Autopilot/tree/master)는 기본적으로 불안정하며 빠르게 발전합니다.
 * [beta](https://github.com/PX4/PX4-Autopilot/tree/beta)는 철저한 테스트를 거쳤습니다. 비행 테스터를 위한 것입니다.
-* [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 가리킵니다.
+* [stable](https://github.com/PX4/PX4-Autopilot/tree/stable)은 최신 릴리스를 의미합니다.
 
 [리베이스를 통한 기록](https://www.atlassian.com/git/tutorials/rewriting-history)을 유지하며 [Github 흐름](https://guides.github.com/introduction/flow/)을 배제합니다. 그러나, 전세계의 역동적인 개발팀과 수시로 병합 작업을 진행합니다.
 
-새 기능을 추가하려면,  [Github에 가입](https://help.github.com/articles/signing-up-for-a-new-github-account/)하고, 저장소를 [포킹](https://help.github.com/articles/fork-a-repo/)한 후, [새 브랜치를 만들어](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), 코드를 바꾸어넣은 다음, 마지막으로 [Pull 요청을 보냅니다](https://help.github.com/articles/using-pull-requests/). [지속적인 통합 작업](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과하고 나면, 변경된 코드를 병합할 예정입니다.
+새로운 기능을 추가하려면, [Github에 가입](https://help.github.com/articles/signing-up-for-a-new-github-account/)한 다음 저장소를 [포크](https://help.github.com/articles/fork-a-repo/)하고, [새 브랜치를 생성](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)하고, 변경 사항을 추가하고, 마지막으로 [ 풀 리퀘스트를 전송합니다](https://help.github.com/articles/using-pull-requests/). 변경사항은 [지속적 통합](https://en.wikipedia.org/wiki/Continuous_integration) 테스트를 통과한 다음에 병합됩니다.
 
-모든 코드의 기여는 [BSD 3-clause 라이선스](https://opensource.org/licenses/BSD-3-Clause) 하에 진행하며, 모든 코드에 대해 더 이상의 사용시의 제약 사항을 강요해서는 안됩니다.
+코드 기여는 [BSD 3절 라이선스](https://opensource.org/licenses/BSD-3-Clause)를 준수하여여 하며, 코드에는 사용에 제약 사항을 부과하지 않아야 합니다.
 
-## 코드 형식 정리
+## 코드 스타일 형식
 
-PX4는 [astyle](http://astyle.sourceforge.net/) 방식으로 코드 형식을 정리합니다. 유효 버전은 다음과 같습니다:
+PX4는 코드 서식에 [astyle](http://astyle.sourceforge.net/)을 사용합니다. 유효 버전은 다음과 같습니다.
 * [astyle 2.06](https://sourceforge.net/projects/astyle/files/astyle/astyle%202.06/) (추천)
 * [astyle 3.0](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0/)
 * [astyle 3.01](https://sourceforge.net/projects/astyle/files/) (추천)
 
-설치하고 나면 `./Tools/astyle/check_code_style_all.sh` 명령으로 코드 형식을 점검할 수 있습니다. 정리한 master 브랜치에서의 출력은 `Format checks passed`로 나와야 합니다. 이 결과가 나왔다면, 나중에 모든 파일의 코드 형식을 검사할 때  `make format` 명령을 활용할 수 있습니다.
+설치가 완료되면, `./Tools/astyle/check_code_style_all.sh`에서 형식을 확인할 수 있습니다. 출력은 깨끗한 마스터 브랜치에서 `형식 검사를 통과`하여야 합니다. 이 결과가 나왔다면, `make format`을 사용하여 모든 파일을 자동으로 확인하고 포맷할 수 있습니다.
 
-## 소스 코드 내부 문서 정리
+## 파일 명명법
 
-PX4 개발자는  소스코드 내부 문서 정리를 권장합니다.
+다음 파일 명명 규칙을 따라야 합니다.
 
-- C++ source files should be named in CamelCase and match the class name. E.g. A C++ file containing a class named `FooThing` should be named `FooThing.cpp`.
+- C++ 소스 파일의 이름은 CamelCase로 지정하고, 클래스 이름과 동일하여야 합니다. 예: `FooThing`이라는 클래스가 포함된 C++ 파일의 이름은 `FooThing.cpp`이어야 합니다.
 - C++ header files should be named the same as source files except have the suffix `.hpp`.
 - C++ header files that are required to be C compatible, should have the suffix `.h`.
 - Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
