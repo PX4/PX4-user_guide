@@ -50,41 +50,36 @@ PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습
 * *가치가 추가되거나 중복되지 않는* 다른 소스 문서를 권장합니다.
 
 :::tip
-개발자는 목적을 유추할 수 있도록 C++ 엔터티(클래스, 함수, 변수 등)의 이름을 지정하면, 명시적 문서의 필요성이 줄어듭니다.
+개발자는 목적을 유추할 수 있도록 C++ 엔터티(클래스, 함수, 변수 등)의 이름을 지정하여 명시적 문서의 필요성을 줄일 수 있습니다.
 :::
 
-  - Do not add documentation that can trivially be assumed from C++ entity names.
-  - Commonly you may want to add information about corner cases and error handling.
-  - [Doxgyen](http://www.doxygen.nl/) tags should be used if documentation is needed: `@class`, `@file`, `@param`, `@return`, `@brief`, `@var`, `@see`, `@note`. A good example of usage is [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h).
+  - C++ 엔티티 이름에서 쉽게 가정할 수 있는 문서를 추가하지 마십시오.
+  - 일반적으로 특이 사항이나 오류 처리에 대한 정보를 추가할 수 있습니다.
+  - 필요시에는 [Doxgyen](http://www.doxygen.nl/) 태그를 사용합니다. `@class`, `@file`, `@param`, ` @return`, `@brief`, `@var`, `@see`, `@note`. 좋은 예는 [src/modules/events/send_event.h](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/events/send_event.h)입니다.
 
-## Commits and Commit Messages
+## 커밋과 커밋 메시지
 
-Please use descriptive, multi-paragraph commit messages for all non-trivial changes. Structure them well so they make sense in the one-line summary but also provide full detail.
+사소한 변경에 대하여도 자세한 설명한 여러 단락 커밋 메시지를 기록하십시오. 쉽게 이해할 수 있는 한 줄 요약과 자세한 세부정보도 기록하십시오.
 
 ```
 컴포넌트: 변경 사항을 한 문장으로 설명하십시오. Fixes #1234
 
-Prepend the software component to the start of the summary
-line, either by the module name or a description of it.
-(e.g. "mc_att_ctrl" or "multicopter attitude controller").
+요약 시작 부분에 소프트웨어 구성 요소를 추가합니다.
+모듈 이름이나 설명으로 줄을 지정합니다.
+(예: "mc_att_ctrl" 또는 "멀티콥터 자세 콘트롤러").
 
-If the issue number is appended as <Fixes #1234>, Github
-will automatically close the issue when the commit is
-merged to the master branch.
+발행번호를 <Fixes #1234>으로 붙이면, Github 커밋이 완료시 자동으로 문제를 종료합니다.
+마스터 브랜치에 병합됩니다.
 
-The body of the message can contain several paragraphs.
-Describe in detail what you changed. Link issues and flight
-logs either related to this fix or to the testing results
-of this commit.
+메시지 본문에는 여러 단락이 포함될 수 있습니다.
+변경한 사항을 자세히 기술하십시오. 이 수정 사항 또는 이 커밋의 테스트 결과와 관련된 문제 및 비행 로그를 연결합니다.
 
-Describe the change and why you changed it, avoid to
-paraphrase the code change (Good: "Adds an additional
-safety check for vehicles with low quality GPS reception".
-Bad: "Add gps_reception_check() function").
+변경 사항과 변경한 이유를 설명하고 코드 변경을 다른 말로 표현하지 마십시오(좋음: "GPS 수신 품질이 낮은 차량에 대한 추가 안전 점검 추가".
+불량: "gps_reception_check() 함수 추가").
 
-Reported-by: Name <email@px4.io>
+보고자: 이름 <email@px4.io>
 ```
 
-이 제출 안내서 내용은 리누스 토발즈가 관리하는 리눅스 커널과 기타 [프로젝트](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)에서 나온 우수 사례를 참고로 작성하였습니다.
+****`git commit -s`**를 사용하여 모든 커밋을 승인합니다. ** 이렇게 하면 `signed-off-by:`가 추가됩니다. 마지막 줄에 이름과 이메일을 입력합니다.
 
-This commit guide is based on best practices for the Linux Kernel and other [projects maintained](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115) by Linus Torvalds.
+이 커밋 가이드는 Linux 커널과 Linus Torvalds가 관리하는 [프로젝트](https://github.com/torvalds/subsurface/blob/a48494d2fbed58c751e9b7e8fbff88582f9b2d02/README#L88-L115)에 대한 모범 사례들을 참고로 작성되었습니다.
