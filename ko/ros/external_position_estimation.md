@@ -42,22 +42,22 @@ PX4는 기준 프레임뿐만 아니라 로컬 바디 프레임에도 FRD(X **F*
 기준 프레임의 소스에 따라 MAVLink Vision/MoCap 메시지를 보내기 전에, 포즈 추정값에 사용자 정의 변환을 적용하여야 합니다. 이것은 PX4 규칙에 맞도록 포즈 추정의 상위 및 하위 프레임 방향을 변경하는 데 필요합니다. 필요한 변환을 위해 MAVROS [*odom* 플러그인](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp)을 살펴보십시오.
 
 :::tip ROS
-users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
+사용자는 아래 [참조 프레임 및 ROS](#reference-frames-and-ros)을 참고하십시오.
 :::
 
-For example, if using the Optitrack framework the local frame has $x{}$ and $z{}$ on the horizontal plane (*x* front and *z* right) while *y* axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention.
+예를 들어, Optitrack 프레임워크를 사용하는 경우 로컬 프레임은 수평면(앞면 *x*, 오른쪽 *z*)에 $x{}$ 및 $z{}$가 있는 반면 < 0>y</em> 축은 수직이고 위쪽을 가르킵니다. 간단한 트릭은 NED 규칙을 얻기 위해 축을 변경하는 것입니다.
 
-If `x_{mav}`, `y_{mav}` and `z_{mav}` are the coordinates that are sent through MAVLink as position feedback, then we obtain:
+`x_{mav}`, `y_{mav}`, `z_{mav}`가 MAVLink를 통해 위치 피드백으로 전송되는 좌표라면, 결과는 다음과 같습니다.
 ```
 x_{mav} = x_{mocap}
 y_{mav} = z_{mocap}
 z_{mav} = - y_{mocap}
 ```
 
-Regarding the orientation, keep the scalar part *w* of the quaternion the same and swap the vector part *x*, *y* and *z* in the same way. You can apply this trick with every system - if you need to obtain a NED frame, look at your MoCap output and swap axis accordingly.
+방향과 관련하여 쿼터니언의 스칼라 부분 *w*을 동일하게 유지하고, 같은 방식으로 벡터 부분 *x*, *y* 및 *z*를 변경합니다. 이 트릭을 모든 시스템에 적용할 수 있습니다. NED 프레임을 가져와야 하는 경우 MoCap 출력을 보고 그에 따라 축을 교체하십시오.
 
 
-## EKF2 Tuning/Configuration
+## EKF2 튜닝과 설정
 
 Note: this is a quick overview. For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
 
