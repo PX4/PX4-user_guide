@@ -1,22 +1,22 @@
 # MAVROS *오프보드* 콘트롤 예제
 
-This tutorial shows the basics of *Offboard* control with MAVROS, using an Iris quadcopter simulated in Gazebo/SITL. At the end of the tutorial, you should see the same behaviour as in the video below, i.e. a slow takeoff to an altitude of 2 meters.
+Gazebo/SITL에서 시뮬레이션된 Iris 쿼드콥터를 사용하여 MAVROS로 *오프보드* 제어의 기본 사항을 설명합니다. 튜토리얼이 끝나면 아래 비디오와 같은 동작, 즉 고도 2미터까지 천천히 이륙하는 것을 볼 수 있습니다.
 
 :::warning
-*Offboard* control is dangerous. If you are operating on a real vehicle be sure to have a way of gaining back manual control in case something goes wrong.
+*오프보드* 콘트롤은 위험합니다. 실제 차량에서 작동하는 경우 문제가 발생하면, 다시 수동 제어를 하는 방법이 있어야 합니다.
 :::
 
 :::tip
-This example uses C++. Similar examples in Python can be found here: [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros).
+이 예제는 C++ 언어를 사용합니다. Python의 유사한 예는 [integrationtests/python_src/px4_it/mavros](https://github.com/PX4/PX4-Autopilot/tree/master/integrationtests/python_src/px4_it/mavros)을 참고하십시오.
 :::
 
 <video width="100%" autoplay="true" controls="true">
     <source src="../../assets/simulation/gazebo_offboard.webm" type="video/webm">
 </video>
 
-## Code
+## 코드
 
-Create the `offb_node.cpp` file in your ROS package (by also adding it to your `CMakeList.txt` so it is compiled), and paste the following inside it:
+ROS 패키지에 `offb_node.cpp` 파일을 만들고(컴파일되도록 `CMakeList.txt`에도 추가하여), 그 안에 다음을 붙여넣습니다.
 ```cpp
 /**
  * @file offb_node.cpp
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 
 ```
 
-## Code explanation
+## 코드 설명
 
 ```cpp
 #include <ros/ros.h>
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
 #include <mavros_msgs/SetMode.h>
 #include <mavros_msgs/State.h>
 ```
-The `mavros_msgs` package contains all of the custom messages required to operate services and topics provided by the MAVROS package. All services and topics as well as their corresponding message types are documented in the [mavros wiki](http://wiki.ros.org/mavros).
+`mavros_msgs` 패키지에는 MAVROS 패키지에서 제공하는 서비스 및 주제  운영에 필요한 사용자 정의 메시지가 포함되어 있습니다. 모든 서비스와 주제와 해당 메시지 유형은 [mavros wiki](http://wiki.ros.org/mavros)에 문서화되어 있습니다.
 
 ```cpp
 mavros_msgs::State current_state;
@@ -125,7 +125,7 @@ void state_cb(const mavros_msgs::State::ConstPtr& msg){
     current_state = *msg;
 }
 ```
-The px4 flight stack has a timeout of 500ms between two *Offboard* commands. This will allow us to check connection, arming and *Offboard* flags.
+자동조종장치의 현재 상태를 저장할 간단한 콜백을 만듭니다. 이렇게 하면 연결, 준비 및 *오프보드* 플래그를 확인할 수 있습니다.
 
 ```cpp
 ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
@@ -133,12 +133,12 @@ ros::Publisher local_pos_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/
 ros::ServiceClient arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
 ros::ServiceClient set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("mavros/set_mode");
 ```
-We instantiate a publisher to publish the commanded local position and the appropriate clients to request arming and mode change. Note that for your own system, the "mavros" prefix might be different as it will depend on the name given to the node in it's launch file.
+퍼블리셔를 인스턴스화하여 명령된 로컬 위치를 게시하고, 적절한 클라이언트가 무장 및 모드 변경을 요청하도록 합니다. 자신의 시스템에서 "mavros" 접두사는 실행 파일의 노드에 지정된 이름에 따라 다를 수 있습니다.
 ```cpp
 //the setpoint publishing rate MUST be faster than 2Hz
 ros::Rate rate(20.0);
 ```
-PX4 has a timeout of 500ms between two *Offboard* commands. If this timeout is exceeded, the commander will fall back to the last mode the vehicle was in before entering *Offboard* mode. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is recommended to enter *Offboard* mode from *Position* mode, this way if the vehicle drops out of *Offboard* mode it will stop in its tracks and hover.
+PX4는 두 개의 *Offboard* 명령 사이에 500ms의 시간 초과가 있습니다. 이 제한 시간이 초과되면 commander는 *오프보드* 모드로 들어가기 전에 차량이 마지막으로 있었던 모드로 되돌아갑니다. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is recommended to enter *Offboard* mode from *Position* mode, this way if the vehicle drops out of *Offboard* mode it will stop in its tracks and hover.
 
 ```cpp
 // wait for FCU connection
