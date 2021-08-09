@@ -184,26 +184,26 @@ MoCap 소프트웨어에서 강체를 생성시, 먼저 로봇의 로컬 *x* 축
 
 MAVROS를 사용하면 이 작업이 간단합니다. ROS는 ENU 프레임을 관례로 사용하므로, ENU에서 위치 피드백을 제공하여야 합니다. Optitrack 시스템이 있는 경우에는, ENU에 존재하는 ROS 주제에 대한 개체 포즈를 스트리밍하는 [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) 노드를 사용할 수 있습니다. 다시 매핑하면 변환 없이 그대로 `mocap_pose_estimate`에 직접 게시할 수 있으며, MAVROS는 NED 변환을 처리합니다.
 
-MAVROS 주행 거리 측정 플러그인을 사용하면, 좌표 프레임을 쉽게 처리할 수 있습니다. ROS의 tf 패키지를 사용합니다. 외부 포즈 시스템에는 PX4와 일치하지 않는 완전히 다른 프레임 규칙이 있을 수 있습니다. 외부 포즈 추정의 바디 프레임은 MOCAP 소프트웨어에서 바디 프레임을 설정하는 방법이나 드론에 VIO 센서를 장착하는 방법에 따라 달라질 수 있습니다. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
+MAVROS 주행 거리 측정 플러그인을 사용하면, 좌표 프레임을 쉽게 처리할 수 있습니다. ROS의 tf 패키지를 사용합니다. 외부 포즈 시스템에는 PX4와 일치하지 않는 완전히 다른 프레임 규칙이 있을 수 있습니다. 외부 포즈 추정의 바디 프레임은 MOCAP 소프트웨어에서 바디 프레임을 설정하는 방법이나 드론에 VIO 센서를 장착하는 방법에 따라 달라질 수 있습니다. MAVROS 주행 거리 측정 플러그인은 MAVROS에 의해 알려진 기체의 FRD 또는 FLU 본체 프레임과 관련하여 외부 포즈의 자식 프레임이 어떻게 향하고 있는 지 알아야 합니다. 따라서 외부 포즈의 바디 프레임을 tf 트리에 추가하여야 합니다. 이것은 ROS 시작 파일에 다음 줄의 수정된 버전을 포함하여 수행할 수 있습니다.
 
 ```
   <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_externalPoseChildFrame"
         args="0 0 0 <yaw> <pitch> <roll> base_link <external_pose_child_frame> 1000"/>
 ```
-Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose's body frame to the `base_link` or `base_link_frd`. Have a look at the [tf package](http://wiki.ros.org/tf#static_transform_publisher) for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the `external_pose_child_frame` has to match the child_frame_id of your `nav_msgs/Odometry` message. The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the `odom` or `odom_frd` frame. Adapt therefore the following code line accordingly.
+외부 포즈의 바디 프레임이 `base_link` 또는 `base_link_frd`에 정상적으로 연결되도록 yaw, pitch 및 roll 값을 변경하였는 지 확인하십시오. 프레임 간의 변환을 지정하는 방법에 대한 추가 도움말은 [tf 패키지](http://wiki.ros.org/tf#static_transform_publisher)를 참고하십시오. rviz를 사용하여 프레임을 올바르게 부착했는 지 확인할 수 있습니다. `external_pose_child_frame`의 이름은 `nav_msgs/Odometry` 메시지의 child_frame_id와 일치하여야 합니다. 외부 포즈의 기준 프레임에도 동일하게 적용됩니다. 외부 포즈의 기준 좌표계를 `odom` 또는 `odom_frd` 프레임에 자식으로 부착하여야 합니다. 따라서, 다음 코드 줄을 적절하게 조정하십시오.
 ```
   <node pkg="tf" type="static_transform_publisher" name="tf_odom_externalPoseParentFrame"
         args="0 0 0 <yaw> <pitch> <roll> odom <external_pose_parent_frame> 1000"/>
 ```
-If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the `odom` frame. The name of `external_pose_parent_frame` has to match the frame_id of the odometry message.
+기준 프레임에 위쪽을 가리키는 z축이 있으면, 회전 없이(yaw=0, pitch=0, roll=0) `odom` 프레임에 연결할 수 있습니다. `external_pose_parent_frame`의 이름은 주행 거리 메시지의 frame_id와 일치하여야 합니다.
 
-:::note
-When using the MAVROS *odom* plugin, it is important that no other node is publishing a transform between the external pose's reference and child frame. This might break the *tf* tree.
+:::note MAVROS
+*odom* 플러그인을 사용시, 다른 노드가 외부 포즈의 참조와 자식 프레임 간의 변환을 게시하지 않는 것이 중요합니다. 이것은 *tf* 트리를 깨뜨릴 수 있습니다.
 :::
 
 <a id="setup_specific_systems"></a>
 
-## Specific System Setups
+## 특정 시스템 설정
 
 ### OptiTrack MoCap
 
