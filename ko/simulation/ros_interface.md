@@ -71,13 +71,13 @@ roslaunch px4 posix_sitl.launch
 
 이 섹션에서는 이전에 제공된 *roslaunch* 지침이 실제로 어떻게 작동하는 지 설명합니다(시뮬레이션 및 ROS를 수동으로 시작하려면 지침을 따를 수 있습니다).
 
-First start the simulator using the command below:
+아래 명령어를 사용하여 시뮬레이터를 시작합니다.
 
 ```sh
 no_sim=1 make px4_sitl_default gazebo
 ```
 
-The console will look like this:
+콘솔 화면은 다음과 같이 나타납니다:
 ```sh
 [init] shell id: 46979166467136
 [init] task name: px4
@@ -101,13 +101,14 @@ INFO  Not using /dev/ttyACM0 for radio control input. Assuming joystick input vi
 INFO  Waiting for initial data on UDP. Please start the flight simulator to proceed..
 ```
 
-Now in a new terminal make sure you will be able to insert the Iris model through the Gazebo menus, to do this set your environment variables to include the appropriate `sitl_gazebo` folders.
+새 터미널에서 Gazebo 메뉴를 통해 Iris 모델을 삽입할 수 있는 지 확인하십시오. 이렇게 하려면, 적절한 `sitl_gazebo` 폴더를 포함하도록 환경 변수를 설정하십시오.
 
 ```sh
-roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
+cd <PX4-Autopilot_clone>
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
-Now start Gazebo like you would when working with ROS and insert the Iris quadcopter model. Once the Iris is loaded it will automatically connect to the px4 app.
+이제 ROS로 작업할 때와 같이, Gazebo를 시작하고 Iris 쿼드콥터 모델을 삽입합니다. Iris가 로드되면 자동으로 px4 앱에 연결됩니다.
 
 ```sh
 roslaunch gazebo_ros empty_world.launch world_name:=$(pwd)/Tools/sitl_gazebo/worlds/iris.world
