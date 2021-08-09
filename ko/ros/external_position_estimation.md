@@ -35,11 +35,11 @@ EKF2는 `vehicle_visual_odometry` 주제만 구독하므로, 처음 두 메시�
 다음의 MAVLink "비전" 메시지는 현재 PX4에서 지원되지 않습니다: [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE), [VISION_SPEED_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE), [VICON_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE)
 
 
-## 참조 프레임
+## 기준 프레임
 
-PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body frame as well for the reference frame. When using the heading of the magnetometer, the PX4 reference frame x axis will be aligned with north, so therefore it is called NED (X **N**orth, Y **E**ast, Z **D**own). The heading of the reference frame of the PX4 estimator and the one of the external pose estimate will not match in most cases. Therefore the reference frame of the external pose estimate is named differently, it is called [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD).
+PX4는 기준 프레임뿐만 아니라 로컬 바디 프레임에도 FRD(X **F**앞, Y**R**오른쪽 및 Z**D**자신)를 사용합니다. 자력계의 방향을 사용할 때 PX4 기준 좌표계 x 축은 북쪽과 정렬되며, 따라서 NED(X **N** orth, Y **E**ast, Z **D**own)라고 합니다. 대부분의 경우 PX4 추정기의 기준 좌표계와 외부 포즈 추정 중 하나가 일치하지 않습니다. 따라서 외부 포즈 추정의 기준 프레임은 다르게 명명되며 [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)라고 합니다.
 
-Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS [*odom* plugin](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp) for the necessary transformations.
+기준 프레임의 소스에 따라 MAVLink Vision/MoCap 메시지를 보내기 전에, 포즈 추정값에 사용자 정의 변환을 적용하여야 합니다. 이것은 PX4 규칙에 맞도록 포즈 추정의 상위 및 하위 프레임 방향을 변경하는 데 필요합니다. 필요한 변환을 위해 MAVROS [*odom* 플러그인](https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp)을 살펴보십시오.
 
 :::tip ROS
 users can find more detailed instructions below in [Reference Frames and ROS](#reference-frames-and-ros).
