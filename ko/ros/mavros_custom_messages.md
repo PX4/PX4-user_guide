@@ -299,34 +299,34 @@
 
 MAVROS 메시지가 PX4로 전송되는 지 테스트합니다.
 
-### Running ROS
+### ROS 실행
 
-1. In a terminal enter
+1. 터미널에서 입력합니다.
    ```sh
    roslaunch mavros px4.launch
    ```
-1. In a second terminal run:
+1. 두 번째 터미널 실행합니다.
    ```sh
    rostopic pub -r 10 /mavros/keyboard_command/keyboard_sub std_msgs/Char 97
    ```
-   This means, publish 97 ('a' in ASCII) to ROS topic "/mavros/keyboard_command/keyboard_sub" in message type "std_msgs/Char". "-r 10" means to publish continuously in "10Hz".
+   즉, 메시지 유형 "std_msgs/Char"의 ROS 주제 "/mavros/keyboard_command/keyboard_sub"에 97(ASCII의 'a')을 게시합니다. "-r 10"은 "10Hz"로 지속적으로 발행한다는 의미입니다.
 
-### Running PX4
+### PX4 실행
 
-1. Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.
+1. UDP를 통해 Pixhawk nutshell을 오픈합니다. xxx.xx.xxx.xxx를 해당 컴퓨터의 IP로 변경합니다.
    ```sh
    cd PX4-Autopilot/Tools
    ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
    ```
 
-1. After few seconds, press **Enter** a couple of times. You should see a prompt in the terminal as below:
+1. 몇 초 후에, **Enter** 키를 두 번 입력합니다. 아래와 같이 터미널에서 프롬프트가 나타납니다.
    ```sh
    nsh>
    nsh>
    ```
-   Type "key_receiver", to run your subscriber module.
+   "key_receiver"를 입력하여 subscriber 모듈을 실행합니다.
    ```
    nsh> key_receiver
    ```
 
-Check if it successfully receives `a` from your ROS topic.
+ROS 토픽으로 부터 `a`를 올바르게 수신하는 지 확인합니다.
