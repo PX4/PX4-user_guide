@@ -61,68 +61,63 @@ sudo apt-get install python-catkin-tools python-rosinstall-generator -y
 ```
 
 :::tip
-While the package can be built using **catkin_make** the preferred method is using **catkin_tools** as it is a more versatile and "friendly" build tool.
+패키지는 **catkin_make**를 사용하여 빌드할 수 있지만, 선호하는 방법은 **catkin_tools**를 사용하는 것입니다. 이는 편리한 빌드 도구이기 때문입니다.
 :::
 
-If this is your first time using wstool you will need to initialize your source space with:
+wstool을 처음 사용하는 경우 다음을 사용하여 소스 공간을 초기화합니다.
 ```sh
 $ wstool init ~/catkin_ws/src
 ```
 
-Now you are ready to do the build
-1. Install MAVLink:
+이제 빌드할 준비가 되었습니다.
+1. MAVLink를 설치합니다.
    ```
-   Install MAVLink: 
-     # We use the Kinetic reference for all ROS distros as it's not distro-specific and up to date
-     rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
+   # 모든 ROS 배포판에 대해 Kinetic 참조를 사용합니다. 배포판에 국한되지 않고 최신 상태이기 때문입니다.
+   rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
    ```
-1. Install MAVROS from source using either released or latest version:
-   * Released/stable
+1. 릴리스 또는 최신 버전을 사용하여 소스에서 MAVROS를 설치합니다.
+   * 출시/안정
      ```
-     Latest source 
-      sh
-      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
+     rosinstall_generator --upstream mavros | tee -a /tmp/mavros.rosinstall
      ```
-   * Latest source
+   * 최신 소스
      ```sh
      rosinstall_generator --upstream-development mavros | tee -a /tmp/mavros.rosinstall
      ```
      ```sh
-     sh
-  # For fetching all the dependencies into your catkin_ws, 
-  # just add '--deps' to the above scripts, E.g.:
-  #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
+     # For fetching all the dependencies into your catkin_ws, 
+     # just add '--deps' to the above scripts, E.g.:
+     #   rosinstall_generator --upstream mavros --deps | tee -a /tmp/mavros.rosinstall
      ```
 
-1. Create workspace & deps
+1. 작업 공간과 의존성 만들기
    ```
    wstool merge -t src /tmp/mavros.rosinstall
- wstool update -t src -j4
- rosdep install --from-paths src --ignore-src -y
+   wstool update -t src -j4
+   rosdep install --from-paths src --ignore-src -y
    ```
 
-1. Install [GeographicLib](https://geographiclib.sourceforge.io/) datasets:
+1. [GeographicLib](https://geographiclib.sourceforge.io/) 데이터세트를 설치합니다.
    ```
    ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
    ```
 
-1. Build source
+1. 소스를 빌드합니다.
    ```
    catkin build
    ```
 
-1. Make sure that you use setup.bash or setup.zsh from workspace.
+1. 작업 공간에서 setup.bash 또는 setup.zsh를 사용하는지 확인하십시오.
    ```
-   #Needed or rosrun can't find nodes from this workspace.
+   #Needed 또는 rosrun이 이 작업 공간에서 노드를 찾을 수 없습니다.
    source devel/setup.bash
    ```
 
-In the case of error, there are addition installation and troubleshooting notes in the [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation).
+오류가 발생하면, [mavros repo](https://github.com/mavlink/mavros/tree/master/mavros#installation)에서 추가 설치 및 문제 해결을 참고하십시오.
 
-## MAVROS Examples
+## MAVROS 예제
 
-The MAVROS [Offboard Control example](../ros/mavros_offboard.md), will show you the basics of MAVROS, from reading telemetry, checking the drone state, changing flight modes and controlling the drone.
+MAVROS [오프보드 제어 예제](../ros/mavros_offboard.md)는 원격 측정 읽기, 드론 상태 확인, 비행 모드 변경 및 드론 제어부터 MAVROS의 기본 사항들을 설명합니다.
 
-:::note
-If you have an example app using the PX4 Autopilot and MAVROS, we can help you get it on our docs.
+:::note PX4와 MAVROS를 사용하는 예제 앱이 있으면, 문서에서 다운로드할 수 있도록 도와드릴 수 있습니다.
 :::
