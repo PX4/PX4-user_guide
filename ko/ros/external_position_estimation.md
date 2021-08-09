@@ -207,36 +207,36 @@ MAVROS 주행 거리 측정 플러그인을 사용하면, 좌표 프레임을 �
 
 ### OptiTrack MoCap
 
-The following steps explain how to feed position estimates from an [OptiTrack](https://optitrack.com/motion-capture-robotics/) system to PX4. With this stick value, the robot maintains its altitude; raising the stick will increase the reference altitude while lowering the value will decrease it. See [this video](https://www.youtube.com/watch?v=cNZaFEghTBU) for a tutorial on the calibration process.
+다음 단계는 [OptiTrack](https://optitrack.com/motion-capture-robotics/) 시스템에서 PX4로 위치 추정치를 제공하는 방법을 설명합니다. MoCap 시스템이 보정된 것으로 가정합니다. 보정 가이드는 [이 동영상](https://www.youtube.com/watch?v=cNZaFEghTBU)을 참고하십시오.
 
-#### Steps on the *Motive* MoCap software
+#### *Motive* MoCap 소프트웨어의 단계
 
-* Align your robot's forward direction with the [system +x-axis](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)
-* [Define a rigid body in the Motive software](https://www.youtube.com/watch?v=1e6Qqxqe-k0). Give the robot a name that does not contain spaces, e.g. `robot1` instead of `Rigidbody 1`
-* [Enable Frame Broadacst and VRPN streaming](https://www.youtube.com/watch?v=yYRNG58zPFo)
-* Set the Up axis to be the Z axis (the default is Y)
+* 로봇의 앞으로 방향을 [시스템 +x축](https://v20.wiki.optitrack.com/index.php?title=Template:Coordinate_System)에 맞춥니다.
+* [Motive 소프트웨어에서 강체를 정의합니다](https://www.youtube.com/watch?v=1e6Qqxqe-k0). 로봇에 공백이 포함되지 않은 이름을 지정합니다. 예: `Rigidbody 1` 대신 `robot1`
+* [Frame Broadacst 및 VRPN 스트리밍 활성화](https://www.youtube.com/watch?v=yYRNG58zPFo)
+* 위쪽 축을 Z축으로 설정합니다(기본값은 Y).
 
-#### Getting pose data into ROS
+#### 포즈 데이터를 ROS로 가져오기
 
-* Install the `vrpn_client_ros` package
-* You can get each rigid body pose on an individual topic by running bash roslaunch vrpn_client_ros sample.launch server:=
+* `vrpn_client_ros` 패키지를 설치합니다.
+* 다음 명령어로 개별 주제에 대한 각 강체의 포즈를 얻을 수 있습니다.
   ```bash
   roslaunch vrpn_client_ros sample.launch server:=<mocap machine ip>
   ```
 
-If you named the rigidbody as `robot1`, you will get a topic like `/vrpn_client_node/robot1/pose`
+rigidbody의 이름을 `robot1`으로 지정하면, `/vrpn_client_node/robot1/pose`와 같은 주제를 얻게 됩니다.
 
-#### Relaying/remapping Pose Data
+#### 포즈 데이터 중계/재매핑
 
-MAVROS provides a plugin to relay pose data published on `/mavros/vision_pose/pose` to PX4. Assuming that MAVROS is running, you just need to **remap** the pose topic that you get from MoCap `/vrpn_client_node/<rigid_body_name>/pose` directly to `/mavros/vision_pose/pose`. Note that there is also a `mocap` topic that MAVROS provides to feed `ATT_POS_MOCAP` to PX4, but it is not applicable for EKF2. However, it is applicable with LPE.
+MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴레이하는 플러그인을 제공합니다. MAVROS가 실행 중이라고 가정하면, MoCap `/vrpn_client_node/<rigid_body_name>/pose`에서 가져온 포즈 주제를 `/mavros/vision_pose/pose`로 직접 **다시 매핑**하면 됩니다. MAVROS가 `ATT_POS_MOCAP`를 PX4에 제공하는 `mocap` 주제도 있지만, EKF2에는 적용되지 않습니다. 그러나 LPE에는 적용됩니다.
 
 :::note
-Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+포즈 주제 재매핑은 [PX4에 포즈 데이터 릴레이](#relaying_pose_data_to_px4)에서 설명합니다(`/vrpn_client_node/<rigid_body_name>/pose`는 `geometry_msgs/PoseStamped` 유형임).
 :::
 
-Assuming that you have configured EKF2 parameters as described above, PX4 now is set and fusing MoCap data.
+위에서 설명한 대로 EKF2 매개변수를 설정하였으면, 이제 PX4가 설정되고 MoCap 데이터를 통합합니다.
 
-You are now set to proceed to the first flight.
+이제 첫 번째 비행을 진행할 준비가 되었습니다.
 
 
 ## First Flight
