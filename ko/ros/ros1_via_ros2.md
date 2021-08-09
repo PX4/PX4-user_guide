@@ -20,7 +20,7 @@ Note PX4 개발 팀은 모든 사용자가 [ROS 2로 업그레이드](../ros/ros
 
 ROS 2를 통해 브리지된 ROS(1)의 애플리케이션 파이프라인은 다음과 같습니다.
 
-![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png)
+![ROS를 사용한 아키텍처](../../assets/middleware/micrortps/architecture_ros.png)
 
 두 버전 간에 메시지를 번역하는 추가 [`ros1_bridge`](https://github.com/ros2/ros1_bridge) 패키지(Open Robotics 제공)가 있다는 점을 제외하면 기본적으로 ROS 2와 동일합니다. 이것은 ROS의 원래 버전이 RTPS를 지원하지 않기 때문에 필요합니다.
 
@@ -41,12 +41,12 @@ ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간�
    ```sh
    $ mkdir -p ~/px4_ros_com_ros1/src
    ```
-1. Clone the ROS 1 bridge packages `px4_ros_com` and `px4_msgs` to the `/src` directory (the `ros1` branch):
+1. ROS 1 브리지 패키지 `px4_ros_com`와 `px4_msgs`를 `/src` 디렉토리(`ros1` 분기)에 복제합니다.
    ```sh
    $ git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 # clones the 'ros1' branch
    $ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
    ```
-1. Use the `build_ros1_bridge.bash` script to build the ROS workspace (including `px4_ros_com`, `px4_msgs`, and `ros1_bridge`).
+1. `build_ros1_bridge.bash` 스크립트를 사용하여 ROS 작업 공간(`px4_ros_com`, `px4_msgs` 및 `ros1_bridge` 포함)을 빌드합니다.
    <!-- we didn't clone `ros1_bridge` ? -->
    ```sh
    $ git checkout ros1
@@ -54,25 +54,25 @@ ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간�
    $ source build_ros1_bridge.bash
    ```
 :::tip
-You can also build both ROS (1) and ROS 2 workspaces with a single script: `build_all.bash`. The most common way of using it, is by passing the ROS(1) workspace directory path and PX4 Autopilot directory path:
+또한 단일 스크립트(`build_all.bash`)로 ROS(1) 및 ROS 2 작업 공간을 모두 빌드할 수 있습니다. 이것을 사용하는 가장 일반적인 방법은 ROS(1) 작업 공간 디렉토리 경로와 PX4 Autopilot 디렉토리 경로를 전달하는 것입니다.
    ```sh
    $ source build_all.bash --ros1_ws_dir <path/to/px4_ros_com_ros1/ws>
    ```
 
-### Sanity Check the Installation
+### 설치 상태 확인
 
-As discussed in [ROS 2 User Guide > Sanity Check the Installation](../ros/ros2_comm.md#sanity-check-the-installation) a good way to verify the installation is to test that the bridge can communicate with PX4 by running it against the PX4 simulator.
+[ROS 2 사용자 가이드 > 설치 상태 확인](../ros/ros2_comm.md#sanity-check-the-installation) 설치를 확인하는 방법은 브리지가 PX4 시뮬레이터에서 PX4와 통신 여부를 테스트하는 것입니다.
 
-To use ROS (1) **and** ROS 2 (you need both for this!):
+ROS(1) **및** ROS 2를 사용하려면(둘 다 필요합니다!):
 
-1. [Setup your PX4 Ubuntu Linux development environment](../dev_setup/dev_env_linux_ubuntu.md) - the default instructions get the latest version of PX4 source and install all the needed tools.
-1. Open a new terminal in the root of the **PX4 Autopilot** project, and then start a PX4 Gazebo simulation using:
+1. [PX4 Ubuntu Linux 개발 환경 설정](../dev_setup/dev_env_linux_ubuntu.md) - 기본 지침은 최신 버전의 PX4 소스를 다운로드하고 필요한 도구들을 설치합니다.
+1. **PX4 Autopilot** 프로젝트의 루트에서 새 터미널을 열고, PX4 Gazebo 시뮬레이션을 실행합니다.
    ```sh
    make px4_sitl_rtps gazebo
    ```
-   Once PX4 has fully started the terminal will display the [NuttShell/System Console](../debug/system_console.md).
+   PX4가 시작되면, 터미널에 [NuttShell/System Console](../debug/system_console.md)이 표시됩니다.
 
-1. On another terminal, source the ROS 2 environment and workspace and launch the `ros1_bridge` (this allows ROS 2 and ROS nodes to communicate with each other). Also set the `ROS_MASTER_URI` where the `roscore` is/will be running:
+1. 다른 터미널에서 ROS 2 환경과 작업 공간을 소싱하고 `ros1_bridge`를 시작합니다(이렇게 하면 ROS 2와 ROS 노드가 서로 통신할 수 있음). 또한, `roscore`가 실행 중이거나 실행될 `ROS_MASTER_URI`를 설정합니다.
    ```sh
    $ source /opt/ros/dashing/setup.bash
    $ source ~/px4_ros_com_ros2/install/local_setup.bash
@@ -80,24 +80,24 @@ To use ROS (1) **and** ROS 2 (you need both for this!):
    $ ros2 run ros1_bridge dynamic_bridge
    ```
 
-1. On another terminal, source the ROS workspace and launch the `sensor_combined` listener node. Since you are launching through `roslaunch`, this will also automatically start the `roscore`:
+1. 다른 터미널에서 ROS 작업 공간을 소싱하고, `sensor_combined` 리스너 노드를 시작합니다. `roslaunch`를 통해 시작하므로, `roscore`도 자동으로 시작됩니다.
    ```sh
    $ source ~/px4_ros_com_ros1/install/setup.bash
    $ roslaunch px4_ros_com sensor_combined_listener.launch
    ```
 
-1. On another terminal, source the ROS 2 workspace and then start the `micrortps_agent` daemon with UDP as the transport protocol:
+1. 다른 터미널에서 ROS 2 작업 공간을 소싱한 다음 UDP를 전송 프로토콜로 사용하여 `micrortps_agent` 데몬을 시작합니다.
    ```sh
    $ source ~/px4_ros_com_ros2/install/setup.bash
    $ micrortps_agent -t UDP
    ```
 
-1. On the [NuttShell/System Console](../debug/system_console.md), start the `micrortps_client` daemon also in UDP:
+1. [NuttShell/System Console](../debug/system_console.md)에서 UDP `micrortps_client` 데몬을 시작합니다.
    ```sh
    > micrortps_client start -t UDP
    ```
 
-   If the bridge is working correctly you will be able to see the data being printed on the terminal/console where you launched the ROS listener.
+   브리지가 올바르게 작동하면, ROS 수신기를 시작한 터미널에서 데이터가 인쇄되는 것을 확일할 수 있습니다.
    ```sh
    RECEIVED DATA FROM SENSOR COMBINED
    ================================
@@ -114,10 +114,10 @@ To use ROS (1) **and** ROS 2 (you need both for this!):
    ```
 
 :::note
-When using the `build_all.bash` script, it automatically opens and sources all the required terminals, so you just have to run the respective apps in each terminal.
+`build_all.bash` 스크립트를 사용하면, 필요한 모든 터미널이 자동으로 열리고 소싱되므로 각 터미널에서 해당 앱을 실행하기만 하면 됩니다.
 :::
 
-## Creating a ROS (1) listener
+## ROS(1) 리스너 생성
 
-Since the creation of ROS nodes is a well known and documented process, we are going to leave this section out from this guide, and you can find an example of a ROS listener for `sensor_combined` messages the `ros1` branch of the `px4_ros_com` repository, under the following path `src/listeners/`.
+ROS 노드 생성은 잘 알려져 있고 문서화된 프로세스이므로 이 섹션은 이 가이드에서 생략합니다. 다음 경로 `src/listeners/` 아래에서 `px4_ros_com` 저장소의 `ros1` 분기 `sensor_combined` 메시지에 대한 ROS 리스너의 예를 찾을 수 있습니다.
 
