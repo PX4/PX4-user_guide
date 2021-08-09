@@ -121,27 +121,27 @@ VIO 또는 MoCap 정보에서 이미 매우 정확한 고도를 사용할 수 �
 
 ### 노이즈 매개변수 조정
 
-비전 또는 MoCap 데이터가 매우 정확하고 추정기가 이를 엄격하게 추적하기를 원하는 경우에는, 표준 편차 매개변수인 [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) 및 [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z)(VIO의 경우) 또는 [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P)(MoCap의 경우)를 줄여야 합니다. Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.
+비전 또는 MoCap 데이터가 매우 정확하고 추정기가 이를 엄격하게 추적하기를 원하는 경우에는, 표준편차 매개변수인 [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) 및 [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z)(VIO의 경우) 또는 [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P)(MoCap의 경우)를 감소시켜야 합니다. 표준변차 매개변수를 줄이면, 추정자가 들어오는 포즈 추정치를 더 신뢰하게 됩니다. 허용된 최소값보다 낮게 설정하고, 강제 저장해야 할 수도 있습니다.
 
 :::tip
-If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
+성능이 좋지 않으면, [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) 매개변수를 중가시키십시오. 이로 인해 추정자는 속도 추정 중에 측정값을 더 신뢰하게 됩니다.
 :::
 
-## Working with ROS
+## ROS 연동
 
-ROS is not *required* for supplying external pose information, but is highly recommended as it already comes with good integrations with VIO and MoCap systems. PX4 must already have been set up as above.
+ROS는 외부 포즈 정보를 제공하는 데 *필수*되지 않지만, 이미 VIO 및 MoCap 시스템과 잘 통합되어 있으므로 적극 권장합니다. PX4는 위와 같이 설정되어 있어야 합니다.
 
-### Getting Pose Data Into ROS
+### 포즈 데이터를 ROS로 가져오기
 
-VIO and MoCap systems have different ways of obtaining pose data, and have their own setup and topics.
+VIO와 MoCap 시스템은 포즈 데이터를 얻는 방법이 다르며, 자체 설정과 주제가 있습니다.
 
-When using external heading estimation, magnetic North is ignored and faked with a vector corresponding to world *x* axis (which can be placed freely during Vision/MoCap calibration). Yaw angle is therefore given with respect to local *x*.
+특정 시스템에 대한 설정은 [아래](#setup_specific_systems)에서 설명합니다. 다른 시스템의 경우에는 공급업체의 설정 문서를 참고하십시오.
 
 <a id="relaying_pose_data_to_px4"></a>
 
-### Relaying Pose Data to PX4
+### 포즈 데이터를 PX4로 중계
 
-MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using the following pipelines:
+MAVROS에는 다음 파이프라인을 사용하여 VIO 또는 MoCap 시스템에서 시각적 추정을 릴레이하는 플러그인이 있습니다.
 
 | ROS                                                                    | MAVLink                                                                                                                                                                | uORB                      |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -150,12 +150,12 @@ MAVROS has plugins to relay a visual estimation from a VIO or MoCap system using
 | /mavros/mocap/pose                                                     | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
 | /mavros/odometry/out (`frame_id = odom`, `child_frame_id = base_link`) | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD)) | `vehicle_mocap_odometry`  |
 
-You can use any of the above pipelines with LPE.
+위의 파이프라인 중 하나를 LPE와 함께 사용할 수 있습니다.
 
-If you're working with EKF2, only the "vision" pipelines are supported. To use MoCap data with EKF2 you will have to [remap](http://wiki.ros.org/roslaunch/XML/remap) the pose topic that you get from MoCap:
-- MoCap ROS topics of type `geometry_msgs/PoseStamped` or `geometry_msgs/PoseWithCovarianceStamped` must be remapped to `/mavros/vision_pose/pose`. The `geometry_msgs/PoseStamped` topic is most common as MoCap doesn't usually have associated covariances to the data.
-- If you get data through a `nav_msgs/Odometry` ROS message then you will need to remap it to `/mavros/odometry/odom`.
-- The odometry frames `frame_id = odom`, `child_frame_id = base_link` can be changed by updating the file in `mavros/launch/px4_config.yaml`. However, the current version of mavros (`1.3.0`) needs to be able to use the tf tree to find a transform from `frame_id` to the hardcoded frame `odom_ned`. The same applies to the `child_frame_id`, which needs to be connected in the tf tree to the hardcoded frame `base_link_frd`. If you are using mavros `1.2.0` and you didn't update the file `mavros/launch/px4_config.yaml`, then you can safely use the odometry frames `frame_id = odom`, `child_frame_id = base_link` without much worry.
+EKF2로 작업하는 경우 "비전" 파이프라인만 지원됩니다. EKF2에서 MoCap 데이터를 사용하려면, MoCap에서 가져온 포즈 주제를 [다시 매핑](http://wiki.ros.org/roslaunch/XML/remap)하여야 합니다.
+- `geometry_msgs/PoseStamped` 또는 `geometry_msgs/PoseWithCovarianceStamped` 유형의 MoCap ROS 주제는 `/mavros/vision_pose/pose`로 다시 매핑하여야 합니다. `geometry_msgs/PoseStamped` 주제는 MoCap에 일반적으로 데이터에 대한 관련 공분산이 없으므로, 가장 일반적입니다.
+- `nav_msgs/Odometry` ROS 메시지를 통해 데이터를 가져오면 `/mavros/odometry/out`에 다시 매핑해야 하며, `frame_id< /0> 및 <code>child_frame_id`에 따라 차이가 납니다.
+- 주행 거리 프레임 `frame_id = odom`, `child_frame_id = base_link`는 `mavros/launch/px4_config.yaml`의 파일을 업데이트하여 변경할 수 있습니다. 그러나, 현재 버전의 mavros(`1.3.0`)는 tf 트리를 사용하여 `frame_id`에서 하드코딩된 프레임 `odom_ned`로의 변환을 찾을 수 있어야 합니다. tf 트리에서 하드코딩된 프레임 `base_link_frd`에 연결하는 `child_frame_id`에도 동일하게 적용됩니다. If you are using mavros `1.2.0` and you didn't update the file `mavros/launch/px4_config.yaml`, then you can safely use the odometry frames `frame_id = odom`, `child_frame_id = base_link` without much worry.
 - **Note** Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
 
 
