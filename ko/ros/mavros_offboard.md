@@ -138,7 +138,7 @@ ros::ServiceClient set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("mav
 //the setpoint publishing rate MUST be faster than 2Hz
 ros::Rate rate(20.0);
 ```
-PX4는 두 개의 *Offboard* 명령 사이에 500ms의 시간 초과가 있습니다. 이 제한 시간이 초과되면 commander는 *오프보드* 모드로 들어가기 전에 차량이 마지막으로 있었던 모드로 되돌아갑니다. This is why the publishing rate **must** be faster than 2 Hz to also account for possible latencies. This is also the same reason why it is recommended to enter *Offboard* mode from *Position* mode, this way if the vehicle drops out of *Offboard* mode it will stop in its tracks and hover.
+PX4는 두 개의 *Offboard* 명령 사이에 500ms의 시간 초과가 있습니다. 이 제한 시간이 초과되면 commander는 *오프보드* 모드로 들어가기 전에 차량이 마지막으로 있었던 모드로 되돌아갑니다. 이것은 게시 속도가 가능한 지연 시간을 고려하기 위해 2Hz보다 **반드시** 빨라야 하는 이유입니다. *위치* 모드에서 *오프보드* 모드로 진입하는 것을 권장하는 이유이기도 합니다. 이렇게 하면 차량이 *오프보드* 모드에서 빠져 나오면 트랙에서 멈추고 호버링합니다.
 
 ```cpp
 // wait for FCU connection
@@ -147,14 +147,14 @@ while(ros::ok() && !current_state.connected){
     rate.sleep();
 }
 ```
-Before publishing anything, we wait for the connection to be established between MAVROS and the autopilot. This loop should exit as soon as a heartbeat message is received.
+무엇이든 게시하기 전에 MAVROS와 자동조종장치간에 연결이 설정될 때까지 기다립니다. 이 루프는 하트비트 메시지가 수신되는 즉시 종료되어야 합니다.
 ```cpp
 geometry_msgs::PoseStamped pose;
 pose.pose.position.x = 0;
 pose.pose.position.y = 0;
 pose.pose.position.z = 2;
 ```
-Even though the PX4 Pro Flight Stack operates in the aerospace NED coordinate frame, MAVROS translates these coordinates to the standard ENU frame and vice-versa. This is why we set `z` to positive 2.
+PX4 Pro Flight Stack이 항공우주 NED 좌표 프레임에서 작동하더라도, MAVROS는 이러한 좌표를 표준 ENU 프레임으로 또는 그 반대로 변환합니다. 이것이 `z`를 양수 2로 설정한 이유입니다.
 ```cpp
 //send a few setpoints before starting
 for(int i = 100; ros::ok() && i > 0; --i){
@@ -163,13 +163,13 @@ for(int i = 100; ros::ok() && i > 0; --i){
     rate.sleep();
 }
 ```
-Before entering *Offboard* mode, you must have already started streaming setpoints. Otherwise the mode switch will be rejected. Here, `100` was chosen as an arbitrary amount.
+*오프보드* 모드에 들어가기 전에, 이미 스트리밍 설정값을 시작하여야 합니다. 그렇지 않으면 모드 전환이 거부됩니다. 여기서 임의의 양으로 `100`을 선택하였습니다.
 ```cpp
 mavros_msgs::SetMode offb_set_mode;
 offb_set_mode.request.custom_mode = "OFFBOARD";
 ```
 
-We set the custom mode to `OFFBOARD`. A list of [supported modes](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) is available for reference.
+맞춤 모드를 `OFFBOARD`로 설정하였습니다. [지원되는 모드](http://wiki.ros.org/mavros/CustomModes#PX4_native_flight_stack) 목록을 참조할 수 있습니다.
 ```cpp
 mavros_msgs::CommandBool arm_cmd;
 arm_cmd.request.value = true;
@@ -201,8 +201,8 @@ while(ros::ok()){
         rate.sleep();
 }
 ```
-The rest of the code is pretty self explanatory. We attempt to switch to *Offboard* mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the appropriate rate.
+나머지 코드는 꽤 자명합니다. *오프보드* 모드로 전환하려고 시도한 후 쿼드가 비행할 수 있도록 준비합니다. 자동조종장치가 요청으로 가득 차지 않도록, 서비스 호출에 5초 간격을 둡니다. 동일한 루프에서 요청된 포즈를 적절한 속도로 계속 전송합니다.
 
 :::tip
-This code has been simplified to the bare minimum for illustration purposes. In larger systems, it is often useful to create a new thread which will be in charge of periodically publishing the setpoints.
+이 코드는 설명을 위하여 최대한 단순화되었습니다. 더 큰 시스템에서는 주기적으로 설정값을 게시할, 새 스레드를 만드는 것이 유용합니다.
 :::
