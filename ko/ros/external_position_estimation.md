@@ -155,35 +155,36 @@ MAVROS에는 다음 파이프라인을 사용하여 VIO 또는 MoCap 시스템�
 EKF2로 작업하는 경우 "비전" 파이프라인만 지원됩니다. EKF2에서 MoCap 데이터를 사용하려면, MoCap에서 가져온 포즈 주제를 [다시 매핑](http://wiki.ros.org/roslaunch/XML/remap)하여야 합니다.
 - `geometry_msgs/PoseStamped` 또는 `geometry_msgs/PoseWithCovarianceStamped` 유형의 MoCap ROS 주제는 `/mavros/vision_pose/pose`로 다시 매핑하여야 합니다. `geometry_msgs/PoseStamped` 주제는 MoCap에 일반적으로 데이터에 대한 관련 공분산이 없으므로, 가장 일반적입니다.
 - `nav_msgs/Odometry` ROS 메시지를 통해 데이터를 가져오면 `/mavros/odometry/out`에 다시 매핑해야 하며, `frame_id< /0> 및 <code>child_frame_id`에 따라 차이가 납니다.
-- 주행 거리 프레임 `frame_id = odom`, `child_frame_id = base_link`는 `mavros/launch/px4_config.yaml`의 파일을 업데이트하여 변경할 수 있습니다. 그러나, 현재 버전의 mavros(`1.3.0`)는 tf 트리를 사용하여 `frame_id`에서 하드코딩된 프레임 `odom_ned`로의 변환을 찾을 수 있어야 합니다. tf 트리에서 하드코딩된 프레임 `base_link_frd`에 연결하는 `child_frame_id`에도 동일하게 적용됩니다. If you are using mavros `1.2.0` and you didn't update the file `mavros/launch/px4_config.yaml`, then you can safely use the odometry frames `frame_id = odom`, `child_frame_id = base_link` without much worry.
-- **Note** Remapping pose topics is covered above [Relaying pose data to PX4](#relaying_pose_data_to_px4) (`/vrpn_client_node/<rigid_body_name>/pose` is of type `geometry_msgs/PoseStamped`).
+- 주행 거리 프레임 `frame_id = odom`, `child_frame_id = base_link`는 `mavros/launch/px4_config.yaml`의 파일을 업데이트하여 변경할 수 있습니다. 그러나, 현재 버전의 mavros(`1.3.0`)는 tf 트리를 사용하여 `frame_id`에서 하드코딩된 프레임 `odom_ned`로의 변환을 찾을 수 있어야 합니다. tf 트리에서 하드코딩된 프레임 `base_link_frd`에 연결하는 `child_frame_id`에도 동일하게 적용됩니다. mavros `1.2.0`을 사용 중이고 `mavros/launch/px4_config.yaml` 파일을 업데이트하지 않은 경우에는, 큰 걱정 없이 주행 거리 측정 프레임 `frame_id = odom`, `child_frame_id = base_link`을 안전하게 사용할 수 있습니다.
+- `child_frame_id = base_link`를 사용하여 px4에 주행 거리 측정 데이터를 보내는 경우에는, `nav_msgs/Odometry` 메시지의 `twist` 부분이 **관성 프레임이 아닌 **본문 프레임**으로 표현되었는 지 확인하여야 합니다.</li> </ul>
 
 
-### Reference Frames and ROS
+### 기준 프레임과 ROS
 
-The local/world and world frames used by ROS and PX4 are different.
+ROS와 PX4에서 사용하는 로컬과 전역 프레임은 같지 않습니다.
 
-| Frame | PX4                                                                           | ROS                                                                  |
-| ----- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Body  | FRD (X **F**orward, Y **R**ight, Z **D**own)                                  | FLU (X **F**orward, Y **L**eft, Z **U**p), usually named `base_link` |
-| World | ENU (X **E**ast, Y **N**orth and Z Up), with the naming being `odom` or `map` | NED (X **N**orth, Y **E**ast, Z **D**own)                            |
+| 프레임 | PX4                                              | ROS                                                                     |
+| --- | ------------------------------------------------ | ----------------------------------------------------------------------- |
+| 몸체  | FRD (X **F**orward, Y **R**ight, Z **D**own)     | FLU(X **F**forward, Y **L** ft, Z **U**p), 일반적으로 `base_link`라는 이름이 지정됨. |
+| 전역  | FRD or NED (X **N**orth, Y **E**ast, Z **D**own) | FLU 또는 ENU(X **E**ast, Y **N** orth, Z **U**p), 이름은 `odm` 또는 `map`      |
 
-The following steps explain how to feed position estimates from an [OptiTrack](http://optitrack.com/systems/#robotics) system to PX4.
+:::tip ROS
+프레임에 대한 자세한 내용은 [REP105: 모바일 플랫폼용 좌표 프레임](http://www.ros.org/reps/rep-0105.html)을 참고하십시오.
 :::
 
-Both frames are shown in the image below (FRD on the left/FLU on the right).
+두 프레임 모두 아래 이미지에 표시됩니다(왼쪽의 FRD/오른쪽의 FLU).
 
 ![Reference frames](../../assets/lpe/ref_frames.png)
 
-With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local *x*.
+외부 방향 추정시 EKF2를 사용하면, 자북을 무시하거나 자북에 대한 방향 오프셋을 계산하고 보상할 수 있습니다. 선택에 따라 요 각도는 자북 또는 로컬 *x*에 대하여 제공됩니다.
 
 :::note
-When creating the rigid body in the MoCap software, remember to first align the robot's local *x* axis with the world *x* axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.
+MoCap 소프트웨어에서 강체를 생성시, 먼저 로봇의 로컬 *x* 축을 세계 *x* 축과 정렬하여야 합니다. 그렇지 않으면 요 추정값에 오프셋이 발생합니다. 이렇게 하면 외부 포즈 추정 융합이 제대로 작동하지 않을 수 있습니다. 본체와 기준 좌표계가 정렬될 때 요 각도는 0이어야 합니다.
 :::
 
-Using MAVROS, this operation is straightforward. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. If you have an Optitrack system you can use [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) node which streams the object pose on a ROS topic already in ENU. With a remapping you can directly publish it on `mocap_pose_estimate` as it is without any transformation and MAVROS will take care of NED conversions.
+MAVROS를 사용하면 이 작업이 간단합니다. ROS는 ENU 프레임을 관례로 사용하므로, ENU에서 위치 피드백을 제공하여야 합니다. Optitrack 시스템이 있는 경우에는, ENU에 존재하는 ROS 주제에 대한 개체 포즈를 스트리밍하는 [mocap_optitrack](https://github.com/ros-drivers/mocap_optitrack) 노드를 사용할 수 있습니다. 다시 매핑하면 변환 없이 그대로 `mocap_pose_estimate`에 직접 게시할 수 있으며, MAVROS는 NED 변환을 처리합니다.
 
-The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS's tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
+MAVROS 주행 거리 측정 플러그인을 사용하면, 좌표 프레임을 쉽게 처리할 수 있습니다. ROS의 tf 패키지를 사용합니다. 외부 포즈 시스템에는 PX4와 일치하지 않는 완전히 다른 프레임 규칙이 있을 수 있습니다. 외부 포즈 추정의 바디 프레임은 MOCAP 소프트웨어에서 바디 프레임을 설정하는 방법이나 드론에 VIO 센서를 장착하는 방법에 따라 달라질 수 있습니다. The MAVROS odometry plugin needs to know how the external pose's child frame is oriented with respect to either the airframe's FRD or FLU body frame known by MAVROS. You therefore have to add the external pose's body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.
 
 ```
   <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_externalPoseChildFrame"
