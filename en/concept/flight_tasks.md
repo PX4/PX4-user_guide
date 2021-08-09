@@ -120,7 +120,7 @@ The instructions below might be used to create a task named *MyTask*:
           error = switchTask(FlightTaskIndex::ManualPositionSmoothVel);
           break;
        case 5: // Add case for new task: MyTask
-          error =  _flight_tasks.switchTask(FlightTaskIndex::MyTask);
+          error = switchTask(FlightTaskIndex::MyTask);
           break;
 	case 4:
 	....
