@@ -86,7 +86,7 @@ EKF2와 함께 외부 위치 정보를 사용하려면, 다음 매개변수를 �
 
 IMU 속도와 EV 속도 간의 오프셋을 확인하여, 로그에서 대략적인 지연 추정치를 계산할 수 있습니다. EV 속도 로깅을 활성화하려면, [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)의 비트 7(컴퓨터 비전 및 회피)을 설정합니다.
 
-![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
+![ekf2_ev_delay 로그](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
 [FlightPlot](../log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여, 외부 데이터 대 온보드 추정치(위 참조)의 플롯을 생성할 수 있습니다. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
@@ -174,7 +174,7 @@ ROS와 PX4에서 사용하는 로컬과 전역 프레임은 같지 않습니다.
 
 두 프레임 모두 아래 이미지에 표시됩니다(왼쪽의 FRD/오른쪽의 FLU).
 
-![Reference frames](../../assets/lpe/ref_frames.png)
+![기준 프레임](../../assets/lpe/ref_frames.png)
 
 외부 방향 추정시 EKF2를 사용하면, 자북을 무시하거나 자북에 대한 방향 오프셋을 계산하고 보상할 수 있습니다. 선택에 따라 요 각도는 자북 또는 로컬 *x*에 대하여 제공됩니다.
 
@@ -239,28 +239,28 @@ MAVROS는 `/mavros/vision_pose/pose`에 게시된 포즈 데이터를 PX4로 릴
 이제 첫 번째 비행을 진행할 준비가 되었습니다.
 
 
-## First Flight
+## 첫 번째 비행
 
-After setting up one of the (specific) systems described above you should now be ready to test. The instructions below show how to do so for MoCap and VIO systems
+위에서 설명한 (특정) 시스템 중 하나를 설정하였으면, 이제 테스트할 준비가 되었습니다. 아래 지침은 MoCap 및 VIO 시스템에서 수행하는 방법을 설명합니다.
 
-### MoCap First Flight
+### 외부 추정 확인
 
-Be sure to perform the following checks before your first flight:
+첫 비행 전에 다음을 확인하십시오.
 
-* Set the PX4 parameter `MAV_ODOM_LP` to 1. PX4 will then stream back the received external pose as MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) messages.
-* You can check these MAVLink messages with the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) In order to do this, yaw the vehicle until the quaternion of the `ODOMETRY` message is very close to a unit quaternion. (w=1, x=y=z=0)
-* At this point the body frame is aligned with the reference frame of the external pose system. If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still have a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.
-* Once aligned you can pick the vehicle up from the ground and you should see the position's z coordinate decrease. Moving the vehicle in forward direction, should increase the position's x coordinate. While moving the vehicle to the right should increase the y coordinate. In the case you send also linear velocities from the external pose system, you should also check the linear velocities. Check that the linear velocities are in expressed in the *FRD* body frame reference frame.
-* Set the PX4 parameter `MAV_ODOM_LP` back to 0. PX4 will stop streaming this message back.
+* PX4 매개변수 `MAV_ODOM_LP`를 1로 설정합니다. PX4는 수신된 외부 포즈를 MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 메시지로 다시 스트리밍합니다.
+* *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html)로 이러한 MAVLink 메시지를 확인할 수 있습니다. 이를 위하여, `ODOMETRY` 메시지의 쿼터니언이 단위 쿼터니언에 매우 가까워질 때까지 차량을 요잉합니다. (w=1, x=y=z=0)
+* 이 시점에서 몸체 프레임은 외부 포즈 시스템의 기준 프레임과 정렬됩니다. 차량을 구르거나 피칭하지 않고 단위 쿼터니언에 가까운 쿼터니언을 얻을 수 없다면, 프레임에 여전히 피치 또는 롤 오프셋이 있을 수 있습니다. 이 경우에는 더 이상 진행하지 말고, 좌표 프레임을 다시 확인하십시오.
+* 정렬되면 지면에서 차량을 들어올릴 수 있으며, 위치의 z 좌표가 감소하는 것을 볼 수 있습니다. 차량을 앞쪽으로 움직이면, 위치의 x 좌표가 증가합니다. 차량을 오른 쪽으로 이동하면, y 좌표는 증가합니다. 외부 포즈 시스템에서 선형 속도도 전송하는 경우에는, 선형 속도를 확인하여야 합니다. 선형 속도가 *FRD* 몸체 프레임 참조 프레임으로 표현되는 지 확인합니다.
+* PX4 매개변수 `MAV_ODOM_LP`를 0로 재설정합니다. PX4는 이 메시지의 스트리밍을 중지합니다.
 
-If those steps are consistent, you can try your first flight.
+이러한 단계가 유지되면, 첫 번째 비행을 시도할 수 있습니다.
 
-Put the robot on the ground and start streaming MoCap feedback. Lower your left (throttle) stick and arm the motors.
+로봇을 바닥에 놓고, MoCap 피드백 스트리밍을 시작합니다. 왼쪽(스로틀) 스틱을 내리고, 모터를 작동시킵니다.
 
-At this point, with the left stick at the lowest position, switch to position control. You should have a green light. The green light tells you that position feedback is available and position control is now activated.
+이때 왼쪽 스틱을 가장 낮은 위치에 놓고, 위치 제어로 전환합니다. 초록불이 켜져야 합니다. 녹색 표시등은 위치 피드백을 사용할 수 있고, 위치 제어가 활성화되었음을 알려줍니다.
 
-Put your left stick at the middle, this is the dead zone. With this stick value, the robot maintains its altitude; raising the stick will increase the reference altitude while lowering the value will decrease it. Same for right stick on x and y.
+왼쪽 스틱을 가운데에 놓으면, 데드존입니다. 이 스틱 값으로 로봇은 고도를 유지합니다. 스틱을 올리면 기준 고도가 증가하고, 값을 낮추면 감소합니다. x와 y의 오른쪽 스틱에 대해서도 동일합니다.
 
-Increase the value of the left stick and the robot will take off, put it back to the middle right after. Check if it is able to keep its position.
+왼쪽 스틱의 값을 높이면 로봇이 이륙합니다. 바로 중간에 다시 놓습니다. 위치를 유지할 수 있는 지 확인하십시오.
 
-If it works, you may want to set up an [offboard](offboard_control.md) experiment by sending position-setpoint from a remote ground station.
+작동하는 경우에는, 원격 지상국에서 위치 설정값을 전송하여 [오프보드](offboard_control.md) 실험을 설정할 수 있습니다.
