@@ -259,9 +259,9 @@
    }
    ```
 
-   For a more detailed explanation see the topic [Writing your first application](../modules/hello_sky.md).
+   자세한 설명은 [첫 번째 지원서 작성](../modules/hello_sky.md) 항목을 참고하십시오.
 
-1. Lastly add your module in the **default.cmake** file correspondent to your board in **PX4-Autopilot/boards/**. For example for the Pixhawk 4 add the following code in **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**:
+1. 마지막으로 **PX4-Autopilot/boards/**의 보드에 해당하는 **default.cmake** 파일에 모듈을 추가합니다. 예를 들어, Pixhawk 4의 경우에는 **PX4-Autopilot/boards/px4/fmu-v5/default.cmake**에 다음 코드를 추가합니다.
    ```cmake
     MODULES
         ...
@@ -269,16 +269,16 @@
         ...
     ```
 
-Now you are ready to build all your work!
+이제 작업을 빌드할 준비가 되었습니다!
 
-## Building
+## 빌드
 
-### Build for ROS
+### ROS 빌드
 
-1. In your workspace enter: `catkin build`.
-1. Beforehand, you have to set your "px4.launch" in (/workspace/src/mavros/mavros/launch). Edit "px4.launch" as below. If you are using USB to connect your computer with Pixhawk, you have to set "fcu_url" as shown below. But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace "ttyACM0" with "ttyUSB0". Modifying "gcs_url" is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.
+1. 작업 공간에서 `catkin build`를 입력합니다.
+1. 미리 "px4.launch"를 (/workspace/src/mavros/mavros/launch)에 설정합니다. 아래와 같이 "px4.launch"를 편집합니다. USB를 사용하여 Pixhawk와 컴퓨터를 연결하는 경우에는, 아래와 같이 "fcu_url"을 설정합니다. 그러나, CP2102를 사용하여 컴퓨터를 Pixhawk와 연결하는 경우 "ttyACM0"을 "ttyUSB0"로 변경합니다. "gcs_url"을 수정하는 것은 Pixhawk를 UDP와 연결하는 것입니다. 직렬 통신은 MAVROS와 간단한 연결을 동시에 수락할 수 없기 때문입니다.
 
-1. Write your IP address at "xxx.xx.xxx.xxx"
+1. "xxx.xx.xxx.xxx"에 IP 주소를 입력합니다.
    ```xml
    ...
      <arg name="fcu_url" default="/dev/ttyACM0:57600" />
@@ -286,18 +286,18 @@ Now you are ready to build all your work!
    ...
    ```
 
-### Build for PX4
+### PX4 빌드
 
-1. Build PX4-Autopilot and upload [in the normal way](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards).
+1. PX4-Autopilot을 빌드하고 [일반적인 방식으로](../dev_setup/building_px4.md#nuttx-pixhawk-based-boards) 업로드합니다.
 
-    For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:
+    예를 들어, Pixhawk 4/FMUv5용으로 빌드하려면, PX4-Autopilot 디렉토리의 루트에서 다음 명령어를 실행하십시오.
     ```sh
     make px4_fmu-v5_default upload
     ```
 
-## Running the Code
+## 코드 실행
 
-Next test if the MAVROS message is sent to PX4.
+MAVROS 메시지가 PX4로 전송되는 지 테스트합니다.
 
 ### Running ROS
 
