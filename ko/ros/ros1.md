@@ -1,4 +1,4 @@
-# ROS (1) with MAVROS
+# MAVROS 연동 ROS(1)
 
 :::tip
 The PX4 development team recommend that users migrate to [ROS 2](../ros/ros2.md) (i.e. skip this section)!
