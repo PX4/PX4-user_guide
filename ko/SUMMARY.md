@@ -404,7 +404,7 @@
     * [ROS/MAVROS](ros/ros1.md) 
       * [ROS/MAVROS 설치 가이드](ros/mavros_installation.md)
       * [ROS/MAVROS 오프보드 예](ros/mavros_offboard.md)
-      * [ROS/MAVROS 사용자 지정 메시지 전송](ros/mavros_custom_messages.md)
+      * [ROS/MAVROS 사용자 정의 메시지 전송](ros/mavros_custom_messages.md)
       * [Gazebo 시뮬레이션 ROS/MAVROS](simulation/ros_interface.md)
       * [ROS가 있는 Gazebo OctoMap 모델 (1)](simulation/gazebo_octomap.md)
       * [라즈베리파이에 ROS/MAVROS 설치](ros/raspberrypi_installation.md)
