@@ -2,42 +2,42 @@
 
 이 항목에서는 [ROS 2](../ros/ros2.md)로 브리지하여, PX4와 함께 ROS(1)를 사용하는 방법을 설명합니다.
 
-필요한 소프트웨어를 설치하고 ROS(1) 애플리케이션을 구축하는 방법과 ROS-ROS2-PX4 아키텍처에 대한 개요를 설명합니다. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 실행/설정하는 방법도 설명합니다.
+필요한 소프트웨어를 설치하고 ROS(1) 애플리케이션을 구축하는 방법과 ROS-ROS2-PX4 아키텍처에 대한 개요를 설명합니다. 또한, ROS 2 및 ROS 1 작업 공간을 동시에 설정하는 방법도 설명합니다.
 
 :::note
-Generally you might use this setup rather than bridging [ROS (1) with MAVROS](../ros/ros1.md) if you want deeper access to PX4 than granted by MAVLink, or if you want to use both ROS2 and ROS (1) applications.
+일반적으로 MAVLink에서 부여한 것보다 PX4에 더 깊이 액세스하려는 경우나 ROS2 및 ROS(1) 애플리케이션을 모두 사용하려는 경우 [ROS(1)와 MAVROS](../ros/ros1.md)를 연결하는 대신 이 설정을 사용할 수 있습니다.
 :::
 
 :::note
-This setup, and these instructions *depend* on [ROS 2](../ros/ros2.md). We highly recommend you read up on ROS 2 first.
+이 설정과 이 지침은 [ROS 2](../ros/ros2.md)에 *의존*합니다. 먼저 ROS 2를 읽어보는 것이 좋습니다.
 :::
 
 :::warning
-Note The PX4 development team recommend that all users [upgrade to ROS 2](../ros/ros2.md).
+Note PX4 개발 팀은 모든 사용자가 [ROS 2로 업그레이드](../ros/ros2.md)할 것을 권장합니다.
 :::
 
-## Overview
+## 개요
 
-The application pipeline for ROS (1) bridged over ROS 2 is shown below.
+ROS 2를 통해 브리지된 ROS(1)의 애플리케이션 파이프라인은 다음과 같습니다.
 
 ![Architecture with ROS](../../assets/middleware/micrortps/architecture_ros.png)
 
-Essentially it is the same as for ROS 2, except that there is an additional [`ros1_bridge`](https://github.com/ros2/ros1_bridge) package (by Open Robotics) that translates messages between the two versions. This is needed because the original version of ROS does not support RTPS.
+두 버전 간에 메시지를 번역하는 추가 [`ros1_bridge`](https://github.com/ros2/ros1_bridge) 패키지(Open Robotics 제공)가 있다는 점을 제외하면 기본적으로 ROS 2와 동일합니다. 이것은 ROS의 원래 버전이 RTPS를 지원하지 않기 때문에 필요합니다.
 
-The other main difference is that the `px4_ros_com` and `px4_msgs` packages a separate `ros1` branch that generates the ROS message headers and source files for using **with** the `ros1_bridge`. This branch also includes example listener and advertiser nodes.
+다른 주요 차이점은 `px4_ros_com` 및 `px4_msgs`가 별도의 `ros1` 분기를 패키징한다는 것입니다. `ros1_bridge`와 **함께** 사용하기 위한 ROS 메시지 헤더와 소스 파일을 생성합니다. 이 분기에는 예제 리스너 및 광고주 노드도 포함됩니다.
 
 
-## Installation & Setup
+## 설치 및 설정
 
-Follow the instructions in [ROS 2 User Guide > Installation & Setup](../ros/ros2_comm.md#installation-setup) to install ROS 2.
+[ROS 2 사용자 가이드 > 설치 및 설정](../ros/ros2_comm.md#installation-setup)을 참고하여 ROS 2를 설치합니다.
 
-### Build ROS (1) Workspace
+### ROS (1) 작업 공간 빌드
 
-Since the ROS requires a different environments from ROS to you will need to create a separate workspace. This will include the `ros` branch of `px4_ros_com` and `px4_msgs`, along with the `ros1_bridge`.
+ROS는 ROS2와 다른 환경이 필요하기 때문에 별도의 작업 공간을 만들어야 합니다. 여기에는 `ros1_bridge`와 함께 `px4_ros_com`와 `px4_msgs`의 `ros` 분기가 포함됩니다.
 
-To create and build the workspace:
+작업 공간을 만들고 빌드합니다.
 
-1. Create the ROS 1 workspace directory using:
+1. ROS 1 작업 공간 디렉토리를 생성합니다.
    ```sh
    $ mkdir -p ~/px4_ros_com_ros1/src
    ```
