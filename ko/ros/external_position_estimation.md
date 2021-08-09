@@ -59,30 +59,30 @@ z_{mav} = - y_{mocap}
 
 ## EKF2 튜닝과 설정
 
-Note: this is a quick overview. For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
+참고: 간략한 개요입니다. 자세한 내용은 [EKF2 튜닝 가이드](../advanced_config/tuning_the_ecl_ekf.md)를 참고하십시오.
 
-The following parameters must be set to use external position information with EKF2 (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2**).
+EKF2와 함께 외부 위치 정보를 사용하려면, 다음 매개변수를 설정하여야 합니다. *QGroundControl* > **차량 설정 > 매개변수 > EKF2**에서 설정할 수 있습니다.
 
-| 매개변수                                                                                                                                                                                                          | 외부 위치 추정 설정                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                    | Set *vision position fusion*, *vision velocity fusion*, *vision yaw fusion* and *external vision rotation* accoring to your desired fusion model.      |
-| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                    | Set to *Vision* to use the vision a primary source for altitude estimation.                                                                            |
-| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                    | Set to the difference between the timestamp of the measurement and the "actual" capture time. For more information see [below](#tuning-EKF2_EV_DELAY). |
-| [EKF2_EV_POS_X](../advanced/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced/parameter_reference.md#EKF2_EV_POS_Z) | Set the position of the vision sensor (or MoCap markers) with respect to the robot's body frame.                                                       |
+| 매개변수                                                                                                                                                                                                                               | 외부 위치 추정 설정                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)                                                                                                                                                         | 원하는 융합 모델에 따라 *시력 위치 융합*, *시력 융합*, *시각 요 융합* 및 *외부 시야 회전*을 설정합니다.               |
+| [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)                                                                                                                                                         | 고도 추정을 위한 기본 소스로 비전을 사용하려면, *Vision*으로 설정하십시오.                                  |
+| [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)                                                                                                                                                         | 측정 타임스탬프와 "실제" 캡처 시간 간의 차이로 설정합니다. 자세한 정보는 [아래](#tuning-EKF2_EV_DELAY)를 참고하십시오. |
+| [EKF2_EV_POS_X](../advanced_config/parameter_reference.md#EKF2_EV_POS_X), [EKF2_EV_POS_Y](../advanced_config/parameter_reference.md#EKF2_EV_POS_Y), [EKF2_EV_POS_Z](../advanced_config/parameter_reference.md#EKF2_EV_POS_Z) | 로봇의 몸체 프레임을 기준으로 비전 센서(또는 MoCap 마커)의 위치를 설정합니다.                                 |
 
 :::tip
-Reboot the flight controller in order for parameter changes to take effect.
+매개변수 변경 사항을 적용하려면, 비행 콘트롤러를 재부팅하십시오.
 :::
 
 <a id="tuning-EKF2_EV_DELAY"></a>
 
-#### Tuning EKF2_EV_DELAY
+#### EKF2_EV_DELAY 튜닝
 
-[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*.
+[EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY)는 *IMU 측정에 대한 Vision Position Estimator 지연*입니다.
 
-Or in other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
+즉, 비전 시스템 타임스탬프와 IMU 시계(EKF2의 "기본 시계")에 의해 기록되었을 "실제" 캡처 시간 간의 차이입니다.
 
-Technically this can be set to 0 if there is correct timestamping (not just arrival time) and timesync (e.g NTP) between MoCap and (for example) ROS computers. In reality, this needs some empirical tuning since delays in the entire MoCap->PX4 chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+기술적으로, 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. In reality, this needs some empirical tuning since delays in the entire MoCap->PX4 chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
 
 A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates. To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
 
