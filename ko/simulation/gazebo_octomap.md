@@ -70,5 +70,5 @@ roslaunch octomap_server octomap_tracking_server.launch
 
 *Gazebo* 창에서 빨간색 로터 앞에 큐브를 삽입하면, *Rviz*에서 볼 수 있습니다.
 
-![OctoMap Example in Gazebo](../../assets/simulation/octomap.png)
+![Gazebo OctoMap 예제](../../assets/simulation/octomap.png)
 
