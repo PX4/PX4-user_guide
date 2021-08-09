@@ -234,6 +234,7 @@
       * [Holybro PM06 (Micro Power Module)](power_module/holybro_pm06_pixhawk4mini_power_module.md)
       * [Pomegranate Systems Power Module](uavcan/pomegranate_systems_pm.md)
     * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
+      * [ARK Flow](uavcan/ark_flow.md)
       * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
       * [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
       * [LeddarOne Lidar](sensor/leddar_one.md)
