@@ -1,12 +1,12 @@
-# Using Vision or Motion Capture Systems for Position Estimation
+# 위치 추정을 위한 비전 또는 모션 캡처 사용
 
-Visual Inertial Odometry (VIO) and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).
+전역 위치 소스를 사용할 수 없거나 신뢰할 수 없는 경우(예: 실내나 다리 아래를 비행시)에, VIO(Visual Inertial Odometry) 및 MoCap(모션 캡처) 시스템을 사용하여 차량 내비게이션이 가능합니다.
 
-Both VIO and MoCap determine a vehicle's *pose* (position and attitude) from "visual" information. The main difference between them is the frame perspective:
-- VIO uses *onboard sensors* to get pose data from the vehicle's perspective (see [egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion)).
-- MoCap uses a system of *off-board cameras* to get vehicle pose data in a 3D space (i.e. it is an external system that tells the vehicle its pose).
+VIO와 MoCap은 모두 "시각적" 정보에서 차량의 *포즈*(위치 및 자세)를 결정합니다. 그들 사이의 주요 차이점은 프레임 관점입니다.
+- VIO는 *온보드 센서*를 사용하여 차량의 관점에서 포즈 데이터를 얻습니다([egomotion](https://en.wikipedia.org/wiki/Visual_odometry#Egomotion) 참조).
+- MoCap은 *오프보드 카메라* 시스템을 사용하여, 3차원 공간에서 차량 포즈 데이터를 얻습니다(즉, 차량의 자세를 알려주는 외부 시스템임).
 
-Pose data from either type of system can be used to update a PX4-based autopilot's local position estimate (relative to the local origin) and also can optionally also be fused into the vehicle attitude estimation. Additionally, if the external pose system also provides linear velocity measurements, it can be used to improve the state estimate (fusion of linear velocity measurements is only supported by the EKF2).
+두 시스템 유형의 포즈 데이터를 사용하여 PX4 자동조종장치의 로컬 위치 추정값(로컬 원점 기준)을 업데이트할 수 있으며, 선택적으로 차량 자세 추정을 융합할 수 있습니다. 또한 외부 포즈 시스템이 선형 속도 측정을 제공하는 경우에는 상태 추정 개선에 사용할 수 있습니다(선속도 측정의 융합은 EKF2에서만 지원됨).
 
 This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
 
