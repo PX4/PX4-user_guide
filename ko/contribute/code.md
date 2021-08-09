@@ -28,29 +28,29 @@ PX4는 코드 서식에 [astyle](http://astyle.sourceforge.net/)을 사용합니
 다음 파일 명명 규칙을 따라야 합니다.
 
 - C++ 소스 파일의 이름은 CamelCase로 지정하고, 클래스 이름과 동일하여야 합니다. 예: `FooThing`이라는 클래스가 포함된 C++ 파일의 이름은 `FooThing.cpp`이어야 합니다.
-- C++ header files should be named the same as source files except have the suffix `.hpp`.
-- C++ header files that are required to be C compatible, should have the suffix `.h`.
-- Folder names are `snake_case` for the first level inside `modules`/`drivers`/`systemcmds`/etc. but should be named CamelCase when more deeply nested to match the source and header files.
-- Test files must have a `Test` suffix as shown: `FooThingTest.cpp`.
+- C++ 헤더 파일의 이름은 `.hpp` 접미사를 제외하고, 소스 파일과 동일하여야 합니다.
+- C 호환이 필요한 C++ 헤더 파일에는 접미사 `.h`가 있어야 합니다.
+- 폴더명은 `modules`/`drivers`/`systemcmds`/etc 내의 첫 번째 수준에 대한 `snake_case`입니다. 그러나 소스 및 헤더 파일과 일치하도록 더 깊게 중첩되면 CamelCase로 이름을 지정하여야 합니다.
+- 테스트 파일에는 `FooThingTest.cpp`와 같이 `Test` 접미사가 있어야 합니다.
 
-- One exception to the rules above are the MAVLink streams in [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams) which are ALL_UPPERCASE.hpp matching the MAVLink message name.
+- 위의 규칙에 대한 한 가지 예외는 MAVLink 메시지 이름과 일치하는 ALL_UPPERCASE.hpp인 [src/modules/mavlink/streams](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/mavlink/streams)의 MAVLink 스트림입니다.
 
-## 코드 제출과 메시지
+## 소스 내 문서 작업
 
-PX4 developers are encouraged to create appropriate in-source documentation.
+PX4 개발자는 소스 내에서 적절한 문서를 작성하는 것이 좋습니다.
 
 :::note
-Source-code documentation standards are not enforced, and the code is currently inconsistently documented. We'd like to do better!
+소스 코드 문서화 표준은 시행되지 않으며, 코드는 현재 일관성 있게 문서화되어 있지 않습니다. 이보다 더 나아지길 바랍니다!
 :::
 
-Currently we have two types of source-based documentation:
-- `PRINT_MODULE_*` methods are used for both module run time usage instructions and for the [Modules & Commands Reference](../modules/modules_main.md) in this guide.
-  - The API is documented [in the source code here](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381).
-  - Good examples of usage include the [Application/Module Template](../modules/module_template.md) and the files linked from the modules reference.
-* We encourage other in-source documentation *where it adds value/is not redundant*.
+현재 두 가지 소스 기반 문서 유형이 있습니다.
+- `PRINT_MODULE_*` 메소드는 두 모듈 런타임과 [모듈 & 이 가이드의 명령 참조](../modules/modules_main.md) 사용 지침에 모두 사용됩니다.
+  - API는 [여기 소스 코드](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)에 문서화되어 있습니다.
+  - 좋은 예제로는 [응용 프로그램/모듈 템플릿](../modules/module_template.md)과 모듈 참조에서 링크된 파일이 있습니다.
+* *가치가 추가되거나 중복되지 않는* 다른 소스 문서를 권장합니다.
 
 :::tip
-Developers should name C++ entities (classes, functions, variables etc.) such that their purpose can be inferred - reducing the need for explicit documentation.
+개발자는 목적을 유추할 수 있도록 C++ 엔터티(클래스, 함수, 변수 등)의 이름을 지정하면, 명시적 문서의 필요성이 줄어듭니다.
 :::
 
   - Do not add documentation that can trivially be assumed from C++ entity names.
