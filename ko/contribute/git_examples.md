@@ -52,38 +52,37 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
   ```sh
   git checkout <your feature branch name>
   ```
-  and rebase on your updated master<br>
+  업데이트된 마스터를 기반으로 리베이스합니다.<br>
   ```sh
   git rebase master
   ```
-* Now you can push your local commits to your forked repository<br>
+* 이제 로컬 커밋을 분기된 저장소로 푸시할 수 있습니다.<br>
   ```sh
   git push origin <your feature branch name>
   ```
-* You can verify that the push was successful by going to your forked repository in your browser: `https://github.com/<your git name>/PX4-Autopilot.git`<br> There you should see the message that a new branch has been pushed to your forked repository.
-* Now it's time to create a pull request (PR). On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/Firmware/pulls) for comparison)
-* You're done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
+* 브라우저에서 분기된 저장소로 이동하여 푸시가 성공 여부를 확인할 수 있습니다. `https://github.com/<your git name>/PX4-Autopilot.git`<br> 새 분기가 분기된 저장소로 푸시되었다는 메시지가 표시되어야 합니다.
+* 이제 풀 리퀘스트(PR)를 생성합니다. "새 분기 메시지"(앞의 한 단계 참조)의 오른쪽에 "풀 요청 비교 및 생성"이라는 녹색 버튼이 표시되어야 합니다. 그런 다음 변경 사항을 나열하여야 하며, 의미 있는 제목(하나의 커밋 PR의 경우 일반적으로 커밋 메시지)과 메시지(<span style="color:orange">어떤 이유로 작업을 하였는 지 설명</span>)를 추가할 수 있습니다. 비교를 위해 [기타 풀 리퀘스트](https://github.com/PX4/PX4-Autopilot/pulls)를 참고하십시오.
+* 완료하였습니다. PX4 담당자가 기여 내용을 검토후, 병합 여부를 결정합니다. 때때로 변경 사항에 대해 질문이 있는 지 확인하십시오.
 
-## Get a Specific Release
+## 특정 릴리스 가져오기
 
-If you prefer having a GUI to add your files see [Gitk](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces) or [
-* Clone the PX4-Autopilot repo and navigate into PX4-Autopilot directory:
+*특정 이전 릴리스*의 소스 코드를 가져오려면, 다음 단계를 따라 하십시오.
+* PX4-Autopilot 저장소를 복제하고, PX4-Autopilot 디렉토리로 이동합니다.
   ```sh
   git clone https://github.com/PX4/PX4-Autopilot.git
   cd PX4-Autopilot
   ```
-* List all releases (tags)
+* 모든 릴리스(태그)를 조회합니다.
   ```sh
-  git checkout master
-git pull upstream master
+  git tag -l
   ```
-* Checkout code for particular tag (e.g. for tag 1.7.4beta)
+* 해당 태그의 코드를 체크아웃 합니다(예: 태그 1.7.4beta).
   ```sh
   git checkout v1.7.4beta
   ```
 
 
-## Update Submodule
+## 하위 모듈 업데이트
 
 There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in [Contributing code to PX4](#Contributing-code-to-PX4).
 
