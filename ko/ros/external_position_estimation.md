@@ -82,46 +82,46 @@ EKF2와 함께 외부 위치 정보를 사용하려면, 다음 매개변수를 �
 
 즉, 비전 시스템 타임스탬프와 IMU 시계(EKF2의 "기본 시계")에 의해 기록되었을 "실제" 캡처 시간 간의 차이입니다.
 
-기술적으로, 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. In reality, this needs some empirical tuning since delays in the entire MoCap->PX4 chain are very setup-specific. It is rare that a system is setup with an entirely synchronised chain!
+기술적으로, 이것은 MoCap과 (예를 들어) ROS 컴퓨터 사이에 정확한 타임스탬프 (도착 시간이 아님)와 시간 동기화 (예 : NTP)가있는 경우 0으로 설정할 수 있습니다. 실제로는, 이것은 전체 MoCap->PX4 체인의 지연이 설정에 따라 매우 다르므로, 약간의 경험적 튜닝이 요구됩니다. 시스템이 완전히 동기화된 체인으로 설정되는 경우는 매우 드뭅니다.
 
-A rough estimate of the delay can be obtained from logs by checking the offset between IMU rates and the EV rates. To enable logging of EV rates set bit 7 (Computer Vision and Avoidance) of [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE).
+IMU 속도와 EV 속도 간의 오프셋을 확인하여, 로그에서 대략적인 지연 추정치를 계산할 수 있습니다. EV 속도 로깅을 활성화하려면, [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)의 비트 7(컴퓨터 비전 및 회피)을 설정합니다.
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
 :::note
-A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
+[FlightPlot](../log/flight_log_analysis.md#flightplot) 또는 유사한 비행 분석 도구를 사용하여, 외부 데이터 대 온보드 추정치(위 참조)의 플롯을 생성할 수 있습니다. At time of writing (July 2021) neither [Flight Review](../log/flight_log_analysis.md#flight-review-online-tool) nor [MAVGCL](../log/flight_log_analysis.md#mavgcl) support this functionality.
 :::
 
-The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
+이 값은 동적 기동 중에 가장 낮은 EKF 혁신을 산출하는 값을 찾기 위하여, 매개변수를 변경하여 추가 튜닝할 수 있습니다.
 
-## LPE 조율/설정
+## LPE 튜닝과 설정
 
-You will first need to [switch to the LPE estimator](../advanced/switching_state_estimators.md) by setting the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter.
+먼저 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 매개변수를 설정하여, [LPE 추정기로 전환](../advanced/switching_state_estimators.md)합니다.
 
 
 :::note
-If targeting `px4_fmu-v2` hardware you will also need to use a firmware version that includes the LPE module (firmware for other FMU-series hardware includes both LPE and EKF). The LPE version can be found in the zip file for each PX4 release or it can be built from source using the build command `make px4_fmu-v2_lpe`. See [Building the Code](../dev_setup/building_px4.md) for more details.
+`px4_fmu-v2` 하드웨어를 대상으로 하는 경우 LPE 모듈이 포함된 펌웨어 버전도 사용합니다(다른 FMU 시리즈 하드웨어용 펌웨어에는 LPE와 EKF가 모두 포함됨). LPE 버전은 각 PX4 릴리스의 zip 파일에서 찾거나, 빌드 명령 `make px4_fmu-v2_lpe`를 사용하여 소스에서 빌드합니다. 자세한 내용은 [코드 빌드](../dev_setup/building_px4.md)을 참고하십시오.
 :::
 
-### Enabling External Pose Input
+### 외부 포즈 입력 활성화
 
-The following parameters must be set to use external position information with LPE (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > Local Position Estimator**).
+LPE에서 외부 위치 정보를 사용하려면 다음 매개변수를 설정하여야 합니다. *QGroundControl* > **차량 설정 > 매개변수 > 로컬 위치 추정기**에서 설정합니다.
 
-| Parameter                                                                  | Setting for External Position Estimation                                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION)         | Vision integration is enabled if *fuse vision position* is checked (it is enabled by default).                                         |
-| [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | Set to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables MoCap heading use. |
+| 매개변수                                                                       | 외부 위치 추정 설정                                                                       |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION)         | *퓨즈 비전 위치*가 선택된 경우 비전 통합이 활성화됩니다(기본적으로 활성화되어 있음).                                 |
+| [ATT_EXT_HDG_M](../advanced_config/parameter_reference.md#ATT_EXT_HDG_M) | 외부 제목 통합을 활성화하려면 1 또는 2로 설정합니다. 1로 설정하면 비전이 사용되는 반면, 2로 설정하면 MoCap 제목 사용이 활성화됩니다. |
 
 
-### Disabling Barometer Fusion
+### 기압계 퓨전 비활성화
 
-If a highly accurate altitude is already available from VIO or MoCap information, it may be useful to disable the baro correction in LPE to reduce drift on the Z axis.
+VIO 또는 MoCap 정보에서 이미 매우 정확한 고도를 사용할 수 있는 경우에는, LPE에서 기압 보정을 비활성화하여 Z축의 드리프트를 줄이는 것이 유용합니다.
 
-This can be done by in *QGroundControl* by unchecking the *fuse baro* option in the [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION) parameter.
+*QGroundControl*에서 [LPE_FUSION](../advanced_config/parameter_reference.md#LPE_FUSION) 매개변수의 *fuse baro* 옵션을 선택을 취소하여 수행할 수 있습니다.
 
-### Tuning Noise Parameters
+### 노이즈 매개변수 조정
 
-If your vision or MoCap data is highly accurate, and you just want the estimator to track it tightly, you should reduce the standard deviation parameters: [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) and [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z) (for VIO) or [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P) (for MoCap). Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.
+비전 또는 MoCap 데이터가 매우 정확하고 추정기가 이를 엄격하게 추적하기를 원하는 경우에는, 표준 편차 매개변수인 [LPE_VIS_XY](../advanced_config/parameter_reference.md#LPE_VIS_XY) 및 [LPE_VIS_Z](../advanced_config/parameter_reference.md#LPE_VIS_Z)(VIO의 경우) 또는 [LPE_VIC_P](../advanced_config/parameter_reference.md#LPE_VIC_P)(MoCap의 경우)를 줄여야 합니다. Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save.
 
 :::tip
 If performance is still poor, try increasing the [LPE_PN_V](../advanced_config/parameter_reference.md#LPE_PN_V) parameter. This will cause the estimator to trust measurements more during velocity estimation.
