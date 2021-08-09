@@ -8,15 +8,15 @@ VIO와 MoCap은 모두 "시각적" 정보에서 차량의 *포즈*(위치 및 �
 
 두 시스템 유형의 포즈 데이터를 사용하여 PX4 자동조종장치의 로컬 위치 추정값(로컬 원점 기준)을 업데이트할 수 있으며, 선택적으로 차량 자세 추정을 융합할 수 있습니다. 또한 외부 포즈 시스템이 선형 속도 측정을 제공하는 경우에는 상태 추정 개선에 사용할 수 있습니다(선속도 측정의 융합은 EKF2에서만 지원됨).
 
-This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) and [PTAM](https://github.com/ethz-asl/ethzasl_ptam)).
+PX4 기반 시스템을 구성하여 MoCap/VIO 시스템(ROS 또는 일부 다른 MAVLink 시스템을 통해)에서 데이터를 가져오는 방법과 보다 구체적으로 VICON 및 Optitrack과 같은 MoCap 시스템과 [ROVIO](https://github.com/ethz-asl/rovio), [SVO](https://github.com/uzh-rpg/rpg_svo) 및 [PTAM](https://github.com/ethz-asl/ethzasl_ptam)과 같은 비전 기반 추정 시스템을 설정하는 방법을 설명합니다.
 
 :::note
-The instructions differ depending on whether you are using the EKF2 or LPE estimator.
+이 설명서는 EKF2 또는 LPE 추정기를 사용 여부에 따라 차이가 납니다.
 :::
 
-## PX4 MAVLink Integration
+## PX4 MAVLink 통합
 
-PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](../middleware/uorb.md):
+PX4는 외부 위치 정보를 얻기 위하여, 다음 MAVLink 메시지를 사용하고 이를 [uORB 주제](../middleware/uorb.md)에 매핑합니다.
 
 | MAVLink                                                                                                                                                                | uORB                      |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -25,17 +25,17 @@ PX4 uses the following MAVLink messages for getting external position informatio
 | [ATT_POS_MOCAP](https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP)                                                                                            | `vehicle_mocap_odometry`  |
 | [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) (`frame_id =` [MAV_FRAME_MOCAP_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_MOCAP_NED)) | `vehicle_mocap_odometry`  |
 
-EKF2 only subscribes to `vehicle_visual_odometry` topics and can hence only process the first two messages (a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4. The LPE estimator subscribes to both topics, and can hence process all the above messages.
+EKF2는 `vehicle_visual_odometry` 주제만 구독하므로, 처음 두 메시지만 처리할 수 있습니다. MoCap 시스템은 EKF2와 함께 작동하기 위해 이러한 메시지를 생성하여야 합니다. 주행 거리 측정 메시지는 선형 속도도 PX4로 전송 가능한 유일한 메시지입니다. LPE 추정기는 두 주제를 모두 구독하므로, 위의 모든 메시지를 처리할 수 있습니다.
 
-:::tip EFK2 is the default estimator used by PX4. It is better tested and supported than LPE, and should be used by preference.
+:::tip EFK2는 PX4에서 사용하는 기본 추정기입니다. LPE보다 테스트 및 지원이 더 잘 되므로, 우선적으로 사용하여야 합니다.
 :::
 
-The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz. If the message rate is too low, EKF2 will not fuse the external vision messages.
+메시지는 30Hz(공분산을 포함하는 경우)와 50Hz 사이에서 스트리밍되어야 합니다. 메시지 비율이 너무 낮으면, EKF2가 외부 비전 메시지를 융합하지 않습니다.
 
-The following MAVLink "vision" messages are not currently supported by PX4: [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE), [VISION_SPEED_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE), [VICON_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE)
+다음의 MAVLink "비전" 메시지는 현재 PX4에서 지원되지 않습니다: [GLOBAL_VISION_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE), [VISION_SPEED_ESTIMATE](https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE), [VICON_POSITION_ESTIMATE](https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE)
 
 
-## Reference Frames
+## 참조 프레임
 
 PX4 uses FRD (X **F**orward, Y **R**ight and Z **D**own) for the local body frame as well for the reference frame. When using the heading of the magnetometer, the PX4 reference frame x axis will be aligned with north, so therefore it is called NED (X **N**orth, Y **E**ast, Z **D**own). The heading of the reference frame of the PX4 estimator and the one of the external pose estimate will not match in most cases. Therefore the reference frame of the external pose estimate is named differently, it is called [MAV_FRAME_LOCAL_FRD](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD).
 
