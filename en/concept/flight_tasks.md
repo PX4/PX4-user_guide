@@ -95,7 +95,6 @@ The instructions below might be used to create a task named *MyTask*:
       Orbit
       MyTask
    )
-   )
    ```
 6. Update a flight mode to ensure that the task is called. 
    Usually a parameter is used to select when a particular flight task should be used.
