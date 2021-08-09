@@ -403,7 +403,7 @@
     * [ROS 2 브리지를 통한 ROS(1)](ros/ros1_via_ros2.md)
     * [ROS/MAVROS](ros/ros1.md) 
       * [ROS/MAVROS 설치 가이드](ros/mavros_installation.md)
-      * [ROS/MAVROS 오프보드 예](ros/mavros_offboard.md)
+      * [ROS/MAVROS 오프보드 예제](ros/mavros_offboard.md)
       * [ROS/MAVROS 사용자 정의 메시지 전송](ros/mavros_custom_messages.md)
       * [ROS Gazebo 시뮬레이션](simulation/ros_interface.md)
       * [ROS Gazebo OctoMap 모델 (1)](simulation/gazebo_octomap.md)
