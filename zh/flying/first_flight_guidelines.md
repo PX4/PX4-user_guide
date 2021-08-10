@@ -1,13 +1,13 @@
 # 首次飞行指南
 
-学习飞行 </0 > 是一个很大的乐趣! These guidelines are designed to ensure that your first flight experience is enjoyable, educational, and safe.</p> 
+学习飞行 </0 > 很有趣! 这些指南旨在确保您的首次飞行体验愉快、有教育意义且安全。</p> 
 
 ## 选择合适的地点
 
 为您的第一次飞行选择正确的位置至关重要。 要注意的主要事项是:
 
-- 确保空间是宽敞的。 No high trees, hills or buildings next to it, because it will impair the GPS reception.
-- 确保100米/300 英尺内没有人。
+- 确保空间是开放的。 附近没有高大的树木、山丘或建筑物，因为它会影响 GPS 接收。
+- 确保100米内没有人。
 - Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
 
 :::note
