@@ -8,25 +8,25 @@
 
 - 确保空间是开放的。 附近没有高大的树木、山丘或建筑物，因为它会影响 GPS 接收。
 - 确保100米内没有人。
-- Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet - no houses, structures, cars, water, corn fields (hard to find drones in).
+- 确保在 100 米范围内没有您不应该撞到的东西 - 没有房屋、建筑物、汽车、水、玉米地（很难在其中找到无人机）。
 
 :::note
-100m clearance is a good "rule of thumb", but you should also ensure you comply with flight regulations in your area.
+虽然 100 米的间距已经是一个很好的“经验值”，但您还应该确保遵守您所在地区的飞行规定。
 :::
 
-## 带一个专家
+## 带上专业人士
 
-Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+带上有经验的人进行第一次飞行。 让他们帮助您完成飞行前检查，并让他们在出现问题时进行干预！
 
-## Plan the Flight
+## 计划飞行
 
-Plan the flight before taking off. Make sure you know the whole route and where/how the vehicle will land.
+起飞前规划好航线。 确保您知道整条路线以及无人机将在何处/如何降落。
 
-## Limit the Damage
+## 减少损失
 
-Damaging property or injuring people with your UAV can have significant legal and financial consequences (far in excess of the value of the UAV itself).
+使用您的无人机损坏财产或伤害人员可能会产生重大的法律和财务后果（远远超过无人机本身的价值）。
 
-The UAV should always be manually flown within a safe zone where there are no obstacles or people, and it must be clearly visible at all times.
+无人机应始终在没有障碍物或人员的安全区域内手动飞行，并且必须始终清晰可见。
 
 If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
 
