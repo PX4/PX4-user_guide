@@ -1,4 +1,4 @@
-# 飞行 101
+# 飞行入门课
 
 本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控无人机的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。
 
@@ -14,10 +14,10 @@
 
 解锁无人机
 
-- First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety_switch).
-- Use the arm command for your vehicle - put the throttle stick in the bottom right corner. 
-  - Alternatively configure an [arm/disarm switch](../config/safety.md#arming_switch).
-  - You can also arm in *QGroundControl* (PX4 does not require a radio control for flying autonomously).
+- 首先关闭安全开关
+- 对您的车辆使用解锁命令 - 将油门杆放在右下角。 
+  - 或者增加一个解锁/加锁开关
+  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要遥控器控制）
 
 :::tip
 The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
