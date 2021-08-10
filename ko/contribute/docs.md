@@ -53,42 +53,42 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
    ```sh
    git clone https://github.com/john_citizen/px4_user_guide.git
    ```
-1. Navigate to your local repository:
+1. 로컬 저장소로 이동합니다.
    ```sh
    cd ~/wherever/px4_user_guide   
    ```
-1. Add a *remote* called "upstream" to point to the PX4 version of the library:
+1. 라이브러리의 PX4 버전을 가리키도록 "업스트림"이라는 *remote*를 추가합니다.
    ```sh
    git remote add upstream https://github.com/PX4/px4_user_guide.git
    ```
 
 :::tip
-A "remote" is a handle to a particular repository. The remote named *origin* is created by default when you clone the repository, and points to *your fork* of the guide. Above you create a new remote *upstream* that points to the PX4 project version of the documents.
+"remote"은 특정 저장소에 대한 핸들입니다. *origin*이라는 이름의 원격은 저장소 복제시 기본적으로 생성되며, 가이드의 *포크*를 가리킵니다. 위에서 문서의 PX4 프로젝트 버전을 가리키는 새 원격 *upstream*을 생성합니다.
 :::
-1. Create a branch for your changes:
+1. 변경 사항에 대한 브랜치를 생성합니다.
    ```sh
    git checkout -b <your_feature_branch_name>
    ```
-   This creates a local branch on your computer named `your_feature_branch_name`.
-1. Make changes to the documentation as needed (general guidance on this in following sections)
-1. Once you are satisfied with your changes, you can add them to your local branch using a "commit":
+   그러면 컴퓨터에 `your_feature_branch_name`이라는 로컬 브랜치가 생성됩니다.
+1. 필요에 따라 문서를 변경합니다(다음 섹션에서 이에 대한 일반 지침).
+1. 변경 사항에 완료되면 "커밋"을 사용하여, 로컬 브랜치에 추가합니다.
    ```sh
    git add <file name>
    git commit -m "<your commit message>"
    ```
-   For a good commit message, please refer to [Contributing](../contribute/README.md) section.
-1. Push your local branch (including commits added to it) to your forked repository on Github.
+   적절한 커밋 메시지 예들은 [기여](../contribute/README.md) 섹션을 참고하십시오.
+1. 로컬 분기(추가된 커밋 포함)를 Github의 분기된 저장소에 푸시합니다.
    ```sh
    git push origin your_feature_branch_name
    ```
-1. Go to your forked repository on Github in a web browser, e.g.: `https://github.com/<your git name>/px4_user_guide.git`. There you should see the message that a new branch has been pushed to your forked repository.
-1. Create a pull request (PR):
-   - On the right hand side of the "new branch message" (see one step before), you should see a green button saying "Compare & Create Pull Request". Press it.
-   - A pull request template will be created. It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it's usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check [other pull requests](https://github.com/PX4/px4_user_guide/pulls) for comparison)
-1. You're done! Maintainers for the PX4 User Guide will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.
+1. 웹 브라우저에서 Github의 분기된 저장소로 이동합니다(예: `https://github.com/<your git name>/px4_user_guide.git`). 새 분기가 분기된 저장소로 푸시되었다는 메시지가 표시되어야 합니다.
+1. 풀 요청(PR) 생성:
+   - "새 분기 메시지"(앞의 한 단계 참조)의 오른쪽에 "풀 요청 비교 및 생성"이라는 녹색 버튼이 표시되어야 합니다. 클릭합니다.
+   - 풀 요청 템플릿이 생성됩니다. 그것은 당신의 커밋을 나열하고 의미 있는 제목(하나의 커밋 PR의 경우 일반적으로 커밋 메시지)과 메시지(<span style="color:orange">어떤 이유에서 수행했는지 설명</span>)를 추가할 수 있습니다(반드시). 비교를 위하여, [기타 풀 요청](https://github.com/PX4/px4_user_guide/pulls)을 확인하십시오.
+1. 완료하였습니다. PX4 사용자 가이드 유지 관리자는 이제 귀하의 기여를 검투한 후에, 통합 여부를 결정합니다. 때때로 변경 사항에 대한 질문을 확인하십시오.
 
 
-### Gitbook Documentation Toolchain
+### 로컬에서 라이브러리 구축
 
 Build the library locally to test that any changes you have made have rendered properly:
 1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
