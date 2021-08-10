@@ -28,8 +28,8 @@
 
 无人机应始终在没有障碍物或人员的安全区域内手动飞行，并且必须始终清晰可见。
 
-If you start to lose control over the vehicle, and cannot bring it back under control, crash it in an empty area as soon as possible.
+如果您开始失去对无人机的控制，并且无法恢复控制，请尽快在空旷的地方坠落。
 
 :::note
-It can be useful to [set a safety switch on your transmitter](../config/safety.md#safety_switch). This allows you to immediately return or crash your drone if necessary.
+[在您的遥控器上设置一个安全开关](../config/safety.md#safety_switch)是很有用的. 这使您在必要时可以立即返回或坠毁您的无人机。
 :::
