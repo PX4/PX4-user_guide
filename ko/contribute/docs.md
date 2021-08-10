@@ -90,25 +90,25 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 
 ### 로컬에서 라이브러리 구축
 
-Build the library locally to test that any changes you have made have rendered properly:
-1. Install the [Vuepress prerequiresites](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites):
+로컬에서 라이브러리를 빌드하여, 변경 사항이 제대로 반영되었는 지를 테스트합니다.
+1. 사전 요구 사항인 [Vuepress](https://vuepress.vuejs.org/guide/getting-started.html#prerequisites)을 설치합니다.
    - [Nodejs 10+](https://nodejs.org/en/)
    - [Yarn classic](https://classic.yarnpkg.com/en/docs/install)
-1. Navigate to your local repository:
+1. 로컬 저장소로 이동합니다.
    ```sh
    cd ~/wherever/px4_user_guide
    ```
-1. Install dependencies (including Vuepress):
+1. 종속성(Vuepress 포함)들을 설치합니다.
    ```sh
    yarn install
    ```
-1. Preview and serve the library:
+1. 라이브러리 미리보기 및 제공
    ```sh
    yarn docs:dev
    ```
-   * Now you can browse the guide on http://localhost:8080/px4_user_guide/
-   * Stop serving using **CTRL+C** in the terminal prompt.
-1. Build the library using:
+   * 이제 http://localhost:8080/px4_user_guide/에서 가이드를 검색할 수 있습니다.
+   * 터미널 프롬프트에서 **CTRL+C**를 사용하여 검색을 중지합니다.
+1. 다음을 사용하여 라이브러리를 빌드합니다.
    ```sh
    # Ubuntu
    yarn docs:build
@@ -118,21 +118,21 @@ Build the library locally to test that any changes you have made have rendered p
    ```
 
 ::: tip
-Use `yarn docs:dev` to preview changes *as you make them* (documents are updated and served very quickly). Before submitting a PR you should also build it using `docs:build`, as this can highlight issues that are not visible when using `docs:dev`.
+`yarn docs:dev`를 사용하여 *변경할 때* 변경 사항을 미리 봅니다(문서가 매우 빠르게 업데이트되고 제공됨). 풀 요청을 제출전에 `docs:build`를 사용하여 빌드하여야 합니다. 이렇게 하면 `docs:dev`를 사용할 때 표시되지 않는 문제를 강조하여 표시할 수 있습니다.
 :::
 
-### Source Code Structure
+### 소스 코드 구조
 
-The guide uses the [Vuepress](https://vuepress.vuejs.org/) toolchain. The PX4 User Guide has some minor differences, mostly related to configuration and setup.
+이 가이드는 [Vuepress](https://vuepress.vuejs.org/) 툴체인을 사용합니다. PX4 사용 설명서에는 구성과 설정에 관련된 몇 가지 사소한 차이점들이 있습니다.
 
-In overview:
+개요:
 
-* Pages are written in separate files using markdown.
-  - The syntax is almost the same as that used by the Github wiki.
-  - Vuepress also supports some [markdown extensions](https://vuepress.vuejs.org/guide/markdown.html). We try and avoid using these, except for [tips, warning, etc.](https://vuepress.vuejs.org/guide/markdown.html#custom-containers).
-* This is a [multilingual](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) book:
-  - Pages for each language are stored in the folder named for the associated language code (e.g. "zh" for Chinese, "ko" for Korean).
-  - Only edit the ENGLISH (**/en**) version of files. We use [Crowdin](../contribute/translation.md) to manage the translations.
+* 페이지는 마크다운을 사용하여 별도의 파일에 작성됩니다.
+  - 문법은 Github 위키에서 사용하는 것과 매우 유사합니다.
+  - Vuepress는 일부 [마크다운 확장](https://vuepress.vuejs.org/guide/markdown.html)도 지원합니다. 우리는 [tips, warning, 등](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)을 제외하고는 사용하지 않으려고 합니다.
+* 이것은 [다국어](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) 책에 관련된 것입니다.
+  - 각 언어의 페이지는 관련 언어 코드의 이름이 지정된 폴더에 저장됩니다(예: 중국어의 경우 "zh", 한국어의 경우 "ko").
+  - 파일의 영어(**/en**) 버전만 편집하십시오. We use [Crowdin](../contribute/translation.md) to manage the translations.
 * All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
   - This makes linking easier because other pages and images are always as the same relative levels
 * The _structure_ of the book is defined in **SUMMARY.md**
