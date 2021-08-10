@@ -20,7 +20,7 @@
   - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要遥控器控制）
 
 :::tip
-The vehicle will not arm until it is [calibrated/configured](../config/README.md) and has a position lock. [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
+无人机在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
 :::
 
 :::note
