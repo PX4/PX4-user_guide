@@ -86,25 +86,25 @@ PX4 기능 추가 절차는 다음과 같습니다. 다음 예제를 따라 PX4�
 
 하위 모듈을 업데이트하는 방법에는 여러 가지가 있습니다. 저장소를 복제하거나 하위 모듈 디렉토리로 이동하여 [PX4에 코드 기여](#contributing_code)와 동일한 방법으로 진행합니다.
 
-## 하위 모듈 업데이트에 대한 PR 수행
-이것은 하위 모듈 X 저장소에 대한 PR을 수행하고 버그 수정/기능 추가가 하위 모듈 X의 현재 마스터에에서 요구됩니다. 펌웨어는 업데이트 전에 커밋을 가리키므로, 펌웨어에서 사용하는 하위 모듈이 최신 커밋을 가리키도록 하위 모듈 풀 요청이 필요합니다.
+## 하위 모듈 업데이트에 대한 풀 요청 실행
+이것은 하위 모듈 X 저장소에 대한 풀 요청을 실행하고, 버그 수정/기능 추가가 하위 모듈 X의 현재 마스터에에서 요구됩니다. 펌웨어는 업데이트 전에 커밋을 가리키므로, 펌웨어에서 사용하는 하위 모듈이 최신 커밋을 가리키도록 하위 모듈에 대한 풀 요청이 필요합니다.
 ```sh
 cd Firmware
 ```
-* Make a new branch that describes the fix / feature for the submodule update:
+* 하위 모듈 업데이트에 대한 수정 사항/기능을 설명하는 새로운 분기를 만듭니다.
   ```sh
   git checkout -b pr-some-fix
   ```
-* Go to submodule subdirectory
+* 하위 모듈 하위 디렉토리로 이동합니다.
   ```sh
   cd <path to submodule>
   ```
-* PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code.
+* PX4 하위 모듈이 반드시 최신 커밋을 가리킬 필요는 없습니다. 따라서, 먼저 마스터를 체크아웃하고 최신 업스트림 코드를 가져옵니다.
   ```sh
   git checkout master
   git pull upstream master
   ```
-* Go back to Firmware directory, and as usual add, commit and push the changes.
+* Firmware 디렉토리로 돌아가서, 평소처럼 변경 사항을 추가, 커밋 및 푸시합니다.
   ```sh
   cd -
 git add <path to submodule>
@@ -112,43 +112,43 @@ git commit -m "Update submodule to include ..."
   git push upstream pr-some-fix
   ```
 
-## Checkout pull requests
+## 풀 리퀘스트 체크아웃
 
-You can test someone's pull request (changes are not yet merged) even if the branch to merge only exists on the fork from that person. Do the following
+병합할 분기가 해당 사람의 포크에만 존재하더라도, 누군가의 Pull Request(변경 사항이 아직 병합되지 않음)을 테스트할 수 있습니다. 다음 과정을 수행합니다.
 ```sh
 git fetch upstream  pull/<PR ID>/head:<branch name>
 ```
-PR ID is the number right next to the PR's title (without the #) and the ```&lt;branch name&gt;``` can also be found right below the ```PR ID```, e.g. ```&lt;the other persons git name&gt;:&lt;branch name&gt;```. After that you can see the newly created branch locally with
+`PR ID`는 Pull Request 제목 바로 옆에 있는 숫자(# 제외)이며 `<branch name>`은 `PR ID` 바로 아래에서도 찾을 수 있습니다. 예: `<the other persons git name>:<branch name>`. 그 후 다음을 사용하여 로컬에서 새로 생성된 분기를 조회할 수 있습니다.
 ```sh
 git branch
 ```
-Then switch to that branch
+그런 다음 해당 분기로 전환합니다.
 ```sh
 git checkout <branch name>
 ```
 
-## Common pitfalls
+## 일반적인 함정
 
-### Force push to forked repository
+### 분기된 저장소로 강제 푸시
 
-After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/master. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:
+첫 번째 Pull Request을 마친 후 PX4 커뮤니티의 사람들이 변경 사항을 검토합니다. 대부분의 경우 검토에 따라 로컬 지점을 수정하여야 함을 의미합니다. 파일을 로컬로 변경한 후 기능 분기를 가장 최근의 업스트림/마스터로 다시 기반으로 지정하여야 합니다. 그러나, 리베이스 후에는 더 이상 기능 분기를 분기된 저장소에 직접 푸시할 수 없지만, 대신 강제 푸시를 사용하여야 합니다.
 ```sh
 git push --force-with-lease origin <your feature branch name>
 ```
 
-### Rebase merge conflicts
+### 리베이스 병합 충돌
 
-If a conflict occurs during a `git rebase`, please refer to [this guide](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/).
+`git rebase` 실행 중 충돌이 발생하면 [이 가이드](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/)를 참고하십시오.
 
-### Pull merge conflicts
+### 풀 병합 충돌
 
-If a conflict occurs during a `git pull`, please refer to [this guide](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts).
+`git pull` 중 충돌이 발생하면 [이 가이드](https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts)를 참고하십시오.
 
-### Build error due to git tags out of date
+### 오래된 git 태그로 인한 빌드 오류
 
-The build error `Error: PX4 version too low, expected at least vx.x.x` occurs if git tags are out of date.
+빌드 오류 `오류: PX4 버전이 너무 낮음, 최소 vx.x.x가 필요합니다.` git 태그가 오래된 경우 발생합니다.
 
-This can be solved by fetching the upstream repository tags:
+이것은 업스트림 리포지토리 태그를 가져와서 해결할 수 있습니다.
 ```sh
 git fetch upstream --tags
 ```
