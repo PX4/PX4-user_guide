@@ -102,11 +102,11 @@
 
 ## 辅助飞行
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
+即是了解了飞行器是如何控制的，全手动模式的飞行也是棘手的。 新用户应该 [配置他们的遥控器](../config/flight_mode.md) 来使用飞行模式，在这种模式下自动补偿不稳定的用户输入或环境因素。
 
-The following three modes are highly recommended for new users:
+强烈建议新手使用以下三种模式：
 
-- 自稳模式-飞行器很难侧翻，并且如果摇杆被释放飞行器将趋于平稳（但不是位置定点）。
+- 姿态模式-飞行器很难侧翻，并且如果摇杆被释放飞行器将趋于平稳（但不保持位置）。
 - 高度模式 - 爬升和降落由最大速率控制。
 - 位置模式 - 当摇杆被释放飞行器将保持飞行（位置定点，不会随风漂移）。
 
