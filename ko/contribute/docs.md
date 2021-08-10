@@ -14,7 +14,7 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 
 모든 페이지 하단에 표시되는 **GitHub에서 이 페이지 편집** 링크를 클릭하면, *기존 콘텐츠*를 간단하게 변경할 수 있습니다(이렇게 하면 Github에서 편집용 페이지가 열립니다).
 
-![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
+![Vuepress: 페이지 편집 버튼](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
 기존 페이지를 편집하려면:
 1. 해당 페이지를 엽니다.
@@ -171,30 +171,30 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
    * 제목과 페이지 제목은 "첫 글자 대문자"를 사용하여야 합니다.
    * 페이지 제목은 첫 번째 수준 제목 \(\#\)이어야 합니다. 다른 소제목은 h2 \(\#\#\) 또는 그 이하여야 합니다.
    * 제목에는 스타일을 추가하지 마십시오.
-   * Don't translate the *first part* of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
+   * note, tip 또는 warning 선언의 *첫 부분*(예: `:::tip`)을 번역하지 마세요. 이 텍스트는 메모 렌더링에 사용되기 때문입니다.
 
 
-## Where Do I Add Changes?
+## 어디에서 변경 사항을 추가합니까?
 
-Add new documentation in-line with the existing structure!
+기존 구조에 맞춰 새 문서를 추가하십시오!
 
-Some of the main categories are:
-- Development: content related to:
-  - Evolving the platform (new modes, modules, flight modes, hardware, software and hardware architecture and porting).
-  - "Experimental" work that requires developer expertise to reproduce.
-- Flying: content related to flying a standard vehicle (flight modes, arming, taking off, landing)
-- Basic configuration: Configuration that every vehicle will need to do
-- Advanced configuration: Configration that is specific to a vehicle type, or some segment of users.
-- Peripherals: Documentation on different hardware that can be used.
-  - This also includes setup and configuration information for hardware that isn't covered in Basic configuration.
-- Basic Assembly: Assembly of an autopilot and its main peripherals
-- Airframe Builds: Examples of how to build a whole system.
+주요 범주 중 일부는 다음과 같습니다.
+- 개발: 관련 콘텐츠
+  - 플랫폼의 진화(새로운 모드, 모듈, 비행 모드, 하드웨어, 소프트웨어 및 하드웨어 아키텍처 및 이식)
+  - 재현하기 위해 개발자 전문 지식이 필요한 "실험적" 작업
+- 비행: 표준 차량 비행과 관련된 콘텐츠(비행 모드, 무장, 이륙, 착륙)
+- 기본 설정: 모든 차량이 수행해야 하는 설정
+- 고급 설정: 차량 유형 또는 일부 사용자 세그먼트에 적용되는 특별한 설정입니다.
+- 주변 장치: 사용할 수 있는 다양한 하드웨어에 관련된 문서입니다.
+  - 여기에는 기본 설정에서 다루지 않는 하드웨어에 대한 설정 및 구성 정보를 포함합니다.
+- 기본 조립: 자동 조종 장치 및 주요 주변 장치의 조립
+- 기체 빌드: 전체 시스템을 빌드하는 방법의 예입니다.
 
 
-## Translations
+## 번역
 
-For information about translation see: [Translation](../contribute/translation.md).
+번역에 대한 정보는 [번역](../contribute/translation.md)을 참고하십시오.
 
-## Licence
+## 라이센스
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+모든 PX4/Dronecode 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이선스 허용 조건에 따라 자유롭게 사용하고 수정할 수 있습니다.
