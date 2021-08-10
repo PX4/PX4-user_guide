@@ -5,51 +5,51 @@ PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 �
 이 항목에서는 변경 사항을 적용하고 테스트하는 방법을 설명합니다. 마지막에는 기본 스타일 가이드가 있습니다.
 
 ::: tip
-Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
+Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요합니다.
 :::
 
 <a id="github_changes" ></a>
 
-## Quick Changes in Github
+## Github의 빠른 변경 사항
 
-Simple changes to *existing content* can be made by clicking the **Edit this page on GitHub** link that appears at the bottom of every page (this opens the page on Github for editing).
+모든 페이지 하단에 표시되는 **GitHub에서 이 페이지 편집** 링크를 클릭하면, *기존 콘텐츠*를 간단하게 변경할 수 있습니다(이렇게 하면 Github에서 편집용 페이지가 열립니다).
 
 ![Vuepress: Edit Page button](../../assets/vuepress/vuepress_edit_page_on_github_link.png)
 
-To edit an existing page:
-1. Open the page.
-1. Click the **Edit this page on GitHub** link below the page content.
-1. At the bottom of the page you'll be prompted to create a separate branch and then guided to submit a *pull request*.
-1. Below the Github page editor you'll be prompted to create a separate branch and then guided to submit a *pull request*.
+기존 페이지를 편집하려면:
+1. 해당 페이지를 엽니다.
+1. 페이지 콘텐츠 아래에 있는 **GitHub에서 이 페이지 편집** 링크를 클릭합니다.
+1. 파일을 편집합니다.
+1. Github 페이지 편집기 아래에 별도의 분기를 생성하라는 메시지가 표시되고 *풀 요청*을 제출하라는 안내가 표시됩니다.
 
-The documentation team will review the request and either merge it or work with you to update it.
+문서 팀은 요청을 검토하고, 병합하거나 업데이트하기 위하여 귀하와 협력할 것입니다.
 
 <a id="big_changes" ></a>
 
-## Adding New Content - Big Changes
+## Git을 사용한 변경(새 페이지 및 이미지)
 
-More substantial changes, including adding new pages or adding/modifying images, aren't as easy to make (or properly test) on Github. For these kinds of changes we suggest using the same approach as for *code*:
-1. Use the *git* toolchain to get the documentation source code onto your local computer.
-1. Modify the documentation as needed (add, change, delete).
-1. *Test* that it builds properly using Vuepress.
-1. In order to contribute many changes to the documentation, it is recommended that you follow these steps to add the changes locally and then create a pull request:
+새 페이지 추가 또는 이미지 추가/수정을 포함하여 보다 실질적인 변경은 Github에서 수행(또는 적절하게 테스트)하는 것처럼 간단하지 않습니다. 이러한 변경 작업은 *코드*와 동일한 접근 방식을 사용하는 것이 좋습니다.
+1. *git* 명령어를 사용하여, 문서 소스 코드를 로컬 컴퓨터로 가져옵니다.
+1. 필요한 문서를 수정합니다(추가, 변경, 삭제).
+1. Vuepress를 사용하여 제대로 빌드되는지 *테스트*합니다.
+1. 변경 사항에 대한 분기를 만들고 풀 요청을 만들어 문서로 다시 가져옵니다.
 
-The following explain how to get the source code, build locally (to test), and modify the code.
+다음에는 소스 코드를 가져오고, 로컬에서 빌드(테스트용)하고, 코드를 수정하는 방법을 설명합니다.
 
 
-### What Goes Where?
+### 문서 소스 코드 가져오기/보내기
 
-The guide uses the [Gitbook](https://www.gitbook.com/about) toolchain. Change requests can be either done on the Gitbook website using the [Gitbook editor](https://gitbookio.gitbooks.io/documentation/content/editor/index.html) or locally (more flexible, but less user-friendly).
+라이브러리 소스를 로컬 컴퓨터로 가져오려면 git 명령어를 사용하여야 합니다. 아래 지침은 git을 가져와 로컬 컴퓨터에서 사용하는 방법을 설명합니다.
 
-1. git add &lt;file name&gt; git commit -m "&lt;your commit message&gt;"
-1. [Sign up](https://github.com/join) for Github if you haven't already
-1. Create a copy (Fork) of the [PX4 User Guide repo](https://github.com/PX4/px4_user_guide) on Github ([instructions here](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
-1. Clone (copy) your forked repository to your local computer:
+1. [https://git-scm.com/downloads](https://git-scm.com/downloads)에서 git 프로그램을 다운로드합니다.
+1. 아직 Github에 [가입](https://github.com/join)하지 않은 경우에는 가입합니다.
+1. Github에서 [PX4 사용자 가이드 저장소](https://github.com/PX4/px4_user_guide)의 복사본(포크)을 만듭니다([지침 참고](https://help.github.com/articles/fork-a-repo/#fork-an-example-repository)).
+1. 복사된 저장소를 로컬 컴퓨터에 복제합니다.
    ```sh
    cd ~/wherever/
    git clone https://github.com/<your git name>/px4_user_guide.git
    ```
-   For example, to clone the PX4 userguide fork for a user with Github account "john_citizen":
+   예를 들어, Github 계정이 "john_citizen"인 사용자의 PX4 사용자 가이드 포크를 복제합니다.
    ```sh
    git clone https://github.com/john_citizen/px4_user_guide.git
    ```
