@@ -130,47 +130,47 @@ Note 가이드에 기여하려면 [Github](http://github.com) 계정이 필요�
 * 페이지는 마크다운을 사용하여 별도의 파일에 작성됩니다.
   - 문법은 Github 위키에서 사용하는 것과 매우 유사합니다.
   - Vuepress는 일부 [마크다운 확장](https://vuepress.vuejs.org/guide/markdown.html)도 지원합니다. 우리는 [tips, warning, 등](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)을 제외하고는 사용하지 않으려고 합니다.
-* 이것은 [다국어](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) 책에 관련된 것입니다.
+* [다국어](https://vuepress.vuejs.org/guide/i18n.html#default-theme-i18n-config) 책에 관련된 내용입니다.
   - 각 언어의 페이지는 관련 언어 코드의 이름이 지정된 폴더에 저장됩니다(예: 중국어의 경우 "zh", 한국어의 경우 "ko").
-  - 파일의 영어(**/en**) 버전만 편집하십시오. We use [Crowdin](../contribute/translation.md) to manage the translations.
-* All pages must be in an appropriately named sub-folder of **/en** (e.g. this page is in folder **en/contribute/**).
-  - This makes linking easier because other pages and images are always as the same relative levels
-* The _structure_ of the book is defined in **SUMMARY.md**
-  - If you add a new page to the guide you must also add an entry to this file! :::tip This is not "standard vuepress" way to define the sidebar (the summary file is imported by [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)).
+  - 파일의 영어(**/en**) 버전만 편집하십시오. 번역을 관리하기 위해 [Crowdin](../contribute/translation.md)을 사용합니다.
+* 모든 페이지는 **/en**이라는 적절한 이름의 하위 폴더에 있어야 합니다(예: 이 페이지는 **en/contribute/** 폴더에 있음).
+  - 이렇게 하면 다른 페이지와 이미지가 항상 동일한 상대 수준이므로 연결이 더 용이해집니다.
+* 책의 _구조_는 **SUMMARY.md**에 정의되어 있습니다.
+  - 가이드에 새 페이지를 추가하는 경우 이 파일에도 항목을 추가하여야 합니다. :::tip 이것은 사이드바를 정의하는 "표준 vuepress" 방식이 아닙니다(요약 파일은 [.vuepress/get_sidebar.js](https://github.com/PX4/PX4-user_guide/blob/master/.vuepress/get_sidebar.js)에서 가져옴).
 :::
-* Images must be stored in a sub folder of **/assets**. This is two folders down from content folders, so if you add an image you will reference it like:
+* 이미지는 **/assets**의 하위 폴더에 저장하여야 합니다. 이것은 콘텐츠 폴더에서 두 개의 폴더 아래에 있으므로, 이미지를 추가하면 다음과 같이 참조하게 됩니다.
   ```
   ![Image Description](../../assets/path_to_file/filename.jpg)
   ```
-* A file named **package.json** defines any dependencies of the build.
-* A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.
+* **package.json**이라는 파일은 빌드의 종속성을 정의합니다.
+* 웹 후크는 파일이 이 저장소의 마스터 분기에 병합되어, 책이 다시 빌드될 때마다 추적하는 데 사용됩니다.
 
-### Adding New Pages
+### 새 페이지 추가
 
-All PX4/Dronecode documentation is free to use and modify under terms of the permissive [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence.
+새 페이지를 추가시에는 **en/SUMMARY.md**에도 추가하여야 합니다.
 
-## Style Guide
+## 스타일 가이드
 
-1. Files/file names
+1. 파일/파일명
 
-   * Put new files in an appropriate sub-folder of **/en/**. Do not further nest folders.
-   * The *structure* of the book is defined in a file named **SUMMARY.md**. In particular, image filenames should describe what they contain.
-   * This is a [multilingual](https://toolchain.gitbook.com/languages.html) book, so there is a **LANGS.md** file in the root directory defining what languages are supported.
+   * **/en/**의 적절한 하위 폴더에 새 파일을 추가합니다. 폴더를 중첩하지 마십시오.
+   * 설명이 포함된 이름을 사용합니다. 특히, 이미지 파일명은 포함된 내용을 설명하여야 합니다.
+   * 파일명은 소문자를 사용하고, 밑줄 "\_"을 사용하여 단어를 구분합니다.
 
-2. Images
+2. 이미지
 
-   * Use the smallest size and lowest resolution that makes the image still useful (this reduces download cost for users with poor bandwidth).
-   * New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
+   * 이미지는 최대한 가장 작은 크기와 가장 낮은 해상도를 사용합니다(이렇게 하면 대역폭이 좋지 않은 사용자의 다운로드 비용이 줄어듭니다).
+   * 새 이미지는 기본적으로 **/assets/**의 하위 폴더에 생성되어야 합니다. (번역 간에 공유할 수 있습니다).
 
-3. Content:
+3. 내용
 
-   * Use "style" \(bold, emphasis, etc\) consistently.
-     - **Bold** for button presses and menu definitions.
-     - _Emphasis_ for tool names.
-     - Otherwise use as little as possible.
-   * New images should be created in a sub-folder of **/assets/** by default (so they can be shared between translations).
-   * The page title should be a first level heading \(\#\). All other headings should be h2 \(\#\#\) or lower.
-   * Don't add any style to headings.
+   * "모양새" \(bold, emphasis, etc\) 를 일관되게 활용하십시오.
+     - **Bold** 는 누르는 단추 텍스트와 메뉴 정의에 활용합니다.
+     - _Emphasis_는 도구 이름에 사용합니다.
+     - 그 외의 경우에는, 가능한 한 적게 사용하십시오.
+   * 제목과 페이지 제목은 "첫 글자 대문자"를 사용하여야 합니다.
+   * 페이지 제목은 첫 번째 수준 제목 \(\#\)이어야 합니다. 다른 소제목은 h2 \(\#\#\) 또는 그 이하여야 합니다.
+   * 제목에는 스타일을 추가하지 마십시오.
    * Don't translate the *first part* of a note, tip or warning declaration (e.g. `::: tip`) as this precise text is required to render the note properly.
 
 
