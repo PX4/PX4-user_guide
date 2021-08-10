@@ -24,20 +24,19 @@
 :::
 
 :::note
-如果您解锁后过长时间没有起飞，无人机将（默认情况下）自动加锁（关闭电机）！ This is a safety measure to ensure that vehicles return to a safe state when not in use.
+如果您解锁后过长时间没有起飞，无人机将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动 [加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保无人机在没有被使用时恢复到安全状态。
 :::
 
-:::note
-A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+:::note VTOL机型只能在多旋翼模式下解锁(默认-可以使用 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
 :::
 
 <span id="takeoff-and-landing"></span>
 
-## 起飞 Takeoff
+## 起飞
 
-The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode](../flight_modes/takeoff.md). Usually this is triggered from an [RC switch](../config/flight_mode.md) or ground station.
+最简单的起飞方式（在[无人机解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+多旋翼（和 VTOL 在 多旋翼模式下）飞手可以通过启用位置模式，解锁无人机，然后将油门杆升至 62.5% 以上来手动起飞。 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
 :::tip
 The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
