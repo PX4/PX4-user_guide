@@ -1,8 +1,8 @@
-# Contributing to Documentation
+# 문서화에 기여
 
-Contributions to the PX4 User Guide are very welcome; from simple fixes to spelling and grammar, through to the creation of whole new sections.
+PX4 사용자 가이드에 대한 기여를 매우 환영합니다. 간단한 수정 작업 뿐만 아니라, 철자 및 문법, 새로운 주제 등에서 문서화 작업이 필요합니다.
 
-This topic explains how to make and test changes. Towards the end there is a basic style guide.
+이 항목에서는 변경 사항을 적용하고 테스트하는 방법을 설명합니다. 마지막에는 기본 스타일 가이드가 있습니다.
 
 ::: tip
 Note You will need a (free) [Github](http://github.com) account to contribute to the guides.
