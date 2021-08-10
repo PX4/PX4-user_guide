@@ -92,9 +92,9 @@
 ![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
 
 - 俯仰 => 上升 / 下降。
-- 横滚 => 左 / 右转弯。
-- 偏航 => 左 / 右方向舵。
-- 油门 => 改变前飞速度。
+- 横滚 => 左 / 右倾弯。
+- 偏航 => 左 / 右转动机尾。
+- 油门 => 改变前近速度。
 
 :::note
 The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time. This maneuver requires experience!
