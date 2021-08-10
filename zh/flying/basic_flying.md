@@ -36,29 +36,27 @@
 
 最简单的起飞方式（在[无人机解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
-多旋翼（和 VTOL 在 多旋翼模式下）飞手可以通过启用位置模式，解锁无人机，然后将油门杆升至 62.5% 以上来手动起飞。 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+多旋翼（和 VTOL 在 多旋翼模式下）飞手可以通过启用位置模式，解锁无人机，然后将油门杆升至 62.5% 以上来手动起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 :::tip
-The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
+强烈推荐自动起飞模式，尤其是固定翼车辆！
 :::
 
-:::note
-The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
+如果无人机在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）
 :::
 
-:::note
-The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+如果起飞过程出现故障[故障检测器](../config/safety.md#failure_detector)会自动关闭电机。
 :::
 
-## 着陆
+## 降落
 
-The easiest way to land is to use the automatic [Land](../flight_modes/land.md) or [Return](../flight_modes/return.md) modes.
+最简单的降落方法是使用自动 [降落](../flight_modes/land.md)或者[返航](../flight_modes/return.md)模式。
 
-For multicopter (and VTOL in multicopter mode) pilots can land manually by pressing the throttle stick down until the vehicle lands and disarms.
+对于多旋翼（和多旋翼模式下的 VTOL），飞手可以通过向下推油门杆手动降落，直到无人机降落加锁。
 
-Note that vehicles automatically disarm on landing by default:
+请注意，默认情况下，无人机在降落后会自动加锁：
 
-- Use [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to set the time to auto-disarm after landing (or disable it altogether).
+- 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
 - Manually disarm by putting the throttle stick in the bottom left corner.
 
 :::note
