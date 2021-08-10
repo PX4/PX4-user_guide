@@ -57,10 +57,10 @@
 请注意，默认情况下，无人机在降落后会自动加锁：
 
 - 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
-- Manually disarm by putting the throttle stick in the bottom left corner.
+- 通过将油门杆放在左下角手动加锁。
 
 :::note
-If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。
 :::
 
 :::tip
