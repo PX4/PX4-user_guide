@@ -76,7 +76,7 @@
 
 ### 悬停飞机
 
-悬停飞行器（直升机，在VTOL悬停模式）到移动命令响应如下所示：
+悬停飞行器（直升机，在VTOL悬停模式）到动作命令响应如下所示：
 
 ![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
 
@@ -87,12 +87,12 @@
 
 ### 前飞飞机
 
-Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
+向前飞行的飞机（固定翼、固定翼模式的VTOL）对动作命令作出如下反应：
 
 ![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
 
-- 俯仰 => 上 / 下升降舵。
-- 横滚 => 左 / 右副翼。
+- 俯仰 => 上升 / 下降。
+- 横滚 => 左 / 右转弯。
 - 偏航 => 左 / 右方向舵。
 - 油门 => 改变前飞速度。
 
