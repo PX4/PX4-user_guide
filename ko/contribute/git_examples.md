@@ -112,13 +112,13 @@ git commit -m "Update submodule to include ..."
   git push upstream pr-some-fix
   ```
 
-## 풀 리퀘스트 체크아웃
+## 풀 요청 체크아웃
 
-병합할 분기가 해당 사람의 포크에만 존재하더라도, 누군가의 Pull Request(변경 사항이 아직 병합되지 않음)을 테스트할 수 있습니다. 다음 과정을 수행합니다.
+병합할 분기가 해당 사람의 포크에만 존재하더라도, 누군가의 풀 요청(변경 사항이 아직 병합되지 않음)을 테스트할 수 있습니다. 다음 과정을 수행합니다.
 ```sh
 git fetch upstream  pull/<PR ID>/head:<branch name>
 ```
-`PR ID`는 Pull Request 제목 바로 옆에 있는 숫자(# 제외)이며 `<branch name>`은 `PR ID` 바로 아래에서도 찾을 수 있습니다. 예: `<the other persons git name>:<branch name>`. 그 후 다음을 사용하여 로컬에서 새로 생성된 분기를 조회할 수 있습니다.
+`PR ID`는 풀 요청 제목 바로 옆에 있는 숫자(# 제외)이며 `<branch name>`은 `PR ID` 바로 아래에서도 찾을 수 있습니다. 예: `<the other persons git name>:<branch name>`. 그 후 다음을 사용하여 로컬에서 새로 생성된 분기를 조회할 수 있습니다.
 ```sh
 git branch
 ```
@@ -131,7 +131,7 @@ git checkout <branch name>
 
 ### 분기된 저장소로 강제 푸시
 
-첫 번째 Pull Request을 마친 후 PX4 커뮤니티의 사람들이 변경 사항을 검토합니다. 대부분의 경우 검토에 따라 로컬 지점을 수정하여야 함을 의미합니다. 파일을 로컬로 변경한 후 기능 분기를 가장 최근의 업스트림/마스터로 다시 기반으로 지정하여야 합니다. 그러나, 리베이스 후에는 더 이상 기능 분기를 분기된 저장소에 직접 푸시할 수 없지만, 대신 강제 푸시를 사용하여야 합니다.
+첫 번째 풀 요청후에, PX4 커뮤니티의 사람들이 변경 사항을 검토합니다. 대부분의 경우 검토에 따라 로컬 지점을 수정하여야 함을 의미합니다. 파일을 로컬로 변경한 후 기능 분기를 가장 최근의 업스트림/마스터로 다시 기반으로 지정하여야 합니다. 그러나, 리베이스 후에는 더 이상 기능 분기를 분기된 저장소에 직접 푸시할 수 없지만, 대신 강제 푸시를 사용하여야 합니다.
 ```sh
 git push --force-with-lease origin <your feature branch name>
 ```
