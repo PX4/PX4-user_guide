@@ -20,11 +20,11 @@
   - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要遥控器控制）
 
 :::tip
-无人机在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
+无人机在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [无人机状态通知](../getting_started/vehicle_status.md) (包括机身LED, 音频通知和 *QGroundControl* 通知）可以告诉您无人机何时可以飞行(并帮助您在未准备好飞行时找出原因)。
 :::
 
 :::note
-The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off! This is a safety measure to ensure that vehicles return to a safe state when not in use.
+如果您解锁后过长时间没有起飞，无人机将（默认情况下）自动加锁（关闭电机）！ This is a safety measure to ensure that vehicles return to a safe state when not in use.
 :::
 
 :::note
