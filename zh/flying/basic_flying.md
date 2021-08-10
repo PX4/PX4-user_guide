@@ -68,11 +68,11 @@
 
 ## 飞行控制/命令
 
-所有飞行，包括起飞和降落，都使用 4 个基本命令进行控制：滚转、偏航、俯仰和油门。
+所有飞行，包括起飞和降落，都使用 4 个基本命令进行控制：横滚、偏航、俯仰和油门。
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-为了控制您的飞机，您需要了解基本的滚转、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多旋翼这样的“悬停飞机”。
+为了控制您的飞机，您需要了解基本的横滚、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多旋翼这样的“悬停飞机”。
 
 ### 悬停飞机
 
@@ -97,7 +97,7 @@
 - 油门 => 改变前近速度。
 
 :::note
-The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time. This maneuver requires experience!
+对于飞机的最佳转弯又称为协调转弯，需同时操作滚动和少量偏航。 这个动作需要一定的经验！
 :::
 
 ## 辅助飞行
