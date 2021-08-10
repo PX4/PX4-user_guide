@@ -63,25 +63,24 @@
 如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。
 :::
 
-:::tip
-Automatic landing is highly recommended, in particular for Fixed Wing vehicles.
+强烈建议自动降落，尤其是固定翼。
 :::
 
 ## 飞行控制/命令
 
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
+所有飞行，包括起飞和降落，都使用 4 个基本命令进行控制：滚转、偏航、俯仰和油门。
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+为了控制您的飞机，您需要了解基本的滚转、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多旋翼这样的“悬停飞机”。
 
 ### 悬停飞机
 
-Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
+悬停飞行器（直升机，在VTOL悬停模式）到移动命令响应如下所示：
 
 ![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
 
-- Pitch => Forward/back.
+- 俯仰 => 往前 / 往后。
 - 横滚 => 往左 / 往右。
 - 偏航 => 围绕机身中心左 / 右旋转。
 - 油门 => 改变高度 / 速度。
