@@ -1,18 +1,18 @@
 # 飞行 101
 
-该主题介绍了用[遥控器](../getting_started/rc_transmitter_receiver.md)以手动或者自动-辅助飞行模式（自主飞行请参阅：[任务](../flying/missions.md)）来控制飞行器的基本飞行。
+本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控无人机的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。
 
 :::note
-Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+在您第一次飞行之前，您应该阅读我们的[首次飞行指南](../flying/first_flight_guidelines.md)。
 :::
 
 <span id="arm"></span>
 
-## Arm the Vehicle
+## 解锁无人机
 
-Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming). This will power all motors and actuators; on a multicopter it will start propellers turning.
+在您起飞无人机前，必须要先解锁它。 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
 
-To arm the drone:
+解锁无人机
 
 - First disengage the [safety switch](../getting_started/px4_basic_concepts.md#safety_switch).
 - Use the arm command for your vehicle - put the throttle stick in the bottom right corner. 
