@@ -30,9 +30,9 @@
 
 航点半径定义了一个以航点为圆心的圆，无人机到达半径内便认为到达航点，并且会立即前往（并开始转向）下一个航点。
 
-For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD). By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
+对于多旋翼无人机，使用参数[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)调整航点半径。 默认情况下，半径设置的很小以确保多旋翼无人机通过航路点上方，但可以增加半径以创建更平滑的路径，这时无人机在到达航路点之前便开始转弯。
 
-The image below shows the same mission flown with different acceptance radius parameters:
+下图显示了相同任务以不同的航点半径参数飞行的轨迹：
 
 ![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
 
