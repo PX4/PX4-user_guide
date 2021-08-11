@@ -13,7 +13,7 @@
 您也可以使用 <0图案</em> 工具自动创建测绘网络。
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
+有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)
 :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
