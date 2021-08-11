@@ -20,11 +20,11 @@
 
 ### 设置无人机航向
 
-If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
+设置后，多旋翼无人机航向将会朝向配置的**航向**值（对应[MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)）。
 
-If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). By default this is the next waypoint.
+如果目标航点 ( )明确设置**航向**(`param4=NaN`)，无人机的偏航将朝向参数[MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)中指定的方向。 默认情况下，是指向下一个航点。
 
-Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
+不能独立控制偏航和行驶方向的车辆类型将忽略偏航设置（例如固定翼）。
 
 ### Setting Acceptance/Turning Radius
 
