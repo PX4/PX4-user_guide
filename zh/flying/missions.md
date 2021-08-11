@@ -44,6 +44,6 @@
 
 ## 飞行任务
 
-Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
+任务上传后，切换到飞行视图。 The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)
