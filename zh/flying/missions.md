@@ -10,7 +10,7 @@
 - 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
 - 完成后, 单击 ** 上传 ** 按钮 (右上), 将任务发送到飞行器。
 
-You can also use the *Pattern* tool to automate creation of survey grids.
+您也可以使用 <0图案</em> 工具自动创建测绘网络。
 
 :::tip
 For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
