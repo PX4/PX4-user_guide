@@ -20,7 +20,7 @@ The instructions in [Visual Inertial Odometry (VIO)](../computer_vision/visual_i
 
 At high level:
 - The [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between ROS and this camera. This node is only intended for use with this camera.
-- The camera should be mounted with lenses facing down (default). For other orientations modify [bridge_mavros.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge_mavros.launch) in the section below:
+- The camera should be mounted with lenses facing down (default). For other orientations modify [bridge.launch](https://github.com/Auterion/VIO/blob/master/launch/bridge.launch) in the section below:
     ```xml
     <node pkg="tf" type="static_transform_publisher" name="tf_baseLink_cameraPose"
         args="0 0 0 0 1.5708 0 base_link camera_pose_frame 1000"/>
