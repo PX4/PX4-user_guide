@@ -68,7 +68,7 @@ roslaunch octomap_server octomap_tracking_server.launch
 
 이제 바닥의 일부가 표시되어야 합니다.
 
-*Gazebo* 창에서 빨간색 로터 앞에 큐브를 삽입하면, *Rviz*에서 볼 수 있습니다.
+*Gazebo* 창에서 빨간색 로터 앞에 큐브를 삽입하면, *Rviz*에서 조회할 수 있습니다.
 
 ![Gazebo OctoMap 예제](../../assets/simulation/octomap.png)
 

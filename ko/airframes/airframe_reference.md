@@ -1,12 +1,12 @@
 # 에어프레임 참조
 
 :::note
-**This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py) from the source code** using the build command: `make airframe_metadata`.
+이 **목록**은 `make airframe_metadata` 빌드 명령을 사용하여 소스 코드에서 [자동으로 생성](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/px4airframes/markdownout.py)됩니다.
 :::
 
-This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
+이 페이지는 모터 할당 및 번호 지정을 포함하여 지원되는 모든 기체 유형을 나열합니다. **녹색** 모터는 시계 방향으로 회전화며, **청색** 모터는 반시계 방향으로 회전합니다.
 
-**AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**. 
+일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 해당 채널이 있다면, 보통 **AUX OUT** 라벨이 존재합니다. 
 
 <style>
 div.frame_common table, div.frame_common table {
@@ -68,15 +68,15 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
       </th>
     </tr>
 <tr id="airship_airship_cloudship">
- <td>Cloudship</td>
- <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td>클라우드쉽</td>
+ <td>유지보수: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2507</p></td>
 </tr>
   </table>
 </div>
@@ -91,11 +91,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td><ul><li><b>AUX1</b> : 프리로테이터용 RC AUX1 채널 피드 스루 (선택 사항)</li><li><b>AUX2</b> : 릴리스 장치용 RC AUX2 채널 피드 스루 (선택 사항)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -104,7 +104,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -112,7 +112,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
+ <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
