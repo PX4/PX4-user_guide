@@ -10,21 +10,21 @@
 - 使用右侧的航点列表修改航点参数和类型。底部的高度指示器提供每个航点的相对高度。
 - 完成后, 单击 ** 上传 ** 按钮 (右上), 将任务发送到飞行器。
 
-You can also use the *Pattern* tool to automate creation of survey grids.
+您也可以使用 <0图案</em> 工具自动创建测绘网络。
 
 :::tip
-For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
+有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)
 :::
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 
-### Setting Vehicle Yaw
+### 设置无人机航向
 
-If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
+设置后，多旋翼无人机航向将会朝向配置的**航向**值（对应[MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)）。
 
-If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE). By default this is the next waypoint.
+如果目标航点 ( )明确设置**航向**(`param4=NaN`)，无人机的偏航将朝向参数[MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE)中指定的方向。 默认情况下，是指向下一个航点。
 
-Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
+不能独立控制偏航和行驶方向的车辆类型将忽略偏航设置（例如固定翼）。
 
 ### Setting Acceptance/Turning Radius
 
