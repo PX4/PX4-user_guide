@@ -837,7 +837,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li><b>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li><b>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li><b>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li><b>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li><b>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
 </tr>
   </table>
 </div>
@@ -846,15 +846,15 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
       </th>
     </tr>
 <tr id="copter_tilt-quad_tilt-quadrotor">
- <td><a href="http://www.alivaero.com/the-project.html">Tilt-Quadrotor</a></td>
- <td>Maintainer: Ricardo Marques &lt;marques.ricardo17@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4100</p></td>
+ <td><a href="http://www.alivaero.com/the-project.html">틸트-쿼드로터</a></td>
+ <td>유지보수: Ricardo Marques &lt;marques.ricardo17@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4100</p></td>
 </tr>
   </table>
 </div>
@@ -867,11 +867,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 방위각 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -880,7 +880,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -888,7 +888,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="copter_tricopter_y+_generic_tricopter_y+_geometry">
  <td>Generic Tricopter Y+ Geometry</td>
- <td>Maintainer: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
+ <td>유지보수: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
 </tr>
   </table>
 </div>
@@ -901,11 +901,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 방위각 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -914,7 +914,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -922,7 +922,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="copter_tricopter_y-_generic_tricopter_y-_geometry">
  <td>Generic Tricopter Y- Geometry</td>
- <td>Maintainer: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14002</p></td>
+ <td>유지보수: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14002</p></td>
 </tr>
   </table>
 </div>
@@ -937,11 +937,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -950,7 +950,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -958,19 +958,45 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Generic Flying Wing</td>
- <td><p><code>SYS_AUTOSTART</code> = 3000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td><p><code>SYS_AUTOSTART</code> = 3000</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
-<tr id="plane_flying_wing_io_camflyer">
- <td>IO Camflyer</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
-</tr>
+    
+    <tr id="plane_flying_wing_io_camflyer">
+      <td>
+        IO Camflyer
+      </td>
+      
+      <td>
+        유지보수: Simon Wilks &lt;simon@uaventure.com&gt;
+        
+        <p>
+          <code>SYS_AUTOSTART</code> = 3030
+        </p>
+        
+        <p>
+          <b>특정 출력:</b>
+          
+          <ul>
+            <li>
+              <b>MAIN1</b>: 좌측 보조익
+            </li>
+            <li>
+              <b>MAIN2</b>: 우측 보조익
+            </li>
+            <li>
+              <b>MAIN4</b>: 스로틀
+            </li>
+          </ul>
+        </p>
+      </td>
+    </tr>
 <tr id="plane_flying_wing_phantom_fpv_flying_wing">
- <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Phantom FPV Flying Wing</a></td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3031</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">FX-79 Buffalo Flying Wing</a></td>
+ <td>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3031</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_skywalker_x5_flying_wing">
  <td>Skywalker X5 Flying Wing</td>
- <td>Maintainer: Julian Oes &lt;julian@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3032</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Julian Oes &lt;julian@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3032</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_wing_wing_(aka_z-84)_flying_wing">
  <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Wing Wing (aka Z-84) Flying Wing</a></td>
