@@ -2,6 +2,8 @@
 
 Holybro XBP9X radio can be configured easily using Digi’s free XCTU software or via Digi’s simplified AT or API command sets. The radio provides secure, reliable delivery of critical data between devices with 256-bit AES encryption.
 
+![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x.jpg)
+
 With RF line-of-sight ranging up to 65 miles/100km and strong interference blocking capability, the radios are ideal for those applications requiring the combination of range, data redundancy and data reliability.
 
 **Features:**
@@ -18,7 +20,7 @@ With RF line-of-sight ranging up to 65 miles/100km and strong interference block
 ## Purchase
 * [Holybro XBP9X Radio](https://shop.holybro.com/xbp9x-radio_p1268.html)
 
-![Holybro XBP9X Radio](../../assets/hardware/telemetry/holybro-xbp9x.jpg)
+
 
 ## Specifications
 
