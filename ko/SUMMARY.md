@@ -28,7 +28,7 @@
   * [픽스호크 배선](assembly/quick_start_pixhawk.md)
 * [기본 설정](config/README.md) 
   * [펌웨어](config/firmware.md)
-  * [기체](config/airframe.md)
+  * [기체 설정](config/airframe.md)
   * [센서 방향](config/flight_controller_orientation.md)
   * [나침반](config/compass.md)
   * [자이로스코프 ](config/gyroscope.md)
