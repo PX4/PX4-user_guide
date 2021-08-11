@@ -1000,27 +1000,27 @@ div.frame_variant td, div.frame_variant th {
 </tr>
 <tr id="plane_flying_wing_wing_wing_(aka_z-84)_flying_wing">
  <td><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Wing Wing (aka Z-84) Flying Wing</a></td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3033</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3033</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_fx-79_buffalo_flying_wing">
  <td>FX-79 Buffalo Flying Wing</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3034</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: right aileron</li><li><b>MAIN2</b>: left aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3034</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 우측 보조익</li><li><b>MAIN2</b>: 좌측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_viper">
  <td>Viper</td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3035</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3035</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_sparkle_tech_pigeon">
  <td><a href="http://www.sparkletech.hk/">Sparkle Tech Pigeon</a></td>
- <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3036</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 3036</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_modified_parrot_disco">
  <td>Modified Parrot Disco</td>
- <td>Maintainer: Jan Liphardt &lt;JTLiphardt@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 3037</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Jan Liphardt &lt;JTLiphardt@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 3037</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="plane_flying_wing_tbs_caipirinha">
  <td>TBS Caipirinha</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3100</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조익</li><li><b>MAIN2</b>: 우측 보조익</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
   </table>
 </div>
@@ -1033,11 +1033,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 우측 보조익</li><li><b>MAIN2</b>: 좌측 보조익</li><li><b>MAIN3</b>: v형 미익 우측</li><li><b>MAIN4</b>: v형 미익 좌측</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩</li><li><b>MAIN8</b>: 좌측 플랩</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1046,7 +1046,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -1054,7 +1054,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td>Applied Aeronautics Albatross</td>
- <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
+ <td>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
 </tr>
   </table>
 </div>
@@ -1067,11 +1067,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 우측 보조익</li><li><b>MAIN2</b>: 좌측 보조익</li><li><b>MAIN3</b>: v형 미익 우측</li><li><b>MAIN4</b>: v형 미익 좌측</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩</li><li><b>MAIN8</b>: 좌측 플랩</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1080,7 +1080,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -1088,12 +1088,12 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="plane_plane_v-tail_x-uav_mini_talon">
  <td>X-UAV Mini Talon</td>
- <td>Maintainer: Friedrich Beckmann &lt;friedrich.beckmann@hs-augsburg.de&gt;<p><code>SYS_AUTOSTART</code> = 2200</p></td>
+ <td>유지보수: Friedrich Beckmann &lt;friedrich.beckmann@hs-augsburg.de&gt;<p><code>SYS_AUTOSTART</code> = 2200</p></td>
 </tr>
   </table>
 </div>
 
-### 모의시험 환경 (항공기)
+### 시뮬레이션 (항공기)
 
 <div class="frame_common">
   <img src="../../assets/airframes/types/AirframeUnknown.svg" /> 
@@ -1101,11 +1101,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li><b>MAIN4</b>: throttle</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: 승강타</li><li><b>MAIN3</b>: 방향타</li><li><b>MAIN4</b>: 스로틀</li><li><b>MAIN5</b>: 플랩</li><li><b>MAIN6</b>: 기어</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1114,7 +1114,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -1122,7 +1122,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td>HILStar (XPlane)</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1000</p></td>
+ <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1000</p></td>
 </tr>
   </table>
 </div>
@@ -1135,11 +1135,11 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1148,19 +1148,19 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
       </th>
     </tr>
 <tr id="plane_standard_plane_standard_plane">
- <td>Standard Plane</td>
- <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 2100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></p></td>
+ <td>표준 비행기</td>
+ <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 2100</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: 승강타</li><li><b>MAIN3</b>: 스로틀</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 플랩</li><li><b>MAIN6</b>: 기어</li></ul></p></td>
 </tr>
 <tr id="plane_standard_plane_bormatec_maja">
  <td>Bormatec Maja</td>
- <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2105</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: aileron</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps</li></ul></p></td>
+ <td>유지보수: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2105</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 보조익</li><li><b>MAIN2</b>: 보조익</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 플랩</li></ul></p></td>
 </tr>
   </table>
 </div>
@@ -1177,15 +1177,15 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
       </th>
     </tr>
 <tr id="rover_rover_generic_ground_vehicle">
- <td>Generic Ground Vehicle</td>
- <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: steering</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td>일반 지상 차량</td>
+ <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>특정 출력:</b><ul><li><b>MAIN2</b>: 조향기</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td><a href="https://www.aionrobotics.com/r1">Aion Robotics R1 UGV</a></td>
