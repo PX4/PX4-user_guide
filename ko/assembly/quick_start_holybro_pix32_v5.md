@@ -45,7 +45,7 @@ Pix32 v5은 나침반, 안전 스위치, 부저 및 LED가 통합된 [Pixhawk 4 
 
 ![Pix32 v5 with GPS](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
 
-The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다른 전자 장치에서 멀리 떨어진 프레임에 장착하여야합니다 (나침반을 다른 전자 장치와 분리하면 간섭이 줄어듦).
 
 :::note GPS
 모듈의 통합 안전 스위치는 *기본적으로* 활성화되어 있습니다 (활성화되면 PX4는 차량 시동을 걸 수 없습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
@@ -133,7 +133,7 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 ![Pix32 v5 (SD 카드 포함)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
 :::tip
-SanDisk Extreme U3 32GB는 [ 적극 권장 ](../dev_log/logging.md#sd-cards)합니다.
+SanDisk Extreme U3 32GB를 [적극 권장](../dev_log/logging.md#sd-cards)합니다.
 :::
 
 ## 모터
