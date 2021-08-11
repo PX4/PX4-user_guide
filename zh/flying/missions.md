@@ -36,13 +36,13 @@
 
 ![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
 
-The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+转弯速度是根据航点半径（=转弯半径）和最大允许速度和加加速度自动计算的。
 
 :::tip
-For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory).
+关于航点半径的更多信息，见： [任务模式 > 航点间轨迹](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory)。
 :::
 
-## 执行飞行任务
+## 飞行任务
 
 Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
