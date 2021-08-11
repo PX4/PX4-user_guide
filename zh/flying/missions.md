@@ -18,7 +18,7 @@
 
 ![planning-mission](../../assets/flying/planning_mission.jpg)
 
-### Setting Vehicle Yaw
+### 设置无人机航向
 
 If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
 
