@@ -112,11 +112,11 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
+ <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 로터 헤드</li><li><b>MAIN2</b>: 우측 로터 헤드</li><li><b>MAIN3</b>: 승강타</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 방향타 (보조, 추가)</li><li><b>MAIN6</b>: 스로틀</li><li><b>MAIN7</b>: 바퀴</li></ul></p></td>
 </tr>
 <tr id="autogyro_autogyro_thunderfly_tf-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
- <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: rotor_head_L</li><li><b>MAIN3</b>: rotor_head_R</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li></ul></p></td>
+ <td>유지보수: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>특정 출력:</b><ul><li><b>MAIN2</b>: 좌측 로터 헤드</li><li><b>MAIN3</b>: 우측 로터 헤드</li><li><b>MAIN4</b>: 방향타</li><li><b>MAIN5</b>: 스로틀</li></ul></p></td>
 </tr>
   </table>
 </div>
@@ -133,7 +133,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -141,7 +141,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
- <td>Maintainer: ThunderFly s.r.o.<p><code>SYS_AUTOSTART</code> = 18001</p></td>
+ <td>유지보수: ThunderFly s.r.o.<p><code>SYS_AUTOSTART</code> = 18001</p></td>
 </tr>
   </table>
 </div>
@@ -160,7 +160,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: Left swashplate servomotor, pitch axis</li><li><b>MAIN2</b>: Right swashplate servomotor, roll axis</li><li><b>MAIN3</b>: Upper rotor (CCW)</li><li><b>MAIN4</b>: Lower rotor (CW)</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 로터 (CCW)</li><li><b>MAIN4</b>: 하부 로터 (CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -169,7 +169,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -177,7 +177,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td>Esky (Big) Lama v4</td>
- <td>Maintainer: Emmanuel Roussel<p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td>유지보수: Emmanuel Roussel<p><code>SYS_AUTOSTART</code> = 15001</p></td>
 </tr>
   </table>
 </div>
@@ -194,7 +194,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -203,7 +203,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -211,7 +211,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
  <td>Generic Dodecarotor cox geometry</td>
- <td>Maintainer: William Peale &lt;develop707@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td>유지보수: William Peale &lt;develop707@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 24001</p></td>
 </tr>
   </table>
 </div>
@@ -228,7 +228,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: main motor</li><li><b>MAIN2</b>: front swashplate servo</li><li><b>MAIN3</b>: right swashplate servo</li><li><b>MAIN4</b>: left swashplate servo</li><li><b>MAIN5</b>: tail-rotor servo</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 메인 모터</li><li><b>MAIN2</b>: 전면 경사판 서보</li><li><b>MAIN3</b>: 우측 경사판 서보</li><li><b>MAIN4</b>: 좌측 경사판 서보</li><li><b>MAIN5</b>: 테일 로터 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -237,7 +237,7 @@ div.frame_variant td, div.frame_variant th {
   <table>
     <tr>
       <th>
-        Name
+        이름
       </th>
       
       <th>
@@ -245,7 +245,7 @@ div.frame_variant td, div.frame_variant th {
     </tr>
 <tr id="copter_helicopter_blade_130x">
  <td>Blade 130X</td>
- <td>Maintainer: Bart Slinger &lt;bartslinger@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td>유지보수: Bart Slinger &lt;bartslinger@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
 </tr>
   </table>
 </div>
