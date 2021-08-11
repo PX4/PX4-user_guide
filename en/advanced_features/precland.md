@@ -1,9 +1,13 @@
 # Precision Landing
 
-PX4 supports precision landing for *multicopters* (from PX4 v1.7.4) using the [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), an IR beacon (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)), and a downward facing range sensor.
+PX4 supports precision landing for *multicopters* using a landing beacon/target.
+
+This requires an [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit) and downward facing [distance sensor](../sensor/rangefinders.md) connected to the flight controller, and an IR beacon as a target (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)).
 This enables landing with a precision of roughly 10 cm (GPS precision, by contrast, may be as large as several meters).
 
-A precision landing can be initiated by entering the *Precision Land* flight mode, or as part of a [mission](#mission).
+Alternatively, precision landing can be supported "offboard", using a positioning system that implements the MAVLink [Landing Target Protocol](https://mavlink.io/en/services/landing_target.html).
+ 
+Precision landing can be [started/initiated](#initiating-a-precision-landing) by entering the *Precision Land* flight mode, or as part of a [mission](#mission).
 
 ## Setup
 
@@ -35,14 +39,14 @@ For instructions see: [customizing the system startup](../concept/system_startup
 
 ## Software Configuration (Parameters)
 
-Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively.
+Precision landing is configured with the [Landing_target estimator](../advanced_config/parameter_reference.md#landing-target-estimator) and [Precision land](../advanced_config/parameter_reference.md#precision-land) parameters.
 The most important parameters are discussed below.
 
-The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving.
+[LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving.
 If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller.
 If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
 
-The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle.
+[LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle.
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
 Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
 
@@ -70,29 +74,28 @@ If the beacon is still not visible at the search altitude and after a search tim
 In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated.
 If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
-## Performing a Precision Landing
+## Initiating a Precision Landing
 
 :::note
-Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+Precision landing is only possible with a valid global position (due to a limitation in the current implementation of the position controller).
 :::
-
-### Via Command
-
-Precision landing can be initiated through the command line interface with
-```
-commander mode auto:precland
-```
-In this case, the precision landing is always considered "required".
 
 <span id="mission"></span>
 ### In a Mission
 
 Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
-- `param2` = 0: Normal landing without using the beacon.
-- `param2` = 1: *Opportunistic* precision landing.
-- `param2` = 2: *Required* precision landing.
+- `0`: Normal landing without using the beacon.
+- `1`: [Opportunistic](#opportunistic-mode) precision landing.
+- `2`: [Required](#required-mode) precision landing.
 
+### Command Line
+
+Precision landing can be initiated through the command line interface with:
+```
+commander mode auto:precland
+```
+In this case, the precision landing is always considered "required".
 
 ## Simulation
 
@@ -142,4 +145,3 @@ The precision land procedure consists of three phases:
 Search procedures are initiated in 1. and 2. a maximum of [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times.
 
 ![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)
-
