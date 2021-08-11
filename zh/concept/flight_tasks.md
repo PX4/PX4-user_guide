@@ -22,7 +22,7 @@ The instructions below might be used to create a task named *MyTask*:
 
 1. Create a directory for the new flight task in [PX4-Autopilot/src/modules/flight_mode_manager/tasks](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/flight_mode_manager/tasks). By convention the directory is named after the task, so we will call it **/MyTask**.
    ```
-   mkdir PX4-Autopilot/src/lib/flight_tasks/tasks/MyTask
+   mkdir PX4-Autopilot/src/modules/flight_mode_manager/tasks/MyTask
    ```
 2. Create empty source code and *cmake* files for the new flight task in the *MyTask* directory using the prefix "FlightTask":
    - CMakeLists.txt
@@ -89,7 +89,6 @@ The instructions below might be used to create a task named *MyTask*:
       Orbit
       MyTask
    )
-   )
    ```
 6. Update a flight mode to ensure that the task is called. Usually a parameter is used to select when a particular flight task should be used.
 
@@ -114,7 +113,7 @@ The instructions below might be used to create a task named *MyTask*:
           error = switchTask(FlightTaskIndex::ManualPositionSmoothVel);
           break;
        case 5: // Add case for new task: MyTask
-          error =  _flight_tasks.switchTask(FlightTaskIndex::MyTask);
+          error = switchTask(FlightTaskIndex::MyTask);
           break;
     case 4:
     ....
