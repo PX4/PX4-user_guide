@@ -41,12 +41,12 @@ PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차�
 #### PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS
 
 - 이 오류는 EKF에서 추정 한 IMU 가속도계 바이어스가 과도 할 때 발생합니다. 
-- Excessive in this case means that the bias estimate exceeds half the configured limit. The limit is defined in the [EKF2_ABL_LIM](../advanced_config/parameter_reference.md#EKF2_ABL_LIM) parameter.
+- 이 경우 과도하다는 것은 편향 추정치가 구성된 제한의 절반을 초과함을 의미합니다. 제한은 [EKF2_ABL_LIM](../advanced_config/parameter_reference.md#EKF2_ABL_LIM) 매개변수에서 정의됩니다.
 
 #### PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS
 
 - 이 오류는 EKF에 의해 추정 된 IMU 자이로 바이어스가 과도 할 때 발생합니다.
-- Excessive in this case means that the bias estimate exceeds 10deg/s (half the configured limit, which is hardcoded to 20deg/s).
+- 이 경우 과도하다는 것은 바이어스 추정치가 10deg/s(구성된 제한의 절반, 20deg/s로 하드코딩됨)를 초과함을 의미합니다.
 
 #### PREFLIGHT FAIL: ACCEL SENSORS INCONSISTENT - CHECK CALIBRATION
 
@@ -78,11 +78,11 @@ PX4는 다양한 비행 전 센서 품질 및 추정 검사를 수행하여 차�
 
 ## 기타 매개 변수:
 
-The following parameters also affect preflight checks.
+다음 매개변수들은 비행 사전 검사와 관련되어 있습니다.
 
 #### COM_ARM_WO_GPS
 
-The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
+[ COM_ARM_WO_GPS ](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) 매개 변수는 전역 위치 추정없이 준비 허용 여부를 제어합니다.
 
 - ` 1 ` (기본값) : 위치 정보가 필요하지 않은 비행 모드에 대한 위치 추정없이 준비가 * 허용됩니다 *.
 - ` 0 ` : EKF가 글로벌 위치 추정치를 제공하고 EFK GPS 품질 검사를 통과 한 경우에만 준비가 허용됩니다.

@@ -9,10 +9,16 @@ More detailed setup and configuration information is provided in the topics link
 
 ## Supported Rangefinders
 
+
 ### ARK Flow
 
 [ARK Flow](../uavcan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module. 
 It is capable of measuring distances from 8cm up to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md) and is packed into a tiny form factor.
+
+### Holybro ST VL53L1X Lidar
+
+[The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family.
+It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
 
 ### Lidar-Lite
 

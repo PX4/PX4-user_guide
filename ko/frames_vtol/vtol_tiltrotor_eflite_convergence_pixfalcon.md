@@ -1,12 +1,29 @@
 # E-flite Convergence Tiltrotor VTOL (Pixfalcon)
 
-[E-Flite 컨버전스](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) PX4의 자율 비행 기능을 지원하는 VTOL로 변환 할 수 있습니다. 공간이 여유가 많지는 않지만, GPS, 텔레메트리와 Pixfalcon은 충분히 창작가능합니다.
+The [E-Flite Convergence](https://youtu.be/HNedXQ_jhYo) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a [Pixfalcon](../flight_controller/pixfalcon.md) flight controller with GPS and telemetry.
 
-@[유투브](https://youtu.be/E61P2f2WPNU)
+:::note
+The original [Horizon Hobby *E-Flite Convergence*](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) frame and [Pixfalcon](../flight_controller/pixfalcon.md) have been discontinued. Alternatives are provided in the [Purchase](#purchase) section.
+:::
 
-## 하드웨어 설정
+@[youtube](https://youtu.be/E61P2f2WPNU)
 
-컨버전스에는 7 개의 PWM 신호가 필요하며 다음과 같은 방식으로 Pixfalcon에 연결됩니다 (PX4의 기체 구성과 일치, 비행기 뒤에서 본 왼쪽 / 오른쪽).
+## Purchase
+
+Vehicle frame options:
+
+- **WL Tech XK X450** - [Banggood](https://usa.banggood.com/XK-X450-VTOL-2_4G-6CH-EPO-450mm-Wingspan-3D-or-6G-Mode-Switchable-Aerobatics-RC-Airplane-RTF-p-1533418.html), [AliExpress](https://www.aliexpress.com/item/1005001946025611.html)
+- **JJRC M02** - [Banggood (AU)](https://au.banggood.com/JJRC-M02-2_4G-6CH-450mm-Wingspan-EPO-Brushless-6-axis-Gyro-Aerobatic-RC-Airplane-RTF-3D-or-6G-Mode-Aircraft-p-1588201.html), [AliExpress](https://www.aliexpress.com/item/4001031497018.html)
+
+Flight controller options ():
+
+- [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md).
+- Any other compatible flight controller with small enough form-factor.
+
+## Hardware Setup
+
+The vehicle needs 7 PWM signals, which must be connected to the flight controller outputs as specified in [Airframe Reference > VTOL Tiltrotor > E-flite Convergence](../airframes/airframe_reference.md#vtol_vtol_tiltrotor_e-flite_convergence). This mapping is reproduced below.
 
 | 포트     | 연결       |
 | ------ | -------- |
@@ -19,28 +36,39 @@
 | MAIN 7 | 우측 엘레본   |
 | MAIN 8 | 좌측 엘레본   |
 
-Pixfalcon은 원래 자동조종장치가 있었던 동일한 장소에 장착 가능합니다.
+Note that left and right in the reference are defined from the perspective of a human pilot inside a real plane (or looking from above, as shown below):
 
-![Pixfalcon 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
+<img src="../../assets/airframes/types/VTOLTiltRotor_eflite_convergence.svg" width="300px" />
 
-텔레메트리 모듈은 FPV 전송 기어를 고정하기 위한 베이에 장착합니다.
+### Flight Controller
 
-![텔레메트리 모듈 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
+The flight controller can be mounted at the same place the original autopilot was.
 
-GPS 장착을 위하여 "조종실" 내부의 발포 재질 부분을 잘라냈습니다. GPS를 기체 내부에 손상 없이 장착 가능합니다.
+![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
-![GPS 장착](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
+### Telemetry Radio
 
-## 설정
+The telemetry module fits into the bay meant to hold FPV transmission gear.
 
-자동조종 장치를 정상적으로 설정하기 전에 (무선, 센서, 비행 모드) 아래에서 기체 구성 "E-flite Convergence"를 선택합니다. QGC에서 "VTOL Tiltrotor"를 실행하고 다시 시작합니다.
+![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
-기체가 아직 QGC에 표시되지 않으면 다음 매개 변수를 설정하고 다시 시작하십시오.
+### GPS
 
-- `SYS_AUTOSTART`: 13012
-- `SYS_AUTOCONFIG`: 1
+For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the vehicle appearance.
 
-참고:
+![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
-- 고정 날개로 전환하려면 전환 스위치를 지정하여야 합니다.
-- 기본적으로 영구 안정화가 활성화됩니다. 고정익에서 완전 수동 비행을 위해서는 VT\_FW\_PERM\_STAB를 0으로 설정하십시오.
+## PX4 Configuration
+
+Follow the [Standard Configuration](config/README.md) in *QGroundControl* (radio, sensors, flight modes, etc.).
+
+The particular settings that are relevant to this vehicle are:
+
+- [Airframe](config/airframe.md) 
+  - Select the airframe configuration **E-flite Convergence** under **VTOL Tiltrotor** and restart *QGroundControl*. ![QGroundControl Vehicle Setting - Airframe selection E-Flight](../../assets/airframes/vtol/eflite_convergence_pixfalcon/qgc_setup_airframe.jpg)
+- [Flight Modes/Switches](../config/flight_mode.md) 
+  - As this is a VTOL vehicle, you must [assign an RC controller switch](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) for transitioning between multicopter and fixed-wing modes.
+
+:::note
+By default permanent stabilization is enabled. To fly "fully manual" in fixed-wing mode, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to `0`.
+:::

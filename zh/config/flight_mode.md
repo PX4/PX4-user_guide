@@ -1,30 +1,26 @@
 # 飞行模式有关配置
 
-[飞行模式](../flight_modes/README.md) 提供了不同类型的 *辅助飞行* ，以及通过设定执行任务的或者通过相应计算机控制的 *全自主飞行* 。 不同的飞行模式使得新用户可以使用一个相对于单一的基础遥控器飞行而言更广泛的平台来学习飞行。 不同的飞行模式还提供了一些常见的自动化任务，比如起飞、降落和自动返航功能。
-
-PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来切换飞行模式。 如果遥控器或者平板电脑都连接上 PX4 的话，两者都可以改变当前的飞行模式并且覆盖之前飞行模式的设置。
-
-这个话题说明了如何在你的遥控器开关上映射飞行模式设置。
+This topic explains how to map [flight modes](../getting_started/flight_modes.md) and other functions to the switches on your radio control transmitter.
 
 :::tip
-You must already have [configured your radio](../config/radio.md) in order to set flight modes.
+You must already have [configured your radio](../config/radio.md) in order to assign flight modes and functions.
 :::
 
-## 我应该设置什么飞行模式呢？
+:::note PX4 allows you to select flight modes from a ground station (tablet or desktop) or from a radio control transmitter. If radio control and tablet are both connected, either system can change the mode and override the previous setting.
+:::
 
-You can set any (or none) of the flight modes [described here](../flight_modes/README.md).
+## What Flight Modes and Switches Should I Set?
 
-New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
+*Flight Modes* provide different types of *autopilot-assisted flight*, and *fully autonomous flight*. You can set any (or none) of the flight modes [described here](../getting_started/flight_modes.md). Most users should set the following functions, as these make the vehicle easier and safer to fly:
 
-* **自稳模式** - 飞行器很难侧翻，并且如果遥控器摇杆释放的话飞行器会趋于水平（但无法保持位置定点）。
-* **位置模式** - 如果遥控器摇杆释放的话飞行器会停下来保持位置定点（并且不会随风飘移）。
-* **定高模式** - 飞行器的爬升和降落被限制了一个最大的速率。飞机会保持高度稳定（但仍无法保持位置定点）。
+* **Position mode** ([multicopter](../getting_started/flight_modes.md#position-mode-mc), [fixed-wing](../getting_started/flight_modes.md#position-mode-fw)) - Easiest and safest mode for manual flight.
+* [Return mode](../flight_modes/return.md) - Return to launch position by safe path and land (by default).
+* **VTOL Transition Switch** - Toggle between fixed-wing and multicopter flight configuration on VTOL vehicles.
 
 It is also common to map switches to:
 
-* [返航模式](../flight_modes/return.md) - 这个模式会把飞行器升高到安全的高度并且返回起飞点。
-* [任务模式](../flight_modes/mission.md) - 这个模式将会运行地面站发送的预先编写好的任务。
-* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - 立即停止所有电机的输出（飞行器可能会摔坏，这在某些紧急情况下比允许其继续飞行更为可取）。
+* [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 ## 多通道飞行模式选择 vs 单通道飞行模式选择
 

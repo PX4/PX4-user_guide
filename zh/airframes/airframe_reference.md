@@ -9,32 +9,37 @@ This page lists all supported airframes and types including the motor assignment
 **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**. 
 
 <style>
-table {
+div.frame_common table, div.frame_common table {
    display: table;
    table-layout: fixed;
    margin-bottom: 5px;
 }
-table.common {
+
+div.frame_common table {
    float: right; 
    width: 70%;
 }
-table.airframes {
-   width: 100%;
-}
-table.airframes th:nth-child(1) {
-  width: 30%;
-  }
 
-tr > * {
-    vertical-align : top;
-}
-td, th {
-  text-align : left;
-  }
-img {
+div.frame_common img {
   max-height: 180px;
   width: 29%;
   padding-top: 10px;
+}
+
+div.frame_variant table {
+   width: 100%;
+}
+
+div.frame_variant th:nth-child(1) {
+  width: 30%;
+  }
+
+div.frame_variant tr > * {
+    vertical-align : top;
+}
+
+div.frame_variant td, div.frame_variant th {
+  text-align : left;
 }
 </style>
 
@@ -44,10 +49,10 @@ img {
 
 ### 共轴双桨直升机
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Airship.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
@@ -59,32 +64,34 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="airship_airship_cloudship">
  <td>Cloudship</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 2507</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## 飞机
 
 ### 十二旋翼
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Autogyro.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -93,15 +100,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
  <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li></ul></p></td>
@@ -110,39 +118,42 @@ img {
  <td><a href="https://github.com/ThunderFly-aerospace/TF-G2/">ThunderFly TF-G2</a></td>
  <td>Maintainer: ThunderFly s.r.o., Roman Dvorak &lt;dvorakroman@thunderfly.cz&gt;<p><code>SYS_AUTOSTART</code> = 17003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: rotor_head_L</li><li><b>MAIN3</b>: rotor_head_R</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## Balloon
 
 ### Balloon
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/Balloon.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="balloon_balloon_thunderfly_balloon_tf-b1">
  <td><a href="https://github.com/ThunderFly-aerospace/TF-B1/">ThunderFly balloon TF-B1</a></td>
  <td>Maintainer: ThunderFly s.r.o.<p><code>SYS_AUTOSTART</code> = 18001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## Copter
 
 ### Coaxial Helicopter
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
@@ -154,59 +165,63 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td>Esky (Big) Lama v4</td>
  <td>Maintainer: Emmanuel Roussel<p><code>SYS_AUTOSTART</code> = 15001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Dodecarotor cox
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
  <td>Generic Dodecarotor cox geometry</td>
  <td>Maintainer: William Peale &lt;develop707@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 24001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Helicopter
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Helicopter.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
@@ -218,62 +233,66 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_helicopter_blade_130x">
  <td>Blade 130X</td>
  <td>Maintainer: Bart Slinger &lt;bartslinger@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 16001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Hexarotor +
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
  <td>Generic Hexarotor + geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 7001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Hexarotor Coaxial
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Y6B.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -282,47 +301,50 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td>Generic Hexarotor coaxial geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 11001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Hexarotor x
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/HexaRotorX.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td>Generic Hexarotor x geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
@@ -335,142 +357,151 @@ img {
  <td>Hex X with control allocation</td>
  <td>Maintainer: Silvan Fuhrer<p><code>SYS_AUTOSTART</code> = 6003</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Octo Coax Wide
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td>Steadidrone MAVRIK</td>
  <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 12002</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Octorotor +
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/OctoRotorPlus.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td>Generic Octocopter + geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 9001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Octorotor Coaxial
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN4</b>: 电机 5</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN8</b>：电机 8</li><li><b>MAIN4</b>: 电机 4</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_octorotor_coaxial_generic_10__octo_coaxial_geometry">
  <td>Generic 10" Octo coaxial geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 12001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Octorotor x
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/OctoRotorX.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td>Generic Octocopter X geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 8001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Quadrotor +
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/QuadRotorPlus.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         Common Outputs
@@ -482,36 +513,39 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_quadrotor_+_generic_10__quad_+_geometry">
  <td>Generic 10" Quad + geometry</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 5001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Quadrotor H
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/QuadRotorH.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_quadrotor_h_reaper_500_quad">
  <td>Reaper 500 Quad</td>
  <td>Maintainer: Blankered<p><code>SYS_AUTOSTART</code> = 4040</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
@@ -520,17 +554,18 @@ img {
  <td>BetaFPV Beta75X 2S Brushless Whoop</td>
  <td>Maintainer: Beat Kueng &lt;beat-kueng@gmx.net&gt;<p><code>SYS_AUTOSTART</code> = 4041</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Quadrotor Wide
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/QuadRotorWide.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -539,15 +574,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery">
  <td>Team Blacksheep Discovery</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 10015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
@@ -564,14 +600,15 @@ img {
  <td>Team Blacksheep Discovery Endurance</td>
  <td>Maintainer: Simon Wilks &lt;simon@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 10018</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Quadrotor asymmetric
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/AirframeUnknown.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         常规输出接法
@@ -583,27 +620,29 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td><a href="https://docs.px4.io/master/en/frames_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4051</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Quadrotor x
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/QuadRotorX.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         Common Outputs
@@ -615,15 +654,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_quadrotor_x_generic_quadcopter">
  <td>Generic Quadcopter</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
@@ -724,23 +764,25 @@ img {
  <td>Crazyflie 2.1</td>
  <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Simulation (Copter)
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td>HIL Quadcopter X</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1001</p></td>
@@ -749,81 +791,52 @@ img {
  <td>SIH Quadcopter X</td>
  <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1100</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Tilt-Quad
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/AirframeUnknown.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_tilt-quad_tilt-quadrotor">
  <td><a href="http://www.alivaero.com/the-project.html">Tilt-Quadrotor</a></td>
  <td>Maintainer: Ricardo Marques &lt;marques.ricardo17@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4100</p></td>
 </tr>
-</table>
-
-### Tricopter Y+
-
-<div>
-  <img src="../../assets/airframes/types/YPlus.svg" /> 
-  
-  <table class="common">
-    <tr>
-      <th>
-        常规输出接法
-      </th>
-    </tr>
-<tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
-</tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
-<tr id="copter_tricopter_y+_generic_tricopter_y+_geometry">
- <td>Generic Tricopter Y+ Geometry</td>
- <td>Maintainer: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
-</tr>
-</table>
+### Tricopter Y+
 
-### Tricopter Y-
-
-<div>
-  <img src="../../assets/airframes/types/YMinus.svg" /> 
+<div class="frame_common">
+  <img src="../../assets/airframes/types/YPlus.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -832,32 +845,68 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
+<tr id="copter_tricopter_y+_generic_tricopter_y+_geometry">
+ <td>Generic Tricopter Y+ Geometry</td>
+ <td>Maintainer: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14001</p></td>
+</tr>
+  </table>
+</div>
+
+### Tricopter Y-
+
+<div class="frame_common">
+  <img src="../../assets/airframes/types/YMinus.svg" /> 
+  
+  <table>
+    <tr>
+      <th>
+        Common Outputs
+      </th>
+    </tr>
+<tr>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+</tr>
+  </table>
+</div>
+
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="copter_tricopter_y-_generic_tricopter_y-_geometry">
  <td>Generic Tricopter Y- Geometry</td>
  <td>Maintainer: Trent Lukaczyk &lt;aerialhedgehog@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 14002</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## Plane
 
 ### Flying Wing
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/FlyingWing.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -866,15 +915,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td>Generic Flying Wing</td>
  <td><p><code>SYS_AUTOSTART</code> = 3000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
@@ -915,49 +965,18 @@ img {
  <td>TBS Caipirinha</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 3100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 </tr>
-</table>
-
-### Plane A-Tail
-
-<div>
-  <img src="../../assets/airframes/types/PlaneATail.svg" /> 
-  
-  <table class="common">
-    <tr>
-      <th>
-        常规输出接法
-      </th>
-    </tr>
-<tr>
- <td><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX3</b>：遥控直通 AUX3 通道</li><li><b>AUX3</b>：遥控直通 AUX3 通道</li><li><b>AUX3</b>: Mount yaw</li></ul></td>
-</tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
-<tr id="plane_plane_a-tail_applied_aeronautics_albatross">
- <td>Applied Aeronautics Albatross</td>
- <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
-</tr>
-</table>
+### Plane A-Tail
 
-### Plane V-Tail
-
-<div>
-  <img src="../../assets/airframes/types/PlaneVTail.svg" /> 
+<div class="frame_common">
+  <img src="../../assets/airframes/types/PlaneATail.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -966,30 +985,66 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
+<tr id="plane_plane_a-tail_applied_aeronautics_albatross">
+ <td>Applied Aeronautics Albatross</td>
+ <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2106</p></td>
+</tr>
+  </table>
+</div>
+
+### Plane V-Tail
+
+<div class="frame_common">
+  <img src="../../assets/airframes/types/PlaneVTail.svg" /> 
+  
+  <table>
+    <tr>
+      <th>
+        Common Outputs
+      </th>
+    </tr>
+<tr>
+ <td><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+</tr>
+  </table>
+</div>
+
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="plane_plane_v-tail_x-uav_mini_talon">
  <td>X-UAV Mini Talon</td>
  <td>Maintainer: Friedrich Beckmann &lt;friedrich.beckmann@hs-augsburg.de&gt;<p><code>SYS_AUTOSTART</code> = 2200</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Simulation (Plane)
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/AirframeUnknown.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -998,27 +1053,29 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td>HILStar (XPlane)</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1000</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Standard Plane
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Plane.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         Common Outputs
@@ -1030,15 +1087,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="plane_standard_plane_standard_plane">
  <td>Standard Plane</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 2100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></p></td>
@@ -1047,25 +1105,27 @@ img {
  <td>Bormatec Maja</td>
  <td>Maintainer: Andreas Antener &lt;andreas@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 2105</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: aileron</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## Rover
 
 ### Rover
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/Rover.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="rover_rover_generic_ground_vehicle">
  <td>Generic Ground Vehicle</td>
  <td><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: steering</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
@@ -1078,25 +1138,27 @@ img {
  <td>NXP Cup car: DF Robot GPX</td>
  <td>Maintainer: Katrin Moritz<p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## Underwater Robot
 
 ### Underwater Robot
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/AirframeUnknown.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="underwater_robot_underwater_robot_generic_underwater_robot">
  <td>Generic Underwater Robot</td>
  <td><p><code>SYS_AUTOSTART</code> = 60000</p></td>
@@ -1105,14 +1167,15 @@ img {
  <td>HippoCampus UUV (Unmanned Underwater Vehicle)</td>
  <td>Maintainer: Daniel Duecker &lt;daniel.duecker@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60001</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### Vectored 6 DOF UUV
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/Vectored6DofUUV.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
         Common Outputs
@@ -1124,38 +1187,41 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="underwater_robot_vectored_6_dof_uuv_bluerov2_(heavy_configuration)">
  <td>BlueROV2 (Heavy Configuration)</td>
  <td>Maintainer: Thies Lennart Alff &lt;thies.lennart.alff@tuhh.de&gt;<p><code>SYS_AUTOSTART</code> = 60002</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ## VTOL
 
 ### Standard VTOL
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/VTOLPlane.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
  <td>HIL Standard VTOL QuadPlane</td>
  <td>Maintainer: Roman Bapst &lt;roman@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 1002</p></td>
@@ -1192,17 +1258,18 @@ img {
  <td>BabyShark VTOL</td>
  <td>Maintainer: Silvan Fuhrer &lt;silvan@auterion.com&gt;<p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### VTOL Duo Tailsitter
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/VTOLDuoRotorTailSitter.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -1211,15 +1278,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
  <td>Caipiroshka Duo Tailsitter</td>
  <td>Maintainer: Roman Bapst &lt;roman@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 13001</p></td>
@@ -1228,49 +1296,52 @@ img {
  <td>Generic Tailsitter</td>
  <td>Maintainer: Roman Bapst &lt;roman@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 13200</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### VTOL Octoplane
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/VTOLPlaneOcto.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
 </tr>
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="vtol_vtol_octoplane_generic_octoplane_vtol">
  <td>Generic Octoplane VTOL</td>
  <td>Maintainer: John Doe &lt;john@example.com&gt;<p><code>SYS_AUTOSTART</code> = 13050</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### VTOL Quad Tailsitter
 
-<div>
+<div class="frame_common">
   <img src="../../assets/airframes/types/VTOLQuadRotorTailSitter.svg" /> 
   
-  <table class="common">
+  <table>
     <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -1279,15 +1350,16 @@ img {
   </table>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="vtol_vtol_quad_tailsitter_quadrotor_x_tailsitter">
  <td>Quadrotor X Tailsitter</td>
  <td>Maintainer: Roman Bapst &lt;roman@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 13003</p></td>
@@ -1296,23 +1368,25 @@ img {
  <td>Quadrotor + Tailsitter</td>
  <td>Maintainer: Roman Bapst &lt;roman@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 13004</p></td>
 </tr>
-</table>
+  </table>
+</div>
 
 ### VTOL Tiltrotor
 
-<div>
+<div class="frame_common">
 <img src="../../assets/airframes/types/VTOLTiltRotor.svg"/>
 </div>
 
-<table class="generic">
-  <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
+<div class="frame_variant">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      
+      <th>
+      </th>
+    </tr>
 <tr id="vtol_vtol_tiltrotor_birdseyeview_aerobotics_firefly6">
  <td>BirdsEyeView Aerobotics FireFly6</td>
  <td>Maintainer: Roman Bapst &lt;roman@uaventure.com&gt;<p><code>SYS_AUTOSTART</code> = 13002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Front right motor bottom</li><li><b>MAIN2</b>: Front right motor top</li><li><b>MAIN3</b>: Back motor bottom</li><li><b>MAIN4</b>: Back motor top</li><li><b>MAIN5</b>: Front left motor bottom</li><li><b>MAIN6</b>: Front left motor top</li><li><b>AUX1</b>: Tilt servo</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></p></td>
@@ -1329,4 +1403,5 @@ img {
  <td>Generic Quadplane VTOL Tiltrotor</td>
  <td><p><code>SYS_AUTOSTART</code> = 13030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Motor tilt front left</li><li><b>AUX2</b>: Motor tilt front right</li><li><b>AUX3</b>: Motor tilt rear left</li><li><b>AUX4</b>: Motor tilt rear right</li><li><b>AUX5</b>: Aileron left</li><li><b>AUX6</b>: Aileron right</li><li><b>AUX7</b>: Elevator</li><li><b>AUX8</b>: Rudder</li></ul></p></td>
 </tr>
-</table>
+  </table>
+</div>

@@ -32,8 +32,12 @@ Besides that:
        id: 44
        receive: true
      ...
+     - msg: vehicle_local_position_setpoint
+       id: 97
+       receive: true
+     ...
      - msg: trajectory_setpoint
-       id: 186
+       id: 196
        alias: vehicle_local_position_setpoint
        receive: true
    ```
@@ -44,8 +48,12 @@ Besides that:
        msg: OffboardControlMode
        receive: true
      ...
+     - msg: VehicleLocalPositionSetpoint
+       id: 97
+       receive: true
+     ...
      - alias: VehicleLocalPositionSetpoint
-       id: 186
+       id: 196
        msg: TrajectorySetpoint
        receive: true
    ```

@@ -29,7 +29,7 @@ Order this module from:
     * Operation of up to 200k Lux ambient light
     * Works well on all surface conditions
     * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
-  * Bosch BMI088 6-Axis IMU
+  * Bosch BMI088 6-Axis IMU or Invensense ICM-42688-P 6-Axis IMU
 * STM32F412CEU6 MCU
 * Two Pixhawk Standard CAN Connectors
   * 4 Pin JST GH
@@ -39,7 +39,6 @@ Order this module from:
   * 3cm x 3cm x 1.4cm
 * LED Indicators
 * USA Built
-
 
 
 ### Wiring/Connecting
