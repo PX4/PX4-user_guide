@@ -59,7 +59,7 @@ div.frame_variant td, div.frame_variant th {
       </th>
     </tr>
 <tr>
- <td><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></td>
+ <td><ul><li><b>MAIN1</b>: 우현 추진기</li><li><b>MAIN2</b>: 좌현 추진기</li><li><b>MAIN3</b>: 틸트 추진기</li><li><b>MAIN4</b>: 후미 추진기</li></ul></td>
 </tr>
   </table>
 </div>
