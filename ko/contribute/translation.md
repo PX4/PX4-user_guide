@@ -2,7 +2,7 @@
 
 *QGroundControl* 프로그램과 PX4, *QGroundControl*, MAVLink 안내서 번역 도움을 간절히 바랍니다!
 
-문서(와 *QGroundControl* 프로그램)는 [Crowdin](https://crowdin.com) 을 번역 도구로 활용합니다. Crowdin은 Github에서 원본 주제를 자동으로 가져와서 번역하고 검토(승인)할 새 문자열 또는 바뀐 문자열을 보여줍니다.
+문서 작업에는 [Crowdin](https://crowdin.com) 온라인 번역 도구로 사용하고 있습니다. Crowdin은 Github에서 원본 문서를 가져와서 번역하고 검토(승인)할 문서들을  편집할 수 있습니다.
 
 Crowdin은 "풀 요청"(이 단계에서 개발팀이 주기적으로 검토하고 승인해줍니다) 방식으로 Github에 번역한 문서를 내보냅니다. 내보낸 출력물에는 번역한 원본 문서와 번역한 문자열로 바뀌어 승인한 텍스트가 들어있습니다(예: 문자열을 번역하지 않았거나 바꾸지 않았다면, 영문으로 그대로 나타냅니다).
 
