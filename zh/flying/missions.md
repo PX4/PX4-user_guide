@@ -26,24 +26,24 @@
 
 不能独立控制偏航和行驶方向的车辆类型将忽略偏航设置（例如固定翼）。
 
-### Setting Acceptance/Turning Radius
+### 设置航点/转弯半径
 
-The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
+航点半径定义了一个以航点为圆心的圆，无人机到达半径内便认为到达航点，并且会立即前往（并开始转向）下一个航点。
 
-For a multi-rotor drones, the acceptance radius is tuned using the parameter [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD). By default, the radius is small to ensure that multirotors pass above the waypoints, but it can be increased to create a smoother path such that the drone starts to turn before reaching the waypoint.
+对于多旋翼无人机，使用参数[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)调整航点半径。 默认情况下，半径设置的很小以确保多旋翼无人机通过航路点上方，但可以增加半径以创建更平滑的路径，这时无人机在到达航路点之前便开始转弯。
 
-The image below shows the same mission flown with different acceptance radius parameters:
+下图显示了相同任务以不同的航点半径参数飞行的轨迹：
 
 ![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
 
-The speed in the turn is automatically computed based on the acceptance radius (= turning radius) and the maximum allowed acceleration and jerk (see [Jerk-limited Type Trajectory for Multicopters](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode)).
+转弯速度是根据航点半径（=转弯半径）和最大允许速度和加加速度自动计算的。
 
 :::tip
-For more information about the impact of the acceptance radius around the waypoint see: [Mission Mode > Inter-waypoint Trajectory](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory).
+关于航点半径的更多信息，见： [任务模式 > 航点间轨迹](../flight_modes/mission.md#rounded-turns-inter-waypoint-trajectory)。
 :::
 
-## 执行飞行任务
+## 飞行任务
 
-Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
+任务上传后，切换到飞行视图。 The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
 ![flying-mission](../../assets/flying/flying_mission.jpg)

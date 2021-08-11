@@ -42,7 +42,7 @@ RockBlock 모듈을 Pixhawk의 직렬 포트에 연결합니다. 모듈의 전�
 
 모듈은 내부 안테나 또는 SMA 커넥터에 연결된 외부 안테나를 사용할 수 있습니다. [두 안테나의 여러 상태를 전환](https://docs.rockblock.rock7.com/docs/switching-rockblock-9603-antenna-mode)하려면 작은 RF 연결 케이블의 위치를 변경하여야 합니다. 외부 안테나를 사용하는 경우 모듈 손상을 방지하기 위해 안테나의 전원을 켜기 전에 항상 안테나가 모듈에 연결되어 있는 지 확인하십시오.
 
-모듈의 기본 보드 속도는 19200입니다. However, the PX4 *iridiumsbd* driver requires a baud rate of 115200 so it needs to be changed using the [AT commands](https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf).
+모듈의 기본 보드 속도는 19200입니다. 그러나 PX4 *iridiumsbd* 드라이버는 baudrate가 115200이어야 하므로, [AT 명령어](https://www.rock7.com/downloads/IRDM_ISU_ATCommandReferenceMAN0009_Rev2.0_ATCOMM_Oct2012.pdf)를 사용하여 변경하여야 합니다.
 
 1. 19200/8-N-1 설정을 사용하여 모듈에 연결하고 다음 명령을 사용하여 통신이 작동하는지 점검하십시오. 응답은 다음과 같아야 합니다.
 2. baudrate 속도를 변경합니다. ```AT+IPR=9```

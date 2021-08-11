@@ -41,7 +41,7 @@
   * [배터리 파워 모듈 설정](config/battery.md)
   * [안전 설정](config/safety.md)
   * [모터/서보](config/motors.md)
-  * [MC PID 튜닝](config_mc/pid_tuning_guide_multicopter_basic.md)
+  * [멀티콥터 PID 튜닝](config_mc/pid_tuning_guide_multicopter_basic.md)
 * [기체 제작](airframes/README.md) 
   * [기체 프레임 정의서](airframes/airframe_reference.md)
   * [오토자이로](frames_autogyro/README.md) 
