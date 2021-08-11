@@ -26,7 +26,7 @@
 
 不能独立控制偏航和行驶方向的车辆类型将忽略偏航设置（例如固定翼）。
 
-### Setting Acceptance/Turning Radius
+### 设置航点/转弯半径
 
 The *acceptance radius* defines the circle around a waypoint within which a vehicle considers it has reached the waypoint, and will immediately switch to (and start turning towards) the next waypoint.
 
