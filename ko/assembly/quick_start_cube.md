@@ -1,11 +1,11 @@
 # 큐브 배선 개요
 
-:::warning PX4에서는 이런 종류의 자동 항법 장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://cubepilot.org/#/home)와 상담하십시오.
+:::warning PX4에서는 이런 종류의 자동항법장치를 제조하지는 않습니다. 하드웨어 지원 또는 호환 문제는 [제조사](https://cubepilot.org/#/home)에 문의하십시오.
 
 [Cube Black](../flight_controller/pixhawk-2.md)은 [PX4](../flight_controller/autopilot_pixhawk_standard.md)에서 완전히 지원되지만, [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) 및 [Cube Orange ](../flight_controller/cubepilot_cube_orange.md)에 대한 지원은 [테스트](../flight_controller/autopilot_experimental.md) 단계입니다.
 :::
 
-이 퀵 스타트 설명서는 *Cube*<sup>&reg;</sup> 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
+*Cube*<sup>&reg;</sup> 비행 콘트롤러 전원 공급 방법과 중요 주변 장치 연결방법을 설명합니다.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
 
@@ -19,7 +19,7 @@
 
 ![큐브 액세서리](../../assets/flight_controller/cube/cube_accessories.jpg)
 
-예외적으로 GPS를 따로 구매해야 하는 GPS를 포함하지 않는 키트가 있습니다 ([아래를 참고하십시오](#gps)).
+예외적으로 GPS를 따로 구매해야 하는 GPS를 포함하지 않는 키트가 있을 수 있습니다 ([아래를 참고하십시오](#gps)).
 
 ## 배선 개요
 
@@ -60,10 +60,10 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ## GPS + 나침반 + 안전 스위치 + LED
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md). The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+권장되는 GPS 모듈은 *Here* 및 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)이며, 둘 다 GPS 모듈, 나침반, 안전 스위치 및 [LED](../getting_started/led_meanings.md)를 통합합니다. 모듈 간의 차이점은 *Here+*가 [RTK](../advanced_features/rtk-gps.md)를 통하여 센티미터 수준의 위치 지정을 지원한다는 것입니다. RTK 지원을 제외하면, 두 모듈은 같은 방식으로 연결됩니다.
 
 :::warning
-The [Here+](../gps_compass/rtk_gps_hex_hereplus.md) has been superseded by the [Here3](https://www.cubepilot.org/#/here/here3) a [UAVCAN](../uavcan/README.md) RTK-GNSS that incorporate a compass and [LEDs](../getting_started/led_meanings.md) (but no safety switch). See [UAVCAN](../uavcan/README.md) for documentation on how it should be connected.
+[Here+](../gps_compass/rtk_gps_hex_hereplus.md)는 나침반과 [LED](../getting_started/led_meanings.md)를 통합한 [Here3](https://www.cubepilot.org/#/here/here3) [UAVCAN](../uavcan/README.md) RTK-GNSS로 대체되었습니다(그러나 안전 스위치는 없습니다). 연결 방법에 대한 문서는 [UAVCAN](../uavcan/README.md)을 참고하십시오.
 :::
 
 모듈은 방향 마커가 기체 앞쪽으로 향하도록 가능한 프레임에서 멀리 장착해야 합니다 (다른 전자 장치와 나침반을 분리하면 간섭이 줄어듭니다). 제공된 8핀 케이블을 사용하여 `GPS1` 포트에 연결해야 합니다..
@@ -90,7 +90,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ## 버저
 
-The buzzer plays [tones and tunes](../getting_started/tunes.md) that provide audible notification of vehicle status (including tones that are helpful for debugging startup issues, and that notify of conditions that might affect safe operation of the vehicle).
+부저는 차량 상태(시동 문제 디버깅에 도움이 되고 차량의 안전한 작동에 영향을 미칠 수 있는 상태를 알리는 신호음 포함)에 대한 가청 알림을 제공하는 [음 및 조정](../getting_started/tunes.md)을 재생합니다.
 
 The buzzer should be connected to the USB port as shown (no further configuration is required).
 
