@@ -1,16 +1,16 @@
 # 安全点(集结点)
 
-安全点是[返航模式](../flight_modes/return.md)目的/降落点。 When enabled, the vehicle will choose the *closest return destination* of: home location, mission landing pattern or a *safety point*.
+安全点是[返航模式](../flight_modes/return.md)目的/降落点。 启用后，车辆将从HOME点、任务降落点或安全点选择*最近的返航目的地*。
 
 ![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
-## Creating/Defining Safety Points
+## 创建/定义安全点
 
-Safety points are created in *QGroundControl* (which calls them "Rally Points").
+在QGroundControl中创建安全点（也称为“集结点”）。
 
-At high level:
-1. Open **QGroundControl > Plan View**
-1. Select the **Rally** tab/button on the *Plan Editor* (right of screen).
+总结：
+1. 打开**QGroundControl > 规划视图**。
+1. 在 *规划编辑器* (屏幕右侧) 选择 **集结** 标签/按钮。
 1. Select the **Rally Point** button on the toolbar (left of screen).
 1. Click anywhere on the map to add a rally/safety point.
    - The *Plan Editor* displays and lets you edit the current rally point (shown as a green **R** on the map).
