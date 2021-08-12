@@ -3,7 +3,7 @@
 대기 속도 보정은 오프셋을 결정하기 위해 대기 속도가 0 인 안정적인 기준선을 읽어야합니다. 바람을 막기 위해 피토 위에 손을 대고 (실내에서 센서를 보정 할 필요가없는 경우) 입을 사용하여 튜브에 불어 넣습니다 (보정 완료 신호를 보내기 위해).
 
 :::note
-고정익과 수직이착륙기는 일반적으로 대기 속도 센서가 있습니다.
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
 
 ## 보정 방법
