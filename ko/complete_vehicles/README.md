@@ -48,16 +48,16 @@
 
 ## 완전 조립품(PX4 최적화 가능)
 
-This section contains consumer vehicles that run a *custom* version of PX4 (supported by their vendors). These may or may not be updatable to run "vanilla" PX4.
+이 섹션에는 PX4의 *맞춤* 버전(공급업체에서 지원)을 실행하는 소비자용 차량을 설명합니다. "바닐라" PX4를 실행하기 위히여 필요에 따라 업데이트할 수 있습니다.
 
-* Multicopter 
+* 멀티콥터 
   * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus/)
   * [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
   * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
   * [Airlango Mystic](http://airlango.com/products/)
   * [Airdog II](https://px4.io/portfolio/airdog-ii/)
   * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-* Fixed Wing: 
+* 고정익 
   * [Sentera PXH](https://px4.io/portfolio/sentera-phx/)
 * VTOL 
   * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
