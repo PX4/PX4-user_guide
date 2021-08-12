@@ -94,7 +94,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 버저는 아래와 같이 USB포트에 연결됩니다(추가 설정은 필요없습니다).
 
-![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
+![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 <a id="rc_control"></a>
 
@@ -128,7 +128,7 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 멀티콥터의 일반적인 전원 설정은 다음과 같습니다.
 
-![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
+![전원 설정 - 멀티콥터](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 :::Note ** MAIN / AUX **의 핀 전원 (+) 레일은 비행 콘트롤러에 대한 전원 모듈 공급으로 전원이 공급되지 않습니다. 방향타, 엘레본 등의 서보를 구동하려면 별도로 전원을 공급하여야 합니다.
 
@@ -143,13 +143,13 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 통신 채널은 [무선 텔레메트리](../telemetry/README.md)를 사용합니다. 차량 기반 라디오는 **TELEM1** 포트에 연결하여야 합니다(이 포트에 연결된 경우 추가 설정이 필요하지 않음). 다른 무선 장치들은 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
 
-![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![텔레메트리 라디오](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 카드 (선택 사항)
 
 SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flight_reporting.md)하고, 임무를 수행하고, UAVCAN 버스 하드웨어를 사용하는 데 필요하므로 가능하면 사용하는 것이 좋습니다. Micro-SD 카드를 그림과 같이 Cube에 삽입합니다(아직 없는 경우).
 
-![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 :::tip
 자세한 내용은 [기본 개념 &gt; SD 카드 (휴대용 메모리)](../getting_started/px4_basic_concepts.md#sd_cards)를 참고하십시오.
@@ -159,7 +159,7 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 모터/서보는 [기체 정의서](../airframes/airframe_reference.md)에서 차량에 지정된 순서대로 **MAIN**와 **AUX** 포트에 연결됩니다.
 
-![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 :::note
 이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
@@ -179,25 +179,25 @@ SD 카드는 [비행 세부 정보를 기록 및 분석](../getting_started/flig
 
 ## 설정
 
-Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
+[QGroundContro](http://qgroundcontrol.com/)를 사용하여 설정합니다.
 
-After downloading, installing and running *QGroundControl*, connect the board to your computer as shown.
+*QGroundControl*을 다운로드, 설치 및 실행한 후 그림과 같이 보드를 컴퓨터에 연결합니다.
 
-![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-Basic/common configuration information is covered in: [Autopilot Configuration](../config/README.md).
+더 자세한 설정 정보는 [자동비행장치 설정](../config/README.md)을 참고하십시오.
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane 관련 구성은 [QuadPlane VTOL 구성](../config_vtol/vtol_quad_configuration.md)을 참고하십시오.
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-### Bootloader Updates
+### 부트로더 업데이트
 
-If you get the [Program PX4IO(../getting_started/tunes.md#program-px4io) warning tone after flashing PX4 firmware, you may need to update the bootloader.
+PX4 펌웨어를 플래시한 후 [Program PX4IO(../getting_started/tunes.md#program-px4io) 경고음이 발생하면, 부트로더를 업데이트해야 할 수 있습니다.
 
-The safety switch can be used to force bootloader updates. To use this feature de-power the Cube, hold down the safety switch, then power the Cube over USB.
+안전 스위치를 사용하여 부트로더 업데이트를 강제할 수 있습니다. 이 기능을 사용하려면 Cube의 전원을 차단하려면, 안전 스위치를 누른 상태에서 USB를 통해 Cube에 전원을 공급하십시오.
 
-## 추가적인 정보
+## 추가 정보
 
 - [Cube Black](../flight_controller/pixhawk-2.md) 
 - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
