@@ -3,7 +3,7 @@
 The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
 
 :::note
-Fixed Wing and VTOL vehicles usually have an airspeed sensor.
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
 
 ## Performing the Calibration
