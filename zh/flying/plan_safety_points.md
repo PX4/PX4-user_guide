@@ -1,6 +1,6 @@
-# 返航点(集结点)
+# 安全点(集结点)
 
-Safety points are alternative [Return Mode](../flight_modes/return.md) destinations/landing points. When enabled, the vehicle will choose the *closest return destination* of: home location, mission landing pattern or a *safety point*.
+安全点是[返航模式](../flight_modes/return.md)目的/降落点。 When enabled, the vehicle will choose the *closest return destination* of: home location, mission landing pattern or a *safety point*.
 
 ![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
