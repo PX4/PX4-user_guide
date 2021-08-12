@@ -70,7 +70,7 @@
 
 所有飞行，包括起飞和降落，都使用 4 个基本命令进行控制：横滚、偏航、俯仰和油门。
 
-![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
+![遥控器基础命令](../../assets/flying/rc_basic_commands.png)
 
 为了控制您的飞机，您需要了解基本的横滚、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多旋翼这样的“悬停飞机”。
 
@@ -78,7 +78,7 @@
 
 悬停飞行器（直升机，在VTOL悬停模式）到动作命令响应如下所示：
 
-![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
+![多旋翼基本动作](../../assets/flying/basic_movements_multicopter.png)
 
 - 俯仰 => 往前 / 往后。
 - 横滚 => 往左 / 往右。
@@ -89,7 +89,7 @@
 
 向前飞行的飞机（固定翼、固定翼模式的VTOL）对动作命令作出如下反应：
 
-![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
+![固定翼基本动作](../../assets/flying/basic_movements_forward.png)
 
 - 俯仰 => 上升 / 下降。
 - 横滚 => 左 / 右倾弯。
@@ -111,5 +111,5 @@
 - 位置模式 - 当摇杆被释放飞行器将保持飞行（位置定点，不会随风漂移）。
 
 :::note
-You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
+您也可以通过主飞行界面底部的 *QGroundControl* 按钮访问自动模式。
 :::
