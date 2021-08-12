@@ -13,7 +13,7 @@
 1. 在 *规划编辑器* (屏幕右侧) 选择 **集结** 标签/按钮。
 1. 选择工具栏(屏幕左侧)上的 **Rally Point** 按钮 。
 1. 在地图上点击任意位置来添加集结/安全点。
-   - The *Plan Editor* displays and lets you edit the current rally point (shown as a green **R** on the map).
+   - *规划编辑器*显示并允许您编辑当前（在地图上显示为绿色**R**）的集结点。
    - You can select another rally point (shown as a more orange/yellow **R** on the map) to edit it instead.
 1. Select the **Upload Required** button to upload the rally points (along with any [mission](../flying/missions.md) and [geofence](../flying/geofence.md)) to the vehicle.
 
