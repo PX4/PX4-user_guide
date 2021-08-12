@@ -2,8 +2,8 @@
 
 围栏是一个虚拟边界，用于定义车辆可以在哪些地方行驶。 围栏可用于防止车辆飞出遥控器的范围，或进入不安全或受限制的空域。
 
-PX4 provides two independent mechanisms for specify a GeoFence:
-- A basic "failsafe" Geofence that defines a simple cylinder.
+PX4提供了两个独立的机制来指定围栏：
+- 一个是基本的“失控保护”地理围栏，定义了一个简单的圆柱体。
 - More complicated geometries can be defined using a GeoFence Plan (*QGroundControl*).
 
 :::note
