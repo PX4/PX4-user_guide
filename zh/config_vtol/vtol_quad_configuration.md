@@ -10,13 +10,19 @@
 
 ### 飞行模式/模式转换
 
-In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+You should assign a switch on your RC controller for switching between the multicopter- and fixed wing modes.
 
-这个按钮可以让你在固定翼和多旋翼两个模式进行切换。 The switch in the off-position means that you are flying in multicopter mode.
+:::note
+While PX4 allows flight without an RC controller, you must have one when tuning/configuring up a new airframe.
+:::
+
+This is done in [Flight Mode](../config/flight_mode.md) configuration, where you [assign flight modes and other functions](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) to switches on your RC controller. The switch can also be assigned using the parameter [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+
+The switch in the off-position means that you are flying in multicopter mode.
 
 ### 多旋翼/固定翼调参
 
-Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 如果你多旋翼模式没调好的话，可能会炸机。
+Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. If it isn’t well tuned bad things might happen.
 
 If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
@@ -52,7 +58,7 @@ Note that once the ramp up period ends throttle will be at its target setting an
 
 #### 混合控制空速
 
-参数: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
 
@@ -60,13 +66,13 @@ Disable blending by setting this parameter to 0 which will keep full multirotor 
 
 #### 转换空速
 
-参数: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
 This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
 #### 固定翼永久稳定模式
 
-参数: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
 Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
 
@@ -76,11 +82,11 @@ Note that if you have not yet tuned your fixed wing mode you should leave this o
 
 ### 过渡模式小提示
 
-正如之前已经说过的，确保你的多旋翼模式已经调好了。 If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
+As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
 
 Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
 
-Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. 稳住，不要浪。
+Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
 
 #### 过渡模式：
 
@@ -88,11 +94,11 @@ Make sure you are at least 20 meters above ground and have enough room to comple
 
 Transition into the wind, whenever possible otherwise it will travel further from you before it transitions.
 
-确保你的垂起固定翼在开始转换之前悬停得很稳。
+Make sure the VTOL is in a stable hover before you start the transition.
 
 #### 过渡：从多旋翼过渡到固定翼模式（前过渡）
 
-开始你的过渡。 飞机应该在50~100m之间进行过渡。 If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
+Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
 
 As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
