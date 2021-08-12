@@ -30,7 +30,7 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 总结：
 1. 打开*QGroundControl > 规划视图*。
 1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
-1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 This also adds an entry for the type of fence in the editor.
+1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 这也在编辑器中增加了此类围栏的条目。
 1. Use the map to configure the shape and position of the fence.
    - The fence center marker can be used to move the fence to the correct position.
    - The marker on the border of a circular fence can be used to change the radius.
