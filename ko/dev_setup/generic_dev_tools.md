@@ -23,5 +23,5 @@
 * [Sublime Text](https://www.sublimetext.com): 빠르고 군더더기 없는 텍스트 에디터
 
 :::note
-There is an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
+소스 트리에는 [Eclipse 프로젝트](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project)와 [Sublime 프로젝트](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project)가 있습니다.
 :::
