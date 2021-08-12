@@ -10,9 +10,15 @@ This is the configuration documentation for a QuadPlane VTOL setup (Plane combi
 
 ### Flight / Transition Mode Switch
 
-In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+You should assign a switch on your RC controller for switching between the multicopter- and fixed wing modes.
 
-This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
+:::note
+While PX4 allows flight without an RC controller, you must have one when tuning/configuring up a new airframe.
+:::
+
+This is done in [Flight Mode](../config/flight_mode.md) configuration, where you [assign flight modes and other functions](../config/flight_mode.md#what-flight-modes-and-switches-should-i-set) to switches on your RC controller. The switch can also be assigned using the parameter [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+
+The switch in the off-position means that you are flying in multicopter mode.
 
 ### Multirotor / Fixed Wing Tuning
 

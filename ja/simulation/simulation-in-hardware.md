@@ -18,6 +18,8 @@ The aerodynamic model for the fixed-wing airplane is inspired from the PhD thesi
 
 Furthermore, the physical parameters representing the vehicle (such as mass, inertia, and maximum thrust force) can easily be modified from the [SIH parameters](../advanced_config/parameter_reference.md#simulation-in-hardware).
 
+@[youtube](https://youtu.be/PzIpSCRD8Jo)
+
 ## Requirements
 
 To run the SIH, you will need a [flight controller](../flight_controller/README.md) (e.g. a Pixhawk-series board). you will also need either a [radio control transmitter and receiver pair](../getting_started/rc_transmitter_receiver.md) or a [joystick](https://docs.qgroundcontrol.com/en/SetupView/Joystick.html) (a joystick can be used via QGroundControl to emulate a radio control system).
@@ -33,7 +35,7 @@ Running the SIH is as easy as selecting an airframe. Plug the autopilot to the d
 When the SIH airframe is selected, the SIH module starts by itself, the vehicle should be displayed on the ground control station map.
 
 :::warning
-The airplane needs to takeoff in manual mode at full throttle. If the airplane hits the floor, the state estimator might lose its fix.
+The airplane needs to takeoff in manual mode at full throttle. Also, if the airplane hits the floor the state estimator might lose its fix.
 :::
 
 ## Setting up the Display
@@ -47,15 +49,14 @@ To display the simulated vehicle:
 1. Unplug and replug the hardware autopilot (allow a few seconds for it to boot).
 1. Start jMAVSim by calling the script **jmavsim_run.sh** from a terminal:
    ```
-   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -r 250 -o
+   ./Tools/jmavsim_run.sh -q -d /dev/ttyACM0 -b 2000000 -o
    ```
    where the flags are
    - `-q` to allow the communication to *QGroundControl* (optional).
    - `-d` to start the serial device `/dev/ttyACM0` on Linux. On macOS this would be `/dev/tty.usbmodem1`.
    - `-b` to set the serial baud rate to `2000000`.
-   - `-r` to set the refresh rate to `250` Hz (optional).
    - `-o` to start jMAVSim in *display Only* mode (i.e. the physical engine is turned off and jMAVSim only displays the trajectory given by the SIH in real-time).
-   - add a flaf `-a` to display the aircraft. If this flag is not present a quadrotor will be displayed by default.
+   - add a flag `-a` to display an aircraft. If this flag is not present a quadrotor will be displayed by default.
 1. After few seconds, *QGroundControl* can be opened again.
 
 At this point, the system can be armed and flown. The vehicle can be observed moving in jMAVSim, and on the QGC __Fly__ view.
@@ -63,4 +64,4 @@ At this point, the system can be armed and flown. The vehicle can be observed mo
 
 ## Credits
 
-The SIH was originally developed by Coriolis g Corporation, then the airplane model was added by Altitude R&D inc. Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) Unmanned Aerial Vehicles (UAV) based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/); Altitude R&D is specialized in dynamics, control, and real-time simulation. They provide the SIH as a simple simulator for quadrotors air airplanes released for free under BSD license.
+The SIH was originally developed by Coriolis g Corporation, then the airplane model was added by Altitude R&D inc. Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/); Altitude R&D is specialized in dynamics, control, and real-time simulation. They provide the SIH as a simple simulator for quadrotors and airplanes released for free under BSD license.

@@ -3,7 +3,7 @@
 空速校准需要读取零空速的稳定基础数据以确定偏移量。 将手放在皮托管上以阻挡风（如果在室内校准传感器则不需要），然后用嘴向管中吹气（表示完成校准）。
 
 :::note
-Fixed Wing and VTOL vehicles usually have an airspeed sensor.
+[Airspeed sensors](../sensor/airspeed.md) are highly recommended for Fixed Wing and VTOL vehicles.
 :::
 
 ## 执行校准

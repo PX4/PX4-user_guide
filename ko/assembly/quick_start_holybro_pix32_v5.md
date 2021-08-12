@@ -110,7 +110,7 @@ GPS/나침반은 차량 전명 방향 표시를 사용하여 가능한 한 다�
 
 - PPM 방식 과 S 버스 방식의 수신기는 [ SBUS_IN / PPM_IN ](../flight_controller/holybro_pix32_v5.md#rc-in) 입력 포트 (RC IN으로 표시됨)에 연결됩니다.
 
-  ![핀아웃](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+  ![핀배열](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 
 - *각각의 채널이 독립적으로 배선된* PPM/PWM 수신기는 반드시 **PPM RC**포트에 *PPM 인코더를 통해* [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)연결해야 합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
@@ -140,7 +140,7 @@ SanDisk Extreme U3 32GB를 [적극 권장](../dev_log/logging.md#sd-cards)합니
 
 모터/서보 제어 신호는 ** I/O PWM OUT ** (** MAIN OUT **) 및 ** FMU PWM OUT ** (** AUX **)에 연결됩니다. ) 포트는 [ Airframe Reference ](../airframes/airframe_reference.md)에서 차량에 지정된 순서로 지정됩니다.
 
-  ![Pix32 v5 - 백 핀아웃 (개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+  ![Pix32 v5 - 백 핀배열 (개략도)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
 
 모터는 별도로 [전원을 공급](#power)하여야 합니다.
 

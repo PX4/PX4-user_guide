@@ -16,7 +16,7 @@
 有关更多信息，请参阅[QGroundControl 用户指南](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)
 :::
 
-![planning-mission](../../assets/flying/planning_mission.jpg)
+![规划任务](../../assets/flying/planning_mission.jpg)
 
 ### 设置无人机航向
 
@@ -34,7 +34,7 @@
 
 下图显示了相同任务以不同的航点半径参数飞行的轨迹：
 
-![acceptance radius comparison](../../assets/flying/acceptance_radius_comparison.jpg)
+![航点半径](../../assets/flying/acceptance_radius_comparison.jpg)
 
 转弯速度是根据航点半径（=转弯半径）和最大允许速度和加加速度自动计算的。
 
@@ -44,6 +44,6 @@
 
 ## 飞行任务
 
-任务上传后，切换到飞行视图。 The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
+任务上传后，切换到飞行视图。 任务将显示为一条航线，这样可以方便跟踪（在此视图中无法修改）。
 
-![flying-mission](../../assets/flying/flying_mission.jpg)
+![飞行任务](../../assets/flying/flying_mission.jpg)

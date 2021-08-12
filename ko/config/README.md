@@ -1,4 +1,4 @@
-# 기본 설정
+# Standard Configuration
 
 *QGroundControl*을 사용하여 PX4 Controller의 [펌웨어](../config/firmware.md) 설치와 [기체](../config/airframe.md) 설정 작업을 할 수 있습니다. 이 작업은 PX4의 필수 센서인 GPS, 나침반 및 자이로 등을 설정합니다.
 
@@ -35,7 +35,7 @@
 
 ## 지원
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage).
+설정에 대한 도움이 필요한 경우 [QGroundControl 지원 포럼 ](https://discuss.px4.io//c/qgroundcontrol/qgroundcontrol-usage)에서 도움을 요청할 수 있습니다
 
 ## 추가 정보
 
