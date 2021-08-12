@@ -35,10 +35,10 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
    - 围栏中心的圆点可以用来调整围栏的位置。
    - 边界上的圆点可以用来调整半径。
    - 角（顶点）上的圆点可以用来改变多边形的形状。 点击线段中间可以在两个顶点中添加新的顶点。
-1. Use the *GeoFence Editor* to set a fence as an inclusion or exclusion, and to select a fence to edit (**Edit** radio button) or Delete (**Del** button).
-1. Add as many fences as you like.
-1. Once finished, click on the **Upload** button (top right) to send the fence (along with rally points and mission) to the vehicle.
-1. Set the breach action in the [GeoFence Failsafe](../config/safety.md#geofence-failsafe).
+1. *围栏编辑器*可以设置围栏是包含还是排除，还可以通过（**编辑**单选按钮）选择一个围栏来编辑或者通过（**删除**按钮）来删除。
+1. 可添加任意数量的围栏
+1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
+1. 在围栏失控保护中设置越界动作。
 
 :::note PX4 implements the MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
 :::
