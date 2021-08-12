@@ -1,6 +1,6 @@
 # 펌웨어 설치 및 업데이트
 
-*QGroundControl* **데스크톱** 버전을 사용하여 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러에 PX4 펌웨어를 설치할 수 있습니다.
+*QGroundControl* **데스크톱** 버전을 사용하여 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 콘트롤러에 PX4 펌웨어를 설치할 수 있습니다.
 
 :::warning
 **펌웨어 설치를 시작하기 전에** 기체의 모든 USB 연결을 *해제*하여야 합니다 (직접 또는 원격 측정 라디오를 통해). 기체에 배터리 전원 연결을 *중지*하여야 합니다.
@@ -70,8 +70,7 @@ PX4 설치
     
     *QGroundControl*에서 FMUv2를 설치(설치 하는 동안 콘솔 참조) 하고, 새로운 보드의 비행 컨트롤러에서 메모리를 액세스 하려면 부트 로더를 업데이트 하여야 합니다.
     
-:::note
-Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. 이 문제는 최신 보드에서 수정되었지만 FMUv3 펌웨어를 설치하고 사용 가능한 모든 2MB 메모리에 액세스하려면 공장에서 제공하는 부트 로더를 업데이트하여야 합니다.
+    :::note FMUv2를 기반으로 한 초기 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md#fmu_versions) 비행 콘트롤러에는 최대 1MB의 메모리까지만 사용할 수 있는 문제([Silicon Errata](../flight_controller/silicon_errata.md#fmuv2-pixhawk-silicon-errata))가 있었습니다. 이 문제는 최신 보드에서 수정되었지만 FMUv3 펌웨어를 설치하고 사용 가능한 모든 2MB 메모리에 액세스하려면 공장에서 제공하는 부트 로더를 업데이트하여야 합니다.
 :::
     
     부트 로더 업데이트:
