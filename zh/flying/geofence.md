@@ -11,13 +11,13 @@ PX4提供了两个独立的机制来指定围栏：
 
 ## 失控保护地理围栏
 
-The [GeoFence Failsafe](../config/safety.md#geofence-failsafe) defines a cylinder centered on the home position, with a specified maximum radius and altitude.
+失控保护围栏定义了一个圆心在home点的圆柱，它具有指定的最大半径和高度。
 
-The settings also include a "failsafe action" in the event that the fence is breached. This may simply be a warning notification, but more commonly a vehicle will immediately [Return](../flight_modes/return.md) to a safe location.
+设置中还包括突破围栏时的失控保护动作。 可能只是一个警告通知，但更常见的是车辆会立即返回安全位置。
 
-For more information see: [Safety > GeoFence Failsafe](../config/safety.md#geofence-failsafe).
+有关更多信息，请参阅：[安全 > 地理围栏失控保护。](../config/safety.md#geofence-failsafe)
 
-## GeoFence Plan
+## 地理围栏计划
 
 PX4 supports complex GeoFence boundaries made up of multiple circular and polygonal regions, which may be defined as either inclusion (fly within) or exclusion (fly outside) areas.
 
