@@ -11,8 +11,8 @@
 总结：
 1. 打开**QGroundControl > 规划视图**。
 1. 在 *规划编辑器* (屏幕右侧) 选择 **集结** 标签/按钮。
-1. Select the **Rally Point** button on the toolbar (left of screen).
-1. Click anywhere on the map to add a rally/safety point.
+1. 选择工具栏(屏幕左侧)上的 **Rally Point** 按钮 。
+1. 在地图上点击任意位置来添加集结/安全点。
    - The *Plan Editor* displays and lets you edit the current rally point (shown as a green **R** on the map).
    - You can select another rally point (shown as a more orange/yellow **R** on the map) to edit it instead.
 1. Select the **Upload Required** button to upload the rally points (along with any [mission](../flying/missions.md) and [geofence](../flying/geofence.md)) to the vehicle.
