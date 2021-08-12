@@ -1,6 +1,6 @@
-# GeoFence (地理围栏)
+# 电子围栏
 
-A GeoFence is a virtual boundary that defines where a vehicle can travel. GeoFences can be used to prevent a vehicle flying out of range of the RC controller, or into unsafe or restricted airspace.
+围栏是一个虚拟边界，用于定义车辆可以在哪些地方行驶。 围栏可用于防止车辆飞出遥控器的范围，或进入不安全或受限制的空域。
 
 PX4 provides two independent mechanisms for specify a GeoFence:
 - A basic "failsafe" Geofence that defines a simple cylinder.
