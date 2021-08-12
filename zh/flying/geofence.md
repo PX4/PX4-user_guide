@@ -13,13 +13,13 @@ PX4提供了两个独立的机制来指定围栏：
 
 失控保护围栏定义了一个圆心在home点的圆柱，它具有指定的最大半径和高度。
 
-设置中还包括突破围栏时的失控保护动作。 可能只是一个警告通知，但更常见的是车辆会立即返回安全位置。
+设置中还包括越界时的失控保护动作。 可能只是一个警告通知，但更常见的是车辆会立即返回安全位置。
 
 有关更多信息，请参阅：[安全 > 地理围栏失控保护。](../config/safety.md#geofence-failsafe)
 
 ## 地理围栏计划
 
-PX4 supports complex GeoFence boundaries made up of multiple circular and polygonal regions, which may be defined as either inclusion (fly within) or exclusion (fly outside) areas.
+PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，这些区域可以定义为包含（禁出）或排除（禁入）区域。
 
 The GeoFence is planned in *QGroundControl* alongside the mission and rally points.
 
