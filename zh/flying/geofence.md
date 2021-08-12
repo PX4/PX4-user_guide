@@ -23,13 +23,13 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 
 围栏被放置位置在与任务和集结并列。
 
-![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_overview.jpg)
+![围栏规划](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
 围栏规划在[规划视图 > 地理围栏](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html)中有完整记录（QGroundControl 用户指南）
 
 总结：
 1. 打开*QGroundControl > 规划视图*。
-1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
+1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![围栏规划](../../assets/qgc/plan_geofence/geofence_editor.jpg)
 1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 这也在编辑器中增加了此类围栏的条目。
 1. 在地图上调整围栏的形状和位置。
    - 围栏中心的圆点可以用来调整围栏的位置。
@@ -40,5 +40,5 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
 1. 在围栏失控保护中设置越界动作。
 
-:::note PX4 implements the MAVLink [Mission Microservice](https://mavlink.io/en/services/mission.html), which includes support for GeoFences.
+:::note PX4 实现了MAVLink [微服务](https://mavlink.io/en/services/mission.html), 其中包括支持围栏.
 :::
