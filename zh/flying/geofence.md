@@ -17,20 +17,20 @@ PX4提供了两个独立的机制来指定围栏：
 
 有关更多信息，请参阅：[安全 > 地理围栏失控保护。](../config/safety.md#geofence-failsafe)
 
-## 地理围栏计划
+## 地理围栏规划
 
 PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，这些区域可以定义为包含（禁出）或排除（禁入）区域。
 
-The GeoFence is planned in *QGroundControl* alongside the mission and rally points.
+围栏被放置位置在与任务和集结并列。
 
 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_overview.jpg)
 
-GeoFence planning is fully documented in [Plan View > GeoFence](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html) (QGroundControl User Guide).
+围栏规划在[规划视图 > 地理围栏](https://docs.qgroundcontrol.com/en/PlanView/PlanGeoFence.html)中有完整记录（QGroundControl 用户指南）
 
-In summary:
-1. Open *QGroundControl > Plan View*.
-1. Select the *Plan Type* radio button: **Fence**. This will display the *GeoFence Editor*. ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
-1. Select the **Polygon Fence** or **Circular Fence** button to add a *basic* fence of the desired type to the map. This also adds an entry for the type of fence in the editor.
+总结：
+1. 打开*QGroundControl > 规划视图*。
+1. 选择 *规划类型* 单选按钮： **围栏**。 这将显示 *地理围栏编辑器*。 ![GeoFence Plan](../../assets/qgc/plan_geofence/geofence_editor.jpg)
+1. 选择多边形围栏或圆形围栏按钮，可将添加所需基本类型的围栏到地图中。 This also adds an entry for the type of fence in the editor.
 1. Use the map to configure the shape and position of the fence.
    - The fence center marker can be used to move the fence to the correct position.
    - The marker on the border of a circular fence can be used to change the radius.
