@@ -1,16 +1,15 @@
-# 电子围栏
+# 地理围栏
 
 围栏是一个虚拟边界，用于定义车辆可以在哪些地方行驶。 围栏可用于防止车辆飞出遥控器的范围，或进入不安全或受限制的空域。
 
 PX4提供了两个独立的机制来指定围栏：
 - 一个是基本的“失控保护”地理围栏，定义了一个简单的圆柱体。
-- More complicated geometries can be defined using a GeoFence Plan (*QGroundControl*).
+- 可以使用围栏规划 ( *QGroundControl *)定义更复杂的几何图形。
 
-:::note
-GeoFences apply in all modes, including both missions and manual flight.
+地理围栏适用于所有模式，包括任务和手动飞行。
 :::
 
-## Failsafe GeoFence
+## 失控保护地理围栏
 
 The [GeoFence Failsafe](../config/safety.md#geofence-failsafe) defines a cylinder centered on the home position, with a specified maximum radius and altitude.
 
