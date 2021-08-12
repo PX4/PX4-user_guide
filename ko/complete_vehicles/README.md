@@ -5,48 +5,48 @@
 :::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목들을 참고할 수 있습니다.
 :::
 
-## Fully Assembled (PX4 Preinstalled)
+## 완전 조립품(PX4 사전 설치됨)
 
-This section lists vehicles that are sold fully assembled and ready to fly (RTF), with PX4 installed.
+이 섹션에는 PX4가 설치된 상태에서 즉시 비행 가능한 완전 조립품으로 판매되는 차량을 설명합니다.
 
-* Multicopter 
+* 멀티콥터 
   * [Teal One](https://tealdrones.com/teal-one/)
   * [ModalAI m500](https://modalai.com/products/voxl-m500)
 * VTOL 
   * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
-## Fully Assembled (PX4 Compatible)
+## 완전 조립품(PX4 사전 설치됨)
 
-This section lists fully assembed vehicles where you can update the software to run PX4.
+이 섹션에는 PX4를 실행하도록 소프트웨어를 업데이트할 수 있는 완전히 조립된 차량을 설명합니다.
 
-* Multicopter 
+* 멀티콥터 
   * [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   * [Bitcraze Crazyflie 2.1](../complete_vehicles/crazyflie21.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
-* Underwater Vehicles 
+* 수중 차량 
   * [BlueROV2](../frames_sub/bluerov2.md)
 
-## Drone Development Kits/Reference Platforms
+## 드론 개발 키트/참조 플랫폼
 
-This section lists drone kits that are intended as platforms for further development. They may come either fully assembled or in parts.
+이 섹션에는 추가 개발을 위한 플랫폼 키트를 설명합니다. 완전히 조립품이거나 부분 조립품들입니다.
 
-* [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
+* [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - PX4 컴퓨터 비전 개발을 위한 멀티콥터
 
-## UAV Kits
+## UAV 키트
 
-This section list kits that contains all the parts needed for building a PX4-compatible vehicle (with the possible exception of batteries and RC controllers).
+이 섹션에는 PX4 호환 차량 제작 키트들을 설명합니다(배터리 및 RC 컨트롤러 제외).
 
 :::note
-Kits provide a gentler introduction to building drones than starting from individual components. They allow you to use parts that are known to work, and to fly a vehicle that is appropriately tuned.
+키트는 개별 구성 부품보다 드론 제작에 대해 더 자세하게 소개합니다. 작동 부품을 사용하여 적절하게 튜닝된 기체를 비행할 수 있습니다.
 :::
 
-* Multicopter 
+* 멀티콥터 
   * [Holybro X500 Kit](../frames_multicopter/holybro_x500_pixhawk4.md)
   * [Holybro S500 Kit](../frames_multicopter/holybro_s500_v2_pixhawk4.md)
   * [Holybro QAV250 Kit](../frames_multicopter/holybro_qav250_pixhawk4_mini.md)
   * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
 
-## Fully Assembled (Custom PX4)
+## 완전 조립품(PX4 최적화 가능)
 
 This section contains consumer vehicles that run a *custom* version of PX4 (supported by their vendors). These may or may not be updatable to run "vanilla" PX4.
 
