@@ -1,4 +1,4 @@
-# Events Interface
+# 이벤트 인터페이스
 
 The *Events Interface* provides a system-wide API for notification of events, which are published to GCSs via the *MAVLink Events Service* (to GCSs and other components) and also stored in [system logs](../dev_log/logging.md).
 
@@ -8,8 +8,8 @@ The interface can be used for publishing events for state changes or any other t
 The events interface will replace the use of `mavlink_log_*` calls in PX4 code, (and `STATUS_TEXT` messages in MAVLink) for event notification in the release after PX4 v1.12. There will be an intermediate period where [both approaches are supported](#Backward-compatibility).
 :::
 
-## Usage
-### Basic
+## 사용법
+### 기본
 To use the API, add this include:
 ```cpp
 #include <px4_platform_common/events.h>
