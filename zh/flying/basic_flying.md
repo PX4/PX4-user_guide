@@ -27,7 +27,7 @@
 如果您解锁后过长时间没有起飞，机体将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动 [加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保机体在没有被使用时恢复到安全状态。
 :::
 
-:::note VTOL机型只能在多旋翼模式下解锁(默认-可以使用 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
+:::note VTOL机型只能在多轴模式下解锁(默认-可以使用 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
 :::
 
 <span id="takeoff-and-landing"></span>
@@ -36,7 +36,7 @@
 
 最简单的起飞方式（在[机体解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
-多旋翼（和 VTOL 在 多旋翼模式下）飞手可以通过启用位置模式，解锁无人机，然后将油门杆升至 62.5% 以上来手动起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
+多轴（和 VTOL 在多轴模式下）飞手可以通过启用位置模式，解锁机体，然后将油门杆升至 62.5% 以上来手动起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 :::tip
 强烈推荐自动起飞模式，尤其是固定翼车辆！
