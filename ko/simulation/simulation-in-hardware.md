@@ -64,4 +64,4 @@ SIH는 패시브 커플링 시스템을 기반으로 하는 새로운 유형의 
 
 ## 개발진
 
-SIH는 원래 Coriolis g Corporation에서 개발하였으며, 비행기 모델은 Altitude R&D inc에서 추가되었습니다. Both are Canadian companies, Coriolis develops a new type of Vertical Takeoff and Landing (VTOL) vehicles based on passive coupling systems [www.vogi-vtol.com](http://www.vogi-vtol.com/); Altitude R&D is specialized in dynamics, control, and real-time simulation. They provide the SIH as a simple simulator for quadrotors and airplanes released for free under BSD license.
+SIH는 원래 Coriolis g Corporation에서 개발하였으며, 비행기 모델은 Altitude R&D inc에서 추가되었습니다. 둘 다 캐나다 회사이며 Coriolis는 수동 커플링 시스템 [www.vogi-vtol.com](http://www.vogi-vtol.com/)을 기반으로 하는 새로운 유형의 수직 이착륙(VTOL) 차량을 개발합니다. Altitude R&D는 역학, 제어 및 실시간 시뮬레이션에 특화되어 있습니다. 그들은 SIH를 BSD 라이선스에 따라 무료로 출시된 쿼드로터 및 비행기를 위한 간단한 시뮬레이터로 제공합니다.
