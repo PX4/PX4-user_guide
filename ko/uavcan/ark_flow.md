@@ -19,17 +19,17 @@ ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md
 * 동적 [UAVCAN](README.md) 노드 열거
 * 센서
   * PixArt PAW3902 Optical Flow Sensor
-    * Tracks under super low light condition of >9 lux
-    * Wide working range from 80mm up to 30m
-    * Up to 7.4 rad/s
+    * 9lux 이상의 매우 낮은 조명 조건에서 트랙
+    * 80mm에서 30m까지 넓은 작업 범위
+    * 최대 7.4 rad/s
   * 9lux 이상의 매우 낮은 조명 조건에서 트랙
-  * Broadcom AFBR-S50LV85D Time-of-Flight Distance Sensor
-    * Integrated 850 nm laser light source
-    * Field-of-View (FoV) of 12.4° x 6.2° with 32 pixels
-    * Typical distance range up to 30m
-    * Operation of up to 200k Lux ambient light
-    * Works well on all surface conditions
-    * Transmitter beam of 2° x 2° to illuminate between 1 and 3 pixels
+  * Broadcom AFBR-S50LV85D 비행시간 거리 센서
+    * 통합 850nm 레이저 광원
+    * 12.4  x 6.2°의 시야각 (FoV), 32 픽셀
+    * 최대 30m의 일반적인 거리 범위
+    * 최대 200k Lux 주변 조명 작동
+    * 모든 표면 조건에서 잘 작동
+    * 1~3 픽셀 사이를 비추는 2° x 2°의 송신기 빔
   * 최대 7.4 rad/s
 * Bosch BMI088 6축 IMU
 * Two Pixhawk Standard CAN Connectors
