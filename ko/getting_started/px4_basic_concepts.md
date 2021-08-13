@@ -42,7 +42,7 @@ PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어
 
 <span id="vehicle_controller"></span>
 
-## 기체/비행 제어 장치 보드
+## -- 비행 제어 장치(보드)
 
 PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 제어 장치에서만 실행하도록 설계했으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행할 수 있습니다. 기체의 물리적 조건, 원하는 동작은 물론이거니와 비용면으로도 고려하여 적절한 보드를 선택해야 합니다.
 
