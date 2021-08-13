@@ -17,13 +17,12 @@
    - 您可以选择另一个（在地图上显示为橙色/黄色的**R**）集结点来进行编辑。
 1. 选择**需要上传**按钮将集结点（连同任务和地理围栏）上传到车辆。
 
-:::tip
-More complete documentation can be found in the *QGroundControl User Guide*: [Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html).
+更完整的文档可以在*QGroundControl 用户指南*中找到：[Plan View - Rally Points](https://docs.qgroundcontrol.com/en/PlanView/PlanRallyPoints.html)。
 :::
 
-## Using Safety Points
+## 使用安全点
 
-Safety points are not enabled by default (there are a number of different [Return Mode Types](../flight_modes/return.md#return_types)).
+默认情况下不启用安全点（有许多不同的[返回模式类型](../flight_modes/return.md#return_types)）。
 
 To enable safety points:
 1. [Use the QGroundControl Parameter Editor](../advanced_config/parameters.md) to set parameter: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).
