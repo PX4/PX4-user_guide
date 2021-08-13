@@ -1,6 +1,6 @@
 # 飞行入门课
 
-本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控无人机的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。
+本主题介绍了在手动或自动驾驶辅助飞行模式下使用[遥控器](../getting_started/rc_transmitter_receiver.md)操控机体的基础知识（有关自主飞行，请参阅：[任务](../flying/missions.md)）。
 
 :::note
 在您第一次飞行之前，您应该阅读我们的[首次飞行指南](../flying/first_flight_guidelines.md)。
@@ -8,9 +8,9 @@
 
 <span id="arm"></span>
 
-## 解锁无人机
+## 解锁机体
 
-在您起飞无人机前，必须要先解锁它。 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
+在您起飞机体前，必须要先解锁它。 这将为所有电机和驱动器供电；在多轴飞行器上，它将启动螺旋桨转动。
 
 解锁无人机
 
