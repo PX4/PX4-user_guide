@@ -128,7 +128,7 @@ PX4 비행 로그 분석 소프트웨어와 방법에 대하여 설명합니다.
 
 주요 특징
 
-* Easy to share, users can view notebooks on Github (e.g. [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb))
+* 공유하기 쉽고 사용자는 Github 노트북을 조회할 수 있습니다(예: [15-09-30 Kabir Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb)).
 * Python 기반, 다중 플랫폼, anaconda2 및 anaconda3에서 작동
 * iPython/jupyter 노트북을 사용하여 분석과 공유가 편리합니다.
 * 상세한 분석이 가능한 고급 플로팅 기능
