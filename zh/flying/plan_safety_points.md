@@ -24,5 +24,5 @@
 
 默认情况下不启用安全点（有许多不同的[返回模式类型](../flight_modes/return.md#return_types)）。
 
-To enable safety points:
+使能安全点方法：
 1. [Use the QGroundControl Parameter Editor](../advanced_config/parameters.md) to set parameter: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).
