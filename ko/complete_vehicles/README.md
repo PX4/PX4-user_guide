@@ -2,7 +2,7 @@
 
 이 섹션에서는 PX4 실행이 가능한 완제품 기체에 대하여 설명합니다. 바로 사용할 수 있는 상업용 차량, 자체 개발의 기반이 될 수 있는 드론 "플랫폼", 부품에서 무인 차량 조립 키트가 나열되어 있습니다.
 
-:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4.io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목들을 참고할 수 있습니다.
+:::note PX4를 실행할 수있는 기체들의 작은 하위 집합입니다. [px4 io](https://px4.io/ecosystem/commercial-systems/)와 [기체 정의서](../airframes/airframe_reference.md)에서 다른 항목들을 참고할 수 있습니다.
 :::
 
 ## 완전 조립품(PX4 사전 설치됨)
