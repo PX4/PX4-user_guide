@@ -8,35 +8,35 @@
 
 ## 지원되는 거리 측정기
 
-### ARK Flow
+### ARK Flow 
 
-[ARK Flow](../uavcan/ark_flow.md) is an open-source Time-of-Flight (ToF) and optical flow sensor module, which is capable of measuring distances from 8cm to 30m. It can be connected to the flight controller via its CAN1 port, allowing additional sensors to connect through its CAN2 port. It runs PX4 firmware, supports [UAVCAN](../uavcan/README.md) [Firmware Updating](../uavcan/node_firmware.md), and is packed into a tiny form factor.
+[ARK Flow](../uavcan/ark_flow.md)는 8cm에서 30m까지의 거리를 측정할 수 있는 오픈 소스 ToF(Time-of-Flight) 및 광학 흐름 센서 모듈입니다. CAN1 포트를 통해 비행 콘트롤러에 연결할 수 있으므로, CAN2 포트를 통해 추가 센서를 연결할 수 있습니다. PX4 펌웨어를 실행하고 [UAVCAN](../uavcan/README.md) [펌웨어 업데이트](../uavcan/node_firmware.md)를 지원하며 소형 폼 팩터에 담겨 있습니다.
 
 ### Holybro ST VL53L1X Lidar
 
-[The VL53L1X](http://www.holybro.com/product/vl53l1x/) is a state-of-the-art, Time-of-Flight (ToF), laser-ranging sensor, enhancing the ST FlightSense™ product family. It is the fastest miniature ToF sensor on the market with accurate ranging up to 4 m and fast ranging frequency up to 50 Hz.
+[VL53L1X](http://www.holybro.com/product/vl53l1x/)는 ST FlightSense™ 제품군을 향상시키는 최첨단 ToF(Time-of-Flight) 레이저 범위 센서입니다. 최대 4m의 정확한 범위와 최대 50Hz의 빠른 범위 주파수를 제공하는 시장에서 가장 빠른 소형 ToF 센서입니다.
 
 ### Lidar-Lite
 
-[Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
+[Lidar-Lite](../sensor/lidar_lite.md)는 소형의 고성능 광학 원거리 거리계입니다. 센서 범위는 (5cm-40m)이며 PWM 또는 I2C 포트에 연결 가능합니다.
 
 ### MaxBotix I2CXL-MaxSonar-EZ
 
-The MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) range has a number of relatively short-ranged sonar based rangefinders that are suitable for assisted takeoff/landing and collision avoidance. These can be connected using an I2C port.
+MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) 범위에는 보조 이착륙 및 충돌 방지에 적합한 단거리 수중 음파 탐지기 기반의 거리계가 많습니다. I2C 포트로 연결 가능합니다.
 
-The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX).
+거리계는 [SENS_EN_MB12XX](../advanced_config/parameter_reference.md#SENS_EN_MB12XX) 매개변수로 활성화됩니다.
 
 ### Lightware LIDARs
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md)는 드론 애플리케이션에 적합한 경량 "레이저 고도계"를 제공합니다.
 
-PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
+PX4는 SF11/c와 SF/LW20을 지원합니다. PX4는 SF02, SF10/a, SF10/b, SF10/c 단종 모델에도 사용 가능합니다.
 
-### TeraRanger Rangefinders
+### TeraRanger 거리계
 
-[TeraRanger](../sensor/teraranger.md) provide a number of lightweight distance measurement sensors based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
+[TeraRanger](../sensor/teraranger.md)는 적외선 ToF (Time-of-Flight) 기반의 다양한 경량 거리측정 센서를 제공합니다. 일반적으로, 소나보다 더 빠르고 범위가 넓으며 레이저 기반 장치보다 작고 가볍습니다.
 
-PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
+PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One, TeraRanger Evo 60m 및 TeraRanger Evo 600Hz.
 
 ### Ainstein US-D1 Standard Radar Altimeter
 
