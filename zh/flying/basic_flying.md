@@ -15,16 +15,16 @@
 解锁无人机
 
 - 首先关闭安全开关
-- 对您的车辆使用解锁命令 - 将油门杆放在右下角。 
+- 对您的机体使用解锁命令 - 将油门杆放在右下角。 
   - 或者增加一个解锁/加锁开关
-  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要遥控器控制）
+  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）
 
 :::tip
-无人机在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [无人机状态通知](../getting_started/vehicle_status.md) (包括机身LED, 音频通知和 *QGroundControl* 通知）可以告诉您无人机何时可以飞行(并帮助您在未准备好飞行时找出原因)。
+机体在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [机体状态通知](../getting_started/vehicle_status.md) (包括机体LED, 音频通知和 *QGroundControl* 通知）可以告诉您机体何时可以飞行(并帮助您在未准备好飞行时找出原因)。
 :::
 
 :::note
-如果您解锁后过长时间没有起飞，无人机将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动 [加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保无人机在没有被使用时恢复到安全状态。
+如果您解锁后过长时间没有起飞，机体将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动 [加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保机体在没有被使用时恢复到安全状态。
 :::
 
 :::note VTOL机型只能在多旋翼模式下解锁(默认-可以使用 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
@@ -34,7 +34,7 @@
 
 ## 起飞
 
-最简单的起飞方式（在[无人机解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
+最简单的起飞方式（在[机体解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
 多旋翼（和 VTOL 在 多旋翼模式下）飞手可以通过启用位置模式，解锁无人机，然后将油门杆升至 62.5% 以上来手动起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
