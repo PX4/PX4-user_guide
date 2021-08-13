@@ -40,5 +40,5 @@ PX4 支持由多个圆形和多边形区域组成的复杂地理围栏边界，�
 1. 完成后，点击(右上角) **上传** 按钮向车辆发送围栏(连同集结和任务)。
 1. 在围栏失控保护中设置越界动作。
 
-:::note PX4 实现了MAVLink [微服务](https://mavlink.io/en/services/mission.html), 其中包括支持围栏.
+:::note PX4 实现了 MAVLink [微服务](https://mavlink.io/en/services/mission.html), 其中包括支持围栏.
 :::
