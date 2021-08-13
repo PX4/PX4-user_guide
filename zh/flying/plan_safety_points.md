@@ -2,7 +2,7 @@
 
 安全点是[返航模式](../flight_modes/return.md)目的/降落点。 启用后，车辆将从HOME点、任务降落点或安全点选择*最近的返航目的地*。
 
-![Safety Points](../../assets/qgc/plan/rally_point/rally_points.jpg)
+![安全点](../../assets/qgc/plan/rally_point/rally_points.jpg)
 
 ## 创建/定义安全点
 
@@ -25,4 +25,4 @@
 默认情况下不启用安全点（有许多不同的[返回模式类型](../flight_modes/return.md#return_types)）。
 
 使能安全点方法：
-1. [Use the QGroundControl Parameter Editor](../advanced_config/parameters.md) to set parameter: [RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE).
+1. 使用 [QGroundControl 参数编辑器](../advanced_config/parameters.md)设置参数：[RTL_TYPE=3](../advanced_config/parameter_reference.md#RTL_TYPE)。
