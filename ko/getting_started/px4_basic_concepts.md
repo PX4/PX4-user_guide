@@ -11,32 +11,32 @@
 드론은 [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진/영상, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
 :::tip
-항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식적인 용어는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론의 "뇌"에 해당하는 장치를 오토파일럿이라고 합니다. 자율 비행 프로그램은 비행제어 장치에서 동작하는 각종 비행 모듈로 구성되어 있습니다.
+드론의 "뇌"에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치에는 각종 비행 모듈로 구성되어 있습니다.
 
 <a id="autopilot"></a>
 
 ## PX4 자동비행장치
 
-[PX4](https://px4.io/)는 강력한 오픈 소스 자동조종장치 *플라이트 스택*입니다.
+[PX4](https://px4.io/)는 오픈 소스 기반의 강력한 *자동조종장치*입니다.
 
-PX4의 주요 기능은 다음과 같습니다:
+PX4의 주요 기능은 다음과 같습니다.
 
-- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체 및 잠수정 등 [매우 다양한 기체 프레임](../airframes/airframe_reference.md)을 제어함 
-- [기체 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치에 있어 하드웨어 관점에서 탁월한 선택임
-- 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원함
+- 항공기(멀티콥터, 고정익 및 수직이착륙기), 지상운송체 및 잠수정 등 [매우 다양한 차량들](../airframes/airframe_reference.md)을 제어합니다. 
+- [기체 콘트롤러](#vehicle_controller), 센서 및 다양한 주변 장치라는 하드웨어 관점에서 매우 탁월한 선택입니다.
+- 유연하고 강력한 [비행 모드](#flight_modes)와 [안전 기능](#safety)을 지원합니다.
 
-PX4는 [QGroundControl](#qgc) 지상 관제 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터를 붙이는 [MAVSDK](http://mavsdk.mavlink.io), 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어가 어우러진 방대한 드론 플랫폼의 핵심 부분입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
+PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어](https://pixhawk.org/), 보조 컴퓨터, 카메라, MAVLink 프로토콜을 사용하는 기타 하드웨어를 통합하는 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 방대한 드론 플랫폼의 핵심입니다. PX4는 [드론코드 프로젝트](https://www.dronecode.org/)의 지원을 받고 있습니다.
 
 <a id="qgc"></a>
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상 관제 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 PX4를 [비행 제어 장치 하드웨어](flight_controller_selection.md)에 적재(플래싱)하고, 기체를 설정하고, 다양한 매개변수 값을 바꾸며, 실시간 비행 정보를 가져오고, 완전 자동 임무 비행을 수행할 수 있습니다.
+드론코드에서 지원하는 지상국 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 다양한 매개변수 변경, 실시간 비행 정보 조회, 완전 자동 임무 비행등의 작업을 할 수 있습니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스에서 실행 가능합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
+*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
 
 ![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
