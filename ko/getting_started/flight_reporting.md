@@ -27,13 +27,13 @@ PX4는 성능 문제를 분석을 위하여 항공기 상태 및 센서 데이�
 
 ## PX4 개발자가 검토할 로그 파일 공유
 
-The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../contribute/support.md#forums-and-chat) or a [Github issue](../README.md#reporting-bugs-issues).
+[ Flight Review ](http://logs.px4.io) 로그 파일 링크는 [ 지원 포럼 ](../contribute/support.md#forums-and-chat) 또는 [ Github 문제 ](../README.md#reporting-bugs-issues)에서 토론을 위해 공유할 수 있습니다.
 
 ## 로그 설정
 
 로깅 시스템은 기본적으로 [ Flight Review ](http://logs.px4.io)와 함께 사용하기 위해 합리적인 로그를 수집하도록 구성됩니다.
 
-Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters or with a file on the SD card. Details on configuration can be found in the [logging configuration documentation](../dev_log/logging.md#configuration).
+로깅은 [SD 로깅](../advanced_config/parameter_reference.md#sd-logging) 매개변수를 사용하거나 SD 카드의 파일을 사용하여 설정할 수 있습니다. 설정 세부정보는 [로깅 설정](../dev_log/logging.md#configuration)을 참고하십시오.
 
 ## 주요 링크
 
