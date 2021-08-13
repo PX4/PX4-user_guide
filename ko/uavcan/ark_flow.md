@@ -2,8 +2,7 @@
 
 ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md), [거리 센서](../sensor/rangefinders.md) 및 IMU 모듈입니다.
 
-![ARK Flow
-](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
+![ARK Flow](../../assets/hardware/sensors/optical_flow/ark_flow.jpg)
 
 ## 구매처
 
@@ -30,16 +29,16 @@ ARK Flow는 오픈 소스 [UAVCAN](README.md) [광류](../sensor/optical_flow.md
     * 최대 200k Lux 주변 조명 작동
     * 모든 표면 조건에서 잘 작동
     * 1~3 픽셀 사이를 비추는 2° x 2°의 송신기 빔
-  * 최대 7.4 rad/s
-* Bosch BMI088 6축 IMU
-* Two Pixhawk Standard CAN Connectors
-  * 4 Pin JST GH
+  * 최대 7.4 rad/sPixArt PAW3902 광학식 유량 센서
+* STM32F412CEU6 MCU
 * Pixhawk 표준 CAN 커넥터 2 개
   * 4 핀 JST GH
-* Pixhawk 표준 디버그 포트
-  * 6 핀 JST SH
-* LED Indicators
+* Pixhawk 표준 CAN 커넥터 2 개
+  * 4 핀 JST GH
+* 소형 폼 팩터
+  * 3cm x 3cm x 1.4cm
 * LED 표시기
+* 미국에서 제작
 
 
 ### 배선
@@ -76,9 +75,9 @@ ARK Flow 보드를 사용하려면 Pixhawk CAN 버스에 연결하고 동적 노
 ### PX4 설정
 
 [Optical Flow > 추정기 > EKF2 ](../sensor/optical_flow.md#ekf2) 에서 EKF 광류 매개변수를 설정합니다.
-- In *QGroundControl* manually set the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to `2` to use optical flow only or `3` to use GPS and optical flow. To manually set the value, select `Advanced Settings` and check `manual entry`, then enter the value at the top and save.
-- 센서가 차량 중앙에 있지 않은 경우 오프셋을 정의합니다.
-- Set [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `0.08` and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX) to `30`.
+- *QGroundControl*에서 수동으로 매개변수 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK)를 `2`로 설정하여 광학 흐름만 사용하거나 `3`으로 설정하여 GPS와 광학 흐름을 사용합니다. 값을 수동으로 설정하려면 `고급 설정`을 선택하고 `수동 입력`을 체크한 후 상단에 값을 입력하고 저장합니다.
+- 매개변수 [EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X), [EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) 및 [EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z)는 차량 무게 중심에서 Ark Flow의 오프셋을 설명하도록 설정할 수 있습니다.
+- [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)을 `0.08`로, [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX)를 `30`으로 설정합니다.
 
 또한 다음의 매개변수들을 설정할 수 있습니다.
 
@@ -105,38 +104,36 @@ Ark Flow는 최신 펌웨어로 빌드되어 판매됩니다. 최신 버전으�
    ```
    make ark_can-flow
    ```
-1. That will have created a binary in **build/ark_can-flow_default** named **XX-X.X.XXXXXXXX.uavcan.bin**. Put this binary on the root directory of the flight controller’s SD card to flash the Ark Flow. Next time you power your flight controller with the SD card installed, Ark Flow will automatically be flashed and you should notice the binary is no longer in the root directory and there is now a file named **80.bin** in the ufw directory of the SD card. :::note The Ark Flow will not boot if there is no SD card in the flight controller when powered on.
+1. **build/ark_can-flow_default**에 **XX-X.X.XXXXXXXX.uavcan.bin**이라는 바이너리가 생성됩니다. 이 바이너리를 비행 컨트롤러 SD 카드의 루트 디렉터리에 저장하여 Ark Flow를 플래시합니다. 다음으로 SD 카드가 설치된 상태에서 비행 컨트롤러의 전원을 켜면 Ark Flow가 자동으로 깜박이고 바이너리가 더 이상 루트 디렉터리에 없고 이제  SD 카드의 ufw 디렉토리에 **80.bin**이라는 파일이 생깁니다. :::note 전원을 켤 때 비행 컨트롤러에 SD 카드가 없으면, Ark Flow가 부팅되지 않습니다.
 :::
 
 
-## 비디오
+## Ark Flow 부트로더 업데이트
 
-The Ark Flow comes with the bootloader pre-installed. You can, however, rebuild and reflash it within the PX4-Autopilot environment.
+Ark Flow는 부트로더가 사전 설치된 상태로 판매됩니다. 그러나, PX4-Autopilot 환경에서 다시 빌드하고 다시 플래시할 수 있습니다.
 
-The steps are:
-1. Build the Ark Flow bootloader firmware:
+단계는 다음과 같습니다:
+1. Ark Flow 부트로더 펌웨어를 빌드합니다.
    ```
    make ark_can-flow_canbootloader
    ```
-:::note
-This will setup your `launch.json` file if you are in VS code. If using the Black Magic Probe and VS code, make sure to update `BMPGDBSerialPort` within this file to the correct port that your debugger is connected to. On MacOS, the port name should look something like `cu.usbmodemE4CCA0E11`.
+:::note VS
+코드에서는 이렇게 하면, `launch.json` 파일이 설정됩니다. Black Magic Probe 및 VS 코드를 사용하는 경우 이 파일 내의 `BMPGDBSerialPort`를 디버거가 연결된 올바른 포트로 업데이트해야 합니다. MacOS에서 포트 이름은 `cu.usbmodemE4CCA0E11`과 같아야 합니다.
 :::
-1. Connect to your Ark Flow to any Serial Wire Debugging (SWD) device that supports use of GNU Project Debugger (GDB), such as the Black Magic Probe and then connect power to your Ark Flow via one of the CAN ports.
-1. Flash the Ark Flow with `ark_can-flow_canbootloader`. To do so in VS code, you should see `CMake: [ark_can-flow_canbootloader]: Ready` on the bottom bar of VS code, indicating what you are flashing. You then flash the bootloader by selecting `Start Debugging` in the Run and Debug window of VS code and then selecting `Continue` after the first breakpoint.
-1. With the bootloader flashed, you are ready to build and flash the Ark Flow firmware `ark_can-flow_default` as outlined above.
+1. Black Magic Probe와 같은 GNU 프로젝트 디버거(GDB) 사용을 지원하는 직렬 와이어 디버깅(SWD) 장치에 Ark Flow를 연결한 다음 CAN 포트 중 하나를 통해 Ark Flow에 전원을 연결합니다.
+1. `ark_can-flow_canbootloader`로 Ark Flow를 플래시합니다. VS 코드에서 그렇게 하려면, VS 코드의 하단 표시줄에 `CMake: [ark_can-flow_canbootloader]: Ready`가 표시되어 깜박이고 있음을 나타냅니다. 그런 다음, VS 코드의 실행 및 디버그 창에서 `디버깅 시작`을 선택한 다음 첫 번째 중단점 이후에 `계속`을 선택하여 부트로더를 플래시합니다.
+1. 부트로더가 플래시되면 위에서 설명한 대로 Ark Flow 펌웨어 `ark_can-flow_default`를 빌드하고 플래시할 준비가 된 것입니다.
 
 
-## LED Meanings
+## LED 신호의 의미
 
-You will see both red and blue LEDs on the ARK Flow when it is being flashed, and a solid blue LED if it is running properly.
+ARK Flow가 깜박일 때 빨간색과 파란색 LED가 모두 표시되고, 제대로 실행 중이면 파란색 LED가 계속 켜져 있습니다.
 
-If you see a solid red LED there is an error and you should check the following:
-- Make sure the flight controller has an SD card installed.
-- Make sure the Ark Flow has `ark_can-flow_canbootloader` installed prior to flashing `ark_can-flow_default`.
-- Remove binaries from the root and ufw directories of the SD card and try to build and flash again.
+빨간색 LED가 계속 켜져 있으면, 오류가 있으므로 다음 사항들을 확인하여야 합니다.
+- 비행 콘트롤러에 SD 카드가 설치되어 있는지 확인하십시오.
+- `ark_can-flow_default`를 플래싱하기 전에 Ark Flow에 `ark_can-flow_canbootloader`가 설치되어 있는 지 확인하십시오.
+- SD 카드의 루트 및 ufw 디렉토리에서 바이너리를 제거하고 빌드 및 플래시를 다시 시도하십시오.
 
-## Video
+## 비디오
 
-@[youtube](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0)
-<!-- ARK Flow with PX4 Optical Flow Position Hold: 20210605 -->
-*PX4 holding position using the ARK Flow sensor for velocity estimation (in [Position Mode](../flight_modes/position_mc.md)).* 
+@[유튜브](https://www.youtube.com/watch?v=SAbRe1fi7bU&list=PLUepQApgwSozmwhOo-dXnN33i2nBEl1c0) *속도 추정을 위해 ARK Flow 센서를 사용한 PX4 고정 위치([위치 모드](../flight_modes/position_mc.md)에서)* 
