@@ -4,7 +4,8 @@
 
 이 섹션에는 PX4에서 지원하는 거리 센서(더 자세한 문서에 링크됨), 모든 거리 측정기에 필요한 [일반 설정](#configuration), [테스트](#testing)와 [시뮬레이션](#simulation)을 설명합니다. 보다 자세한 설정과 정보는 아래 링크(및 사이드 바)를 참고하십시오.
 
-<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow" width="200px" />
+<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/lidar_lightware/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/optical_flow/ark_flow_distance_sensor.jpg" alt="ARK Flow
+" width="200px" />
 
 ## 지원되는 거리 측정기
 
@@ -40,37 +41,37 @@ PX4는 I2C 버스 타입의 다음 모델들을 지원합니다 : TeraRanger One
 
 ### Ainstein US-D1 Standard Radar Altimeter
 
-The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+*Ainstein* [US-D1 표준 레이더 고도계](../sensor/ulanding_radar.md)는 UAV에 최적화된 소형 마이크로파 거리계입니다. 감지 범위는 약 50m입니다. 이 제품의 특별한 장점은 모든 기상 조건과 모든 지형 유형(물 포함)에서 잘 작동하는 것입니다.
 
 ### LeddarOne
 
-[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+ LeddarOne </ 0>은 좁지만 확산 빔이있는 소형 Lidar 모듈로, 견고하고 신뢰할 수 있으며, 비용 효율적인 패키지로 우수한 감지 범위를 제공합니다. 감지 범위는 1cm ~ 40m이며 UART/직렬 버스로 연결합니다.</p> 
 
 ### TFmini
 
-The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
+[Benewake TFmini Lidar](../sensor/tfmini.md)는 12m 범위의 작고 저렴한 저전력 LIDAR입니다.
 
 ### PSK-CM8JL65-CC5
 
-The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
+[Lanbao PSK-CM8JL65-CC5 ToF 적외선 거리측정 센서](../sensor/cm8jl65_ir_distance_sensor.md)는 0.17m-8m 범위와 밀리미터 분해능을 가진 매우 작은 (38mm x 18mm x 7mm, &lt; 10g) IR 거리 센서입니다. UART/직렬 버스에 연결하여야합니다. <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
 
 ### Avionics Anonymous UAVCAN Laser Altimeter Interface
 
-The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the [UAVCAN](../uavcan/README.md) bus, a more robust interface than I2C.
+[Avionics Anonymous UAVCAN Laser Altimeter Interface](../uavcan/avanon_laser_interface.md)는 여러 개의 일반거리계(예 : [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md) 등)들을 I2C보다 더 강력한 인터페이스인 [UAVCAN](../uavcan/README.md) 버스에 연결할 수 있습니다.
 
 <span id="configuration"></span>
 
 ## 설정
 
-Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
+거리계는 일반적으로 직렬 (PWM) 또는 I2C 포트 (장치 드라이버에 따라 다름)에 연결되며, 특정 매개변수로 포트에서 활성화됩니다.
 
-The hardware and software setup that is *specific to each distance sensor* is covered in their individual topics.
+*개별 거리 센서*의 하드웨어와 소프트웨어 설정은 개별 주제에서 설명합니다.
 
-The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
+물리적 설정과 사용법에 관한 *모든 거리 센서에 공통적인* 설정 방법은 다음과 같습니다.
 
-### Generic Configuration
+### 일반 설정
 
-The common rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters. These include (non exhaustively):
+일반적인 거리계 설정은 [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) 매개변수를 사용합니다. 여기에는 아래의 내용들이 포함됩니다.
 
 - [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - 기체 무게 중심에서 X, Y, Z 방향의 오프셋
 - [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_PITCH) - 0도 (기본값) 값은 기체 수직 축 (즉, 아래로 똑바로 아래)에 정확히 정렬된 거리 측정기에 해당하고, 90도는 거리 측정기가 앞을 향하고 있음을 나타냅니다. 0이 아닌 피치가 사용되는 경우 간단한 삼각법을 사용하여 지면까지의 거리를 계산합니다.
@@ -80,17 +81,17 @@ The common rangefinder configuration is specified using [EKF2*RNG**](../advanced
 
 ## 시험
 
-The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
+거리계를 테스트하는 가장 간편한 방법은 범위를 변경하고 PX4에서 감지된 값과 비교하는 것입니다. 아래 섹션에서는 측정 범위를 측정하는 방법을 설명합니다.
 
-### QGroundControl Analyze Tool
+### QGroundControl 분석 툴
 
-The *QGroundControl Analyze Tool* tool and *QGroundControl MAVLink Inspector* let you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
+*QGroundControl 분석 도구*와 *QGroundControl MAVLink Inspector*를 사용하여거리계의 `DISTANCE_SENSOR` 정보를 포함하여 기체에서 보낸 메시지를 조회할 수 있습니다. 도구 간의 주요 차이점은 *분석* 도구에서 그래프를 지원하는 점입니다.
 
 :::note
-The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
+전송되는 메시지는 차량 설정에 따라 달라집니다. 연결된 기체에 거리계가 설치되어 있고, 센서 값을 게시하는 경우에만 `DISTANCE_SENSOR` 메시지가 표시됩니다.
 :::
 
-To view the rangefinder output:
+거리계 출력을 보려면 :
 
 1. **위젯 &gt; 분석** 메뉴를 오픈합니다.
     
@@ -98,37 +99,37 @@ To view the rangefinder output:
 
 2. `DISTANCE_SENSOR.current_value` 메시지를 선택합니다. 그러면, 도구가 결과를 플로팅합니다. ![QGC DISTANCE_SENSOR 값 분석](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
 
-### QGroundControl MAVLink Console
+### QGroundControl MAVLink 콘솔
 
-You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
+*QGroundControl MAVLink Console*을 사용하여 `distance_sensor` uORB 토픽을 관찰할 수 있습니다.
 
 ```sh
 listener distance_sensor 5
 ```
 
 :::note
-The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
+*QGroundControl MAVLink Console*은 Pixhawk 또는 다른 NuttX 타겟에 연결시 작동하지만 ,시뮬레이터에는 연결되지 않습니다. 시뮬레이터에서는 터미널에서 직접 명령을 실행할 수 있습니다.
 :::
 
-For more information see: [Development > Debugging/Logging > Sensor/Topic Debugging using the Listener Command](../debug/sensor_uorb_topic_debugging.md).
+자세한 내용은 [개발 &gt; 디버깅/로깅 &gt; 리스너 명령을 사용한 센서/토픽 디버깅](../debug/sensor_uorb_topic_debugging.md)을 참고하십시오.
 
 ## 시뮬레이션
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](../simulation/gazebo.md). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar 및 소나 거리계는 [Gazebo Simulator](../simulation/gazebo.md)에서 사용할 수 있습니다. 이렇게 하려면, 거리계가 포함된 기체 모델을 사용하여 시뮬레이터를 시작하여 합니다.
 
-The iris optical flow model includes a Lidar rangefinder:
+광류 모델에는 Lidar 거리계가 포함됩니다.
 
 ```sh
 make px4_sitl gazebo_iris_opt_flow
 ```
 
-The typhoon_h480 includes a sonar rangefinder:
+typhoon_h480에는 소나 거리계가 포함되어 있습니다.
 
 ```sh
 make px4_sitl gazebo_typhoon_h480
 ```
 
-If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
+다른 기체를 사용하는 경우에는 설정 파일에 모델을 포함할 수 있습니다. 각각의 Iris 및 Typhoon 설정 파일에서 방법을 확인할 수 있습니다.
 
 - [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf) 
         xml
@@ -146,7 +147,7 @@ If you need to use a different vehicle you can include the model in its configur
               <lower>0</lower>
             </limit>
           </axis>
-        </joint>
+        </joint> 
 
 - [typhoon_h480.sdf](https://github.com/PX4/PX4-SITL_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf.jinja#L1131-L1145) 
         xml
