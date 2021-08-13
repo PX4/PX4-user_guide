@@ -12,7 +12,7 @@ SiK 라디오는 다양한 범위와 폼 팩터를 지원하는 다양한 제조
 
 ## 공급 업체
 
-* [RFD900 텔레메트리 라디오](../telemetry/rfd900_telemetry.md)
+* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 * [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * <del><em>HKPilot Telemetry Radio</em></del> (Discontinued)
 * <del><em>3DR 텔레메트리 라디오</em></del> (단종)
