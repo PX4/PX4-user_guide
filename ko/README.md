@@ -26,31 +26,31 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 **처음부터 PX4로 무인 항공기를 제작하는 경우**
 
 :::tip
-"지원" 기체의 목록은 [기체 정의서](airframes/airframe_reference.md)에 참고하십시오. 이 목록의 기체들은 *QGroundControl*에서 시험을 마쳤으며 각 기체에 적합하게 튜닝되어 있습니다.
+"지원" 기체의 목록은 [기체 정의서](airframes/airframe_reference.md)에 참고하십시오. 이 목록의 기체들은 *QGroundControl*에서 시험을 마쳤으며, 기체에 적합하게 튜닝되어 있습니다.
 :::
 
 처음부터 기체를 제작하려면
 
 * 기체 선택하기 - [기체 제작](airframes/README.md)에서는 지원 기체 목록이 있으며, 기체 조립법을 자세하게 설명합니다. 
-* 비행 컨트롤러 선택 - [시작하기 > 비행 컨트롤러](getting_started/flight_controller_selection.md)와 [자동 항법 장치 하드웨어](flight_controller/README.md)를 살펴보십시오.
-* [조립](assembly/README.md)은 중요한 주변 장치를 자동 항법 장치에 연결하는 방법을 설명합니다.
-* [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 기체에 적합한 펌웨어 설정법을 설명합니다. 주요 센서(나침반, 자이로/IMU, 항속센서 등)를 보정법과 원격 조종법 및 안전 기능 설정 방법을 설명합니다.
+* 비행 콘트롤러 선택 - [시작하기 &gt; 비행 콘트롤러](getting_started/flight_controller_selection.md)와 [자동항법장치](flight_controller/README.md)에 대하여 설명합니다.
+* [조립](assembly/README.md)은 주요 주변 장치를 자동항법장치에 연결하는 방법을 설명합니다.
+* [기초 설정](config/README.md)은 펌웨어 업데이트 방법과 설정법을 설명합니다. 주요 센서(나침반, 자이로, IMU, 대기 센서 등) 보정법, 원격 조종법과 안전 기능 설정 방법을 설명합니다.
 
-기체를 날릴 준비가 되었다면 [비행](flying/README.md)편으로 넘어가십시오.
+기체를 날릴 준비가 되었다면 [비행](flying/README.md)편을 참고하십시오.
 
-**페이로드 또는 카메라를 추가하는 경우**
+**페이로드나 카메라를 장착하는 경우**
 
-페이로드 섹션에서는 카메라를 추가하는 방법 또는 패키지를 제공 할 수 있도록 PX4를 설정하는 방법을 설명합니다.
+페이로드 섹션에서는 카메라를 장착하는 방법과 화물 운송이 가능하도록 PX4를 설정하는 방법을 설명합니다.
 
-* [페이로드](payloads/README.md)에서는 페이로드를 통합하는 방법을 설명합니다.
+* [페이로드](payloads/README.md)에서는 페이로드 통합 방법을 설명합니다.
 
 **기체를 변경하는 경우**
 
-비행 컨트롤러 및 기본 센서 수정은 위 항목에서 다룹니다. 새로운 센서를 추가하거나 중요한 비행 설정을 변경하는 경우
+비행 콘트롤러와 기본 센서 수정은 아래 항목에서 설명합니다. 새로운 센서를 추가하거나, 중요 비행 설정을 변경하는 경우
 
-* [주변 장치](peripherals/README.md)에서는 외부 센서 사용에 대한 추가 정보를 제공합니다.
-* [기본 설정](config/README.md)에서는 주요 센서를 보정법을 설명합니다.
-* [고급 설정](advanced_config/README.md)에서는 기체의 재설정 및 튜닝 방법을 설명합니다.
+* [주변 장치](peripherals/README.md)에서는 외부 센서 사용법을 설명합니다.
+* [기본 설정](config/README.md)에서는 주요 센서 보정법을 설명합니다.
+* [고급 설정](advanced_config/README.md)에서는 기체 재설정 방법과 튜닝 방법을 설명합니다.
 
 **새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하는 경우**
 
@@ -58,20 +58,20 @@ PX4를 지원하는 기체가 준비되어 있는 경우:
 
 ## 도움 받기
 
-[지원](contribute/support.md) 페이지는 코어 개발 팀과 더 넓은 커뮤니티로부터 도움을 받는법에 대해 설명합니다.
+[지원](contribute/support.md) 페이지에서는 핵심 개발 팀과 커뮤니티에서 도움 받는 방법을 설명합니다.
 
-다음과 같은 내용을 다루고 있습니다.
+다음과 같은 내용을 다룹니다.
 
 * [도움을 받을 수 있는 포럼 목록](contribute/support.md#forums-and-chat)
 * [문제 진단](contribute/support.md#diagnosing-problems)
 * [버그 보고 방법](contribute/support.md#issue-bug-reporting)
-* [주간 온라인 개발자 회의](contribute/support.md#weekly-dev-call)
+* [주간 온라인 개발 회의](contribute/support.md#weekly-dev-call)
 
 ## 버그 및 문제점 보고
 
-PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 올려주십시오.
+PX4 사용에 문제가 있으시면, 먼저 [지원 포럼](contribute/support.md#forums-and-chat)에 내용을 올려주십시오.
 
-개발팀의 지침에 따라, [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 이슈를 제기할 수 있습니다. 가능한 경우 문제 양식(Issue template)에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
+개발팀의 지침에 따라, [Github](https://github.com/PX4/PX4-Autopilot/issues)에 코드 이슈를 제기할 수 있습니다. 가능하면, 문제 양식에 맞추어 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공하여 주십시오.
 
 ## 기여 
 
@@ -83,7 +83,7 @@ PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.
 
 ## 번역
 
-이 안내서에는 다양한 [번역](contribute/translation.md)본이 있습니다. (우측 상단의) 언어 메뉴에서 원하시는 번역본을 선택할 수 있습니다:
+이 안내서에는 다양한 [번역](contribute/translation.md)본이 있습니다. 우상단의 언어 메뉴에서 원하시는 번역본을 선택할 수 있습니다:
 
 ![언어 선택](../assets/vuepress/language_selector.png)
 
@@ -91,9 +91,9 @@ PX4 사용에 문제를 겪었다면, 먼저 [지원 포럼](contribute/support.
 
 PX4 코드는 [BSD 3-clause 라이센스](https://opensource.org/licenses/BSD-3-Clause)에 따라 자유롭게 사용하고 수정할 수 있습니다. 이 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 라이센스를 준수합니다. 자세한 정보는 [라이센스](contribute/licenses.md)를 참고하십시오.
 
-## 주요 행사 및 일정 
+## 중요 행사 및 일정 
 
-드론 코드 달력에서는 플랫폼 개발자와 사용자를 위한 중요한 일정이 표시되어 있습니다. 사용자의 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 사용자의 달력에 추가할 수도 있습니다.
+드론 코드 달력에서는 개발자와 사용자를 위한 중요한 일정이 표시되어 있습니다. 사용자의 시간대와 맞는 달력을 보려면 아래 링크를 선택하십시오. 사용자 달력에 추가할 수 있습니다.
 
 * [스위스 – 취리히](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
 * [태평양 시간대 – 티후아나](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
