@@ -728,6 +728,10 @@ div.frame_variant td, div.frame_variant th {
  <td>DJI Matrice 100</td>
  <td>Maintainer: James Goppert &lt;james.goppert@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4060</p></td>
 </tr>
+<tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
+ <td>Advanced Technology Labs (ATL) Mantis EDU</td>
+ <td><p><code>SYS_AUTOSTART</code> = 4061</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+</tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
  <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
@@ -1066,6 +1070,10 @@ div.frame_variant td, div.frame_variant th {
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td>HILStar (XPlane)</td>
  <td>Maintainer: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1000</p></td>
+</tr>
+<tr id="plane_simulation_(plane)_sih_plane_aert">
+ <td>SIH plane AERT</td>
+ <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
 </tr>
   </table>
 </div>
