@@ -868,24 +868,21 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
- <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Critical threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   </td>
  <td>0.05 > 0.25 (0.01)</td>
  <td>0.07</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
- <td>Emergency threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Emergency threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   </td>
  <td>0.03 > 0.1 (0.01)</td>
  <td>0.05</td>
  <td>norm</td>
 </tr>
 <tr>
  <td><strong id="BAT_LOW_THR">BAT_LOW_THR</strong> (FLOAT)</td>
- <td>Low threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Low threshold <p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   </td>
  <td>0.12 > 0.5 (0.01)</td>
  <td>0.15</td>
  <td>norm</td>
@@ -1155,8 +1152,7 @@ table {
 </tr>
 <tr>
  <td><strong id="CBRK_IO_SAFETY">CBRK_IO_SAFETY</strong> (INT32)</td>
- <td>Circuit breaker for IO safety <p><strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Circuit breaker for IO safety <p><strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
  <td>0 > 22027 </td>
  <td>22027</td>
  <td></td>
@@ -1171,32 +1167,28 @@ table {
 </tr>
 <tr>
  <td><strong id="CBRK_SUPPLY_CHK">CBRK_SUPPLY_CHK</strong> (INT32)</td>
- <td>Circuit breaker for power supply check <p><strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Circuit breaker for power supply check <p><strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
  <td>0 > 894281 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_USB_CHK">CBRK_USB_CHK</strong> (INT32)</td>
- <td>Circuit breaker for USB link check <p><strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander, setting it to 0 keeps them enabled (recommended). We are generally recommending to not fly with the USB link connected and production vehicles should set this parameter to zero to prevent users from flying USB powered. However, for R&D purposes it has proven over the years to work just fine.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Circuit breaker for USB link check <p><strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander, setting it to 0 keeps them enabled (recommended). We are generally recommending to not fly with the USB link connected and production vehicles should set this parameter to zero to prevent users from flying USB powered. However, for R&D purposes it has proven over the years to work just fine.</p>   </td>
  <td>0 > 197848 </td>
  <td>197848</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_VELPOSERR">CBRK_VELPOSERR</strong> (INT32)</td>
- <td>Circuit breaker for position error check <p><strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Circuit breaker for position error check <p><strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
  <td>0 > 201607 </td>
  <td>0</td>
  <td></td>
 </tr>
 <tr>
  <td><strong id="CBRK_VTOLARMING">CBRK_VTOLARMING</strong> (INT32)</td>
- <td>Circuit breaker for arming in fixed-wing mode check <p><strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Circuit breaker for arming in fixed-wing mode check <p><strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   </td>
  <td>0 > 159753 </td>
  <td>0</td>
  <td></td>
@@ -1786,8 +1778,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_DELAY">COM_POS_FS_DELAY</strong> (INT32)</td>
- <td>Loss of position failsafe activation delay <p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Loss of position failsafe activation delay <p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   </td>
  <td>1 > 100 </td>
  <td>1</td>
  <td>s</td>
@@ -1816,8 +1807,7 @@ table {
 </tr>
 <tr>
  <td><strong id="COM_POS_FS_PROB">COM_POS_FS_PROB</strong> (INT32)</td>
- <td>Loss of position probation delay at takeoff <p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Loss of position probation delay at takeoff <p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   </td>
  <td>1 > 100 </td>
  <td>30</td>
  <td>s</td>
@@ -3751,6 +3741,37 @@ table {
 </tr>
 </tbody></table>
 
+## ESC
+
+<table>
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td><strong id="ESC_BL_VER">ESC_BL_VER</strong> (INT32)</td>
+ <td>Required esc bootloader version    </td>
+ <td>0 > 65535 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ESC_FW_VER">ESC_FW_VER</strong> (INT32)</td>
+ <td>Required esc firmware version    </td>
+ <td>0 > 65535 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="ESC_HW_VER">ESC_HW_VER</strong> (INT32)</td>
+ <td>Required esc hardware version    </td>
+ <td>0 > 65535 </td>
+ <td>0</td>
+ <td></td>
+</tr>
+</tbody></table>
+
 ## Events
 
 <table>
@@ -4572,8 +4593,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
- <td>Enable checks on ESCs that report their arming state <p><strong>Comment:</strong> If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state. Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle.</p>   <p><b>Reboot required:</b> true</p>
-</td>
+ <td>Enable checks on ESCs that report their arming state <p><strong>Comment:</strong> If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state. Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle.</p>   </td>
  <td></td>
  <td>Enabled (1)</td>
  <td></td>
@@ -4803,13 +4823,15 @@ table {
 </tr>
 <tr>
  <td><strong id="GPS_DUMP_COMM">GPS_DUMP_COMM</strong> (INT32)</td>
- <td>Dump GPS communication to a file <p><strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.</p> <strong>Values:</strong><ul>
+ <td>Log GPS communication data <p><strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message. If this is set to 2, the main GPS is configured to output RTCM data, which is then logged as gps_dump and can be used for PPK.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
 
-<li><strong>1:</strong> Enable</li> 
+<li><strong>1:</strong> Full communication</li> 
+
+<li><strong>2:</strong> RTCM output (PPK)</li> 
 </ul>
   </td>
- <td>0 > 1 </td>
+ <td>0 > 2 </td>
  <td>0</td>
  <td></td>
 </tr>
@@ -5172,7 +5194,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
- <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values results in less agressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
+ <td>Landing target measurement uncertainty <p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values result in less aggressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>   </td>
  <td></td>
  <td>0.005</td>
  <td>tan(rad)^2</td>
@@ -5212,7 +5234,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LTEST_VEL_UNC_IN">LTEST_VEL_UNC_IN</strong> (FLOAT)</td>
- <td>Initial landing target velocity uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y direction</p>   </td>
+ <td>Initial landing target velocity uncertainty <p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y directions</p>   </td>
  <td>0.001 > ? </td>
  <td>0.1</td>
  <td>(m/s)^2</td>
@@ -5469,7 +5491,7 @@ table {
 </tr>
 <tr>
  <td><strong id="LPE_VIS_DELAY">LPE_VIS_DELAY</strong> (FLOAT)</td>
- <td>Vision delay compensaton <p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
+ <td>Vision delay compensation <p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
  <td>0 > 0.1 </td>
  <td>0.1</td>
  <td>s</td>
@@ -6022,7 +6044,7 @@ table {
 <tbody>
 <tr>
  <td><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
- <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>   </td>
+ <td>Maximal horizontal distance from home to first waypoint <p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIST_1WP from the home position.</p>   </td>
  <td>0 > 10000 (100)</td>
  <td>900</td>
  <td>m</td>
@@ -8579,7 +8601,7 @@ table {
 </tr>
 <tr>
  <td><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
- <td>Maximum number of search attempts <p><strong>Comment:</strong> Maximum number of times to seach for the landing target if it is lost during the precision landing.</p>   </td>
+ <td>Maximum number of search attempts <p><strong>Comment:</strong> Maximum number of times to search for the landing target if it is lost during the precision landing.</p>   </td>
  <td>0 > 100 </td>
  <td>3</td>
  <td></td>
@@ -14099,6 +14121,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_ETSASPD">SENS_EN_ETSASPD</strong> (INT32)</td>
+ <td>Eagle Tree airspeed sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_LL40LS">SENS_EN_LL40LS</strong> (INT32)</td>
  <td>Lidar-Lite (LL40LS)  <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -14135,6 +14165,22 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SENS_EN_MS4525">SENS_EN_MS4525</strong> (INT32)</td>
+ <td>TE MS4525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_MS5525">SENS_EN_MS5525</strong> (INT32)</td>
+ <td>TE MS5525 differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
  <td>PAW3902 & PAW3903 Optical Flow    <p><b>Reboot required:</b> true</p>
 </td>
@@ -14161,6 +14207,14 @@ table {
 <tr>
  <td><strong id="SENS_EN_PX4FLOW">SENS_EN_PX4FLOW</strong> (INT32)</td>
  <td>PX4 Flow Optical Flow    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_SDP3X">SENS_EN_SDP3X</strong> (INT32)</td>
+ <td>Sensirion SDP3X differential pressure sensor (external I2C)    <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
@@ -16033,6 +16087,19 @@ table {
  <td></td>
  <td>0.05</td>
  <td>s</td>
+</tr>
+<tr>
+ <td><strong id="SIH_VEHICLE_TYPE">SIH_VEHICLE_TYPE</strong> (INT32)</td>
+ <td>Vehicle type  <strong>Values:</strong><ul>
+<li><strong>0:</strong> MC</li> 
+
+<li><strong>1:</strong> FW</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>0</td>
+ <td></td>
 </tr>
 </tbody></table>
 

@@ -158,6 +158,28 @@ lps33hw <command> [arguments...]
 
    status        print status info
 ```
+## mpc2520
+Source: [drivers/barometer/maiertek/mpc2520](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/maiertek/mpc2520)
+
+<a id="mpc2520_usage"></a>
+### Usage
+```
+mpc2520 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 118
+
+   stop
+
+   status        print status info
+```
 ## mpl3115a2
 Source: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/mpl3115a2)
 
