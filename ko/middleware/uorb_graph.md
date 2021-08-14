@@ -1,27 +1,27 @@
-# uORB Publication/Subscription Graph
+# uORB Pub/Sub 그래프
 
-This page provides a uORB publication/subscription graph that shows the communication between modules. It is based on information that is extracted directly from the source code. Usage instructions are provided [below](#graph-properties).
+모듈들간의 통신을 보여주는 uORB Pub/Sub 그래프를 제공합니다. It is based on information that is extracted directly from the source code. 사용 명령어는 [아래](#graph-properties)을 참고하십시오.
 
 
-Search: <input id="search" type="text" /> Preset: <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>All Modules (w/o mavlink)</option> <option value='graph_full.json'>All Modules</option> <option value='graph_px4_sitl.json'>SITL Modules</option> <option value='graph_px4_fmu-v5.json'>FMUv5 Modules</option> <option value='graph_px4_fmu-v4.json'>FMUv4 Modules</option> <option value='graph_px4_fmu-v2.json'>FMUv2 Modules</option> </select>
+검색: <input id="search" type="text" /> 재설정 <select id ="select-graph" name="select-graph"> <option value='graph_full_no_mavlink.json'>모든 모듈(mavlink 없음)</option> <option value='graph_full.json'>모든 모듈</option> <option value='graph_px4_sitl.json'>SITL 모듈</option> <option value='graph_px4_fmu-v5.json'>FMUv5 모듈</option> <option value='graph_px4_fmu-v4.json'>FMUv4 모듈</option> <option value='graph_px4_fmu-v2.json'>FMUv2 모듈</option> </select>
 <br/>
 <svg id="svg-graph" width="1200" height="1400" style="text-align: center; margin-left: -230px; margin-right: -230px;"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="uorb_graph.js"></script>
 
-## Graph Properties
-The graph has the following properties:
+## 그래프 속성
+그래프는 다음과 같은 특성을 갖고 있습니다.
 
-- Modules are shown in gray with rounded corners while topics are displayed as coloured rectangular boxes.
-- Associated modules and topics are connected by lines. Dashed lines indicate that the module publishes the topic, while solid lines indicate that the module subscribes to the topic.
-- Some modules and topics are excluded:
-  - Topics that are subscribed/published by many modules: `parameter_update`, `mavlink_log` and `log_message`.
-  - The set of logged topics.
-  - Topics that have no subscriber or no publisher.
-  - Modules in **src/examples**.
-- Hovering over a module/topic highlights all its connections.
-- Double-clicking on a topic opens its message definition.
-- Make sure your browser window is wide enough to display the full graph (the sidebar menu can be hidden with the icon in the top-left corner). You can also zoom the image.
-- The *Preset* selection list allows you to refine the list of modules that are shown.
-- The *Search* box can be used to find particular modules/topics (topics that are not selected by the search are greyed-out).
+- 모듈은 모서리가 둥근 회색으로 표시되는 반면 주제는 색상이 지정된 직사각형 상자로 표시됩니다.
+- 연관있는 모듈과 토픽들은 선으로 연결됩니다. 점선은 모듈이 주제를 게시함을 나타내고 실선은 모듈이 주제를 구독함을 나타냅니다.
+- 몇개의 모듈과 토픽들은 제외합니다.
+  - 많은 모듈에서 구독/게시한 주제: `parameter_update`, `mavlink_log` 및 `log_message`.
+  - 기록되는 토픽들의 집합.
+  - 퍼블리셔나 섭스크라이버가 없는 토픽들.
+  - **src/examples**에 있는 모듈들.
+- 모듈이나 토픽에 마우스 오버시 그것에 연결된 모든 것이 강조됩니다.
+- 토픽을 더블클릭해 오픈하면 메시지 정의가 보여집니다.
+- 브라우저 창이 전체 그래프를 표시할 수 있을 만큼 충분히 넓은지 확인합니다(사이드바 메뉴는 왼쪽 상단 모서리에 있는 아이콘으로 숨길 수 있음). 이미지를 줌으로 확대할 수도 있습니다.
+- *프리셋* 선택 리스트에 보여지는 모듈 리스트들은 수정가능합니다.
+- *Search* 박스는 특정 모듈이나 토픽들을 찾기위해 사용할 수 있습니다(회색으로 된 토픽들은 선택되지 않습니다).
 
