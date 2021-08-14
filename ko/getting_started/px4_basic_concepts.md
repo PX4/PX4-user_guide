@@ -67,17 +67,17 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)를 통하여), 에일러론�
 
 ![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
--- 출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누며, 각각의 장치는 번호로 구분합니다(예: `MAINn` 과 `AUXn`, `n`에는 1부터 6 또는 1부터 8까지의 번호가 들어감).
+출력 장치는 크게 `MAIN`과 `AUX`로 나누며, 장치들은 번호로 구분됩니다. `MAINn` 과 `AUXn`, `n`에는 1 ~ 6 또는 1 ~ 8까지의 번호가 부여됩니다.
 
 :::tip
-각각의 출력장치에는 기체별로 정한 기능을 고정 부여했습니다. 모든 기체에 대한 출력 연결은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
+각 출력장치에는 기체별로 고유한 기능을 부여됩니다. 기체의 출력 매핑은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
 :::
 
 :::warning
-어떤 기체 제어기에는 `MAIN` 출력 장치만 있을 수 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 적용할 [기체](../airframes/airframe_reference.md)에 적절한 출력 포트가 붙은 제어 장치를 선택했는지 확인하십시오.
+어떤 비행 콘트롤러에는 `MAIN` 출력 장치만 있거나(예: *Pixhawk 4 미니*), 6개의 `MAIN` 또는 `AUX` 출력 장치만 있을 수 있습니다. 비행 콘트롤러에는 선택한 [기체](../airframes/airframe_reference.md)에 필요할 출력 포트가 있는 지 확인하십시오.
 :::
 
-보틍, `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비류의 보조 장치를 제어합니다(때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용으로 사용하기도 합니다). 예를 들면, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4을 모터 제어용으로 사용하며, 나머지 `MAIN` 포트 `AUX` 포트는 RC 제어용으로 사용합니다.
+-- 보틍, `MAIN` 포트는 비행 제어용이며, `AUX` 포트는 액츄에이터나 적재 장비류의 보조 장치를 제어합니다(때로는, 수직 이착륙기처럼 `MAIN` 포트가 부족할 경우에 `AUX` 포트를 비행 제어용으로 사용하기도 합니다). 예를 들면, [일반 쿼드콥터](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter)에서는 `MAIN` 포트 1-4을 모터 제어용으로 사용하며, 나머지 `MAIN` 포트 `AUX` 포트는 RC 제어용으로 사용합니다.
 
 [비행 제어 장치](#vehicle_controller)의 실제 출력용 포트, 버스는 하드웨어와 PX4 설정에 따라 활용합니다. *일반적으로* PWM 출력용 포트는 위에 언급된 내용대로 활용하며, 보틍은 `MAIN OUT` 또는 `AUX OUT`으로 나타납니다.
 
