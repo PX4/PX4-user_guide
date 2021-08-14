@@ -117,14 +117,15 @@ micrortps_client <command> [arguments...]
                  values: <file:dev>, default: /dev/ttyACM0
      [-b <val>]  Baudrate (can also be p:<param_name>)
                  default: 460800
-     [-m <val>]  Maximum sending data rate in B/s
+     [-m <val>]  Maximum sending data rate in B/s (0=not limited)
                  default: 0
-     [-p <val>]  Poll timeout for UART in ms
+     [-p <val>]  Poll timeout for UART in milliseconds
+                 default: 1
      [-l <val>]  Limit number of iterations until the program exits
                  (-1=infinite)
-                 default: 10000
-     [-w <val>]  Time in us for which each read from the link iteration sleeps
-                 default: 1
+     [-w <val>]  Iteration time for data publishing to the uORB side, in
+                 microseconds
+                 default: 1000
      [-r <val>]  Select UDP Network Port for receiving (local)
                  default: 2019
      [-s <val>]  Select UDP Network Port for sending (remote)
