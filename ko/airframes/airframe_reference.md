@@ -759,41 +759,45 @@ div.frame_variant td, div.frame_variant th {
  <td>DJI Matrice 100</td>
  <td>유지보수 : James Goppert &lt;james.goppert@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4060</p></td>
 </tr>
+<tr id="copter_quadrotor_x_advanced_technology_labs_(atl)_mantis_edu">
+ <td>Advanced Technology Labs (ATL) Mantis EDU</td>
+ <td><p><code>SYS_AUTOSTART</code> = 4061</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+</tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>유지보수: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4071</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4071</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
 <tr id="copter_quadrotor_x_uvify_draco">
  <td>UVify Draco</td>
- <td>유지보수: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4072</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4072</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
 <tr id="copter_quadrotor_x_uvify_ifo">
  <td>UVify IFO</td>
- <td>유지보수: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td>Maintainer: Hyon Lim &lt;lim@uvify.com&gt;<p><code>SYS_AUTOSTART</code> = 4073</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
- <td>ZMR250 레이서</td>
- <td>유지보수: Anton Matosov &lt;anton.matosov@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4080</p></td>
+ <td>ZMR250 Racer</td>
+ <td>Maintainer: Anton Matosov &lt;anton.matosov@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4080</p></td>
 </tr>
 <tr id="copter_quadrotor_x_nanomind_110_quad">
  <td>NanoMind 110 Quad</td>
- <td>유지보수: Henry Zhang &lt;zhanghui629@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4090</p></td>
+ <td>Maintainer: Henry Zhang &lt;zhanghui629@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4090</p></td>
 </tr>
 <tr id="copter_quadrotor_x_teal_one">
  <td>Teal One</td>
- <td>유지보수: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;<p><code>SYS_AUTOSTART</code> = 4250</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
+ <td>Maintainer: Matt McFadden &lt;matt.mcfadden@tealdrones.com&gt;<p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 </tr>
 <tr id="copter_quadrotor_x_coex_clover_4">
  <td>COEX Clover 4</td>
- <td>유지보수: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
+ <td>Maintainer: Oleg Kalachev &lt;okalachev@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4500</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
  <td>Crazyflie 2</td>
- <td>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
+ <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4900</p></td>
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.1">
  <td>Crazyflie 2.1</td>
- <td>유지보수: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
+ <td>Maintainer: Dennis Shtatov &lt;densht@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 4901</p></td>
 </tr>
   </table>
 </div>
@@ -1123,6 +1127,10 @@ div.frame_variant td, div.frame_variant th {
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td>HILStar (XPlane)</td>
  <td>유지보수: Lorenz Meier &lt;lorenz@px4.io&gt;<p><code>SYS_AUTOSTART</code> = 1000</p></td>
+</tr>
+<tr id="plane_simulation_(plane)_sih_plane_aert">
+ <td>SIH plane AERT</td>
+ <td>Maintainer: Romain Chiappinelli &lt;romain.chiap@gmail.com&gt;<p><code>SYS_AUTOSTART</code> = 1101</p></td>
 </tr>
   </table>
 </div>
