@@ -11,10 +11,10 @@
 드론은 [개인, 산업체, 공공기관 및 국방 분야](https://px4.io/ecosystem/commercial-systems/)등의 다양한 분야에서 사용되고 있습니다. 또한, 항공 사진/영상, 화물 운송, 경주, 수색 및 탐사 등의 분야에서 사용됩니다.
 
 :::tip
-항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) 등이 있습니다.
+항공용, 지상용, 해양 및 수중 드론이 있습니다. 드론의 공식 용어에는 Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV)와 Unmanned Underwater Vehicles (UUV) 등이 있습니다.
 :::
 
-드론의 "뇌"에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치에는 각종 비행 모듈로 구성되어 있습니다.
+드론의 두뇌에 해당하는 장치를 자동비행장치(오토파일럿)라고 합니다. 자동비행장치에는 각종 비행 모듈로 구성되어 있습니다.
 
 <a id="autopilot"></a>
 
@@ -193,7 +193,7 @@ SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어에�
 
 <a id="flight_modes"></a>
 
-## -- 비행 모드
+## 비행 모드 
 
 비행 모드는 자동 비행 및 보조 기능에 관련된 다양한 형태와 기법들을 의미한다. *자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 원격/수동 제어가 필요하지 않다. 예를 들어 이륙 등과 같은 작업을 자동화으로 수행하고, 출발지로 복귀하여 착륙하는 과정도 수행한다. 또 다른 자율 모드는 사전에 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령에 따라 비행할 수 있습니다.
 
