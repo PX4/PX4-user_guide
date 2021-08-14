@@ -34,23 +34,23 @@ PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어
 
 ## QGroundControl
 
-드론코드에서 지원하는 지상국 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 다양한 매개변수 변경, 실시간 비행 정보 조회, 완전 자동 임무 비행등의 작업을 할 수 있습니다.
+드론코드에서 지원하는 지상국 프로그램은 [QGroundControl](http://qgroundcontrol.com/)입니다. *QGroundControl*을 사용하여 [비행 콘트롤러](flight_controller_selection.md)에 PX4 업로드, 기체 설정, 다양한 매개변수 변경, 실시간 비행 정보 조회, 완전 자동 임무 비행 등의 작업을 할 수 있습니다.
 
-*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치할 수 있습니다.
+*QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치합니다.
 
 ![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
-## -- 비행 제어 장치(보드)
+## 비행 제어 장치(보드)
 
-PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 제어 장치에서만 실행하도록 설계했으나, 지금은 리눅스 뿐만 아니라 여러가지 다양한 하드웨어에서도 실행할 수 있습니다. 기체의 물리적 조건, 원하는 동작은 물론이거니와 비용면으로도 고려하여 적절한 보드를 선택해야 합니다.
+PX4는 초기에는 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md)에서만 실행되도록 설계되었으나, 지금은 리눅스 뿐만 아니라 다양한 하드웨어에서도 실행됩니다. 차량의 물리적 조건, 운용 목적과 비용을 고려하여 적합한 보드를 선택하여야 합니다.
 
-자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)편을 참조하십시오.
+자세한 내용은 [비행 콘트롤러 선택](flight_controller_selection.md)편을 참고하십시오.
 
 ## 센서
 
-PX4는 센서를 사용하여 기체의 상태를 결정 (자율 비행시 기체 안정화에 필수적인 과정)합니다. 시스템 구동시 각속도 센서, 가속도 센서, 지자기 센서(나침반) 및 기압 센서를 *최소한으로 요구* 합니다. 자동 [모드](../getting_started/flight_modes.md#categories) 와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 확인 시스템이 필요합니다. 고정익 및 수직이착륙기에는 대기속도 센서를 반드시 붙여야 합니다(강력 추천).
+PX4는 센서로 기체의 상태를 결정(자율비행 기체 안정화에 필수적인 과정)합니다. 각속도 센서, 가속도 센서, 지자기 센서(나침반)와 기압 센서가 시스템 구동시의 *최소 요구 사항* 입니다. [자동 모드](../getting_started/flight_modes.md#categories)와 기타 모드를 사용하기 위해서는 GPS나 이와 유사한 위치 측정 시스템이 필요합니다. 고정익과 수직이착륙기에는 대기속도 센서를 반드시 장착하여야 합니다.
 
 더 자세한 정보는 다음을 참고하십시오.
 
