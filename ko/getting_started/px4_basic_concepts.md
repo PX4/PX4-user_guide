@@ -148,34 +148,34 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 외부 보조 컴퓨터
 
-PX4는 직렬 케이블 또는 무선랜으로 기체에 장착한 보조 컴퓨터로 별개 제어할 수 있습니다. 보조 컴퓨터는 대개 MAVSDK 또는 MAVROS와 같은 MAVLink API로 통신합니다.
+기체에 장착된 보조 컴퓨터에서 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
 관련 주제는 다음과 같습니다.
 
-- [외부 모드](../flight_modes/offboard.md) - PX4의 외부에서 지상 통제 장치 또는 보조 컴퓨터로 제어하는 비행 모드. 
+- [오프보드 모드](../flight_modes/offboard.md) - PX4의 외부에서 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드. 
 - [로보틱스 API](../robotics/README.md)
 
 <span id="sd_cards"></span>
 
-## SD 카드(휴대용 저장 장치)
+## SD 카드 (휴대용 저장 장치)
 
-PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. SD 카드는 UAVCAN 주변 장치를 사용하고 비행 임무를 수행할 때 반드시 필요합니다.
+PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. UAVCAN 주변 장치를 사용하거나 비행 임무를 수행시에는 SD 카드가 필요합니다.
 
-기본적으로, PX4는 부팅 과정에 SD 카드가 없으면 [포맷 실패 (삑소리 2회)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다(그리고, 상기 다수의 기능은 동작하지 않음).
+기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패 (삑소리 2회)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 설명한 다수의 기능들은 작동하지 않습니다.
 
 :::tip
-픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB*을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
-SD 카드는 선택 사항인 것은 분명합니다. SD 카드가 없는 비행 제어기는 다음과 같은 기능들이 포함되어야 합니다.
+SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어에는 다음의 작업들을 수행할 수 있습니다.
 
-- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 끔.
-- [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 (보조)장치에 기록.
-- 비행 임무를 RAM/플래시에 저장. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
+- [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
+- 비행 임무를 RAM/플래시에 저장합니다.<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 <a id="arming"></a>
 
-## 시동 걸고 해제하기
+## -- 시동 및 해제
 
 기체에 전원을 켜면 안전 사고를 유발하는 모터와 프로펠러와 같은 부품들이 있습니다.
 
