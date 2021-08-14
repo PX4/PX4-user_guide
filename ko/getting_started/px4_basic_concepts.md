@@ -111,22 +111,22 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 무선 조종(RC)
 
-[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)시스템은 기체를 *수동* 제어할 수 있습니다. 고정/제어 위치에서 통신하는 송신기가 붙은 무선 조종기와 기체에 붙어있는 수신기로 이루어져있습니다. 일부 무선 조종 시스템은 오토파일럿이 송신하는 무선 측정 정보를 되받아오기도 합니다.
+[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)시스템은 기체를 *수동* 제어할 수 있습니다. 무선 조종기의 송신기와 기체에 장착된 수신기로 구성됩니다. 일부 RC 시스템은 자동조종장치에서 텔레메트리 정보를 수신할 수 있습니다.
 
-:::note PX4는 자율 비행 모드에 대해 원격 제어 시스템이 필요하지 않습니다.
+:::note PX4는 자율비행 모드에서 원격 제어 시스템이 필요하지는 않습니다.
 :::
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[원격 조종 시스템 선택](../getting_started/rc_transmitter_receiver.md)편에서는 원격 조종 시스템을 선택하는 방법을 설명합니다. 다음과 같은 기타 관련 주제도 있습니다:
+[RC 시스템 선택](../getting_started/rc_transmitter_receiver.md)편에서는 RC 선택 방법을 설명합니다. 다음과 같은 관련 주제들이 포함되어 있습니다.
 
-- [무선/원격 조종 설정](../config/radio.md) - *QGroundControl*에서의 원격 조종 설정.
-- [비행 첫걸음](../flying/basic_flying.md) - 원격 조종으로 비행하는 방법을 배웁니다.
-- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 나오는 텔레메트리 정보 또는 상태 업데이트 정보를 수신할 무선 조종 송신기를 설정합니다.
+- [무선/RC 설정](../config/radio.md) - *QGroundControl*에서의 원격 조종 설정.
+- [비행 첫걸음](../flying/basic_flying.md) - 원격 조종 비행 방법을 설명합니다.
+- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 나오는 텔레메트리 정보 또는 상태 업데이트 정보를 수신하는 무선 조종 송신기를 설정합니다.
 
 <a id="joystick"></a>
 
-## 지상 통제 장치의 조이스틱 제어장치
+## -- 지상 통제 장치의 조이스틱
 
 *QGroundControl*에서 [컴퓨터 조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수도 있습니다. (QGroundControl은 조이스틱의 움직임을 MAVLink 메시지로 변환하여 텔레메트리로 전송함). 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*, [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용합니다. 조이스틱은 보통 기체 모의 시험 프로그램에서도 사용합니다.
 
