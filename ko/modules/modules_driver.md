@@ -960,7 +960,32 @@ safety_button <command> [arguments...]
 
 
 ### 설명
-이 모듈은 톤 알람을 담당합니다.
+This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+
+### 사용법
+소스: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
+
+### 설명
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
+
+<a id="tap_esc_usage"></a>
+
+### 구현
+```
+tone_alarm <command> [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+```
+## vmount
+사용 방법은 [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html)을 참고하십시오.
+
+
+### 예
+This module is responsible for the tone alarm.
 
 <a id="tone_alarm_usage"></a>
 
@@ -974,20 +999,20 @@ tone_alarm <command> [arguments...]
 
    status        print status info
 ```
-## vmount
-소스: [modules/vmount](https://github.com/PX4/PX4-Autopilot/tree/master/src/modules/vmount)
-
-
-### 설명
-마운트(짐벌) 콘트롤 드라이버입니다. 다양한 입력 방법(예: RC 또는 MAVLink)을 설정 출력(예: AUX 채널 또는 MAVLink)에 매핑합니다.
-
-사용 방법은 [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html)을 참고하십시오.
-
-### 구현
-각 메소드는 자체 클래스에서 구현되며, 입출력에 대한 공통 기본 클래스가 있습니다. `ControlData` 데이터 구조로 정의된 API를 통하여 연결됩니다. 이 방법은 각 입력 방법을 각 출력 방법과 함께 사용할 수 있고, 최소한의 노력으로 신규 입력/출력을 추가할 수 있습니다.
-
-### 예
+## voxlpm
 고정 방위각을 설정한 출력 값을 시험합니다(그리고 다른 축은 0 값을 잡아줍니다):
+
+
+### 사용법
+Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).
+
+Documentation how to use it is on the [gimbal_control](https://dev.px4.io/master/en/advanced/gimbal_control.html) page.
+
+### Implementation
+Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the `ControlData` data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.
+
+### Examples
+Test the output by setting a fixed yaw angle (and the other axes to 0):
 ```
 vmount stop
 vmount test yaw 30
@@ -995,26 +1020,32 @@ vmount test yaw 30
 
 <a id="vmount_usage"></a>
 
-### 사용법
+### Usage
 ```
-vmount <command> [arguments...]
- Commands:
-   start
-
-   test          Test the output: set a fixed angle for one axis (vmount must
-                 not be running)
-     roll|pitch|yaw <angle> Specify an axis and an angle in degrees
+voxlpm [arguments...]
+ start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 68
+     [-T <val>]  Type
+                 values: VBATT|P5VDC|P12VDC, default: VBATT
+     [-k]        if initialization (probing) fails, keep retrying periodically
 
    stop
 
    status        print status info
 ```
 ## voxlpm
-소스: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
+Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/voxlpm)
 
 <a id="voxlpm_usage"></a>
 
-### 사용법
+### Usage
 ```
 voxlpm [arguments...]
    start
