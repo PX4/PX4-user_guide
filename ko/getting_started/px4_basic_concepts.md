@@ -67,7 +67,7 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)를 통하여), 에일러론�
 
 ![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
-출력 장치는 크게 `MAIN`과 `AUX`로 나누며, 장치들은 번호로 구분됩니다. `MAINn` 과 `AUXn`, `n`에는 1 ~ 6 또는 1 ~ 8까지의 번호가 부여됩니다.
+출력 장치는 크게 `MAIN` 포트와 `AUX` 포트로 나누며, 포트는 번호로 구분됩니다. `MAINn`과 `AUXn`의 `n`에는 1 ~ 6 또는 1 ~ 8까지의 번호가 부여됩니다.
 
 :::tip
 각 출력장치에는 기체별로 고유한 기능을 부여됩니다. 기체의 출력 매핑은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
