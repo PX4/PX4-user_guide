@@ -163,7 +163,7 @@ lps33hw <command> [arguments...]
 ## mpl3115a2
 소스: [drivers/barometer/mpl3115a2](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/mpl3115a2)
 
-<a id="mpl3115a2_usage"></a>
+<a id="mpc2520_usage"></a>
 
 ### 사용법
 ```
@@ -186,9 +186,37 @@ mpl3115a2 <command> [arguments...]
 ## ms5611
 소스: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611)
 
-<a id="ms5611_usage"></a>
+<a id="mpl3115a2_usage"></a>
 
 ### 사용법
+```
+ms5611 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-s]        Internal SPI bus(es)
+     [-S]        External SPI bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-c <val>]  chip-select index (for external SPI)
+                 default: 1
+     [-m <val>]  SPI mode
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-T <val>]  Device type
+                 values: 5607|5611, default: 5611
+
+   stop
+
+   status        print status info
+```
+## ms5611
+Source: [drivers/barometer/ms5611](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/barometer/ms5611)
+
+<a id="ms5611_usage"></a>
+
+### Usage
 ```
 ms5611 <command> [arguments...]
  Commands:
