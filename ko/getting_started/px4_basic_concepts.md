@@ -61,13 +61,13 @@ PX4는 센서로 기체의 상태를 결정(자율비행 기체 안정화에 필
 
 ## 출력 장치: 모터, 서보, 액츄에이터
 
-PX4는 모터 속도(예 : [ ESC](#esc_and_motors)), 에일러론, 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 여러 가지 적재 장비 등을 제어하는 *출력* 수단을 활용합니다.
+PX4는 모터 속도(예 : [ ESC](#esc_and_motors)를 통하여), 에일러론과 플랩 같은 비행 표면, 카메라 트리거, 낙하산, 그리퍼 및 기타 적재 장비 등을 *출력*을 통하여 제어합니다.
 
-아래의 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 나타냅니다.
+아래 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 설명합니다.
 
 ![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
-출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누며, 각각의 장치는 번호로 구분합니다(예: `MAINn` 과 `AUXn`, `n`에는 1부터 6 또는 1부터 8까지의 번호가 들어감).
+-- 출력 장치는 크게 `MAIN`과 `AUX` 장치로 나누며, 각각의 장치는 번호로 구분합니다(예: `MAINn` 과 `AUXn`, `n`에는 1부터 6 또는 1부터 8까지의 번호가 들어감).
 
 :::tip
 각각의 출력장치에는 기체별로 정한 기능을 고정 부여했습니다. 모든 기체에 대한 출력 연결은 [기체 참조](../airframes/airframe_reference.md) 편에서 설명합니다.
