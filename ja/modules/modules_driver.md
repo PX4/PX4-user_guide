@@ -955,6 +955,31 @@ safety_button <command> [arguments...]
 
    status        print status info
 ```
+## tap_esc
+Source: [drivers/tap_esc](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tap_esc)
+
+
+### Description
+This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+
+### Implementation
+Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
+
+### Example
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8>
+
+<a id="tap_esc_usage"></a>
+
+### Usage
+```
+tap_esc <command> [arguments...]
+ Commands:
+   start         Start the task
+     [-d <val>]  Device used to talk to ESCs
+                 values: <device>
+     [-n <val>]  Number of ESCs
+                 default: 4
+```
 ## tone_alarm
 Source: [drivers/tone_alarm](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/tone_alarm)
 
