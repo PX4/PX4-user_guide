@@ -4,15 +4,15 @@
 
 여러가지 비행 콘트롤러 제품에서 PX4를 실행할 수 있습니다. [자동조종장치 하드웨어](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하십시오. 주요 목록은 아래와 같습니다.
 
-## -- Pixhawk 시리즈
+## Pixhawk 시리즈 
 
-[Pixhawk시리즈](../flight_controller/pixhawk_series.md)는 NuttX OS 기반 PX4 오픈 하드웨어입니다. 다양한 폼 팩터를 기반의 다양한 적용 사례가 있으며, 높은 시장 점유율을 자랑합니다.
+[Pixhawk시리즈](../flight_controller/pixhawk_series.md)는 NuttX OS 기반의 PX4 오픈 하드웨어 비행 콘트롤러입니다. 다양한 폼 팩터를 기반으로 다양한 적용 사례와 높은 시장 점유율을 자랑합니다.
 
-아래의 [Pixhawk 표준 자동조종장치](../flight_controller/autopilot_pixhawk_standard.md)들은 PX를 지원하고 있으며, PX4 지원팀의 테스트를 거친 제품들입니다. 기타 자동조종장치들은 [제조사들의 지원을](../flight_controller/autopilot_manufacturer_supported.md) 받고 있습니다.
+아래의 [Pixhawk 표준 자동조종장치](../flight_controller/autopilot_pixhawk_standard.md)들은 PX4 지원팀의 테스트를 거친 제품들입니다. 그 외의 자동조종장치들은 [제조사에서 지원](../flight_controller/autopilot_manufacturer_supported.md) 하고 있습니다.
 
-| 제어기                                                             | 설명                                                                                                                                                                                                                      |
+| 콘트롤러                                                            | 설명                                                                                                                                                                                                                      |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)           | 픽스호크 4는 PX4 버전 1.7을 실행하는데 최적화 되어 있으며 연구와 상업용 개발자들에게 적합합니다. 이전 버전 보다 더 많은 컴퓨팅 성능과 2 배의 RAM, 더 나은 통합 및 확장을위한 추가 포트, 새로운 센서 및 내장형 진동 차단 기능이 있습니다.                                                                          |
+| [Holybro Pixhawk 4](../flight_controller/pixhawk4.md)           | 픽스호크 4는 PX4 버전 1.7에 최적화 되어 있으며, 연구용 개발이나 상업용 개발들에 적합합니다. 이전 버전에 비하여, 뛰어난 컴퓨팅 성능, 2배의 RAM, 통합 및 확장을위한 추가 포트, 신규 센서 지원과 내장형 진동 차단 기능들을 제공합니다.                                                                             |
 | [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) | Pixhawk 4 미니는 *Pixhawk 4*의 성능을 더 작은 드론으로 적용하기를 원하는 엔지니어와 동호인들을 위해 설계되었습니다. *Pixhawk 4 Mini*는 *Pixhawk 4*의 FMU 프로세서 및 메모리 리소스는 동일하며 자주 사용되지 않는 인터페이스들을 제거하였습니다. 이를 통해 * Pixhawk 4 Mini*는 250mm 레이서 드론에 들어갈 수있을 만큼 소형입니다. |
 | [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)    | Pixracer를 기반으로 일부 업그레이드 및 기능이 추가되었습니다.                                                                                                                                                                                  |
 | [mRo Pixracer](../flight_controller/pixracer.md)                | 운전자 시점(FPV) 레이싱에 최적화된 초소형/초경량 제어기 6개 이하의 모터가 필요한 소형 기체에 적합합니다. [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)와 [MindRacer](../flight_controller/mindracer.md)도 비슷한 유형에 제어기 입니다.                                  |
