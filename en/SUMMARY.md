@@ -325,6 +325,7 @@
   * [Middleware](middleware/README.md)
     * [uORB Messaging](middleware/uorb.md)
     * [uORB Graph](middleware/uorb_graph.md)
+    * [uORB Message Reference](msg_docs/README.md)
     * [MAVLink Messaging](middleware/mavlink.md)
     * [RTPS/DDS Interface: PX4-Fast RTPS(DDS) Bridge](middleware/micrortps.md)
       * [Manually Generate Client/Agent](middleware/micrortps_manual_code_generation.md)
