@@ -1,10 +1,10 @@
-# 비행 컨트롤러 선택
+# 비행 콘트롤러 선택 
 
-기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택해야 합니다.
+기체의 물리적인 조건, 비행 목적과 비용에 적합한 하드웨어를 선택하여야 합니다.
 
-PX4는 많은 수의 비행 제어기에서 실행가능합니다. [Autopilot Hardware](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하세요. 주요 목록은 아래와 같습니다.
+여러가지 비행 콘트롤러 제품에서 PX4를 실행할 수 있습니다. [자동조종장치 하드웨어](../flight_controller/README.md)나 [Github의 ](https://github.com/PX4/PX4-Autopilot/#supported-hardware) 지원 보드 목록을 참고하십시오. 주요 목록은 아래와 같습니다.
 
-## Pixhawk 시리즈
+## -- Pixhawk 시리즈
 
 [Pixhawk시리즈](../flight_controller/pixhawk_series.md)는 NuttX OS 기반 PX4 오픈 하드웨어입니다. 다양한 폼 팩터를 기반의 다양한 적용 사례가 있으며, 높은 시장 점유율을 자랑합니다.
 
