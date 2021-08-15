@@ -38,7 +38,7 @@ PX4는 [QGroundControl](#qgc) 지상국 프로그램, [픽스호크 하드웨어
 
 *QGroundControl*은 윈도우, 안드로이드, MacOS 그리고 리눅스 운영체제를 지원합니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치합니다.
 
-![지상제어프로그램 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
+![QGC 메인 화면](../../assets/concepts/qgc_main_screen.jpg)
 
 <span id="vehicle_controller"></span>
 
@@ -65,7 +65,7 @@ PX4는 모터 속도(예 : [ ESC](#esc_and_motors)를 통하여), 에일러론�
 
 아래 그림은 [Pixhawk 4](../flight_controller/pixhawk4.md)와 [Pixhawk 4 미니](../flight_controller/pixhawk4_mini.md)의 PWM 출력 포트를 설명합니다.
 
-![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 미니 MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
+![Pixhawk 4 출력 포트](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN 포트](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
 출력 장치는 크게 `MAIN` 포트와 `AUX` 포트로 나누며, 포트는 번호로 구분됩니다. `MAINn`과 `AUXn`의 `n`에는 1 ~ 6 또는 1 ~ 8까지의 번호가 부여됩니다.
 
@@ -130,7 +130,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 *QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있습니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리로 전송합니다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*와 [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용합니다. 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
 
-![MicroNav와 지상제어프로그램에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
+![MicroNav와 지상국에서 조이스틱을 사용하는 그림](../../assets/peripherals/joystick/micronav.jpg)
 
 <a id="safety_switch"></a>
 
@@ -244,4 +244,4 @@ PX4는 시스템의 사고를 대비하여 기체을 보호하고 복구할 수 
 
 위 그림에서 전진 방향은 멀티콥터의 프로펠러에 빨간색으로 표시됩니다.
 
-[비행 컨트롤러 방향](../config/flight_controller_orientation.md)에서 전진 방향에 대해 더 자세한 정보가 있습니다.
+[비행 콘트롤러 방향](../config/flight_controller_orientation.md)에서 전진 방향에 대한 자세한 정보를 참고하십시오.
