@@ -1,6 +1,6 @@
 # vehicle_gps_position (UORB message)
 
-GPS position in WGS84 coordinates.
+GPS position in WGS84 coordinates. the field 'timestamp' is for the position & velocity (microseconds)
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_gps_position.msg)
 
