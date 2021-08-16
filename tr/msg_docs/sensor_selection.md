@@ -1,6 +1,6 @@
 # sensor_selection (UORB message)
 
-Sensor ID's for the voted sensors output on the sensor_combined topic.
+Sensor ID's for the voted sensors output on the sensor_combined topic. Will be updated on startup of the sensor module and when sensor selection changes
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_selection.msg)
 

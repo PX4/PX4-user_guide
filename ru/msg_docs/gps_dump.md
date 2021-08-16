@@ -1,6 +1,6 @@
 # gps_dump (UORB message)
 
-This message is used to dump the raw gps communication to the log.
+This message is used to dump the raw gps communication to the log. Set the parameter GPS_DUMP_COMM to 1 to use this.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/gps_dump.msg)
 

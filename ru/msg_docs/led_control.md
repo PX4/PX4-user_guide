@@ -1,6 +1,6 @@
 # led_control (UORB message)
 
-LED control: control a single or multiple LED's.
+LED control: control a single or multiple LED's. These are the externally visible LED's, not the board LED's
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/led_control.msg)
 
