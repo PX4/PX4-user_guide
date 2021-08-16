@@ -14,20 +14,20 @@
 
 解锁无人机
 
-- 首先关闭安全开关
+- 首先关闭[安全开关](../getting_started/px4_basic_concepts.md#safety_switch)。
 - 对您的机体使用解锁命令 - 将油门杆放在右下角。 
-  - 或者增加一个解锁/加锁开关
-  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）
+  - 或者增加一个[解锁/加锁开关](../config/safety.md#arming_switch)。
+  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）。
 
 :::tip
 机体在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [机体状态通知](../getting_started/vehicle_status.md) (包括机体LED, 音频通知和 *QGroundControl* 通知）可以告诉您机体何时可以飞行(并帮助您在未准备好飞行时找出原因)。
 :::
 
 :::note
-如果您解锁后过长时间没有起飞，机体将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动 [加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保机体在没有被使用时恢复到安全状态。
+如果您解锁后过长时间没有起飞，机体将（ [默认情况下](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)）自动[加锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（关闭电机）！ 这是一种安全措施，可确保机体在没有被使用时恢复到安全状态。
 :::
 
-:::note VTOL机型只能在多轴模式下解锁(默认-可以使用 [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
+:::note VTOL机型只能在多轴模式下解锁(默认-可以使用[CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING) 启用固定翼飞机模式下解锁)。
 :::
 
 <span id="takeoff-and-landing"></span>
@@ -36,15 +36,17 @@
 
 最简单的起飞方式（在[机体解锁](#arm)后）是使用自动 [起飞模式](../flight_modes/takeoff.md)。 通常可以通过 [遥控器拨杆开关](../config/flight_mode.md) 或地面站触发的。
 
-多轴（和 VTOL 在多轴模式下）飞手可以通过启用位置模式，解锁机体，然后将油门杆升至 62.5% 以上来手动起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
+多轴（和 VTOL 在多轴模式下）飞手可以通过启用[位置模式](../flight_modes/README.md#position_mc)，解锁机体，然后将油门杆升至 62.5% 以上来*手动*起飞。 高于此值，所有控制器都被启用，无人机将输出悬停所需的油门值（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）。
 
 :::tip
-强烈推荐自动起飞模式，尤其是固定翼车辆！
+强烈推荐自动起飞模式，尤其是固定翼机体！
 :::
 
-如果无人机在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）
+:::note
+如果机体在解锁后过长时间没有起飞，无人机将会加锁（使用[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)调整超时时间）。
 :::
 
+:::note
 如果起飞过程出现故障[故障检测器](../config/safety.md#failure_detector)会自动关闭电机。
 :::
 
@@ -52,9 +54,9 @@
 
 最简单的降落方法是使用自动 [降落](../flight_modes/land.md)或者[返航](../flight_modes/return.md)模式。
 
-对于多旋翼（和多旋翼模式下的 VTOL），飞手可以通过向下推油门杆手动降落，直到无人机降落加锁。
+对于多轴飞行器（和多轴模式下的 VTOL），飞手可以通过向下推油门杆手动降落，直到机体降落加锁。
 
-请注意，默认情况下，无人机在降落后会自动加锁：
+请注意，默认情况下，机体在降落后会自动加锁：
 
 - 通过[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来设置降落后自动加锁的时间（或完全禁用它）。
 - 通过将油门杆放在左下角手动加锁。
@@ -63,7 +65,8 @@
 如果您在降落期间看到车辆“抽搐” (电机不停的在关闭打开状态快速切换) 这可能是由于 [降落检测器配置](../advanced_config/land_detector.md)不当（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)设置不当）造成的。
 :::
 
-强烈建议自动降落，尤其是固定翼。
+:::tip
+强烈建议自动降落，尤其是固定翼机体。
 :::
 
 ## 飞行控制/命令
@@ -72,7 +75,7 @@
 
 ![遥控器基础命令](../../assets/flying/rc_basic_commands.png)
 
-为了控制您的飞机，您需要了解基本的横滚、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多旋翼这样的“悬停飞机”。
+为了控制您的飞机，您需要了解基本的横滚、偏航、俯仰和油门命令如何影响三维空间中的运动。 这取决于您是控制像固定翼一样向前飞行的飞机，还是像多轴这样的“悬停飞机”。
 
 ### 悬停飞机
 
@@ -102,13 +105,13 @@
 
 ## 辅助飞行
 
-即是了解了飞行器是如何控制的，全手动模式的飞行也是棘手的。 新用户应该 [配置他们的遥控器](../config/flight_mode.md) 来使用飞行模式，在这种模式下自动补偿不稳定的用户输入或环境因素。
+即是了解了机体是如何控制的，全手动模式的飞行也是棘手的。 新用户应该 [配置他们的遥控器](../config/flight_mode.md) 来使用飞行模式，在这种模式下自动驾驶仪自动补偿不稳定的用户输入或环境因素。
 
 强烈建议新手使用以下三种模式：
 
-- 姿态模式-飞行器很难侧翻，并且如果摇杆被释放飞行器将趋于平稳（但不保持位置）。
+- 姿态模式-机体很难侧翻，并且如果摇杆被释放飞行器将趋于平稳（但不保持位置）。
 - 高度模式 - 爬升和下降由一个最大速率来控制。
-- 位置模式 - 当摇杆被释放飞行器将保持飞行（位置定点，不会随风漂移）。
+- 位置模式 - 当摇杆被释放机体将保持飞行（位置定点，不会随风漂移）。
 
 :::note
 您也可以通过主飞行界面底部的 *QGroundControl* 按钮访问自动模式。
