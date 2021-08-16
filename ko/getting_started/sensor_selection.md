@@ -10,21 +10,21 @@ PX4 시스템은 안정화나 자율제어를 위하여 센서를 사용하여 �
 
 <span id="gps_compass"></span>
 
-## -- GPS와 나침반
+## GPS와 나침반 
 
-PX4는 여러 GNSS(Global Navigation Satellite System) 수신기와 나침반(자기계)을 지원합니다. PX4는 센티미터 정밀도 GPS 시스템인 [실시간 운동학(RTK) GPS 수신기](../gps_compass/rtk_gps.md)를 지원합니다.
+PX4는 다양한 GNSS(Global Navigation Satellite System) 수신기와 나침반(자기계)을 지원합니다. PX4는 센티미터 정밀도를 가진 GPS 시스템인 [실시간 운동학(RTK) GPS 수신기](../gps_compass/rtk_gps.md)를 지원합니다.
 
 :::note
-[픽스호크 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에는 *내부* 나침반이 포함되어 있습니다. Pixhawk를 가능하면 배터리나 전선에서 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 대부분의 소형 운송체에서는 외부 나침반이 필수적인 요구사항입니다.
+[픽스호크 시리즈](../flight_controller/pixhawk_series.md) 콘트롤러에는 *내부* 나침반이 포함되어 있습니다. Pixhawk를 배터리나 전선에서 가능하면 멀리 장착하여 전자기 간섭을 최소화하는 것이 좋습니다. 소형 운송체에서는 대부분 외부 나침반이 필수 요구사항입니다.
 :::
 
-모터나 ESC 전원에서 가능한 멀리 떨어진 곳에 장착된 외부 나침반/GPS 수신기을 사용하는 것이 좋습니다. 일반적으로 받침대 또는 고정 날개에 설치합니다.
+나침반이나 GPS 수신기는 모터나 ESC 전원에서 가능한 멀리 장착하여 사용하는 것이 좋습니다. 일반적으로 받침대나 고정 날개에 설치하는 것이 좋습니다.
 
-GPS/나침반의 일반적 옵션은 [ GPS/나침반](../gps_compass/README.md)에 기술되어 있습니다.
+GPS와 나침반의 일반적인 옵션은 [GPS 및 나침반](../gps_compass/README.md)을 참고하십시오.
 
 ![GPS/나침반](../../assets/hardware/gps/gps_compass.jpg)
 
-## 대기속도 센서
+## -- 대기속도 센서
 
 고정이나 수직이착륙기에는 대기속도센서를 *사용하는 것이 좋습니다.*
 
