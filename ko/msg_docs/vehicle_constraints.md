@@ -1,6 +1,6 @@
 # vehicle_constraints (UORB message)
 
-Local setpoint constraints in NED frame
+Local setpoint constraints in NED frame setting something to NaN means that no limit is provided
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_constraints.msg)
 
