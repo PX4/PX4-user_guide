@@ -24,35 +24,35 @@ GPS와 나침반의 일반적인 옵션은 [GPS 및 나침반](../gps_compass/RE
 
 ![GPS/나침반](../../assets/hardware/gps/gps_compass.jpg)
 
-## -- 대기속도 센서
+## 대기속도 센서 
 
-고정이나 수직이착륙기에는 대기속도센서를 *사용하는 것이 좋습니다.*
+고정익과 VTOL에는 대기속도센서를 *사용*이 적극 권장됩니다.
 
-자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 비행 속도는 매우 중요한 항목입니다. 고정익 비행의 경우 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
+자동조종장치에는 실속을 감지하는 다른 수단이 없으므로, 비행 속도 측정은는 매우 중요합니다. 고정익의 양력을 발생시키는 것은 대지속도가 아니라 대기속도입니다.
 
 ![디지털 풍속 센서](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)편을 참조하십시오.
+더 자세한 정보와 권장 하드웨어는 [대기속도 센서](../sensor/airspeed.md)를 참고하십시오.
 
 ## 타코미터
 
-타코미터([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동 조종 장치가 실속 또는 다른 로터 고장을 감지할 수 있기 때문에 로터 윙 프레임에 *적극 권장*합니다 (로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다).
+타코미터([회전 카운터 센서](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft))는 자동조종장치의 실속 또는 다른 로터 고장을 감지할 수 있기 때문에 로터 윙 프레임에서 *적극 권장*됩니다. 로터 윙 비행의 경우 양력을 발생시키는 것은 대지속도나 지면 속도가 아닌 블레이드의 회전입니다.
 
 ![디지털 RPM 센서-TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-더 자세한 정보와 권장 하드웨어는 [센서 > 타코미터](../sensor/tachometers.md)편을 참조하십시오.
+더 자세한 정보와 권장되는 하드웨어는 [센서 &gt; 타코미터](../sensor/tachometers.md)편을 참고하십시오.
 
 ## 거리 센서
 
-거리 센서는 정확한 착지, 장애물 회피와 등고 비행 등에 필요합니다.
+정확한 착지, 장애물 회피와 등고 비행 등을 위하여 거리 센서가 필요합니다.
 
-PX4는 여러가지 기술을 사용하여 다양한 범위의 기능을 지원하는 저렴한 거리 센서를 지원합니다. 더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오.
+여러가지 기술을 사용하여 다양한 범위와 기능을 지원하는 저렴한 거리 센서를 PX4에서 지원합니다. 더 자세한 정보는 [거리 센서](../sensor/rangefinders.md)를 참고하십시오.
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
 ## 광류 센서
 
-[ 광류 센서 ](../sensor/optical_flow.md) 센서는 속도 추정을 위해 하향 카메라와 하향 거리 센서를 사용합니다. PX4는 센서 출력을 다른 위치 소스 (예 : GPS)의 정보와 연계하여 정확한 위치 잠금을 제공합니다. 이 센서는 GPS 신호를 사용할 수없는 실내에서 사용할 수 있습니다.
+[광류 센서](../sensor/optical_flow.md)는 속도 추정을 위하여 하향 카메라와 하향 거리 센서를 사용합니다. PX4는 센서 출력을 다른 위치 소스 (예 : GPS)의 정보와 연계하여 정확한 위치 잠금을 제공합니다. 이 센서는 GPS 신호를 사용할 수없는 실내에서 사용할 수 있습니다.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
