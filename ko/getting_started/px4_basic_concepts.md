@@ -136,7 +136,7 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 안전 스위치
 
-기체의 *안전 스위치*를 켜야만 기체에 [시동](#arming)을 걸 수 있습니다. 기체에 시동이 걸린 이후에, 모터와 프로펠러가 동작합니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도 부품으로 제공되는 제품도 있습니다.
+기체의 *안전 스위치*를 킨 다음에 기체에 [시동](#arming)을 걸 수 있습니다. 기체에 시동이 걸리면 모터와 프로펠러가 동작합니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도 부품으로 제공되는 제품도 있습니다.
 
 :::warning
 시동이 걸린 기체는 안전 사고의 위험성이 항상 존재합니다. 안전 스위치는 예기치 않은 시동으로 인하여 발생할 수 있는 사고를 방치하는 것이 목적입니다.
@@ -148,26 +148,26 @@ RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)�
 
 ## 외부 보조 컴퓨터
 
-기체에 장착된 보조 컴퓨터에서 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터에서는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
+기체에 장착된 보조 컴퓨터는 직렬 케이블이나 Wi-Fi로 PX4를 제어할 수 있습니다. 일반적으로, 보조 컴퓨터는 MAVSDK나 MAVROS와 같은 MAVLink API로 통신합니다.
 
 관련 주제는 다음과 같습니다.
 
-- [오프보드 모드](../flight_modes/offboard.md) - PX4의 외부에서 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드. 
+- [오프보드 모드](../flight_modes/offboard.md) - PX4 외부의 지상 통제국이나 보조 컴퓨터로 제어하는 비행 모드 
 - [로보틱스 API](../robotics/README.md)
 
 <span id="sd_cards"></span>
 
 ## SD 카드 (휴대용 저장 장치)
 
-PX4는 SD 카드에 [비행 로그](../getting_started/flight_reporting.md)를 저장합니다. UAVCAN 주변 장치를 사용하거나 비행 임무를 수행시에는 SD 카드가 필요합니다.
+PX4는 [비행 로그](../getting_started/flight_reporting.md)를 SD 카드에 저장합니다. UAVCAN 주변 장치를 사용하거나 비행 임무 수행에는 SD 카드가 반드시 필요합니다.
 
-기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패 (삑소리 2회)](../getting_started/tunes.md#format-failed) 경고음을 두번 울립니다. 그리고, 위에서 설명한 다수의 기능들은 작동하지 않습니다.
+기본적으로, PX4는 부팅 과정에 SD 카드가 없으면, [포맷 실패](../getting_started/tunes.md#format-failed) 경고음을 두 번 울립니다. 그리고, 위에서 설명한 다수의 기능들이 작동하지 않습니다.
 
 :::tip
-픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB*을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
+픽스호크 보드에서 지원하는 SD 카드의 최대 용량은 32GB입니다. *SanDisk Extreme U3 32GB* 사용을 [적극 추천합니다](../dev_log/logging.md#sd-cards).
 :::
 
-SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어에는 다음의 작업들을 수행할 수 있습니다.
+SD 카드는 선택 사항입니다. SD 카드가 없는 비행 콘트롤어는 다음의 작업들을 수행하여야 합니다.
 
 - [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 매개변수로 알림음을 껍니다.
 - [스트림 로그](../dev_log/logging.md#log-streaming)를 다른 보조 장치에 기록합니다.
