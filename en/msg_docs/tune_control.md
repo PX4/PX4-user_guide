@@ -1,6 +1,7 @@
 # tune_control (UORB message)
         
 This message is used to control the tunes, when the tune_id is set to CUSTOM
+then the frequency, duration are used otherwise those values are ignored.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/tune_control.msg)
 

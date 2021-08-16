@@ -1,6 +1,7 @@
 # sensor_preflight_mag (UORB message)
         
 Pre-flight sensor check metrics.
+The topic will not be updated when the vehicle is armed
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/sensor_preflight_mag.msg)
 

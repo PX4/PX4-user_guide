@@ -1,6 +1,7 @@
 # ulog_stream (UORB message)
         
 Message to stream ULog data from the logger. Corresponds to the LOGGING_DATA
+mavlink message
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/ulog_stream.msg)
 

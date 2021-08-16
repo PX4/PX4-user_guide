@@ -1,6 +1,7 @@
 # ulog_stream_ack (UORB message)
         
 Ack a previously sent ulog_stream message that had
+the NEED_ACK flag set
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/ulog_stream_ack.msg)
 

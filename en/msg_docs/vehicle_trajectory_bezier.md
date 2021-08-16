@@ -1,6 +1,8 @@
 # vehicle_trajectory_bezier (UORB message)
         
 Vehicle Waypoints Trajectory description. See also MAVLink MAV_TRAJECTORY_REPRESENTATION msg
+The topic vehicle_trajectory_bezier is used to send a smooth flight path from the
+companion computer / avoidance module to the position controller.
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_trajectory_bezier.msg)
 

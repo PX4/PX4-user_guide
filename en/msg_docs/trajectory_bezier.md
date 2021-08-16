@@ -1,6 +1,7 @@
 # trajectory_bezier (UORB message)
         
 Bezier Trajectory description. See also Mavlink TRAJECTORY msg
+The topic trajectory_bezier describe each waypoint defined in vehicle_trajectory_bezier
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/trajectory_bezier.msg)
 

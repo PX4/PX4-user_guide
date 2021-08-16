@@ -1,6 +1,7 @@
 # vehicle_local_position_setpoint (UORB message)
         
 Local position setpoint in NED frame
+setting something to NaN means the state should not be controlled
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/vehicle_local_position_setpoint.msg)
 
