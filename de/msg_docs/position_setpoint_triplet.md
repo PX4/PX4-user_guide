@@ -1,6 +1,6 @@
 # position_setpoint_triplet (UORB message)
 
-Global position setpoint triplet in WGS84 coordinates.
+Global position setpoint triplet in WGS84 coordinates. This are the three next waypoints (or just the next two or one).
 
 [source file](https://github.com/PX4/PX4-Autopilot/blob/master/msg/position_setpoint_triplet.msg)
 
