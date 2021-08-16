@@ -14,10 +14,10 @@
 
 解锁无人机
 
-- 首先关闭安全开关
+- 首先关闭[安全开关](../getting_started/px4_basic_concepts.md#safety_switch)。
 - 对您的机体使用解锁命令 - 将油门杆放在右下角。 
-  - 或者增加一个解锁/加锁开关
-  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）
+  - 或者增加一个[解锁/加锁开关](../config/safety.md#arming_switch)。
+  - 您还可以在 *QGroundControl*中解锁（PX4 自动飞行时不需要电台控制）。
 
 :::tip
 机体在[校准/配置](../config/README.md)完成且位置固定之前无法解锁。 [机体状态通知](../getting_started/vehicle_status.md) (包括机体LED, 音频通知和 *QGroundControl* 通知）可以告诉您机体何时可以飞行(并帮助您在未准备好飞行时找出原因)。
