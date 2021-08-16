@@ -16,5 +16,6 @@
 
 [地形跟随/保持&范围辅助](../flying/terrain_following_holding.md)- 如何启用地形跟随。
 
-机体状态通知可以帮助您确定您的机体何时可以飞行（不能起飞，及其原因）。
+:::tip
+[机体状态通知](../getting_started/vehicle_status.md)可以帮助您确定您的机体何时可以飞行（不能起飞，及其原因）。
 :::
