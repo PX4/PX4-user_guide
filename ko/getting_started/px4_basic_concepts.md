@@ -111,22 +111,22 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 무선 조종(RC)
 
-[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)시스템은 기체를 *수동* 제어할 수 있습니다. 무선 조종기에 장착되는 송신기와 기체에 장착되는 수신기로 구성됩니다. 일부 RC 시스템은 자동조종장치에서 텔레메트리 정보를 수신할 수 있습니다.
+[무선 조종기\(RC\)](../getting_started/rc_transmitter_receiver.md)를 사용하여 기체를 *수동* 제어할 수 있습니다. 송신기(무선 조종기에 장착)와 수신기(기체에 장착)로 구성됩니다. 일부 RC에서는 자동조종장치에서 전송한 텔레메트리를 수신할 수 있습니다.
 
-:::note PX4는 자율비행 모드에서 원격 제어 시스템이 필요하지는 않습니다.
+:::note PX4는 자율비행 모드에서 RC가 필수 사항은 아닙니다.
 :::
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC 시스템 선택](../getting_started/rc_transmitter_receiver.md)편에서는 RC 선택 방법을 설명합니다. 다음과 같은 관련 주제들이 포함되어 있습니다.
+RC 선택 방법은 [RC 선택](../getting_started/rc_transmitter_receiver.md)을 참고하십시오. 다음과 같은 관련 주제들을 설명합니다.
 
-- [무선/RC 설정](../config/radio.md) - *QGroundControl*에서의 원격 조종 설정.
-- [비행 첫걸음](../flying/basic_flying.md) - 원격 조종 비행 방법을 설명합니다.
-- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 나오는 텔레메트리 정보 또는 상태 업데이트 정보를 수신하는 무선 조종 송신기를 설정합니다.
+- [무선/RC 설정](../config/radio.md) - *QGroundControl*에서의 RC 설정.
+- [비행 첫걸음](../flying/basic_flying.md) - RC 비행 방법을 설명합니다.
+- [FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4의 텔레메트리 정보나 상태 정보를 수신을 위한 RC 송신기 설정방법을 설명합니다.
 
 <a id="joystick"></a>
 
-## 지상 통제국의 조이스틱
+## 지상 통제국과 조이스틱
 
 *QGroundControl*에서 [조이스틱](../config/joystick.md)을 사용하여 PX4를 수동으로 조종할 수 있습니다. QGroundControl은 조이스틱 신호를 MAVLink 메시지로 변환하여 텔레메트리로 전송합니다. 이와 같은 방식은 *Auterion*, [Skynav](https://auterion-gs.com/skynav/), *UAVComponents*와 [MicroNav](https://www.uavcomp.com/command-control/micronav/)에서 사용합니다. 조이스틱은 기체 시뮬레이션에서 자주 사용됩니다.
 
@@ -136,7 +136,7 @@ PX4 드론은 리튬-폴리머(LiPo) 배터리를 가장 많이 사용합니다.
 
 ## 안전 스위치
 
-기체에는 *안전 스위치*가 있으며, 안전 스위치를 켜야만 기체에 [시동](#arming)을 걸 수 있습니다. 기체에 시동이 걸려야만 모터와 프로펠러가 동작할 수 있습니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도 부품으로 장착하기도 합니다.
+기체의 *안전 스위치*를 켜야만 기체에 [시동](#arming)을 걸 수 있습니다. 기체에 시동이 걸린 이후에, 모터와 프로펠러가 동작합니다. 보통 안전 스위치는 GPS 장치에 장착되어 있으나, 별도 부품으로 제공되는 제품도 있습니다.
 
 :::warning
 시동이 걸린 기체는 잠재적인 위험성이 항상 있습니다. 안전 스위치는 예기치 않은 시동으로 인하여 발생하는 사고를 방치하는 장치입니다.
