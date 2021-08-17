@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="易于飞行" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*位置* 是一种简单难度的遥控器模式，该模式下横滚和俯仰摇杆控制机体的前后左右方向相对于地面的加速度（类似于车的油门踏板），油门控制上升下降的速度。 当摇杆释放/居中时，无人机将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 摇杆满偏的情况下，载具以参数 [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX) 定义的值加速，直到达到参数 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)定义的最终速度后开始减速。
+*位置* 是一种简单难度的遥控器模式，该模式下横滚和俯仰摇杆控制机体的前后左右方向相对于地面的加速度（类似于车的油门踏板），油门控制上升下降的速度。 当摇杆释放/居中时，机体将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 摇杆满偏的情况下，载具以参数 [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX) 定义的值加速，直到达到参数 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)定义的最终速度后开始减速。
 
 :::tip
 位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
