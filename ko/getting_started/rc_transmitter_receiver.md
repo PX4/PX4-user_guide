@@ -49,16 +49,16 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 ## 무선 조종기 부품 선택
 
-서로 호환되는 송신기와 수신기를 구매하여야 합니다. 또한 수신기는 [ PX4 ](#compatible_receivers) 및 비행 제어기와 호환되어야 합니다.
+호환되는 송신기와 수신기를 구매하여야 합니다. 또한, 수신기는 [PX4](#compatible_receivers)와 비행 콘트롤러에 호환되어야 합니다.
 
-제어기와 호환되는 무선 조종기는 묶음으로 판매됩니다. 예를 들어 [ FrSky Taranis X9D 및 FrSky X8R ](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us)은 인기있는 조합입니다.
+콘트롤러와 호환되는 무선 조종기는 보통 한 묶음으로 판매됩니다. 예를 들어, [ FrSky Taranis X9D 및 FrSky X8R ](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us)은 인기있는 조합입니다.
 
-### 송수신기 조합
+### 송수신기 조합 
 
-인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 * FrSky X4R-SB * (S-BUS, 낮은 지연) 또는 * X4R * (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기 모듈이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
+인기있는 무선 조종기중 하나는 * FrSky Taranis X9D *입니다. 권장되는 *FrSky X4R-SB*(S-BUS, 낮은 지연) 또는 *X4R* (PPM-Sum, 레거시) 수신기와 함께 사용할 수있는 내부 송신기들이 있습니다. 그리고, 맞춤형 라디오 송신기 모듈 슬롯과 맞춤형 오픈 소스 OpenTX 펌웨어가 있습니다.
 
 :::note
-이 원격 제어 장치는 [ FrSky ](../peripherals/frsky_telemetry.md) 무선 모듈과 함께 사용할 때 차량의 원격 정보를 표시 할 수 있습니다.
+이 무선 조종기는 [FrSky](../peripherals/frsky_telemetry.md) 무선 모듈과 함께 사용하여 차량의 원격 정보를 표시 할 수 있습니다.
 :::
 
 기타 인기 있는 송수신기 조합 
