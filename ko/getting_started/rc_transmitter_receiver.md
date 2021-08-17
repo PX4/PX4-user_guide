@@ -84,26 +84,26 @@ UAV용 가장 인기있는 무선 종종기 *유형은*은 아래와 같습니�
 
 ## 수신기 연결
 
-일반적으로 수신기는 프로토콜에 적합한 포트를 사용하여 비행 제어기에 연결합니다.
+수신기는 프로토콜에 적합한 포트를 사용하여 비행 콘트롤러에 연결합니다.
 
-* Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결하여야 합니다.
-* Graupner HoTT 수신기 : SUMD 출력은 **SPKT/DSM** 포트에 연결되어야 합니다.
-* PPM-Sum 및 S.BUS 수신기는 ** RC ** 접지, 전원 및 신호 핀 (일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결해야합니다.
-* *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 **RCIN**포트에 *PPM 인코더*로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다 (PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다).
+* Spektrum 및 DSM 수신기는 **SPKT/DSM** 포트에 연결합니다.
+* Graupner HoTT 수신기의 SUMD 출력은 **SPKT/DSM** 포트에 연결합니다.
+* PPM-Sum 및 S.BUS 수신기는 **RC** 접지, 전원 및 신호 핀(일반적으로 RC 또는 RCIN으로 표시됨)에 직접 연결합니다.
+* *각각의 채널이 독립적으로 배선된* PPM 수신기는 반드시 RCIN 포트에 PPM 인코더로 [아래와 같이](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) 연결합니다. PPM-Sum 수신기는 모든 채널에 하나의 전선만 사용합니다.
 
-특정 비행 제어기에 연결하는 방법은 다음 빠른 시작 가이드에 나와 있습니다.
+특정 비행 콘트롤러의 연결 방법은 다음 빠른 시작 가이드를 참고하십시오.
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
 :::tip
-추가 정보는 제조업체의 비행 콘트롤러 설정 가이드를 참고하십시오.
+추가 정보는 제조업체의 비행 콘트롤러 설정 매뉴얼을 참고하십시오.
 :::
 
 <span id="binding"></span>
 
-## 송수신기 바인딩
+## --송수신기 바인딩
 
 무선 시스템을 보정하여 사용하기 전에 수신기와 송신기를 * 바인딩 *하여 상호간에만 통신하도록 설정합니다. 송신기와 수신기 쌍을 바인딩하는 프로세스는 하드웨어에 따라 다릅니다 (지침은 설명서 참조).
 
