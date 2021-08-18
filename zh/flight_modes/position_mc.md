@@ -26,7 +26,7 @@
 虽然在校准良好的机体上非常罕见，但有时着陆可能会出现问题。
 
 - 如果机体无法停止水平移动： 
-  - 您仍然可以在[高度模式](../flight_modes/altitude_mc.md)下在控制降落。 The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
+  - 您仍然可以在[高度模式](../flight_modes/altitude_mc.md)下在控制降落。 方法与上述相同，除了您必须使用横滚和俯仰杆手动确保机体保持在降落点上方。
   - After landing check GPS and magnetometer orientation, calibration.
 - If the vehicle does not detect the ground/landing and disarm: 
   - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
