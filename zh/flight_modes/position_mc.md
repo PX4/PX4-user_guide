@@ -23,10 +23,10 @@
 5. 机体将降低螺旋桨推力，检测地面并[自动落锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（默认）。
 
 :::warning
-While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
+虽然在校准良好的机体上非常罕见，但有时着陆可能会出现问题。
 
-- If the vehicle does not stop moving horizontally: 
-  - You can still land under control in [Altitude mode](../flight_modes/altitude_mc.md). The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
+- 如果机体无法停止水平移动： 
+  - 您仍然可以在[高度模式](../flight_modes/altitude_mc.md)下在控制降落。 The approach is the same as above, except that you must manually ensure that the vehicle stays above the landing spot using the roll and pitch stick.
   - After landing check GPS and magnetometer orientation, calibration.
 - If the vehicle does not detect the ground/landing and disarm: 
   - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
