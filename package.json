@@ -5,9 +5,7 @@
   "repository": "https://github.com/PX4/px4_user_guide.git",
   "license": "CC-BY-4.0",
   "scripts": {
-    "ununtu_copyworker_index": "cp .vuepress/scripts/index.js node_modules/@vuepress/core/lib/node/build/index.js",
-    "ununtu_copyworker_worker": "cp .vuepress/scripts/worker.js node_modules/@vuepress/core/lib/node/build/worker.js",
-    "ununtu_copyworker": "yarn ununtu_copyworker_index && yarn ununtu_copyworker_worker",
+    "ununtu_copyworker": "cp .vuepress/scripts/* node_modules/@vuepress/core/lib/node/build/",
     "docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vuepress build .",
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build .",
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
