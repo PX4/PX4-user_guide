@@ -861,7 +861,7 @@ table {
 </tr>
 <tr>
  <td><strong id="BAT_ADC_CHANNEL">BAT_ADC_CHANNEL</strong> (INT32)</td>
- <td>This parameter is deprecated. Please use BAT1_ADC_CHANNEL    </td>
+ <td>This parameter is deprecated. Please use BAT1_I_CHANNEL    </td>
  <td></td>
  <td>-1</td>
  <td></td>
