@@ -29,6 +29,8 @@ afbrs50 <command> [arguments...]
      [-r <val>]  Sensor rotation - downward facing by default
                  default: 25
 
+   test          Test driver
+
    stop          Stop driver
 ```
 ## gy_us42
