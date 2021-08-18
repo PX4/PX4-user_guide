@@ -27,14 +27,14 @@
 
 - 如果机体无法停止水平移动： 
   - 您仍然可以在[高度模式](../flight_modes/altitude_mc.md)下在控制降落。 方法与上述相同，除了您必须使用横滚和俯仰杆手动确保机体保持在降落点上方。
-  - After landing check GPS and magnetometer orientation, calibration.
-- If the vehicle does not detect the ground/landing and disarm: 
-  - After the vehicle is on the ground switch to [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) keeping the throttle stick low, and manually disarm using a gesture or other command. Alternatively you can also use the kill switch when the vehicle is already on the ground.
+  - 降落后检查 GPS 和磁罗盘方向，并校准。
+- 如果机体未检测到地面/降落并落锁。 
+  - 机体落地后切换到[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，保持油门杆低位，并使用手势或其他命令手动落锁。 或者，当机体已经在地面上时，您也可以使用断电开关。
 :::
 
-## 技术概要
+## 技术摘要
 
-RC mode where roll, pitch, throttle (RPT) sticks control movement in corresponding axes/directions. Centered sticks level vehicle and hold it to fixed altitude and position against wind.
+遥控模式下，横滚、俯仰、油门 (RPT) 杆控制相应轴/方向的运动。 摇杆居中使机体水平并将其保持在固定的高度和位置并抗风。
 
 - Centered roll, pitch, throttle sticks (within RC deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) hold x, y, z position steady against any disturbance like wind.
 - Outside center: 
