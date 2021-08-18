@@ -7,7 +7,7 @@
   * [비행 콘트롤러 선택](getting_started/flight_controller_selection.md)
   * [센서](getting_started/sensor_selection.md)
   * [무선 조종기](getting_started/rc_transmitter_receiver.md)
-  * [비행 모드](getting_started/flight_modes.md)
+  * [비행 모드 개요](getting_started/flight_modes.md)
   * [기체 상태 표시](getting_started/vehicle_status.md) 
     * [LED 신호의 의미](getting_started/led_meanings.md)
     * [음향 소리의 의미](getting_started/tunes.md)
