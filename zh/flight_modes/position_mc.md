@@ -36,8 +36,8 @@
 
 遥控模式下，横滚、俯仰、油门 (RPT) 杆控制相应轴/方向的运动。 摇杆居中使机体水平并将其保持在固定的高度和位置并抗风。
 
-- Centered roll, pitch, throttle sticks (within RC deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)) hold x, y, z position steady against any disturbance like wind.
-- Outside center: 
+- 摇杆处于滚动、俯仰、油门杆中位（遥控死区<a href="../advanced_config/parameter_reference.md#MPC_HOLD_DZ"MPC_HOLD_DZ</a>内）时，机体保持 x、y、z 位置稳定，抵抗任意干扰，如风。
+- 中位以外： 
   - Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).
   - Throttle stick controls speed of ascent-descent.
   - Yaw stick controls rate of angular rotation above the horizontal plane.
