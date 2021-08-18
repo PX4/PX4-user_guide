@@ -4748,6 +4748,8 @@ table {
 <li><strong>4:</strong> Emlid Reach</li> 
 
 <li><strong>5:</strong> Femtomes</li> 
+
+<li><strong>6:</strong> NMEA (generic)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -4814,6 +4816,8 @@ table {
 <li><strong>4:</strong> Emlid Reach</li> 
 
 <li><strong>5:</strong> Femtomes</li> 
+
+<li><strong>6:</strong> NMEA (generic)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
