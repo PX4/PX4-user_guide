@@ -5,18 +5,18 @@
 *位置* 是一种简单难度的遥控器模式，该模式下横滚和俯仰摇杆控制机体的前后左右方向相对于地面的加速度（类似于车的油门踏板），油门控制上升下降的速度。 当摇杆释放/居中时，机体将主动制动，保持水平，并锁定到 3D 空间中的位置 — 补偿风和其他力。 摇杆满偏的情况下，机体以[MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)的加速度，减速直到达到最终速度[MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL)。
 
 :::tip
-位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，无人机在摇杆中位时会停止，而不是继续知道风阻使其减速。
+位置模式对于新手是最安全的手动模式。 不同于[定高模式](../flight_modes/altitude_mc.md)和[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)，机体在摇杆中位时会停止，而不是继续直到风阻使其减速。
 :::
 
-下图直观地显示了模式行为（对于美国手的发射机）。
+下图直观地显示了模式行为（对于美国手的遥控器）。
 
 ![多旋翼位置模式](../../assets/flight_modes/position_MC.png)
 
-### 着陆
+### 降落
 
-该模式下着陆很容易：
+该模式下降落时很容易的：
 
-1. Position the drone horizontally above the landing spot using the roll and pitch stick.
+1. 使用横滚和俯仰杆控制无人机水平位置于降落点上方。
 2. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
 3. Pull the throttle stick down gently until the vehicle touches the ground.
 4. Pull the throttle stick all the way down to facilitate and accelerate land detection.
