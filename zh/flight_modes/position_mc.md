@@ -14,13 +14,13 @@
 
 ### 降落
 
-该模式下降落时很容易的：
+该模式中降落是很容易的：
 
 1. 使用横滚和俯仰杆控制无人机水平位置于降落点上方。
 2. 松开横滚和俯仰杆并给予足够的时间使其完全停止。
 3. 轻轻下拉油门杆直到机体触碰地面。
 4. 将油门杆一直向下拉以促进和加快着陆检测。
-5. The vehicle will lower propeller thrust, detect the ground and [automatically disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (by default).
+5. 机体将降低螺旋桨推力，检测地面并[自动落锁](../advanced_config/prearm_arm_disarm.md#auto-disarming)（默认）。
 
 :::warning
 While very rare on a well calibrated vehicle, sometimes there may be problems with landing.
