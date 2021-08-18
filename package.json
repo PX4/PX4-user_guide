@@ -6,7 +6,9 @@
   "license": "CC-BY-4.0",
   "scripts": {
     "ununtu_copyworker": "cp .vuepress/scripts/* node_modules/@vuepress/core/lib/node/build/",
+    "windows_copyworker": "xcopy /f /y \".vuepress/scripts/*\" \"node_modules/@vuepress/core/lib/node/build/\"",
     "docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vuepress build .",
+    "docs:buildfast_windows": "yarn windows_copyworker && yarn docs:buildwin",
     "docs:build_ubuntu": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build .",
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
     "docs:dev": "vuepress dev . ",
