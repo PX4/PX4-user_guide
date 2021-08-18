@@ -38,18 +38,18 @@
 
 - 摇杆处于滚动、俯仰、油门杆中位（遥控死区<a href="../advanced_config/parameter_reference.md#MPC_HOLD_DZ"MPC_HOLD_DZ</a>内）时，机体保持 x、y、z 位置稳定，抵抗任意干扰，如风。
 - 中位以外： 
-  - Roll/Pitch sticks control horizontal acceleration over ground in the vehicle's left-right and forward-back directions (respectively).
-  - Throttle stick controls speed of ascent-descent.
-  - Yaw stick controls rate of angular rotation above the horizontal plane.
-- Takeoff: 
-  - When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
-- Landing: 
-  - When close to the ground ([MPC_LAND_ALT2](#MPC_LAND_ALT2)), horizontal velocity is limited ([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY)).
+  - 横滚/俯仰杆控制机体左右和前后方向（分别）在地面上的水平加速度。
+  - 油门杆控制上升下降速度。
+  - 偏航杆控制水平面上方的角旋转速率。
+- 起飞： 
+  - 在地面时，如果油门杆升高到 62.5% 以上（从底部的全范围），机体将起飞。
+- 降落： 
+  - 当靠近地面([MPC_LAND_ALT2](#MPC_LAND_ALT2))时，水平速度受到限制([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY))。
 
 :::note
 
-- Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
-- This mode requires GPS.
+- 手动输入信号是必须的（遥控器，或通过 MAVLink 的游戏手柄/拇指摇杆）。
+- 此模式需要 GPS。
 :::
 
 ### 参数
