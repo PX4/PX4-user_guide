@@ -17,9 +17,9 @@
 该模式下降落时很容易的：
 
 1. 使用横滚和俯仰杆控制无人机水平位置于降落点上方。
-2. Let go of the roll and pitch stick and give it enough time to come to a complete stop.
-3. Pull the throttle stick down gently until the vehicle touches the ground.
-4. Pull the throttle stick all the way down to facilitate and accelerate land detection.
+2. 松开横滚和俯仰杆并给予足够的时间使其完全停止。
+3. 轻轻下拉油门杆直到机体触碰地面。
+4. 将油门杆一直向下拉以促进和加快着陆检测。
 5. The vehicle will lower propeller thrust, detect the ground and [automatically disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (by default).
 
 :::warning
