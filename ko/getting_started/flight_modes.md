@@ -97,7 +97,7 @@
 
 <a id="manual_stabilized_mc"></a>
 
-### -- 수동/안정화 모드 (멀티콥터)
+### 수동/안정화 모드 (멀티콥터) 
 
 [<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
