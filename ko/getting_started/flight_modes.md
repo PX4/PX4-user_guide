@@ -170,11 +170,11 @@
 
 <a id="takeoff_mc"></a>
 
-### 이륙 모드(멀티콥터) 
+### 이륙 모드 (멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[이륙](../flight_modes/takeoff.md) 모드는 멀티콥터가 이륙 고도까지 수직 상승후에 호버링합니다.
+[이륙](../flight_modes/takeoff.md) 모드에서는 멀티콥터는 이륙 고도까지 수직 상승한 후에 호버링합니다.
 
 <a id="land_mc"></a>
 
@@ -182,31 +182,31 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[착륙 모드](../flight_modes/land.md)는 멀티콥터의 이륙 위치에 착륙합니다.
+[착륙 모드](../flight_modes/land.md)에서는 멀티콥터는 이륙 위치에 착륙합니다.
 
 <a id="followme_mc"></a>
 
-### 추적 모드(멀티콥터)
+### 추적 모드 (멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[추적 모드](../flight_modes/follow_me.md)는 멀티콥터가 현재 위치 설정 값을 제공하는 사용자를 자율적으로 추적합니다. 위치 설정 값은 *QGroundControl*을 실행하는 Android 휴대 전화/태블릿 또는 MAVSDK 앱에서 가져올 수 있습니다.
+[추적 모드](../flight_modes/follow_me.md)는 멀티콥터가 현재 위치값을 제공하는 사용자를 자동으로 추적합니다. 위치값은 *QGroundControl*을 실행하는 Android 단말기(스마트폰/태블릿)나 MAVSDK 앱에서 제공할 수 있습니다.
 
 <a id="offboard_mc"></a>
 
-### 오프보드 모드(멀티콥터)
+### 오프보드 모드 (멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[오프 보드 모드](../flight_modes/offboard.md)는 멀티 콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록 합니다.
+[오프 보드 모드](../flight_modes/offboard.md)에서는 멀티콥터는 MAVLink를 통하여 제공되는 위치, 속도 또는 자세값에 따라 비행합니다.
 
 :::note
-이 모드는 보조 컴퓨터와 지상관제소 프로그램을 위한 것입니다!
+이 모드는 보조 컴퓨터와 지상통제국 프로그램을 위한 것입니다.
 :::
 
 <a id="fw_flight_modes"></a>
 
-## 고정익 
+## -- 고정익 
 
 <a id="position_fw"></a>
 
