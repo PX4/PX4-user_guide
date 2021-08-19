@@ -22,15 +22,15 @@
 
 <a id="categories"></a>
 
-## -- 자율 모드와 수동 모드
+## 자율 모드와 수동 모드 
 
-비행 모드에는 *수동* 모드와 *자율* 모드가 있습니다. 수동 모드는 사용자가 RC 컨트롤 스틱(또는 조이스틱)을 통해 비행기를 제어하며, 자율 모드는 자동조종 프로그램으로 제어되며 조종사나 원격 제어는 필요하지 않습니다.
+비행 모드에는 *수동* 모드와 *자율* 모드가 있습니다. 수동 모드는 조종사가 무선 조종기나 조이스틱으로 비행기를 제어하며, 자율 모드는 자동조종 프로그램으로 제어되며 조종사나 원격 제어는 필요하지 않습니다.
 
 :::tip
-일부 수동 모드에는 자동 조종 보조 기능이 있어 비행 제어을 보다 용이하게합니다. 예를 들어, 대부분의 모드는 RC 스틱이 중앙에 있을 때 운송체의 수평을 유지합니다.
+일부 수동 모드에는 자동 조종 보조 기능이 있어 비행 제어을 보다 용이하게 합니다. 예를 들어, 대부분의 모드는 RC 스틱이 중앙에 있으면 기체의 수평을 유지합니다.
 :::
 
-수동 모드는 "간편" 모드와 "곡예(Acro)" 모드로 더 나눌 수 있습니다. 간편 모드에서 롤 및 피치 스틱은 차량 각도를 설정하여 *수평면*을 기준으로 좌우로 앞으로 이동합니다. 이렇게 하면 움직임이 예측가능하고, 각도가 제어되기 때문에 기체가 뒤집히지 않습니다. 곡예 모드에서 RC 스틱은 각축을 중심으로 회전 속도를 제어합니다. 기체는 뒤집힐 수 있으며, 기동성이 높아 지는 반면에 비행 조종은 어려워집니다.
+수동 모드는 "간편" 모드와 "곡예(Acro)" 모드로 나눌 수 있습니다. 간편 모드에서는 롤 및 피치 스틱은 차량 각도를 제어하고, *수평면*을 기준으로 전후좌우로 이동합니다. 이렇게 하면 움직임이 예측 가능하고, 각도가 제어되기 때문에 기체가 뒤집히지 않습니다. 곡예 모드에서 RC 스틱은 각 축을 중심으로 회전 속도를 제어합니다. 기체는 뒤집힐 수 있으며, 기동성이 높아 지는 반면 비행 조종은 어려워집니다.
 
 고정익: 
 
@@ -42,28 +42,28 @@
 
 * 수동 간편 : [위치](#position-mode-mc), [고도](#altitude-mode-mc), [수동/안정화](#manual-stabilized-mode-mc), [궤도](#orbit-mode-mc)
 * 수동 곡예 : [곡예](#acro-mode-mc)
-* 자율 : [유지](#hold-mode-mc), [복귀](#return-mode-mc), [미션](#mission-mode-mc), [이륙](#takeoff-mode-mc), [착륙](#land-mode-mc), [나를 따르나](#follow-me-mode-mc), [오프 보드](#offboard-mode-mc)
+* 자율 : [유지](#hold-mode-mc), [복귀](#return-mode-mc), [미션](#mission-mode-mc), [이륙](#takeoff-mode-mc), [착륙](#land-mode-mc), [조종사 추적](#follow-me-mode-mc), [오프 보드](#offboard-mode-mc)
 
-로보/보트:
+로보 및 보트:
 
 * 수동-간편 : [수동](#manual-mode-ugv)
 * 자율: [임무](#mission-mode-ugv)
 
 :::note
-수동 및 이무 모드만 지원됩니다. 다른 모드로 전환할 수 있지만, 동작은 수동 모드와 동일합니다.
+수동과 임무 모드만 지원합니다. 다른 모드로 전환할 수 있지만, 동작은 수동 모드와 동일합니다.
 :::
 
 ## 요점 
 
-아래 아이콘은 문서 내에서 사용됩니다: 
+아래 아이콘은 문서 내에서 다음과 같은 용도로 사용됩니다: 
 
-| 아이콘                                                                                                                                                                                                                                                                                                              | 설명                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| <a id="key_manual"></a>[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)                                                                                                                                                                                      | 수동 모드 원격 제어 필수.                              |
-| <a id="key_automatic"></a>[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)                                                                                                                                                                                         | 자동 모드. RC 제어는 모드 변경을 제외하고 기본적으로 비활성화되어 있습니다. |
-| <a id="key_position_fixed"></a>[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)                                                                                                                                                                         | 위치 수정이 필요(예 : GPS, VIO 또는 기타 위치 확인 시스템).     |
-| <a id="altitude_only"></a><img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계) " width="30px" />                                                                                                                                                                                           | 필요한 고도 (예 : 기압계, 거리계).                       |
-| <a id="key_difficulty"></a>[<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty) | 비행 모드 난이도 (초급 ~ 고급)                          |
+| 아이콘                                                                                                                                                                                                                                                                                                              | 설명                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| <a id="key_manual"></a>[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)                                                                                                                                                                                      | 수동 모드 무선 조종기 필수.                                  |
+| <a id="key_automatic"></a>[<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)                                                                                                                                                                                         | 자동 모드. 무선 조종기 제어는 모드 변경을 제외하고, 기본적으로 비활성화되어 있습니다. |
+| <a id="key_position_fixed"></a>[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)                                                                                                                                                                         | 위치 수정이 필요(예 : GPS, VIO 또는 기타 위치 확인 시스템).          |
+| <a id="altitude_only"></a><img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계) " width="30px" />                                                                                                                                                                                           | 최소 고도 (예 : 기압계, 거리계).                             |
+| <a id="key_difficulty"></a>[<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty) | 비행 모드 난이도 (초급 ~ 고급)                               |
 
 <a id="mc_flight_modes"></a>
 
@@ -73,7 +73,7 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[위치 모드](../flight_modes/position_mc.md)는 비행 제어가 용이한 RC 모드로, 롤 및 피치 스틱이 기체의 전진 및 좌-우 방향의 (예 : 자동차의 가속 페달) *가속*을 제어하고 스로틀은 상승 하강 속도를 제어합니다. 스틱을 풀거나 중앙에 놓으면 차량이 능동적으로 제동하고 수평을 맞추고 3D 공간의 위치에 고정되어 바람과 기타 힘을 보상합니다.
+[위치 모드](../flight_modes/position_mc.md)는 비행 제어가 용이한 RC 모드로, 롤 및 피치 스틱이 기체의 전후좌우 방향의 (예 : 자동차의 가속 페달) *가속*을 제어하고, 스로틀은 상승 하강 속도를 제어합니다. 스틱을 풀거나 중앙에 놓으면 차량이 능동적으로 제동하고 수평을 맞추고 3D 공간의 위치에 고정되어 바람과 기타 힘을 보상합니다.
 
 :::tip
 위치 모드는 초보자에게 가장 안전한 수동 모드입니다. [고도](#altitude-mode-mc) 및 [수동/안정화](#manual_stabilized_mc) 모드와 달리 기체는 제어 신호가 없으면 표류하지 않고 대신 스틱이 중앙에있을 때 정지합니다.
