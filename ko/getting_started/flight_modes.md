@@ -76,7 +76,7 @@
 [위치 모드](../flight_modes/position_mc.md)는 비행 제어가 용이한 RC 모드로, 롤 및 피치 스틱이 기체의 전후좌우 방향의 (예 : 자동차의 가속 페달) *가속*을 제어하고, 스로틀은 상승 하강 속도를 제어합니다. 스틱을 풀거나 중앙에 놓으면 차량이 능동적으로 제동하고 수평을 맞추고 3D 공간의 위치에 고정되어 바람과 기타 힘을 보상합니다.
 
 :::tip
-위치 모드는 초보자에게 가장 안전한 수동 모드입니다. [고도](#altitude-mode-mc) 및 [수동/안정화](#manual_stabilized_mc) 모드와 달리 기체는 제어 신호가 없으면 표류하지 않고 대신 스틱이 중앙에있을 때 정지합니다.
+위치 모드는 초보자에게 가장 안전한 수동 모드입니다. [고도](#altitude-mode-mc) 및 [수동/안정화](#manual_stabilized_mc) 모드와 달리 기체는 제어 신호가 없으면 표류하지 않고, 스틱이 중앙에 있을 때는 정지합니다.
 :::
 
 ![멀티콥터 위치 모드](../../assets/flight_modes/position_MC.png)
@@ -85,19 +85,19 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="필요한 고도 (예 : 기압계, 거리계)" width="30px" />](#altitude_only)
 
-[고도 모드](../flight_modes/altitude_mc.md)에서는 *상대적으로* 비행 제어가 용이한 RC 모드로, 롤 및 피치 스틱이 차량 이동을 좌우 및 앞뒤 방향(차량의 "전면" 기준)으로 제어하고, 요 스틱은 수평면에서 회전 속도를 제어하고 스로틀은 상승 하강 속도를 제어합니다.
+[고도 모드](../flight_modes/altitude_mc.md)에서는 비행 제어가 *상대적으로* 용이한 RC 모드로, 롤 및 피치 스틱이 차량의 전후좌우(차량의 "전면" 기준) 이동을 제어하고, 요 스틱은 수평면에서 회전 속도를 제어하고, 스로틀은 상승 하강 속도를 제어합니다.
 
-스틱을 놓거나 중앙에 놓으면 기체의 수평과 현재 *고도*를 유지합니다. 수평면에서 이동하는 경우 기체는 바람 저항에 의해 모멘텀이 소실될 때까지 계속 이동합니다. 바람이 불면 기체는 바람 따라 표류합니다.
+스틱을 놓거나 중앙에 놓으면, 기체는 수평과 현재 *고도*를 유지합니다. 수평면에서 이동하는 경우에는 기체는 바람 저항에 의해 모멘텀이 소실될 때까지 이동합니다. 바람이 불면, 기체는 바람을 따라 표류합니다.
 
 :::tip
-*자세 모드*는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다. [수동/안정화](#manual_stabilized_mc) 모드와 유사하지만, 스틱을 놓으면 차량 고도가 안정화됩니다.
+*고도 모드*는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다. [수동/안정화](#manual_stabilized_mc) 모드와 유사하지만, 스틱을 놓으면 차량 고도가 일정하게 유지됩니다.
 :::
 
 ![멀티콥터 고도 모드](../../assets/flight_modes/altitude_MC.png)
 
 <a id="manual_stabilized_mc"></a>
 
-### 수동/안정화 모드 (멀티콥터)
+### -- 수동/안정화 모드 (멀티콥터)
 
 [<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
