@@ -40,7 +40,7 @@ Offboard 模式需要主动连接到远程 MAVLink 系统 （例如机载计算�
     * 速度设定值（仅 `vx`，`yy`，`vz`）
     * 加速度设定值（仅 `afx`，`afy`，`afz`）
     * 位置设定值**和**速度设定值（速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
-    * 位置设定值**和**速度设定值**和**加速度（加速度设定值作为前置反馈；它被加到位置控制器的输出中，并且结果被用作速度控制器的输入）。
+    * 位置设定点**、**速度设定点**和**加速度（速度和加速度设定点用作前馈；将速度设定点添加到位置控制器的输出，并将结果用作速度控制器的输入；加速度设定点添加到速度控制器的输出中，结果用于计算推力矢量）。
   * * PX4 支持以下 `坐标系` 值（仅限）： [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED)。
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
