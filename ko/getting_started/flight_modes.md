@@ -155,7 +155,7 @@
 
 [귀환 모드](../flight_modes/return.md)에서는 기체가 안전한 위치와 경로로 비행합니다. 이 모드는 수동(사전 프로그래밍된 RC 스위치를 통하여)이나 자동(즉, [사고 방지](../config/safety.md)가 동작되는 경우)으로 활성화할 수 있습니다.
 
-귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 정의된 임무 착륙 패턴에 의해서 동작합니다. 기본적으로 멀티콥터는 안전한 높이로 상승하고 홈 위치로 날아간 다음 착륙합니다.
+귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 정의된 임무 착륙 패턴에 의해서 동작합니다. 기본적으로 멀티콥터는 안전한 높이로 상승하고 홈 위치로 비행한 다음 착륙합니다.
 
 <a id="mission_mc"></a>
 
@@ -163,14 +163,14 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[임무 모드](../flight_modes/mission.md)는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성 및 업로드됩니다.
+[임무 모드](../flight_modes/mission.md)는 비행 콘트롤러에 업로드된 자율 [임무](../flying/missions.md)(비행 계획) 비행을 실행합니다. 지상관제국(GCS)에서 임루를 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)시에 사용하는 것과 같은 프로그램입니다.
+:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)에 사용되는 것과 같은 프로그램입니다.
 :::
 
 <a id="takeoff_mc"></a>
 
-### 이륙 모드(멀티콥터)
+### -- 이륙 모드(멀티콥터)
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
