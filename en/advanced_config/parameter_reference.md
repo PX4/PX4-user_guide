@@ -11646,8 +11646,8 @@ table {
  <td><strong id="CAL_ACC0_TEMP">CAL_ACC0_TEMP</strong> (FLOAT)</td>
  <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
@@ -11817,8 +11817,8 @@ table {
  <td><strong id="CAL_ACC1_TEMP">CAL_ACC1_TEMP</strong> (FLOAT)</td>
  <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
@@ -11988,8 +11988,8 @@ table {
  <td><strong id="CAL_ACC2_TEMP">CAL_ACC2_TEMP</strong> (FLOAT)</td>
  <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
@@ -12159,8 +12159,8 @@ table {
  <td><strong id="CAL_ACC3_TEMP">CAL_ACC3_TEMP</strong> (FLOAT)</td>
  <td>Accelerometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_ACC3_XOFF">CAL_ACC3_XOFF</strong> (FLOAT)</td>
@@ -12330,8 +12330,8 @@ table {
  <td><strong id="CAL_GYRO0_TEMP">CAL_GYRO0_TEMP</strong> (FLOAT)</td>
  <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
@@ -12480,8 +12480,8 @@ table {
  <td><strong id="CAL_GYRO1_TEMP">CAL_GYRO1_TEMP</strong> (FLOAT)</td>
  <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
@@ -12630,8 +12630,8 @@ table {
  <td><strong id="CAL_GYRO2_TEMP">CAL_GYRO2_TEMP</strong> (FLOAT)</td>
  <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO2_XOFF">CAL_GYRO2_XOFF</strong> (FLOAT)</td>
@@ -12780,8 +12780,8 @@ table {
  <td><strong id="CAL_GYRO3_TEMP">CAL_GYRO3_TEMP</strong> (FLOAT)</td>
  <td>Gyroscope calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_GYRO3_XOFF">CAL_GYRO3_XOFF</strong> (FLOAT)</td>
@@ -12930,8 +12930,8 @@ table {
  <td><strong id="CAL_MAG0_TEMP">CAL_MAG0_TEMP</strong> (FLOAT)</td>
  <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
@@ -13143,8 +13143,8 @@ table {
  <td><strong id="CAL_MAG1_TEMP">CAL_MAG1_TEMP</strong> (FLOAT)</td>
  <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
@@ -13356,8 +13356,8 @@ table {
  <td><strong id="CAL_MAG2_TEMP">CAL_MAG2_TEMP</strong> (FLOAT)</td>
  <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
@@ -13569,8 +13569,8 @@ table {
  <td><strong id="CAL_MAG3_TEMP">CAL_MAG3_TEMP</strong> (FLOAT)</td>
  <td>Magnetometer calibration temperature <p><strong>Comment:</strong> Temperature during last calibration.</p>   </td>
  <td></td>
- <td>NAN</td>
- <td></td>
+ <td>-1000.</td>
+ <td>celcius</td>
 </tr>
 <tr>
  <td><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
