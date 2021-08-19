@@ -2,9 +2,10 @@
 
 [<img src="../../assets/site/difficulty_medium.png" title="飞行难度：中等" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*手动/自稳* 模式在当遥控摇杆居中时可稳定多旋翼无人机。 要手动飞无人机，您可以移动摇杆使其偏离居中位置。
+*手动/自稳* 模式在当遥控摇杆居中时多旋翼无人机将自稳。 要手动使机体移动/飞，您可以移动摇杆使其偏离居中位置。
 
-如果设置 *手动* 或 *自稳* 模式，则启用该多旋翼模式。
+:::note
+无论设置 *手动* 或 *自稳* 模式，都将启用该多旋翼模式。
 :::
 
 在手动控制下，横滚和俯仰摇杆控制无人机围绕各个轴的*角度*（姿态），横滚摇杆控制水平面上方的旋转速率，油门控制高度 / 速度。
