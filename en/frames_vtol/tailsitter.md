@@ -105,6 +105,18 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
       <img title="TBS Caipiroshka" src="../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg" />
     </div>
   </div>
+  <div class="grid_item">
+    <div class="grid_item_heading"><big>ax1800</big></div>
+    <div class="grid_text">
+      <img title="ax1800" src="../../assets/airframes/vtol/xdwgood_ax1800/hero.jpg" />
+    </div>
+  </div>
+  <div class="grid_item">
+    <div class="grid_item_heading"><big><a href="https://www.valaqpatrol.com/tech-data/">UAV Works VALAQ Patrol Tailsitter</a></big></div>
+    <div class="grid_text">
+      <img title="UAV Works VALAQ Patrol Tailsitter" src="../../assets/airframes/vtol/uav_works_valaq_patrol/hero.jpg" />
+    </div>
+  </div>
 </div>
 
 
