@@ -29,7 +29,7 @@ RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中�
 :::note
 数学关系是：
 
-$$\maintm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO` 或 `MC_ACRO_EXPO_Y`，`g = MC_ACRO_SUPEXPO` 或 `MC_ACRO_SUPEXPOY` 和 `r` 为最大速率。
+$$\mathrm{y} = r(f\cdot x^3 + x(1-f)) (1-g)/(1-g|x|)$$, 其中 `f = MC_ACRO_EXPO` 或 `MC_ACRO_EXPO_Y`，`g = MC_ACRO_SUPEXPO` 或 `MC_ACRO_SUPEXPOY` ， `r` 为最大速率。
 
 您可以在[此处](https://www.desmos.com/calculator/yty5kgurmc)进行试验。
 :::
