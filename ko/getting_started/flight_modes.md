@@ -170,7 +170,7 @@
 
 <a id="takeoff_mc"></a>
 
-### -- 이륙 모드(멀티콥터)
+### 이륙 모드(멀티콥터) 
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
