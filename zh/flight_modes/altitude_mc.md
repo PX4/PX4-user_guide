@@ -2,9 +2,9 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="飞行难度：简单" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动/遥控器控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="需要高度传感器（例如气压计、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
-* 高度模式 *是一个* 相对 *容易飞的遥控模式，滚转和俯仰杆控制飞机在左右和前后方向上的运动（相对于飞机的“前部”），偏航杆控制水平面上的旋转速度，油门控制上升 -下降的速度。
+*高度模式*是一个飞行难度*相对*容易的遥控模式，滚转和俯仰杆控制机体在左右和前后方向上的运动（相对于机体的“前方”），偏航杆控制水平面上的旋转速度，油门控制上升 -下降的速度。
 
-当杆被释放/回中时，飞机将恢复水平并保持当前的*高度*。 如果在水平面上运动，飞机将继持续运动直到任何动量被风阻力消散。 如果刮风，飞机会向风的方向漂移。
+当杆被释放/回中时，机体将恢复水平并保持当前的*高度*。 如果在水平面上运动，飞机将继持续运动直到任何动量被风阻力消散。 如果刮风，飞机会向风的方向漂移。
 
 :::tip
 *高度模式*是对新手来说最安全的无 GPS 手动模式。 就像[手动/自稳](../flight_modes/manual_stabilized_mc.md)模式，但是在松开摇杆时也可以锁定无人机高度。
