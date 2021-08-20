@@ -33,7 +33,7 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 
 ## 基本电池设置(默认)
 
-The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
+基本电池设置将PX4配置为使用默认方法进行容量估算。 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
 
 :::note
 This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
