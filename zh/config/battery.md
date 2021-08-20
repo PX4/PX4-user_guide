@@ -18,7 +18,7 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 后面的方法建立在前面的方法之上。 您使用的方法将取决于机体的电源模块是否可以测量电流。
 
 :::note
-The instructions below refer to battery 1 calibration parameters: `BAT1_*`. Other batteries use the `BATx_*` parameters, where `x` is the battery number. All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+以下说明涉及电池1的校准参数：`BAT1_*`。 其他电池使用`BATx_*`参数，这里`x`是电池序号。 [此处列出了](../advanced_config/parameter_reference.md#battery-calibration)所有电池校准参数。
 :::
 
 :::tip
