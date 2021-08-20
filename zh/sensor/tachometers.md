@@ -8,4 +8,4 @@
 
 ## 支持的硬件
 
-- [ThunderFly TFRPM01 Tachometer](../sensor/thunderfly_tachometer.md)
+- [ThunderFly TFRPM01 转速计](../sensor/thunderfly_tachometer.md)
