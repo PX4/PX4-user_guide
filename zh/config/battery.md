@@ -13,9 +13,9 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 
 1. [基本电池设置](#basic_settings)（默认）：原始测量电压与“空”和“满”电压之间的范围进行比较。 这样的估计较为粗略，因为测量的电压（及其相应的容量）将在负载下产生波动。
 2. [负载补偿的基于电压的估计](#load_compensation)：抵消负载对电池容量计算的影响。
-3. [基于电流积分的电压估计](#current_integration)：通过基于电流的已消耗电荷估计，对基于负载补偿电压的估计出的可用容量进行补充。 这样的容量估计相当于智能电池的容量估计。
+3. [带电流积分的基于电压的估计](#current_integration)：将带负载补偿的基于电压的剩余容量估算值与基于电流的已消耗电量估算值融合。 这样的容量估计相当于智能电池的容量估计。
 
-Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
+后面的方法建立在前面的方法之上。 您使用的方法将取决于机体的电源模块是否可以测量电流。
 
 :::note
 The instructions below refer to battery 1 calibration parameters: `BAT1_*`. Other batteries use the `BATx_*` parameters, where `x` is the battery number. All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
