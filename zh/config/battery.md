@@ -7,12 +7,12 @@ PX4 的电池监控功能只有在您拥有支持的硬件时才能使用。 在
 
 ## 概述
 
-The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+电源设置的目标是提供对剩余电池百分比（和容量）的良好估计，以便机体不会使用到电量耗尽和碰撞（或电池因深度放电而损坏）的程度）。
 
-PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
+PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 
-1. [基本电池设置](#basic_settings)（默认值）：将原始测量电压与“空”和“满”电压之间的范围进行比较。 这样的估计较为粗略，因为测量的电压（及其相应的容量）将在负载下产生波动。
-2. [基于电压的负载补偿估计](#load_compensation)：抵消负载对电池容量计算的影响。
+1. [基本电池设置](#basic_settings)（默认）：原始测量电压与“空”和“满”电压之间的范围进行比较。 这样的估计较为粗略，因为测量的电压（及其相应的容量）将在负载下产生波动。
+2. [负载补偿的基于电压的估计](#load_compensation)：抵消负载对电池容量计算的影响。
 3. [基于电流积分的电压估计](#current_integration)：通过基于电流的已消耗电荷估计，对基于负载补偿电压的估计出的可用容量进行补充。 这样的容量估计相当于智能电池的容量估计。
 
 Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
