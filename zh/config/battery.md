@@ -36,12 +36,12 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 基本电池设置将PX4配置为使用默认方法进行容量估算。 此方法将测得的原始电池电压与“空”和“满”电芯的电池电压范围进行比较（按芯数量缩放）。
 
 :::note
-This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+由于带载下，估计电荷波动带来测得的电压发生变化，因此这种方法会得到相对粗略的估计。
 :::
 
-To configure the basic settings for battery 1:
+配置电池1的基本参数：
 
-1. 打开 *QGroundControl* 并连接上飞机。
+1. 打开 *QGroundControl* 并连接上机体。
 2. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **电源** 按钮。
 
 You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
