@@ -22,11 +22,11 @@ PX4 提供了许多（逐渐变得更有效）可用于估计容量的方法：
 :::
 
 :::tip
-In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage. This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+除了此处讨论的 PX4 配置之外，您还应确保电调的低电压截止是被禁用还是设置为低于预期的最低电压。 这确保了电池故障保护行为由 PX4 管理，并且当电池仍有电量时，ESC 不会断电（根据您选择的“空电池”设置）。
 :::
 
 :::tip
-[Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
+下面的[电池类型比较](#battery-type-comparison)解释了主要电池类型之间的差异，以及它如何影响电池设置。
 :::
 
 <span id="basic_settings"></span>
