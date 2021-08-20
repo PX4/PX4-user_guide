@@ -243,7 +243,7 @@
       * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
       * [Avionics Anonymous Laser Altimeter UAVCAN Interface](uavcan/avanon_laser_interface.md)
     * [Tachometers (Revolution Counters)](sensor/tachometers.md) 
-      * [ThunderFly TFRPM01 Tachometer Sensor](sensor/thunderfly_tachometer.md)
+      * [ThunderFly TFRPM01 转速传感器](sensor/thunderfly_tachometer.md)
     * [Airspeed Sensors](sensor/airspeed.md)
     * [Optical Flow](sensor/optical_flow.md) 
       * [ARK Flow](uavcan/ark_flow.md)
