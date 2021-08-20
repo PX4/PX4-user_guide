@@ -2,8 +2,7 @@
 
 该主题解释了如何进行电源设置
 
-:::note
-The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+PX4 的电池监控功能只有在您拥有支持的硬件时才能使用。 在大多数情况下，指的是一个电源模块，它可以测量电池电压，也可以测量电池和机体之间的电流。
 :::
 
 ## 概述
