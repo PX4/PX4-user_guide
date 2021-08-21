@@ -14,39 +14,11 @@ This section contains build logs and instructions for assembling and configuring
 
 ## VTOL Types
 
-PX4 supports the three most important/main VTOL configurations. 
+PX4 supports the three most important/main VTOL configurations.
 
-<style>
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: minmax(100px, auto);
-}
-
-.grid_item {
-  border:1px solid gray;
-  border-radius: 5px;
-  background-color: #dfe2e5;
-  margin: 5px;
-  padding: 5px;
-}
-
-.grid_item_heading
-{
-  font-weight: bold;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 5px;
-}
-
-.wrapper img {
-  margin-top: 10px;
-}
-</style>
-
-<div class="wrapper">
+<div class="grid_wrapper three_column">
   <div class="grid_item">
-    <div class="grid_item_heading">Tailsitter</div>
+    <div class="grid_item_heading"><a href="tailsitter.html" title="Tailsitter"><big>Tailsitter</big></a></div>
     <div class="grid_text">
     Rotors permanently in fixed wing-position.
     Takes off and lands on tail. Whole vehicle tilts forward to enter forward flight.
@@ -60,7 +32,7 @@ PX4 supports the three most important/main VTOL configurations.
     </div>
   </div>
 <div class="grid_item">
-  <div class="grid_item_heading">Tiltrotor</div>
+  <div class="grid_item_heading"><a href="tiltrotor.html" title="Tiltrotor"><big>Tiltrotor</big></a></div>
   Rotors swivel 90 degrees to transition from multicopter to forward flight orientation.
   Takes off and lands on belly.
   <div class="grid_text">
@@ -73,7 +45,7 @@ PX4 supports the three most important/main VTOL configurations.
   </div>
 </div>
 <div class="grid_item">
-  <div class="grid_item_heading">Standard VTOL</div>
+  <div class="grid_item_heading"><a href="standardvtol.html" title="Standard VTOL"><big>Standard VTOL</big></a></div>
   <div class="grid_text">
   Separate rotors/flight controls for multicopter and forward flight. Takes off and lands on belly.
   <img src="../../assets/airframes/vtol/vertical_technologies_deltaquad/hero_small.png" title="Vertical Technologies: Deltaquad" />
@@ -99,7 +71,7 @@ A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. Multic
 
 The flight modes for VTOL vehicles are the same as for [multicopter](../getting_started/flight_modes.md#mc_flight_modes) when flying in MC mode and [fixed-wing](../getting_started/flight_modes.md#fw_flight_modes) when flying in FW mode.
 
-The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
+The transition between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in missions or other auto modes.
 
 ## Assembly
 

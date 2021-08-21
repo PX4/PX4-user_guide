@@ -886,6 +886,8 @@ rgbled <command> [arguments...]
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
                  default: 57
+     [-o <val>]  RGB PWM Assignment
+                 default: 123
 
    stop
 

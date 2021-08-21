@@ -206,7 +206,7 @@
 
 <a id="fw_flight_modes"></a>
 
-## -- 고정익 
+## 고정익 
 
 <a id="position_fw"></a>
 
@@ -214,12 +214,12 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[위치모드](../flight_modes/position_fw.md)는 스틱을 놓거나 중앙에 놓을 때 기체가 바람 등의 외부 요인에도 지면 트랙에 대하여 수평과 직진 방향의 비행이 용이한 RC 모드입니다.
+[위치모드](../flight_modes/position_fw.md)에서는 스틱을 놓거나 중앙에 놓으면, 기체가 바람 등의 외부 요인에도 지면에 대하여 수평과 직진으로의 비행이 용이합니다.
 
-스로틀은 대기 속도를 결정합니다 (스로틀 50 %에서 기체는 사전 설정된 순항 속도로 현재 고도를 유지합니다). 피치는 상승과 하강에 사용됩니다. 롤, 피치 및 요는 모두 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프 할 수 없음).
+스로틀은 대기 속도를 결정합니다. 스로틀 50%에서 기체는 현재 고도에서 사전 설정된 순항 속도를 유지합니다. 피치는 상승과 하강에 사용됩니다. 롤, 피치 및 요는 모두 각도를 제어합니다. 따라서, 차량을 롤오버하거나 루프 할 수 없습니다.
 
 :::tip
-자세 모드는 초보 비행자에게 가장 안전한 비 GPS 수동 모드입니다.
+위치 모드는 초보자에게 가장 안전한 비 GPS 수동 모드입니다.
 :::
 
 ![고정익 위치 모드](../../assets/flight_modes/position_FW.png)
@@ -230,21 +230,21 @@
 
 [<img src="../../assets/site/difficulty_easy.png" title="초급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="최소 고도 (예 : 기압계, 거리계)" width="30px" />](#altitude_only)
 
-[고도](../flight_modes/altitude_fw.md) 비행 모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하기가 용이합니다. 이 모드에서는 바람이 불 때는 기체는 방향을 유지하지 않습니다.
+[고도](../flight_modes/altitude_fw.md) 모드에서는 기체의 고도를 유지하거나 제어하기가 용이합니다. 고도 모드에서는 바람이 불면 기체의 방향을 유지하지 않습니다.
 
-기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어합니다. 일단 중앙에 위치하면 자동조종장치가 현재 고도에 고정되고 요/롤 및 모든 대기 속도에서 이 고도를 유지합니다. 스로틀 입력은 대기 속도를 제어합니다. 롤과 피치는 각도로 제어됩니다 (따라서 차량을 롤오버하거나 루프할 수 없습니다).
+기체의 상승/하강률을 피치/엘리베이터 스틱으로 제어합니다. 스틱이 중앙에 위치하면, 자동조종장치는 요/롤 및 모든 대기 속도에서 현재 고도를 유지합니다. 스로틀 입력은 대기 속도를 제어합니다. 롤과 피치는 각도를 제어합니다. 따라서, 차량을 롤오버하거나 루프할 수 없습니다.
 
-모든 원격 제어 입력이 중앙에 있을 때 (롤, 피치, 요 및 ~ 50 % 스로틀 없음) 기체는 직선, 수평 비행 (바람에 따라)으로 돌아가 현재 고도를 유지합니다.
+무선종조기의 모든 입력이 중앙에 있을 때 (롤, 피치, 요은 없음, 약 50%스로틀) 기체는 직선, 수평(바람에 따라)으로 현재 고도를 유지합니다.
 
 :::tip
-*고도 모드*는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 가이드 모드입니다. [수동](#manual_fw) 모드와 유사하지만, 피치 스틱을 놓으면 기체의 고도가 안정화됩니다.
+*고도 모드*는 비행 방법을 배우는 초보자에게 적합한 가장 안전한 비 GPS 모드입니다. [수동](#manual_fw) 모드와 유사하지만, 피치 스틱을 놓으면 기체의 고도가 안정화됩니다.
 :::
 
 ![고정익 고도 모드](../../assets/flight_modes/altitude_FW.png)
 
 <a id="stabilized_fw"></a>
 
-### 안정화 모드 (고정익)
+### -- 안정화 모드 (고정익)
 
 [<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
