@@ -76,11 +76,11 @@ These ports are:
   Multi-vehicle simulations use a separate remote port for each instance, allocated sequentially from `14540` to `14549`
   (additional instances all use port `14549`).
   :::
-* The simulator's local TCP Port **4560** is used for communication with PX4.
-  PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.
+* The simulator's local TCP Port, **4560**, is used for communication with PX4.
+  The simulator listens to this port, and PX4 initiates a TCP connection to it.
 
 :::note
-The ports for the GCS and offboard APIs are set in configuration files, while the simulator broadcast port is hard-coded in the simulation MAVLink module.
+The ports for the GCS, offboard APIs and simulator are specified by startup scripts. See [System Startup](../concept/system_startup.md) to learn more.
 :::
 
 
