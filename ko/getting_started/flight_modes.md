@@ -244,31 +244,31 @@
 
 <a id="stabilized_fw"></a>
 
-### -- 안정화 모드 (고정익)
+### 안정화 모드 (고정익) 
 
 [<img src="../../assets/site/difficulty_medium.png" title="중급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
-[안정화 모드](../flight_modes/stabilized_fw.md)는 RC 스틱이 중앙에있을 때 기체를 수평 비행으로 전환하여 바람에 대한 수평 자세를 유지합니다 (기체 방향 및 고도 제외).
+[안정화 모드](../flight_modes/stabilized_fw.md)에서는 RC 스틱이 중앙에 있으면, 기체는 수평 비행으로 전환하여 바람에 대하여 수평을 유지합니다(기체의 방향과 고도 제외).
 
-기체는 피치 입력을 기반으로 상승/하강하며, 롤/피치 스틱이 0이 아닌 경우 회전합니다. 롤과 피치는 각도가 제어됩니다 (거꾸로 굴리거나 반복할 수 없음).
+기체는 피치 입력으로 상승 또는 하강하며, 롤/피치 스틱이 중앙이 아니면 회전하게 됩니다. 롤과 피치는 각도를 제어합니다(거꾸로 굴리거나 반복할 수 없음).
 
 :::tip
-*안정화 모드*는 굴리거나 뒤집을 수 없기 때문에, [수동 모드](#manual_fw)보다 비행하기 훨씬 쉽고 조종 스틱을 중앙에 배치하여 기체의 수평 유지가 용이합니다.
+*안정화 모드*에서는 회전하거나 뒤집을 수 없기 때문에, [수동 모드](#manual_fw)보다 비행이 용이하고 조종 스틱을 중앙에 배치하여 기체의 수평을 유지하기가 편리합니다.
 :::
 
-스로틀을 0%로 낮추면 기체가 미끄러집니다 (모터 정지). 회전을 수행하기 위해 명령은 기동 내내 지켜 져야합니다. 롤이 풀리면 비행기는 회전을 멈추고 스스로 수평을 맞출 것입니다 (피치 및 요 명령도 마찬가지입니다).
+스로틀을 최소로 낮추면 기체가 미끄러집니다 (모터는 정지). 회전 명령은 비행에 작동됩니다. 롤이 풀리면 기체는 회전을 멈추고, 스스로 수평을 유지합니다(피치 및 요 명령도 마찬가지입니다).
 
 ![고정익 수동 비행](../../assets/flight_modes/manual_stabilized_FW.png)
 
 <a id="acro_fw"></a>
 
-### 곡예 모드 (고정익)
+### 곡예 모드 (고정익) 
 
 [<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
-[곡에 모드](../flight_modes/acro_fw.md)는 롤과 루프등의 곡예 비행을 위한 RC 모드입니다.
+[곡에 모드](../flight_modes/acro_fw.md)는 롤과 루프등의 곡예 비행을 위한 무선조종 모드입니다.
 
-롤, 피치 및 요 스틱은 각 축을 중심으로 회전 속도를 제어하고 각 축의 출력은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 오면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 따라 이동합니다.
+롤, 피치 및 요 스틱은 각 축을 중심으로 회전 속도를 제어하며, 각 축의 출력은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 위치하면 차량은 회전을 멈추고, 현재 방향(예 : 반전될 수 있음)을 유지하고 현재 운동량에 의해 비행합니다.
 
 ![고정익 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_FW.png)
 
@@ -278,14 +278,14 @@
 
 [<img src="../../assets/site/difficulty_hard.png" title="고급 난이도 비행" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
-[수동 모드](../flight_modes/manual_fw.md)은 RC 스틱 입력을 출력 믹서에 직접 전송하여 수동 제어로만 기체를 비행합니다.
+[수동 모드](../flight_modes/manual_fw.md)에서는 무선 조종기 스틱 입력을 출력 믹서에 직접 전송하여 수동으로만 기체를 제어합니다.
 
 :::tip
-이 모드는 안정화 기능이 없기 때문에, 가장 어려운 모드입니다 [곡예 모드](#acro_fw)와 달리, RP 스틱이 중심일 경우 기체가 축 주위에서 자동으로 회전을 멈추지 않습니다. 조종사는 실제로 스틱을 이동하여 다른 방향으로 힘을 가해야 합니다.
+이 모드는 안정화 기능이 없기 때문에 가장 어려운 모드입니다 [곡예 모드](#acro_fw)와 달리, 무선 조종기 스틱이 중앙에 위치하여도 기체가 회전은 자동으로 멈추지 않습니다. 조종사는 스틱을 조종하여 다른 방향으로 힘을 가하여야 합니다.
 :::
 
 :::note
-이 모드는 FMU를 재정의하는 유일한 모드입니다(명령어는 코프로세서를 통해 전송됩니다). FMU 펌웨어 오작동시 RC를 통해 스로틀, 엘리베이터, 에일러론 및 방향타를 제어할 수있는 안전 메커니즘을 제공합니다.
+이 모드는 FMU를 재정의하는 유일한 모드입니다(명령어는 코프로세서를 통해 전송됩니다). FMU 펌웨어가 오작동하면 무선 조종기를 통하여 스로틀, 엘리베이터, 에일러론 및 방향타를 제어할 수있는 안전 메커니즘을 제공합니다.
 :::
 
 <a id="hold_fw"></a>
@@ -294,7 +294,7 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[유지](../flight_modes/hold.md)는 고정익이 현재 고도에서 현재 위치를 중심으로 선회합니다. 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 RC 스위치 또는 *QGroundControl* **일시 정지** 버튼으로 활성화할 수 있습니다.
+[유지 모드](../flight_modes/hold.md)에서는 고정익은 현재 위치를 중심으로 현재 고도에서 선회 비행합니다. 유지 모드를 사용하여 임무를 일시 중지하거나, 비상시 기체를 다시 제어할 수 있습니다. 사전 프로그래밍된 무선 조종기 스위치 또는 *QGroundControl* **일시 정지** 버튼으로 활성화할 수 있습니다.
 
 <a id="return_fw"></a>
 
@@ -302,13 +302,13 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[복귀 모드](../flight_modes/return.md)는 차량이 안전한 위치와 경로로 비행하게 합니다. 이 모드는 수동 (사전 프로그래밍된 RC 스위치를 통해) 또는 자동 (즉, [사고 방지](../config/safety.md)가 동작되는 경우)으로 활성화 될 수 있습니다.
+[귀환 모드](../flight_modes/return.md)에서는 기체는 안전한 위치와 경로로 비행합니다. 귀환 모드는 수동(사전 프로그래밍된 무선 조종기 스위치를 통해)이나 자동 (즉, [사고 방지](../config/safety.md) 기능이 동작되는 경우)으로 활성화됩니다.
 
-귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 임무 착륙 패턴 (정의 된 경우)을 따라서 동작합니다. 기본적으로 고정익은 안전한 높이로 상승하고 미션 착륙 패턴이 있으면 이를 수행합니다. 그렇지 않으면, 홈 위치로 돌아와 선회 비행 합니다.
+귀환 동작은 매개 변수 설정에 따라 다르며, 임무 경로나 임무 착륙 패턴(정의 된 경우)을 따라 동작합니다. 기본적으로 고정익은 안전한 고도로 상승하고, 미션 착륙 패턴이 있으면 이를 수행합니다. 그렇지 않으면, 홈 위치로 돌아와 선회 비행 합니다.
 
 <a id="mission_fw"></a>
 
-### 임무 모드 (고정익)
+### -- 임무 모드 (고정익)
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
