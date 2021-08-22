@@ -370,7 +370,7 @@ ina226 <command> [arguments...]
    status        print status info
 ```
 ## fmu mode_pwm3cap1
-Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+Source: [drivers/power_monitor/ina228](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/power_monitor/ina228)
 
 
 ### 描述
@@ -378,9 +378,45 @@ This module controls the TAP_ESC hardware via UART. It listens on the actuator_c
 
 Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.
 
-<a id="iridiumsbd_usage"></a>
+The module is typically started with: tap_esc start -d /dev/ttyS2 -n
+
+If the INA228 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.
+
+<a id="ina228_usage"></a>
 
 ### 实现
+```
+ina228 <command> [arguments...]
+ Commands:
+   start
+     [-I]        Internal I2C bus(es)
+     [-X]        External I2C bus(es)
+     [-b <val>]  board-specific bus (default=all) (external SPI: n-th bus
+                 (default=1))
+     [-f <val>]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
+     [-a <val>]  I2C address
+                 default: 69
+     [-k]        if initialization (probing) fails, keep retrying periodically
+     [-t <val>]  battery index for calibration values (1 or 2)
+                 default: 1
+
+   stop
+
+   status        print status info
+```
+## pga460
+Source: [drivers/telemetry/iridiumsbd](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/telemetry/iridiumsbd)
+
+
+### 示例
+通常使用如下命令：
+
+Creates a virtual serial port that another module can use for communication (e.g. mavlink).
+
+<a id="iridiumsbd_usage"></a>
+
+### 使用
 ```
 iridiumsbd <command> [arguments...]
  Commands:
@@ -396,12 +432,12 @@ iridiumsbd <command> [arguments...]
 
    status        print status info
 ```
-## pga460
-The module is typically started with: tap_esc start -d /dev/ttyS2 -n 
+## irlock
+Source: [drivers/irlock](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/irlock)
 
 <a id="irlock_usage"></a>
 
-### 示例
+### 使用
 ```
 irlock <command> [arguments...]
  Commands:
@@ -420,7 +456,7 @@ irlock <command> [arguments...]
    status        print status info
 ```
 ## linux_pwm_out
-该模块监听 actuator_controls 主题，执行混控并写入 PWM 输出。
+Source: [drivers/linux_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/linux_pwm_out)
 
 
 ### 使用
@@ -428,7 +464,7 @@ Linux PWM output driver with board-specific backend implementation.
 
 <a id="linux_pwm_out_usage"></a>
 
-### 使用
+### 描述
 ```
 linux_pwm_out <command> [arguments...]
  Commands:
@@ -439,11 +475,11 @@ linux_pwm_out <command> [arguments...]
    status        print status info
 ```
 ## lsm303agr
-通常使用如下命令：
+Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer/lsm303agr)
 
 <a id="lsm303agr_usage"></a>
 
-### 使用
+### 实现
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -468,11 +504,11 @@ lsm303agr <command> [arguments...]
 Source: [drivers/lights/neopixel](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/lights/neopixel)
 
 
-### 描述
+### 示例
 This module is responsible for driving interfasing to the Neopixel Serial LED
 
-### 实现
-It is typically started with:
+### 使用
+By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
 ```
 neopixel -n 8
 ```
@@ -480,7 +516,7 @@ To drive all available leds.
 
 <a id="newpixel_usage"></a>
 
-### 示例
+### 描述
 ```
 newpixel <command> [arguments...]
  Commands:
@@ -514,12 +550,12 @@ paw3902 <command> [arguments...]
 
    status        print status info
 ```
-## pca9685
+## pwm_out_sim
 Source: [drivers/pca9685](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685)
 
 <a id="pca9685_usage"></a>
 
-### 描述
+### 使用
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -541,19 +577,19 @@ pca9685 <command> [arguments...]
 
    status        print status info
 ```
-## pwm_out_sim
+## pca9685_pwm_out
 Source: [drivers/pca9685_pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pca9685_pwm_out)
 
 
-### 使用
-By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic. Additionally the pwm rate defines the lower-level IO timer rates.
+### 描述
+This module is responsible for generate pwm pulse with PCA9685 chip.
 
-It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
+源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
 
 ### 使用
 This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C
 
-### 描述
+### 使用
 It is typically started with:
 ```
 pca9685_pwm_out start -a 64 -b 1
@@ -563,7 +599,7 @@ Use the `mixer` command to load mixer files. `mixer load /dev/pwm_outputX etc/mi
 
 <a id="pca9685_pwm_out_usage"></a>
 
-### 使用
+### 描述
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -579,12 +615,12 @@ pca9685_pwm_out <command> [arguments...]
 
    status        print status info
 ```
-## pcf8583
+## rc_input
 Source: [drivers/rpm/pcf8583](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/rpm/pcf8583)
 
 <a id="pcf8583_usage"></a>
 
-### 使用
+### 实现
 ```
 pcf8583 <command> [arguments...]
  Commands:
@@ -602,12 +638,12 @@ pcf8583 <command> [arguments...]
 
    status        print status info
 ```
-## rc_input
-源码：[drivers/pwm_out_sim](https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim)
+## pmw3901
+源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
 
 <a id="pmw3901_usage"></a>
 
-### 描述
+### 示例
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -632,15 +668,15 @@ pmw3901 <command> [arguments...]
 Source: [drivers/pwm_out](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/pwm_out)
 
 
-### 实现
+### Description
 This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.
 
 It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.
 
 The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, pwm_out can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.
 
-### 示例
-源码：[drivers/rc_input](https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input)
+### Implementation
+By default the module runs on a work queue with a callback on the uORB actuator_controls topic.
 
 ### Examples
 It is typically started with:
