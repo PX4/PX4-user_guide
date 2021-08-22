@@ -13971,6 +13971,27 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="INA228_CONFIG">INA228_CONFIG</strong> (INT32)</td>
+ <td>INA228 Power Monitor Config    </td>
+ <td>0 > 65535 (1)</td>
+ <td>63779</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA228_CURRENT">INA228_CURRENT</strong> (FLOAT)</td>
+ <td>INA228 Power Monitor Max Current    </td>
+ <td>0.1 > 327.68 (0.1)</td>
+ <td>327.68</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="INA228_SHUNT">INA228_SHUNT</strong> (FLOAT)</td>
+ <td>INA228 Power Monitor Shunt    </td>
+ <td>0.000000001 > 0.1 (.000000001)</td>
+ <td>0.0005</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
  <td>PCF8583 rotorfreq (i2c) i2c address  <strong>Values:</strong><ul>
 <li><strong>80:</strong> Address 0x50 (80)</li> 
@@ -14211,6 +14232,22 @@ table {
 <tr>
  <td><strong id="SENS_EN_ETSASPD">SENS_EN_ETSASPD</strong> (INT32)</td>
  <td>Eagle Tree airspeed sensor (external I2C)    <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_INA226">SENS_EN_INA226</strong> (INT32)</td>
+ <td>Enable INA226 Power Monitor <p><strong>Comment:</strong> For systems a INA226 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Disabled (0)</td>
+ <td></td>
+</tr>
+<tr>
+ <td><strong id="SENS_EN_INA228">SENS_EN_INA228</strong> (INT32)</td>
+ <td>Enable INA228 Power Monitor <p><strong>Comment:</strong> For systems a INA228 Power Monitor, this should be set to true</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td></td>
  <td>Disabled (0)</td>
