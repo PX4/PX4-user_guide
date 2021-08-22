@@ -371,13 +371,13 @@ VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc
 이 모드는 임무 모드 미설정시에 활성화됩니다.
 :::
 
-*수동 모드*는 RC 조종 스틱이 중앙에 있을 때 모터를 중지합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
+*수동 모드*에서는 RC 조종 스틱이 중앙에 있으면, 모터를 중지합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
 <!--
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 -->
 
-컨트롤 스틱을 놓으면 센터 데드 존으로 돌아갑니다. 그러면 모터가 꺼지고 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
+컨트롤 스틱을 놓으면 센터 데드 존으로 돌아갑니다. 그러면 모터가 꺼지고, 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
 
 <!--
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
@@ -387,12 +387,12 @@ When under manual control the roll and pitch sticks control the angle of the veh
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-*임무 모드*는 비행 제어기에 업로드 된 사전 정의 된 자율 [임무](../flying/missions.md) (비행 계획)를 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성하고 업로드합니다.
+*임무 모드*는 비행 콘트롤러에 업로드된 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)를 실행합니다. 임무는 일반적으로 지상관제국(GCS)에서 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)시에 사용하는 것과 같은 프로그램입니다.
+:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)에 사용하는 것과 같은 프로그램입니다.
 :::
 
 ## 추가 정보
 
-* [비행 > 비행 모드](../flight_modes/README.md) - 모든 모드에 대한 자세한 설명
-* [기본 구성> 비행 모드](../config/flight_mode.md) - RC 제어 스위치를 특정 비행 모드에 매핑하는 방법
+* [비행 > 비행 모드](../flight_modes/README.md) - 비행 모드에 대한 자세한 설명
+* [기본 구성 &gt; 비행 모드](../config/flight_mode.md) - RC 스위치를 특정 비행 모드에 매핑하는 방법
