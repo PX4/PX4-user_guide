@@ -308,13 +308,13 @@
 
 <a id="mission_fw"></a>
 
-### -- 임무 모드 (고정익)
+### 임무 모드 (고정익) 
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[임무 모드](../flight_modes/mission.md)는 비행 제어기에 업로드하여 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)을 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성 및 업로드됩니다.
+[임무 모드](../flight_modes/mission.md)에서는 비행 콘트롤러에 업로드된 사전 정의된 자율 [임무](../flying/missions.md)(비행 계획)를 실행합니다. 일반적으로 임무는 지상관제국(GCS)에서 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)시에 사용하는 것과 같은 프로그램입니다.
+:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)에 사용하는 것과 같은 프로그램입니다.
 :::
 
 <a id="takeoff_fw"></a>
@@ -323,7 +323,7 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[이륙 모드](../flight_modes/takeoff.md#fixed_wing)는 기체 이륙에 필요한 일련의 작업들을 수행합니다. 구체적인 발사 동작은 구성된 이륙 모드 (투석기/수동 발사 모드 또는 활주로 이륙 모드)에 따라 다릅니다.
+[이륙 모드](../flight_modes/takeoff.md#fixed_wing)에서는 기체 이륙에 필요한 일련의 작업들을 수행합니다. 구체적인 이륙 동작은 설정된 이륙 모드(투석기/수동/활주로 이륙 모드)에 따라 차이가 납니다.
 
 <a id="land_fw"></a>
 
@@ -331,7 +331,7 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;
 
-[착륙 모드](../flight_modes/land.md)는 이륙 위치에 착륙합니다. 고정익의 착륙 원리와 설정 매개변수는 [고정익 착륙](../flying/fixed_wing_landing.md)에서 자세하게 설명합니다.
+[착륙 모드](../flight_modes/land.md)는 이륙 위치에 기체가 착륙합니다. 고정익의 착륙 원리와 설정 매개변수는 [고정익 착륙](../flying/fixed_wing_landing.md)을 참고하십시오.
 
 <a id="offboard_fw"></a>
 
@@ -339,45 +339,45 @@
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-[오프 보드 모드](../flight_modes/offboard.md)는 멀티콥터가 MAVLink를 통해 제공되는 위치, 속도 또는 자세 설정 값을 따르도록합니다.
+[오프 보드 모드](../flight_modes/offboard.md)에서는 고정익은 MAVLink를 통하여 제공되는 위치, 속도 또는 자세 설정 값을 따르도록 합니다.
 
 :::note
-이 모드는 보조 컴퓨터와 지상관제소 프로그램을 위한 것입니다!
+이 모드는 보조 컴퓨터와 지상관제국을 위한 것입니다!
 :::
 
 ## 수직이착륙기 (VTOL)
 
-VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티콥터 모드는 주로 이착륙에 사용되고, 고정익 모드는 이동 및 임무 수행에 사용됩니다.
+VTOL 항공기는 멀티콥터와 고정익의 장점을 모두 가지고 있습니다. 멀티콥터 모드는 주로 이착륙시에 사용되고, 고정익 모드는 이동 및 임무 수행시에 사용됩니다.
 
-일반적으로 VTOL 차량의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc_flight_modes)와 동일하고 고정익 모드 비행시에는 [고정익](#fw_flight_modes)과 동일합니다.
+VTOL의 비행 모드는 멀티콥터 모드 비행시에는 [멀티 콥터](#mc_flight_modes)와 동일하고, 고정익 모드 비행시에는 [고정익](#fw_flight_modes)과 동일합니다.
 
-모드 전환은 RC 스위치를 사용하는 파일럿에 의해 시작되거나 자동 모드에서 필요할 때 PX4에 의해 자동으로 시작됩니다.
+모드 전환은 RC 스위치를 사용하거나, 자동 모드에서 필요시에 PX4에 의해 자동으로 시작됩니다.
 
 몇 가지 참고 사항 :
 
-* VTOL [귀환 모드](../flight_modes/return.md)는 정의된 경우 기본적으로 미션 착륙을 사용합니다.
+* VTOL [귀환 모드](../flight_modes/return.md)는 정의된 경우에는 기본적으로 미션 착륙을 사용합니다.
 
 <a id="ugv_flight_modes"></a>
 
 ## 로버/보트
 
-지상 차량과 보트는 [수동 모드](#manual-mode-ugv)와 [임무 모드](#mission-mode-ugv) 만 지원합니다 (다른 모드로 전환 할 수 있지만, 모두 수동 모드와 동일하게 작동합니다).
+지상 차량과 보트는 [수동 모드](#manual-mode-ugv)와 [미션 모드](#mission-mode-ugv)만 지원합니다. 다른 모드로 전환할 수 있지만, 수동 모드와 동일하게 작동합니다.
 
 ### 수동 모드 (UGV)
 
 [<img src="../../assets/site/difficulty_easy.png" title="사용하기 쉬움" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동/원격 제어 필요" width="30px" />](#key_manual)&nbsp;
 
 :::note
-이 모드는 미션 모드 비설정시에 활성화됩니다.
+이 모드는 임무 모드 미설정시에 활성화됩니다.
 :::
 
-*수동 모드*는 RC 조종 스틱이 중앙에 있을 때 모터를 중지합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
+*수동 모드*에서는 RC 조종 스틱이 중앙에 있으면, 모터를 중지합니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 제어합니다.
 
 <!--
 When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
 -->
 
-컨트롤 스틱을 놓으면 센터 데드 존으로 돌아갑니다. 그러면 모터가 꺼지고 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
+컨트롤 스틱을 놓으면 센터 데드 존으로 돌아갑니다. 그러면 모터가 꺼지고, 바퀴와 방향타가 중앙에 위치합니다. 활성 제동이 없으므로 차량은 운동량 소실시까지 계속 움직입니다 (그리고 보트의 경우에는 계속 표류함).
 
 <!--
 ![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
@@ -387,12 +387,12 @@ When under manual control the roll and pitch sticks control the angle of the veh
 
 [<img src="../../assets/site/automatic_mode.svg" title="자동 모드" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="위치 고정 요구(예, GPS)" width="30px" />](#key_position_fixed)
 
-*임무 모드*는 비행 제어기에 업로드 된 사전 정의 된 자율 [임무](../flying/missions.md) (비행 계획)를 실행합니다. 임무는 일반적으로 지상관제(GCS) 애플리케이션으로 생성하고 업로드합니다.
+*임무 모드*는 비행 콘트롤러에 업로드된 사전 정의된 자율 [임무](../flying/missions.md) (비행 계획)를 실행합니다. 임무는 일반적으로 지상관제국(GCS)에서 생성하고 업로드합니다.
 
-:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)시에 사용하는 것과 같은 프로그램입니다.
+:::tip PX4 GCS는 [QGroundControl](https://docs.qgroundcontrol.com/en/)입니다. *QGroundControl*은 [PX4 설정](../config/README.md)에 사용하는 것과 같은 프로그램입니다.
 :::
 
 ## 추가 정보
 
-* [비행 > 비행 모드](../flight_modes/README.md) - 모든 모드에 대한 자세한 설명
-* [기본 구성> 비행 모드](../config/flight_mode.md) - RC 제어 스위치를 특정 비행 모드에 매핑하는 방법
+* [비행 > 비행 모드](../flight_modes/README.md) - 비행 모드에 대한 자세한 설명
+* [기본 구성 &gt; 비행 모드](../config/flight_mode.md) - RC 스위치를 특정 비행 모드에 매핑하는 방법
