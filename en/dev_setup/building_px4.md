@@ -70,7 +70,7 @@ To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot*
 For example, to build for [Pixhawk 4](../flight_controller/pixhawk4.md) hardware you could use the following command:
 ```sh
 cd PX4-Autopilot
-make px4_fmu-v4_default
+make px4_fmu-v5_default
 ```
 
 A successful run will end with similar output to:
