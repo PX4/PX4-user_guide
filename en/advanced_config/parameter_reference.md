@@ -16343,6 +16343,14 @@ table {
  <td></td>
 </tr>
 <tr>
+ <td><strong id="SYS_HAS_GPS">SYS_HAS_GPS</strong> (INT32)</td>
+ <td>Control if the vehicle has a GPS <p><strong>Comment:</strong> Disable this if the system has no GPS. If disabled, the sensors hub will not process sensor_gps, and GPS will not be available for the rest of the system.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td></td>
+ <td>Enabled (1)</td>
+ <td></td>
+</tr>
+<tr>
  <td><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
  <td>Control if the vehicle has a magnetometer <p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
 </td>
