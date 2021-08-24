@@ -119,7 +119,7 @@
   * [이리듐 위성 통신](advanced_features/satcom_roadblock.md)
   * [동영상 스트리밍](companion_computer/video_streaming.md)
 * [고급 설정](advanced_config/README.md) 
-  * [매개변수 검색 및수정](advanced_config/parameters.md)
+  * [매개변수 검색 및 수정](advanced_config/parameters.md)
   * [멀티콥터 설정 및 튜닝](config_mc/README.md) 
     * [멀티콥터 필터/제어 지연 튜닝](config_mc/filter_tuning.md)
     * [멀티콥터 PID 튜닝 상세 가이드](config_mc/pid_tuning_guide_multicopter.md)
