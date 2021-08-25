@@ -37,7 +37,7 @@ jobs:
       - name: Dump GH_REF
         env:
           GH_REF: ${{ github.ref }}
-        run: echo github.ref: $GH_REF
+        run: echo github.ref $GH_REF
 
       - name: Dump GITHUB_REF
         run: echo GITHUB_REF $GITHUB_REF
