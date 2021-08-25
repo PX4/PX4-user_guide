@@ -13,12 +13,11 @@ RGB *UI LED*는 차량의 *비행 준비* 상태를 표시합니다. RGB LED는 
 
 아래 이미지는 LED와 차량 상태의 관계를 나타냅니다.
 
-:::warning
--- PX4가 아직 [비행 사전 점검을 통과](../flying/pre_flight_checks.md) 하지 않았기 때문에 GPS 잠금 장치 (녹색 LED)가 있어도 기체에 시동을 걸 수 없습니다. **이륙하려면 유효한 전역 위치 추정치가 필요합니다! **
+:::warning PX4가 아직 [비행 사전 점검을 통과](../flying/pre_flight_checks.md) 하지 않았기 때문에, GPS 잠금 장치(녹색 LED)가 있어도 기체에 시동을 걸 수 없습니다. **이륙하려면 전역 위치 추정자가 필요합니다.**
 :::
 
 :::tip
-오류 (빨간색 깜박임) 또는 차량이 GPS 잠금을 달성 할 수없는 경우 (파란색에서 녹색으로 변경) 보정 상태 및 오류를 포함하여 *QGroundControl*에서 더 자세한 상태 정보를 확인하십시오. [프리 플라이트 확인 (내부)](../flying/pre_flight_checks.md)에서보고 한 메시지입니다. 또한 GPS 모듈이 제대로 연결되어 있는지, Pixhawk가 GPS를 제대로 읽고 있는지, GPS가 적절한 GPS 위치를 전송하는지 확인하십시오.
+오류(적색 깜박임) 또는 차량이 GPS 잠금을 할 수없는 경우(파란색에서 녹색으로 변경)에는 보정 상태와 오류를 포함하여 *QGroundControl*에서 자세한 상태 정보를 확인할 수 있습니다. [사전 비행 점검(내부)](../flying/pre_flight_checks.md)에서 보고된 메시지입니다. 또한 GPS 모듈이 제대로 연결되어 있는지, Pixhawk가 GPS를 제대로 읽고 있는지, GPS가 적절한 GPS 위치를 전송하는지 확인하십시오.
 :::
 
 ![LED 신호 설명](../../assets/flight_controller/pixhawk_led_meanings.gif)
