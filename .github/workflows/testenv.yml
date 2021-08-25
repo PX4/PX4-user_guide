@@ -31,37 +31,17 @@ jobs:
 
       # Runs a single command using the runners shell
      
-      - name: Print BRANCH_NAMEX ENV
-        run: echo BRANCH_NAMEX ENV of ${{ env.BRANCH_NAMEX }}
-      - name: Print BRANCH_NAMEX ENV QUOTED
-        run: echo "BRANCH_NAMEX ENV of ${{ env.BRANCH_NAMEX }}"
+      - name: Print env.BRANCH_NAMEX 
+        run: echo env.BRANCH_NAMEX: ${{ env.BRANCH_NAMEX }}
         
-      # Print branch name
-      - name: Branch name string
-        run: echo running on branch ${GITHUB_REF##*/}
-      - name: Branch name string quoted
-        run: echo "running on branch ${GITHUB_REF##*/}"
-        
-      - name: Dump github ref
+      - name: Dump GH_REF
         env:
-          MY_GH_REF: ${{ github.ref }}
-        run: echo "$MY_GH_REF"
-      - name: Dump github base_ref
-        env:
-          MY_GH_BASE_REF: ${{ github.base_ref }}
-        run: echo "$MY_GH_BASE_REF"
-      - name: Dump github head_ref
-        env:
-          MY_GH_HEAD_REF: ${{ github.head_ref }}
-        run: echo "$MY_GH_HEAD_REF"
+          GH_REF: ${{ github.ref }}
+        run: echo github.ref: $GH_REF
 
       - name: Dump GITHUB_REF
-        run: echo "$GITHUB_REF"
-      - name: Dump GITHUB_HEAD_REF
-        run: echo "$GITHUB_HEAD_REF"
-      - name: Dump github GITHUB_BASE_REF
-        run: echo "$GITHUB_BASE_REF"
-        
+        run: echo GITHUB_REF: $GITHUB_REF
+     
       - name: Get branch name (merge)
         if: github.event_name != 'pull_request'
         shell: bash
@@ -71,9 +51,9 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+        
       - name: Debug
-        run: echo ${{ env.BRANCH_NAME }} 
-      - name: Debug quoted
-        run: echo "${{ env.BRANCH_NAME }}"
+        run: echo DEBUG: file env.BRANCH_NAME: ${{ env.BRANCH_NAME }} 
+
         
 
