@@ -25,13 +25,27 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      # Get branch name for pull or merge via env file (https://stackoverflow.com/a/64210623/894359)
+      - name: Get branch name (merge)
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+      - name: Get branch name (pull request)
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+        
+      - name: Debug
+        run: echo DEBUG env.BRANCH_NAME is ${{ env.BRANCH_NAME }} 
   
-      - name: Install dependencies
+      # Install dependencis and build
+      - name: Install dependencies (node)
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           
-      - name: Install dependencies -yarn
+      - name: Install dependencies (yarn)
         run: yarn
         
       - name: Generate static vuepress files
