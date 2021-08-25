@@ -12,9 +12,6 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-env:
-  BRANCH_NAMEX: ${GITHUB_REF##*/}
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,31 +26,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-     
-      - name: Print env.BRANCH_NAMEX 
-        run: echo env.BRANCH_NAMEX ${{ env.BRANCH_NAMEX }}
-        
-      - name: Dump GH_REF
-        env:
-          GH_REF: ${{ github.ref }}
-        run: echo github.ref $GH_REF
-
-      - name: Dump GITHUB_REF
-        run: echo GITHUB_REF $GITHUB_REF
-     
+      # Get branch name for pull or merge via env file (https://stackoverflow.com/a/64210623/894359)
+    
       - name: Get branch name (merge)
         if: github.event_name != 'pull_request'
         shell: bash
         run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
-
       - name: Get branch name (pull request)
         if: github.event_name == 'pull_request'
         shell: bash
         run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
         
       - name: Debug
-        run: echo DEBUG file env.BRANCH_NAME ${{ env.BRANCH_NAME }} 
+        run: echo DEBUG env.BRANCH_NAME is ${{ env.BRANCH_NAME }} 
 
         
 
