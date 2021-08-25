@@ -53,7 +53,7 @@ jobs:
         run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
         
       - name: Debug
-        run: echo DEBUG: file env.BRANCH_NAME ${{ env.BRANCH_NAME }} 
+        run: echo DEBUG file env.BRANCH_NAME ${{ env.BRANCH_NAME }} 
 
         
 
