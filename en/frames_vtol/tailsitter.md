@@ -41,8 +41,8 @@ Quad tailsitters are easier to fly in hover mode, and more stable in windy condi
 VTOL setup and flying are covered in the [VTOL](../frames_vtol/README.md) parent topic.
 
 :::note
-The instrucitons are essentially the same for all VTOL.
-The main frame-specific differences are the  motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
+The instructions are essentially the same for all VTOL.
+The main frame-specific differences are the motor wiring (see [VTOL Duo Tailsitter](../airframes/airframe_reference.md#vtol-duo-tailsitter) and [VTOL Quad Tailsitter](../airframes/airframe_reference.md#vtol-quad-tailsitter)), and some aspects of tuning the configuration.
 :::
 
 ## Build Logs
@@ -52,7 +52,6 @@ Step-by-step guides of how to set up PX4 on tailsitter frames are listed below:
 - [TBS Caipiroshka Tailsitter Build (Pixracer)](../frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
 
 :::tip
-
 We recommend that you also review build logs for other PX4 VTOL, and Copter vehicles (most of the setup is the same).
 :::
 
