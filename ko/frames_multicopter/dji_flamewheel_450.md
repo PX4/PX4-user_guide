@@ -17,7 +17,7 @@
 - 비행 컨트롤러: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 - 프레임: [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
 - 모토: 3DR Iris Plus 950kv rebranded T-Motors MN2213
-- ESCs: Hobbywing XRotor 35A Micro 3-6S BLHeli
+- 전기변속기: Hobbywing XRotor 35A Micro 3-6S BLHeli
 - 블레이드: Graupner 10"x5" (M6와 호환되도록 [이 어댑터](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view)를 인쇄해야합니다.) <!--TODO-->
 
 - 거리 센서: Lidar-Lite V3
@@ -87,7 +87,7 @@ Here + GPS는 Pixhawk 2에 적합한 8 핀 커넥터와 함께 제공됩니다. 
 
 ### 기체
 
-**QGC > Airframe> Quadrotor x**에서 기체 **DJI Flame Wheel 450**을 선택합니다.
+**QGC &gt; Airframe &gt; Quadrotor x**에서 기체 **DJI Flame Wheel 450**을 선택합니다.
 
 ![기체 QGC 선택](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
 
