@@ -21,7 +21,7 @@ The tailsitter rotors are permanently fixed in position for forward flight.
   </div>
 <div class="grid_item">
   <div class="grid_item_heading"><big><a href="../airframes/airframe_reference.html#vtol-quad-tailsitter">VTOL Quad Tailsitter</a></big></div>
-  Four rotor VTOL with optional elevons. Uses rotors to transition between modees (along with elevons if present).
+  Four rotor VTOL with optional elevons. Uses rotors to transition between modes (along with elevons if present).
   <div class="grid_text">
   <img title="Skypull SP-1 VTOL QuadTailsitter" src="../../assets/airframes/vtol/skypull/skypull_sp1.jpg" />
   <ul>
