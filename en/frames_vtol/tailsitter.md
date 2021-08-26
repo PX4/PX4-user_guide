@@ -1,7 +1,10 @@
 # Tailsitter VTOL
 
-A **Tailsitter VTOL** is a [VTOL](../frames_vtol/README.md) vehicle that takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
+A **Tailsitter VTOL** takes off and lands on its tail, but flips into the fixed-wing orientation for normal flight.
 The tailsitter rotors are permanently fixed in position for forward flight.
+
+Tailsitters are typically mechanically less complex than [other types of VTOL](../frames_vtol/README.md), and hence may be less expensive to build and maintain.
+However they are aerodynamically more complex, and can be harder to tune and fly for hover and transition, particularly in windy conditions.
 
 ## Tailsitter Airframes
 
@@ -27,6 +30,7 @@ The tailsitter rotors are permanently fixed in position for forward flight.
   <ul>
     <li>Hover mode easier to fly and more stable</li>
     <li>Less compact form factor (harder to transport)</li>
+    <li>"X" and "+" rotor configurations are supported (see Airframe Reference)</li>
   </ul>
   </div>
 </div>
@@ -117,5 +121,3 @@ This section contains videos that are specific to Tailsitter VTOL (videos that a
     </div>
   </div>
 </div>
-
-
